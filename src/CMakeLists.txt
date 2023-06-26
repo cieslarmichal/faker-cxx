@@ -2,6 +2,7 @@ set(LIBRARY_NAME faker)
 
 set(SOURCES
         Generator.cpp
+        modules/person/PersonGenerator.cpp
         )
 
 set(UT_SOURCES
