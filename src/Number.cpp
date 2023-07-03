@@ -5,7 +5,7 @@
 
 namespace faker
 {
-int integer(int max, int min)
+int Number::integer(int max, int min)
 {
     if (min > max)
     {

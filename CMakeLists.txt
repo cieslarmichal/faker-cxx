@@ -19,6 +19,7 @@ set(SOURCES
         src/Number.cpp
         src/String.cpp
         src/Lorem.cpp
+        include/faker-cxx/Helper.h
         )
 
 set(UT_SOURCES
@@ -41,8 +42,6 @@ target_link_libraries(${LIBRARY_NAME}UT PRIVATE
         )
 
 target_include_directories(${LIBRARY_NAME}UT
-        PUBLIC
-        "include"
         PRIVATE
         "include/faker-cxx"
         ${Boost_INCLUDE_DIR}
