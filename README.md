@@ -28,4 +28,4 @@ My goal is to create a simple, modern C++ Faker library similar to [faker-js/fak
 
 ## ✨ Contributing
 
-Please feel free to join Faker C++ development! 🔥
+Please feel free to join Faker C++ development! 🚀
