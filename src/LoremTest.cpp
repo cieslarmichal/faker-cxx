@@ -14,7 +14,7 @@ class LoremTest : public Test
 public:
 };
 
-TEST_F(LoremTest, shouldGenerateWord)
+TEST_F(LoremTest, shouldGenerateUsername)
 {
     const auto generatedWord = Lorem::word();
 

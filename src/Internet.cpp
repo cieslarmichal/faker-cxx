@@ -19,7 +19,7 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
     switch (Number::integer(4))
     {
     case 0:
-        username = std::format("{}{}", firstName, Number::integer(99999));
+        username = std::format("{}{}{}", firstName, lastName, Number::integer(99999));
         break;
     case 1:
         username =
@@ -34,7 +34,7 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
             std::format("{}{}{}", lastName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}), firstName);
         break;
     case 4:
-        username = std::format("{}{}{}{}", firstName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}),
+        username = std::format("{}{}{}{}", lastName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}),
                                firstName, Number::integer(2023, 1960));
     }
 
