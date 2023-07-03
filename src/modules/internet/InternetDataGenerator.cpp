@@ -21,7 +21,7 @@ std::string InternetDataGenerator::username(std::optional<std::string> firstName
     switch (number::NumberDataGenerator::integer(2))
     {
     case 0:
-        username = std::format("{}{}", firstName, number::NumberDataGenerator::integer(99));
+        username = std::format("{}{}", firstName, number::NumberDataGenerator::integer(999));
         break;
     case 1:
         username =
@@ -31,7 +31,7 @@ std::string InternetDataGenerator::username(std::optional<std::string> firstName
     case 2:
         username = std::format("{}{}{}{}", firstName,
                                helpers::HelperDataGenerator::arrayElement(std::vector<std::string>{".", "_"}), lastName,
-                               number::NumberDataGenerator::integer(99));
+                               number::NumberDataGenerator::integer(999));
         break;
     }
 
@@ -40,7 +40,7 @@ std::string InternetDataGenerator::username(std::optional<std::string> firstName
 
 std::string InternetDataGenerator::email()
 {
-    return username() + emailHosts[0];
+    return username() + helpers::HelperDataGenerator::arrayElement(emailHosts);
 }
 
 }

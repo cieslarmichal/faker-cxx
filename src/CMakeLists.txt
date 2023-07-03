@@ -10,6 +10,7 @@ set(SOURCES
 
 set(UT_SOURCES
         modules/number/NumberDataGeneratorTest.cpp
+        modules/internet/InternetDataGeneratorTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})
