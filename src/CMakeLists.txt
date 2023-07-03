@@ -1,7 +1,6 @@
 set(LIBRARY_NAME faker)
 
 set(SOURCES
-        Generator.cpp
         modules/person/PersonDataGenerator.cpp
         modules/internet/InternetDataGenerator.cpp
         modules/number/NumberDataGenerator.cpp
