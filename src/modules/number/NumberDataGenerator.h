@@ -7,6 +7,6 @@ namespace faker::number
 class NumberDataGenerator
 {
 public:
-    static int integer(int min = 0, int max = 10000);
+    static int integer(int max = 10000, int min = 0);
 };
 }

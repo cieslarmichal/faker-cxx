@@ -5,7 +5,7 @@
 
 namespace faker::number
 {
-int NumberDataGenerator::integer(int min, int max)
+int NumberDataGenerator::integer(int max, int min)
 {
     if (min > max)
     {

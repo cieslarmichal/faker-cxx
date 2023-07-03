@@ -5,12 +5,6 @@
 using namespace ::testing;
 using namespace faker::number;
 
-namespace
-{
-constexpr int rangeStart{2};
-constexpr int rangeEnd{10};
-}
-
 class NumberDataGeneratorTest : public Test
 {
 public:
@@ -18,7 +12,7 @@ public:
 
 TEST_F(NumberDataGeneratorTest, givenInvalidRangeArguments_shouldThrowInvalidArgument)
 {
-    ASSERT_THROW(NumberDataGenerator::integer(rangeEnd, rangeStart), std::invalid_argument);
+    ASSERT_THROW(NumberDataGenerator::integer(10, 2), std::invalid_argument);
 }
 
 TEST_F(NumberDataGeneratorTest, givenRangeWithSameNumberSection_shouldGenerateThisNumber)
@@ -30,8 +24,8 @@ TEST_F(NumberDataGeneratorTest, givenRangeWithSameNumberSection_shouldGenerateTh
 
 TEST_F(NumberDataGeneratorTest, givenValidRangeArguments_shouldGenerateNumberThatIsInGivenRange)
 {
-    const auto actualRandomNumber = NumberDataGenerator::integer(rangeStart, rangeEnd);
+    const auto actualRandomNumber = NumberDataGenerator::integer(2, 10);
 
-    ASSERT_TRUE(actualRandomNumber >= rangeStart);
-    ASSERT_TRUE(actualRandomNumber <= rangeEnd);
+    ASSERT_TRUE(actualRandomNumber >= 2);
+    ASSERT_TRUE(actualRandomNumber <= 10);
 }
