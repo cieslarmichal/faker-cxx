@@ -11,6 +11,10 @@ find_package(GTest REQUIRED)
 
 enable_testing()
 
+set(target_code_coverage_ALL 1)
+include("cmake/cmake-coverage.cmake")
+add_code_coverage_all_targets()
+
 set(LIBRARY_NAME faker-cxx)
 
 set(SOURCES
