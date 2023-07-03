@@ -5,6 +5,7 @@ set(SOURCES
         modules/person/PersonDataGenerator.cpp
         modules/internet/InternetDataGenerator.cpp
         modules/number/NumberDataGenerator.cpp
+        modules/helpers/HelperDataGenerator.h
         )
 
 set(UT_SOURCES
