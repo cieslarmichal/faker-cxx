@@ -1,10 +1,15 @@
 <h1>C++ Faker</h1>
 
-FakerCXX is a modern, lightweight C++20 library that makes generating testing data extremely simple. 
+faker-cxx is a modern C++20 library that makes generating testing data extremely simple. 
+
 
 It has no dependencies beyond Boost library (and GTest for unit tests).
 
-##  Modules
+## 🎯 Goal
+My goal is to create a simple, modern C++ Faker library similar to [faker-js/faker](https://github.com/faker-js/faker).
+
+
+## 💎 Modules
 
 - 🌐 Internet - Generate emails, usernames and passwords.
 - 🧑 Person - Generate first, last names and phone numbers.
@@ -13,8 +18,14 @@ It has no dependencies beyond Boost library (and GTest for unit tests).
 - 🔢 String - Generate uuids.
 
 
-## TODO Modules
+
+## 🔨 TODO Modules
 
 - 🌍 Localization - Generate addresses.
 - 📅 Date - Generate past, future dates.
 - 👕 Product - Generate prices, product names, and descriptions.
+
+
+## ✨ Contributing
+
+Please feel free to join Faker C++ development! 🔥
