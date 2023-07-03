@@ -1,6 +1,6 @@
 <h1>C++ Faker</h1>
 
-faker-cxx is a modern C++20 library that makes generating testing data extremely simple. 
+faker-cxx is a modern C++20 open-source library for generating fake data for testing and development.
 
 
 It has no dependencies beyond Boost library (and GTest for unit tests).
