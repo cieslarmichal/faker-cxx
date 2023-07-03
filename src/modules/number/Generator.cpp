@@ -1,11 +1,11 @@
-#include "NumberDataGenerator.h"
+#include "Generator.h"
 
 #include <random>
 #include <stdexcept>
 
 namespace faker::number
 {
-int NumberDataGenerator::integer(int max, int min)
+int integer(int max, int min)
 {
     if (min > max)
     {

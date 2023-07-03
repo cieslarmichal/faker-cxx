@@ -1,19 +1,21 @@
 set(LIBRARY_NAME faker)
 
 set(SOURCES
-        modules/person/PersonDataGenerator.cpp
-        modules/internet/InternetDataGenerator.cpp
-        modules/number/NumberDataGenerator.cpp
-        modules/helpers/HelperDataGenerator.h
-        modules/string/StringDataGenerator.cpp
-        modules/lorem/LoremDataGenerator.cpp
+        modules/person/Generator.cpp
+        modules/internet/Generator.cpp
+        modules/number/Generator.cpp
+        modules/helpers/Generator.h
+        modules/string/Generator.cpp
+        modules/lorem/Generator.cpp
         )
 
 set(UT_SOURCES
-        modules/number/NumberDataGeneratorTest.cpp
+        modules/number/GeneratorTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})
+
+target_include_directories(${LIBRARY_NAME} PUBLIC modules)
 
 add_executable(${LIBRARY_NAME}UT ${SOURCES} ${UT_SOURCES})
 
