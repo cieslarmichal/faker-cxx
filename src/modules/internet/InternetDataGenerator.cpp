@@ -18,21 +18,30 @@ std::string InternetDataGenerator::username(std::optional<std::string> firstName
 
     std::string username;
 
-    switch (number::NumberDataGenerator::integer(2))
+    switch (number::NumberDataGenerator::integer(4))
     {
     case 0:
-        username = std::format("{}{}", firstName, number::NumberDataGenerator::integer(999));
+        username = std::format("{}{}", firstName, number::NumberDataGenerator::integer(9999));
         break;
     case 1:
         username =
             std::format("{}{}{}", firstName,
-                        helpers::HelperDataGenerator::arrayElement(std::vector<std::string>{".", "_"}), lastName);
+                        helpers::HelperDataGenerator::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
         username = std::format("{}{}{}{}", firstName,
-                               helpers::HelperDataGenerator::arrayElement(std::vector<std::string>{".", "_"}), lastName,
-                               number::NumberDataGenerator::integer(999));
+                               helpers::HelperDataGenerator::arrayElement(std::vector<std::string>{".", "_", ""}),
+                               lastName, number::NumberDataGenerator::integer(99));
         break;
+    case 3:
+        username =
+            std::format("{}{}{}", lastName,
+                        helpers::HelperDataGenerator::arrayElement(std::vector<std::string>{".", "_", ""}), firstName);
+        break;
+    case 4:
+        username = std::format("{}{}{}{}", firstName,
+                               helpers::HelperDataGenerator::arrayElement(std::vector<std::string>{".", "_", ""}),
+                               firstName, number::NumberDataGenerator::integer(2023, 1960));
     }
 
     return username;
@@ -40,7 +49,7 @@ std::string InternetDataGenerator::username(std::optional<std::string> firstName
 
 std::string InternetDataGenerator::email()
 {
-    return username() + helpers::HelperDataGenerator::arrayElement(emailHosts);
+    return std::format("{}@{}", username(), helpers::HelperDataGenerator::arrayElement(emailHosts));
 }
 
 }

@@ -1,17 +1,23 @@
 #include "PersonDataGenerator.h"
 
 #include "data/FirstNamesMales.h"
+#include "data/FirstNamesFemales.h"
 #include "data/LastNames.h"
+#include "../helpers/HelperDataGenerator.h"
 
 namespace faker::person
 {
 std::string PersonDataGenerator::firstName()
 {
-    return firstNamesMales[0];
+    std::vector<std::string> firstNames{firstNamesMales};
+
+    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+
+    return helpers::HelperDataGenerator::arrayElement(firstNames);
 }
 
 std::string PersonDataGenerator::lastName()
 {
-    return lastNames[0];
+    return helpers::HelperDataGenerator::arrayElement(lastNames);
 }
 }
