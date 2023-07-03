@@ -6,7 +6,7 @@
 
 namespace faker
 {
-std::string uuid()
+std::string String::uuid()
 {
     std::stringstream uuid;
 

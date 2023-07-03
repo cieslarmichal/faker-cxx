@@ -4,7 +4,7 @@
 
 namespace faker
 {
-class StringDataGenerator
+class String
 {
 public:
     static std::string uuid();
