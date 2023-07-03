@@ -7,6 +7,7 @@ set(SOURCES
         modules/number/NumberDataGenerator.cpp
         modules/helpers/HelperDataGenerator.h
         modules/string/StringDataGenerator.cpp
+        modules/lorem/LoremDataGenerator.cpp
         )
 
 set(UT_SOURCES
