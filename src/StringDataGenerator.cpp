@@ -1,4 +1,4 @@
-#include "StringDataGenerator.h"
+#include "Generator.h"
 
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
@@ -6,7 +6,7 @@
 
 namespace faker::string
 {
-std::string StringDataGenerator::uuid()
+std::string uuid()
 {
     std::stringstream uuid;
 
