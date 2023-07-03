@@ -28,6 +28,7 @@ set(SOURCES
 
 set(UT_SOURCES
         src/NumberTest.cpp
+        src/StringTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})

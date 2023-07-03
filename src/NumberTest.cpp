@@ -5,24 +5,24 @@
 using namespace ::testing;
 using namespace faker;
 
-class NumberDataGeneratorTest : public Test
+class NumberTest : public Test
 {
 public:
 };
 
-TEST_F(NumberDataGeneratorTest, givenInvalidRangeArguments_shouldThrowInvalidArgument)
+TEST_F(NumberTest, givenInvalidRangeArguments_shouldThrowInvalidArgument)
 {
     ASSERT_THROW(Number::integer(2, 10), std::invalid_argument);
 }
 
-TEST_F(NumberDataGeneratorTest, givenRangeWithSameNumberSection_shouldGenerateThisNumber)
+TEST_F(NumberTest, givenRangeWithSameNumberSection_shouldGenerateThisNumber)
 {
     const auto actualRandomNumber = Number::integer(2, 2);
 
     ASSERT_EQ(actualRandomNumber, 2);
 }
 
-TEST_F(NumberDataGeneratorTest, givenValidRangeArguments_shouldGenerateNumberThatIsInGivenRange)
+TEST_F(NumberTest, givenValidRangeArguments_shouldGenerateNumberThatIsInGivenRange)
 {
     const auto actualRandomNumber = Number::integer(10, 2);
 
