@@ -2,6 +2,7 @@
 
 #include <format>
 
+#include "../helpers/HelperDataGenerator.h"
 #include "../number/NumberDataGenerator.h"
 #include "../person/PersonDataGenerator.h"
 #include "data/EmailHosts.h"
@@ -17,23 +18,24 @@ std::string InternetDataGenerator::username(std::optional<std::string> firstName
 
     std::string username;
 
-    switch (number::NumberDataGenerator::integer(2)) {
+    switch (number::NumberDataGenerator::integer(2))
+    {
     case 0:
         username = std::format("{}{}", firstName, number::NumberDataGenerator::integer(99));
         break;
     case 1:
-        result =
-            firstName + this.faker.helpers.arrayElement(['.', '_']) + lastName;
+        username =
+            std::format("{}{}{}", firstName,
+                        helpers::HelperDataGenerator::arrayElement(std::vector<std::string>{".", "_"}), lastName);
         break;
     case 2:
-        result = `${firstName}${this.faker.helpers.arrayElement([
-            '.',
-            '_',
-        ])}${lastName}${this.faker.number.int(99)}`;
+        username = std::format("{}{}{}{}", firstName,
+                               helpers::HelperDataGenerator::arrayElement(std::vector<std::string>{".", "_"}), lastName,
+                               number::NumberDataGenerator::integer(99));
         break;
     }
 
-    return firstName + lastName;
+    return username;
 }
 
 std::string InternetDataGenerator::email()
