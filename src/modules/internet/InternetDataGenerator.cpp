@@ -3,7 +3,6 @@
 #include <format>
 
 #include "../helpers/HelperDataGenerator.h"
-#include "../number/NumberDataGenerator.h"
 #include "../person/PersonDataGenerator.h"
 #include "data/EmailHosts.h"
 
@@ -21,7 +20,7 @@ std::string InternetDataGenerator::username(std::optional<std::string> firstName
     switch (number::NumberDataGenerator::integer(4))
     {
     case 0:
-        username = std::format("{}{}", firstName, number::NumberDataGenerator::integer(9999));
+        username = std::format("{}{}", firstName, number::NumberDataGenerator::integer(99999));
         break;
     case 1:
         username =

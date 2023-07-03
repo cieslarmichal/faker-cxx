@@ -6,11 +6,11 @@ set(SOURCES
         modules/internet/InternetDataGenerator.cpp
         modules/number/NumberDataGenerator.cpp
         modules/helpers/HelperDataGenerator.h
+        modules/string/StringDataGenerator.cpp
         )
 
 set(UT_SOURCES
         modules/number/NumberDataGeneratorTest.cpp
-        modules/internet/InternetDataGeneratorTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})
