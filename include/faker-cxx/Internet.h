@@ -3,9 +3,9 @@
 #include <optional>
 #include <string>
 
-namespace faker::internet
+namespace faker
 {
-class InternetDataGenerator
+class Internet
 {
 public:
     static std::string username(std::optional<std::string> firstName = std::nullopt,

@@ -2,9 +2,9 @@
 
 #include <string>
 
-namespace faker::person
+namespace faker
 {
-class PersonDataGenerator
+class Person
 {
 public:
     static std::string firstName();

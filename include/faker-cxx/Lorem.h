@@ -2,9 +2,9 @@
 
 #include <string>
 
-namespace faker::lorem
+namespace faker
 {
-class LoremDataGenerator
+class Lorem
 {
 public:
     static std::string word();

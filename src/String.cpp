@@ -1,10 +1,10 @@
-#include "Generator.h"
+#include "String.h"
 
 #include <boost/uuid/uuid_generators.hpp>
 #include <boost/uuid/uuid_io.hpp>
 #include <sstream>
 
-namespace faker::string
+namespace faker
 {
 std::string uuid()
 {

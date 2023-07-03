@@ -2,9 +2,9 @@
 
 #include <string>
 
-namespace faker::number
+namespace faker
 {
-class NumberDataGenerator
+class Number
 {
 public:
     static int integer(int max = 10000, int min = 0);

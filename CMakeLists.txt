@@ -14,19 +14,25 @@ enable_testing()
 set(LIBRARY_NAME faker-cxx)
 
 set(SOURCES
-        src/PersonDataGenerator.cpp
-        src/InternetDataGenerator.cpp
-        src/NumberDataGenerator.cpp
-        src/HelperDataGenerator.h
-        src/StringDataGenerator.cpp
-        src/LoremDataGenerator.cpp
+        src/Person.cpp
+        src/Internet.cpp
+        src/Number.cpp
+        src/String.cpp
+        src/Lorem.cpp
         )
 
 set(UT_SOURCES
-        src/NumberDataGeneratorTest.cpp
+        src/NumberTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})
+
+target_include_directories(${LIBRARY_NAME}
+        PUBLIC
+        "include"
+        PRIVATE
+        "include/faker-cxx"
+        )
 
 add_executable(${LIBRARY_NAME}UT ${SOURCES} ${UT_SOURCES})
 
@@ -35,7 +41,10 @@ target_link_libraries(${LIBRARY_NAME}UT PRIVATE
         )
 
 target_include_directories(${LIBRARY_NAME}UT
+        PUBLIC
+        "include"
         PRIVATE
+        "include/faker-cxx"
         ${Boost_INCLUDE_DIR}
         ${GTEST_INCLUDE_DIR}
         )

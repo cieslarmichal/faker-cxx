@@ -1,9 +1,9 @@
-#include "Generator.h"
+#include "Number.h"
 
 #include <random>
 #include <stdexcept>
 
-namespace faker::number
+namespace faker
 {
 int integer(int max, int min)
 {

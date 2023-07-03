@@ -2,7 +2,7 @@
 
 #include <string>
 
-namespace faker::string
+namespace faker
 {
 class StringDataGenerator
 {
