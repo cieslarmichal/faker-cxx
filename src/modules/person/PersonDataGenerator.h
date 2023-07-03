@@ -4,9 +4,10 @@
 
 namespace faker::person
 {
-class PersonGenerator
+class PersonDataGenerator
 {
 public:
     static std::string firstName();
+    static std::string lastName();
 };
 }
