@@ -12,7 +12,7 @@ public:
 
 TEST_F(NumberDataGeneratorTest, givenInvalidRangeArguments_shouldThrowInvalidArgument)
 {
-    ASSERT_THROW(Number::integer(10, 2), std::invalid_argument);
+    ASSERT_THROW(Number::integer(2, 10), std::invalid_argument);
 }
 
 TEST_F(NumberDataGeneratorTest, givenRangeWithSameNumberSection_shouldGenerateThisNumber)
@@ -24,7 +24,7 @@ TEST_F(NumberDataGeneratorTest, givenRangeWithSameNumberSection_shouldGenerateTh
 
 TEST_F(NumberDataGeneratorTest, givenValidRangeArguments_shouldGenerateNumberThatIsInGivenRange)
 {
-    const auto actualRandomNumber = Number::integer(2, 10);
+    const auto actualRandomNumber = Number::integer(10, 2);
 
     ASSERT_TRUE(actualRandomNumber >= 2);
     ASSERT_TRUE(actualRandomNumber <= 10);
