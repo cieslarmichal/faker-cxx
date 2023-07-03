@@ -4,10 +4,11 @@ set(SOURCES
         Generator.cpp
         modules/person/PersonDataGenerator.cpp
         modules/internet/InternetDataGenerator.cpp
+        modules/number/NumberDataGenerator.cpp
         )
 
 set(UT_SOURCES
-        GeneratorTest.cpp
+        modules/number/NumberDataGeneratorTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})

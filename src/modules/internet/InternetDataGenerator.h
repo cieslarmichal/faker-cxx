@@ -3,7 +3,7 @@
 #include <optional>
 #include <string>
 
-namespace faker::person
+namespace faker::internet
 {
 class InternetDataGenerator
 {

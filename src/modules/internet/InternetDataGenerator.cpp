@@ -1,15 +1,16 @@
 #include "InternetDataGenerator.h"
 
-#include "data/EmailHosts.h"
 #include "../person/PersonDataGenerator.h"
+#include "data/EmailHosts.h"
 
-namespace faker::person
+namespace faker::internet
 {
-std::string InternetDataGenerator::username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit)
+std::string InternetDataGenerator::username(std::optional<std::string> firstNameInit,
+                                            std::optional<std::string> lastNameInit)
 {
-    const auto firstName = firstNameInit? *firstNameInit : PersonDataGenerator::firstName();
+    const auto firstName = firstNameInit ? *firstNameInit : person::PersonDataGenerator::firstName();
 
-    const auto lastName = lastNameInit? *lastNameInit : PersonDataGenerator::lastName();
+    const auto lastName = lastNameInit ? *lastNameInit : person::PersonDataGenerator::lastName();
 
     return firstName + lastName;
 }
