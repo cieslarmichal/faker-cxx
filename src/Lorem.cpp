@@ -1,5 +1,7 @@
 #include "Lorem.h"
 
+#include <boost/algorithm/string/join.hpp>
+
 #include "data/LoremWords.h"
 #include "Helper.h"
 
@@ -12,13 +14,13 @@ std::string Lorem::word()
 
 std::string Lorem::words(int numberOfWords)
 {
-    std::string result;
+    std::vector<std::string> words;
 
     for (int i = 0; i < numberOfWords; i++)
     {
-        result += " " + Helper::arrayElement(loremWords);
+        words.push_back(Helper::arrayElement(loremWords));
     }
 
-    return result;
+    return boost::algorithm::join(words, " ");
 }
 }

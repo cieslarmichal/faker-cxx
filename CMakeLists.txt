@@ -30,6 +30,7 @@ set(UT_SOURCES
         src/NumberTest.cpp
         src/StringTest.cpp
         src/PersonTest.cpp
+        src/LoremTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})
