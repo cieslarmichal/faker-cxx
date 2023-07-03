@@ -17,4 +17,4 @@ It has no dependencies beyond Boost library (and GTest for unit tests).
 
 - 🌍 Localization - Generate addresses.
 - 📅 Date - Generate past, future dates.
-- 👕 Product - Generate Prices, Product Names, Adjectives, and Descriptions.
+- 👕 Product - Generate prices, product names, and descriptions.
