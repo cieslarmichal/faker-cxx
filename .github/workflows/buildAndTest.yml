@@ -1,0 +1,44 @@
+name: Build & Test
+
+on: push
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install apt-get dependencies
+        run: |
+            sudo apt-get update -y \
+            && sudo apt-get install -y ninja-build  build-essential cmake \
+              clang-16 clang-tools-16 llvm-16 lcov libboost-dev libgtest-dev
+
+      - name: Configure CMake
+        run: |
+          cmake -B ${{github.workspace}}/build \
+            -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+            -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16 \
+            -DCODE_COVERAGE:BOOL=ON \
+            -GNinja
+
+      - name: Build
+        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+      - name: Test
+        working-directory: ${{github.workspace}}/build
+        run: |
+          ninja ccov-all \
+          && llvm-cov-16 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt
+
+      - name: Codecov
+        uses: codecov/codecov-action@v3.1.4
+        with:
+          token: ${{ secrets.CODECOVTOKEN }}
