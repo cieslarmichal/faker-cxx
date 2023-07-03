@@ -17,9 +17,14 @@ jobs:
 
       - name: Install apt-get dependencies
         run: |
-            sudo apt-get update -y \
-            && sudo apt-get install -y ninja-build  build-essential cmake \
-              clang-16 clang-tools-16 llvm-16 lcov libboost-dev libgtest-dev
+           sudo add-apt-repository ppa:trebelnik-stefina/launchpad-getkeys \
+            && sudo apt-get update \
+            && sudo apt-get install launchpad-getkeys \
+            && sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' \
+            && sudo launchpad-getkeys \
+            && sudo apt-get update -y \
+            && sudo apt-get install -y lld-16 ninja-build  build-essential libstdc++-13-dev \
+              clang-16 clang-tools-16 llvm-16 lcov  libboost-dev libgtest-dev
 
       - name: Configure CMake
         run: |
