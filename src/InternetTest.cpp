@@ -18,8 +18,6 @@ class InternetTest : public Test
 public:
 };
 
-// TODO: add more unit tests with firstName, lastName input params
-
 TEST_F(InternetTest, shouldGenerateUsername)
 {
     std::vector<std::string> firstNames{firstNamesMales};
@@ -34,6 +32,46 @@ TEST_F(InternetTest, shouldGenerateUsername)
     ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
                             [username](const std::string& lastName)
                             { return username.find(lastName) != std::string::npos; }));
+}
+
+TEST_F(InternetTest, shouldGenerateUsernameWithFirstNameProvided)
+{
+    const auto firstName = "Michal";
+
+    const auto username = Internet::username(firstName);
+
+    ASSERT_TRUE(username.find(firstName) != std::string::npos);
+    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+                            [username](const std::string& lastName)
+                            { return username.find(lastName) != std::string::npos; }));
+}
+
+TEST_F(InternetTest, shouldGenerateUsernameWithLastNameProvided)
+{
+    std::vector<std::string> firstNames{firstNamesMales};
+
+    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+
+    const auto lastName = "Cieslar";
+
+    const auto username = Internet::username(std::nullopt, lastName);
+
+    ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
+                            [username](const std::string& firstName)
+                            { return username.find(firstName) != std::string::npos; }));
+    ASSERT_TRUE(username.find(lastName) != std::string::npos);
+}
+
+TEST_F(InternetTest, shouldGenerateUsernameWithFullNameProvided)
+{
+    const auto firstName = "Michal";
+
+    const auto lastName = "Cieslar";
+
+    const auto username = Internet::username(firstName, lastName);
+
+    ASSERT_TRUE(username.find(firstName) != std::string::npos);
+    ASSERT_TRUE(username.find(lastName) != std::string::npos);
 }
 
 TEST_F(InternetTest, shouldGenerateEmail)
