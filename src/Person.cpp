@@ -7,11 +7,23 @@
 
 namespace faker
 {
-std::string Person::firstName()
+std::string Person::firstName(std::optional<Sex> sex)
 {
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames;
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    if (sex == Sex::Male)
+    {
+        firstNames.insert(firstNames.end(), firstNamesMales.begin(), firstNamesMales.end());
+    }
+    else if (sex == Sex::Female)
+    {
+        firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    }
+    else
+    {
+        firstNames.insert(firstNames.end(), firstNamesMales.begin(), firstNamesMales.end());
+        firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    }
 
     return Helper::arrayElement(firstNames);
 }

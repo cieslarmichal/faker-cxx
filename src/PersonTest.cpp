@@ -27,6 +27,24 @@ TEST_F(PersonTest, shouldGenerateFirstName)
                             { return firstName == generatedFirstName; }));
 }
 
+TEST_F(PersonTest, shouldGeneratemMaleFirstName)
+{
+    const auto generatedFirstName = Person::firstName(Sex::Male);
+
+    ASSERT_TRUE(std::any_of(firstNamesMales.begin(), firstNamesMales.end(),
+                            [generatedFirstName](const std::string& firstName)
+                            { return firstName == generatedFirstName; }));
+}
+
+TEST_F(PersonTest, shouldGenerateFemaleFirstName)
+{
+    const auto generatedFirstName = Person::firstName(Sex::Female);
+
+    ASSERT_TRUE(std::any_of(firstNamesFemales.begin(), firstNamesFemales.end(),
+                            [generatedFirstName](const std::string& firstName)
+                            { return firstName == generatedFirstName; }));
+}
+
 TEST_F(PersonTest, shouldGenerateLastName)
 {
     const auto generatedLastName = Person::lastName();
