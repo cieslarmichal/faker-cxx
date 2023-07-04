@@ -45,7 +45,7 @@ target_link_libraries(main faker-cxx)
 ## 💎 Modules
 
 - 🌐 Internet - Generate emails, usernames and passwords.
-- 🧑 Person - Generate first, last names and phone numbers.
+- 🧑 Person - Generate first, last names.
 - 🔢 Number - Generate random numbers.
 - 📚 Lorem - Generate lorem text.
 - 🔢 String - Generate uuids.
@@ -56,7 +56,15 @@ target_link_libraries(main faker-cxx)
 
 - 🌍 Localization - Generate addresses.
 - 📅 Date - Generate past, future dates.
-- 👕 Product - Generate prices, product names, and descriptions.
+- 👕 Commerce - Generate prices, product names, and descriptions.
+- 🐘 Animal - Generate animal types and names
+- 🎨 Color - Generate RGB colors and color names
+- 🏢 Company - Generate company name, location
+- ℹ️ Datatype - Generate strings, numbers, booleans
+- 🎶 Music - Generate music genre, song names
+- 📖 Book - Generate book genre, title, author, isbn, published year
+- 📞 Phone - Generate phone number
+- 🎮 Game - Generate game genre, title
 
 
 ## ✨ Contributing
