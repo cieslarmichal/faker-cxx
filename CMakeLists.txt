@@ -25,6 +25,7 @@ set(SOURCES
         src/Number.cpp
         src/String.cpp
         src/Lorem.cpp
+        src/Datatype.cpp
         include/faker-cxx/Helper.h
         )
 
