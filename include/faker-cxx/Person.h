@@ -3,10 +3,14 @@
 #include <optional>
 #include <string>
 
-#include "Sex.h"
-
 namespace faker
 {
+enum class Sex
+{
+    Male,
+    Female,
+};
+
 class Person
 {
 public:
