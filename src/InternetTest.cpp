@@ -63,3 +63,17 @@ TEST_F(InternetTest, shouldGenerateEmail)
                             [generatedUsername](const std::string& lastName)
                             { return generatedUsername.find(lastName) != std::string::npos; }));
 }
+
+TEST_F(InternetTest, shouldGeneratePassword)
+{
+    const auto passwordLength = 18;
+
+    const std::string passwordCharacters = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    const auto password = Internet::password(passwordLength);
+
+    ASSERT_EQ(password.size(), passwordLength);
+    ASSERT_TRUE(std::all_of(password.begin(), password.end(),
+                            [passwordCharacters](char passwordCharacter)
+                            { return passwordCharacters.find(passwordCharacter) != std::string::npos; }));
+}

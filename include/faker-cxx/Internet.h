@@ -12,5 +12,7 @@ public:
                                 std::optional<std::string> lastName = std::nullopt);
 
     static std::string email();
+
+    static std::string password(int length = 15);
 };
 }

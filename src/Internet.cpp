@@ -46,4 +46,18 @@ std::string Internet::email()
     return std::format("{}@{}", username(), Helper::arrayElement(emailHosts));
 }
 
+std::string Internet::password(int length)
+{
+    const std::string passwordCharacters = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    std::string password;
+
+    for (int i = 0; i < length; i++)
+    {
+        password += Helper::arrayElement(passwordCharacters);
+    }
+
+    return password;
+}
+
 }
