@@ -1,5 +1,7 @@
 #include "Person.h"
 
+#include <format>
+
 #include "data/FirstNamesFemales.h"
 #include "data/FirstNamesMales.h"
 #include "data/LastNames.h"
@@ -31,5 +33,10 @@ std::string Person::firstName(std::optional<Sex> sex)
 std::string Person::lastName()
 {
     return Helper::arrayElement(lastNames);
+}
+
+std::string Person::fullName(std::optional<Sex> sex)
+{
+    return std::format("{} {}", firstName(sex), lastName());
 }
 }
