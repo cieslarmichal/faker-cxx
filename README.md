@@ -11,6 +11,36 @@ It has no dependencies beyond Boost library (and GTest for unit tests).
 ## 🎯 Goal
 My goal is to create a simple, modern C++ Faker library similar to [faker-js/faker](https://github.com/faker-js/faker).
 
+## Example
+Lets dive into some simple example of generating fake data for some user
+
+```cpp
+#include <format>
+#include <iostream>
+#include "faker-cxx/Internet.h"
+#include "faker-cxx/String.h"
+
+int main()
+{
+    const auto id = faker::String::uuid();
+    const auto email = faker::Internet::email();
+    const auto password = faker::Internet::password();
+
+    std::cout << std::format("id: {}, email: {}, password: {}", id, email, password);
+
+    return 0;
+}
+```
+
+## Consuming library with CMake
+
+```cmake
+add_subdirectory(third_party/faker-cxx)
+
+add_executable(main main.cpp)
+
+target_link_libraries(main faker-cxx)
+```
 
 ## 💎 Modules
 
