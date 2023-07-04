@@ -11,11 +11,41 @@ It has no dependencies beyond Boost library (and GTest for unit tests).
 ## 🎯 Goal
 My goal is to create a simple, modern C++ Faker library similar to [faker-js/faker](https://github.com/faker-js/faker).
 
+## Example
+Lets dive into some simple example of generating fake data for some user
+
+```cpp
+#include <format>
+#include <iostream>
+#include "faker-cxx/Internet.h"
+#include "faker-cxx/String.h"
+
+int main()
+{
+    const auto id = faker::String::uuid();
+    const auto email = faker::Internet::email();
+    const auto password = faker::Internet::password();
+
+    std::cout << std::format("id: {}, email: {}, password: {}", id, email, password);
+
+    return 0;
+}
+```
+
+## Consuming library with CMake
+
+```cmake
+add_subdirectory(third_party/faker-cxx)
+
+add_executable(main main.cpp)
+
+target_link_libraries(main faker-cxx)
+```
 
 ## 💎 Modules
 
 - 🌐 Internet - Generate emails, usernames and passwords.
-- 🧑 Person - Generate first, last names and phone numbers.
+- 🧑 Person - Generate first, last names.
 - 🔢 Number - Generate random numbers.
 - 📚 Lorem - Generate lorem text.
 - 🔢 String - Generate uuids.
@@ -26,7 +56,15 @@ My goal is to create a simple, modern C++ Faker library similar to [faker-js/fak
 
 - 🌍 Localization - Generate addresses.
 - 📅 Date - Generate past, future dates.
-- 👕 Product - Generate prices, product names, and descriptions.
+- 👕 Commerce - Generate prices, product names, and descriptions.
+- 🐘 Animal - Generate animal types and names
+- 🎨 Color - Generate RGB colors and color names
+- 🏢 Company - Generate company name, location
+- ℹ️ Datatype - Generate strings, numbers, booleans
+- 🎶 Music - Generate music genre, song names
+- 📖 Book - Generate book genre, title, author, isbn, published year
+- 📞 Phone - Generate phone number
+- 🎮 Game - Generate game genre, title
 
 
 ## ✨ Contributing
