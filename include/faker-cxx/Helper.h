@@ -12,14 +12,14 @@ public:
     template <class T>
     static T arrayElement(const std::vector<T>& data)
     {
-        const auto index = Number::integer(data.size() - 1);
+        const auto index = Number<size_t>::integer(data.size() - 1);
 
         return data.at(index);
     }
 
     static char arrayElement(const std::string& data)
     {
-        const auto index = Number::integer(static_cast<int>(data.size()) - 1);
+        const auto index = Number<size_t>::integer(static_cast<int>(data.size()) - 1);
 
         return data.at(index);
     }
