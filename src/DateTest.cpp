@@ -10,6 +10,9 @@ class DateTest : public Test
 public:
 };
 
-TEST_F(DateTest, shouldGeneratePastDate) {}
+TEST_F(DateTest, shouldGeneratePastDate)
+{
+    std::cerr << Date::futureISOString() << std::endl;
+}
 
 TEST_F(DateTest, shouldGenerateSoonDate) {}
