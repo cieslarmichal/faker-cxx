@@ -10,6 +10,12 @@ namespace faker
 template <std::integral T>
 class Number
 {
+
+private:
+    static std::random_device randomDevice;
+    static std::mt19937 pseudoRandomGenerator;
+
+
 public:
 
     /**
@@ -42,9 +48,13 @@ public:
         return integer(0, max);
     }
 
-private:
-    static std::random_device randomDevice;
-    static std::mt19937 pseudoRandomGenerator;
 
 };
+
+template <std::integral T>
+std::random_device Number<T>::randomDevice;
+
+template <std::integral T>
+std::mt19937 Number<T>::pseudoRandomGenerator(Number<T>::randomDevice());
+
 }
