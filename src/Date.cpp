@@ -34,10 +34,10 @@ boost::posix_time::ptime Date::future(int years)
 
 boost::posix_time::ptime Date::past(int years)
 {
-    const auto startDate = boost::posix_time::second_clock::local_time();
+    const auto startDate = boost::posix_time::second_clock::local_time() -
+                           boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * years);
 
-    const auto endDate = boost::posix_time::second_clock::local_time() -
-                         boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * years);
+    const auto endDate = boost::posix_time::second_clock::local_time();
 
     return fromRange(startDate, endDate);
 }
@@ -54,10 +54,10 @@ boost::posix_time::ptime Date::soon(int days)
 
 boost::posix_time::ptime Date::recent(int days)
 {
-    const auto startDate = boost::posix_time::second_clock::local_time();
-
-    const auto endDate =
+    const auto startDate =
         boost::posix_time::second_clock::local_time() - boost::posix_time::hours(numberOfHoursInDay * days);
+
+    const auto endDate = boost::posix_time::second_clock::local_time();
 
     return fromRange(startDate, endDate);
 }
