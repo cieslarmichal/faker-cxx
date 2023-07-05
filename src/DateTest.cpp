@@ -4,6 +4,9 @@
 
 #include "gtest/gtest.h"
 
+#include "data/MonthNames.h"
+#include "data/WeekdayNames.h"
+
 using namespace ::testing;
 using namespace faker;
 
@@ -178,4 +181,22 @@ TEST_F(DateTest, shouldGenerateBirthDateByYearISO)
     const auto birthDate = boost::posix_time::from_iso_extended_string(birthDateISO);
 
     EXPECT_TRUE(birthDate.date().year() == 1996);
+}
+
+TEST_F(DateTest, shouldGenerateWeekdayName)
+{
+    const auto generatedWeekdayName = Date::weekdayName();
+
+    ASSERT_TRUE(std::any_of(weekdayNames.begin(), weekdayNames.end(),
+                            [generatedWeekdayName](const std::string& weekdayName)
+                            { return weekdayName == generatedWeekdayName; }));
+}
+
+TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
+{
+    const auto generatedWeekdayAbbreviatedName = Date::weekdayAbbreviatedName();
+
+    ASSERT_TRUE(std::any_of(weekdayAbbreviatedNames.begin(), weekdayAbbreviatedNames.end(),
+                            [generatedWeekdayAbbreviatedName](const std::string& weekdayAbbreviatedName)
+                            { return weekdayAbbreviatedName == generatedWeekdayAbbreviatedName; }));
 }
