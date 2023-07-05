@@ -2,6 +2,9 @@
 
 #include <boost/date_time/posix_time/posix_time.hpp>
 
+#include "data/MonthNames.h"
+#include "data/WeekdayNames.h"
+#include "Helper.h"
 #include "Number.h"
 
 namespace faker
@@ -99,13 +102,23 @@ std::string Date::birthDateByYearISOString(int minYear, int maxYear)
     return "";
 }
 
-std::string Date::weekDayName()
+std::string Date::weekdayName()
 {
-    return "";
+    return Helper::arrayElement(weekdayNames);
+}
+std::string Date::weekdayAbbreviatedName()
+{
+    return Helper::arrayElement(weekdayAbbreviatedNames);
 }
 
 std::string Date::monthName()
 {
-    return "";
+    return Helper::arrayElement(monthNames);
 }
+
+std::string Date::monthAbbreviatedName()
+{
+    return Helper::arrayElement(monthAbbreviatedNames);
+}
+
 }
