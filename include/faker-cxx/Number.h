@@ -25,10 +25,8 @@ namespace faker
  */
 template <class DISTRIBUTION>
 concept Distribution = requires(DISTRIBUTION distribution) {
-                           {
-                               distribution(std::mt19937())
-                               } -> std::same_as<typename DISTRIBUTION::result_type>;
-                       };
+  true;
+};
 
 /**
  * @brief A concept that checks if a type is a valid integer distribution.
@@ -106,7 +104,7 @@ public:
     template <std::integral I>
     static I integer(I max)
     {
-        return integer<I>(0, max);
+        return Number::integer<I, std::uniform_int_distribution<I>>(static_cast<I>(0), max);
     }
 
     /**
@@ -156,21 +154,10 @@ public:
     template <std::floating_point F>
     static F decimal(F max)
     {
-        return decimal<F>(0, max);
+        return decimal<F>(static_cast<F>(0.), max);
     }
 
 };
 
-/**
- * @brief A random device used to seed the Number module pseudo-random generator.
- * 
- */
-std::random_device Number::randomDevice;
-
-/**
- * @brief A pseudo-random generator used to generate random numbers.
- * 
- */
-std::mt19937 Number::pseudoRandomGenerator(Number::randomDevice());
 
 }
