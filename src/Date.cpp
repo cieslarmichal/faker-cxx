@@ -19,7 +19,7 @@ boost::posix_time::ptime Date::fromRange(boost::posix_time::ptime startDate, boo
 {
     const auto size = (endDate - startDate).total_seconds();
 
-    return startDate + boost::posix_time::seconds(Number::integer(static_cast<int>(size)));
+    return startDate + boost::posix_time::seconds(Number<int>::integer(static_cast<int>(size)));
 }
 
 boost::posix_time::ptime Date::future(int years)
@@ -75,8 +75,8 @@ boost::posix_time::ptime Date::birthDateByAge(int minAge, int maxAge)
 
 boost::posix_time::ptime Date::birthDateByYear(int minYear, int maxYear)
 {
-    boost::posix_time::ptime startDate{boost::gregorian::date(minYear, 1, 1)};
-    boost::posix_time::ptime endDate{boost::gregorian::date(maxYear, 12, 31)};
+    boost::posix_time::ptime startDate{boost::gregorian::date(static_cast<unsigned short>(minYear), 1, 1)};
+    boost::posix_time::ptime endDate{boost::gregorian::date(static_cast<unsigned short>(maxYear), 12, 31)};
 
     return fromRange(startDate, endDate);
 }

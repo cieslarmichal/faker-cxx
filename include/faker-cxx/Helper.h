@@ -19,7 +19,7 @@ public:
 
     static char arrayElement(const std::string& data)
     {
-        const auto index = Number<size_t>::integer(static_cast<int>(data.size()) - 1);
+        const std::integral auto index = Number<size_t>::integer(data.size() - 1);
 
         return data.at(index);
     }
