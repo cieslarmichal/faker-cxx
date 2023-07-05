@@ -14,6 +14,7 @@ public:
     static boost::posix_time::ptime recent(int days = 3);
     static boost::posix_time::ptime birthDateByAge(int minAge = 18, int maxAge = 80);
     static boost::posix_time::ptime birthDateByYear(int minYear = 1920, int maxYear = 2000);
+    static boost::posix_time::ptime fromRange(boost::posix_time::ptime startDate, boost::posix_time::ptime endDate);
     static std::string futureISOString(int years = 1);
     static std::string pastISOString(int years = 1);
     static std::string soonISOString(int days = 3);
