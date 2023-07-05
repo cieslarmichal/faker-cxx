@@ -2,6 +2,7 @@
 
 [![build and test](https://github.com/cieslarmichal/faker-cxx/actions/workflows/buildAndTest.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/buildAndTest.yml?query=branch%3Amain)
 [![codecov](https://codecov.io/github/cieslarmichal/faker-cxx/branch/main/graph/badge.svg?token=0RTV4JFH2U)](https://codecov.io/github/cieslarmichal/faker-cxx)
+[![CodeFactor](https://www.codefactor.io/repository/github/cieslarmichal/faker-cxx/badge)](https://www.codefactor.io/repository/github/cieslarmichal/faker-cxx)
 
 faker-cxx is a modern C++20 open-source library for generating fake data for testing and development.
 
@@ -9,7 +10,7 @@ faker-cxx is a modern C++20 open-source library for generating fake data for tes
 It has no dependencies beyond Boost library (and GTest for unit tests).
 
 ## 🎯 Goal
-My goal is to create a simple, modern C++ Faker library similar to [faker-js/faker](https://github.com/faker-js/faker).
+My goal is to create a simple, modern C++ Faker library similar to [FakerJS](https://github.com/faker-js/faker).
 
 ## Example
 Lets dive into some simple example of generating fake data for some user
