@@ -200,3 +200,21 @@ TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
                             [generatedWeekdayAbbreviatedName](const std::string& weekdayAbbreviatedName)
                             { return weekdayAbbreviatedName == generatedWeekdayAbbreviatedName; }));
 }
+
+TEST_F(DateTest, shouldGenerateMonthName)
+{
+    const auto generatedMonthName = Date::monthName();
+
+    ASSERT_TRUE(std::any_of(monthNames.begin(), monthNames.end(),
+                            [generatedMonthName](const std::string& monthName)
+                            { return monthName == generatedMonthName; }));
+}
+
+TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
+{
+    const auto generatedMonthAbbreviatedName = Date::monthAbbreviatedName();
+
+    ASSERT_TRUE(std::any_of(monthAbbreviatedNames.begin(), monthAbbreviatedNames.end(),
+                            [generatedMonthAbbreviatedName](const std::string& monthAbbreviatedName)
+                            { return monthAbbreviatedName == generatedMonthAbbreviatedName; }));
+}
