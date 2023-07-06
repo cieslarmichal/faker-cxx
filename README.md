@@ -7,7 +7,7 @@
 faker-cxx is a modern C++20 open-source library for generating fake data for testing and development.
 
 
-It has no dependencies beyond Boost library (and GTest for unit tests).
+Dependencies: Boost library (drop boost dependencies in progress) and GTest.
 
 ## 🎯 Goal
 My goal is to create a simple, modern C++ Faker library similar to [FakerJS](https://github.com/faker-js/faker).
