@@ -1,6 +1,7 @@
 #include "Internet.h"
 
 #include <format>
+#include <utility>
 
 #include "data/EmailHosts.h"
 #include "Helper.h"
@@ -33,16 +34,18 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
             std::format("{}{}{}", lastName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}), firstName);
         break;
     case 4:
-        username = std::format("{}{}{}{}", lastName, Helper::arrayElement(std::vector<std::string> { ".", "_", "" }),
-            firstName, Number<int>::integer(1960, 2023));
+        username = std::format("{}{}{}{}", lastName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}),
+                               firstName, Number<int>::integer(1960, 2023));
     }
 
     return username;
 }
 
-std::string Internet::email()
+std::string Internet::email(std::optional<std::string> firstName, std::optional<std::string> lastName,
+                            std::optional<std::string> emailHost)
 {
-    return std::format("{}@{}", username(), Helper::arrayElement(emailHosts));
+    return std::format("{}@{}", username(std::move(firstName), std::move(lastName)),
+                       emailHost ? *emailHost : Helper::arrayElement(emailHosts));
 }
 
 std::string Internet::password(int length)
