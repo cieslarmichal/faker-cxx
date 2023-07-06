@@ -30,7 +30,8 @@ int main()
     const auto createdAt = faker::Date::pastISOString();
     const auto updatedAt = faker::Date::recentISOString();
 
-    std::cout << std::format("id: {}, email: {}, password: {}, createdAt: {}, updatedAt: {}", id, email, password, createdAt, updatedAt);
+    std::cout << std::format("id: {}, email: {}, password: {}, createdAt: {}, updatedAt: {}", id, email, password,
+                             createdAt, updatedAt);
 
     return 0;
 }
