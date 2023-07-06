@@ -13,21 +13,24 @@ It has no dependencies beyond Boost library (and GTest for unit tests).
 My goal is to create a simple, modern C++ Faker library similar to [FakerJS](https://github.com/faker-js/faker).
 
 ## Example
-Lets dive into some simple example of generating fake data for some user
+Lets dive into some simple example of generating fake data
 
 ```cpp
 #include <format>
 #include <iostream>
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/String.h"
+#include "faker-cxx/Date.h"
 
 int main()
 {
     const auto id = faker::String::uuid();
     const auto email = faker::Internet::email();
     const auto password = faker::Internet::password();
+    const auto createdAt = faker::Date::pastISOString();
+    const auto updatedAt = faker::Date::recentISOString();
 
-    std::cout << std::format("id: {}, email: {}, password: {}", id, email, password);
+    std::cout << std::format("id: {}, email: {}, password: {}, createdAt: {}, updatedAt: {}", id, email, password, createdAt, updatedAt);
 
     return 0;
 }
@@ -47,6 +50,7 @@ target_link_libraries(main faker-cxx)
 
 - 🌐 Internet - Generate emails, usernames and passwords.
 - 🧑 Person - Generate first, last names.
+- 📅 Date - Generate past, future dates.
 - 🔢 Number - Generate random numbers.
 - 📚 Lorem - Generate lorem text.
 - 🔢 String - Generate uuids.
@@ -56,7 +60,6 @@ target_link_libraries(main faker-cxx)
 ## 🔨 TODO Modules
 
 - 🌍 Localization - Generate addresses.
-- 📅 Date - Generate past, future dates.
 - 👕 Commerce - Generate prices, product names, and descriptions.
 - 🐘 Animal - Generate animal types and names
 - 🎨 Color - Generate RGB colors and color names
