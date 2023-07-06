@@ -113,21 +113,21 @@ std::string Date::birthdateByYearISOString(int minYear, int maxYear)
 
 std::string Date::weekdayName()
 {
-    return Helper::arrayElement(weekdayNames);
+    return Helper::arrayElement<std::string>(weekdayNames);
 }
 std::string Date::weekdayAbbreviatedName()
 {
-    return Helper::arrayElement(weekdayAbbreviatedNames);
+    return Helper::arrayElement<std::string>(weekdayAbbreviatedNames);
 }
 
 std::string Date::monthName()
 {
-    return Helper::arrayElement(monthNames);
+    return Helper::arrayElement<std::string>(monthNames);
 }
 
 std::string Date::monthAbbreviatedName()
 {
-    return Helper::arrayElement(monthAbbreviatedNames);
+    return Helper::arrayElement<std::string>(monthAbbreviatedNames);
 }
 
 }

@@ -23,18 +23,18 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
         break;
     case 1:
         username =
-            std::format("{}{}{}", firstName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
+            std::format("{}{}{}", firstName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
-        username = std::format("{}{}{}{}", firstName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}),
+        username = std::format("{}{}{}{}", firstName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}),
                                lastName, Number::integer<int>(99));
         break;
     case 3:
         username =
-            std::format("{}{}{}", lastName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}), firstName);
+            std::format("{}{}{}", lastName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), firstName);
         break;
     case 4:
-        username = std::format("{}{}{}{}", lastName, Helper::arrayElement(std::vector<std::string> { ".", "_", "" }),
+        username = std::format("{}{}{}{}", lastName, Helper::arrayElement<std::string>(std::vector<std::string> { ".", "_", "" }),
             firstName, Number::integer<int>(1960, 2023));
     }
 
@@ -45,7 +45,7 @@ std::string Internet::email(std::optional<std::string> firstName, std::optional<
                             std::optional<std::string> emailHost)
 {
     return std::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                       emailHost ? *emailHost : Helper::arrayElement(emailHosts));
+        emailHost ? *emailHost : Helper::arrayElement<std::string>(emailHosts));
 }
 
 std::string Internet::password(int length)
@@ -56,7 +56,7 @@ std::string Internet::password(int length)
 
     for (int i = 0; i < length; i++)
     {
-        password += Helper::arrayElement(passwordCharacters);
+        password += Helper::arrayElement<char>(passwordCharacters);
     }
 
     return password;
