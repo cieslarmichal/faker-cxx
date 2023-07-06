@@ -5,6 +5,7 @@
 
 namespace faker
 {
+// TODO: refactor
 std::string String::uuid()
 {
     static std::random_device rd;
