@@ -53,10 +53,10 @@ TEST_F(DateTest, shouldGenerateRecentDate)
 
     const auto recentDays = 5;
 
-    const auto pastDate = Date::recent(recentDays);
+    const auto recentDate = Date::recent(recentDays);
 
-    EXPECT_TRUE((currentDate - pastDate).total_seconds() < secondsInDay * recentDays);
-    EXPECT_TRUE(pastDate < currentDate);
+    EXPECT_TRUE((currentDate - recentDate).total_seconds() < secondsInDay * recentDays);
+    EXPECT_TRUE(recentDate < currentDate);
 }
 
 TEST_F(DateTest, shouldGenerateRecentDateISO)
@@ -65,12 +65,12 @@ TEST_F(DateTest, shouldGenerateRecentDateISO)
 
     const auto recentDays = 5;
 
-    const auto pastDateISO = Date::recentISOString();
+    const auto recentDateISO = Date::recentISOString();
 
-    const auto pastDate = boost::posix_time::from_iso_extended_string(pastDateISO);
+    const auto recentDate = boost::posix_time::from_iso_extended_string(recentDateISO);
 
-    EXPECT_TRUE((currentDate - pastDate).total_seconds() < secondsInDay * recentDays);
-    EXPECT_TRUE(pastDate < currentDate);
+    EXPECT_TRUE((currentDate - recentDate).total_seconds() < secondsInDay * recentDays);
+    EXPECT_TRUE(recentDate < currentDate);
 }
 
 TEST_F(DateTest, shouldGenerateFutureDate)
@@ -130,7 +130,7 @@ TEST_F(DateTest, shouldGenerateDateFromRange)
     const auto endDate =
         boost::posix_time::second_clock::local_time() + boost::posix_time::hours(numberOfHoursInDay * 2);
 
-    const auto dateWithinRage = Date::fromRange(startDate, endDate);
+    const auto dateWithinRage = Date::between(startDate, endDate);
 
     EXPECT_TRUE(dateWithinRage > startDate);
     EXPECT_TRUE(dateWithinRage < endDate);
@@ -138,7 +138,7 @@ TEST_F(DateTest, shouldGenerateDateFromRange)
 
 TEST_F(DateTest, shouldGenerateBirthDateByAge)
 {
-    const auto birthDate = Date::birthDateByAge(25, 30);
+    const auto birthdate = Date::birthdateByAge(25, 30);
 
     const auto expectedStartDate = boost::posix_time::second_clock::local_time() -
                                    boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * 30);
@@ -146,15 +146,15 @@ TEST_F(DateTest, shouldGenerateBirthDateByAge)
     const auto expectedEndDate = boost::posix_time::second_clock::local_time() -
                                  boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * 25);
 
-    EXPECT_TRUE(birthDate > expectedStartDate);
-    EXPECT_TRUE(birthDate < expectedEndDate);
+    EXPECT_TRUE(birthdate > expectedStartDate);
+    EXPECT_TRUE(birthdate < expectedEndDate);
 }
 
 TEST_F(DateTest, shouldGenerateBirthDateByAgeISO)
 {
-    const auto birthDateISO = Date::birthDateByAgeISOString(5, 15);
+    const auto birthdateISO = Date::birthdateByAgeISOString(5, 15);
 
-    const auto birthDate = boost::posix_time::from_iso_extended_string(birthDateISO);
+    const auto birthdate = boost::posix_time::from_iso_extended_string(birthdateISO);
 
     const auto expectedStartDate = boost::posix_time::second_clock::local_time() -
                                    boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * 15);
@@ -162,25 +162,25 @@ TEST_F(DateTest, shouldGenerateBirthDateByAgeISO)
     const auto expectedEndDate = boost::posix_time::second_clock::local_time() -
                                  boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * 5);
 
-    EXPECT_TRUE(birthDate > expectedStartDate);
-    EXPECT_TRUE(birthDate < expectedEndDate);
+    EXPECT_TRUE(birthdate > expectedStartDate);
+    EXPECT_TRUE(birthdate < expectedEndDate);
 }
 
 TEST_F(DateTest, shouldGenerateBirthDateByYear)
 {
-    const auto birthDate = Date::birthDateByYear(2000, 2023);
+    const auto birthdate = Date::birthdateByYear(2000, 2023);
 
-    EXPECT_TRUE(birthDate.date().year() >= 2000);
-    EXPECT_TRUE(birthDate.date().year() <= 2023);
+    EXPECT_TRUE(birthdate.date().year() >= 2000);
+    EXPECT_TRUE(birthdate.date().year() <= 2023);
 }
 
 TEST_F(DateTest, shouldGenerateBirthDateByYearISO)
 {
-    const auto birthDateISO = Date::birthDateByYearISOString(1996, 1996);
+    const auto birthdateISO = Date::birthdateByYearISOString(1996, 1996);
 
-    const auto birthDate = boost::posix_time::from_iso_extended_string(birthDateISO);
+    const auto birthdate = boost::posix_time::from_iso_extended_string(birthdateISO);
 
-    EXPECT_TRUE(birthDate.date().year() == 1996);
+    EXPECT_TRUE(birthdate.date().year() == 1996);
 }
 
 TEST_F(DateTest, shouldGenerateWeekdayName)

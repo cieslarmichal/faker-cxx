@@ -1,26 +1,19 @@
 #pragma once
 
-#include <string>
-#include <stdexcept>
-#include <random>
 #include <concepts>
+#include <random>
+#include <stdexcept>
+#include <string>
 
 namespace faker
 {
 template <std::integral T>
 class Number
 {
-
-private:
-    static std::random_device randomDevice;
-    static std::mt19937 pseudoRandomGenerator;
-
-
 public:
-
     /**
      * @brief Generates a random integer number in the given range, bounds included.
-     * 
+     *
      * @param min the minimum value of the range
      * @param max the maximum value of the range
      * @return T the type of the generated number, must be an integral type
@@ -34,12 +27,12 @@ public:
 
         std::uniform_int_distribution<T> distribution(min, max);
 
-    return distribution(pseudoRandomGenerator);
+        return distribution(pseudoRandomGenerator);
     }
 
     /**
      * @brief Generates a random integer between 0 and the given maximum value, bounds included.
-     * 
+     *
      * @param max the maximum value of the range
      * @return T the type of the generated number, must be an integral type
      */
@@ -48,7 +41,9 @@ public:
         return integer(0, max);
     }
 
-
+private:
+    static std::random_device randomDevice;
+    static std::mt19937 pseudoRandomGenerator;
 };
 
 template <std::integral T>
