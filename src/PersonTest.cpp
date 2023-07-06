@@ -69,8 +69,8 @@ TEST_F(PersonTest, shouldGenerateFullName)
 
     boost::split(names, generatedFullName, boost::is_any_of(" "));
 
-    const auto generatedFirstName =names[0];
-    const auto generatedLastName =names[1];
+    const auto generatedFirstName = names[0];
+    const auto generatedLastName = names[1];
 
     ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
                             [generatedFirstName](const std::string& firstName)
@@ -88,8 +88,8 @@ TEST_F(PersonTest, shouldGenerateMaleFullName)
 
     boost::split(names, generatedFullName, boost::is_any_of(" "));
 
-    const auto generatedFirstName =names[0];
-    const auto generatedLastName =names[1];
+    const auto generatedFirstName = names[0];
+    const auto generatedLastName = names[1];
 
     ASSERT_TRUE(std::any_of(firstNamesMales.begin(), firstNamesMales.end(),
                             [generatedFirstName](const std::string& firstName)
@@ -107,8 +107,8 @@ TEST_F(PersonTest, shouldGenerateFemaleFullName)
 
     boost::split(names, generatedFullName, boost::is_any_of(" "));
 
-    const auto generatedFirstName =names[0];
-    const auto generatedLastName =names[1];
+    const auto generatedFirstName = names[0];
+    const auto generatedLastName = names[1];
 
     ASSERT_TRUE(std::any_of(firstNamesFemales.begin(), firstNamesFemales.end(),
                             [generatedFirstName](const std::string& firstName)

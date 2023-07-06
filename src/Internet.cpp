@@ -1,6 +1,7 @@
 #include "Internet.h"
 
 #include <format>
+#include <utility>
 
 #include "data/EmailHosts.h"
 #include "Helper.h"
@@ -40,9 +41,11 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
     return username;
 }
 
-std::string Internet::email()
+std::string Internet::email(std::optional<std::string> firstName, std::optional<std::string> lastName,
+                            std::optional<std::string> emailHost)
 {
-    return std::format("{}@{}", username(), Helper::arrayElement(emailHosts));
+    return std::format("{}@{}", username(std::move(firstName), std::move(lastName)),
+                       emailHost ? *emailHost : Helper::arrayElement(emailHosts));
 }
 
 std::string Internet::password(int length)
