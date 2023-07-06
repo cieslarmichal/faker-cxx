@@ -16,6 +16,7 @@
 #include <string>
 #include <type_traits>
 #include <utility>
+#include <algorithm>
 
 namespace faker {
 
@@ -124,24 +125,21 @@ public:
      * @param max the maximum value of the range
      *
      * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.)
-     * @tparam D the type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.)
      *
      * @throws std::invalid_argument if min is greater than max
-     *
-     * @see Distribution
      *
      * @authors dario-loi, cieslarmichal
      *
      * @return T a random integer number
      */
-    template <std::integral I, IntegerDistribution D = std::uniform_int_distribution<I>>
+    template <std::integral I>
     static I integer(I min, I max)
     {
         if (min > max) {
             throw std::invalid_argument("Minimum value must be smaller than maximum value.");
         }
 
-        D distribution(min, max);
+        std::uniform_int_distribution<I> distribution(min, max);
 
         return distribution(pseudoRandomGenerator);
     }
@@ -166,8 +164,38 @@ public:
     static I integer(I max)
     {
 
-        auto x = Number::integer<I, std::uniform_int_distribution<I>>(static_cast<I>(0), max);
+        auto x = Number::integer<I>(static_cast<I>(0), max);
         return x;
+    }
+
+    /**
+     * @brief Generates a random decimal number in the given range with a given distribution, bounds included.
+     * 
+     * Note that for any distribution other than std::uniform_int_distribution, the bounds are enforced
+     * through a std::clamp call, hence the statistical properties of the distribution may be altered,
+     * especially for long tailed distributions.
+     * 
+     * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.)
+     * @tparam D the type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.)
+     *
+     * @param distribution the distribution to use
+     * @param min the minimum value of the range
+     * @param max the maximum value of the range
+     * @return I a random integer number
+     */
+    template <std::integral I, IntegerDistribution D>
+    static I integer(D distribution, I min, I max)
+    {
+        if constexpr(std::is_same_v<D, std::uniform_int_distribution<I>>) {
+            return Number::integer<I>(min, max);
+        }
+        {
+            if (min > max) {
+                throw std::invalid_argument("Minimum value must be smaller than maximum value.");
+            }
+
+            return std::clamp(distribution(pseudoRandomGenerator), min, max);
+        }
     }
 
     /**
@@ -187,17 +215,49 @@ public:
      *
      * @return F a random decimal number
      */
-    template <std::floating_point F, DecimalDistribution D = std::uniform_real_distribution<F>>
+    template <std::floating_point F>
     static F decimal(F min, F max)
     {
         if (min > max) {
             throw std::invalid_argument("Minimum value must be smaller than maximum value.");
         }
 
-        D distribution(min, max);
+        std::uniform_real_distribution<F> distribution(min, max);
 
         return distribution(pseudoRandomGenerator);
     }
+
+    /**
+     * @brief Generates a random decimal number in the given range with a given distribution, bounds included.
+     * 
+     * Note that for any distribution other than std::uniform_real_distribution, the bounds are enforced
+     * through a std::clamp call, hence the statistical properties of the distribution may be altered,
+     * especially for long tailed distributions.
+     * 
+     * @tparam D the type of the distribution, must be a valid decimal distribution (std::uniform_real_distribution, std::normal_distribution, etc.)
+     * @tparam F the type of the generated number, must be a floating point type (float, double, long double)
+     * @param distribution the distribution to use
+     * @param min the minimum value of the range
+     * @param max the maximum value of the range
+     * 
+     * @return F a random decimal number
+     */
+    template <std::floating_point F, DecimalDistribution D>
+    static F decimal(D distribution, F min, F max)
+    {
+        if constexpr(std::is_same_v<D, std::uniform_real_distribution<F>>) {
+            return Number::decimal<F>(min, max);
+        }
+        {
+            if (min > max) {
+                throw std::invalid_argument("Minimum value must be smaller than maximum value.");
+            }
+
+            return std::clamp(distribution(pseudoRandomGenerator), min, max);
+        }
+    }
+
+    
 
     /**
      * @brief Generates a random decimal number between 0 and the given maximum value, bounds included.
