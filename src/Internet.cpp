@@ -16,26 +16,20 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
 
     std::string username;
 
-    switch (Number::integer<int>(4))
+    switch (Number::integer<int>(2))
     {
     case 0:
-        username = std::format("{}{}{}", firstName, lastName, Number::integer<int>(99999));
+        username = std::format("{}{}{}", firstName, lastName, Number::integer<int>(999));
         break;
     case 1:
-        username =
-            std::format("{}{}{}", firstName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName);
+        username = std::format("{}{}{}", firstName,
+                               Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
-        username = std::format("{}{}{}{}", firstName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}),
-                               lastName, Number::integer<int>(99));
+        username = std::format("{}{}{}{}", firstName,
+                               Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName,
+                               Number::integer<int>(99));
         break;
-    case 3:
-        username =
-            std::format("{}{}{}", lastName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), firstName);
-        break;
-    case 4:
-        username = std::format("{}{}{}{}", lastName, Helper::arrayElement<std::string>(std::vector<std::string> { ".", "_", "" }),
-            firstName, Number::integer<int>(1960, 2023));
     }
 
     return username;
@@ -45,7 +39,7 @@ std::string Internet::email(std::optional<std::string> firstName, std::optional<
                             std::optional<std::string> emailHost)
 {
     return std::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-        emailHost ? *emailHost : Helper::arrayElement<std::string>(emailHosts));
+                       emailHost ? *emailHost : Helper::arrayElement<std::string>(emailHosts));
 }
 
 std::string Internet::password(int length)
