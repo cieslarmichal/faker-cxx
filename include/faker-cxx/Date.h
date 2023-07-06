@@ -5,8 +5,6 @@
 
 namespace faker
 {
-// TODO: template specialization for std::string and boost::posix_time::ptime instead of separated functions
-
 class Date
 {
 public:

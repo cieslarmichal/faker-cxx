@@ -13,18 +13,9 @@ class StringTest : public Test
 public:
     [[nodiscard]] static bool isValidUuid(const std::string& data)
     {
-        using namespace boost::uuids;
+        boost::uuids::uuid result = boost::uuids::string_generator()(data);
 
-        try
-        {
-            boost::uuids::uuid result = string_generator()(data);
-            
-            return result.version() != uuid::version_unknown;
-        }
-        catch (...)
-        {
-            return false;
-        }
+        return result.version() != boost::uuids::uuid::version_unknown;
     }
 };
 
