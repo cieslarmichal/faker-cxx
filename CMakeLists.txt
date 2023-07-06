@@ -28,6 +28,7 @@ set(SOURCES
         src/Datatype.cpp
         src/Number.cpp
         src/Date.cpp
+        src/DatatypeTest.cpp
         include/faker-cxx/Helper.h
         )
 
