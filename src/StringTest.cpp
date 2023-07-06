@@ -18,6 +18,7 @@ public:
         try
         {
             boost::uuids::uuid result = string_generator()(data);
+            
             return result.version() != uuid::version_unknown;
         }
         catch (...)

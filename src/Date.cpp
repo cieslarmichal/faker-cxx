@@ -15,11 +15,11 @@ const auto numberOfHoursInDay = 24;
 const auto numberOfDaysInYear = 365;
 }
 
-boost::posix_time::ptime Date::fromRange(boost::posix_time::ptime startDate, boost::posix_time::ptime endDate)
+boost::posix_time::ptime Date::between(boost::posix_time::ptime from, boost::posix_time::ptime to)
 {
-    const auto size = (endDate - startDate).total_seconds();
+    const auto size = (to - from).total_seconds();
 
-    return startDate + boost::posix_time::seconds(Number<int>::integer(static_cast<int>(size)));
+    return from + boost::posix_time::seconds(Number<int>::integer(static_cast<int>(size)));
 }
 
 boost::posix_time::ptime Date::future(int years)
@@ -29,7 +29,7 @@ boost::posix_time::ptime Date::future(int years)
     const auto endDate = boost::posix_time::second_clock::local_time() +
                          boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * years);
 
-    return fromRange(startDate, endDate);
+    return between(startDate, endDate);
 }
 
 boost::posix_time::ptime Date::past(int years)
@@ -39,7 +39,7 @@ boost::posix_time::ptime Date::past(int years)
 
     const auto endDate = boost::posix_time::second_clock::local_time();
 
-    return fromRange(startDate, endDate);
+    return between(startDate, endDate);
 }
 
 boost::posix_time::ptime Date::soon(int days)
@@ -49,7 +49,7 @@ boost::posix_time::ptime Date::soon(int days)
     const auto endDate =
         boost::posix_time::second_clock::local_time() + boost::posix_time::hours(numberOfHoursInDay * days);
 
-    return fromRange(startDate, endDate);
+    return between(startDate, endDate);
 }
 
 boost::posix_time::ptime Date::recent(int days)
@@ -59,10 +59,10 @@ boost::posix_time::ptime Date::recent(int days)
 
     const auto endDate = boost::posix_time::second_clock::local_time();
 
-    return fromRange(startDate, endDate);
+    return between(startDate, endDate);
 }
 
-boost::posix_time::ptime Date::birthDateByAge(int minAge, int maxAge)
+boost::posix_time::ptime Date::birthdateByAge(int minAge, int maxAge)
 {
     const auto startDate = boost::posix_time::second_clock::local_time() -
                            boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * maxAge);
@@ -70,15 +70,15 @@ boost::posix_time::ptime Date::birthDateByAge(int minAge, int maxAge)
     const auto endDate = boost::posix_time::second_clock::local_time() -
                          boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * minAge);
 
-    return fromRange(startDate, endDate);
+    return between(startDate, endDate);
 }
 
-boost::posix_time::ptime Date::birthDateByYear(int minYear, int maxYear)
+boost::posix_time::ptime Date::birthdateByYear(int minYear, int maxYear)
 {
     boost::posix_time::ptime startDate{boost::gregorian::date(static_cast<unsigned short>(minYear), 1, 1)};
     boost::posix_time::ptime endDate{boost::gregorian::date(static_cast<unsigned short>(maxYear), 12, 31)};
 
-    return fromRange(startDate, endDate);
+    return between(startDate, endDate);
 }
 
 std::string Date::futureISOString(int years)
@@ -101,14 +101,14 @@ std::string Date::recentISOString(int days)
     return to_iso_extended_string(recent(days));
 }
 
-std::string Date::birthDateByAgeISOString(int minAge, int maxAge)
+std::string Date::birthdateByAgeISOString(int minAge, int maxAge)
 {
-    return to_iso_extended_string(birthDateByAge(minAge, maxAge));
+    return to_iso_extended_string(birthdateByAge(minAge, maxAge));
 }
 
-std::string Date::birthDateByYearISOString(int minYear, int maxYear)
+std::string Date::birthdateByYearISOString(int minYear, int maxYear)
 {
-    return to_iso_extended_string(birthDateByYear(minYear, maxYear));
+    return to_iso_extended_string(birthdateByYear(minYear, maxYear));
 }
 
 std::string Date::weekdayName()
