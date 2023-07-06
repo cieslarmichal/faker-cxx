@@ -17,9 +17,9 @@ const auto numberOfDaysInYear = 365;
 
 boost::posix_time::ptime Date::between(boost::posix_time::ptime from, boost::posix_time::ptime to)
 {
-    const auto size = (to - from).total_seconds();
+    const ssize_t size = (to - from).total_seconds();
 
-    return from + boost::posix_time::seconds(Number<int>::integer(static_cast<int>(size)));
+    return from + boost::posix_time::seconds(Number::integer<ssize_t>(size));
 }
 
 boost::posix_time::ptime Date::future(int years)
@@ -113,21 +113,21 @@ std::string Date::birthdateByYearISOString(int minYear, int maxYear)
 
 std::string Date::weekdayName()
 {
-    return Helper::arrayElement(weekdayNames);
+    return Helper::arrayElement<std::string>(weekdayNames);
 }
 std::string Date::weekdayAbbreviatedName()
 {
-    return Helper::arrayElement(weekdayAbbreviatedNames);
+    return Helper::arrayElement<std::string>(weekdayAbbreviatedNames);
 }
 
 std::string Date::monthName()
 {
-    return Helper::arrayElement(monthNames);
+    return Helper::arrayElement<std::string>(monthNames);
 }
 
 std::string Date::monthAbbreviatedName()
 {
-    return Helper::arrayElement(monthAbbreviatedNames);
+    return Helper::arrayElement<std::string>(monthAbbreviatedNames);
 }
 
 }

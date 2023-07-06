@@ -27,12 +27,12 @@ std::string Person::firstName(std::optional<Sex> sex)
         firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
     }
 
-    return Helper::arrayElement(firstNames);
+    return Helper::arrayElement<std::string>(firstNames);
 }
 
 std::string Person::lastName()
 {
-    return Helper::arrayElement(lastNames);
+    return Helper::arrayElement<std::string>(lastNames);
 }
 
 std::string Person::fullName(std::optional<Sex> sex)

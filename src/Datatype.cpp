@@ -6,6 +6,6 @@ namespace faker
 {
 bool Datatype::boolean()
 {
-    return Helper::arrayElement(std::vector<bool>{true, false});
+    return Number::decimal<float>(0.f, 1.f) > 0.5f;
 }
 }

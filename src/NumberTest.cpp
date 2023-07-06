@@ -12,19 +12,19 @@ public:
 
 TEST_F(NumberTest, givenInvalidRangeArguments_shouldThrowInvalidArgument)
 {
-    ASSERT_THROW(Number<int>::integer(10, 2), std::invalid_argument);
+    ASSERT_THROW(Number::integer<int>(10, 2), std::invalid_argument);
 }
 
 TEST_F(NumberTest, givenRangeWithSameNumberSection_shouldGenerateThisNumber)
 {
-    const std::integral auto actualRandomNumber = Number<int>::integer(2, 2);
+    const int actualRandomNumber = Number::integer<int>(2, 2);
 
     ASSERT_EQ(actualRandomNumber, 2);
 }
 
 TEST_F(NumberTest, givenValidRangeArguments_shouldGenerateNumberThatIsInGivenRange)
 {
-    const std::integral auto actualRandomNumber = Number<int>::integer(2, 10);
+    const int actualRandomNumber = Number::integer<int>(2, 10);
 
     ASSERT_TRUE(actualRandomNumber >= 2);
     ASSERT_TRUE(actualRandomNumber <= 10);
@@ -32,8 +32,57 @@ TEST_F(NumberTest, givenValidRangeArguments_shouldGenerateNumberThatIsInGivenRan
 
 TEST_F(NumberTest, givenSingleArgument_shouldCorrectlyResolveToTwoArgsOverload)
 {
-    const std::integral auto randomNumber = Number<int>::integer(10);
+    const int randomNumber = Number::integer<int>(10);
+
 
     ASSERT_TRUE(randomNumber >= 0);
     ASSERT_TRUE(randomNumber <= 10);
+}
+
+TEST_F(NumberTest, givenValidRangeArguments_shouldGenerateDecimalNumberThatIsInGivenRange)
+{
+    const float actualRandomNumber = Number::decimal<float>(2.f, 10.f);
+
+    ASSERT_TRUE(actualRandomNumber >= 2.f);
+    ASSERT_TRUE(actualRandomNumber <= 10.f);
+}
+
+TEST_F(NumberTest, givenRangeWithSameNumberSection_shouldGenerateThisNumberForDecimal)
+{
+    const float actualRandomNumber = Number::decimal<float>(2.f, 2.f);
+
+    ASSERT_EQ(actualRandomNumber, 2.f);
+}
+
+
+TEST_F(NumberTest, givenDiscreteDistribution_shouldGenerateNumberThatIsInGivenRange)
+{
+
+    auto dist = std::binomial_distribution<int>(10, 0.5);
+
+    const int actualRandomNumber = Number::integer<int, std::binomial_distribution<int>>(dist, 2, 10);
+
+    ASSERT_TRUE(actualRandomNumber >= 2);
+    ASSERT_TRUE(actualRandomNumber <= 10);
+}
+
+TEST_F(NumberTest, givenRealDistribution_shouldGenerateNumberThatIsInGivenRange)
+{
+    auto dist = std::normal_distribution<float>(5.f, 2.f);
+
+    const float actualRandomNumber = Number::decimal<float, std::normal_distribution<float>>(dist, 2.f, 10.f);
+
+
+    ASSERT_TRUE(actualRandomNumber >= 2.f);
+    ASSERT_TRUE(actualRandomNumber <= 10.f);
+}
+
+TEST_F(NumberTest, givenRealDistributionWithoutRange_shouldGenerateAnyNumber)
+{
+    auto dist = std::normal_distribution<float>(5.f, 2.f);
+
+    const float actualRandomNumber = Number::decimal<float, std::normal_distribution<float>>(dist);
+
+    ASSERT_TRUE(actualRandomNumber >= std::numeric_limits<float>::min());
+    ASSERT_TRUE(actualRandomNumber <= std::numeric_limits<float>::max());
 }

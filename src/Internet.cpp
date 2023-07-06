@@ -16,26 +16,26 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
 
     std::string username;
 
-    switch (Number<int>::integer(4))
+    switch (Number::integer<int>(4))
     {
     case 0:
-        username = std::format("{}{}{}", firstName, lastName, Number<int>::integer(99999));
+        username = std::format("{}{}{}", firstName, lastName, Number::integer<int>(99999));
         break;
     case 1:
         username =
-            std::format("{}{}{}", firstName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
+            std::format("{}{}{}", firstName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
-        username = std::format("{}{}{}{}", firstName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}),
-                               lastName, Number<int>::integer(99));
+        username = std::format("{}{}{}{}", firstName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}),
+                               lastName, Number::integer<int>(99));
         break;
     case 3:
         username =
-            std::format("{}{}{}", lastName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}), firstName);
+            std::format("{}{}{}", lastName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), firstName);
         break;
     case 4:
-        username = std::format("{}{}{}{}", lastName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}),
-                               firstName, Number<int>::integer(1960, 2023));
+        username = std::format("{}{}{}{}", lastName, Helper::arrayElement<std::string>(std::vector<std::string> { ".", "_", "" }),
+            firstName, Number::integer<int>(1960, 2023));
     }
 
     return username;
@@ -45,7 +45,7 @@ std::string Internet::email(std::optional<std::string> firstName, std::optional<
                             std::optional<std::string> emailHost)
 {
     return std::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                       emailHost ? *emailHost : Helper::arrayElement(emailHosts));
+        emailHost ? *emailHost : Helper::arrayElement<std::string>(emailHosts));
 }
 
 std::string Internet::password(int length)
@@ -56,7 +56,7 @@ std::string Internet::password(int length)
 
     for (int i = 0; i < length; i++)
     {
-        password += Helper::arrayElement(passwordCharacters);
+        password += Helper::arrayElement<char>(passwordCharacters);
     }
 
     return password;

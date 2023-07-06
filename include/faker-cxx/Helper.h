@@ -1,7 +1,8 @@
 #pragma once
 
 #include <vector>
-
+#include <string_view>
+#include <span>
 #include "Number.h"
 
 namespace faker
@@ -9,19 +10,19 @@ namespace faker
 class Helper
 {
 public:
+    /**
+     * @brief Get a random element from an STL container
+     * 
+     * @tparam T an element type of the container
+     * @param data a container
+     * @return T a random element from the container
+     */
     template <class T>
-    static T arrayElement(const std::vector<T>& data)
+    static T arrayElement(std::span<const T> data)
     {
-        const auto index = Number<size_t>::integer(data.size() - 1);
+        const auto index = Number::integer<size_t>(data.size() - 1);
 
-        return data.at(index);
-    }
-
-    static char arrayElement(const std::string& data)
-    {
-        const std::integral auto index = Number<size_t>::integer(data.size() - 1);
-
-        return data.at(index);
+        return data[index];
     }
 };
 }

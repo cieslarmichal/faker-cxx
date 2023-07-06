@@ -9,7 +9,7 @@ namespace faker
 {
 std::string Lorem::word()
 {
-    return Helper::arrayElement(loremWords);
+    return Helper::arrayElement<std::string>(loremWords);
 }
 
 std::string Lorem::words(int numberOfWords)
@@ -18,7 +18,7 @@ std::string Lorem::words(int numberOfWords)
 
     for (int i = 0; i < numberOfWords; i++)
     {
-        words.push_back(Helper::arrayElement(loremWords));
+        words.push_back(word());
     }
 
     return boost::algorithm::join(words, " ");
