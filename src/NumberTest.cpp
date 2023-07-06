@@ -76,3 +76,13 @@ TEST_F(NumberTest, givenRealDistribution_shouldGenerateNumberThatIsInGivenRange)
     ASSERT_TRUE(actualRandomNumber >= 2.f);
     ASSERT_TRUE(actualRandomNumber <= 10.f);
 }
+
+TEST_F(NumberTest, givenRealDistributionWithoutRange_shouldGenerateAnyNumber)
+{
+    auto dist = std::normal_distribution<float>(5.f, 2.f);
+
+    const auto actualRandomNumber = Number::decimal<float, std::normal_distribution<float>>(dist);
+
+    ASSERT_TRUE(actualRandomNumber >= std::numeric_limits<float>::min());
+    ASSERT_TRUE(actualRandomNumber <= std::numeric_limits<float>::max());
+}
