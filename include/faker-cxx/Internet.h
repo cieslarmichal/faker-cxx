@@ -16,11 +16,12 @@ public:
      *
      * @returns Username including neither, one or both of the provided names
      *
-     * @example
+     * @code
      * Internet::username() // "Richardson.Jeffrey1997"
      * Internet::username("Michael") // "Michael_Allen29"
      * Internet::username(std::nullopt, "Cieslar") // "Phillip_Cieslar20"
      * Internet::username("Andrew", "Cieslar") // "Andrew.Cieslar"
+     * @endcode
      */
     static std::string username(std::optional<std::string> firstName = std::nullopt,
                                 std::optional<std::string> lastName = std::nullopt);
@@ -34,12 +35,13 @@ public:
      *
      * @returns Email including neither, one or both of the provided names, with random/provided emailHost
      *
-     * @example
+     * @code
      * Internet::email() // "Jimenez.Clyde@gmail.com"
      * Internet::email("Tom") // "TomRichardson79@outlook.com"
      * Internet::email(std::nullopt, "Howard") // "FreddieHoward@hotmail.com"
      * Internet::email("Cindy", "Young") // "Young_Cindy@gmail.com"
-     * Internet::email(std::nullopt, std::nullopt, "example.com") // "Wright.Edna1973@example.com"
+     * Internet::email(std::nullopt, std::nullopt, "example.com") // "Wright.Edna1973@code.com"
+     * @endcode
      */
     static std::string email(std::optional<std::string> firstName = std::nullopt,
                              std::optional<std::string> lastName = std::nullopt,
@@ -53,9 +55,10 @@ public:
      *
      * @returns Random password-like string
      *
-     * @example
+     * @code
      * Internet::password() // "gXGpe9pKfFcKy9R"
      * Internet::password(25) // "xv8vDu*wM!Rg0$zd0kH%8p!WY"
+     * @endcode
      */
     static std::string password(int length = 15);
 };
