@@ -1,10 +1,9 @@
 #include "Lorem.h"
 
-#include <boost/algorithm/string.hpp>
-
 #include "gtest/gtest.h"
 
 #include "data/LoremWords.h"
+#include "StringHelper.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -28,9 +27,7 @@ TEST_F(LoremTest, shouldGenerateWords)
 
     const auto generatedWords = Lorem::words(numberOfWords);
 
-    std::vector<std::string> separatedWords;
-
-    boost::split(separatedWords, generatedWords, boost::is_any_of(" "));
+    const auto separatedWords = StringHelper::split(generatedWords, " ");
 
     ASSERT_EQ(separatedWords.size(), numberOfWords);
     ASSERT_TRUE(std::all_of(separatedWords.begin(), separatedWords.end(),

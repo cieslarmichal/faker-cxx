@@ -1,14 +1,12 @@
 #include "Internet.h"
 
-#include <boost/algorithm/string/classification.hpp>
-#include <boost/algorithm/string/split.hpp>
-
 #include "gtest/gtest.h"
 
 #include "data/EmailHosts.h"
 #include "data/FirstNamesFemales.h"
 #include "data/FirstNamesMales.h"
 #include "data/LastNames.h"
+#include "StringHelper.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -82,14 +80,12 @@ TEST_F(InternetTest, shouldGenerateEmail)
 
     const auto email = Internet::email();
 
-    std::vector<std::string> emailParts;
-
-    boost::split(emailParts, email, boost::is_any_of("@"));
+    const auto emailParts = StringHelper::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
-    const auto generatedUsername = emailParts[0];
-    const auto generatedEmailHost = emailParts[1];
+    const auto& generatedUsername = emailParts[0];
+    const auto& generatedEmailHost = emailParts[1];
 
     ASSERT_TRUE(std::any_of(emailHosts.begin(), emailHosts.end(),
                             [generatedEmailHost](const std::string& emailHost)
@@ -108,14 +104,12 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
 
     const auto email = Internet::email(firstName);
 
-    std::vector<std::string> emailParts;
-
-    boost::split(emailParts, email, boost::is_any_of("@"));
+    const auto emailParts = StringHelper::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
-    const auto generatedUsername = emailParts[0];
-    const auto generatedEmailHost = emailParts[1];
+    const auto& generatedUsername = emailParts[0];
+    const auto& generatedEmailHost = emailParts[1];
 
     ASSERT_TRUE(std::any_of(emailHosts.begin(), emailHosts.end(),
                             [generatedEmailHost](const std::string& emailHost)
@@ -136,14 +130,12 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 
     const auto email = Internet::email(std::nullopt, lastName);
 
-    std::vector<std::string> emailParts;
-
-    boost::split(emailParts, email, boost::is_any_of("@"));
+    const auto emailParts = StringHelper::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
-    const auto generatedUsername = emailParts[0];
-    const auto generatedEmailHost = emailParts[1];
+    const auto& generatedUsername = emailParts[0];
+    const auto& generatedEmailHost = emailParts[1];
 
     ASSERT_TRUE(std::any_of(emailHosts.begin(), emailHosts.end(),
                             [generatedEmailHost](const std::string& emailHost)
@@ -166,14 +158,12 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 
     const auto email = Internet::email(firstName, lastName);
 
-    std::vector<std::string> emailParts;
-
-    boost::split(emailParts, email, boost::is_any_of("@"));
+    const auto emailParts = StringHelper::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
-    const auto generatedUsername = emailParts[0];
-    const auto generatedEmailHost = emailParts[1];
+    const auto& generatedUsername = emailParts[0];
+    const auto& generatedEmailHost = emailParts[1];
 
     ASSERT_TRUE(std::any_of(emailHosts.begin(), emailHosts.end(),
                             [generatedEmailHost](const std::string& emailHost)
@@ -192,14 +182,12 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 
     const auto email = Internet::email(std::nullopt, std::nullopt, emailHost);
 
-    std::vector<std::string> emailParts;
-
-    boost::split(emailParts, email, boost::is_any_of("@"));
+    const auto emailParts = StringHelper::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
-    const auto generatedUsername = emailParts[0];
-    const auto generatedEmailHost = emailParts[1];
+    const auto& generatedUsername = emailParts[0];
+    const auto& generatedEmailHost = emailParts[1];
 
     ASSERT_EQ(generatedEmailHost, emailHost);
     ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
