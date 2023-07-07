@@ -20,7 +20,6 @@ ContinuationIndentWidth: 4
 Cpp11BracedListStyle: true
 PointerAlignment: Left
 FixNamespaceComments: false
-ForEachMacros: [ BOOST_FOREACH ]
 IndentCaseLabels: false
 IndentWidth: 4
 Language: Cpp
@@ -45,7 +44,7 @@ IncludeBlocks: Regroup
 IncludeCategories:
   - Regex: '<.+>'
     Priority: 1
-  - Regex: '^"(gtest|gmock|boost)/'
+  - Regex: '^"(gtest)/'
     Priority: 2
   - Regex: '^"Aa'
     Priority: 3

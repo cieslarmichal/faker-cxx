@@ -1,9 +1,9 @@
 #include "Lorem.h"
 
 #include <sstream>
+
 #include "data/LoremWords.h"
 #include "Helper.h"
-
 
 namespace faker
 {
@@ -22,10 +22,10 @@ std::string Lorem::words(size_t numberOfWords)
     }
 
     if (numberOfWords > 0) [[likely]]
+    {
         words_accumulator << word();
+    }
 
     return words_accumulator.str();
-    // walk back one space to remove the trailing space
-
 }
 }

@@ -29,6 +29,7 @@ set(SOURCES
         src/Date.cpp
         src/DatatypeTest.cpp
         include/faker-cxx/Helper.h
+        src/StringHelper.cpp
         )
 
 set(UT_SOURCES
@@ -38,6 +39,7 @@ set(UT_SOURCES
         src/LoremTest.cpp
         src/InternetTest.cpp
         src/DateTest.cpp
+        src/StringHelperTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})
