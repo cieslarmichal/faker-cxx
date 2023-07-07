@@ -8,6 +8,6 @@ class Lorem
 {
 public:
     static std::string word();
-    static std::string words(int numberOfWords = 3);
+    static std::string words(size_t numberOfWords = 3);
 };
 }
