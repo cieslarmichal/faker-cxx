@@ -1,13 +1,13 @@
 #include "Person.h"
 
-#include <boost/algorithm/string/classification.hpp>
-#include <boost/algorithm/string/split.hpp>
+#include <chrono>
 
 #include "gtest/gtest.h"
 
 #include "data/FirstNamesFemales.h"
 #include "data/FirstNamesMales.h"
 #include "data/LastNames.h"
+#include "StringHelper.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -65,12 +65,10 @@ TEST_F(PersonTest, shouldGenerateFullName)
 
     const auto generatedFullName = Person::fullName();
 
-    std::vector<std::string> names;
+    const auto names = StringHelper::split(generatedFullName, " ");
 
-    boost::split(names, generatedFullName, boost::is_any_of(" "));
-
-    const auto generatedFirstName = names[0];
-    const auto generatedLastName = names[1];
+    const auto& generatedFirstName = names[0];
+    const auto& generatedLastName = names[1];
 
     ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
                             [generatedFirstName](const std::string& firstName)
@@ -84,12 +82,10 @@ TEST_F(PersonTest, shouldGenerateMaleFullName)
 {
     const auto generatedFullName = Person::fullName(Sex::Male);
 
-    std::vector<std::string> names;
+    const auto names = StringHelper::split(generatedFullName, " ");
 
-    boost::split(names, generatedFullName, boost::is_any_of(" "));
-
-    const auto generatedFirstName = names[0];
-    const auto generatedLastName = names[1];
+    const auto& generatedFirstName = names[0];
+    const auto& generatedLastName = names[1];
 
     ASSERT_TRUE(std::any_of(firstNamesMales.begin(), firstNamesMales.end(),
                             [generatedFirstName](const std::string& firstName)
@@ -103,12 +99,10 @@ TEST_F(PersonTest, shouldGenerateFemaleFullName)
 {
     const auto generatedFullName = Person::fullName(Sex::Female);
 
-    std::vector<std::string> names;
+    const auto names = StringHelper::split(generatedFullName, " ");
 
-    boost::split(names, generatedFullName, boost::is_any_of(" "));
-
-    const auto generatedFirstName = names[0];
-    const auto generatedLastName = names[1];
+    const auto& generatedFirstName = names[0];
+    const auto& generatedLastName = names[1];
 
     ASSERT_TRUE(std::any_of(firstNamesFemales.begin(), firstNamesFemales.end(),
                             [generatedFirstName](const std::string& firstName)
