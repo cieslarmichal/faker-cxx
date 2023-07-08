@@ -28,7 +28,7 @@ jobs:
            && sudo launchpad-getkeys \
            && sudo apt-get update -y \
            && sudo apt-get install -y lld-16 ninja-build  build-essential libstdc++-13-dev \
-             clang-16 clang-tools-16 llvm-16 lcov  libboost-dev libgtest-dev
+             clang-16 clang-tools-16 llvm-16 lcov libgtest-dev
 
       - name: Configure CMake
         run: |

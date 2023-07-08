@@ -6,13 +6,14 @@
 
 faker-cxx is a modern C++20 open-source library for generating fake data for testing and development.
 
-
-Dependencies: Boost library (dropping boost dependencies in progress) and GTest.
+Dependencies: GTest (as optional in progress).
 
 ## 🎯 Goal
+
 My goal is to create a simple, modern C++ Faker library similar to [FakerJS](https://github.com/faker-js/faker).
 
 ## Example
+
 Lets dive into some simple example of generating fake data
 
 ```cpp
@@ -56,8 +57,6 @@ target_link_libraries(main faker-cxx)
 - 📚 Lorem - Generate lorem text.
 - 🔢 String - Generate uuids.
 
-
-
 ## 🔨 TODO Modules
 
 - 🌍 Localization - Generate addresses.
@@ -71,9 +70,9 @@ target_link_libraries(main faker-cxx)
 - 📞 Phone - Generate phone number
 - 🎮 Game - Generate game genre, title
 
-
 ## ✨ Contributing
 
 Please feel free to join Faker C++ development! 🚀
 
-Features you could work on are available in  [TODO discussion](https://github.com/cieslarmichal/faker-cxx/discussions/4).
+Features you could work on are available in  [TODO discussion](https://github.com/cieslarmichal/faker-cxx/discussions/4)
+.

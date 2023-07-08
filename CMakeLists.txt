@@ -8,7 +8,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror")
 
-find_package(Boost REQUIRED)
 find_package(GTest REQUIRED)
 
 enable_testing()
@@ -60,7 +59,6 @@ target_link_libraries(${LIBRARY_NAME}UT PRIVATE
 target_include_directories(${LIBRARY_NAME}UT
         PRIVATE
         "include/faker-cxx"
-        ${Boost_INCLUDE_DIR}
         ${GTEST_INCLUDE_DIR}
         )
 
