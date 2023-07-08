@@ -1,6 +1,7 @@
 #include "Date.h"
 
-#include <boost/date_time/posix_time/posix_time.hpp>
+#include <chrono>
+#include <iostream>
 
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
@@ -11,104 +12,95 @@ namespace faker
 {
 namespace
 {
+std::string betweenDate(
+    std::chrono::time_point<std::chrono::system_clock, std::chrono::duration<int64_t, std::ratio<1, 1000000000>>> from,
+    std::chrono::time_point<std::chrono::system_clock, std::chrono::duration<int64_t, std::ratio<1, 1000000000>>> to)
+{
+    const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();
+
+    const auto randomDateWithinRange = from + std::chrono::seconds{Number::integer(size)};
+
+    return std::format("{:%FT%TZ}", std::chrono::floor<std::chrono::seconds>(randomDateWithinRange));
+}
+
 const auto numberOfHoursInDay = 24;
 const auto numberOfDaysInYear = 365;
 }
 
-boost::posix_time::ptime Date::between(boost::posix_time::ptime from, boost::posix_time::ptime to)
+std::string Date::futureDate(int years)
 {
-    const ssize_t size = (to - from).total_seconds();
-
-    return from + boost::posix_time::seconds(Number::integer<ssize_t>(size));
-}
-
-boost::posix_time::ptime Date::future(int years)
-{
-    const auto startDate = boost::posix_time::second_clock::local_time();
-
-    const auto endDate = boost::posix_time::second_clock::local_time() +
-                         boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * years);
-
-    return between(startDate, endDate);
-}
-
-boost::posix_time::ptime Date::past(int years)
-{
-    const auto startDate = boost::posix_time::second_clock::local_time() -
-                           boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * years);
-
-    const auto endDate = boost::posix_time::second_clock::local_time();
-
-    return between(startDate, endDate);
-}
-
-boost::posix_time::ptime Date::soon(int days)
-{
-    const auto startDate = boost::posix_time::second_clock::local_time();
+    const auto startDate = std::chrono::system_clock::now();
 
     const auto endDate =
-        boost::posix_time::second_clock::local_time() + boost::posix_time::hours(numberOfHoursInDay * days);
+        std::chrono::system_clock::now() + std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * years};
 
-    return between(startDate, endDate);
+    return betweenDate(startDate, endDate);
 }
 
-boost::posix_time::ptime Date::recent(int days)
+std::string Date::pastDate(int years)
 {
     const auto startDate =
-        boost::posix_time::second_clock::local_time() - boost::posix_time::hours(numberOfHoursInDay * days);
+        std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * years};
 
-    const auto endDate = boost::posix_time::second_clock::local_time();
+    const auto endDate = std::chrono::system_clock::now();
 
-    return between(startDate, endDate);
+    return betweenDate(startDate, endDate);
 }
 
-boost::posix_time::ptime Date::birthdateByAge(int minAge, int maxAge)
+std::string Date::soonDate(int days)
 {
-    const auto startDate = boost::posix_time::second_clock::local_time() -
-                           boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * maxAge);
+    const auto startDate = std::chrono::system_clock::now();
 
-    const auto endDate = boost::posix_time::second_clock::local_time() -
-                         boost::posix_time::hours(numberOfHoursInDay * numberOfDaysInYear * minAge);
+    const auto endDate = std::chrono::system_clock::now() + std::chrono::hours{numberOfHoursInDay * days};
 
-    return between(startDate, endDate);
+    return betweenDate(startDate, endDate);
 }
 
-boost::posix_time::ptime Date::birthdateByYear(int minYear, int maxYear)
+std::string Date::recentDate(int days)
 {
-    boost::posix_time::ptime startDate{boost::gregorian::date(static_cast<unsigned short>(minYear), 1, 1)};
-    boost::posix_time::ptime endDate{boost::gregorian::date(static_cast<unsigned short>(maxYear), 12, 31)};
+    const auto startDate = std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * days};
 
-    return between(startDate, endDate);
+    const auto endDate = std::chrono::system_clock::now();
+
+    return betweenDate(startDate, endDate);
 }
 
-std::string Date::futureISOString(int years)
+std::string Date::birthdateByAge(int minAge, int maxAge)
 {
-    return to_iso_extended_string(future(years));
+    const auto startDate =
+        std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * maxAge};
+
+    const auto endDate =
+        std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * minAge};
+
+    return betweenDate(startDate, endDate);
 }
 
-std::string Date::pastISOString(int years)
+std::string Date::birthdateByYear(int minYear, int maxYear)
 {
-    return to_iso_extended_string(past(years));
-}
+    tm startDateTime{};
+    startDateTime.tm_year = minYear - 1900;
+    startDateTime.tm_mon = 0;
+    startDateTime.tm_mday = 0;
+    startDateTime.tm_hour = 0;
+    startDateTime.tm_min = 0;
+    startDateTime.tm_sec = 0;
+    startDateTime.tm_isdst = -1;
 
-std::string Date::soonISOString(int days)
-{
-    return to_iso_extended_string(soon(days));
-}
+    const auto startDate = std::chrono::system_clock::from_time_t(mktime(&startDateTime));
 
-std::string Date::recentISOString(int days)
-{
-    return to_iso_extended_string(recent(days));
-}
+    tm endDateTime{};
+    endDateTime.tm_year = maxYear - 1900;
+    endDateTime.tm_mon = 11;
+    endDateTime.tm_mday = 31;
+    endDateTime.tm_hour = 23;
+    endDateTime.tm_min = 59;
+    endDateTime.tm_sec = 59;
+    endDateTime.tm_isdst = -1;
 
-std::string Date::birthdateByAgeISOString(int minAge, int maxAge)
-{
-    return to_iso_extended_string(birthdateByAge(minAge, maxAge));
-}
+    const auto endDate = std::chrono::system_clock::from_time_t(mktime(&endDateTime));
 
-std::string Date::birthdateByYearISOString(int minYear, int maxYear)
-{
-    return to_iso_extended_string(birthdateByYear(minYear, maxYear));
+    return betweenDate(startDate, endDate);
 }
 
 std::string Date::weekdayName()
