@@ -77,4 +77,4 @@ Feel free to join Faker C++ development! 🚀
 
 Features you could work on are available in  [TODO discussion](https://github.com/cieslarmichal/faker-cxx/discussions/4)
 
-Join [Discord Channel](https://discord.gg/jPy9R64Q) for project contributors.
+[Discord Channel](https://discord.gg/jPy9R64Q) for project contributors.
