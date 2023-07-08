@@ -29,8 +29,8 @@ int main()
     const auto id = faker::String::uuid();
     const auto email = faker::Internet::email();
     const auto password = faker::Internet::password();
-    const auto createdAt = faker::Date::pastISOString();
-    const auto updatedAt = faker::Date::recentISOString();
+    const auto createdAt = faker::Date::pastDate();
+    const auto updatedAt = faker::Date::recentDate();
 
     std::cout << std::format("id: {}, email: {}, password: {}, createdAt: {}, updatedAt: {}", id, email, password,
                              createdAt, updatedAt);
