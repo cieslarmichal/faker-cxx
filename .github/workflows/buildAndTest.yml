@@ -27,7 +27,7 @@ jobs:
            && sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' \
            && sudo launchpad-getkeys \
            && sudo apt-get update -y \
-           && sudo apt-get install -y lld-16 ninja-build  build-essential libstdc++-13-dev \
+           && sudo apt-get install -y lld-16 ninja-build  build-essential libstdc++-14-dev \
              clang-16 clang-tools-16 llvm-16 lcov libgtest-dev
 
       - name: Configure CMake
