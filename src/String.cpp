@@ -1,10 +1,24 @@
 #include "String.h"
 
+#include <Helper.h>
+#include <map>
 #include <random>
 #include <sstream>
 
 namespace faker
 {
+namespace
+{
+const std::string upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const std::string lowerCharacters = "abcdefghijklmnopqrstuvwxyz";
+const std::string mixedCharacters = upperCharacters + lowerCharacters;
+const std::map<StringCasing, std::string> stringCasingToCharactersMapping{
+    {StringCasing::Lower, lowerCharacters},
+    {StringCasing::Upper, upperCharacters},
+    {StringCasing::Mixed, mixedCharacters},
+};
+}
+
 // TODO: refactor
 std::string String::uuid()
 {
@@ -50,5 +64,19 @@ std::string String::uuid()
     };
 
     return ss.str();
+}
+
+std::string String::alpha(unsigned length, StringCasing casing)
+{
+    const auto& targetCharacters = stringCasingToCharactersMapping.at(casing);
+
+    std::string alpha;
+
+    for (unsigned i = 0; i < length; i++)
+    {
+        alpha += Helper::arrayElement<char>(targetCharacters);
+    }
+
+    return alpha;
 }
 }
