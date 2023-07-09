@@ -7,13 +7,15 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Discord Shield](https://img.shields.io/badge/discord-join-blue)](https://discord.gg/jPy9R64Q)
 
-faker-cxx is a modern C++20 open-source library for generating fake data for testing and development.
+C++ Faker is a modern C++20 open-source library for generating fake data for testing and development. The library 
+ 
+The library is heavily inspired by [Faker.js](https://github.com/faker-js/faker).
 
 Dependencies: GTest to build library tests (can be disabled by setting CMake flag BUILD_TESTS=OFF)
 
 ## 🎯 Goal
 
-My goal is to create a simple, modern C++ Faker library similar to [FakerJS](https://github.com/faker-js/faker).
+My goal is to provide a library like [Faker.js](https://github.com/faker-js/faker) for C++ developers.
 
 ## Example
 
