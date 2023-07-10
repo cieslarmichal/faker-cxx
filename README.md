@@ -58,6 +58,7 @@ target_link_libraries(main faker-cxx)
 - 🌐 Internet - Generate emails, usernames and passwords.
 - 🧑 Person - Generate first, last names.
 - 📅 Date - Generate past, future dates.
+- 🏦 Finance - Generate currency, IBAN, account name, account number, pin
 - 🔢 Number - Generate random numbers.
 - ℹ️ Datatype - Generate booleans
 - 📚 Lorem - Generate lorem text.
@@ -67,7 +68,6 @@ target_link_libraries(main faker-cxx)
 
 - 📞 Phone - Generate phone number
 - 🌍 Localization - Generate addresses.
-- 🏦 Finance - Generate currency, BIC, IBAN, account name, account number, pin
 - 👕 Commerce - Generate prices, product names, and descriptions.
 - 🏢 Company - Generate company name, location
 - 🎨 Color - Generate RGB colors and color names
