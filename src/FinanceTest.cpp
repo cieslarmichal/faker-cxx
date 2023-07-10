@@ -4,6 +4,7 @@
 
 #include "data/AccountTypes.h"
 #include "data/AlphanumericCharacters.h"
+#include "data/BankIndentifiersCodes.h"
 #include "data/Currencies.h"
 #include "StringHelper.h"
 
@@ -100,6 +101,14 @@ TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
     ASSERT_LE(amountAsFloat, max);
 }
 
+TEST_F(FinanceTest, shouldGenerateIban)
+{
+    const auto iban = Finance::iban();
+
+    // TODO: implement more detailed checks for iban with default argument
+    ASSERT_TRUE(iban.starts_with("PL") || iban.starts_with("IT") || iban.starts_with("FR") || iban.starts_with("DE") );
+}
+
 TEST_F(FinanceTest, shouldGeneratePolishIban)
 {
     const auto iban = Finance::iban(IbanCountry::Poland);
@@ -174,4 +183,26 @@ TEST_F(FinanceTest, shouldGenerateGermanyIban)
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(checksum));
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(blz));
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(accountNumber));
+}
+
+TEST_F(FinanceTest, shouldGenerateBic)
+{
+    const auto bic = Finance::bic();
+
+    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(BicCountry::Poland);
+
+    ASSERT_TRUE(std::any_of(polandBankIdentifiersCodes.begin(), polandBankIdentifiersCodes.end(),
+                            [bic](const std::string& polandBankIdentifierCode)
+                            { return bic == polandBankIdentifierCode; }));
+}
+
+TEST_F(FinanceTest, shouldGeneratePolandBic)
+{
+    const auto bic = Finance::bic(BicCountry::Poland);
+
+    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(BicCountry::Poland);
+
+    ASSERT_TRUE(std::any_of(polandBankIdentifiersCodes.begin(), polandBankIdentifiersCodes.end(),
+                            [bic](const std::string& polandBankIdentifierCode)
+                            { return bic == polandBankIdentifierCode; }));
 }
