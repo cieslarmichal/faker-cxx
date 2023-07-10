@@ -23,6 +23,7 @@ set(SOURCES
         src/DatatypeTest.cpp
         include/faker-cxx/Helper.h
         src/StringHelper.cpp
+        src/Finance.cpp
         )
 
 set(UT_SOURCES
@@ -33,6 +34,7 @@ set(UT_SOURCES
         src/InternetTest.cpp
         src/DateTest.cpp
         src/StringHelperTest.cpp
+        src/FinanceTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})

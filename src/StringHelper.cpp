@@ -1,14 +1,28 @@
 #include "StringHelper.h"
 
-#include <regex>
+#include <sstream>
 
 namespace faker
 {
 std::vector<std::string> StringHelper::split(const std::string& data, const std::string& separator)
 {
-    std::regex splitRegex(separator);
+    size_t positionStart = 0;
+    size_t positionEnd;
+    size_t separatorLength = separator.length();
 
-    return {std::sregex_token_iterator(data.begin(), data.end(), splitRegex, -1), std::sregex_token_iterator()};
+    std::string token;
+    std::vector<std::string> result;
+
+    while ((positionEnd = data.find(separator, positionStart)) != std::string::npos)
+    {
+        token = data.substr(positionStart, positionEnd - positionStart);
+        positionStart = positionEnd + separatorLength;
+        result.push_back(token);
+    }
+
+    result.push_back(data.substr(positionStart));
+
+    return result;
 }
 
 std::string StringHelper::join(const std::vector<std::string>& data, const std::string& separator)
