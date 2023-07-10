@@ -37,7 +37,7 @@
 ### 🌐 Internet:
 
 - [ ] avatar
-- [ ]color
+- [ ] color
 - [ ] emoji
 - [ ] httpMethod
 - [ ] httpStatusCode
