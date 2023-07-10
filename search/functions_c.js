@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['soondate_0',['soonDate',['../classfaker_1_1Date.html#a67910b9ec3d3e0b57285f96a8dfbc659',1,'faker::Date']]]
+  ['recentdate_0',['recentDate',['../classfaker_1_1Date.html#a7c47fce4110d1e4f06642871206a536b',1,'faker::Date']]]
 ];
