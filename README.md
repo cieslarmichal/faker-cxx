@@ -59,24 +59,23 @@ target_link_libraries(main faker-cxx)
 - 🧑 Person - Generate first, last names.
 - 📅 Date - Generate past, future dates.
 - 🔢 Number - Generate random numbers.
+- ℹ️ Datatype - Generate booleans
 - 📚 Lorem - Generate lorem text.
-- 🔢 String - Generate uuids.
+- 🔢 String - Generate uuids, alphanumeric strings etc.
 
 ## 🔨 TODO Modules
 
-- 🌍 Localization - Generate addresses.
-- 👕 Commerce - Generate prices, product names, and descriptions.
-- 🐘 Animal - Generate animal types and names
-- 🎨 Color - Generate RGB colors and color names
-- 🏢 Company - Generate company name, location
-- ℹ️ Datatype - Generate strings, numbers, booleans
-- 🎶 Music - Generate music genre, song names
-- 📖 Book - Generate book genre, title, author, isbn, published year
 - 📞 Phone - Generate phone number
-- 🎮 Game - Generate game genre, title
+- 🌍 Localization - Generate addresses.
+- 🏦 Finance - Generate currency, BIC, IBAN, account name, account number, pin
+- 👕 Commerce - Generate prices, product names, and descriptions.
+- 🏢 Company - Generate company name, location
+- 🎨 Color - Generate RGB colors and color names
+- 📖 Book - Generate book genre, title, author, isbn, published year
+
 
 ## ✨ Contributing
 
 Feel free to join Faker C++ development! 🚀
 
-[Discord Channel](https://discord.gg/jPy9R64Q) for project contributors.
+[Discord Channel](https://discord.gg/jPy9R64Q) for contributors.
