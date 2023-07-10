@@ -41,3 +41,6 @@ cmake-build-*
 .idea
 **.zip
 .env
+
+html/
+latex/
