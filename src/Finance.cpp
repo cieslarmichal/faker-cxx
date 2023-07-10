@@ -4,6 +4,7 @@
 #include <sstream>
 
 #include "data/AccountTypes.h"
+#include "data/BankIndentifiersCodes.h"
 #include "data/Currencies.h"
 #include "data/IbanFormats.h"
 #include "Helper.h"
@@ -43,6 +44,7 @@ std::string Finance::iban(std::optional<IbanCountry> country)
 {
     const auto ibanCountry = country ? *country : Helper::arrayElement<IbanCountry>(ibanCountries);
 
+    // TODO: error handling
     const auto& ibanFormat = ibanFormats.at(ibanCountry);
 
     const auto& countryCode = ibanFormat[0];
@@ -71,5 +73,13 @@ std::string Finance::iban(std::optional<IbanCountry> country)
     }
 
     return iban;
+}
+
+std::string Finance::bic(std::optional<BicCountry> country)
+{
+    const auto bicCountry = country ? *country : Helper::arrayElement<BicCountry>(bicCountries);
+
+    // TODO: error handling
+    return Helper::arrayElement<std::string>(bankIdentifiersCodesMapping.at(bicCountry));
 }
 }
