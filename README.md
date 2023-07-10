@@ -7,7 +7,7 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Discord Shield](https://img.shields.io/badge/discord-join-blue)](https://discord.gg/jPy9R64Q)
 
-C++ Faker is a modern C++20 open-source library for generating fake data for testing and development. The library
+C++ Faker is a modern C++20 open-source library for generating fake data for testing and development.
 
 The library is heavily inspired by [Faker.js](https://github.com/faker-js/faker).
 
