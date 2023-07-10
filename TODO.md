@@ -100,3 +100,15 @@
 - [ ] product sku
 - [ ] product description
 - [ ] department
+
+### ✍ Word:
+
+- [ ] adjective
+- [ ] adverb
+- [ ] conjunction
+- [ ] interjection
+- [ ] noun
+- [ ] preposition
+- [ ] sample
+- [ ] verb
+- [ ] words
