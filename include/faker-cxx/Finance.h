@@ -1,9 +1,13 @@
 #pragma once
 
+#include <optional>
 #include <string>
+
+#include "types/IbanCountry.h"
 
 namespace faker
 {
+
 class Finance
 {
 public:
@@ -48,5 +52,20 @@ public:
      */
     static std::string amount(unsigned min = 0, unsigned max = 1000, unsigned decimalPlaces = 2,
                               const std::string& symbol = "");
+
+    /**
+   * Generates a random iban.
+   *
+   * @param country The country from which you want to generate an IBAN, if none is provided a random country
+   will be used.
+   *
+   * @returns Iban
+   * @code
+   * faker.finance.iban() // 'TR736918640040966092800056'
+   * faker.finance.iban(true) // 'FR20 8008 2330 8984 74S3 Z620 224'
+   * faker.finance.iban(true, 'DE') // 'DE84 1022 7075 0900 1170 01'
+   * @endcode
+   */
+    static std::string iban(std::optional<IbanCountry> country);
 };
 }

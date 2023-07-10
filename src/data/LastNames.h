@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+namespace faker
+{
 const std::vector<std::string> lastNames = {
     "Abbott",      "Abernathy",     "Abshire",     "Adams",       "Altenwerth", "Anderson",     "Ankunding",
     "Armstrong",   "Auer",          "Aufderhar",   "Bahringer",   "Bailey",     "Balistreri",   "Barrows",
@@ -72,3 +74,4 @@ const std::vector<std::string> lastNames = {
     "Wyman",       "Yost",          "Yundt",       "Zboncak",     "Zemlak",     "Ziemann",      "Zieme",
     "Zulauf",
 };
+}
