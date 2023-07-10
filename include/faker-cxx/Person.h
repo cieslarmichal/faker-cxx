@@ -38,7 +38,7 @@ public:
     static std::string lastName();
 
     /**
-     * @brief Returns a random last name.
+     * @brief Returns a random full name.
      *
      * @returns Full name starting with first name
      *

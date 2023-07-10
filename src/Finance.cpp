@@ -24,10 +24,9 @@ std::string Finance::accountType()
     return Helper::arrayElement<std::string>(accountTypes);
 }
 
-std::string Finance::amount(unsigned int min, unsigned int max, unsigned int decimalPlaces, const std::string& symbol)
+std::string Finance::amount(double min, double max, unsigned int decimalPlaces, const std::string& symbol)
 {
-    const std::floating_point auto generatedNumber =
-        Number::decimal<float>(static_cast<float>(min), static_cast<float>(max));
+    const std::floating_point auto generatedNumber = Number::decimal<double>(min, max);
 
     std::stringstream ss;
 
@@ -40,9 +39,9 @@ std::string Finance::amount(unsigned int min, unsigned int max, unsigned int dec
     return std::format("{}{}", symbol, ss.str());
 }
 
-std::string Finance::iban(std::optional<IbanCountry> country)
+std::string Finance::iban(std::optional<Country> country)
 {
-    const auto ibanCountry = country ? *country : Helper::arrayElement<IbanCountry>(ibanCountries);
+    const auto ibanCountry = country ? *country : Helper::arrayElement<Country>(supportedIbanCountries);
 
     // TODO: error handling
     const auto& ibanFormat = ibanFormats.at(ibanCountry);
@@ -75,11 +74,21 @@ std::string Finance::iban(std::optional<IbanCountry> country)
     return iban;
 }
 
-std::string Finance::bic(std::optional<BicCountry> country)
+std::string Finance::bic(std::optional<Country> country)
 {
-    const auto bicCountry = country ? *country : Helper::arrayElement<BicCountry>(bicCountries);
+    const auto bicCountry = country ? *country : Helper::arrayElement<Country>(supportedBankIdentifiersCodesCountries);
 
     // TODO: error handling
     return Helper::arrayElement<std::string>(bankIdentifiersCodesMapping.at(bicCountry));
+}
+
+std::string Finance::accountNumber(unsigned int length)
+{
+    return String::numeric(length, true);
+}
+
+std::string Finance::pin(unsigned int length)
+{
+    return String::numeric(length, true);
 }
 }

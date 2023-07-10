@@ -14,7 +14,7 @@ using namespace faker;
 class FinanceTest : public Test
 {
 public:
-    bool checkIfAllCharactersAreNumeric(const std::string& data)
+    static bool checkIfAllCharactersAreNumeric(const std::string& data)
     {
         return std::all_of(data.begin(), data.end(),
                            [](char dataCharacter)
@@ -25,7 +25,7 @@ public:
                            });
     }
 
-    bool checkIfAllCharactersAreAlphanumeric(const std::string& data)
+    static bool checkIfAllCharactersAreAlphanumeric(const std::string& data)
     {
         return std::all_of(data.begin(), data.end(),
                            [](char dataCharacter)
@@ -37,7 +37,7 @@ public:
                            });
     }
 
-    bool checkIfAllCharactersAreAlpha(const std::string& data)
+    static bool checkIfAllCharactersAreAlpha(const std::string& data)
     {
         return std::all_of(data.begin(), data.end(),
                            [](char dataCharacter)
@@ -106,12 +106,12 @@ TEST_F(FinanceTest, shouldGenerateIban)
     const auto iban = Finance::iban();
 
     // TODO: implement more detailed checks for iban with default argument
-    ASSERT_TRUE(iban.starts_with("PL") || iban.starts_with("IT") || iban.starts_with("FR") || iban.starts_with("DE") );
+    ASSERT_TRUE(iban.starts_with("PL") || iban.starts_with("IT") || iban.starts_with("FR") || iban.starts_with("DE"));
 }
 
 TEST_F(FinanceTest, shouldGeneratePolishIban)
 {
-    const auto iban = Finance::iban(IbanCountry::Poland);
+    const auto iban = Finance::iban(Country::Poland);
 
     const auto countryCode = iban.substr(0, 2);
     const auto checksum = iban.substr(2, 2);
@@ -131,7 +131,7 @@ TEST_F(FinanceTest, shouldGeneratePolishIban)
 
 TEST_F(FinanceTest, shouldGenerateFranceIban)
 {
-    const auto iban = Finance::iban(IbanCountry::France);
+    const auto iban = Finance::iban(Country::France);
 
     const auto countryCode = iban.substr(0, 2);
     const auto checksum = iban.substr(2, 2);
@@ -151,7 +151,7 @@ TEST_F(FinanceTest, shouldGenerateFranceIban)
 
 TEST_F(FinanceTest, shouldGenerateItalyIban)
 {
-    const auto iban = Finance::iban(IbanCountry::Italy);
+    const auto iban = Finance::iban(Country::Italy);
 
     const auto countryCode = iban.substr(0, 2);
     const auto checksum = iban.substr(2, 2);
@@ -171,7 +171,7 @@ TEST_F(FinanceTest, shouldGenerateItalyIban)
 
 TEST_F(FinanceTest, shouldGenerateGermanyIban)
 {
-    const auto iban = Finance::iban(IbanCountry::Germany);
+    const auto iban = Finance::iban(Country::Germany);
 
     const auto countryCode = iban.substr(0, 2);
     const auto checksum = iban.substr(2, 2);
@@ -189,7 +189,7 @@ TEST_F(FinanceTest, shouldGenerateBic)
 {
     const auto bic = Finance::bic();
 
-    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(BicCountry::Poland);
+    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(Country::Poland);
 
     ASSERT_TRUE(std::any_of(polandBankIdentifiersCodes.begin(), polandBankIdentifiersCodes.end(),
                             [bic](const std::string& polandBankIdentifierCode)
@@ -198,11 +198,71 @@ TEST_F(FinanceTest, shouldGenerateBic)
 
 TEST_F(FinanceTest, shouldGeneratePolandBic)
 {
-    const auto bic = Finance::bic(BicCountry::Poland);
+    const auto bic = Finance::bic(Country::Poland);
 
-    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(BicCountry::Poland);
+    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(Country::Poland);
 
     ASSERT_TRUE(std::any_of(polandBankIdentifiersCodes.begin(), polandBankIdentifiersCodes.end(),
                             [bic](const std::string& polandBankIdentifierCode)
                             { return bic == polandBankIdentifierCode; }));
+}
+
+TEST_F(FinanceTest, shouldGenerateAccountNumber)
+{
+    const auto accountNumber = Finance::accountNumber();
+
+    ASSERT_EQ(accountNumber.size(), 8);
+    ASSERT_TRUE(std::all_of(accountNumber.begin(), accountNumber.end(),
+                            [](char accountNumberCharacter)
+                            {
+                                return std::any_of(numericCharacters.begin(), numericCharacters.end(),
+                                                   [accountNumberCharacter](char numericCharacter)
+                                                   { return accountNumberCharacter == numericCharacter; });
+                            }));
+}
+
+TEST_F(FinanceTest, shouldGenerateAccountNumberWithSpecifiedLength)
+{
+    const auto accountNumberLength = 26;
+
+    const auto accountNumber = Finance::accountNumber(accountNumberLength);
+
+    ASSERT_EQ(accountNumber.size(), accountNumberLength);
+    ASSERT_TRUE(std::all_of(accountNumber.begin(), accountNumber.end(),
+                            [](char accountNumberCharacter)
+                            {
+                                return std::any_of(numericCharacters.begin(), numericCharacters.end(),
+                                                   [accountNumberCharacter](char numericCharacter)
+                                                   { return accountNumberCharacter == numericCharacter; });
+                            }));
+}
+
+TEST_F(FinanceTest, shouldGeneratePinNumber)
+{
+    const auto pin = Finance::pin();
+
+    ASSERT_EQ(pin.size(), 4);
+    ASSERT_TRUE(std::all_of(pin.begin(), pin.end(),
+                            [](char pinNumberCharacter)
+                            {
+                                return std::any_of(numericCharacters.begin(), numericCharacters.end(),
+                                                   [pinNumberCharacter](char numericCharacter)
+                                                   { return pinNumberCharacter == numericCharacter; });
+                            }));
+}
+
+TEST_F(FinanceTest, shouldGeneratePinNumberWithSpecifiedLength)
+{
+    const auto pinLength = 8;
+
+    const auto pin = Finance::pin(pinLength);
+
+    ASSERT_EQ(pin.size(), pinLength);
+    ASSERT_TRUE(std::all_of(pin.begin(), pin.end(),
+                            [](char pinNumberCharacter)
+                            {
+                                return std::any_of(numericCharacters.begin(), numericCharacters.end(),
+                                                   [pinNumberCharacter](char numericCharacter)
+                                                   { return pinNumberCharacter == numericCharacter; });
+                            }));
 }
