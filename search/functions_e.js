@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['weekdayabbreviatedname_0',['weekdayAbbreviatedName',['../classfaker_1_1Date.html#a627838bb79045b60468ae97d6cf5e00b',1,'faker::Date']]],
-  ['weekdayname_1',['weekdayName',['../classfaker_1_1Date.html#a45d75607a7cb576d28280efcdb30ad6a',1,'faker::Date']]]
+  ['weekdayabbreviatedname_0',['weekdayAbbreviatedName',['../classfaker_1_1Date.html#a27acfb21331807d8cfc0b3c9cfe57927',1,'faker::Date']]],
+  ['weekdayname_1',['weekdayName',['../classfaker_1_1Date.html#a04494097d938c26becc981c1130af899',1,'faker::Date']]]
 ];
