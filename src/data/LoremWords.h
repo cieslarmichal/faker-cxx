@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+namespace faker
+{
 const std::vector<std::string> loremWords = {
     "alias",
     "consequatur",
@@ -187,3 +189,4 @@ const std::vector<std::string> loremWords = {
     "asperiores",
     "repellat",
 };
+}

@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+namespace faker
+{
 const std::vector<std::string> loremSupplemental = {
     "abbas",       "abduco",        "abeo",         "abscido",       "absconditus", "absens",        "absorbeo",
     "absque",      "abstergo",      "absum",        "abundans",      "abutor",      "accedo",        "accendo",
@@ -125,3 +127,4 @@ const std::vector<std::string> loremSupplemental = {
     "votum",       "voveo",         "vox",          "vulariter",     "vulgaris",    "vulgivagus",    "vulgo",
     "vulgus",      "vulnero",       "vulnus",       "vulpes",        "vulticulus",  "vultuosus",     "xiphias",
 };
+}

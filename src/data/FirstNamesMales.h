@@ -3,6 +3,8 @@
 #include <string>
 #include <vector>
 
+namespace faker
+{
 const std::vector<std::string> firstNamesMales = {
     "James",     "John",      "Robert",      "Michael",   "William",   "David",      "Richard",  "Charles",
     "Joseph",    "Thomas",    "Christopher", "Daniel",    "Paul",      "Mark",       "Donald",   "George",
@@ -68,3 +70,4 @@ const std::vector<std::string> firstNamesMales = {
     "Jan",       "Emilio",    "Elijah",      "Cary",      "Domingo",   "Santos",     "Aubrey",   "Emmett",
     "Marlon",    "Emanuel",   "Jerald",      "Edmond",
 };
+}

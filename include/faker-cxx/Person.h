@@ -3,13 +3,10 @@
 #include <optional>
 #include <string>
 
+#include "types/Sex.h"
+
 namespace faker
 {
-enum class Sex
-{
-    Male,
-    Female,
-};
 
 class Person
 {
