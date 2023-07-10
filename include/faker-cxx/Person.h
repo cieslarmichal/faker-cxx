@@ -49,5 +49,27 @@ public:
      * @endcode
      */
     static std::string fullName(std::optional<Sex> = std::nullopt);
+
+    /**
+     * @brief Returns a sex.
+     *
+     * @returns Sex
+     *
+     * @code
+     * Person::sex() // "Male"
+     * @endcode
+     */
+    static std::string sex();
+
+    /**
+     * @brief Returns a random gender.
+     *
+     * @returns Gender
+     *
+     * @code
+     * Person::gender() // "Transexual woman"
+     * @endcode
+     */
+    static std::string gender();
 };
 }

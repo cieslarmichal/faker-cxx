@@ -13,7 +13,8 @@
 ### 🧑 Person:
 
 - [ ] bio
-- [ ] gender
+- [x] sex
+- [x] gender
 - [ ] job area
 - [ ] job description
 - [ ] job title
