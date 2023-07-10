@@ -3,8 +3,7 @@
 #include <optional>
 #include <string>
 
-#include "types/BicCountry.h"
-#include "types/IbanCountry.h"
+#include "types/Country.h"
 
 namespace faker
 {
@@ -51,7 +50,7 @@ public:
      * Finance::amount(5, 10, 2, '$') // '$5.85'
      * @endcode
      */
-    static std::string amount(unsigned min = 0, unsigned max = 1000, unsigned decimalPlaces = 2,
+    static std::string amount(double min = 0, double max = 1000, unsigned decimalPlaces = 2,
                               const std::string& symbol = "");
 
     /**
@@ -66,7 +65,7 @@ public:
      * Finance::iban(IbanCountry::Poland) // 'PL61109010140000071219812874'
      * @endcode
      */
-    static std::string iban(std::optional<IbanCountry> country = std::nullopt);
+    static std::string iban(std::optional<Country> country = std::nullopt);
 
     /**
      * Generates a random bic.
@@ -80,6 +79,34 @@ public:
      * Finance::bic(IbanCountry::Poland) // 'BREXPLPWMUL'
      * @endcode
      */
-    static std::string bic(std::optional<BicCountry> country = std::nullopt);
+    static std::string bic(std::optional<Country> country = std::nullopt);
+
+    /**
+     * Generates a random account number.
+     *
+     * @param length The length of the account number. Defaults to `8`.
+     *
+     * @returns Account number
+     *
+     * @code
+     * Finance::accountNumber() // 92842238
+     * Finance::accountNumber(26) // 55875455514825927518796290
+     * @endcode
+     */
+    static std::string accountNumber(unsigned length = 8);
+
+    /**
+     * Generates a random PIN number.
+     *
+     * @param length The length of the PIN to generate. Defaults to `4`.
+     *
+     * @returns PIN number
+     *
+     * @code
+     * Finance::pin() // 5067
+     * Finance::pin(8) // 21378928
+     * @endcode
+     */
+    static std::string pin(unsigned length = 4);
 };
 }
