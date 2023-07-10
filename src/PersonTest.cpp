@@ -6,6 +6,7 @@
 
 #include "data/FirstNamesFemales.h"
 #include "data/FirstNamesMales.h"
+#include "data/Gender.h"
 #include "data/LastNames.h"
 #include "StringHelper.h"
 
@@ -110,4 +111,22 @@ TEST_F(PersonTest, shouldGenerateFemaleFullName)
     ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
                             [generatedLastName](const std::string& lastName)
                             { return lastName == generatedLastName; }));
+}
+
+TEST_F(PersonTest, shouldGenerateSex)
+{
+    const std::vector<std::string> sexes{"Male", "Female"};
+
+    const auto generatedSex = Person::sex();
+
+    ASSERT_TRUE(std::any_of(sexes.begin(), sexes.end(),
+                            [generatedSex](const std::string& sex) { return sex == generatedSex; }));
+}
+
+TEST_F(PersonTest, shouldGenerateGender)
+{
+    const auto generatedGender = Person::gender();
+
+    ASSERT_TRUE(std::any_of(genders.begin(), genders.end(),
+                            [generatedGender](const std::string& gender) { return gender == generatedGender; }));
 }
