@@ -11,11 +11,21 @@ namespace
 {
 const std::string upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const std::string lowerCharacters = "abcdefghijklmnopqrstuvwxyz";
-const std::string mixedCharacters = upperCharacters + lowerCharacters;
-const std::map<StringCasing, std::string> stringCasingToCharactersMapping{
+const std::string numericCharactersWithoutZero = "123456789";
+const std::string numericCharacters = "0123456789";
+const std::string mixedAlphaCharacters = upperCharacters + lowerCharacters;
+const std::string lowerAlphanumericCharacters = lowerCharacters + numericCharacters;
+const std::string upperAlphanumericCharacters = upperCharacters + numericCharacters;
+const std::string mixedAlphanumericCharacters = upperCharacters + lowerCharacters + numericCharacters;
+const std::map<StringCasing, std::string> stringCasingToAlphaCharactersMapping{
     {StringCasing::Lower, lowerCharacters},
     {StringCasing::Upper, upperCharacters},
-    {StringCasing::Mixed, mixedCharacters},
+    {StringCasing::Mixed, mixedAlphaCharacters},
+};
+const std::map<StringCasing, std::string> stringCasingToAlphanumericCharactersMapping{
+    {StringCasing::Lower, lowerAlphanumericCharacters},
+    {StringCasing::Upper, upperAlphanumericCharacters},
+    {StringCasing::Mixed, mixedAlphanumericCharacters},
 };
 }
 
@@ -68,7 +78,7 @@ std::string String::uuid()
 
 std::string String::alpha(unsigned length, StringCasing casing)
 {
-    const auto& targetCharacters = stringCasingToCharactersMapping.at(casing);
+    const auto& targetCharacters = stringCasingToAlphaCharactersMapping.at(casing);
 
     std::string alpha;
 
@@ -78,5 +88,38 @@ std::string String::alpha(unsigned length, StringCasing casing)
     }
 
     return alpha;
+}
+
+std::string String::alphanumeric(unsigned int length, StringCasing casing)
+{
+    const auto& targetCharacters = stringCasingToAlphanumericCharactersMapping.at(casing);
+
+    std::string alphanumeric;
+
+    for (unsigned i = 0; i < length; i++)
+    {
+        alphanumeric += Helper::arrayElement<char>(targetCharacters);
+    }
+
+    return alphanumeric;
+}
+
+std::string String::numeric(unsigned int length, bool allowLeadingZeros)
+{
+    std::string alphanumeric;
+
+    for (unsigned i = 0; i < length; i++)
+    {
+        if (i == 0 && allowLeadingZeros)
+        {
+            alphanumeric += Helper::arrayElement<char>(numericCharactersWithoutZero);
+        }
+        else
+        {
+            alphanumeric += Helper::arrayElement<char>(numericCharacters);
+        }
+    }
+
+    return alphanumeric;
 }
 }
