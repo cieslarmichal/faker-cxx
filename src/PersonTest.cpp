@@ -7,6 +7,7 @@
 #include "data/FirstNamesFemales.h"
 #include "data/FirstNamesMales.h"
 #include "data/Gender.h"
+#include "data/JobTitles.h"
 #include "data/LastNames.h"
 #include "StringHelper.h"
 
@@ -129,4 +130,48 @@ TEST_F(PersonTest, shouldGenerateGender)
 
     ASSERT_TRUE(std::any_of(genders.begin(), genders.end(),
                             [generatedGender](const std::string& gender) { return gender == generatedGender; }));
+}
+
+TEST_F(PersonTest, shouldGenerateJobDescriptor)
+{
+    const auto generatedJobDescriptor = Person::jobDescriptor();
+
+    ASSERT_TRUE(std::any_of(jobDescriptors.begin(), jobDescriptors.end(),
+                            [generatedJobDescriptor](const std::string& jobDescriptor)
+                            { return jobDescriptor == generatedJobDescriptor; }));
+}
+
+TEST_F(PersonTest, shouldGenerateJobArea)
+{
+    const auto generatedJobArea = Person::jobArea();
+
+    ASSERT_TRUE(std::any_of(jobAreas.begin(), jobAreas.end(),
+                            [generatedJobArea](const std::string& jobArea) { return jobArea == generatedJobArea; }));
+}
+
+TEST_F(PersonTest, shouldGenerateJobType)
+{
+    const auto generatedJobType = Person::jobType();
+
+    ASSERT_TRUE(std::any_of(jobTypes.begin(), jobTypes.end(),
+                            [generatedJobType](const std::string& jobType) { return jobType == generatedJobType; }));
+}
+
+TEST_F(PersonTest, shouldGenerateJobTitle)
+{
+    const auto generatedJobTitle = Person::jobTitle();
+
+    const auto jobTitleElements = StringHelper::split(generatedJobTitle, " ");
+
+    const auto& generatedJobDescriptor = jobTitleElements[0];
+    const auto& generatedJobArea = jobTitleElements[1];
+    const auto& generatedJobType = jobTitleElements[2];
+
+    ASSERT_TRUE(std::any_of(jobDescriptors.begin(), jobDescriptors.end(),
+                            [generatedJobDescriptor](const std::string& jobDescriptor)
+                            { return jobDescriptor == generatedJobDescriptor; }));
+    ASSERT_TRUE(std::any_of(jobAreas.begin(), jobAreas.end(),
+                            [generatedJobArea](const std::string& jobArea) { return jobArea == generatedJobArea; }));
+    ASSERT_TRUE(std::any_of(jobTypes.begin(), jobTypes.end(),
+                            [generatedJobType](const std::string& jobType) { return jobType == generatedJobType; }));
 }

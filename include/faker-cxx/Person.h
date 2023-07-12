@@ -71,5 +71,49 @@ public:
      * @endcode
      */
     static std::string gender();
+
+    /**
+     * @brief Returns a random job title.
+     *
+     * @returns Job title
+     *
+     * @code
+     * Person::jobTitle() // 'Global Accounts Engineer'
+     * @endcode
+     */
+    static std::string jobTitle();
+
+    /**
+     * @brief Returns a random job descriptor.
+     *
+     * @returns Job descriptor
+     *
+     * @code
+     * Person::jobDescriptor() // 'Senior'
+     * @endcode
+     */
+    static std::string jobDescriptor();
+
+    /**
+     * @brief Returns a random job area.
+     *
+     * @returns Job area
+     *
+     * @code
+     * Person::jobArea() // 'Software'
+     * @endcode
+     */
+    static std::string jobArea();
+
+    /**
+     * @brief Returns a random job type.
+     *
+     * @returns Job type
+     *
+     * @code
+     * Person::jobType() // 'Engineer'
+     * @endcode
+     */
+    static std::string jobType();
 };
 }

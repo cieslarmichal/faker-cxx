@@ -15,10 +15,10 @@
 - [ ] bio
 - [x] sex
 - [x] gender
-- [ ] job area
-- [ ] job description
-- [ ] job title
-- [ ] job type
+- [x] job area
+- [x] job descriptor
+- [x] job title
+- [x] job type
 - [ ] prefix
 
 ### 📞 Phone:
