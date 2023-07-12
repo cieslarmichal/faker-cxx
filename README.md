@@ -59,6 +59,7 @@ target_link_libraries(main faker-cxx)
 - 🧑 Person - Generate first, last names.
 - 📅 Date - Generate past, future dates.
 - 🏦 Finance - Generate currency, IBAN, account name, account number, pin
+- 🏢 Company - Generate company name.
 - 🔢 Number - Generate random numbers.
 - ℹ️ Datatype - Generate booleans
 - 📚 Lorem - Generate lorem text.
