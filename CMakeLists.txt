@@ -24,6 +24,7 @@ set(SOURCES
         include/faker-cxx/Helper.h
         src/StringHelper.cpp
         src/Finance.cpp
+        src/Company.cpp
         )
 
 set(UT_SOURCES
@@ -35,6 +36,7 @@ set(UT_SOURCES
         src/DateTest.cpp
         src/StringHelperTest.cpp
         src/FinanceTest.cpp
+        src/CompanyTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})
