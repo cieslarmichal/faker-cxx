@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['password_0',['password',['../classfaker_1_1Internet.html#accf91e2599865b20e539b62661c96e23',1,'faker::Internet']]],
-  ['pastdate_1',['pastDate',['../classfaker_1_1Date.html#a1dc7c608e07fdb276a1b9cc58d5bb33d',1,'faker::Date']]],
-  ['pin_2',['pin',['../classfaker_1_1Finance.html#a15e187cc0587b8f94c7a41e48ae87ba6',1,'faker::Finance']]],
-  ['prefix_3',['prefix',['../classfaker_1_1Person.html#a028887fb2a41481096c6547ed1ab57f1',1,'faker::Person']]]
+  ['name_0',['name',['../classfaker_1_1Color.html#a75edc9ff2a0cef9b02c998d123d18821',1,'faker::Color::name()'],['../classfaker_1_1Company.html#a2bdc843b50fd6a12217706ccc1f265ea',1,'faker::Company::name()']]],
+  ['numeric_1',['numeric',['../classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd',1,'faker::String']]]
 ];

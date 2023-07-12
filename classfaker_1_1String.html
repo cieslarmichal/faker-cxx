@@ -95,6 +95,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae89b77056f5e13e5bf0418d6a6c231fd"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a> (unsigned length=1, bool allowLeadingZeros=true)</td></tr>
 <tr class="memdesc:ae89b77056f5e13e5bf0418d6a6c231fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a given length string of digits.  <br /></td></tr>
 <tr class="separator:ae89b77056f5e13e5bf0418d6a6c231fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae95d6815ba2172cc63374c391d246006"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">hexadecimal</a> (unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</td></tr>
+<tr class="memdesc:ae95d6815ba2172cc63374c391d246006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a hexadecimal string.  <br /></td></tr>
+<tr class="separator:ae95d6815ba2172cc63374c391d246006"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6d97fdf6f3c37532ee92c2245fd252db" name="a6d97fdf6f3c37532ee92c2245fd252db"></a>
@@ -140,10 +143,10 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Alpha string</dd></dl>
-<div class="fragment"><div class="line">Person::alpha() <span class="comment">// &quot;b&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">alpha</a>(5, StringCasing::Upper) <span class="comment">// &quot;DTCIC&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">alpha</a>(4, StringCasing::Lower) <span class="comment">// &quot;brpt&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Person_html"><div class="ttname"><a href="classfaker_1_1Person.html">faker::Person</a></div><div class="ttdef"><b>Definition</b> Person.h:11</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">String::alpha</a>() <span class="comment">// &quot;b&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">alpha</a>(5, StringCasing::Upper) <span class="comment">// &quot;DTCIC&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">alpha</a>(4, StringCasing::Lower) <span class="comment">// &quot;brpt&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1String_html"><div class="ttname"><a href="classfaker_1_1String.html">faker::String</a></div><div class="ttdef"><b>Definition</b> String.h:17</div></div>
 <div class="ttc" id="aclassfaker_1_1String_html_a6d97fdf6f3c37532ee92c2245fd252db"><div class="ttname"><a href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">faker::String::alpha</a></div><div class="ttdeci">static std::string alpha(unsigned length=1, StringCasing casing=StringCasing::Mixed)</div><div class="ttdoc">Generates a string consisting of letters in the English alphabet.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -191,10 +194,66 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Alphanumeric string</dd></dl>
-<div class="fragment"><div class="line">Person::alphanumeric() <span class="comment">// &quot;4&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="classfaker_1_1String.html#aa0bb73dd630e59a291a1bbea567865d4">alphanumeric</a>(5, StringCasing::Upper) <span class="comment">// &quot;3e5V7&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="classfaker_1_1String.html#aa0bb73dd630e59a291a1bbea567865d4">alphanumeric</a>(4, StringCasing::Lower) <span class="comment">// &quot;1nrq&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#aa0bb73dd630e59a291a1bbea567865d4">String::alphanumeric</a>() <span class="comment">// &quot;4&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#aa0bb73dd630e59a291a1bbea567865d4">alphanumeric</a>(5, StringCasing::Upper) <span class="comment">// &quot;3e5V7&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#aa0bb73dd630e59a291a1bbea567865d4">alphanumeric</a>(4, StringCasing::Lower) <span class="comment">// &quot;1nrq&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1String_html_aa0bb73dd630e59a291a1bbea567865d4"><div class="ttname"><a href="classfaker_1_1String.html#aa0bb73dd630e59a291a1bbea567865d4">faker::String::alphanumeric</a></div><div class="ttdeci">static std::string alphanumeric(unsigned length=1, StringCasing casing=StringCasing::Mixed)</div><div class="ttdoc">Generates a string consisting of alpha characters and digits.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ae95d6815ba2172cc63374c391d246006" name="ae95d6815ba2172cc63374c391d246006"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae95d6815ba2172cc63374c391d246006">&#9670;&#160;</a></span>hexadecimal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::String::hexadecimal </td>
+          <td>(</td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>length</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HexCasing&#160;</td>
+          <td class="paramname"><em>casing</em> = <code>HexCasing::Lower</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HexPrefix&#160;</td>
+          <td class="paramname"><em>prefix</em> = <code>HexPrefix::ZeroX</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a hexadecimal string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>The number of digits to generate. Defaults to <code>1</code> </td></tr>
+    <tr><td class="paramname">casing</td><td>Casing of the generated string. Defaults to &lsquo;'Lower&rsquo;<code>. @param prefix Prefix for the generated string. Defaults to</code>'0x'</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Hexadecimal string</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">String::hexadecimal</a>() <span class="comment">// &quot;0xb&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">hexadecimal</a>(10) <span class="comment">// &quot;0xae13d044cb&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">hexadecimal</a>(6, HexCasing::Upper, HexPrefix::Hash) <span class="comment">// &quot;#E3F380&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1String_html_ae95d6815ba2172cc63374c391d246006"><div class="ttname"><a href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">faker::String::hexadecimal</a></div><div class="ttdeci">static std::string hexadecimal(unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</div><div class="ttdoc">Generates a hexadecimal string.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -241,9 +300,9 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Numeric string</dd></dl>
-<div class="fragment"><div class="line">Person::numeric() <span class="comment">// &quot;1&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a>(6) <span class="comment">// &quot;035742&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a>(6, false) <span class="comment">// &quot;254429&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">String::numeric</a>() <span class="comment">// &quot;1&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a>(6) <span class="comment">// &quot;035742&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a>(6, false) <span class="comment">// &quot;254429&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1String_html_ae89b77056f5e13e5bf0418d6a6c231fd"><div class="ttname"><a href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">faker::String::numeric</a></div><div class="ttdeci">static std::string numeric(unsigned length=1, bool allowLeadingZeros=true)</div><div class="ttdoc">Generates a given length string of digits.</div></div>
 </div><!-- fragment --> 
 </div>
