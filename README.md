@@ -57,6 +57,7 @@ target_link_libraries(main faker-cxx)
 
 - 🌐 Internet - Generate emails, usernames and passwords.
 - 🧑 Person - Generate first, last names, job titles, genders, sex.
+- 🛒 Commerce - Generate commerce department, product name, sku, price.
 - 📅 Date - Generate past, future dates.
 - 🏦 Finance - Generate currency, IBAN, BIC, account name, account number, pin.
 - 🏢 Company - Generate company name.
