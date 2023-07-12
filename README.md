@@ -72,4 +72,6 @@ target_link_libraries(main faker-cxx)
 
 Feel free to join Faker C++ development! 🚀
 
+Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.
+
 [Discord Channel](https://discord.gg/jPy9R64Q) for contributors.
