@@ -92,6 +92,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8b573f8b731619d9d29d1c1c8303faf7"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Person.html#a8b573f8b731619d9d29d1c1c8303faf7">fullName</a> (std::optional&lt; Sex &gt;=std::nullopt)</td></tr>
 <tr class="memdesc:a8b573f8b731619d9d29d1c1c8303faf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random full name.  <br /></td></tr>
 <tr class="separator:a8b573f8b731619d9d29d1c1c8303faf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a028887fb2a41481096c6547ed1ab57f1"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Person.html#a028887fb2a41481096c6547ed1ab57f1">prefix</a> (std::optional&lt; Sex &gt;=std::nullopt)</td></tr>
+<tr class="memdesc:a028887fb2a41481096c6547ed1ab57f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random name prefix.  <br /></td></tr>
+<tr class="separator:a028887fb2a41481096c6547ed1ab57f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0347ebf92763183d8eef2fce5f78fc44"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Person.html#a0347ebf92763183d8eef2fce5f78fc44">sex</a> ()</td></tr>
 <tr class="memdesc:a0347ebf92763183d8eef2fce5f78fc44"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a sex.  <br /></td></tr>
 <tr class="separator:a0347ebf92763183d8eef2fce5f78fc44"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -362,6 +365,45 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Last name starting with a capital letter</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Person.html#a7961f92b2a08ba807497795bb65a530e">Person::lastName</a>() <span class="comment">// &quot;Peterson&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_a7961f92b2a08ba807497795bb65a530e"><div class="ttname"><a href="classfaker_1_1Person.html#a7961f92b2a08ba807497795bb65a530e">faker::Person::lastName</a></div><div class="ttdeci">static std::string lastName()</div><div class="ttdoc">Returns a random last name.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a028887fb2a41481096c6547ed1ab57f1" name="a028887fb2a41481096c6547ed1ab57f1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a028887fb2a41481096c6547ed1ab57f1">&#9670;&#160;</a></span>prefix()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Person::prefix </td>
+          <td>(</td>
+          <td class="paramtype">std::optional&lt; Sex &gt;&#160;</td>
+          <td class="paramname"> = <code>std::nullopt</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a random name prefix. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sex</td><td>The optional sex to use.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Name prefix</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Person.html#a028887fb2a41481096c6547ed1ab57f1">Person::prefix</a>() <span class="comment">// &#39;Miss&#39;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="classfaker_1_1Person.html#a028887fb2a41481096c6547ed1ab57f1">prefix</a>(Sex::Female) <span class="comment">// &#39;Ms.&#39;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="classfaker_1_1Person.html#a028887fb2a41481096c6547ed1ab57f1">prefix</a>(Sex::Male) <span class="comment">// &#39;Mr.&#39;</span></div>
+<div class="ttc" id="aclassfaker_1_1Person_html_a028887fb2a41481096c6547ed1ab57f1"><div class="ttname"><a href="classfaker_1_1Person.html#a028887fb2a41481096c6547ed1ab57f1">faker::Person::prefix</a></div><div class="ttdeci">static std::string prefix(std::optional&lt; Sex &gt;=std::nullopt)</div><div class="ttdoc">Returns a random name prefix.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
