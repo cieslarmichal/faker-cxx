@@ -25,8 +25,6 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
 {
     const auto companyName = Company::name();
 
-    std::cerr << companyName;
-
     const auto companyNameElements = StringHelper::split(companyName, " ");
 
     std::vector<std::string> expectedFirstNames{firstNamesMales};

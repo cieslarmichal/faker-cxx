@@ -3,8 +3,8 @@
 #include "gtest/gtest.h"
 
 #include "data/AccountTypes.h"
-#include "data/AlphanumericCharacters.h"
 #include "data/BankIndentifiersCodes.h"
+#include "data/Characters.h"
 #include "data/Currencies.h"
 #include "StringHelper.h"
 

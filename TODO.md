@@ -26,9 +26,9 @@
 
 ### 🎨 Color:
 
-- [ ] rgb
-- [ ] hex
-- [ ] name
+- [x] rgb
+- [x] hex
+- [x] name
 
 ### 🖼 Image:
 
