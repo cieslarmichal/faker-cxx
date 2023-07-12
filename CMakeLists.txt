@@ -25,6 +25,7 @@ set(SOURCES
         src/StringHelper.cpp
         src/Finance.cpp
         src/Company.cpp
+        src/Color.cpp
         )
 
 set(UT_SOURCES
@@ -37,6 +38,7 @@ set(UT_SOURCES
         src/StringHelperTest.cpp
         src/FinanceTest.cpp
         src/CompanyTest.cpp
+        src/ColorTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})
