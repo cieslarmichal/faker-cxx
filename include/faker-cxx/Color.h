@@ -44,8 +44,8 @@ public:
      * @returns Hex color formatted that starts with '0x' or '#'.
      *
      * @code
-     * String::hex() // "#e3f380"
-     * String::hex(HexCasing::Upper, HexPrefix::ZeroX, true) // "0xE3F3801A"
+     * Color::hex() // "#e3f380"
+     * Color::hex(HexCasing::Upper, HexPrefix::ZeroX, true) // "0xE3F3801A"
      * @endcode
      */
     static std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash,
