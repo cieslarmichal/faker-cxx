@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.7"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faker C++: faker::DecimalDistribution Concept Reference</title>
+<title>Faker C++: faker::Company Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -70,32 +70,58 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><b>faker</b></li><li class="navelem"><a class="el" href="conceptfaker_1_1DecimalDistribution.html">DecimalDistribution</a></li>  </ul>
+<li class="navelem"><b>faker</b></li><li class="navelem"><a class="el" href="classfaker_1_1Company.html">Company</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">faker::DecimalDistribution Concept Reference</div></div>
+  <div class="summary">
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="classfaker_1_1Company-members.html">List of all members</a>  </div>
+  <div class="headertitle"><div class="title">faker::Company Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a2bdc843b50fd6a12217706ccc1f265ea"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Company.html#a2bdc843b50fd6a12217706ccc1f265ea">name</a> ()</td></tr>
+<tr class="memdesc:a2bdc843b50fd6a12217706ccc1f265ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random company name.  <br /></td></tr>
+<tr class="separator:a2bdc843b50fd6a12217706ccc1f265ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2bdc843b50fd6a12217706ccc1f265ea" name="a2bdc843b50fd6a12217706ccc1f265ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bdc843b50fd6a12217706ccc1f265ea">&#9670;&#160;</a></span>name()</h2>
 
-<p>A concept that checks if a type is a valid decimal distribution.  
-<a href="conceptfaker_1_1DecimalDistribution.html#details">More...</a></p>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Company::name </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
-<p><code>#include &lt;<a class="el" href="Number_8h_source.html">Number.h</a>&gt;</code></p>
-<h2 class="groupheader">Concept definition</h2>
-<div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> DISTRIBUTION&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptfaker_1_1DecimalDistribution.html">faker::DecimalDistribution</a> =  <a class="code hl_concept" href="conceptfaker_1_1Distribution.html">Distribution&lt;DISTRIBUTION&gt;</a> &amp;&amp; std::floating_point&lt;typename DISTRIBUTION::result_type&gt;</div>
-<div class="ttc" id="aconceptfaker_1_1DecimalDistribution_html"><div class="ttname"><a href="conceptfaker_1_1DecimalDistribution.html">faker::DecimalDistribution</a></div><div class="ttdoc">A concept that checks if a type is a valid decimal distribution.</div><div class="ttdef"><b>Definition</b> Number.h:101</div></div>
-<div class="ttc" id="aconceptfaker_1_1Distribution_html"><div class="ttname"><a href="conceptfaker_1_1Distribution.html">faker::Distribution</a></div><div class="ttdoc">A concept that checks if a type is a valid distribution.</div><div class="ttdef"><b>Definition</b> Number.h:28</div></div>
-</div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>A concept that checks if a type is a valid decimal distribution. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">DISTRIBUTION</td><td>a distribution type, must accept floating point types as result_type </td></tr>
-  </table>
-  </dd>
-</dl>
-</div></div><!-- contents -->
+<p>Returns a random company name. </p>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classfaker_1_1Company.html">Company</a> name</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Company.html#a2bdc843b50fd6a12217706ccc1f265ea">Company::name</a>() <span class="comment">// &quot;Adams Inc&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Company_html_a2bdc843b50fd6a12217706ccc1f265ea"><div class="ttname"><a href="classfaker_1_1Company.html#a2bdc843b50fd6a12217706ccc1f265ea">faker::Company::name</a></div><div class="ttdeci">static std::string name()</div><div class="ttdoc">Returns a random company name.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li>include/faker-cxx/<a class="el" href="Company_8h_source.html">Company.h</a></li>
+</ul>
+</div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
 Generated by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.7

@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['helper_0',['Helper',['../classfaker_1_1Helper.html',1,'faker']]]
+  ['finance_0',['Finance',['../classfaker_1_1Finance.html',1,'faker']]]
 ];
