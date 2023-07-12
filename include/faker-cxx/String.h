@@ -11,6 +11,18 @@ enum class StringCasing
     Upper
 };
 
+enum class HexStringCasing
+{
+    Lower,
+    Upper
+};
+
+enum class HexStringPrefix
+{
+    ZeroX,
+    Hash
+};
+
 class String
 {
 public:
@@ -34,9 +46,9 @@ public:
      * @returns Alpha string
      *
      * @code
-     * Person::alpha() // "b"
-     * Person::alpha(5, StringCasing::Upper) // "DTCIC"
-     * Person::alpha(4, StringCasing::Lower) // "brpt"
+     * String::alpha() // "b"
+     * String::alpha(5, StringCasing::Upper) // "DTCIC"
+     * String::alpha(4, StringCasing::Lower) // "brpt"
      * @endcode
      */
     static std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed);
@@ -50,9 +62,9 @@ public:
      * @returns Alphanumeric string
      *
      * @code
-     * Person::alphanumeric() // "4"
-     * Person::alphanumeric(5, StringCasing::Upper) // "3e5V7"
-     * Person::alphanumeric(4, StringCasing::Lower) // "1nrq"
+     * String::alphanumeric() // "4"
+     * String::alphanumeric(5, StringCasing::Upper) // "3e5V7"
+     * String::alphanumeric(4, StringCasing::Lower) // "1nrq"
      * @endcode
      */
     static std::string alphanumeric(unsigned length = 1, StringCasing casing = StringCasing::Mixed);
@@ -66,11 +78,29 @@ public:
      * @returns Numeric string
      *
      * @code
-     * Person::numeric() // "1"
-     * Person::numeric(6) // "035742"
-     * Person::numeric(6, false) // "254429"
+     * String::numeric() // "1"
+     * String::numeric(6) // "035742"
+     * String::numeric(6, false) // "254429"
      * @endcode
      */
     static std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
+
+    /**
+     * @brief Generates a hexadecimal string.
+     *
+     * @param length The number of digits to generate. Defaults to `1`
+     * @param casing Casing of the generated string. Defaults to `'Lower'`.
+     * @param prefix Prefix for the generated string. Defaults to `'0x'
+     *
+     * @returns Hexadecimal string
+     *
+     * @code
+     * String::hexadecimal() // "0xb"
+     * String::hexadecimal(10) // "0xae13d044cb"
+     * String::hexadecimal(6, HexString::Hash, HexStringCasing::Upper) // "#E3F380"
+     * @endcode
+     */
+    static std::string hexadecimal(unsigned length = 1, HexStringCasing casing = HexStringCasing::Lower,
+                                   HexStringPrefix prefix = HexStringPrefix::ZeroX);
 };
 }

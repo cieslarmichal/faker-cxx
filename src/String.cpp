@@ -5,7 +5,7 @@
 #include <random>
 #include <sstream>
 
-#include "data/AlphanumericCharacters.h"
+#include "data/Characters.h"
 
 namespace faker
 {
@@ -20,6 +20,14 @@ const std::map<StringCasing, std::string> stringCasingToAlphanumericCharactersMa
     {StringCasing::Lower, lowerAlphanumericCharacters},
     {StringCasing::Upper, upperAlphanumericCharacters},
     {StringCasing::Mixed, mixedAlphanumericCharacters},
+};
+const std::map<HexStringCasing, std::string> hexStringCasingToCharactersMapping{
+    {HexStringCasing::Lower, hexLowerCharacters},
+    {HexStringCasing::Upper, hexUpperCharacters},
+};
+const std::map<HexStringPrefix, std::string> hexPrefixToStringMapping{
+    {HexStringPrefix::ZeroX, "0x"},
+    {HexStringPrefix::Hash, "#"},
 };
 }
 
@@ -115,5 +123,21 @@ std::string String::numeric(unsigned int length, bool allowLeadingZeros)
     }
 
     return alphanumeric;
+}
+
+std::string String::hexadecimal(unsigned int length, HexStringCasing casing, HexStringPrefix prefix)
+{
+    const auto& hexadecimalCharacters = hexStringCasingToCharactersMapping.at(casing);
+
+    const auto& hexadecimalPrefix = hexPrefixToStringMapping.at(prefix);
+
+    std::string hexadecimal{hexadecimalPrefix};
+
+    for (unsigned i = 0; i < length; i++)
+    {
+        hexadecimal += Helper::arrayElement<char>(hexadecimalCharacters);
+    }
+
+    return hexadecimal;
 }
 }

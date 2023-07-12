@@ -2,7 +2,7 @@
 
 #include "gtest/gtest.h"
 
-#include "data/AlphanumericCharacters.h"
+#include "data/Characters.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -169,4 +169,36 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZeros)
                                                    [numericCharacterWithPossibleZero](char numericCharacter)
                                                    { return numericCharacterWithPossibleZero == numericCharacter; });
                             }));
+}
+
+TEST_F(StringTest, shouldGenerateHexadecimal)
+{
+    const auto hexadecimalLength = 8;
+
+    const auto hexadecimal = String::hexadecimal(hexadecimalLength);
+
+    const auto prefix = hexadecimal.substr(0, 2);
+    const auto hexNumber = hexadecimal.substr(2);
+
+    ASSERT_EQ(hexadecimal.size(), hexadecimalLength + 2);
+    ASSERT_EQ(prefix, "0x");
+    ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
+                            [hexNumber](char hexNumberCharacter)
+                            { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+}
+
+TEST_F(StringTest, shouldGenerateHexadecimalWithHashPrefix)
+{
+    const auto hexadecimalLength = 8;
+
+    const auto hexadecimal = String::hexadecimal(hexadecimalLength, HexStringCasing::Upper, HexStringPrefix::Hash);
+
+    const auto prefix = hexadecimal.substr(0, 1);
+    const auto hexNumber = hexadecimal.substr(1);
+
+    ASSERT_EQ(hexadecimal.size(), hexadecimalLength + 1);
+    ASSERT_EQ(prefix, "#");
+    ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
+                            [hexNumber](char hexNumberCharacter)
+                            { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
