@@ -13,6 +13,9 @@ namespace faker
 {
 namespace
 {
+const auto malePrefix{"Mr."};
+const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
+const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
 const std::vector<std::string> sexes{"Male", "Female"};
 }
 
@@ -75,5 +78,23 @@ std::string Person::jobArea()
 std::string Person::jobType()
 {
     return Helper::arrayElement<std::string>(jobTypes);
+}
+
+std::string Person::prefix(std::optional<Sex> sex)
+{
+    std::vector<std::string> prefixes;
+
+    if (sex == Sex::Male)
+    {
+        return malePrefix;
+    }
+    else if (sex == Sex::Female)
+    {
+        return Helper::arrayElement<std::string>(femalePrefixes);
+    }
+    else
+    {
+        return Helper::arrayElement<std::string>(allPrefixes);
+    }
 }
 }

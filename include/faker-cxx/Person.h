@@ -51,6 +51,21 @@ public:
     static std::string fullName(std::optional<Sex> = std::nullopt);
 
     /**
+     * @brief Returns a random name prefix.
+     *
+     * @param sex The optional sex to use.
+     *
+     * @returns Name prefix
+     *
+     * @code
+     * Person::prefix() // 'Miss'
+     * Person::prefix(Sex::Female) // 'Ms.'
+     * Person::prefix(Sex::Male) // 'Mr.'
+     * @endcode
+     */
+    static std::string prefix(std::optional<Sex> = std::nullopt);
+
+    /**
      * @brief Returns a sex.
      *
      * @returns Sex

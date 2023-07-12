@@ -14,6 +14,13 @@
 using namespace ::testing;
 using namespace faker;
 
+namespace
+{
+const auto malePrefix{"Mr."};
+const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
+const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
+}
+
 class PersonTest : public Test
 {
 public:
@@ -174,4 +181,27 @@ TEST_F(PersonTest, shouldGenerateJobTitle)
                             [generatedJobArea](const std::string& jobArea) { return jobArea == generatedJobArea; }));
     ASSERT_TRUE(std::any_of(jobTypes.begin(), jobTypes.end(),
                             [generatedJobType](const std::string& jobType) { return jobType == generatedJobType; }));
+}
+
+TEST_F(PersonTest, shouldGeneratePrefix)
+{
+    const auto generatedPrefix = Person::prefix();
+
+    ASSERT_TRUE(std::any_of(allPrefixes.begin(), allPrefixes.end(),
+                            [generatedPrefix](const std::string& prefix) { return prefix == generatedPrefix; }));
+}
+
+TEST_F(PersonTest, shouldGenerateMalePrefix)
+{
+    const auto generatedPrefix = Person::prefix(Sex::Male);
+
+    ASSERT_EQ(generatedPrefix, malePrefix);
+}
+
+TEST_F(PersonTest, shouldGenerateFemalePrefix)
+{
+    const auto generatedPrefix = Person::prefix(Sex::Female);
+
+    ASSERT_TRUE(std::any_of(femalePrefixes.begin(), femalePrefixes.end(),
+                            [generatedPrefix](const std::string& prefix) { return prefix == generatedPrefix; }));
 }
