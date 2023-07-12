@@ -18,7 +18,7 @@ std::string betweenDate(
 {
     const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();
 
-    const auto randomDateWithinRange = from + std::chrono::seconds{Number::integer(size)};
+    const auto randomDateWithinRange = from + std::chrono::seconds{1} + std::chrono::seconds{Number::integer(size - 1)};
 
     return std::format("{:%FT%TZ}", std::chrono::floor<std::chrono::seconds>(randomDateWithinRange));
 }

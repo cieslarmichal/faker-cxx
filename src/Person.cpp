@@ -5,6 +5,7 @@
 #include "data/FirstNamesFemales.h"
 #include "data/FirstNamesMales.h"
 #include "data/Gender.h"
+#include "data/JobTitles.h"
 #include "data/LastNames.h"
 #include "Helper.h"
 
@@ -54,5 +55,25 @@ std::string Person::sex()
 std::string Person::gender()
 {
     return Helper::arrayElement<std::string>(genders);
+}
+
+std::string Person::jobTitle()
+{
+    return std::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
+}
+
+std::string Person::jobDescriptor()
+{
+    return Helper::arrayElement<std::string>(jobDescriptors);
+}
+
+std::string Person::jobArea()
+{
+    return Helper::arrayElement<std::string>(jobAreas);
+}
+
+std::string Person::jobType()
+{
+    return Helper::arrayElement<std::string>(jobTypes);
 }
 }
