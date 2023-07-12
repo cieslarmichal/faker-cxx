@@ -12,14 +12,13 @@
 
 ### 🧑 Person:
 
-- [ ] bio
 - [x] sex
 - [x] gender
 - [x] job area
 - [x] job descriptor
 - [x] job title
 - [x] job type
-- [ ] prefix
+- [x] prefix
 
 ### 📞 Phone:
 
