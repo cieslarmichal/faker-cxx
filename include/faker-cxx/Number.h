@@ -100,12 +100,8 @@ concept IntegerDistribution = Distribution<DISTRIBUTION> && std::integral<typena
 template <class DISTRIBUTION>
 concept DecimalDistribution = Distribution<DISTRIBUTION> && std::floating_point<typename DISTRIBUTION::result_type>;
 
-class Number {
-
-private:
-    static std::random_device randomDevice;
-    static std::mt19937 pseudoRandomGenerator;
-
+class Number
+{
 public:
     /**
      * @brief Generates a random integer number in the given range, bounds included.
@@ -358,6 +354,9 @@ public:
         return distribution(pseudoRandomGenerator);
     }
 
+private:
+    static std::random_device randomDevice;
+    static std::mt19937 pseudoRandomGenerator;
 };
 
 }

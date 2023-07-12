@@ -101,12 +101,12 @@
 
 ### ✍ Word:
 
-- [ ] adjective
-- [ ] adverb
-- [ ] conjunction
-- [ ] interjection
-- [ ] noun
-- [ ] preposition
-- [ ] sample
-- [ ] verb
-- [ ] words
+- [x] adjective
+- [x] adverb
+- [x] conjunction
+- [x] interjection
+- [x] noun
+- [x] preposition
+- [x] sample
+- [x] verb
+- [x] words

@@ -62,10 +62,11 @@ target_link_libraries(main faker-cxx)
 - 🏦 Finance - Generate currency, IBAN, BIC, account name, account number, pin.
 - 🏢 Company - Generate company name.
 - 🔢 Number - Generate random integers, floating point numbers.
+- ✍ Word - Generate sample words, nouns, verbs etc.
 - 🎨 Color - Generate color names, rgb, hex.
 - ℹ️ Datatype - Generate booleans.
 - 📚 Lorem - Generate lorem text.
-- 🔢 String - Generate uuids, alphanumeric, numberic, hexadecimal.
+- 🔢 String - Generate uuids, alphanumeric, numeric, hexadecimal.
 
 ### 🔨 [TODO Modules](https://github.com/cieslarmichal/faker-cxx/blob/main/TODO.md)
 

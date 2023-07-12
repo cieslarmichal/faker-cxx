@@ -1,5 +1,6 @@
 #pragma once
 
+#include <chrono>
 #include <span>
 #include <string_view>
 #include <vector>
@@ -32,5 +33,30 @@ public:
 
         return data[index];
     }
+
+    /**
+     * @brief Returns shuffled STL container
+     *
+     * @tparam T an element type of the container
+     *
+     * @param data a container
+     *
+     * @return Container with shuffled elements
+     *
+     * @code
+     * Helper::arrayElement<char>(std::string{"abcd"}) // "dcba"
+     * @endcode
+     */
+    template <class T>
+    static std::vector<T> shuffle(std::vector<T> data)
+    {
+        std::shuffle(std::begin(data), std::end(data), pseudoRandomGenerator);
+
+        return data;
+    }
+
+private:
+    static std::random_device randomDevice;
+    static std::mt19937 pseudoRandomGenerator;
 };
 }
