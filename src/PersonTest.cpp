@@ -1,7 +1,5 @@
 #include "Person.h"
 
-#include <chrono>
-
 #include "gtest/gtest.h"
 
 #include "data/FirstNamesFemales.h"

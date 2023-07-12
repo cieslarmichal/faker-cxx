@@ -9,7 +9,6 @@
 #include <algorithm>
 
 namespace faker {
-
 /**
  * @brief A concept that checks if a type is a valid distribution.
  *

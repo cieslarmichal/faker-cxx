@@ -90,7 +90,7 @@
 
 ### 🏢 Company:
 
-- [ ] name
+- [x] name
 
 ### 👕 Commerce:
 

@@ -7,7 +7,6 @@
 
 namespace faker
 {
-
 class Finance
 {
 public:
