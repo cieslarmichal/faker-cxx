@@ -2,6 +2,7 @@
 
 #include "gtest/gtest.h"
 
+#include "data/Characters.h"
 #include "data/Colors.h"
 #include "StringHelper.h"
 
@@ -56,4 +57,32 @@ TEST_F(ColorTest, shouldGenerateRgbColorWithAlpha)
     ASSERT_TRUE(green >= 0 && red <= 255);
     ASSERT_TRUE(blue >= 0 && red <= 255);
     ASSERT_TRUE(alpha >= 0 && alpha <= 1);
+}
+
+TEST_F(ColorTest, shouldGenerateHexColorWithoutAlpha)
+{
+    const auto hexadecimal = Color::hex();
+
+    const auto prefix = hexadecimal.substr(0, 1);
+    const auto hexNumber = hexadecimal.substr(1);
+
+    ASSERT_EQ(hexadecimal.size(), 7);
+    ASSERT_EQ(prefix, "#");
+    ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
+                            [hexNumber](char hexNumberCharacter)
+                            { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+}
+
+TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
+{
+    const auto hexadecimal = Color::hex(HexCasing::Upper, HexPrefix::ZeroX, true);
+
+    const auto prefix = hexadecimal.substr(0, 2);
+    const auto hexNumber = hexadecimal.substr(2);
+
+    ASSERT_EQ(hexadecimal.size(), 10);
+    ASSERT_EQ(prefix, "0x");
+    ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
+                            [hexNumber](char hexNumberCharacter)
+                            { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }

@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include "types/Hex.h"
+
 namespace faker
 {
 class Color
@@ -31,5 +33,22 @@ public:
      * @endcode
      */
     static std::string rgb(bool includeAlpha = false);
+
+    /**
+     * @brief Returns a hex color.
+     *
+     * @param casing Casing of the generated string. Defaults to `'Lower'`.
+     * @param prefix Prefix for the generated string. Defaults to `'0x'
+     * @param includeAlpha Adds an alpha value to the color. Defaults to `false`.
+     *
+     * @returns Hex color formatted that starts with '0x' or '#'.
+     *
+     * @code
+     * String::hex() // "#e3f380"
+     * String::hex(HexCasing::Upper, HexPrefix::ZeroX, true) // "0xE3F3801A"
+     * @endcode
+     */
+    static std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash,
+                           bool includeAlpha = false);
 };
 }

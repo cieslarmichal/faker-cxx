@@ -21,13 +21,13 @@ const std::map<StringCasing, std::string> stringCasingToAlphanumericCharactersMa
     {StringCasing::Upper, upperAlphanumericCharacters},
     {StringCasing::Mixed, mixedAlphanumericCharacters},
 };
-const std::map<HexStringCasing, std::string> hexStringCasingToCharactersMapping{
-    {HexStringCasing::Lower, hexLowerCharacters},
-    {HexStringCasing::Upper, hexUpperCharacters},
+const std::map<HexCasing, std::string> hexCasingToCharactersMapping{
+    {HexCasing::Lower, hexLowerCharacters},
+    {HexCasing::Upper, hexUpperCharacters},
 };
-const std::map<HexStringPrefix, std::string> hexPrefixToStringMapping{
-    {HexStringPrefix::ZeroX, "0x"},
-    {HexStringPrefix::Hash, "#"},
+const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
+    {HexPrefix::ZeroX, "0x"},
+    {HexPrefix::Hash, "#"},
 };
 }
 
@@ -125,9 +125,9 @@ std::string String::numeric(unsigned int length, bool allowLeadingZeros)
     return alphanumeric;
 }
 
-std::string String::hexadecimal(unsigned int length, HexStringCasing casing, HexStringPrefix prefix)
+std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
 {
-    const auto& hexadecimalCharacters = hexStringCasingToCharactersMapping.at(casing);
+    const auto& hexadecimalCharacters = hexCasingToCharactersMapping.at(casing);
 
     const auto& hexadecimalPrefix = hexPrefixToStringMapping.at(prefix);
 

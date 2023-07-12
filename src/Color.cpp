@@ -6,6 +6,7 @@
 #include "data/Colors.h"
 #include "Helper.h"
 #include "Number.h"
+#include "String.h"
 
 namespace faker
 {
@@ -34,5 +35,15 @@ std::string Color::rgb(bool includeAlpha)
     const auto formattedAlpha = ss.str();
 
     return std::format("rgba({}, {}, {}, {})", red, green, blue, formattedAlpha);
+}
+
+std::string Color::hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
+{
+    if (includeAlpha)
+    {
+        return String::hexadecimal(8, casing, prefix);
+    }
+
+    return String::hexadecimal(6, casing, prefix);
 }
 }

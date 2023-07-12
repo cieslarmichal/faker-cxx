@@ -2,6 +2,8 @@
 
 #include <string>
 
+#include "types/Hex.h"
+
 namespace faker
 {
 enum class StringCasing
@@ -9,18 +11,6 @@ enum class StringCasing
     Mixed,
     Lower,
     Upper
-};
-
-enum class HexStringCasing
-{
-    Lower,
-    Upper
-};
-
-enum class HexStringPrefix
-{
-    ZeroX,
-    Hash
 };
 
 class String
@@ -97,10 +87,10 @@ public:
      * @code
      * String::hexadecimal() // "0xb"
      * String::hexadecimal(10) // "0xae13d044cb"
-     * String::hexadecimal(6, HexString::Hash, HexStringCasing::Upper) // "#E3F380"
+     * String::hexadecimal(6, HexCasing::Upper, HexPrefix::Hash) // "#E3F380"
      * @endcode
      */
-    static std::string hexadecimal(unsigned length = 1, HexStringCasing casing = HexStringCasing::Lower,
-                                   HexStringPrefix prefix = HexStringPrefix::ZeroX);
+    static std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
+                                   HexPrefix prefix = HexPrefix::ZeroX);
 };
 }

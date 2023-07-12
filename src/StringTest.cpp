@@ -191,7 +191,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithHashPrefix)
 {
     const auto hexadecimalLength = 8;
 
-    const auto hexadecimal = String::hexadecimal(hexadecimalLength, HexStringCasing::Upper, HexStringPrefix::Hash);
+    const auto hexadecimal = String::hexadecimal(hexadecimalLength, HexCasing::Upper, HexPrefix::Hash);
 
     const auto prefix = hexadecimal.substr(0, 1);
     const auto hexNumber = hexadecimal.substr(1);
