@@ -56,14 +56,15 @@ target_link_libraries(main faker-cxx)
 ## 💎 Modules
 
 - 🌐 Internet - Generate emails, usernames and passwords.
-- 🧑 Person - Generate first, last names.
+- 🧑 Person - Generate first, last names, job titles, genders, sex.
 - 📅 Date - Generate past, future dates.
-- 🏦 Finance - Generate currency, IBAN, account name, account number, pin
+- 🏦 Finance - Generate currency, IBAN, BIC, account name, account number, pin.
 - 🏢 Company - Generate company name.
-- 🔢 Number - Generate random numbers.
-- ℹ️ Datatype - Generate booleans
+- 🔢 Number - Generate random integers, floating point numbers.
+- 🎨 Color - Generate color names, rgb, hex.
+- ℹ️ Datatype - Generate booleans.
 - 📚 Lorem - Generate lorem text.
-- 🔢 String - Generate uuids, alphanumeric strings etc.
+- 🔢 String - Generate uuids, alphanumeric, numberic, hexadecimal.
 
 ### 🔨 [TODO Modules](https://github.com/cieslarmichal/faker-cxx/blob/main/TODO.md)
 
