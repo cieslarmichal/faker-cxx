@@ -94,11 +94,10 @@
 
 ### 👕 Commerce:
 
-- [ ] price
-- [ ] product name
-- [ ] product sku
-- [ ] product description
-- [ ] department
+- [x] price
+- [x] product name
+- [x] product sku
+- [x] department
 
 ### ✍ Word:
 
