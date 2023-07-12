@@ -22,7 +22,7 @@ public:
      * @returns UUIDv4
      *
      * @code
-     * Person::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
+     * String::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
      * @endcode
      */
     static std::string uuid();
