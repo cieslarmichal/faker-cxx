@@ -13,13 +13,13 @@ class Helper
 {
 public:
     /**
-     * @brief Get a random element from an STL container
+     * @brief Get a random element from an STL container.
      *
-     * @tparam T an element type of the container
+     * @tparam T an element type of the container.
      *
-     * @param data a container
+     * @param data The container.
      *
-     * @return T a random element from the container
+     * @return T a random element from the container.
      *
      * @code
      * Helper::arrayElement<char>(std::string{"abcd"}) // "b"
@@ -35,13 +35,13 @@ public:
     }
 
     /**
-     * @brief Returns shuffled STL container
+     * @brief Returns shuffled STL container.
      *
-     * @tparam T an element type of the container
+     * @tparam T an element type of the container.
      *
-     * @param data a container
+     * @param data The container.
      *
-     * @return Container with shuffled elements
+     * @return Container with shuffled elements.
      *
      * @code
      * Helper::arrayElement<char>(std::string{"abcd"}) // "dcba"

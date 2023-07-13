@@ -10,7 +10,7 @@ public:
     /**
      * @brief Returns a random commerce department.
      *
-     * @returns Commerce department name
+     * @returns Commerce department name.
      *
      * @code
      * Commerce::department() // "Books"
@@ -45,7 +45,7 @@ public:
     /**
      * @brief Returns a random product adjective.
      *
-     * @returns Product adjective
+     * @returns Product adjective.
      *
      * @code
      * Commerce::productAdjective() // "Handcrafted"
@@ -56,7 +56,7 @@ public:
     /**
      * @brief Returns a random product material.
      *
-     * @returns Product material
+     * @returns Product material.
      *
      * @code
      * Commerce::productMaterial() // "Wooden"
@@ -67,7 +67,7 @@ public:
     /**
      * @brief Returns a random product short name.
      *
-     * @returns Product short name
+     * @returns Product short name.
      *
      * @code
      * Commerce::productName() // "Computer"
@@ -78,7 +78,7 @@ public:
     /**
      * @brief Returns a random product full name.
      *
-     * @returns Product full name
+     * @returns Product full name.
      *
      * @code
      * Commerce::productFullName() // "Incredible Soft Gloves"

@@ -18,11 +18,8 @@ namespace faker {
  *
  * This provides compile-time guarantees that the distribution is valid and can be used with the Number module.
  *
- * @author dario-loi
- * @date 2023-07-06
- *
  * @see https://en.cppreference.com/w/cpp/named_req/RandomNumberDistribution
- * @tparam DISTRIBUTION a distribution type, such as std::uniform_int_distribution
+ * @tparam DISTRIBUTION a distribution type, such as std::uniform_int_distribution.
  */
 template <class D>
 concept Distribution = requires {
@@ -87,7 +84,7 @@ concept Distribution = requires {
 /**
  * @brief A concept that checks if a type is a valid integer distribution.
  *
- * @tparam DISTRIBUTION a distribution type, must accept integral types as result_type
+ * @tparam DISTRIBUTION a distribution type, must accept integral types as result_type.
  */
 template <class DISTRIBUTION>
 concept IntegerDistribution = Distribution<DISTRIBUTION> && std::integral<typename DISTRIBUTION::result_type>;
@@ -95,7 +92,7 @@ concept IntegerDistribution = Distribution<DISTRIBUTION> && std::integral<typena
 /**
  * @brief A concept that checks if a type is a valid decimal distribution.
  *
- * @tparam DISTRIBUTION a distribution type, must accept floating point types as result_type
+ * @tparam DISTRIBUTION a distribution type, must accept floating point types as result_type.
  */
 template <class DISTRIBUTION>
 concept DecimalDistribution = Distribution<DISTRIBUTION> && std::floating_point<typename DISTRIBUTION::result_type>;
@@ -106,14 +103,12 @@ public:
     /**
      * @brief Generates a random integer number in the given range, bounds included.
      *
-     * @param min the minimum value of the range
-     * @param max the maximum value of the range
+     * @param min The minimum value of the range.
+     * @param max The maximum value of the range.
      *
-     * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.)
+     * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.).
      *
-     * @throws std::invalid_argument if min is greater than max
-     *
-     * @authors dario-loi, cieslarmichal
+     * @throws std::invalid_argument if min is greater than max.
      *
      * @return T a random integer number
      */
@@ -134,23 +129,19 @@ public:
      *
      * The function invokes the integer<I>(I, I) function with min = 0, hence the distribution used is std::uniform_int_distribution.
      *
-     * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.)
-     * @param max the maximum value of the range
+     * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.).
+     * @param max the maximum value of the range.
      *
-     * @throws std::invalid_argument if min is greater than max
+     * @throws std::invalid_argument if min is greater than max.
      *
      * @see integer<I>(I, I)
-     *
-     * @author dario-loi
      *
      * @return T a random integer number
      */
     template <std::integral I>
     static I integer(I max)
     {
-
-        auto x = Number::integer<I>(static_cast<I>(0), max);
-        return x;
+        return Number::integer<I>(static_cast<I>(0), max);
     }
 
     /**
@@ -160,16 +151,16 @@ public:
      * through a std::clamp call, hence the statistical properties of the distribution may be altered,
      * especially for long tailed distributions.
      *
-     * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.)
-     * @tparam D the type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.)
+     * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.).
+     * @tparam D the type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.).
      *
-     * @throws std::invalid_argument if min is greater than max
+     * @throws std::invalid_argument if min is greater than max.
      *
+     * @param distribution The distribution to use.
+     * @param min The minimum value of the range.
+     * @param max The maximum value of the range.
      *
-     * @param distribution the distribution to use
-     * @param min the minimum value of the range
-     * @param max the maximum value of the range
-     * @return I a random integer number
+     * @return I a random integer number.
      */
     template <std::integral I, IntegerDistribution D>
     static I integer(D distribution, I min, I max)
@@ -191,16 +182,15 @@ public:
      *
      * Defaults to a min value of 0.
      *
-     * @tparam I The type of the generated number, must be an integral type (int, long, long long, etc.)
-     * @tparam D The type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.)
-     * @param distribution The distribution to use
-     * @param max The maximum value of the range
+     * @tparam I The type of the generated number, must be an integral type (int, long, long long, etc.).
+     * @tparam D The type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.).
+     * @param distribution The distribution to use.
+     * @param max The maximum value of the range.
      *
      * @see IntegerDistribution
      * @see integer<D>(D, I, I)
      *
-     * @throws std::invalid_argument if max is smaller than 0
-     *
+     * @throws std::invalid_argument if max is smaller than 0.
      *
      * @return I A random integer number
      */
@@ -211,14 +201,14 @@ public:
     }
 
     /**
-     * @brief Generates a random integer, unbouded, with a given distribution.
+     * @brief Generates a random integer, unbounded, with a given distribution.
      *
-     * @tparam I The type of the generated number, must be an integral type (int, long, long long, etc.)
-     * @tparam D The type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.)
+     * @tparam I The type of the generated number, must be an integral type (int, long, long long, etc.).
+     * @tparam D The type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.).
      *
-     * @param distribution The distribution to use
+     * @param distribution The distribution to use.
      *
-     * @return I A random integer number
+     * @return I A random integer number.
      *
      */
     template <std::integral I, IntegerDistribution D>
@@ -230,18 +220,16 @@ public:
     /**
      * @brief Generates a random decimal number in the given range, bounds included.
      *
-     * @tparam F the type of the generated number, must be a floating point type (float, double, long double)
-     * @tparam D the type of the distribution, must be a valid float distribution (std::uniform_real_distribution, std::normal_distribution, etc.)
+     * @tparam F the type of the generated number, must be a floating point type (float, double, long double).
+     * @tparam D the type of the distribution, must be a valid float distribution (std::uniform_real_distribution, std::normal_distribution, etc.).
      *
-     * @param min the minimum value of the range
-     * @param max the maximum value of the range
-     * @param distribution the distribution to use
+     * @param min The minimum value of the range.
+     * @param max The maximum value of the range.
+     * @param distribution The distribution to use.
      *
-     * @throws std::invalid_argument if min is greater than max
+     * @throws std::invalid_argument if min is greater than max.
      *
-     * @author dario-loi
-     *
-     * @return F a random decimal number
+     * @return F a random decimal number.
      */
     template <std::floating_point F>
     static F decimal(F min, F max)
@@ -262,18 +250,18 @@ public:
      * through a std::clamp call, hence the statistical properties of the distribution may be altered,
      * especially for long tailed distributions.
      *
-     * @tparam D the type of the distribution, must be a valid decimal distribution (std::uniform_real_distribution, std::normal_distribution, etc.)
-     * @tparam F the type of the generated number, must be a floating point type (float, double, long double)
+     * @tparam D the type of the distribution, must be a valid decimal distribution (std::uniform_real_distribution, std::normal_distribution, etc.).
+     * @tparam F the type of the generated number, must be a floating point type (float, double, long double).
      *
-     * @throws std::invalid_argument if min is greater than max
+     * @throws std::invalid_argument if min is greater than max.
      *
      * @see DecimalDistribution
      *
-     * @param distribution the distribution to use
-     * @param min the minimum value of the range
-     * @param max the maximum value of the range
+     * @param distribution The distribution to use.
+     * @param min The minimum value of the range.
+     * @param max The maximum value of the range.
      *
-     * @return F a random decimal number
+     * @return F a random decimal number.
      */
     template <std::floating_point F, DecimalDistribution D>
     static F decimal(D distribution, F min, F max)
@@ -290,21 +278,19 @@ public:
         }
     }
 
-
-
     /**
      * @brief Generates a random decimal number between 0 and the given maximum value, bounds included.
      *
      * The function invokes the decimal<F, D>(F, F) function with min = 0, hence the distribution used is std::uniform_real_distribution.
      *
-     * @tparam F the type of the generated number, must be a floating point type (float, double, long double)
-     * @param max the maximum value of the range
+     * @tparam F The type of the generated number, must be a floating point type (float, double, long double).
+     * @param max The maximum value of the range.
      *
-     * @throws std::invalid_argument if max is less than 0
+     * @throws std::invalid_argument if max is less than 0.
      *
      * @see decimal<F>(F, F)
      *
-     * @return F, a random decimal number
+     * @return F, a random decimal number.
      */
     template <std::floating_point F>
     static F decimal(F max)
@@ -315,18 +301,18 @@ public:
     /**
      * @brief Generates a random decimal number between 0 and the given maximum value with a given distribution, bounds included.
      *
-     * @tparam F The type of the generated number, must be a floating point type (float, double, long double)
-     * @tparam D The type of the distribution, must be a valid float distribution (std::uniform_real_distribution, std::normal_distribution, etc.)
+     * @tparam F The type of the generated number, must be a floating point type (float, double, long double).
+     * @tparam D The type of the distribution, must be a valid float distribution (std::uniform_real_distribution, std::normal_distribution, etc.).
      *
-     * @param distribution The distribution to use
-     * @param max the maximum value of the range
+     * @param distribution The distribution to use.
+     * @param max The maximum value of the range.
      *
      * @see decimal<F, D>(D, F, F)
      * @see DecimalDistribution
      *
-     * @throws std::invalid_argument if max is less than 0
+     * @throws std::invalid_argument if max is less than 0.
      *
-     * @return F a random decimal number
+     * @return F a random decimal number.
      *
      */
     template <std::floating_point F, DecimalDistribution D>
@@ -335,18 +321,17 @@ public:
         return Number::decimal<F>(distribution, static_cast<F>(0.), max);
     }
 
-
     /**
      * @brief Generates a random decimal number in the given range, bounds included.
      *
-     * @tparam F the type of the generated number, must be a floating point type (float, double, long double)
-     * @tparam D the type of the distribution, must be a valid float distribution (std::uniform_real_distribution, std::normal_distribution, etc.)
+     * @tparam F the type of the generated number, must be a floating point type (float, double, long double).
+     * @tparam D the type of the distribution, must be a valid float distribution (std::uniform_real_distribution, std::normal_distribution, etc.).
      *
      * @see DecimalDistribution
      *
-     * @param distribution the distribution to use
+     * @param distribution the distribution to use.
      *
-     * @return F a random decimal number
+     * @return F a random decimal number.
      */
     template <std::floating_point F, DecimalDistribution D>
     static F decimal(D distribution)
@@ -358,5 +343,4 @@ private:
     static std::random_device randomDevice;
     static std::mt19937 pseudoRandomGenerator;
 };
-
 }
