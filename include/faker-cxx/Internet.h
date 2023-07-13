@@ -61,5 +61,31 @@ public:
      * @endcode
      */
     static std::string password(int length = 15);
+
+    /**
+     * @brief Generates a real image url with `https://source.unsplash.com/
+     *
+     * @param width The width of the image. Defaults to `640`.
+     * @param height The height of the image. Defaults to `480`.
+     *
+     * @returns Random real image url from external service
+     *
+     * @code
+     * Internet::imageUrl() // "https://source.unsplash.com/640x480"
+     * Internet::imageUrl(800, 600) // "https://source.unsplash.com/800x600"
+     * @endcode
+     */
+    static std::string imageUrl(unsigned width = 640, unsigned height = 480);
+
+    /**
+     * @brief Generates a random avatar from GitHub.
+     *
+     * @returns Url to github avatar
+     *
+     * @code
+     * Internet::githubAvatarUrl() // "https://avatars.githubusercontent.com/u/9716558"
+     * @endcode
+     */
+    static std::string githubAvatarUrl();
 };
 }

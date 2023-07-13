@@ -223,3 +223,25 @@ TEST_F(InternetTest, shouldGeneratePasswordWithSpecifiedLength)
                             [passwordCharacters](char passwordCharacter)
                             { return passwordCharacters.find(passwordCharacter) != std::string::npos; }));
 }
+
+TEST_F(InternetTest, shouldGenerateImageUrl)
+{
+    const auto width = 800;
+    const auto height = 600;
+
+    const auto imageUrl = Internet::imageUrl(width, height);
+
+    ASSERT_EQ(imageUrl, "https://source.unsplash.com/800x600");
+}
+
+TEST_F(InternetTest, shouldGenerateGithubAvatarUrl)
+{
+    const auto githubAvatarUrl = Internet::githubAvatarUrl();
+
+    const std::string expectedGithubAvatarPrefix = "https://avatars.githubusercontent.com/u/";
+
+    const auto userNumber = std::stoi(githubAvatarUrl.substr(expectedGithubAvatarPrefix.size()));
+    
+    ASSERT_TRUE(githubAvatarUrl.starts_with(expectedGithubAvatarPrefix));
+    ASSERT_TRUE(userNumber >= 0 && userNumber <= 100000000);
+}

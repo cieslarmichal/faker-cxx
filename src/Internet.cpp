@@ -56,4 +56,14 @@ std::string Internet::password(int length)
     return password;
 }
 
+std::string Internet::imageUrl(unsigned int width, unsigned int height)
+{
+    return std::format("https://source.unsplash.com/{}x{}", width, height);
+}
+
+std::string Internet::githubAvatarUrl()
+{
+    return std::format("https://avatars.githubusercontent.com/u/{}", Number::integer<int>(100000000));
+}
+
 }
