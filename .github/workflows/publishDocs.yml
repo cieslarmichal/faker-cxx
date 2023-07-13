@@ -11,6 +11,9 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
+      
+      - name: Install doxygen css plugin
+        run: git clone https://github.com/jothepro/doxygen-awesome-css.git && cd doxygen-awesome-css && make install
 
       - name: Generate docs
         uses: mattnotmitt/doxygen-action@v1.1.0
