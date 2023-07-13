@@ -30,13 +30,8 @@
 - [x] hex
 - [x] name
 
-### 🖼 Image:
-
-- [ ] url
-
 ### 🌐 Internet:
 
-- [ ] avatar
 - [ ] color
 - [ ] emoji
 - [ ] httpMethod
@@ -47,6 +42,8 @@
 - [ ] port
 - [ ] protocol
 - [ ] url
+- [x] image url
+- [x] github avatar url
 
 ### 🌍 Location:
 
