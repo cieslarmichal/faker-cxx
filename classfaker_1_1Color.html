@@ -155,12 +155,13 @@ Static Public Member Functions</h2></td></tr>
 <p>Returns a hex color. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">casing</td><td>Casing of the generated string. Defaults to &lsquo;'Lower&rsquo;<code>. @param prefix Prefix for the generated string. Defaults to</code>'0x' </td></tr>
+    <tr><td class="paramname">casing</td><td>Casing of the generated string. Defaults to <code>HexCasing::Lower</code>. </td></tr>
+    <tr><td class="paramname">prefix</td><td>Prefix for the generated string. Defaults to <code>HexPrefix::ZeroX</code>. </td></tr>
     <tr><td class="paramname">includeAlpha</td><td>Adds an alpha value to the color. Defaults to <code>false</code>.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Hex color formatted that starts with '0x' or '#'.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Hex color formatted that starts with <code>0x</code> or <code>#</code>.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Color.html#a46e19893994e07e6d3dbdb37cd35cd63">Color::hex</a>() <span class="comment">// &quot;#e3f380&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Color.html">Color</a>::<a class="code hl_function" href="classfaker_1_1Color.html#a46e19893994e07e6d3dbdb37cd35cd63">hex</a>(HexCasing::Upper, HexPrefix::ZeroX, true) <span class="comment">// &quot;0xE3F3801A&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1Color_html"><div class="ttname"><a href="classfaker_1_1Color.html">faker::Color</a></div><div class="ttdef"><b>Definition</b> Color.h:10</div></div>
@@ -230,8 +231,8 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>RGB color formatted with rgb(X,X,X) or rgba(X,X,X,X).</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Color.html#a42bdb9b28f7e1b876fe63bea90f61406">Color::rgb</a>() <span class="comment">// &#39;rgb(67, 28, 240)&#39;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Color.html">Color</a>::<a class="code hl_function" href="classfaker_1_1Color.html#a42bdb9b28f7e1b876fe63bea90f61406">rgb</a>(true) <span class="comment">// &#39;rgba(220, 28, 79, 0.50)&#39;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Color.html#a42bdb9b28f7e1b876fe63bea90f61406">Color::rgb</a>() <span class="comment">// &quot;rgb(67, 28, 240)&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1Color.html">Color</a>::<a class="code hl_function" href="classfaker_1_1Color.html#a42bdb9b28f7e1b876fe63bea90f61406">rgb</a>(true) <span class="comment">// &quot;rgba(220, 28, 79, 0.50)&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1Color_html_a42bdb9b28f7e1b876fe63bea90f61406"><div class="ttname"><a href="classfaker_1_1Color.html#a42bdb9b28f7e1b876fe63bea90f61406">faker::Color::rgb</a></div><div class="ttdeci">static std::string rgb(bool includeAlpha=false)</div><div class="ttdoc">Returns an RGB color.</div></div>
 </div><!-- fragment --> 
 </div>
