@@ -10,7 +10,7 @@ public:
     /**
      * @brief Returns a random company name.
      *
-     * @returns Company name
+     * @returns Company name.
      *
      * @code
      * Company::name() // "Adams Inc"

@@ -15,7 +15,7 @@ public:
      *
      * @param sex The optional sex to use.
      *
-     * @returns First name starting with a capital letter
+     * @returns First name starting with a capital letter.
      *
      * @code
      * Person::firstName() // "Michael"
@@ -28,7 +28,7 @@ public:
     /**
      * @brief Returns a random last name.
      *
-     * @returns Last name starting with a capital letter
+     * @returns Last name starting with a capital letter.
      *
      * @code
      * Person::lastName() // "Peterson"
@@ -39,7 +39,7 @@ public:
     /**
      * @brief Returns a random full name.
      *
-     * @returns Full name starting with first name
+     * @returns Full name starting with first name.
      *
      * @code
      * Person::fullName() // "Marcia Robinson"
@@ -54,12 +54,12 @@ public:
      *
      * @param sex The optional sex to use.
      *
-     * @returns Name prefix
+     * @returns Name prefix.
      *
      * @code
-     * Person::prefix() // 'Miss'
-     * Person::prefix(Sex::Female) // 'Ms.'
-     * Person::prefix(Sex::Male) // 'Mr.'
+     * Person::prefix() // "Miss"
+     * Person::prefix(Sex::Female) // "Ms."
+     * Person::prefix(Sex::Male) // "Mr."
      * @endcode
      */
     static std::string prefix(std::optional<Sex> = std::nullopt);
@@ -67,7 +67,7 @@ public:
     /**
      * @brief Returns a sex.
      *
-     * @returns Sex
+     * @returns Sex.
      *
      * @code
      * Person::sex() // "Male"
@@ -78,7 +78,7 @@ public:
     /**
      * @brief Returns a random gender.
      *
-     * @returns Gender
+     * @returns Gender.
      *
      * @code
      * Person::gender() // "Transexual woman"
@@ -89,10 +89,10 @@ public:
     /**
      * @brief Returns a random job title.
      *
-     * @returns Job title
+     * @returns Job title.
      *
      * @code
-     * Person::jobTitle() // 'Global Accounts Engineer'
+     * Person::jobTitle() // "Global Accounts Engineer"
      * @endcode
      */
     static std::string jobTitle();
@@ -100,10 +100,10 @@ public:
     /**
      * @brief Returns a random job descriptor.
      *
-     * @returns Job descriptor
+     * @returns Job descriptor.
      *
      * @code
-     * Person::jobDescriptor() // 'Senior'
+     * Person::jobDescriptor() // "Senior"
      * @endcode
      */
     static std::string jobDescriptor();
@@ -111,10 +111,10 @@ public:
     /**
      * @brief Returns a random job area.
      *
-     * @returns Job area
+     * @returns Job area.
      *
      * @code
-     * Person::jobArea() // 'Software'
+     * Person::jobArea() // "Software"
      * @endcode
      */
     static std::string jobArea();
@@ -122,10 +122,10 @@ public:
     /**
      * @brief Returns a random job type.
      *
-     * @returns Job type
+     * @returns Job type.
      *
      * @code
-     * Person::jobType() // 'Engineer'
+     * Person::jobType() // "Engineer"
      * @endcode
      */
     static std::string jobType();

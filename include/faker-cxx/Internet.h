@@ -14,7 +14,7 @@ public:
      * @param firstName The optional first name to include in username.
      * @param lastName The optional last name to include in username.
      *
-     * @returns Username including neither, one or both of the provided names
+     * @returns Username including neither, one or both of the provided names.
      *
      * @code
      * Internet::username() // "Richardson.Jeffrey1997"
@@ -33,7 +33,7 @@ public:
      * @param lastName The optional last name to use. If not specified, a random one will be chosen.
      * @param emailHost The optional email host name to use. If not specified, a random one will be chosen.
      *
-     * @returns Email including neither, one or both of the provided names, with random/provided emailHost
+     * @returns Email including neither, one or both of the provided names, with random/provided emailHost.
      *
      * @code
      * Internet::email() // "Jimenez.Clyde@gmail.com"
@@ -49,11 +49,11 @@ public:
 
     /**
      * @brief Generates a random password-like string. Do not use this method for generating actual passwords for users.
-     * Since the source of the randomness is not cryptographically secure, neither is this generator
+     * Since the source of the randomness is not cryptographically secure, neither is this generator.
      *
      * @param length The length of the password to generate. Defaults to `15`.
      *
-     * @returns Random password-like string
+     * @returns Random password-like string.
      *
      * @code
      * Internet::password() // "gXGpe9pKfFcKy9R"
@@ -63,12 +63,12 @@ public:
     static std::string password(int length = 15);
 
     /**
-     * @brief Generates a real image url with `https://source.unsplash.com/
+     * @brief Generates a real image url with `https://source.unsplash.com/`.
      *
      * @param width The width of the image. Defaults to `640`.
      * @param height The height of the image. Defaults to `480`.
      *
-     * @returns Random real image url from external service
+     * @returns Random real image url from external service.
      *
      * @code
      * Internet::imageUrl() // "https://source.unsplash.com/640x480"
@@ -80,7 +80,7 @@ public:
     /**
      * @brief Generates a random avatar from GitHub.
      *
-     * @returns Url to github avatar
+     * @returns Url to github avatar.
      *
      * @code
      * Internet::githubAvatarUrl() // "https://avatars.githubusercontent.com/u/9716558"

@@ -19,7 +19,7 @@ public:
     /**
      * @brief Generates an Universally Unique Identifier with version 4.
      *
-     * @returns UUIDv4
+     * @returns UUIDv4.
      *
      * @code
      * String::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
@@ -30,10 +30,10 @@ public:
     /**
      * @brief Generates a string consisting of letters in the English alphabet.
      *
-     * @param length The number of characters to generate. Defaults to `1`
-     * @param casing The casing of the characters. Defaults to `'Mixed'`.
+     * @param length The number of characters to generate. Defaults to `1`.
+     * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
      *
-     * @returns Alpha string
+     * @returns Alpha string.
      *
      * @code
      * String::alpha() // "b"
@@ -46,10 +46,10 @@ public:
     /**
      * @brief Generates a string consisting of alpha characters and digits.
      *
-     * @param length The number of characters to generate. Defaults to `1`
-     * @param casing The casing of the characters. Defaults to `'Mixed'`.
+     * @param length The number of characters to generate. Defaults to `1`.
+     * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
      *
-     * @returns Alphanumeric string
+     * @returns Alphanumeric string.
      *
      * @code
      * String::alphanumeric() // "4"
@@ -62,10 +62,10 @@ public:
     /**
      * @brief Generates a given length string of digits.
      *
-     * @param length The number of digits to generate. Defaults to `1`
-     * @param allowLeadingZeros Whether leading zeros are allowed or not. Defaults to `true`
+     * @param length The number of digits to generate. Defaults to `1`.
+     * @param allowLeadingZeros Whether leading zeros are allowed or not. Defaults to `true`.
      *
-     * @returns Numeric string
+     * @returns Numeric string.
      *
      * @code
      * String::numeric() // "1"
@@ -78,11 +78,11 @@ public:
     /**
      * @brief Generates a hexadecimal string.
      *
-     * @param length The number of digits to generate. Defaults to `1`
-     * @param casing Casing of the generated string. Defaults to `'Lower'`.
-     * @param prefix Prefix for the generated string. Defaults to `'0x'
+     * @param length The number of digits to generate. Defaults to `1`.
+     * @param casing Casing of the generated string. Defaults to `HexCasing::Lower`.
+     * @param prefix Prefix for the generated string. Defaults to `0x`.
      *
-     * @returns Hexadecimal string
+     * @returns Hexadecimal string.
      *
      * @code
      * String::hexadecimal() // "0xb"
