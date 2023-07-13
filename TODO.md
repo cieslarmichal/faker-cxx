@@ -48,14 +48,6 @@
 - [ ] protocol
 - [ ] url
 
-### 💻 System:
-
-- [ ] file name
-- [ ] file type
-- [ ] directory path
-- [ ] file extension
-- [ ] file path
-
 ### 🌍 Location:
 
 - [ ] building number
@@ -91,6 +83,9 @@
 ### 🏢 Company:
 
 - [x] name
+- [ ] catch phrase
+- [ ] buzzword
+- [ ] industry
 
 ### 👕 Commerce:
 
