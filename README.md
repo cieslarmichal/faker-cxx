@@ -60,7 +60,7 @@ target_link_libraries(main faker-cxx)
 - 🛒 Commerce - Generate commerce department, product name, sku, price.
 - 📅 Date - Generate past, future dates.
 - 🏦 Finance - Generate currency, IBAN, BIC, account name, account number, pin.
-- 🏢 Company - Generate company name.
+- 🏢 Company - Generate company name, type, industry, catch phrase, buzz phrase.
 - 🔢 Number - Generate random integers, floating point numbers.
 - ✍ Word - Generate sample words, nouns, verbs etc.
 - 🎨 Color - Generate color names, rgb, hex.
