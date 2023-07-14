@@ -2,6 +2,15 @@
 
 #include "gtest/gtest.h"
 
+#include "data/company/BuzzAdjectives.h"
+#include "data/company/BuzzNouns.h"
+#include "data/company/BuzzVerbs.h"
+#include "data/company/CatchPhraseAdjectives.h"
+#include "data/company/CatchPhraseDescriptors.h"
+#include "data/company/CatchPhraseNouns.h"
+#include "data/company/CompanyTypes.h"
+#include "data/company/Industries.h"
+#include "data/company/Suffixes.h"
 #include "data/FirstNamesFemales.h"
 #include "data/FirstNamesMales.h"
 #include "data/JobTitles.h"
@@ -10,11 +19,6 @@
 
 using namespace ::testing;
 using namespace faker;
-
-namespace
-{
-const std::vector<std::string> companySuffixes{"Inc", "LLC", "Group"};
-}
 
 class CompanyTest : public Test
 {
@@ -79,4 +83,106 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
                                                              [lastElement](const std::string& companySuffix)
                                                              { return companySuffix == lastElement; }));
     }
+}
+
+TEST_F(CompanyTest, shouldGenerateCompanyType)
+{
+    const auto generatedCompanyType = Company::type();
+
+    ASSERT_TRUE(std::any_of(companyTypes.begin(), companyTypes.end(),
+                            [generatedCompanyType](const std::string& companyType)
+                            { return companyType == generatedCompanyType; }));
+}
+
+TEST_F(CompanyTest, shouldGenerateCompanyIndustry)
+{
+    const auto generatedCompanyIndustry = Company::industry();
+
+    ASSERT_TRUE(std::any_of(companyIndustries.begin(), companyIndustries.end(),
+                            [generatedCompanyIndustry](const std::string& companyIndustry)
+                            { return companyIndustry == generatedCompanyIndustry; }));
+}
+
+TEST_F(CompanyTest, shouldGenerateBuzzPhrase)
+{
+    const auto buzzPhrase = Company::buzzPhrase();
+
+    ASSERT_TRUE(std::any_of(buzzVerbs.begin(), buzzVerbs.end(),
+                            [buzzPhrase](const std::string& buzzVerb)
+                            { return buzzPhrase.find(buzzVerb) != std::string::npos; }));
+    ASSERT_TRUE(std::any_of(buzzAdjectives.begin(), buzzAdjectives.end(),
+                            [buzzPhrase](const std::string& buzzAdjective)
+                            { return buzzPhrase.find(buzzAdjective) != std::string::npos; }));
+    ASSERT_TRUE(std::any_of(buzzNouns.begin(), buzzNouns.end(),
+                            [buzzPhrase](const std::string& buzzNoun)
+                            { return buzzPhrase.find(buzzNoun) != std::string::npos; }));
+}
+
+TEST_F(CompanyTest, shouldGenerateBuzzVerb)
+{
+    const auto generatedBuzzVerb = Company::buzzVerb();
+
+    ASSERT_TRUE(std::any_of(buzzVerbs.begin(), buzzVerbs.end(),
+                            [generatedBuzzVerb](const std::string& buzzVerb)
+                            { return buzzVerb == generatedBuzzVerb; }));
+}
+
+TEST_F(CompanyTest, shouldGenerateBuzzAdjective)
+{
+    const auto generatedBuzzAdjective = Company::buzzAdjective();
+
+    ASSERT_TRUE(std::any_of(buzzAdjectives.begin(), buzzAdjectives.end(),
+                            [generatedBuzzAdjective](const std::string& buzzAdjective)
+                            { return buzzAdjective == generatedBuzzAdjective; }));
+}
+
+TEST_F(CompanyTest, shouldGenerateBuzzNoun)
+{
+    const auto generatedBuzzNoun = Company::buzzNoun();
+
+    ASSERT_TRUE(std::any_of(buzzNouns.begin(), buzzNouns.end(),
+                            [generatedBuzzNoun](const std::string& buzzNoun)
+                            { return buzzNoun == generatedBuzzNoun; }));
+}
+
+TEST_F(CompanyTest, shouldGenerateCatchPhrase)
+{
+    const auto catchPhrase = Company::catchPhrase();
+
+    ASSERT_TRUE(std::any_of(catchPhraseAdjectives.begin(), catchPhraseAdjectives.end(),
+                            [catchPhrase](const std::string& catchPhraseAdjective)
+                            { return catchPhrase.find(catchPhraseAdjective) != std::string::npos; }));
+    ASSERT_TRUE(std::any_of(catchPhraseDescriptors.begin(), catchPhraseDescriptors.end(),
+                            [catchPhrase](const std::string& catchPhraseDescriptor)
+                            { return catchPhrase.find(catchPhraseDescriptor) != std::string::npos; }));
+    ASSERT_TRUE(std::any_of(catchPhraseNouns.begin(), catchPhraseNouns.end(),
+                            [catchPhrase](const std::string& catchPhraseNoun)
+                            { return catchPhrase.find(catchPhraseNoun) != std::string::npos; }));
+}
+
+TEST_F(CompanyTest, shouldGenerateCatchPhraseAdjective)
+{
+    const auto generatedCatchPhraseAdjective = Company::catchPhraseAdjective();
+
+    ASSERT_TRUE(std::any_of(catchPhraseAdjectives.begin(), catchPhraseAdjectives.end(),
+                            [generatedCatchPhraseAdjective](const std::string& catchPhraseAdjective)
+                            { return catchPhraseAdjective == generatedCatchPhraseAdjective; }));
+}
+
+TEST_F(CompanyTest, shouldGenerateCatchPhraseDescriptor)
+{
+    const auto generatedCatchPhraseDescriptor = Company::catchPhraseDescriptor();
+
+    ASSERT_TRUE(std::any_of(catchPhraseDescriptors.begin(), catchPhraseDescriptors.end(),
+                            [generatedCatchPhraseDescriptor](const std::string& catchPhraseDescriptor)
+                            { return catchPhraseDescriptor == generatedCatchPhraseDescriptor; }));
+}
+
+TEST_F(CompanyTest, shouldGenerateCatchPhraseNoun)
+{
+    const auto generatedCatchPhraseNoun = Company::catchPhraseNoun();
+
+    ASSERT_TRUE(std::any_of(catchPhraseNouns.begin(), catchPhraseNouns.end(),
+                            [generatedCatchPhraseNoun](const std::string& catchPhraseNoun)
+                            { return catchPhraseNoun == generatedCatchPhraseNoun; }));
 }
