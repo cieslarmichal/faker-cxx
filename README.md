@@ -64,6 +64,7 @@ target_link_libraries(main faker-cxx)
 - 🔢 Number - Generate random integers, floating point numbers.
 - ✍ Word - Generate sample words, nouns, verbs etc.
 - 🎨 Color - Generate color names, rgb, hex.
+- 📖 Book - Generate book title, genre, author, publisher, ISBN.
 - ℹ️ Datatype - Generate booleans.
 - 📚 Lorem - Generate lorem text.
 - 🔢 String - Generate uuids, alphanumeric, numeric, hexadecimal.
