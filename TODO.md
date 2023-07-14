@@ -61,13 +61,13 @@
 
 ### 🖊️ Lorem:
 
-- [ ] lines
-- [ ] paragraph
-- [ ] paragraphs
-- [ ] sentence
-- [ ] sentences
-- [ ] slug
-- [ ] text
+- [x] lines
+- [x] paragraph
+- [x] paragraphs
+- [x] sentence
+- [x] sentences
+- [x] slug
+- [x] text
 
 ### 📖 Book:
 
