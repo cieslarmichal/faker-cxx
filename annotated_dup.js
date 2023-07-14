@@ -1,6 +1,7 @@
 var annotated_dup =
 [
     [ "faker", null, [
+      [ "Book", "classfaker_1_1Book.html", null ],
       [ "Color", "classfaker_1_1Color.html", null ],
       [ "Commerce", "classfaker_1_1Commerce.html", null ],
       [ "Company", "classfaker_1_1Company.html", null ],
