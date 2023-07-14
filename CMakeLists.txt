@@ -29,6 +29,7 @@ set(SOURCES
         src/Commerce.cpp
         src/Word.cpp
         src/Helper.cpp
+        src/Book.cpp
         )
 
 set(UT_SOURCES
@@ -44,6 +45,7 @@ set(UT_SOURCES
         src/ColorTest.cpp
         src/CommerceTest.cpp
         src/WordTest.cpp
+        src/BookTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${SOURCES})

@@ -71,11 +71,11 @@
 
 ### 📖 Book:
 
-- [ ] title
-- [ ] author
-- [ ] isbn
-- [ ] published year
-- [ ] category/genre
+- [x] title
+- [x] author
+- [x] publisher
+- [x] isbn
+- [x] genre
 
 ### 🏢 Company:
 
