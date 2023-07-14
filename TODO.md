@@ -80,9 +80,10 @@
 ### 🏢 Company:
 
 - [x] name
-- [ ] catch phrase
-- [ ] buzzword
-- [ ] industry
+- [x] catch phrase
+- [x] buzz phrase
+- [x] type
+- [x] industry
 
 ### 👕 Commerce:
 
