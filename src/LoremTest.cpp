@@ -1,9 +1,10 @@
-#include "Lorem.h"
+#include "include/faker-cxx/Lorem.h"
 
 #include "gtest/gtest.h"
 
 #include "data/LoremWords.h"
 #include "StringHelper.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

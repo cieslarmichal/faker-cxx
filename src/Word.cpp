@@ -1,4 +1,4 @@
-#include "Word.h"
+#include "include/faker-cxx/Word.h"
 
 #include "data/words/Adjectives.h"
 #include "data/words/Adverbs.h"
@@ -7,9 +7,9 @@
 #include "data/words/Nouns.h"
 #include "data/words/Prepositions.h"
 #include "data/words/Verbs.h"
-#include "Helper.h"
+#include "include/faker-cxx/Helper.h"
 #include "StringHelper.h"
-#include "String.h"
+#include "include/faker-cxx/String.h"
 
 namespace faker
 {

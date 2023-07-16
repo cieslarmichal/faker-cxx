@@ -1,6 +1,6 @@
-#include "String.h"
+#include "include/faker-cxx/String.h"
 
-#include <Helper.h>
+#include "include/faker-cxx/Helper.h"
 #include <map>
 #include <random>
 #include <sstream>

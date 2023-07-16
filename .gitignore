@@ -44,3 +44,7 @@ cmake-build-*
 
 html/
 latex/
+
+ CMakeSettings.json
+ .vs/
+ out/

@@ -1,12 +1,12 @@
-#include "Date.h"
+#include "include/faker-cxx/Date.h"
 
 #include <chrono>
 #include <iostream>
 
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
-#include "Helper.h"
-#include "Number.h"
+#include "include/faker-cxx/Helper.h"
+#include "include/faker-cxx/Number.h"
 
 namespace faker
 {

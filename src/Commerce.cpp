@@ -1,11 +1,11 @@
-#include "Commerce.h"
+#include "include/faker-cxx/Commerce.h"
 
 #include <format>
 
 #include "data/Commerce.h"
-#include "Finance.h"
-#include "Helper.h"
-#include "String.h"
+#include "include/faker-cxx/Finance.h"
+#include "include/faker-cxx/Helper.h"
+#include "include/faker-cxx/String.h"
 
 namespace faker
 {

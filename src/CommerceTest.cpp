@@ -1,10 +1,11 @@
-#include "Commerce.h"
+#include "include/faker-cxx/Commerce.h"
 
 #include "gtest/gtest.h"
 
 #include "data/Characters.h"
 #include "data/Commerce.h"
 #include "StringHelper.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

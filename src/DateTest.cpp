@@ -1,4 +1,4 @@
-#include "Date.h"
+#include "include/faker-cxx/Date.h"
 
 #include <chrono>
 
@@ -7,6 +7,7 @@
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
 #include "StringHelper.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

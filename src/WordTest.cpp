@@ -1,4 +1,4 @@
-#include "Word.h"
+#include "include/faker-cxx/Word.h"
 
 #include "gtest/gtest.h"
 
@@ -10,6 +10,7 @@
 #include "data/words/Prepositions.h"
 #include "data/words/Verbs.h"
 #include "StringHelper.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

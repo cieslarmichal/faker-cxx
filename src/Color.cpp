@@ -1,12 +1,12 @@
-#include "Color.h"
+#include "include/faker-cxx/Color.h"
 
 #include <format>
 #include <sstream>
 
 #include "data/Colors.h"
-#include "Helper.h"
-#include "Number.h"
-#include "String.h"
+#include "include/faker-cxx/Helper.h"
+#include "include/faker-cxx/Number.h"
+#include "include/faker-cxx/String.h"
 
 namespace faker
 {

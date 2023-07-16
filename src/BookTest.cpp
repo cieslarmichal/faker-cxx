@@ -1,4 +1,4 @@
-#include "Book.h"
+#include "include/faker-cxx/Book.h"
 
 #include "gtest/gtest.h"
 
@@ -7,6 +7,7 @@
 #include "data/book/Publishers.h"
 #include "data/book/Titles.h"
 #include "StringHelper.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

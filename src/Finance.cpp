@@ -1,4 +1,4 @@
-#include "Finance.h"
+#include "include/faker-cxx/Finance.h"
 
 #include <format>
 #include <sstream>
@@ -7,9 +7,9 @@
 #include "data/BankIndentifiersCodes.h"
 #include "data/Currencies.h"
 #include "data/IbanFormats.h"
-#include "Helper.h"
-#include "Number.h"
-#include "String.h"
+#include "include/faker-cxx/Helper.h"
+#include "include/faker-cxx/Number.h"
+#include "include/faker-cxx/String.h"
 
 namespace faker
 {

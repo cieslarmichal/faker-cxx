@@ -1,6 +1,7 @@
-#include "Datatype.h"
+#include "include/faker-cxx/Datatype.h"
 
 #include "gtest/gtest.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

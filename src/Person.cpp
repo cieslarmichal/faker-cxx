@@ -1,4 +1,4 @@
-#include "Person.h"
+#include "include/faker-cxx/Person.h"
 
 #include <format>
 
@@ -7,7 +7,7 @@
 #include "data/Gender.h"
 #include "data/JobTitles.h"
 #include "data/LastNames.h"
-#include "Helper.h"
+#include "include/faker-cxx/Helper.h"
 
 namespace faker
 {
