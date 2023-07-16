@@ -77,12 +77,10 @@ target_include_directories(${LIBRARY_NAME}
         INTERFACE
         "${CMAKE_CURRENT_LIST_DIR}/include"
         PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}
+        ${CMAKE_CURRENT_LIST_DIR}
         )
 
 if (BUILD_TESTS)
-    set(CMAKE_CXX_EXTENSIONS ON)
-
     add_subdirectory(externals/googletest)
 
     set(GTEST_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
@@ -99,7 +97,7 @@ if (BUILD_TESTS)
 
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main faker-cxx)
 
-    target_include_directories(${LIBRARY_NAME}-UT PRIVATE ${GTEST_INCLUDE_DIR} ${CMAKE_CURRENT_SOURCE_DIR})
+    target_include_directories(${LIBRARY_NAME}-UT PRIVATE ${GTEST_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
 
     add_test(NAME ${LIBRARY_NAME}-UT COMMAND ${LIBRARY_NAME}-UT WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 
