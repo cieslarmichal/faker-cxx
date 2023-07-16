@@ -4,7 +4,7 @@
 #include <string>
 #include <vector>
 
-#include "types/Country.h"
+#include "include/faker-cxx/types/Country.h"
 
 namespace faker
 {

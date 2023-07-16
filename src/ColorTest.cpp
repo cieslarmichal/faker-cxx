@@ -1,10 +1,11 @@
-#include "Color.h"
+#include "include/faker-cxx/Color.h"
 
 #include "gtest/gtest.h"
 
 #include "data/Characters.h"
 #include "data/Colors.h"
 #include "StringHelper.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

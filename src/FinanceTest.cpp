@@ -1,4 +1,4 @@
-#include "Finance.h"
+#include "include/faker-cxx/Finance.h"
 
 #include "gtest/gtest.h"
 
@@ -7,6 +7,7 @@
 #include "data/Characters.h"
 #include "data/Currencies.h"
 #include "StringHelper.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

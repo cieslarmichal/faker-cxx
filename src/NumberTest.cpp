@@ -1,6 +1,7 @@
-#include "Number.h"
+#include "include/faker-cxx/Number.h"
 
 #include "gtest/gtest.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

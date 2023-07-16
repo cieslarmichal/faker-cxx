@@ -1,6 +1,6 @@
-#include "Datatype.h"
+#include "include/faker-cxx/Datatype.h"
 
-#include "Helper.h"
+#include "include/faker-cxx/Helper.h"
 
 namespace faker
 {

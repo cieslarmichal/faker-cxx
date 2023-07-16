@@ -1,4 +1,4 @@
-#include "Company.h"
+#include "include/faker-cxx/Company.h"
 
 #include "gtest/gtest.h"
 
@@ -16,6 +16,7 @@
 #include "data/JobTitles.h"
 #include "data/LastNames.h"
 #include "StringHelper.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

@@ -1,11 +1,11 @@
-#include "Book.h"
+#include "include/faker-cxx/Book.h"
 
 #include "data/book/Authors.h"
 #include "data/book/Genres.h"
 #include "data/book/Publishers.h"
 #include "data/book/Titles.h"
-#include "Helper.h"
-#include "String.h"
+#include "include/faker-cxx/Helper.h"
+#include "include/faker-cxx/String.h"
 
 namespace faker
 {

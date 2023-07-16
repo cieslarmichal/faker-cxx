@@ -1,6 +1,7 @@
 #include "StringHelper.h"
 
 #include "gtest/gtest.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

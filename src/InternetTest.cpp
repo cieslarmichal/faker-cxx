@@ -1,4 +1,4 @@
-#include "Internet.h"
+#include "include/faker-cxx/Internet.h"
 
 #include "gtest/gtest.h"
 
@@ -7,6 +7,7 @@
 #include "data/FirstNamesMales.h"
 #include "data/LastNames.h"
 #include "StringHelper.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;

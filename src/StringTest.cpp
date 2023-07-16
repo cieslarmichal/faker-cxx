@@ -1,8 +1,9 @@
-#include "String.h"
+#include "include/faker-cxx/String.h"
 
 #include "gtest/gtest.h"
 
 #include "data/Characters.h"
+#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;
