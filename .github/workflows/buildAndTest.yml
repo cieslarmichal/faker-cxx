@@ -28,7 +28,10 @@ jobs:
            && sudo launchpad-getkeys \
            && sudo apt-get update -y \
            && sudo apt-get install -y lld-16 ninja-build  build-essential libstdc++-13-dev \
-             clang-16 clang-tools-16 llvm-16 lcov libgtest-dev
+             clang-16 clang-tools-16 llvm-16 lcov
+
+      - name: Initialize submodules
+        run: git submodule update --init --recursive
 
       - name: Configure CMake
         run: |
