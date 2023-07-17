@@ -1,4 +1,4 @@
-#include "include/faker-cxx/Internet.h"
+#include "faker-cxx/Internet.h"
 
 #include "gtest/gtest.h"
 
@@ -242,7 +242,7 @@ TEST_F(InternetTest, shouldGenerateGithubAvatarUrl)
     const std::string expectedGithubAvatarPrefix = "https://avatars.githubusercontent.com/u/";
 
     const auto userNumber = std::stoi(githubAvatarUrl.substr(expectedGithubAvatarPrefix.size()));
-    
+
     ASSERT_TRUE(githubAvatarUrl.starts_with(expectedGithubAvatarPrefix));
     ASSERT_TRUE(userNumber >= 0 && userNumber <= 100000000);
 }

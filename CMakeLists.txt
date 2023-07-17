@@ -8,33 +8,13 @@ set(CMAKE_CXX_STANDARD_REQUIRED YES)
 
 option(BUILD_TESTS DEFAULT ON)
 
-if(MSVC)
+if (MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20 /permissive-")
-else()
+else ()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror")
-endif()
+endif ()
 
 set(LIBRARY_NAME faker-cxx)
-
-set(FAKER_HEADERS
-        include/faker-cxx/types/Country.h
-        include/faker-cxx/types/Hex.h
-        include/faker-cxx/types/Sex.h
-        include/faker-cxx/Book.h
-        include/faker-cxx/Color.h
-        include/faker-cxx/Commerce.h
-        include/faker-cxx/Company.h
-        include/faker-cxx/Datatype.h
-        include/faker-cxx/Date.h
-        include/faker-cxx/Finance.h
-        include/faker-cxx/Helper.h
-        include/faker-cxx/Internet.h
-        include/faker-cxx/Lorem.h
-        include/faker-cxx/Number.h
-        include/faker-cxx/Person.h
-        include/faker-cxx/String.h
-        include/faker-cxx/Word.h
-        )
 
 set(FAKER_SOURCES
         src/Book.cpp
@@ -46,6 +26,7 @@ set(FAKER_SOURCES
         src/Finance.cpp
         src/Helper.cpp
         src/Internet.cpp
+        src/Location.cpp
         src/Lorem.cpp
         src/Number.cpp
         src/Person.cpp
@@ -63,6 +44,7 @@ set(FAKER_UT_SOURCES
         src/DateTest.cpp
         src/FinanceTest.cpp
         src/InternetTest.cpp
+        src/LocationTest.cpp
         src/LoremTest.cpp
         src/NumberTest.cpp
         src/PersonTest.cpp
@@ -71,13 +53,13 @@ set(FAKER_UT_SOURCES
         src/WordTest.cpp
         )
 
-add_library(${LIBRARY_NAME} ${FAKER_SOURCES} ${FAKER_HEADERS})
+add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 
 target_include_directories(${LIBRARY_NAME}
         INTERFACE
         "${CMAKE_CURRENT_LIST_DIR}/include"
         PRIVATE
-        ${CMAKE_CURRENT_LIST_DIR}
+        "${CMAKE_CURRENT_LIST_DIR}/include"
         )
 
 if (BUILD_TESTS)

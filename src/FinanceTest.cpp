@@ -1,13 +1,14 @@
-#include "include/faker-cxx/Finance.h"
+#include "faker-cxx/Finance.h"
+
+#include <algorithm>
 
 #include "gtest/gtest.h"
 
-#include "data/AccountTypes.h"
-#include "data/BankIndentifiersCodes.h"
 #include "data/Characters.h"
-#include "data/Currencies.h"
+#include "data/finance/AccountTypes.h"
+#include "data/finance/Currencies.h"
+#include "src/data/finance/BankIndentifiersCodes.h"
 #include "StringHelper.h"
-#include <algorithm>
 
 using namespace ::testing;
 using namespace faker;
@@ -112,7 +113,7 @@ TEST_F(FinanceTest, shouldGenerateIban)
 
 TEST_F(FinanceTest, shouldGeneratePolishIban)
 {
-    const auto iban = Finance::iban(Country::Poland);
+    const auto iban = Finance::iban(IbanCountry::Poland);
 
     const auto countryCode = iban.substr(0, 2);
     const auto checksum = iban.substr(2, 2);
@@ -132,7 +133,7 @@ TEST_F(FinanceTest, shouldGeneratePolishIban)
 
 TEST_F(FinanceTest, shouldGenerateFranceIban)
 {
-    const auto iban = Finance::iban(Country::France);
+    const auto iban = Finance::iban(IbanCountry::France);
 
     const auto countryCode = iban.substr(0, 2);
     const auto checksum = iban.substr(2, 2);
@@ -152,7 +153,7 @@ TEST_F(FinanceTest, shouldGenerateFranceIban)
 
 TEST_F(FinanceTest, shouldGenerateItalyIban)
 {
-    const auto iban = Finance::iban(Country::Italy);
+    const auto iban = Finance::iban(IbanCountry::Italy);
 
     const auto countryCode = iban.substr(0, 2);
     const auto checksum = iban.substr(2, 2);
@@ -172,7 +173,7 @@ TEST_F(FinanceTest, shouldGenerateItalyIban)
 
 TEST_F(FinanceTest, shouldGenerateGermanyIban)
 {
-    const auto iban = Finance::iban(Country::Germany);
+    const auto iban = Finance::iban(IbanCountry::Germany);
 
     const auto countryCode = iban.substr(0, 2);
     const auto checksum = iban.substr(2, 2);
@@ -190,7 +191,7 @@ TEST_F(FinanceTest, shouldGenerateBic)
 {
     const auto bic = Finance::bic();
 
-    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(Country::Poland);
+    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(BicCountry::Poland);
 
     ASSERT_TRUE(std::any_of(polandBankIdentifiersCodes.begin(), polandBankIdentifiersCodes.end(),
                             [bic](const std::string& polandBankIdentifierCode)
@@ -199,9 +200,9 @@ TEST_F(FinanceTest, shouldGenerateBic)
 
 TEST_F(FinanceTest, shouldGeneratePolandBic)
 {
-    const auto bic = Finance::bic(Country::Poland);
+    const auto bic = Finance::bic(BicCountry::Poland);
 
-    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(Country::Poland);
+    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(BicCountry::Poland);
 
     ASSERT_TRUE(std::any_of(polandBankIdentifiersCodes.begin(), polandBankIdentifiersCodes.end(),
                             [bic](const std::string& polandBankIdentifierCode)

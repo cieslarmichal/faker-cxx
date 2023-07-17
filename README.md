@@ -56,6 +56,7 @@ target_link_libraries(main faker-cxx)
 ## 💎 Modules
 
 - 🌐 Internet - Generate emails, usernames, passwords, images urls.
+- 🌍 Location - Generate countries, cities, zip codes, street addresses.
 - 🧑 Person - Generate first, last names, job titles, genders, sex.
 - 🛒 Commerce - Generate commerce department, product name, sku, price.
 - 📅 Date - Generate past, future dates.

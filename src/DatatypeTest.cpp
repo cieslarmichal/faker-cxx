@@ -1,4 +1,4 @@
-#include "include/faker-cxx/Datatype.h"
+#include "faker-cxx/Datatype.h"
 
 #include "gtest/gtest.h"
 #include <algorithm>

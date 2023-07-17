@@ -1,11 +1,11 @@
-#include "include/faker-cxx/Internet.h"
+#include "faker-cxx/Internet.h"
 
 #include <format>
 #include <utility>
 
 #include "data/EmailHosts.h"
-#include "include/faker-cxx/Helper.h"
-#include "include/faker-cxx/Person.h"
+#include "faker-cxx/Helper.h"
+#include "faker-cxx/Person.h"
 
 namespace faker
 {

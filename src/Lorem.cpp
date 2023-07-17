@@ -1,7 +1,7 @@
-#include "include/faker-cxx/Lorem.h"
+#include "faker-cxx/Lorem.h"
 
 #include "data/LoremWords.h"
-#include "include/faker-cxx/Helper.h"
+#include "faker-cxx/Helper.h"
 #include "StringHelper.h"
 
 namespace faker

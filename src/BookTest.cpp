@@ -1,4 +1,4 @@
-#include "include/faker-cxx/Book.h"
+#include "faker-cxx/Book.h"
 
 #include "gtest/gtest.h"
 
