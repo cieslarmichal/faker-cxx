@@ -5,7 +5,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/cieslarmichal/faker-cxx/badge)](https://www.codefactor.io/repository/github/cieslarmichal/faker-cxx)
 [![GitHub](https://img.shields.io/github/license/cieslarmichal/faker-cxx)](https://github.com/cieslarmichal/faker-cxx/blob/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
-[![Discord Shield](https://img.shields.io/badge/discord-join-blue)](https://discord.gg/BxAXnDvs)
+[![Discord Shield](https://img.shields.io/badge/discord-join-blue)](https://discord.gg/h2ur8H6mK6)
 
 C++ Faker is a modern C++20 open-source library for generating fake data for testing and development.
 
@@ -77,4 +77,4 @@ Feel free to join Faker C++ development! 🚀
 
 Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.
 
-[Discord Channel](https://discord.gg/BxAXnDvs) for contributors.
+[Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
