@@ -1,5 +1,6 @@
 #pragma once
 
+#include <array>
 #include <optional>
 #include <string>
 
@@ -132,5 +133,29 @@ public:
      * @endcode
      */
     static unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::nullopt);
+
+    /**
+     * @brief Determines which address class user wants to generate in the ipv4 method.
+     * 
+     */
+    enum class IPv4Class
+    {
+        classA,
+        classB,
+        classC
+    };
+
+    /**
+     * @brief Returns a string containing randomized ipv4 address of the given class.
+     * 
+     * @param ipv4class address class to be generated
+     * @return std::string representation of the ipv4 address
+     * 
+     * @code
+     * Internet::ipv4() // "192.168.0.1"
+     * Internet::ipv4(IPv4Class::classA) // "10.0.0.1"
+     * @endcode
+     */
+    static std::string ipv4(IPv4Class ipv4class = IPv4Class::classC);
 };
 }

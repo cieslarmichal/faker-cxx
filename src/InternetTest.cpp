@@ -1,6 +1,7 @@
 #include "faker-cxx/Internet.h"
 
 #include <algorithm>
+#include <sstream>
 
 #include "gtest/gtest.h"
 
@@ -24,6 +25,25 @@ const std::vector<unsigned> httpStatusClientErrorCodes{400, 401, 402, 403, 404, 
                                                        410, 411, 412, 413, 414, 415, 416, 417, 418, 421,
                                                        422, 423, 424, 425, 426, 428, 429, 431, 451};
 const std::vector<unsigned> httpStatusServerErrorCodes{500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511};
+constexpr unsigned int classAFirstSection = 10u;
+constexpr unsigned int classBFirstSection = 172u;
+constexpr unsigned int classBSecondSectionLowerBound = 16;
+constexpr unsigned int classBSecondSectionUpperBound = 31;
+constexpr unsigned int classCFirstSection = 192u;
+constexpr unsigned int classCSecondSection = 168u;
+
+std::array<uint8_t, 4> deconstructIpv4String(std::string ipv4)
+{
+    std::array<uint8_t, 4> ret;
+    std::istringstream ss(ipv4);
+    constexpr char separator = '.';
+    std::for_each(ret.begin(), ret.end(), [&ss](uint8_t& c) {
+        std::string token;
+        std::getline(ss, token, separator);
+        c = static_cast<uint8_t>(std::stoi(token));
+    });
+    return ret;
+}
 }
 
 class InternetTest : public Test
@@ -330,4 +350,30 @@ TEST_F(InternetTest, shouldGenerateHttpStatusServerErrorCode)
 
     ASSERT_TRUE(std::any_of(httpStatusServerErrorCodes.begin(), httpStatusServerErrorCodes.end(),
                             [generatedHttpStatusCode](unsigned statusCode) { return generatedHttpStatusCode == statusCode; }));
+}
+
+TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassAAddress)
+{
+    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::classA);
+    const auto addressSectors = deconstructIpv4String(generatedIpv4);
+
+    ASSERT_EQ(addressSectors[0], classAFirstSection);
+}
+
+TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassBAddress)
+{
+    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::classB);
+    const auto addressSectors = deconstructIpv4String(generatedIpv4);
+
+    ASSERT_EQ(addressSectors[0], classBFirstSection);
+    ASSERT_TRUE(addressSectors[1] >= classBSecondSectionLowerBound and addressSectors[1] <= classBSecondSectionUpperBound);
+}
+
+TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassCAddress)
+{
+    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::classC);
+    const auto addressSectors = deconstructIpv4String(generatedIpv4);
+    
+    ASSERT_EQ(addressSectors[0], classCFirstSection);
+    ASSERT_EQ(addressSectors[1], classCSecondSection);
 }
