@@ -35,13 +35,13 @@
 
 - [ ] emoji
 - [ ] exampleEmail
-- [ ] httpMethod
-- [ ] httpStatusCode
+- [x] httpMethod
+- [x] httpStatusCode
 - [ ] ipv4
 - [ ] ipv6
 - [ ] mac
 - [ ] port
-- [ ] protocol
+- [x] protocol
 - [ ] url
 - [x] image url
 - [x] github avatar url
