@@ -45,14 +45,12 @@ int main()
 
 ## Requirements
 
-#### Compiler Support
+### Compiler Support
+- [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
+- [GCC➚](https://gcc.gnu.org/) version 13 or newer.
+- [Clang➚](https://clang.llvm.org/) version 16 or newer.
 
-  * [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
-  * [GCC➚](https://gcc.gnu.org/) version 13 or newer.
-  * [Clang➚](https://clang.llvm.org/) version 16 or newer.
-
-#### C++ Language version
-* [C++20➚](https://en.wikipedia.org/wiki/C%2B%2B17) or newer.
+### [CMake](https://cmake.org/) version 3.22 or newer
 
 ## Consuming library with CMake
 
@@ -93,7 +91,18 @@ Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main
 
 ## Building from sources with Clang 16 / GCC 13
 
-#### Prepare build directory
+#### 1. Install Clang 16
+```
+sudo add-apt-repository ppa:trebelnik-stefina/launchpad-getkeys \
+&& sudo apt-get update \
+&& sudo apt-get install launchpad-getkeys \
+&& sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' \
+&& sudo launchpad-getkeys \
+&& sudo apt-get update -y \
+&& sudo apt-get install -y lld-16 ninja-build  build-essential libstdc++-13-dev \
+ clang-16 clang-tools-16 llvm-16 lcov
+```
+#### 2. Prepare build directory
 ```
 git clone https://github.com/cieslarmichal/faker-cxx.git
 cd faker-cxx
@@ -102,17 +111,17 @@ mkdir build
 cd build
 ```
 
-#### CMake setup with Clang 16
+#### 3a. CMake setup with Clang 16
 ```
 cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
 ```
 
-#### CMake setup with GCC 13
+#### 3b. CMake setup with GCC 13
 ```
 cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/g++-13
 ```
 
-#### Build 🔨
+#### 4. Build 🔨
 ```
 make
 ```
