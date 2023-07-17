@@ -110,10 +110,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af97f8a6f3c8cd57e68c90bc37b196354"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Finance.html#af97f8a6f3c8cd57e68c90bc37b196354">amount</a> (double min=0, double max=1000, unsigned decimalPlaces=2, const std::string &amp;symbol=&quot;&quot;)</td></tr>
 <tr class="memdesc:af97f8a6f3c8cd57e68c90bc37b196354"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random amount between the given bounds (inclusive).  <br /></td></tr>
 <tr class="separator:af97f8a6f3c8cd57e68c90bc37b196354"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aaae802695972d0cdc06434d55b9bcdc1"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Finance.html#aaae802695972d0cdc06434d55b9bcdc1">iban</a> (std::optional&lt; Country &gt; country=std::nullopt)</td></tr>
-<tr class="separator:aaae802695972d0cdc06434d55b9bcdc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b198d6518995033df316182b72b6a19"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Finance.html#a9b198d6518995033df316182b72b6a19">bic</a> (std::optional&lt; Country &gt; country=std::nullopt)</td></tr>
-<tr class="separator:a9b198d6518995033df316182b72b6a19"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a558120ded569f15ee09d0f2fd4be6d"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Finance.html#a4a558120ded569f15ee09d0f2fd4be6d">iban</a> (std::optional&lt; IbanCountry &gt; country=std::nullopt)</td></tr>
+<tr class="separator:a4a558120ded569f15ee09d0f2fd4be6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8f9a4ef2b0d11ab1cebce870b6c2182c"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Finance.html#a8f9a4ef2b0d11ab1cebce870b6c2182c">bic</a> (std::optional&lt; BicCountry &gt; country=std::nullopt)</td></tr>
+<tr class="separator:a8f9a4ef2b0d11ab1cebce870b6c2182c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a17b722245fb6f0d73502b9896b188deb"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Finance.html#a17b722245fb6f0d73502b9896b188deb">accountNumber</a> (unsigned length=8)</td></tr>
 <tr class="separator:a17b722245fb6f0d73502b9896b188deb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15e187cc0587b8f94c7a41e48ae87ba6"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Finance.html#a15e187cc0587b8f94c7a41e48ae87ba6">pin</a> (unsigned length=4)</td></tr>
@@ -153,7 +153,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Account number.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Finance.html#a17b722245fb6f0d73502b9896b188deb">Finance::accountNumber</a>() <span class="comment">// &quot;92842238&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Finance.html">Finance</a>::<a class="code hl_function" href="classfaker_1_1Finance.html#a17b722245fb6f0d73502b9896b188deb">accountNumber</a>(26) <span class="comment">// &quot;55875455514825927518796290&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Finance_html"><div class="ttname"><a href="classfaker_1_1Finance.html">faker::Finance</a></div><div class="ttdef"><b>Definition</b> Finance.h:11</div></div>
+<div class="ttc" id="aclassfaker_1_1Finance_html"><div class="ttname"><a href="classfaker_1_1Finance.html">faker::Finance</a></div><div class="ttdef"><b>Definition</b> Finance.h:13</div></div>
 <div class="ttc" id="aclassfaker_1_1Finance_html_a17b722245fb6f0d73502b9896b188deb"><div class="ttname"><a href="classfaker_1_1Finance.html#a17b722245fb6f0d73502b9896b188deb">faker::Finance::accountNumber</a></div><div class="ttdeci">static std::string accountNumber(unsigned length=8)</div></div>
 </div><!-- fragment --> 
 </div>
@@ -253,8 +253,8 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a9b198d6518995033df316182b72b6a19" name="a9b198d6518995033df316182b72b6a19"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b198d6518995033df316182b72b6a19">&#9670;&#160;</a></span>bic()</h2>
+<a id="a8f9a4ef2b0d11ab1cebce870b6c2182c" name="a8f9a4ef2b0d11ab1cebce870b6c2182c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8f9a4ef2b0d11ab1cebce870b6c2182c">&#9670;&#160;</a></span>bic()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +265,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static std::string faker::Finance::bic </td>
           <td>(</td>
-          <td class="paramtype">std::optional&lt; Country &gt;&#160;</td>
+          <td class="paramtype">std::optional&lt; BicCountry &gt;&#160;</td>
           <td class="paramname"><em>country</em> = <code>std::nullopt</code></td><td>)</td>
           <td></td>
         </tr>
@@ -284,8 +284,8 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>BIC.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Finance.html#a9b198d6518995033df316182b72b6a19">Finance::bic</a>(IbanCountry::Poland) <span class="comment">// &quot;BREXPLPWMUL&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Finance_html_a9b198d6518995033df316182b72b6a19"><div class="ttname"><a href="classfaker_1_1Finance.html#a9b198d6518995033df316182b72b6a19">faker::Finance::bic</a></div><div class="ttdeci">static std::string bic(std::optional&lt; Country &gt; country=std::nullopt)</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Finance.html#a8f9a4ef2b0d11ab1cebce870b6c2182c">Finance::bic</a>(BicCountry::Poland) <span class="comment">// &quot;BREXPLPWMUL&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Finance_html_a8f9a4ef2b0d11ab1cebce870b6c2182c"><div class="ttname"><a href="classfaker_1_1Finance.html#a8f9a4ef2b0d11ab1cebce870b6c2182c">faker::Finance::bic</a></div><div class="ttdeci">static std::string bic(std::optional&lt; BicCountry &gt; country=std::nullopt)</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -319,8 +319,8 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="aaae802695972d0cdc06434d55b9bcdc1" name="aaae802695972d0cdc06434d55b9bcdc1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aaae802695972d0cdc06434d55b9bcdc1">&#9670;&#160;</a></span>iban()</h2>
+<a id="a4a558120ded569f15ee09d0f2fd4be6d" name="a4a558120ded569f15ee09d0f2fd4be6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a558120ded569f15ee09d0f2fd4be6d">&#9670;&#160;</a></span>iban()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -331,7 +331,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static std::string faker::Finance::iban </td>
           <td>(</td>
-          <td class="paramtype">std::optional&lt; Country &gt;&#160;</td>
+          <td class="paramtype">std::optional&lt; IbanCountry &gt;&#160;</td>
           <td class="paramname"><em>country</em> = <code>std::nullopt</code></td><td>)</td>
           <td></td>
         </tr>
@@ -350,8 +350,8 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>IBAN.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Finance.html#aaae802695972d0cdc06434d55b9bcdc1">Finance::iban</a>(IbanCountry::Poland) <span class="comment">// &quot;PL61109010140000071219812874&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Finance_html_aaae802695972d0cdc06434d55b9bcdc1"><div class="ttname"><a href="classfaker_1_1Finance.html#aaae802695972d0cdc06434d55b9bcdc1">faker::Finance::iban</a></div><div class="ttdeci">static std::string iban(std::optional&lt; Country &gt; country=std::nullopt)</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Finance.html#a4a558120ded569f15ee09d0f2fd4be6d">Finance::iban</a>(IbanCountry::Poland) <span class="comment">// &quot;PL61109010140000071219812874&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Finance_html_a4a558120ded569f15ee09d0f2fd4be6d"><div class="ttname"><a href="classfaker_1_1Finance.html#a4a558120ded569f15ee09d0f2fd4be6d">faker::Finance::iban</a></div><div class="ttdeci">static std::string iban(std::optional&lt; IbanCountry &gt; country=std::nullopt)</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
