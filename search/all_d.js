@@ -13,5 +13,6 @@ var searchData=
   ['productfullname_10',['productFullName',['../classfaker_1_1Commerce.html#adab60540907bcf823a78835063a78240',1,'faker::Commerce']]],
   ['productmaterial_11',['productMaterial',['../classfaker_1_1Commerce.html#a74e8c968b671887b885c59d195378fd0',1,'faker::Commerce']]],
   ['productname_12',['productName',['../classfaker_1_1Commerce.html#a0fb2cb54e01b2390615e7691c8966a30',1,'faker::Commerce']]],
-  ['publisher_13',['publisher',['../classfaker_1_1Book.html#a12b8569f795c476dace10cb980ff8d4f',1,'faker::Book']]]
+  ['protocol_13',['protocol',['../classfaker_1_1Internet.html#afcec10d2c5cccf38bfc9c5ddda6d7a04',1,'faker::Internet']]],
+  ['publisher_14',['publisher',['../classfaker_1_1Book.html#a12b8569f795c476dace10cb980ff8d4f',1,'faker::Book']]]
 ];
