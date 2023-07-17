@@ -157,5 +157,23 @@ public:
      * @endcode
      */
     static std::string ipv4(IPv4Class ipv4class = IPv4Class::classC);
+
+    /**
+     * @brief Returns a string containing randomized ipv4 address based on given base address and mask.
+     * 
+     * Generated result is compliant with the ipv4 classes. Bits of the baseIpv4Address not covered by the
+     * generationMask will be ignored and replaced during generation. Bits covered by the mask will be kept in the result.
+     * Mask should be provided in the same format as regular ipv4 mask.
+     * 
+     * @param generationMask Mask deciding which bits of the base address should be kept during randomization.
+     * @param baseIpv4Address Address to randomize from.
+     * @return std::string representation of the ipv4 address
+     * 
+     * @code
+     * Internet::ipv4({255.0.0.0}, {10.100.100.100}) // "10.128.17.1"
+     * Internet::ipv4({255.255.128.0}, {129.168.255.0}) // "192.168.128.10"
+     * @endcode 
+     */
+    static std::string ipv4(std::array<unsigned char, 4> generationMask, std::array<unsigned char, 4> baseIpv4Address);
 };
 }
