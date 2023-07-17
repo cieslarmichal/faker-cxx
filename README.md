@@ -43,6 +43,17 @@ int main()
 }
 ```
 
+## Requirements
+
+#### Compiler Support
+
+  * [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
+  * [GCC➚](https://gcc.gnu.org/) version 13 or newer.
+  * [Clang➚](https://clang.llvm.org/) version 16 or newer.
+
+#### C++ Language version
+* [C++20➚](https://en.wikipedia.org/wiki/C%2B%2B17) or newer.
+
 ## Consuming library with CMake
 
 ```cmake
@@ -78,3 +89,19 @@ Feel free to join Faker C++ development! 🚀
 Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.
 
 [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
+
+
+## Building from sources with Clang 16
+
+```
+git clone https://github.com/cieslarmichal/faker-cxx.git
+
+git submodule update --init --recursive
+
+cd faker-cxx
+mkdir build
+cd build
+cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
+make
+```
+
