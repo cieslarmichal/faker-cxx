@@ -5,6 +5,15 @@
 
 namespace faker
 {
+enum class HttpResponseType
+{
+    Informational,
+    Success,
+    Redirection,
+    ClientError,
+    ServerError
+};
+
 class Internet
 {
 public:
@@ -87,5 +96,41 @@ public:
      * @endcode
      */
     static std::string githubAvatarUrl();
+
+    /**
+     * @brief Returns a random web protocol. Either `http` or `https`.
+     *
+     * @returns Web protocol.
+     *
+     * @code
+     * Internet::protocol() // "https"
+     * @endcode
+     */
+    static std::string protocol();
+
+    /**
+     * @brief Generates a random http method name.
+     *
+     * @returns Http method name.
+     *
+     * @code
+     * Internet::httpMethod() // "POST"
+     * @endcode
+     */
+    static std::string httpMethod();
+
+    /**
+     * @brief Returns a random http status code.
+     *
+     * @param responseType The type of the http response.
+     *
+     * @returns Http status code.
+     *
+     * @code
+     * Internet::httpStatusCode() // 500
+     * Internet::httpStatusCode(HttpStatusCodeType::success) // 201
+     * @endcode
+     */
+    static unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::nullopt);
 };
 }

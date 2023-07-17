@@ -33,8 +33,8 @@
 
 ### 🌐 Internet:
 
-- [ ] color
 - [ ] emoji
+- [ ] exampleEmail
 - [ ] httpMethod
 - [ ] httpStatusCode
 - [ ] ipv4
