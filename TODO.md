@@ -2,8 +2,8 @@
 
 ### 🏦 Finance:
 
-- [ ] support for more countries in Finance::iban()
-- [ ] support for more countries in Finance::bic()
+- [ ] support for more iban countries
+- [ ] support for more bic countries
 - [ ] credit card number
 - [ ] credit card CVV
 - [ ] bitcoin address
@@ -19,6 +19,7 @@
 - [x] job title
 - [x] job type
 - [x] prefix
+- [ ] locales
 
 ### 📞 Phone:
 
@@ -47,17 +48,14 @@
 
 ### 🌍 Location:
 
-- [ ] building number
-- [ ] city
-- [ ] country
-- [ ] country code
-- [ ] latitude
-- [ ] longitude
-- [ ] state
-- [ ] street
-- [ ] street address
-- [ ] time zone
-- [ ] zip code
+- [x] country
+- [x] state
+- [x] city
+- [x] zip code
+- [x] street
+- [x] street address
+- [x] building number
+- [ ] locales
 
 ### 🖊️ Lorem:
 
@@ -84,6 +82,7 @@
 - [x] buzz phrase
 - [x] type
 - [x] industry
+- [ ] locales
 
 ### 👕 Commerce:
 

@@ -3,6 +3,8 @@
 #include <optional>
 #include <string>
 
+#include "faker-cxx/types/BicCountry.h"
+#include "faker-cxx/types/IbanCountry.h"
 #include "types/Country.h"
 
 namespace faker
@@ -64,7 +66,7 @@ public:
      * Finance::iban(IbanCountry::Poland) // "PL61109010140000071219812874"
      * @endcode
      */
-    static std::string iban(std::optional<Country> country = std::nullopt);
+    static std::string iban(std::optional<IbanCountry> country = std::nullopt);
 
     /**
      * Generates a random bic.
@@ -75,10 +77,10 @@ public:
      * @returns BIC.
      *
      * @code
-     * Finance::bic(IbanCountry::Poland) // "BREXPLPWMUL"
+     * Finance::bic(BicCountry::Poland) // "BREXPLPWMUL"
      * @endcode
      */
-    static std::string bic(std::optional<Country> country = std::nullopt);
+    static std::string bic(std::optional<BicCountry> country = std::nullopt);
 
     /**
      * Generates a random account number.

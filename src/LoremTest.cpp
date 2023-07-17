@@ -1,4 +1,4 @@
-#include "include/faker-cxx/Lorem.h"
+#include "faker-cxx/Lorem.h"
 
 #include "gtest/gtest.h"
 

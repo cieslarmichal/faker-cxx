@@ -1,4 +1,4 @@
-#include "include/faker-cxx/Word.h"
+#include "faker-cxx/Word.h"
 
 #include "gtest/gtest.h"
 

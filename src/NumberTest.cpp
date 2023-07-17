@@ -1,4 +1,4 @@
-#include "include/faker-cxx/Number.h"
+#include "faker-cxx/Number.h"
 
 #include "gtest/gtest.h"
 #include <algorithm>

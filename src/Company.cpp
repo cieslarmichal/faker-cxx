@@ -1,4 +1,4 @@
-#include "include/faker-cxx/Company.h"
+#include "faker-cxx/Company.h"
 
 #include <format>
 
@@ -11,8 +11,8 @@
 #include "data/company/CompanyTypes.h"
 #include "data/company/Industries.h"
 #include "data/company/Suffixes.h"
-#include "include/faker-cxx/Helper.h"
-#include "include/faker-cxx/Person.h"
+#include "faker-cxx/Helper.h"
+#include "faker-cxx/Person.h"
 
 namespace faker
 {

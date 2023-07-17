@@ -1,19 +1,18 @@
-#include "include/faker-cxx/Finance.h"
+#include "faker-cxx/Finance.h"
 
 #include <format>
 #include <sstream>
 
-#include "data/AccountTypes.h"
-#include "data/BankIndentifiersCodes.h"
-#include "data/Currencies.h"
-#include "data/IbanFormats.h"
-#include "include/faker-cxx/Helper.h"
-#include "include/faker-cxx/Number.h"
-#include "include/faker-cxx/String.h"
+#include "data/finance/AccountTypes.h"
+#include "data/finance/BankIndentifiersCodes.h"
+#include "data/finance/Currencies.h"
+#include "data/finance/IbanFormats.h"
+#include "faker-cxx/Helper.h"
+#include "faker-cxx/Number.h"
+#include "faker-cxx/String.h"
 
 namespace faker
 {
-
 std::string Finance::currencyCode()
 {
     return Helper::arrayElement<std::string>(currenciesCodes);
@@ -39,9 +38,9 @@ std::string Finance::amount(double min, double max, unsigned int decimalPlaces, 
     return std::format("{}{}", symbol, ss.str());
 }
 
-std::string Finance::iban(std::optional<Country> country)
+std::string Finance::iban(std::optional<IbanCountry> country)
 {
-    const auto ibanCountry = country ? *country : Helper::arrayElement<Country>(supportedIbanCountries);
+    const auto ibanCountry = country ? *country : Helper::arrayElement<IbanCountry>(supportedIbanCountries);
 
     // TODO: error handling
     const auto& ibanFormat = ibanFormats.at(ibanCountry);
@@ -74,9 +73,9 @@ std::string Finance::iban(std::optional<Country> country)
     return iban;
 }
 
-std::string Finance::bic(std::optional<Country> country)
+std::string Finance::bic(std::optional<BicCountry> country)
 {
-    const auto bicCountry = country ? *country : Helper::arrayElement<Country>(supportedBankIdentifiersCodesCountries);
+    const auto bicCountry = country ? *country : Helper::arrayElement<BicCountry>(supportedBicCountries);
 
     // TODO: error handling
     return Helper::arrayElement<std::string>(bankIdentifiersCodesMapping.at(bicCountry));

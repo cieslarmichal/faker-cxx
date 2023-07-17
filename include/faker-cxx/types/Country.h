@@ -6,6 +6,7 @@ namespace faker
 {
 enum class Country
 {
+    Usa,
     Poland,
     France,
     Germany,
