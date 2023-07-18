@@ -120,6 +120,8 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a15e187cc0587b8f94c7a41e48ae87ba6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a630a739b5fefc9cb3cdf264bc27db2aa"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Finance.html#a630a739b5fefc9cb3cdf264bc27db2aa">routingNumber</a> ()</td></tr>
 <tr class="separator:a630a739b5fefc9cb3cdf264bc27db2aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0aa71a72d411fb89c5ba623db469bd4"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Finance.html#ac0aa71a72d411fb89c5ba623db469bd4">creditCardNumber</a> (std::optional&lt; CreditCardType &gt; creditCardType=std::nullopt)</td></tr>
+<tr class="separator:ac0aa71a72d411fb89c5ba623db469bd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a17b722245fb6f0d73502b9896b188deb" name="a17b722245fb6f0d73502b9896b188deb"></a>
@@ -155,7 +157,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Account number.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Finance.html#a17b722245fb6f0d73502b9896b188deb">Finance::accountNumber</a>() <span class="comment">// &quot;92842238&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Finance.html">Finance</a>::<a class="code hl_function" href="classfaker_1_1Finance.html#a17b722245fb6f0d73502b9896b188deb">accountNumber</a>(26) <span class="comment">// &quot;55875455514825927518796290&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Finance_html"><div class="ttname"><a href="classfaker_1_1Finance.html">faker::Finance</a></div><div class="ttdef"><b>Definition</b> Finance.h:13</div></div>
+<div class="ttc" id="aclassfaker_1_1Finance_html"><div class="ttname"><a href="classfaker_1_1Finance.html">faker::Finance</a></div><div class="ttdef"><b>Definition</b> Finance.h:21</div></div>
 <div class="ttc" id="aclassfaker_1_1Finance_html_a17b722245fb6f0d73502b9896b188deb"><div class="ttname"><a href="classfaker_1_1Finance.html#a17b722245fb6f0d73502b9896b188deb">faker::Finance::accountNumber</a></div><div class="ttdeci">static std::string accountNumber(unsigned length=8)</div></div>
 </div><!-- fragment --> 
 </div>
@@ -288,6 +290,42 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>BIC.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Finance.html#a8f9a4ef2b0d11ab1cebce870b6c2182c">Finance::bic</a>(BicCountry::Poland) <span class="comment">// &quot;BREXPLPWMUL&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1Finance_html_a8f9a4ef2b0d11ab1cebce870b6c2182c"><div class="ttname"><a href="classfaker_1_1Finance.html#a8f9a4ef2b0d11ab1cebce870b6c2182c">faker::Finance::bic</a></div><div class="ttdeci">static std::string bic(std::optional&lt; BicCountry &gt; country=std::nullopt)</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ac0aa71a72d411fb89c5ba623db469bd4" name="ac0aa71a72d411fb89c5ba623db469bd4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0aa71a72d411fb89c5ba623db469bd4">&#9670;&#160;</a></span>creditCardNumber()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Finance::creditCardNumber </td>
+          <td>(</td>
+          <td class="paramtype">std::optional&lt; CreditCardType &gt;&#160;</td>
+          <td class="paramname"><em>creditCardType</em> = <code>std::nullopt</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Generates a random credit card number.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">creditCardType</td><td>The type of the credit card.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Credit card number.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Finance.html#ac0aa71a72d411fb89c5ba623db469bd4">Finance::creditCardNumber</a>() <span class="comment">// &quot;4882664999007&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Finance_html_ac0aa71a72d411fb89c5ba623db469bd4"><div class="ttname"><a href="classfaker_1_1Finance.html#ac0aa71a72d411fb89c5ba623db469bd4">faker::Finance::creditCardNumber</a></div><div class="ttdeci">static std::string creditCardNumber(std::optional&lt; CreditCardType &gt; creditCardType=std::nullopt)</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
