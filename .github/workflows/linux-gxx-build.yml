@@ -1,0 +1,29 @@
+name: g++
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install apt-get dependencies
+        run: sudo apt update -y && sudo apt install -y docker
+
+      - name: Build docker image
+        run: sudo docker build -t test .
+
+      - name: Run docker container
+        run: sudo docker run -it test
