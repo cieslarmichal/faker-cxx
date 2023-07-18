@@ -19,11 +19,8 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install apt-get dependencies
-        run: sudo apt update -y && sudo apt install -y docker
-
       - name: Build docker image
-        run: sudo docker build -t test .
+        run: docker build -t test .
 
       - name: Run docker container
-        run: sudo docker run -it test
+        run: docker run -it test
