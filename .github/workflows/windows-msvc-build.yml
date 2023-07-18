@@ -19,8 +19,9 @@ jobs:
         with:
           submodules: recursive
 
-      - shell: bash
-        working-directory: build/
+      - run: cmake -E make_directory build
+        
+      - working-directory: build/
         run: cmake .. -G "Visual Studio 17 2022"
 
       - working-directory: build/
