@@ -20,9 +20,9 @@ jobs:
           submodules: recursive
 
       - run: cmake -E make_directory build
-        
+
       - working-directory: build/
-        run: cmake .. -G "Visual Studio 17 2022"
+        run: cmake .. -GNinja
 
       - working-directory: build/
         run: cmake --build .
