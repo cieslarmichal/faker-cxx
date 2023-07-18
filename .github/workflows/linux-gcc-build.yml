@@ -25,7 +25,7 @@ jobs:
            && sudo apt-get update \
            && sudo apt-get install launchpad-getkeys \
            && sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' \
-           && sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
+           && sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa \
            && sudo launchpad-getkeys \
            && sudo apt-get update -y \
            && sudo apt-get install -y ninja-build  build-essential libstdc++-13-dev gcc-13 lcov
