@@ -90,8 +90,9 @@ Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main
 
 [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
 
+<br />
 
-## Building from sources with Clang 16 / GCC 13
+## Building from sources with Clang 16
 
 #### 1. Install Clang 16
 ```
@@ -113,14 +114,9 @@ mkdir build
 cd build
 ```
 
-#### 3a. CMake setup with Clang 16
+#### 3. CMake setup with Clang 16
 ```
 cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
-```
-
-#### 3b. CMake setup with GCC 13
-```
-cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/g++-13
 ```
 
 #### 4. Build 🔨
