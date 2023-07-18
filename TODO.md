@@ -8,7 +8,7 @@
 - [ ] credit card CVV
 - [ ] bitcoin address
 - [ ] ethereum address
-- [ ] routing number
+- [x] routing number
 
 ### 🧑 Person:
 
@@ -19,11 +19,12 @@
 - [x] job title
 - [x] job type
 - [x] prefix
-- [ ] locales
+- [ ] support for more countries
 
 ### 📞 Phone:
 
 - [ ] phone number
+- [ ] support for more countries
 
 ### 🎨 Color:
 
@@ -55,7 +56,7 @@
 - [x] street
 - [x] street address
 - [x] building number
-- [ ] locales
+- [ ] support for more countries
 
 ### 🖊️ Lorem:
 
@@ -82,7 +83,7 @@
 - [x] buzz phrase
 - [x] type
 - [x] industry
-- [ ] locales
+- [ ] support for more countries
 
 ### 👕 Commerce:
 

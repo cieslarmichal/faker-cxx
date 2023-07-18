@@ -109,5 +109,16 @@ public:
      * @endcode
      */
     static std::string pin(unsigned length = 4);
+
+    /**
+     * Generates a random routing number.
+     *
+     * @returns Routing number.
+     *
+     * @code
+     * Finance::routingNumber() // "522814402"
+     * @endcode
+     */
+    static std::string routingNumber();
 };
 }
