@@ -1,7 +1,8 @@
 #include "faker-cxx/Number.h"
 
-#include "gtest/gtest.h"
 #include <algorithm>
+
+#include "gtest/gtest.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -41,7 +42,7 @@ TEST_F(NumberTest, givenSingleArgument_shouldCorrectlyResolveToTwoArgsOverload)
 
 TEST_F(NumberTest, givenValidRangeArguments_shouldGenerateDecimalNumberThatIsInGivenRange)
 {
-    const float actualRandomNumber = Number::decimal<float>(2.f, 10.f);
+    const std::floating_point auto actualRandomNumber = Number::decimal<float>(2.f, 10.f);
 
     ASSERT_TRUE(actualRandomNumber >= 2.f);
     ASSERT_TRUE(actualRandomNumber <= 10.f);
@@ -49,11 +50,10 @@ TEST_F(NumberTest, givenValidRangeArguments_shouldGenerateDecimalNumberThatIsInG
 
 TEST_F(NumberTest, givenRangeWithSameNumberSection_shouldGenerateThisNumberForDecimal)
 {
-    const float actualRandomNumber = Number::decimal<float>(2.f, 2.f);
+    const std::floating_point auto actualRandomNumber = Number::decimal<float>(2.f, 2.f);
 
     ASSERT_EQ(actualRandomNumber, 2.f);
 }
-
 
 TEST_F(NumberTest, givenDiscreteDistribution_shouldGenerateNumberThatIsInGivenRange)
 {
@@ -69,7 +69,8 @@ TEST_F(NumberTest, givenRealDistribution_shouldGenerateNumberThatIsInGivenRange)
 {
     auto dist = std::normal_distribution<float>(5.f, 2.f);
 
-    const float actualRandomNumber = Number::decimal<float, std::normal_distribution<float>>(dist, 2.f, 10.f);
+    const std::floating_point auto actualRandomNumber =
+        Number::decimal<float, std::normal_distribution<float>>(dist, 2.f, 10.f);
 
     ASSERT_TRUE(actualRandomNumber >= 2.f);
     ASSERT_TRUE(actualRandomNumber <= 10.f);

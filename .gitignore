@@ -48,3 +48,5 @@ latex/
  CMakeSettings.json
  .vs/
  out/
+ build-linux-gxx
+ build-linux-clang
