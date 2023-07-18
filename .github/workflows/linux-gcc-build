@@ -1,0 +1,56 @@
+name: gcc
+
+on:
+  push:
+    branches:
+      - 'main'
+  pull_request:
+
+env:
+  BUILD_TYPE: Debug
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          submodules: recursive
+
+      - name: Install apt-get dependencies
+        run: |
+          sudo add-apt-repository ppa:trebelnik-stefina/launchpad-getkeys \
+           && sudo apt-get update \
+           && sudo apt-get install launchpad-getkeys \
+           && sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' \
+           && sudo add-apt-repository ppa:ubuntu-toolchain-r/ppa
+           && sudo launchpad-getkeys \
+           && sudo apt-get update -y \
+           && sudo apt-get install -y ninja-build  build-essential libstdc++-13-dev gcc-13 lcov
+
+      - name: Initialize submodules
+        run: git submodule update --init --recursive
+
+      - name: Configure CMake
+        run: |
+          cmake -B ${{github.workspace}}/build \
+            -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+            -DCMAKE_CXX_COMPILER=/usr/bin/g++-13 \
+            -DCODE_COVERAGE:BOOL=ON \
+            -GNinja
+
+      - name: Build
+        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+
+      - name: Test
+        working-directory: ${{github.workspace}}/build
+        run: |
+          ninja faker-ccov-all \
+          && gcov-13 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt
+
+      - name: Codecov
+        uses: codecov/codecov-action@v3.1.4
+        with:
+          token: ${{ secrets.CODECOVTOKEN }}
