@@ -90,4 +90,9 @@ std::string Finance::pin(unsigned int length)
 {
     return String::numeric(length, true);
 }
+
+std::string Finance::routingNumber()
+{
+    return String::numeric(9, true);
+}
 }

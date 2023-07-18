@@ -268,3 +268,17 @@ TEST_F(FinanceTest, shouldGeneratePinNumberWithSpecifiedLength)
                                                    { return pinNumberCharacter == numericCharacter; });
                             }));
 }
+
+TEST_F(FinanceTest, shouldGenerateRoutingNumber)
+{
+    const auto routingNumber = Finance::routingNumber();
+
+    ASSERT_EQ(routingNumber.size(), 9);
+    ASSERT_TRUE(std::all_of(routingNumber.begin(), routingNumber.end(),
+                            [](char routingNumberCharacter)
+                            {
+                                return std::any_of(numericCharacters.begin(), numericCharacters.end(),
+                                                   [routingNumberCharacter](char numericCharacter)
+                                                   { return routingNumberCharacter == numericCharacter; });
+                            }));
+}
