@@ -22,7 +22,7 @@ jobs:
       - run: cmake -E make_directory build
 
       - working-directory: build/
-        run: cmake .. -GNinja
+        run: cmake $GITHUB_WORKSPACE -G "Visual Studio 17 2022"
 
       - working-directory: build/
         run: cmake --build .
