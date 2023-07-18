@@ -1,10 +1,13 @@
 #include "faker-cxx/Finance.h"
 
 #include <format>
+#include <iostream>
+#include <numeric>
 #include <sstream>
 
 #include "data/finance/AccountTypes.h"
 #include "data/finance/BankIndentifiersCodes.h"
+#include "data/finance/CreditCardsFormats.h"
 #include "data/finance/Currencies.h"
 #include "data/finance/IbanFormats.h"
 #include "faker-cxx/Helper.h"
@@ -13,6 +16,19 @@
 
 namespace faker
 {
+namespace
+{
+const std::map<CreditCardType, std::vector<std::string>> creditCardTypeToNumberFormats{
+    {CreditCardType::AmericanExpress, americanExpressCreditCardFormats},
+    {CreditCardType::Discover, discoverCreditCardFormats},
+    {CreditCardType::MasterCard, masterCardCreditCardFormats},
+    {CreditCardType::Visa, visaCreditCardFormats},
+};
+
+const std::vector<CreditCardType> creditCardTypes{CreditCardType::AmericanExpress, CreditCardType::Discover,
+                                                  CreditCardType::MasterCard, CreditCardType::Visa};
+}
+
 std::string Finance::currencyCode()
 {
     return Helper::arrayElement<std::string>(currenciesCodes);
@@ -94,5 +110,70 @@ std::string Finance::pin(unsigned int length)
 std::string Finance::routingNumber()
 {
     return String::numeric(9, true);
+}
+
+std::string Finance::creditCardNumber(std::optional<CreditCardType> creditCardType)
+{
+    const auto creditCardTargetType =
+        creditCardType ? *creditCardType : Helper::arrayElement<CreditCardType>(creditCardTypes);
+
+    const auto& creditCardFormats = creditCardTypeToNumberFormats.at(creditCardTargetType);
+
+    const auto creditCardFormat = Helper::arrayElement<std::string>(creditCardFormats);
+
+    std::string creditCardNumberPayload;
+
+    for (const auto& creditCardFormatCharacter : creditCardFormat)
+    {
+        if (creditCardFormatCharacter == '#')
+        {
+            creditCardNumberPayload += String::numeric(1);
+        }
+        else
+        {
+            creditCardNumberPayload += creditCardFormatCharacter;
+        }
+    }
+
+    std::vector<int> creditCardNumberPayloadAsDigits;
+
+    for (const auto& creditCardNumberPayloadEntry : creditCardNumberPayload)
+    {
+        if (creditCardNumberPayloadEntry != '-')
+        {
+            creditCardNumberPayloadAsDigits.push_back(std::stoi(std::string{creditCardNumberPayloadEntry}));
+        }
+    }
+
+    // Luhn algorithm: https://en.wikipedia.org/wiki/Luhn_algorithm
+
+    for (int i = static_cast<int>(creditCardNumberPayloadAsDigits.size()) - 1; i >= 0; i = i - 2)
+    {
+        creditCardNumberPayloadAsDigits[static_cast<unsigned>(i)] =
+            2 * creditCardNumberPayloadAsDigits[static_cast<unsigned>(i)];
+    }
+
+    for (auto& creditCardNumberPayloadAsDigitsEntry : creditCardNumberPayloadAsDigits)
+    {
+        if (creditCardNumberPayloadAsDigitsEntry >= 10)
+        {
+            const auto tensDigit = creditCardNumberPayloadAsDigitsEntry / 10;
+            const auto onesDigit = creditCardNumberPayloadAsDigitsEntry % 10;
+
+            creditCardNumberPayloadAsDigitsEntry = tensDigit + onesDigit;
+        }
+    }
+
+    const auto digitsSum =
+        std::accumulate(creditCardNumberPayloadAsDigits.begin(), creditCardNumberPayloadAsDigits.end(), 0);
+
+    auto checkSum = 10 - (digitsSum % 10);
+
+    if (checkSum == 10)
+    {
+        checkSum = 0;
+    }
+
+    return std::format("{}{}", creditCardNumberPayload, checkSum);
 }
 }
