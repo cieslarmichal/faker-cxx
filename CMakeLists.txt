@@ -17,40 +17,40 @@ endif ()
 set(LIBRARY_NAME faker-cxx)
 
 set(FAKER_SOURCES
-        src/Book.cpp
-        src/Color.cpp
-        src/Commerce.cpp
-        src/Company.cpp
-        src/Datatype.cpp
-        src/Date.cpp
-        src/Finance.cpp
-        src/Helper.cpp
-        src/Internet.cpp
-        src/Location.cpp
-        src/Lorem.cpp
-        src/Number.cpp
-        src/Person.cpp
-        src/String.cpp
-        src/StringHelper.cpp
-        src/Word.cpp
+        src/modules/book/Book.cpp
+        src/modules/color/Color.cpp
+        src/modules/commerce/Commerce.cpp
+        src/modules/company/Company.cpp
+        src/modules/datatype/Datatype.cpp
+        src/modules/date/Date.cpp
+        src/modules/finance/Finance.cpp
+        src/modules/helper/Helper.cpp
+        src/modules/internet/Internet.cpp
+        src/modules/location/Location.cpp
+        src/modules/lorem/Lorem.cpp
+        src/modules/number/Number.cpp
+        src/modules/person/Person.cpp
+        src/modules/string/String.cpp
+        src/modules/word/Word.cpp
+        src/common/StringHelper.cpp
         )
 
 set(FAKER_UT_SOURCES
-        src/BookTest.cpp
-        src/ColorTest.cpp
-        src/CommerceTest.cpp
-        src/CompanyTest.cpp
-        src/DatatypeTest.cpp
-        src/DateTest.cpp
-        src/FinanceTest.cpp
-        src/InternetTest.cpp
-        src/LocationTest.cpp
-        src/LoremTest.cpp
-        src/NumberTest.cpp
-        src/PersonTest.cpp
-        src/StringTest.cpp
-        src/StringHelperTest.cpp
-        src/WordTest.cpp
+        src/modules/book/BookTest.cpp
+        src/modules/color/ColorTest.cpp
+        src/modules/commerce/CommerceTest.cpp
+        src/modules/company/CompanyTest.cpp
+        src/modules/datatype/DatatypeTest.cpp
+        src/modules/date/DateTest.cpp
+        src/modules/finance/FinanceTest.cpp
+        src/modules/internet/InternetTest.cpp
+        src/modules/location/LocationTest.cpp
+        src/modules/lorem/LoremTest.cpp
+        src/modules/number/NumberTest.cpp
+        src/modules/person/PersonTest.cpp
+        src/modules/string/StringTest.cpp
+        src/modules/word/WordTest.cpp
+        src/common/StringHelperTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
