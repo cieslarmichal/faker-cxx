@@ -4,10 +4,11 @@
 
 - [ ] support for more iban countries
 - [ ] support for more bic countries
-- [ ] credit card number
+- [x] credit card number
 - [ ] credit card CVV
 - [ ] bitcoin address
 - [ ] ethereum address
+- [ ] litecoin address
 - [x] routing number
 
 ### 🧑 Person:
@@ -24,6 +25,7 @@
 ### 📞 Phone:
 
 - [ ] phone number
+- [ ] imei
 - [ ] support for more countries
 
 ### 🎨 Color:
@@ -57,6 +59,8 @@
 - [x] street address
 - [x] building number
 - [ ] support for more countries
+- [ ] latitude
+- [ ] longitude
 
 ### 🖊️ Lorem:
 
@@ -103,3 +107,40 @@
 - [x] sample
 - [x] verb
 - [x] words
+
+### Git:
+- [ ] branch
+- [ ] commitDate
+- [ ] commitEntry
+- [ ] commitMessage
+- [ ] commitSha
+
+### String:
+- [ ] binary
+- [ ] fromCharacters
+- [ ] sample
+- [ ] octal
+
+### 🎶 Music:
+- [ ] genre
+- [ ] songName
+- [ ] artistName
+
+### 🎥 Movie:
+- [ ] genre
+- [ ] title
+- [ ] director
+
+### 💻 System:
+- [ ] commonFileExtension
+- [ ] commonFileName
+- [ ] commonFileType
+- [ ] cron
+- [ ] directoryPath
+- [ ] fileExtension
+- [ ] fileName
+- [ ] filePath
+- [ ] fileType
+- [ ] mimeType
+- [ ] networkInterface
+- [ ] semanticVersion
