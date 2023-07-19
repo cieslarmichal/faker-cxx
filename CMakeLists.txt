@@ -33,6 +33,7 @@ set(FAKER_SOURCES
         src/String.cpp
         src/StringHelper.cpp
         src/Word.cpp
+        src/Phone.cpp
         )
 
 set(FAKER_UT_SOURCES
@@ -51,6 +52,7 @@ set(FAKER_UT_SOURCES
         src/StringTest.cpp
         src/StringHelperTest.cpp
         src/WordTest.cpp
+        src/PhoneTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
