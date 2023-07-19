@@ -8,8 +8,8 @@ COPY src/ faker-cxx/src/
 COPY externals/ faker-cxx/externals/
 COPY cmake/ faker-cxx/cmake/
 COPY CMakeLists.txt faker-cxx/CMakeLists.txt
-COPY run_linux_gxx_tests.sh faker-cxx/run_linux_gxx_tests.sh
+COPY scripts/ faker-cxx/scripts/
 
-RUN chmod 777 ./faker-cxx/run_linux_gxx_tests.sh
+RUN chmod 777 ./faker-cxx/scripts/run_tests_linux_gxx.sh
 
-ENTRYPOINT cd faker-cxx && ./run_linux_gxx_tests.sh
+ENTRYPOINT cd faker-cxx && ./scripts/run_tests_linux_gxx.sh
