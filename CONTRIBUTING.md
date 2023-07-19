@@ -29,5 +29,5 @@ Submitting Changes
 Additional Resources
 ====================
 
--  If you have any questions about features you can join [Discord Channel](https://discord.gg/jPy9R64Q) or start a [Discussion](https://github.com/cieslarmichal/faker-cxx/discussions) in the repository.
+-  If you have any questions about features you can join [Discord Channel](https://discord.com/invite/h2ur8H6mK6).
 -  Features implementations in [Faker.js](https://github.com/faker-js/faker) could be helpful as a reference.
