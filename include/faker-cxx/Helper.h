@@ -8,7 +8,7 @@
 #include <vector>
 
 #include "Number.h"
-#include "../src/StringHelper.h"
+#include "../src/common/StringHelper.h"
 
 namespace faker
 {
@@ -81,11 +81,11 @@ public:
         {
             if(ch == symbol)
             {
-                ch = static_cast<char>(Number::integer(0,9));
+                ch = static_cast<char>(Number::integer(0,9) + '0');
             }
             else if(ch == '!')
             {
-                ch = static_cast<char>(Number::integer(2,9));
+                ch = static_cast<char>(Number::integer(2,9) + '2');
             }
         }
         return str;
