@@ -71,7 +71,7 @@ target_link_libraries(main faker-cxx)
 - 🧑 Person - Generate first, last names, job titles, genders, sex.
 - 🛒 Commerce - Generate commerce department, product name, sku, price.
 - 📅 Date - Generate past, future dates.
-- 🏦 Finance - Generate currency, IBAN, BIC, account name, account number, pin.
+- 🏦 Finance - Generate currency, IBAN, BIC, account name, account number, pin, credit card numbers.
 - 🏢 Company - Generate company name, type, industry, catch phrase, buzz phrase.
 - 🔢 Number - Generate random integers, floating point numbers.
 - ✍ Word - Generate sample words, nouns, verbs etc.
