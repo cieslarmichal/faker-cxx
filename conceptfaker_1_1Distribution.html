@@ -102,65 +102,65 @@ $(document).ready(function(){initNavTree('conceptfaker_1_1Distribution.html','')
 <p><code>#include &lt;<a class="el" href="Number_8h_source.html">Number.h</a>&gt;</code></p>
 <h2 class="groupheader">Concept definition</h2>
 <div class="fragment"><div class="line"><span class="keyword">template</span>&lt;<span class="keyword">class</span> D&gt;</div>
-<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptfaker_1_1Distribution.html">faker::Distribution</a> =  <span class="keyword">requires</span> {</div>
-<div class="line">                           </div>
-<div class="line">                           </div>
-<div class="line">                           <span class="keyword">requires</span> std::is_same_v&lt;<span class="keyword">typename</span> D::result_type,</div>
-<div class="line">                               <span class="keyword">decltype</span>(std::declval&lt;D&gt;()(</div>
-<div class="line">                                   std::declval&lt;typename D::param_type&amp;&gt;()))&gt;;</div>
+<div class="line"><span class="keyword">concept </span><a class="code hl_concept" href="conceptfaker_1_1Distribution.html">faker::Distribution</a> = </div>
+<div class="line">    <span class="keyword">requires</span> {</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        <span class="keyword">requires</span> std::is_same_v&lt;<span class="keyword">typename</span> D::result_type,</div>
+<div class="line">                                <span class="keyword">decltype</span>(std::declval&lt;D&gt;()(std::declval&lt;typename D::param_type&amp;&gt;()))&gt;;</div>
 <div class="line"> </div>
-<div class="line">                           </div>
-<div class="line">                           {</div>
-<div class="line">                               std::declval&lt;D&gt;().min()</div>
-<div class="line">                               } -&gt; std::same_as&lt;typename D::result_type&gt;;</div>
-<div class="line">                           {</div>
-<div class="line">                               std::declval&lt;D&gt;().max()</div>
-<div class="line">                               } -&gt; std::same_as&lt;typename D::result_type&gt;;</div>
-<div class="line">                           {</div>
-<div class="line">                               std::declval&lt;D&gt;().reset()</div>
-<div class="line">                               } -&gt; std::same_as&lt;void&gt;;</div>
+<div class="line">        </div>
+<div class="line">        {</div>
+<div class="line">            std::declval&lt;D&gt;().min()</div>
+<div class="line">            } -&gt; std::same_as&lt;typename D::result_type&gt;;</div>
+<div class="line">        {</div>
+<div class="line">            std::declval&lt;D&gt;().max()</div>
+<div class="line">            } -&gt; std::same_as&lt;typename D::result_type&gt;;</div>
+<div class="line">        {</div>
+<div class="line">            std::declval&lt;D&gt;().reset()</div>
+<div class="line">            } -&gt; std::same_as&lt;void&gt;;</div>
 <div class="line"> </div>
-<div class="line">                            </div>
-<div class="line">                           {</div>
-<div class="line">                               std::equality_comparable&lt;D&gt;</div>
-<div class="line">                           };</div>
-<div class="line">                           {</div>
-<div class="line">                               std::is_copy_constructible_v&lt;D&gt;</div>
-<div class="line">                           };</div>
-<div class="line">                           {</div>
-<div class="line">                               std::is_copy_assignable_v&lt;D&gt;</div>
-<div class="line">                           };</div>
-<div class="line">                           </div>
-<div class="line">                           {</div>
-<div class="line">                               std::equality_comparable&lt;typename D::param_type&gt;</div>
-<div class="line">                           };</div>
-<div class="line">                           {</div>
-<div class="line">                               std::is_copy_constructible_v&lt;typename D::param_type&gt;</div>
-<div class="line">                           };</div>
-<div class="line">                           {</div>
-<div class="line">                               std::is_copy_assignable_v&lt;typename D::param_type&gt;</div>
-<div class="line">                           };</div>
+<div class="line">        </div>
+<div class="line">        {</div>
+<div class="line">            std::equality_comparable&lt;D&gt;</div>
+<div class="line">        };</div>
+<div class="line">        {</div>
+<div class="line">            std::is_copy_constructible_v&lt;D&gt;</div>
+<div class="line">        };</div>
+<div class="line">        {</div>
+<div class="line">            std::is_copy_assignable_v&lt;D&gt;</div>
+<div class="line">        };</div>
+<div class="line">        </div>
+<div class="line">        {</div>
+<div class="line">            std::equality_comparable&lt;typename D::param_type&gt;</div>
+<div class="line">        };</div>
+<div class="line">        {</div>
+<div class="line">            std::is_copy_constructible_v&lt;typename D::param_type&gt;</div>
+<div class="line">        };</div>
+<div class="line">        {</div>
+<div class="line">            std::is_copy_assignable_v&lt;typename D::param_type&gt;</div>
+<div class="line">        };</div>
 <div class="line"> </div>
-<div class="line">                           </div>
-<div class="line">                           </div>
-<div class="line">                           {</div>
-<div class="line">                               std::declval&lt;D&gt;().param()</div>
-<div class="line">                               } -&gt; std::same_as&lt;typename D::param_type&gt;;</div>
-<div class="line">                           {</div>
-<div class="line">                               std::declval&lt;D&gt;().param(std::declval&lt;typename D::param_type&amp;&gt;())</div>
-<div class="line">                               } -&gt; std::same_as&lt;void&gt;;</div>
+<div class="line">        </div>
+<div class="line">        </div>
+<div class="line">        {</div>
+<div class="line">            std::declval&lt;D&gt;().param()</div>
+<div class="line">            } -&gt; std::same_as&lt;typename D::param_type&gt;;</div>
+<div class="line">        {</div>
+<div class="line">            std::declval&lt;D&gt;().param(std::declval&lt;typename D::param_type&amp;&gt;())</div>
+<div class="line">            } -&gt; std::same_as&lt;void&gt;;</div>
 <div class="line"> </div>
-<div class="line">                           </div>
-<div class="line">                           {</div>
-<div class="line">                               std::declval&lt;std::ostream&amp;&gt;() &lt;&lt; std::declval&lt;D&gt;()</div>
-<div class="line">                               } -&gt; std::same_as&lt;std::ostream&amp;&gt;;</div>
+<div class="line">        </div>
+<div class="line">        {</div>
+<div class="line">            std::declval&lt;std::ostream&amp;&gt;() &lt;&lt; std::declval&lt;D&gt;()</div>
+<div class="line">            } -&gt; std::same_as&lt;std::ostream&amp;&gt;;</div>
 <div class="line"> </div>
-<div class="line">                           </div>
-<div class="line">                           {</div>
-<div class="line">                               std::declval&lt;std::istream&amp;&gt;() &gt;&gt; std::declval&lt;D&amp;&gt;()</div>
-<div class="line">                               } -&gt; std::same_as&lt;std::istream&amp;&gt;;</div>
-<div class="line">                       }</div>
-<div class="ttc" id="aconceptfaker_1_1Distribution_html"><div class="ttname"><a href="conceptfaker_1_1Distribution.html">faker::Distribution</a></div><div class="ttdoc">A concept that checks if a type is a valid distribution.</div><div class="ttdef"><b>Definition</b> Number.h:25</div></div>
+<div class="line">        </div>
+<div class="line">        {</div>
+<div class="line">            std::declval&lt;std::istream&amp;&gt;() &gt;&gt; std::declval&lt;D&amp;&gt;()</div>
+<div class="line">            } -&gt; std::same_as&lt;std::istream&amp;&gt;;</div>
+<div class="line">    }</div>
+<div class="ttc" id="aconceptfaker_1_1Distribution_html"><div class="ttname"><a href="conceptfaker_1_1Distribution.html">faker::Distribution</a></div><div class="ttdoc">A concept that checks if a type is a valid distribution.</div><div class="ttdef"><b>Definition</b> Number.h:26</div></div>
 </div><!-- fragment --><a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A concept that checks if a type is a valid distribution. </p>
 <p>The concept enforces a good number of the requirements specified for a RandomNumberDistribution in the C++ standard library. We check that the provided distribution has all the necessary member functions and nested types, and that it is equality comparable, copy constructible and copy assignable.</p>
