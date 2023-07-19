@@ -1,20 +1,21 @@
 #pragma once
 
+#include <algorithm>
 #include <concepts>
 #include <random>
 #include <stdexcept>
 #include <string>
 #include <type_traits>
 #include <utility>
-#include <algorithm>
 
-namespace faker {
+namespace faker
+{
 /**
  * @brief A concept that checks if a type is a valid distribution.
  *
- * The concept enforces a good number of the requirements specified for a RandomNumberDistribution in the C++ standard library.
- * We check that the provided distribution has all the necessary member functions and nested types,
- * and that it is equality comparable, copy constructible and copy assignable.
+ * The concept enforces a good number of the requirements specified for a RandomNumberDistribution in the C++ standard
+ * library. We check that the provided distribution has all the necessary member functions and nested types, and that it
+ * is equality comparable, copy constructible and copy assignable.
  *
  * This provides compile-time guarantees that the distribution is valid and can be used with the Number module.
  *
@@ -22,64 +23,64 @@ namespace faker {
  * @tparam DISTRIBUTION a distribution type, such as std::uniform_int_distribution.
  */
 template <class D>
-concept Distribution = requires {
-                           // check that the result of the distribution is the same as the result of the operator()
-                           // also checks for existence of the result_type and param_type nested types, as well as the operator()
-                           requires std::is_same_v<typename D::result_type,
-                               decltype(std::declval<D>()(
-                                   std::declval<typename D::param_type&>()))>;
+concept Distribution =
+    requires {
+        // check that the result of the distribution is the same as the result of the operator()
+        // also checks for existence of the result_type and param_type nested types, as well as the operator()
+        requires std::is_same_v<typename D::result_type,
+                                decltype(std::declval<D>()(std::declval<typename D::param_type&>()))>;
 
-                           // check that the distribution has a min(), max() and reset() member functions
-                           {
-                               std::declval<D>().min()
-                               } -> std::same_as<typename D::result_type>;
-                           {
-                               std::declval<D>().max()
-                               } -> std::same_as<typename D::result_type>;
-                           {
-                               std::declval<D>().reset()
-                               } -> std::same_as<void>;
+        // check that the distribution has a min(), max() and reset() member functions
+        {
+            std::declval<D>().min()
+            } -> std::same_as<typename D::result_type>;
+        {
+            std::declval<D>().max()
+            } -> std::same_as<typename D::result_type>;
+        {
+            std::declval<D>().reset()
+            } -> std::same_as<void>;
 
-                            // check that the distribution is equality comparable, copy constructible and copy assignable
-                           {
-                               std::equality_comparable<D>
-                           };
-                           {
-                               std::is_copy_constructible_v<D>
-                           };
-                           {
-                               std::is_copy_assignable_v<D>
-                           };
-                           // check that the parameter type is equality comparable, copy constructible and copy assignable
-                           {
-                               std::equality_comparable<typename D::param_type>
-                           };
-                           {
-                               std::is_copy_constructible_v<typename D::param_type>
-                           };
-                           {
-                               std::is_copy_assignable_v<typename D::param_type>
-                           };
+        // check that the distribution is equality comparable, copy constructible and copy assignable
+        {
+            std::equality_comparable<D>
+        };
+        {
+            std::is_copy_constructible_v<D>
+        };
+        {
+            std::is_copy_assignable_v<D>
+        };
+        // check that the parameter type is equality comparable, copy constructible and copy assignable
+        {
+            std::equality_comparable<typename D::param_type>
+        };
+        {
+            std::is_copy_constructible_v<typename D::param_type>
+        };
+        {
+            std::is_copy_assignable_v<typename D::param_type>
+        };
 
-                           // Check that the distribution has a param() -> param_type
-                           // and param(const param_type&) member functions
-                           {
-                               std::declval<D>().param()
-                               } -> std::same_as<typename D::param_type>;
-                           {
-                               std::declval<D>().param(std::declval<typename D::param_type&>())
-                               } -> std::same_as<void>;
+        // Check that the distribution has a param() -> param_type
+        // and param(const param_type&) member functions
+        {
+            std::declval<D>().param()
+            } -> std::same_as<typename D::param_type>;
+        {
+            std::declval<D>().param(std::declval<typename D::param_type&>())
+            } -> std::same_as<void>;
 
-                           // check that D is printable to std::ostream
-                           {
-                               std::declval<std::ostream&>() << std::declval<D>()
-                               } -> std::same_as<std::ostream&>;
+        // check that D is printable to std::ostream
+        {
+            std::declval<std::ostream&>() << std::declval<D>()
+            } -> std::same_as<std::ostream&>;
 
-                           // check that D can receive a value from std::istream
-                           {
-                               std::declval<std::istream&>() >> std::declval<D&>()
-                               } -> std::same_as<std::istream&>;
-                       };
+        // check that D can receive a value from std::istream
+        {
+            std::declval<std::istream&>() >> std::declval<D&>()
+            } -> std::same_as<std::istream&>;
+    };
 
 /**
  * @brief A concept that checks if a type is a valid integer distribution.
@@ -115,7 +116,8 @@ public:
     template <std::integral I>
     static I integer(I min, I max)
     {
-        if (min > max) {
+        if (min > max)
+        {
             throw std::invalid_argument("Minimum value must be smaller than maximum value.");
         }
 
@@ -127,7 +129,8 @@ public:
     /**
      * @brief Generates a random integer between 0 and the given maximum value, bounds included.
      *
-     * The function invokes the integer<I>(I, I) function with min = 0, hence the distribution used is std::uniform_int_distribution.
+     * The function invokes the integer<I>(I, I) function with min = 0, hence the distribution used is
+     * std::uniform_int_distribution.
      *
      * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.).
      * @param max the maximum value of the range.
@@ -152,7 +155,8 @@ public:
      * especially for long tailed distributions.
      *
      * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.).
-     * @tparam D the type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.).
+     * @tparam D the type of the distribution, must be a valid integer distribution (std::uniform_int_distribution,
+     * std::binomial_distribution, etc.).
      *
      * @throws std::invalid_argument if min is greater than max.
      *
@@ -165,11 +169,13 @@ public:
     template <std::integral I, IntegerDistribution D>
     static I integer(D distribution, I min, I max)
     {
-        if constexpr(std::is_same_v<D, std::uniform_int_distribution<I>>) {
+        if constexpr (std::is_same_v<D, std::uniform_int_distribution<I>>)
+        {
             return Number::integer<I>(min, max);
         }
         {
-            if (min > max) {
+            if (min > max)
+            {
                 throw std::invalid_argument("Minimum value must be smaller than maximum value.");
             }
 
@@ -178,12 +184,14 @@ public:
     }
 
     /**
-     * @brief Generates a random integer between 0 and the given maximum value with a given distribution, bounds included.
+     * @brief Generates a random integer between 0 and the given maximum value with a given distribution, bounds
+     * included.
      *
      * Defaults to a min value of 0.
      *
      * @tparam I The type of the generated number, must be an integral type (int, long, long long, etc.).
-     * @tparam D The type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.).
+     * @tparam D The type of the distribution, must be a valid integer distribution (std::uniform_int_distribution,
+     * std::binomial_distribution, etc.).
      * @param distribution The distribution to use.
      * @param max The maximum value of the range.
      *
@@ -204,7 +212,8 @@ public:
      * @brief Generates a random integer, unbounded, with a given distribution.
      *
      * @tparam I The type of the generated number, must be an integral type (int, long, long long, etc.).
-     * @tparam D The type of the distribution, must be a valid integer distribution (std::uniform_int_distribution, std::binomial_distribution, etc.).
+     * @tparam D The type of the distribution, must be a valid integer distribution (std::uniform_int_distribution,
+     * std::binomial_distribution, etc.).
      *
      * @param distribution The distribution to use.
      *
@@ -221,7 +230,8 @@ public:
      * @brief Generates a random decimal number in the given range, bounds included.
      *
      * @tparam F the type of the generated number, must be a floating point type (float, double, long double).
-     * @tparam D the type of the distribution, must be a valid float distribution (std::uniform_real_distribution, std::normal_distribution, etc.).
+     * @tparam D the type of the distribution, must be a valid float distribution (std::uniform_real_distribution,
+     * std::normal_distribution, etc.).
      *
      * @param min The minimum value of the range.
      * @param max The maximum value of the range.
@@ -234,7 +244,8 @@ public:
     template <std::floating_point F>
     static F decimal(F min, F max)
     {
-        if (min > max) {
+        if (min > max)
+        {
             throw std::invalid_argument("Minimum value must be smaller than maximum value.");
         }
 
@@ -250,7 +261,8 @@ public:
      * through a std::clamp call, hence the statistical properties of the distribution may be altered,
      * especially for long tailed distributions.
      *
-     * @tparam D the type of the distribution, must be a valid decimal distribution (std::uniform_real_distribution, std::normal_distribution, etc.).
+     * @tparam D the type of the distribution, must be a valid decimal distribution (std::uniform_real_distribution,
+     * std::normal_distribution, etc.).
      * @tparam F the type of the generated number, must be a floating point type (float, double, long double).
      *
      * @throws std::invalid_argument if min is greater than max.
@@ -266,11 +278,13 @@ public:
     template <std::floating_point F, DecimalDistribution D>
     static F decimal(D distribution, F min, F max)
     {
-        if constexpr(std::is_same_v<D, std::uniform_real_distribution<F>>) {
+        if constexpr (std::is_same_v<D, std::uniform_real_distribution<F>>)
+        {
             return Number::decimal<F>(min, max);
         }
         {
-            if (min > max) {
+            if (min > max)
+            {
                 throw std::invalid_argument("Minimum value must be smaller than maximum value.");
             }
 
@@ -281,7 +295,8 @@ public:
     /**
      * @brief Generates a random decimal number between 0 and the given maximum value, bounds included.
      *
-     * The function invokes the decimal<F, D>(F, F) function with min = 0, hence the distribution used is std::uniform_real_distribution.
+     * The function invokes the decimal<F, D>(F, F) function with min = 0, hence the distribution used is
+     * std::uniform_real_distribution.
      *
      * @tparam F The type of the generated number, must be a floating point type (float, double, long double).
      * @param max The maximum value of the range.
@@ -299,10 +314,12 @@ public:
     }
 
     /**
-     * @brief Generates a random decimal number between 0 and the given maximum value with a given distribution, bounds included.
+     * @brief Generates a random decimal number between 0 and the given maximum value with a given distribution, bounds
+     * included.
      *
      * @tparam F The type of the generated number, must be a floating point type (float, double, long double).
-     * @tparam D The type of the distribution, must be a valid float distribution (std::uniform_real_distribution, std::normal_distribution, etc.).
+     * @tparam D The type of the distribution, must be a valid float distribution (std::uniform_real_distribution,
+     * std::normal_distribution, etc.).
      *
      * @param distribution The distribution to use.
      * @param max The maximum value of the range.
@@ -325,7 +342,8 @@ public:
      * @brief Generates a random decimal number in the given range, bounds included.
      *
      * @tparam F the type of the generated number, must be a floating point type (float, double, long double).
-     * @tparam D the type of the distribution, must be a valid float distribution (std::uniform_real_distribution, std::normal_distribution, etc.).
+     * @tparam D the type of the distribution, must be a valid float distribution (std::uniform_real_distribution,
+     * std::normal_distribution, etc.).
      *
      * @see DecimalDistribution
      *

@@ -47,6 +47,6 @@ IncludeCategories:
   - Regex: '^"(gtest)/'
     Priority: 2
   - Regex: '^"Aa'
-    Priority: 3
+    Priority: 5
   - Regex: '".+"'
     Priority: 10
