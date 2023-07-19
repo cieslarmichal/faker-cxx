@@ -85,7 +85,7 @@ public:
             }
             else if(ch == '!')
             {
-                ch = static_cast<char>(Number::integer(2,9) + '2');
+                ch = static_cast<char>(Number::integer(2,9) + '0');
             }
         }
         return str;

@@ -45,6 +45,11 @@ TEST_F(PhoneTest, NumberWithFormat)
     phoneNumber = phone.number(format);
     ASSERT_NE(phoneNumber, format);
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
+
+    format = "+376 (!!!) !!!-!!!!";
+    phoneNumber = phone.number(format);
+    ASSERT_NE(phoneNumber, format);
+    ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 }
 
 TEST_F(PhoneTest, IMEIGeneration)
