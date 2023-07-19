@@ -6,6 +6,7 @@ Getting Started
 ---------------
 
 -  Pick a feature from the [TODO Features](https://github.com/cieslarmichal/faker-cxx/blob/main/TODO.md) or pick an issue from [Issues](https://github.com/cieslarmichal/faker-cxx/issues)
+-  If you picked a feature from list, please create an issue for it (so other contributors don't implement the same feature). 
 -  Fork the repository on GitHub
 
 Making Changes
@@ -13,7 +14,7 @@ Making Changes
 
 -  Create a feature/bug branch from main branch:
 
-   ``git checkout -b feature/feature-name`` or ``git checkout -b bug/issue-name``.
+   ``git checkout -b feature/feature-name``
    
    Please avoid working directly on the ``main`` branch.
 -  Make commits of logical units.
