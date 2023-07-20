@@ -1,5 +1,6 @@
 #include "faker-cxx/Phone.h"
 
+#include <algorithm>
 #include "gtest/gtest.h"
 #include "data/PhoneNumbers.h"
 

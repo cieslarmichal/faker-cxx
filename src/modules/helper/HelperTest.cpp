@@ -1,6 +1,7 @@
 #include "faker-cxx/Helper.h"
 #include "gtest/gtest.h"
 #include <regex>
+#include <algorithm>
 
 using namespace faker;
 using namespace ::testing;

@@ -34,7 +34,7 @@ set(FAKER_SOURCES
         src/modules/word/Word.cpp
         src/common/StringHelper.cpp
         src/modules/phone/Phone.cpp
-        )
+        src/common/LuhnCheck.cpp)
 
 set(FAKER_UT_SOURCES
         src/modules/book/BookTest.cpp
@@ -54,7 +54,7 @@ set(FAKER_UT_SOURCES
         src/common/StringHelperTest.cpp
         src/modules/phone/PhoneTest.cpp
         src/modules/helper/HelperTest.cpp
-        src/modules/helper/LuhnCheckTest.cpp)
+        src/common/LuhnCheckTest.cpp)
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 

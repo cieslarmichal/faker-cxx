@@ -1,6 +1,8 @@
+#include "LuhnCheck.h"
+
+#include <algorithm>
 #include <gtest/gtest.h>
 #include <string>
-#include "faker-cxx/LuhnCheck.h"
 
 using namespace faker;
 
