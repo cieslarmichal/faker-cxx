@@ -31,6 +31,7 @@ constexpr unsigned int classBSecondSectionLowerBound = 16;
 constexpr unsigned int classBSecondSectionUpperBound = 31;
 constexpr unsigned int classCFirstSection = 192u;
 constexpr unsigned int classCSecondSection = 168u;
+constexpr uint8_t ipv4AddressSectors = 4;
 
 std::array<uint8_t, 4> deconstructIpv4String(std::string ipv4)
 {
@@ -376,4 +377,16 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassCAddress)
     
     ASSERT_EQ(addressSectors[0], classCFirstSection);
     ASSERT_EQ(addressSectors[1], classCSecondSection);
+}
+
+TEST_F(InternetTest, shouldGenerateIpv4KeepingTheMaskedPart)
+{
+    const std::array<uint8_t, ipv4AddressSectors> sampleAddress = {192, 168, 10, 12};
+    const std::array<uint8_t, ipv4AddressSectors> generationMask = {255, 128, 0, 0};
+
+    const auto generatedAddress = deconstructIpv4String(Internet::ipv4(sampleAddress, generationMask));
+    
+    constexpr uint8_t expectedSecondSectorMaskedValue = 0b10000000;
+    ASSERT_EQ(sampleAddress[0], generatedAddress[0]);
+    ASSERT_TRUE((generatedAddress[1] & generationMask[1]) == expectedSecondSectorMaskedValue);
 }

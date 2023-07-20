@@ -174,6 +174,6 @@ public:
      * Internet::ipv4({255.255.128.0}, {129.168.255.0}) // "192.168.128.10"
      * @endcode 
      */
-    static std::string ipv4(std::array<unsigned char, 4> generationMask, std::array<unsigned char, 4> baseIpv4Address);
+    static std::string ipv4(const std::array<unsigned char, 4>& baseIpv4Address, const std::array<unsigned char, 4>& generationMask);
 };
 }
