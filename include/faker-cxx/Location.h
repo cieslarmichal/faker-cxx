@@ -101,7 +101,7 @@ public:
     /**
      * @brief Generates a random latitude.
      *
-     * @param precision The number of decimal points of precision for the latitude. Defaults to `4`.
+     * @param precision The number of decimal points of precision for the latitude. Defaults to `Precision::FourDp`.
      *
      * @returns Latitude within -90 to 90 range.
      *
@@ -114,7 +114,7 @@ public:
     /**
      * @brief Generates a random longitude.
      *
-     * @param precision The number of decimal points of precision for the longitude. Defaults to `4`.
+     * @param precision The number of decimal points of precision for the longitude. Defaults to `Precision::FourDp`.
      *
      * @returns Longitude within -180 to 180 range.
      *

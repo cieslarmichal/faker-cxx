@@ -150,10 +150,10 @@ TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 {
     const auto min = 150;
     const auto max = 450;
-    const auto decimalPlaces = 4;
+    const auto precision = Precision::FourDp;
     const std::string currencySymbol = "$";
 
-    const auto generatedAmount = Finance::amount(150, 450, decimalPlaces, currencySymbol);
+    const auto generatedAmount = Finance::amount(150, 450, precision, currencySymbol);
 
     const auto amountAsFloat = std::stof(generatedAmount.substr(currencySymbol.size()));
 
@@ -161,7 +161,7 @@ TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 
     ASSERT_TRUE(generatedAmount.starts_with(currencySymbol));
     ASSERT_EQ(generatedAmountParts.size(), 2);
-    ASSERT_EQ(generatedAmountParts[1].size(), decimalPlaces);
+    ASSERT_EQ(generatedAmountParts[1].size(), 4);
     ASSERT_GE(amountAsFloat, min);
     ASSERT_LE(amountAsFloat, max);
 }

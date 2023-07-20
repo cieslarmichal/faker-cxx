@@ -37,7 +37,7 @@ std::string Finance::accountType()
     return Helper::arrayElement<std::string>(accountTypes);
 }
 
-std::string Finance::amount(double min, double max, unsigned int decimalPlaces, const std::string& symbol)
+std::string Finance::amount(double min, double max, Precision precision, const std::string& symbol)
 {
     const std::floating_point auto generatedNumber = Number::decimal<double>(min, max);
 
@@ -45,7 +45,7 @@ std::string Finance::amount(double min, double max, unsigned int decimalPlaces, 
 
     ss << std::fixed;
 
-    ss.precision(decimalPlaces);
+    ss.precision(toDecimalPlaces(precision));
 
     ss << generatedNumber;
 
