@@ -41,4 +41,14 @@ std::string StringHelper::join(const std::vector<std::string>& data, const std::
 
     return result.str();
 }
+
+std::string StringHelper::repeat(const std::string& data, int repetition)
+{
+    std::string result;
+    for(int i = 0; i < repetition; ++i)
+    {
+        result += data;
+    }
+    return result;
+}
 }
