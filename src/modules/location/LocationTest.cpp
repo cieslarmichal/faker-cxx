@@ -122,3 +122,59 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
                             [generatedStreetSuffix](const std::string& streetSuffix)
                             { return streetSuffix == generatedStreetSuffix; }));
 }
+
+TEST_F(LocationTest, shouldGenerateLatitude)
+{
+    const auto latitude = Location::latitude();
+
+    const auto latitudeAsFloat = std::stof(latitude);
+
+    const auto generatedLatitudeParts = StringHelper::split(latitude, ".");
+
+    ASSERT_EQ(generatedLatitudeParts.size(), 2);
+    ASSERT_EQ(generatedLatitudeParts[1].size(), 4);
+    ASSERT_GE(latitudeAsFloat, -90);
+    ASSERT_LE(latitudeAsFloat, 90);
+}
+
+TEST_F(LocationTest, shouldGenerateLatitudeWithSpecifiedPrecision)
+{
+    const auto latitude = Location::latitude(Precision::ThreeDp);
+
+    const auto latitudeAsFloat = std::stof(latitude);
+
+    const auto generatedLatitudeParts = StringHelper::split(latitude, ".");
+
+    ASSERT_EQ(generatedLatitudeParts.size(), 2);
+    ASSERT_EQ(generatedLatitudeParts[1].size(), 3);
+    ASSERT_GE(latitudeAsFloat, -90);
+    ASSERT_LE(latitudeAsFloat, 90);
+}
+
+TEST_F(LocationTest, shouldGenerateLongitude)
+{
+    const auto longitude = Location::longitude();
+
+    const auto longitudeAsFloat = std::stof(longitude);
+
+    const auto generatedLongitudeParts = StringHelper::split(longitude, ".");
+
+    ASSERT_EQ(generatedLongitudeParts.size(), 2);
+    ASSERT_EQ(generatedLongitudeParts[1].size(), 4);
+    ASSERT_GE(longitudeAsFloat, -180);
+    ASSERT_LE(longitudeAsFloat, 180);
+}
+
+TEST_F(LocationTest, shouldGenerateLongitudeWithSpecifiedPrecision)
+{
+    const auto longitude = Location::longitude(Precision::SixDp);
+
+    const auto longitudeAsFloat = std::stof(longitude);
+
+    const auto generatedLongitudeParts = StringHelper::split(longitude, ".");
+
+    ASSERT_EQ(generatedLongitudeParts.size(), 2);
+    ASSERT_EQ(generatedLongitudeParts[1].size(), 6);
+    ASSERT_GE(longitudeAsFloat, -180);
+    ASSERT_LE(longitudeAsFloat, 180);
+}

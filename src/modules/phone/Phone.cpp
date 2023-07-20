@@ -1,8 +1,9 @@
 #include "faker-cxx/Phone.h"
 
 #include <string>
-#include "faker-cxx/Helper.h"
+
 #include "data/PhoneNumbers.h"
+#include "faker-cxx/Helper.h"
 
 namespace faker
 {
@@ -10,29 +11,30 @@ std::map<PhoneNumberCountryFormat, std::string> Phone::phoneNumberFormatMap = Ph
 
 std::string Phone::number(std::optional<std::string> format)
 {
-    std::string selected_format;
-    if(!format.has_value() || format->empty())
+    std::string selectedFormat;
+
+    if (!format.has_value() || format->empty())
     {
-        selected_format = Helper::arrayElement(std::span<const std::string>(phoneNumbers));
+        selectedFormat = Helper::arrayElement<std::string>(phoneNumbers);
     }
     else
     {
-        selected_format = format.value();
+        selectedFormat = format.value();
     }
-    return Helper::replaceSymbolWithNumber(selected_format);
+
+    return Helper::replaceSymbolWithNumber(selectedFormat);
 }
 
 std::string Phone::number(PhoneNumberCountryFormat format)
 {
     std::string countryFormat = phoneNumberFormatMap.at(format);
 
-    if(countryFormat.empty())
+    if (countryFormat.empty())
     {
         return phoneNumberFormatMap.at(PhoneNumberCountryFormat::Default);
     }
+
     return Helper::replaceSymbolWithNumber(countryFormat);
-
-
 }
 
 std::string Phone::imei()
@@ -40,12 +42,16 @@ std::string Phone::imei()
     return Helper::replaceCreditCardSymbols("##-######-######-L", '#');
 }
 
-std::map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMap() {
+std::map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMap()
+{
     std::map<PhoneNumberCountryFormat, std::string> formatMap;
 
     // Loop through all the PhoneNumberCountryFormat enum values
-    for (auto i = static_cast<unsigned long>(PhoneNumberCountryFormat::Default); i <= static_cast<unsigned long>(PhoneNumberCountryFormat::Zimbabwe); i++) {
+    for (auto i = static_cast<unsigned long>(PhoneNumberCountryFormat::Default);
+         i <= static_cast<unsigned long>(PhoneNumberCountryFormat::Zimbabwe); i++)
+    {
         auto formatEnum = static_cast<PhoneNumberCountryFormat>(i);
+        
         formatMap[formatEnum] = phoneNumbers[i];
     }
 

@@ -1,10 +1,10 @@
 #include "faker-cxx/Finance.h"
 
 #include <algorithm>
-#include <numeric>
 
 #include "gtest/gtest.h"
 
+#include "../../common/LuhnCheck.h"
 #include "../../common/StringHelper.h"
 #include "../string/data/Characters.h"
 #include "data/AccountTypes.h"
@@ -66,52 +66,6 @@ public:
                                                   { return alphanumericCharacter == dataCharacter; });
                            });
     }
-
-    static bool checkCreditCardCheckSum(const std::string& creditCardNumber)
-    {
-        const auto creditCardNumberPayload = creditCardNumber.substr(0, creditCardNumber.size() - 1);
-
-        std::vector<int> creditCardNumberPayloadAsDigits;
-
-        for (const auto& creditCardNumberPayloadEntry : creditCardNumberPayload)
-        {
-            if (creditCardNumberPayloadEntry != '-')
-            {
-                creditCardNumberPayloadAsDigits.push_back(std::stoi(std::string{creditCardNumberPayloadEntry}));
-            }
-        }
-
-        // Luhn algorithm: https://en.wikipedia.org/wiki/Luhn_algorithm
-
-        for (int i = static_cast<int>(creditCardNumberPayloadAsDigits.size()) - 1; i >= 0; i = i - 2)
-        {
-            creditCardNumberPayloadAsDigits[static_cast<unsigned>(i)] =
-                2 * creditCardNumberPayloadAsDigits[static_cast<unsigned>(i)];
-        }
-
-        for (auto& creditCardNumberPayloadAsDigitsEntry : creditCardNumberPayloadAsDigits)
-        {
-            if (creditCardNumberPayloadAsDigitsEntry >= 10)
-            {
-                const auto tensDigit = creditCardNumberPayloadAsDigitsEntry / 10;
-                const auto onesDigit = creditCardNumberPayloadAsDigitsEntry % 10;
-
-                creditCardNumberPayloadAsDigitsEntry = tensDigit + onesDigit;
-            }
-        }
-
-        const auto digitsSum =
-            std::accumulate(creditCardNumberPayloadAsDigits.begin(), creditCardNumberPayloadAsDigits.end(), 0);
-
-        auto checkSum = 10 - (digitsSum % 10);
-
-        if (checkSum == 10)
-        {
-            checkSum = 0;
-        }
-
-        return std::to_string(checkSum) == std::string{creditCardNumber[creditCardNumber.size() - 1]};
-    }
 };
 
 TEST_F(FinanceTest, shouldGenerateCurrencyCode)
@@ -150,10 +104,10 @@ TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 {
     const auto min = 150;
     const auto max = 450;
-    const auto decimalPlaces = 4;
+    const auto precision = Precision::FourDp;
     const std::string currencySymbol = "$";
 
-    const auto generatedAmount = Finance::amount(150, 450, decimalPlaces, currencySymbol);
+    const auto generatedAmount = Finance::amount(150, 450, precision, currencySymbol);
 
     const auto amountAsFloat = std::stof(generatedAmount.substr(currencySymbol.size()));
 
@@ -161,7 +115,7 @@ TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 
     ASSERT_TRUE(generatedAmount.starts_with(currencySymbol));
     ASSERT_EQ(generatedAmountParts.size(), 2);
-    ASSERT_EQ(generatedAmountParts[1].size(), decimalPlaces);
+    ASSERT_EQ(generatedAmountParts[1].size(), 4);
     ASSERT_GE(amountAsFloat, min);
     ASSERT_LE(amountAsFloat, max);
 }
@@ -321,7 +275,7 @@ TEST_F(FinanceTest, shouldGenerateCreditCardNumber)
     const auto creditCardNumber = Finance::creditCardNumber();
 
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
-    ASSERT_TRUE(checkCreditCardCheckSum(creditCardNumber));
+    ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateAmericanExpressCreditCardNumber)
@@ -330,7 +284,7 @@ TEST_F(FinanceTest, shouldGenerateAmericanExpressCreditCardNumber)
 
     ASSERT_TRUE(creditCardNumber.starts_with("34") || creditCardNumber.starts_with("37"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
-    ASSERT_TRUE(checkCreditCardCheckSum(creditCardNumber));
+    ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateDiscoverCreditCardNumber)
@@ -338,19 +292,23 @@ TEST_F(FinanceTest, shouldGenerateDiscoverCreditCardNumber)
     const auto creditCardNumber = Finance::creditCardNumber(CreditCardType::Discover);
 
     ASSERT_TRUE(creditCardNumber.starts_with("6011") || creditCardNumber.starts_with("65") ||
-                creditCardNumber.starts_with("647") || creditCardNumber.starts_with("6011-62") ||
-                creditCardNumber.starts_with("648"));
+                creditCardNumber.starts_with("644") || creditCardNumber.starts_with("645") ||
+                creditCardNumber.starts_with("646") || creditCardNumber.starts_with("647") ||
+                creditCardNumber.starts_with("648") || creditCardNumber.starts_with("649") ||
+                creditCardNumber.starts_with("6011-62"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
-    ASSERT_TRUE(checkCreditCardCheckSum(creditCardNumber));
+    ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateMasterCardCreditCardNumber)
 {
     const auto creditCardNumber = Finance::creditCardNumber(CreditCardType::MasterCard);
 
-    ASSERT_TRUE(creditCardNumber.starts_with("58") || creditCardNumber.starts_with("6771-89"));
+    ASSERT_TRUE(creditCardNumber.starts_with("51") || creditCardNumber.starts_with("52") ||
+                creditCardNumber.starts_with("53") || creditCardNumber.starts_with("54") ||
+                creditCardNumber.starts_with("55") || creditCardNumber.starts_with("6771-89"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
-    ASSERT_TRUE(checkCreditCardCheckSum(creditCardNumber));
+    ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateVisaCreditCardNumber)
@@ -359,5 +317,13 @@ TEST_F(FinanceTest, shouldGenerateVisaCreditCardNumber)
 
     ASSERT_TRUE(creditCardNumber.starts_with("4"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
-    ASSERT_TRUE(checkCreditCardCheckSum(creditCardNumber));
+    ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
+}
+
+TEST_F(FinanceTest, shouldGenerateCreditCardCvv)
+{
+    const auto creditCardCvv = Finance::creditCardCvv();
+
+    ASSERT_EQ(creditCardCvv.size(), 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(creditCardCvv));
 }

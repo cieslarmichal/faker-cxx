@@ -5,6 +5,7 @@
 
 #include "faker-cxx/types/BicCountry.h"
 #include "faker-cxx/types/IbanCountry.h"
+#include "faker-cxx/types/Precision.h"
 #include "types/Country.h"
 
 namespace faker
@@ -47,7 +48,7 @@ public:
 
      * @param min The lower bound for the amount. Defaults to `0`.
      * @param max The upper bound for the amount. Defaults to `1000`.
-     * @param decimalPlaces The number of decimal places for the amount. Defaults to `2`.
+     * @param precision The number of decimal points of precision for the amount. Defaults to `Precision::TwoDp`.
      * @param symbol The symbol used to prefix the amount. Defaults to `""`.
      *
      * @returns Amount of money as string.
@@ -55,11 +56,11 @@ public:
      * @code
      * Finance::amount() // "720.18"
      * Finance::amount(5, 10) // "4.22"
-     * Finance::amount(5, 10, 0) // "4"
-     * Finance::amount(5, 10, 2, "$") // "$5.85"
+     * Finance::amount(5, 10, Precision::ZeroDp) // "4"
+     * Finance::amount(5, 10, Precision::TwoDp, "$") // "$5.85"
      * @endcode
      */
-    static std::string amount(double min = 0, double max = 1000, unsigned decimalPlaces = 2,
+    static std::string amount(double min = 0, double max = 1000, Precision precision = Precision::TwoDp,
                               const std::string& symbol = "");
 
     /**
@@ -141,5 +142,16 @@ public:
      * @endcode
      */
     static std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std::nullopt);
+
+    /**
+     * Generates a random credit card CVV.
+     *
+     * @returns Credit card CVV.
+     *
+     * @code
+     * Finance::creditCardCvv() // "506"
+     * @endcode
+     */
+    static std::string creditCardCvv();
 };
 }

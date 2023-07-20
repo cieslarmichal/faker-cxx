@@ -15,9 +15,14 @@ std::string betweenDate(
     std::chrono::time_point<std::chrono::system_clock, std::chrono::duration<int64_t, std::ratio<1, 1000000000>>> from,
     std::chrono::time_point<std::chrono::system_clock, std::chrono::duration<int64_t, std::ratio<1, 1000000000>>> to)
 {
+    if (from > to)
+    {
+        throw std::runtime_error{std::format("Start date is greater than end date. {{from: {}, to: {}}}", from, to)};
+    }
+
     const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();
 
-    const auto randomDateWithinRange = from + std::chrono::seconds{1} + std::chrono::seconds{Number::integer(size - 1)};
+    const auto randomDateWithinRange = from + std::chrono::seconds{Number::integer(size - 1)};
 
     return std::format("{:%FT%TZ}", std::chrono::floor<std::chrono::seconds>(randomDateWithinRange));
 }
@@ -28,10 +33,9 @@ const auto numberOfDaysInYear = 365;
 
 std::string Date::futureDate(int years)
 {
-    const auto startDate = std::chrono::system_clock::now();
+    const auto startDate = std::chrono::system_clock::now() + std::chrono::hours{1};
 
-    const auto endDate =
-        std::chrono::system_clock::now() + std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * years};
+    const auto endDate = startDate + std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * years};
 
     return betweenDate(startDate, endDate);
 }
@@ -41,16 +45,16 @@ std::string Date::pastDate(int years)
     const auto startDate =
         std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * years};
 
-    const auto endDate = std::chrono::system_clock::now();
+    const auto endDate = std::chrono::system_clock::now() - std::chrono::hours{1};
 
     return betweenDate(startDate, endDate);
 }
 
 std::string Date::soonDate(int days)
 {
-    const auto startDate = std::chrono::system_clock::now();
+    const auto startDate = std::chrono::system_clock::now() + std::chrono::hours{1};
 
-    const auto endDate = std::chrono::system_clock::now() + std::chrono::hours{numberOfHoursInDay * days};
+    const auto endDate = startDate + std::chrono::hours{numberOfHoursInDay * days};
 
     return betweenDate(startDate, endDate);
 }
@@ -59,7 +63,7 @@ std::string Date::recentDate(int days)
 {
     const auto startDate = std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * days};
 
-    const auto endDate = std::chrono::system_clock::now();
+    const auto endDate = std::chrono::system_clock::now() - std::chrono::hours{1};
 
     return betweenDate(startDate, endDate);
 }
@@ -106,6 +110,7 @@ std::string Date::weekdayName()
 {
     return Helper::arrayElement<std::string>(weekdayNames);
 }
+
 std::string Date::weekdayAbbreviatedName()
 {
     return Helper::arrayElement<std::string>(weekdayAbbreviatedNames);

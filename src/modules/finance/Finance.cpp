@@ -37,7 +37,7 @@ std::string Finance::accountType()
     return Helper::arrayElement<std::string>(accountTypes);
 }
 
-std::string Finance::amount(double min, double max, unsigned int decimalPlaces, const std::string& symbol)
+std::string Finance::amount(double min, double max, Precision precision, const std::string& symbol)
 {
     const std::floating_point auto generatedNumber = Number::decimal<double>(min, max);
 
@@ -45,7 +45,7 @@ std::string Finance::amount(double min, double max, unsigned int decimalPlaces, 
 
     ss << std::fixed;
 
-    ss.precision(decimalPlaces);
+    ss.precision(toDecimalPlaces(precision));
 
     ss << generatedNumber;
 
@@ -119,59 +119,11 @@ std::string Finance::creditCardNumber(std::optional<CreditCardType> creditCardTy
 
     const auto creditCardFormat = Helper::arrayElement<std::string>(creditCardFormats);
 
-    std::string creditCardNumberPayload;
+    return Helper::replaceCreditCardSymbols(creditCardFormat);
+}
 
-    for (const auto& creditCardFormatCharacter : creditCardFormat)
-    {
-        if (creditCardFormatCharacter == '#')
-        {
-            creditCardNumberPayload += String::numeric(1);
-        }
-        else
-        {
-            creditCardNumberPayload += creditCardFormatCharacter;
-        }
-    }
-
-    std::vector<int> creditCardNumberPayloadAsDigits;
-
-    for (const auto& creditCardNumberPayloadEntry : creditCardNumberPayload)
-    {
-        if (creditCardNumberPayloadEntry != '-')
-        {
-            creditCardNumberPayloadAsDigits.push_back(std::stoi(std::string{creditCardNumberPayloadEntry}));
-        }
-    }
-
-    // Luhn algorithm: https://en.wikipedia.org/wiki/Luhn_algorithm
-
-    for (int i = static_cast<int>(creditCardNumberPayloadAsDigits.size()) - 1; i >= 0; i = i - 2)
-    {
-        creditCardNumberPayloadAsDigits[static_cast<unsigned>(i)] =
-            2 * creditCardNumberPayloadAsDigits[static_cast<unsigned>(i)];
-    }
-
-    for (auto& creditCardNumberPayloadAsDigitsEntry : creditCardNumberPayloadAsDigits)
-    {
-        if (creditCardNumberPayloadAsDigitsEntry >= 10)
-        {
-            const auto tensDigit = creditCardNumberPayloadAsDigitsEntry / 10;
-            const auto onesDigit = creditCardNumberPayloadAsDigitsEntry % 10;
-
-            creditCardNumberPayloadAsDigitsEntry = tensDigit + onesDigit;
-        }
-    }
-
-    const auto digitsSum =
-        std::accumulate(creditCardNumberPayloadAsDigits.begin(), creditCardNumberPayloadAsDigits.end(), 0);
-
-    auto checkSum = 10 - (digitsSum % 10);
-
-    if (checkSum == 10)
-    {
-        checkSum = 0;
-    }
-
-    return std::format("{}{}", creditCardNumberPayload, checkSum);
+std::string Finance::creditCardCvv()
+{
+    return String::numeric(3, true);
 }
 }
