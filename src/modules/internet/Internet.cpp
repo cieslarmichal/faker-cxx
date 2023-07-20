@@ -123,17 +123,17 @@ std::string Internet::ipv4(IPv4Class ipv4class)
     sectors[2] = Number::integer<uint8_t>(static_cast<uint8_t>(255u));
     switch(ipv4class)
     {
-        case IPv4Class::classA: {
+        case IPv4Class::A: {
             sectors[1] = Number::integer<uint8_t>(static_cast<uint8_t>(255u));
             sectors[0] = static_cast<uint8_t>(10u);
             break;
         }
-        case IPv4Class::classB: {
+        case IPv4Class::B: {
             sectors[1] = Number::integer<uint8_t>(static_cast<uint8_t>(16u), static_cast<uint8_t>(31u));
             sectors[0] = static_cast<uint8_t>(172u);
             break;
         }
-        case IPv4Class::classC: {
+        case IPv4Class::C: {
             sectors[1] = static_cast<uint8_t>(168u);
             sectors[0] = static_cast<uint8_t>(192u);
         }
