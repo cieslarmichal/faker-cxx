@@ -109,8 +109,6 @@ TEST_F(DateTest, shouldGenerateSoonDate)
     const auto soonDate = parseISOFormattedStringToTimePoint(soonDateISO);
 
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(soonDate - currentDate).count() < secondsInYear);
-    std::cout << currentDate << std::endl;
-    std::cerr << soonDate << std::endl;
     EXPECT_TRUE(soonDate > currentDate);
 }
 

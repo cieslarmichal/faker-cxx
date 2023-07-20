@@ -1,7 +1,6 @@
 #include "faker-cxx/Date.h"
 
 #include <chrono>
-#include <iostream>
 
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
@@ -55,11 +54,7 @@ std::string Date::soonDate(int days)
 {
     const auto startDate = std::chrono::system_clock::now() + std::chrono::hours{1};
 
-    std::cout << "startDate: " << startDate << std::endl;
-
     const auto endDate = startDate + std::chrono::hours{numberOfHoursInDay * days};
-
-    std::cout << "endDate: " << endDate << std::endl;
 
     return betweenDate(startDate, endDate);
 }
