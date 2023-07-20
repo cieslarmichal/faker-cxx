@@ -53,7 +53,8 @@ set(FAKER_UT_SOURCES
         src/modules/word/WordTest.cpp
         src/common/StringHelperTest.cpp
         src/modules/phone/PhoneTest.cpp
-        src/modules/helper/HelperTest.cpp)
+        src/modules/helper/HelperTest.cpp
+        src/modules/helper/LuhnCheckTest.cpp)
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 

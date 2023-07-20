@@ -9,6 +9,7 @@
 
 #include "Number.h"
 #include "../src/common/StringHelper.h"
+#include "LuhnCheck.h"
 
 namespace faker
 {
@@ -115,7 +116,7 @@ public:
         modifiedString = replaceSymbolWithNumber(modifiedString, symbol);
 
         // Calculate the luhnCheckValue and replace 'L' with the checkNum
-        int checkNum = luhnCheckValue(modifiedString);
+        int checkNum = LuhnCheck::luhnCheckValue(modifiedString);
         size_t pos = modifiedString.find('L');
         if (pos != std::string::npos) {
             modifiedString.replace(pos, 1, std::to_string(checkNum));
@@ -195,35 +196,35 @@ public:
         return string;
     }
 
-    /**
-     * @brief Returns the luhn check value for the given string.
-     *
-     * @param inputString The string to calculate the check value for.
-     *
-     * @return the luhn check value for the given string.
-     *
-     */
-    static int luhnCheckValue(const std::string& inputString) {
-        std::string str = inputString;
-        str = std::regex_replace(str, std::regex("[\\s-]"), "");
-        int sum = 0;
-        bool alternate = false;
-
-        for (std::string::size_type i = str.length() - 1; i != std::string::npos; i--) {
-            int n = str[i] - '0';
-            if (alternate) {
-                n *= 2;
-                if (n > 9) {
-                    n = (n % 10) + 1;
-                }
-            }
-
-            sum += n;
-            alternate = !alternate;
-        }
-
-        return sum % 10;
-    }
+//    /**
+//     * @brief Returns the luhn check value for the given string.
+//     *
+//     * @param inputString The string to calculate the check value for.
+//     *
+//     * @return the luhn check value for the given string.
+//     *
+//     */
+//    static int luhnCheckValue(const std::string& inputString) {
+//        std::string str = inputString;
+//        str = std::regex_replace(str, std::regex("[\\s-]"), "");
+//        int sum = 0;
+//        bool alternate = false;
+//
+//        for (std::string::size_type i = str.length() - 1; i != std::string::npos; i--) {
+//            int n = str[i] - '0';
+//            if (alternate) {
+//                n *= 2;
+//                if (n > 9) {
+//                    n = (n % 10) + 1;
+//                }
+//            }
+//
+//            sum += n;
+//            alternate = !alternate;
+//        }
+//
+//        return sum % 10;
+//    }
 
 private:
     static std::random_device randomDevice;

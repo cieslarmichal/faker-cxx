@@ -53,12 +53,4 @@ TEST_F(HelperTest, ReplaceCreditCardSymbols)
     ASSERT_TRUE(result_custom[8] >= '0' && result_custom[8] <= '9');
     ASSERT_TRUE(result_custom[9] >= '0' && result_custom[9] <= '9');
 }
-//
-//TEST_F(HelperTest, LuhnCheckValue)
-//{
-//    std::string input = "6453-4876-8626-8995-377L";
-//    int checksum = Helper::luhnCheckValue(input);
-//    std::cout << checksum << std::endl;
-//    ASSERT_EQ(checksum, 0);
-//}
 }
