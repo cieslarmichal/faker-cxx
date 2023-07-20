@@ -6,6 +6,7 @@ Getting Started
 ---------------
 
 -  Pick a feature from the [TODO Features](https://github.com/cieslarmichal/faker-cxx/blob/main/TODO.md) or pick an issue from [Issues](https://github.com/cieslarmichal/faker-cxx/issues)
+-  If you picked a feature from list, please create an issue for it (so other contributors don't implement the same feature). 
 -  Fork the repository on GitHub
 
 Making Changes
@@ -13,7 +14,7 @@ Making Changes
 
 -  Create a feature/bug branch from main branch:
 
-   ``git checkout -b feature/feature-name`` or ``git checkout -b bug/issue-name``.
+   ``git checkout -b feature/feature-name``
    
    Please avoid working directly on the ``main`` branch.
 -  Make commits of logical units.
@@ -29,5 +30,5 @@ Submitting Changes
 Additional Resources
 ====================
 
--  If you have any questions about features you can join [Discord Channel](https://discord.gg/jPy9R64Q) or start a [Discussion](https://github.com/cieslarmichal/faker-cxx/discussions) in the repository.
+-  If you have any questions about features you can join [Discord Channel](https://discord.com/invite/h2ur8H6mK6).
 -  Features implementations in [Faker.js](https://github.com/faker-js/faker) could be helpful as a reference.

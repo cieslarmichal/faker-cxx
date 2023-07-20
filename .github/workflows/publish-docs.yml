@@ -1,0 +1,28 @@
+name: docs
+
+on:
+  push:
+    branches:
+      - 'main'
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Install doxygen css plugin
+        run: git clone https://github.com/jothepro/doxygen-awesome-css.git && cd doxygen-awesome-css && sudo make install
+
+      - name: Generate docs
+        uses: mattnotmitt/doxygen-action@v1.1.0
+        with:
+          doxyfile-path: "./Doxyfile" # default is ./Doxyfile
+          working-directory: "." # default is .
+
+      - name: Deploy docs
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./html

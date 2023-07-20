@@ -9,6 +9,14 @@
 
 namespace faker
 {
+enum class CreditCardType
+{
+    AmericanExpress,
+    Discover,
+    MasterCard,
+    Visa
+};
+
 class Finance
 {
 public:
@@ -109,5 +117,29 @@ public:
      * @endcode
      */
     static std::string pin(unsigned length = 4);
+
+    /**
+     * Generates a random routing number.
+     *
+     * @returns Routing number.
+     *
+     * @code
+     * Finance::routingNumber() // "522814402"
+     * @endcode
+     */
+    static std::string routingNumber();
+
+    /**
+     * Generates a random credit card number.
+     *
+     * @param creditCardType The type of the credit card.
+     *
+     * @returns Credit card number.
+     *
+     * @code
+     * Finance::creditCardNumber() // "4882664999007"
+     * @endcode
+     */
+    static std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std::nullopt);
 };
 }
