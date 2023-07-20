@@ -1,7 +1,10 @@
 #pragma once
 
+#include <map>
 #include <optional>
 #include <string>
+
+#include "faker-cxx/types/PhoneNumberCountryFormat.h"
 
 namespace faker
 {
@@ -24,6 +27,19 @@ public:
      static std::string number(std::optional<std::string>  = std::nullopt);
 
      /**
+     * @brief Returns a random phone number based on country phone number template.
+     *
+     * @param format Enum country format, more details in PhoneNumberCountryFormat.h.
+     *
+     * @returns Random phone number based on country phone number template.
+     *
+     * @code
+     * Phone::number(PhoneNumberCountryFormat::Usa) // "+1 (395) 714-1494"
+     * @endcode
+      */
+     static std::string number(PhoneNumberCountryFormat format);
+
+     /**
      * @brief Returns IMEI number.
      *
      * @returns IMEI number.
@@ -33,5 +49,9 @@ public:
      * @endcode
       */
       static std::string imei();
+
+  private:
+      static std::map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap();
+      static std::map<PhoneNumberCountryFormat, std::string> phoneNumberFormatMap;
 };
 }

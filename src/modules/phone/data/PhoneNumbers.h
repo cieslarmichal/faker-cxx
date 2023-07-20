@@ -5,7 +5,8 @@
 
 namespace faker
 {
-const std::vector<std::string> phoneNumbers = {"+93 (###) ###-####", // Afghanistan
+const std::vector<std::string> phoneNumbers = {"!##-###-###", //Default
+                                            "+93 (###) ###-####", // Afghanistan
                                             "+358 (###) ###-####", // Aland Islands
                                             "+355 (###) ###-####", // Albania
                                             "+213 (###) ###-####", // Algeria
@@ -31,7 +32,6 @@ const std::vector<std::string> phoneNumbers = {"+93 (###) ###-####", // Afghanis
                                             "+1 (###) ###-####", // Bermuda
                                             "+975 (###) ####", // Bhutan
                                             "+591 (#) ###-####", // Bolivia
-                                            "+599 (###) ####", // Bonaire, Sint Eustatius and Saba
                                             "+387 (##) ###-###", // Bosnia and Herzegovina
                                             "+267 (##) ###-###", // Botswana
                                             "+55 (##) #####-####", // Brazil
@@ -111,9 +111,6 @@ const std::vector<std::string> phoneNumbers = {"+93 (###) ###-####", // Afghanis
                                             "+81 (#) ###-####", // Japan
                                             "+44 (###) #### ###", // Jersey
                                             "+962 (#) #### ####", // Jordan
-                                            "+7 (###) ###-##-##", // Kazakhstan
-                                            "+254 (###) ######", // Kenya
-                                            "+686 (###) ####", // Kiribati
                                             "+82 (##) #### ####", // Republic of Korea
                                             "+965 (###) #####", // Kuwait
                                             "+996 (###) ###-###", // Kyrgyz Republic
@@ -124,7 +121,7 @@ const std::vector<std::string> phoneNumbers = {"+93 (###) ###-####", // Afghanis
                                             "+218 (##) ###-###", // Libyan Arab Jamahiriya
                                             "+423 (###) ###-####", // Liechtenstein
                                             "+370 (###) #####", // Lithuania
-                                            "+352 (#) ###-###", // Lu#embourg
+                                            "+352 (#) ###-###", // Luxembourg
                                             "+853 (####) ####", // Macao
                                             "+261 (##) ##-###-##", // Madagascar
                                             "+265 (##) ###-####", // Malawi
@@ -137,7 +134,7 @@ const std::vector<std::string> phoneNumbers = {"+93 (###) ###-####", // Afghanis
                                             "+222 (##) ##-####", // Mauritania
                                             "+230 (###) ####", // Mauritius
                                             "+262 (##) ##-##-##", // Mayotte
-                                            "+52 (###) ###-####", // Me#ico
+                                            "+52 (###) ###-####", // Mexico
                                             "+691 (###) ####", // Micronesia
                                             "+373 (##) ###-###", // Moldova
                                             "+377 (##) ## ## ##", // Monaco

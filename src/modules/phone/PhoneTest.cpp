@@ -64,4 +64,14 @@ TEST_F(PhoneTest, IMEIGeneration)
     ASSERT_EQ(imei.length(), 15);
     ASSERT_TRUE(isStringNumericWithSpecialChars(imei));
 }
+
+TEST_F(PhoneTest, NumberFormatTest)
+{
+    Phone phone;
+    std::string phoneNumber = phone.number(PhoneNumberCountryFormat::Zimbabwe);
+
+    EXPECT_FALSE(phoneNumber.empty());
+    ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
+}
+
 }
