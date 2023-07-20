@@ -122,6 +122,12 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a1d09b7b3051018bf229e656a7ccf9fce"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Location.html#a1d09b7b3051018bf229e656a7ccf9fce">buildingNumber</a> (Country <a class="el" href="classfaker_1_1Location.html#aeccb6f1381edcf063010684db6c47f66">country</a>=Country::Usa)</td></tr>
 <tr class="memdesc:a1d09b7b3051018bf229e656a7ccf9fce"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random building number for given country.  <br /></td></tr>
 <tr class="separator:a1d09b7b3051018bf229e656a7ccf9fce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd485d36177f0a73c908a48f084c9af4"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Location.html#afd485d36177f0a73c908a48f084c9af4">latitude</a> (Precision=Precision::FourDp)</td></tr>
+<tr class="memdesc:afd485d36177f0a73c908a48f084c9af4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random latitude.  <br /></td></tr>
+<tr class="separator:afd485d36177f0a73c908a48f084c9af4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afccdf97e9258dbaf29cf4c41aaec8f4e"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Location.html#afccdf97e9258dbaf29cf4c41aaec8f4e">longitude</a> (Precision=Precision::FourDp)</td></tr>
+<tr class="memdesc:afccdf97e9258dbaf29cf4c41aaec8f4e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random longitude.  <br /></td></tr>
+<tr class="separator:afccdf97e9258dbaf29cf4c41aaec8f4e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1d09b7b3051018bf229e656a7ccf9fce" name="a1d09b7b3051018bf229e656a7ccf9fce"></a>
@@ -225,6 +231,80 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Country name.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Location.html#aeccb6f1381edcf063010684db6c47f66">Location::country</a>() <span class="comment">// &quot;Poland&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1Location_html_aeccb6f1381edcf063010684db6c47f66"><div class="ttname"><a href="classfaker_1_1Location.html#aeccb6f1381edcf063010684db6c47f66">faker::Location::country</a></div><div class="ttdeci">static std::string country()</div><div class="ttdoc">Returns a random country name.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="afd485d36177f0a73c908a48f084c9af4" name="afd485d36177f0a73c908a48f084c9af4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afd485d36177f0a73c908a48f084c9af4">&#9670;&#160;</a></span>latitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Location::latitude </td>
+          <td>(</td>
+          <td class="paramtype">Precision&#160;</td>
+          <td class="paramname"> = <code>Precision::FourDp</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a random latitude. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">precision</td><td>The number of decimal points of precision for the latitude. Defaults to <code>Precision::FourDp</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Latitude within -90 to 90 range.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Location.html#afd485d36177f0a73c908a48f084c9af4">Location::latitude</a>() <span class="comment">// &quot;-30.9501&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Location_html_afd485d36177f0a73c908a48f084c9af4"><div class="ttname"><a href="classfaker_1_1Location.html#afd485d36177f0a73c908a48f084c9af4">faker::Location::latitude</a></div><div class="ttdeci">static std::string latitude(Precision=Precision::FourDp)</div><div class="ttdoc">Generates a random latitude.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="afccdf97e9258dbaf29cf4c41aaec8f4e" name="afccdf97e9258dbaf29cf4c41aaec8f4e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afccdf97e9258dbaf29cf4c41aaec8f4e">&#9670;&#160;</a></span>longitude()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Location::longitude </td>
+          <td>(</td>
+          <td class="paramtype">Precision&#160;</td>
+          <td class="paramname"> = <code>Precision::FourDp</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a random longitude. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">precision</td><td>The number of decimal points of precision for the longitude. Defaults to <code>Precision::FourDp</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Longitude within -180 to 180 range.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Location.html#afccdf97e9258dbaf29cf4c41aaec8f4e">Location::longitude</a>() <span class="comment">// &quot;-30.9501&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Location_html_afccdf97e9258dbaf29cf4c41aaec8f4e"><div class="ttname"><a href="classfaker_1_1Location.html#afccdf97e9258dbaf29cf4c41aaec8f4e">faker::Location::longitude</a></div><div class="ttdeci">static std::string longitude(Precision=Precision::FourDp)</div><div class="ttdoc">Generates a random longitude.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -366,7 +446,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Zip code.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Location.html#afe21e26f574edfe269faa28f37a8b046">Location::zipCode</a>() <span class="comment">// &quot;47683-9880&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Location.html">Location</a>::<a class="code hl_function" href="classfaker_1_1Location.html#afe21e26f574edfe269faa28f37a8b046">zipCode</a>(Country::Poland) <span class="comment">// &quot;31-881&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Location_html"><div class="ttname"><a href="classfaker_1_1Location.html">faker::Location</a></div><div class="ttdef"><b>Definition</b> Location.h:10</div></div>
+<div class="ttc" id="aclassfaker_1_1Location_html"><div class="ttname"><a href="classfaker_1_1Location.html">faker::Location</a></div><div class="ttdef"><b>Definition</b> Location.h:11</div></div>
 <div class="ttc" id="aclassfaker_1_1Location_html_afe21e26f574edfe269faa28f37a8b046"><div class="ttname"><a href="classfaker_1_1Location.html#afe21e26f574edfe269faa28f37a8b046">faker::Location::zipCode</a></div><div class="ttdeci">static std::string zipCode(Country country=Country::Usa)</div><div class="ttdoc">Returns a random zip code for given country.</div></div>
 </div><!-- fragment --> 
 </div>
