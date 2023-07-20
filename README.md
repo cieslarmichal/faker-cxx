@@ -100,23 +100,6 @@ Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main
 
 [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
 
-<<<<<<< HEAD
-
-## Building from sources with Clang 16
-
-```
-git clone https://github.com/cieslarmichal/faker-cxx.git
-
-git submodule update --init --recursive
-
-cd faker-cxx
-mkdir build
-cd build
-cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
-make
-```
-
-=======
 <br />
 
 ## Building from sources with Clang 16
@@ -150,4 +133,3 @@ cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
 ```
 make
 ```
->>>>>>> main

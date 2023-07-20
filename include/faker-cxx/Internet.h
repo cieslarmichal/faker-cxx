@@ -140,9 +140,9 @@ public:
      */
     enum class IPv4Class
     {
-        classA,
-        classB,
-        classC
+        A,
+        B,
+        C
     };
 
     /**

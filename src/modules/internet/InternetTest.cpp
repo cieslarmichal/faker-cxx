@@ -362,7 +362,7 @@ TEST_F(InternetTest, shouldGenerateHttpStatusServerErrorCode)
 
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassAAddress)
 {
-    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::classA);
+    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::A);
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
 
     ASSERT_EQ(addressSectors[0], classAFirstSection);
@@ -370,7 +370,7 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassAAddress)
 
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassBAddress)
 {
-    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::classB);
+    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::B);
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
 
     ASSERT_EQ(addressSectors[0], classBFirstSection);
@@ -379,7 +379,7 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassBAddress)
 
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassCAddress)
 {
-    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::classC);
+    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::C);
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
     
     ASSERT_EQ(addressSectors[0], classCFirstSection);
