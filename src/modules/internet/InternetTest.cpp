@@ -31,17 +31,16 @@ constexpr unsigned int classBSecondSectionLowerBound = 16;
 constexpr unsigned int classBSecondSectionUpperBound = 31;
 constexpr unsigned int classCFirstSection = 192u;
 constexpr unsigned int classCSecondSection = 168u;
-constexpr uint8_t ipv4AddressSectors = 4;
 
-std::array<uint8_t, 4> deconstructIpv4String(std::string ipv4)
+Internet::IPv4Type deconstructIpv4String(std::string ipv4)
 {
-    std::array<uint8_t, 4> ret;
+    Internet::IPv4Type ret;
     std::istringstream ss(ipv4);
     constexpr char separator = '.';
-    std::for_each(ret.begin(), ret.end(), [&ss](uint8_t& c) {
+    std::for_each(ret.begin(), ret.end(), [&ss](unsigned int& c) {
         std::string token;
         std::getline(ss, token, separator);
-        c = static_cast<uint8_t>(std::stoi(token));
+        c = static_cast<unsigned int>(std::stoi(token));
     });
     return ret;
 }
@@ -356,7 +355,7 @@ TEST_F(InternetTest, shouldGenerateHttpStatusServerErrorCode)
     const auto generatedHttpStatusCode = Internet::httpStatusCode(HttpResponseType::ServerError);
 
     ASSERT_TRUE(std::any_of(httpStatusServerErrorCodes.begin(), httpStatusServerErrorCodes.end(),
-                            [generatedHttpStatusCode](unsigned statusCode) 
+                            [generatedHttpStatusCode](unsigned statusCode)
                             { return generatedHttpStatusCode == statusCode; }));
 }
 
@@ -381,19 +380,19 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassCAddress)
 {
     const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::C);
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
-    
+
     ASSERT_EQ(addressSectors[0], classCFirstSection);
     ASSERT_EQ(addressSectors[1], classCSecondSection);
 }
 
 TEST_F(InternetTest, shouldGenerateIpv4KeepingTheMaskedPart)
 {
-    const std::array<uint8_t, ipv4AddressSectors> sampleAddress = {192, 168, 10, 12};
-    const std::array<uint8_t, ipv4AddressSectors> generationMask = {255, 128, 0, 0};
+    const Internet::IPv4Type sampleAddress = {192, 168, 10, 12};
+    const Internet::IPv4Type generationMask = {255, 128, 0, 0};
 
     const auto generatedAddress = deconstructIpv4String(Internet::ipv4(sampleAddress, generationMask));
-    
-    constexpr uint8_t expectedSecondSectorMaskedValue = 0b10000000;
+
+    constexpr unsigned int expectedSecondSectorMaskedValue = 0x00000080;
     ASSERT_EQ(sampleAddress[0], generatedAddress[0]);
     ASSERT_TRUE((generatedAddress[1] & generationMask[1]) == expectedSecondSectorMaskedValue);
 }

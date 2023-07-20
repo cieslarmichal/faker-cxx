@@ -28,7 +28,14 @@ const std::map<HttpResponseType, std::vector<unsigned>> httpResponseTypeToCodesM
     {HttpResponseType::ClientError, httpStatusClientErrorCodes},
     {HttpResponseType::ServerError, httpStatusServerErrorCodes},
 };
-constexpr uint8_t ipv4AddressSectors = 4;
+constexpr unsigned int ipv4AddressSectors = 4u;
+constexpr unsigned int ipv4ClassCFirstSector = 192u;
+constexpr unsigned int ipv4ClassCSecondSector = 168u;
+constexpr unsigned int ipv4ClassAFirstSector = 10u;
+constexpr unsigned int ipv4ClassBFirstSector = 172;
+constexpr unsigned int ipv4ClassBSecondSectorLowerBound = 16u;
+constexpr unsigned int ipv4ClassBSecondSectorUpperBound = 31u;
+constexpr unsigned int ipv4SectorUpperBound = 255u;
 }
 std::string Internet::username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit)
 {
@@ -118,36 +125,38 @@ unsigned Internet::httpStatusCode(std::optional<HttpResponseType> responseType)
 }
 std::string Internet::ipv4(IPv4Class ipv4class)
 {
-    std::array<uint8_t, ipv4AddressSectors> sectors;
-    sectors[3] = Number::integer<uint8_t>(static_cast<uint8_t>(255u));
-    sectors[2] = Number::integer<uint8_t>(static_cast<uint8_t>(255u));
+    IPv4Type sectors;
+    sectors[3] = Number::integer<unsigned int>(ipv4SectorUpperBound);
+    sectors[2] = Number::integer<unsigned int>(ipv4SectorUpperBound);
     switch(ipv4class)
     {
         case IPv4Class::A: {
-            sectors[1] = Number::integer<uint8_t>(static_cast<uint8_t>(255u));
-            sectors[0] = static_cast<uint8_t>(10u);
+            sectors[1] = Number::integer<unsigned int>(ipv4SectorUpperBound);
+            sectors[0] = ipv4ClassAFirstSector;
             break;
         }
         case IPv4Class::B: {
-            sectors[1] = Number::integer<uint8_t>(static_cast<uint8_t>(16u), static_cast<uint8_t>(31u));
-            sectors[0] = static_cast<uint8_t>(172u);
+            sectors[1] = Number::integer<unsigned int>(
+                ipv4ClassBSecondSectorLowerBound,
+                ipv4ClassBSecondSectorUpperBound);
+            sectors[0] = ipv4ClassBFirstSector;
             break;
         }
         case IPv4Class::C: {
-            sectors[1] = static_cast<uint8_t>(168u);
-            sectors[0] = static_cast<uint8_t>(192u);
+            sectors[1] = ipv4ClassCSecondSector;
+            sectors[0] = ipv4ClassCFirstSector;
         }
     }
     return std::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
-std::string Internet::ipv4(const std::array<uint8_t, 4>& baseIpv4Address, const std::array<uint8_t, 4>& generationMask)
+std::string Internet::ipv4(const IPv4Type& baseIpv4Address, const IPv4Type& generationMask)
 {
-    std::array<uint8_t, ipv4AddressSectors> sectors;
+    IPv4Type sectors;
     for(std::size_t i = 0; i < ipv4AddressSectors; i++)
     {
-        sectors[i] = (~generationMask[i]) & Number::integer<uint8_t>(static_cast<uint8_t>(255u));
-        sectors[i] |= static_cast<uint8_t>(baseIpv4Address[i] & generationMask[i]);
+        sectors[i] = (~generationMask[i]) & Number::integer<unsigned int>(ipv4SectorUpperBound);
+        sectors[i] |= (baseIpv4Address[i] & generationMask[i]);
     }
     return std::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
