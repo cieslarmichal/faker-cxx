@@ -142,5 +142,16 @@ public:
      * @endcode
      */
     static std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std::nullopt);
+
+    /**
+     * Generates a random credit card CVV.
+     *
+     * @returns Credit card CVV.
+     *
+     * @code
+     * Finance::creditCardCvv() // "506"
+     * @endcode
+     */
+    static std::string creditCardCvv();
 };
 }

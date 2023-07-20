@@ -5,7 +5,7 @@
 - [ ] support for more iban countries
 - [ ] support for more bic countries
 - [x] credit card number
-- [ ] credit card CVV
+- [x] credit card CVV
 - [ ] bitcoin address
 - [ ] ethereum address
 - [ ] litecoin address
