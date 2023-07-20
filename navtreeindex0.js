@@ -33,6 +33,10 @@ var NAVTREEINDEX0 =
 "classfaker_1_1Finance.html":[1,0,0,6],
 "classfaker_1_1Helper.html":[1,0,0,7],
 "classfaker_1_1Internet.html":[1,0,0,8],
+"classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd":[1,0,0,8,0],
+"classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebda0d61f8370cad1d412f80b84d143e1257":[1,0,0,8,0,2],
+"classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebda7fc56270e7a70fa81a5935b72eacbe29":[1,0,0,8,0,0],
+"classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebda9d5ed678fe57bcca610140957afab571":[1,0,0,8,0,1],
 "classfaker_1_1Location.html":[1,0,0,9],
 "classfaker_1_1Lorem.html":[1,0,0,10],
 "classfaker_1_1Number.html":[1,0,0,11],
@@ -49,6 +53,7 @@ var NAVTREEINDEX0 =
 "dir_d44c64559bbebec7f509842c48db8b23.html":[2,0,0],
 "files.html":[2,0],
 "functions.html":[1,2,0],
+"functions_enum.html":[1,2,2],
 "functions_func.html":[1,2,1],
 "index.html":[],
 "pages.html":[]
