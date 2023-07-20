@@ -51,3 +51,13 @@ TEST_F(StringHelperTest, joinStringsIntoVectorByNewLine)
 
     ASSERT_EQ(result, "Join\nfaker\ndevelopment!");
 }
+
+TEST_F(StringHelperTest, repeatString)
+{
+    const std::string data = "hello ";
+    const int repetition = 3;
+
+    const std::string result = StringHelper::repeat(data, repetition);
+
+    ASSERT_EQ(result, "hello hello hello ");
+}
