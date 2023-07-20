@@ -65,9 +65,11 @@ int main()
 ## Consuming library with CMake
 
 ```cmake
-add_subdirectory(third_party/faker-cxx)
+set(BUILD_FAKER_TESTS OFF)
 
-add_executable(main main.cpp)
+add_subdirectory(externals/faker-cxx)
+
+add_executable(main Main.cpp)
 
 target_link_libraries(main faker-cxx)
 ```
