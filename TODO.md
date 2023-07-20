@@ -24,9 +24,9 @@
 
 ### 📞 Phone:
 
-- [ ] phone number
-- [ ] imei
-- [ ] support for more countries
+- [x] phone number
+- [x] imei
+- [x] support for more countries
 
 ### 🎨 Color:
 
@@ -59,8 +59,8 @@
 - [x] street address
 - [x] building number
 - [ ] support for more countries
-- [ ] latitude
-- [ ] longitude
+- [x] latitude
+- [x] longitude
 
 ### 🖊️ Lorem:
 
@@ -109,6 +109,7 @@
 - [x] words
 
 ### Git:
+
 - [ ] branch
 - [ ] commitDate
 - [ ] commitEntry
@@ -116,22 +117,26 @@
 - [ ] commitSha
 
 ### String:
+
 - [ ] binary
 - [ ] fromCharacters
 - [ ] sample
 - [ ] octal
 
 ### 🎶 Music:
+
 - [ ] genre
 - [ ] songName
 - [ ] artistName
 
 ### 🎥 Movie:
+
 - [ ] genre
 - [ ] title
 - [ ] director
 
 ### 💻 System:
+
 - [ ] commonFileExtension
 - [ ] commonFileName
 - [ ] commonFileType

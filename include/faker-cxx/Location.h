@@ -3,6 +3,7 @@
 #include <string>
 
 #include "types/Country.h"
+#include "types/Precision.h"
 
 namespace faker
 {
@@ -96,5 +97,31 @@ public:
      * @endcode
      */
     static std::string buildingNumber(Country country = Country::Usa);
+
+    /**
+     * @brief Generates a random latitude.
+     *
+     * @param precision The number of decimal points of precision for the latitude. Defaults to `4`.
+     *
+     * @returns Latitude within -90 to 90 range.
+     *
+     * @code
+     * Location::latitude() // "-30.9501"
+     * @endcode
+     */
+    static std::string latitude(Precision = Precision::FourDp);
+
+    /**
+     * @brief Generates a random longitude.
+     *
+     * @param precision The number of decimal points of precision for the longitude. Defaults to `4`.
+     *
+     * @returns Longitude within -180 to 180 range.
+     *
+     * @code
+     * Location::longitude() // "-30.9501"
+     * @endcode
+     */
+    static std::string longitude(Precision = Precision::FourDp);
 };
 }

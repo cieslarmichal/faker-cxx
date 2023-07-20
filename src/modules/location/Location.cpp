@@ -158,4 +158,34 @@ std::string Location::buildingNumber(Country country)
     return buildingNumber;
 }
 
+std::string Location::latitude(Precision precision)
+{
+    const std::floating_point auto latitude = Number::decimal<double>(-90.0, 90.0);
+
+    std::stringstream ss;
+
+    ss << std::fixed;
+
+    ss.precision(toDecimalPlaces(precision));
+
+    ss << latitude;
+
+    return ss.str();
+}
+
+std::string Location::longitude(Precision precision)
+{
+    const std::floating_point auto longitude = Number::decimal<double>(-180.0, 180.0);
+
+    std::stringstream ss;
+
+    ss << std::fixed;
+
+    ss.precision(toDecimalPlaces(precision));
+
+    ss << longitude;
+
+    return ss.str();
+}
+
 }
