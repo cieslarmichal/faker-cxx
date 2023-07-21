@@ -1,8 +1,8 @@
 #include "faker-cxx/Finance.h"
 
 #include <format>
-#include <numeric>
 
+#include "../../common/mappers/PrecisionMapper.h"
 #include "data/AccountTypes.h"
 #include "data/BankIndentifiersCodes.h"
 #include "data/CreditCardsFormats.h"
@@ -45,7 +45,7 @@ std::string Finance::amount(double min, double max, Precision precision, const s
 
     ss << std::fixed;
 
-    ss.precision(toDecimalPlaces(precision));
+    ss.precision(PrecisionMapper::toDecimalPlaces(precision));
 
     ss << generatedNumber;
 
