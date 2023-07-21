@@ -120,6 +120,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af39e73f7b102e8ae73a9ebee7693ad2c"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a> (std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</td></tr>
 <tr class="memdesc:af39e73f7b102e8ae73a9ebee7693ad2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an email address using the given person's name as base.  <br /></td></tr>
 <tr class="separator:af39e73f7b102e8ae73a9ebee7693ad2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97776d509e7284b2663aa5631dc21bbc"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#a97776d509e7284b2663aa5631dc21bbc">exampleEmail</a> (std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt)</td></tr>
+<tr class="memdesc:a97776d509e7284b2663aa5631dc21bbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an email address using the given person's name as base with example domain.  <br /></td></tr>
+<tr class="separator:a97776d509e7284b2663aa5631dc21bbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:accf91e2599865b20e539b62661c96e23"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#accf91e2599865b20e539b62661c96e23">password</a> (int length=15)</td></tr>
 <tr class="memdesc:accf91e2599865b20e539b62661c96e23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random password-like string. Do not use this method for generating actual passwords for users. Since the source of the randomness is not cryptographically secure, neither is this generator.  <br /></td></tr>
 <tr class="separator:accf91e2599865b20e539b62661c96e23"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -220,7 +223,7 @@ Static Public Member Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Email including neither, one or both of the provided names, with random/provided emailHost.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Email including neither, one or both of the provided names, with random/provided email host.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">Internet::email</a>() <span class="comment">// &quot;Jimenez.Clyde@gmail.com&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(&quot;Tom&quot;) <span class="comment">// &quot;TomRichardson79@outlook.com&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(std::nullopt, &quot;Howard&quot;) <span class="comment">// &quot;FreddieHoward@hotmail.com&quot;</span></div>
@@ -228,6 +231,54 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(std::nullopt, std::nullopt, &quot;example.com&quot;) <span class="comment">// &quot;Wright.Edna1973@code.com&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html"><div class="ttname"><a href="classfaker_1_1Internet.html">faker::Internet</a></div><div class="ttdef"><b>Definition</b> Internet.h:19</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_af39e73f7b102e8ae73a9ebee7693ad2c"><div class="ttname"><a href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">faker::Internet::email</a></div><div class="ttdeci">static std::string email(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a97776d509e7284b2663aa5631dc21bbc" name="a97776d509e7284b2663aa5631dc21bbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97776d509e7284b2663aa5631dc21bbc">&#9670;&#160;</a></span>exampleEmail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Internet::exampleEmail </td>
+          <td>(</td>
+          <td class="paramtype">std::optional&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>firstName</em> = <code>std::nullopt</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::optional&lt; std::string &gt;&#160;</td>
+          <td class="paramname"><em>lastName</em> = <code>std::nullopt</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates an email address using the given person's name as base with example domain. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">firstName</td><td>The optional first name to use. If not specified, a random one will be chosen. </td></tr>
+    <tr><td class="paramname">lastName</td><td>The optional last name to use. If not specified, a random one will be chosen.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Email including neither, one or both of the provided names, with example email host.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Internet.html#a97776d509e7284b2663aa5631dc21bbc">Internet::exampleEmail</a>() <span class="comment">// &quot;Jimenez.Clyde@example.com&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_a97776d509e7284b2663aa5631dc21bbc"><div class="ttname"><a href="classfaker_1_1Internet.html#a97776d509e7284b2663aa5631dc21bbc">faker::Internet::exampleEmail</a></div><div class="ttdeci">static std::string exampleEmail(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base with example domain.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -462,7 +513,7 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>std::string representation of the ipv4 address</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">Internet::ipv4</a>() <span class="comment">// &quot;192.168.0.1&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">ipv4</a>(<a class="code hl_enumeration" href="classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd">IPv4Class</a>::classA) <span class="comment">// &quot;10.0.0.1&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_aa7b6ae58c347a12873284532c9420ebd"><div class="ttname"><a href="classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd">faker::Internet::IPv4Class</a></div><div class="ttdeci">IPv4Class</div><div class="ttdoc">Determines which address class user wants to generate in the ipv4 method.</div><div class="ttdef"><b>Definition</b> Internet.h:142</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_aa7b6ae58c347a12873284532c9420ebd"><div class="ttname"><a href="classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd">faker::Internet::IPv4Class</a></div><div class="ttdeci">IPv4Class</div><div class="ttdoc">Determines which address class user wants to generate in the ipv4 method.</div><div class="ttdef"><b>Definition</b> Internet.h:157</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
