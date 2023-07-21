@@ -9,6 +9,7 @@
 #include "../person/data/FirstNamesMales.h"
 #include "../person/data/LastNames.h"
 #include "data/EmailHosts.h"
+#include "data/Emojis.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -31,9 +32,9 @@ constexpr unsigned int classBSecondSectionUpperBound = 31;
 constexpr unsigned int classCFirstSection = 192u;
 constexpr unsigned int classCSecondSection = 168u;
 
-Internet::IPv4Type deconstructIpv4String(const std::string& ipv4)
+IPv4Address deconstructIpv4String(const std::string& ipv4)
 {
-    Internet::IPv4Type result;
+    IPv4Address result;
 
     std::istringstream ss(ipv4);
 
@@ -388,6 +389,118 @@ TEST_F(InternetTest, shouldGenerateGithubAvatarUrl)
     ASSERT_TRUE(userNumber >= 0 && userNumber <= 100000000);
 }
 
+TEST_F(InternetTest, shouldGenerateEmoji)
+{
+    const auto generatedEmoji = Internet::emoji();
+
+    std::vector<std::string> emojis;
+
+    emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
+    emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
+    emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
+    emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
+    emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
+    emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
+    emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
+    emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
+    emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
+    emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
+
+    ASSERT_TRUE(std::any_of(emojis.begin(), emojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
+TEST_F(InternetTest, shouldGenerateSmileyEmoji)
+{
+    const auto generatedEmoji = Internet::emoji(EmojiType::Smiley);
+
+    ASSERT_TRUE(std::any_of(smileyEmojis.begin(), smileyEmojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
+TEST_F(InternetTest, shouldGenerateBodyEmoji)
+{
+    const auto generatedEmoji = Internet::emoji(EmojiType::Body);
+
+    ASSERT_TRUE(std::any_of(bodyEmojis.begin(), bodyEmojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
+TEST_F(InternetTest, shouldGeneratePersonEmoji)
+{
+    const auto generatedEmoji = Internet::emoji(EmojiType::Person);
+
+    ASSERT_TRUE(std::any_of(personEmojis.begin(), personEmojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
+TEST_F(InternetTest, shouldGenerateNatureEmoji)
+{
+    const auto generatedEmoji = Internet::emoji(EmojiType::Nature);
+
+    ASSERT_TRUE(std::any_of(natureEmojis.begin(), natureEmojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
+TEST_F(InternetTest, shouldGenerateFoodEmoji)
+{
+    const auto generatedEmoji = Internet::emoji(EmojiType::Food);
+
+    ASSERT_TRUE(std::any_of(foodEmojis.begin(), foodEmojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
+TEST_F(InternetTest, shouldGenerateTravelEmoji)
+{
+    const auto generatedEmoji = Internet::emoji(EmojiType::Travel);
+
+    ASSERT_TRUE(std::any_of(travelEmojis.begin(), travelEmojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
+TEST_F(InternetTest, shouldGenerateActivityEmoji)
+{
+    const auto generatedEmoji = Internet::emoji(EmojiType::Activity);
+
+    ASSERT_TRUE(std::any_of(activityEmojis.begin(), activityEmojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
+TEST_F(InternetTest, shouldGenerateObjectEmoji)
+{
+    const auto generatedEmoji = Internet::emoji(EmojiType::Object);
+
+    ASSERT_TRUE(std::any_of(objectEmojis.begin(), objectEmojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
+TEST_F(InternetTest, shouldGenerateSymbolEmoji)
+{
+    const auto generatedEmoji = Internet::emoji(EmojiType::Symbol);
+
+    ASSERT_TRUE(std::any_of(symbolEmojis.begin(), symbolEmojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
+TEST_F(InternetTest, shouldGenerateFlagEmoji)
+{
+    const auto generatedEmoji = Internet::emoji(EmojiType::Flag);
+
+    ASSERT_TRUE(std::any_of(flagEmojis.begin(), flagEmojis.end(),
+                            [generatedEmoji](const std::string& emoji)
+                            { return generatedEmoji == emoji; }));
+}
+
 TEST_F(InternetTest, shouldGenerateProtocol)
 {
     const auto webProtocol = Internet::protocol();
@@ -468,7 +581,7 @@ TEST_F(InternetTest, shouldGenerateHttpStatusServerErrorCode)
 
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassAAddress)
 {
-    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::A);
+    const auto generatedIpv4 = Internet::ipv4(IPv4Class::A);
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
 
     ASSERT_EQ(addressSectors[0], classAFirstSection);
@@ -476,7 +589,7 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassAAddress)
 
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassBAddress)
 {
-    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::B);
+    const auto generatedIpv4 = Internet::ipv4(IPv4Class::B);
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
 
     ASSERT_EQ(addressSectors[0], classBFirstSection);
@@ -486,7 +599,7 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassBAddress)
 
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassCAddress)
 {
-    const auto generatedIpv4 = Internet::ipv4(Internet::IPv4Class::C);
+    const auto generatedIpv4 = Internet::ipv4(IPv4Class::C);
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
 
     ASSERT_EQ(addressSectors[0], classCFirstSection);
@@ -495,8 +608,8 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassCAddress)
 
 TEST_F(InternetTest, shouldGenerateIpv4KeepingTheMaskedPart)
 {
-    const Internet::IPv4Type sampleAddress = {192, 168, 10, 12};
-    const Internet::IPv4Type generationMask = {255, 128, 0, 0};
+    const IPv4Address sampleAddress = {192, 168, 10, 12};
+    const IPv4Address generationMask = {255, 128, 0, 0};
 
     const auto generatedAddress = deconstructIpv4String(Internet::ipv4(sampleAddress, generationMask));
 

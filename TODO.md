@@ -46,6 +46,9 @@
 - [ ] port
 - [x] protocol
 - [ ] url
+- [ ] domainName
+- [ ] domainSuffix
+- [ ] domainWord
 - [x] image url
 - [x] github avatar url
 

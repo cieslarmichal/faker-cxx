@@ -5,6 +5,7 @@
 #include <utility>
 
 #include "data/EmailHosts.h"
+#include "data/Emojis.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
 
@@ -36,7 +37,14 @@ constexpr unsigned int ipv4ClassBFirstSector = 172;
 constexpr unsigned int ipv4ClassBSecondSectorLowerBound = 16u;
 constexpr unsigned int ipv4ClassBSecondSectorUpperBound = 31u;
 constexpr unsigned int ipv4SectorUpperBound = 255u;
+const std::map<EmojiType, std::vector<std::string>> emojiTypeToEmojisMapping{
+    {EmojiType::Smiley, smileyEmojis},     {EmojiType::Body, bodyEmojis},     {EmojiType::Person, personEmojis},
+    {EmojiType::Nature, natureEmojis},     {EmojiType::Food, foodEmojis},     {EmojiType::Travel, travelEmojis},
+    {EmojiType::Activity, activityEmojis}, {EmojiType::Object, objectEmojis}, {EmojiType::Symbol, symbolEmojis},
+    {EmojiType::Flag, flagEmojis},
+};
 }
+
 std::string Internet::username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit)
 {
     const auto firstName = firstNameInit ? *firstNameInit : Person::firstName();
@@ -100,6 +108,31 @@ std::string Internet::githubAvatarUrl()
     return std::format("https://avatars.githubusercontent.com/u/{}", Number::integer<int>(100000000));
 }
 
+std::string Internet::emoji(std::optional<EmojiType> type)
+{
+    if (type)
+    {
+        const auto& emojis = emojiTypeToEmojisMapping.at(*type);
+
+        return Helper::arrayElement<std::string>(emojis);
+    }
+
+    std::vector<std::string> emojis;
+
+    emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
+    emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
+    emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
+    emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
+    emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
+    emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
+    emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
+    emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
+    emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
+    emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
+
+    return Helper::arrayElement<std::string>(emojis);
+}
+
 std::string Internet::protocol()
 {
     return Helper::arrayElement<std::string>(webProtocols);
@@ -129,11 +162,14 @@ unsigned Internet::httpStatusCode(std::optional<HttpResponseType> responseType)
 
     return Helper::arrayElement<unsigned>(statusCodes);
 }
+
 std::string Internet::ipv4(IPv4Class ipv4class)
 {
-    IPv4Type sectors;
+    IPv4Address sectors;
+
     sectors[3] = Number::integer<unsigned int>(ipv4SectorUpperBound);
     sectors[2] = Number::integer<unsigned int>(ipv4SectorUpperBound);
+
     switch (ipv4class)
     {
     case IPv4Class::A:
@@ -154,17 +190,20 @@ std::string Internet::ipv4(IPv4Class ipv4class)
         sectors[0] = ipv4ClassCFirstSector;
     }
     }
+
     return std::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
-std::string Internet::ipv4(const IPv4Type& baseIpv4Address, const IPv4Type& generationMask)
+std::string Internet::ipv4(const IPv4Address& baseIpv4Address, const IPv4Address& generationMask)
 {
-    IPv4Type sectors;
+    IPv4Address sectors;
+
     for (std::size_t i = 0; i < ipv4AddressSectors; i++)
     {
         sectors[i] = (~generationMask[i]) & Number::integer<unsigned int>(ipv4SectorUpperBound);
         sectors[i] |= (baseIpv4Address[i] & generationMask[i]);
     }
+
     return std::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
