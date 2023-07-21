@@ -1,7 +1,6 @@
 #include "faker-cxx/Internet.h"
 
 #include <algorithm>
-#include <sstream>
 
 #include "gtest/gtest.h"
 
@@ -32,17 +31,25 @@ constexpr unsigned int classBSecondSectionUpperBound = 31;
 constexpr unsigned int classCFirstSection = 192u;
 constexpr unsigned int classCSecondSection = 168u;
 
-Internet::IPv4Type deconstructIpv4String(std::string ipv4)
+Internet::IPv4Type deconstructIpv4String(const std::string& ipv4)
 {
-    Internet::IPv4Type ret;
+    Internet::IPv4Type result;
+
     std::istringstream ss(ipv4);
+
     constexpr char separator = '.';
-    std::for_each(ret.begin(), ret.end(), [&ss](unsigned int& c) {
-        std::string token;
-        std::getline(ss, token, separator);
-        c = static_cast<unsigned int>(std::stoi(token));
-    });
-    return ret;
+
+    std::for_each(result.begin(), result.end(),
+                  [&ss](unsigned int& c)
+                  {
+                      std::string token;
+
+                      std::getline(ss, token, separator);
+
+                      c = static_cast<unsigned int>(std::stoi(token));
+                  });
+
+    return result;
 }
 }
 
@@ -233,6 +240,106 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
                             { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
+TEST_F(InternetTest, shouldGenerateExampleEmail)
+{
+    std::vector<std::string> firstNames{firstNamesMales};
+
+    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+
+    const auto email = Internet::exampleEmail();
+
+    const auto emailParts = StringHelper::split(email, "@");
+
+    ASSERT_EQ(emailParts.size(), 2);
+
+    const auto& generatedUsername = emailParts[0];
+    const auto& generatedEmailHost = emailParts[1];
+
+    ASSERT_TRUE(std::any_of(emailExampleHosts.begin(), emailExampleHosts.end(),
+                            [generatedEmailHost](const std::string& emailHost)
+                            { return generatedEmailHost == emailHost; }));
+    ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
+                            [generatedUsername](const std::string& firstName)
+                            { return generatedUsername.find(firstName) != std::string::npos; }));
+    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+                            [generatedUsername](const std::string& lastName)
+                            { return generatedUsername.find(lastName) != std::string::npos; }));
+}
+
+TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
+{
+    const auto firstName = "Barry";
+
+    const auto email = Internet::exampleEmail(firstName);
+
+    const auto emailParts = StringHelper::split(email, "@");
+
+    ASSERT_EQ(emailParts.size(), 2);
+
+    const auto& generatedUsername = emailParts[0];
+    const auto& generatedEmailHost = emailParts[1];
+
+    ASSERT_TRUE(std::any_of(emailExampleHosts.begin(), emailExampleHosts.end(),
+                            [generatedEmailHost](const std::string& emailHost)
+                            { return generatedEmailHost == emailHost; }));
+    ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
+    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+                            [generatedUsername](const std::string& lastName)
+                            { return generatedUsername.find(lastName) != std::string::npos; }));
+}
+
+TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
+{
+    std::vector<std::string> firstNames{firstNamesMales};
+
+    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+
+    const auto lastName = "Wilkinson";
+
+    const auto email = Internet::exampleEmail(std::nullopt, lastName);
+
+    const auto emailParts = StringHelper::split(email, "@");
+
+    ASSERT_EQ(emailParts.size(), 2);
+
+    const auto& generatedUsername = emailParts[0];
+    const auto& generatedEmailHost = emailParts[1];
+
+    ASSERT_TRUE(std::any_of(emailExampleHosts.begin(), emailExampleHosts.end(),
+                            [generatedEmailHost](const std::string& emailHost)
+                            { return generatedEmailHost == emailHost; }));
+    ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
+                            [generatedUsername](const std::string& firstName)
+                            { return generatedUsername.find(firstName) != std::string::npos; }));
+    ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
+}
+
+TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
+{
+    std::vector<std::string> firstNames{firstNamesMales};
+
+    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+
+    const auto firstName = "Walter";
+
+    const auto lastName = "Brown";
+
+    const auto email = Internet::exampleEmail(firstName, lastName);
+
+    const auto emailParts = StringHelper::split(email, "@");
+
+    ASSERT_EQ(emailParts.size(), 2);
+
+    const auto& generatedUsername = emailParts[0];
+    const auto& generatedEmailHost = emailParts[1];
+
+    ASSERT_TRUE(std::any_of(emailExampleHosts.begin(), emailExampleHosts.end(),
+                            [generatedEmailHost](const std::string& emailHost)
+                            { return generatedEmailHost == emailHost; }));
+    ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
+    ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
+}
+
 TEST_F(InternetTest, shouldGeneratePassword)
 {
     const std::string passwordCharacters = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -373,7 +480,8 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassBAddress)
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
 
     ASSERT_EQ(addressSectors[0], classBFirstSection);
-    ASSERT_TRUE(addressSectors[1] >= classBSecondSectionLowerBound and addressSectors[1] <= classBSecondSectionUpperBound);
+    ASSERT_TRUE(addressSectors[1] >= classBSecondSectionLowerBound and
+                addressSectors[1] <= classBSecondSectionUpperBound);
 }
 
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassCAddress)
@@ -393,6 +501,7 @@ TEST_F(InternetTest, shouldGenerateIpv4KeepingTheMaskedPart)
     const auto generatedAddress = deconstructIpv4String(Internet::ipv4(sampleAddress, generationMask));
 
     constexpr unsigned int expectedSecondSectorMaskedValue = 0x00000080;
+
     ASSERT_EQ(sampleAddress[0], generatedAddress[0]);
     ASSERT_TRUE((generatedAddress[1] & generationMask[1]) == expectedSecondSectorMaskedValue);
 }

@@ -43,7 +43,7 @@ public:
      * @param lastName The optional last name to use. If not specified, a random one will be chosen.
      * @param emailHost The optional email host name to use. If not specified, a random one will be chosen.
      *
-     * @returns Email including neither, one or both of the provided names, with random/provided emailHost.
+     * @returns Email including neither, one or both of the provided names, with random/provided email host.
      *
      * @code
      * Internet::email() // "Jimenez.Clyde@gmail.com"
@@ -56,6 +56,21 @@ public:
     static std::string email(std::optional<std::string> firstName = std::nullopt,
                              std::optional<std::string> lastName = std::nullopt,
                              std::optional<std::string> emailHost = std::nullopt);
+
+    /**
+     * @brief Generates an email address using the given person's name as base with example domain.
+     *
+     * @param firstName The optional first name to use. If not specified, a random one will be chosen.
+     * @param lastName The optional last name to use. If not specified, a random one will be chosen.
+     *
+     * @returns Email including neither, one or both of the provided names, with example email host.
+     *
+     * @code
+     * Internet::exampleEmail() // "Jimenez.Clyde@example.com"
+     * @endcode
+     */
+    static std::string exampleEmail(std::optional<std::string> firstName = std::nullopt,
+                                    std::optional<std::string> lastName = std::nullopt);
 
     /**
      * @brief Generates a random password-like string. Do not use this method for generating actual passwords for users.
@@ -164,8 +179,8 @@ public:
      * @brief Returns a string containing randomized ipv4 address based on given base address and mask.
      *
      * Generated result is compliant with the ipv4 classes. Bits of the baseIpv4Address not covered by the
-     * generationMask will be ignored and replaced during generation. Bits covered by the mask will be kept in the result.
-     * Mask should be provided in the same format as regular ipv4 mask.
+     * generationMask will be ignored and replaced during generation. Bits covered by the mask will be kept in the
+     * result. Mask should be provided in the same format as regular ipv4 mask.
      *
      * @param generationMask Mask deciding which bits of the base address should be kept during randomization.
      * @param baseIpv4Address Address to randomize from.

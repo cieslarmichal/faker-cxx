@@ -70,6 +70,12 @@ std::string Internet::email(std::optional<std::string> firstName, std::optional<
                        emailHost ? *emailHost : Helper::arrayElement<std::string>(emailHosts));
 }
 
+std::string Internet::exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
+{
+    return std::format("{}@{}", username(std::move(firstName), std::move(lastName)),
+                       Helper::arrayElement<std::string>(emailExampleHosts));
+}
+
 std::string Internet::password(int length)
 {
     const std::string passwordCharacters = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -128,24 +134,25 @@ std::string Internet::ipv4(IPv4Class ipv4class)
     IPv4Type sectors;
     sectors[3] = Number::integer<unsigned int>(ipv4SectorUpperBound);
     sectors[2] = Number::integer<unsigned int>(ipv4SectorUpperBound);
-    switch(ipv4class)
+    switch (ipv4class)
     {
-        case IPv4Class::A: {
-            sectors[1] = Number::integer<unsigned int>(ipv4SectorUpperBound);
-            sectors[0] = ipv4ClassAFirstSector;
-            break;
-        }
-        case IPv4Class::B: {
-            sectors[1] = Number::integer<unsigned int>(
-                ipv4ClassBSecondSectorLowerBound,
-                ipv4ClassBSecondSectorUpperBound);
-            sectors[0] = ipv4ClassBFirstSector;
-            break;
-        }
-        case IPv4Class::C: {
-            sectors[1] = ipv4ClassCSecondSector;
-            sectors[0] = ipv4ClassCFirstSector;
-        }
+    case IPv4Class::A:
+    {
+        sectors[1] = Number::integer<unsigned int>(ipv4SectorUpperBound);
+        sectors[0] = ipv4ClassAFirstSector;
+        break;
+    }
+    case IPv4Class::B:
+    {
+        sectors[1] = Number::integer<unsigned int>(ipv4ClassBSecondSectorLowerBound, ipv4ClassBSecondSectorUpperBound);
+        sectors[0] = ipv4ClassBFirstSector;
+        break;
+    }
+    case IPv4Class::C:
+    {
+        sectors[1] = ipv4ClassCSecondSector;
+        sectors[0] = ipv4ClassCFirstSector;
+    }
     }
     return std::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
@@ -153,11 +160,12 @@ std::string Internet::ipv4(IPv4Class ipv4class)
 std::string Internet::ipv4(const IPv4Type& baseIpv4Address, const IPv4Type& generationMask)
 {
     IPv4Type sectors;
-    for(std::size_t i = 0; i < ipv4AddressSectors; i++)
+    for (std::size_t i = 0; i < ipv4AddressSectors; i++)
     {
         sectors[i] = (~generationMask[i]) & Number::integer<unsigned int>(ipv4SectorUpperBound);
         sectors[i] |= (baseIpv4Address[i] & generationMask[i]);
     }
     return std::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
+
 }

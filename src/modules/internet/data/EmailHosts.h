@@ -11,4 +11,7 @@ const std::vector<std::string> emailHosts = {
     "hotmail.com",
     "outlook.com",
 };
+
+const std::vector<std::string> emailExampleHosts = {"example.org", "example.com", "example.net"};
+
 }

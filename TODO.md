@@ -37,10 +37,10 @@
 ### 🌐 Internet:
 
 - [ ] emoji
-- [ ] exampleEmail
+- [x] exampleEmail
 - [x] httpMethod
 - [x] httpStatusCode
-- [ ] ipv4
+- [x] ipv4
 - [ ] ipv6
 - [ ] mac
 - [ ] port
