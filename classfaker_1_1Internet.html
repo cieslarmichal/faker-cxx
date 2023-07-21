@@ -93,25 +93,12 @@ $(document).ready(function(){initNavTree('classfaker_1_1Internet.html',''); init
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classfaker_1_1Internet-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">faker::Internet Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:aa7b6ae58c347a12873284532c9420ebd"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd">IPv4Class</a> { <b>A</b>
-, <b>B</b>
-, <b>C</b>
- }</td></tr>
-<tr class="memdesc:aa7b6ae58c347a12873284532c9420ebd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determines which address class user wants to generate in the ipv4 method.  <a href="classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd">More...</a><br /></td></tr>
-<tr class="separator:aa7b6ae58c347a12873284532c9420ebd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab11b4fb5d32d67be6d28b133bc8a8c63"><td class="memItemLeft" align="right" valign="top"><a id="ab11b4fb5d32d67be6d28b133bc8a8c63" name="ab11b4fb5d32d67be6d28b133bc8a8c63"></a>
-using&#160;</td><td class="memItemRight" valign="bottom"><b>IPv4Type</b> = std::array&lt; unsigned int, 4 &gt;</td></tr>
-<tr class="separator:ab11b4fb5d32d67be6d28b133bc8a8c63"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3da60463681646e7d87a056412828820"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#a3da60463681646e7d87a056412828820">username</a> (std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt)</td></tr>
@@ -132,6 +119,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3cf506f8d7f6b9824a5e676df46a6419"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#a3cf506f8d7f6b9824a5e676df46a6419">githubAvatarUrl</a> ()</td></tr>
 <tr class="memdesc:a3cf506f8d7f6b9824a5e676df46a6419"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random avatar from GitHub.  <br /></td></tr>
 <tr class="separator:a3cf506f8d7f6b9824a5e676df46a6419"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab05b16c1008c0c95509b6d88d6d90b60"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#ab05b16c1008c0c95509b6d88d6d90b60">emoji</a> (std::optional&lt; EmojiType &gt; type=std::nullopt)</td></tr>
+<tr class="memdesc:ab05b16c1008c0c95509b6d88d6d90b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random emoji.  <br /></td></tr>
+<tr class="separator:ab05b16c1008c0c95509b6d88d6d90b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcec10d2c5cccf38bfc9c5ddda6d7a04"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#afcec10d2c5cccf38bfc9c5ddda6d7a04">protocol</a> ()</td></tr>
 <tr class="memdesc:afcec10d2c5cccf38bfc9c5ddda6d7a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random web protocol. Either <code>http</code> or <code>https</code>.  <br /></td></tr>
 <tr class="separator:afcec10d2c5cccf38bfc9c5ddda6d7a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,38 +131,13 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac9c4ff01e85aa66576683bdce5969b37"><td class="memItemLeft" align="right" valign="top">static unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37">httpStatusCode</a> (std::optional&lt; HttpResponseType &gt; responseType=std::nullopt)</td></tr>
 <tr class="memdesc:ac9c4ff01e85aa66576683bdce5969b37"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random http status code.  <br /></td></tr>
 <tr class="separator:ac9c4ff01e85aa66576683bdce5969b37"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7aa45388e3c92c943e25f704e9889c3a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">ipv4</a> (<a class="el" href="classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd">IPv4Class</a> ipv4class=IPv4Class::C)</td></tr>
+<tr class="memitem:a7aa45388e3c92c943e25f704e9889c3a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">ipv4</a> (IPv4Class ipv4class=IPv4Class::C)</td></tr>
 <tr class="memdesc:a7aa45388e3c92c943e25f704e9889c3a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing randomized ipv4 address of the given class.  <br /></td></tr>
 <tr class="separator:a7aa45388e3c92c943e25f704e9889c3a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a59c48c8d539e1d0df8ae6845f8d229f9"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#a59c48c8d539e1d0df8ae6845f8d229f9">ipv4</a> (const IPv4Type &amp;baseIpv4Address, const IPv4Type &amp;generationMask)</td></tr>
-<tr class="memdesc:a59c48c8d539e1d0df8ae6845f8d229f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing randomized ipv4 address based on given base address and mask.  <br /></td></tr>
-<tr class="separator:a59c48c8d539e1d0df8ae6845f8d229f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acfe778605478e6a9af07c0e30637d062"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#acfe778605478e6a9af07c0e30637d062">ipv4</a> (const IPv4Address &amp;baseIpv4Address, const IPv4Address &amp;generationMask)</td></tr>
+<tr class="memdesc:acfe778605478e6a9af07c0e30637d062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing randomized ipv4 address based on given base address and mask.  <br /></td></tr>
+<tr class="separator:acfe778605478e6a9af07c0e30637d062"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="aa7b6ae58c347a12873284532c9420ebd" name="aa7b6ae58c347a12873284532c9420ebd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa7b6ae58c347a12873284532c9420ebd">&#9670;&#160;</a></span>IPv4Class</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd">faker::Internet::IPv4Class</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Determines which address class user wants to generate in the ipv4 method. </p>
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="af39e73f7b102e8ae73a9ebee7693ad2c" name="af39e73f7b102e8ae73a9ebee7693ad2c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af39e73f7b102e8ae73a9ebee7693ad2c">&#9670;&#160;</a></span>email()</h2>
@@ -229,8 +194,46 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(std::nullopt, &quot;Howard&quot;) <span class="comment">// &quot;FreddieHoward@hotmail.com&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(&quot;Cindy&quot;, &quot;Young&quot;) <span class="comment">// &quot;Young_Cindy@gmail.com&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(std::nullopt, std::nullopt, &quot;example.com&quot;) <span class="comment">// &quot;Wright.Edna1973@code.com&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html"><div class="ttname"><a href="classfaker_1_1Internet.html">faker::Internet</a></div><div class="ttdef"><b>Definition</b> Internet.h:19</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html"><div class="ttname"><a href="classfaker_1_1Internet.html">faker::Internet</a></div><div class="ttdef"><b>Definition</b> Internet.h:22</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_af39e73f7b102e8ae73a9ebee7693ad2c"><div class="ttname"><a href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">faker::Internet::email</a></div><div class="ttdeci">static std::string email(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ab05b16c1008c0c95509b6d88d6d90b60" name="ab05b16c1008c0c95509b6d88d6d90b60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab05b16c1008c0c95509b6d88d6d90b60">&#9670;&#160;</a></span>emoji()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Internet::emoji </td>
+          <td>(</td>
+          <td class="paramtype">std::optional&lt; EmojiType &gt;&#160;</td>
+          <td class="paramname"><em>type</em> = <code>std::nullopt</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a random emoji. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">type</td><td>The optional type of them emoji to be generated.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Emoji.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Internet.html#ab05b16c1008c0c95509b6d88d6d90b60">Internet::emoji</a>() <span class="comment">// &quot;👑&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#ab05b16c1008c0c95509b6d88d6d90b60">emoji</a>(EmojiType::Food) <span class="comment">// &quot;🍕&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_ab05b16c1008c0c95509b6d88d6d90b60"><div class="ttname"><a href="classfaker_1_1Internet.html#ab05b16c1008c0c95509b6d88d6d90b60">faker::Internet::emoji</a></div><div class="ttdeci">static std::string emoji(std::optional&lt; EmojiType &gt; type=std::nullopt)</div><div class="ttdoc">Returns a random emoji.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -429,8 +432,8 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a59c48c8d539e1d0df8ae6845f8d229f9" name="a59c48c8d539e1d0df8ae6845f8d229f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a59c48c8d539e1d0df8ae6845f8d229f9">&#9670;&#160;</a></span>ipv4() <span class="overload">[1/2]</span></h2>
+<a id="acfe778605478e6a9af07c0e30637d062" name="acfe778605478e6a9af07c0e30637d062"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acfe778605478e6a9af07c0e30637d062">&#9670;&#160;</a></span>ipv4() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -441,13 +444,13 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static std::string faker::Internet::ipv4 </td>
           <td>(</td>
-          <td class="paramtype">const IPv4Type &amp;&#160;</td>
+          <td class="paramtype">const IPv4Address &amp;&#160;</td>
           <td class="paramname"><em>baseIpv4Address</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const IPv4Type &amp;&#160;</td>
+          <td class="paramtype">const IPv4Address &amp;&#160;</td>
           <td class="paramname"><em>generationMask</em>&#160;</td>
         </tr>
         <tr>
@@ -468,11 +471,11 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">generationMask</td><td>Mask deciding which bits of the base address should be kept during randomization. </td></tr>
-    <tr><td class="paramname">baseIpv4Address</td><td>Address to randomize from. </td></tr>
+    <tr><td class="paramname">baseIpv4Address</td><td>Address to randomize from.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string representation of the ipv4 address</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string representation of the ipv4 address.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">Internet::ipv4</a>({255.0.0.0}, {10.100.100.100}) <span class="comment">// &quot;10.128.17.1&quot;</span></div>
 <div class="line"><a class="code hl_function" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">Internet::ipv4</a>({255.255.128.0}, {129.168.255.0}) <span class="comment">// &quot;192.168.128.10&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_a7aa45388e3c92c943e25f704e9889c3a"><div class="ttname"><a href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">faker::Internet::ipv4</a></div><div class="ttdeci">static std::string ipv4(IPv4Class ipv4class=IPv4Class::C)</div><div class="ttdoc">Returns a string containing randomized ipv4 address of the given class.</div></div>
@@ -491,7 +494,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static std::string faker::Internet::ipv4 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd">IPv4Class</a>&#160;</td>
+          <td class="paramtype">IPv4Class&#160;</td>
           <td class="paramname"><em>ipv4class</em> = <code>IPv4Class::C</code></td><td>)</td>
           <td></td>
         </tr>
@@ -506,14 +509,13 @@ Static Public Member Functions</h2></td></tr>
 <p>Returns a string containing randomized ipv4 address of the given class. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ipv4class</td><td>address class to be generated </td></tr>
+    <tr><td class="paramname">ipv4class</td><td>Address class to be generated.</td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string representation of the ipv4 address</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classfaker_1_1String.html">String</a> representation of the ipv4 address.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">Internet::ipv4</a>() <span class="comment">// &quot;192.168.0.1&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">ipv4</a>(<a class="code hl_enumeration" href="classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd">IPv4Class</a>::classA) <span class="comment">// &quot;10.0.0.1&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_aa7b6ae58c347a12873284532c9420ebd"><div class="ttname"><a href="classfaker_1_1Internet.html#aa7b6ae58c347a12873284532c9420ebd">faker::Internet::IPv4Class</a></div><div class="ttdeci">IPv4Class</div><div class="ttdoc">Determines which address class user wants to generate in the ipv4 method.</div><div class="ttdef"><b>Definition</b> Internet.h:157</div></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">ipv4</a>(IPv4Class::classA) <span class="comment">// &quot;10.0.0.1&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
