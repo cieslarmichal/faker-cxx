@@ -1,8 +1,11 @@
 #pragma once
 
-#include <array>
 #include <optional>
 #include <string>
+
+#include "types/EmojiType.h"
+#include "types/Ipv4Address.h"
+#include "types/Ipv4Class.h"
 
 namespace faker
 {
@@ -114,6 +117,20 @@ public:
     static std::string githubAvatarUrl();
 
     /**
+     * @brief Returns a random emoji.
+     *
+     * @param type The optional type of them emoji to be generated.
+     *
+     * @returns Emoji.
+     *
+     * @code
+     * Internet::emoji() // "👑"
+     * Internet::emoji(EmojiType::Food) // "🍕"
+     * @endcode
+     */
+    static std::string emoji(std::optional<EmojiType> type = std::nullopt);
+
+    /**
      * @brief Returns a random web protocol. Either `http` or `https`.
      *
      * @returns Web protocol.
@@ -150,23 +167,11 @@ public:
     static unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::nullopt);
 
     /**
-     * @brief Determines which address class user wants to generate in the ipv4 method.
-     *
-     */
-    enum class IPv4Class
-    {
-        A,
-        B,
-        C
-    };
-
-    using IPv4Type = std::array<unsigned int, 4>;
-
-    /**
      * @brief Returns a string containing randomized ipv4 address of the given class.
      *
-     * @param ipv4class address class to be generated
-     * @return std::string representation of the ipv4 address
+     * @param ipv4class Address class to be generated.
+     *
+     * @return String representation of the ipv4 address.
      *
      * @code
      * Internet::ipv4() // "192.168.0.1"
@@ -184,13 +189,14 @@ public:
      *
      * @param generationMask Mask deciding which bits of the base address should be kept during randomization.
      * @param baseIpv4Address Address to randomize from.
-     * @return std::string representation of the ipv4 address
+     *
+     * @return std::string representation of the ipv4 address.
      *
      * @code
      * Internet::ipv4({255.0.0.0}, {10.100.100.100}) // "10.128.17.1"
      * Internet::ipv4({255.255.128.0}, {129.168.255.0}) // "192.168.128.10"
      * @endcode
      */
-    static std::string ipv4(const IPv4Type& baseIpv4Address, const IPv4Type& generationMask);
+    static std::string ipv4(const IPv4Address& baseIpv4Address, const IPv4Address& generationMask);
 };
 }

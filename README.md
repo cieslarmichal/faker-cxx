@@ -56,6 +56,7 @@ int main()
 ## Requirements
 
 ### Compiler Support
+
 - [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
 - [GCC➚](https://gcc.gnu.org/) version 13 or newer.
 - [Clang➚](https://clang.llvm.org/) version 16 or newer.
@@ -79,6 +80,7 @@ target_link_libraries(main faker-cxx)
 - 🌐 Internet - Generate emails, usernames, passwords, images urls.
 - 🌍 Location - Generate countries, cities, zip codes, street addresses.
 - 🧑 Person - Generate first, last names, job titles, genders, sex.
+- 📞 Phone - Generate phone number, IMEI.
 - 🛒 Commerce - Generate commerce department, product name, sku, price.
 - 📅 Date - Generate past, future dates.
 - 🏦 Finance - Generate currency, IBAN, BIC, account name, account number, pin, credit card numbers.
@@ -105,6 +107,7 @@ Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main
 ## Building from sources with Clang 16
 
 #### 1. Install Clang 16
+
 ```
 sudo add-apt-repository ppa:trebelnik-stefina/launchpad-getkeys \
 && sudo apt-get update \
@@ -115,7 +118,9 @@ sudo add-apt-repository ppa:trebelnik-stefina/launchpad-getkeys \
 && sudo apt-get install -y lld-16 ninja-build  build-essential libstdc++-13-dev \
  clang-16 clang-tools-16 llvm-16 lcov
 ```
+
 #### 2. Prepare build directory
+
 ```
 git clone https://github.com/cieslarmichal/faker-cxx.git
 cd faker-cxx
@@ -125,11 +130,13 @@ cd build
 ```
 
 #### 3. CMake setup with Clang 16
+
 ```
 cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
 ```
 
 #### 4. Build 🔨
+
 ```
 make
 ```
