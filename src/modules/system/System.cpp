@@ -64,4 +64,51 @@ std::string System::fileExt(const std::optional<std::string>& mimeType)
     }
     return "";
 }
+
+std::string System::commonFileName(const std::string& ext)
+{
+    FileOptions options;
+    options.extensionCount = 0;
+    std::string str = fileName(options);
+    return str + (ext.empty() ? "." + commonFileExt() : "." + ext);
+}
+
+std::string System::commonFileExt()
+{
+    return fileExt(Helper::arrayElement<std::string>(commonMimeTypes));
+}
+
+std::string System::mimeType()
+{
+    std::vector<std::string> mimeTypeKeys;
+    for(const auto& entry : commonMimeTypes)
+    {
+        mimeTypeKeys.push_back(entry);
+    }
+
+    return Helper::arrayElement<std::string>(mimeTypeKeys);
+}
+
+std::string System::commonFileType()
+{
+    return Helper::arrayElement<std::string>(commonFileTypes);
+}
+
+std::string System::fileType()
+{
+    std::set<std::string> typeSet;
+    const auto& mimeTypes = commonMimeTypes;
+
+    for (const auto& entry : mimeTypes) {
+        const std::string& m = entry;
+        size_t pos = m.find('/');
+        if (pos != std::string::npos) {
+            std::string type = m.substr(0, pos);
+            typeSet.insert(type);
+        }
+    }
+
+    std::vector<std::string> types(typeSet.begin(), typeSet.end());
+    return Helper::arrayElement<std::string>(types);
+}
 }

@@ -52,6 +52,65 @@ public:
      * @endcode
      */
      std::string fileExt(const std::optional<std::string>& mimeType = std::nullopt);
+
+     /**
+      * Returns a random file name with a given extension or a commonly used extension.
+      *
+      * @param ext Extension. Empty string is considered to be not set.
+      *
+      * @returns A random file name with a given extension or a commonly used extension.
+      *
+      * @example
+      * System::commonFileName() // "dollar.jpg"
+      * System::commonFileName("txt") // "global_borders_wyoming.txt"
+      *
+      */
+     std::string commonFileName(const std::string& ext);
+
+     /**
+      * Returns a commonly used file extension.
+      *
+      * @returns A commonly used file extension.
+      *
+      * @example
+      * System::commonFileExt() // "gif"
+      *
+      */
+      std::string commonFileExt();
+
+      /**
+      * Returns a mime-type.
+      *
+      * @returns A mime-type.
+      *
+      * @example
+      * System::mimeType() // "video/vnd.vivo"
+      *
+      */
+      std::string mimeType();
+
+      /**
+      * Returns a commonly used file type.
+      *
+      * @returns A commonly used file type.
+      *
+      * @example
+      * System::commonFileType() // "audio"
+      *
+      */
+       std::string commonFileType();
+
+       /**
+      * Returns a commonly used file type.
+      *
+      * @returns A commonly used file type.
+      *
+      * @example
+      * System::commonFileType() // "audio"
+      *
+      */
+       std::string fileType();
+
 private:
     const std::vector<std::string> commonFileTypes = {"video", "audio", "image", "text", "application"};
     const std::vector<std::string> commonMimeTypes = {

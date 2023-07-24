@@ -42,6 +42,21 @@ TEST_F(SystemTest, FileExtTestWithMimeType)
     EXPECT_EQ(system.fileExt("image/png"), "png");
     EXPECT_EQ(system.fileExt("application/pdf"), "pdf");
     EXPECT_EQ(system.fileExt("text/html"), "html");
-
 }
+
+TEST_F(SystemTest, CommonFileNameWithEmptyExtensionTest)
+{
+    std::string actualFileName = system.commonFileName("");
+
+    std::string actualExtension = actualFileName.substr(actualFileName.find_last_of('.') + 1);
+    EXPECT_FALSE(actualExtension.empty());
+
+    std::string fileNameWithParam = system.commonFileName("txt");
+
+    std::string extensionWithParam = fileNameWithParam.substr(fileNameWithParam.find_last_of('.') + 1);
+
+    EXPECT_EQ(extensionWithParam, "txt");
+}
+
+
 
