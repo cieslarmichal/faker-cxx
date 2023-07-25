@@ -2,7 +2,9 @@
 #include "gtest/gtest.h"
 #include <regex>
 #include <algorithm>
-
+#include <unordered_map>
+#include <stdexcept>
+#include "faker-cxx/String.h"
 using namespace faker;
 using namespace ::testing;
 
@@ -53,5 +55,59 @@ TEST_F(HelperTest, ReplaceCreditCardSymbols)
     ASSERT_TRUE(result_custom[5] >= '4' && result_custom[5] <= '9');
     ASSERT_TRUE(result_custom[8] >= '0' && result_custom[8] <= '9');
     ASSERT_TRUE(result_custom[9] >= '0' && result_custom[9] <= '9');
+}
+
+TEST_F(HelperTest, ObjectKeyTest)
+{
+    std::unordered_map<int, std::string> testMap = {
+        {1, "one"},
+        {2, "two"},
+        {3, "three"}
+    };
+
+    ASSERT_NO_THROW({
+        int key = Helper::objectKey(testMap);
+        EXPECT_TRUE(testMap.find(key) != testMap.end());
+    });
+
+    std::unordered_map<int, std::string> emptyMap;
+
+    ASSERT_THROW({
+        Helper::objectKey(emptyMap);
+    }, std::runtime_error);
+}
+
+TEST_F(HelperTest, MaybeString)
+{
+    double highProbability = 1;
+    auto result = Helper::maybe<std::string>([]() { return "Hello World!"; }, highProbability);
+    EXPECT_EQ(result, "Hello World!");
+
+    double lowProbability = 0;
+    result = Helper::maybe<std::string>([]() { return "Hello World!"; }, lowProbability);
+    EXPECT_EQ(result, "");
+}
+
+TEST_F(HelperTest, MaybeInt)
+{
+    double highProbability = 1;
+    auto result = Helper::maybe<int>([]() { return 42; }, highProbability);
+    EXPECT_EQ(result, 42);
+
+    double lowProbability = 0;
+    result = Helper::maybe<int>([]() { return 42; }, lowProbability);
+    EXPECT_EQ(result, 0);
+}
+
+TEST_F(HelperTest, MaybeDouble)
+{
+    double highProbability = 1;
+    auto result = Helper::maybe<double>([]() { return 3.14; }, highProbability);
+    EXPECT_EQ(result, 3.14);
+
+    // Test with low probability to ensure callback is not invoked
+    double lowProbability = 0;
+    result = Helper::maybe<double>([]() { return 3.14; }, lowProbability);
+    EXPECT_EQ(result, 0.0);
 }
 }
