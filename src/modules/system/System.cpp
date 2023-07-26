@@ -180,4 +180,48 @@ std::string System::networkInterface(const std::optional<NetworkInterfaceOptions
 
     return prefix + interfaceType + commonInterfaceSchemas.at(interfaceSchema) + suffix;
 }
+std::string System::cron(const CronOptions& options)
+{
+    bool includeYear = options.includeYear;
+    bool includeNonStandard = options.includeNonStandard;
+    std::vector<std::string> minutes = { std::to_string(Number::integer(59)), "*" };
+    std::vector<std::string> hours = { std::to_string(Number::integer(23)), "*" };
+    std::vector<std::string> days = { std::to_string(Number::integer(1, 31)), "*", "?" };
+    std::vector<std::string> months = { std::to_string(Number::integer(1, 12)), "*" };
+    std::vector<std::string> daysOfWeek = {
+        std::to_string(Number::integer(6)),
+        CRON_DAY_OF_WEEK[static_cast<unsigned long>(Number::integer(0, static_cast<int>(CRON_DAY_OF_WEEK.size() - 1)))],
+        "*",
+        "?"
+    };
+
+    std::vector<std::string> years;
+    if (includeYear) {
+        years.push_back(std::to_string(Number::integer(1970, 2099)));
+    }
+    else
+    {
+        years = { std::to_string(Number::integer(1970, 2099)), "*" };
+    }
+
+    auto minute = Helper::arrayElement<std::string>(minutes);
+    auto hour = Helper::arrayElement<std::string>(hours);
+    auto day = Helper::arrayElement<std::string>(days);
+    auto month = Helper::arrayElement<std::string>(months);
+    auto dayOfWeek = Helper::arrayElement<std::string>(daysOfWeek);
+    auto year = Helper::arrayElement<std::string>(years);
+
+    std::string standardExpression = minute + " " + hour + " " + day + " " + month + " " + dayOfWeek;
+    if (includeYear) {
+        standardExpression += " " + year;
+    }
+
+    std::vector<std::string> nonStandardExpressions = {
+        "@annually", "@daily", "@hourly", "@monthly", "@reboot", "@weekly", "@yearly"
+    };
+
+    return (!includeNonStandard || Datatype::boolean(0)) ?
+               standardExpression :
+               Helper::arrayElement<std::string>(nonStandardExpressions);
+}
 }

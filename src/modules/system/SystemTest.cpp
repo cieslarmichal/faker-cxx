@@ -1,7 +1,7 @@
 #include "faker-cxx/System.h"
 
 #include <algorithm>
-
+#include <regex>
 #include "gtest/gtest.h"
 
 using namespace ::testing;
@@ -12,6 +12,12 @@ class SystemTest : public Test
 protected:
     System system;
 };
+
+const std::regex validCronPattern(R"((\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)( (\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)){4,5})");
+
+bool isValidCronExpression(const std::string& cronExpr) {
+    return std::regex_match(cronExpr, validCronPattern);
+}
 
 TEST_F(SystemTest, FileNameTestWithExtensionCount)
 {
@@ -153,4 +159,37 @@ TEST_F(SystemTest, NetworkInterfaceMethodTest)
     options4.interfaceSchema = "pci";
     std::string result4 = system.networkInterface(options4);
     ASSERT_TRUE(!result4.empty());
+}
+
+TEST_F(SystemTest, ValidCronExpression) {
+    CronOptions options;
+    std::string cronExpr = system.cron();
+    EXPECT_TRUE(isValidCronExpression(cronExpr));
+}
+
+TEST_F(SystemTest, IncludeYearOption) {
+    CronOptions options;
+    options.includeYear = true;
+    std::string cronExpr = system.cron(options);
+    EXPECT_TRUE(isValidCronExpression(cronExpr));
+
+    int yearValue = -1;
+    std::smatch match;
+    if (std::regex_search(cronExpr, match, std::regex(R"(\b(19[7-9][0-9]|20[0-9]{2})\b)"))) {
+        yearValue = std::stoi(match.str());
+    }
+    EXPECT_GE(yearValue, 1970);
+    EXPECT_LE(yearValue, 2099);
+}
+
+TEST_F(SystemTest, IncludeNonStandardOption) {
+    CronOptions options;
+    options.includeNonStandard = true;
+    std::string cronExpr = system.cron(options);
+
+    std::vector<std::string> nonStandardExpressions = {
+        "@annually", "@daily", "@hourly", "@monthly", "@reboot", "@weekly", "@yearly"
+    };
+    bool isNonStandard = std::find(nonStandardExpressions.begin(), nonStandardExpressions.end(), cronExpr) != nonStandardExpressions.end();
+    EXPECT_TRUE(isNonStandard || isValidCronExpression(cronExpr));
 }

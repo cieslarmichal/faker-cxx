@@ -9,13 +9,15 @@
 #include <vector>
 
 #include "../src/common/StringHelper.h"
+#include "../src/modules/system/data/CronOptions.h"
 #include "../src/modules/system/data/FileOptions.h"
 #include "../src/modules/system/data/NetworkInterfaceOptions.h"
 #include "Helper.h"
-#include "Number.h"
-#include "Word.h"
-#include "String.h"
 #include "Internet.h"
+#include "Number.h"
+#include "String.h"
+#include "Word.h"
+#include "Datatype.h"
 
 namespace faker
 {
@@ -124,7 +126,7 @@ public:
       * System::directoryPath() // "/etc/mail"
       *
       */
-       std::string directoryPath();
+       static std::string directoryPath();
 
        /**
       * Returns a file path.
@@ -146,7 +148,7 @@ public:
       * System::semver() // "1.1.2"
       *
       */
-      std::string semver();
+      static std::string semver();
 
       /**
       * Returns a random network interface.
@@ -154,6 +156,8 @@ public:
       * @param options The options to use. Defaults to an empty options structure @see NetworkInterfaceOptions.h.
       * @param options.interfaceType The interface type. Can be one of `en`, `wl`, `ww`.
       * @param options.interfaceSchema The interface schema. Can be one of `index`, `slot`, `mac`, `pci`.
+      *
+      * @returns A random network interface.
       *
       * @example
       * system.networkInterface() // "enp2s7f8"
@@ -173,6 +177,37 @@ public:
       *
       */
       std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options = {});
+
+      /**
+      * Returns a random cron expression.
+      *
+      * @param options The options to use. Defaults to an empty options structure @see CronOptions.h.
+      * @param options.includeYear Whether to include a year in the generated expression. Defaults to `false`.
+      * @param options.includeNonStandard Whether to include a @yearly, @monthly, @daily, etc text labels in the generated expression. Defaults to `false`.
+      *
+      * @returns A random cron expression.
+      *
+      * @example
+      * system.cron() // "22 * ? * ?"
+      *
+      * CronOptions options
+      * options.includeYear = true
+      * std::string cronExpr = system.cron(options) // "16 14 * 11 2 2038"
+      *
+      * CronOptions options
+      * options.includeYear = false
+      * std::string cronExpr = system.cron(options) // "16 14 * 11 2"
+      *
+      * CronOptions options
+      * options.includeNonStandard = false
+      * std::string cronExpr = system.cron(options) // 34 2 ? 8 *
+      *
+      * CronOptions options
+      * options.includeNonStandard = true
+      * std::string cronExpr = system.cron(options) // "@reboot"
+      *
+      */
+      std::string cron(const CronOptions& options = {});
 private:
     const std::vector<std::string> commonFileTypes = {"video", "audio", "image", "text", "application"};
     const std::vector<std::string> commonMimeTypes = {
