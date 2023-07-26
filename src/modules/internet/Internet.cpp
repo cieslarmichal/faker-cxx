@@ -207,4 +207,24 @@ std::string Internet::ipv4(const IPv4Address& baseIpv4Address, const IPv4Address
     return std::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
+std::string Internet::mac(const std::string& sep)
+{
+    std::string mac;
+    std::string currentSep = sep;
+    std::vector<std::string> acceptableSeparators = {":", "-", ""};
+
+    if (std::find(acceptableSeparators.begin(), acceptableSeparators.end(), currentSep) == acceptableSeparators.end())
+    {
+        currentSep = ":";
+    }
+
+    for (int i = 0; i < 12; i++)
+    {
+        mac += Number::hex();
+        if (i % 2 == 1 && i != 11) {
+            mac += currentSep;
+        }
+    }
+    return mac;
+}
 }
