@@ -1,24 +1,28 @@
 #pragma once
 
-#include <vector>
+#include <algorithm>
+#include <ctime>
+#include <random>
+#include <set>
 #include <string>
 #include <unordered_map>
-#include <algorithm>
-#include <random>
-#include <ctime>
-#include <set>
+#include <vector>
 
-#include "../src/modules/system/data/FileOptions.h"
 #include "../src/common/StringHelper.h"
+#include "../src/modules/system/data/FileOptions.h"
+#include "../src/modules/system/data/NetworkInterfaceOptions.h"
 #include "Helper.h"
+#include "Number.h"
 #include "Word.h"
+#include "String.h"
+#include "Internet.h"
 
 namespace faker
 {
 class System
 {
 public:
-    /**
+     /**
      * @brief Returns a random file name with extension.
      *
      * @param options An option struct.
@@ -39,7 +43,7 @@ public:
      */
     std::string fileName(const FileOptions& options = {});
 
-    /**
+     /**
      * @brief Returns a file extension.
      *
      * @param mimeType The optional string to use.
@@ -53,7 +57,7 @@ public:
      */
      std::string fileExt(const std::optional<std::string>& mimeType = std::nullopt);
 
-     /**
+      /**
       * Returns a random file name with a given extension or a commonly used extension.
       *
       * @param ext Extension. Empty string is considered to be not set.
@@ -67,7 +71,7 @@ public:
       */
      std::string commonFileName(const std::string& ext);
 
-     /**
+      /**
       * Returns a commonly used file extension.
       *
       * @returns A commonly used file extension.
@@ -106,11 +110,69 @@ public:
       * @returns A commonly used file type.
       *
       * @example
-      * System::commonFileType() // "audio"
+      * System::fileType() // "image"
       *
       */
        std::string fileType();
 
+       /**
+      * Returns a directory path.
+      *
+      * @returns A directory path.
+      *
+      * @example
+      * System::directoryPath() // "/etc/mail"
+      *
+      */
+       std::string directoryPath();
+
+       /**
+      * Returns a file path.
+      *
+      * @returns A file path.
+      *
+      * @example
+      * System::filePath() // "/usr/local/src/money.dotx"
+      *
+      */
+      std::string filePath();
+
+      /**
+      * Returns a semantic version.
+      *
+      * @returns A semantic version.
+      *
+      * @example
+      * System::semver() // "1.1.2"
+      *
+      */
+      std::string semver();
+
+      /**
+      * Returns a random network interface.
+      *
+      * @param options The options to use. Defaults to an empty options structure @see NetworkInterfaceOptions.h.
+      * @param options.interfaceType The interface type. Can be one of `en`, `wl`, `ww`.
+      * @param options.interfaceSchema The interface schema. Can be one of `index`, `slot`, `mac`, `pci`.
+      *
+      * @example
+      * system.networkInterface() // "enp2s7f8"
+      *
+      * NetworkInterfaceOptions options;
+      * options.interfaceType = "wl";
+      * system.networkInterface(options) // "wlsf4d2"
+      *
+      * NetworkInterfaceOptions options;
+      * options.interfaceSchema = "mac";
+      * system.networkInterface(options) // "enxd17705ed394f"
+      *
+      * NetworkInterfaceOptions options;
+      * options.interfaceType = "en";
+      * options.interfaceSchema = "pci";
+      * system.networkInterface(options) // "enp1s9f1d2"
+      *
+      */
+      std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options = {});
 private:
     const std::vector<std::string> commonFileTypes = {"video", "audio", "image", "text", "application"};
     const std::vector<std::string> commonMimeTypes = {
@@ -124,12 +186,6 @@ private:
         "video/mpeg",
         "text/html"
     };
-
-    /*
-     *   en -- ethernet
-     *   wl -- wlan
-     *   ww -- wwan
-     * */
     const std::vector<std::string> commonInterfaceTypes = {"en", "wl", "ww"};
     const std::unordered_map<std::string, std::string> commonInterfaceSchemas = {
         {"index", "o"},
