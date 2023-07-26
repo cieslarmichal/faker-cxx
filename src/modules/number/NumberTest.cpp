@@ -1,6 +1,7 @@
 #include "faker-cxx/Number.h"
 
 #include <algorithm>
+#include <functional>
 
 #include "gtest/gtest.h"
 
@@ -74,4 +75,40 @@ TEST_F(NumberTest, givenRealDistribution_shouldGenerateNumberThatIsInGivenRange)
 
     ASSERT_TRUE(actualRandomNumber >= 2.f);
     ASSERT_TRUE(actualRandomNumber <= 10.f);
+}
+
+TEST_F(NumberTest, HexMethodTest)
+{
+
+    std::string result = Number::hex();
+    std::cout << result << std::endl;
+    ASSERT_EQ(result.size(), 1);
+    ASSERT_TRUE(std::isxdigit(result[0]));
+
+    result = Number::hex(100, 255);
+    std::cout << result << std::endl;
+    ASSERT_EQ(result.size(), 2);
+    ASSERT_TRUE(std::isxdigit(result[0]));
+    ASSERT_TRUE(std::isxdigit(result[1]));
+
+    result = Number::hex(10, 15);
+    std::cout << result << std::endl;
+    ASSERT_EQ(result.size(), 1);
+    ASSERT_TRUE(std::isxdigit(result[0]));
+
+    result = Number::hex(30, 40);
+    std::cout << result << std::endl;
+    ASSERT_EQ(result.size(), 2);
+    ASSERT_TRUE(std::isxdigit(result[0]));
+    ASSERT_TRUE(std::isxdigit(result[1]));
+}
+
+TEST_F(NumberTest, ConvertToHexMethodTest)
+{
+    ASSERT_EQ(Number::convertToHex(0), "0");
+    ASSERT_EQ(Number::convertToHex(9), "9");
+    ASSERT_EQ(Number::convertToHex(10), "a");
+    ASSERT_EQ(Number::convertToHex(15), "f");
+    ASSERT_EQ(Number::convertToHex(16), "10");
+    ASSERT_EQ(Number::convertToHex(255), "ff");
 }

@@ -7,6 +7,8 @@
 #include <string>
 #include <type_traits>
 #include <utility>
+#include <optional>
+#include <sstream>
 
 namespace faker
 {
@@ -357,8 +359,37 @@ public:
         return distribution(pseudoRandomGenerator);
     }
 
+     /**
+     * @brief Returns a lowercase hexadecimal number.
+     *
+     * @param min Optional parameter for lower bound of generated number.
+     * @param max Optional parameter for upper bound of generated number.
+     *
+     * @return A lowercase hexadecimal number.
+     *
+     * @example
+     * Number::hex() // "b"
+     * Number::hex(0, 255) // "9d"
+     *
+     */
+    static std::string hex(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
+
+     /**
+     * @brief Converts integer to hexadecimal string.
+     *
+     * @param number Integer to convert.
+     *
+     * @return A string with converted integer into hexadecimal.
+     *
+     * @example
+     * Number::convertToHex(255) // "ff"
+     *
+     */
+    static std::string convertToHex(int number);
+
 private:
     static std::random_device randomDevice;
     static std::mt19937 pseudoRandomGenerator;
+
 };
 }
