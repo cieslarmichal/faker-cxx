@@ -7,6 +7,7 @@
 #include <string_view>
 #include <vector>
 #include <unordered_map>
+#include <functional>
 
 #include "../../src/common/LuhnCheck.h"
 #include "../src/common/StringHelper.h"

@@ -137,7 +137,6 @@ TEST_F(SystemTest, NetworkInterfaceMethodTest)
 }
 
 TEST_F(SystemTest, ValidCronExpression) {
-    CronOptions options;
     std::string cronExpr = System::cron();
     EXPECT_TRUE(isValidCronExpression(cronExpr));
 }

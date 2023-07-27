@@ -162,20 +162,20 @@ public:
       * @returns A random network interface.
       *
       * @example
-      * system.networkInterface() // "enp2s7f8"
+      * System::networkInterface() // "enp2s7f8"
       *
       * NetworkInterfaceOptions options;
       * options.interfaceType = "wl";
-      * system.networkInterface(options) // "wlsf4d2"
+      * System::networkInterface(options) // "wlsf4d2"
       *
       * NetworkInterfaceOptions options;
       * options.interfaceSchema = "mac";
-      * system.networkInterface(options) // "enxd17705ed394f"
+      * System::networkInterface(options) // "enxd17705ed394f"
       *
       * NetworkInterfaceOptions options;
       * options.interfaceType = "en";
       * options.interfaceSchema = "pci";
-      * system.networkInterface(options) // "enp1s9f1d2"
+      * System::networkInterface(options) // "enp1s9f1d2"
       *
       */
       static std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options = {});
@@ -194,19 +194,19 @@ public:
       *
       * CronOptions options
       * options.includeYear = true
-      * std::string cronExpr = system.cron(options) // "16 14 * 11 2 2038"
+      * std::string cronExpr = System::cron(options) // "16 14 * 11 2 2038"
       *
       * CronOptions options
       * options.includeYear = false
-      * std::string cronExpr = system.cron(options) // "16 14 * 11 2"
+      * std::string cronExpr = System::cron(options) // "16 14 * 11 2"
       *
       * CronOptions options
       * options.includeNonStandard = false
-      * std::string cronExpr = system.cron(options) // 34 2 ? 8 *
+      * std::string cronExpr = System::cron(options) // 34 2 ? 8 *
       *
       * CronOptions options
       * options.includeNonStandard = true
-      * std::string cronExpr = system.cron(options) // "@reboot"
+      * std::string cronExpr = System::cron(options) // "@reboot"
       *
       */
       static std::string cron(const CronOptions& options = {});
