@@ -622,7 +622,6 @@ TEST_F(InternetTest, shouldGenerateIpv4KeepingTheMaskedPart)
 TEST_F(InternetTest, MacDefaultSeparator)
 {
     std::string mac = Internet::mac();
-    std::cout << mac << std::endl;
     ASSERT_EQ(mac.size(), 17);
 
     for (size_t i = 0; i < mac.size(); i += 3) {

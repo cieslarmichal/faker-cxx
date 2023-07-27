@@ -385,11 +385,11 @@ public:
      * Number::convertToHex(255) // "ff"
      *
      */
-    static std::string convertToHex(int number);
 
 private:
     static std::random_device randomDevice;
     static std::mt19937 pseudoRandomGenerator;
+    static std::string convertToHex(int number);
 
 };
 }
