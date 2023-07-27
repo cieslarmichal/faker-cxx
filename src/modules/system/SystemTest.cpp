@@ -32,7 +32,7 @@ TEST_F(SystemTest, FileNameTestWithExtensionCount)
 
     std::string expectedFileName2 = System::fileName(options2);
 
-    EXPECT_FALSE(expectedFileName.empty());
+    EXPECT_FALSE(expectedFileName2.empty());
 }
 
 TEST_F(SystemTest, FileExtTestWithMimeType)
