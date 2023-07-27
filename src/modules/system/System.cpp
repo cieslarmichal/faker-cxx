@@ -41,8 +41,8 @@ std::string System::fileExt(const std::optional<std::string>& mimeType)
 {
     if (!mimeType->empty() && mimeType != std::nullopt)
     {
-        auto it = std::find(commonMimeTypes.begin(), commonMimeTypes.end(), mimeType);
-        if (it != commonMimeTypes.end())
+        auto it = std::find(mimeTypes.begin(), mimeTypes.end(), mimeType);
+        if (it != mimeTypes.end())
         {
             const std::string& extension = *it;
             size_t pos = extension.find_last_of('/');
@@ -53,7 +53,7 @@ std::string System::fileExt(const std::optional<std::string>& mimeType)
     {
         std::set<std::string> extensionSet;
 
-        for (const auto& extension : commonMimeTypes)
+        for (const auto& extension : mimeTypes)
         {
             size_t pos = extension.find_last_of('/');
             extensionSet.insert(extension.substr(pos + 1));
@@ -81,7 +81,7 @@ std::string System::commonFileExt()
 std::string System::mimeType()
 {
     std::vector<std::string> mimeTypeKeys;
-    for (const auto& entry : commonMimeTypes)
+    for (const auto& entry : mimeTypes)
     {
         mimeTypeKeys.push_back(entry);
     }
@@ -97,9 +97,9 @@ std::string System::commonFileType()
 std::string System::fileType()
 {
     std::set<std::string> typeSet;
-    const auto& mimeTypes = commonMimeTypes;
+    const auto& localMimeTypes = mimeTypes;
 
-    for (const auto& entry : mimeTypes)
+    for (const auto& entry : localMimeTypes)
     {
         const std::string& m = entry;
         size_t pos = m.find('/');
@@ -116,7 +116,7 @@ std::string System::fileType()
 
 std::string System::directoryPath()
 {
-    const std::vector<std::string> paths = {"/path/sub-path/", "/path2/sub-path2/"};
+    const std::vector<std::string> paths = directoryPaths;
     return Helper::arrayElement<std::string>(paths);
 }
 std::string System::filePath()

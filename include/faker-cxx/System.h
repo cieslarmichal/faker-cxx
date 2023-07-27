@@ -12,6 +12,8 @@
 #include "../src/modules/system/data/CronOptions.h"
 #include "../src/modules/system/data/FileOptions.h"
 #include "../src/modules/system/data/NetworkInterfaceOptions.h"
+#include "../src/modules/system/data/MimeTypes.h"
+#include "../src/modules/system/data/DirectoryPath.h"
 #include "Helper.h"
 #include "Internet.h"
 #include "Number.h"
@@ -43,7 +45,7 @@ public:
      * System::fileName(options) // "sparkle.png.pdf"
      * @endcode
      */
-    std::string fileName(const FileOptions& options = {});
+    static std::string fileName(const FileOptions& options = {});
 
      /**
      * @brief Returns a file extension.
@@ -57,7 +59,7 @@ public:
      * System::fileExt("application/pdf") // "pdf"
      * @endcode
      */
-     std::string fileExt(const std::optional<std::string>& mimeType = std::nullopt);
+     static std::string fileExt(const std::optional<std::string>& mimeType = std::nullopt);
 
       /**
       * Returns a random file name with a given extension or a commonly used extension.
@@ -71,7 +73,7 @@ public:
       * System::commonFileName("txt") // "global_borders_wyoming.txt"
       *
       */
-     std::string commonFileName(const std::string& ext);
+     static std::string commonFileName(const std::string& ext);
 
       /**
       * Returns a commonly used file extension.
@@ -82,7 +84,7 @@ public:
       * System::commonFileExt() // "gif"
       *
       */
-      std::string commonFileExt();
+      static std::string commonFileExt();
 
       /**
       * Returns a mime-type.
@@ -93,7 +95,7 @@ public:
       * System::mimeType() // "video/vnd.vivo"
       *
       */
-      std::string mimeType();
+      static std::string mimeType();
 
       /**
       * Returns a commonly used file type.
@@ -104,7 +106,7 @@ public:
       * System::commonFileType() // "audio"
       *
       */
-       std::string commonFileType();
+       static std::string commonFileType();
 
        /**
       * Returns a commonly used file type.
@@ -115,7 +117,7 @@ public:
       * System::fileType() // "image"
       *
       */
-       std::string fileType();
+       static std::string fileType();
 
        /**
       * Returns a directory path.
@@ -137,7 +139,7 @@ public:
       * System::filePath() // "/usr/local/src/money.dotx"
       *
       */
-      std::string filePath();
+      static std::string filePath();
 
       /**
       * Returns a semantic version.
@@ -176,7 +178,7 @@ public:
       * system.networkInterface(options) // "enp1s9f1d2"
       *
       */
-      std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options = {});
+      static std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options = {});
 
       /**
       * Returns a random cron expression.
@@ -207,27 +209,6 @@ public:
       * std::string cronExpr = system.cron(options) // "@reboot"
       *
       */
-      std::string cron(const CronOptions& options = {});
-private:
-    const std::vector<std::string> commonFileTypes = {"video", "audio", "image", "text", "application"};
-    const std::vector<std::string> commonMimeTypes = {
-        "application/pdf",
-        "audio/mpeg",
-        "audio/wav",
-        "image/png",
-        "image/jpeg",
-        "image/gif",
-        "video/mp4",
-        "video/mpeg",
-        "text/html"
-    };
-    const std::vector<std::string> commonInterfaceTypes = {"en", "wl", "ww"};
-    const std::unordered_map<std::string, std::string> commonInterfaceSchemas = {
-        {"index", "o"},
-        {"slot", "s"},
-        {"mac", "x"},
-        {"pci", "p"}
-    };
-    const std::vector<std::string> CRON_DAY_OF_WEEK = {"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"};
+      static std::string cron(const CronOptions& options = {});
 };
 }

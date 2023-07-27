@@ -9,8 +9,6 @@ using namespace faker;
 
 class SystemTest : public Test
 {
-protected:
-    System system;
 };
 
 const std::regex validCronPattern(R"((\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)( (\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)){4,5})");
@@ -24,40 +22,38 @@ TEST_F(SystemTest, FileNameTestWithExtensionCount)
     FileOptions options;
     options.extensionCount = 3;
 
-    // Perform the actual function call
-    std::string expectedFileName = system.fileName(options);
+    std::string expectedFileName = System::fileName(options);
 
-    // Check the result
     EXPECT_FALSE(expectedFileName.empty());
 
     FileOptions options2;
     options2.extensionRange.min = 1;
     options2.extensionRange.max = 3;
 
-    std::string expectedFileName2 = system.fileName(options2);
+    std::string expectedFileName2 = System::fileName(options2);
 
     EXPECT_FALSE(expectedFileName.empty());
 }
 
 TEST_F(SystemTest, FileExtTestWithMimeType)
 {
-    std::string exampleFileExtension = system.fileExt();
+    std::string exampleFileExtension = System::fileExt();
 
     EXPECT_FALSE(exampleFileExtension.empty());
 
-    EXPECT_EQ(system.fileExt("image/png"), "png");
-    EXPECT_EQ(system.fileExt("application/pdf"), "pdf");
-    EXPECT_EQ(system.fileExt("text/html"), "html");
+    EXPECT_EQ(System::fileExt("image/png"), "png");
+    EXPECT_EQ(System::fileExt("application/pdf"), "pdf");
+    EXPECT_EQ(System::fileExt("text/html"), "html");
 }
 
 TEST_F(SystemTest, CommonFileNameWithEmptyExtensionTest)
 {
-    std::string actualFileName = system.commonFileName("");
+    std::string actualFileName = System::commonFileName("");
 
     std::string actualExtension = actualFileName.substr(actualFileName.find_last_of('.') + 1);
     EXPECT_FALSE(actualExtension.empty());
 
-    std::string fileNameWithParam = system.commonFileName("txt");
+    std::string fileNameWithParam = System::commonFileName("txt");
 
     std::string extensionWithParam = fileNameWithParam.substr(fileNameWithParam.find_last_of('.') + 1);
 
@@ -66,26 +62,16 @@ TEST_F(SystemTest, CommonFileNameWithEmptyExtensionTest)
 
 TEST_F(SystemTest, MimeTypeTest)
 {
-    std::vector<std::string> commonMimeTypes = {"application/pdf", "audio/mpeg", "audio/wav",
-                                                "image/png",       "image/jpeg", "image/gif",
-                                                "video/mp4",       "video/mpeg", "text/html"};
-
-    std::string mimeTypeResult = system.mimeType();
-
-    std::cout << mimeTypeResult << std::endl;
+    std::string mimeTypeResult = System::mimeType();
 
     bool isValidMimeType =
-        std::find(commonMimeTypes.begin(), commonMimeTypes.end(), mimeTypeResult) != commonMimeTypes.end();
+        std::find(mimeTypes.begin(), mimeTypes.end(), mimeTypeResult) != mimeTypes.end();
     EXPECT_TRUE(isValidMimeType);
 }
 
 TEST_F(SystemTest, CommonFileTypeTest)
 {
-    std::vector<std::string> commonFileTypes = {"video", "audio", "image", "text", "application"};
-
-    std::string commonFileTypeResult = system.commonFileType();
-
-    std::cout << commonFileTypeResult << std::endl;
+    std::string commonFileTypeResult = System::commonFileType();
 
     bool isValidCommonFileType =
         std::find(commonFileTypes.begin(), commonFileTypes.end(), commonFileTypeResult) != commonFileTypes.end();
@@ -94,12 +80,8 @@ TEST_F(SystemTest, CommonFileTypeTest)
 
 TEST_F(SystemTest, FileTypeTest)
 {
-    std::vector<std::string> commonMimeTypes = {"application/pdf", "audio/mpeg", "audio/wav",
-                                                "image/png",       "image/jpeg", "image/gif",
-                                                "video/mp4",       "video/mpeg", "text/html"};
-
     std::set<std::string> typeSet;
-    for (const auto& entry : commonMimeTypes)
+    for (const auto& entry : mimeTypes)
     {
         const std::string& m = entry;
         size_t pos = m.find('/');
@@ -111,9 +93,7 @@ TEST_F(SystemTest, FileTypeTest)
     }
     std::vector<std::string> expectedTypes(typeSet.begin(), typeSet.end());
 
-    std::string fileTypeResult = system.fileType();
-
-    std::cout << fileTypeResult << std::endl;
+    std::string fileTypeResult = System::fileType();
 
     bool isValidFileType = std::find(expectedTypes.begin(), expectedTypes.end(), fileTypeResult) != expectedTypes.end();
     EXPECT_TRUE(isValidFileType);
@@ -121,56 +101,51 @@ TEST_F(SystemTest, FileTypeTest)
 
 TEST_F(SystemTest, FilePathTest)
 {
-    std::string filePath = system.filePath();
-
-    std::cout << filePath << std::endl;
+    std::string filePath = System::filePath();
 
     EXPECT_FALSE(filePath.empty());
 }
 
 TEST_F(SystemTest, SemverTest)
 {
-    std::string semverResult = system.semver();
-
-    std::cout << semverResult << std::endl;
+    std::string semverResult = System::semver();
 
     EXPECT_TRUE(std::regex_match(semverResult, std::regex("\\d+\\.\\d+\\.\\d+")));
 }
 
 TEST_F(SystemTest, NetworkInterfaceMethodTest)
 {
-    System system;
 
-    std::string result1 = system.networkInterface(std::nullopt);
+    std::string result1 = System::networkInterface(std::nullopt);
     ASSERT_TRUE(!result1.empty());
 
     NetworkInterfaceOptions options2;
     options2.interfaceType = "wl";
-    std::string result2 = system.networkInterface(options2);
+    std::string result2 = System::networkInterface(options2);
     ASSERT_TRUE(!result2.empty());
 
     NetworkInterfaceOptions options3;
     options3.interfaceSchema = "mac";
-    std::string result3 = system.networkInterface(options3);
+    std::string result3 = System::networkInterface(options3);
     ASSERT_EQ(result3.size(), 15);
 
     NetworkInterfaceOptions options4;
     options4.interfaceType = "en";
     options4.interfaceSchema = "pci";
-    std::string result4 = system.networkInterface(options4);
+    std::string result4 = System::networkInterface(options4);
     ASSERT_TRUE(!result4.empty());
 }
 
 TEST_F(SystemTest, ValidCronExpression) {
     CronOptions options;
-    std::string cronExpr = system.cron();
+    std::string cronExpr = System::cron();
     EXPECT_TRUE(isValidCronExpression(cronExpr));
 }
 
 TEST_F(SystemTest, IncludeYearOption) {
     CronOptions options;
     options.includeYear = true;
-    std::string cronExpr = system.cron(options);
+    std::string cronExpr = System::cron(options);
     EXPECT_TRUE(isValidCronExpression(cronExpr));
 
     int yearValue = -1;
@@ -185,7 +160,7 @@ TEST_F(SystemTest, IncludeYearOption) {
 TEST_F(SystemTest, IncludeNonStandardOption) {
     CronOptions options;
     options.includeNonStandard = true;
-    std::string cronExpr = system.cron(options);
+    std::string cronExpr = System::cron(options);
 
     std::vector<std::string> nonStandardExpressions = {
         "@annually", "@daily", "@hourly", "@monthly", "@reboot", "@weekly", "@yearly"
