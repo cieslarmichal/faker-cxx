@@ -374,17 +374,6 @@ public:
      */
     static std::string hex(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
 
-     /**
-     * @brief Converts integer to hexadecimal string.
-     *
-     * @param number Integer to convert.
-     *
-     * @return A string with converted integer into hexadecimal.
-     *
-     * @example
-     * Number::convertToHex(255) // "ff"
-     *
-     */
 
 private:
     static std::random_device randomDevice;
