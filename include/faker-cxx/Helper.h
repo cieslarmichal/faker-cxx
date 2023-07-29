@@ -6,10 +6,13 @@
 #include <span>
 #include <string_view>
 #include <vector>
+#include <unordered_map>
+#include <functional>
 
 #include "../../src/common/LuhnCheck.h"
 #include "../src/common/StringHelper.h"
 #include "Number.h"
+#include "Datatype.h"
 
 namespace faker
 {
@@ -117,6 +120,65 @@ public:
      * @endcode
      */
     static std::string regexpStyleStringParse(const std::string& input);
+
+     /**
+     * @brief Returns a random key from given object.
+     *
+     * @tparam T The type of the object to select from.
+     *
+     * @param object The object to be used.
+     *
+     * @throws  If the given object is empty
+     *
+     * @return A random key from given object.
+     *
+     * @code
+     * std::unordered_map<int, std::string> testMap = {
+     * {1, "one"},
+     * {2, "two"},
+     * {3, "three"}
+     * };
+     * Helper::objectKey(testMap) // "2"
+     * @endcode
+     */
+    template <typename T>
+    static typename T::key_type objectKey(const T& object)
+    {
+        if (object.empty()) {
+            throw std::runtime_error("Object is empty.");
+        }
+
+        std::vector<typename T::key_type> keys;
+        for (const auto& entry : object) {
+            keys.push_back(entry.first);
+        }
+
+        return arrayElement<typename T::key_type>(keys);
+    }
+
+    /**
+     * @brief Returns the result of the callback if the probability check was successful, otherwise empty string.
+*
+     *
+     * @tparam TResult The type of result of the given callback.
+     *
+     * @param callback The callback to that will be invoked if the probability check was successful.
+     * @param options.probability The probability (`[0.00, 1.00]`) of the callback being invoked. Defaults to `0.5`.
+     *
+     * @return The result of the callback if the probability check was successful, otherwise empty string.
+     *
+     * @code
+     * Helper::maybe<std::string>([]() { return "Hello World!"; }) // ""
+     * Helper::maybe<int>([]() { return 42; }, 0.9) // "42"
+     * @endcode
+     */
+    template <typename TResult>
+    static TResult maybe(std::function<TResult()> callback, double probability = 0.5) {
+        if (Datatype::boolean(probability)) {
+            return callback();
+        }
+        return TResult();
+    }
 
 private:
     static std::random_device randomDevice;

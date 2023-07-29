@@ -618,3 +618,17 @@ TEST_F(InternetTest, shouldGenerateIpv4KeepingTheMaskedPart)
     ASSERT_EQ(sampleAddress[0], generatedAddress[0]);
     ASSERT_TRUE((generatedAddress[1] & generationMask[1]) == expectedSecondSectorMaskedValue);
 }
+
+TEST_F(InternetTest, MacDefaultSeparator)
+{
+    std::string mac = Internet::mac();
+    ASSERT_EQ(mac.size(), 17);
+
+    for (size_t i = 0; i < mac.size(); i += 3) {
+        ASSERT_TRUE(isxdigit(mac[i]));
+    }
+
+    for (size_t i = 2; i < mac.size(); i += 3) {
+        ASSERT_EQ(mac[i], ':');
+    }
+}
