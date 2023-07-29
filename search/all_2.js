@@ -12,5 +12,6 @@ var searchData=
   ['country_9',['country',['../classfaker_1_1Location.html#aeccb6f1381edcf063010684db6c47f66',1,'faker::Location']]],
   ['creditcardcvv_10',['creditCardCvv',['../classfaker_1_1Finance.html#a6b4c79d892fdbbf0a0109dc7927bc947',1,'faker::Finance']]],
   ['creditcardnumber_11',['creditCardNumber',['../classfaker_1_1Finance.html#ac0aa71a72d411fb89c5ba623db469bd4',1,'faker::Finance']]],
-  ['currencycode_12',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]]
+  ['cronoptions_12',['CronOptions',['../structfaker_1_1CronOptions.html',1,'faker']]],
+  ['currencycode_13',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]]
 ];

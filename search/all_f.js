@@ -1,15 +1,9 @@
 var searchData=
 [
-  ['sample_0',['sample',['../classfaker_1_1Word.html#a2c10f438e9949dd8fcb76a187094d886',1,'faker::Word']]],
-  ['sentence_1',['sentence',['../classfaker_1_1Lorem.html#ace402bfeedb5be11d011a38c5708daa5',1,'faker::Lorem']]],
-  ['sentences_2',['sentences',['../classfaker_1_1Lorem.html#a642a0a6fe7293f968b01a46b8202224a',1,'faker::Lorem']]],
-  ['sex_3',['sex',['../classfaker_1_1Person.html#a0347ebf92763183d8eef2fce5f78fc44',1,'faker::Person']]],
-  ['shuffle_4',['shuffle',['../classfaker_1_1Helper.html#a5604817b289605971edea4034bd65115',1,'faker::Helper']]],
-  ['sku_5',['sku',['../classfaker_1_1Commerce.html#af427c184726e56858e7730b0255d2f99',1,'faker::Commerce']]],
-  ['slug_6',['slug',['../classfaker_1_1Lorem.html#a05591c4bbec3ec177e51020805414548',1,'faker::Lorem']]],
-  ['soondate_7',['soonDate',['../classfaker_1_1Date.html#a67910b9ec3d3e0b57285f96a8dfbc659',1,'faker::Date']]],
-  ['state_8',['state',['../classfaker_1_1Location.html#a2658feb8bf823c514914787a5dcdca92',1,'faker::Location']]],
-  ['street_9',['street',['../classfaker_1_1Location.html#a082cd43f2e662d9dad5d1bca1f9aef0a',1,'faker::Location']]],
-  ['streetaddress_10',['streetAddress',['../classfaker_1_1Location.html#a1aae7e6a0e332bf11f03907fa42b0baf',1,'faker::Location']]],
-  ['string_11',['String',['../classfaker_1_1String.html',1,'faker']]]
+  ['recentdate_0',['recentDate',['../classfaker_1_1Date.html#a7c47fce4110d1e4f06642871206a536b',1,'faker::Date']]],
+  ['regexpstylestringparse_1',['regexpStyleStringParse',['../classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768',1,'faker::Helper']]],
+  ['replacecreditcardsymbols_2',['replaceCreditCardSymbols',['../classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199',1,'faker::Helper']]],
+  ['replacesymbolwithnumber_3',['replaceSymbolWithNumber',['../classfaker_1_1Helper.html#a8241b8aa5d9c9ac41c35db12bcfc4087',1,'faker::Helper']]],
+  ['rgb_4',['rgb',['../classfaker_1_1Color.html#a42bdb9b28f7e1b876fe63bea90f61406',1,'faker::Color']]],
+  ['routingnumber_5',['routingNumber',['../classfaker_1_1Finance.html#a630a739b5fefc9cb3cdf264bc27db2aa',1,'faker::Finance']]]
 ];

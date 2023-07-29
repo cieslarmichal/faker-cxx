@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['verb_0',['verb',['../classfaker_1_1Word.html#ae8d41d25f0c3d7e0750eb04c8d5964f0',1,'faker::Word']]]
+  ['username_0',['username',['../classfaker_1_1Internet.html#a3da60463681646e7d87a056412828820',1,'faker::Internet']]],
+  ['uuid_1',['uuid',['../classfaker_1_1String.html#ac257c59dbcb609c4d53977b7efb7a493',1,'faker::String']]]
 ];

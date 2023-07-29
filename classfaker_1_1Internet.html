@@ -137,6 +137,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:acfe778605478e6a9af07c0e30637d062"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#acfe778605478e6a9af07c0e30637d062">ipv4</a> (const IPv4Address &amp;baseIpv4Address, const IPv4Address &amp;generationMask)</td></tr>
 <tr class="memdesc:acfe778605478e6a9af07c0e30637d062"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing randomized ipv4 address based on given base address and mask.  <br /></td></tr>
 <tr class="separator:acfe778605478e6a9af07c0e30637d062"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af690ede0de3494404572b73f127bd09a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#af690ede0de3494404572b73f127bd09a">mac</a> (const std::string &amp;sep=&quot;:&quot;)</td></tr>
+<tr class="memdesc:af690ede0de3494404572b73f127bd09a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a generated random mac address.  <br /></td></tr>
+<tr class="separator:af690ede0de3494404572b73f127bd09a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="af39e73f7b102e8ae73a9ebee7693ad2c" name="af39e73f7b102e8ae73a9ebee7693ad2c"></a>
@@ -194,7 +197,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(std::nullopt, &quot;Howard&quot;) <span class="comment">// &quot;FreddieHoward@hotmail.com&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(&quot;Cindy&quot;, &quot;Young&quot;) <span class="comment">// &quot;Young_Cindy@gmail.com&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(std::nullopt, std::nullopt, &quot;example.com&quot;) <span class="comment">// &quot;Wright.Edna1973@code.com&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html"><div class="ttname"><a href="classfaker_1_1Internet.html">faker::Internet</a></div><div class="ttdef"><b>Definition</b> Internet.h:22</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html"><div class="ttname"><a href="classfaker_1_1Internet.html">faker::Internet</a></div><div class="ttdef"><b>Definition</b> Internet.h:23</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_af39e73f7b102e8ae73a9ebee7693ad2c"><div class="ttname"><a href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">faker::Internet::email</a></div><div class="ttdeci">static std::string email(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -516,6 +519,43 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classfaker_1_1String.html">String</a> representation of the ipv4 address.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">Internet::ipv4</a>() <span class="comment">// &quot;192.168.0.1&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">ipv4</a>(IPv4Class::classA) <span class="comment">// &quot;10.0.0.1&quot;</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="af690ede0de3494404572b73f127bd09a" name="af690ede0de3494404572b73f127bd09a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af690ede0de3494404572b73f127bd09a">&#9670;&#160;</a></span>mac()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Internet::mac </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>sep</em> = <code>&quot;:&quot;</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a generated random mac address. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sep</td><td>Separator to use. Defaults to ":". Also can be "-" or "".</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A generated random mac address.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Internet.html#af690ede0de3494404572b73f127bd09a">Internet::mac</a>() <span class="comment">// &quot;2d:10:34:2f:ac:ac&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_af690ede0de3494404572b73f127bd09a"><div class="ttname"><a href="classfaker_1_1Internet.html#af690ede0de3494404572b73f127bd09a">faker::Internet::mac</a></div><div class="ttdeci">static std::string mac(const std::string &amp;sep=&quot;:&quot;)</div><div class="ttdoc">Returns a generated random mac address.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
