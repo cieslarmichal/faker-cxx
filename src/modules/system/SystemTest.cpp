@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <regex>
+
 #include "gtest/gtest.h"
 
 using namespace ::testing;
@@ -11,9 +12,11 @@ class SystemTest : public Test
 {
 };
 
-const std::regex validCronPattern(R"((\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)( (\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)){4,5})");
+const std::regex validCronPattern(
+    R"((\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)( (\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)){4,5})");
 
-bool isValidCronExpression(const std::string& cronExpr) {
+bool isValidCronExpression(const std::string& cronExpr)
+{
     return std::regex_match(cronExpr, validCronPattern);
 }
 
@@ -48,7 +51,8 @@ TEST_F(SystemTest, FileExtTestWithMimeType)
 
 TEST_F(SystemTest, CommonFileNameWithEmptyExtensionTest)
 {
-    std::string actualFileName = System::commonFileName("");
+
+    std::string actualFileName = System::commonFileName();
 
     std::string actualExtension = actualFileName.substr(actualFileName.find_last_of('.') + 1);
     EXPECT_FALSE(actualExtension.empty());
@@ -64,8 +68,7 @@ TEST_F(SystemTest, MimeTypeTest)
 {
     std::string mimeTypeResult = System::mimeType();
 
-    bool isValidMimeType =
-        std::find(mimeTypes.begin(), mimeTypes.end(), mimeTypeResult) != mimeTypes.end();
+    bool isValidMimeType = std::find(mimeTypes.begin(), mimeTypes.end(), mimeTypeResult) != mimeTypes.end();
     EXPECT_TRUE(isValidMimeType);
 }
 
@@ -136,12 +139,14 @@ TEST_F(SystemTest, NetworkInterfaceMethodTest)
     ASSERT_TRUE(!result4.empty());
 }
 
-TEST_F(SystemTest, ValidCronExpression) {
+TEST_F(SystemTest, ValidCronExpression)
+{
     std::string cronExpr = System::cron();
     EXPECT_TRUE(isValidCronExpression(cronExpr));
 }
 
-TEST_F(SystemTest, IncludeYearOption) {
+TEST_F(SystemTest, IncludeYearOption)
+{
     CronOptions options;
     options.includeYear = true;
     std::string cronExpr = System::cron(options);
@@ -149,21 +154,23 @@ TEST_F(SystemTest, IncludeYearOption) {
 
     int yearValue = -1;
     std::smatch match;
-    if (std::regex_search(cronExpr, match, std::regex(R"(\b(19[7-9][0-9]|20[0-9]{2})\b)"))) {
+    if (std::regex_search(cronExpr, match, std::regex(R"(\b(19[7-9][0-9]|20[0-9]{2})\b)")))
+    {
         yearValue = std::stoi(match.str());
     }
     EXPECT_GE(yearValue, 1970);
     EXPECT_LE(yearValue, 2099);
 }
 
-TEST_F(SystemTest, IncludeNonStandardOption) {
+TEST_F(SystemTest, IncludeNonStandardOption)
+{
     CronOptions options;
     options.includeNonStandard = true;
     std::string cronExpr = System::cron(options);
 
-    std::vector<std::string> nonStandardExpressions = {
-        "@annually", "@daily", "@hourly", "@monthly", "@reboot", "@weekly", "@yearly"
-    };
-    bool isNonStandard = std::find(nonStandardExpressions.begin(), nonStandardExpressions.end(), cronExpr) != nonStandardExpressions.end();
+    std::vector<std::string> nonStandardExpressions = {"@annually", "@daily",  "@hourly", "@monthly",
+                                                       "@reboot",   "@weekly", "@yearly"};
+    bool isNonStandard = std::find(nonStandardExpressions.begin(), nonStandardExpressions.end(), cronExpr) !=
+                         nonStandardExpressions.end();
     EXPECT_TRUE(isNonStandard || isValidCronExpression(cronExpr));
 }

@@ -39,9 +39,9 @@ std::string System::fileName(const FileOptions& options)
 
 std::string System::fileExt(const std::optional<std::string>& mimeType)
 {
-    if (!mimeType->empty() && mimeType != std::nullopt)
+    if (mimeType.has_value() && !mimeType->empty())
     {
-        auto it = std::find(mimeTypes.begin(), mimeTypes.end(), mimeType);
+        auto it = std::find(mimeTypes.begin(), mimeTypes.end(), *mimeType);
         if (it != mimeTypes.end())
         {
             const std::string& extension = *it;
@@ -65,17 +65,25 @@ std::string System::fileExt(const std::optional<std::string>& mimeType)
     return "";
 }
 
-std::string System::commonFileName(const std::string& ext)
+std::string System::commonFileName(const std::optional<std::string>& ext)
 {
     FileOptions options;
     options.extensionCount = 0;
     std::string str = fileName(options);
-    return str + (ext.empty() ? "." + commonFileExt() : "." + ext);
+    if (ext.has_value() && !ext.value().empty())
+    {
+        return str + "." + ext.value();
+    }
+    else
+    {
+        return str + "." + commonFileExt();
+    }
 }
 
 std::string System::commonFileExt()
 {
-    return fileExt(Helper::arrayElement<std::string>(commonMimeTypes));
+    std::optional<std::string> mimeType = Helper::arrayElement<std::string>(commonMimeTypes);
+    return fileExt(mimeType);
 }
 
 std::string System::mimeType()
@@ -190,7 +198,7 @@ std::string System::cron(const CronOptions& options)
     std::vector<std::string> months = { std::to_string(Number::integer(1, 12)), "*" };
     std::vector<std::string> daysOfWeek = {
         std::to_string(Number::integer(6)),
-        CRON_DAY_OF_WEEK[static_cast<unsigned long>(Number::integer(0, static_cast<int>(CRON_DAY_OF_WEEK.size() - 1)))],
+        cronDayOfWeek[static_cast<unsigned long>(Number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))],
         "*",
         "?"
     };

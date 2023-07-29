@@ -9,17 +9,21 @@
 #include <vector>
 
 #include "../src/common/StringHelper.h"
-#include "../src/modules/system/data/CronOptions.h"
-#include "../src/modules/system/data/FileOptions.h"
-#include "../src/modules/system/data/NetworkInterfaceOptions.h"
-#include "../src/modules/system/data/MimeTypes.h"
 #include "../src/modules/system/data/DirectoryPath.h"
+#include "../src/modules/system/data/MimeTypes.h"
+#include "../src/modules/system/data/commonInterface.h"
+#include "../src/modules/system/data/cronDayOfWeek.h"
+
+#include "types/CronOptions.h"
+#include "types/FileOptions.h"
+#include "types/NetworkInterfaceOptions.h"
+
+#include "Datatype.h"
 #include "Helper.h"
 #include "Internet.h"
 #include "Number.h"
 #include "String.h"
 #include "Word.h"
-#include "Datatype.h"
 
 namespace faker
 {
@@ -64,7 +68,7 @@ public:
       /**
       * Returns a random file name with a given extension or a commonly used extension.
       *
-      * @param ext Extension. Empty string is considered to be not set.
+      * @param ext Optional extension parameter.
       *
       * @returns A random file name with a given extension or a commonly used extension.
       *
@@ -73,7 +77,7 @@ public:
       * System::commonFileName("txt") // "global_borders_wyoming.txt"
       *
       */
-     static std::string commonFileName(const std::string& ext);
+     static std::string commonFileName(const std::optional<std::string>& ext = std::nullopt);
 
       /**
       * Returns a commonly used file extension.
