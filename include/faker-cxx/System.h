@@ -9,11 +9,10 @@
 #include <vector>
 
 #include "../src/common/StringHelper.h"
-#include "../src/modules/system/data/DirectoryPath.h"
-#include "../src/modules/system/data/MimeTypes.h"
-#include "../src/modules/system/data/commonInterface.h"
-#include "../src/modules/system/data/cronDayOfWeek.h"
-
+#include "types/commonInterface.h"
+#include "types/cronDayOfWeek.h"
+#include "types/DirectoryPath.h"
+#include "types/MimeTypes.h"
 #include "types/CronOptions.h"
 #include "types/FileOptions.h"
 #include "types/NetworkInterfaceOptions.h"
