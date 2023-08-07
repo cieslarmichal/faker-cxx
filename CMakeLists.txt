@@ -73,6 +73,7 @@ if (BUILD_FAKER_TESTS)
     add_subdirectory(externals/googletest)
 
     set(GTEST_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
+    set(GMOCK_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/googletest/googlemock/include")
 
     enable_testing()
 
@@ -86,7 +87,7 @@ if (BUILD_FAKER_TESTS)
 
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main faker-cxx)
 
-    target_include_directories(${LIBRARY_NAME}-UT PRIVATE ${GTEST_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
+    target_include_directories(${LIBRARY_NAME}-UT PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
 
     add_test(NAME ${LIBRARY_NAME}-UT COMMAND ${LIBRARY_NAME}-UT WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 
