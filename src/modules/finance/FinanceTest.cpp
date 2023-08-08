@@ -1,8 +1,11 @@
 #include "faker-cxx/Finance.h"
 
 #include <algorithm>
+#include <regex>
+#include <ranges>
 
 #include "gtest/gtest.h"
+#include "gmock/gmock.h"
 
 #include "../../common/LuhnCheck.h"
 #include "../../common/StringHelper.h"
@@ -11,15 +14,75 @@
 #include "data/BankIndentifiersCodes.h"
 #include "data/Currencies.h"
 
+
 using namespace ::testing;
 using namespace faker;
 
 namespace
 {
 const std::string creditCardCharacters = "0123456789-";
+const std::map<IbanCountry, std::string> expectedRegex {
+    {IbanCountry::Austria, "^(AT)([0-9]{2})([0-9]{5})([0-9]{11})$"},
+    {IbanCountry::Belgium, "^(BE)([0-9]{2})([0-9]{3})([0-9]{7})([0-9]{2})$"},
+    {IbanCountry::Bulgaria, "^(BG)([0-9]{2})([A-Z]{4})([0-9]{4})([0-9]{2})([a-zA-Z0-9]{8})$"},
+    {IbanCountry::Croatia, "^(HR)([0-9]{2})([0-9]{7})([0-9]{10})$"},
+    {IbanCountry::Cyprus, "^(CY)([0-9]{2})([0-9]{3})([0-9]{5})([a-zA-Z0-9]{16})$"},
+    {IbanCountry::Czechia, "^(CZ)([0-9]{2})([0-9]{4})([0-9]{6})([0-9]{10})$"},
+    {IbanCountry::Denmark, "^(DK)([0-9]{2})([0-9]{4})([0-9]{9})([0-9]{1})$"},
+    {IbanCountry::Estonia, "^(EE)([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{11})([0-9]{1})$"},
+    {IbanCountry::Finland, "^(FI)([0-9]{2})([0-9]{6})([0-9]{7})([0-9]{1})$"},
+    {IbanCountry::France, "^(FR)([0-9]{2})([0-9]{5})([0-9]{5})([a-zA-Z0-9]{11})([0-9]{2})$"},
+    {IbanCountry::Germany, "^(DE)([0-9]{2})([0-9]{8})([0-9]{10})$"},
+    {IbanCountry::Greece, "^(GR)([0-9]{2})([0-9]{3})([0-9]{4})([a-zA-Z0-9]{16})$"},
+    {IbanCountry::Hungary, "^(HU)([0-9]{2})([0-9]{3})([0-9]{4})([0-9]{1})([0-9]{15})([0-9]{1})$"},
+    {IbanCountry::Ireland, "^(IE)([0-9]{2})([A-Z]{4})([0-9]{6})([0-9]{8})$"},
+    {IbanCountry::Italy, "^(IT)([0-9]{2})([A-Z]{1})([0-9]{5})([0-9]{5})([a-zA-Z0-9]{12})$"},
+    {IbanCountry::Latvia, "^(LV)([0-9]{2})([A-Z]{4})([a-zA-Z0-9]{13})$"},
+    {IbanCountry::Lithuania, "^(LT)([0-9]{2})([0-9]{5})([0-9]{11})$"},
+    {IbanCountry::Luxembourg, "^(LU)([0-9]{2})([0-9]{3})([a-zA-Z0-9]{13})$"},
+    {IbanCountry::Malta, "^(MT)([0-9]{2})([A-Z]{4})([0-9]{5})([a-zA-Z0-9]{18})$"},
+    {IbanCountry::Netherlands, "^(NL)([0-9]{2})([A-Z]{4})([0-9]{10})$"},
+    {IbanCountry::Poland, "^(PL)([0-9]{2})([0-9]{3})([0-9]{4})([0-9]{1})([0-9]{16})$"},
+    {IbanCountry::Portugal, "^(PT)([0-9]{2})([0-9]{4})([0-9]{4})([0-9]{11})([0-9]{2})$"},
+    {IbanCountry::Romania, "^(RO)([0-9]{2})([A-Z]{4})([a-zA-Z0-9]{16})$"},
+    {IbanCountry::Slovakia, "^(SK)([0-9]{2})([0-9]{4})([0-9]{6})([0-9]{10})$"},
+    {IbanCountry::Slovenia, "^(SI)([0-9]{2})([0-9]{2})([0-9]{3})([0-9]{8})([0-9]{2})$"},
+    {IbanCountry::Spain, "^(ES)([0-9]{2})([0-9]{4})([0-9]{4})([0-9]{2})([0-9]{10})$"},
+    {IbanCountry::Sweden, "^(SE)([0-9]{2})([0-9]{3})([0-9]{17})$"},
+};
+
+const std::map<IbanCountry, std::string> generatedTestName {
+    {IbanCountry::Austria, "shouldGenerateAustriaIban"},
+    {IbanCountry::Belgium, "shouldGenerateBelgiumIban"},
+    {IbanCountry::Bulgaria, "shouldGenerateBulgariaIban"},
+    {IbanCountry::Croatia, "shouldGenerateCroatiaIban"},
+    {IbanCountry::Cyprus, "shouldGenerateCyprusIban"},
+    {IbanCountry::Czechia, "shouldGenerateCzechiaIban"},
+    {IbanCountry::Denmark, "shouldGenerateDenmarkIban"},
+    {IbanCountry::Estonia, "shouldGenerateEstoniaIban"},
+    {IbanCountry::Finland, "shouldGenerateFinlandIban"},
+    {IbanCountry::France, "shouldGenerateFranceIban"},
+    {IbanCountry::Germany, "shouldGenerateGermanyIban"},
+    {IbanCountry::Greece, "shouldGenerateGreeceIban"},
+    {IbanCountry::Hungary, "shouldGenerateHungaryIban"},
+    {IbanCountry::Ireland, "shouldGenerateIrelandIban"},
+    {IbanCountry::Italy, "shouldGenerateItalyIban"},
+    {IbanCountry::Latvia, "shouldGenerateLatviaIban"},
+    {IbanCountry::Lithuania, "shouldGenerateLithuaniaIban"},
+    {IbanCountry::Luxembourg, "shouldGenerateLuxembourgIban"},
+    {IbanCountry::Malta, "shouldGenerateMaltaIban"},
+    {IbanCountry::Netherlands, "shouldGenerateNetherlandsIban"},
+    {IbanCountry::Poland, "shouldGeneratePolandIban"},
+    {IbanCountry::Portugal, "shouldGeneratePortugalIban"},
+    {IbanCountry::Romania, "shouldGenerateRomaniaIban"},
+    {IbanCountry::Slovakia, "shouldGenerateSlovakiaIban"},
+    {IbanCountry::Slovenia, "shouldGenerateSloveniaIban"},
+    {IbanCountry::Spain, "shouldGenerateSpainIban"},
+    {IbanCountry::Sweden, "shouldGenerateSwedenIban"},
+};
 }
 
-class FinanceTest : public Test
+class FinanceTest : public TestWithParam<IbanCountry>
 {
 public:
     static bool checkIfAllCharactersAreNumeric(const std::string& data)
@@ -100,6 +163,32 @@ TEST_F(FinanceTest, shouldGenerateAmount)
     ASSERT_LE(amountAsFloat, 1000);
 }
 
+/*
+ * The default GTest macro "MatchesRegex" has only minimal support on
+ * windows. Hence, we define our own macro which uses the c++ default
+ * implementation of the used compiler.
+ */
+MATCHER_P(MatchesRegexCpp, value, "") {
+    return std::regex_match(arg, std::regex(value));
+}
+
+TEST_P(FinanceTest, CheckIbanGenerator) {
+    auto ibanCountry = GetParam();
+
+    ASSERT_THAT(Finance::iban(ibanCountry), MatchesRegexCpp(expectedRegex.at(ibanCountry)));
+}
+
+INSTANTIATE_TEST_SUITE_P(
+    TestIbanGenerator,
+    FinanceTest,
+    ValuesIn(
+        std::views::keys(expectedRegex).begin(),
+        std::views::keys(expectedRegex).end()
+    ),
+    [](const TestParamInfo<IbanCountry> &info) {
+        return generatedTestName.at(info.param);
+    });
+
 TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 {
     const auto min = 150;
@@ -125,83 +214,13 @@ TEST_F(FinanceTest, shouldGenerateIban)
     const auto iban = Finance::iban();
 
     // TODO: implement more detailed checks for iban with default argument
-    ASSERT_TRUE(iban.starts_with("PL") || iban.starts_with("IT") || iban.starts_with("FR") || iban.starts_with("DE"));
-}
-
-TEST_F(FinanceTest, shouldGeneratePolishIban)
-{
-    const auto iban = Finance::iban(IbanCountry::Poland);
-
-    const auto countryCode = iban.substr(0, 2);
-    const auto checksum = iban.substr(2, 2);
-    const auto bankCode = iban.substr(4, 3);
-    const auto branchCode = iban.substr(7, 4);
-    const auto checkDigit = iban.substr(11, 1);
-    const auto accountNumber = iban.substr(12, 16);
-
-    ASSERT_EQ(iban.size(), 28);
-    ASSERT_EQ(countryCode, "PL");
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(checksum));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(bankCode));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(branchCode));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(checkDigit));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(accountNumber));
-}
-
-TEST_F(FinanceTest, shouldGenerateFranceIban)
-{
-    const auto iban = Finance::iban(IbanCountry::France);
-
-    const auto countryCode = iban.substr(0, 2);
-    const auto checksum = iban.substr(2, 2);
-    const auto bankCode = iban.substr(4, 5);
-    const auto branchCode = iban.substr(9, 5);
-    const auto accountNumber = iban.substr(14, 11);
-    const auto checkDigit = iban.substr(25, 2);
-
-    ASSERT_EQ(iban.size(), 27);
-    ASSERT_EQ(countryCode, "FR");
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(checksum));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(bankCode));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(branchCode));
-    ASSERT_TRUE(checkIfAllCharactersAreAlphanumeric(accountNumber));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(checkDigit));
-}
-
-TEST_F(FinanceTest, shouldGenerateItalyIban)
-{
-    const auto iban = Finance::iban(IbanCountry::Italy);
-
-    const auto countryCode = iban.substr(0, 2);
-    const auto checksum = iban.substr(2, 2);
-    const auto checkDigit = iban.substr(4, 1);
-    const auto bankCode = iban.substr(5, 5);
-    const auto branchCode = iban.substr(10, 5);
-    const auto accountNumber = iban.substr(15, 12);
-
-    ASSERT_EQ(iban.size(), 27);
-    ASSERT_EQ(countryCode, "IT");
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(checksum));
-    ASSERT_TRUE(checkIfAllCharactersAreAlpha(checkDigit));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(bankCode));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(branchCode));
-    ASSERT_TRUE(checkIfAllCharactersAreAlphanumeric(accountNumber));
-}
-
-TEST_F(FinanceTest, shouldGenerateGermanyIban)
-{
-    const auto iban = Finance::iban(IbanCountry::Germany);
-
-    const auto countryCode = iban.substr(0, 2);
-    const auto checksum = iban.substr(2, 2);
-    const auto blz = iban.substr(4, 8);
-    const auto accountNumber = iban.substr(12, 10);
-
-    ASSERT_EQ(iban.size(), 22);
-    ASSERT_EQ(countryCode, "DE");
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(checksum));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(blz));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(accountNumber));
+    ASSERT_TRUE(iban.starts_with("AT") || iban.starts_with("BE") || iban.starts_with("BG") || iban.starts_with("HR") ||
+                iban.starts_with("CY") || iban.starts_with("CZ") || iban.starts_with("DK") || iban.starts_with("EE") ||
+                iban.starts_with("FI") || iban.starts_with("FR") || iban.starts_with("DE") || iban.starts_with("GR") ||
+                iban.starts_with("HU") || iban.starts_with("IE") || iban.starts_with("IT") || iban.starts_with("LV") ||
+                iban.starts_with("LT") || iban.starts_with("LU") || iban.starts_with("MT") || iban.starts_with("NL") ||
+                iban.starts_with("PL") || iban.starts_with("PT") || iban.starts_with("RO") || iban.starts_with("SK") ||
+                iban.starts_with("SI") || iban.starts_with("ES") || iban.starts_with("SE"));
 }
 
 TEST_F(FinanceTest, shouldGenerateBic)
