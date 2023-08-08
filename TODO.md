@@ -2,7 +2,7 @@
 
 ### 🏦 Finance:
 
-- [ ] support for more iban countries
+- [x] support for more iban countries
 - [ ] support for more bic countries
 - [x] credit card number
 - [x] credit card CVV
@@ -36,7 +36,7 @@
 
 ### 🌐 Internet:
 
-- [ ] emoji
+- [x] emoji
 - [x] exampleEmail
 - [x] httpMethod
 - [x] httpStatusCode
@@ -140,15 +140,15 @@
 
 ### 💻 System:
 
-- [ ] commonFileExtension
-- [ ] commonFileName
-- [ ] commonFileType
-- [ ] cron
-- [ ] directoryPath
-- [ ] fileExtension
-- [ ] fileName
-- [ ] filePath
-- [ ] fileType
-- [ ] mimeType
-- [ ] networkInterface
-- [ ] semanticVersion
+- [x] commonFileExtension
+- [x] commonFileName
+- [x] commonFileType
+- [x] cron
+- [x] directoryPath
+- [x] fileExtension
+- [x] fileName
+- [x] filePath
+- [x] fileType
+- [x] mimeType
+- [x] networkInterface
+- [x] semanticVersion
