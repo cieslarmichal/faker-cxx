@@ -163,10 +163,19 @@ TEST_F(FinanceTest, shouldGenerateAmount)
     ASSERT_LE(amountAsFloat, 1000);
 }
 
+/*
+ * The default GTest macro "MatchesRegex" has only minimal support on
+ * windows. Hence, we define our own macro which uses the c++ default
+ * implementation of the used compiler.
+ */
+MATCHER_P(MatchesRegexCpp, value, "") {
+    return std::regex_match(arg, std::regex(value));
+}
+
 TEST_P(FinanceTest, CheckIbanGenerator) {
     auto ibanCountry = GetParam();
 
-    ASSERT_THAT(Finance::iban(ibanCountry), MatchesRegex(expectedRegex.at(ibanCountry)));
+    ASSERT_THAT(Finance::iban(ibanCountry), MatchesRegexCpp(expectedRegex.at(ibanCountry)));
 }
 
 INSTANTIATE_TEST_SUITE_P(

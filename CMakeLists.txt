@@ -85,7 +85,7 @@ if (BUILD_FAKER_TESTS)
 
     add_executable(${LIBRARY_NAME}-UT ${FAKER_UT_SOURCES})
 
-    target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main faker-cxx)
+    target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main faker-cxx)
 
     target_include_directories(${LIBRARY_NAME}-UT PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
 
