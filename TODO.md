@@ -10,6 +10,9 @@
 - [ ] ethereum address
 - [ ] litecoin address
 - [x] routing number
+- [ ] currency (structure containing code, name and symbol properties)
+- [ ] currencyName
+- [ ] currencySymbol
 
 ### 🧑 Person:
 
@@ -55,8 +58,10 @@
 ### 🌍 Location:
 
 - [x] country
+- [ ] country code
 - [x] state
 - [x] city
+- [ ] county
 - [x] zip code
 - [x] street
 - [x] street address
@@ -64,6 +69,11 @@
 - [ ] support for more countries
 - [x] latitude
 - [x] longitude
+- [ ] cardinalDirection
+- [ ] direction
+- [ ] nearbyGPSCoordinate
+- [ ] secondaryAddress
+- [ ] timeZone
 
 ### 🖊️ Lorem:
 
@@ -137,6 +147,36 @@
 - [ ] genre
 - [ ] title
 - [ ] director
+
+### 🚗 Vehicle:
+
+- [ ] bicycle
+- [ ] color
+- [ ] fuel
+- [ ] manufacturer
+- [ ] model
+- [ ] type
+- [ ] vehicle
+- [ ] vin
+- [ ] vrm
+
+### ✈ Airline:
+
+- [ ] aircraftType
+- [ ] airline
+- [ ] airplane
+- [ ] airport
+- [ ] flightNumber
+- [ ] recordLocator
+- [ ] seat
+
+### Database:
+
+- [ ] collation
+- [ ] column
+- [ ] engine
+- [ ] mongodbObjectId
+- [ ] type
 
 ### 💻 System:
 
