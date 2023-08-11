@@ -36,7 +36,9 @@ set(FAKER_SOURCES
         src/modules/phone/Phone.cpp
         src/common/LuhnCheck.cpp
         src/common/mappers/PrecisionMapper.cpp
-        src/modules/system/System.cpp)
+        src/modules/system/System.cpp
+        src/modules/database/Database.cpp
+        )
 
 set(FAKER_UT_SOURCES
         src/modules/book/BookTest.cpp
@@ -58,7 +60,9 @@ set(FAKER_UT_SOURCES
         src/modules/helper/HelperTest.cpp
         src/common/LuhnCheckTest.cpp
         src/common/mappers/PrecisionMapperTest.cpp
-        src/modules/system/SystemTest.cpp)
+        src/modules/system/SystemTest.cpp
+        src/modules/database/DatabaseTest.cpp
+        )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 

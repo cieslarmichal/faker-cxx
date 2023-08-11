@@ -28,6 +28,7 @@ const std::map<HexCasing, std::string> hexCasingToCharactersMapping{
 const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
     {HexPrefix::ZeroX, "0x"},
     {HexPrefix::Hash, "#"},
+    {HexPrefix::None, ""},
 };
 }
 

@@ -91,6 +91,8 @@ target_link_libraries(main faker-cxx)
 - 📖 Book - Generate book title, genre, author, publisher, ISBN.
 - 📚 Lorem - Generate lorem words, sentences, paragraphs.
 - 🔢 String - Generate uuids, alphanumeric, numeric, hexadecimal.
+- 💻 System - Generate file paths, file extensions, file names, directories, semantic version.
+- Database - Generate column names, column types, database engines.
 
 ### 🔨 [TODO Modules](https://github.com/cieslarmichal/faker-cxx/blob/main/TODO.md)
 
