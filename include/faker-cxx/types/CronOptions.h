@@ -5,7 +5,8 @@
 
 namespace faker
 {
-struct CronOptions {
+struct CronOptions
+{
     bool includeYear = false;
     bool includeNonStandard = false;
 };

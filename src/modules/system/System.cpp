@@ -1,5 +1,19 @@
 #include "faker-cxx/System.h"
 
+#include <algorithm>
+#include <ctime>
+#include <set>
+#include <string>
+#include <vector>
+
+#include "../src/common/StringHelper.h"
+#include "faker-cxx/Helper.h"
+#include "faker-cxx/Internet.h"
+#include "faker-cxx/String.h"
+#include "faker-cxx/types/CommonInterface.h"
+#include "faker-cxx/types/CronDayOfWeek.h"
+#include "faker-cxx/Word.h"
+
 namespace faker
 {
 std::string System::fileName(const FileOptions& options)
@@ -62,6 +76,7 @@ std::string System::fileExt(const std::optional<std::string>& mimeType)
         std::vector<std::string> extensions(extensionSet.begin(), extensionSet.end());
         return Helper::arrayElement<std::string>(extensions);
     }
+
     return "";
 }
 
@@ -151,18 +166,21 @@ std::string System::networkInterface(const std::optional<NetworkInterfaceOptions
     std::string interfaceType = defaultInterfaceType;
     std::string interfaceSchema = defaultInterfaceSchema;
 
-    if (options.has_value()) {
-        if (options->interfaceType.has_value() && !options->interfaceType.value().empty()) {
+    if (options.has_value())
+    {
+        if (options->interfaceType.has_value() && !options->interfaceType.value().empty())
+        {
             interfaceType = options->interfaceType.value();
         }
 
-        if (options->interfaceSchema.has_value() && !options->interfaceSchema.value().empty()) {
+        if (options->interfaceSchema.has_value() && !options->interfaceSchema.value().empty())
+        {
             interfaceSchema = options->interfaceSchema.value();
         }
     }
 
     std::string suffix;
-    std::string prefix = "";
+    std::string prefix;
     auto digit = []() { return String::numeric(); };
 
     if (interfaceSchema == "index")
@@ -192,24 +210,23 @@ std::string System::cron(const CronOptions& options)
 {
     bool includeYear = options.includeYear;
     bool includeNonStandard = options.includeNonStandard;
-    std::vector<std::string> minutes = { std::to_string(Number::integer(59)), "*" };
-    std::vector<std::string> hours = { std::to_string(Number::integer(23)), "*" };
-    std::vector<std::string> days = { std::to_string(Number::integer(1, 31)), "*", "?" };
-    std::vector<std::string> months = { std::to_string(Number::integer(1, 12)), "*" };
+    std::vector<std::string> minutes = {std::to_string(Number::integer(59)), "*"};
+    std::vector<std::string> hours = {std::to_string(Number::integer(23)), "*"};
+    std::vector<std::string> days = {std::to_string(Number::integer(1, 31)), "*", "?"};
+    std::vector<std::string> months = {std::to_string(Number::integer(1, 12)), "*"};
     std::vector<std::string> daysOfWeek = {
         std::to_string(Number::integer(6)),
-        cronDayOfWeek[static_cast<unsigned long>(Number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))],
-        "*",
-        "?"
-    };
+        cronDayOfWeek[static_cast<unsigned long>(Number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))], "*",
+        "?"};
 
     std::vector<std::string> years;
-    if (includeYear) {
+    if (includeYear)
+    {
         years.push_back(std::to_string(Number::integer(1970, 2099)));
     }
     else
     {
-        years = { std::to_string(Number::integer(1970, 2099)), "*" };
+        years = {std::to_string(Number::integer(1970, 2099)), "*"};
     }
 
     auto minute = Helper::arrayElement<std::string>(minutes);
@@ -220,16 +237,15 @@ std::string System::cron(const CronOptions& options)
     auto year = Helper::arrayElement<std::string>(years);
 
     std::string standardExpression = minute + " " + hour + " " + day + " " + month + " " + dayOfWeek;
-    if (includeYear) {
+    if (includeYear)
+    {
         standardExpression += " " + year;
     }
 
-    std::vector<std::string> nonStandardExpressions = {
-        "@annually", "@daily", "@hourly", "@monthly", "@reboot", "@weekly", "@yearly"
-    };
+    std::vector<std::string> nonStandardExpressions = {"@annually", "@daily",  "@hourly", "@monthly",
+                                                       "@reboot",   "@weekly", "@yearly"};
 
-    return (!includeNonStandard || Datatype::boolean(0)) ?
-               standardExpression :
-               Helper::arrayElement<std::string>(nonStandardExpressions);
+    return (!includeNonStandard || Datatype::boolean(0)) ? standardExpression :
+                                                           Helper::arrayElement<std::string>(nonStandardExpressions);
 }
 }

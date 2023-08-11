@@ -6,7 +6,6 @@
 #include "types/EmojiType.h"
 #include "types/Ipv4Address.h"
 #include "types/Ipv4Class.h"
-#include "faker-cxx/String.h"
 
 namespace faker
 {
@@ -200,7 +199,7 @@ public:
      */
     static std::string ipv4(const IPv4Address& baseIpv4Address, const IPv4Address& generationMask);
 
-     /**
+    /**
      * @brief Returns a generated random mac address.
      *
      * @param sep Separator to use. Defaults to ":". Also can be "-" or "".

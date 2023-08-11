@@ -25,6 +25,54 @@ TEST_F(StringTest, shouldGenerateUuid4)
     ASSERT_EQ(uuid[23], '-');
 }
 
+TEST_F(StringTest, shouldGenerateDefaultSampleString)
+{
+    const auto sample = String::sample();
+
+    ASSERT_EQ(sample.size(), 10);
+    ASSERT_TRUE(std::all_of(sample.begin(), sample.end(),
+                            [](char sampleCharacter) {
+                                return static_cast<int>(sampleCharacter) >= 33 &&
+                                       static_cast<int>(sampleCharacter) <= 125;
+                            }));
+}
+
+TEST_F(StringTest, shouldGenerateSampleString)
+{
+    const auto sample = String::sample(5);
+
+    ASSERT_EQ(sample.size(), 5);
+    ASSERT_TRUE(std::all_of(sample.begin(), sample.end(),
+                            [](char sampleCharacter) {
+                                return static_cast<int>(sampleCharacter) >= 33 &&
+                                       static_cast<int>(sampleCharacter) <= 125;
+                            }));
+}
+
+TEST_F(StringTest, shouldGenerateDefaultStringFromCharaters)
+{
+    const std::string characters{"abc"};
+
+    const auto fromCharacters = String::fromCharacters(characters);
+
+    ASSERT_EQ(fromCharacters.size(), 1);
+    ASSERT_TRUE(std::all_of(fromCharacters.begin(), fromCharacters.end(),
+                            [&characters](char sampleCharacter)
+                            { return characters.find(sampleCharacter) != std::string::npos; }));
+}
+
+TEST_F(StringTest, shouldGenerateStringFromCharaters)
+{
+    const std::string characters{"iosjdaijqw"};
+
+    const auto fromCharacters = String::fromCharacters(characters, 6);
+
+    ASSERT_EQ(fromCharacters.size(), 6);
+    ASSERT_TRUE(std::all_of(fromCharacters.begin(), fromCharacters.end(),
+                            [&characters](char sampleCharacter)
+                            { return characters.find(sampleCharacter) != std::string::npos; }));
+}
+
 TEST_F(StringTest, shouldGenerateDefaultApha)
 {
     const auto alpha = String::alpha();
@@ -201,6 +249,38 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithHashPrefix)
     ASSERT_EQ(hexadecimal.size(), hexadecimalLength + 1);
     ASSERT_EQ(prefix, "#");
     ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
-                            [hexNumber](char hexNumberCharacter)
+                            [](char hexNumberCharacter)
                             { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+}
+
+TEST_F(StringTest, shouldGenerateBinary)
+{
+    const auto binaryLength = 8;
+
+    const auto binary = String::binary(binaryLength);
+
+    const auto prefix = binary.substr(0, 2);
+    const auto binaryNumber = binary.substr(2);
+
+    ASSERT_EQ(binary.size(), binaryLength + 2);
+    ASSERT_EQ(prefix, "0b");
+    ASSERT_TRUE(std::any_of(binary.begin(), binary.end(),
+                            [](char binaryNumberCharacter)
+                            { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+}
+
+TEST_F(StringTest, shouldGenerateOctalWithPrefix)
+{
+    const auto octalLength = 8;
+
+    const auto octal = String::octal(octalLength);
+
+    const auto prefix = octal.substr(0, 2);
+    const auto octalNumber = octal.substr(2);
+
+    ASSERT_EQ(octal.size(), octalLength + 2);
+    ASSERT_EQ(prefix, "0o");
+    ASSERT_TRUE(std::any_of(octal.begin(), octal.end(),
+                            [](char octalNumberCharacter)
+                            { return std::string("01234567").find(octalNumberCharacter) != std::string::npos; }));
 }

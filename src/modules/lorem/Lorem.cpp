@@ -1,5 +1,7 @@
 #include "faker-cxx/Lorem.h"
 
+#include <format>
+
 #include "../../common/StringHelper.h"
 #include "data/LoremWords.h"
 #include "faker-cxx/Helper.h"

@@ -51,7 +51,7 @@ std::map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMa
          i <= static_cast<unsigned long>(PhoneNumberCountryFormat::Zimbabwe); i++)
     {
         auto formatEnum = static_cast<PhoneNumberCountryFormat>(i);
-        
+
         formatMap[formatEnum] = phoneNumbers[i];
     }
 

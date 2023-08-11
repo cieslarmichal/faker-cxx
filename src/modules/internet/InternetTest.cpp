@@ -407,8 +407,7 @@ TEST_F(InternetTest, shouldGenerateEmoji)
     emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
 
     ASSERT_TRUE(std::any_of(emojis.begin(), emojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateSmileyEmoji)
@@ -416,8 +415,7 @@ TEST_F(InternetTest, shouldGenerateSmileyEmoji)
     const auto generatedEmoji = Internet::emoji(EmojiType::Smiley);
 
     ASSERT_TRUE(std::any_of(smileyEmojis.begin(), smileyEmojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateBodyEmoji)
@@ -425,8 +423,7 @@ TEST_F(InternetTest, shouldGenerateBodyEmoji)
     const auto generatedEmoji = Internet::emoji(EmojiType::Body);
 
     ASSERT_TRUE(std::any_of(bodyEmojis.begin(), bodyEmojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGeneratePersonEmoji)
@@ -434,8 +431,7 @@ TEST_F(InternetTest, shouldGeneratePersonEmoji)
     const auto generatedEmoji = Internet::emoji(EmojiType::Person);
 
     ASSERT_TRUE(std::any_of(personEmojis.begin(), personEmojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateNatureEmoji)
@@ -443,8 +439,7 @@ TEST_F(InternetTest, shouldGenerateNatureEmoji)
     const auto generatedEmoji = Internet::emoji(EmojiType::Nature);
 
     ASSERT_TRUE(std::any_of(natureEmojis.begin(), natureEmojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateFoodEmoji)
@@ -452,8 +447,7 @@ TEST_F(InternetTest, shouldGenerateFoodEmoji)
     const auto generatedEmoji = Internet::emoji(EmojiType::Food);
 
     ASSERT_TRUE(std::any_of(foodEmojis.begin(), foodEmojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateTravelEmoji)
@@ -461,8 +455,7 @@ TEST_F(InternetTest, shouldGenerateTravelEmoji)
     const auto generatedEmoji = Internet::emoji(EmojiType::Travel);
 
     ASSERT_TRUE(std::any_of(travelEmojis.begin(), travelEmojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateActivityEmoji)
@@ -470,8 +463,7 @@ TEST_F(InternetTest, shouldGenerateActivityEmoji)
     const auto generatedEmoji = Internet::emoji(EmojiType::Activity);
 
     ASSERT_TRUE(std::any_of(activityEmojis.begin(), activityEmojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateObjectEmoji)
@@ -479,8 +471,7 @@ TEST_F(InternetTest, shouldGenerateObjectEmoji)
     const auto generatedEmoji = Internet::emoji(EmojiType::Object);
 
     ASSERT_TRUE(std::any_of(objectEmojis.begin(), objectEmojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateSymbolEmoji)
@@ -488,8 +479,7 @@ TEST_F(InternetTest, shouldGenerateSymbolEmoji)
     const auto generatedEmoji = Internet::emoji(EmojiType::Symbol);
 
     ASSERT_TRUE(std::any_of(symbolEmojis.begin(), symbolEmojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateFlagEmoji)
@@ -497,8 +487,7 @@ TEST_F(InternetTest, shouldGenerateFlagEmoji)
     const auto generatedEmoji = Internet::emoji(EmojiType::Flag);
 
     ASSERT_TRUE(std::any_of(flagEmojis.begin(), flagEmojis.end(),
-                            [generatedEmoji](const std::string& emoji)
-                            { return generatedEmoji == emoji; }));
+                            [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateProtocol)
@@ -624,11 +613,13 @@ TEST_F(InternetTest, MacDefaultSeparator)
     std::string mac = Internet::mac();
     ASSERT_EQ(mac.size(), 17);
 
-    for (size_t i = 0; i < mac.size(); i += 3) {
+    for (size_t i = 0; i < mac.size(); i += 3)
+    {
         ASSERT_TRUE(isxdigit(mac[i]));
     }
 
-    for (size_t i = 2; i < mac.size(); i += 3) {
+    for (size_t i = 2; i < mac.size(); i += 3)
+    {
         ASSERT_EQ(mac[i], ':');
     }
 }

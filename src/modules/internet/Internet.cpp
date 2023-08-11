@@ -221,7 +221,8 @@ std::string Internet::mac(const std::string& sep)
     for (int i = 0; i < 12; i++)
     {
         mac += Number::hex();
-        if (i % 2 == 1 && i != 11) {
+        if (i % 2 == 1 && i != 11)
+        {
             mac += currentSep;
         }
     }

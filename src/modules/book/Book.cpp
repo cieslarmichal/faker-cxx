@@ -1,5 +1,7 @@
 #include "faker-cxx/Book.h"
 
+#include <format>
+
 #include "data/Authors.h"
 #include "data/Genres.h"
 #include "data/Publishers.h"

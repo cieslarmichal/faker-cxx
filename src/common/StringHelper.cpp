@@ -45,7 +45,7 @@ std::string StringHelper::join(const std::vector<std::string>& data, const std::
 std::string StringHelper::repeat(const std::string& data, int repetition)
 {
     std::string result;
-    for(int i = 0; i < repetition; ++i)
+    for (int i = 0; i < repetition; ++i)
     {
         result += data;
     }

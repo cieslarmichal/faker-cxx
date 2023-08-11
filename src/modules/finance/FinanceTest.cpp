@@ -1,11 +1,10 @@
 #include "faker-cxx/Finance.h"
 
 #include <algorithm>
-#include <regex>
 #include <ranges>
+#include <regex>
 
 #include "gtest/gtest.h"
-#include "gmock/gmock.h"
 
 #include "../../common/LuhnCheck.h"
 #include "../../common/StringHelper.h"
@@ -13,7 +12,7 @@
 #include "data/AccountTypes.h"
 #include "data/BankIndentifiersCodes.h"
 #include "data/Currencies.h"
-
+#include "gmock/gmock.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -21,7 +20,7 @@ using namespace faker;
 namespace
 {
 const std::string creditCardCharacters = "0123456789-";
-const std::map<IbanCountry, std::string> expectedRegex {
+const std::map<IbanCountry, std::string> expectedRegex{
     {IbanCountry::Austria, "^(AT)([0-9]{2})([0-9]{5})([0-9]{11})$"},
     {IbanCountry::Belgium, "^(BE)([0-9]{2})([0-9]{3})([0-9]{7})([0-9]{2})$"},
     {IbanCountry::Bulgaria, "^(BG)([0-9]{2})([A-Z]{4})([0-9]{4})([0-9]{2})([a-zA-Z0-9]{8})$"},
@@ -51,7 +50,7 @@ const std::map<IbanCountry, std::string> expectedRegex {
     {IbanCountry::Sweden, "^(SE)([0-9]{2})([0-9]{3})([0-9]{17})$"},
 };
 
-const std::map<IbanCountry, std::string> generatedTestName {
+const std::map<IbanCountry, std::string> generatedTestName{
     {IbanCountry::Austria, "shouldGenerateAustriaIban"},
     {IbanCountry::Belgium, "shouldGenerateBelgiumIban"},
     {IbanCountry::Bulgaria, "shouldGenerateBulgariaIban"},
@@ -168,26 +167,21 @@ TEST_F(FinanceTest, shouldGenerateAmount)
  * windows. Hence, we define our own macro which uses the c++ default
  * implementation of the used compiler.
  */
-MATCHER_P(MatchesRegexCpp, value, "") {
+MATCHER_P(MatchesRegexCpp, value, "")
+{
     return std::regex_match(arg, std::regex(value));
 }
 
-TEST_P(FinanceTest, CheckIbanGenerator) {
+TEST_P(FinanceTest, CheckIbanGenerator)
+{
     auto ibanCountry = GetParam();
 
     ASSERT_THAT(Finance::iban(ibanCountry), MatchesRegexCpp(expectedRegex.at(ibanCountry)));
 }
 
-INSTANTIATE_TEST_SUITE_P(
-    TestIbanGenerator,
-    FinanceTest,
-    ValuesIn(
-        std::views::keys(expectedRegex).begin(),
-        std::views::keys(expectedRegex).end()
-    ),
-    [](const TestParamInfo<IbanCountry> &info) {
-        return generatedTestName.at(info.param);
-    });
+INSTANTIATE_TEST_SUITE_P(TestIbanGenerator, FinanceTest,
+                         ValuesIn(std::views::keys(expectedRegex).begin(), std::views::keys(expectedRegex).end()),
+                         [](const TestParamInfo<IbanCountry>& info) { return generatedTestName.at(info.param); });
 
 TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 {

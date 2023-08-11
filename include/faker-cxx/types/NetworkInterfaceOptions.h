@@ -2,12 +2,13 @@
 
 #include <optional>
 #include <string>
-#include <vector>
 #include <unordered_map>
+#include <vector>
 
 namespace faker
 {
-struct NetworkInterfaceOptions {
+struct NetworkInterfaceOptions
+{
     std::optional<std::string> interfaceType;
     std::optional<std::string> interfaceSchema;
 };
