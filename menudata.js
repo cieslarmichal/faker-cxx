@@ -76,5 +76,4 @@ var menudata={children:[
 {text:"w",url:"functions_func.html#index_w"},
 {text:"z",url:"functions_func.html#index_z"}]}]}]},
 {text:"Files",url:"files.html",children:[
-{text:"File List",url:"files.html"}]},
-{text:"Examples",url:"examples.html"}]}
+{text:"File List",url:"files.html"}]}]}

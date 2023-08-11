@@ -99,13 +99,13 @@ $(document).ready(function(){initNavTree('Number_8h_source.html',''); initResiza
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;concepts&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;random&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;type_traits&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;utility&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">namespace </span>faker</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
@@ -274,16 +274,14 @@ $(document).ready(function(){initNavTree('Number_8h_source.html',''); initResiza
 <div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        <span class="keywordflow">return</span> distribution(pseudoRandomGenerator);</div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>    }</div>
 <div class="line"><a id="l00361" name="l00361"></a><span class="lineno">  361</span> </div>
-<div class="line"><a id="l00375" name="l00375"></a><span class="lineno">  375</span>    <span class="keyword">static</span> std::string hex(std::optional&lt;int&gt; min = std::nullopt, std::optional&lt;int&gt; max = std::nullopt);</div>
+<div class="line"><a id="l00375" name="l00375"></a><span class="lineno"><a class="line" href="classfaker_1_1Number.html#af958bfc1ada6c2470edfb13e93e24e11">  375</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Number.html#af958bfc1ada6c2470edfb13e93e24e11">hex</a>(std::optional&lt;int&gt; min = std::nullopt, std::optional&lt;int&gt; max = std::nullopt);</div>
 <div class="line"><a id="l00376" name="l00376"></a><span class="lineno">  376</span> </div>
-<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span> </div>
-<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keyword">static</span> std::random_device randomDevice;</div>
-<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator;</div>
-<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>    <span class="keyword">static</span> std::string convertToHex(<span class="keywordtype">int</span> number);</div>
-<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span> </div>
-<div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>};</div>
-<div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span>}</div>
+<div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>    <span class="keyword">static</span> std::random_device randomDevice;</div>
+<div class="line"><a id="l00379" name="l00379"></a><span class="lineno">  379</span>    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator;</div>
+<div class="line"><a id="l00380" name="l00380"></a><span class="lineno">  380</span>    <span class="keyword">static</span> std::string convertToHex(<span class="keywordtype">int</span> number);</div>
+<div class="line"><a id="l00381" name="l00381"></a><span class="lineno">  381</span>};</div>
+<div class="line"><a id="l00382" name="l00382"></a><span class="lineno">  382</span>}</div>
 <div class="ttc" id="aclassfaker_1_1Number_html"><div class="ttname"><a href="classfaker_1_1Number.html">faker::Number</a></div><div class="ttdef"><b>Definition</b> Number.h:104</div></div>
 <div class="ttc" id="aclassfaker_1_1Number_html_a147ffc92264eec859d1cbc3b78f9e605"><div class="ttname"><a href="classfaker_1_1Number.html#a147ffc92264eec859d1cbc3b78f9e605">faker::Number::integer</a></div><div class="ttdeci">static I integer(D distribution)</div><div class="ttdoc">Generates a random integer, unbounded, with a given distribution.</div><div class="ttdef"><b>Definition</b> Number.h:226</div></div>
 <div class="ttc" id="aclassfaker_1_1Number_html_a1af485acb65ed7312f13f4cb56f1a7c4"><div class="ttname"><a href="classfaker_1_1Number.html#a1af485acb65ed7312f13f4cb56f1a7c4">faker::Number::integer</a></div><div class="ttdeci">static I integer(I min, I max)</div><div class="ttdoc">Generates a random integer number in the given range, bounds included.</div><div class="ttdef"><b>Definition</b> Number.h:119</div></div>
@@ -295,6 +293,7 @@ $(document).ready(function(){initNavTree('Number_8h_source.html',''); initResiza
 <div class="ttc" id="aclassfaker_1_1Number_html_aa9798805cb9f38a2ea4128ac6de2c659"><div class="ttname"><a href="classfaker_1_1Number.html#aa9798805cb9f38a2ea4128ac6de2c659">faker::Number::integer</a></div><div class="ttdeci">static I integer(D distribution, I max)</div><div class="ttdoc">Generates a random integer between 0 and the given maximum value with a given distribution,...</div><div class="ttdef"><b>Definition</b> Number.h:208</div></div>
 <div class="ttc" id="aclassfaker_1_1Number_html_ac44fe3f93d58f3bcf35e2f56d024aa3f"><div class="ttname"><a href="classfaker_1_1Number.html#ac44fe3f93d58f3bcf35e2f56d024aa3f">faker::Number::decimal</a></div><div class="ttdeci">static F decimal(D distribution)</div><div class="ttdoc">Generates a random decimal number in the given range, bounds included.</div><div class="ttdef"><b>Definition</b> Number.h:357</div></div>
 <div class="ttc" id="aclassfaker_1_1Number_html_af261272720eb41ef8ee14be98ac0be70"><div class="ttname"><a href="classfaker_1_1Number.html#af261272720eb41ef8ee14be98ac0be70">faker::Number::integer</a></div><div class="ttdeci">static I integer(D distribution, I min, I max)</div><div class="ttdoc">Generates a random integer in the given range with a given distribution, bounds included.</div><div class="ttdef"><b>Definition</b> Number.h:172</div></div>
+<div class="ttc" id="aclassfaker_1_1Number_html_af958bfc1ada6c2470edfb13e93e24e11"><div class="ttname"><a href="classfaker_1_1Number.html#af958bfc1ada6c2470edfb13e93e24e11">faker::Number::hex</a></div><div class="ttdeci">static std::string hex(std::optional&lt; int &gt; min=std::nullopt, std::optional&lt; int &gt; max=std::nullopt)</div><div class="ttdoc">Returns a lowercase hexadecimal number.</div></div>
 <div class="ttc" id="aconceptfaker_1_1DecimalDistribution_html"><div class="ttname"><a href="conceptfaker_1_1DecimalDistribution.html">faker::DecimalDistribution</a></div><div class="ttdoc">A concept that checks if a type is a valid decimal distribution.</div><div class="ttdef"><b>Definition</b> Number.h:101</div></div>
 <div class="ttc" id="aconceptfaker_1_1Distribution_html"><div class="ttname"><a href="conceptfaker_1_1Distribution.html">faker::Distribution</a></div><div class="ttdoc">A concept that checks if a type is a valid distribution.</div><div class="ttdef"><b>Definition</b> Number.h:28</div></div>
 <div class="ttc" id="aconceptfaker_1_1IntegerDistribution_html"><div class="ttname"><a href="conceptfaker_1_1IntegerDistribution.html">faker::IntegerDistribution</a></div><div class="ttdoc">A concept that checks if a type is a valid integer distribution.</div><div class="ttdef"><b>Definition</b> Number.h:93</div></div>
