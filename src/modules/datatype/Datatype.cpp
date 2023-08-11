@@ -11,7 +11,7 @@ bool Datatype::boolean()
 
 bool Datatype::boolean(double probability)
 {
-    if(probability != NAN)
+    if (probability != NAN)
     {
         double prob = probability;
         if (prob <= 0.f)

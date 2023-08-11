@@ -3,10 +3,10 @@
 #include <optional>
 #include <string>
 
-#include "faker-cxx/types/BicCountry.h"
-#include "faker-cxx/types/IbanCountry.h"
-#include "faker-cxx/types/Precision.h"
+#include "types/BicCountry.h"
 #include "types/Country.h"
+#include "types/IbanCountry.h"
+#include "types/Precision.h"
 
 namespace faker
 {

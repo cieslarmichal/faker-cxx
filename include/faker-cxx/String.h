@@ -28,6 +28,35 @@ public:
     static std::string uuid();
 
     /**
+     * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
+     *
+     * @param length The number of characters to generate. Defaults to `10`.
+     *
+     * @returns Sample string.
+     *
+     * @code
+     * String::sample() // "Zo!.:*e>wR"
+     * String::sample(5) // "6Bye8"
+     * @endcode
+     */
+    static std::string sample(unsigned length = 10);
+
+    /**
+     * @brief Generates a string consisting of given characters.
+     *
+     * @param characters The characters to generate string with.
+     * @param length The number of characters to generate. Defaults to `1`.
+     *
+     * @returns String from characters.
+     *
+     * @code
+     * String::fromCharacters("abc") // "b"
+     * String::fromCharacters("qwerty", 5) // "qrwqt"
+     * @endcode
+     */
+    static std::string fromCharacters(const std::string& characters, unsigned length = 1);
+
+    /**
      * @brief Generates a string consisting of letters in the English alphabet.
      *
      * @param length The number of characters to generate. Defaults to `1`.
@@ -92,5 +121,31 @@ public:
      */
     static std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
                                    HexPrefix prefix = HexPrefix::ZeroX);
+
+    /**
+     * @brief Generates a binary string.
+     *
+     * @param length The number of digits to generate. Defaults to `1`.
+     *
+     * @returns Binary string.
+     *
+     * @code
+     * String::binary(8) // "0b01110101"
+     * @endcode
+     */
+    static std::string binary(unsigned length = 1);
+
+    /**
+     * @brief Generates an octal string.
+     *
+     * @param length The number of digits to generate. Defaults to `1`.
+     *
+     * @returns Octal string.
+     *
+     * @code
+     * String::octal(8) // "0o52561721"
+     * @endcode
+     */
+    static std::string octal(unsigned length = 1);
 };
 }

@@ -1,18 +1,10 @@
 #pragma once
 
-#include <chrono>
-#include <random>
-#include <regex>
-#include <span>
-#include <string_view>
-#include <vector>
-#include <unordered_map>
 #include <functional>
+#include <span>
 
-#include "../../src/common/LuhnCheck.h"
-#include "../src/common/StringHelper.h"
-#include "Number.h"
 #include "Datatype.h"
+#include "Number.h"
 
 namespace faker
 {
@@ -79,7 +71,7 @@ public:
      * Helper::replaceSymbolWithNumber("Your pin is: !####") // "29841"
      * @endcode
      */
-    static std::string replaceSymbolWithNumber(std::string str, const char & symbol = '#');
+    static std::string replaceSymbolWithNumber(std::string str, const char& symbol = '#');
 
     /**
      * @brief Returns credit card schema with replaced symbols and patterns in a credit card  including Luhn checksum
@@ -97,7 +89,8 @@ public:
      * Helper::replaceCreditCardSymbols("1234-[4-9]-##!!-L") // "1234-9-5298-2"
      * @endcode
      */
-    static std::string replaceCreditCardSymbols(const std::string& inputString = "6453-####-####-####-###L", char symbol = '#');
+    static std::string replaceCreditCardSymbols(const std::string& inputString = "6453-####-####-####-###L",
+                                                char symbol = '#');
 
     /**
      * @brief Returns the replaced regex-like expression in the string with matching values.
@@ -121,7 +114,7 @@ public:
      */
     static std::string regexpStyleStringParse(const std::string& input);
 
-     /**
+    /**
      * @brief Returns a random key from given object.
      *
      * @tparam T The type of the object to select from.
@@ -144,12 +137,14 @@ public:
     template <typename T>
     static typename T::key_type objectKey(const T& object)
     {
-        if (object.empty()) {
+        if (object.empty())
+        {
             throw std::runtime_error("Object is empty.");
         }
 
         std::vector<typename T::key_type> keys;
-        for (const auto& entry : object) {
+        for (const auto& entry : object)
+        {
             keys.push_back(entry.first);
         }
 
@@ -158,7 +153,7 @@ public:
 
     /**
      * @brief Returns the result of the callback if the probability check was successful, otherwise empty string.
-*
+     *
      *
      * @tparam TResult The type of result of the given callback.
      *
@@ -173,8 +168,10 @@ public:
      * @endcode
      */
     template <typename TResult>
-    static TResult maybe(std::function<TResult()> callback, double probability = 0.5) {
-        if (Datatype::boolean(probability)) {
+    static TResult maybe(std::function<TResult()> callback, double probability = 0.5)
+    {
+        if (Datatype::boolean(probability))
+        {
             return callback();
         }
         return TResult();

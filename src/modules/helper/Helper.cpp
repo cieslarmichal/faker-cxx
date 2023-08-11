@@ -1,5 +1,13 @@
 #include "faker-cxx/Helper.h"
 
+#include <chrono>
+#include <random>
+#include <regex>
+#include <string_view>
+
+#include "../src/common/LuhnCheck.h"
+#include "../src/common/StringHelper.h"
+
 namespace faker
 {
 std::random_device Helper::randomDevice;
@@ -10,13 +18,13 @@ std::string Helper::replaceSymbolWithNumber(std::string str, const char& symbol)
 {
     for (char& ch : str)
     {
-        if(ch == symbol)
+        if (ch == symbol)
         {
-            ch = static_cast<char>(Number::integer(0,9) + '0');
+            ch = static_cast<char>(Number::integer(0, 9) + '0');
         }
-        else if(ch == '!')
+        else if (ch == '!')
         {
-            ch = static_cast<char>(Number::integer(2,9) + '0');
+            ch = static_cast<char>(Number::integer(2, 9) + '0');
         }
     }
     return str;
@@ -52,44 +60,46 @@ std::string Helper::regexpStyleStringParse(const std::string& input)
     const std::regex RANGE_REG(R"(\[(\d+)-(\d+)\])");
     std::smatch token;
 
-    while (std::regex_search(string, token, RANGE_REP_REG)) {
+    while (std::regex_search(string, token, RANGE_REP_REG))
+    {
         int min = std::stoi(token[2]);
         int max = std::stoi(token[3]);
         // switch min and max
-        if (min > max) {
+        if (min > max)
+        {
             std::swap(min, max);
         }
 
         int repetitions = Number::integer(min, max);
-        string =
-            string.substr(0, static_cast<unsigned long>(token.position())) +
-            StringHelper::repeat(token[1], repetitions) +
-            string.substr(static_cast<unsigned long>(token.position() + token.length()));
+        string = string.substr(0, static_cast<unsigned long>(token.position())) +
+                 StringHelper::repeat(token[1], repetitions) +
+                 string.substr(static_cast<unsigned long>(token.position() + token.length()));
     }
 
     // Deal with repeat `{num}`
-    while (std::regex_search(string, token, REP_REG)) {
+    while (std::regex_search(string, token, REP_REG))
+    {
         int repetitions = std::stoi(token[2]);
-        string =
-            string.substr(0, static_cast<unsigned long>(token.position())) +
-            StringHelper::repeat(token[1], repetitions) +
-            string.substr(static_cast<unsigned long>(token.position() + token.length()));
+        string = string.substr(0, static_cast<unsigned long>(token.position())) +
+                 StringHelper::repeat(token[1], repetitions) +
+                 string.substr(static_cast<unsigned long>(token.position() + token.length()));
     }
 
     // Deal with range `[min-max]` (only works with numbers for now)
     // TODO: implement for letters e.g. [0-9a-zA-Z] etc.
-    while (std::regex_search(string, token, RANGE_REG)) {
+    while (std::regex_search(string, token, RANGE_REG))
+    {
         int min = std::stoi(token[1]); // This time we are not capturing the char before `[]`
         int max = std::stoi(token[2]);
         // switch min and max
-        if (min > max) {
+        if (min > max)
+        {
             std::swap(min, max);
         }
 
-        string =
-            string.substr(0, static_cast<unsigned long>(token.position())) +
-            std::to_string(Number::integer(min, max)) +
-            string.substr(static_cast<unsigned long>(token.position() + token.length()));
+        string = string.substr(0, static_cast<unsigned long>(token.position())) +
+                 std::to_string(Number::integer(min, max)) +
+                 string.substr(static_cast<unsigned long>(token.position() + token.length()));
     }
 
     return string;

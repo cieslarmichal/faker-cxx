@@ -1,14 +1,13 @@
 #pragma once
 
-#include <string>
 #include <algorithm>
+#include <string>
 
 namespace faker
 {
 class LuhnCheck
 {
 public:
-
     /**
      * @brief Returns luhn checksum value for the given value.
      *

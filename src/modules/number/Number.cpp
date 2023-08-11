@@ -13,14 +13,15 @@ std::string Number::hex(std::optional<int> min, std::optional<int> max)
     int defaultMin = 0;
     int defaultMax = 15;
 
-    if (min.has_value()) {
+    if (min.has_value())
+    {
         defaultMin = min.value();
     }
 
-    if (max.has_value()) {
+    if (max.has_value())
+    {
         defaultMax = max.value();
     }
-
 
     return convertToHex(integer(defaultMin, defaultMax));
 }

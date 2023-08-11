@@ -2,9 +2,11 @@
 
 namespace faker
 {
-struct FileOptions {
+struct FileOptions
+{
     int extensionCount = 1;
-    struct {
+    struct
+    {
         int min = 1;
         int max = 1;
     } extensionRange;

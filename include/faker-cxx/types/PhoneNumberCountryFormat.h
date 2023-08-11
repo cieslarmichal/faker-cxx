@@ -2,7 +2,8 @@
 
 namespace faker
 {
-enum class PhoneNumberCountryFormat {
+enum class PhoneNumberCountryFormat
+{
     Default,
     Afghanistan,
     AlandIslands,

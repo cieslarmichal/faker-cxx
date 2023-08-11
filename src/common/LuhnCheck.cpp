@@ -40,7 +40,7 @@ bool LuhnCheck::luhnCheck(const std::string& inputString)
 int LuhnCheck::luhnCheckValue(const std::string& inputString)
 {
     int checksum = luhnCheckSum(inputString.substr(0, inputString.length() - 1) + '0');
-    
+
     return checksum == 0 ? 0 : 10 - checksum;
 }
 }

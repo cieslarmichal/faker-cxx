@@ -1,9 +1,12 @@
 #include "faker-cxx/Helper.h"
-#include "gtest/gtest.h"
-#include <regex>
+
 #include <algorithm>
-#include <unordered_map>
+#include <regex>
 #include <stdexcept>
+#include <unordered_map>
+
+#include "gtest/gtest.h"
+
 #include "faker-cxx/String.h"
 using namespace faker;
 using namespace ::testing;
@@ -59,11 +62,7 @@ TEST_F(HelperTest, ReplaceCreditCardSymbols)
 
 TEST_F(HelperTest, ObjectKeyTest)
 {
-    std::unordered_map<int, std::string> testMap = {
-        {1, "one"},
-        {2, "two"},
-        {3, "three"}
-    };
+    std::unordered_map<int, std::string> testMap = {{1, "one"}, {2, "two"}, {3, "three"}};
 
     ASSERT_NO_THROW({
         int key = Helper::objectKey(testMap);
@@ -72,9 +71,7 @@ TEST_F(HelperTest, ObjectKeyTest)
 
     std::unordered_map<int, std::string> emptyMap;
 
-    ASSERT_THROW({
-        Helper::objectKey(emptyMap);
-    }, std::runtime_error);
+    ASSERT_THROW({ Helper::objectKey(emptyMap); }, std::runtime_error);
 }
 
 TEST_F(HelperTest, MaybeString)

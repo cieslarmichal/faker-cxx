@@ -1,8 +1,8 @@
 #include "faker-cxx/String.h"
 
+#include <iostream>
 #include <map>
 #include <random>
-#include <sstream>
 
 #include "data/Characters.h"
 #include "faker-cxx/Helper.h"
@@ -31,7 +31,6 @@ const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
 };
 }
 
-// TODO: refactor
 std::string String::uuid()
 {
     static std::random_device rd;
@@ -76,6 +75,30 @@ std::string String::uuid()
     };
 
     return ss.str();
+}
+
+std::string String::sample(unsigned int length)
+{
+    std::string sample;
+
+    for (unsigned i = 0; i < length; i++)
+    {
+        sample += static_cast<char>(Number::integer(33, 125));
+    }
+
+    return sample;
+}
+
+std::string String::fromCharacters(const std::string& characters, unsigned int length)
+{
+    std::string result;
+
+    for (unsigned i = 0; i < length; i++)
+    {
+        result += Helper::arrayElement<char>(characters);
+    }
+
+    return result;
 }
 
 std::string String::alpha(unsigned length, StringCasing casing)
@@ -139,5 +162,29 @@ std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix
     }
 
     return hexadecimal;
+}
+
+std::string String::binary(unsigned int length)
+{
+    std::string binary{"0b"};
+
+    for (unsigned i = 0; i < length; i++)
+    {
+        binary += static_cast<char>(Number::integer(1));
+    }
+
+    return binary;
+}
+
+std::string String::octal(unsigned int length)
+{
+    std::string octal{"0o"};
+
+    for (unsigned i = 0; i < length; i++)
+    {
+        octal += static_cast<char>(Number::integer(7));
+    }
+
+    return octal;
 }
 }
