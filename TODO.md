@@ -131,10 +131,10 @@
 
 ### String:
 
-- [ ] binary
-- [ ] fromCharacters
-- [ ] sample
-- [ ] octal
+- [x] binary
+- [x] fromCharacters
+- [x] sample
+- [x] octal
 
 ### 🎶 Music:
 
