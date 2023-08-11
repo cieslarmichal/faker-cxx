@@ -253,6 +253,18 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithHashPrefix)
                             { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
+TEST_F(StringTest, shouldGenerateHexadecimalWithoutPrefix)
+{
+    const auto hexadecimalLength = 8;
+
+    const auto hexadecimal = String::hexadecimal(hexadecimalLength, HexCasing::Upper, HexPrefix::None);
+
+    ASSERT_EQ(hexadecimal.size(), hexadecimalLength);
+    ASSERT_TRUE(std::any_of(hexadecimal.begin(), hexadecimal.end(),
+                            [](char hexNumberCharacter)
+                            { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+}
+
 TEST_F(StringTest, shouldGenerateBinary)
 {
     const auto binaryLength = 8;

@@ -172,11 +172,11 @@
 
 ### Database:
 
-- [ ] collation
-- [ ] column
-- [ ] engine
-- [ ] mongodbObjectId
-- [ ] type
+- [x] collation
+- [x] column
+- [x] engine
+- [x] type
+- [x] mongodbObjectId
 
 ### 💻 System:
 

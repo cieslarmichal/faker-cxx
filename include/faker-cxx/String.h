@@ -117,6 +117,7 @@ public:
      * String::hexadecimal() // "0xb"
      * String::hexadecimal(10) // "0xae13d044cb"
      * String::hexadecimal(6, HexCasing::Upper, HexPrefix::Hash) // "#E3F380"
+     * String::hexadecimal(6, HexCasing::Lower, HexPrefix::None) // "e3f380"
      * @endcode
      */
     static std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
