@@ -206,6 +206,17 @@ public:
     static std::string ipv4(const IPv4Address& baseIpv4Address, const IPv4Address& generationMask);
 
     /**
+     * @brief Returns a string containing randomized ipv6 address.
+     *
+     * @return String representation of the ipv6 address.
+     *
+     * @code
+     * Internet::ipv6() // "269f:1230:73e3:318d:842b:daab:326d:897b"
+     * @endcode
+     */
+    static std::string ipv6();
+
+    /**
      * @brief Returns a generated random mac address.
      *
      * @param sep Separator to use. Defaults to ":". Also can be "-" or "".
@@ -217,6 +228,17 @@ public:
      * @endcode
      */
     static std::string mac(const std::string& sep = ":");
+
+    /**
+     * @brief Generates a random port.
+     *
+     * @return Port.
+     *
+     * @code
+     * Internet::port() // 5432
+     * @endcode
+     */
+    static unsigned port();
 
     /**
      * @brief Generates a random url.

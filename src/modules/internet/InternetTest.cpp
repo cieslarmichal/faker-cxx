@@ -9,6 +9,7 @@
 #include "../person/data/FirstNamesFemales.h"
 #include "../person/data/FirstNamesMales.h"
 #include "../person/data/LastNames.h"
+#include "../string/data/Characters.h"
 #include "../word/data/Adjectives.h"
 #include "../word/data/Nouns.h"
 #include "data/DomainSuffixes.h"
@@ -643,6 +644,24 @@ TEST_F(InternetTest, shouldGenerateIpv4KeepingTheMaskedPart)
     ASSERT_TRUE((generatedAddress[1] & generationMask[1]) == expectedSecondSectorMaskedValue);
 }
 
+TEST_F(InternetTest, shouldGenerateIpv6)
+{
+    const auto generatedIpv6 = Internet::ipv6();
+
+    const auto generatedIpv6Parts = StringHelper::split(generatedIpv6, ":");
+
+    ASSERT_EQ(generatedIpv6Parts.size(), 8);
+
+    ASSERT_TRUE(std::all_of(generatedIpv6Parts.begin(), generatedIpv6Parts.end(),
+                            [](const std::string& generatedIpv6Part)
+                            {
+                                return std::all_of(
+                                    generatedIpv6Part.begin(), generatedIpv6Part.end(),
+                                    [](char hexCharacter)
+                                    { return hexLowerCharacters.find(hexCharacter) != std::string::npos; });
+                            }));
+}
+
 TEST_F(InternetTest, MacDefaultSeparator)
 {
     const auto mac = Internet::mac();
@@ -731,4 +750,12 @@ TEST_F(InternetTest, shouldGenerateHttpUrl)
                             [generatedDomainSuffix](const std::string& domainSuffix)
                             { return generatedDomainSuffix == domainSuffix; }));
     ASSERT_EQ(generatedProtocol, "http");
+}
+
+TEST_F(InternetTest, shouldGeneratePort)
+{
+    const auto generatedPort = Internet::port();
+
+    ASSERT_GE(generatedPort, 0);
+    ASSERT_LE(generatedPort, 65535);
 }
