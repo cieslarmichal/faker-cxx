@@ -143,9 +143,9 @@
 
 ### 🎥 Movie:
 
-- [ ] genre
-- [ ] title
-- [ ] director
+- [x] genre
+- [x] title
+- [x] director
 
 ### Database:
 
