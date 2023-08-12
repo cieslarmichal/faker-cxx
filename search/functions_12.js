@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['username_0',['username',['../classfaker_1_1Internet.html#a3da60463681646e7d87a056412828820',1,'faker::Internet']]],
-  ['uuid_1',['uuid',['../classfaker_1_1String.html#ac257c59dbcb609c4d53977b7efb7a493',1,'faker::String']]]
+  ['url_0',['url',['../classfaker_1_1Internet.html#a5e1681677a509194597848cd44f9a2e7',1,'faker::Internet']]],
+  ['username_1',['username',['../classfaker_1_1Internet.html#a3da60463681646e7d87a056412828820',1,'faker::Internet']]],
+  ['uuid_2',['uuid',['../classfaker_1_1String.html#ac257c59dbcb609c4d53977b7efb7a493',1,'faker::String']]]
 ];
