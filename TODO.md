@@ -45,13 +45,13 @@
 - [x] httpStatusCode
 - [x] ipv4
 - [ ] ipv6
-- [ ] mac
+- [x] mac
 - [ ] port
 - [x] protocol
-- [ ] url
-- [ ] domainName
-- [ ] domainSuffix
-- [ ] domainWord
+- [x] url
+- [x] domainName
+- [x] domainSuffix
+- [x] domainWord
 - [x] image url
 - [x] github avatar url
 
@@ -119,14 +119,6 @@
 - [x] sample
 - [x] verb
 - [x] words
-
-### Git:
-
-- [ ] branch
-- [ ] commitDate
-- [ ] commitEntry
-- [ ] commitMessage
-- [ ] commitSha
 
 ### String:
 

@@ -1,6 +1,7 @@
 #include "faker-cxx/Internet.h"
 
 #include <algorithm>
+#include <optional>
 
 #include "gtest/gtest.h"
 
@@ -8,6 +9,9 @@
 #include "../person/data/FirstNamesFemales.h"
 #include "../person/data/FirstNamesMales.h"
 #include "../person/data/LastNames.h"
+#include "../word/data/Adjectives.h"
+#include "../word/data/Nouns.h"
+#include "data/DomainSuffixes.h"
 #include "data/EmailHosts.h"
 #include "data/Emojis.h"
 
@@ -57,6 +61,37 @@ IPv4Address deconstructIpv4String(const std::string& ipv4)
 class InternetTest : public Test
 {
 public:
+    InternetTest()
+    {
+        std::sort(sortedAdjectivesDescendingBySize.begin(), sortedAdjectivesDescendingBySize.end(),
+                  [](const std::string& first, const std::string& second) { return first.size() > second.size(); });
+    }
+
+    void assertDomainWord(const std::string& domainWord)
+    {
+        std::optional<std::string> foundAdjective = std::nullopt;
+
+        for (const auto& adjective : sortedAdjectivesDescendingBySize)
+        {
+            if (domainWord.find(adjective) == 0)
+            {
+                foundAdjective = adjective;
+                break;
+            }
+        }
+
+        ASSERT_TRUE(foundAdjective);
+
+        ASSERT_EQ(domainWord[foundAdjective->size()], '-');
+
+        const auto generatedNoun = domainWord.substr(foundAdjective->size() + 1);
+
+        ASSERT_TRUE(std::any_of(nouns.begin(), nouns.end(),
+                                [generatedNoun](const std::string& noun)
+                                { return generatedNoun == StringHelper::toLower(noun); }));
+    }
+
+    std::vector<std::string> sortedAdjectivesDescendingBySize{adjectives};
 };
 
 TEST_F(InternetTest, shouldGenerateUsername)
@@ -610,7 +645,8 @@ TEST_F(InternetTest, shouldGenerateIpv4KeepingTheMaskedPart)
 
 TEST_F(InternetTest, MacDefaultSeparator)
 {
-    std::string mac = Internet::mac();
+    const auto mac = Internet::mac();
+
     ASSERT_EQ(mac.size(), 17);
 
     for (size_t i = 0; i < mac.size(); i += 3)
@@ -622,4 +658,77 @@ TEST_F(InternetTest, MacDefaultSeparator)
     {
         ASSERT_EQ(mac[i], ':');
     }
+}
+
+TEST_F(InternetTest, shouldGenerateDomainSuffix)
+{
+    const auto generatedDomainSuffix = Internet::domainSuffix();
+
+    ASSERT_TRUE(std::any_of(domainSuffixes.begin(), domainSuffixes.end(),
+                            [generatedDomainSuffix](const std::string& domainSuffix)
+                            { return generatedDomainSuffix == domainSuffix; }));
+}
+
+TEST_F(InternetTest, shouldGenerateDomainWord)
+{
+    const auto generatedDomainWord = Internet::domainWord();
+
+    assertDomainWord(generatedDomainWord);
+}
+
+TEST_F(InternetTest, shouldGenerateDomainName)
+{
+    const auto generatedDomainName = Internet::domainName();
+
+    const auto generatedDomainNameParts = StringHelper::split(generatedDomainName, ".");
+
+    const auto& generatedDomainWord = generatedDomainNameParts[0];
+    const auto& generatedDomainSuffix = generatedDomainNameParts[1];
+
+    assertDomainWord(generatedDomainWord);
+    ASSERT_TRUE(std::any_of(domainSuffixes.begin(), domainSuffixes.end(),
+                            [generatedDomainSuffix](const std::string& domainSuffix)
+                            { return generatedDomainSuffix == domainSuffix; }));
+}
+
+TEST_F(InternetTest, shouldGenerateHttpsUrl)
+{
+    const auto generatedUrl = Internet::url();
+
+    const auto generatedUrlParts = StringHelper::split(generatedUrl, "://");
+
+    const auto& generatedProtocol = generatedUrlParts[0];
+    const auto& generatedDomainName = generatedUrlParts[1];
+
+    const auto generatedDomainNameParts = StringHelper::split(generatedDomainName, ".");
+
+    const auto& generatedDomainWord = generatedDomainNameParts[0];
+    const auto& generatedDomainSuffix = generatedDomainNameParts[1];
+
+    assertDomainWord(generatedDomainWord);
+    ASSERT_TRUE(std::any_of(domainSuffixes.begin(), domainSuffixes.end(),
+                            [generatedDomainSuffix](const std::string& domainSuffix)
+                            { return generatedDomainSuffix == domainSuffix; }));
+    ASSERT_EQ(generatedProtocol, "https");
+}
+
+TEST_F(InternetTest, shouldGenerateHttpUrl)
+{
+    const auto generatedUrl = Internet::url(WebProtocol::Http);
+
+    const auto generatedUrlParts = StringHelper::split(generatedUrl, "://");
+
+    const auto& generatedProtocol = generatedUrlParts[0];
+    const auto& generatedDomainName = generatedUrlParts[1];
+
+    const auto generatedDomainNameParts = StringHelper::split(generatedDomainName, ".");
+
+    const auto& generatedDomainWord = generatedDomainNameParts[0];
+    const auto& generatedDomainSuffix = generatedDomainNameParts[1];
+
+    assertDomainWord(generatedDomainWord);
+    ASSERT_TRUE(std::any_of(domainSuffixes.begin(), domainSuffixes.end(),
+                            [generatedDomainSuffix](const std::string& domainSuffix)
+                            { return generatedDomainSuffix == domainSuffix; }));
+    ASSERT_EQ(generatedProtocol, "http");
 }

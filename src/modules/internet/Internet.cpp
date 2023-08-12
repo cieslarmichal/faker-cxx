@@ -4,10 +4,13 @@
 #include <map>
 #include <utility>
 
+#include "../../common/StringHelper.h"
+#include "data/DomainSuffixes.h"
 #include "data/EmailHosts.h"
 #include "data/Emojis.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
+#include "faker-cxx/Word.h"
 
 namespace faker
 {
@@ -227,5 +230,27 @@ std::string Internet::mac(const std::string& sep)
         }
     }
     return mac;
+}
+
+std::string Internet::url(WebProtocol webProtocol)
+{
+    const auto protocol = webProtocol == WebProtocol::Https ? "https" : "http";
+
+    return std::format("{}://{}", protocol, domainName());
+}
+
+std::string Internet::domainName()
+{
+    return std::format("{}.{}", domainWord(), domainSuffix());
+}
+
+std::string Internet::domainWord()
+{
+    return StringHelper::toLower(std::format("{}-{}", Word::adjective(), Word::noun()));
+}
+
+std::string Internet::domainSuffix()
+{
+    return Helper::arrayElement<std::string>(domainSuffixes);
 }
 }

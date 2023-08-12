@@ -61,3 +61,12 @@ TEST_F(StringHelperTest, repeatString)
 
     ASSERT_EQ(result, "hello hello hello ");
 }
+
+TEST_F(StringHelperTest, toLower)
+{
+    const std::string data = "HeLlo!";
+
+    const std::string result = StringHelper::toLower(data);
+
+    ASSERT_EQ(result, "hello!");
+}

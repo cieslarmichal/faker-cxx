@@ -1,6 +1,9 @@
 #include "StringHelper.h"
 
+#include <algorithm>
+#include <cctype>
 #include <sstream>
+#include <string>
 
 namespace faker
 {
@@ -50,5 +53,14 @@ std::string StringHelper::repeat(const std::string& data, int repetition)
         result += data;
     }
     return result;
+}
+
+std::string StringHelper::toLower(const std::string& data)
+{
+    std::string lowerData{data};
+
+    std::transform(lowerData.begin(), lowerData.end(), lowerData.begin(), [](unsigned char c) { return std::tolower(c); });
+
+    return lowerData;
 }
 }
