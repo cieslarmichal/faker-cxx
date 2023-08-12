@@ -44,9 +44,9 @@
 - [x] httpMethod
 - [x] httpStatusCode
 - [x] ipv4
-- [ ] ipv6
+- [x] ipv6
 - [x] mac
-- [ ] port
+- [x] port
 - [x] protocol
 - [x] url
 - [x] domainName

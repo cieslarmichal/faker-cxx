@@ -10,6 +10,7 @@
 #include "data/Emojis.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
+#include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
 
 namespace faker
@@ -210,6 +211,18 @@ std::string Internet::ipv4(const IPv4Address& baseIpv4Address, const IPv4Address
     return std::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
+std::string Internet::ipv6()
+{
+    std::vector<std::string> ipv6Parts;
+
+    for (int i = 0; i < 8; i++)
+    {
+        ipv6Parts.push_back(String::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
+    }
+
+    return StringHelper::join(ipv6Parts, ":");
+}
+
 std::string Internet::mac(const std::string& sep)
 {
     std::string mac;
@@ -230,6 +243,11 @@ std::string Internet::mac(const std::string& sep)
         }
     }
     return mac;
+}
+
+unsigned Internet::port()
+{
+    return Number::integer(65535u);
 }
 
 std::string Internet::url(WebProtocol webProtocol)
@@ -253,4 +271,5 @@ std::string Internet::domainSuffix()
 {
     return Helper::arrayElement<std::string>(domainSuffixes);
 }
+
 }
