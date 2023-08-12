@@ -18,6 +18,12 @@ enum class HttpResponseType
     ServerError
 };
 
+enum class WebProtocol
+{
+    Http,
+    Https
+};
+
 class Internet
 {
 public:
@@ -211,5 +217,51 @@ public:
      * @endcode
      */
     static std::string mac(const std::string& sep = ":");
+
+    /**
+     * @brief Generates a random url.
+     *
+     * @param webProtocol Web protocol to generate url with. Defaults to `WebProtocol::Https`.
+     *
+     * @return Http(s) url.
+     *
+     * @code
+     * Internet::url() // "https://slow-timer.info"
+     * @endcode
+     */
+    static std::string url(WebProtocol webProtocol = WebProtocol::Https);
+
+    /**
+     * @brief Generates a random domain name.
+     *
+     * @return Domain name.
+     *
+     * @code
+     * Internet::domainName() // "slow-timer.info"
+     * @endcode
+     */
+    static std::string domainName();
+
+    /**
+     * @brief Generates a random domain word.
+     *
+     * @return Domain word.
+     *
+     * @code
+     * Internet::domainWord() // "close-reality"
+     * @endcode
+     */
+    static std::string domainWord();
+
+    /**
+     * @brief Generates a random domain suffix.
+     *
+     * @return Domain suffix.
+     *
+     * @code
+     * Internet::domainSuffix() // "com"
+     * @endcode
+     */
+    static std::string domainSuffix();
 };
 }
