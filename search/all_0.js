@@ -8,5 +8,6 @@ var searchData=
   ['alphanumeric_5',['alphanumeric',['../classfaker_1_1String.html#aa0bb73dd630e59a291a1bbea567865d4',1,'faker::String']]],
   ['amount_6',['amount',['../classfaker_1_1Finance.html#af5ef8556903d06d1fdbedf48275dc688',1,'faker::Finance']]],
   ['arrayelement_7',['arrayElement',['../classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b',1,'faker::Helper']]],
-  ['author_8',['author',['../classfaker_1_1Book.html#a81eeda6350d328c56043bff85342e4d4',1,'faker::Book']]]
+  ['artist_8',['artist',['../classfaker_1_1Music.html#a2576c6c8c092ee5eec85aebf3e6a7702',1,'faker::Music']]],
+  ['author_9',['author',['../classfaker_1_1Book.html#a81eeda6350d328c56043bff85342e4d4',1,'faker::Book']]]
 ];
