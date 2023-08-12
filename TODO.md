@@ -61,7 +61,6 @@
 - [ ] country code
 - [x] state
 - [x] city
-- [ ] county
 - [x] zip code
 - [x] street
 - [x] street address
@@ -138,37 +137,15 @@
 
 ### 🎶 Music:
 
-- [ ] genre
-- [ ] songName
-- [ ] artistName
+- [x] genre
+- [x] songName
+- [x] artist
 
 ### 🎥 Movie:
 
 - [ ] genre
 - [ ] title
 - [ ] director
-
-### 🚗 Vehicle:
-
-- [ ] bicycle
-- [ ] color
-- [ ] fuel
-- [ ] manufacturer
-- [ ] model
-- [ ] type
-- [ ] vehicle
-- [ ] vin
-- [ ] vrm
-
-### ✈ Airline:
-
-- [ ] aircraftType
-- [ ] airline
-- [ ] airplane
-- [ ] airport
-- [ ] flightNumber
-- [ ] recordLocator
-- [ ] seat
 
 ### Database:
 

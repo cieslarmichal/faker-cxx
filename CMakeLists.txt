@@ -38,6 +38,7 @@ set(FAKER_SOURCES
         src/common/mappers/PrecisionMapper.cpp
         src/modules/system/System.cpp
         src/modules/database/Database.cpp
+        src/modules/music/Music.cpp
         )
 
 set(FAKER_UT_SOURCES
@@ -62,6 +63,7 @@ set(FAKER_UT_SOURCES
         src/common/mappers/PrecisionMapperTest.cpp
         src/modules/system/SystemTest.cpp
         src/modules/database/DatabaseTest.cpp
+        src/modules/music/MusicTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
