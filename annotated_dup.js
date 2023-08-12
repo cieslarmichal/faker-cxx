@@ -13,6 +13,7 @@ var annotated_dup =
       [ "Internet", "classfaker_1_1Internet.html", null ],
       [ "Location", "classfaker_1_1Location.html", null ],
       [ "Lorem", "classfaker_1_1Lorem.html", null ],
+      [ "Movie", "classfaker_1_1Movie.html", null ],
       [ "Music", "classfaker_1_1Music.html", null ],
       [ "Number", "classfaker_1_1Number.html", null ],
       [ "Person", "classfaker_1_1Person.html", null ],
