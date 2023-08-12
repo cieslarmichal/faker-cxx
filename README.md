@@ -77,22 +77,24 @@ target_link_libraries(main faker-cxx)
 
 ## 💎 Modules
 
-- 🌐 Internet - Generate emails, usernames, passwords, images urls.
-- 🌍 Location - Generate countries, cities, zip codes, street addresses.
-- 🧑 Person - Generate first, last names, job titles, genders, sex.
-- 📞 Phone - Generate phone number, IMEI.
-- 🛒 Commerce - Generate commerce department, product name, sku, price.
-- 📅 Date - Generate past, future dates.
-- 🏦 Finance - Generate currency, IBAN, BIC, account name, account number, pin, credit card numbers.
-- 🏢 Company - Generate company name, type, industry, catch phrase, buzz phrase.
-- 🔢 Number - Generate random integers, floating point numbers.
-- ✍ Word - Generate sample words, nouns, verbs etc.
-- 🎨 Color - Generate color names, rgb, hex.
-- 📖 Book - Generate book title, genre, author, publisher, ISBN.
-- 📚 Lorem - Generate lorem words, sentences, paragraphs.
-- 🔢 String - Generate uuids, alphanumeric, numeric, hexadecimal.
-- 💻 System - Generate file paths, file extensions, file names, directories, semantic version.
-- Database - Generate column names, column types, database engines.
+- 🌐 Internet - Generate emails, usernames, passwords, images urls
+- 🌍 Location - Generate countries, cities, zip codes, street addresses
+- 🧑 Person - Generate first, last names, job titles, genders, sex
+- 📞 Phone - Generate phone number, IMEI
+- 🛒 Commerce - Generate commerce department, product name, sku, price
+- 📅 Date - Generate past, future dates
+- 🏦 Finance - Generate currency, IBAN, BIC, account name, account number, pin, credit card numbers
+- 🏢 Company - Generate company name, type, industry, catch phrase, buzz phrase
+- 🔢 Number - Generate random integers, floating point numbers
+- ✍ Word - Generate sample words, nouns, verbs etc
+- 🎨 Color - Generate color names, rgb, hex
+- 📖 Book - Generate book title, genre, author, publisher, ISBN
+- 📚 Lorem - Generate lorem words, sentences, paragraphs
+- 🔢 String - Generate uuids, alphanumeric, numeric, hexadecimal
+- 💻 System - Generate file paths, file extensions, file names, directories, semantic version
+- Database - Generate column names, column types, database engines
+- 🎶 Music - Generate artists, song names, genres
+- 🎥 Movie - Generate actors, actresses, genres, movie titles
 
 ### 🔨 [TODO Modules](https://github.com/cieslarmichal/faker-cxx/blob/main/TODO.md)
 
