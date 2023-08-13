@@ -17,5 +17,8 @@ var searchData=
   ['creditcardcvv_14',['creditCardCvv',['../classfaker_1_1Finance.html#a6b4c79d892fdbbf0a0109dc7927bc947',1,'faker::Finance']]],
   ['creditcardnumber_15',['creditCardNumber',['../classfaker_1_1Finance.html#ac0aa71a72d411fb89c5ba623db469bd4',1,'faker::Finance']]],
   ['cron_16',['cron',['../classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c',1,'faker::System']]],
-  ['currencycode_17',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]]
+  ['currency_17',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
+  ['currencycode_18',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]],
+  ['currencyname_19',['currencyName',['../classfaker_1_1Finance.html#aea30c16fd3757eec52025100bc553136',1,'faker::Finance']]],
+  ['currencysymbol_20',['currencySymbol',['../classfaker_1_1Finance.html#a61a9d4a689fc4efafed30c47980ce9e3',1,'faker::Finance']]]
 ];
