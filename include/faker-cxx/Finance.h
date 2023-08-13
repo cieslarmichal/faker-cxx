@@ -5,6 +5,7 @@
 
 #include "types/BicCountry.h"
 #include "types/Country.h"
+#include "types/Currency.h"
 #include "types/IbanCountry.h"
 #include "types/Precision.h"
 
@@ -22,6 +23,28 @@ class Finance
 {
 public:
     /**
+     * @brief Returns a random currency.
+     *
+     * @returns Currency.
+     *
+     * @code
+     * Finance::currency() // "{"US Dollar","USD","$"}"
+     * @endcode
+     */
+    static Currency currency();
+
+    /**
+     * @brief Returns a random currency name.
+     *
+     * @returns Name of the currency.
+     *
+     * @code
+     * Finance::currencyName() // "US Dollar"
+     * @endcode
+     */
+    static std::string currencyName();
+
+    /**
      * @brief Returns a random currency code.
      *
      * @returns Code of the currency.
@@ -31,6 +54,17 @@ public:
      * @endcode
      */
     static std::string currencyCode();
+
+    /**
+     * @brief Returns a random currency symbol.
+     *
+     * @returns Symbol of the currency.
+     *
+     * @code
+     * Finance::currencySymbol() // "$"
+     * @endcode
+     */
+    static std::string currencySymbol();
 
     /**
      * @brief Returns a random account type.

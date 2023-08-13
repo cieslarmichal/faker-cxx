@@ -10,9 +10,9 @@
 - [ ] ethereum address
 - [ ] litecoin address
 - [x] routing number
-- [ ] currency (structure containing code, name and symbol properties)
-- [ ] currencyName
-- [ ] currencySymbol
+- [x] currency (structure containing code, name and symbol properties)
+- [x] currencyName
+- [x] currencySymbol
 
 ### 🧑 Person:
 
