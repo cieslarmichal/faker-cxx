@@ -116,9 +116,19 @@ std::string String::alpha(unsigned length, StringCasing casing)
     return alpha;
 }
 
-std::string String::alphanumeric(unsigned int length, StringCasing casing)
+std::string String::alphanumeric(unsigned int length, StringCasing casing, const std::string& excludeCharacters)
 {
-    const auto& targetCharacters = stringCasingToAlphanumericCharactersMapping.at(casing);
+    const auto& alphanumericCharacters = stringCasingToAlphanumericCharactersMapping.at(casing);
+
+    std::string targetCharacters;
+
+    for (const auto& alphanumericCharacter : alphanumericCharacters)
+    {
+        if (excludeCharacters.find(alphanumericCharacter) == std::string::npos)
+        {
+            targetCharacters += alphanumericCharacter;
+        }
+    }
 
     std::string alphanumeric;
 

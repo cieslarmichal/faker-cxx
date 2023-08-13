@@ -6,7 +6,7 @@
 - [ ] support for more bic countries
 - [x] credit card number
 - [x] credit card CVV
-- [ ] bitcoin address
+- [x] bitcoin address
 - [ ] ethereum address
 - [ ] litecoin address
 - [x] routing number

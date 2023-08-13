@@ -187,5 +187,16 @@ public:
      * @endcode
      */
     static std::string creditCardCvv();
+
+    /**
+     * Generates a random bitcoin address.
+     *
+     * @returns Bitcoin address.
+     *
+     * @code
+     * Finance::bitcoinAddress() // "3ySdvCkTLVy7gKD4j6JfSaf5d"
+     * @endcode
+     */
+    static std::string bitcoinAddress();
 };
 }

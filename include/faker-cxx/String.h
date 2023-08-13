@@ -77,6 +77,8 @@ public:
      *
      * @param length The number of characters to generate. Defaults to `1`.
      * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
+     * @param excludeCharacters The characters to be excluded from alphanumeric characters to generate string from.
+     * Defaults to ``.
      *
      * @returns Alphanumeric string.
      *
@@ -86,7 +88,8 @@ public:
      * String::alphanumeric(4, StringCasing::Lower) // "1nrq"
      * @endcode
      */
-    static std::string alphanumeric(unsigned length = 1, StringCasing casing = StringCasing::Mixed);
+    static std::string alphanumeric(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
+                                    const std::string& excludeCharacters = "");
 
     /**
      * @brief Generates a given length string of digits.
