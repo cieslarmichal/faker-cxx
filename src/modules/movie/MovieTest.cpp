@@ -31,7 +31,8 @@ TEST_F(MovieTest, shouldGenerateMovieTitle)
     const auto generatedMovieTitle = Movie::movieTitle();
 
     ASSERT_TRUE(std::any_of(movieTitles.begin(), movieTitles.end(),
-                            [generatedMovieTitle](const std::string& movieTitle) { return generatedMovieTitle == movieTitle; }));
+                            [generatedMovieTitle](const std::string& movieTitle)
+                            { return generatedMovieTitle == movieTitle; }));
 }
 
 TEST_F(MovieTest, shouldGenerateDirector)
@@ -48,8 +49,7 @@ TEST_F(MovieTest, shouldGenerateActor)
     const auto generatedActor = Movie::actor();
 
     ASSERT_TRUE(std::any_of(actors.begin(), actors.end(),
-                            [generatedActor](const std::string& actor)
-                            { return generatedActor == actor; }));
+                            [generatedActor](const std::string& actor) { return generatedActor == actor; }));
 }
 
 TEST_F(MovieTest, shouldGenerateActress)
@@ -57,6 +57,5 @@ TEST_F(MovieTest, shouldGenerateActress)
     const auto generatedActress = Movie::actress();
 
     ASSERT_TRUE(std::any_of(actresses.begin(), actresses.end(),
-                            [generatedActress](const std::string& actress)
-                            { return generatedActress == actress; }));
+                            [generatedActress](const std::string& actress) { return generatedActress == actress; }));
 }

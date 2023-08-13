@@ -22,6 +22,17 @@ public:
     static std::string country();
 
     /**
+     * @brief Returns a random country code.
+     *
+     * @returns Country code consisting two letters.
+     *
+     * @code
+     * Location::countryCode() // "PL"
+     * @endcode
+     */
+    static std::string countryCode();
+
+    /**
      * @brief Returns a random USA state.
      *
      * @returns USA state.
@@ -99,6 +110,20 @@ public:
     static std::string buildingNumber(Country country = Country::Usa);
 
     /**
+     * @brief Returns a random secondary address number for given country.
+     * This refers to a specific location at a given address such as an apartment or room number
+     *
+     * @param country The country to generate building number from. Defaults to `Country::Usa`.
+     *
+     * @returns Secondary address.
+     *
+     * @code
+     * Location::secondaryAddress() // "Apt. 861"
+     * @endcode
+     */
+    static std::string secondaryAddress(Country country = Country::Usa);
+
+    /**
      * @brief Generates a random latitude.
      *
      * @param precision The number of decimal points of precision for the latitude. Defaults to `Precision::FourDp`.
@@ -123,5 +148,27 @@ public:
      * @endcode
      */
     static std::string longitude(Precision = Precision::FourDp);
+
+    /**
+     * @brief Generates a random direction from cardinal and ordinal directions.
+     *
+     * @returns Direction.
+     *
+     * @code
+     * Location::direction() // "North"
+     * @endcode
+     */
+    static std::string direction();
+
+    /**
+     * @brief Generates a random time zone.
+     *
+     * @returns Time zone.
+     *
+     * @code
+     * Location::timeZone() // "Europe/Warsaw"
+     * @endcode
+     */
+    static std::string timeZone();
 };
 }

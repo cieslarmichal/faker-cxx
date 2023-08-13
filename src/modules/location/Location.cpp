@@ -5,7 +5,9 @@
 #include "../../common/mappers/PrecisionMapper.h"
 #include "../../common/StringHelper.h"
 #include "data/Countries.h"
+#include "data/Directions.h"
 #include "data/States.h"
+#include "data/TimeZones.h"
 #include "data/usa/UsaAddressFormat.h"
 #include "data/usa/UsaCities.h"
 #include "data/usa/UsaStreetSuffixes.h"
@@ -33,6 +35,10 @@ const std::map<Country, std::vector<std::string>> countryToStreetFormatsMapping{
     {Country::Usa, usaStreetFormats},
 };
 
+const std::map<Country, std::vector<std::string>> countryToSecondaryAddressFormatsMapping{
+    {Country::Usa, usaSecondaryAddressFormats},
+};
+
 const std::map<Country, std::string> countryToAddressFormatMapping{
     {Country::Usa, usaAddressFormat},
 };
@@ -45,6 +51,11 @@ const std::map<Country, std::vector<std::string>> countryToStreetSuffixesMapping
 std::string Location::country()
 {
     return Helper::arrayElement<std::string>(countries);
+}
+
+std::string Location::countryCode()
+{
+    return Helper::arrayElement<std::string>(countryCodes);
 }
 
 std::string Location::state()
@@ -159,6 +170,29 @@ std::string Location::buildingNumber(Country country)
     return buildingNumber;
 }
 
+std::string Location::secondaryAddress(Country country)
+{
+    const auto& secondaryAddressFormats = countryToSecondaryAddressFormatsMapping.at(country);
+
+    const auto secondaryAddressFormat = Helper::arrayElement<std::string>(secondaryAddressFormats);
+
+    std::string secondaryAddress;
+
+    for (const auto& secondaryAddressFormatCharacter : secondaryAddressFormat)
+    {
+        if (secondaryAddressFormatCharacter == '#')
+        {
+            secondaryAddress += String::numeric(1);
+        }
+        else
+        {
+            secondaryAddress += secondaryAddressFormatCharacter;
+        }
+    }
+
+    return secondaryAddress;
+}
+
 std::string Location::latitude(Precision precision)
 {
     const std::floating_point auto latitude = Number::decimal<double>(-90.0, 90.0);
@@ -187,6 +221,16 @@ std::string Location::longitude(Precision precision)
     ss << longitude;
 
     return ss.str();
+}
+
+std::string Location::direction()
+{
+    return Helper::arrayElement<std::string>(directions);
+}
+
+std::string Location::timeZone()
+{
+    return Helper::arrayElement<std::string>(timeZones);
 }
 
 }
