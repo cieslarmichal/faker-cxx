@@ -10,7 +10,9 @@
 #include "../person/data/LastNames.h"
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
+#include "data/Directions.h"
 #include "data/States.h"
+#include "data/TimeZones.h"
 #include "data/usa/UsaCities.h"
 #include "data/usa/UsaStreetSuffixes.h"
 
@@ -38,6 +40,15 @@ TEST_F(LocationTest, shouldGenerateCountry)
 
     ASSERT_TRUE(std::any_of(countries.begin(), countries.end(),
                             [generatedCountry](const std::string& country) { return country == generatedCountry; }));
+}
+
+TEST_F(LocationTest, shouldGenerateCountryCode)
+{
+    const auto generatedCountryCode = Location::countryCode();
+
+    ASSERT_TRUE(std::any_of(countryCodes.begin(), countryCodes.end(),
+                            [generatedCountryCode](const std::string& countryCode)
+                            { return countryCode == generatedCountryCode; }));
 }
 
 TEST_F(LocationTest, shouldGenerateState)
@@ -69,6 +80,20 @@ TEST_F(LocationTest, shouldGenerateUsaBuildingNumber)
     const auto generatedBuildingNumber = Location::buildingNumber();
 
     ASSERT_TRUE(generatedBuildingNumber.size() >= 3 && generatedBuildingNumber.size() <= 5);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+}
+
+TEST_F(LocationTest, shouldGenerateUsaSecondaryAddress)
+{
+    const auto generatedSecondaryAddress = Location::secondaryAddress();
+
+    ASSERT_TRUE(generatedSecondaryAddress.starts_with("Apt.") || generatedSecondaryAddress.starts_with("Suite"));
+
+    const auto generatedSecondaryAddressParts = StringHelper::split(generatedSecondaryAddress, " ");
+
+    const auto& generatedBuildingNumber = generatedSecondaryAddressParts[1];
+
+    ASSERT_EQ(generatedBuildingNumber.size(), 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
 }
 
@@ -177,4 +202,22 @@ TEST_F(LocationTest, shouldGenerateLongitudeWithSpecifiedPrecision)
     ASSERT_EQ(generatedLongitudeParts[1].size(), 6);
     ASSERT_GE(longitudeAsFloat, -180);
     ASSERT_LE(longitudeAsFloat, 180);
+}
+
+TEST_F(LocationTest, shouldGenerateDirection)
+{
+    const auto generatedDirection = Location::direction();
+
+    ASSERT_TRUE(std::any_of(directions.begin(), directions.end(),
+                            [generatedDirection](const std::string& direction)
+                            { return direction == generatedDirection; }));
+}
+
+TEST_F(LocationTest, shouldGenerateTimeZone)
+{
+    const auto generatedTimeZone = Location::timeZone();
+
+    ASSERT_TRUE(std::any_of(timeZones.begin(), timeZones.end(),
+                            [generatedTimeZone](const std::string& timeZone)
+                            { return timeZone == generatedTimeZone; }));
 }

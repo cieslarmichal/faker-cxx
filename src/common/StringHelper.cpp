@@ -59,7 +59,8 @@ std::string StringHelper::toLower(const std::string& data)
 {
     std::string lowerData{data};
 
-    std::transform(lowerData.begin(), lowerData.end(), lowerData.begin(), [](unsigned char c) { return std::tolower(c); });
+    std::transform(lowerData.begin(), lowerData.end(), lowerData.begin(),
+                   [](unsigned char c) { return std::tolower(c); });
 
     return lowerData;
 }

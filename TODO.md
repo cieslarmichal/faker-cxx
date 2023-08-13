@@ -58,21 +58,19 @@
 ### 🌍 Location:
 
 - [x] country
-- [ ] country code
+- [x] country code
 - [x] state
 - [x] city
 - [x] zip code
 - [x] street
 - [x] street address
 - [x] building number
+- [x] secondaryAddress
 - [ ] support for more countries
 - [x] latitude
 - [x] longitude
-- [ ] cardinalDirection
-- [ ] direction
-- [ ] nearbyGPSCoordinate
-- [ ] secondaryAddress
-- [ ] timeZone
+- [x] direction
+- [x] timeZone
 
 ### 🖊️ Lorem:
 
