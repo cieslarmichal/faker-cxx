@@ -655,6 +655,11 @@ TEST_F(InternetTest, shouldGenerateIpv6)
     ASSERT_TRUE(std::all_of(generatedIpv6Parts.begin(), generatedIpv6Parts.end(),
                             [](const std::string& generatedIpv6Part)
                             {
+                                return generatedIpv6Part.size() == 4;
+                            }));
+    ASSERT_TRUE(std::all_of(generatedIpv6Parts.begin(), generatedIpv6Parts.end(),
+                            [](const std::string& generatedIpv6Part)
+                            {
                                 return std::all_of(
                                     generatedIpv6Part.begin(), generatedIpv6Part.end(),
                                     [](char hexCharacter)
