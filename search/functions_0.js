@@ -7,7 +7,7 @@ var searchData=
   ['adjective_4',['adjective',['../classfaker_1_1Word.html#adf766094d0a9e1f4d3cba35309e1f02d',1,'faker::Word']]],
   ['adverb_5',['adverb',['../classfaker_1_1Word.html#aa12d7a51f586e3ca6f8d9a009bf02ffe',1,'faker::Word']]],
   ['alpha_6',['alpha',['../classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db',1,'faker::String']]],
-  ['alphanumeric_7',['alphanumeric',['../classfaker_1_1String.html#aa0bb73dd630e59a291a1bbea567865d4',1,'faker::String']]],
+  ['alphanumeric_7',['alphanumeric',['../classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398',1,'faker::String']]],
   ['amount_8',['amount',['../classfaker_1_1Finance.html#af5ef8556903d06d1fdbedf48275dc688',1,'faker::Finance']]],
   ['arrayelement_9',['arrayElement',['../classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b',1,'faker::Helper']]],
   ['artist_10',['artist',['../classfaker_1_1Music.html#a2576c6c8c092ee5eec85aebf3e6a7702',1,'faker::Music']]],
