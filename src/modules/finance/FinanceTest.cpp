@@ -112,8 +112,7 @@ TEST_F(FinanceTest, shouldGenerateCurrency)
     const auto generatedCurrency = Finance::currency();
 
     ASSERT_TRUE(std::any_of(currencies.begin(), currencies.end(),
-                            [generatedCurrency](const Currency& currency)
-                            { return currency == generatedCurrency; }));
+                            [generatedCurrency](const Currency& currency) { return currency == generatedCurrency; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateCurrencyName)
@@ -343,4 +342,23 @@ TEST_F(FinanceTest, shouldGenerateCreditCardCvv)
 
     ASSERT_EQ(creditCardCvv.size(), 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(creditCardCvv));
+}
+
+TEST_F(FinanceTest, shouldGenerateBitcoinAddress)
+{
+    const auto bitcoinAddress = Finance::bitcoinAddress();
+
+    ASSERT_GE(bitcoinAddress.size(), 27);
+    ASSERT_LE(bitcoinAddress.size(), 34);
+
+    const std::string supportedBitcoinAddressCharacters = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz123456789";
+
+    ASSERT_TRUE(std::all_of(bitcoinAddress.begin(), bitcoinAddress.end(),
+                            [&supportedBitcoinAddressCharacters](char dataCharacter)
+                            {
+                                return std::any_of(supportedBitcoinAddressCharacters.begin(),
+                                                   supportedBitcoinAddressCharacters.end(),
+                                                   [dataCharacter](char supportedBitcoinAddressCharacter)
+                                                   { return supportedBitcoinAddressCharacter == dataCharacter; });
+                            }));
 }

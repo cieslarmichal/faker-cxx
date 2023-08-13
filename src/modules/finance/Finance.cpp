@@ -142,4 +142,15 @@ std::string Finance::creditCardCvv()
     return String::numeric(3, true);
 }
 
+std::string Finance::bitcoinAddress()
+{
+    const unsigned addressLength = Number::integer(26u, 33u);
+
+    auto address = Helper::arrayElement<std::string>(std::vector<std::string>{"1", "3"});
+
+    address += String::alphanumeric(addressLength, StringCasing::Mixed, "0OIl");
+
+    return address;
+}
+
 }
