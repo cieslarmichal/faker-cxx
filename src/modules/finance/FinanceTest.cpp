@@ -353,6 +353,7 @@ TEST_F(FinanceTest, shouldGenerateBitcoinAddress)
 
     const std::string supportedBitcoinAddressCharacters = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz123456789";
 
+    ASSERT_TRUE(bitcoinAddress.starts_with("1") || bitcoinAddress.starts_with("3"));
     ASSERT_TRUE(std::all_of(bitcoinAddress.begin(), bitcoinAddress.end(),
                             [&supportedBitcoinAddressCharacters](char dataCharacter)
                             {
