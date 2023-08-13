@@ -27,9 +27,24 @@ const std::vector<CreditCardType> creditCardTypes{CreditCardType::AmericanExpres
                                                   CreditCardType::MasterCard, CreditCardType::Visa};
 }
 
+Currency Finance::currency()
+{
+    return Helper::arrayElement<Currency>(currencies);
+}
+
+std::string Finance::currencyName()
+{
+    return Helper::arrayElement<Currency>(currencies).name;
+}
+
 std::string Finance::currencyCode()
 {
-    return Helper::arrayElement<std::string>(currenciesCodes);
+    return Helper::arrayElement<Currency>(currencies).code;
+}
+
+std::string Finance::currencySymbol()
+{
+    return Helper::arrayElement<Currency>(currencies).symbol;
 }
 
 std::string Finance::accountType()
@@ -126,4 +141,5 @@ std::string Finance::creditCardCvv()
 {
     return String::numeric(3, true);
 }
+
 }

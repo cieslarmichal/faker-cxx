@@ -105,38 +105,42 @@ public:
                                                   { return creditCardCharacter == dataCharacter; });
                            });
     }
-
-    static bool checkIfAllCharactersAreAlphanumeric(const std::string& data)
-    {
-        return std::all_of(data.begin(), data.end(),
-                           [](char dataCharacter)
-                           {
-                               return std::any_of(upperAlphanumericCharacters.begin(),
-                                                  upperAlphanumericCharacters.end(),
-                                                  [dataCharacter](char alphanumericCharacter)
-                                                  { return alphanumericCharacter == dataCharacter; });
-                           });
-    }
-
-    static bool checkIfAllCharactersAreAlpha(const std::string& data)
-    {
-        return std::all_of(data.begin(), data.end(),
-                           [](char dataCharacter)
-                           {
-                               return std::any_of(upperCharacters.begin(), upperCharacters.end(),
-                                                  [dataCharacter](char alphanumericCharacter)
-                                                  { return alphanumericCharacter == dataCharacter; });
-                           });
-    }
 };
+
+TEST_F(FinanceTest, shouldGenerateCurrency)
+{
+    const auto generatedCurrency = Finance::currency();
+
+    ASSERT_TRUE(std::any_of(currencies.begin(), currencies.end(),
+                            [generatedCurrency](const Currency& currency)
+                            { return currency == generatedCurrency; }));
+}
+
+TEST_F(FinanceTest, shouldGenerateCurrencyName)
+{
+    const auto generatedCurrencyName = Finance::currencyName();
+
+    ASSERT_TRUE(std::any_of(currencies.begin(), currencies.end(),
+                            [generatedCurrencyName](const Currency& currency)
+                            { return currency.name == generatedCurrencyName; }));
+}
 
 TEST_F(FinanceTest, shouldGenerateCurrencyCode)
 {
     const auto generatedCurrencyCode = Finance::currencyCode();
 
-    ASSERT_TRUE(std::any_of(currenciesCodes.begin(), currenciesCodes.end(),
-                            [generatedCurrencyCode](const std::string& currencyCode)
-                            { return currencyCode == generatedCurrencyCode; }));
+    ASSERT_TRUE(std::any_of(currencies.begin(), currencies.end(),
+                            [generatedCurrencyCode](const Currency& currency)
+                            { return currency.code == generatedCurrencyCode; }));
+}
+
+TEST_F(FinanceTest, shouldGenerateCurrencySymbol)
+{
+    const auto generatedCurrencySymbol = Finance::currencySymbol();
+
+    ASSERT_TRUE(std::any_of(currencies.begin(), currencies.end(),
+                            [generatedCurrencySymbol](const Currency& currency)
+                            { return currency.symbol == generatedCurrencySymbol; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateAccountType)
