@@ -384,3 +384,17 @@ TEST_F(FinanceTest, shouldGenerateLitecoinAddress)
                                                    { return supportedLitecoinAddressCharacter == dataCharacter; });
                             }));
 }
+
+TEST_F(FinanceTest, shouldGenerateEthereumAddress)
+{
+    const auto ethereumAddress = Finance::ethereumAddress();
+
+    const auto prefix = ethereumAddress.substr(0, 2);
+    const auto hexNumber = ethereumAddress.substr(2);
+
+    ASSERT_EQ(ethereumAddress.size(), 42);
+    ASSERT_EQ(prefix, "0x");
+    ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
+                            [hexNumber](char hexNumberCharacter)
+                            { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+}

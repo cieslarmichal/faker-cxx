@@ -164,4 +164,9 @@ std::string Finance::litecoinAddress()
     return address;
 }
 
+std::string Finance::ethereumAddress()
+{
+    return String::hexadecimal(40, HexCasing::Lower);
+}
+
 }

@@ -209,5 +209,16 @@ public:
      * @endcode
      */
     static std::string litecoinAddress();
+
+    /**
+     * Generates a random ethereum address.
+     *
+     * @returns Ethereum address.
+     *
+     * @code
+     * Finance::ethereumAddress() // "0xf03dfeecbafc5147241cc4c4ca20b3c9dfd04c4a"
+     * @endcode
+     */
+    static std::string ethereumAddress();
 };
 }
