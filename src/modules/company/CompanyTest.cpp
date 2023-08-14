@@ -5,10 +5,10 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../person/data/FirstNamesFemales.h"
-#include "../person/data/FirstNamesMales.h"
+#include "../person/data/english/EnglishFirstNamesFemales.h"
+#include "../person/data/english/EnglishFirstNamesMales.h"
+#include "../person/data/english/EnglishLastNames.h"
 #include "../person/data/JobTitles.h"
-#include "../person/data/LastNames.h"
 #include "data/BuzzAdjectives.h"
 #include "data/BuzzNouns.h"
 #include "data/BuzzVerbs.h"
@@ -33,16 +33,17 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
 
     const auto companyNameElements = StringHelper::split(companyName, " ");
 
-    std::vector<std::string> expectedFirstNames{firstNamesMales};
+    std::vector<std::string> expectedFirstNames{englishFirstNamesMales};
 
-    expectedFirstNames.insert(expectedFirstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    expectedFirstNames.insert(expectedFirstNames.end(), englishFirstNamesFemales.begin(),
+                              englishFirstNamesFemales.end());
 
     if (companyNameElements.size() == 2)
     {
         const auto& generatedLastName = companyNameElements[0];
         const auto& generatedCompanySuffix = companyNameElements[1];
 
-        ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+        ASSERT_TRUE(std::any_of(englishLastNames.begin(), englishLastNames.end(),
                                 [generatedLastName](const std::string& lastName)
                                 { return lastName == generatedLastName; }));
         ASSERT_TRUE(std::any_of(companySuffixes.begin(), companySuffixes.end(),
@@ -58,7 +59,7 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
         ASSERT_TRUE(std::any_of(expectedFirstNames.begin(), expectedFirstNames.end(),
                                 [generatedFirstName](const std::string& firstName)
                                 { return firstName == generatedFirstName; }));
-        ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+        ASSERT_TRUE(std::any_of(englishLastNames.begin(), englishLastNames.end(),
                                 [generatedLastName](const std::string& lastName)
                                 { return lastName == generatedLastName; }));
         ASSERT_TRUE(std::any_of(jobAreas.begin(), jobAreas.end(),
@@ -75,7 +76,7 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
         ASSERT_TRUE(std::any_of(expectedFirstNames.begin(), expectedFirstNames.end(),
                                 [generatedFirstName](const std::string& firstName)
                                 { return firstName == generatedFirstName; }));
-        ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+        ASSERT_TRUE(std::any_of(englishLastNames.begin(), englishLastNames.end(),
                                 [generatedLastName](const std::string& lastName)
                                 { return lastName == generatedLastName; }));
         ASSERT_TRUE(std::any_of(jobAreas.begin(), jobAreas.end(),

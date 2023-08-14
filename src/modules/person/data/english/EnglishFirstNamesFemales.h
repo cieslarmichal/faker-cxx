@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> firstNamesFemales = {
+const std::vector<std::string> englishFirstNamesFemales = {
     "Mary",       "Patricia",   "Linda",     "Barbara",   "Elizabeth", "Jennifer",   "Maria",     "Susan",
     "Margaret",   "Dorothy",    "Lisa",      "Nancy",     "Karen",     "Betty",      "Helen",     "Sandra",
     "Donna",      "Carol",      "Ruth",      "Sharon",    "Michelle",  "Laura",      "Sarah",     "Kimberly",
