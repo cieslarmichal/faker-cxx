@@ -198,5 +198,16 @@ public:
      * @endcode
      */
     static std::string bitcoinAddress();
+
+    /**
+     * Generates a random litecoin address.
+     *
+     * @returns Litecoin address.
+     *
+     * @code
+     * Finance::litecoinAddress() // "LoQaSTGWBRXkWfyxKbNKuPrAWGELzcW"
+     * @endcode
+     */
+    static std::string litecoinAddress();
 };
 }

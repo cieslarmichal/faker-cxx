@@ -363,3 +363,24 @@ TEST_F(FinanceTest, shouldGenerateBitcoinAddress)
                                                    { return supportedBitcoinAddressCharacter == dataCharacter; });
                             }));
 }
+
+TEST_F(FinanceTest, shouldGenerateLitecoinAddress)
+{
+    const auto litecoinAddress = Finance::litecoinAddress();
+
+    ASSERT_GE(litecoinAddress.size(), 27);
+    ASSERT_LE(litecoinAddress.size(), 34);
+
+    const std::string supportedLitecoinAddressCharacters = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz123456789";
+
+    ASSERT_TRUE(litecoinAddress.starts_with("L") || litecoinAddress.starts_with("M") ||
+                litecoinAddress.starts_with("3"));
+    ASSERT_TRUE(std::all_of(litecoinAddress.begin(), litecoinAddress.end(),
+                            [&supportedLitecoinAddressCharacters](char dataCharacter)
+                            {
+                                return std::any_of(supportedLitecoinAddressCharacters.begin(),
+                                                   supportedLitecoinAddressCharacters.end(),
+                                                   [dataCharacter](char supportedLitecoinAddressCharacter)
+                                                   { return supportedLitecoinAddressCharacter == dataCharacter; });
+                            }));
+}
