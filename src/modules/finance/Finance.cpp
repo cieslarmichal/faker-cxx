@@ -153,4 +153,15 @@ std::string Finance::bitcoinAddress()
     return address;
 }
 
+std::string Finance::litecoinAddress()
+{
+    const unsigned addressLength = Number::integer(26u, 33u);
+
+    auto address = Helper::arrayElement<std::string>(std::vector<std::string>{"L", "M", "3"});
+
+    address += String::alphanumeric(addressLength, StringCasing::Mixed, "0OIl");
+
+    return address;
+}
+
 }
