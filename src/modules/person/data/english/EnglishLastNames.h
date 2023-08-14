@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> lastNames = {
+const std::vector<std::string> englishLastNames = {
     "Abbott",      "Abernathy",     "Abshire",     "Adams",       "Altenwerth", "Anderson",     "Ankunding",
     "Armstrong",   "Auer",          "Aufderhar",   "Bahringer",   "Bailey",     "Balistreri",   "Barrows",
     "Bartell",     "Bartoletti",    "Barton",      "Bashirian",   "Batz",       "Bauch",        "Baumbach",

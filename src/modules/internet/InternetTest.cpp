@@ -6,9 +6,9 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../person/data/FirstNamesFemales.h"
-#include "../person/data/FirstNamesMales.h"
-#include "../person/data/LastNames.h"
+#include "../person/data/english/EnglishFirstNamesFemales.h"
+#include "../person/data/english/EnglishFirstNamesMales.h"
+#include "../person/data/english/EnglishLastNames.h"
 #include "../string/data/Characters.h"
 #include "../word/data/Adjectives.h"
 #include "../word/data/Nouns.h"
@@ -97,16 +97,16 @@ public:
 
 TEST_F(InternetTest, shouldGenerateUsername)
 {
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames{englishFirstNamesMales};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     const auto username = Internet::username();
 
     ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
                             [username](const std::string& firstName)
                             { return username.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+    ASSERT_TRUE(std::any_of(englishLastNames.begin(), englishLastNames.end(),
                             [username](const std::string& lastName)
                             { return username.find(lastName) != std::string::npos; }));
 }
@@ -118,16 +118,16 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFirstNameProvided)
     const auto username = Internet::username(firstName);
 
     ASSERT_TRUE(username.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+    ASSERT_TRUE(std::any_of(englishLastNames.begin(), englishLastNames.end(),
                             [username](const std::string& lastName)
                             { return username.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateUsernameWithLastNameProvided)
 {
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames{englishFirstNamesMales};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     const auto lastName = "Cieslar";
 
@@ -153,9 +153,9 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFullNameProvided)
 
 TEST_F(InternetTest, shouldGenerateEmail)
 {
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames{englishFirstNamesMales};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     const auto email = Internet::email();
 
@@ -172,7 +172,7 @@ TEST_F(InternetTest, shouldGenerateEmail)
     ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
                             [generatedUsername](const std::string& firstName)
                             { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+    ASSERT_TRUE(std::any_of(englishLastNames.begin(), englishLastNames.end(),
                             [generatedUsername](const std::string& lastName)
                             { return generatedUsername.find(lastName) != std::string::npos; }));
 }
@@ -194,16 +194,16 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
                             [generatedEmailHost](const std::string& emailHost)
                             { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+    ASSERT_TRUE(std::any_of(englishLastNames.begin(), englishLastNames.end(),
                             [generatedUsername](const std::string& lastName)
                             { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 {
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames{englishFirstNamesMales};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     const auto lastName = "Howard";
 
@@ -227,9 +227,9 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 {
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames{englishFirstNamesMales};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     const auto firstName = "Cindy";
 
@@ -253,9 +253,9 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 {
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames{englishFirstNamesMales};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     const auto emailHost = "example.com";
 
@@ -272,16 +272,16 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
     ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
                             [generatedUsername](const std::string& firstName)
                             { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+    ASSERT_TRUE(std::any_of(englishLastNames.begin(), englishLastNames.end(),
                             [generatedUsername](const std::string& lastName)
                             { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmail)
 {
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames{englishFirstNamesMales};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     const auto email = Internet::exampleEmail();
 
@@ -298,7 +298,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmail)
     ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
                             [generatedUsername](const std::string& firstName)
                             { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+    ASSERT_TRUE(std::any_of(englishLastNames.begin(), englishLastNames.end(),
                             [generatedUsername](const std::string& lastName)
                             { return generatedUsername.find(lastName) != std::string::npos; }));
 }
@@ -320,16 +320,16 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
                             [generatedEmailHost](const std::string& emailHost)
                             { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+    ASSERT_TRUE(std::any_of(englishLastNames.begin(), englishLastNames.end(),
                             [generatedUsername](const std::string& lastName)
                             { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 {
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames{englishFirstNamesMales};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     const auto lastName = "Wilkinson";
 
@@ -353,9 +353,9 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 {
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames{englishFirstNamesMales};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     const auto firstName = "Walter";
 
@@ -653,10 +653,7 @@ TEST_F(InternetTest, shouldGenerateIpv6)
     ASSERT_EQ(generatedIpv6Parts.size(), 8);
 
     ASSERT_TRUE(std::all_of(generatedIpv6Parts.begin(), generatedIpv6Parts.end(),
-                            [](const std::string& generatedIpv6Part)
-                            {
-                                return generatedIpv6Part.size() == 4;
-                            }));
+                            [](const std::string& generatedIpv6Part) { return generatedIpv6Part.size() == 4; }));
     ASSERT_TRUE(std::all_of(generatedIpv6Parts.begin(), generatedIpv6Parts.end(),
                             [](const std::string& generatedIpv6Part)
                             {

@@ -5,9 +5,9 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../person/data/FirstNamesFemales.h"
-#include "../person/data/FirstNamesMales.h"
-#include "../person/data/LastNames.h"
+#include "../person/data/english/EnglishFirstNamesFemales.h"
+#include "../person/data/english/EnglishFirstNamesMales.h"
+#include "../person/data/english/EnglishLastNames.h"
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
@@ -106,14 +106,14 @@ TEST_F(LocationTest, shouldGenerateUsaStreet)
     const auto& generatedFirstOrLastName = generatedStreetElements[0];
     const auto& generatedStreetSuffix = generatedStreetElements[1];
 
-    std::vector<std::string> firstNames{firstNamesMales};
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    std::vector<std::string> firstNames{englishFirstNamesMales};
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     ASSERT_EQ(generatedStreetElements.size(), 2);
     ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
                             [generatedFirstOrLastName](const std::string& firstName)
                             { return firstName == generatedFirstOrLastName; }) ||
-                std::any_of(lastNames.begin(), lastNames.end(),
+                std::any_of(englishLastNames.begin(), englishLastNames.end(),
                             [generatedFirstOrLastName](const std::string& lastName)
                             { return lastName == generatedFirstOrLastName; }));
     ASSERT_TRUE(std::any_of(usaStreetSuffixes.begin(), usaStreetSuffixes.end(),
@@ -131,8 +131,8 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
     const auto& generatedFirstOrLastName = generatedStreetAddressElements[1];
     const auto& generatedStreetSuffix = generatedStreetAddressElements[2];
 
-    std::vector<std::string> firstNames{firstNamesMales};
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    std::vector<std::string> firstNames{englishFirstNamesMales};
+    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
 
     ASSERT_EQ(generatedStreetAddressElements.size(), 3);
     ASSERT_TRUE(generatedBuildingNumber.size() >= 3 && generatedBuildingNumber.size() <= 5);
@@ -140,7 +140,7 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
     ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
                             [generatedFirstOrLastName](const std::string& firstName)
                             { return firstName == generatedFirstOrLastName; }) ||
-                std::any_of(lastNames.begin(), lastNames.end(),
+                std::any_of(englishLastNames.begin(), englishLastNames.end(),
                             [generatedFirstOrLastName](const std::string& lastName)
                             { return lastName == generatedFirstOrLastName; }));
     ASSERT_TRUE(std::any_of(usaStreetSuffixes.begin(), usaStreetSuffixes.end(),

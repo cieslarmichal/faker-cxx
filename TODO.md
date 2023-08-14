@@ -23,7 +23,7 @@
 - [x] job title
 - [x] job type
 - [x] prefix
-- [ ] support for more countries
+- [x] support for more countries
 
 ### 📞 Phone:
 
