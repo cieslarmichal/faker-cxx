@@ -7,8 +7,8 @@
 - [x] credit card number
 - [x] credit card CVV
 - [x] bitcoin address
-- [ ] ethereum address
-- [ ] litecoin address
+- [x] ethereum address
+- [x] litecoin address
 - [x] routing number
 - [x] currency (structure containing code, name and symbol properties)
 - [x] currencyName
