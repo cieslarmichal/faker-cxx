@@ -11,6 +11,9 @@
 #include "data/usa/UsaAddressFormat.h"
 #include "data/usa/UsaCities.h"
 #include "data/usa/UsaStreetSuffixes.h"
+#include "data/russia/RussiaAddressFormat.h"
+#include "data/russia/RussiaCities.h"
+#include "data/russia/RussiaStreetPrefixes.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
@@ -20,19 +23,19 @@ namespace faker
 namespace
 {
 const std::map<Country, std::vector<std::string>> countryToCitiesMapping{
-    {Country::Usa, usaCities},
+    {Country::Usa, usaCities}, {Country::Russia, russiaCities},
 };
 
 const std::map<Country, std::string> countryToZipCodeFormatMapping{
-    {Country::Usa, usaZipCodeFormat},
+    {Country::Usa, usaZipCodeFormat}, {Country::Russia, russiaZipCodeFormat},
 };
 
 const std::map<Country, std::vector<std::string>> countryToBuildingNumberFormatsMapping{
-    {Country::Usa, usaBuildingNumberFormats},
+    {Country::Usa, usaBuildingNumberFormats}, {Country::Russia, russiaBuildingNumberFormats},
 };
 
 const std::map<Country, std::vector<std::string>> countryToStreetFormatsMapping{
-    {Country::Usa, usaStreetFormats},
+    {Country::Usa, usaStreetFormats}, {Country::Russia, russiaStreetFormats},
 };
 
 const std::map<Country, std::vector<std::string>> countryToSecondaryAddressFormatsMapping{
@@ -40,11 +43,15 @@ const std::map<Country, std::vector<std::string>> countryToSecondaryAddressForma
 };
 
 const std::map<Country, std::string> countryToAddressFormatMapping{
-    {Country::Usa, usaAddressFormat},
+    {Country::Usa, usaAddressFormat}, {Country::Russia, russiaAddressFormat},
 };
 
 const std::map<Country, std::vector<std::string>> countryToStreetSuffixesMapping{
     {Country::Usa, usaStreetSuffixes},
+};
+
+const std::map<Country, std::vector<std::string>> countryToStreetPrefixesMapping{
+    {Country::Russia, russiaStreetPrefixes},
 };
 }
 
@@ -108,7 +115,7 @@ std::string Location::streetAddress(Country country)
         else if (addressFormatElement == "{street}")
         {
             addressElements.push_back(street(country));
-        }
+        } 
     }
 
     return StringHelper::join(addressElements, " ");
@@ -141,6 +148,14 @@ std::string Location::street(Country country)
             const auto streetSuffix = Helper::arrayElement<std::string>(streetSuffixes);
 
             streetNameElements.push_back(streetSuffix);
+        }
+        else if (streetFormatElement == "{streetPrefix}")
+        {
+            const auto& streetPrefixes = countryToStreetPrefixesMapping.at(country);
+
+            const auto streetPrefix = Helper::arrayElement<std::string>(streetPrefixes);
+
+            streetNameElements.push_back(streetPrefix);
         }
     }
 

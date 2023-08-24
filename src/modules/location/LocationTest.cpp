@@ -15,6 +15,8 @@
 #include "data/TimeZones.h"
 #include "data/usa/UsaCities.h"
 #include "data/usa/UsaStreetSuffixes.h"
+#include "data/russia/RussiaCities.h"
+#include "data/russia/RussiaStreetPrefixes.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -146,6 +148,30 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
     ASSERT_TRUE(std::any_of(usaStreetSuffixes.begin(), usaStreetSuffixes.end(),
                             [generatedStreetSuffix](const std::string& streetSuffix)
                             { return streetSuffix == generatedStreetSuffix; }));
+}
+
+TEST_F(LocationTest, shouldGenerateRussiaCity)
+{
+    const auto generatedCity = Location::city(Country::Russia);
+
+    ASSERT_TRUE(std::any_of(russiaCities.begin(), russiaCities.end(),
+                            [generatedCity](const std::string& city) { return city == generatedCity; }));
+}
+
+TEST_F(LocationTest, shouldGenerateRussiaZipCode)
+{
+    const auto generatedZipCode = Location::zipCode(Country::Russia);
+
+    ASSERT_EQ(generatedZipCode.size(), 6);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedZipCode));
+}
+
+TEST_F(LocationTest, shouldGenerateRussiaBuildingNumber)
+{
+    const auto generatedBuildingNumber = Location::buildingNumber(Country::Russia);
+
+    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
 }
 
 TEST_F(LocationTest, shouldGenerateLatitude)

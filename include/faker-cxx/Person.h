@@ -38,7 +38,7 @@ public:
      * Person::lastName() // "Peterson"
      * @endcode
      */
-    static std::string lastName(Language language = Language::English);
+    static std::string lastName(Language language = Language::English, std::optional<Sex> = std::nullopt);
 
     /**
      * @brief Returns a random full name.

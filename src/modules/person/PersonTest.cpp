@@ -21,6 +21,10 @@
 #include "data/polish/PolishFirstNamesFemales.h"
 #include "data/polish/PolishFirstNamesMales.h"
 #include "data/polish/PolishLastNames.h"
+#include "data/russian/RussianFirstNamesFemales.h"
+#include "data/russian/RussianFirstNamesMales.h"
+#include "data/russian/RussianLastNamesFemales.h"
+#include "data/russian/RussianLastNamesMales.h"
 #include "src/common/StringHelper.h"
 
 using namespace ::testing;
@@ -33,7 +37,7 @@ const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
 const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
 
 const std::vector<Language> languages{Language::English, Language::French, Language::German, Language::Italian,
-                                      Language::Polish};
+                                      Language::Polish, Language::Russian};
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
     {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
@@ -41,17 +45,22 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirs
     {Language::German, {{Sex::Male, germanFirstNamesMales}, {Sex::Female, germanFirstNamesFemales}}},
     {Language::Italian, {{Sex::Male, italianFirstNamesMales}, {Sex::Female, italianFirstNamesFemales}}},
     {Language::Polish, {{Sex::Male, polishFirstNamesMales}, {Sex::Female, polishFirstNamesFemales}}},
+    {Language::Russian, {{Sex::Male, russianFirstNamesMales}, {Sex::Female, russianFirstNamesFemales}}}
 };
 
-const std::map<Language, std::vector<std::string>> languageToLastNamesMapping{
-    {Language::English, englishLastNames}, {Language::French, frenchLastNames}, {Language::German, germanLastNames},
-    {Language::Italian, italianLastNames}, {Language::Polish, polishLastNames},
+const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
+    {Language::English, {{Sex::Male, englishLastNames}, {Sex::Female, englishLastNames}}},
+    {Language::French, {{Sex::Male, frenchLastNames}, {Sex::Female, frenchLastNames}}},
+    {Language::German, {{Sex::Male, germanLastNames}, {Sex::Female, germanLastNames}}},
+    {Language::Italian, {{Sex::Male, italianLastNames}, {Sex::Female, italianLastNames}}},
+    {Language::Polish, {{Sex::Male, polishLastNames}, {Sex::Female, polishLastNames}}},
+    {Language::Russian, {{Sex::Male, russianLastNamesMales}, {Sex::Female, russianLastNamesFemales}}},
 };
 
 const std::map<Language, std::string> generatedTestName{
     {Language::English, "shouldGenerateEnglishName"}, {Language::French, "shouldGenerateFrenchName"},
     {Language::German, "shouldGenerateGermanName"},   {Language::Italian, "shouldGenerateItalianName"},
-    {Language::Polish, "shouldGeneratePolishName"},
+    {Language::Polish, "shouldGeneratePolishName"}, {Language::Russian, "shouldGenerateRussianName"}
 };
 }
 
@@ -110,15 +119,28 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
                             { return firstName == generatedFirstName; }));
 }
 
-TEST_P(PersonTest, shouldGenerateLastName)
+TEST_P(PersonTest, shouldGenerateLastNameMale)
 {
     const auto language = GetParam();
 
-    const auto& lastNames = languageToLastNamesMapping.at(language);
+    const auto& lastNamesMale = languageToLastNamesMapping.at(language).at(Sex::Male);
 
-    const auto generatedLastName = Person::lastName(language);
+    const auto generatedLastName = Person::lastName(language, Sex::Male);
 
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
+    ASSERT_TRUE(std::any_of(lastNamesMale.begin(), lastNamesMale.end(),
+                            [generatedLastName](const std::string& lastName)
+                            { return lastName == generatedLastName; }));
+}
+
+TEST_P(PersonTest, shouldGenerateLastNameFemale)
+{
+    const auto language = GetParam();
+
+    const auto& lastNamesFemale = languageToLastNamesMapping.at(language).at(Sex::Female);
+
+    const auto generatedLastName = Person::lastName(language, Sex::Female);
+
+    ASSERT_TRUE(std::any_of(lastNamesFemale.begin(), lastNamesFemale.end(),
                             [generatedLastName](const std::string& lastName)
                             { return lastName == generatedLastName; }));
 }
@@ -132,11 +154,16 @@ TEST_P(PersonTest, shouldGenerateFullName)
     const auto& firstNamesMales = firstNamesBySexMapping.at(Sex::Male);
     const auto& firstNamesFemales = firstNamesBySexMapping.at(Sex::Female);
 
-    const auto& lastNames = languageToLastNamesMapping.at(language);
+    const auto& lastNamesBySexMapping = languageToLastNamesMapping.at(language);
+
+    const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
+    const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
 
     std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> lastNames{lastNamesMales};
 
     firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
 
     const auto generatedFullName = Person::fullName(language);
 
@@ -160,7 +187,7 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 
     const auto& firstNamesMales = firstNamesBySexMapping.at(Sex::Male);
 
-    const auto& lastNames = languageToLastNamesMapping.at(language);
+    const auto& lastNames = languageToLastNamesMapping.at(language).at(Sex::Male);
 
     const auto generatedFullName = Person::fullName(language, Sex::Male);
 
@@ -184,7 +211,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 
     const auto& firstNamesFemales = firstNamesBySexMapping.at(Sex::Female);
 
-    const auto& lastNames = languageToLastNamesMapping.at(language);
+    const auto& lastNames = languageToLastNamesMapping.at(language).at(Sex::Female);
 
     const auto generatedFullName = Person::fullName(language, Sex::Female);
 
