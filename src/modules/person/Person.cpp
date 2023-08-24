@@ -20,6 +20,10 @@
 #include "data/polish/PolishFirstNamesFemales.h"
 #include "data/polish/PolishFirstNamesMales.h"
 #include "data/polish/PolishLastNames.h"
+#include "data/russian/RussianFirstNamesFemales.h"
+#include "data/russian/RussianFirstNamesMales.h"
+#include "data/russian/RussianLastNamesFemales.h"
+#include "data/russian/RussianLastNamesMales.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
@@ -37,11 +41,16 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirs
     {Language::German, {{Sex::Male, germanFirstNamesMales}, {Sex::Female, germanFirstNamesFemales}}},
     {Language::Italian, {{Sex::Male, italianFirstNamesMales}, {Sex::Female, italianFirstNamesFemales}}},
     {Language::Polish, {{Sex::Male, polishFirstNamesMales}, {Sex::Female, polishFirstNamesFemales}}},
+    {Language::Russian, {{Sex::Male, russianFirstNamesMales}, {Sex::Female, russianFirstNamesFemales}}}
 };
 
-const std::map<Language, std::vector<std::string>> languageToLastNamesMapping{
-    {Language::English, englishLastNames}, {Language::French, frenchLastNames}, {Language::German, germanLastNames},
-    {Language::Italian, italianLastNames}, {Language::Polish, polishLastNames},
+const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
+    {Language::English, {{Sex::Male, englishLastNames}, {Sex::Female, englishLastNames}}},
+    {Language::French, {{Sex::Male, frenchLastNames}, {Sex::Female, frenchLastNames}}},
+    {Language::German, {{Sex::Male, germanLastNames}, {Sex::Female, germanLastNames}}},
+    {Language::Italian, {{Sex::Male, italianLastNames}, {Sex::Female, italianLastNames}}},
+    {Language::Polish, {{Sex::Male, polishLastNames}, {Sex::Female, polishLastNames}}},
+    {Language::Russian, {{Sex::Male, russianLastNamesMales}, {Sex::Female, russianLastNamesFemales}}},
 };
 }
 
@@ -75,14 +84,33 @@ std::string Person::firstName(Language language, std::optional<Sex> sex)
     return Helper::arrayElement<std::string>(firstNames);
 }
 
-std::string Person::lastName(Language language)
+std::string Person::lastName(Language language, std::optional<Sex> sex)
 {
-    return Helper::arrayElement<std::string>(languageToLastNamesMapping.at(language));
+    const auto& lastNamesBySexMapping = languageToLastNamesMapping.at(language);
+
+    std::vector<std::string> lastNames;
+
+    if (sex == Sex::Male) {
+        const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
+
+        lastNames.insert(lastNames.end(), lastNamesMales.begin(), lastNamesMales.end());
+    } else if (sex == Sex::Female) {
+        const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
+
+        lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
+    } else {
+        const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
+        const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
+
+        lastNames.insert(lastNames.end(), lastNamesMales.begin(), lastNamesMales.end());
+        lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
+    }
+    return Helper::arrayElement<std::string>(lastNames);
 }
 
 std::string Person::fullName(Language language, std::optional<Sex> sex)
 {
-    return std::format("{} {}", firstName(language, sex), lastName(language));
+    return std::format("{} {}", firstName(language, sex), lastName(language, sex));
 }
 
 std::string Person::sex()

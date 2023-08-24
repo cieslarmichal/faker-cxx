@@ -10,6 +10,7 @@ enum class Country
     Poland,
     France,
     Germany,
-    Italy
+    Italy,
+    Russia
 };
 }
