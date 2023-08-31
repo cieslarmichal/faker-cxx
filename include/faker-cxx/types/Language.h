@@ -11,7 +11,8 @@ enum class Language
     Italian,
     French,
     German,
-    Russian
+    Russian,
+    Romanian,
 };
 
 inline std::string toString(Language language)
@@ -21,7 +22,8 @@ inline std::string toString(Language language)
                                                             {Language::Italian, "Italian"},
                                                             {Language::French, "French"},
                                                             {Language::German, "German"},
-                                                            {Language::Russian, "Russian"}};
+                                                            {Language::Russian, "Russian"},
+                                                            {Language::Romanian, "Romanian"}};
 
     return languageToStringMapping.at(language);
 }

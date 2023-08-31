@@ -24,6 +24,9 @@
 #include "data/russian/RussianFirstNamesMales.h"
 #include "data/russian/RussianLastNamesFemales.h"
 #include "data/russian/RussianLastNamesMales.h"
+#include "data/romanian/RomanianFirstNamesFemales.h"
+#include "data/romanian/RomanianFirstNamesMales.h"
+#include "data/romanian/RomanianLastNames.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
@@ -41,7 +44,8 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirs
     {Language::German, {{Sex::Male, germanFirstNamesMales}, {Sex::Female, germanFirstNamesFemales}}},
     {Language::Italian, {{Sex::Male, italianFirstNamesMales}, {Sex::Female, italianFirstNamesFemales}}},
     {Language::Polish, {{Sex::Male, polishFirstNamesMales}, {Sex::Female, polishFirstNamesFemales}}},
-    {Language::Russian, {{Sex::Male, russianFirstNamesMales}, {Sex::Female, russianFirstNamesFemales}}}
+    {Language::Russian, {{Sex::Male, russianFirstNamesMales}, {Sex::Female, russianFirstNamesFemales}}},
+    {Language::Romanian, {{Sex::Male, romanianFirstNamesMales}, {Sex::Female, romanianFirstNamesFemales}}},
 };
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
@@ -51,6 +55,7 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLast
     {Language::Italian, {{Sex::Male, italianLastNames}, {Sex::Female, italianLastNames}}},
     {Language::Polish, {{Sex::Male, polishLastNames}, {Sex::Female, polishLastNames}}},
     {Language::Russian, {{Sex::Male, russianLastNamesMales}, {Sex::Female, russianLastNamesFemales}}},
+    {Language::Romanian, {{Sex::Male, romanianLastNames}, {Sex::Female, romanianLastNames}}},
 };
 }
 
