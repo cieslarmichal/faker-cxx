@@ -6,14 +6,14 @@
 #include "../../common/StringHelper.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
+#include "data/russia/RussiaAddressFormat.h"
+#include "data/russia/RussiaCities.h"
+#include "data/russia/RussiaStreetPrefixes.h"
 #include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/usa/UsaAddressFormat.h"
 #include "data/usa/UsaCities.h"
 #include "data/usa/UsaStreetSuffixes.h"
-#include "data/russia/RussiaAddressFormat.h"
-#include "data/russia/RussiaCities.h"
-#include "data/russia/RussiaStreetPrefixes.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
@@ -23,19 +23,23 @@ namespace faker
 namespace
 {
 const std::map<Country, std::vector<std::string>> countryToCitiesMapping{
-    {Country::Usa, usaCities}, {Country::Russia, russiaCities},
+    {Country::Usa, usaCities},
+    {Country::Russia, russiaCities},
 };
 
 const std::map<Country, std::string> countryToZipCodeFormatMapping{
-    {Country::Usa, usaZipCodeFormat}, {Country::Russia, russiaZipCodeFormat},
+    {Country::Usa, usaZipCodeFormat},
+    {Country::Russia, russiaZipCodeFormat},
 };
 
 const std::map<Country, std::vector<std::string>> countryToBuildingNumberFormatsMapping{
-    {Country::Usa, usaBuildingNumberFormats}, {Country::Russia, russiaBuildingNumberFormats},
+    {Country::Usa, usaBuildingNumberFormats},
+    {Country::Russia, russiaBuildingNumberFormats},
 };
 
 const std::map<Country, std::vector<std::string>> countryToStreetFormatsMapping{
-    {Country::Usa, usaStreetFormats}, {Country::Russia, russiaStreetFormats},
+    {Country::Usa, usaStreetFormats},
+    {Country::Russia, russiaStreetFormats},
 };
 
 const std::map<Country, std::vector<std::string>> countryToSecondaryAddressFormatsMapping{
@@ -43,7 +47,8 @@ const std::map<Country, std::vector<std::string>> countryToSecondaryAddressForma
 };
 
 const std::map<Country, std::string> countryToAddressFormatMapping{
-    {Country::Usa, usaAddressFormat}, {Country::Russia, russiaAddressFormat},
+    {Country::Usa, usaAddressFormat},
+    {Country::Russia, russiaAddressFormat},
 };
 
 const std::map<Country, std::vector<std::string>> countryToStreetSuffixesMapping{
@@ -81,21 +86,7 @@ std::string Location::zipCode(Country country)
 {
     const auto& zipCodeFormat = countryToZipCodeFormatMapping.at(country);
 
-    std::string zipCode;
-
-    for (const auto& zipCodeFormatCharacter : zipCodeFormat)
-    {
-        if (zipCodeFormatCharacter == '#')
-        {
-            zipCode += String::numeric(1);
-        }
-        else
-        {
-            zipCode += zipCodeFormatCharacter;
-        }
-    }
-
-    return zipCode;
+    return Helper::replaceSymbolWithNumber(zipCodeFormat);
 }
 
 std::string Location::streetAddress(Country country)
@@ -115,7 +106,7 @@ std::string Location::streetAddress(Country country)
         else if (addressFormatElement == "{street}")
         {
             addressElements.push_back(street(country));
-        } 
+        }
     }
 
     return StringHelper::join(addressElements, " ");
@@ -168,21 +159,7 @@ std::string Location::buildingNumber(Country country)
 
     const auto buildingNumberFormat = Helper::arrayElement<std::string>(buildingNumberFormats);
 
-    std::string buildingNumber;
-
-    for (const auto& buildingNumberFormatCharacter : buildingNumberFormat)
-    {
-        if (buildingNumberFormatCharacter == '#')
-        {
-            buildingNumber += String::numeric(1);
-        }
-        else
-        {
-            buildingNumber += buildingNumberFormatCharacter;
-        }
-    }
-
-    return buildingNumber;
+    return Helper::replaceSymbolWithNumber(buildingNumberFormat);
 }
 
 std::string Location::secondaryAddress(Country country)
@@ -191,21 +168,7 @@ std::string Location::secondaryAddress(Country country)
 
     const auto secondaryAddressFormat = Helper::arrayElement<std::string>(secondaryAddressFormats);
 
-    std::string secondaryAddress;
-
-    for (const auto& secondaryAddressFormatCharacter : secondaryAddressFormat)
-    {
-        if (secondaryAddressFormatCharacter == '#')
-        {
-            secondaryAddress += String::numeric(1);
-        }
-        else
-        {
-            secondaryAddress += secondaryAddressFormatCharacter;
-        }
-    }
-
-    return secondaryAddress;
+    return Helper::replaceSymbolWithNumber(secondaryAddressFormat);
 }
 
 std::string Location::latitude(Precision precision)
