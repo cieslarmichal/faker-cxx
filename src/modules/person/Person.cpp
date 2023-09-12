@@ -20,13 +20,13 @@
 #include "data/polish/PolishFirstNamesFemales.h"
 #include "data/polish/PolishFirstNamesMales.h"
 #include "data/polish/PolishLastNames.h"
+#include "data/romanian/RomanianFirstNamesFemales.h"
+#include "data/romanian/RomanianFirstNamesMales.h"
+#include "data/romanian/RomanianLastNames.h"
 #include "data/russian/RussianFirstNamesFemales.h"
 #include "data/russian/RussianFirstNamesMales.h"
 #include "data/russian/RussianLastNamesFemales.h"
 #include "data/russian/RussianLastNamesMales.h"
-#include "data/romanian/RomanianFirstNamesFemales.h"
-#include "data/romanian/RomanianFirstNamesMales.h"
-#include "data/romanian/RomanianLastNames.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
@@ -95,15 +95,20 @@ std::string Person::lastName(Language language, std::optional<Sex> sex)
 
     std::vector<std::string> lastNames;
 
-    if (sex == Sex::Male) {
+    if (sex == Sex::Male)
+    {
         const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
 
         lastNames.insert(lastNames.end(), lastNamesMales.begin(), lastNamesMales.end());
-    } else if (sex == Sex::Female) {
+    }
+    else if (sex == Sex::Female)
+    {
         const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
 
         lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
-    } else {
+    }
+    else
+    {
         const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
         const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
 

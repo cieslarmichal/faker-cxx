@@ -17,13 +17,10 @@ enum class Language
 
 inline std::string toString(Language language)
 {
-    std::map<Language, std::string> languageToStringMapping{{Language::English, "English"},
-                                                            {Language::Polish, "Polish"},
-                                                            {Language::Italian, "Italian"},
-                                                            {Language::French, "French"},
-                                                            {Language::German, "German"},
-                                                            {Language::Russian, "Russian"},
-                                                            {Language::Romanian, "Romanian"}};
+    std::map<Language, std::string> languageToStringMapping{
+        {Language::English, "English"},  {Language::Polish, "Polish"}, {Language::Italian, "Italian"},
+        {Language::French, "French"},    {Language::German, "German"}, {Language::Russian, "Russian"},
+        {Language::Romanian, "Romanian"}};
 
     return languageToStringMapping.at(language);
 }

@@ -11,12 +11,12 @@
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
+#include "data/russia/RussiaCities.h"
+#include "data/russia/RussiaStreetPrefixes.h"
 #include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/usa/UsaCities.h"
 #include "data/usa/UsaStreetSuffixes.h"
-#include "data/russia/RussiaCities.h"
-#include "data/russia/RussiaStreetPrefixes.h"
 
 using namespace ::testing;
 using namespace faker;
