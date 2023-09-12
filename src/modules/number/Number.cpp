@@ -28,10 +28,11 @@ std::string Number::hex(std::optional<int> min, std::optional<int> max)
 
 std::string Number::convertToHex(int number)
 {
-    std::stringstream sstream;
-    sstream << std::hex << number;
-    std::string hexString = sstream.str();
-    return hexString;
+    std::stringstream stream;
+
+    stream << std::hex << number;
+
+    return stream.str();
 }
 
 }

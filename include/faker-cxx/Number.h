@@ -375,8 +375,9 @@ public:
     static std::string hex(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
 
 private:
+    static std::string convertToHex(int number);
+
     static std::random_device randomDevice;
     static std::mt19937 pseudoRandomGenerator;
-    static std::string convertToHex(int number);
 };
 }
