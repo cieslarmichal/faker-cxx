@@ -21,13 +21,13 @@
 #include "data/polish/PolishFirstNamesFemales.h"
 #include "data/polish/PolishFirstNamesMales.h"
 #include "data/polish/PolishLastNames.h"
+#include "data/romanian/RomanianFirstNamesFemales.h"
+#include "data/romanian/RomanianFirstNamesMales.h"
+#include "data/romanian/RomanianLastNames.h"
 #include "data/russian/RussianFirstNamesFemales.h"
 #include "data/russian/RussianFirstNamesMales.h"
 #include "data/russian/RussianLastNamesFemales.h"
 #include "data/russian/RussianLastNamesMales.h"
-#include "data/romanian/RomanianFirstNamesFemales.h"
-#include "data/romanian/RomanianFirstNamesMales.h"
-#include "data/romanian/RomanianLastNames.h"
 #include "src/common/StringHelper.h"
 
 using namespace ::testing;
@@ -39,8 +39,8 @@ const auto malePrefix{"Mr."};
 const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
 const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
 
-const std::vector<Language> languages{Language::English, Language::French, Language::German, Language::Italian,
-                                      Language::Polish, Language::Russian, Language::Romanian};
+const std::vector<Language> languages{Language::English, Language::French,  Language::German,  Language::Italian,
+                                      Language::Polish,  Language::Russian, Language::Romanian};
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
     {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
@@ -63,11 +63,10 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLast
 };
 
 const std::map<Language, std::string> generatedTestName{
-    {Language::English, "shouldGenerateEnglishName"}, {Language::French, "shouldGenerateFrenchName"},
-    {Language::German, "shouldGenerateGermanName"},   {Language::Italian, "shouldGenerateItalianName"},
-    {Language::Polish, "shouldGeneratePolishName"}, {Language::Russian, "shouldGenerateRussianName"},
-    {Language::Romanian, "shouldGenerateRomanianName"}
-};
+    {Language::English, "shouldGenerateEnglishName"},  {Language::French, "shouldGenerateFrenchName"},
+    {Language::German, "shouldGenerateGermanName"},    {Language::Italian, "shouldGenerateItalianName"},
+    {Language::Polish, "shouldGeneratePolishName"},    {Language::Russian, "shouldGenerateRussianName"},
+    {Language::Romanian, "shouldGenerateRomanianName"}};
 }
 
 class PersonTest : public TestWithParam<Language>
