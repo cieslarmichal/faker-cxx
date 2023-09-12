@@ -5,7 +5,7 @@ How to contribute
 Getting Started
 ---------------
 
--  Pick a feature from the [TODO Features](https://github.com/cieslarmichal/faker-cxx/blob/main/TODO.md) or pick an issue from [Issues](https://github.com/cieslarmichal/faker-cxx/issues)
+-  Pick a feature from the [TODO Features](https://github.com/cieslarmichal/faker-cxx/blob/main/TODO.md) or implement your own module/method if you have some idea.
 -  If you picked a feature from list, please create an issue for it (so other contributors don't implement the same feature). 
 -  Fork the repository on GitHub
 
