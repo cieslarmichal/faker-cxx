@@ -30,11 +30,9 @@ TEST_F(StringTest, shouldGenerateDefaultSampleString)
     const auto sample = String::sample();
 
     ASSERT_EQ(sample.size(), 10);
-    ASSERT_TRUE(std::all_of(sample.begin(), sample.end(),
-                            [](char sampleCharacter) {
-                                return static_cast<int>(sampleCharacter) >= 33 &&
-                                       static_cast<int>(sampleCharacter) <= 125;
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(
+        sample, [](char sampleCharacter)
+        { return static_cast<int>(sampleCharacter) >= 33 && static_cast<int>(sampleCharacter) <= 125; }));
 }
 
 TEST_F(StringTest, shouldGenerateSampleString)
@@ -42,11 +40,9 @@ TEST_F(StringTest, shouldGenerateSampleString)
     const auto sample = String::sample(5);
 
     ASSERT_EQ(sample.size(), 5);
-    ASSERT_TRUE(std::all_of(sample.begin(), sample.end(),
-                            [](char sampleCharacter) {
-                                return static_cast<int>(sampleCharacter) >= 33 &&
-                                       static_cast<int>(sampleCharacter) <= 125;
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(
+        sample, [](char sampleCharacter)
+        { return static_cast<int>(sampleCharacter) >= 33 && static_cast<int>(sampleCharacter) <= 125; }));
 }
 
 TEST_F(StringTest, shouldGenerateDefaultStringFromCharaters)
@@ -56,9 +52,8 @@ TEST_F(StringTest, shouldGenerateDefaultStringFromCharaters)
     const auto fromCharacters = String::fromCharacters(characters);
 
     ASSERT_EQ(fromCharacters.size(), 1);
-    ASSERT_TRUE(std::all_of(fromCharacters.begin(), fromCharacters.end(),
-                            [&characters](char sampleCharacter)
-                            { return characters.find(sampleCharacter) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::all_of(fromCharacters, [&characters](char sampleCharacter)
+                                    { return characters.find(sampleCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateStringFromCharaters)
@@ -68,9 +63,8 @@ TEST_F(StringTest, shouldGenerateStringFromCharaters)
     const auto fromCharacters = String::fromCharacters(characters, 6);
 
     ASSERT_EQ(fromCharacters.size(), 6);
-    ASSERT_TRUE(std::all_of(fromCharacters.begin(), fromCharacters.end(),
-                            [&characters](char sampleCharacter)
-                            { return characters.find(sampleCharacter) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::all_of(fromCharacters, [&characters](char sampleCharacter)
+                                    { return characters.find(sampleCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateDefaultApha)
@@ -78,8 +72,8 @@ TEST_F(StringTest, shouldGenerateDefaultApha)
     const auto alpha = String::alpha();
 
     ASSERT_EQ(alpha.size(), 1);
-    ASSERT_TRUE(std::any_of(mixedAlphaCharacters.begin(), mixedAlphaCharacters.end(),
-                            [alpha](char mixedCharacter) { return alpha[0] == mixedCharacter; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(mixedAlphaCharacters, [alpha](char mixedCharacter) { return alpha[0] == mixedCharacter; }));
 }
 
 TEST_F(StringTest, shouldGenerateMixedAlpha)
@@ -89,13 +83,13 @@ TEST_F(StringTest, shouldGenerateMixedAlpha)
     const auto alpha = String::alpha(alphaLength);
 
     ASSERT_EQ(alpha.size(), alphaLength);
-    ASSERT_TRUE(std::all_of(alpha.begin(), alpha.end(),
-                            [](char alphaCharacter)
-                            {
-                                return std::any_of(mixedAlphaCharacters.begin(), mixedAlphaCharacters.end(),
-                                                   [alphaCharacter](char mixedCharacter)
-                                                   { return mixedCharacter == alphaCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(alpha,
+                                    [](char alphaCharacter)
+                                    {
+                                        return std::ranges::any_of(mixedAlphaCharacters,
+                                                                   [alphaCharacter](char mixedCharacter)
+                                                                   { return mixedCharacter == alphaCharacter; });
+                                    }));
 }
 
 TEST_F(StringTest, shouldGenerateUpperAlpha)
@@ -105,13 +99,13 @@ TEST_F(StringTest, shouldGenerateUpperAlpha)
     const auto alpha = String::alpha(alphaLength, StringCasing::Upper);
 
     ASSERT_EQ(alpha.size(), alphaLength);
-    ASSERT_TRUE(std::all_of(alpha.begin(), alpha.end(),
-                            [](char alphaCharacter)
-                            {
-                                return std::any_of(upperCharacters.begin(), upperCharacters.end(),
-                                                   [alphaCharacter](char upperCharacter)
-                                                   { return upperCharacter == alphaCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(alpha,
+                                    [](char alphaCharacter)
+                                    {
+                                        return std::ranges::any_of(upperCharacters,
+                                                                   [alphaCharacter](char upperCharacter)
+                                                                   { return upperCharacter == alphaCharacter; });
+                                    }));
 }
 
 TEST_F(StringTest, shouldGenerateLowerAlpha)
@@ -121,13 +115,13 @@ TEST_F(StringTest, shouldGenerateLowerAlpha)
     const auto alpha = String::alpha(alphaLength, StringCasing::Lower);
 
     ASSERT_EQ(alpha.size(), alphaLength);
-    ASSERT_TRUE(std::all_of(alpha.begin(), alpha.end(),
-                            [](char alphaCharacter)
-                            {
-                                return std::any_of(lowerCharacters.begin(), lowerCharacters.end(),
-                                                   [alphaCharacter](char lowerCharacter)
-                                                   { return lowerCharacter == alphaCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(alpha,
+                                    [](char alphaCharacter)
+                                    {
+                                        return std::ranges::any_of(lowerCharacters,
+                                                                   [alphaCharacter](char lowerCharacter)
+                                                                   { return lowerCharacter == alphaCharacter; });
+                                    }));
 }
 
 TEST_F(StringTest, shouldGenerateDefaultAphanumeric)
@@ -135,8 +129,8 @@ TEST_F(StringTest, shouldGenerateDefaultAphanumeric)
     const auto alphanumeric = String::alphanumeric();
 
     ASSERT_EQ(alphanumeric.size(), 1);
-    ASSERT_TRUE(std::any_of(mixedAlphanumericCharacters.begin(), mixedAlphanumericCharacters.end(),
-                            [alphanumeric](char mixedCharacter) { return alphanumeric[0] == mixedCharacter; }));
+    ASSERT_TRUE(std::ranges::any_of(mixedAlphanumericCharacters,
+                                    [alphanumeric](char mixedCharacter) { return alphanumeric[0] == mixedCharacter; }));
 }
 
 TEST_F(StringTest, shouldGenerateMixedAlphanumeric)
@@ -146,14 +140,14 @@ TEST_F(StringTest, shouldGenerateMixedAlphanumeric)
     const auto alphanumeric = String::alphanumeric(alphanumericLength);
 
     ASSERT_EQ(alphanumeric.size(), alphanumericLength);
-    ASSERT_TRUE(std::all_of(alphanumeric.begin(), alphanumeric.end(),
-                            [](char alphanumericCharacter)
-                            {
-                                return std::any_of(mixedAlphanumericCharacters.begin(),
-                                                   mixedAlphanumericCharacters.end(),
-                                                   [alphanumericCharacter](char mixedAlphanumericCharacter)
-                                                   { return alphanumericCharacter == mixedAlphanumericCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(alphanumeric,
+                                    [](char alphanumericCharacter)
+                                    {
+                                        return std::ranges::any_of(
+                                            mixedAlphanumericCharacters,
+                                            [alphanumericCharacter](char mixedAlphanumericCharacter)
+                                            { return alphanumericCharacter == mixedAlphanumericCharacter; });
+                                    }));
 }
 
 TEST_F(StringTest, shouldGenerateUpperAlphanumeric)
@@ -163,14 +157,14 @@ TEST_F(StringTest, shouldGenerateUpperAlphanumeric)
     const auto alphanumeric = String::alphanumeric(alphanumericLength, StringCasing::Upper);
 
     ASSERT_EQ(alphanumeric.size(), alphanumericLength);
-    ASSERT_TRUE(std::all_of(alphanumeric.begin(), alphanumeric.end(),
-                            [](char alphanumericCharacter)
-                            {
-                                return std::any_of(upperAlphanumericCharacters.begin(),
-                                                   upperAlphanumericCharacters.end(),
-                                                   [alphanumericCharacter](char upperAlphanumericCharacter)
-                                                   { return upperAlphanumericCharacter == alphanumericCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(alphanumeric,
+                                    [](char alphanumericCharacter)
+                                    {
+                                        return std::ranges::any_of(
+                                            upperAlphanumericCharacters,
+                                            [alphanumericCharacter](char upperAlphanumericCharacter)
+                                            { return upperAlphanumericCharacter == alphanumericCharacter; });
+                                    }));
 }
 
 TEST_F(StringTest, shouldGenerateLowerAlphanumeric)
@@ -180,14 +174,14 @@ TEST_F(StringTest, shouldGenerateLowerAlphanumeric)
     const auto alphanumeric = String::alphanumeric(alphanumericLength, StringCasing::Lower);
 
     ASSERT_EQ(alphanumeric.size(), alphanumericLength);
-    ASSERT_TRUE(std::all_of(alphanumeric.begin(), alphanumeric.end(),
-                            [](char alphanumericCharacter)
-                            {
-                                return std::any_of(lowerAlphanumericCharacters.begin(),
-                                                   lowerAlphanumericCharacters.end(),
-                                                   [alphanumericCharacter](char lowerAlphanumericCharacter)
-                                                   { return lowerAlphanumericCharacter == alphanumericCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(alphanumeric,
+                                    [](char alphanumericCharacter)
+                                    {
+                                        return std::ranges::any_of(
+                                            lowerAlphanumericCharacters,
+                                            [alphanumericCharacter](char lowerAlphanumericCharacter)
+                                            { return lowerAlphanumericCharacter == alphanumericCharacter; });
+                                    }));
 }
 
 TEST_F(StringTest, shouldGenerateNumeric)
@@ -195,8 +189,8 @@ TEST_F(StringTest, shouldGenerateNumeric)
     const auto numeric = String::numeric();
 
     ASSERT_EQ(numeric.size(), 1);
-    ASSERT_TRUE(std::any_of(numeric.begin(), numeric.end(),
-                            [numeric](char numericCharacter) { return numeric[0] == numericCharacter; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(numeric, [numeric](char numericCharacter) { return numeric[0] == numericCharacter; }));
 }
 
 TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZeros)
@@ -209,16 +203,15 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZeros)
     const auto numericWithPossibleZeroCharacters = numeric.substr(1);
 
     ASSERT_EQ(numeric.size(), numericLength);
-    ASSERT_TRUE(std::any_of(numericCharactersWithoutZero.begin(), numericCharactersWithoutZero.end(),
-                            [nonZeroCharacter](char numericCharacter)
-                            { return nonZeroCharacter == numericCharacter; }));
-    ASSERT_TRUE(std::all_of(numericWithPossibleZeroCharacters.begin(), numericWithPossibleZeroCharacters.end(),
-                            [](char numericCharacterWithPossibleZero)
-                            {
-                                return std::any_of(numericCharacters.begin(), numericCharacters.end(),
-                                                   [numericCharacterWithPossibleZero](char numericCharacter)
-                                                   { return numericCharacterWithPossibleZero == numericCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::any_of(numericCharactersWithoutZero, [nonZeroCharacter](char numericCharacter)
+                                    { return nonZeroCharacter == numericCharacter; }));
+    ASSERT_TRUE(std::ranges::all_of(numericWithPossibleZeroCharacters,
+                                    [](char numericCharacterWithPossibleZero)
+                                    {
+                                        return std::ranges::any_of(
+                                            numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
+                                            { return numericCharacterWithPossibleZero == numericCharacter; });
+                                    }));
 }
 
 TEST_F(StringTest, shouldGenerateHexadecimal)
@@ -232,9 +225,8 @@ TEST_F(StringTest, shouldGenerateHexadecimal)
 
     ASSERT_EQ(hexadecimal.size(), hexadecimalLength + 2);
     ASSERT_EQ(prefix, "0x");
-    ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
-                            [hexNumber](char hexNumberCharacter)
-                            { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
+                                    { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateHexadecimalWithHashPrefix)
@@ -248,9 +240,8 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithHashPrefix)
 
     ASSERT_EQ(hexadecimal.size(), hexadecimalLength + 1);
     ASSERT_EQ(prefix, "#");
-    ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
-                            [](char hexNumberCharacter)
-                            { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(hexNumber, [](char hexNumberCharacter)
+                                    { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateHexadecimalWithoutPrefix)
@@ -260,9 +251,8 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithoutPrefix)
     const auto hexadecimal = String::hexadecimal(hexadecimalLength, HexCasing::Upper, HexPrefix::None);
 
     ASSERT_EQ(hexadecimal.size(), hexadecimalLength);
-    ASSERT_TRUE(std::any_of(hexadecimal.begin(), hexadecimal.end(),
-                            [](char hexNumberCharacter)
-                            { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(hexadecimal, [](char hexNumberCharacter)
+                                    { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateBinary)
@@ -276,9 +266,8 @@ TEST_F(StringTest, shouldGenerateBinary)
 
     ASSERT_EQ(binary.size(), binaryLength + 2);
     ASSERT_EQ(prefix, "0b");
-    ASSERT_TRUE(std::any_of(binary.begin(), binary.end(),
-                            [](char binaryNumberCharacter)
-                            { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(binary, [](char binaryNumberCharacter)
+                                    { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateOctalWithPrefix)
@@ -292,7 +281,7 @@ TEST_F(StringTest, shouldGenerateOctalWithPrefix)
 
     ASSERT_EQ(octal.size(), octalLength + 2);
     ASSERT_EQ(prefix, "0o");
-    ASSERT_TRUE(std::any_of(octal.begin(), octal.end(),
-                            [](char octalNumberCharacter)
+    ASSERT_TRUE(
+        std::ranges::any_of(octal, [](char octalNumberCharacter)
                             { return std::string("01234567").find(octalNumberCharacter) != std::string::npos; }));
 }

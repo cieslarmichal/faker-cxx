@@ -19,8 +19,8 @@ TEST_F(LoremTest, shouldGenerateWord)
 {
     const auto generatedWord = Lorem::word();
 
-    ASSERT_TRUE(std::any_of(loremWords.begin(), loremWords.end(),
-                            [generatedWord](const std::string& word) { return word == generatedWord; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(loremWords, [generatedWord](const std::string& word) { return word == generatedWord; }));
 }
 
 TEST_F(LoremTest, shouldGenerateWords)
@@ -32,16 +32,14 @@ TEST_F(LoremTest, shouldGenerateWords)
     const auto separatedWords = StringHelper::split(generatedWords, " ");
 
     ASSERT_EQ(separatedWords.size(), numberOfWords);
-    ASSERT_TRUE(std::all_of(separatedWords.begin(), separatedWords.end(),
-                            [](const std::string& separatedWord)
-                            {
-                                return std::any_of(loremWords.begin(), loremWords.end(),
-                                                   [separatedWord](const std::string& word) {
-                                                       return word ==
-                                                              static_cast<char>(std::tolower(separatedWord[0])) +
-                                                                  separatedWord.substr(1);
-                                                   });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(
+        separatedWords,
+        [](const std::string& separatedWord)
+        {
+            return std::ranges::any_of(
+                loremWords, [separatedWord](const std::string& word)
+                { return word == static_cast<char>(std::tolower(separatedWord[0])) + separatedWord.substr(1); });
+        }));
 }
 
 TEST_F(LoremTest, shouldGenerateSentence)
@@ -55,15 +53,14 @@ TEST_F(LoremTest, shouldGenerateSentence)
     ASSERT_TRUE(std::isupper(sentence[0]));
     ASSERT_TRUE(sentence.ends_with("."));
     ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
-    ASSERT_TRUE(std::all_of(sentenceWords.begin(), sentenceWords.end(),
-                            [](const std::string& sentenceWord)
-                            {
-                                return std::any_of(loremWords.begin(), loremWords.end(),
-                                                   [sentenceWord](const std::string& word) {
-                                                       return word == static_cast<char>(std::tolower(sentenceWord[0])) +
-                                                                          sentenceWord.substr(1);
-                                                   });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(
+        sentenceWords,
+        [](const std::string& sentenceWord)
+        {
+            return std::ranges::any_of(
+                loremWords, [sentenceWord](const std::string& word)
+                { return word == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1); });
+        }));
 }
 
 TEST_F(LoremTest, shouldGenerateSentences)
@@ -82,16 +79,14 @@ TEST_F(LoremTest, shouldGenerateSentences)
 
         ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 
-        ASSERT_TRUE(std::all_of(sentenceWords.begin(), sentenceWords.end(),
-                                [](const std::string& sentenceWord)
-                                {
-                                    return std::any_of(loremWords.begin(), loremWords.end(),
-                                                       [sentenceWord](const std::string& word) {
-                                                           return word ==
-                                                                  static_cast<char>(std::tolower(sentenceWord[0])) +
-                                                                      sentenceWord.substr(1);
-                                                       });
-                                }));
+        ASSERT_TRUE(std::ranges::all_of(
+            sentenceWords,
+            [](const std::string& sentenceWord)
+            {
+                return std::ranges::any_of(
+                    loremWords, [sentenceWord](const std::string& word)
+                    { return word == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1); });
+            }));
     }
 }
 
@@ -102,16 +97,14 @@ TEST_F(LoremTest, shouldGenerateSlug)
     const auto separatedWords = StringHelper::split(generatedSlug, "-");
 
     ASSERT_EQ(separatedWords.size(), 3);
-    ASSERT_TRUE(std::all_of(separatedWords.begin(), separatedWords.end(),
-                            [](const std::string& separatedWord)
-                            {
-                                return std::any_of(loremWords.begin(), loremWords.end(),
-                                                   [separatedWord](const std::string& word) {
-                                                       return word ==
-                                                              static_cast<char>(std::tolower(separatedWord[0])) +
-                                                                  separatedWord.substr(1);
-                                                   });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(
+        separatedWords,
+        [](const std::string& separatedWord)
+        {
+            return std::ranges::any_of(
+                loremWords, [separatedWord](const std::string& word)
+                { return word == static_cast<char>(std::tolower(separatedWord[0])) + separatedWord.substr(1); });
+        }));
 }
 
 TEST_F(LoremTest, shouldGenerateParagraph)
@@ -130,16 +123,14 @@ TEST_F(LoremTest, shouldGenerateParagraph)
 
         ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 
-        ASSERT_TRUE(std::all_of(sentenceWords.begin(), sentenceWords.end(),
-                                [](const std::string& sentenceWord)
-                                {
-                                    return std::any_of(loremWords.begin(), loremWords.end(),
-                                                       [sentenceWord](const std::string& word) {
-                                                           return word ==
-                                                                  static_cast<char>(std::tolower(sentenceWord[0])) +
-                                                                      sentenceWord.substr(1);
-                                                       });
-                                }));
+        ASSERT_TRUE(std::ranges::all_of(
+            sentenceWords,
+            [](const std::string& sentenceWord)
+            {
+                return std::ranges::any_of(
+                    loremWords, [sentenceWord](const std::string& word)
+                    { return word == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1); });
+            }));
     }
 }
 
@@ -163,16 +154,14 @@ TEST_F(LoremTest, shouldGenerateParagraphs)
 
             ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 
-            ASSERT_TRUE(std::all_of(sentenceWords.begin(), sentenceWords.end(),
-                                    [](const std::string& sentenceWord)
-                                    {
-                                        return std::any_of(loremWords.begin(), loremWords.end(),
-                                                           [sentenceWord](const std::string& word) {
-                                                               return word ==
-                                                                      static_cast<char>(std::tolower(sentenceWord[0])) +
-                                                                          sentenceWord.substr(1);
-                                                           });
-                                    }));
+            ASSERT_TRUE(std::ranges::all_of(
+                sentenceWords,
+                [](const std::string& sentenceWord)
+                {
+                    return std::ranges::any_of(
+                        loremWords, [sentenceWord](const std::string& word)
+                        { return word == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1); });
+                }));
         }
     }
 }
