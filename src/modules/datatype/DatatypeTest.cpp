@@ -18,8 +18,7 @@ TEST_F(DatatypeTest, shouldGenerateBoolean)
 
     const auto boolean = Datatype::boolean();
 
-    ASSERT_TRUE(std::any_of(booleanValues.begin(), booleanValues.end(),
-                            [boolean](bool booleanValue) { return boolean == booleanValue; }));
+    ASSERT_TRUE(std::ranges::any_of(booleanValues, [boolean](bool booleanValue) { return boolean == booleanValue; }));
 }
 
 TEST_F(DatatypeTest, BooleanWithProbTest)

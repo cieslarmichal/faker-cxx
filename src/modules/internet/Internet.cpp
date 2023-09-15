@@ -229,7 +229,7 @@ std::string Internet::mac(const std::string& sep)
     std::string currentSep = sep;
     std::vector<std::string> acceptableSeparators = {":", "-", ""};
 
-    if (std::find(acceptableSeparators.begin(), acceptableSeparators.end(), currentSep) == acceptableSeparators.end())
+    if (std::ranges::find(acceptableSeparators, currentSep) == acceptableSeparators.end())
     {
         currentSep = ":";
     }

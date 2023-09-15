@@ -68,7 +68,7 @@ TEST_F(SystemTest, MimeTypeTest)
 {
     std::string mimeTypeResult = System::mimeType();
 
-    bool isValidMimeType = std::find(mimeTypes.begin(), mimeTypes.end(), mimeTypeResult) != mimeTypes.end();
+    bool isValidMimeType = std::ranges::find(mimeTypes, mimeTypeResult) != mimeTypes.end();
     EXPECT_TRUE(isValidMimeType);
 }
 
@@ -76,8 +76,7 @@ TEST_F(SystemTest, CommonFileTypeTest)
 {
     std::string commonFileTypeResult = System::commonFileType();
 
-    bool isValidCommonFileType =
-        std::find(commonFileTypes.begin(), commonFileTypes.end(), commonFileTypeResult) != commonFileTypes.end();
+    bool isValidCommonFileType = std::ranges::find(commonFileTypes, commonFileTypeResult) != commonFileTypes.end();
     EXPECT_TRUE(isValidCommonFileType);
 }
 
@@ -98,7 +97,7 @@ TEST_F(SystemTest, FileTypeTest)
 
     std::string fileTypeResult = System::fileType();
 
-    bool isValidFileType = std::find(expectedTypes.begin(), expectedTypes.end(), fileTypeResult) != expectedTypes.end();
+    bool isValidFileType = std::ranges::find(expectedTypes, fileTypeResult) != expectedTypes.end();
     EXPECT_TRUE(isValidFileType);
 }
 
@@ -153,8 +152,8 @@ TEST_F(SystemTest, IncludeYearOption)
     EXPECT_TRUE(isValidCronExpression(cronExpr));
 
     int yearValue = -1;
-    std::smatch match;
-    if (std::regex_search(cronExpr, match, std::regex(R"(\b(19[7-9][0-9]|20[0-9]{2})\b)")))
+
+    if (std::smatch match; std::regex_search(cronExpr, match, std::regex(R"(\b(19[7-9][0-9]|20[0-9]{2})\b)")))
     {
         yearValue = std::stoi(match.str());
     }
@@ -170,7 +169,6 @@ TEST_F(SystemTest, IncludeNonStandardOption)
 
     std::vector<std::string> nonStandardExpressions = {"@annually", "@daily",  "@hourly", "@monthly",
                                                        "@reboot",   "@weekly", "@yearly"};
-    bool isNonStandard = std::find(nonStandardExpressions.begin(), nonStandardExpressions.end(), cronExpr) !=
-                         nonStandardExpressions.end();
+    bool isNonStandard = std::ranges::find(nonStandardExpressions, cronExpr) != nonStandardExpressions.end();
     EXPECT_TRUE(isNonStandard || isValidCronExpression(cronExpr));
 }

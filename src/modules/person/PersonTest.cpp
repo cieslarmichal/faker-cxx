@@ -89,9 +89,8 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 
     const auto generatedFirstName = Person::firstName(language);
 
-    ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
-                            [generatedFirstName](const std::string& firstName)
-                            { return firstName == generatedFirstName; }));
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFirstName](const std::string& firstName)
+                                    { return firstName == generatedFirstName; }));
 }
 
 TEST_P(PersonTest, shouldGeneratemMaleFirstName)
@@ -104,9 +103,8 @@ TEST_P(PersonTest, shouldGeneratemMaleFirstName)
 
     const auto generatedFirstName = Person::firstName(language, Sex::Male);
 
-    ASSERT_TRUE(std::any_of(firstNamesMales.begin(), firstNamesMales.end(),
-                            [generatedFirstName](const std::string& firstName)
-                            { return firstName == generatedFirstName; }));
+    ASSERT_TRUE(std::ranges::any_of(firstNamesMales, [generatedFirstName](const std::string& firstName)
+                                    { return firstName == generatedFirstName; }));
 }
 
 TEST_P(PersonTest, shouldGenerateFemaleFirstName)
@@ -119,9 +117,8 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 
     const auto generatedFirstName = Person::firstName(language, Sex::Female);
 
-    ASSERT_TRUE(std::any_of(firstNamesFemales.begin(), firstNamesFemales.end(),
-                            [generatedFirstName](const std::string& firstName)
-                            { return firstName == generatedFirstName; }));
+    ASSERT_TRUE(std::ranges::any_of(firstNamesFemales, [generatedFirstName](const std::string& firstName)
+                                    { return firstName == generatedFirstName; }));
 }
 
 TEST_P(PersonTest, shouldGenerateLastNameMale)
@@ -132,9 +129,8 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
 
     const auto generatedLastName = Person::lastName(language, Sex::Male);
 
-    ASSERT_TRUE(std::any_of(lastNamesMale.begin(), lastNamesMale.end(),
-                            [generatedLastName](const std::string& lastName)
-                            { return lastName == generatedLastName; }));
+    ASSERT_TRUE(std::ranges::any_of(lastNamesMale, [generatedLastName](const std::string& lastName)
+                                    { return lastName == generatedLastName; }));
 }
 
 TEST_P(PersonTest, shouldGenerateLastNameFemale)
@@ -145,9 +141,8 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
 
     const auto generatedLastName = Person::lastName(language, Sex::Female);
 
-    ASSERT_TRUE(std::any_of(lastNamesFemale.begin(), lastNamesFemale.end(),
-                            [generatedLastName](const std::string& lastName)
-                            { return lastName == generatedLastName; }));
+    ASSERT_TRUE(std::ranges::any_of(lastNamesFemale, [generatedLastName](const std::string& lastName)
+                                    { return lastName == generatedLastName; }));
 }
 
 TEST_P(PersonTest, shouldGenerateFullName)
@@ -176,12 +171,10 @@ TEST_P(PersonTest, shouldGenerateFullName)
 
     const auto& generatedFirstName = names[0];
 
-    ASSERT_TRUE(std::any_of(firstNames.begin(), firstNames.end(),
-                            [generatedFirstName](const std::string& firstName)
-                            { return firstName == generatedFirstName; }));
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
-                            [generatedFullName](const std::string& lastName)
-                            { return generatedFullName.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFirstName](const std::string& firstName)
+                                    { return firstName == generatedFirstName; }));
+    ASSERT_TRUE(std::ranges::any_of(lastNames, [generatedFullName](const std::string& lastName)
+                                    { return generatedFullName.find(lastName) != std::string::npos; }));
 }
 
 TEST_P(PersonTest, shouldGenerateMaleFullName)
@@ -200,12 +193,10 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 
     const auto& generatedFirstName = names[0];
 
-    ASSERT_TRUE(std::any_of(firstNamesMales.begin(), firstNamesMales.end(),
-                            [generatedFirstName](const std::string& firstName)
-                            { return firstName == generatedFirstName; }));
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
-                            [generatedFullName](const std::string& lastName)
-                            { return generatedFullName.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(firstNamesMales, [generatedFirstName](const std::string& firstName)
+                                    { return firstName == generatedFirstName; }));
+    ASSERT_TRUE(std::ranges::any_of(lastNames, [generatedFullName](const std::string& lastName)
+                                    { return generatedFullName.find(lastName) != std::string::npos; }));
 }
 
 TEST_P(PersonTest, shouldGenerateFemaleFullName)
@@ -224,12 +215,10 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 
     const auto& generatedFirstName = names[0];
 
-    ASSERT_TRUE(std::any_of(firstNamesFemales.begin(), firstNamesFemales.end(),
-                            [generatedFirstName](const std::string& firstName)
-                            { return firstName == generatedFirstName; }));
-    ASSERT_TRUE(std::any_of(lastNames.begin(), lastNames.end(),
-                            [generatedFullName](const std::string& lastName)
-                            { return generatedFullName.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(firstNamesFemales, [generatedFirstName](const std::string& firstName)
+                                    { return firstName == generatedFirstName; }));
+    ASSERT_TRUE(std::ranges::any_of(lastNames, [generatedFullName](const std::string& lastName)
+                                    { return generatedFullName.find(lastName) != std::string::npos; }));
 }
 
 INSTANTIATE_TEST_SUITE_P(TestPersonNamesByLanguages, PersonTest, ValuesIn(languages),
@@ -241,41 +230,39 @@ TEST_F(PersonTest, shouldGenerateSex)
 
     const auto generatedSex = Person::sex();
 
-    ASSERT_TRUE(std::any_of(sexes.begin(), sexes.end(),
-                            [generatedSex](const std::string& sex) { return sex == generatedSex; }));
+    ASSERT_TRUE(std::ranges::any_of(sexes, [generatedSex](const std::string& sex) { return sex == generatedSex; }));
 }
 
 TEST_F(PersonTest, shouldGenerateGender)
 {
     const auto generatedGender = Person::gender();
 
-    ASSERT_TRUE(std::any_of(genders.begin(), genders.end(),
-                            [generatedGender](const std::string& gender) { return gender == generatedGender; }));
+    ASSERT_TRUE(std::ranges::any_of(genders, [generatedGender](const std::string& gender)
+                                    { return gender == generatedGender; }));
 }
 
 TEST_F(PersonTest, shouldGenerateJobDescriptor)
 {
     const auto generatedJobDescriptor = Person::jobDescriptor();
 
-    ASSERT_TRUE(std::any_of(jobDescriptors.begin(), jobDescriptors.end(),
-                            [generatedJobDescriptor](const std::string& jobDescriptor)
-                            { return jobDescriptor == generatedJobDescriptor; }));
+    ASSERT_TRUE(std::ranges::any_of(jobDescriptors, [generatedJobDescriptor](const std::string& jobDescriptor)
+                                    { return jobDescriptor == generatedJobDescriptor; }));
 }
 
 TEST_F(PersonTest, shouldGenerateJobArea)
 {
     const auto generatedJobArea = Person::jobArea();
 
-    ASSERT_TRUE(std::any_of(jobAreas.begin(), jobAreas.end(),
-                            [generatedJobArea](const std::string& jobArea) { return jobArea == generatedJobArea; }));
+    ASSERT_TRUE(std::ranges::any_of(jobAreas, [generatedJobArea](const std::string& jobArea)
+                                    { return jobArea == generatedJobArea; }));
 }
 
 TEST_F(PersonTest, shouldGenerateJobType)
 {
     const auto generatedJobType = Person::jobType();
 
-    ASSERT_TRUE(std::any_of(jobTypes.begin(), jobTypes.end(),
-                            [generatedJobType](const std::string& jobType) { return jobType == generatedJobType; }));
+    ASSERT_TRUE(std::ranges::any_of(jobTypes, [generatedJobType](const std::string& jobType)
+                                    { return jobType == generatedJobType; }));
 }
 
 TEST_F(PersonTest, shouldGenerateJobTitle)
@@ -288,21 +275,20 @@ TEST_F(PersonTest, shouldGenerateJobTitle)
     const auto& generatedJobArea = jobTitleElements[1];
     const auto& generatedJobType = jobTitleElements[2];
 
-    ASSERT_TRUE(std::any_of(jobDescriptors.begin(), jobDescriptors.end(),
-                            [generatedJobDescriptor](const std::string& jobDescriptor)
-                            { return jobDescriptor == generatedJobDescriptor; }));
-    ASSERT_TRUE(std::any_of(jobAreas.begin(), jobAreas.end(),
-                            [generatedJobArea](const std::string& jobArea) { return jobArea == generatedJobArea; }));
-    ASSERT_TRUE(std::any_of(jobTypes.begin(), jobTypes.end(),
-                            [generatedJobType](const std::string& jobType) { return jobType == generatedJobType; }));
+    ASSERT_TRUE(std::ranges::any_of(jobDescriptors, [generatedJobDescriptor](const std::string& jobDescriptor)
+                                    { return jobDescriptor == generatedJobDescriptor; }));
+    ASSERT_TRUE(std::ranges::any_of(jobAreas, [generatedJobArea](const std::string& jobArea)
+                                    { return jobArea == generatedJobArea; }));
+    ASSERT_TRUE(std::ranges::any_of(jobTypes, [generatedJobType](const std::string& jobType)
+                                    { return jobType == generatedJobType; }));
 }
 
 TEST_F(PersonTest, shouldGeneratePrefix)
 {
     const auto generatedPrefix = Person::prefix();
 
-    ASSERT_TRUE(std::any_of(allPrefixes.begin(), allPrefixes.end(),
-                            [generatedPrefix](const std::string& prefix) { return prefix == generatedPrefix; }));
+    ASSERT_TRUE(std::ranges::any_of(allPrefixes, [generatedPrefix](const std::string& prefix)
+                                    { return prefix == generatedPrefix; }));
 }
 
 TEST_F(PersonTest, shouldGenerateMalePrefix)
@@ -316,6 +302,6 @@ TEST_F(PersonTest, shouldGenerateFemalePrefix)
 {
     const auto generatedPrefix = Person::prefix(Sex::Female);
 
-    ASSERT_TRUE(std::any_of(femalePrefixes.begin(), femalePrefixes.end(),
-                            [generatedPrefix](const std::string& prefix) { return prefix == generatedPrefix; }));
+    ASSERT_TRUE(std::ranges::any_of(femalePrefixes, [generatedPrefix](const std::string& prefix)
+                                    { return prefix == generatedPrefix; }));
 }

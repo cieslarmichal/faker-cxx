@@ -1,6 +1,7 @@
 #include "faker-cxx/Color.h"
 
 #include <algorithm>
+#include <charconv>
 
 #include "gtest/gtest.h"
 
@@ -20,9 +21,8 @@ TEST_F(ColorTest, shouldGenerateColorName)
 {
     const auto generatedColorName = Color::name();
 
-    ASSERT_TRUE(std::any_of(colors.begin(), colors.end(),
-                            [generatedColorName](const std::string& colorName)
-                            { return colorName == generatedColorName; }));
+    ASSERT_TRUE(std::ranges::any_of(colors, [generatedColorName](const std::string& colorName)
+                                    { return colorName == generatedColorName; }));
 }
 
 TEST_F(ColorTest, shouldGenerateRgbColorWithoutAlpha)
@@ -31,9 +31,10 @@ TEST_F(ColorTest, shouldGenerateRgbColorWithoutAlpha)
 
     const auto rgbNumbers = StringHelper::split(generatedRgbColor.substr(4, generatedRgbColor.size() - 1), " ");
 
-    const auto& red = std::stoi(rgbNumbers[0]);
-    const auto& green = std::stoi(rgbNumbers[1]);
-    const auto& blue = std::stoi(rgbNumbers[2]);
+    int red, green, blue;
+    std::from_chars(rgbNumbers[0].data(), rgbNumbers[0].data() + rgbNumbers[0].size(), red);
+    std::from_chars(rgbNumbers[1].data(), rgbNumbers[1].data() + rgbNumbers[1].size(), green);
+    std::from_chars(rgbNumbers[2].data(), rgbNumbers[2].data() + rgbNumbers[2].size(), blue);
 
     ASSERT_TRUE(generatedRgbColor.starts_with("rgb("));
     ASSERT_TRUE(generatedRgbColor.ends_with(")"));
@@ -48,10 +49,11 @@ TEST_F(ColorTest, shouldGenerateRgbColorWithAlpha)
 
     const auto rgbaNumbers = StringHelper::split(generatedRgbaColor.substr(5, generatedRgbaColor.size() - 1), " ");
 
-    const auto& red = std::stoi(rgbaNumbers[0]);
-    const auto& green = std::stoi(rgbaNumbers[1]);
-    const auto& blue = std::stoi(rgbaNumbers[2]);
-    const auto& alpha = std::stod(rgbaNumbers[3]);
+    int red, green, blue, alpha;
+    std::from_chars(rgbaNumbers[0].data(), rgbaNumbers[0].data() + rgbaNumbers[0].size(), red);
+    std::from_chars(rgbaNumbers[1].data(), rgbaNumbers[1].data() + rgbaNumbers[1].size(), green);
+    std::from_chars(rgbaNumbers[2].data(), rgbaNumbers[2].data() + rgbaNumbers[2].size(), blue);
+    std::from_chars(rgbaNumbers[3].data(), rgbaNumbers[3].data() + rgbaNumbers[3].size(), alpha);
 
     ASSERT_TRUE(generatedRgbaColor.starts_with("rgba("));
     ASSERT_TRUE(generatedRgbaColor.ends_with(")"));
@@ -70,9 +72,8 @@ TEST_F(ColorTest, shouldGenerateHexColorWithoutAlpha)
 
     ASSERT_EQ(hexadecimal.size(), 7);
     ASSERT_EQ(prefix, "#");
-    ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
-                            [hexNumber](char hexNumberCharacter)
-                            { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
+                                    { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
@@ -84,7 +85,6 @@ TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
 
     ASSERT_EQ(hexadecimal.size(), 10);
     ASSERT_EQ(prefix, "0x");
-    ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
-                            [hexNumber](char hexNumberCharacter)
-                            { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
+                                    { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }

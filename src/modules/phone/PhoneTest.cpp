@@ -14,9 +14,8 @@ class PhoneTest : public Test
 protected:
     static bool isStringNumericWithSpecialChars(const std::string& str)
     {
-        return std::all_of(str.begin(), str.end(),
-                           [](char c)
-                           { return std::isdigit(c) || c == '-' || c == '(' || c == ')' || c == '+' || c == ' '; });
+        return std::ranges::all_of(
+            str, [](char c) { return std::isdigit(c) || c == '-' || c == '(' || c == ')' || c == '+' || c == ' '; });
     }
 };
 

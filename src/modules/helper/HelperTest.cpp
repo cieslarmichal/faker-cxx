@@ -24,7 +24,7 @@ TEST_F(HelperTest, ReplaceSymbolWithNumber)
     std::string result = Helper::replaceSymbolWithNumber(input);
 
     // The result should contain digits instead of '#' and '!'
-    ASSERT_TRUE(std::all_of(result.begin(), result.end(), ::isdigit));
+    ASSERT_TRUE(std::ranges::all_of(result, ::isdigit));
 }
 
 TEST_F(HelperTest, RegexpStyleStringParse)

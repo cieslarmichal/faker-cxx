@@ -22,40 +22,38 @@ TEST_F(MovieTest, shouldGenerateGenre)
 {
     const auto generatedGenre = Movie::genre();
 
-    ASSERT_TRUE(std::any_of(genres.begin(), genres.end(),
-                            [generatedGenre](const std::string& genre) { return generatedGenre == genre; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(genres, [generatedGenre](const std::string& genre) { return generatedGenre == genre; }));
 }
 
 TEST_F(MovieTest, shouldGenerateMovieTitle)
 {
     const auto generatedMovieTitle = Movie::movieTitle();
 
-    ASSERT_TRUE(std::any_of(movieTitles.begin(), movieTitles.end(),
-                            [generatedMovieTitle](const std::string& movieTitle)
-                            { return generatedMovieTitle == movieTitle; }));
+    ASSERT_TRUE(std::ranges::any_of(movieTitles, [generatedMovieTitle](const std::string& movieTitle)
+                                    { return generatedMovieTitle == movieTitle; }));
 }
 
 TEST_F(MovieTest, shouldGenerateDirector)
 {
     const auto generatedDirector = Movie::director();
 
-    ASSERT_TRUE(std::any_of(directors.begin(), directors.end(),
-                            [generatedDirector](const std::string& director)
-                            { return generatedDirector == director; }));
+    ASSERT_TRUE(std::ranges::any_of(directors, [generatedDirector](const std::string& director)
+                                    { return generatedDirector == director; }));
 }
 
 TEST_F(MovieTest, shouldGenerateActor)
 {
     const auto generatedActor = Movie::actor();
 
-    ASSERT_TRUE(std::any_of(actors.begin(), actors.end(),
-                            [generatedActor](const std::string& actor) { return generatedActor == actor; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(actors, [generatedActor](const std::string& actor) { return generatedActor == actor; }));
 }
 
 TEST_F(MovieTest, shouldGenerateActress)
 {
     const auto generatedActress = Movie::actress();
 
-    ASSERT_TRUE(std::any_of(actresses.begin(), actresses.end(),
-                            [generatedActress](const std::string& actress) { return generatedActress == actress; }));
+    ASSERT_TRUE(std::ranges::any_of(actresses, [generatedActress](const std::string& actress)
+                                    { return generatedActress == actress; }));
 }

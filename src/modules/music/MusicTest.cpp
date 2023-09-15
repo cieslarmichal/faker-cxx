@@ -20,23 +20,22 @@ TEST_F(MusicTest, shouldGenerateArtist)
 {
     const auto generatedArtist = Music::artist();
 
-    ASSERT_TRUE(std::any_of(artists.begin(), artists.end(),
-                            [generatedArtist](const std::string& artist) { return generatedArtist == artist; }));
+    ASSERT_TRUE(std::ranges::any_of(artists, [generatedArtist](const std::string& artist)
+                                    { return generatedArtist == artist; }));
 }
 
 TEST_F(MusicTest, shouldGenerateGenre)
 {
     const auto generatedGenre = Music::genre();
 
-    ASSERT_TRUE(std::any_of(genres.begin(), genres.end(),
-                            [generatedGenre](const std::string& genre) { return generatedGenre == genre; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(genres, [generatedGenre](const std::string& genre) { return generatedGenre == genre; }));
 }
 
 TEST_F(MusicTest, shouldGenerateSongName)
 {
     const auto generatedSongName = Music::songName();
 
-    ASSERT_TRUE(std::any_of(songNames.begin(), songNames.end(),
-                            [generatedSongName](const std::string& songName)
-                            { return generatedSongName == songName; }));
+    ASSERT_TRUE(std::ranges::any_of(songNames, [generatedSongName](const std::string& songName)
+                                    { return generatedSongName == songName; }));
 }

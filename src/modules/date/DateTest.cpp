@@ -1,6 +1,7 @@
 #include "faker-cxx/Date.h"
 
 #include <algorithm>
+#include <charconv>
 #include <chrono>
 
 #include "gtest/gtest.h"
@@ -36,15 +37,18 @@ public:
 
         const auto& date = isoStringDateTime[0];
         const auto dateElements = StringHelper::split(date, "-");
-        const auto& year = std::stoi(dateElements[0]);
-        const auto& month = std::stoi(dateElements[1]);
-        const auto& day = std::stoi(dateElements[2]);
+        int year, month, day;
+        std::from_chars(dateElements[0].data(), dateElements[0].data() + dateElements[0].size(), year);
+        std::from_chars(dateElements[1].data(), dateElements[1].data() + dateElements[1].size(), month);
+        std::from_chars(dateElements[2].data(), dateElements[2].data() + dateElements[2].size(), day);
 
         const auto& time = isoStringDateTime[1];
         const auto timeElements = StringHelper::split(time, ":");
-        const auto& hour = std::stoi(timeElements[0]);
-        const auto& minutes = std::stoi(timeElements[1]);
-        const auto& seconds = std::stoi(timeElements[2]);
+
+        int hour, minutes, seconds;
+        std::from_chars(timeElements[0].data(), timeElements[0].data() + timeElements[0].size(), hour);
+        std::from_chars(timeElements[1].data(), timeElements[1].data() + timeElements[1].size(), minutes);
+        std::from_chars(timeElements[2].data(), timeElements[2].data() + timeElements[2].size(), seconds);
 
         tm dateTime{};
 
@@ -151,34 +155,32 @@ TEST_F(DateTest, shouldGenerateWeekdayName)
 {
     const auto generatedWeekdayName = Date::weekdayName();
 
-    ASSERT_TRUE(std::any_of(weekdayNames.begin(), weekdayNames.end(),
-                            [generatedWeekdayName](const std::string& weekdayName)
-                            { return weekdayName == generatedWeekdayName; }));
+    ASSERT_TRUE(std::ranges::any_of(weekdayNames, [generatedWeekdayName](const std::string& weekdayName)
+                                    { return weekdayName == generatedWeekdayName; }));
 }
 
 TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
 {
     const auto generatedWeekdayAbbreviatedName = Date::weekdayAbbreviatedName();
 
-    ASSERT_TRUE(std::any_of(weekdayAbbreviatedNames.begin(), weekdayAbbreviatedNames.end(),
-                            [generatedWeekdayAbbreviatedName](const std::string& weekdayAbbreviatedName)
-                            { return weekdayAbbreviatedName == generatedWeekdayAbbreviatedName; }));
+    ASSERT_TRUE(std::ranges::any_of(weekdayAbbreviatedNames,
+                                    [generatedWeekdayAbbreviatedName](const std::string& weekdayAbbreviatedName)
+                                    { return weekdayAbbreviatedName == generatedWeekdayAbbreviatedName; }));
 }
 
 TEST_F(DateTest, shouldGenerateMonthName)
 {
     const auto generatedMonthName = Date::monthName();
 
-    ASSERT_TRUE(std::any_of(monthNames.begin(), monthNames.end(),
-                            [generatedMonthName](const std::string& monthName)
-                            { return monthName == generatedMonthName; }));
+    ASSERT_TRUE(std::ranges::any_of(monthNames, [generatedMonthName](const std::string& monthName)
+                                    { return monthName == generatedMonthName; }));
 }
 
 TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
 {
     const auto generatedMonthAbbreviatedName = Date::monthAbbreviatedName();
 
-    ASSERT_TRUE(std::any_of(monthAbbreviatedNames.begin(), monthAbbreviatedNames.end(),
-                            [generatedMonthAbbreviatedName](const std::string& monthAbbreviatedName)
-                            { return monthAbbreviatedName == generatedMonthAbbreviatedName; }));
+    ASSERT_TRUE(std::ranges::any_of(monthAbbreviatedNames,
+                                    [generatedMonthAbbreviatedName](const std::string& monthAbbreviatedName)
+                                    { return monthAbbreviatedName == generatedMonthAbbreviatedName; }));
 }

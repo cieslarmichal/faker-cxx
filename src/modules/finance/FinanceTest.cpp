@@ -1,6 +1,7 @@
 #include "faker-cxx/Finance.h"
 
 #include <algorithm>
+#include <charconv>
 #include <ranges>
 #include <regex>
 
@@ -86,24 +87,24 @@ class FinanceTest : public TestWithParam<IbanCountry>
 public:
     static bool checkIfAllCharactersAreNumeric(const std::string& data)
     {
-        return std::all_of(data.begin(), data.end(),
-                           [](char dataCharacter)
-                           {
-                               return std::any_of(numericCharacters.begin(), numericCharacters.end(),
-                                                  [dataCharacter](char numericCharacter)
-                                                  { return numericCharacter == dataCharacter; });
-                           });
+        return std::ranges::all_of(data,
+                                   [](char dataCharacter)
+                                   {
+                                       return std::ranges::any_of(numericCharacters,
+                                                                  [dataCharacter](char numericCharacter)
+                                                                  { return numericCharacter == dataCharacter; });
+                                   });
     }
 
     static bool checkIfAllCharactersAreCreditCardCharacters(const std::string& data)
     {
-        return std::all_of(data.begin(), data.end(),
-                           [](char dataCharacter)
-                           {
-                               return std::any_of(creditCardCharacters.begin(), creditCardCharacters.end(),
-                                                  [dataCharacter](char creditCardCharacter)
-                                                  { return creditCardCharacter == dataCharacter; });
-                           });
+        return std::ranges::all_of(data,
+                                   [](char dataCharacter)
+                                   {
+                                       return std::ranges::any_of(creditCardCharacters,
+                                                                  [dataCharacter](char creditCardCharacter)
+                                                                  { return creditCardCharacter == dataCharacter; });
+                                   });
     }
 };
 
@@ -111,51 +112,47 @@ TEST_F(FinanceTest, shouldGenerateCurrency)
 {
     const auto generatedCurrency = Finance::currency();
 
-    ASSERT_TRUE(std::any_of(currencies.begin(), currencies.end(),
-                            [generatedCurrency](const Currency& currency) { return currency == generatedCurrency; }));
+    ASSERT_TRUE(std::ranges::any_of(currencies, [generatedCurrency](const Currency& currency)
+                                    { return currency == generatedCurrency; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateCurrencyName)
 {
     const auto generatedCurrencyName = Finance::currencyName();
 
-    ASSERT_TRUE(std::any_of(currencies.begin(), currencies.end(),
-                            [generatedCurrencyName](const Currency& currency)
-                            { return currency.name == generatedCurrencyName; }));
+    ASSERT_TRUE(std::ranges::any_of(currencies, [generatedCurrencyName](const Currency& currency)
+                                    { return currency.name == generatedCurrencyName; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateCurrencyCode)
 {
     const auto generatedCurrencyCode = Finance::currencyCode();
 
-    ASSERT_TRUE(std::any_of(currencies.begin(), currencies.end(),
-                            [generatedCurrencyCode](const Currency& currency)
-                            { return currency.code == generatedCurrencyCode; }));
+    ASSERT_TRUE(std::ranges::any_of(currencies, [generatedCurrencyCode](const Currency& currency)
+                                    { return currency.code == generatedCurrencyCode; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateCurrencySymbol)
 {
     const auto generatedCurrencySymbol = Finance::currencySymbol();
 
-    ASSERT_TRUE(std::any_of(currencies.begin(), currencies.end(),
-                            [generatedCurrencySymbol](const Currency& currency)
-                            { return currency.symbol == generatedCurrencySymbol; }));
+    ASSERT_TRUE(std::ranges::any_of(currencies, [generatedCurrencySymbol](const Currency& currency)
+                                    { return currency.symbol == generatedCurrencySymbol; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateAccountType)
 {
     const auto generatedAccountType = Finance::accountType();
 
-    ASSERT_TRUE(std::any_of(accountTypes.begin(), accountTypes.end(),
-                            [generatedAccountType](const std::string& accountType)
-                            { return accountType == generatedAccountType; }));
+    ASSERT_TRUE(std::ranges::any_of(accountTypes, [generatedAccountType](const std::string& accountType)
+                                    { return accountType == generatedAccountType; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateAmount)
 {
+    auto amountAsFloat{0.0f};
     const auto generatedAmount = Finance::amount();
-
-    const auto amountAsFloat = std::stof(generatedAmount);
+    std::from_chars(generatedAmount.data(), generatedAmount.data() + generatedAmount.size(), amountAsFloat);
 
     const auto generatedAmountParts = StringHelper::split(generatedAmount, ".");
 
@@ -226,9 +223,8 @@ TEST_F(FinanceTest, shouldGenerateBic)
 
     const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(BicCountry::Poland);
 
-    ASSERT_TRUE(std::any_of(polandBankIdentifiersCodes.begin(), polandBankIdentifiersCodes.end(),
-                            [bic](const std::string& polandBankIdentifierCode)
-                            { return bic == polandBankIdentifierCode; }));
+    ASSERT_TRUE(std::ranges::any_of(polandBankIdentifiersCodes, [bic](const std::string& polandBankIdentifierCode)
+                                    { return bic == polandBankIdentifierCode; }));
 }
 
 TEST_F(FinanceTest, shouldGeneratePolandBic)
@@ -237,9 +233,8 @@ TEST_F(FinanceTest, shouldGeneratePolandBic)
 
     const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(BicCountry::Poland);
 
-    ASSERT_TRUE(std::any_of(polandBankIdentifiersCodes.begin(), polandBankIdentifiersCodes.end(),
-                            [bic](const std::string& polandBankIdentifierCode)
-                            { return bic == polandBankIdentifierCode; }));
+    ASSERT_TRUE(std::ranges::any_of(polandBankIdentifiersCodes, [bic](const std::string& polandBankIdentifierCode)
+                                    { return bic == polandBankIdentifierCode; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateAccountNumber)
@@ -354,14 +349,14 @@ TEST_F(FinanceTest, shouldGenerateBitcoinAddress)
     const std::string supportedBitcoinAddressCharacters = "ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz123456789";
 
     ASSERT_TRUE(bitcoinAddress.starts_with("1") || bitcoinAddress.starts_with("3"));
-    ASSERT_TRUE(std::all_of(bitcoinAddress.begin(), bitcoinAddress.end(),
-                            [&supportedBitcoinAddressCharacters](char dataCharacter)
-                            {
-                                return std::any_of(supportedBitcoinAddressCharacters.begin(),
-                                                   supportedBitcoinAddressCharacters.end(),
-                                                   [dataCharacter](char supportedBitcoinAddressCharacter)
-                                                   { return supportedBitcoinAddressCharacter == dataCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(bitcoinAddress,
+                                    [&supportedBitcoinAddressCharacters](char dataCharacter)
+                                    {
+                                        return std::ranges::any_of(
+                                            supportedBitcoinAddressCharacters,
+                                            [dataCharacter](char supportedBitcoinAddressCharacter)
+                                            { return supportedBitcoinAddressCharacter == dataCharacter; });
+                                    }));
 }
 
 TEST_F(FinanceTest, shouldGenerateLitecoinAddress)
@@ -375,14 +370,14 @@ TEST_F(FinanceTest, shouldGenerateLitecoinAddress)
 
     ASSERT_TRUE(litecoinAddress.starts_with("L") || litecoinAddress.starts_with("M") ||
                 litecoinAddress.starts_with("3"));
-    ASSERT_TRUE(std::all_of(litecoinAddress.begin(), litecoinAddress.end(),
-                            [&supportedLitecoinAddressCharacters](char dataCharacter)
-                            {
-                                return std::any_of(supportedLitecoinAddressCharacters.begin(),
-                                                   supportedLitecoinAddressCharacters.end(),
-                                                   [dataCharacter](char supportedLitecoinAddressCharacter)
-                                                   { return supportedLitecoinAddressCharacter == dataCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(litecoinAddress,
+                                    [&supportedLitecoinAddressCharacters](char dataCharacter)
+                                    {
+                                        return std::ranges::any_of(
+                                            supportedLitecoinAddressCharacters,
+                                            [dataCharacter](char supportedLitecoinAddressCharacter)
+                                            { return supportedLitecoinAddressCharacter == dataCharacter; });
+                                    }));
 }
 
 TEST_F(FinanceTest, shouldGenerateEthereumAddress)
@@ -394,7 +389,6 @@ TEST_F(FinanceTest, shouldGenerateEthereumAddress)
 
     ASSERT_EQ(ethereumAddress.size(), 42);
     ASSERT_EQ(prefix, "0x");
-    ASSERT_TRUE(std::any_of(hexNumber.begin(), hexNumber.end(),
-                            [hexNumber](char hexNumberCharacter)
-                            { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
+                                    { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }

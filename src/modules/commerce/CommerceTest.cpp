@@ -1,6 +1,7 @@
 #include "faker-cxx/Commerce.h"
 
 #include <algorithm>
+#include <charconv>
 
 #include "gtest/gtest.h"
 
@@ -20,16 +21,16 @@ TEST_F(CommerceTest, shouldGenerateCommerceDepartment)
 {
     const auto generatedDepartment = Commerce::department();
 
-    ASSERT_TRUE(std::any_of(departments.begin(), departments.end(),
-                            [generatedDepartment](const std::string& department)
-                            { return department == generatedDepartment; }));
+    ASSERT_TRUE(std::ranges::any_of(departments, [generatedDepartment](const std::string& department)
+                                    { return department == generatedDepartment; }));
 }
 
 TEST_F(CommerceTest, shouldGeneratePrice)
 {
     const auto generatedPrice = Commerce::price(100, 10000);
 
-    const auto priceAsFloat = std::stof(generatedPrice);
+    auto priceAsFloat{0.0f};
+    std::from_chars(generatedPrice.data(), generatedPrice.data() + generatedPrice.size(), priceAsFloat);
 
     const auto generatedPriceElements = StringHelper::split(generatedPrice, ".");
 
@@ -44,13 +45,13 @@ TEST_F(CommerceTest, shouldGenerateSku)
     const auto sku = Commerce::sku();
 
     ASSERT_EQ(sku.size(), 4);
-    ASSERT_TRUE(std::all_of(sku.begin(), sku.end(),
-                            [](char skuCharacter)
-                            {
-                                return std::any_of(numericCharacters.begin(), numericCharacters.end(),
-                                                   [skuCharacter](char numericCharacter)
-                                                   { return skuCharacter == numericCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(sku,
+                                    [](char skuCharacter)
+                                    {
+                                        return std::ranges::any_of(numericCharacters,
+                                                                   [skuCharacter](char numericCharacter)
+                                                                   { return skuCharacter == numericCharacter; });
+                                    }));
 }
 
 TEST_F(CommerceTest, shouldGenerateSkuWithSpecifiedLength)
@@ -60,13 +61,13 @@ TEST_F(CommerceTest, shouldGenerateSkuWithSpecifiedLength)
     const auto sku = Commerce::sku(skuLength);
 
     ASSERT_EQ(sku.size(), skuLength);
-    ASSERT_TRUE(std::all_of(sku.begin(), sku.end(),
-                            [](char skuCharacter)
-                            {
-                                return std::any_of(numericCharacters.begin(), numericCharacters.end(),
-                                                   [skuCharacter](char numericCharacter)
-                                                   { return skuCharacter == numericCharacter; });
-                            }));
+    ASSERT_TRUE(std::ranges::all_of(sku,
+                                    [](char skuCharacter)
+                                    {
+                                        return std::ranges::any_of(numericCharacters,
+                                                                   [skuCharacter](char numericCharacter)
+                                                                   { return skuCharacter == numericCharacter; });
+                                    }));
 }
 
 TEST_F(CommerceTest, shouldGenerateProductFullName)
@@ -79,40 +80,34 @@ TEST_F(CommerceTest, shouldGenerateProductFullName)
     const auto& generatedProductMaterial = productFullNameElements[1];
     const auto& generatedProductName = productFullNameElements[2];
 
-    ASSERT_TRUE(std::any_of(productAdjectives.begin(), productAdjectives.end(),
-                            [generatedProductAdjective](const std::string& adjective)
-                            { return adjective == generatedProductAdjective; }));
-    ASSERT_TRUE(std::any_of(productMaterials.begin(), productMaterials.end(),
-                            [generatedProductMaterial](const std::string& material)
-                            { return material == generatedProductMaterial; }));
-    ASSERT_TRUE(std::any_of(productNames.begin(), productNames.end(),
-                            [generatedProductName](const std::string& productName)
-                            { return productName == generatedProductName; }));
+    ASSERT_TRUE(std::ranges::any_of(productAdjectives, [generatedProductAdjective](const std::string& adjective)
+                                    { return adjective == generatedProductAdjective; }));
+    ASSERT_TRUE(std::ranges::any_of(productMaterials, [generatedProductMaterial](const std::string& material)
+                                    { return material == generatedProductMaterial; }));
+    ASSERT_TRUE(std::ranges::any_of(productNames, [generatedProductName](const std::string& productName)
+                                    { return productName == generatedProductName; }));
 }
 
 TEST_F(CommerceTest, shouldGenerateProductAdjective)
 {
     const auto generatedProductAdjective = Commerce::productAdjective();
 
-    ASSERT_TRUE(std::any_of(productAdjectives.begin(), productAdjectives.end(),
-                            [generatedProductAdjective](const std::string& adjective)
-                            { return adjective == generatedProductAdjective; }));
+    ASSERT_TRUE(std::ranges::any_of(productAdjectives, [generatedProductAdjective](const std::string& adjective)
+                                    { return adjective == generatedProductAdjective; }));
 }
 
 TEST_F(CommerceTest, shouldGenerateProductMaterial)
 {
     const auto generatedProductMaterial = Commerce::productMaterial();
 
-    ASSERT_TRUE(std::any_of(productMaterials.begin(), productMaterials.end(),
-                            [generatedProductMaterial](const std::string& material)
-                            { return material == generatedProductMaterial; }));
+    ASSERT_TRUE(std::ranges::any_of(productMaterials, [generatedProductMaterial](const std::string& material)
+                                    { return material == generatedProductMaterial; }));
 }
 
 TEST_F(CommerceTest, shouldGenerateProductName)
 {
     const auto generatedProductName = Commerce::productName();
 
-    ASSERT_TRUE(std::any_of(productNames.begin(), productNames.end(),
-                            [generatedProductName](const std::string& productName)
-                            { return productName == generatedProductName; }));
+    ASSERT_TRUE(std::ranges::any_of(productNames, [generatedProductName](const std::string& productName)
+                                    { return productName == generatedProductName; }));
 }

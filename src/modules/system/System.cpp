@@ -55,8 +55,7 @@ std::string System::fileExt(const std::optional<std::string>& mimeType)
 {
     if (mimeType.has_value() && !mimeType->empty())
     {
-        auto it = std::find(mimeTypes.begin(), mimeTypes.end(), *mimeType);
-        if (it != mimeTypes.end())
+        if (const auto it = std::ranges::find(mimeTypes, *mimeType); it != mimeTypes.end())
         {
             const std::string& extension = *it;
             size_t pos = extension.find_last_of('/');

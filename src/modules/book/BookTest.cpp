@@ -22,32 +22,29 @@ TEST_F(BookTest, shouldGenerateTitle)
 {
     const auto bookTitle = Book::title();
 
-    ASSERT_TRUE(std::any_of(titles.begin(), titles.end(),
-                            [bookTitle](const std::string& title) { return title == bookTitle; }));
+    ASSERT_TRUE(std::ranges::any_of(titles, [bookTitle](const std::string& title) { return title == bookTitle; }));
 }
 
 TEST_F(BookTest, shouldGenerateGenre)
 {
     const auto bookGenre = Book::genre();
 
-    ASSERT_TRUE(std::any_of(genres.begin(), genres.end(),
-                            [bookGenre](const std::string& genre) { return genre == bookGenre; }));
+    ASSERT_TRUE(std::ranges::any_of(genres, [bookGenre](const std::string& genre) { return genre == bookGenre; }));
 }
 
 TEST_F(BookTest, shouldGenerateAuthor)
 {
     const auto bookAuthor = Book::author();
 
-    ASSERT_TRUE(std::any_of(authors.begin(), authors.end(),
-                            [bookAuthor](const std::string& author) { return author == bookAuthor; }));
+    ASSERT_TRUE(std::ranges::any_of(authors, [bookAuthor](const std::string& author) { return author == bookAuthor; }));
 }
 
 TEST_F(BookTest, shouldGeneratePublisher)
 {
     const auto bookPublisher = Book::publisher();
 
-    ASSERT_TRUE(std::any_of(publishers.begin(), publishers.end(),
-                            [bookPublisher](const std::string& publisher) { return publisher == bookPublisher; }));
+    ASSERT_TRUE(std::ranges::any_of(publishers, [bookPublisher](const std::string& publisher)
+                                    { return publisher == bookPublisher; }));
 }
 
 TEST_F(BookTest, shouldGenerateIsbn)
