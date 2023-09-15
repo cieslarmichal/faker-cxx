@@ -1,0 +1,8 @@
+FROM gcc:13.2
+
+RUN apt update -y && \
+    apt install -y cmake ninja-build && \
+    ln -s /usr/local/bin/g++  /usr/bin/g++-13 && \
+    rm -rf /var/lib/apt/lists/*
+
+ENTRYPOINT [ "bash" ]

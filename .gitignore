@@ -49,8 +49,8 @@ src/modules/location/.DS_Store
 html/
 latex/
 
- CMakeSettings.json
- .vs/
- out/
- build-linux-gxx
- build-linux-clang
+CMakeSettings.json
+.vs/
+out/
+build-linux-gxx
+build-linux-clang
