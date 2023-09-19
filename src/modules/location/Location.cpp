@@ -9,6 +9,10 @@
 #include "data/russia/RussiaAddressFormat.h"
 #include "data/russia/RussiaCities.h"
 #include "data/russia/RussiaStreetPrefixes.h"
+#include "data/poland/PolandAddressFromat.h"
+#include "data/poland/PolandCities.h"
+#include "data/poland/PolandStreetNames.h"
+#include "data/poland/PolandStreetPrefixes.h"
 #include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/usa/UsaAddressFormat.h"
@@ -25,21 +29,29 @@ namespace
 const std::map<Country, std::vector<std::string>> countryToCitiesMapping{
     {Country::Usa, usaCities},
     {Country::Russia, russiaCities},
+    {Country::Poland, polandCities}
+};
+
+const std::map<Country, std::vector<std::string>> countryToStreetsMapping{
+    {Country::Poland, polandStreets}
 };
 
 const std::map<Country, std::string> countryToZipCodeFormatMapping{
     {Country::Usa, usaZipCodeFormat},
     {Country::Russia, russiaZipCodeFormat},
+    {Country::Poland, polandZipCodeFormat}
 };
 
 const std::map<Country, std::vector<std::string>> countryToBuildingNumberFormatsMapping{
     {Country::Usa, usaBuildingNumberFormats},
     {Country::Russia, russiaBuildingNumberFormats},
+    {Country::Poland, polandBuildingNumberFormats}
 };
 
 const std::map<Country, std::vector<std::string>> countryToStreetFormatsMapping{
     {Country::Usa, usaStreetFormats},
     {Country::Russia, russiaStreetFormats},
+    {Country::Poland, polandStreetFormats}
 };
 
 const std::map<Country, std::vector<std::string>> countryToSecondaryAddressFormatsMapping{
@@ -49,6 +61,7 @@ const std::map<Country, std::vector<std::string>> countryToSecondaryAddressForma
 const std::map<Country, std::string> countryToAddressFormatMapping{
     {Country::Usa, usaAddressFormat},
     {Country::Russia, russiaAddressFormat},
+    {Country::Poland, polandAddressFormat}
 };
 
 const std::map<Country, std::vector<std::string>> countryToStreetSuffixesMapping{
@@ -57,6 +70,7 @@ const std::map<Country, std::vector<std::string>> countryToStreetSuffixesMapping
 
 const std::map<Country, std::vector<std::string>> countryToStreetPrefixesMapping{
     {Country::Russia, russiaStreetPrefixes},
+    {Country::Poland, polandStreetPrefixes}
 };
 }
 
@@ -147,6 +161,11 @@ std::string Location::street(Country country)
             const auto streetPrefix = Helper::arrayElement<std::string>(streetPrefixes);
 
             streetNameElements.push_back(streetPrefix);
+        }
+        else if (streetFormatElement == "{streetName}")
+        {
+            const auto& streets = countryToStreetsMapping.at(country);
+            streetNameElements.push_back(Helper::arrayElement<std::string>(streets));
         }
     }
 

@@ -14,6 +14,9 @@
 #include "data/Directions.h"
 #include "data/russia/RussiaCities.h"
 #include "data/russia/RussiaStreetPrefixes.h"
+#include "data/poland/PolandCities.h"
+#include "data/poland/PolandStreetNames.h"
+#include "data/poland/PolandStreetPrefixes.h"
 #include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/usa/UsaCities.h"
@@ -166,6 +169,64 @@ TEST_F(LocationTest, shouldGenerateRussiaBuildingNumber)
 
     ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+}
+
+TEST_F(LocationTest, shouldGeneratePolandCity)
+{
+    const auto generatedCity = Location::city(Country::Poland);
+
+    ASSERT_TRUE(
+        std::ranges::any_of(polandCities, [generatedCity](const std::string& city) { return city == generatedCity; }));
+}
+
+TEST_F(LocationTest, shouldGeneratePolandZipCode)
+{
+    const auto generatedZipCode = Location::zipCode(Country::Poland);
+
+    ASSERT_EQ(generatedZipCode.size(), 6);
+    ASSERT_TRUE(generatedZipCode[2] == '-');
+}
+
+TEST_F(LocationTest, shouldGeneratePolandBuildingNumber)
+{
+    const auto generatedBuildingNumber = Location::buildingNumber(Country::Poland);
+
+    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+}
+
+TEST_F(LocationTest, shouldGeneratePolandStreetAddress)
+{
+    const auto generatedStreetAddress = Location::streetAddress(Country::Poland);
+
+    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+
+    std::vector<std::string> street{};
+
+    std::string generatedStreetName{};
+
+    if(generatedStreetAddressElements.size() > 3)
+    {
+        for(size_t i = 1; i < generatedStreetAddressElements.size() -1; ++i )
+        {
+            street.push_back(generatedStreetAddressElements.at(i));
+        }
+        generatedStreetName = StringHelper::join(street);
+    }
+    else
+    {
+        generatedStreetName = generatedStreetAddressElements[1];
+    }
+
+    const auto& generatedBuildingNumber = generatedStreetAddressElements.back();
+    const auto& generatedStreetPrefix = generatedStreetAddressElements.front();
+
+    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+    ASSERT_TRUE(std::ranges::any_of(polandStreetPrefixes, [generatedStreetPrefix](const std::string& prefix)
+                                    { return prefix == generatedStreetPrefix; }));
+    ASSERT_TRUE(std::ranges::any_of(polandStreets, [generatedStreetName](const std::string& street)
+                                    { return street == generatedStreetName; }));
 }
 
 TEST_F(LocationTest, shouldGenerateLatitude)
