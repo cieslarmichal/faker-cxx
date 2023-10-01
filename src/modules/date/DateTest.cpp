@@ -8,6 +8,10 @@
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
 
+#ifdef _WIN32
+#define timegm _mkgmtime
+#endif
+
 using namespace ::testing;
 using namespace faker;
 
