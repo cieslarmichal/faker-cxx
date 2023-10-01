@@ -21,6 +21,9 @@
 #include "data/TimeZones.h"
 #include "data/usa/UsaCities.h"
 #include "data/usa/UsaStreetSuffixes.h"
+#include "data/france/FranceCities.h"
+#include "data/france/FranceStreetPrefixes.h"
+#include "data/france/FranceStreetSuffixes.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -227,6 +230,79 @@ TEST_F(LocationTest, shouldGeneratePolandStreetAddress)
                                     { return prefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(polandStreets, [generatedStreetName](const std::string& street)
                                     { return street == generatedStreetName; }));
+}
+
+TEST_F(LocationTest, shouldGenerateFranceCity)
+{
+    const auto generatedCity = Location::city(Country::France);
+
+    ASSERT_TRUE(
+        std::ranges::any_of(franceCities, [generatedCity](const std::string& city) { return city == generatedCity; }));
+}
+
+TEST_F(LocationTest, shouldGenerateFranceZipCode)
+{
+    const auto generatedZipCode = Location::zipCode(Country::France);
+
+    ASSERT_EQ(generatedZipCode.size(), 5);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedZipCode));
+}
+
+TEST_F(LocationTest, shouldGenerateFranceBuildingNumber)
+{
+    const auto generatedBuildingNumber = Location::buildingNumber(Country::France);
+
+    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 4);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+}
+
+TEST_F(LocationTest, shouldGenerateFranceSecondaryAddress)
+{
+    const auto generatedSecondaryAddress = Location::secondaryAddress(Country::France);
+    
+    ASSERT_TRUE(generatedSecondaryAddress.starts_with("Apt. ") || generatedSecondaryAddress.starts_with("Étage "));
+
+    const auto generatedSecondaryAddressParts = StringHelper::split(generatedSecondaryAddress, " ");
+
+    const auto& generatedBuildingNumber = generatedSecondaryAddressParts[1];
+
+    ASSERT_TRUE(generatedBuildingNumber.size() == 3 || generatedBuildingNumber.size() == 1);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+}
+
+TEST_F(LocationTest, shouldGenerateFranceStreet)
+{
+    const auto generatedStreet = Location::street(Country::France);
+
+    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+
+    const auto& generatedStreetPrefix = generatedStreetElements[0];
+    const auto& generatedStreetSuffix = StringHelper::join({generatedStreetElements.begin()+1, generatedStreetElements.end()});
+
+    ASSERT_GE(generatedStreetElements.size(), 2);
+    ASSERT_TRUE(std::ranges::any_of(franceStreetPrefixes, [generatedStreetPrefix](const std::string& streetPrefix)
+                                    { return streetPrefix == generatedStreetPrefix; }));
+    ASSERT_TRUE(std::ranges::any_of(franceStreetSuffixes, [generatedStreetSuffix](const std::string& streetSuffix)
+                                    { return streetSuffix == generatedStreetSuffix; }));
+}
+
+TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
+{
+    const auto generatedStreetAddress = Location::streetAddress(Country::France);
+
+    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+
+    const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
+    const auto& generatedStreetPrefix = generatedStreetAddressElements[1];
+    const auto& generatedStreetSuffix = StringHelper::join({generatedStreetAddressElements.begin()+2, generatedStreetAddressElements.end()});
+
+    ASSERT_GE(generatedStreetAddressElements.size(), 3);
+    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 4);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+    ASSERT_TRUE(std::ranges::any_of(franceStreetPrefixes, [generatedStreetPrefix](const std::string& streetPrefix)
+                                    { return streetPrefix == generatedStreetPrefix; }));
+    ASSERT_TRUE(std::ranges::any_of(franceStreetSuffixes, [generatedStreetSuffix](const std::string& streetSuffix)
+                                    { return streetSuffix == generatedStreetSuffix; }));
 }
 
 TEST_F(LocationTest, shouldGenerateLatitude)
