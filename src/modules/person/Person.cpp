@@ -33,145 +33,145 @@
 
 namespace faker
 {
-    namespace
+namespace
+{
+    const std::string malePrefix{"Mr."};
+    const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
+    const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
+    const std::vector<std::string> sexes{"Male", "Female"};
+
+    const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
+        {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
+        {Language::French, {{Sex::Male, frenchFirstNamesMales}, {Sex::Female, frenchFirstNamesFemales}}},
+        {Language::German, {{Sex::Male, germanFirstNamesMales}, {Sex::Female, germanFirstNamesFemales}}},
+        {Language::Italian, {{Sex::Male, italianFirstNamesMales}, {Sex::Female, italianFirstNamesFemales}}},
+        {Language::Polish, {{Sex::Male, polishFirstNamesMales}, {Sex::Female, polishFirstNamesFemales}}},
+        {Language::Russian, {{Sex::Male, russianFirstNamesMales}, {Sex::Female, russianFirstNamesFemales}}},
+        {Language::Romanian, {{Sex::Male, romanianFirstNamesMales}, {Sex::Female, romanianFirstNamesFemales}}},
+        {Language::Hindi, {{Sex::Male, indianFirstNamesMales}, {Sex::Female, indianFirstNamesFemales}}},
+    };
+
+    const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
+        {Language::English, {{Sex::Male, englishLastNames}, {Sex::Female, englishLastNames}}},
+        {Language::French, {{Sex::Male, frenchLastNames}, {Sex::Female, frenchLastNames}}},
+        {Language::German, {{Sex::Male, germanLastNames}, {Sex::Female, germanLastNames}}},
+        {Language::Italian, {{Sex::Male, italianLastNames}, {Sex::Female, italianLastNames}}},
+        {Language::Polish, {{Sex::Male, polishLastNames}, {Sex::Female, polishLastNames}}},
+        {Language::Russian, {{Sex::Male, russianLastNamesMales}, {Sex::Female, russianLastNamesFemales}}},
+        {Language::Romanian, {{Sex::Male, romanianLastNames}, {Sex::Female, romanianLastNames}}},
+        {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}}
+    };
+}
+
+std::string Person::firstName(Language language, std::optional<Sex> sex)
+{
+    const auto& firstNamesBySexMapping = languageToFirstNamesMapping.at(language);
+
+    std::vector<std::string> firstNames;
+
+    if (sex == Sex::Male)
     {
-        const std::string malePrefix{"Mr."};
-        const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
-        const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
-        const std::vector<std::string> sexes{"Male", "Female"};
+        const auto& firstNamesMales = firstNamesBySexMapping.at(Sex::Male);
 
-        const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
-            {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
-            {Language::French, {{Sex::Male, frenchFirstNamesMales}, {Sex::Female, frenchFirstNamesFemales}}},
-            {Language::German, {{Sex::Male, germanFirstNamesMales}, {Sex::Female, germanFirstNamesFemales}}},
-            {Language::Italian, {{Sex::Male, italianFirstNamesMales}, {Sex::Female, italianFirstNamesFemales}}},
-            {Language::Polish, {{Sex::Male, polishFirstNamesMales}, {Sex::Female, polishFirstNamesFemales}}},
-            {Language::Russian, {{Sex::Male, russianFirstNamesMales}, {Sex::Female, russianFirstNamesFemales}}},
-            {Language::Romanian, {{Sex::Male, romanianFirstNamesMales}, {Sex::Female, romanianFirstNamesFemales}}},
-            {Language::Hindi, {{Sex::Male, indianFirstNamesMales}, {Sex::Female, indianFirstNamesFemales}}},
-        };
+        firstNames.insert(firstNames.end(), firstNamesMales.begin(), firstNamesMales.end());
+    }
+    else if (sex == Sex::Female)
+    {
+        const auto& firstNamesFemales = firstNamesBySexMapping.at(Sex::Female);
 
-        const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
-            {Language::English, {{Sex::Male, englishLastNames}, {Sex::Female, englishLastNames}}},
-            {Language::French, {{Sex::Male, frenchLastNames}, {Sex::Female, frenchLastNames}}},
-            {Language::German, {{Sex::Male, germanLastNames}, {Sex::Female, germanLastNames}}},
-            {Language::Italian, {{Sex::Male, italianLastNames}, {Sex::Female, italianLastNames}}},
-            {Language::Polish, {{Sex::Male, polishLastNames}, {Sex::Female, polishLastNames}}},
-            {Language::Russian, {{Sex::Male, russianLastNamesMales}, {Sex::Female, russianLastNamesFemales}}},
-            {Language::Romanian, {{Sex::Male, romanianLastNames}, {Sex::Female, romanianLastNames}}},
-            {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}}
-        };
+        firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    }
+    else
+    {
+        const auto& firstNamesMales = firstNamesBySexMapping.at(Sex::Male);
+        const auto& firstNamesFemales = firstNamesBySexMapping.at(Sex::Female);
+
+        firstNames.insert(firstNames.end(), firstNamesMales.begin(), firstNamesMales.end());
+        firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
     }
 
-    std::string Person::firstName(Language language, std::optional<Sex> sex)
+    return Helper::arrayElement<std::string>(firstNames);
+}
+
+std::string Person::lastName(Language language, std::optional<Sex> sex)
+{
+    const auto& lastNamesBySexMapping = languageToLastNamesMapping.at(language);
+
+    std::vector<std::string> lastNames;
+
+    if (sex == Sex::Male)
     {
-        const auto& firstNamesBySexMapping = languageToFirstNamesMapping.at(language);
+        const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
 
-        std::vector<std::string> firstNames;
-
-        if (sex == Sex::Male)
-        {
-            const auto& firstNamesMales = firstNamesBySexMapping.at(Sex::Male);
-
-            firstNames.insert(firstNames.end(), firstNamesMales.begin(), firstNamesMales.end());
-        }
-        else if (sex == Sex::Female)
-        {
-            const auto& firstNamesFemales = firstNamesBySexMapping.at(Sex::Female);
-
-            firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
-        }
-        else
-        {
-            const auto& firstNamesMales = firstNamesBySexMapping.at(Sex::Male);
-            const auto& firstNamesFemales = firstNamesBySexMapping.at(Sex::Female);
-
-            firstNames.insert(firstNames.end(), firstNamesMales.begin(), firstNamesMales.end());
-            firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
-        }
-
-        return Helper::arrayElement<std::string>(firstNames);
+        lastNames.insert(lastNames.end(), lastNamesMales.begin(), lastNamesMales.end());
     }
-
-    std::string Person::lastName(Language language, std::optional<Sex> sex)
+    else if (sex == Sex::Female)
     {
-        const auto& lastNamesBySexMapping = languageToLastNamesMapping.at(language);
+        const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
 
-        std::vector<std::string> lastNames;
-
-        if (sex == Sex::Male)
-        {
-            const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
-
-            lastNames.insert(lastNames.end(), lastNamesMales.begin(), lastNamesMales.end());
-        }
-        else if (sex == Sex::Female)
-        {
-            const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
-
-            lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
-        }
-        else
-        {
-            const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
-            const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
-
-            lastNames.insert(lastNames.end(), lastNamesMales.begin(), lastNamesMales.end());
-            lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
-        }
-        return Helper::arrayElement<std::string>(lastNames);
+        lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
     }
-
-    std::string Person::fullName(Language language, std::optional<Sex> sex)
+    else
     {
-        return std::format("{} {}", firstName(language, sex), lastName(language, sex));
-    }
+        const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
+        const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
 
-    std::string Person::sex()
+        lastNames.insert(lastNames.end(), lastNamesMales.begin(), lastNamesMales.end());
+        lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
+    }
+    return Helper::arrayElement<std::string>(lastNames);
+}
+
+std::string Person::fullName(Language language, std::optional<Sex> sex)
+{
+    return std::format("{} {}", firstName(language, sex), lastName(language, sex));
+}
+
+std::string Person::sex()
+{
+    return Helper::arrayElement<std::string>(sexes);
+}
+
+std::string Person::gender()
+{
+    return Helper::arrayElement<std::string>(genders);
+}
+
+std::string Person::jobTitle()
+{
+    return std::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
+}
+
+std::string Person::jobDescriptor()
+{
+    return Helper::arrayElement<std::string>(jobDescriptors);
+}
+
+std::string Person::jobArea()
+{
+    return Helper::arrayElement<std::string>(jobAreas);
+}
+
+std::string Person::jobType()
+{
+    return Helper::arrayElement<std::string>(jobTypes);
+}
+
+std::string Person::prefix(std::optional<Sex> sex)
+{
+    std::vector<std::string> prefixes;
+
+    if (sex == Sex::Male)
     {
-        return Helper::arrayElement<std::string>(sexes);
+        return malePrefix;
     }
-
-    std::string Person::gender()
+    else if (sex == Sex::Female)
     {
-        return Helper::arrayElement<std::string>(genders);
+        return Helper::arrayElement<std::string>(femalePrefixes);
     }
-
-    std::string Person::jobTitle()
+    else
     {
-        return std::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
+        return Helper::arrayElement<std::string>(allPrefixes);
     }
-
-    std::string Person::jobDescriptor()
-    {
-        return Helper::arrayElement<std::string>(jobDescriptors);
-    }
-
-    std::string Person::jobArea()
-    {
-        return Helper::arrayElement<std::string>(jobAreas);
-    }
-
-    std::string Person::jobType()
-    {
-        return Helper::arrayElement<std::string>(jobTypes);
-    }
-
-    std::string Person::prefix(std::optional<Sex> sex)
-    {
-        std::vector<std::string> prefixes;
-
-        if (sex == Sex::Male)
-        {
-            return malePrefix;
-        }
-        else if (sex == Sex::Female)
-        {
-            return Helper::arrayElement<std::string>(femalePrefixes);
-        }
-        else
-        {
-            return Helper::arrayElement<std::string>(allPrefixes);
-        }
-    }
+}
 }
