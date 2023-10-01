@@ -5,7 +5,6 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
 
@@ -27,36 +26,17 @@ public:
     {
         auto dateTime = parseISOFormattedStringToTm(isoString);
 
-        return std::chrono::system_clock::from_time_t(mktime(&dateTime));
+        return std::chrono::system_clock::from_time_t(timegm(&dateTime));
     }
 
     static tm parseISOFormattedStringToTm(const std::string& isoString)
     {
-        const auto isoStringDateTime = StringHelper::split(isoString, "T");
+        tm tm{};
 
-        const auto& date = isoStringDateTime[0];
-        const auto dateElements = StringHelper::split(date, "-");
-        const auto& year = std::stoi(dateElements[0]);
-        const auto& month = std::stoi(dateElements[1]);
-        const auto& day = std::stoi(dateElements[2]);
+        std::istringstream iss(isoString);
+        iss >> std::get_time(&tm, "%Y-%m-%dT%H:%M:%SZ");
 
-        const auto& time = isoStringDateTime[1];
-        const auto timeElements = StringHelper::split(time, ":");
-        const auto& hour = std::stoi(timeElements[0]);
-        const auto& minutes = std::stoi(timeElements[1]);
-        const auto& seconds = std::stoi(timeElements[2]);
-
-        tm dateTime{};
-
-        dateTime.tm_year = year - 1900;
-        dateTime.tm_mon = month - 1;
-        dateTime.tm_mday = day;
-        dateTime.tm_hour = hour;
-        dateTime.tm_min = minutes;
-        dateTime.tm_sec = seconds;
-        dateTime.tm_isdst = -1;
-
-        return dateTime;
+        return tm;
     }
 };
 
