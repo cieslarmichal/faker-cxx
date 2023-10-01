@@ -13,14 +13,15 @@ enum class Language
     German,
     Russian,
     Romanian,
+    Hindi,
 };
 
 inline std::string toString(Language language)
 {
     std::map<Language, std::string> languageToStringMapping{
-        {Language::English, "English"},  {Language::Polish, "Polish"}, {Language::Italian, "Italian"},
-        {Language::French, "French"},    {Language::German, "German"}, {Language::Russian, "Russian"},
-        {Language::Romanian, "Romanian"}};
+        {Language::English, "English"}  , {Language::Polish, "Polish"}, {Language::Italian, "Italian"},
+        {Language::French, "French"}    , {Language::German, "German"}, {Language::Russian, "Russian"},
+        {Language::Romanian, "Romanian"}, {Language::Hindi, "Hindi"}};
 
     return languageToStringMapping.at(language);
 }
