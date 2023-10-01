@@ -1,14 +1,16 @@
 #include "faker-cxx/Date.h"
 
 #include <algorithm>
-#include <charconv>
 #include <chrono>
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
+
+#ifdef _WIN32
+#define timegm _mkgmtime
+#endif
 
 using namespace ::testing;
 using namespace faker;
@@ -28,39 +30,17 @@ public:
     {
         auto dateTime = parseISOFormattedStringToTm(isoString);
 
-        return std::chrono::system_clock::from_time_t(mktime(&dateTime));
+        return std::chrono::system_clock::from_time_t(timegm(&dateTime));
     }
 
     static tm parseISOFormattedStringToTm(const std::string& isoString)
     {
-        const auto isoStringDateTime = StringHelper::split(isoString, "T");
+        tm tm{};
 
-        const auto& date = isoStringDateTime[0];
-        const auto dateElements = StringHelper::split(date, "-");
-        int year, month, day;
-        std::from_chars(dateElements[0].data(), dateElements[0].data() + dateElements[0].size(), year);
-        std::from_chars(dateElements[1].data(), dateElements[1].data() + dateElements[1].size(), month);
-        std::from_chars(dateElements[2].data(), dateElements[2].data() + dateElements[2].size(), day);
+        std::istringstream iss(isoString);
+        iss >> std::get_time(&tm, "%Y-%m-%dT%H:%M:%SZ");
 
-        const auto& time = isoStringDateTime[1];
-        const auto timeElements = StringHelper::split(time, ":");
-
-        int hour, minutes, seconds;
-        std::from_chars(timeElements[0].data(), timeElements[0].data() + timeElements[0].size(), hour);
-        std::from_chars(timeElements[1].data(), timeElements[1].data() + timeElements[1].size(), minutes);
-        std::from_chars(timeElements[2].data(), timeElements[2].data() + timeElements[2].size(), seconds);
-
-        tm dateTime{};
-
-        dateTime.tm_year = year - 1900;
-        dateTime.tm_mon = month - 1;
-        dateTime.tm_mday = day;
-        dateTime.tm_hour = hour;
-        dateTime.tm_min = minutes;
-        dateTime.tm_sec = seconds;
-        dateTime.tm_isdst = -1;
-
-        return dateTime;
+        return tm;
     }
 };
 

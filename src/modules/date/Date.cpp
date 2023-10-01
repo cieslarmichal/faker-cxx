@@ -1,6 +1,7 @@
 #include "faker-cxx/Date.h"
 
 #include <chrono>
+#include <ctime>
 
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
@@ -84,7 +85,7 @@ std::string Date::birthdateByYear(int minYear, int maxYear)
     tm startDateTime{};
     startDateTime.tm_year = minYear - 1900;
     startDateTime.tm_mon = 0;
-    startDateTime.tm_mday = 0;
+    startDateTime.tm_mday = 1;
     startDateTime.tm_hour = 0;
     startDateTime.tm_min = 0;
     startDateTime.tm_sec = 0;
