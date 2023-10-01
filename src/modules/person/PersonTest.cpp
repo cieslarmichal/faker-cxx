@@ -28,6 +28,8 @@
 #include "data/russian/RussianFirstNamesMales.h"
 #include "data/russian/RussianLastNamesFemales.h"
 #include "data/russian/RussianLastNamesMales.h"
+#include "data/indian/IndianFirstNames.h"
+#include "data/indian/IndianLastNames.h"
 #include "src/common/StringHelper.h"
 
 using namespace ::testing;
@@ -40,7 +42,7 @@ const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
 const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
 
 const std::vector<Language> languages{Language::English, Language::French,  Language::German,  Language::Italian,
-                                      Language::Polish,  Language::Russian, Language::Romanian};
+                                      Language::Polish,  Language::Russian, Language::Romanian, Language::Hindi};
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
     {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
@@ -50,6 +52,7 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirs
     {Language::Polish, {{Sex::Male, polishFirstNamesMales}, {Sex::Female, polishFirstNamesFemales}}},
     {Language::Russian, {{Sex::Male, russianFirstNamesMales}, {Sex::Female, russianFirstNamesFemales}}},
     {Language::Romanian, {{Sex::Male, romanianFirstNamesMales}, {Sex::Female, romanianFirstNamesFemales}}},
+    {Language::Hindi, {{Sex::Male, indianFirstNamesMales}, {Sex::Female, indianFirstNamesFemales}}},
 };
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
@@ -60,13 +63,13 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLast
     {Language::Polish, {{Sex::Male, polishLastNames}, {Sex::Female, polishLastNames}}},
     {Language::Russian, {{Sex::Male, russianLastNamesMales}, {Sex::Female, russianLastNamesFemales}}},
     {Language::Romanian, {{Sex::Male, romanianLastNames}, {Sex::Female, romanianLastNames}}},
-};
+    {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}}};
 
 const std::map<Language, std::string> generatedTestName{
-    {Language::English, "shouldGenerateEnglishName"},  {Language::French, "shouldGenerateFrenchName"},
-    {Language::German, "shouldGenerateGermanName"},    {Language::Italian, "shouldGenerateItalianName"},
-    {Language::Polish, "shouldGeneratePolishName"},    {Language::Russian, "shouldGenerateRussianName"},
-    {Language::Romanian, "shouldGenerateRomanianName"}};
+    {Language::English, "shouldGenerateEnglishName"},   {Language::French, "shouldGenerateFrenchName"},
+    {Language::German, "shouldGenerateGermanName"},     {Language::Italian, "shouldGenerateItalianName"},
+    {Language::Polish, "shouldGeneratePolishName"},     {Language::Russian, "shouldGenerateRussianName"},
+    {Language::Romanian, "shouldGenerateRomanianName"}, {Language::Hindi, "shouldGenerateIndianName"}};
 }
 
 class PersonTest : public TestWithParam<Language>
