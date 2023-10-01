@@ -1,7 +1,6 @@
 #include "faker-cxx/Date.h"
 
 #include <chrono>
-#include <iostream>
 
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
