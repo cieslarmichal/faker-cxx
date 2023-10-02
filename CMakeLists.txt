@@ -40,6 +40,7 @@ set(FAKER_SOURCES
         src/modules/database/Database.cpp
         src/modules/music/Music.cpp
         src/modules/movie/Movie.cpp
+        src/modules/git/Git.cpp
         )
 
 set(FAKER_UT_SOURCES
@@ -65,7 +66,7 @@ set(FAKER_UT_SOURCES
         src/modules/system/SystemTest.cpp
         src/modules/database/DatabaseTest.cpp
         src/modules/music/MusicTest.cpp
-        src/modules/movie/MovieTest.cpp
+        src/modules/git/GitTest.cpp
         )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
