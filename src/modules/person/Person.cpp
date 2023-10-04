@@ -6,6 +6,9 @@
 #include "data/english/EnglishFirstNamesFemales.h"
 #include "data/english/EnglishFirstNamesMales.h"
 #include "data/english/EnglishLastNames.h"
+#include "data/finnish/FinnishFirstNamesFemales.h"
+#include "data/finnish/FinnishFirstNamesMales.h"
+#include "data/finnish/FinnishLastNames.h"
 #include "data/french/FrenchFirstNamesFemales.h"
 #include "data/french/FrenchFirstNamesMales.h"
 #include "data/french/FrenchLastNames.h"
@@ -35,32 +38,34 @@ namespace faker
 {
 namespace
 {
-    const std::string malePrefix{"Mr."};
-    const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
-    const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
-    const std::vector<std::string> sexes{"Male", "Female"};
+const std::string malePrefix{"Mr."};
+const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
+const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
+const std::vector<std::string> sexes{"Male", "Female"};
 
-    const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
-        {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
-        {Language::French, {{Sex::Male, frenchFirstNamesMales}, {Sex::Female, frenchFirstNamesFemales}}},
-        {Language::German, {{Sex::Male, germanFirstNamesMales}, {Sex::Female, germanFirstNamesFemales}}},
-        {Language::Italian, {{Sex::Male, italianFirstNamesMales}, {Sex::Female, italianFirstNamesFemales}}},
-        {Language::Polish, {{Sex::Male, polishFirstNamesMales}, {Sex::Female, polishFirstNamesFemales}}},
-        {Language::Russian, {{Sex::Male, russianFirstNamesMales}, {Sex::Female, russianFirstNamesFemales}}},
-        {Language::Romanian, {{Sex::Male, romanianFirstNamesMales}, {Sex::Female, romanianFirstNamesFemales}}},
-        {Language::Hindi, {{Sex::Male, indianFirstNamesMales}, {Sex::Female, indianFirstNamesFemales}}},
-    };
+const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
+    {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
+    {Language::French, {{Sex::Male, frenchFirstNamesMales}, {Sex::Female, frenchFirstNamesFemales}}},
+    {Language::German, {{Sex::Male, germanFirstNamesMales}, {Sex::Female, germanFirstNamesFemales}}},
+    {Language::Italian, {{Sex::Male, italianFirstNamesMales}, {Sex::Female, italianFirstNamesFemales}}},
+    {Language::Polish, {{Sex::Male, polishFirstNamesMales}, {Sex::Female, polishFirstNamesFemales}}},
+    {Language::Russian, {{Sex::Male, russianFirstNamesMales}, {Sex::Female, russianFirstNamesFemales}}},
+    {Language::Romanian, {{Sex::Male, romanianFirstNamesMales}, {Sex::Female, romanianFirstNamesFemales}}},
+    {Language::Hindi, {{Sex::Male, indianFirstNamesMales}, {Sex::Female, indianFirstNamesFemales}}},
+    {Language::Finnish, {{Sex::Male, finnishFirstNamesMales}, {Sex::Female, finnishFirstNamesFemales}}},
+};
 
-    const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
-        {Language::English, {{Sex::Male, englishLastNames}, {Sex::Female, englishLastNames}}},
-        {Language::French, {{Sex::Male, frenchLastNames}, {Sex::Female, frenchLastNames}}},
-        {Language::German, {{Sex::Male, germanLastNames}, {Sex::Female, germanLastNames}}},
-        {Language::Italian, {{Sex::Male, italianLastNames}, {Sex::Female, italianLastNames}}},
-        {Language::Polish, {{Sex::Male, polishLastNames}, {Sex::Female, polishLastNames}}},
-        {Language::Russian, {{Sex::Male, russianLastNamesMales}, {Sex::Female, russianLastNamesFemales}}},
-        {Language::Romanian, {{Sex::Male, romanianLastNames}, {Sex::Female, romanianLastNames}}},
-        {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}}
-    };
+const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
+    {Language::English, {{Sex::Male, englishLastNames}, {Sex::Female, englishLastNames}}},
+    {Language::French, {{Sex::Male, frenchLastNames}, {Sex::Female, frenchLastNames}}},
+    {Language::German, {{Sex::Male, germanLastNames}, {Sex::Female, germanLastNames}}},
+    {Language::Italian, {{Sex::Male, italianLastNames}, {Sex::Female, italianLastNames}}},
+    {Language::Polish, {{Sex::Male, polishLastNames}, {Sex::Female, polishLastNames}}},
+    {Language::Russian, {{Sex::Male, russianLastNamesMales}, {Sex::Female, russianLastNamesFemales}}},
+    {Language::Romanian, {{Sex::Male, romanianLastNames}, {Sex::Female, romanianLastNames}}},
+    {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}},
+    {Language::Finnish, {{Sex::Male, finnishLastNames}, {Sex::Female, finnishLastNames}}},
+};
 }
 
 std::string Person::firstName(Language language, std::optional<Sex> sex)
