@@ -9,6 +9,10 @@
 #include "faker-cxx/Number.h"
 #include "fmt/format.h"
 
+#ifdef _WIN32
+#define timegm _mkgmtime
+#endif
+
 namespace faker
 {
 namespace
