@@ -94,7 +94,7 @@ public:
      * @endcode
      */
     static std::string fish();
-    
+
     /**
      * @brief Returns a random species of horse.
      *
@@ -105,7 +105,7 @@ public:
      * @endcode
      */
     static std::string horse();
-    
+
     /**
      * @brief Returns a random species of insect.
      *
@@ -116,7 +116,7 @@ public:
      * @endcode
      */
     static std::string insect();
-    
+
     /**
      * @brief Returns a random species of lion.
      *
@@ -127,7 +127,7 @@ public:
      * @endcode
      */
     static std::string lion();
-    
+
     /**
      * @brief Returns a random species of rabbit.
      *
@@ -138,7 +138,7 @@ public:
      * @endcode
      */
     static std::string rabbit();
-    
+
     /**
      * @brief Returns a random species of rodent.
      *
@@ -149,7 +149,7 @@ public:
      * @endcode
      */
     static std::string rodent();
-    
+
     /**
      * @brief Returns a random species of snake.
      *

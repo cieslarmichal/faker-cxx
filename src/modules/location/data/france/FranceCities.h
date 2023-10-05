@@ -1004,5 +1004,5 @@ const std::vector<std::string> franceCities = {"Abbeville",
                                                "Yerres",
                                                "Yutz",
                                                "Yvetot",
-                                               "Yzeure"};  
+                                               "Yzeure"};
 }
