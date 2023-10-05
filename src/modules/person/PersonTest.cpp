@@ -17,6 +17,7 @@
 #include "data/german/GermanFirstNamesFemales.h"
 #include "data/german/GermanFirstNamesMales.h"
 #include "data/german/GermanLastNames.h"
+#include "data/Hobbies.h"
 #include "data/indian/IndianFirstNames.h"
 #include "data/indian/IndianLastNames.h"
 #include "data/italian/ItalianFirstNamesFemales.h"
@@ -316,4 +317,12 @@ TEST_F(PersonTest, shouldGenerateFemalePrefix)
 
     ASSERT_TRUE(std::ranges::any_of(femalePrefixes, [generatedPrefix](const std::string& prefix)
                                     { return prefix == generatedPrefix; }));
+}
+
+TEST_F(PersonTest, shouldGenerateHobby)
+{
+    const auto generatedHobby = Person::hobby();
+
+    ASSERT_TRUE(
+        std::ranges::any_of(hobbies, [generatedHobby](const std::string& hobby) { return hobby == generatedHobby; }));
 }

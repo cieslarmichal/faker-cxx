@@ -16,6 +16,7 @@
 #include "data/german/GermanFirstNamesFemales.h"
 #include "data/german/GermanFirstNamesMales.h"
 #include "data/german/GermanLastNames.h"
+#include "data/Hobbies.h"
 #include "data/indian/IndianFirstNames.h"
 #include "data/indian/IndianLastNames.h"
 #include "data/italian/ItalianFirstNamesFemales.h"
@@ -178,5 +179,10 @@ std::string Person::prefix(std::optional<Sex> sex)
     {
         return Helper::arrayElement<std::string>(allPrefixes);
     }
+}
+
+std::string Person::hobby()
+{
+    return Helper::arrayElement<std::string>(hobbies);
 }
 }
