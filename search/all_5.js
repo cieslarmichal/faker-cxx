@@ -6,7 +6,8 @@ var searchData=
   ['filetype_3',['fileType',['../classfaker_1_1System.html#a96a32229dd0e8675f6943bbf7f915ff9',1,'faker::System']]],
   ['finance_4',['Finance',['../classfaker_1_1Finance.html',1,'faker']]],
   ['firstname_5',['firstName',['../classfaker_1_1Person.html#a28f5846e5d14f92edf6da8c9ae193550',1,'faker::Person']]],
-  ['fromcharacters_6',['fromCharacters',['../classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331',1,'faker::String']]],
-  ['fullname_7',['fullName',['../classfaker_1_1Person.html#aff8a4e9459c364335efe03253c8e6e0b',1,'faker::Person']]],
-  ['futuredate_8',['futureDate',['../classfaker_1_1Date.html#a4c61956c545c6ab65dc63617f24394ae',1,'faker::Date']]]
+  ['fish_6',['fish',['../classfaker_1_1Animal.html#a4dab9869c9f5a83781ec5cfb4e8d1caf',1,'faker::Animal']]],
+  ['fromcharacters_7',['fromCharacters',['../classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331',1,'faker::String']]],
+  ['fullname_8',['fullName',['../classfaker_1_1Person.html#aff8a4e9459c364335efe03253c8e6e0b',1,'faker::Person']]],
+  ['futuredate_9',['futureDate',['../classfaker_1_1Date.html#a4c61956c545c6ab65dc63617f24394ae',1,'faker::Date']]]
 ];

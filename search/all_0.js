@@ -9,7 +9,8 @@ var searchData=
   ['alpha_6',['alpha',['../classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db',1,'faker::String']]],
   ['alphanumeric_7',['alphanumeric',['../classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398',1,'faker::String']]],
   ['amount_8',['amount',['../classfaker_1_1Finance.html#af5ef8556903d06d1fdbedf48275dc688',1,'faker::Finance']]],
-  ['arrayelement_9',['arrayElement',['../classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b',1,'faker::Helper']]],
-  ['artist_10',['artist',['../classfaker_1_1Music.html#a2576c6c8c092ee5eec85aebf3e6a7702',1,'faker::Music']]],
-  ['author_11',['author',['../classfaker_1_1Book.html#a81eeda6350d328c56043bff85342e4d4',1,'faker::Book']]]
+  ['animal_9',['Animal',['../classfaker_1_1Animal.html',1,'faker']]],
+  ['arrayelement_10',['arrayElement',['../classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b',1,'faker::Helper']]],
+  ['artist_11',['artist',['../classfaker_1_1Music.html#a2576c6c8c092ee5eec85aebf3e6a7702',1,'faker::Music']]],
+  ['author_12',['author',['../classfaker_1_1Book.html#a81eeda6350d328c56043bff85342e4d4',1,'faker::Book']]]
 ];

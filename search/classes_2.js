@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['database_0',['Database',['../classfaker_1_1Database.html',1,'faker']]],
-  ['datatype_1',['Datatype',['../classfaker_1_1Datatype.html',1,'faker']]],
-  ['date_2',['Date',['../classfaker_1_1Date.html',1,'faker']]]
+  ['color_0',['Color',['../classfaker_1_1Color.html',1,'faker']]],
+  ['commerce_1',['Commerce',['../classfaker_1_1Commerce.html',1,'faker']]],
+  ['company_2',['Company',['../classfaker_1_1Company.html',1,'faker']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['movie_0',['Movie',['../classfaker_1_1Movie.html',1,'faker']]],
-  ['music_1',['Music',['../classfaker_1_1Music.html',1,'faker']]]
+  ['location_0',['Location',['../classfaker_1_1Location.html',1,'faker']]],
+  ['lorem_1',['Lorem',['../classfaker_1_1Lorem.html',1,'faker']]]
 ];

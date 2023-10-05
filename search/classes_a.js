@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['string_0',['String',['../classfaker_1_1String.html',1,'faker']]],
-  ['system_1',['System',['../classfaker_1_1System.html',1,'faker']]]
+  ['person_0',['Person',['../classfaker_1_1Person.html',1,'faker']]],
+  ['phone_1',['Phone',['../classfaker_1_1Phone.html',1,'faker']]]
 ];

@@ -9,9 +9,10 @@ var searchData=
   ['shuffle_6',['shuffle',['../classfaker_1_1Helper.html#a5604817b289605971edea4034bd65115',1,'faker::Helper']]],
   ['sku_7',['sku',['../classfaker_1_1Commerce.html#af427c184726e56858e7730b0255d2f99',1,'faker::Commerce']]],
   ['slug_8',['slug',['../classfaker_1_1Lorem.html#a05591c4bbec3ec177e51020805414548',1,'faker::Lorem']]],
-  ['songname_9',['songName',['../classfaker_1_1Music.html#a08ab507712947fbbbb924963b83e2844',1,'faker::Music']]],
-  ['soondate_10',['soonDate',['../classfaker_1_1Date.html#a67910b9ec3d3e0b57285f96a8dfbc659',1,'faker::Date']]],
-  ['state_11',['state',['../classfaker_1_1Location.html#a2658feb8bf823c514914787a5dcdca92',1,'faker::Location']]],
-  ['street_12',['street',['../classfaker_1_1Location.html#a082cd43f2e662d9dad5d1bca1f9aef0a',1,'faker::Location']]],
-  ['streetaddress_13',['streetAddress',['../classfaker_1_1Location.html#a1aae7e6a0e332bf11f03907fa42b0baf',1,'faker::Location']]]
+  ['snake_9',['snake',['../classfaker_1_1Animal.html#a8cd0fa7f6ec8e1b7cf0b6edcfc47f4b1',1,'faker::Animal']]],
+  ['songname_10',['songName',['../classfaker_1_1Music.html#a08ab507712947fbbbb924963b83e2844',1,'faker::Music']]],
+  ['soondate_11',['soonDate',['../classfaker_1_1Date.html#a67910b9ec3d3e0b57285f96a8dfbc659',1,'faker::Date']]],
+  ['state_12',['state',['../classfaker_1_1Location.html#a2658feb8bf823c514914787a5dcdca92',1,'faker::Location']]],
+  ['street_13',['street',['../classfaker_1_1Location.html#a082cd43f2e662d9dad5d1bca1f9aef0a',1,'faker::Location']]],
+  ['streetaddress_14',['streetAddress',['../classfaker_1_1Location.html#a1aae7e6a0e332bf11f03907fa42b0baf',1,'faker::Location']]]
 ];
