@@ -17,6 +17,7 @@ endif ()
 set(LIBRARY_NAME faker-cxx)
 
 set(FAKER_SOURCES
+        src/modules/animal/Animal.cpp
         src/modules/book/Book.cpp
         src/modules/color/Color.cpp
         src/modules/commerce/Commerce.cpp
@@ -43,6 +44,7 @@ set(FAKER_SOURCES
         )
 
 set(FAKER_UT_SOURCES
+        src/modules/animal/AnimalTest.cpp
         src/modules/book/BookTest.cpp
         src/modules/color/ColorTest.cpp
         src/modules/commerce/CommerceTest.cpp
