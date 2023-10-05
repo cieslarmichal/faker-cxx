@@ -50,6 +50,7 @@ TEST_F(DateTest, shouldGeneratePastDate)
 
     const auto pastDateISO = Date::pastDate();
 
+    std::cout << pastDateISO;
     const auto pastDate = parseISOFormattedStringToTimePoint(pastDateISO);
 
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(currentDate - pastDate).count() < secondsInYear);

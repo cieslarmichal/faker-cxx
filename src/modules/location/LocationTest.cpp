@@ -12,18 +12,18 @@
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
-#include "data/russia/RussiaCities.h"
-#include "data/russia/RussiaStreetPrefixes.h"
+#include "data/france/FranceCities.h"
+#include "data/france/FranceStreetPrefixes.h"
+#include "data/france/FranceStreetSuffixes.h"
 #include "data/poland/PolandCities.h"
 #include "data/poland/PolandStreetNames.h"
 #include "data/poland/PolandStreetPrefixes.h"
+#include "data/russia/RussiaCities.h"
+#include "data/russia/RussiaStreetPrefixes.h"
 #include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/usa/UsaCities.h"
 #include "data/usa/UsaStreetSuffixes.h"
-#include "data/france/FranceCities.h"
-#include "data/france/FranceStreetPrefixes.h"
-#include "data/france/FranceStreetSuffixes.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -208,9 +208,9 @@ TEST_F(LocationTest, shouldGeneratePolandStreetAddress)
 
     std::string generatedStreetName{};
 
-    if(generatedStreetAddressElements.size() > 3)
+    if (generatedStreetAddressElements.size() > 3)
     {
-        for(size_t i = 1; i < generatedStreetAddressElements.size() -1; ++i )
+        for (size_t i = 1; i < generatedStreetAddressElements.size() - 1; ++i)
         {
             street.push_back(generatedStreetAddressElements.at(i));
         }
@@ -259,7 +259,7 @@ TEST_F(LocationTest, shouldGenerateFranceBuildingNumber)
 TEST_F(LocationTest, shouldGenerateFranceSecondaryAddress)
 {
     const auto generatedSecondaryAddress = Location::secondaryAddress(Country::France);
-    
+
     ASSERT_TRUE(generatedSecondaryAddress.starts_with("Apt. ") || generatedSecondaryAddress.starts_with("Étage "));
 
     const auto generatedSecondaryAddressParts = StringHelper::split(generatedSecondaryAddress, " ");
@@ -277,7 +277,8 @@ TEST_F(LocationTest, shouldGenerateFranceStreet)
     const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
-    const auto& generatedStreetSuffix = StringHelper::join({generatedStreetElements.begin()+1, generatedStreetElements.end()});
+    const auto& generatedStreetSuffix =
+        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     ASSERT_GE(generatedStreetElements.size(), 2);
     ASSERT_TRUE(std::ranges::any_of(franceStreetPrefixes, [generatedStreetPrefix](const std::string& streetPrefix)
@@ -294,7 +295,8 @@ TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedStreetPrefix = generatedStreetAddressElements[1];
-    const auto& generatedStreetSuffix = StringHelper::join({generatedStreetAddressElements.begin()+2, generatedStreetAddressElements.end()});
+    const auto& generatedStreetSuffix =
+        StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
 
     ASSERT_GE(generatedStreetAddressElements.size(), 3);
     ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 4);

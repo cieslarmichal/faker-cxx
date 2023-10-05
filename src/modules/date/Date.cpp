@@ -7,25 +7,42 @@
 #include "data/WeekdayNames.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
+#include "fmt/format.h"
 
 namespace faker
 {
 namespace
 {
+std::string serializeTimePoint(
+    std::chrono::time_point<std::chrono::system_clock, std::chrono::duration<int64_t, std::ratio<1, 1000000000>>>
+        timePoint)
+{
+    const auto timePointTimeT = std::chrono::system_clock::to_time_t(timePoint);
+
+    const auto utcTime = *std::gmtime(&timePointTimeT);
+
+    std::stringstream ss;
+
+    ss << std::put_time(&utcTime, "%FT%TZ");
+
+    return ss.str();
+}
+
 std::string betweenDate(
     std::chrono::time_point<std::chrono::system_clock, std::chrono::duration<int64_t, std::ratio<1, 1000000000>>> from,
     std::chrono::time_point<std::chrono::system_clock, std::chrono::duration<int64_t, std::ratio<1, 1000000000>>> to)
 {
     if (from > to)
     {
-        throw std::runtime_error{std::format("Start date is greater than end date. {{from: {}, to: {}}}", from, to)};
+        throw std::runtime_error{fmt::format("Start date is greater than end date. {{from: {}, to: {}}}",
+                                             serializeTimePoint(from), serializeTimePoint(to))};
     }
 
     const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();
 
     const auto randomDateWithinRange = from + std::chrono::seconds{Number::integer(size - 1)};
 
-    return std::format("{:%FT%TZ}", std::chrono::floor<std::chrono::seconds>(randomDateWithinRange));
+    return serializeTimePoint(std::chrono::floor<std::chrono::seconds>(randomDateWithinRange));
 }
 
 const auto numberOfHoursInDay = 24;

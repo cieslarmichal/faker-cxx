@@ -1,6 +1,5 @@
 #include "faker-cxx/Person.h"
 
-#include <format>
 #include <map>
 
 #include "data/english/EnglishFirstNamesFemales.h"
@@ -34,6 +33,7 @@
 #include "data/russian/RussianLastNamesFemales.h"
 #include "data/russian/RussianLastNamesMales.h"
 #include "faker-cxx/Helper.h"
+#include "fmt/format.h"
 
 namespace faker
 {
@@ -130,7 +130,7 @@ std::string Person::lastName(Language language, std::optional<Sex> sex)
 
 std::string Person::fullName(Language language, std::optional<Sex> sex)
 {
-    return std::format("{} {}", firstName(language, sex), lastName(language, sex));
+    return fmt::format("{} {}", firstName(language, sex), lastName(language, sex));
 }
 
 std::string Person::sex()
@@ -145,7 +145,7 @@ std::string Person::gender()
 
 std::string Person::jobTitle()
 {
-    return std::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
+    return fmt::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
 }
 
 std::string Person::jobDescriptor()
