@@ -9,10 +9,6 @@
 #include "faker-cxx/Number.h"
 #include "fmt/format.h"
 
-#ifdef _WIN32
-#define timegm _mkgmtime
-#endif
-
 namespace faker
 {
 namespace
@@ -21,9 +17,9 @@ std::string serializeTimePoint(
     std::chrono::time_point<std::chrono::system_clock, std::chrono::duration<int64_t, std::ratio<1, 1000000000>>>
         timePoint)
 {
-    const auto timePointTimeT = std::chrono::system_clock::to_time_t(timePoint);
+    time_t timePointTimeT = std::chrono::system_clock::to_time_t(timePoint);
 
-    const auto utcTime = *std::gmtime(&timePointTimeT);
+    std::tm utcTime = *std::gmtime(&timePointTimeT);
 
     std::stringstream ss;
 
