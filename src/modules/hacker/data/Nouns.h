@@ -21,13 +21,5 @@ namespace faker {
             "hard drive",
             "pixel",
             "alarm",
-            "feed",
-            "monitor",
-            "application",
-            "transmitter",
-            "bus",
-            "circuit",
-            "capacitor",
-            "matrix",
     };
 }

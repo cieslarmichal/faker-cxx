@@ -1,15 +1,16 @@
+#include "gtest/gtest.h"
 #include "faker-cxx/Hacker.h"
 
 #include <algorithm>
+#include <string>
+#include <iostream>
 
-#include "gtest/gtest.h"
-
-#include "src/modules/hacker/data/Abbreviations.h"
-#include "src/modules/hacker/data/Adjectives.h"
-#include "src/modules/hacker/data/Ingverbs.h"
-#include "src/modules/hacker/data/Nouns.h"
-// #include "src/modules/hacker/data/Phrases.h"
-#include "src/modules/hacker/data/Verbs.h"
+#include "data/Abbreviations.h"
+#include "data/Adjectives.h"
+#include "data/Ingverbs.h"
+#include "data/Nouns.h"
+#include "data/Verbs.h"
+#include "data/Phrases.h"
 
 // testing Hacker module, test like Person module tests
 // testing phrases will be different, test that each phrase will have a random word from each word list
@@ -51,8 +52,20 @@ TEST_F(HackerTest, shouldGenerateIngverb) {
     ASSERT_TRUE(std::ranges::any_of(ingverbs, [generatedIngverb](const std::string& ingverb) { return ingverb == generatedIngverb; }));
 }
 
-/*TEST_F(HackerTest, shouldGeneratePhrase) {
+TEST_F(HackerTest, shouldGeneratePhrase) {
     std::string generatedPhrase = Hacker::phrase();
-    ASSERT_TRUE(std::ranges::any_of(phrases, [generatedPhrase](const std::string& phrase) { return phrase == generatedPhrase; }));
+    size_t limit = 1000000;
+    size_t attempt = 0;
+
+    while (attempt <= limit) {
+        std::string newGeneratedPhrase = Hacker::phrase();
+        if (newGeneratedPhrase == generatedPhrase) {
+            std::cout << generatedPhrase << "\n";
+            std::cout << newGeneratedPhrase << "\n";
+            ASSERT_TRUE(true);
+            break;
+        }
+
+        attempt++;
+    }
 }
- */

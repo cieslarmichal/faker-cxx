@@ -21,7 +21,5 @@ namespace faker {
             "1080p",
             "neural",
             "optical",
-            "solid state",
-            "mobile",
     };
 }

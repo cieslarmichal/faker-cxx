@@ -1,18 +1,21 @@
 #pragma once
 
+#include "faker-cxx/Helper.h"
+#include "fmt/format.h"
+
 #include <string>
 #include <vector>
 
 #include "Abbreviations.h"
-#include "Adjectives.h"
-#include "faker-cxx/Helper.h"
-#include "fmt/format.h"
 #include "Ingverbs.h"
 #include "Nouns.h"
 #include "Verbs.h"
+#include "Adjectives.h"
+
 
 namespace faker {
     // use fmt::format() to format each phrase w/ random word
+
     const std::vector<std::string> phrases = {
             fmt::format("If we {} the {}, we can get to the {} {} through the {} {} {}!", Helper::arrayElement<std::string>(verbs), Helper::arrayElement<std::string>(nouns), Helper::arrayElement<std::string>(abbreviations), Helper::arrayElement<std::string>(nouns), Helper::arrayElement<std::string>(adjectives), Helper::arrayElement<std::string>(abbreviations), Helper::arrayElement<std::string>(nouns)),
             fmt::format("We need to {} the {} {} {}!", Helper::arrayElement<std::string>(verbs), Helper::arrayElement<std::string>(adjectives), Helper::arrayElement<std::string>(abbreviations), Helper::arrayElement<std::string>(nouns)),
@@ -23,4 +26,7 @@ namespace faker {
             fmt::format("{} the {} won't do anything, we need to {} the {} {} {}!", Helper::arrayElement<std::string>(ingverbs), Helper::arrayElement<std::string>(nouns), Helper::arrayElement<std::string>(verbs), Helper::arrayElement<std::string>(adjectives), Helper::arrayElement<std::string>(abbreviations), Helper::arrayElement<std::string>(nouns)),
             fmt::format("I'll {} the {} {} {}, that should {} the {} {}!", Helper::arrayElement<std::string>(verbs), Helper::arrayElement<std::string>(adjectives), Helper::arrayElement<std::string>(abbreviations), Helper::arrayElement<std::string>(nouns), Helper::arrayElement<std::string>(nouns), Helper::arrayElement<std::string>(abbreviations), Helper::arrayElement<std::string>(nouns)),
     };
+
+
+    //const std::vector<std::string> phrases = {fmt::format("{0}", Helper::arrayElement<std::string>(faker::abbreviations))};
 }
