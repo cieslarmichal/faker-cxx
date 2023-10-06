@@ -41,7 +41,8 @@ set(FAKER_SOURCES
         src/modules/database/Database.cpp
         src/modules/music/Music.cpp
         src/modules/movie/Movie.cpp
-        )
+        src/modules/hacker/Hacker.cpp
+)
 
 set(FAKER_UT_SOURCES
         src/modules/animal/AnimalTest.cpp
@@ -68,7 +69,8 @@ set(FAKER_UT_SOURCES
         src/modules/database/DatabaseTest.cpp
         src/modules/music/MusicTest.cpp
         src/modules/movie/MovieTest.cpp
-        )
+        src/modules/hacker/HackerTest.cpp
+)
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 
