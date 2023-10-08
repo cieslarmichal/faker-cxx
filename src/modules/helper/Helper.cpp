@@ -1,9 +1,12 @@
 #include "faker-cxx/Helper.h"
 
 #include <chrono>
+#include <iterator>
 #include <random>
 #include <regex>
+#include <string>
 #include <string_view>
+#include <vector>
 
 #include "../src/common/LuhnCheck.h"
 #include "../src/common/StringHelper.h"
@@ -103,5 +106,27 @@ std::string Helper::regexpStyleStringParse(const std::string& input)
     }
 
     return string;
+}
+
+// helper functions for phrases
+std::vector<std::string> Helper::splitIntoWords(const std::string& input)
+{
+    std::istringstream iss(input);
+    std::vector<std::string> words(std::istream_iterator<std::string>{iss}, std::istream_iterator<std::string>());
+    return words;
+}
+
+// Function to check if a character is punctuation
+bool Helper::isPunctuation(char c)
+{
+    return (c == '.' || c == ',' || c == '!' || c == '?' || c == ';' || c == ':');
+}
+
+// Function to remove punctuation from a word
+std::string Helper::removePunctuation(const std::string& word)
+{
+    std::string result = word;
+    result.erase(std::remove_if(result.begin(), result.end(), isPunctuation), result.end());
+    return result;
 }
 }
