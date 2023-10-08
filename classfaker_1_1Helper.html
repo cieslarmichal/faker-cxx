@@ -126,6 +126,15 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="memTemplItemLeft" align="right" valign="top">static TResult&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">maybe</a> (std::function&lt; TResult()&gt; callback, double probability=0.5)</td></tr>
 <tr class="memdesc:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the callback if the probability check was successful, otherwise empty string.  <br /></td></tr>
 <tr class="separator:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a329bc661c57ef473fc87388379893928" id="r_a329bc661c57ef473fc87388379893928"><td class="memItemLeft" align="right" valign="top"><a id="a329bc661c57ef473fc87388379893928" name="a329bc661c57ef473fc87388379893928"></a>
+static std::vector&lt; std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>splitIntoWords</b> (const std::string &amp;input)</td></tr>
+<tr class="separator:a329bc661c57ef473fc87388379893928"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ffc407ea9e12c46129ee4fd1a2908c2" id="r_a5ffc407ea9e12c46129ee4fd1a2908c2"><td class="memItemLeft" align="right" valign="top"><a id="a5ffc407ea9e12c46129ee4fd1a2908c2" name="a5ffc407ea9e12c46129ee4fd1a2908c2"></a>
+static bool&#160;</td><td class="memItemRight" valign="bottom"><b>isPunctuation</b> (char c)</td></tr>
+<tr class="separator:a5ffc407ea9e12c46129ee4fd1a2908c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af340b2865f1c7e0c4d7b1de5c2d3715c" id="r_af340b2865f1c7e0c4d7b1de5c2d3715c"><td class="memItemLeft" align="right" valign="top"><a id="af340b2865f1c7e0c4d7b1de5c2d3715c" name="af340b2865f1c7e0c4d7b1de5c2d3715c"></a>
+static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>removePunctuation</b> (const std::string &amp;word)</td></tr>
+<tr class="separator:af340b2865f1c7e0c4d7b1de5c2d3715c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a46622f2ea33bab9a6ee3d35149f8b01b" name="a46622f2ea33bab9a6ee3d35149f8b01b"></a>
@@ -281,7 +290,7 @@ template&lt;typename T &gt; </div>
 <div class="line">{3, <span class="stringliteral">&quot;three&quot;</span>}</div>
 <div class="line">};</div>
 <div class="line"><a class="code hl_function" href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">Helper::objectKey</a>(testMap) <span class="comment">// &quot;2&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:138</div></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:140</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -327,7 +336,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="preprocessor">Helper::regexpStyleStringParse(&quot;#{2,9}&quot;) // &quot;#######&quot;</span></div>
 <div class="line"><span class="preprocessor">Helper::regexpStyleStringParse(&quot;[500-15000]&quot;) // &quot;8375&quot;</span></div>
 <div class="line"><span class="preprocessor">Helper::regexpStyleStringParse(&quot;#{3}test[1-5]&quot;) // &quot;###test3&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Helper_html"><div class="ttname"><a href="classfaker_1_1Helper.html">faker::Helper</a></div><div class="ttdef"><b>Definition</b> Helper.h:12</div></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html"><div class="ttname"><a href="classfaker_1_1Helper.html">faker::Helper</a></div><div class="ttdef"><b>Definition</b> Helper.h:14</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html_ad97b7e42b9f650bdea9ecba04b135768"><div class="ttname"><a href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">faker::Helper::regexpStyleStringParse</a></div><div class="ttdeci">static std::string regexpStyleStringParse(const std::string &amp;input)</div><div class="ttdoc">Returns the replaced regex-like expression in the string with matching values.</div></div>
 </div><!-- fragment --> 
 </div>
