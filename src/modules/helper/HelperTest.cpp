@@ -107,4 +107,35 @@ TEST_F(HelperTest, MaybeDouble)
     result = Helper::maybe<double>([]() { return 3.14; }, lowProbability);
     EXPECT_EQ(result, 0.0);
 }
+
+TEST_F(HelperTest, IsPunctuation)
+{
+    std::string punctuation = ".,;:!?";
+    for (char c : punctuation)
+    {
+        EXPECT_TRUE(Helper::isPunctuation(c));
+    }
+
+    std::string notPunctuation = "abc123";
+    for (char c : notPunctuation)
+    {
+        EXPECT_FALSE(Helper::isPunctuation(c));
+    }
+}
+
+TEST_F(HelperTest, RemovePunctuation)
+{
+    std::string input = "Hello, World!";
+    std::string result = Helper::removePunctuation(input);
+    EXPECT_EQ(result, "Hello World");
+}
+
+TEST_F(HelperTest, SplitIntoWords)
+{
+    std::string input = "Hello World!";
+    std::vector<std::string> result = Helper::splitIntoWords(input);
+    EXPECT_EQ(result.size(), 2);
+    EXPECT_EQ(result[0], "Hello");
+    EXPECT_EQ(result[1], "World!");
+}
 }
