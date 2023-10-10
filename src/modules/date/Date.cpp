@@ -2,6 +2,7 @@
 
 #include <chrono>
 #include <ctime>
+#include <iomanip>
 
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
@@ -30,7 +31,8 @@ std::string betweenDate(const auto& from, const auto& to)
 {
     if (from > to)
     {
-        throw std::runtime_error{fmt::format("Start date is greater than end date. {{from: {}, to: {}}}", serializeTimePoint(from),serializeTimePoint(to))};
+        throw std::runtime_error{fmt::format("Start date is greater than end date. {{from: {}, to: {}}}",
+                                             serializeTimePoint(from), serializeTimePoint(to))};
     }
 
     const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();
