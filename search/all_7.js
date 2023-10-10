@@ -6,6 +6,7 @@ var searchData=
   ['hexadecimal_3',['hexadecimal',['../classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006',1,'faker::String']]],
   ['hobby_4',['hobby',['../classfaker_1_1Person.html#a499b411db884a8b154b370009bd3b3c2',1,'faker::Person']]],
   ['horse_5',['horse',['../classfaker_1_1Animal.html#a3f86d0fc7c4d2544935603a2e8753b81',1,'faker::Animal']]],
-  ['httpmethod_6',['httpMethod',['../classfaker_1_1Internet.html#a1787871f9974218270bdd597320eae16',1,'faker::Internet']]],
-  ['httpstatuscode_7',['httpStatusCode',['../classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37',1,'faker::Internet']]]
+  ['hsl_6',['hsl',['../classfaker_1_1Color.html#ac76590c23d158333133277b6f6f2163a',1,'faker::Color']]],
+  ['httpmethod_7',['httpMethod',['../classfaker_1_1Internet.html#a1787871f9974218270bdd597320eae16',1,'faker::Internet']]],
+  ['httpstatuscode_8',['httpStatusCode',['../classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37',1,'faker::Internet']]]
 ];
