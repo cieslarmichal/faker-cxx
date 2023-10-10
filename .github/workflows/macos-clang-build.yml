@@ -15,7 +15,7 @@ jobs:
 
     steps:
       - name: Install clang
-        run: brew install llvm@16 && echo 'export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+        run: brew install llvm@16 && echo 'export PATH="/usr/local/opt/llvm/bin:$PATH"' >> /Users/runner/.bash_profile && source /Users/runner/.bash_profile && which clang++
         
       - name: Checkout
         uses: actions/checkout@v3
@@ -26,7 +26,7 @@ jobs:
         run: |
           cmake -B ${{github.workspace}}/build \
             -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
-            -DCMAKE_CXX_COMPILER=/opt/homebrew/opt/llvm@16/bin/clang++
+            -DCMAKE_CXX_COMPILER=/usr/local/opt/llvm/bin/clang++
 
       - name: Build
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
