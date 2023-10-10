@@ -70,3 +70,25 @@ TEST_F(StringHelperTest, toLower)
 
     ASSERT_EQ(result, "hello!");
 }
+
+TEST_F(StringHelperTest, IsPunctuation)
+{
+    std::string punctuation = ".,;:!?";
+    for (char c : punctuation)
+    {
+        EXPECT_TRUE(StringHelper::isPunctuation(c));
+    }
+
+    std::string notPunctuation = "abc123";
+    for (char c : notPunctuation)
+    {
+        EXPECT_FALSE(StringHelper::isPunctuation(c));
+    }
+}
+
+TEST_F(StringHelperTest, RemovePunctuation)
+{
+    std::string input = "Hello, World!";
+    std::string result = StringHelper::removePunctuation(input);
+    EXPECT_EQ(result, "Hello World");
+}
