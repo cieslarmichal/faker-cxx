@@ -10,11 +10,14 @@ var searchData=
   ['sku_7',['sku',['../classfaker_1_1Commerce.html#af427c184726e56858e7730b0255d2f99',1,'faker::Commerce']]],
   ['slug_8',['slug',['../classfaker_1_1Lorem.html#a05591c4bbec3ec177e51020805414548',1,'faker::Lorem']]],
   ['snake_9',['snake',['../classfaker_1_1Animal.html#a8cd0fa7f6ec8e1b7cf0b6edcfc47f4b1',1,'faker::Animal']]],
-  ['songname_10',['songName',['../classfaker_1_1Music.html#a08ab507712947fbbbb924963b83e2844',1,'faker::Music']]],
-  ['soondate_11',['soonDate',['../classfaker_1_1Date.html#a67910b9ec3d3e0b57285f96a8dfbc659',1,'faker::Date']]],
-  ['state_12',['state',['../classfaker_1_1Location.html#a2658feb8bf823c514914787a5dcdca92',1,'faker::Location']]],
-  ['street_13',['street',['../classfaker_1_1Location.html#a082cd43f2e662d9dad5d1bca1f9aef0a',1,'faker::Location']]],
-  ['streetaddress_14',['streetAddress',['../classfaker_1_1Location.html#a1aae7e6a0e332bf11f03907fa42b0baf',1,'faker::Location']]],
-  ['string_15',['String',['../classfaker_1_1String.html',1,'faker']]],
-  ['system_16',['System',['../classfaker_1_1System.html',1,'faker']]]
+  ['soccerteam_10',['soccerTeam',['../classfaker_1_1Sport.html#a97e02344486aa08439383f0c094fb1ef',1,'faker::Sport']]],
+  ['songname_11',['songName',['../classfaker_1_1Music.html#a08ab507712947fbbbb924963b83e2844',1,'faker::Music']]],
+  ['soondate_12',['soonDate',['../classfaker_1_1Date.html#a67910b9ec3d3e0b57285f96a8dfbc659',1,'faker::Date']]],
+  ['sport_13',['sport',['../classfaker_1_1Sport.html',1,'faker::Sport'],['../classfaker_1_1Sport.html#a01a8afd92aaf5f2fab77bfff89ab7f4f',1,'faker::Sport::sport()']]],
+  ['sportevent_14',['sportEvent',['../classfaker_1_1Sport.html#a514a07460ab175e9c738c4754bfd4df5',1,'faker::Sport']]],
+  ['state_15',['state',['../classfaker_1_1Location.html#a2658feb8bf823c514914787a5dcdca92',1,'faker::Location']]],
+  ['street_16',['street',['../classfaker_1_1Location.html#a082cd43f2e662d9dad5d1bca1f9aef0a',1,'faker::Location']]],
+  ['streetaddress_17',['streetAddress',['../classfaker_1_1Location.html#a1aae7e6a0e332bf11f03907fa42b0baf',1,'faker::Location']]],
+  ['string_18',['String',['../classfaker_1_1String.html',1,'faker']]],
+  ['system_19',['System',['../classfaker_1_1System.html',1,'faker']]]
 ];
