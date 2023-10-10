@@ -14,6 +14,9 @@ jobs:
     runs-on: macos-latest
 
     steps:
+      - name: Install clang
+        run: brew install llvm@16 && echo 'export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"' >> ~/.zshrc && source ~/.zshrc
+        
       - name: Checkout
         uses: actions/checkout@v3
         with:
@@ -23,7 +26,7 @@ jobs:
         run: |
           cmake -B ${{github.workspace}}/build \
             -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
-            -DCMAKE_CXX_COMPILER=/usr/bin/clang++
+            -DCMAKE_CXX_COMPILER=/opt/homebrew/opt/llvm@16/bin/clang++
 
       - name: Build
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
