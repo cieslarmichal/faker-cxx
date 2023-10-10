@@ -3,7 +3,6 @@
 #include <functional>
 #include <span>
 #include <string>
-#include <vector>
 
 #include "Datatype.h"
 #include "Number.h"
@@ -178,46 +177,6 @@ public:
         }
         return TResult();
     }
-
-    /*
-     * @brief Returns a split string into words.
-     *
-     * @param input The string to split.
-     *
-     * @return A vector of words.
-     *
-     * @code
-     * Helper::splitIntoWords("Hello World!") // {"Hello", "World!"}
-     * @endcode
-     */
-    static std::vector<std::string> splitIntoWords(const std::string& input);
-
-    /*
-     * @brief Returns true if the given character is punctuation.
-     *
-     * @param c The character to check.
-     *
-     * @return True if the given character is punctuation.
-     *
-     * @code
-     * Helper::isPunctuation('!') // true
-     * Helper::isPunctuation('a') // false
-     * @endcode
-     */
-    static bool isPunctuation(char c);
-
-    /*
-     * @brief Returns the given word without punctuation.
-     *
-     * @param word The word to remove punctuation.
-     *
-     * @return The given word without punctuation.
-     *
-     * @code
-     * Helper::removePunctuation("Hello!") // "Hello"
-     * @endcode
-     */
-    static std::string removePunctuation(const std::string& word);
 
 private:
     static std::random_device randomDevice;

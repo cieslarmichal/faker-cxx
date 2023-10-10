@@ -1,4 +1,5 @@
 #include "faker-cxx/Hacker.h"
+#include "../../common/StringHelper.h"
 
 #include <string>
 #include <vector>
@@ -39,12 +40,12 @@ std::string Hacker::ingverb()
 
 std::string Hacker::phrase()
 {
-    auto splitRandomPhrase = Helper::splitIntoWords(faker::Helper::arrayElement<std::string>(faker::phrases));
+    auto splitRandomPhrase = StringHelper::split(faker::Helper::arrayElement<std::string>(faker::phrases));
     std::string ret;
 
     for (auto& word : splitRandomPhrase)
     {
-        word = Helper::removePunctuation(word);
+        word = StringHelper::removePunctuation(word);
         if (word == "{abbreviation}")
         {
             word = abbreviation();

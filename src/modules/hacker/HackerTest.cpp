@@ -9,9 +9,7 @@
 #include "data/Adjectives.h"
 #include "data/Ingverbs.h"
 #include "data/Nouns.h"
-#include "data/Phrases.h"
 #include "data/Verbs.h"
-#include "faker-cxx/Helper.h"
 
 using namespace ::testing;
 using namespace faker;
