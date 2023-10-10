@@ -88,3 +88,42 @@ TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
     ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
                                     { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
+
+TEST_F(ColorTest, shouldGenerateHslWithoutAlpha)
+{
+    const auto generatedHslColor = faker::Color::hsl();
+    const auto hslValues = faker::StringHelper::split(generatedHslColor.substr(4, generatedHslColor.size() - 1), " ");
+
+    int hue, staturation, lightness;
+
+    std::from_chars(hslValues[0].data(), hslValues[0].data() + hslValues[0].size(), hue);
+    std::from_chars(hslValues[1].data(), hslValues[1].data() + hslValues[1].size(), staturation);
+    std::from_chars(hslValues[2].data(), hslValues[2].data() + hslValues[2].size(), lightness);
+
+    ASSERT_TRUE(generatedHslColor.starts_with("hsl("));
+    ASSERT_TRUE(generatedHslColor.ends_with(")"));
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+    ASSERT_TRUE(staturation >= 0 && staturation <= 100);
+    ASSERT_TRUE(lightness >= 0 && lightness <= 100);
+}
+
+TEST_F(ColorTest, shouldGenerateHslWithAlpha)
+{
+    const auto generatedHslaColor = faker::Color::hsl(true);
+    const auto hslValues = faker::StringHelper::split(generatedHslaColor.substr(5, generatedHslaColor.size() - 1), " ");
+
+    int hue, staturation, lightness;
+    double alpha;
+
+    std::from_chars(hslValues[0].data(), hslValues[0].data() + hslValues[0].size(), hue);
+    std::from_chars(hslValues[1].data(), hslValues[1].data() + hslValues[1].size(), staturation);
+    std::from_chars(hslValues[2].data(), hslValues[2].data() + hslValues[2].size(), lightness);
+    std::from_chars(hslValues[3].data(), hslValues[3].data() + hslValues[3].size(), alpha);
+
+    ASSERT_TRUE(generatedHslaColor.starts_with("hsla("));
+    ASSERT_TRUE(generatedHslaColor.ends_with(")"));
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+    ASSERT_TRUE(staturation >= 0 && staturation <= 100);
+    ASSERT_TRUE(lightness >= 0 && lightness <= 100);
+    ASSERT_TRUE(alpha >= 0 && alpha <= 1);
+}

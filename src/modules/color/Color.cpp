@@ -46,4 +46,26 @@ std::string Color::hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
 
     return String::hexadecimal(6, casing, prefix);
 }
+std::string Color::hsl(bool includeAlpha)
+{
+    const std::integral auto hue = Number::integer(360);
+    const std::integral auto saturation = Number::integer(100);
+    const std::integral auto lightness = Number::integer(100);
+
+    if (!includeAlpha)
+    {
+        return fmt::format("hsl({}, {}, {})", hue, saturation, lightness);
+    }
+
+    const std::floating_point auto alpha = Number::decimal<double>(1);
+
+    std::stringstream ss;
+    ss << std::fixed;
+    ss.precision(2);
+    ss << alpha;
+    const auto formattedAlpha = ss.str();
+
+    return fmt::format("hsla({}, {}, {}, {})", hue, saturation, lightness, formattedAlpha);
+}
+
 }
