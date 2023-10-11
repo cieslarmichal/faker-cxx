@@ -1,4 +1,4 @@
-name: linux-clang++
+name: clang++
 
 on:
   push:
