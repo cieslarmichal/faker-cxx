@@ -113,12 +113,13 @@ TEST_F(ColorTest, shouldGenerateHslWithAlpha)
     const auto hslValues = faker::StringHelper::split(generatedHslaColor.substr(5, generatedHslaColor.size() - 1), " ");
 
     int hue, staturation, lightness;
-    double alpha;
 
     std::from_chars(hslValues[0].data(), hslValues[0].data() + hslValues[0].size(), hue);
     std::from_chars(hslValues[1].data(), hslValues[1].data() + hslValues[1].size(), staturation);
     std::from_chars(hslValues[2].data(), hslValues[2].data() + hslValues[2].size(), lightness);
-    std::from_chars(hslValues[3].data(), hslValues[3].data() + hslValues[3].size(), alpha);
+
+    auto offset = hslValues[3].size();
+    const auto alpha = std::stod(hslValues[3].data(), &offset);
 
     ASSERT_TRUE(generatedHslaColor.starts_with("hsla("));
     ASSERT_TRUE(generatedHslaColor.ends_with(")"));
