@@ -311,8 +311,8 @@ TEST_F(LocationTest, shouldGenerateLatitude)
 {
     const auto latitude = Location::latitude();
 
-    auto latitudeAsFloat{0.0f};
-    std::from_chars(latitude.data(), latitude.data() + latitude.size(), latitudeAsFloat);
+    auto offset = latitude.size();
+    const auto latitudeAsFloat = std::stof(latitude.data(), &offset);
 
     const auto generatedLatitudeParts = StringHelper::split(latitude, ".");
 
@@ -326,8 +326,8 @@ TEST_F(LocationTest, shouldGenerateLatitudeWithSpecifiedPrecision)
 {
     const auto latitude = Location::latitude(Precision::ThreeDp);
 
-    auto latitudeAsFloat{0.0f};
-    std::from_chars(latitude.data(), latitude.data() + latitude.size(), latitudeAsFloat);
+    auto offset = latitude.size();
+    const auto latitudeAsFloat = std::stof(latitude.data(), &offset);
 
     const auto generatedLatitudeParts = StringHelper::split(latitude, ".");
 
@@ -341,8 +341,8 @@ TEST_F(LocationTest, shouldGenerateLongitude)
 {
     const auto longitude = Location::longitude();
 
-    auto longitudeAsFloat{0.0f};
-    std::from_chars(longitude.data(), longitude.data() + longitude.size(), longitudeAsFloat);
+    auto offset = longitude.size();
+    const auto longitudeAsFloat = std::stof(longitude.data(), &offset);
 
     const auto generatedLongitudeParts = StringHelper::split(longitude, ".");
 
@@ -356,8 +356,8 @@ TEST_F(LocationTest, shouldGenerateLongitudeWithSpecifiedPrecision)
 {
     const auto longitude = Location::longitude(Precision::SixDp);
 
-    auto longitudeAsFloat{0.0f};
-    std::from_chars(longitude.data(), longitude.data() + longitude.size(), longitudeAsFloat);
+    auto offset = longitude.size();
+    const auto longitudeAsFloat = std::stof(longitude.data(), &offset);
 
     const auto generatedLongitudeParts = StringHelper::split(longitude, ".");
 
