@@ -22,6 +22,9 @@
 #include "data/italian/ItalianFirstNamesMales.h"
 #include "data/italian/ItalianLastNames.h"
 #include "data/JobTitles.h"
+#include "data/nepalese/NepaleseFirstNamesFemales.h"
+#include "data/nepalese/NepaleseFirstNamesMales.h"
+#include "data/nepalese/NepaleseLastNames.h"
 #include "data/polish/PolishFirstNamesFemales.h"
 #include "data/polish/PolishFirstNamesMales.h"
 #include "data/polish/PolishLastNames.h"
@@ -54,6 +57,7 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirs
     {Language::Romanian, {{Sex::Male, romanianFirstNamesMales}, {Sex::Female, romanianFirstNamesFemales}}},
     {Language::Hindi, {{Sex::Male, indianFirstNamesMales}, {Sex::Female, indianFirstNamesFemales}}},
     {Language::Finnish, {{Sex::Male, finnishFirstNamesMales}, {Sex::Female, finnishFirstNamesFemales}}},
+    {Language::Nepali, {{Sex::Male, nepaleseFirstNamesMales}, {Sex::Female, nepaleseFirstNamesFemales}}},
 };
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
@@ -66,6 +70,7 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLast
     {Language::Romanian, {{Sex::Male, romanianLastNames}, {Sex::Female, romanianLastNames}}},
     {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}},
     {Language::Finnish, {{Sex::Male, finnishLastNames}, {Sex::Female, finnishLastNames}}},
+    {Language::Nepali, {{Sex::Male, nepaleseLastNames}, {Sex::Female, nepaleseLastNames}}},
 };
 }
 

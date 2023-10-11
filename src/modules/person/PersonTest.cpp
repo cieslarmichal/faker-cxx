@@ -35,6 +35,9 @@
 #include "data/russian/RussianLastNamesFemales.h"
 #include "data/russian/RussianLastNamesMales.h"
 #include "src/common/StringHelper.h"
+#include "src/modules/person/data/nepalese/NepaleseFirstNamesFemales.h"
+#include "src/modules/person/data/nepalese/NepaleseFirstNamesMales.h"
+#include "src/modules/person/data/nepalese/NepaleseLastNames.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -45,9 +48,10 @@ const auto malePrefix{"Mr."};
 const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
 const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
 
-const std::vector<Language> languages{Language::English,  Language::French, Language::German,
-                                      Language::Italian,  Language::Polish, Language::Russian,
-                                      Language::Romanian, Language::Hindi,  Language::Finnish};
+const std::vector<Language> languages{
+    Language::English, Language::French,   Language::German, Language::Italian, Language::Polish,
+    Language::Russian, Language::Romanian, Language::Hindi,  Language::Finnish, Language::Nepali,
+};
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
     {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
@@ -59,6 +63,7 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirs
     {Language::Romanian, {{Sex::Male, romanianFirstNamesMales}, {Sex::Female, romanianFirstNamesFemales}}},
     {Language::Hindi, {{Sex::Male, indianFirstNamesMales}, {Sex::Female, indianFirstNamesFemales}}},
     {Language::Finnish, {{Sex::Male, finnishFirstNamesMales}, {Sex::Female, finnishFirstNamesFemales}}},
+    {Language::Nepali, {{Sex::Male, nepaleseFirstNamesMales}, {Sex::Female, nepaleseFirstNamesFemales}}},
 };
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
@@ -71,6 +76,7 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLast
     {Language::Romanian, {{Sex::Male, romanianLastNames}, {Sex::Female, romanianLastNames}}},
     {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}},
     {Language::Finnish, {{Sex::Male, finnishLastNames}, {Sex::Female, finnishLastNames}}},
+    {Language::Nepali, {{Sex::Male, nepaleseLastNames}, {Sex::Female, nepaleseLastNames}}},
 };
 
 const std::map<Language, std::string> generatedTestName{
@@ -78,7 +84,7 @@ const std::map<Language, std::string> generatedTestName{
     {Language::German, "shouldGenerateGermanName"},     {Language::Italian, "shouldGenerateItalianName"},
     {Language::Polish, "shouldGeneratePolishName"},     {Language::Russian, "shouldGenerateRussianName"},
     {Language::Romanian, "shouldGenerateRomanianName"}, {Language::Hindi, "shouldGenerateIndianName"},
-    {Language::Finnish, "shouldGenerateFinnishName"},
+    {Language::Finnish, "shouldGenerateFinnishName"},   {Language::Nepali, "shouldGenerateNepaleseName"},
 };
 }
 
