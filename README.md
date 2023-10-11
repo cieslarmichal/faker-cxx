@@ -14,7 +14,7 @@ The library is heavily inspired by [Faker.js](https://github.com/faker-js/faker)
 
 Dependencies: 
  - GTest: building library tests (can be disabled by setting CMake flag BUILD_FAKER_TESTS=OFF)
- - fmt: formatting, cannot use standard lib because apple clang does not support this feature
+ - fmt: formatting
 
 ## 🎯 Goal
 
