@@ -48,9 +48,10 @@ const auto malePrefix{"Mr."};
 const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
 const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
 
-const std::vector<Language> languages{Language::English, Language::French,  Language::German,   Language::Italian,
-                                      Language::Polish,  Language::Russian, Language::Romanian, Language::Hindi,
-                                      Language::Finnish, Language::Nepali};
+const std::vector<Language> languages{
+    Language::English, Language::French,   Language::German, Language::Italian, Language::Polish,
+    Language::Russian, Language::Romanian, Language::Hindi,  Language::Finnish, Language::Nepali,
+};
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
     {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
