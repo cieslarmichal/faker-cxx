@@ -118,7 +118,7 @@ TEST_F(ColorTest, shouldGenerateHslWithAlpha)
     std::from_chars(hslValues[0].data(), hslValues[0].data() + hslValues[0].size(), hue);
     std::from_chars(hslValues[1].data(), hslValues[1].data() + hslValues[1].size(), staturation);
     std::from_chars(hslValues[2].data(), hslValues[2].data() + hslValues[2].size(), lightness);
-    std::from_chars(hslValues[3].data(), hslValues[3].data() + hslValues[3].size(), static_cast<int>(alpha));
+    std::from_chars(hslValues[3].data(), hslValues[3].data() + hslValues[3].size(), alpha);
 
     ASSERT_TRUE(generatedHslaColor.starts_with("hsla("));
     ASSERT_TRUE(generatedHslaColor.ends_with(")"));
