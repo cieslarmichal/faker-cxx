@@ -19,5 +19,6 @@ var searchData=
   ['street_16',['street',['../classfaker_1_1Location.html#a082cd43f2e662d9dad5d1bca1f9aef0a',1,'faker::Location']]],
   ['streetaddress_17',['streetAddress',['../classfaker_1_1Location.html#a1aae7e6a0e332bf11f03907fa42b0baf',1,'faker::Location']]],
   ['string_18',['String',['../classfaker_1_1String.html',1,'faker']]],
-  ['system_19',['System',['../classfaker_1_1System.html',1,'faker']]]
+  ['studioname_19',['studioName',['../classfaker_1_1VideoGame.html#a31fb6dddb984b9ff4b1b82f27033a217',1,'faker::VideoGame']]],
+  ['system_20',['System',['../classfaker_1_1System.html',1,'faker']]]
 ];

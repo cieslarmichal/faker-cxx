@@ -17,5 +17,6 @@ var searchData=
   ['sportevent_14',['sportEvent',['../classfaker_1_1Sport.html#a514a07460ab175e9c738c4754bfd4df5',1,'faker::Sport']]],
   ['state_15',['state',['../classfaker_1_1Location.html#a2658feb8bf823c514914787a5dcdca92',1,'faker::Location']]],
   ['street_16',['street',['../classfaker_1_1Location.html#a082cd43f2e662d9dad5d1bca1f9aef0a',1,'faker::Location']]],
-  ['streetaddress_17',['streetAddress',['../classfaker_1_1Location.html#a1aae7e6a0e332bf11f03907fa42b0baf',1,'faker::Location']]]
+  ['streetaddress_17',['streetAddress',['../classfaker_1_1Location.html#a1aae7e6a0e332bf11f03907fa42b0baf',1,'faker::Location']]],
+  ['studioname_18',['studioName',['../classfaker_1_1VideoGame.html#a31fb6dddb984b9ff4b1b82f27033a217',1,'faker::VideoGame']]]
 ];
