@@ -10,7 +10,7 @@ const std::vector<std::string> genres = {"Action",
                                          "Battle royale",
                                          "Dating sim",
                                          "Endless runner",
-                                         "Fighting".
+                                         "Fighting",
                                          "First-person shooter",
                                          "Hack and slash",
                                          "Horror",

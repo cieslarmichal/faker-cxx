@@ -73,7 +73,7 @@ set(FAKER_UT_SOURCES
         src/modules/movie/MovieTest.cpp
         src/modules/hacker/HackerTest.cpp
         src/modules/sport/SportTest.cpp
-        src/modules/videoGame/VideogameTest.cpp
+        src/modules/videoGame/VideoGameTest.cpp
 )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})

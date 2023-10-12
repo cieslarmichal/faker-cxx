@@ -5,7 +5,7 @@
 
 namespace faker
 {
-    const std::vector<std::string> studioNames = ["0verflow",
+    const std::vector<std::string> studioNames = {"0verflow",
                                             "1st Playable Productions",
                                             "2K Czech",
                                             "989 Studios",
@@ -307,8 +307,7 @@ namespace faker
                                             "Rocksteady Studios",
                                             "Ruffian Games",
                                             "Runic Games",
-                                            "Running with Scissors,
-                                            Inc.",
+                                            "Running with Scissors",
                                             "Sarbakan",
                                             "Sega",
                                             "SCE Studio Liverpool",
@@ -377,12 +376,10 @@ namespace faker
                                             "Vertigo Games",
                                             "Vicarious Visions",
                                             "Viwawa",
-                                            "Virtual Heroes,
-                                            Inc.",
+                                            "Virtual Heroes",
                                             "Virtual Playground",
                                             "Visceral Games",
-                                            "Volition,
-                                            Inc.",
+                                            "Volition",
                                             "W!Games",
                                             "Wahoo Studios",
                                             "Wanako Games",
@@ -399,5 +396,5 @@ namespace faker
                                             "ZeniMax Online Studios",
                                             "Zipper Interactive",
                                             "Zylom",
-                                            "Zynga"];
+                                            "Zynga"};
 }
