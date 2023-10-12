@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> video_game_names = ["1552: Tenka Tairan",
+const std::vector<std::string> videoGameNames = ["1552: Tenka Tairan",
                                                 "1941: Counter Attack",
                                                 "1943 Kai",
                                                 "Addams Family, The",
