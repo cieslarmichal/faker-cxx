@@ -44,6 +44,7 @@ set(FAKER_SOURCES
         src/modules/hacker/Hacker.cpp
         src/modules/sport/Sport.cpp
         src/modules/videoGame/VideoGame.cpp
+        src/modules/medicine/Medicine.cpp
 )
 
 set(FAKER_UT_SOURCES
