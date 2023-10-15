@@ -41,6 +41,7 @@ set(FAKER_SOURCES
         src/modules/database/Database.cpp
         src/modules/music/Music.cpp
         src/modules/movie/Movie.cpp
+        src/modules/git/Git.cpp
         src/modules/hacker/Hacker.cpp
         src/modules/sport/Sport.cpp
         src/modules/videoGame/VideoGame.cpp
@@ -72,6 +73,7 @@ set(FAKER_UT_SOURCES
         src/modules/database/DatabaseTest.cpp
         src/modules/music/MusicTest.cpp
         src/modules/movie/MovieTest.cpp
+        src/modules/git/GitTest.cpp
         src/modules/hacker/HackerTest.cpp
         src/modules/sport/SportTest.cpp
         src/modules/videoGame/VideoGameTest.cpp
