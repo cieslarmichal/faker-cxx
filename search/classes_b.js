@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['sport_0',['Sport',['../classfaker_1_1Sport.html',1,'faker']]],
-  ['string_1',['String',['../classfaker_1_1String.html',1,'faker']]],
-  ['system_2',['System',['../classfaker_1_1System.html',1,'faker']]]
+  ['person_0',['Person',['../classfaker_1_1Person.html',1,'faker']]],
+  ['phone_1',['Phone',['../classfaker_1_1Phone.html',1,'faker']]]
 ];
