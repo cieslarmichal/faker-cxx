@@ -17,6 +17,7 @@ endif ()
 set(LIBRARY_NAME faker-cxx)
 
 set(FAKER_SOURCES
+        src/modules/animal/Animal.cpp
         src/modules/book/Book.cpp
         src/modules/color/Color.cpp
         src/modules/commerce/Commerce.cpp
@@ -41,9 +42,14 @@ set(FAKER_SOURCES
         src/modules/music/Music.cpp
         src/modules/movie/Movie.cpp
         src/modules/git/Git.cpp
-        )
+        src/modules/hacker/Hacker.cpp
+        src/modules/sport/Sport.cpp
+        src/modules/videoGame/VideoGame.cpp
+        src/modules/medicine/Medicine.cpp
+)
 
 set(FAKER_UT_SOURCES
+        src/modules/animal/AnimalTest.cpp
         src/modules/book/BookTest.cpp
         src/modules/color/ColorTest.cpp
         src/modules/commerce/CommerceTest.cpp
@@ -68,7 +74,11 @@ set(FAKER_UT_SOURCES
         src/modules/music/MusicTest.cpp
         src/modules/movie/MovieTest.cpp
         src/modules/git/GitTest.cpp
-        )
+        src/modules/hacker/HackerTest.cpp
+        src/modules/sport/SportTest.cpp
+        src/modules/videoGame/VideoGameTest.cpp
+        src/modules/medicine/MedicineTest.cpp
+)
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 
@@ -77,7 +87,14 @@ target_include_directories(${LIBRARY_NAME}
         "${CMAKE_CURRENT_LIST_DIR}/include"
         PRIVATE
         "${CMAKE_CURRENT_LIST_DIR}/include"
+        ${FMT_INCLUDE_DIR}
         )
+
+add_subdirectory(externals/fmt)
+
+set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
+
+target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
 
 if (BUILD_FAKER_TESTS)
     add_subdirectory(externals/googletest)
@@ -97,7 +114,7 @@ if (BUILD_FAKER_TESTS)
 
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main faker-cxx)
 
-    target_include_directories(${LIBRARY_NAME}-UT PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
+    target_include_directories(${LIBRARY_NAME}-UT PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
 
     add_test(NAME ${LIBRARY_NAME}-UT COMMAND ${LIBRARY_NAME}-UT WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 

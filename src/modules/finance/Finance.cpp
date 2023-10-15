@@ -1,7 +1,5 @@
 #include "faker-cxx/Finance.h"
 
-#include <format>
-
 #include "../../common/mappers/PrecisionMapper.h"
 #include "data/AccountTypes.h"
 #include "data/BankIndentifiersCodes.h"
@@ -11,6 +9,7 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
+#include "fmt/format.h"
 
 namespace faker
 {
@@ -64,7 +63,7 @@ std::string Finance::amount(double min, double max, Precision precision, const s
 
     ss << generatedNumber;
 
-    return std::format("{}{}", symbol, ss.str());
+    return fmt::format("{}{}", symbol, ss.str());
 }
 
 std::string Finance::iban(std::optional<IbanCountry> country)
