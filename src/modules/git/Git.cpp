@@ -1,6 +1,5 @@
 #include "faker-cxx/Git.h"
 
-#include <format>
 #include <string>
 
 #include "faker-cxx/Word.h"
@@ -12,6 +11,7 @@
 #include "faker-cxx/types/Language.h"
 #include "../../common/StringHelper.h"
 #include "../date/data/MonthNames.h"
+#include "fmt/format.h"
 
 namespace faker
 {
@@ -21,11 +21,11 @@ std::string Git::branch(unsigned maxIssueNum)
     switch (Number::integer(1, 3))
     {
         case 1:
-            return std::format("{}-{}", Word::verb(), Word::noun());
+            return fmt::format("{}-{}", Word::verb(), Word::noun());
         case 2:
-            return std::format("{}-{}-{}", Word::verb(), Word::adjective(), Word::noun());
+            return fmt::format("{}-{}-{}", Word::verb(), Word::adjective(), Word::noun());
         default:
-            return std::format("{}-{}-{}-{}", Number::integer(unsigned (1), maxIssueNum), Word::verb(), Word::adjective(), Word::noun());
+            return fmt::format("{}-{}-{}-{}", Number::integer(unsigned (1), maxIssueNum), Word::verb(), Word::adjective(), Word::noun());
     }
 }
 
@@ -67,7 +67,7 @@ std::string Git::commitDate(unsigned years)
     }
 
 
-    return std::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(), monthAbbreviatedNames[size_t(std::stoi(month)-1)], day, time, year, timeZoneString);
+    return fmt::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(), monthAbbreviatedNames[size_t(std::stoi(month)-1)], day, time, year, timeZoneString);
 }
 
 std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Language language)
@@ -103,13 +103,13 @@ std::string Git::commitMessage()
     switch (Number::integer(1, 4))
     {
     case 1:
-        return std::format("{} {}", Word::verb(), Word::noun());
+        return fmt::format("{} {}", Word::verb(), Word::noun());
     case 2:
-        return std::format("{} {} {}", Word::verb(), Word::adjective(), Word::noun());
+        return fmt::format("{} {} {}", Word::verb(), Word::adjective(), Word::noun());
     case 3:
-        return std::format("{} {} {}", Word::verb(), Word::noun(), Word::adverb());
+        return fmt::format("{} {} {}", Word::verb(), Word::noun(), Word::adverb());
     default:
-        return std::format("{} {} {} {}", Word::verb(), Word::adjective(), Word::noun(), Word::adverb());
+        return fmt::format("{} {} {} {}", Word::verb(), Word::adjective(), Word::noun(), Word::adverb());
     }
 }
 

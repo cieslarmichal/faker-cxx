@@ -4,7 +4,6 @@
 
 #include "gtest/gtest.h"
 
-#include <format>
 #include <string>
 #include <regex>
 #include <iostream>
