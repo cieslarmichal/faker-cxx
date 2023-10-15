@@ -47,7 +47,7 @@ public:
                             Author: Rachel McLaughlin Rachel_McLaughlin@gmail.com
                             Date: Mon Jan 17 15:05:53 2022 +1100
 
-                                spawn polyp""
+                                spawn polyp"
      * @endcode
      */
     static std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt, std::optional<unsigned> shaLength = std::nullopt, Language language = Language::English);
