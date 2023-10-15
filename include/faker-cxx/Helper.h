@@ -2,6 +2,7 @@
 
 #include <functional>
 #include <span>
+#include <string>
 
 #include "Datatype.h"
 #include "Number.h"

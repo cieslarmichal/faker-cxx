@@ -7,6 +7,9 @@
 #include "data/english/EnglishFirstNamesFemales.h"
 #include "data/english/EnglishFirstNamesMales.h"
 #include "data/english/EnglishLastNames.h"
+#include "data/finnish/FinnishFirstNamesFemales.h"
+#include "data/finnish/FinnishFirstNamesMales.h"
+#include "data/finnish/FinnishLastNames.h"
 #include "data/french/FrenchFirstNamesFemales.h"
 #include "data/french/FrenchFirstNamesMales.h"
 #include "data/french/FrenchLastNames.h"
@@ -14,6 +17,9 @@
 #include "data/german/GermanFirstNamesFemales.h"
 #include "data/german/GermanFirstNamesMales.h"
 #include "data/german/GermanLastNames.h"
+#include "data/Hobbies.h"
+#include "data/indian/IndianFirstNames.h"
+#include "data/indian/IndianLastNames.h"
 #include "data/italian/ItalianFirstNamesFemales.h"
 #include "data/italian/ItalianFirstNamesMales.h"
 #include "data/italian/ItalianLastNames.h"
@@ -28,9 +34,10 @@
 #include "data/russian/RussianFirstNamesMales.h"
 #include "data/russian/RussianLastNamesFemales.h"
 #include "data/russian/RussianLastNamesMales.h"
-#include "data/indian/IndianFirstNames.h"
-#include "data/indian/IndianLastNames.h"
 #include "src/common/StringHelper.h"
+#include "src/modules/person/data/nepalese/NepaleseFirstNamesFemales.h"
+#include "src/modules/person/data/nepalese/NepaleseFirstNamesMales.h"
+#include "src/modules/person/data/nepalese/NepaleseLastNames.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -41,8 +48,10 @@ const auto malePrefix{"Mr."};
 const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
 const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
 
-const std::vector<Language> languages{Language::English, Language::French,  Language::German,  Language::Italian,
-                                      Language::Polish,  Language::Russian, Language::Romanian, Language::Hindi};
+const std::vector<Language> languages{
+    Language::English, Language::French,   Language::German, Language::Italian, Language::Polish,
+    Language::Russian, Language::Romanian, Language::Hindi,  Language::Finnish, Language::Nepali,
+};
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
     {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
@@ -53,6 +62,8 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirs
     {Language::Russian, {{Sex::Male, russianFirstNamesMales}, {Sex::Female, russianFirstNamesFemales}}},
     {Language::Romanian, {{Sex::Male, romanianFirstNamesMales}, {Sex::Female, romanianFirstNamesFemales}}},
     {Language::Hindi, {{Sex::Male, indianFirstNamesMales}, {Sex::Female, indianFirstNamesFemales}}},
+    {Language::Finnish, {{Sex::Male, finnishFirstNamesMales}, {Sex::Female, finnishFirstNamesFemales}}},
+    {Language::Nepali, {{Sex::Male, nepaleseFirstNamesMales}, {Sex::Female, nepaleseFirstNamesFemales}}},
 };
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
@@ -63,13 +74,18 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLast
     {Language::Polish, {{Sex::Male, polishLastNames}, {Sex::Female, polishLastNames}}},
     {Language::Russian, {{Sex::Male, russianLastNamesMales}, {Sex::Female, russianLastNamesFemales}}},
     {Language::Romanian, {{Sex::Male, romanianLastNames}, {Sex::Female, romanianLastNames}}},
-    {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}}};
+    {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}},
+    {Language::Finnish, {{Sex::Male, finnishLastNames}, {Sex::Female, finnishLastNames}}},
+    {Language::Nepali, {{Sex::Male, nepaleseLastNames}, {Sex::Female, nepaleseLastNames}}},
+};
 
 const std::map<Language, std::string> generatedTestName{
     {Language::English, "shouldGenerateEnglishName"},   {Language::French, "shouldGenerateFrenchName"},
     {Language::German, "shouldGenerateGermanName"},     {Language::Italian, "shouldGenerateItalianName"},
     {Language::Polish, "shouldGeneratePolishName"},     {Language::Russian, "shouldGenerateRussianName"},
-    {Language::Romanian, "shouldGenerateRomanianName"}, {Language::Hindi, "shouldGenerateIndianName"}};
+    {Language::Romanian, "shouldGenerateRomanianName"}, {Language::Hindi, "shouldGenerateIndianName"},
+    {Language::Finnish, "shouldGenerateFinnishName"},   {Language::Nepali, "shouldGenerateNepaleseName"},
+};
 }
 
 class PersonTest : public TestWithParam<Language>
@@ -307,4 +323,12 @@ TEST_F(PersonTest, shouldGenerateFemalePrefix)
 
     ASSERT_TRUE(std::ranges::any_of(femalePrefixes, [generatedPrefix](const std::string& prefix)
                                     { return prefix == generatedPrefix; }));
+}
+
+TEST_F(PersonTest, shouldGenerateHobby)
+{
+    const auto generatedHobby = Person::hobby();
+
+    ASSERT_TRUE(
+        std::ranges::any_of(hobbies, [generatedHobby](const std::string& hobby) { return hobby == generatedHobby; }));
 }

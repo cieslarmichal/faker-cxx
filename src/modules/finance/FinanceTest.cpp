@@ -150,9 +150,10 @@ TEST_F(FinanceTest, shouldGenerateAccountType)
 
 TEST_F(FinanceTest, shouldGenerateAmount)
 {
-    auto amountAsFloat{0.0f};
     const auto generatedAmount = Finance::amount();
-    std::from_chars(generatedAmount.data(), generatedAmount.data() + generatedAmount.size(), amountAsFloat);
+
+    auto offset = generatedAmount.size();
+    const auto amountAsFloat = std::stof(generatedAmount.data(), &offset);
 
     const auto generatedAmountParts = StringHelper::split(generatedAmount, ".");
 

@@ -50,5 +50,17 @@ public:
      */
     static std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash,
                            bool includeAlpha = false);
+
+    /**
+     * @brief Returns an HSL color.
+     *
+     * @param includeAlpha Adds an alpha value to the color (HSLA). Defaults to `false`.
+     * @returns HSL color formatted with hsl(X,X,X) or hsla(X,X,X,X).
+     * @code
+     * Color::hsl() // "hsl(0, 20, 100)"
+     * Color::hsl(true) // "hsla(0, 0, 100, 0.50)"
+     * @endcode
+     */
+    static std::string hsl(bool includeAlpha = false);
 };
 }

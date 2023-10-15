@@ -135,5 +135,17 @@ public:
      * @endcode
      */
     static std::string jobType();
+
+    /**
+     * @brief Returns a random hobby.
+     *
+     * @returns Hobby.
+     *
+     * @code
+     * Person::hobby() // "Gaming"
+     * @endcode
+     */
+
+    static std::string hobby();
 };
 }

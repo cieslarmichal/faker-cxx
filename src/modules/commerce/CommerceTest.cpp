@@ -29,8 +29,8 @@ TEST_F(CommerceTest, shouldGeneratePrice)
 {
     const auto generatedPrice = Commerce::price(100, 10000);
 
-    auto priceAsFloat{0.0f};
-    std::from_chars(generatedPrice.data(), generatedPrice.data() + generatedPrice.size(), priceAsFloat);
+    auto offset = generatedPrice.size();
+    const auto priceAsFloat = std::stof(generatedPrice.data(), &offset);
 
     const auto generatedPriceElements = StringHelper::split(generatedPrice, ".");
 
