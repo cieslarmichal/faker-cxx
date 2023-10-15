@@ -66,6 +66,7 @@ set(FAKER_UT_SOURCES
         src/modules/system/SystemTest.cpp
         src/modules/database/DatabaseTest.cpp
         src/modules/music/MusicTest.cpp
+        src/modules/movie/MovieTest.cpp
         src/modules/git/GitTest.cpp
         )
 
