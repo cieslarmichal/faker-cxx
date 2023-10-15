@@ -67,7 +67,7 @@ std::string Git::commitDate(unsigned years)
     }
 
 
-    return std::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(), monthAbbreviatedNames[std::stoi(month)-1], day, time, year, timeZoneString);
+    return std::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(), monthAbbreviatedNames[size_t(std::stoi(month)-1)], day, time, year, timeZoneString);
 }
 
 std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Language language)
