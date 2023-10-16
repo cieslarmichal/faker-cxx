@@ -30,6 +30,17 @@ public:
     static std::string movieTitle();
 
     /**
+     * @brief Returns a random tv show.
+     *
+     * @returns Tv show.
+     *
+     * @code
+     * Movie::tvShow() // "The Sopranos"
+     * @endcode
+     */
+    static std::string tvShow();
+
+    /**
      * @brief Returns a random movie director name.
      *
      * @returns Movie director name.
