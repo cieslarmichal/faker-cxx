@@ -2,7 +2,7 @@
 
 #include <map>
 
-#include "../../common/mappers/PrecisionMapper.h"
+#include "../../common/mappers/precisionMapper/PrecisionMapper.h"
 #include "../../common/StringHelper.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
@@ -194,7 +194,7 @@ std::string Location::latitude(Precision precision)
 
     ss << std::fixed;
 
-    ss.precision(PrecisionMapper::toDecimalPlaces(precision));
+    ss.precision(PrecisionMapper::mapToDecimalPlaces(precision));
 
     ss << latitude;
 
@@ -209,7 +209,7 @@ std::string Location::longitude(Precision precision)
 
     ss << std::fixed;
 
-    ss.precision(PrecisionMapper::toDecimalPlaces(precision));
+    ss.precision(PrecisionMapper::mapToDecimalPlaces(precision));
 
     ss << longitude;
 

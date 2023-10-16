@@ -7,7 +7,7 @@ namespace faker
 class PrecisionMapper
 {
 public:
-    static unsigned toDecimalPlaces(Precision precision);
+    static unsigned mapToDecimalPlaces(Precision precision);
 
 private:
     static const std::map<Precision, unsigned> precisionToDecimalPlacesMapping;

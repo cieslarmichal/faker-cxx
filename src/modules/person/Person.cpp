@@ -190,4 +190,9 @@ std::string Person::hobby()
 {
     return Helper::arrayElement<std::string>(hobbies);
 }
+
+std::string Person::language()
+{
+    return toString(Helper::arrayElement<Language>(languages));
+}
 }

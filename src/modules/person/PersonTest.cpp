@@ -48,11 +48,6 @@ const auto malePrefix{"Mr."};
 const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
 const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
 
-const std::vector<Language> languages{
-    Language::English, Language::French,   Language::German, Language::Italian, Language::Polish,
-    Language::Russian, Language::Romanian, Language::Hindi,  Language::Finnish, Language::Nepali,
-};
-
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
     {Language::English, {{Sex::Male, englishFirstNamesMales}, {Sex::Female, englishFirstNamesFemales}}},
     {Language::French, {{Sex::Male, frenchFirstNamesMales}, {Sex::Female, frenchFirstNamesFemales}}},
@@ -331,4 +326,12 @@ TEST_F(PersonTest, shouldGenerateHobby)
 
     ASSERT_TRUE(
         std::ranges::any_of(hobbies, [generatedHobby](const std::string& hobby) { return hobby == generatedHobby; }));
+}
+
+TEST_F(PersonTest, shouldGenerateLanguage)
+{
+    const auto generatedLanguage = Person::language();
+
+    ASSERT_TRUE(std::ranges::any_of(languages, [generatedLanguage](Language language)
+                                    { return generatedLanguage == toString(language); }));
 }
