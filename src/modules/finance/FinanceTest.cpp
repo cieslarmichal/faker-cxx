@@ -208,7 +208,6 @@ TEST_F(FinanceTest, shouldGenerateIban)
 {
     const auto iban = Finance::iban();
 
-    // TODO: implement more detailed checks for iban with default argument
     ASSERT_TRUE(iban.starts_with("AT") || iban.starts_with("BE") || iban.starts_with("BG") || iban.starts_with("HR") ||
                 iban.starts_with("CY") || iban.starts_with("CZ") || iban.starts_with("DK") || iban.starts_with("EE") ||
                 iban.starts_with("FI") || iban.starts_with("FR") || iban.starts_with("DE") || iban.starts_with("GR") ||

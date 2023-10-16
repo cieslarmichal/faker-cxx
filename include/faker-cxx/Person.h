@@ -145,7 +145,17 @@ public:
      * Person::hobby() // "Gaming"
      * @endcode
      */
-
     static std::string hobby();
+
+    /**
+     * @brief Returns a random language.
+     *
+     * @returns Language.
+     *
+     * @code
+     * Person::language() // "Polish"
+     * @endcode
+     */
+    static std::string language();
 };
 }

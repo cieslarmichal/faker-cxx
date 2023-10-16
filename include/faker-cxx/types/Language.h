@@ -1,6 +1,7 @@
 #pragma once
 
 #include <map>
+#include <vector>
 
 namespace faker
 {
@@ -16,6 +17,11 @@ enum class Language
     Hindi,
     Finnish,
     Nepali,
+};
+
+const std::vector<Language> languages{
+    Language::English, Language::Polish,   Language::Italian, Language::French,  Language::German,
+    Language::Russian, Language::Romanian, Language::Hindi,   Language::Finnish, Language::Nepali,
 };
 
 inline std::string toString(Language language)

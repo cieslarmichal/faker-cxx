@@ -36,7 +36,7 @@ set(FAKER_SOURCES
         src/common/StringHelper.cpp
         src/modules/phone/Phone.cpp
         src/common/LuhnCheck.cpp
-        src/common/mappers/PrecisionMapper.cpp
+        src/common/mappers/precisionMapper/PrecisionMapper.cpp
         src/modules/system/System.cpp
         src/modules/database/Database.cpp
         src/modules/music/Music.cpp
@@ -46,7 +46,7 @@ set(FAKER_SOURCES
         src/modules/sport/Sport.cpp
         src/modules/videoGame/VideoGame.cpp
         src/modules/medicine/Medicine.cpp
-)
+        )
 
 set(FAKER_UT_SOURCES
         src/modules/animal/AnimalTest.cpp
@@ -68,7 +68,7 @@ set(FAKER_UT_SOURCES
         src/modules/phone/PhoneTest.cpp
         src/modules/helper/HelperTest.cpp
         src/common/LuhnCheckTest.cpp
-        src/common/mappers/PrecisionMapperTest.cpp
+        src/common/mappers/precisionMapper/PrecisionMapperTest.cpp
         src/modules/system/SystemTest.cpp
         src/modules/database/DatabaseTest.cpp
         src/modules/music/MusicTest.cpp
@@ -78,7 +78,7 @@ set(FAKER_UT_SOURCES
         src/modules/sport/SportTest.cpp
         src/modules/videoGame/VideoGameTest.cpp
         src/modules/medicine/MedicineTest.cpp
-)
+        )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 

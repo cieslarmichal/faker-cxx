@@ -34,6 +34,14 @@ public:
         return data[index];
     }
 
+    template <class T>
+    static T arrayElement(const std::vector<T>& data)
+    {
+        const auto index = Number::integer<size_t>(data.size() - 1);
+
+        return data[index];
+    }
+
     /**
      * @brief Returns shuffled STL container.
      *
