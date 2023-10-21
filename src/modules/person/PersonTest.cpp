@@ -24,6 +24,7 @@
 #include "data/italian/ItalianFirstNamesMales.h"
 #include "data/italian/ItalianLastNames.h"
 #include "data/JobTitles.h"
+#include "data/Nationalities.h"
 #include "data/polish/PolishFirstNamesFemales.h"
 #include "data/polish/PolishFirstNamesMales.h"
 #include "data/polish/PolishLastNames.h"
@@ -334,4 +335,12 @@ TEST_F(PersonTest, shouldGenerateLanguage)
 
     ASSERT_TRUE(std::ranges::any_of(languages, [generatedLanguage](Language language)
                                     { return generatedLanguage == toString(language); }));
+}
+
+TEST_F(PersonTest, shouldGenerateNationality)
+{
+    const auto generatedNationality = Person::nationality();
+
+    ASSERT_TRUE(std::ranges::any_of(nationalities, [generatedNationality](const std::string& nationality)
+                                    { return generatedNationality == nationality; }));
 }
