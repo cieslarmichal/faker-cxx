@@ -67,6 +67,13 @@ int main()
 
 ## Consuming library with CMake
 
+1. Add faker to git submodules (execute in project root):
+```
+mkdir externals
+cd externals
+git submodule add https://github.com/cieslarmichal/faker-cxx.git
+```
+2. Link with library:
 ```cmake
 set(BUILD_FAKER_TESTS OFF)
 
