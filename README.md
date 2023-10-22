@@ -72,6 +72,7 @@ int main()
 mkdir externals
 cd externals
 git submodule add https://github.com/cieslarmichal/faker-cxx.git
+echo add_subdirectory(faker-cxx) > CMakeLists.txt
 ```
 2. Link with library:
 ```cmake
