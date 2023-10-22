@@ -22,6 +22,7 @@
 #include "data/italian/ItalianFirstNamesMales.h"
 #include "data/italian/ItalianLastNames.h"
 #include "data/JobTitles.h"
+#include "data/Nationalities.h"
 #include "data/nepalese/NepaleseFirstNamesFemales.h"
 #include "data/nepalese/NepaleseFirstNamesMales.h"
 #include "data/nepalese/NepaleseLastNames.h"
@@ -194,5 +195,10 @@ std::string Person::hobby()
 std::string Person::language()
 {
     return toString(Helper::arrayElement<Language>(languages));
+}
+
+std::string Person::nationality()
+{
+    return Helper::arrayElement<std::string>(nationalities);
 }
 }

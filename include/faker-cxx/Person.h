@@ -157,5 +157,17 @@ public:
      * @endcode
      */
     static std::string language();
+
+    /**
+     * @brief Returns a random nationality.
+     *
+     * @returns Nationality.
+     *
+     * @code
+     * Person::nationality() // "Romanian"
+     * @endcode
+     */
+
+    static std::string nationality();
 };
 }
