@@ -22,7 +22,7 @@ My goal is to provide a library like [Faker.js](https://github.com/faker-js/fake
 
 ## Example
 
-Lets dive into some simple example of generating fake data
+Lets see some simple example of generating fake data
 
 ```cpp
 #include <format>
@@ -113,8 +113,6 @@ target_link_libraries(main faker-cxx)
 - 🎮 Video game - title, genre, platform, studio
 - 💬 Word - sample words, nouns, verbs
 
-### 🔨 [TODO Modules](https://github.com/cieslarmichal/faker-cxx/blob/main/TODO.md)
-
 ## ✨ Contributing
 
 Feel free to join Faker C++ development! 🚀
@@ -125,7 +123,7 @@ Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main
 
 <br />
 
-## Building from sources with Clang 16
+## 🔨 Building from sources with Clang 16
 
 #### 1. Install Clang 16
 
@@ -156,7 +154,7 @@ cd build
 cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
 ```
 
-#### 4. Build 🔨
+#### 4. Build
 
 ```
 make
