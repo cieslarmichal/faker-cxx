@@ -54,18 +54,13 @@ int main()
 }
 ```
 
-## Requirements
-
-### Compiler Support
-
+## Compiler support
 - [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
 - [GCC➚](https://gcc.gnu.org/) version 13 or newer.
 - [Clang➚](https://clang.llvm.org/) version 16 or newer.
 - [Apple Clang➚](https://clang.llvm.org/) version 16 or newer.
 
-### [CMake](https://cmake.org/) version 3.22 or newer
-
-## Consuming library with CMake
+## Consuming library with CMake (CMake version 3.22 or newer)
 
 1. Add faker to git submodules (execute in project root):
 ```
@@ -112,6 +107,10 @@ target_link_libraries(main faker-cxx)
 - 💻 System - file paths, file extensions, file names, directories, semantic version
 - 🎮 Video game - title, genre, platform, studio
 - 💬 Word - sample words, nouns, verbs
+
+## 📖 Documentation
+
+https://cieslarmichal.github.io/faker-cxx/
 
 ## ✨ Contributing
 
