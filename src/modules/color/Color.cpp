@@ -67,5 +67,26 @@ std::string Color::hsl(bool includeAlpha)
 
     return fmt::format("hsla({}, {}, {}, {})", hue, saturation, lightness, formattedAlpha);
 }
+std::string Color::lch(bool includeAlpha)
+{
+    const std::integral auto luminance = Number::integer(100);
+    const std::integral auto chroma = Number::integer(100);
+    const std::integral auto hue = Number::integer(360);
+
+    if (!includeAlpha)
+    {
+        return fmt::format("lch({}, {}, {})", luminance, chroma, hue);
+    }
+
+    const std::floating_point auto alpha = Number::decimal<double>(1);
+
+    std::stringstream ss;
+    ss << std::fixed;
+    ss.precision(2);
+    ss << alpha;
+    const auto formattedAlpha = ss.str();
+
+    return fmt::format("lcha({}, {}, {}, {})", luminance, chroma, hue, formattedAlpha);
+}
 
 }
