@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['word_0',['Word',['../classfaker_1_1Word.html',1,'faker']]]
+  ['videogame_0',['VideoGame',['../classfaker_1_1VideoGame.html',1,'faker']]],
+  ['visibility_1',['Visibility',['../structfaker_1_1Weather_1_1Visibility.html',1,'faker::Weather']]]
 ];

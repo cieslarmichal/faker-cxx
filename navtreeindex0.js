@@ -25,7 +25,8 @@ var NAVTREEINDEX0 =
 "String_8h_source.html":[1,0,0,0,22],
 "System_8h_source.html":[1,0,0,0,23],
 "VideoGame_8h_source.html":[1,0,0,0,24],
-"Word_8h_source.html":[1,0,0,0,25],
+"Weather_8h_source.html":[1,0,0,0,25],
+"Word_8h_source.html":[1,0,0,0,26],
 "annotated.html":[0,0],
 "classes.html":[0,1],
 "classfaker_1_1Animal.html":[0,0,0,0],
@@ -53,7 +54,8 @@ var NAVTREEINDEX0 =
 "classfaker_1_1String.html":[0,0,0,22],
 "classfaker_1_1System.html":[0,0,0,23],
 "classfaker_1_1VideoGame.html":[0,0,0,24],
-"classfaker_1_1Word.html":[0,0,0,25],
+"classfaker_1_1Weather.html":[0,0,0,25],
+"classfaker_1_1Word.html":[0,0,0,26],
 "dir_21275a4f97039163a157995766de70c2.html":[1,0,0,0],
 "dir_d44c64559bbebec7f509842c48db8b23.html":[1,0,0],
 "files.html":[1,0],
@@ -104,5 +106,9 @@ var NAVTREEINDEX0 =
 "functions_w.html":[0,2,0,20],
 "functions_z.html":[0,2,0,21],
 "index.html":[],
-"pages.html":[]
+"pages.html":[],
+"structfaker_1_1Weather_1_1Pressure.html":[0,0,0,25,0],
+"structfaker_1_1Weather_1_1Temperature.html":[0,0,0,25,1],
+"structfaker_1_1Weather_1_1Visibility.html":[0,0,0,25,2],
+"structfaker_1_1Weather_1_1WindSpeed.html":[0,0,0,25,3]
 };
