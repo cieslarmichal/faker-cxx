@@ -128,3 +128,43 @@ TEST_F(ColorTest, shouldGenerateHslWithAlpha)
     ASSERT_TRUE(lightness >= 0 && lightness <= 100);
     ASSERT_TRUE(alpha >= 0 && alpha <= 1);
 }
+
+TEST_F(ColorTest, shouldGenerateLchWithoutAlpha)
+{
+    const auto generatedLchColor = faker::Color::lch();
+    const auto lchValues = faker::StringHelper::split(generatedLchColor.substr(4, generatedLchColor.size() - 1), " ");
+
+    int luminance, chroma, hue;
+
+    std::from_chars(lchValues[0].data(), lchValues[0].data() + lchValues[0].size(), luminance);
+    std::from_chars(lchValues[1].data(), lchValues[1].data() + lchValues[1].size(), chroma);
+    std::from_chars(lchValues[2].data(), lchValues[2].data() + lchValues[2].size(), hue);
+
+    ASSERT_TRUE(generatedLchColor.starts_with("lch("));
+    ASSERT_TRUE(generatedLchColor.ends_with(")"));
+    ASSERT_TRUE(luminance >= 0 && luminance <= 100);
+    ASSERT_TRUE(chroma >= 0 && chroma <= 100);
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+}
+
+TEST_F(ColorTest, shouldGenerateLchWithAlpha)
+{
+    const auto generatedLchaColor = faker::Color::lch(true);
+    const auto lchValues = faker::StringHelper::split(generatedLchaColor.substr(5, generatedLchaColor.size() - 1), " ");
+
+    int luminance, chroma, hue;
+
+    std::from_chars(lchValues[0].data(), lchValues[0].data() + lchValues[0].size(), luminance);
+    std::from_chars(lchValues[1].data(), lchValues[1].data() + lchValues[1].size(), chroma);
+    std::from_chars(lchValues[2].data(), lchValues[2].data() + lchValues[2].size(), hue);
+
+    auto offset = lchValues[3].size();
+    const auto alpha = std::stod(lchValues[3].data(), &offset);
+
+    ASSERT_TRUE(generatedLchaColor.starts_with("lcha("));
+    ASSERT_TRUE(generatedLchaColor.ends_with(")"));
+    ASSERT_TRUE(luminance >= 0 && luminance <= 100);
+    ASSERT_TRUE(chroma >= 0 && chroma <= 100);
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+    ASSERT_TRUE(alpha >= 0 && alpha <= 1);
+}

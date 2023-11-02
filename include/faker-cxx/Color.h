@@ -62,5 +62,17 @@ public:
      * @endcode
      */
     static std::string hsl(bool includeAlpha = false);
+
+    /**
+     * @brief Returns an LCH color.
+     *
+     * @param includeAlpha Adds an alpha value to the color (LCHA). Defaults to `false`.
+     * @returns LCH color formatted with lch(X,X,X) or lcha(X,X,X,X).
+     * @code
+     * Color::lch() // "lch(0, 20, 100)"
+     * Color::lch(true) // "lcha(0, 0, 100, 0.50)"
+     * @endcode
+     */
+    static std::string lch(bool includeAlpha = false);    
 };
 }
