@@ -26,16 +26,16 @@ TEST_F(WeatherTest, shouldGeneratePressure)
 {
     Weather::Pressure generatedPressure = Weather::pressure();
 
-    ASSERT_TRUE(generatedPressure.metric >= 1000 && generatedPressure.metric <= 1100);
-    ASSERT_TRUE(generatedPressure.imperial >= 14.0 && generatedPressure.imperial <= 16.0);
+    ASSERT_TRUE(generatedPressure.metric >= 100.0 && generatedPressure.metric <= 102.0);
+    ASSERT_TRUE(generatedPressure.imperial >= 14.5 && generatedPressure.imperial <= 14.8);
 }
 
 TEST_F(WeatherTest, shouldGenerateVisibility)
 {
     Weather::Visibility generatedVisibility = Weather::visibility();
 
-    ASSERT_TRUE(generatedVisibility.metric >= 0.1 && generatedVisibility.metric <= 10.0);
-    ASSERT_TRUE(generatedVisibility.imperial >= 0.1 && generatedVisibility.imperial <= 6.2);
+    ASSERT_TRUE(generatedVisibility.metric >= 1 && generatedVisibility.metric <= 10.0);
+    ASSERT_TRUE(generatedVisibility.imperial >= 1.6 && generatedVisibility.imperial <= 16.1);
 }
 
 TEST_F(WeatherTest, shouldGenerateWindSpeed)

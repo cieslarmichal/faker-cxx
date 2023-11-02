@@ -5,22 +5,31 @@
 #include "data/WeatherDescription.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
+#include "../../common/WeatherHelper.h"
 
 namespace faker
 {
 Weather::Temperature Weather::temperature()
 {
-    return {Number::integer(10, 30), Number::integer(50, 90)};
+    double metric = Number::decimal(10.0, 30.0);
+    double imperial = WeatherHelper::celsiusToFahrenheit(metric);
+
+    return {metric, imperial};
 }
 
 Weather::Pressure Weather::pressure()
 {
-    return {Number::integer(1000, 1100), Number::integer(14, 16) + Number::decimal(0.1, 0.9)};
+    double metric = Number::decimal(100.0, 102.0);
+    double imperial = WeatherHelper::kPaToPsi(metric);
+
+    return {metric, imperial};
 }
 
-Weather::Visibility Weather::visibility()
-{
-    return {Number::decimal(0.1, 10.0), Number::decimal(0.1, 6.2)};
+Weather::Visibility Weather::visibility() {
+    double metric = Number::decimal(1.0, 10.0);
+    double imperial = WeatherHelper::milesToKilometers(metric);
+
+    return {metric, imperial};
 }
 
 Weather::WindSpeed Weather::windSpeed()

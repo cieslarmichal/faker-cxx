@@ -8,7 +8,7 @@ class Weather
 {
 public:
     struct Temperature {
-        int metric, imperial;
+        double metric, imperial;
     };
 
     /**
@@ -24,7 +24,7 @@ public:
     static Temperature temperature();
 
     struct Pressure {
-        int metric;
+        double metric;
         double imperial;
     };
 

@@ -47,6 +47,8 @@ set(FAKER_SOURCES
         src/modules/videoGame/VideoGame.cpp
         src/modules/medicine/Medicine.cpp
         src/modules/weather/Weather.cpp
+        src/common/WeatherHelper.h
+        src/common/WeatherHelper.cpp
 )
 
 set(FAKER_UT_SOURCES
@@ -80,6 +82,7 @@ set(FAKER_UT_SOURCES
         src/modules/videoGame/VideoGameTest.cpp
         src/modules/medicine/MedicineTest.cpp
         src/modules/weather/WeatherTest.cpp
+        src/common/WeatherHelperTest.cpp
 )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
