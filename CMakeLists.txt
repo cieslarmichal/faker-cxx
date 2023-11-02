@@ -47,7 +47,6 @@ set(FAKER_SOURCES
         src/modules/videoGame/VideoGame.cpp
         src/modules/medicine/Medicine.cpp
         src/modules/weather/Weather.cpp
-        src/common/WeatherHelper.h
         src/common/WeatherHelper.cpp
 )
 
