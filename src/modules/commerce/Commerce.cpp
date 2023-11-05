@@ -42,4 +42,18 @@ std::string Commerce::productFullName()
 {
     return fmt::format("{} {} {}", productAdjective(), productMaterial(), productName());
 }
+
+std::string EAN13()
+{
+    std::string barcode = String::numeric(12, false);
+
+    int sum = 0;
+    for (size_t i = 0; i < 12; i++)
+    {
+        sum += (i % 2 == 0) ? (barcode[i] - '0') : 3 * (barcode[i] - '0');
+    }
+    int checkDigit = (10 - (sum % 10)) % 10;
+
+    return barcode + std::to_string(checkDigit);
+}
 }
