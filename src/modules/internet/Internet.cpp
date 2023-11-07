@@ -7,6 +7,8 @@
 #include "data/DomainSuffixes.h"
 #include "data/EmailHosts.h"
 #include "data/Emojis.h"
+#include "data/HttpRequestHeaders.h"
+#include "data/HttpResponseHeaders.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
@@ -165,6 +167,16 @@ unsigned Internet::httpStatusCode(std::optional<HttpResponseType> responseType)
     statusCodes.insert(statusCodes.end(), httpStatusServerErrorCodes.begin(), httpStatusServerErrorCodes.end());
 
     return Helper::arrayElement<unsigned>(statusCodes);
+}
+
+std::string Internet::httpRequestHeader()
+{
+    return Helper::arrayElement<std::string>(httpRequestHeaders);
+}
+
+std::string Internet::httpResponseHeader()
+{
+    return Helper::arrayElement<std::string>(httpResponseHeaders);
 }
 
 std::string Internet::ipv4(IPv4Class ipv4class)

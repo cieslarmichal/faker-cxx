@@ -16,6 +16,8 @@
 #include "data/DomainSuffixes.h"
 #include "data/EmailHosts.h"
 #include "data/Emojis.h"
+#include "data/HttpRequestHeaders.h"
+#include "data/HttpResponseHeaders.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -531,6 +533,22 @@ TEST_F(InternetTest, shouldGenerateHttpStatusCode)
 
     ASSERT_TRUE(std::ranges::any_of(statusCodes, [generatedHttpStatusCode](unsigned statusCode)
                                     { return generatedHttpStatusCode == statusCode; }));
+}
+
+TEST_F(InternetTest, shouldGenerateHttpRequestHeader)
+{
+    const auto generatedHttpRequestHeader = Internet::httpRequestHeader();
+
+    ASSERT_TRUE(std::ranges::any_of(httpRequestHeaders, [generatedHttpRequestHeader](const std::string& httpHeader)
+                                    { return generatedHttpRequestHeader == httpHeader; }));
+}
+
+TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
+{
+    const auto generatedHttpResponseHeader = Internet::httpResponseHeader();
+
+    ASSERT_TRUE(std::ranges::any_of(httpResponseHeaders, [generatedHttpResponseHeader](const std::string& httpHeader)
+                                    { return generatedHttpResponseHeader == httpHeader; }));
 }
 
 TEST_F(InternetTest, shouldGenerateHttpInformationalSuccessCode)

@@ -173,6 +173,28 @@ public:
     static unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::nullopt);
 
     /**
+     * @brief Generates a random http request header.
+     *
+     * @returns Http request header.
+     *
+     * @code
+     * Internet::httpRequestHeader() // "Authorization"
+     * @endcode
+     */
+    static std::string httpRequestHeader();
+
+    /**
+     * @brief Generates a random http response header.
+     *
+     * @returns Http response header.
+     *
+     * @code
+     * Internet::httpResponseHeader() // "Location"
+     * @endcode
+     */
+    static std::string httpResponseHeader();
+
+    /**
      * @brief Returns a string containing randomized ipv4 address of the given class.
      *
      * @param ipv4class Address class to be generated.
