@@ -6,6 +6,8 @@ var searchData=
   ['horse_3',['horse',['../classfaker_1_1Animal.html#a3f86d0fc7c4d2544935603a2e8753b81',1,'faker::Animal']]],
   ['hsl_4',['hsl',['../classfaker_1_1Color.html#ac76590c23d158333133277b6f6f2163a',1,'faker::Color']]],
   ['httpmethod_5',['httpMethod',['../classfaker_1_1Internet.html#a1787871f9974218270bdd597320eae16',1,'faker::Internet']]],
-  ['httpstatuscode_6',['httpStatusCode',['../classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37',1,'faker::Internet']]],
-  ['humidity_7',['humidity',['../classfaker_1_1Weather.html#af7a0525193a2748adf628334d5eb542a',1,'faker::Weather']]]
+  ['httprequestheader_6',['httpRequestHeader',['../classfaker_1_1Internet.html#ab5c23e5e20d5d76c3e87e7fdbe4533b5',1,'faker::Internet']]],
+  ['httpresponseheader_7',['httpResponseHeader',['../classfaker_1_1Internet.html#a2035e26d9d435c144c96f3a78c02c390',1,'faker::Internet']]],
+  ['httpstatuscode_8',['httpStatusCode',['../classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37',1,'faker::Internet']]],
+  ['humidity_9',['humidity',['../classfaker_1_1Weather.html#af7a0525193a2748adf628334d5eb542a',1,'faker::Weather']]]
 ];
