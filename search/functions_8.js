@@ -10,5 +10,7 @@ var searchData=
   ['interjection_7',['interjection',['../classfaker_1_1Word.html#afc9739dc4b26cb9b8bec5160336cbabb',1,'faker::Word']]],
   ['ipv4_8',['ipv4',['../classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a',1,'faker::Internet::ipv4(IPv4Class ipv4class=IPv4Class::C)'],['../classfaker_1_1Internet.html#acfe778605478e6a9af07c0e30637d062',1,'faker::Internet::ipv4(const IPv4Address &amp;baseIpv4Address, const IPv4Address &amp;generationMask)']]],
   ['ipv6_9',['ipv6',['../classfaker_1_1Internet.html#abe53af22a375870b7feb9020d2a13b53',1,'faker::Internet']]],
-  ['isbn_10',['isbn',['../classfaker_1_1Book.html#a36a029ac46aec31dcacb77de11d8ccfc',1,'faker::Book']]]
+  ['isbn_10',['isbn',['../classfaker_1_1Book.html#a36a029ac46aec31dcacb77de11d8ccfc',1,'faker::Book']]],
+  ['isbn10_11',['ISBN10',['../classfaker_1_1Commerce.html#ad1d6d27dbb45f6c63644a16cee16bc84',1,'faker::Commerce']]],
+  ['isbn13_12',['ISBN13',['../classfaker_1_1Commerce.html#a8ee78914d620b404462f479dd76fa652',1,'faker::Commerce']]]
 ];
