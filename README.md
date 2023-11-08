@@ -93,7 +93,8 @@ target_link_libraries(main faker-cxx)
 - 📁 Git - branch names, commit messages, commit hash 
 - 👨‍💻 Hacker - hacker words
 - ✋ Helper - random element from container
-- 🌐 Internet - emails, usernames, passwords, images urls, IP, HTTP
+- 🌐 Internet - emails, usernames, passwords, IP, HTTP
+- 🖼️ Image - images urls, github avatar urls, image dimensions
 - 🌍 Location - countries, cities, zip codes, street addresses
 - 📚 Lorem - lorem words, sentences, paragraphs
 - 🏥 Medicine - conditions, medical tests, specialties

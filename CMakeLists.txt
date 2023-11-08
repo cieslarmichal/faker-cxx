@@ -49,6 +49,7 @@ set(FAKER_SOURCES
         src/modules/weather/Weather.cpp
         src/common/WeatherHelper.cpp
         src/modules/airline/Airline.cpp
+        src/modules/image/Image.cpp
 )
 
 set(FAKER_UT_SOURCES
@@ -84,6 +85,7 @@ set(FAKER_UT_SOURCES
         src/modules/weather/WeatherTest.cpp
         src/common/WeatherHelperTest.cpp
         src/modules/airline/AirlineTest.cpp
+        src/modules/image/ImageTest.cpp
 )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
@@ -94,7 +96,7 @@ target_include_directories(${LIBRARY_NAME}
         PRIVATE
         "${CMAKE_CURRENT_LIST_DIR}/include"
         ${FMT_INCLUDE_DIR}
-        )
+)
 
 add_subdirectory(externals/fmt)
 
