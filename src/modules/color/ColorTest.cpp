@@ -168,3 +168,26 @@ TEST_F(ColorTest, shouldGenerateLchWithAlpha)
     ASSERT_TRUE(hue >= 0 && hue <= 360);
     ASSERT_TRUE(alpha >= 0 && alpha <= 1);
 }
+
+TEST_F(ColorTest, shouldGenerateCmykColor)
+{
+    const auto generatedCmykColor = faker::Color::cmyk();
+    const auto cmykValues =
+        faker::StringHelper::split(generatedCmykColor.substr(5, generatedCmykColor.size() - 1), " ");
+
+    auto offset = cmykValues[0].size();
+    const auto cyan = std::stod(cmykValues[0].data(), &offset);
+    offset = cmykValues[1].size();
+    const auto magenta = std::stod(cmykValues[1].data(), &offset);
+    offset = cmykValues[2].size();
+    const auto yellow = std::stod(cmykValues[2].data(), &offset);
+    offset = cmykValues[3].size();
+    const auto key = std::stod(cmykValues[3].data(), &offset);
+
+    ASSERT_TRUE(generatedCmykColor.starts_with("cmyk("));
+    ASSERT_TRUE(generatedCmykColor.ends_with(")"));
+    ASSERT_TRUE(0. <= cyan && cyan <= 1.);
+    ASSERT_TRUE(0. <= magenta && magenta <= 1.);
+    ASSERT_TRUE(0. <= yellow && yellow <= 1.);
+    ASSERT_TRUE(0. <= key && key <= 1.);
+}
