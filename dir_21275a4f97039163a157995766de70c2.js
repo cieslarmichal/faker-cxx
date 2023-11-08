@@ -13,6 +13,7 @@ var dir_21275a4f97039163a157995766de70c2 =
     [ "Git.h", "Git_8h_source.html", null ],
     [ "Hacker.h", "Hacker_8h_source.html", null ],
     [ "Helper.h", "Helper_8h_source.html", null ],
+    [ "Image.h", "Image_8h_source.html", null ],
     [ "Internet.h", "Internet_8h_source.html", null ],
     [ "Location.h", "Location_8h_source.html", null ],
     [ "Lorem.h", "Lorem_8h_source.html", null ],

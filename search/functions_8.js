@@ -1,7 +1,7 @@
 var searchData=
 [
   ['iban_0',['iban',['../classfaker_1_1Finance.html#a4a558120ded569f15ee09d0f2fd4be6d',1,'faker::Finance']]],
-  ['imageurl_1',['imageUrl',['../classfaker_1_1Internet.html#a1194b6b4cabaf370638a777c9ce903f1',1,'faker::Internet']]],
+  ['imageurl_1',['imageUrl',['../classfaker_1_1Image.html#af5155158daeed86c904b2acc3505f3bb',1,'faker::Image']]],
   ['imei_2',['imei',['../classfaker_1_1Phone.html#a85e9685ecdba6dd885fe7108dd661f82',1,'faker::Phone']]],
   ['industry_3',['industry',['../classfaker_1_1Company.html#a5f567da3fca0f18bf90ec274a32b2384',1,'faker::Company']]],
   ['ingverb_4',['ingverb',['../classfaker_1_1Hacker.html#a11ab2971d25ae0072ec41ab35b7de4e8',1,'faker::Hacker']]],
