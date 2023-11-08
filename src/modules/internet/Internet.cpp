@@ -104,16 +104,6 @@ std::string Internet::password(int length)
     return password;
 }
 
-std::string Internet::imageUrl(unsigned int width, unsigned int height)
-{
-    return fmt::format("https://source.unsplash.com/{}x{}", width, height);
-}
-
-std::string Internet::githubAvatarUrl()
-{
-    return fmt::format("https://avatars.githubusercontent.com/u/{}", Number::integer<int>(100000000));
-}
-
 std::string Internet::emoji(std::optional<EmojiType> type)
 {
     if (type)
