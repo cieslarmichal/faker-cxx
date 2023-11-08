@@ -89,4 +89,9 @@ std::string Color::lch(bool includeAlpha)
     return fmt::format("lcha({}, {}, {}, {})", luminance, chroma, hue, formattedAlpha);
 }
 
+std::string Color::cmyk()
+{
+    return "";
+}
+
 }
