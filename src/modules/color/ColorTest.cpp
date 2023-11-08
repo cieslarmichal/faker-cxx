@@ -172,7 +172,8 @@ TEST_F(ColorTest, shouldGenerateLchWithAlpha)
 TEST_F(ColorTest, shouldGenerateCmykColor)
 {
     const auto generatedCmykColor = faker::Color::cmyk();
-    const auto cmykValues = faker::StringHelper::split(generatedCmykColor.substr(5, generatedCmykColor.size() - 1), " ");
+    const auto cmykValues =
+        faker::StringHelper::split(generatedCmykColor.substr(5, generatedCmykColor.size() - 1), " ");
 
     auto offset = cmykValues[0].size();
     const auto cyan = std::stod(cmykValues[0].data(), &offset);

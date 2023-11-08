@@ -77,7 +77,7 @@ public:
 
     /**
      * @brief Return a CMYK color
-     * 
+     *
      * @returns CMYK color formatted with cmyk(X,X,X,X)
      * @code
      * Color::cmyk() // "cmyk(0.72, 0.88, 0.00, 0.06)"
