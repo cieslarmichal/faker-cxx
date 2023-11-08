@@ -91,7 +91,12 @@ std::string Color::lch(bool includeAlpha)
 
 std::string Color::cmyk()
 {
-    return "";
+    const std::floating_point auto cyan = Number::decimal<double>(1.);
+    const std::floating_point auto magenta = Number::decimal<double>(1.);
+    const std::floating_point auto yellow = Number::decimal<double>(1.);
+    const std::floating_point auto key = Number::decimal<double>(1.);
+
+    return fmt::format("cmyk({:.2f}, {:.2f}, {:.2f}, {:.2f})", cyan, magenta, yellow, key);
 }
 
 }
