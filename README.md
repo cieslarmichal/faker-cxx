@@ -108,6 +108,7 @@ target_link_libraries(main faker-cxx)
 - 🔢 String - uuids, alphanumeric, numeric, hexadecimal
 - 💻 System - file paths, file extensions, file names, directories, semantic version
 - 🎮 Video game - title, genre, platform, studio
+- 🌤️ Weather - temperature, pressure, humidity, weather description
 - 💬 Word - sample words, nouns, verbs
 
 ## 📖 Documentation
