@@ -81,7 +81,7 @@ target_link_libraries(main faker-cxx)
 
 ## 💎 Modules
 
-- ✈ Airline - aircraft types, airlines, airports, flight numbers
+- 🛩 Airline - aircraft types, airlines, airports, flight numbers
 - 🐼 Animal - animal types and species
 - 📖 Book - book title, genre, author, publisher, ISBN
 - 🎨 Color - color names, rgb, hex, hcl
