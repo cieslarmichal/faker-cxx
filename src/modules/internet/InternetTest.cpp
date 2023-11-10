@@ -16,6 +16,7 @@
 #include "data/DomainSuffixes.h"
 #include "data/EmailHosts.h"
 #include "data/Emojis.h"
+#include "data/HttpMediaType.h"
 #include "data/HttpRequestHeaders.h"
 #include "data/HttpResponseHeaders.h"
 
@@ -525,6 +526,14 @@ TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
 
     ASSERT_TRUE(std::ranges::any_of(httpResponseHeaders, [generatedHttpResponseHeader](const std::string& httpHeader)
                                     { return generatedHttpResponseHeader == httpHeader; }));
+}
+
+TEST_F(InternetTest, shouldGenerateHttpMediaType)
+{
+    const auto generatedHttpMediaType = Internet::httpMediaType();
+
+    ASSERT_TRUE(std::ranges::any_of(httpMediaTypes, [generatedHttpMediaType](const std::string& httpMediaType)
+                                    { return generatedHttpMediaType == httpMediaType; }));
 }
 
 TEST_F(InternetTest, shouldGenerateHttpInformationalSuccessCode)
