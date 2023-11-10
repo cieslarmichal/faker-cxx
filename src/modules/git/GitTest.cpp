@@ -1,22 +1,21 @@
 #include "faker-cxx/Git.h"
 
 #include <algorithm>
+#include <iostream>
+#include <regex>
+#include <string>
 
 #include "gtest/gtest.h"
 
-#include <string>
-#include <regex>
-#include <iostream>
-
-#include "faker-cxx/Word.h"
-#include "faker-cxx/Number.h"
-#include "faker-cxx/Date.h"
-#include "faker-cxx/String.h"
-#include "faker-cxx/Person.h"
-#include "faker-cxx/Internet.h"
-#include "faker-cxx/types/Language.h"
 #include "../../common/StringHelper.h"
 #include "../date/data/MonthNames.h"
+#include "faker-cxx/Date.h"
+#include "faker-cxx/Internet.h"
+#include "faker-cxx/Number.h"
+#include "faker-cxx/Person.h"
+#include "faker-cxx/String.h"
+#include "faker-cxx/types/Language.h"
+#include "faker-cxx/Word.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -24,18 +23,23 @@ using namespace faker;
 class GitTest : public Test
 {
 public:
-    inline static const std::string DATE_REGEX = "[A-Z][a-z]{2} [A-Z][a-z]{2,3} (([0-2][0-9])|(3[0-1])) (([0-1][0-9])|(2[0-4])):[0-5][0-9]:[0-5][0-9] [1-2][0-9]{3} (-|\\+)((0[0-9])|(1[0-2]))00";
-    inline static const std::string MESSAGE_REGEX = R"([a-zA-Z]+(\-[a-zA-Z]+)* ([a-zA-Z\-]+(\-[a-zA-Z]+)*\s)*[a-zA-Z\-]+(\-[a-zA-Z]+)*)";
+    inline static const std::string DATE_REGEX =
+        "[A-Z][a-z]{2} [A-Z][a-z]{2,3} (([0-2][0-9])|(3[0-1])) (([0-1][0-9])|(2[0-4])):[0-5][0-9]:[0-5][0-9] "
+        "[1-2][0-9]{3} (-|\\+)((0[0-9])|(1[0-2]))00";
+    inline static const std::string MESSAGE_REGEX =
+        R"([a-zA-Z]+(\-[a-zA-Z]+)* ([a-zA-Z\-]+(\-[a-zA-Z]+)*\s)*[a-zA-Z\-]+(\-[a-zA-Z]+)*)";
 
-    static std::string generateShaRegex(unsigned length) ;
+    static std::string generateShaRegex(unsigned length);
     static std::string generateShaRegex();
 };
 
-std::string GitTest::generateShaRegex(unsigned length) {
+std::string GitTest::generateShaRegex(unsigned length)
+{
     return "[0-9a-fA-F]{" + std::to_string(length) + "}";
 }
 
-std::string GitTest::generateShaRegex() {
+std::string GitTest::generateShaRegex()
+{
     return "[0-9a-fA-F]+";
 }
 
@@ -50,7 +54,7 @@ TEST_F(GitTest, shouldGenerateBranch)
 
 TEST_F(GitTest, branchIssueNumTest)
 {
-    unsigned testValue = unsigned (faker::Number::integer(2, 100));
+    unsigned testValue = unsigned(faker::Number::integer(2, 100));
     std::vector<std::string> branch = faker::StringHelper::split(Git::branch(testValue), "-");
     bool numberAtFront = false;
     int number;

@@ -1,6 +1,4 @@
 #include "faker-cxx/Sport.h"
-#include "faker-cxx/Helper.h"
-
 
 #include <string>
 
@@ -9,6 +7,7 @@
 #include "data/SoccerTeams.h"
 #include "data/SportEvents.h"
 #include "data/SportNames.h"
+#include "faker-cxx/Helper.h"
 
 namespace faker
 {

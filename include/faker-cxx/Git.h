@@ -39,7 +39,8 @@ public:
      *
      * @param dateYears The range of years the date may be in the past. Defaults to `15`.
      * @param shaLength The length of output SHA hash. Defaults to `40`.
-     * @param language The language set for name generating. Defaults to `English` (could be random, if there was a random language generator).
+     * @param language The language set for name generating. Defaults to `English` (could be random, if there was a
+     random language generator).
      * @returns Commit entry.
      *
      * @code
@@ -50,7 +51,9 @@ public:
                                 spawn polyp"
      * @endcode
      */
-    static std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt, std::optional<unsigned> shaLength = std::nullopt, Language language = Language::English);
+    static std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt,
+                                   std::optional<unsigned> shaLength = std::nullopt,
+                                   Language language = Language::English);
 
     /**
      * @brief Generates a random commit message.

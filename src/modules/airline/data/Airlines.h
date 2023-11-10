@@ -1,9 +1,9 @@
 #pragma once
 
-#include "faker-cxx/Airline.h"
-
 #include <string>
 #include <vector>
+
+#include "faker-cxx/Airline.h"
 
 namespace faker
 {

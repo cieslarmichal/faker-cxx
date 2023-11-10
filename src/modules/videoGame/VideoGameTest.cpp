@@ -29,8 +29,8 @@ TEST_F(VideoGameTest, shouldGenerateGenre)
 {
     const auto generatedGenre = VideoGame::genre();
 
-    ASSERT_TRUE(std::ranges::any_of(genres, [generatedGenre](const std::string& genre)
-                                    { return generatedGenre == genre; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(genres, [generatedGenre](const std::string& genre) { return generatedGenre == genre; }));
 }
 
 TEST_F(VideoGameTest, shouldGeneratePlatform)

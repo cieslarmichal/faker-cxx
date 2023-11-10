@@ -4,6 +4,7 @@
 #include <string>
 
 #include "gtest/gtest.h"
+
 #include "data/WeatherDescription.h"
 
 using namespace ::testing;
@@ -64,11 +65,13 @@ TEST_F(WeatherTest, shouldGenerateWeatherDescription)
 {
     std::string generatedWeatherDescription = Weather::weatherDescription();
 
-    ASSERT_TRUE(std::ranges::any_of(weatherDescriptions, [generatedWeatherDescription](const std::string& weatherDescription)
+    ASSERT_TRUE(std::ranges::any_of(weatherDescriptions,
+                                    [generatedWeatherDescription](const std::string& weatherDescription)
                                     { return weatherDescription == generatedWeatherDescription; }));
 }
 
-TEST_F(WeatherTest, shouldGenerateWeatherCloudCover) {
+TEST_F(WeatherTest, shouldGenerateWeatherCloudCover)
+{
     int generatedCloudCover = Weather::cloudCover();
 
     ASSERT_TRUE(generatedCloudCover >= 0 && generatedCloudCover <= 100);

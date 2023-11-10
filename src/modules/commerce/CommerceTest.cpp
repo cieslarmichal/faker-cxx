@@ -115,14 +115,16 @@ TEST_F(CommerceTest, shouldGenerateProductName)
 TEST_F(CommerceTest, shouldGenerateEan13)
 {
     const auto generatedEan13 = Commerce::EAN13();
-    
+
     int sum = 0;
     for (size_t i = 0; i < 13; i++)
     {
-        if (i % 2 == 0) {
+        if (i % 2 == 0)
+        {
             sum += (generatedEan13[i] - '0');
         }
-        else {
+        else
+        {
             sum += 3 * (generatedEan13[i] - '0');
         }
     }
@@ -134,14 +136,16 @@ TEST_F(CommerceTest, shouldGenerateEan13)
 TEST_F(CommerceTest, shouldGenerateEan8)
 {
     const auto generatedEan8 = Commerce::EAN8();
-    
+
     int sum = 0;
     for (size_t i = 0; i < 8; i++)
     {
-        if (i % 2 == 0) {
+        if (i % 2 == 0)
+        {
             sum += 3 * (generatedEan8[i] - '0');
         }
-        else {
+        else
+        {
             sum += (generatedEan8[i] - '0');
         }
     }
@@ -153,14 +157,16 @@ TEST_F(CommerceTest, shouldGenerateEan8)
 TEST_F(CommerceTest, shouldGenerateIsbn13)
 {
     const auto generatedIsbn13 = Commerce::ISBN13();
-    
+
     int sum = 0;
     for (size_t i = 0; i < 13; i++)
     {
-        if (i % 2 == 0) {
+        if (i % 2 == 0)
+        {
             sum += (generatedIsbn13[i] - '0');
         }
-        else {
+        else
+        {
             sum += 3 * (generatedIsbn13[i] - '0');
         }
     }
@@ -172,9 +178,10 @@ TEST_F(CommerceTest, shouldGenerateIsbn13)
 TEST_F(CommerceTest, shouldGenerateIsbn10)
 {
     const auto generatedIsbn10 = Commerce::ISBN10();
-    
+
     int sum = 0, weight = 10;
-    if (generatedIsbn10[9] == 'X') {
+    if (generatedIsbn10[9] == 'X')
+    {
         for (size_t i = 0; i < 9; i++)
         {
             sum += (generatedIsbn10[i] - '0') * weight;
@@ -182,7 +189,8 @@ TEST_F(CommerceTest, shouldGenerateIsbn10)
         }
         sum += 10;
     }
-    else {
+    else
+    {
         for (size_t i = 0; i < 10; i++)
         {
             sum += (generatedIsbn10[i] - '0') * weight;

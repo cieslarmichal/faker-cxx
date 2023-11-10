@@ -50,17 +50,20 @@ std::string Commerce::EAN13()
     int sum = 0;
     for (size_t i = 0; i < 12; i++)
     {
-        if (i % 2 == 0) {
+        if (i % 2 == 0)
+        {
             sum += (ean13[i] - '0');
         }
-        else {
+        else
+        {
             sum += 3 * (ean13[i] - '0');
         }
     }
-    
+
     int checkDigit = sum % 10;
 
-    if (checkDigit != 0) {
+    if (checkDigit != 0)
+    {
         checkDigit = 10 - checkDigit;
     }
 
@@ -74,17 +77,20 @@ std::string Commerce::EAN8()
     int sum = 0;
     for (size_t i = 0; i < 7; i++)
     {
-        if (i % 2 == 0) {
+        if (i % 2 == 0)
+        {
             sum += 3 * (ean8[i] - '0');
         }
-        else {
+        else
+        {
             sum += (ean8[i] - '0');
         }
     }
-    
+
     int checkDigit = sum % 10;
 
-    if (checkDigit != 0) {
+    if (checkDigit != 0)
+    {
         checkDigit = 10 - checkDigit;
     }
 
@@ -98,17 +104,20 @@ std::string Commerce::ISBN13()
     int sum = 0;
     for (size_t i = 0; i < 12; i++)
     {
-        if (i % 2 == 0) {
+        if (i % 2 == 0)
+        {
             sum += (isbn13[i] - '0');
         }
-        else {
+        else
+        {
             sum += 3 * (isbn13[i] - '0');
         }
     }
-    
+
     int checkDigit = sum % 10;
 
-    if (checkDigit != 0) {
+    if (checkDigit != 0)
+    {
         checkDigit = 10 - checkDigit;
     }
 
@@ -125,17 +134,19 @@ std::string Commerce::ISBN10()
         sum += (isbn10[i] - '0') * weight;
         weight--;
     }
-    
+
     int checkDigit = sum % 11;
 
-    if (checkDigit != 0) {
+    if (checkDigit != 0)
+    {
         checkDigit = 11 - checkDigit;
     }
 
-    if (checkDigit == 10) {
+    if (checkDigit == 10)
+    {
         return isbn10 + "X";
     }
-    
+
     return isbn10 + std::to_string(checkDigit);
 }
 }

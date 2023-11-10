@@ -3,8 +3,10 @@
 #include <string>
 #include <vector>
 
-namespace faker {
-class Airline {
+namespace faker
+{
+class Airline
+{
 public:
     enum class AircraftType
     {
@@ -116,7 +118,8 @@ public:
      */
     static std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
 
-    struct Range {
+    struct Range
+    {
         unsigned int min;
         unsigned int max;
     };
