@@ -13,7 +13,7 @@ C++ Faker is a modern C++20 open-source library for generating fake data for tes
 The library is heavily inspired by [Faker.js](https://github.com/faker-js/faker).
 
 Dependencies: 
- - GTest: building tests (can be disabled with BUILD_FAKER_TESTS=OFF CMake flag)
+ - GTest: building tests (BUILD_FAKER_TESTS=OFF CMake flag to disable)
  - fmt
 
 ## 🎯 Goal
