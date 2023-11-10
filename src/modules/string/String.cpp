@@ -148,11 +148,11 @@ std::string String::numeric(unsigned int length, bool allowLeadingZeros)
     {
         if (i == 0 && allowLeadingZeros)
         {
-            alphanumeric += Helper::arrayElement<char>(numericCharactersWithoutZero);
+            alphanumeric += Helper::arrayElement<char>(numericCharacters);
         }
         else
         {
-            alphanumeric += Helper::arrayElement<char>(numericCharacters);
+            alphanumeric += Helper::arrayElement<char>(numericCharactersWithoutZero);
         }
     }
 
