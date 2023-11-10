@@ -7,6 +7,7 @@
 #include "data/DomainSuffixes.h"
 #include "data/EmailHosts.h"
 #include "data/Emojis.h"
+#include "data/HttpMediaType.h"
 #include "data/HttpRequestHeaders.h"
 #include "data/HttpResponseHeaders.h"
 #include "faker-cxx/Helper.h"
@@ -168,6 +169,11 @@ std::string Internet::httpRequestHeader()
 std::string Internet::httpResponseHeader()
 {
     return Helper::arrayElement<std::string>(httpResponseHeaders);
+}
+
+std::string Internet::httpMediaType()
+{
+    return Helper::arrayElement<std::string>(httpMediaTypes);
 }
 
 std::string Internet::ipv4(IPv4Class ipv4class)

@@ -169,6 +169,17 @@ public:
     static std::string httpResponseHeader();
 
     /**
+     * @brief Generates a random http media type.
+     *
+     * @returns Http media type.
+     *
+     * @code
+     * Internet::httpMediaType() // "application/json"
+     * @endcode
+     */
+    static std::string httpMediaType();
+
+    /**
      * @brief Returns a string containing randomized ipv4 address of the given class.
      *
      * @param ipv4class Address class to be generated.
