@@ -95,12 +95,12 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 
     const auto& firstNamesBySexMapping = languageToFirstNamesMapping.at(language);
 
-    const auto& firstNamesMales = firstNamesBySexMapping.at(Sex::Male);
-    const auto& firstNamesFemales = firstNamesBySexMapping.at(Sex::Female);
+    const auto& malesFirstNames = firstNamesBySexMapping.at(Sex::Male);
+    const auto& femalesFirstNames = firstNamesBySexMapping.at(Sex::Female);
 
-    std::vector<std::string> firstNames{firstNamesMales};
+    std::vector<std::string> firstNames{malesFirstNames};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
+    firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
 
     const auto generatedFirstName = Person::firstName(language);
 
@@ -108,17 +108,17 @@ TEST_P(PersonTest, shouldGenerateFirstName)
                                     { return firstName == generatedFirstName; }));
 }
 
-TEST_P(PersonTest, shouldGeneratemMaleFirstName)
+TEST_P(PersonTest, shouldGenerateMaleFirstName)
 {
     const auto language = GetParam();
 
     const auto& firstNamesBySexMapping = languageToFirstNamesMapping.at(language);
 
-    const auto& firstNamesMales = firstNamesBySexMapping.at(Sex::Male);
+    const auto& malesFirstNames = firstNamesBySexMapping.at(Sex::Male);
 
     const auto generatedFirstName = Person::firstName(language, Sex::Male);
 
-    ASSERT_TRUE(std::ranges::any_of(firstNamesMales, [generatedFirstName](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFirstName](const std::string& firstName)
                                     { return firstName == generatedFirstName; }));
 }
 
@@ -128,11 +128,11 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 
     const auto& firstNamesBySexMapping = languageToFirstNamesMapping.at(language);
 
-    const auto& firstNamesFemales = firstNamesBySexMapping.at(Sex::Female);
+    const auto& femalesFirstNames = firstNamesBySexMapping.at(Sex::Female);
 
     const auto generatedFirstName = Person::firstName(language, Sex::Female);
 
-    ASSERT_TRUE(std::ranges::any_of(firstNamesFemales, [generatedFirstName](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFirstName](const std::string& firstName)
                                     { return firstName == generatedFirstName; }));
 }
 
@@ -140,11 +140,11 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
 {
     const auto language = GetParam();
 
-    const auto& lastNamesMale = languageToLastNamesMapping.at(language).at(Sex::Male);
+    const auto& malesLastNames = languageToLastNamesMapping.at(language).at(Sex::Male);
 
     const auto generatedLastName = Person::lastName(language, Sex::Male);
 
-    ASSERT_TRUE(std::ranges::any_of(lastNamesMale, [generatedLastName](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(malesLastNames, [generatedLastName](const std::string& lastName)
                                     { return lastName == generatedLastName; }));
 }
 
@@ -152,11 +152,11 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
 {
     const auto language = GetParam();
 
-    const auto& lastNamesFemale = languageToLastNamesMapping.at(language).at(Sex::Female);
+    const auto& femalesLastNames = languageToLastNamesMapping.at(language).at(Sex::Female);
 
     const auto generatedLastName = Person::lastName(language, Sex::Female);
 
-    ASSERT_TRUE(std::ranges::any_of(lastNamesFemale, [generatedLastName](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(femalesLastNames, [generatedLastName](const std::string& lastName)
                                     { return lastName == generatedLastName; }));
 }
 
@@ -166,30 +166,26 @@ TEST_P(PersonTest, shouldGenerateFullName)
 
     const auto& firstNamesBySexMapping = languageToFirstNamesMapping.at(language);
 
-    const auto& firstNamesMales = firstNamesBySexMapping.at(Sex::Male);
-    const auto& firstNamesFemales = firstNamesBySexMapping.at(Sex::Female);
+    const auto& malesFirstNames = firstNamesBySexMapping.at(Sex::Male);
+    const auto& femalesFirstNames = firstNamesBySexMapping.at(Sex::Female);
 
     const auto& lastNamesBySexMapping = languageToLastNamesMapping.at(language);
 
-    const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
-    const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
+    const auto& malesLastNames = lastNamesBySexMapping.at(Sex::Male);
+    const auto& femalesLastNames = lastNamesBySexMapping.at(Sex::Female);
 
-    std::vector<std::string> firstNames{firstNamesMales};
-    std::vector<std::string> lastNames{lastNamesMales};
+    std::vector<std::string> firstNames{malesFirstNames};
+    std::vector<std::string> lastNames{malesLastNames};
 
-    firstNames.insert(firstNames.end(), firstNamesFemales.begin(), firstNamesFemales.end());
-    lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
+    firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
+    lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
 
     const auto generatedFullName = Person::fullName(language);
 
-    const auto names = StringHelper::split(generatedFullName, " ");
-
-    const auto& generatedFirstName = names[0];
-
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFirstName](const std::string& firstName)
-                                    { return firstName == generatedFirstName; }));
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFullName](const std::string& firstName)
+                                    { return generatedFullName.starts_with(firstName); }));
     ASSERT_TRUE(std::ranges::any_of(lastNames, [generatedFullName](const std::string& lastName)
-                                    { return generatedFullName.find(lastName) != std::string::npos; }));
+                                    { return generatedFullName.ends_with(lastName); }));
 }
 
 TEST_P(PersonTest, shouldGenerateMaleFullName)
@@ -198,20 +194,16 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 
     const auto& firstNamesBySexMapping = languageToFirstNamesMapping.at(language);
 
-    const auto& firstNamesMales = firstNamesBySexMapping.at(Sex::Male);
+    const auto& malesFirstNames = firstNamesBySexMapping.at(Sex::Male);
 
-    const auto& lastNames = languageToLastNamesMapping.at(language).at(Sex::Male);
+    const auto& malesLastNames = languageToLastNamesMapping.at(language).at(Sex::Male);
 
     const auto generatedFullName = Person::fullName(language, Sex::Male);
 
-    const auto names = StringHelper::split(generatedFullName, " ");
-
-    const auto& generatedFirstName = names[0];
-
-    ASSERT_TRUE(std::ranges::any_of(firstNamesMales, [generatedFirstName](const std::string& firstName)
-                                    { return firstName == generatedFirstName; }));
-    ASSERT_TRUE(std::ranges::any_of(lastNames, [generatedFullName](const std::string& lastName)
-                                    { return generatedFullName.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFullName](const std::string& firstName)
+                                    { return generatedFullName.starts_with(firstName); }));
+    ASSERT_TRUE(std::ranges::any_of(malesLastNames, [generatedFullName](const std::string& lastName)
+                                    { return generatedFullName.ends_with(lastName); }));
 }
 
 TEST_P(PersonTest, shouldGenerateFemaleFullName)
@@ -220,20 +212,16 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 
     const auto& firstNamesBySexMapping = languageToFirstNamesMapping.at(language);
 
-    const auto& firstNamesFemales = firstNamesBySexMapping.at(Sex::Female);
+    const auto& femalesFirstNames = firstNamesBySexMapping.at(Sex::Female);
 
-    const auto& lastNames = languageToLastNamesMapping.at(language).at(Sex::Female);
+    const auto& femalesLastNames = languageToLastNamesMapping.at(language).at(Sex::Female);
 
     const auto generatedFullName = Person::fullName(language, Sex::Female);
 
-    const auto names = StringHelper::split(generatedFullName, " ");
-
-    const auto& generatedFirstName = names[0];
-
-    ASSERT_TRUE(std::ranges::any_of(firstNamesFemales, [generatedFirstName](const std::string& firstName)
-                                    { return firstName == generatedFirstName; }));
-    ASSERT_TRUE(std::ranges::any_of(lastNames, [generatedFullName](const std::string& lastName)
-                                    { return generatedFullName.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFullName](const std::string& firstName)
+                                    { return generatedFullName.starts_with(firstName); }));
+    ASSERT_TRUE(std::ranges::any_of(femalesLastNames, [generatedFullName](const std::string& lastName)
+                                    { return generatedFullName.ends_with(lastName); }));
 }
 
 INSTANTIATE_TEST_SUITE_P(TestPersonNamesByLanguages, PersonTest, ValuesIn(languages),
