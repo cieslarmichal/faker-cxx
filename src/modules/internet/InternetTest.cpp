@@ -24,6 +24,8 @@ using namespace faker;
 
 namespace
 {
+const std::string passwordCharacters =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
 const std::vector<std::string> webProtocols{"http", "https"};
 const std::vector<std::string> httpMethodNames{"GET", "POST", "DELETE", "PATCH", "PUT"};
 const std::vector<unsigned> httpStatusInformationalCodes{100, 101, 102, 103};
@@ -359,12 +361,10 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 
 TEST_F(InternetTest, shouldGeneratePassword)
 {
-    const std::string passwordCharacters = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     const auto password = Internet::password();
 
     ASSERT_EQ(password.size(), 15);
-    ASSERT_TRUE(std::ranges::all_of(password, [passwordCharacters](char passwordCharacter)
+    ASSERT_TRUE(std::ranges::all_of(password, [&](char passwordCharacter)
                                     { return passwordCharacters.find(passwordCharacter) != std::string::npos; }));
 }
 
@@ -372,12 +372,10 @@ TEST_F(InternetTest, shouldGeneratePasswordWithSpecifiedLength)
 {
     const auto passwordLength = 25;
 
-    const std::string passwordCharacters = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     const auto password = Internet::password(passwordLength);
 
     ASSERT_EQ(password.size(), passwordLength);
-    ASSERT_TRUE(std::ranges::all_of(password, [passwordCharacters](char passwordCharacter)
+    ASSERT_TRUE(std::ranges::all_of(password, [&](char passwordCharacter)
                                     { return passwordCharacters.find(passwordCharacter) != std::string::npos; }));
 }
 

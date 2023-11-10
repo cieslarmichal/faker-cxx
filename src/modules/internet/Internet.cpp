@@ -92,7 +92,8 @@ std::string Internet::exampleEmail(std::optional<std::string> firstName, std::op
 
 std::string Internet::password(int length)
 {
-    const std::string passwordCharacters = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const std::string passwordCharacters =
+        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
 
     std::string password;
 
