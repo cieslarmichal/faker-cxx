@@ -4,12 +4,19 @@ on:
   pull_request:
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - uses: DoozyX/clang-format-lint-action@v0.14
+    - name: Install clang format
+      run: sudo apt install -y clang-format && clang-format --version
+        
+    - name: Checkout
+      uses: actions/checkout@v3
+        
+    - name: Lint
+      uses: DoozyX/clang-format-lint-action@v0.14
       with:
         source: '.'
         exclude: './externals'
