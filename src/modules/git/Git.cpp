@@ -2,15 +2,15 @@
 
 #include <string>
 
-#include "faker-cxx/Word.h"
-#include "faker-cxx/Number.h"
-#include "faker-cxx/Date.h"
-#include "faker-cxx/String.h"
-#include "faker-cxx/Person.h"
-#include "faker-cxx/Internet.h"
-#include "faker-cxx/types/Language.h"
 #include "../../common/StringHelper.h"
 #include "../date/data/MonthNames.h"
+#include "faker-cxx/Date.h"
+#include "faker-cxx/Internet.h"
+#include "faker-cxx/Number.h"
+#include "faker-cxx/Person.h"
+#include "faker-cxx/String.h"
+#include "faker-cxx/types/Language.h"
+#include "faker-cxx/Word.h"
 #include "fmt/format.h"
 
 namespace faker
@@ -20,12 +20,13 @@ std::string Git::branch(unsigned maxIssueNum)
 {
     switch (Number::integer(1, 3))
     {
-        case 1:
-            return fmt::format("{}-{}", Word::verb(), Word::noun());
-        case 2:
-            return fmt::format("{}-{}-{}", Word::verb(), Word::adjective(), Word::noun());
-        default:
-            return fmt::format("{}-{}-{}-{}", Number::integer(unsigned (1), maxIssueNum), Word::verb(), Word::adjective(), Word::noun());
+    case 1:
+        return fmt::format("{}-{}", Word::verb(), Word::noun());
+    case 2:
+        return fmt::format("{}-{}-{}", Word::verb(), Word::adjective(), Word::noun());
+    default:
+        return fmt::format("{}-{}-{}-{}", Number::integer(unsigned(1), maxIssueNum), Word::verb(), Word::adjective(),
+                           Word::noun());
     }
 }
 
@@ -66,8 +67,8 @@ std::string Git::commitDate(unsigned years)
         timeZoneString += "00";
     }
 
-
-    return fmt::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(), monthAbbreviatedNames[size_t(std::stoi(month)-1)], day, time, year, timeZoneString);
+    return fmt::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(),
+                       monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
 }
 
 std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Language language)

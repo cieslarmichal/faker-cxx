@@ -3,6 +3,7 @@
 #include <string>
 #include <vector>
 
-namespace faker {
+namespace faker
+{
 const std::vector<std::string> aircraftTypes = {"regional", "narrowbody", "widebody"};
 }

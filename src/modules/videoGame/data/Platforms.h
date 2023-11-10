@@ -5,14 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> platforms = {"PC",
-                                            "Playstation 5",
-                                            "Xbox Series X",
-                                            "Nintendo Switch",
-                                            "iOS",
-                                            "Android",
-                                            "Linux",
-                                            "Stadia",
-                                            "Oculus Quest",
-                                            };
+const std::vector<std::string> platforms = {
+    "PC", "Playstation 5", "Xbox Series X", "Nintendo Switch", "iOS", "Android", "Linux", "Stadia", "Oculus Quest",
+};
 }

@@ -7,7 +7,8 @@ namespace faker
 class Weather
 {
 public:
-    struct Temperature {
+    struct Temperature
+    {
         double metric, imperial;
     };
 
@@ -23,7 +24,8 @@ public:
 
     static Temperature temperature();
 
-    struct Pressure {
+    struct Pressure
+    {
         double metric;
         double imperial;
     };
@@ -39,7 +41,8 @@ public:
      */
     static Pressure pressure();
 
-    struct Visibility {
+    struct Visibility
+    {
         double metric;
         double imperial;
     };
@@ -55,7 +58,8 @@ public:
      */
     static Visibility visibility();
 
-    struct WindSpeed {
+    struct WindSpeed
+    {
         double metric;
         double imperial;
     };
@@ -113,6 +117,6 @@ public:
      * Weather::cloudCover(); // 10
      * @endcode
      */
-     static int cloudCover();
+    static int cloudCover();
 };
 }

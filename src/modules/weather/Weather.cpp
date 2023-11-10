@@ -2,10 +2,10 @@
 
 #include <string>
 
+#include "../../common/WeatherHelper.h"
 #include "data/WeatherDescription.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
-#include "../../common/WeatherHelper.h"
 
 namespace faker
 {
@@ -25,7 +25,8 @@ Weather::Pressure Weather::pressure()
     return {metric, imperial};
 }
 
-Weather::Visibility Weather::visibility() {
+Weather::Visibility Weather::visibility()
+{
     double metric = Number::decimal(1.0, 10.0);
     double imperial = WeatherHelper::milesToKilometers(metric);
 

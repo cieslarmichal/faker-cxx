@@ -1,9 +1,9 @@
 #include "faker-cxx/Hacker.h"
-#include "../../common/StringHelper.h"
 
 #include <string>
 #include <vector>
 
+#include "../../common/StringHelper.h"
 #include "data/Abbreviations.h"
 #include "data/Adjectives.h"
 #include "data/Ingverbs.h"
