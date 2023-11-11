@@ -113,7 +113,7 @@ const std::vector<std::string> commonMimeTypes = {"application/pdf", "audio/mpeg
 
 const std::vector<std::string> commonFileTypes = {"video", "audio", "image", "text", "application"};
 
-enum class MimeType
+enum class FileType
 {
     Video,
     Audio,
@@ -121,13 +121,13 @@ enum class MimeType
     Text,
     Application
 };
-inline std::string toString(MimeType type)
+inline std::string toString(FileType type)
 {
-    std::map<MimeType, std::string> enumToStringMapping{{MimeType::Video, "video"},
-                                                        {MimeType::Audio, "audio"},
-                                                        {MimeType::Image, "image"},
-                                                        {MimeType::Text, "text"},
-                                                        {MimeType::Application, "application"}};
+    std::map<FileType, std::string> enumToStringMapping{{FileType::Video, "video"},
+                                                        {FileType::Audio, "audio"},
+                                                        {FileType::Image, "image"},
+                                                        {FileType::Text, "text"},
+                                                        {FileType::Application, "application"}};
     return enumToStringMapping.at(type);
 }
 inline std::string extension(const std::string& mimeType)

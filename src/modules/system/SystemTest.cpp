@@ -47,11 +47,11 @@ TEST_F(SystemTest, FileExtTestWithMimeType)
 
 TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
 {
-    auto image = MimeType::Image;
-    auto audio = MimeType::Audio;
-    auto video = MimeType::Video;
-    auto text = MimeType::Text;
-    auto application = MimeType::Application;
+    auto image = FileType::Image;
+    auto audio = FileType::Audio;
+    auto video = FileType::Video;
+    auto text = FileType::Text;
+    auto application = FileType::Application;
 
     std::vector<std::string> imageExtensions;
     for (const auto& mimeType : mimeTypes)

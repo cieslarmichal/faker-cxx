@@ -51,7 +51,7 @@ std::string System::fileName(const FileOptions& options)
     return baseName + extensionsStr;
 }
 
-std::string System::fileExt(const std::optional<MimeType>& mimeType)
+std::string System::fileExt(const std::optional<FileType>& mimeType)
 {
     if (mimeType.has_value())
     {

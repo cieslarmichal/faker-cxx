@@ -43,7 +43,7 @@ public:
      * System::fileExt(MimeType::Image) // "png"
      * @endcode
      */
-    static std::string fileExt(const std::optional<MimeType>& mimeType = std::nullopt);
+    static std::string fileExt(const std::optional<FileType>& mimeType = std::nullopt);
 
     /**
      * Returns a random file name with a given extension or a commonly used extension.
