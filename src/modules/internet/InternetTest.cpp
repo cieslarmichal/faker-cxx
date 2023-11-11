@@ -16,12 +16,17 @@
 #include "data/DomainSuffixes.h"
 #include "data/EmailHosts.h"
 #include "data/Emojis.h"
+#include "data/HttpMediaType.h"
+#include "data/HttpRequestHeaders.h"
+#include "data/HttpResponseHeaders.h"
 
 using namespace ::testing;
 using namespace faker;
 
 namespace
 {
+const std::string passwordCharacters =
+    "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
 const std::vector<std::string> webProtocols{"http", "https"};
 const std::vector<std::string> httpMethodNames{"GET", "POST", "DELETE", "PATCH", "PUT"};
 const std::vector<unsigned> httpStatusInformationalCodes{100, 101, 102, 103};
@@ -357,12 +362,10 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 
 TEST_F(InternetTest, shouldGeneratePassword)
 {
-    const std::string passwordCharacters = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     const auto password = Internet::password();
 
     ASSERT_EQ(password.size(), 15);
-    ASSERT_TRUE(std::ranges::all_of(password, [passwordCharacters](char passwordCharacter)
+    ASSERT_TRUE(std::ranges::all_of(password, [&](char passwordCharacter)
                                     { return passwordCharacters.find(passwordCharacter) != std::string::npos; }));
 }
 
@@ -370,35 +373,11 @@ TEST_F(InternetTest, shouldGeneratePasswordWithSpecifiedLength)
 {
     const auto passwordLength = 25;
 
-    const std::string passwordCharacters = "0123456789!@#$%^&*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     const auto password = Internet::password(passwordLength);
 
     ASSERT_EQ(password.size(), passwordLength);
-    ASSERT_TRUE(std::ranges::all_of(password, [passwordCharacters](char passwordCharacter)
+    ASSERT_TRUE(std::ranges::all_of(password, [&](char passwordCharacter)
                                     { return passwordCharacters.find(passwordCharacter) != std::string::npos; }));
-}
-
-TEST_F(InternetTest, shouldGenerateImageUrl)
-{
-    const auto width = 800;
-    const auto height = 600;
-
-    const auto imageUrl = Internet::imageUrl(width, height);
-
-    ASSERT_EQ(imageUrl, "https://source.unsplash.com/800x600");
-}
-
-TEST_F(InternetTest, shouldGenerateGithubAvatarUrl)
-{
-    const auto githubAvatarUrl = Internet::githubAvatarUrl();
-
-    const std::string expectedGithubAvatarPrefix = "https://avatars.githubusercontent.com/u/";
-
-    const auto userNumber = std::stoi(githubAvatarUrl.substr(expectedGithubAvatarPrefix.size()));
-
-    ASSERT_TRUE(githubAvatarUrl.starts_with(expectedGithubAvatarPrefix));
-    ASSERT_TRUE(userNumber >= 0 && userNumber <= 100000000);
 }
 
 TEST_F(InternetTest, shouldGenerateEmoji)
@@ -531,6 +510,30 @@ TEST_F(InternetTest, shouldGenerateHttpStatusCode)
 
     ASSERT_TRUE(std::ranges::any_of(statusCodes, [generatedHttpStatusCode](unsigned statusCode)
                                     { return generatedHttpStatusCode == statusCode; }));
+}
+
+TEST_F(InternetTest, shouldGenerateHttpRequestHeader)
+{
+    const auto generatedHttpRequestHeader = Internet::httpRequestHeader();
+
+    ASSERT_TRUE(std::ranges::any_of(httpRequestHeaders, [generatedHttpRequestHeader](const std::string& httpHeader)
+                                    { return generatedHttpRequestHeader == httpHeader; }));
+}
+
+TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
+{
+    const auto generatedHttpResponseHeader = Internet::httpResponseHeader();
+
+    ASSERT_TRUE(std::ranges::any_of(httpResponseHeaders, [generatedHttpResponseHeader](const std::string& httpHeader)
+                                    { return generatedHttpResponseHeader == httpHeader; }));
+}
+
+TEST_F(InternetTest, shouldGenerateHttpMediaType)
+{
+    const auto generatedHttpMediaType = Internet::httpMediaType();
+
+    ASSERT_TRUE(std::ranges::any_of(httpMediaTypes, [generatedHttpMediaType](const std::string& httpMediaType)
+                                    { return generatedHttpMediaType == httpMediaType; }));
 }
 
 TEST_F(InternetTest, shouldGenerateHttpInformationalSuccessCode)

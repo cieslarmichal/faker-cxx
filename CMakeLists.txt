@@ -9,7 +9,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED YES)
 option(BUILD_FAKER_TESTS DEFAULT ON)
 
 if (MSVC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20 /permissive-")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20 /permissive- /bigobj")
 else ()
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror")
 endif ()
@@ -17,6 +17,7 @@ endif ()
 set(LIBRARY_NAME faker-cxx)
 
 set(FAKER_SOURCES
+        src/modules/animal/Animal.cpp
         src/modules/book/Book.cpp
         src/modules/color/Color.cpp
         src/modules/commerce/Commerce.cpp
@@ -35,14 +36,24 @@ set(FAKER_SOURCES
         src/common/StringHelper.cpp
         src/modules/phone/Phone.cpp
         src/common/LuhnCheck.cpp
-        src/common/mappers/PrecisionMapper.cpp
+        src/common/mappers/precisionMapper/PrecisionMapper.cpp
         src/modules/system/System.cpp
         src/modules/database/Database.cpp
         src/modules/music/Music.cpp
         src/modules/movie/Movie.cpp
-        )
+        src/modules/git/Git.cpp
+        src/modules/hacker/Hacker.cpp
+        src/modules/sport/Sport.cpp
+        src/modules/videoGame/VideoGame.cpp
+        src/modules/medicine/Medicine.cpp
+        src/modules/weather/Weather.cpp
+        src/common/WeatherHelper.cpp
+        src/modules/airline/Airline.cpp
+        src/modules/image/Image.cpp
+)
 
 set(FAKER_UT_SOURCES
+        src/modules/animal/AnimalTest.cpp
         src/modules/book/BookTest.cpp
         src/modules/color/ColorTest.cpp
         src/modules/commerce/CommerceTest.cpp
@@ -61,12 +72,21 @@ set(FAKER_UT_SOURCES
         src/modules/phone/PhoneTest.cpp
         src/modules/helper/HelperTest.cpp
         src/common/LuhnCheckTest.cpp
-        src/common/mappers/PrecisionMapperTest.cpp
+        src/common/mappers/precisionMapper/PrecisionMapperTest.cpp
         src/modules/system/SystemTest.cpp
         src/modules/database/DatabaseTest.cpp
         src/modules/music/MusicTest.cpp
         src/modules/movie/MovieTest.cpp
-        )
+        src/modules/git/GitTest.cpp
+        src/modules/hacker/HackerTest.cpp
+        src/modules/sport/SportTest.cpp
+        src/modules/videoGame/VideoGameTest.cpp
+        src/modules/medicine/MedicineTest.cpp
+        src/modules/weather/WeatherTest.cpp
+        src/common/WeatherHelperTest.cpp
+        src/modules/airline/AirlineTest.cpp
+        src/modules/image/ImageTest.cpp
+)
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 
@@ -75,7 +95,14 @@ target_include_directories(${LIBRARY_NAME}
         "${CMAKE_CURRENT_LIST_DIR}/include"
         PRIVATE
         "${CMAKE_CURRENT_LIST_DIR}/include"
-        )
+        ${FMT_INCLUDE_DIR}
+)
+
+add_subdirectory(externals/fmt)
+
+set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
+
+target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
 
 if (BUILD_FAKER_TESTS)
     add_subdirectory(externals/googletest)
@@ -95,7 +122,7 @@ if (BUILD_FAKER_TESTS)
 
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main faker-cxx)
 
-    target_include_directories(${LIBRARY_NAME}-UT PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
+    target_include_directories(${LIBRARY_NAME}-UT PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
 
     add_test(NAME ${LIBRARY_NAME}-UT COMMAND ${LIBRARY_NAME}-UT WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 

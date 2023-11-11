@@ -197,7 +197,7 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZeros)
 {
     const auto numericLength = 13;
 
-    const auto numeric = String::numeric(numericLength, true);
+    const auto numeric = String::numeric(numericLength, false);
 
     const auto nonZeroCharacter = numeric[0];
     const auto numericWithPossibleZeroCharacters = numeric.substr(1);

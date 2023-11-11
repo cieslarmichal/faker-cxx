@@ -2,6 +2,7 @@
 
 #include <functional>
 #include <span>
+#include <string>
 
 #include "Datatype.h"
 #include "Number.h"
@@ -27,6 +28,14 @@ public:
      */
     template <class T>
     static T arrayElement(std::span<const T> data)
+    {
+        const auto index = Number::integer<size_t>(data.size() - 1);
+
+        return data[index];
+    }
+
+    template <class T>
+    static T arrayElement(const std::vector<T>& data)
     {
         const auto index = Number::integer<size_t>(data.size() - 1);
 

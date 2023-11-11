@@ -8,7 +8,8 @@
 #include "data/Actresses.h"
 #include "data/Directors.h"
 #include "data/Genres.h"
-#include "data/MovieTitles.h"
+#include "data/Movies.h"
+#include "data/TvShows.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -30,8 +31,16 @@ TEST_F(MovieTest, shouldGenerateMovieTitle)
 {
     const auto generatedMovieTitle = Movie::movieTitle();
 
-    ASSERT_TRUE(std::ranges::any_of(movieTitles, [generatedMovieTitle](const std::string& movieTitle)
+    ASSERT_TRUE(std::ranges::any_of(movies, [generatedMovieTitle](const std::string& movieTitle)
                                     { return generatedMovieTitle == movieTitle; }));
+}
+
+TEST_F(MovieTest, shouldGenerateTvShow)
+{
+    const auto generatedTvShow = Movie::tvShow();
+
+    ASSERT_TRUE(std::ranges::any_of(tvShows, [generatedTvShow](const std::string& tvShow)
+                                    { return generatedTvShow == tvShow; }));
 }
 
 TEST_F(MovieTest, shouldGenerateDirector)

@@ -85,5 +85,49 @@ public:
      * @endcode
      */
     static std::string productFullName();
+
+    /**
+     * @brief Returns a random valid ean13 code.
+     *
+     * @returns Ean13 code.
+     *
+     * @code
+     * Commerce::EAN13() // "1234567890128"
+     * @endcode
+     */
+    static std::string EAN13();
+
+    /**
+     * @brief Returns a random valid ean8 code.
+     *
+     * @returns Ean8 code.
+     *
+     * @code
+     * Commerce::EAN8() // "90311017"
+     * @endcode
+     */
+    static std::string EAN8();
+
+    /**
+     * @brief Returns a random valid isbn13 code.
+     *
+     * @returns Isbn13 code.
+     *
+     * @code
+     * Commerce::ISBN13() // "9781234567897"
+     * @endcode
+     */
+    static std::string ISBN13();
+
+    /**
+     * @brief Returns a random valid ISBN10 code.
+     *
+     * @returns Isbn10 code.
+     *
+     * @code
+     * Commerce::ISBN10() // "0200716018"
+     * @endcode
+     */
+    static std::string ISBN10();
 };
 }

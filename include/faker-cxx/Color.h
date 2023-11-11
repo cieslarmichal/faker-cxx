@@ -50,5 +50,39 @@ public:
      */
     static std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash,
                            bool includeAlpha = false);
+
+    /**
+     * @brief Returns an HSL color.
+     *
+     * @param includeAlpha Adds an alpha value to the color (HSLA). Defaults to `false`.
+     * @returns HSL color formatted with hsl(X,X,X) or hsla(X,X,X,X).
+     * @code
+     * Color::hsl() // "hsl(0, 20, 100)"
+     * Color::hsl(true) // "hsla(0, 0, 100, 0.50)"
+     * @endcode
+     */
+    static std::string hsl(bool includeAlpha = false);
+
+    /**
+     * @brief Returns an LCH color.
+     *
+     * @param includeAlpha Adds an alpha value to the color (LCHA). Defaults to `false`.
+     * @returns LCH color formatted with lch(X,X,X) or lcha(X,X,X,X).
+     * @code
+     * Color::lch() // "lch(0, 20, 100)"
+     * Color::lch(true) // "lcha(0, 0, 100, 0.50)"
+     * @endcode
+     */
+    static std::string lch(bool includeAlpha = false);
+
+    /**
+     * @brief Return a CMYK color
+     *
+     * @returns CMYK color formatted with cmyk(X,X,X,X)
+     * @code
+     * Color::cmyk() // "cmyk(0.72, 0.88, 0.00, 0.06)"
+     * @endcode
+     */
+    static std::string cmyk();
 };
 }

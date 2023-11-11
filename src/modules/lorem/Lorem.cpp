@@ -1,10 +1,9 @@
 #include "faker-cxx/Lorem.h"
 
-#include <format>
-
 #include "../../common/StringHelper.h"
 #include "data/LoremWords.h"
 #include "faker-cxx/Helper.h"
+#include "fmt/format.h"
 
 namespace faker
 {
@@ -31,7 +30,7 @@ std::string Lorem::sentence(unsigned minNumberOfWords, unsigned maxNumberOfWords
 
     const auto sentenceWords = words(numberOfWords);
 
-    return std::format("{}{}.", static_cast<char>(std::toupper(sentenceWords[0])), sentenceWords.substr(1));
+    return fmt::format("{}{}.", static_cast<char>(std::toupper(sentenceWords[0])), sentenceWords.substr(1));
 }
 
 std::string Lorem::sentences(unsigned minNumberOfSentences, unsigned maxNumberOfSentences)

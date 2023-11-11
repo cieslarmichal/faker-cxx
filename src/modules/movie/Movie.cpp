@@ -4,7 +4,8 @@
 #include "data/Actresses.h"
 #include "data/Directors.h"
 #include "data/Genres.h"
-#include "data/MovieTitles.h"
+#include "data/Movies.h"
+#include "data/TvShows.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
@@ -16,7 +17,12 @@ std::string Movie::genre()
 
 std::string Movie::movieTitle()
 {
-    return Helper::arrayElement<std::string>(movieTitles);
+    return Helper::arrayElement<std::string>(movies);
+}
+
+std::string Movie::tvShow()
+{
+    return Helper::arrayElement<std::string>(tvShows);
 }
 
 std::string Movie::director()
@@ -33,4 +39,5 @@ std::string Movie::actress()
 {
     return Helper::arrayElement<std::string>(actresses);
 }
+
 }

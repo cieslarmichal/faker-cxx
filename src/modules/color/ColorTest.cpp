@@ -88,3 +88,106 @@ TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
     ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
                                     { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
+
+TEST_F(ColorTest, shouldGenerateHslWithoutAlpha)
+{
+    const auto generatedHslColor = faker::Color::hsl();
+    const auto hslValues = faker::StringHelper::split(generatedHslColor.substr(4, generatedHslColor.size() - 1), " ");
+
+    int hue, staturation, lightness;
+
+    std::from_chars(hslValues[0].data(), hslValues[0].data() + hslValues[0].size(), hue);
+    std::from_chars(hslValues[1].data(), hslValues[1].data() + hslValues[1].size(), staturation);
+    std::from_chars(hslValues[2].data(), hslValues[2].data() + hslValues[2].size(), lightness);
+
+    ASSERT_TRUE(generatedHslColor.starts_with("hsl("));
+    ASSERT_TRUE(generatedHslColor.ends_with(")"));
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+    ASSERT_TRUE(staturation >= 0 && staturation <= 100);
+    ASSERT_TRUE(lightness >= 0 && lightness <= 100);
+}
+
+TEST_F(ColorTest, shouldGenerateHslWithAlpha)
+{
+    const auto generatedHslaColor = faker::Color::hsl(true);
+    const auto hslValues = faker::StringHelper::split(generatedHslaColor.substr(5, generatedHslaColor.size() - 1), " ");
+
+    int hue, staturation, lightness;
+
+    std::from_chars(hslValues[0].data(), hslValues[0].data() + hslValues[0].size(), hue);
+    std::from_chars(hslValues[1].data(), hslValues[1].data() + hslValues[1].size(), staturation);
+    std::from_chars(hslValues[2].data(), hslValues[2].data() + hslValues[2].size(), lightness);
+
+    auto offset = hslValues[3].size();
+    const auto alpha = std::stod(hslValues[3].data(), &offset);
+
+    ASSERT_TRUE(generatedHslaColor.starts_with("hsla("));
+    ASSERT_TRUE(generatedHslaColor.ends_with(")"));
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+    ASSERT_TRUE(staturation >= 0 && staturation <= 100);
+    ASSERT_TRUE(lightness >= 0 && lightness <= 100);
+    ASSERT_TRUE(alpha >= 0 && alpha <= 1);
+}
+
+TEST_F(ColorTest, shouldGenerateLchWithoutAlpha)
+{
+    const auto generatedLchColor = faker::Color::lch();
+    const auto lchValues = faker::StringHelper::split(generatedLchColor.substr(4, generatedLchColor.size() - 1), " ");
+
+    int luminance, chroma, hue;
+
+    std::from_chars(lchValues[0].data(), lchValues[0].data() + lchValues[0].size(), luminance);
+    std::from_chars(lchValues[1].data(), lchValues[1].data() + lchValues[1].size(), chroma);
+    std::from_chars(lchValues[2].data(), lchValues[2].data() + lchValues[2].size(), hue);
+
+    ASSERT_TRUE(generatedLchColor.starts_with("lch("));
+    ASSERT_TRUE(generatedLchColor.ends_with(")"));
+    ASSERT_TRUE(luminance >= 0 && luminance <= 100);
+    ASSERT_TRUE(chroma >= 0 && chroma <= 100);
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+}
+
+TEST_F(ColorTest, shouldGenerateLchWithAlpha)
+{
+    const auto generatedLchaColor = faker::Color::lch(true);
+    const auto lchValues = faker::StringHelper::split(generatedLchaColor.substr(5, generatedLchaColor.size() - 1), " ");
+
+    int luminance, chroma, hue;
+
+    std::from_chars(lchValues[0].data(), lchValues[0].data() + lchValues[0].size(), luminance);
+    std::from_chars(lchValues[1].data(), lchValues[1].data() + lchValues[1].size(), chroma);
+    std::from_chars(lchValues[2].data(), lchValues[2].data() + lchValues[2].size(), hue);
+
+    auto offset = lchValues[3].size();
+    const auto alpha = std::stod(lchValues[3].data(), &offset);
+
+    ASSERT_TRUE(generatedLchaColor.starts_with("lcha("));
+    ASSERT_TRUE(generatedLchaColor.ends_with(")"));
+    ASSERT_TRUE(luminance >= 0 && luminance <= 100);
+    ASSERT_TRUE(chroma >= 0 && chroma <= 100);
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+    ASSERT_TRUE(alpha >= 0 && alpha <= 1);
+}
+
+TEST_F(ColorTest, shouldGenerateCmykColor)
+{
+    const auto generatedCmykColor = faker::Color::cmyk();
+    const auto cmykValues =
+        faker::StringHelper::split(generatedCmykColor.substr(5, generatedCmykColor.size() - 1), " ");
+
+    auto offset = cmykValues[0].size();
+    const auto cyan = std::stod(cmykValues[0].data(), &offset);
+    offset = cmykValues[1].size();
+    const auto magenta = std::stod(cmykValues[1].data(), &offset);
+    offset = cmykValues[2].size();
+    const auto yellow = std::stod(cmykValues[2].data(), &offset);
+    offset = cmykValues[3].size();
+    const auto key = std::stod(cmykValues[3].data(), &offset);
+
+    ASSERT_TRUE(generatedCmykColor.starts_with("cmyk("));
+    ASSERT_TRUE(generatedCmykColor.ends_with(")"));
+    ASSERT_TRUE(0. <= cyan && cyan <= 1.);
+    ASSERT_TRUE(0. <= magenta && magenta <= 1.);
+    ASSERT_TRUE(0. <= yellow && yellow <= 1.);
+    ASSERT_TRUE(0. <= key && key <= 1.);
+}
