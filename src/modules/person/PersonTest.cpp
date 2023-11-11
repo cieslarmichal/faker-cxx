@@ -35,6 +35,9 @@
 #include "data/russian/RussianFirstNamesMales.h"
 #include "data/russian/RussianLastNamesFemales.h"
 #include "data/russian/RussianLastNamesMales.h"
+#include "data/spanish/SpanishFirstNamesFemales.h"
+#include "data/spanish/SpanishFirstNamesMales.h"
+#include "data/spanish/SpanishLastNames.h"
 #include "src/common/StringHelper.h"
 #include "src/modules/person/data/nepalese/NepaleseFirstNamesFemales.h"
 #include "src/modules/person/data/nepalese/NepaleseFirstNamesMales.h"
@@ -60,6 +63,7 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirs
     {Language::Hindi, {{Sex::Male, indianFirstNamesMales}, {Sex::Female, indianFirstNamesFemales}}},
     {Language::Finnish, {{Sex::Male, finnishFirstNamesMales}, {Sex::Female, finnishFirstNamesFemales}}},
     {Language::Nepali, {{Sex::Male, nepaleseFirstNamesMales}, {Sex::Female, nepaleseFirstNamesFemales}}},
+    {Language::Spanish, {{Sex::Male, spanishFirstNamesMales}, {Sex::Female, spanishFirstNamesFemales}}},
 };
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
@@ -73,6 +77,7 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLast
     {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}},
     {Language::Finnish, {{Sex::Male, finnishLastNames}, {Sex::Female, finnishLastNames}}},
     {Language::Nepali, {{Sex::Male, nepaleseLastNames}, {Sex::Female, nepaleseLastNames}}},
+    {Language::Spanish, {{Sex::Male, spanishLastNames}, {Sex::Female, spanishLastNames}}},
 };
 
 const std::map<Language, std::string> generatedTestName{
@@ -81,6 +86,7 @@ const std::map<Language, std::string> generatedTestName{
     {Language::Polish, "shouldGeneratePolishName"},     {Language::Russian, "shouldGenerateRussianName"},
     {Language::Romanian, "shouldGenerateRomanianName"}, {Language::Hindi, "shouldGenerateIndianName"},
     {Language::Finnish, "shouldGenerateFinnishName"},   {Language::Nepali, "shouldGenerateNepaleseName"},
+    {Language::Spanish, "shouldGenerateSpanishName"},
 };
 }
 
