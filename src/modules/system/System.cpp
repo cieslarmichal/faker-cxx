@@ -51,47 +51,35 @@ std::string System::fileName(const FileOptions& options)
     return baseName + extensionsStr;
 }
 
-std::string System::fileExt(const std::optional<std::string>& mimeType)
+std::string System::fileExt(const std::optional<MimeType>& mimeType)
 {
-    if (mimeType.has_value() && !mimeType->empty())
+    if (mimeType.has_value())
     {
-        if (const auto it = std::ranges::find(mimeTypes, *mimeType); it != mimeTypes.end())
+        const auto mimeTypeName = toString(mimeType.value());
+        std::vector<std::string> extensions;
+        for (const auto& mime : mimeTypes)
         {
-            const std::string& extension = *it;
-            size_t pos = extension.find_last_of('/');
-            return extension.substr(pos + 1);
+            size_t pos = mime.find_first_of('/');
+            const auto mt = mime.substr(0, pos);
+            if (mimeTypeName == mt)
+            {
+                extensions.push_back(mime.substr(pos + 1));
+            }
         }
+        return Helper::arrayElement<std::string>(extensions);
     }
     else
     {
         std::set<std::string> extensionSet;
 
-        for (const auto& extension : mimeTypes)
+        for (const auto& mimeTypeName : mimeTypes)
         {
-            size_t pos = extension.find_last_of('/');
-            extensionSet.insert(extension.substr(pos + 1));
+            extensionSet.insert(extension(mimeTypeName));
         }
 
         std::vector<std::string> extensions(extensionSet.begin(), extensionSet.end());
         return Helper::arrayElement<std::string>(extensions);
     }
-
-    return "";
-}
-std::string System::fileExt(MimeType mimeType)
-{
-    const auto mimeTypeName = toString(mimeType);
-    std::vector<std::string> extensions;
-    for (const auto& mime : mimeTypes)
-    {
-        size_t pos = mime.find_first_of('/');
-        const auto mt = mime.substr(0, pos);
-        if (mimeTypeName == mt)
-        {
-            extensions.push_back(mime.substr(pos + 1));
-        }
-    }
-    return Helper::arrayElement<std::string>(extensions);
 }
 
 std::string System::commonFileName(const std::optional<std::string>& ext)

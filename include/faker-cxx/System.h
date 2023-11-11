@@ -35,20 +35,6 @@ public:
     /**
      * @brief Returns a file extension.
      *
-     * @param mimeType The optional string to use.
-     *
-     * @returns A file extension.
-     *
-     * @code
-     * System::fileExt() //  "wav"
-     * System::fileExt("application/pdf") // "pdf"
-     * @endcode
-     */
-    static std::string fileExt(const std::optional<std::string>& mimeType = std::nullopt);
-
-    /**
-     * @brief Returns a file extension.
-     *
      * @param mimeType value of MimeType enum.
      *
      * @returns A file extension.
@@ -57,7 +43,7 @@ public:
      * System::fileExt(MimeType::Image) // "png"
      * @endcode
      */
-    static std::string fileExt(MimeType mimeType);
+    static std::string fileExt(const std::optional<MimeType>& mimeType = std::nullopt);
 
     /**
      * Returns a random file name with a given extension or a commonly used extension.

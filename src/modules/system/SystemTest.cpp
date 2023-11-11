@@ -43,10 +43,6 @@ TEST_F(SystemTest, FileExtTestWithMimeType)
     std::string exampleFileExtension = System::fileExt();
 
     EXPECT_FALSE(exampleFileExtension.empty());
-
-    EXPECT_EQ(System::fileExt("image/png"), "png");
-    EXPECT_EQ(System::fileExt("application/pdf"), "pdf");
-    EXPECT_EQ(System::fileExt("text/html"), "html");
 }
 
 TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
