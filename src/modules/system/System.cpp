@@ -78,6 +78,21 @@ std::string System::fileExt(const std::optional<std::string>& mimeType)
 
     return "";
 }
+std::string System::fileExt(MimeType mimeType)
+{
+    const auto mimeTypeName = toString(mimeType);
+    std::vector<std::string> extensions;
+    for (const auto& mime : mimeTypes)
+    {
+        size_t pos = mime.find_first_of('/');
+        const auto mt = mime.substr(0, pos);
+        if (mimeTypeName == mt)
+        {
+            extensions.push_back(mime.substr(pos + 1));
+        }
+    }
+    return Helper::arrayElement<std::string>(extensions);
+}
 
 std::string System::commonFileName(const std::optional<std::string>& ext)
 {

@@ -1,5 +1,6 @@
 #pragma once
 
+#include <map>
 #include <string>
 #include <vector>
 
@@ -76,4 +77,21 @@ const std::vector<std::string> commonMimeTypes = {"application/pdf", "audio/mpeg
 
 const std::vector<std::string> commonFileTypes = {"video", "audio", "image", "text", "application"};
 
+enum class MimeType
+{
+    Video,
+    Audio,
+    Image,
+    Text,
+    Application
+};
+inline std::string toString(MimeType type)
+{
+    std::map<MimeType, std::string> enumToStringMapping{{MimeType::Video, "video"},
+                                                        {MimeType::Audio, "audio"},
+                                                        {MimeType::Image, "image"},
+                                                        {MimeType::Text, "text"},
+                                                        {MimeType::Application, "application"}};
+    return enumToStringMapping.at(type);
+}
 }

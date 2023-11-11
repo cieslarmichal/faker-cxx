@@ -49,6 +49,77 @@ TEST_F(SystemTest, FileExtTestWithMimeType)
     EXPECT_EQ(System::fileExt("text/html"), "html");
 }
 
+TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
+{
+    auto image = MimeType::Image;
+    auto audio = MimeType::Audio;
+    auto video = MimeType::Video;
+    auto text = MimeType::Text;
+    auto application = MimeType::Application;
+
+    std::vector<std::string> imageExtensions;
+    for (const auto& mimeType : mimeTypes)
+    {
+        size_t pos = mimeType.find_first_of('/');
+        const auto ext = mimeType.substr(0, pos);
+        if (ext == toString(image))
+        {
+            imageExtensions.push_back(mimeType.substr(pos + 1));
+        }
+    }
+    std::vector<std::string> audioExtensions;
+    for (const auto& mimeType : mimeTypes)
+    {
+        size_t pos = mimeType.find_first_of('/');
+        const auto ext = mimeType.substr(0, pos);
+        if (ext == toString(audio))
+        {
+            audioExtensions.push_back(mimeType.substr(pos + 1));
+        }
+    }
+    std::vector<std::string> videoExtensions;
+    for (const auto& mimeType : mimeTypes)
+    {
+        size_t pos = mimeType.find_first_of('/');
+        const auto ext = mimeType.substr(0, pos);
+        if (ext == toString(video))
+        {
+            videoExtensions.push_back(mimeType.substr(pos + 1));
+        }
+    }
+    std::vector<std::string> textExtensions;
+    for (const auto& mimeType : mimeTypes)
+    {
+        size_t pos = mimeType.find_first_of('/');
+        const auto ext = mimeType.substr(0, pos);
+        if (ext == toString(text))
+        {
+            textExtensions.push_back(mimeType.substr(pos + 1));
+        }
+    }
+    std::vector<std::string> applicationExtensions;
+    for (const auto& mimeType : mimeTypes)
+    {
+        size_t pos = mimeType.find_first_of('/');
+        const auto ext = mimeType.substr(0, pos);
+        if (ext == toString(application))
+        {
+            applicationExtensions.push_back(mimeType.substr(pos + 1));
+        }
+    }
+    auto imageExt = System::fileExt(image);
+    auto audioExt = System::fileExt(audio);
+    auto videoExt = System::fileExt(video);
+    auto textExt = System::fileExt(text);
+    auto applicationExt = System::fileExt(application);
+
+    EXPECT_TRUE(std::ranges::find(imageExtensions, imageExt) != imageExtensions.end());
+    EXPECT_TRUE(std::ranges::find(audioExtensions, audioExt) != audioExtensions.end());
+    EXPECT_TRUE(std::ranges::find(videoExtensions, videoExt) != videoExtensions.end());
+    EXPECT_TRUE(std::ranges::find(textExtensions, textExt) != textExtensions.end());
+    EXPECT_TRUE(std::ranges::find(applicationExtensions, applicationExt) != applicationExtensions.end());
+}
+
 TEST_F(SystemTest, CommonFileNameWithEmptyExtensionTest)
 {
 

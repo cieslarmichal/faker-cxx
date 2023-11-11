@@ -47,6 +47,19 @@ public:
     static std::string fileExt(const std::optional<std::string>& mimeType = std::nullopt);
 
     /**
+     * @brief Returns a file extension.
+     *
+     * @param mimeType value of MimeType enum.
+     *
+     * @returns A file extension.
+     *
+     * @code
+     * System::fileExt(MimeType::Image) // "png"
+     * @endcode
+     */
+    static std::string fileExt(MimeType mimeType);
+
+    /**
      * Returns a random file name with a given extension or a commonly used extension.
      *
      * @param ext Optional extension parameter.
