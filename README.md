@@ -1,10 +1,10 @@
 <h1>C++ Faker</h1>
 
-[![clang](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml?query=branch%3Amain)
+[![clang++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml?query=branch%3Amain)
+[![apple clang++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/macos-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/macos-clang-build.yml?query=branch%3Amain)
 [![g++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-gxx-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-gxx-build.yml?query=branch%3Amain)
 [![msvc](https://github.com/cieslarmichal/faker-cxx/actions/workflows/windows-msvc-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/windows-msvc-build.yml?query=branch%3Amain)
 [![codecov](https://codecov.io/github/cieslarmichal/faker-cxx/branch/main/graph/badge.svg?token=0RTV4JFH2U)](https://codecov.io/github/cieslarmichal/faker-cxx)
-[![GitHub](https://img.shields.io/github/license/cieslarmichal/faker-cxx)](https://github.com/cieslarmichal/faker-cxx/blob/main/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Discord Shield](https://img.shields.io/badge/discord-join-blue)](https://discord.gg/h2ur8H6mK6)
 
@@ -12,7 +12,9 @@ C++ Faker is a modern C++20 open-source library for generating fake data for tes
 
 The library is heavily inspired by [Faker.js](https://github.com/faker-js/faker).
 
-Dependencies: GTest for building library tests (can be disabled by setting CMake flag BUILD_FAKER_TESTS=OFF)
+Dependencies: 
+ - GTest: building tests (BUILD_FAKER_TESTS=OFF CMake flag to disable)
+ - fmt
 
 ## 🎯 Goal
 
@@ -20,7 +22,7 @@ My goal is to provide a library like [Faker.js](https://github.com/faker-js/fake
 
 ## Example
 
-Lets dive into some simple example of generating fake data
+Lets see some simple example of generating fake data
 
 ```cpp
 #include <format>
@@ -52,18 +54,21 @@ int main()
 }
 ```
 
-## Requirements
-
-### Compiler Support
-
+## Compiler support
 - [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
 - [GCC➚](https://gcc.gnu.org/) version 13 or newer.
 - [Clang➚](https://clang.llvm.org/) version 16 or newer.
+- [Apple Clang➚](https://clang.llvm.org/) version 16 or newer.
 
-### [CMake](https://cmake.org/) version 3.22 or newer
+## Consuming library with CMake (CMake version 3.22 or newer)
 
-## Consuming library with CMake
-
+1. Add faker to git submodules (execute in project root):
+```
+mkdir externals
+cd externals
+git submodule add https://github.com/cieslarmichal/faker-cxx.git
+```
+2. Link with library:
 ```cmake
 set(BUILD_FAKER_TESTS OFF)
 
@@ -76,26 +81,39 @@ target_link_libraries(main faker-cxx)
 
 ## 💎 Modules
 
-- 🌐 Internet - Generate emails, usernames, passwords, images urls
-- 🌍 Location - Generate countries, cities, zip codes, street addresses
-- 🧑 Person - Generate first, last names, job titles, genders, sex
-- 📞 Phone - Generate phone number, IMEI
-- 🛒 Commerce - Generate commerce department, product name, sku, price
-- 📅 Date - Generate past, future dates
-- 🏦 Finance - Generate currency, IBAN, BIC, account name, account number, pin, credit card numbers
-- 🏢 Company - Generate company name, type, industry, catch phrase, buzz phrase
-- 🔢 Number - Generate random integers, floating point numbers
-- ✍ Word - Generate sample words, nouns, verbs etc
-- 🎨 Color - Generate color names, rgb, hex
-- 📖 Book - Generate book title, genre, author, publisher, ISBN
-- 📚 Lorem - Generate lorem words, sentences, paragraphs
-- 🔢 String - Generate uuids, alphanumeric, numeric, hexadecimal
-- 💻 System - Generate file paths, file extensions, file names, directories, semantic version
-- Database - Generate column names, column types, database engines
-- 🎶 Music - Generate artists, song names, genres
-- 🎥 Movie - Generate actors, actresses, genres, movie titles
+- 🛩 Airline - aircraft types, airlines, airports, flight numbers
+- 🐼 Animal - animal types and species
+- 📖 Book - book title, genre, author, publisher, ISBN
+- 🎨 Color - color names, rgb, hex, hcl
+- 🛒 Commerce - commerce department, product name, sku, price
+- 🏢 Company - company name, type, industry, catch phrase, buzz phrase
+- 💾 Database - column names, column types, database engines
+- ℹ️ Datatype - booleans
+- 📅 Date - past, future dates
+- 🏦 Finance - currency, IBAN, BIC, account name, account number, pin, credit card numbers
+- 📁 Git - branch names, commit messages, commit hash 
+- 👨‍💻 Hacker - hacker words
+- ✋ Helper - random element from container
+- 🌐 Internet - emails, usernames, passwords, IP, HTTP
+- 🖼️ Image - images urls, github avatar urls, image dimensions
+- 🌍 Location - countries, cities, zip codes, street addresses
+- 📚 Lorem - lorem words, sentences, paragraphs
+- 🏥 Medicine - conditions, medical tests, specialties
+- 🎥 Movie - actors, actresses, genres, movie titles
+- 🎶 Music - artists, song names, genres
+- 🔢 Number - random integers, floating point numbers
+- 🧑 Person - first, last names, job titles, hobby, genders, sex, nationalitiy, language
+- 📞 Phone - phone number, IMEI
+- ⚽ Sport - sport names, athletes, events
+- 🔢 String - uuids, alphanumeric, numeric, hexadecimal
+- 💻 System - file paths, file extensions, file names, directories, semantic version
+- 🎮 Video game - title, genre, platform, studio
+- 🌤️ Weather - temperature, pressure, humidity, weather description
+- 💬 Word - sample words, nouns, verbs
 
-### 🔨 [TODO Modules](https://github.com/cieslarmichal/faker-cxx/blob/main/TODO.md)
+## 📖 Documentation
+
+https://cieslarmichal.github.io/faker-cxx/
 
 ## ✨ Contributing
 
@@ -107,7 +125,7 @@ Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main
 
 <br />
 
-## Building from sources with Clang 16
+## 🔨 Building from sources with Clang 16
 
 #### 1. Install Clang 16
 
@@ -138,7 +156,7 @@ cd build
 cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
 ```
 
-#### 4. Build 🔨
+#### 4. Build
 
 ```
 make

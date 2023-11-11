@@ -3,7 +3,8 @@
 #include <chrono>
 #include <random>
 #include <regex>
-#include <string_view>
+#include <string>
+#include <vector>
 
 #include "../src/common/LuhnCheck.h"
 #include "../src/common/StringHelper.h"

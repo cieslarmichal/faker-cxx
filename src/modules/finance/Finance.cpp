@@ -1,8 +1,6 @@
 #include "faker-cxx/Finance.h"
 
-#include <format>
-
-#include "../../common/mappers/PrecisionMapper.h"
+#include "../../common/mappers/precisionMapper/PrecisionMapper.h"
 #include "data/AccountTypes.h"
 #include "data/BankIndentifiersCodes.h"
 #include "data/CreditCardsFormats.h"
@@ -11,6 +9,7 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
+#include "fmt/format.h"
 
 namespace faker
 {
@@ -60,18 +59,17 @@ std::string Finance::amount(double min, double max, Precision precision, const s
 
     ss << std::fixed;
 
-    ss.precision(PrecisionMapper::toDecimalPlaces(precision));
+    ss.precision(PrecisionMapper::mapToDecimalPlaces(precision));
 
     ss << generatedNumber;
 
-    return std::format("{}{}", symbol, ss.str());
+    return fmt::format("{}{}", symbol, ss.str());
 }
 
 std::string Finance::iban(std::optional<IbanCountry> country)
 {
     const auto ibanCountry = country ? *country : Helper::arrayElement<IbanCountry>(supportedIbanCountries);
 
-    // TODO: error handling
     const auto& ibanFormat = ibanFormats.at(ibanCountry);
 
     const auto& countryCode = ibanFormat[0];
@@ -106,7 +104,6 @@ std::string Finance::bic(std::optional<BicCountry> country)
 {
     const auto bicCountry = country ? *country : Helper::arrayElement<BicCountry>(supportedBicCountries);
 
-    // TODO: error handling
     return Helper::arrayElement<std::string>(bankIdentifiersCodesMapping.at(bicCountry));
 }
 

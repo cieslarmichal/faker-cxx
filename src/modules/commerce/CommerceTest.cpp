@@ -29,8 +29,8 @@ TEST_F(CommerceTest, shouldGeneratePrice)
 {
     const auto generatedPrice = Commerce::price(100, 10000);
 
-    auto priceAsFloat{0.0f};
-    std::from_chars(generatedPrice.data(), generatedPrice.data() + generatedPrice.size(), priceAsFloat);
+    auto offset = generatedPrice.size();
+    const auto priceAsFloat = std::stof(generatedPrice.data(), &offset);
 
     const auto generatedPriceElements = StringHelper::split(generatedPrice, ".");
 
@@ -110,4 +110,94 @@ TEST_F(CommerceTest, shouldGenerateProductName)
 
     ASSERT_TRUE(std::ranges::any_of(productNames, [generatedProductName](const std::string& productName)
                                     { return productName == generatedProductName; }));
+}
+
+TEST_F(CommerceTest, shouldGenerateEan13)
+{
+    const auto generatedEan13 = Commerce::EAN13();
+
+    int sum = 0;
+    for (size_t i = 0; i < 13; i++)
+    {
+        if (i % 2 == 0)
+        {
+            sum += (generatedEan13[i] - '0');
+        }
+        else
+        {
+            sum += 3 * (generatedEan13[i] - '0');
+        }
+    }
+
+    ASSERT_EQ(generatedEan13.size(), 13);
+    ASSERT_TRUE(sum % 10 == 0);
+}
+
+TEST_F(CommerceTest, shouldGenerateEan8)
+{
+    const auto generatedEan8 = Commerce::EAN8();
+
+    int sum = 0;
+    for (size_t i = 0; i < 8; i++)
+    {
+        if (i % 2 == 0)
+        {
+            sum += 3 * (generatedEan8[i] - '0');
+        }
+        else
+        {
+            sum += (generatedEan8[i] - '0');
+        }
+    }
+
+    ASSERT_EQ(generatedEan8.size(), 8);
+    ASSERT_TRUE(sum % 10 == 0);
+}
+
+TEST_F(CommerceTest, shouldGenerateIsbn13)
+{
+    const auto generatedIsbn13 = Commerce::ISBN13();
+
+    int sum = 0;
+    for (size_t i = 0; i < 13; i++)
+    {
+        if (i % 2 == 0)
+        {
+            sum += (generatedIsbn13[i] - '0');
+        }
+        else
+        {
+            sum += 3 * (generatedIsbn13[i] - '0');
+        }
+    }
+
+    ASSERT_EQ(generatedIsbn13.size(), 13);
+    ASSERT_TRUE(sum % 10 == 0);
+}
+
+TEST_F(CommerceTest, shouldGenerateIsbn10)
+{
+    const auto generatedIsbn10 = Commerce::ISBN10();
+
+    int sum = 0, weight = 10;
+    if (generatedIsbn10[9] == 'X')
+    {
+        for (size_t i = 0; i < 9; i++)
+        {
+            sum += (generatedIsbn10[i] - '0') * weight;
+            weight--;
+        }
+        sum += 10;
+    }
+    else
+    {
+        for (size_t i = 0; i < 10; i++)
+        {
+            sum += (generatedIsbn10[i] - '0') * weight;
+            weight--;
+        }
+    }
+
+    ASSERT_EQ(generatedIsbn10.size(), 10);
+    ASSERT_TRUE(sum % 11 == 0);
 }

@@ -135,5 +135,39 @@ public:
      * @endcode
      */
     static std::string jobType();
+
+    /**
+     * @brief Returns a random hobby.
+     *
+     * @returns Hobby.
+     *
+     * @code
+     * Person::hobby() // "Gaming"
+     * @endcode
+     */
+    static std::string hobby();
+
+    /**
+     * @brief Returns a random language.
+     *
+     * @returns Language.
+     *
+     * @code
+     * Person::language() // "Polish"
+     * @endcode
+     */
+    static std::string language();
+
+    /**
+     * @brief Returns a random nationality.
+     *
+     * @returns Nationality.
+     *
+     * @code
+     * Person::nationality() // "Romanian"
+     * @endcode
+     */
+
+    static std::string nationality();
 };
 }
