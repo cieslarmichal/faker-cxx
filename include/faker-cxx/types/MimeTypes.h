@@ -71,6 +71,42 @@ const std::vector<std::string> mimeTypes = {"application/atom+xml",
                                             "video/x-msvideo",
                                             "video/x-flv"};
 
+// Only contains non obvious extensions.
+const std::map<std::string, std::string> mimeTypesExtensions{
+    {"application/atom+xml", "xml"},
+    {"application/font-woff", "woff"},
+    {"application/gzip", "gz"},
+    {"application/java-archive", "jar"},
+    {"application/javascript", "js"},
+    {"application/ld+json", "jsonld"},
+    {"application/msword", "doc"},
+    {"application/octet-stream", "bin"},
+    {"application/ogg", "ogx"},
+    {"application/vnd.ms-excel", "xls"},
+    {"application/vnd.ms-fontobject", "eot"},
+    {"application/vnd.openxmlformats-officedocument.presentationml.presentation", "pptx"},
+    {"application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "xlsx"},
+    {"application/vnd.openxmlformats-officedocument.wordprocessingml.document", "docx"},
+    {"application/x-7z-compressed", "7z"},
+    {"application/x-tar", "tart"},
+    {"application/xhtml+xml", "xhtml"},
+
+    {"audio/ogg", "oga"},
+    {"audio/webm", "weba"},
+    {"audio/mpeg", "mp3"},
+
+    {"image/svg+xml", "svg"},
+
+    {"text/calendar", "ics"},
+    {"text/javascript", "js"},
+    {"text/plain", "txt"},
+
+    {"video/3gpp", "3gp"},
+    {"video/3gpp2", "3g2"},
+    {"video/mp2t", "ts"},
+    {"video/ogg", "ogv"},
+    {"video/x-msvideo", "avi"}};
+
 const std::vector<std::string> commonMimeTypes = {"application/pdf", "audio/mpeg", "audio/wav",
                                                   "image/png",       "image/jpeg", "image/gif",
                                                   "video/mp4",       "video/mpeg", "text/html"};
@@ -93,5 +129,18 @@ inline std::string toString(MimeType type)
                                                         {MimeType::Text, "text"},
                                                         {MimeType::Application, "application"}};
     return enumToStringMapping.at(type);
+}
+inline std::string extension(const std::string& mimeType)
+{
+    const auto it = mimeTypesExtensions.find(mimeType);
+    if (it == mimeTypesExtensions.end())
+    {
+        auto pos = mimeType.find_last_of('/');
+        return mimeType.substr(pos + 1);
+    }
+    else
+    {
+        return it->second;
+    }
 }
 }

@@ -111,8 +111,8 @@ std::string System::commonFileName(const std::optional<std::string>& ext)
 
 std::string System::commonFileExt()
 {
-    std::optional<std::string> mimeType = Helper::arrayElement<std::string>(commonMimeTypes);
-    return fileExt(mimeType);
+    std::string mimeType = Helper::arrayElement<std::string>(commonMimeTypes);
+    return extension(mimeType);
 }
 
 std::string System::mimeType()
