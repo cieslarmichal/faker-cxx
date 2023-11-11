@@ -7,7 +7,9 @@ var searchData=
   ['filetype_4',['fileType',['../classfaker_1_1System.html#a96a32229dd0e8675f6943bbf7f915ff9',1,'faker::System']]],
   ['firstname_5',['firstName',['../classfaker_1_1Person.html#a28f5846e5d14f92edf6da8c9ae193550',1,'faker::Person']]],
   ['fish_6',['fish',['../classfaker_1_1Animal.html#a4dab9869c9f5a83781ec5cfb4e8d1caf',1,'faker::Animal']]],
-  ['fromcharacters_7',['fromCharacters',['../classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331',1,'faker::String']]],
-  ['fullname_8',['fullName',['../classfaker_1_1Person.html#aff8a4e9459c364335efe03253c8e6e0b',1,'faker::Person']]],
-  ['futuredate_9',['futureDate',['../classfaker_1_1Date.html#a4c61956c545c6ab65dc63617f24394ae',1,'faker::Date']]]
+  ['foodcategory_7',['foodCategory',['../classfaker_1_1Food.html#aff335b6362c046dae5b8a4cf9c959ec7',1,'faker::Food']]],
+  ['fromcharacters_8',['fromCharacters',['../classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331',1,'faker::String']]],
+  ['fruit_9',['fruit',['../classfaker_1_1Food.html#ad0177582320bbef7af5a2f56a0e6b721',1,'faker::Food']]],
+  ['fullname_10',['fullName',['../classfaker_1_1Person.html#aff8a4e9459c364335efe03253c8e6e0b',1,'faker::Person']]],
+  ['futuredate_11',['futureDate',['../classfaker_1_1Date.html#a4c61956c545c6ab65dc63617f24394ae',1,'faker::Date']]]
 ];

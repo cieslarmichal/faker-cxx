@@ -11,11 +11,12 @@ var searchData=
   ['airlinestruct_8',['AirlineStruct',['../structfaker_1_1Airline_1_1AirlineStruct.html',1,'faker::Airline']]],
   ['airplane_9',['Airplane',['../structfaker_1_1Airline_1_1Airplane.html',1,'faker::Airline']]],
   ['airport_10',['Airport',['../structfaker_1_1Airline_1_1Airport.html',1,'faker::Airline']]],
-  ['alpha_11',['alpha',['../classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db',1,'faker::String']]],
-  ['alphanumeric_12',['alphanumeric',['../classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398',1,'faker::String']]],
-  ['amount_13',['amount',['../classfaker_1_1Finance.html#af5ef8556903d06d1fdbedf48275dc688',1,'faker::Finance']]],
-  ['animal_14',['Animal',['../classfaker_1_1Animal.html',1,'faker']]],
-  ['arrayelement_15',['arrayElement',['../classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b',1,'faker::Helper']]],
-  ['artist_16',['artist',['../classfaker_1_1Music.html#a2576c6c8c092ee5eec85aebf3e6a7702',1,'faker::Music']]],
-  ['author_17',['author',['../classfaker_1_1Book.html#a81eeda6350d328c56043bff85342e4d4',1,'faker::Book']]]
+  ['alcoholicbeverage_11',['alcoholicBeverage',['../classfaker_1_1Food.html#a540fc539d7a2729a0a101c1d0ba28b22',1,'faker::Food']]],
+  ['alpha_12',['alpha',['../classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db',1,'faker::String']]],
+  ['alphanumeric_13',['alphanumeric',['../classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398',1,'faker::String']]],
+  ['amount_14',['amount',['../classfaker_1_1Finance.html#af5ef8556903d06d1fdbedf48275dc688',1,'faker::Finance']]],
+  ['animal_15',['Animal',['../classfaker_1_1Animal.html',1,'faker']]],
+  ['arrayelement_16',['arrayElement',['../classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b',1,'faker::Helper']]],
+  ['artist_17',['artist',['../classfaker_1_1Music.html#a2576c6c8c092ee5eec85aebf3e6a7702',1,'faker::Music']]],
+  ['author_18',['author',['../classfaker_1_1Book.html#a81eeda6350d328c56043bff85342e4d4',1,'faker::Book']]]
 ];
