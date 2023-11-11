@@ -28,7 +28,7 @@ std::string System::fileName(const FileOptions& options)
         {
             for (int i = 0; i < options.extensionCount; ++i)
             {
-                std::string randomExt = fileExt();
+                std::string randomExt = fileExtension();
                 randomExtensions.push_back(randomExt);
             }
             extensionsStr = "." + StringHelper::join(randomExtensions, ".");
@@ -41,7 +41,7 @@ std::string System::fileName(const FileOptions& options)
 
             for (int i = 0; i < numExtensions; ++i)
             {
-                std::string randomExt = fileExt();
+                std::string randomExt = fileExtension();
                 randomExtensions.push_back(randomExt);
             }
 
@@ -51,7 +51,7 @@ std::string System::fileName(const FileOptions& options)
     return baseName + extensionsStr;
 }
 
-std::string System::fileExt(const std::optional<FileType>& mimeType)
+std::string System::fileExtension(const std::optional<FileType>& mimeType)
 {
     if (mimeType.has_value())
     {
@@ -93,11 +93,11 @@ std::string System::commonFileName(const std::optional<std::string>& ext)
     }
     else
     {
-        return str + "." + commonFileExt();
+        return str + "." + commonFileExtension();
     }
 }
 
-std::string System::commonFileExt()
+std::string System::commonFileExtension()
 {
     std::string mimeType = Helper::arrayElement<std::string>(commonMimeTypes);
     return extension(mimeType);

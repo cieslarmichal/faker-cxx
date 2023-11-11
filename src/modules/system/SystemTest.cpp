@@ -40,7 +40,7 @@ TEST_F(SystemTest, FileNameTestWithExtensionCount)
 
 TEST_F(SystemTest, FileExtTestWithMimeType)
 {
-    std::string exampleFileExtension = System::fileExt();
+    std::string exampleFileExtension = System::fileExtension();
 
     EXPECT_FALSE(exampleFileExtension.empty());
 }
@@ -103,11 +103,11 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
             applicationExtensions.push_back(mimeType.substr(pos + 1));
         }
     }
-    auto imageExt = System::fileExt(image);
-    auto audioExt = System::fileExt(audio);
-    auto videoExt = System::fileExt(video);
-    auto textExt = System::fileExt(text);
-    auto applicationExt = System::fileExt(application);
+    auto imageExt = System::fileExtension(image);
+    auto audioExt = System::fileExtension(audio);
+    auto videoExt = System::fileExtension(video);
+    auto textExt = System::fileExtension(text);
+    auto applicationExt = System::fileExtension(application);
 
     EXPECT_TRUE(std::ranges::find(imageExtensions, imageExt) != imageExtensions.end());
     EXPECT_TRUE(std::ranges::find(audioExtensions, audioExt) != audioExtensions.end());
