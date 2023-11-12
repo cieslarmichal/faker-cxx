@@ -15,6 +15,8 @@
 
 namespace faker
 {
+// TODO: add internalization
+
 std::string Company::name()
 {
     std::string companyName;

@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> indianFirstNamesMales = {
+const std::vector<std::string> indianMalesFirstNames = {
     "Aadi",      "Aadil",      "Aahan",     "Aarav",       "Aarit",     "Aarush",   "Aaryan",    "Aaryav",
     "Aayush",    "Abeer",      "Abhay",     "Abhinav",     "Abhishek",  "Abhiyay",  "Adarsh",    "Adhvait",
     "Aditya",    "Advait",     "Advay",     "Ahaan",       "Akash",     "Akhil",    "Akhilesh",  "Akshant",
@@ -52,7 +52,7 @@ const std::vector<std::string> indianFirstNamesMales = {
     "Yuvansh",   "Yuvraj",     "Yuvraja",   "Zaheer",      "Zahir",     "Zain",     "Zayyan",
 };
 
-const std::vector<std::string> indianFirstNamesFemales = {
+const std::vector<std::string> indianFemalesFirstNames = {
     "Aadrika",  "Aadya",      "Aakriti",  "Aanya",     "Aanyaya",   "Aaradhya",  "Aarohi",     "Aashi",     "Aashika",
     "Adhithi",  "Aditi",      "Aisha",    "Akshara",   "Alia",      "Amaira",    "Amara",      "Ananya",    "Anika",
     "Anisha",   "Anushka",    "Anvi",     "Anwaya",    "Aria",      "Arunima",   "Avani",      "Avishi",    "Avni",
