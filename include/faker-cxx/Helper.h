@@ -9,6 +9,7 @@
 
 namespace faker
 {
+// TODO: Add error handling if data empty
 class Helper
 {
 public:
@@ -29,6 +30,11 @@ public:
     template <class T>
     static T arrayElement(std::span<const T> data)
     {
+        if (data.empty())
+        {
+            throw std::invalid_argument{"Data is empty."};
+        }
+
         const auto index = Number::integer<size_t>(data.size() - 1);
 
         return data[index];
@@ -37,9 +43,55 @@ public:
     template <class T>
     static T arrayElement(const std::vector<T>& data)
     {
+        if (data.empty())
+        {
+            throw std::invalid_argument{"Data is empty."};
+        }
+
         const auto index = Number::integer<size_t>(data.size() - 1);
 
         return data[index];
+    }
+
+    template <class T>
+    struct WeightedElement
+    {
+        unsigned weight;
+        T value;
+    };
+
+    template <class T>
+    static T weightedArrayElement(const std::vector<WeightedElement<T>>& data)
+    {
+        if (data.empty())
+        {
+            throw std::invalid_argument{"Data is empty."};
+        }
+
+        const auto sumOfWeights =
+            std::accumulate(data.begin(), data.end(), 0u,
+                            [](size_t sum, const WeightedElement<T>& element) { return sum + element.weight; });
+
+        if (sumOfWeights == 0)
+        {
+            throw std::invalid_argument{"Sum of weights is zero."};
+        }
+
+        const std::integral auto targetWeightValue = Number::integer<unsigned>(sumOfWeights);
+
+        unsigned currentSum = 0;
+
+        for (const auto& element : data)
+        {
+            currentSum += element.weight;
+
+            if (targetWeightValue <= currentSum)
+            {
+                return element.value;
+            }
+        }
+
+        return data.at(data.size() - 1).value;
     }
 
     /**

@@ -8,6 +8,7 @@ struct PeopleNames
 {
     PersonNames malesNames;
     PersonNames femalesNames;
+    NameFormats nameFormats;
 };
 
 inline bool operator==(const PeopleNames& lhs, const PeopleNames& rhs)

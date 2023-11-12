@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::string englishMalePrefixes{"Mr."};
+const std::vector<std::string> englishMalesPrefixes{"Mr.", "Dr."};
 
-const std::vector<std::string> englishFemalePrefixes{"Ms.", "Miss"};
+const std::vector<std::string> englishFemalesPrefixes{"Mrs.", "Ms.", "Miss", "Dr."};
 }
