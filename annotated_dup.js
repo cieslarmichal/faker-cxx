@@ -14,7 +14,7 @@ var annotated_dup =
       [ "Food", "classfaker_1_1Food.html", null ],
       [ "Git", "classfaker_1_1Git.html", null ],
       [ "Hacker", "classfaker_1_1Hacker.html", null ],
-      [ "Helper", "classfaker_1_1Helper.html", null ],
+      [ "Helper", "classfaker_1_1Helper.html", "classfaker_1_1Helper" ],
       [ "Image", "classfaker_1_1Image.html", null ],
       [ "Internet", "classfaker_1_1Internet.html", null ],
       [ "Location", "classfaker_1_1Location.html", null ],

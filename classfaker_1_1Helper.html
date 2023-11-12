@@ -93,12 +93,18 @@ $(document).ready(function(){initNavTree('classfaker_1_1Helper.html',''); initRe
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="classfaker_1_1Helper-members.html">List of all members</a>  </div>
   <div class="headertitle"><div class="title">faker::Helper Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfaker_1_1Helper_1_1WeightedElement.html">WeightedElement</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a46622f2ea33bab9a6ee3d35149f8b01b" id="r_a46622f2ea33bab9a6ee3d35149f8b01b"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
@@ -109,6 +115,10 @@ Static Public Member Functions</h2></td></tr>
 template&lt;class T &gt; </td></tr>
 <tr class="memitem:ac7c79f7dbcb604b8c1c64e67d01ca1ad"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>arrayElement</b> (const std::vector&lt; T &gt; &amp;data)</td></tr>
 <tr class="separator:ac7c79f7dbcb604b8c1c64e67d01ca1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e0553c162b6398aa7c0ba0927af17bf" id="r_a5e0553c162b6398aa7c0ba0927af17bf"><td class="memTemplParams" colspan="2"><a id="a5e0553c162b6398aa7c0ba0927af17bf" name="a5e0553c162b6398aa7c0ba0927af17bf"></a>
+template&lt;class T &gt; </td></tr>
+<tr class="memitem:a5e0553c162b6398aa7c0ba0927af17bf"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><b>weightedArrayElement</b> (const std::vector&lt; <a class="el" href="structfaker_1_1Helper_1_1WeightedElement.html">WeightedElement</a>&lt; T &gt; &gt; &amp;data)</td></tr>
+<tr class="separator:a5e0553c162b6398aa7c0ba0927af17bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5604817b289605971edea4034bd65115" id="r_a5604817b289605971edea4034bd65115"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a5604817b289605971edea4034bd65115"><td class="memTemplItemLeft" align="right" valign="top">static std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#a5604817b289605971edea4034bd65115">shuffle</a> (std::vector&lt; T &gt; data)</td></tr>
 <tr class="memdesc:a5604817b289605971edea4034bd65115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns shuffled STL container.  <br /></td></tr>
@@ -285,7 +295,7 @@ template&lt;typename T &gt; </div>
 <div class="line">{3, <span class="stringliteral">&quot;three&quot;</span>}</div>
 <div class="line">};</div>
 <div class="line"><a class="code hl_function" href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">Helper::objectKey</a>(testMap) <span class="comment">// &quot;2&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:147</div></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:200</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -331,7 +341,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="preprocessor">Helper::regexpStyleStringParse(&quot;#{2,9}&quot;) // &quot;#######&quot;</span></div>
 <div class="line"><span class="preprocessor">Helper::regexpStyleStringParse(&quot;[500-15000]&quot;) // &quot;8375&quot;</span></div>
 <div class="line"><span class="preprocessor">Helper::regexpStyleStringParse(&quot;#{3}test[1-5]&quot;) // &quot;###test3&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Helper_html"><div class="ttname"><a href="classfaker_1_1Helper.html">faker::Helper</a></div><div class="ttdef"><b>Definition</b> Helper.h:13</div></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html"><div class="ttname"><a href="classfaker_1_1Helper.html">faker::Helper</a></div><div class="ttdef"><b>Definition</b> Helper.h:15</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html_ad97b7e42b9f650bdea9ecba04b135768"><div class="ttname"><a href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">faker::Helper::regexpStyleStringParse</a></div><div class="ttdeci">static std::string regexpStyleStringParse(const std::string &amp;input)</div><div class="ttdoc">Returns the replaced regex-like expression in the string with matching values.</div></div>
 </div><!-- fragment --> 
 </div>
