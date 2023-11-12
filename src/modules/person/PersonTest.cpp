@@ -45,6 +45,7 @@
 #include "data/turkish/TurkishFirstNamesFemales.h"
 #include "data/turkish/TurkishFirstNamesMales.h"
 #include "data/turkish/TurkishLastNames.h"
+#include "data/ZodiacSigns.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -342,4 +343,21 @@ TEST_F(PersonTest, shouldGenerateNationality)
 
     ASSERT_TRUE(std::ranges::any_of(nationalities, [generatedNationality](const std::string& nationality)
                                     { return generatedNationality == nationality; }));
+}
+
+TEST_F(PersonTest, shouldGenerateWesternZodiacs)
+{
+    const auto generatedWesternZodiacs = Person::westernZodiac();
+
+    ASSERT_TRUE(std::ranges::any_of(westernZodiacs, [generatedWesternZodiacs](const std::string& westernZodiac)
+                                    { return generatedWesternZodiacs == westernZodiac;}));
+
+}
+
+TEST_F(PersonTest, shouldGenerateChineseZodiacs)
+{
+    const auto generatedChineseZodiacs = Person::chineseZodiac();
+
+    ASSERT_TRUE(std::ranges::any_of(chineseZodiacs, [generatedChineseZodiacs](const std::string& chineseZodiac)
+                                    { return generatedChineseZodiacs == chineseZodiac;}));
 }
