@@ -13,8 +13,6 @@ namespace faker {
     "Kimchi",
     "Rendang",
     "Pad Krapow Moo Saap",
-    "Kuru Fasulye",
-    "Pirinç Pilavı",
     "Goulash",
     "Pho",
     "Tacos",
