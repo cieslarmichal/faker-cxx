@@ -102,52 +102,101 @@ $(document).ready(function(){initNavTree('String_8h_source.html',''); initResiza
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;types/Hex.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">enum class</span> StringCasing</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    Mixed,</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    Lower,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    Upper</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>};</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="};">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html">   16</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1String.html">String</a></div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#ac257c59dbcb609c4d53977b7efb7a493">   28</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#ac257c59dbcb609c4d53977b7efb7a493">uuid</a>();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">   42</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">sample</a>(<span class="keywordtype">unsigned</span> length = 10);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331">   57</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331">fromCharacters</a>(<span class="keyword">const</span> std::string&amp; characters, <span class="keywordtype">unsigned</span> length = 1);</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;sstream&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;types/Hex.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;types/RandomGenerator.hpp&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">enum class</span> StringCasing</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    Mixed,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    Lower,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    Upper</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html">   20</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1String.html">String</a></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T = std::mt19937&gt;</div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="}">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#a24034056c03b01f957e2408cdc6d63d2">   34</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#a24034056c03b01f957e2408cdc6d63d2">uuid</a>(RandomGenerator&lt;T&gt; gen = RandomGenerator&lt;std::mt19937&gt;{})</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    {</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>        <span class="keyword">static</span> std::uniform_int_distribution&lt;&gt; dist(0, 15);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>        <span class="keyword">static</span> std::uniform_int_distribution&lt;&gt; dist2(8, 11);</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        std::stringstream ss;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        ss &lt;&lt; std::hex;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 8; i++)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>            ss &lt;&lt; gen(dist);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        }</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>        ss &lt;&lt; <span class="stringliteral">&quot;-&quot;</span>;</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 4; i++)</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>        {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>            ss &lt;&lt; gen(dist);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        }</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        ss &lt;&lt; <span class="stringliteral">&quot;-4&quot;</span>;</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; i++)</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>        {</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>            ss &lt;&lt; gen(dist);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        }</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">   73</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">alpha</a>(<span class="keywordtype">unsigned</span> length = 1, StringCasing casing = StringCasing::Mixed);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>        ss &lt;&lt; <span class="stringliteral">&quot;-&quot;</span>;</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>        ss &lt;&lt; gen(dist2);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 3; i++)</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        {</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>            ss &lt;&lt; gen(dist);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        }</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        ss &lt;&lt; <span class="stringliteral">&quot;-&quot;</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 12; i++)</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>        {</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>            ss &lt;&lt; gen(dist);</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>        };</div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">   91</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">alphanumeric</a>(<span class="keywordtype">unsigned</span> length = 1, StringCasing casing = StringCasing::Mixed,</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>                                    <span class="keyword">const</span> std::string&amp; excludeCharacters = <span class="stringliteral">&quot;&quot;</span>);</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
-<div class="line"><a id="l00108" name="l00108"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">  108</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a>(<span class="keywordtype">unsigned</span> length = 1, <span class="keywordtype">bool</span> allowLeadingZeros = <span class="keyword">true</span>);</div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">  126</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">hexadecimal</a>(<span class="keywordtype">unsigned</span> length = 1, HexCasing casing = HexCasing::Lower,</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>                                   HexPrefix prefix = HexPrefix::ZeroX);</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#a1a4443dd71fb781206122c53c81896bd">  140</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#a1a4443dd71fb781206122c53c81896bd">binary</a>(<span class="keywordtype">unsigned</span> length = 1);</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#abc3d4242b2fc5ac285784723801a7c27">  153</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#abc3d4242b2fc5ac285784723801a7c27">octal</a>(<span class="keywordtype">unsigned</span> length = 1);</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>};</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>        <span class="keywordflow">return</span> ss.str();</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>    }</div>
 </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>}</div>
-<div class="ttc" id="aclassfaker_1_1String_html"><div class="ttname"><a href="classfaker_1_1String.html">faker::String</a></div><div class="ttdef"><b>Definition</b> String.h:17</div></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">   90</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">sample</a>(<span class="keywordtype">unsigned</span> length = 10);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331">  105</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331">fromCharacters</a>(<span class="keyword">const</span> std::string&amp; characters, <span class="keywordtype">unsigned</span> length = 1);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">  121</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">alpha</a>(<span class="keywordtype">unsigned</span> length = 1, StringCasing casing = StringCasing::Mixed);</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">  139</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">alphanumeric</a>(<span class="keywordtype">unsigned</span> length = 1, StringCasing casing = StringCasing::Mixed,</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>                                    <span class="keyword">const</span> std::string&amp; excludeCharacters = <span class="stringliteral">&quot;&quot;</span>);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">  156</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a>(<span class="keywordtype">unsigned</span> length = 1, <span class="keywordtype">bool</span> allowLeadingZeros = <span class="keyword">true</span>);</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">  174</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">hexadecimal</a>(<span class="keywordtype">unsigned</span> length = 1, HexCasing casing = HexCasing::Lower,</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>                                   HexPrefix prefix = HexPrefix::ZeroX);</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#a1a4443dd71fb781206122c53c81896bd">  188</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#a1a4443dd71fb781206122c53c81896bd">binary</a>(<span class="keywordtype">unsigned</span> length = 1);</div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno"><a class="line" href="classfaker_1_1String.html#abc3d4242b2fc5ac285784723801a7c27">  201</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1String.html#abc3d4242b2fc5ac285784723801a7c27">octal</a>(<span class="keywordtype">unsigned</span> length = 1);</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>};</div>
+</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>}</div>
+<div class="ttc" id="aclassfaker_1_1String_html"><div class="ttname"><a href="classfaker_1_1String.html">faker::String</a></div><div class="ttdef"><b>Definition</b> String.h:21</div></div>
 <div class="ttc" id="aclassfaker_1_1String_html_a1a4443dd71fb781206122c53c81896bd"><div class="ttname"><a href="classfaker_1_1String.html#a1a4443dd71fb781206122c53c81896bd">faker::String::binary</a></div><div class="ttdeci">static std::string binary(unsigned length=1)</div><div class="ttdoc">Generates a binary string.</div></div>
+<div class="ttc" id="aclassfaker_1_1String_html_a24034056c03b01f957e2408cdc6d63d2"><div class="ttname"><a href="classfaker_1_1String.html#a24034056c03b01f957e2408cdc6d63d2">faker::String::uuid</a></div><div class="ttdeci">static std::string uuid(RandomGenerator&lt; T &gt; gen=RandomGenerator&lt; std::mt19937 &gt;{})</div><div class="ttdoc">Generates an Universally Unique Identifier with version 4.</div><div class="ttdef"><b>Definition</b> String.h:34</div></div>
 <div class="ttc" id="aclassfaker_1_1String_html_a5de8e6ed5846465ac4197356eee53398"><div class="ttname"><a href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">faker::String::alphanumeric</a></div><div class="ttdeci">static std::string alphanumeric(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)</div><div class="ttdoc">Generates a string consisting of alpha characters and digits.</div></div>
 <div class="ttc" id="aclassfaker_1_1String_html_a6d97fdf6f3c37532ee92c2245fd252db"><div class="ttname"><a href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">faker::String::alpha</a></div><div class="ttdeci">static std::string alpha(unsigned length=1, StringCasing casing=StringCasing::Mixed)</div><div class="ttdoc">Generates a string consisting of letters in the English alphabet.</div></div>
 <div class="ttc" id="aclassfaker_1_1String_html_a92030c8a33a900266ba32df06aefd331"><div class="ttname"><a href="classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331">faker::String::fromCharacters</a></div><div class="ttdeci">static std::string fromCharacters(const std::string &amp;characters, unsigned length=1)</div><div class="ttdoc">Generates a string consisting of given characters.</div></div>
 <div class="ttc" id="aclassfaker_1_1String_html_abc3d4242b2fc5ac285784723801a7c27"><div class="ttname"><a href="classfaker_1_1String.html#abc3d4242b2fc5ac285784723801a7c27">faker::String::octal</a></div><div class="ttdeci">static std::string octal(unsigned length=1)</div><div class="ttdoc">Generates an octal string.</div></div>
-<div class="ttc" id="aclassfaker_1_1String_html_ac257c59dbcb609c4d53977b7efb7a493"><div class="ttname"><a href="classfaker_1_1String.html#ac257c59dbcb609c4d53977b7efb7a493">faker::String::uuid</a></div><div class="ttdeci">static std::string uuid()</div><div class="ttdoc">Generates an Universally Unique Identifier with version 4.</div></div>
 <div class="ttc" id="aclassfaker_1_1String_html_acf3e6aafee07f5f1331dd627ce736a41"><div class="ttname"><a href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">faker::String::sample</a></div><div class="ttdeci">static std::string sample(unsigned length=10)</div><div class="ttdoc">Returns a string containing UTF-16 chars between 33 and 125 (! to }).</div></div>
 <div class="ttc" id="aclassfaker_1_1String_html_ae89b77056f5e13e5bf0418d6a6c231fd"><div class="ttname"><a href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">faker::String::numeric</a></div><div class="ttdeci">static std::string numeric(unsigned length=1, bool allowLeadingZeros=true)</div><div class="ttdoc">Generates a given length string of digits.</div></div>
 <div class="ttc" id="aclassfaker_1_1String_html_ae95d6815ba2172cc63374c391d246006"><div class="ttname"><a href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">faker::String::hexadecimal</a></div><div class="ttdeci">static std::string hexadecimal(unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</div><div class="ttdoc">Generates a hexadecimal string.</div></div>
