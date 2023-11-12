@@ -40,6 +40,9 @@
 #include "data/spanish/SpanishFirstNamesMales.h"
 #include "data/spanish/SpanishLastNames.h"
 #include "faker-cxx/Helper.h"
+#include "data/turkish/TurkishFirstNamesFemales.h"
+#include "data/turkish/TurkishFirstNamesMales.h"
+#include "data/turkish/TurkishLastNames.h"
 #include "fmt/format.h"
 
 namespace faker
@@ -63,6 +66,7 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirs
     {Language::Finnish, {{Sex::Male, finnishFirstNamesMales}, {Sex::Female, finnishFirstNamesFemales}}},
     {Language::Nepali, {{Sex::Male, nepaleseFirstNamesMales}, {Sex::Female, nepaleseFirstNamesFemales}}},
     {Language::Spanish, {{Sex::Male, spanishFirstNamesMales}, {Sex::Female, spanishFirstNamesFemales}}},
+    {Language::Turkish, {{Sex::Male, turkishFirstNamesMales}, {Sex::Female, turkishFirstNamesFemales}}},
 };
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
@@ -77,6 +81,7 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLast
     {Language::Finnish, {{Sex::Male, finnishLastNames}, {Sex::Female, finnishLastNames}}},
     {Language::Nepali, {{Sex::Male, nepaleseLastNames}, {Sex::Female, nepaleseLastNames}}},
     {Language::Spanish, {{Sex::Male, spanishLastNames}, {Sex::Female, spanishLastNames}}},
+    {Language::Turkish, {{Sex::Male, turkishLastNames}, {Sex::Female, turkishLastNames}}},
 };
 }
 

@@ -18,11 +18,12 @@ enum class Language
     Finnish,
     Nepali,
     Spanish,
+    Turkish,
 };
 
 const std::vector<Language> languages{
     Language::English,  Language::Polish, Language::Italian, Language::French, Language::German,  Language::Russian,
-    Language::Romanian, Language::Hindi,  Language::Finnish, Language::Nepali, Language::Spanish,
+    Language::Romanian, Language::Hindi,  Language::Finnish, Language::Nepali, Language::Spanish, Language::Turkish
 };
 
 inline std::string toString(Language language)
@@ -31,7 +32,7 @@ inline std::string toString(Language language)
         {Language::English, "English"},   {Language::Polish, "Polish"},   {Language::Italian, "Italian"},
         {Language::French, "French"},     {Language::German, "German"},   {Language::Russian, "Russian"},
         {Language::Romanian, "Romanian"}, {Language::Hindi, "Hindi"},     {Language::Finnish, "Finnish"},
-        {Language::Nepali, "Nepali"},     {Language::Spanish, "Spanish"},
+        {Language::Nepali, "Nepali"},     {Language::Spanish, "Spanish"}, {Language::Turkish, "Turkish"},
     };
 
     return languageToStringMapping.at(language);
