@@ -52,6 +52,7 @@ const std::map<EmojiType, std::vector<std::string>> emojiTypeToEmojisMapping{
 };
 }
 
+// TODO: add internalization
 std::string Internet::username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit)
 {
     const auto firstName = firstNameInit ? *firstNameInit : Person::firstName();
