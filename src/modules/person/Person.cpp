@@ -44,6 +44,7 @@
 #include "data/turkish/TurkishFirstNamesMales.h"
 #include "data/turkish/TurkishLastNames.h"
 #include "fmt/format.h"
+#include "data/ZodiacSigns.h"
 
 namespace faker
 {
@@ -210,5 +211,15 @@ std::string Person::language()
 std::string Person::nationality()
 {
     return Helper::arrayElement<std::string>(nationalities);
+}
+
+std::string Person::westernZodiac()
+{
+    return Helper::arrayElement<std::string>(westernZodiacs);
+}
+
+std::string Person::chineseZodiac()
+{
+    return Helper::arrayElement<std::string>(chineseZodiacs);
 }
 }

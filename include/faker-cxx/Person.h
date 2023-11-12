@@ -169,5 +169,30 @@ public:
      */
 
     static std::string nationality();
+
+    /**
+     * @brief Returns a random Western Zodiac
+     * 
+     * @returns Western Zodiac
+     * 
+     * @code
+     * Person::westernZodiac() // "Virgo"
+     * @endcode
+     */
+
+    static std::string westernZodiac();
+
+    /**
+     * @brief Returns a random Chinese Zodiac
+     * 
+     * @returns Chinese Zodiac
+     * 
+     * @code
+     * Person::chineseZodiac() // "Dragon"
+     * @endcode
+     */
+
+    static std::string chineseZodiac();
+
 };
 }
