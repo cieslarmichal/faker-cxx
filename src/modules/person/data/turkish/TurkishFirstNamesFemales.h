@@ -1,0 +1,52 @@
+#pragma once
+
+#include <string>
+#include <vector>
+
+namespace faker {
+    const std::vector<std::string> turkishFirstNamesFemales = {
+        "Ayşe",
+        "Fatma",
+        "Zeynep",
+        "Emine",
+        "Merve",
+        "Elif",
+        "Melis",
+        "Esra",
+        "İrem",
+        "Ebru",
+        "Selma",
+        "Leyla",
+        "Selin",
+        "Gamze",
+        "Gizem",
+        "Ceren",
+        "Deniz",
+        "Aslı",
+        "Nazlı",
+        "Pınar",
+        "İlayda",
+        "Dilara",
+        "Büşra",
+        "Rabia",
+        "Yasemin",
+        "Gül",
+        "Nur",
+        "Melek",
+        "Sude",
+        "Şeyma",
+        "Beren",
+        "Eylül",
+        "İpek",
+        "Hande",
+        "Cansu",
+        "Özge",
+        "Hilal",
+        "Bilge",
+        "Serra",
+        "İlknur",
+        "Cemre",
+        "Tuğba",
+        "Yelda",
+    };
+}
