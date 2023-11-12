@@ -172,9 +172,9 @@ public:
 
     /**
      * @brief Returns a random Western Zodiac
-     * 
+     *
      * @returns Western Zodiac
-     * 
+     *
      * @code
      * Person::westernZodiac() // "Virgo"
      * @endcode
@@ -184,15 +184,14 @@ public:
 
     /**
      * @brief Returns a random Chinese Zodiac
-     * 
+     *
      * @returns Chinese Zodiac
-     * 
+     *
      * @code
      * Person::chineseZodiac() // "Dragon"
      * @endcode
      */
 
     static std::string chineseZodiac();
-
 };
 }

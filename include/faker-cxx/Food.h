@@ -2,10 +2,12 @@
 
 #include <string>
 
-namespace faker {
+namespace faker
+{
 
-class Food {
-    
+class Food
+{
+
 public:
     /**
      * @brief Returns a random alcoholic beverage name.
