@@ -43,9 +43,7 @@ namespace faker
 {
 namespace
 {
-const std::string malePrefix{"Mr."};
-const std::vector<std::string> femalePrefixes{"Ms.", "Miss"};
-const std::vector<std::string> allPrefixes{"Mr.", "Ms.", "Miss"};
+
 const std::vector<std::string> sexes{"Male", "Female"};
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirstNamesMapping{
@@ -62,6 +60,19 @@ const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToFirs
 };
 
 const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToLastNamesMapping{
+    {Language::English, {{Sex::Male, englishLastNames}, {Sex::Female, englishLastNames}}},
+    {Language::French, {{Sex::Male, frenchLastNames}, {Sex::Female, frenchLastNames}}},
+    {Language::German, {{Sex::Male, germanLastNames}, {Sex::Female, germanLastNames}}},
+    {Language::Italian, {{Sex::Male, italianLastNames}, {Sex::Female, italianLastNames}}},
+    {Language::Polish, {{Sex::Male, polishLastNames}, {Sex::Female, polishLastNames}}},
+    {Language::Russian, {{Sex::Male, russianLastNamesMales}, {Sex::Female, russianLastNamesFemales}}},
+    {Language::Romanian, {{Sex::Male, romanianLastNames}, {Sex::Female, romanianLastNames}}},
+    {Language::Hindi, {{Sex::Male, indianLastNames}, {Sex::Female, indianLastNames}}},
+    {Language::Finnish, {{Sex::Male, finnishLastNames}, {Sex::Female, finnishLastNames}}},
+    {Language::Nepali, {{Sex::Male, nepaleseLastNames}, {Sex::Female, nepaleseLastNames}}},
+};
+
+const std::map<Language, std::map<Sex, std::vector<std::string>>> languageToPrefixesMapping{
     {Language::English, {{Sex::Male, englishLastNames}, {Sex::Female, englishLastNames}}},
     {Language::French, {{Sex::Male, frenchLastNames}, {Sex::Female, frenchLastNames}}},
     {Language::German, {{Sex::Male, germanLastNames}, {Sex::Female, germanLastNames}}},
@@ -131,12 +142,56 @@ std::string Person::lastName(Language language, std::optional<Sex> sex)
         lastNames.insert(lastNames.end(), lastNamesMales.begin(), lastNamesMales.end());
         lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
     }
+
     return Helper::arrayElement<std::string>(lastNames);
 }
 
 std::string Person::fullName(Language language, std::optional<Sex> sex)
 {
     return fmt::format("{} {}", firstName(language, sex), lastName(language, sex));
+}
+
+std::string Person::prefix(std::optional<Sex> sex)
+{
+    const auto& lastNamesBySexMapping = languageToLastNamesMapping.at(language);
+
+    std::vector<std::string> lastNames;
+
+    if (sex == Sex::Male)
+    {
+        const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
+
+        lastNames.insert(lastNames.end(), lastNamesMales.begin(), lastNamesMales.end());
+    }
+    else if (sex == Sex::Female)
+    {
+        const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
+
+        lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
+    }
+    else
+    {
+        const auto& lastNamesMales = lastNamesBySexMapping.at(Sex::Male);
+        const auto& lastNamesFemales = lastNamesBySexMapping.at(Sex::Female);
+
+        lastNames.insert(lastNames.end(), lastNamesMales.begin(), lastNamesMales.end());
+        lastNames.insert(lastNames.end(), lastNamesFemales.begin(), lastNamesFemales.end());
+    }
+
+    return Helper::arrayElement<std::string>(lastNames);
+
+    if (sex == Sex::Male)
+    {
+        return malePrefix;
+    }
+    else if (sex == Sex::Female)
+    {
+        return Helper::arrayElement<std::string>(femalePrefixes);
+    }
+    else
+    {
+        return Helper::arrayElement<std::string>(allPrefixes);
+    }
 }
 
 std::string Person::sex()
@@ -167,24 +222,6 @@ std::string Person::jobArea()
 std::string Person::jobType()
 {
     return Helper::arrayElement<std::string>(jobTypes);
-}
-
-std::string Person::prefix(std::optional<Sex> sex)
-{
-    std::vector<std::string> prefixes;
-
-    if (sex == Sex::Male)
-    {
-        return malePrefix;
-    }
-    else if (sex == Sex::Female)
-    {
-        return Helper::arrayElement<std::string>(femalePrefixes);
-    }
-    else
-    {
-        return Helper::arrayElement<std::string>(allPrefixes);
-    }
 }
 
 std::string Person::hobby()
