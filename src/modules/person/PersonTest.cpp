@@ -208,7 +208,7 @@ TEST_P(PersonTest, shouldGenerateFullName)
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
-    const auto& femalesLastNames = peopleNames.malesNames.lastNames;
+    const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
     std::vector<std::string> firstNames{malesFirstNames};
     std::vector<std::string> lastNames{malesLastNames};
@@ -250,7 +250,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
-    const auto& femalesLastNames = peopleNames.malesNames.lastNames;
+    const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
     const auto generatedFullName = Person::fullName(language, Sex::Female);
 
