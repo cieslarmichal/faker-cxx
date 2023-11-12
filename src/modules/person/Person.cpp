@@ -22,6 +22,7 @@
 #include "data/turkish/TurkishPeopleNames.h"
 #include "faker-cxx/Helper.h"
 #include "fmt/format.h"
+#include "data/ZodiacSigns.h"
 
 namespace faker
 {
@@ -395,5 +396,15 @@ std::string suffixForLanguage(Language language, std::optional<Sex> sex)
 
     return Helper::arrayElement<std::string>(suffixes);
 }
+}
+
+std::string Person::westernZodiac()
+{
+    return Helper::arrayElement<std::string>(westernZodiacs);
+}
+
+std::string Person::chineseZodiac()
+{
+    return Helper::arrayElement<std::string>(chineseZodiacs);
 }
 }
