@@ -4,6 +4,7 @@
 #include <set>
 
 #include "../../common/StringHelper.h"
+#include "data/czech/CzechPeopleNames.h"
 #include "data/english/EnglishPeopleNames.h"
 #include "data/finnish/FinnishPeopleNames.h"
 #include "data/french/FrenchPeopleNames.h"
@@ -20,9 +21,9 @@
 #include "data/russian/RussianPeopleNames.h"
 #include "data/spanish/SpanishPeopleNames.h"
 #include "data/turkish/TurkishPeopleNames.h"
+#include "data/ZodiacSigns.h"
 #include "faker-cxx/Helper.h"
 #include "fmt/format.h"
-#include "data/ZodiacSigns.h"
 
 namespace faker
 {
@@ -37,6 +38,7 @@ const std::map<Language, PeopleNames> languageToPeopleNamesMapping{
     {Language::Romanian, romanianPeopleNames}, {Language::Hindi, indianPeopleNames},
     {Language::Finnish, finnishPeopleNames},   {Language::Nepali, nepalesePeopleNames},
     {Language::Spanish, spanishPeopleNames},   {Language::Turkish, turkishPeopleNames},
+    {Language::Czech, czechPeopleNames},
 };
 
 std::string middleNameForLanguage(Language language, std::optional<Sex> sex);
