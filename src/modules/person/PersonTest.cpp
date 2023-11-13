@@ -5,6 +5,7 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
+#include "data/czech/CzechPeopleNames.h"
 #include "data/english/EnglishPeopleNames.h"
 #include "data/finnish/FinnishPeopleNames.h"
 #include "data/french/FrenchPeopleNames.h"
@@ -15,13 +16,13 @@
 #include "data/italian/ItalianPeopleNames.h"
 #include "data/JobTitles.h"
 #include "data/Nationalities.h"
-#include "data/ZodiacSigns.h"
 #include "data/nepalese/NepalesePeopleNames.h"
 #include "data/polish/PolishPeopleNames.h"
 #include "data/romanian/RomanianPeopleNames.h"
 #include "data/russian/RussianPeopleNames.h"
 #include "data/spanish/SpanishPeopleNames.h"
 #include "data/turkish/TurkishPeopleNames.h"
+#include "data/ZodiacSigns.h"
 #include "src/modules/person/data/PeopleNames.h"
 
 using namespace ::testing;
@@ -38,7 +39,7 @@ const std::map<Language, PeopleNames> languageToPeopleNamesMapping{
     {Language::Romanian, romanianPeopleNames}, {Language::Hindi, indianPeopleNames},
     {Language::Finnish, finnishPeopleNames},   {Language::Nepali, nepalesePeopleNames},
     {Language::Spanish, spanishPeopleNames},   {Language::Turkish, turkishPeopleNames},
-};
+    {Language::Czech, czechPeopleNames}};
 
 const std::map<Language, std::string> generatedTestName{
     {Language::English, "shouldGenerateEnglishName"},   {Language::French, "shouldGenerateFrenchName"},
@@ -47,6 +48,7 @@ const std::map<Language, std::string> generatedTestName{
     {Language::Romanian, "shouldGenerateRomanianName"}, {Language::Hindi, "shouldGenerateIndianName"},
     {Language::Finnish, "shouldGenerateFinnishName"},   {Language::Nepali, "shouldGenerateNepaleseName"},
     {Language::Spanish, "shouldGenerateSpanishName"},   {Language::Turkish, "shouldGenerateTurkishName"},
+    {Language::Czech, "shouldGenerateCzechName"},
 };
 }
 
@@ -390,8 +392,7 @@ TEST_F(PersonTest, shouldGenerateWesternZodiacs)
     const auto generatedWesternZodiacs = Person::westernZodiac();
 
     ASSERT_TRUE(std::ranges::any_of(westernZodiacs, [generatedWesternZodiacs](const std::string& westernZodiac)
-                                    { return generatedWesternZodiacs == westernZodiac;}));
-
+                                    { return generatedWesternZodiacs == westernZodiac; }));
 }
 
 TEST_F(PersonTest, shouldGenerateChineseZodiacs)
@@ -399,5 +400,5 @@ TEST_F(PersonTest, shouldGenerateChineseZodiacs)
     const auto generatedChineseZodiacs = Person::chineseZodiac();
 
     ASSERT_TRUE(std::ranges::any_of(chineseZodiacs, [generatedChineseZodiacs](const std::string& chineseZodiac)
-                                    { return generatedChineseZodiacs == chineseZodiac;}));
+                                    { return generatedChineseZodiacs == chineseZodiac; }));
 }
