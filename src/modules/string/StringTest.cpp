@@ -1,10 +1,12 @@
 #include "faker-cxx/String.h"
 
 #include <algorithm>
+#include <random>
 
 #include "gtest/gtest.h"
 
 #include "data/Characters.h"
+#include "faker-cxx/types/RandomGenerator.hpp"
 
 using namespace ::testing;
 using namespace faker;
@@ -13,6 +15,99 @@ class StringTest : public Test
 {
 public:
 };
+
+TEST_F(StringTest, shouldUseCustomRandomGeneratorForUuid4)
+{
+    RandomGenerator<std::mt19937> gen1{};
+    const auto uuid1 = String::uuid(gen1);
+
+    ASSERT_EQ(uuid1[8], '-');
+    ASSERT_EQ(uuid1[13], '-');
+    ASSERT_EQ(uuid1[14], '4');
+    ASSERT_EQ(uuid1[18], '-');
+    ASSERT_EQ(uuid1[23], '-');
+
+    RandomGenerator<std::mt19937_64> gen2{};
+    const auto uuid2 = String::uuid(gen2);
+
+    ASSERT_EQ(uuid2[8], '-');
+    ASSERT_EQ(uuid2[13], '-');
+    ASSERT_EQ(uuid2[14], '4');
+    ASSERT_EQ(uuid2[18], '-');
+    ASSERT_EQ(uuid2[23], '-');
+
+    RandomGenerator<std::minstd_rand0> gen3{};
+    const auto uuid3 = String::uuid(gen3);
+
+    ASSERT_EQ(uuid3[8], '-');
+    ASSERT_EQ(uuid3[13], '-');
+    ASSERT_EQ(uuid3[14], '4');
+    ASSERT_EQ(uuid3[18], '-');
+    ASSERT_EQ(uuid3[23], '-');
+
+    RandomGenerator<std::minstd_rand> gen4{};
+    const auto uuid4 = String::uuid(gen4);
+
+    ASSERT_EQ(uuid4[8], '-');
+    ASSERT_EQ(uuid4[13], '-');
+    ASSERT_EQ(uuid4[14], '4');
+    ASSERT_EQ(uuid4[18], '-');
+    ASSERT_EQ(uuid4[23], '-');
+
+    RandomGenerator<std::ranlux24_base> gen5{};
+    const auto uuid5 = String::uuid(gen5);
+
+    ASSERT_EQ(uuid5[8], '-');
+    ASSERT_EQ(uuid5[13], '-');
+    ASSERT_EQ(uuid5[14], '4');
+    ASSERT_EQ(uuid5[18], '-');
+    ASSERT_EQ(uuid5[23], '-');
+
+    RandomGenerator<std::ranlux24> gen6{};
+    const auto uuid6 = String::uuid(gen6);
+
+    ASSERT_EQ(uuid6[8], '-');
+    ASSERT_EQ(uuid6[13], '-');
+    ASSERT_EQ(uuid6[14], '4');
+    ASSERT_EQ(uuid6[18], '-');
+    ASSERT_EQ(uuid6[23], '-');
+
+    RandomGenerator<std::ranlux48_base> gen7{};
+    const auto uuid7 = String::uuid(gen7);
+
+    ASSERT_EQ(uuid7[8], '-');
+    ASSERT_EQ(uuid7[13], '-');
+    ASSERT_EQ(uuid7[14], '4');
+    ASSERT_EQ(uuid7[18], '-');
+    ASSERT_EQ(uuid7[23], '-');
+
+    RandomGenerator<std::ranlux48> gen8{};
+    const auto uuid8 = String::uuid(gen8);
+
+    ASSERT_EQ(uuid8[8], '-');
+    ASSERT_EQ(uuid8[13], '-');
+    ASSERT_EQ(uuid8[14], '4');
+    ASSERT_EQ(uuid8[18], '-');
+    ASSERT_EQ(uuid8[23], '-');
+
+    RandomGenerator<std::knuth_b> gen9{};
+    const auto uuid9 = String::uuid(gen9);
+
+    ASSERT_EQ(uuid9[8], '-');
+    ASSERT_EQ(uuid9[13], '-');
+    ASSERT_EQ(uuid9[14], '4');
+    ASSERT_EQ(uuid9[18], '-');
+    ASSERT_EQ(uuid9[23], '-');
+
+    RandomGenerator<std::default_random_engine> gen10{};
+    const auto uuid10 = String::uuid(gen10);
+
+    ASSERT_EQ(uuid10[8], '-');
+    ASSERT_EQ(uuid10[13], '-');
+    ASSERT_EQ(uuid10[14], '4');
+    ASSERT_EQ(uuid10[18], '-');
+    ASSERT_EQ(uuid10[23], '-');
+}
 
 TEST_F(StringTest, shouldGenerateUuid4)
 {

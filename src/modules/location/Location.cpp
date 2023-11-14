@@ -30,6 +30,7 @@ namespace faker
 {
 namespace
 {
+// TODO: Refactor
 const std::map<Country, std::vector<std::string>> countryToCitiesMapping{{Country::Usa, usaCities},
                                                                          {Country::Russia, russiaCities},
                                                                          {Country::Poland, polandCities},
@@ -124,6 +125,8 @@ std::string Location::streetAddress(Country country)
 
 std::string Location::street(Country country)
 {
+    // TODO: add internalization
+
     const auto& streetFormats = countryToStreetFormatsMapping.at(country);
 
     const auto streetFormat = Helper::arrayElement<std::string>(streetFormats);

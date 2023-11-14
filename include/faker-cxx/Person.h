@@ -31,6 +31,7 @@ public:
      * @brief Returns a random last name.
      *
      * @param language The local name language. Defaults to `Language::English`.
+     * @param sex The optional sex to use.
      *
      * @returns Last name starting with a capital letter.
      *
@@ -41,9 +42,23 @@ public:
     static std::string lastName(Language language = Language::English, std::optional<Sex> = std::nullopt);
 
     /**
+     * @brief Returns a random middle name.
+     *
+     * @param sex The optional sex to use.
+     *
+     * @returns Middle name starting with a capital letter.
+     *
+     * @code
+     * Person::middleName() // "Васильевич"
+     * @endcode
+     */
+    static std::string middleName(std::optional<Sex> = std::nullopt);
+
+    /**
      * @brief Returns a random full name.
      *
      * @param language The local name language. Defaults to `Language::English`.
+     * @param sex The optional sex to use.
      *
      * @returns Full name starting with first name.
      *
@@ -69,6 +84,17 @@ public:
      * @endcode
      */
     static std::string prefix(std::optional<Sex> = std::nullopt);
+
+    /**
+     * @brief Returns a random name suffix.
+     *
+     * @returns Name suffix.
+     *
+     * @code
+     * Person::suffix() // "Jr."
+     * @endcode
+     */
+    static std::string suffix();
 
     /**
      * @brief Returns a sex.
@@ -169,5 +195,29 @@ public:
      */
 
     static std::string nationality();
+
+    /**
+     * @brief Returns a random Western Zodiac
+     *
+     * @returns Western Zodiac
+     *
+     * @code
+     * Person::westernZodiac() // "Virgo"
+     * @endcode
+     */
+
+    static std::string westernZodiac();
+
+    /**
+     * @brief Returns a random Chinese Zodiac
+     *
+     * @returns Chinese Zodiac
+     *
+     * @code
+     * Person::chineseZodiac() // "Dragon"
+     * @endcode
+     */
+
+    static std::string chineseZodiac();
 };
 }

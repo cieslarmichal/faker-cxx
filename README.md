@@ -91,6 +91,7 @@ target_link_libraries(main faker-cxx)
 - ℹ️ Datatype - booleans
 - 📅 Date - past, future dates
 - 🏦 Finance - currency, IBAN, BIC, account name, account number, pin, credit card numbers
+- 🍝 Food - food category, vegetables, fruits, meats, dishes
 - 📁 Git - branch names, commit messages, commit hash 
 - 👨‍💻 Hacker - hacker words
 - ✋ Helper - random element from container
