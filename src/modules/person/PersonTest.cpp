@@ -6,6 +6,7 @@
 
 #include "../../common/StringHelper.h"
 #include "data/czech/CzechPeopleNames.h"
+#include "data/danish/DanishPeopleNames.h"
 #include "data/english/EnglishPeopleNames.h"
 #include "data/finnish/FinnishPeopleNames.h"
 #include "data/french/FrenchPeopleNames.h"
@@ -35,24 +36,24 @@ namespace
 const std::vector<std::string> sexes{"Male", "Female"};
 
 const std::map<Language, PeopleNames> languageToPeopleNamesMapping{
-    {Language::English, englishPeopleNames},    {Language::French, frenchPeopleNames},
-    {Language::German, germanPeopleNames},      {Language::Italian, italianPeopleNames},
-    {Language::Polish, polishPeopleNames},      {Language::Russian, russianPeopleNames},
-    {Language::Romanian, romanianPeopleNames},  {Language::Hindi, indianPeopleNames},
-    {Language::Finnish, finnishPeopleNames},    {Language::Nepali, nepalesePeopleNames},
-    {Language::Spanish, spanishPeopleNames},    {Language::Turkish, turkishPeopleNames},
-    {Language::Czech, czechPeopleNames},        {Language::Slovak, slovakPeopleNames},
-    {Language::Ukrainian, ukrainianPeopleNames}};
+    {Language::English, englishPeopleNames},     {Language::French, frenchPeopleNames},
+    {Language::German, germanPeopleNames},       {Language::Italian, italianPeopleNames},
+    {Language::Polish, polishPeopleNames},       {Language::Russian, russianPeopleNames},
+    {Language::Romanian, romanianPeopleNames},   {Language::Hindi, indianPeopleNames},
+    {Language::Finnish, finnishPeopleNames},     {Language::Nepali, nepalesePeopleNames},
+    {Language::Spanish, spanishPeopleNames},     {Language::Turkish, turkishPeopleNames},
+    {Language::Czech, czechPeopleNames},         {Language::Slovak, slovakPeopleNames},
+    {Language::Ukrainian, ukrainianPeopleNames}, {Language::Danish, danishPeopleNames}};
 
 const std::map<Language, std::string> generatedTestName{
-    {Language::English, "shouldGenerateEnglishName"},    {Language::French, "shouldGenerateFrenchName"},
-    {Language::German, "shouldGenerateGermanName"},      {Language::Italian, "shouldGenerateItalianName"},
-    {Language::Polish, "shouldGeneratePolishName"},      {Language::Russian, "shouldGenerateRussianName"},
-    {Language::Romanian, "shouldGenerateRomanianName"},  {Language::Hindi, "shouldGenerateIndianName"},
-    {Language::Finnish, "shouldGenerateFinnishName"},    {Language::Nepali, "shouldGenerateNepaleseName"},
-    {Language::Spanish, "shouldGenerateSpanishName"},    {Language::Turkish, "shouldGenerateTurkishName"},
-    {Language::Czech, "shouldGenerateCzechName"},        {Language::Slovak, "shouldGenerateSlovakName"},
-    {Language::Ukrainian, "shouldGenerateUkrainianName"}};
+    {Language::English, "shouldGenerateEnglishName"},     {Language::French, "shouldGenerateFrenchName"},
+    {Language::German, "shouldGenerateGermanName"},       {Language::Italian, "shouldGenerateItalianName"},
+    {Language::Polish, "shouldGeneratePolishName"},       {Language::Russian, "shouldGenerateRussianName"},
+    {Language::Romanian, "shouldGenerateRomanianName"},   {Language::Hindi, "shouldGenerateIndianName"},
+    {Language::Finnish, "shouldGenerateFinnishName"},     {Language::Nepali, "shouldGenerateNepaleseName"},
+    {Language::Spanish, "shouldGenerateSpanishName"},     {Language::Turkish, "shouldGenerateTurkishName"},
+    {Language::Czech, "shouldGenerateCzechName"},         {Language::Slovak, "shouldGenerateSlovakName"},
+    {Language::Ukrainian, "shouldGenerateUkrainianName"}, {Language::Danish, "shouldGenerateDanishName"}};
 }
 
 class PersonTest : public TestWithParam<Language>

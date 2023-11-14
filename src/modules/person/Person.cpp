@@ -5,6 +5,7 @@
 
 #include "../../common/StringHelper.h"
 #include "data/czech/CzechPeopleNames.h"
+#include "data/danish/DanishPeopleNames.h"
 #include "data/english/EnglishPeopleNames.h"
 #include "data/finnish/FinnishPeopleNames.h"
 #include "data/french/FrenchPeopleNames.h"
@@ -34,14 +35,14 @@ namespace
 const std::vector<std::string> sexes{"Male", "Female"};
 
 const std::map<Language, PeopleNames> languageToPeopleNamesMapping{
-    {Language::English, englishPeopleNames},    {Language::French, frenchPeopleNames},
-    {Language::German, germanPeopleNames},      {Language::Italian, italianPeopleNames},
-    {Language::Polish, polishPeopleNames},      {Language::Russian, russianPeopleNames},
-    {Language::Romanian, romanianPeopleNames},  {Language::Hindi, indianPeopleNames},
-    {Language::Finnish, finnishPeopleNames},    {Language::Nepali, nepalesePeopleNames},
-    {Language::Spanish, spanishPeopleNames},    {Language::Turkish, turkishPeopleNames},
-    {Language::Czech, czechPeopleNames},        {Language::Slovak, slovakPeopleNames},
-    {Language::Ukrainian, ukrainianPeopleNames}};
+    {Language::English, englishPeopleNames},     {Language::French, frenchPeopleNames},
+    {Language::German, germanPeopleNames},       {Language::Italian, italianPeopleNames},
+    {Language::Polish, polishPeopleNames},       {Language::Russian, russianPeopleNames},
+    {Language::Romanian, romanianPeopleNames},   {Language::Hindi, indianPeopleNames},
+    {Language::Finnish, finnishPeopleNames},     {Language::Nepali, nepalesePeopleNames},
+    {Language::Spanish, spanishPeopleNames},     {Language::Turkish, turkishPeopleNames},
+    {Language::Czech, czechPeopleNames},         {Language::Slovak, slovakPeopleNames},
+    {Language::Ukrainian, ukrainianPeopleNames}, {Language::Danish, danishPeopleNames}};
 
 std::string middleNameForLanguage(Language language, std::optional<Sex> sex);
 std::string prefixForLanguage(Language language, std::optional<Sex> sex);
