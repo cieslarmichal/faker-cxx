@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <cctype>
 #include <sstream>
-#include <string>
 
 namespace faker
 {
@@ -48,10 +47,12 @@ std::string StringHelper::join(const std::vector<std::string>& data, const std::
 std::string StringHelper::repeat(const std::string& data, int repetition)
 {
     std::string result;
+
     for (int i = 0; i < repetition; ++i)
     {
         result += data;
     }
+
     return result;
 }
 
@@ -64,17 +65,17 @@ std::string StringHelper::toLower(const std::string& data)
     return lowerData;
 }
 
-// Function to check if a character is punctuation
 bool StringHelper::isPunctuation(char c)
 {
     return (c == '.' || c == ',' || c == '!' || c == '?' || c == ';' || c == ':');
 }
 
-// Function to remove punctuation from a word
 std::string StringHelper::removePunctuation(const std::string& word)
 {
-    std::string result = word;
+    std::string result{word};
+
     result.erase(std::remove_if(result.begin(), result.end(), isPunctuation), result.end());
+
     return result;
 }
 }
