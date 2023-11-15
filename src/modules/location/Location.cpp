@@ -2,6 +2,7 @@
 
 #include <map>
 
+#include "../../common/FormatHelper.h"
 #include "../../common/mappers/precisionMapper/PrecisionMapper.h"
 #include "../../common/StringHelper.h"
 #include "data/Countries.h"
@@ -104,71 +105,29 @@ std::string Location::streetAddress(Country country)
 {
     const auto& addressFormat = countryToAddressFormatMapping.at(country);
 
-    const auto addressFormatElements = StringHelper::split(addressFormat, " ");
+    const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
+        {"buildingNumber", [&country]() { return buildingNumber(country); }},
+        {"street", [&country]() { return street(country); }}};
 
-    std::vector<std::string> addressElements;
-
-    for (const auto& addressFormatElement : addressFormatElements)
-    {
-        if (addressFormatElement == "{buildingNumber}")
-        {
-            addressElements.push_back(buildingNumber(country));
-        }
-        else if (addressFormatElement == "{street}")
-        {
-            addressElements.push_back(street(country));
-        }
-    }
-
-    return StringHelper::join(addressElements, " ");
+    return FormatHelper::fillTokenValues(addressFormat, dataGeneratorsMapping);
 }
 
 std::string Location::street(Country country)
 {
-    // TODO: add internalization
-
     const auto& streetFormats = countryToStreetFormatsMapping.at(country);
 
     const auto streetFormat = Helper::arrayElement<std::string>(streetFormats);
 
-    const auto streetFormatElements = StringHelper::split(streetFormat, " ");
+    const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
+        {"firstName", [&country]() { return Person::firstName(country); }},
+        {"lastName", [&country]() { return Person::lastName(country); }},
+        {"streetName", [&country]() { return Helper::arrayElement<std::string>(countryToStreetsMapping.at(country)); }},
+        {"streetPrefix",
+         [&country]() { return Helper::arrayElement<std::string>(countryToStreetPrefixesMapping.at(country)); }},
+        {"streetSuffix",
+         [&country]() { return Helper::arrayElement<std::string>(countryToStreetSuffixesMapping.at(country)); }}};
 
-    std::vector<std::string> streetNameElements;
-
-    for (const auto& streetFormatElement : streetFormatElements)
-    {
-        if (streetFormatElement == "{firstName}")
-        {
-            streetNameElements.push_back(Person::firstName());
-        }
-        else if (streetFormatElement == "{lastName}")
-        {
-            streetNameElements.push_back(Person::lastName());
-        }
-        else if (streetFormatElement == "{streetSuffix}")
-        {
-            const auto& streetSuffixes = countryToStreetSuffixesMapping.at(country);
-
-            const auto streetSuffix = Helper::arrayElement<std::string>(streetSuffixes);
-
-            streetNameElements.push_back(streetSuffix);
-        }
-        else if (streetFormatElement == "{streetPrefix}")
-        {
-            const auto& streetPrefixes = countryToStreetPrefixesMapping.at(country);
-
-            const auto streetPrefix = Helper::arrayElement<std::string>(streetPrefixes);
-
-            streetNameElements.push_back(streetPrefix);
-        }
-        else if (streetFormatElement == "{streetName}")
-        {
-            const auto& streets = countryToStreetsMapping.at(country);
-            streetNameElements.push_back(Helper::arrayElement<std::string>(streets));
-        }
-    }
-
-    return StringHelper::join(streetNameElements, " ");
+    return FormatHelper::fillTokenValues(streetFormat, dataGeneratorsMapping);
 }
 
 std::string Location::buildingNumber(Country country)
