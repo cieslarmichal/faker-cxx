@@ -5,8 +5,8 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../person/data/english/EnglishFirstNames.h"
-#include "../person/data/english/EnglishLastNames.h"
+#include "../person/data/england/EnglishFirstNames.h"
+#include "../person/data/england/EnglishLastNames.h"
 #include "../person/data/JobTitles.h"
 #include "data/BuzzAdjectives.h"
 #include "data/BuzzNouns.h"

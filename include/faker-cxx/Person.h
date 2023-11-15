@@ -3,6 +3,7 @@
 #include <optional>
 #include <string>
 
+#include "faker-cxx/types/Country.h"
 #include "types/Language.h"
 #include "types/Sex.h"
 
@@ -14,23 +15,23 @@ public:
     /**
      * @brief Returns a random first name.
      *
-     * @param language The local name language. Defaults to `Language::English`.
+     * @param country The local country. Defaults to `Country::England`.
      * @param sex The optional sex to use.
      *
      * @returns First name starting with a capital letter.
      *
      * @code
      * Person::firstName() // "Michael"
-     * Person::firstName(Language::English, Sex::Female) // "Emma"
-     * Person::firstName(Language::English, Sex::Male) // "Arthur"
+     * Person::firstName(Country::English, Sex::Female) // "Emma"
+     * Person::firstName(Country::English, Sex::Male) // "Arthur"
      * @endcode
      */
-    static std::string firstName(Language language = Language::English, std::optional<Sex> = std::nullopt);
+    static std::string firstName(Country country = Country::England, std::optional<Sex> = std::nullopt);
 
     /**
      * @brief Returns a random last name.
      *
-     * @param language The local name language. Defaults to `Language::English`.
+     * @param country The local country. Defaults to `Country::England`.
      * @param sex The optional sex to use.
      *
      * @returns Last name starting with a capital letter.
@@ -39,7 +40,7 @@ public:
      * Person::lastName() // "Peterson"
      * @endcode
      */
-    static std::string lastName(Language language = Language::English, std::optional<Sex> = std::nullopt);
+    static std::string lastName(Country country = Country::England, std::optional<Sex> = std::nullopt);
 
     /**
      * @brief Returns a random middle name.
@@ -57,18 +58,18 @@ public:
     /**
      * @brief Returns a random full name.
      *
-     * @param language The local name language. Defaults to `Language::English`.
+     * @param country The local country. Defaults to `Country::England`.
      * @param sex The optional sex to use.
      *
      * @returns Full name starting with first name.
      *
      * @code
      * Person::fullName() // "Marcia Robinson"
-     * Person::fullName(Language::English, Sex::Female) // "Jennifer Martin"
-     * Person::fullName(Language::English, Sex::Male) // "Samuel Walker"
+     * Person::fullName(Country::English, Sex::Female) // "Jennifer Martin"
+     * Person::fullName(Country::English, Sex::Male) // "Samuel Walker"
      * @endcode
      */
-    static std::string fullName(Language language = Language::English, std::optional<Sex> = std::nullopt);
+    static std::string fullName(Country country = Country::England, std::optional<Sex> = std::nullopt);
 
     /**
      * @brief Returns a random name prefix.
