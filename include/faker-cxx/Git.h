@@ -3,6 +3,7 @@
 #include <optional>
 #include <string>
 
+#include "faker-cxx/types/Country.h"
 #include "faker-cxx/types/Language.h"
 
 namespace faker
@@ -39,7 +40,7 @@ public:
      *
      * @param dateYears The range of years the date may be in the past. Defaults to `15`.
      * @param shaLength The length of output SHA hash. Defaults to `40`.
-     * @param language The language set for name generating. Defaults to `English` (could be random, if there was a
+     * @param country The country set for name generating. Defaults to `England` (could be random, if there was a
      random language generator).
      * @returns Commit entry.
      *
@@ -53,7 +54,7 @@ public:
      */
     static std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt,
                                    std::optional<unsigned> shaLength = std::nullopt,
-                                   Language language = Language::English);
+                                   Country country = Country::England);
 
     /**
      * @brief Generates a random commit message.

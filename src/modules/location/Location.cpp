@@ -73,7 +73,7 @@ const std::map<Country, std::vector<std::string>> countryToStreetPrefixesMapping
 
 std::string Location::country()
 {
-    return Helper::arrayElement<std::string>(countries);
+    return Helper::arrayElement<std::string>(allCountries);
 }
 
 std::string Location::countryCode()
