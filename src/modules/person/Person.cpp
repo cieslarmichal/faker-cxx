@@ -24,7 +24,7 @@
 #include "data/slovakia/SlovakPeopleNames.h"
 #include "data/spain/SpanishPeopleNames.h"
 #include "data/sweden/SwedishPeopleNames.h"
-#include "data/turkey/TurkishPeopleNames.h"
+#include "data/turkiye/TurkishPeopleNames.h"
 #include "data/ukraine/UkrainianPeopleNames.h"
 #include "data/usa/UsaPeopleNames.h"
 #include "data/ZodiacSigns.h"
@@ -43,7 +43,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Poland, polishPeopleNames},     {Country::Russia, russianPeopleNames},
     {Country::Romania, romanianPeopleNames},  {Country::India, indianPeopleNames},
     {Country::Finland, finnishPeopleNames},   {Country::Nepal, nepalesePeopleNames},
-    {Country::Spain, spanishPeopleNames},     {Country::Turkey, turkishPeopleNames},
+    {Country::Spain, spanishPeopleNames},     {Country::Turkiye, turkishPeopleNames},
     {Country::Czech, czechPeopleNames},       {Country::Slovakia, slovakPeopleNames},
     {Country::Ukraine, ukrainianPeopleNames}, {Country::Denmark, danishPeopleNames},
     {Country::Sweden, swedishPeopleNames},    {Country::Usa, usaPeopleNames}};

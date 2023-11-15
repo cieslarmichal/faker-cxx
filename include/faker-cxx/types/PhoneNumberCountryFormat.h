@@ -213,7 +213,7 @@ enum class PhoneNumberCountryFormat
     Tonga,
     TrinidadAndTobago,
     Tunisia,
-    Turkey,
+    Turkiye,
     Turkmenistan,
     TurksAndCaicosIslands,
     Tuvalu,

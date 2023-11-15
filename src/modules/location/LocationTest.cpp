@@ -315,7 +315,7 @@ TEST_F(LocationTest, shouldGenerateTurkiyeCity)
     const auto generatedCity = Location::city(Country::Turkiye);
 
     ASSERT_TRUE(
-        std::ranges::any_of(turkeyCities, [generatedCity](const std::string& city) { return city == generatedCity; }));
+        std::ranges::any_of(turkiyeCities, [generatedCity](const std::string& city) { return city == generatedCity; }));
 }
 
 TEST_F(LocationTest, shouldGenerateTurkiyeZipCode)

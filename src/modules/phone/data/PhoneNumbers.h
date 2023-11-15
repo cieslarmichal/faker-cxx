@@ -215,7 +215,7 @@ const std::vector<std::string> phoneNumbers = {
     "+676 (##) ####",       // Tonga
     "+1 (###) ###-####",    // Trinidad and Tobago
     "+216 (##) ###-###",    // Tunisia
-    "+90 (###) ###-####",   // Turkey
+    "+90 (###) ###-####",   // Turkiye
     "+993 (#) ###-####",    // Turkmenistan
     "+1 (###) ###-####",    // Turks and Caicos Islands
     "+688 (###) ####",      // Tuvalu
