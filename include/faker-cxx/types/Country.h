@@ -11,6 +11,7 @@ enum class Country
     France,
     Germany,
     Italy,
-    Russia
+    Russia,
+    Turkiye,
 };
 }
