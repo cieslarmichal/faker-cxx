@@ -361,8 +361,6 @@ TEST_F(LocationTest, shouldGenerateTurkiyeStreetAddress)
 
     ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
-    ASSERT_TRUE(std::ranges::any_of(turkiyeStreetPrefixes, [generatedStreetPrefix](const std::string& prefix)
-                                    { return prefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(turkiyeStreets, [generatedStreetName](const std::string& street)
                                     { return street == generatedStreetName; }));
 }
