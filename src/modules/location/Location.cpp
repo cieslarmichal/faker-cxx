@@ -11,7 +11,6 @@
 #include "data/turkiye/TurkiyeDistricts.h"
 #include "data/turkiye/TurkiyeNeighbourhoods.h"
 #include "data/turkiye/TurkiyeStreetNames.h"
-#include "data/turkiye/TurkiyeStreetNumberPrefix.h"
 #include "data/france/FranceAddressFormat.h"
 #include "data/france/FranceCities.h"
 #include "data/france/FranceStreetPrefixes.h"
@@ -79,8 +78,7 @@ const std::map<Country, std::vector<std::string>> countryToStreetSuffixesMapping
 const std::map<Country, std::vector<std::string>> countryToStreetPrefixesMapping{
     {Country::Russia, russiaStreetPrefixes},
     {Country::Poland, polandStreetPrefixes},
-    {Country::France, franceStreetPrefixes},
-    {Country::Turkiye, turkiyeStreetNumberPrefix},};
+    {Country::France, franceStreetPrefixes},};
 }
 
 std::string Location::country()
