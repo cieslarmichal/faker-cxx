@@ -21,7 +21,6 @@ enum class Country
     Finland,
     Nepal,
     Spain,
-    Turkiye,
     Czech,
     Slovakia,
     Ukraine,
