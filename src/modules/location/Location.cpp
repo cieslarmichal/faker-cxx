@@ -34,7 +34,6 @@
 
 namespace faker
 {
-    const std::vector<std::string> turkiyeStreetNumberPrefix = {"A-", "B-", "C-", "D-"};
 namespace
 {
 // TODO: Refactor
