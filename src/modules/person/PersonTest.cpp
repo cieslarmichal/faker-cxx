@@ -23,6 +23,7 @@
 #include "data/russian/RussianPeopleNames.h"
 #include "data/slovak/SlovakPeopleNames.h"
 #include "data/spanish/SpanishPeopleNames.h"
+#include "data/swedish/SwedishPeopleNames.h"
 #include "data/turkish/TurkishPeopleNames.h"
 #include "data/ukrainian/UkrainianPeopleNames.h"
 #include "data/ZodiacSigns.h"
@@ -43,7 +44,8 @@ const std::map<Language, PeopleNames> languageToPeopleNamesMapping{
     {Language::Finnish, finnishPeopleNames},     {Language::Nepali, nepalesePeopleNames},
     {Language::Spanish, spanishPeopleNames},     {Language::Turkish, turkishPeopleNames},
     {Language::Czech, czechPeopleNames},         {Language::Slovak, slovakPeopleNames},
-    {Language::Ukrainian, ukrainianPeopleNames}, {Language::Danish, danishPeopleNames}};
+    {Language::Ukrainian, ukrainianPeopleNames}, {Language::Danish, danishPeopleNames},
+    {Language::Swedish, swedishPeopleNames}};
 
 const std::map<Language, std::string> generatedTestName{
     {Language::English, "shouldGenerateEnglishName"},     {Language::French, "shouldGenerateFrenchName"},
@@ -53,7 +55,8 @@ const std::map<Language, std::string> generatedTestName{
     {Language::Finnish, "shouldGenerateFinnishName"},     {Language::Nepali, "shouldGenerateNepaleseName"},
     {Language::Spanish, "shouldGenerateSpanishName"},     {Language::Turkish, "shouldGenerateTurkishName"},
     {Language::Czech, "shouldGenerateCzechName"},         {Language::Slovak, "shouldGenerateSlovakName"},
-    {Language::Ukrainian, "shouldGenerateUkrainianName"}, {Language::Danish, "shouldGenerateDanishName"}};
+    {Language::Ukrainian, "shouldGenerateUkrainianName"}, {Language::Danish, "shouldGenerateDanishName"},
+    {Language::Swedish, "shouldGenerateSwedishName"}};
 }
 
 class PersonTest : public TestWithParam<Language>

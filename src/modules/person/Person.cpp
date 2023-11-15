@@ -22,6 +22,7 @@
 #include "data/russian/RussianPeopleNames.h"
 #include "data/slovak/SlovakPeopleNames.h"
 #include "data/spanish/SpanishPeopleNames.h"
+#include "data/swedish/SwedishPeopleNames.h"
 #include "data/turkish/TurkishPeopleNames.h"
 #include "data/ukrainian/UkrainianPeopleNames.h"
 #include "data/ZodiacSigns.h"
@@ -42,7 +43,8 @@ const std::map<Language, PeopleNames> languageToPeopleNamesMapping{
     {Language::Finnish, finnishPeopleNames},     {Language::Nepali, nepalesePeopleNames},
     {Language::Spanish, spanishPeopleNames},     {Language::Turkish, turkishPeopleNames},
     {Language::Czech, czechPeopleNames},         {Language::Slovak, slovakPeopleNames},
-    {Language::Ukrainian, ukrainianPeopleNames}, {Language::Danish, danishPeopleNames}};
+    {Language::Ukrainian, ukrainianPeopleNames}, {Language::Danish, danishPeopleNames},
+    {Language::Swedish, swedishPeopleNames}};
 
 std::string middleNameForLanguage(Language language, std::optional<Sex> sex);
 std::string prefixForLanguage(Language language, std::optional<Sex> sex);
