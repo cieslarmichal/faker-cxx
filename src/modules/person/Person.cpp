@@ -171,15 +171,13 @@ std::string Person::fullName(Country country, std::optional<Sex> sex)
     const auto nameFormat = Helper::weightedArrayElement<std::string>(weightedElements);
 
     const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
-        {"firstName", [&country, &sex]() { return Person::firstName(country, sex); }},
+        {"firstName", [&country, &sex]() { return firstName(country, sex); }},
         {"middleName", [&country, &sex]() { return middleNameForCountry(country, sex); }},
-        {"lastName", [&country, &sex]() { return Person::lastName(country, sex); }},
+        {"lastName", [&country, &sex]() { return lastName(country, sex); }},
         {"prefix", [&country, &sex]() { return prefixForCountry(country, sex); }},
         {"suffix", [&country, &sex]() { return suffixForCountry(country, sex); }}};
 
-    auto fullName = FormatHelper::fillTokenValues(nameFormat, dataGeneratorsMapping);
-
-    return fullName;
+    return FormatHelper::fillTokenValues(nameFormat, dataGeneratorsMapping);
 }
 
 std::string Person::prefix(std::optional<Sex> sex)
