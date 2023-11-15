@@ -32,7 +32,8 @@ enum class IbanCountry
     Slovakia,
     Slovenia,
     Spain,
-    Sweden
+    Sweden,
+    Turkiye,
 };
 
 const std::vector<IbanCountry> supportedIbanCountries{
@@ -42,7 +43,7 @@ const std::vector<IbanCountry> supportedIbanCountries{
     IbanCountry::Hungary,   IbanCountry::Ireland,    IbanCountry::Italy,    IbanCountry::Latvia,
     IbanCountry::Lithuania, IbanCountry::Luxembourg, IbanCountry::Malta,    IbanCountry::Netherlands,
     IbanCountry::Poland,    IbanCountry::Portugal,   IbanCountry::Romania,  IbanCountry::Slovakia,
-    IbanCountry::Slovenia,  IbanCountry::Spain,      IbanCountry::Sweden,
+    IbanCountry::Slovenia,  IbanCountry::Spain,      IbanCountry::Sweden,   IbanCountry::Turkiye,
 };
 
 }

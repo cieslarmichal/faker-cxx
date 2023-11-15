@@ -12,6 +12,12 @@
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
+#include "data/turkiye/TurkiyeAddressFormat.h"
+#include "data/turkiye/TurkiyeCities.h"
+#include "data/turkiye/TurkiyeDistricts.h"
+#include "data/turkiye/TurkiyeNeighbourhoods.h"
+#include "data/turkiye/TurkiyeStreetNames.h"
+#include "data/turkiye/TurkiyeStreetNumberPrefix.h"
 #include "data/france/FranceCities.h"
 #include "data/france/FranceStreetPrefixes.h"
 #include "data/france/FranceStreetSuffixes.h"
@@ -305,6 +311,85 @@ TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
                                     { return streetPrefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(franceStreetSuffixes, [generatedStreetSuffix](const std::string& streetSuffix)
                                     { return streetSuffix == generatedStreetSuffix; }));
+}
+
+TEST_F(LocationTest, shouldGenerateTurkiyeCity)
+{
+    const auto generatedCity = Location::city(Country::Turkiye);
+
+    ASSERT_TRUE(
+        std::ranges::any_of(turkeyCities, [generatedCity](const std::string& city) { return city == generatedCity; }));
+}
+
+TEST_F(LocationTest, shouldGenerateTurkiyeZipCode)
+{
+    const auto generatedZipCode = Location::zipCode(Country::Turkiye);
+
+    ASSERT_EQ(generatedZipCode.size(), 6);
+    ASSERT_TRUE(generatedZipCode[2] == '-');
+}
+
+TEST_F(LocationTest, shouldGenerateTurkiyeBuildingNumber)
+{
+    const auto generatedBuildingNumber = Location::buildingNumber(Country::Turkiye);
+
+    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+}
+
+TEST(FakerTest, TurkiyeStreetNumberTest)
+{
+    for (int i = 0; i < 1000; ++i)
+    {
+        std::string streetNumber = faker::turkiyeStreetNumber();
+        bool isValidPrefix = false;
+        for (const std::string &prefix : faker::turkiyeStreetNumberPrefix)
+        {
+            if (streetNumber.find(prefix) == 0)
+            {
+                isValidPrefix = true;
+                break;
+            }
+        }
+        EXPECT_TRUE(isValidPrefix);
+        int number = std::stoi(streetNumber.substr(2));
+        EXPECT_GE(number, 1);
+        EXPECT_LE(number, 999);
+    }
+}
+
+TEST_F(LocationTest, shouldGenerateTurkiyeStreetAddress)
+{
+    const auto generatedStreetAddress = Location::streetAddress(Country::Turkiye);
+
+    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+
+    std::vector<std::string> street{};
+
+    std::string generatedStreetName{};
+
+    if (generatedStreetAddressElements.size() > 3)
+    {
+        for (size_t i = 1; i < generatedStreetAddressElements.size() - 1; ++i)
+        {
+            street.push_back(generatedStreetAddressElements.at(i));
+        }
+        generatedStreetName = StringHelper::join(street);
+    }
+    else
+    {
+        generatedStreetName = generatedStreetAddressElements[1];
+    }
+
+    const auto& generatedBuildingNumber = generatedStreetAddressElements.back();
+    const auto& generatedStreetPrefix = generatedStreetAddressElements.front();
+
+    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+    ASSERT_TRUE(std::ranges::any_of(turkiyeStreetPrefixes, [generatedStreetPrefix](const std::string& prefix)
+                                    { return prefix == generatedStreetPrefix; }));
+    ASSERT_TRUE(std::ranges::any_of(turkiyeStreets, [generatedStreetName](const std::string& street)
+                                    { return street == generatedStreetName; }));
 }
 
 TEST_F(LocationTest, shouldGenerateLatitude)

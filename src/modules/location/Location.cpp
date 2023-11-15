@@ -6,6 +6,12 @@
 #include "../../common/StringHelper.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
+#include "data/turkiye/TurkiyeAddressFormat.h"
+#include "data/turkiye/TurkiyeCities.h"
+#include "data/turkiye/TurkiyeDistricts.h"
+#include "data/turkiye/TurkiyeNeighbourhoods.h"
+#include "data/turkiye/TurkiyeStreetNames.h"
+#include "data/turkiye/TurkiyeStreetNumberPrefix.h"
 #include "data/france/FranceAddressFormat.h"
 #include "data/france/FranceCities.h"
 #include "data/france/FranceStreetPrefixes.h"
@@ -28,30 +34,35 @@
 
 namespace faker
 {
+    const std::vector<std::string> turkiyeStreetNumberPrefix = {"A-", "B-", "C-", "D-"};
 namespace
 {
 const std::map<Country, std::vector<std::string>> countryToCitiesMapping{{Country::Usa, usaCities},
                                                                          {Country::Russia, russiaCities},
                                                                          {Country::Poland, polandCities},
-                                                                         {Country::France, franceCities}};
+                                                                         {Country::France, franceCities},
+                                                                         {Country::Turkiye, turkiyeCities}};
 
 const std::map<Country, std::vector<std::string>> countryToStreetsMapping{{Country::Poland, polandStreets}};
 
 const std::map<Country, std::string> countryToZipCodeFormatMapping{{Country::Usa, usaZipCodeFormat},
                                                                    {Country::Russia, russiaZipCodeFormat},
                                                                    {Country::Poland, polandZipCodeFormat},
-                                                                   {Country::France, franceZipCodeFormat}};
+                                                                   {Country::France, franceZipCodeFormat},
+                                                                   {Country::Turkiye, turkiyeZipCodeFormat}};
 
 const std::map<Country, std::vector<std::string>> countryToBuildingNumberFormatsMapping{
     {Country::Usa, usaBuildingNumberFormats},
     {Country::Russia, russiaBuildingNumberFormats},
     {Country::Poland, polandBuildingNumberFormats},
-    {Country::France, franceBuildingNumberFormats}};
+    {Country::France, franceBuildingNumberFormats},
+    {Country::Turkiye, turkiyeBuildingNumberFormats}};
 
 const std::map<Country, std::vector<std::string>> countryToStreetFormatsMapping{{Country::Usa, usaStreetFormats},
                                                                                 {Country::Russia, russiaStreetFormats},
                                                                                 {Country::Poland, polandStreetFormats},
-                                                                                {Country::France, franceStreetFormats}};
+                                                                                {Country::France, franceStreetFormats},
+                                                                                {Country::Turkiye, turkiyeStreetFormats}};
 
 const std::map<Country, std::vector<std::string>> countryToSecondaryAddressFormatsMapping{
     {Country::Usa, usaSecondaryAddressFormats}, {Country::France, franceSecondaryAddressFormats}};
@@ -59,7 +70,8 @@ const std::map<Country, std::vector<std::string>> countryToSecondaryAddressForma
 const std::map<Country, std::string> countryToAddressFormatMapping{{Country::Usa, usaAddressFormat},
                                                                    {Country::Russia, russiaAddressFormat},
                                                                    {Country::Poland, polandAddressFormat},
-                                                                   {Country::France, franceAddressFormat}};
+                                                                   {Country::France, franceAddressFormat},
+                                                                   {Country::Turkiye, turkiyeAddressFormat}};
 
 const std::map<Country, std::vector<std::string>> countryToStreetSuffixesMapping{
     {Country::Usa, usaStreetSuffixes}, {Country::France, franceStreetSuffixes}};
@@ -67,7 +79,8 @@ const std::map<Country, std::vector<std::string>> countryToStreetSuffixesMapping
 const std::map<Country, std::vector<std::string>> countryToStreetPrefixesMapping{
     {Country::Russia, russiaStreetPrefixes},
     {Country::Poland, polandStreetPrefixes},
-    {Country::France, franceStreetPrefixes}};
+    {Country::France, franceStreetPrefixes},
+    {Country::Turkiye, turkiyeStreetNumberPrefix},};
 }
 
 std::string Location::country()
