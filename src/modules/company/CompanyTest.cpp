@@ -5,9 +5,8 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../person/data/english/EnglishFirstNamesFemales.h"
-#include "../person/data/english/EnglishFirstNamesMales.h"
-#include "../person/data/english/EnglishLastNames.h"
+#include "../person/data/england/EnglishFirstNames.h"
+#include "../person/data/england/EnglishLastNames.h"
 #include "../person/data/JobTitles.h"
 #include "data/BuzzAdjectives.h"
 #include "data/BuzzNouns.h"
@@ -33,10 +32,10 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
 
     const auto companyNameElements = StringHelper::split(companyName, " ");
 
-    std::vector<std::string> expectedFirstNames{englishFirstNamesMales};
+    std::vector<std::string> expectedFirstNames{englishMalesFirstNames};
 
-    expectedFirstNames.insert(expectedFirstNames.end(), englishFirstNamesFemales.begin(),
-                              englishFirstNamesFemales.end());
+    expectedFirstNames.insert(expectedFirstNames.end(), englishFemalesFirstNames.begin(),
+                              englishFemalesFirstNames.end());
 
     if (companyNameElements.size() == 2)
     {

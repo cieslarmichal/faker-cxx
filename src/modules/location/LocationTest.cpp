@@ -1,14 +1,12 @@
 #include "faker-cxx/Location.h"
 
 #include <algorithm>
-#include <charconv>
 
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../person/data/english/EnglishFirstNamesFemales.h"
-#include "../person/data/english/EnglishFirstNamesMales.h"
-#include "../person/data/english/EnglishLastNames.h"
+#include "../person/data/england/EnglishFirstNames.h"
+#include "../person/data/england/EnglishLastNames.h"
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
@@ -25,7 +23,6 @@
 #include "data/poland/PolandStreetNames.h"
 #include "data/poland/PolandStreetPrefixes.h"
 #include "data/russia/RussiaCities.h"
-#include "data/russia/RussiaStreetPrefixes.h"
 #include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/usa/UsaCities.h"
@@ -53,7 +50,7 @@ TEST_F(LocationTest, shouldGenerateCountry)
 {
     const auto generatedCountry = Location::country();
 
-    ASSERT_TRUE(std::ranges::any_of(countries, [generatedCountry](const std::string& country)
+    ASSERT_TRUE(std::ranges::any_of(allCountries, [generatedCountry](const std::string& country)
                                     { return country == generatedCountry; }));
 }
 
@@ -120,8 +117,8 @@ TEST_F(LocationTest, shouldGenerateUsaStreet)
     const auto& generatedFirstOrLastName = generatedStreetElements[0];
     const auto& generatedStreetSuffix = generatedStreetElements[1];
 
-    std::vector<std::string> firstNames{englishFirstNamesMales};
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    std::vector<std::string> firstNames{englishMalesFirstNames};
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     ASSERT_EQ(generatedStreetElements.size(), 2);
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFirstOrLastName](const std::string& firstName)
@@ -142,8 +139,8 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
     const auto& generatedFirstOrLastName = generatedStreetAddressElements[1];
     const auto& generatedStreetSuffix = generatedStreetAddressElements[2];
 
-    std::vector<std::string> firstNames{englishFirstNamesMales};
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    std::vector<std::string> firstNames{englishMalesFirstNames};
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     ASSERT_EQ(generatedStreetAddressElements.size(), 3);
     ASSERT_TRUE(generatedBuildingNumber.size() >= 3 && generatedBuildingNumber.size() <= 5);
@@ -176,7 +173,7 @@ TEST_F(LocationTest, shouldGenerateRussiaBuildingNumber)
 {
     const auto generatedBuildingNumber = Location::buildingNumber(Country::Russia);
 
-    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
 }
 
@@ -200,7 +197,7 @@ TEST_F(LocationTest, shouldGeneratePolandBuildingNumber)
 {
     const auto generatedBuildingNumber = Location::buildingNumber(Country::Poland);
 
-    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
 }
 
@@ -230,7 +227,7 @@ TEST_F(LocationTest, shouldGeneratePolandStreetAddress)
     const auto& generatedBuildingNumber = generatedStreetAddressElements.back();
     const auto& generatedStreetPrefix = generatedStreetAddressElements.front();
 
-    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
     ASSERT_TRUE(std::ranges::any_of(polandStreetPrefixes, [generatedStreetPrefix](const std::string& prefix)
                                     { return prefix == generatedStreetPrefix; }));
@@ -258,7 +255,7 @@ TEST_F(LocationTest, shouldGenerateFranceBuildingNumber)
 {
     const auto generatedBuildingNumber = Location::buildingNumber(Country::France);
 
-    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 4);
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 4);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
 }
 
@@ -305,7 +302,7 @@ TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
         StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
 
     ASSERT_GE(generatedStreetAddressElements.size(), 3);
-    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 4);
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 4);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
     ASSERT_TRUE(std::ranges::any_of(franceStreetPrefixes, [generatedStreetPrefix](const std::string& streetPrefix)
                                     { return streetPrefix == generatedStreetPrefix; }));
@@ -397,7 +394,7 @@ TEST_F(LocationTest, shouldGenerateLatitude)
     const auto latitude = Location::latitude();
 
     auto offset = latitude.size();
-    const auto latitudeAsFloat = std::stof(latitude.data(), &offset);
+    const auto latitudeAsFloat = std::stof(latitude, &offset);
 
     const auto generatedLatitudeParts = StringHelper::split(latitude, ".");
 
@@ -412,7 +409,7 @@ TEST_F(LocationTest, shouldGenerateLatitudeWithSpecifiedPrecision)
     const auto latitude = Location::latitude(Precision::ThreeDp);
 
     auto offset = latitude.size();
-    const auto latitudeAsFloat = std::stof(latitude.data(), &offset);
+    const auto latitudeAsFloat = std::stof(latitude, &offset);
 
     const auto generatedLatitudeParts = StringHelper::split(latitude, ".");
 
@@ -427,7 +424,7 @@ TEST_F(LocationTest, shouldGenerateLongitude)
     const auto longitude = Location::longitude();
 
     auto offset = longitude.size();
-    const auto longitudeAsFloat = std::stof(longitude.data(), &offset);
+    const auto longitudeAsFloat = std::stof(longitude, &offset);
 
     const auto generatedLongitudeParts = StringHelper::split(longitude, ".");
 
@@ -442,7 +439,7 @@ TEST_F(LocationTest, shouldGenerateLongitudeWithSpecifiedPrecision)
     const auto longitude = Location::longitude(Precision::SixDp);
 
     auto offset = longitude.size();
-    const auto longitudeAsFloat = std::stof(longitude.data(), &offset);
+    const auto longitudeAsFloat = std::stof(longitude, &offset);
 
     const auto generatedLongitudeParts = StringHelper::split(longitude, ".");
 

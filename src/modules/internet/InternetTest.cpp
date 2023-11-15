@@ -7,9 +7,8 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../person/data/english/EnglishFirstNamesFemales.h"
-#include "../person/data/english/EnglishFirstNamesMales.h"
-#include "../person/data/english/EnglishLastNames.h"
+#include "../person/data/england/EnglishFirstNames.h"
+#include "../person/data/england/EnglishLastNames.h"
 #include "../string/data/Characters.h"
 #include "../word/data/Adjectives.h"
 #include "../word/data/Nouns.h"
@@ -102,9 +101,9 @@ public:
 
 TEST_F(InternetTest, shouldGenerateUsername)
 {
-    std::vector<std::string> firstNames{englishFirstNamesMales};
+    std::vector<std::string> firstNames{englishMalesFirstNames};
 
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     const auto username = Internet::username();
 
@@ -127,9 +126,9 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFirstNameProvided)
 
 TEST_F(InternetTest, shouldGenerateUsernameWithLastNameProvided)
 {
-    std::vector<std::string> firstNames{englishFirstNamesMales};
+    std::vector<std::string> firstNames{englishMalesFirstNames};
 
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     const auto lastName = "Cieslar";
 
@@ -154,9 +153,9 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFullNameProvided)
 
 TEST_F(InternetTest, shouldGenerateEmail)
 {
-    std::vector<std::string> firstNames{englishFirstNamesMales};
+    std::vector<std::string> firstNames{englishMalesFirstNames};
 
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     const auto email = Internet::email();
 
@@ -197,9 +196,9 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 {
-    std::vector<std::string> firstNames{englishFirstNamesMales};
+    std::vector<std::string> firstNames{englishMalesFirstNames};
 
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     const auto lastName = "Howard";
 
@@ -221,9 +220,9 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 {
-    std::vector<std::string> firstNames{englishFirstNamesMales};
+    std::vector<std::string> firstNames{englishMalesFirstNames};
 
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     const auto firstName = "Cindy";
 
@@ -246,9 +245,9 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 {
-    std::vector<std::string> firstNames{englishFirstNamesMales};
+    std::vector<std::string> firstNames{englishMalesFirstNames};
 
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     const auto emailHost = "example.com";
 
@@ -270,9 +269,9 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 
 TEST_F(InternetTest, shouldGenerateExampleEmail)
 {
-    std::vector<std::string> firstNames{englishFirstNamesMales};
+    std::vector<std::string> firstNames{englishMalesFirstNames};
 
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     const auto email = Internet::exampleEmail();
 
@@ -313,9 +312,9 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 {
-    std::vector<std::string> firstNames{englishFirstNamesMales};
+    std::vector<std::string> firstNames{englishMalesFirstNames};
 
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     const auto lastName = "Wilkinson";
 
@@ -337,9 +336,9 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 {
-    std::vector<std::string> firstNames{englishFirstNamesMales};
+    std::vector<std::string> firstNames{englishMalesFirstNames};
 
-    firstNames.insert(firstNames.end(), englishFirstNamesFemales.begin(), englishFirstNamesFemales.end());
+    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
 
     const auto firstName = "Walter";
 

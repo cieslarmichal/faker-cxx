@@ -1,8 +1,12 @@
 #pragma once
 
+#include <iostream>
+#include <random>
+#include <sstream>
 #include <string>
 
 #include "types/Hex.h"
+#include "types/RandomGenerator.hpp"
 
 namespace faker
 {
@@ -21,11 +25,55 @@ public:
      *
      * @returns UUIDv4.
      *
+     * @param gen A random number generator (type RandomGenerator)
      * @code
      * String::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
      * @endcode
      */
-    static std::string uuid();
+    template <typename T = std::mt19937>
+    static std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
+    {
+        static std::uniform_int_distribution<> dist(0, 15);
+        static std::uniform_int_distribution<> dist2(8, 11);
+
+        std::stringstream ss;
+        ss << std::hex;
+
+        for (int i = 0; i < 8; i++)
+        {
+            ss << gen(dist);
+        }
+
+        ss << "-";
+        for (int i = 0; i < 4; i++)
+        {
+            ss << gen(dist);
+        }
+
+        ss << "-4";
+        for (int i = 0; i < 3; i++)
+        {
+            ss << gen(dist);
+        }
+
+        ss << "-";
+
+        ss << gen(dist2);
+
+        for (int i = 0; i < 3; i++)
+        {
+            ss << gen(dist);
+        }
+
+        ss << "-";
+
+        for (int i = 0; i < 12; i++)
+        {
+            ss << gen(dist);
+        };
+
+        return ss.str();
+    }
 
     /**
      * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).

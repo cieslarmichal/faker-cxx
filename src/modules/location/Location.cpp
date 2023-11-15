@@ -37,6 +37,7 @@ namespace faker
     const std::vector<std::string> turkiyeStreetNumberPrefix = {"A-", "B-", "C-", "D-"};
 namespace
 {
+// TODO: Refactor
 const std::map<Country, std::vector<std::string>> countryToCitiesMapping{{Country::Usa, usaCities},
                                                                          {Country::Russia, russiaCities},
                                                                          {Country::Poland, polandCities},
@@ -85,7 +86,7 @@ const std::map<Country, std::vector<std::string>> countryToStreetPrefixesMapping
 
 std::string Location::country()
 {
-    return Helper::arrayElement<std::string>(countries);
+    return Helper::arrayElement<std::string>(allCountries);
 }
 
 std::string Location::countryCode()
@@ -137,6 +138,8 @@ std::string Location::streetAddress(Country country)
 
 std::string Location::street(Country country)
 {
+    // TODO: add internalization
+
     const auto& streetFormats = countryToStreetFormatsMapping.at(country);
 
     const auto streetFormat = Helper::arrayElement<std::string>(streetFormats);
