@@ -71,9 +71,10 @@ std::string Git::commitDate(unsigned years)
                        monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
 }
 
-std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Language language)
+std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Country country)
 {
     std::string entry = "commit ";
+
     if (shaLength)
     {
         entry += commitSha(shaLength.emplace());
@@ -83,9 +84,11 @@ std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<un
         entry += commitSha();
     }
 
-    std::string firstName = Person::firstName(language);
-    std::string lastName = Person::lastName(language);
+    const auto firstName = Person::firstName(country);
+    const auto lastName = Person::lastName(country);
+
     entry += "\nAuthor: " + firstName + " " + lastName + " " + Internet::email(firstName, lastName) + "\nDate: ";
+
     if (dateYears)
     {
         entry += commitDate(dateYears.emplace());
@@ -96,6 +99,7 @@ std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<un
     }
 
     entry += "\n\n\t" + commitMessage();
+
     return entry;
 }
 

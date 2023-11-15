@@ -7,8 +7,8 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../person/data/english/EnglishFirstNames.h"
-#include "../person/data/english/EnglishLastNames.h"
+#include "../person/data/england/EnglishFirstNames.h"
+#include "../person/data/england/EnglishLastNames.h"
 #include "../string/data/Characters.h"
 #include "../word/data/Adjectives.h"
 #include "../word/data/Nouns.h"

@@ -6,28 +6,29 @@
 
 #include "../../common/StringHelper.h"
 #include "data/czech/CzechPeopleNames.h"
-#include "data/danish/DanishPeopleNames.h"
-#include "data/english/EnglishPeopleNames.h"
-#include "data/finnish/FinnishPeopleNames.h"
-#include "data/french/FrenchPeopleNames.h"
+#include "data/denmark/DanishPeopleNames.h"
+#include "data/england/EnglishPeopleNames.h"
+#include "data/finland/FinnishPeopleNames.h"
+#include "data/france/FrenchPeopleNames.h"
 #include "data/Gender.h"
-#include "data/german/GermanPeopleNames.h"
+#include "data/germany/GermanPeopleNames.h"
 #include "data/Hobbies.h"
-#include "data/indian/IndianPeopleNames.h"
-#include "data/italian/ItalianPeopleNames.h"
+#include "data/india/IndianPeopleNames.h"
+#include "data/italy/ItalianPeopleNames.h"
 #include "data/JobTitles.h"
 #include "data/Nationalities.h"
-#include "data/nepalese/NepalesePeopleNames.h"
-#include "data/polish/PolishPeopleNames.h"
-#include "data/romanian/RomanianPeopleNames.h"
-#include "data/russian/RussianPeopleNames.h"
-#include "data/slovak/SlovakPeopleNames.h"
-#include "data/spanish/SpanishPeopleNames.h"
-#include "data/swedish/SwedishPeopleNames.h"
-#include "data/turkish/TurkishPeopleNames.h"
-#include "data/ukrainian/UkrainianPeopleNames.h"
+#include "data/nepal/NepalesePeopleNames.h"
+#include "data/poland/PolishPeopleNames.h"
+#include "data/romania/RomanianPeopleNames.h"
+#include "data/russia/RussianPeopleNames.h"
+#include "data/slovakia/SlovakPeopleNames.h"
+#include "data/spain/SpanishPeopleNames.h"
+#include "data/sweden/SwedishPeopleNames.h"
+#include "data/turkey/TurkishPeopleNames.h"
+#include "data/ukraine/UkrainianPeopleNames.h"
 #include "data/ZodiacSigns.h"
 #include "src/modules/person/data/PeopleNames.h"
+#include "src/modules/person/data/usa/UsaPeopleNames.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -36,30 +37,30 @@ namespace
 {
 const std::vector<std::string> sexes{"Male", "Female"};
 
-const std::map<Language, PeopleNames> languageToPeopleNamesMapping{
-    {Language::English, englishPeopleNames},     {Language::French, frenchPeopleNames},
-    {Language::German, germanPeopleNames},       {Language::Italian, italianPeopleNames},
-    {Language::Polish, polishPeopleNames},       {Language::Russian, russianPeopleNames},
-    {Language::Romanian, romanianPeopleNames},   {Language::Hindi, indianPeopleNames},
-    {Language::Finnish, finnishPeopleNames},     {Language::Nepali, nepalesePeopleNames},
-    {Language::Spanish, spanishPeopleNames},     {Language::Turkish, turkishPeopleNames},
-    {Language::Czech, czechPeopleNames},         {Language::Slovak, slovakPeopleNames},
-    {Language::Ukrainian, ukrainianPeopleNames}, {Language::Danish, danishPeopleNames},
-    {Language::Swedish, swedishPeopleNames}};
+const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
+    {Country::England, englishPeopleNames},   {Country::France, frenchPeopleNames},
+    {Country::Germany, germanPeopleNames},    {Country::Italy, italianPeopleNames},
+    {Country::Poland, polishPeopleNames},     {Country::Russia, russianPeopleNames},
+    {Country::Romania, romanianPeopleNames},  {Country::India, indianPeopleNames},
+    {Country::Finland, finnishPeopleNames},   {Country::Nepal, nepalesePeopleNames},
+    {Country::Spain, spanishPeopleNames},     {Country::Turkey, turkishPeopleNames},
+    {Country::Czech, czechPeopleNames},       {Country::Slovakia, slovakPeopleNames},
+    {Country::Ukraine, ukrainianPeopleNames}, {Country::Denmark, danishPeopleNames},
+    {Country::Sweden, swedishPeopleNames},    {Country::Usa, usaPeopleNames}};
 
-const std::map<Language, std::string> generatedTestName{
-    {Language::English, "shouldGenerateEnglishName"},     {Language::French, "shouldGenerateFrenchName"},
-    {Language::German, "shouldGenerateGermanName"},       {Language::Italian, "shouldGenerateItalianName"},
-    {Language::Polish, "shouldGeneratePolishName"},       {Language::Russian, "shouldGenerateRussianName"},
-    {Language::Romanian, "shouldGenerateRomanianName"},   {Language::Hindi, "shouldGenerateIndianName"},
-    {Language::Finnish, "shouldGenerateFinnishName"},     {Language::Nepali, "shouldGenerateNepaleseName"},
-    {Language::Spanish, "shouldGenerateSpanishName"},     {Language::Turkish, "shouldGenerateTurkishName"},
-    {Language::Czech, "shouldGenerateCzechName"},         {Language::Slovak, "shouldGenerateSlovakName"},
-    {Language::Ukrainian, "shouldGenerateUkrainianName"}, {Language::Danish, "shouldGenerateDanishName"},
-    {Language::Swedish, "shouldGenerateSwedishName"}};
+const std::map<Country, std::string> generatedTestName{
+    {Country::England, "shouldGenerateEnglishName"},   {Country::France, "shouldGenerateFrenchName"},
+    {Country::Germany, "shouldGenerateGermanName"},    {Country::Italy, "shouldGenerateItalianName"},
+    {Country::Poland, "shouldGeneratePolishName"},     {Country::Russia, "shouldGenerateRussianName"},
+    {Country::Romania, "shouldGenerateRomanianName"},  {Country::India, "shouldGenerateIndianName"},
+    {Country::Finland, "shouldGenerateFinnishName"},   {Country::Nepal, "shouldGenerateNepaleseName"},
+    {Country::Spain, "shouldGenerateSpanishName"},     {Country::Turkey, "shouldGenerateTurkishName"},
+    {Country::Czech, "shouldGenerateCzechName"},       {Country::Slovakia, "shouldGenerateSlovakName"},
+    {Country::Ukraine, "shouldGenerateUkrainianName"}, {Country::Denmark, "shouldGenerateDanishName"},
+    {Country::Sweden, "shouldGenerateSwedishName"},    {Country::Usa, "shouldGenerateAmericanName"}};
 }
 
-class PersonTest : public TestWithParam<Language>
+class PersonTest : public TestWithParam<Country>
 {
 public:
     PersonTest()
@@ -73,7 +74,7 @@ public:
 
     void initializePrefixes()
     {
-        for (const auto& [_, peopleNames] : languageToPeopleNamesMapping)
+        for (const auto& [_, peopleNames] : countryToPeopleNamesMapping)
         {
             malesPrefixes.insert(malesPrefixes.end(), peopleNames.malesNames.prefixes.begin(),
                                  peopleNames.malesNames.prefixes.end());
@@ -90,7 +91,7 @@ public:
 
     void initializeSuffixes()
     {
-        for (const auto& [_, peopleNames] : languageToPeopleNamesMapping)
+        for (const auto& [_, peopleNames] : countryToPeopleNamesMapping)
         {
             malesSuffixes.insert(malesSuffixes.end(), peopleNames.malesNames.suffixes.begin(),
                                  peopleNames.malesNames.suffixes.end());
@@ -107,7 +108,7 @@ public:
 
     void initializeMiddleNames()
     {
-        for (const auto& [_, peopleNames] : languageToPeopleNamesMapping)
+        for (const auto& [_, peopleNames] : countryToPeopleNamesMapping)
         {
             malesMiddleNames.insert(malesMiddleNames.end(), peopleNames.malesNames.middleNames.begin(),
                                     peopleNames.malesNames.middleNames.end());
@@ -135,9 +136,9 @@ public:
 
 TEST_P(PersonTest, shouldGenerateFirstName)
 {
-    const auto language = GetParam();
+    const auto country = GetParam();
 
-    const auto& peopleNames = languageToPeopleNamesMapping.at(language);
+    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
@@ -146,7 +147,7 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
 
-    const auto generatedFirstName = Person::firstName(language);
+    const auto generatedFirstName = Person::firstName(country);
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFirstName](const std::string& firstName)
                                     { return firstName == generatedFirstName; }));
@@ -154,13 +155,13 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 
 TEST_P(PersonTest, shouldGenerateMaleFirstName)
 {
-    const auto language = GetParam();
+    const auto country = GetParam();
 
-    const auto& peopleNames = languageToPeopleNamesMapping.at(language);
+    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
-    const auto generatedFirstName = Person::firstName(language, Sex::Male);
+    const auto generatedFirstName = Person::firstName(country, Sex::Male);
 
     ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFirstName](const std::string& firstName)
                                     { return firstName == generatedFirstName; }));
@@ -168,13 +169,13 @@ TEST_P(PersonTest, shouldGenerateMaleFirstName)
 
 TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 {
-    const auto language = GetParam();
+    const auto country = GetParam();
 
-    const auto& peopleNames = languageToPeopleNamesMapping.at(language);
+    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
-    const auto generatedFirstName = Person::firstName(language, Sex::Female);
+    const auto generatedFirstName = Person::firstName(country, Sex::Female);
 
     ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFirstName](const std::string& firstName)
                                     { return firstName == generatedFirstName; }));
@@ -182,13 +183,13 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 
 TEST_P(PersonTest, shouldGenerateLastNameMale)
 {
-    const auto language = GetParam();
+    const auto country = GetParam();
 
-    const auto& peopleNames = languageToPeopleNamesMapping.at(language);
+    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
-    const auto generatedLastName = Person::lastName(language, Sex::Male);
+    const auto generatedLastName = Person::lastName(country, Sex::Male);
 
     ASSERT_TRUE(std::ranges::any_of(malesLastNames, [generatedLastName](const std::string& lastName)
                                     { return lastName == generatedLastName; }));
@@ -196,13 +197,13 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
 
 TEST_P(PersonTest, shouldGenerateLastNameFemale)
 {
-    const auto language = GetParam();
+    const auto country = GetParam();
 
-    const auto& peopleNames = languageToPeopleNamesMapping.at(language);
+    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
-    const auto generatedLastName = Person::lastName(language, Sex::Female);
+    const auto generatedLastName = Person::lastName(country, Sex::Female);
 
     ASSERT_TRUE(std::ranges::any_of(femalesLastNames, [generatedLastName](const std::string& lastName)
                                     { return lastName == generatedLastName; }));
@@ -210,9 +211,9 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
 
 TEST_P(PersonTest, shouldGenerateFullName)
 {
-    const auto language = GetParam();
+    const auto country = GetParam();
 
-    const auto& peopleNames = languageToPeopleNamesMapping.at(language);
+    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
@@ -226,7 +227,7 @@ TEST_P(PersonTest, shouldGenerateFullName)
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
     lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
 
-    const auto generatedFullName = Person::fullName(language);
+    const auto generatedFullName = Person::fullName(country);
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFullName](const std::string& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
@@ -236,15 +237,15 @@ TEST_P(PersonTest, shouldGenerateFullName)
 
 TEST_P(PersonTest, shouldGenerateMaleFullName)
 {
-    const auto language = GetParam();
+    const auto country = GetParam();
 
-    const auto& peopleNames = languageToPeopleNamesMapping.at(language);
+    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
-    const auto generatedFullName = Person::fullName(language, Sex::Male);
+    const auto generatedFullName = Person::fullName(country, Sex::Male);
 
     ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFullName](const std::string& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
@@ -254,15 +255,15 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 
 TEST_P(PersonTest, shouldGenerateFemaleFullName)
 {
-    const auto language = GetParam();
+    const auto country = GetParam();
 
-    const auto& peopleNames = languageToPeopleNamesMapping.at(language);
+    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
-    const auto generatedFullName = Person::fullName(language, Sex::Female);
+    const auto generatedFullName = Person::fullName(country, Sex::Female);
 
     ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFullName](const std::string& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
@@ -270,8 +271,8 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
                                     { return generatedFullName.find(lastName) != std::string::npos; }));
 }
 
-INSTANTIATE_TEST_SUITE_P(TestPersonNamesByLanguages, PersonTest, ValuesIn(languages),
-                         [](const TestParamInfo<Language>& info) { return generatedTestName.at(info.param); });
+INSTANTIATE_TEST_SUITE_P(TestPersonNamesByCountries, PersonTest, ValuesIn(countries),
+                         [](const TestParamInfo<Country>& info) { return generatedTestName.at(info.param); });
 
 TEST_F(PersonTest, shouldGenerateMiddleName)
 {

@@ -5,8 +5,8 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../person/data/english/EnglishFirstNames.h"
-#include "../person/data/english/EnglishLastNames.h"
+#include "../person/data/england/EnglishFirstNames.h"
+#include "../person/data/england/EnglishLastNames.h"
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
@@ -44,7 +44,7 @@ TEST_F(LocationTest, shouldGenerateCountry)
 {
     const auto generatedCountry = Location::country();
 
-    ASSERT_TRUE(std::ranges::any_of(countries, [generatedCountry](const std::string& country)
+    ASSERT_TRUE(std::ranges::any_of(allCountries, [generatedCountry](const std::string& country)
                                     { return country == generatedCountry; }));
 }
 
