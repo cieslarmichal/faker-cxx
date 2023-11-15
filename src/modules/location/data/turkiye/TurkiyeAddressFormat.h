@@ -11,8 +11,6 @@ const std::vector<std::string> turkiyeBuildingNumberFormats = {"##","/","###"};
 
 const std::string turkiyeZipCodeFormat = "#####";
 
-const std::vector<std::string> turkiyeStreetFormats = {"{mainStreet} {streetName}" };
-
-const std::vector<std::string> turkiyeStreetFormats = {"{streetNumber} {streetPrefix}" };
+const std::vector<std::string> turkiyeStreetFormats = {"{streetNumberPrefix} {streetName}" };
 
 }

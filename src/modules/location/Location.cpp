@@ -11,7 +11,7 @@
 #include "data/turkiye/TurkiyeDistricts.h"
 #include "data/turkiye/TurkiyeNeighbourhoods.h"
 #include "data/turkiye/TurkiyeStreetNames.h"
-#include "data/turkiye/TurkiyeStreetPrefixes.h"
+#include "data/turkiye/TurkiyeStreetNumberPrefix.h"
 #include "data/france/FranceAddressFormat.h"
 #include "data/france/FranceCities.h"
 #include "data/france/FranceStreetPrefixes.h"
@@ -34,6 +34,7 @@
 
 namespace faker
 {
+    const std::vector<std::string> turkiyeStreetNumberPrefix = {"A-", "B-", "C-", "D-"};
 namespace
 {
 const std::map<Country, std::vector<std::string>> countryToCitiesMapping{{Country::Usa, usaCities},
@@ -79,7 +80,7 @@ const std::map<Country, std::vector<std::string>> countryToStreetPrefixesMapping
     {Country::Russia, russiaStreetPrefixes},
     {Country::Poland, polandStreetPrefixes},
     {Country::France, franceStreetPrefixes},
-    {Country::Turkiye, turkiyeStreetPrefixes}};
+    {Country::Turkiye, turkiyeStreetNumberPrefix},};
 }
 
 std::string Location::country()

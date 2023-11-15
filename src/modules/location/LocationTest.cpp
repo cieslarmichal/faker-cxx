@@ -17,7 +17,7 @@
 #include "data/turkiye/TurkiyeDistricts.h"
 #include "data/turkiye/TurkiyeNeighbourhoods.h"
 #include "data/turkiye/TurkiyeStreetNames.h"
-#include "data/turkiye/TurkiyeStreetPrefixes.h"
+#include "data/turkiye/TurkiyeStreetNumberPrefix.h"
 #include "data/france/FranceCities.h"
 #include "data/france/FranceStreetPrefixes.h"
 #include "data/france/FranceStreetSuffixes.h"
@@ -335,6 +335,27 @@ TEST_F(LocationTest, shouldGenerateTurkiyeBuildingNumber)
 
     ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+}
+
+TEST(FakerTest, TurkiyeStreetNumberTest)
+{
+    for (int i = 0; i < 1000; ++i)
+    {
+        std::string streetNumber = faker::turkiyeStreetNumber();
+        bool isValidPrefix = false;
+        for (const std::string &prefix : faker::turkiyeStreetNumberPrefix)
+        {
+            if (streetNumber.find(prefix) == 0)
+            {
+                isValidPrefix = true;
+                break;
+            }
+        }
+        EXPECT_TRUE(isValidPrefix);
+        int number = std::stoi(streetNumber.substr(2));
+        EXPECT_GE(number, 1);
+        EXPECT_LE(number, 999);
+    }
 }
 
 TEST_F(LocationTest, shouldGenerateTurkiyeStreetAddress)
