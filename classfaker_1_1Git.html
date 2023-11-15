@@ -107,9 +107,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab0404e11d51cd0d3a8a0b6037d3e7fb5" id="r_ab0404e11d51cd0d3a8a0b6037d3e7fb5"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Git.html#ab0404e11d51cd0d3a8a0b6037d3e7fb5">commitDate</a> (unsigned years=15)</td></tr>
 <tr class="memdesc:ab0404e11d51cd0d3a8a0b6037d3e7fb5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random date in form of string.  <br /></td></tr>
 <tr class="separator:ab0404e11d51cd0d3a8a0b6037d3e7fb5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a636ece6e5afd20073ac54da56249b32b" id="r_a636ece6e5afd20073ac54da56249b32b"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Git.html#a636ece6e5afd20073ac54da56249b32b">commitEntry</a> (std::optional&lt; unsigned &gt; dateYears=std::nullopt, std::optional&lt; unsigned &gt; shaLength=std::nullopt, Language language=Language::English)</td></tr>
-<tr class="memdesc:a636ece6e5afd20073ac54da56249b32b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random commit entry in form of string.  <br /></td></tr>
-<tr class="separator:a636ece6e5afd20073ac54da56249b32b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab1dd98e7e18d423d3ab440b3dcccbc65" id="r_ab1dd98e7e18d423d3ab440b3dcccbc65"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Git.html#ab1dd98e7e18d423d3ab440b3dcccbc65">commitEntry</a> (std::optional&lt; unsigned &gt; dateYears=std::nullopt, std::optional&lt; unsigned &gt; shaLength=std::nullopt, Country country=Country::England)</td></tr>
+<tr class="memdesc:ab1dd98e7e18d423d3ab440b3dcccbc65"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random commit entry in form of string.  <br /></td></tr>
+<tr class="separator:ab1dd98e7e18d423d3ab440b3dcccbc65"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acff32a57f9fb98aa7aec672c9b10f0f8" id="r_acff32a57f9fb98aa7aec672c9b10f0f8"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Git.html#acff32a57f9fb98aa7aec672c9b10f0f8">commitMessage</a> ()</td></tr>
 <tr class="memdesc:acff32a57f9fb98aa7aec672c9b10f0f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random commit message.  <br /></td></tr>
 <tr class="separator:acff32a57f9fb98aa7aec672c9b10f0f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -192,8 +192,8 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a636ece6e5afd20073ac54da56249b32b" name="a636ece6e5afd20073ac54da56249b32b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a636ece6e5afd20073ac54da56249b32b">&#9670;&#160;</a></span>commitEntry()</h2>
+<a id="ab1dd98e7e18d423d3ab440b3dcccbc65" name="ab1dd98e7e18d423d3ab440b3dcccbc65"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab1dd98e7e18d423d3ab440b3dcccbc65">&#9670;&#160;</a></span>commitEntry()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -216,8 +216,8 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">Language&#160;</td>
-          <td class="paramname"><em>language</em> = <code>Language::English</code>&#160;</td>
+          <td class="paramtype">Country&#160;</td>
+          <td class="paramname"><em>country</em> = <code>Country::England</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -237,18 +237,18 @@ Static Public Member Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">dateYears</td><td>The range of years the date may be in the past. Defaults to <code>15</code>. </td></tr>
     <tr><td class="paramname">shaLength</td><td>The length of output SHA hash. Defaults to <code>40</code>. </td></tr>
-    <tr><td class="paramname">language</td><td>The language set for name generating. Defaults to <code>English</code> (could be random, if there was a random language generator). </td></tr>
+    <tr><td class="paramname">country</td><td>The country set for name generating. Defaults to <code>England</code> (could be random, if there was a random language generator). </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Commit entry.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Git.html#a636ece6e5afd20073ac54da56249b32b">Git::commitEntry</a>() <span class="comment">// &quot;commit 9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Git.html#ab1dd98e7e18d423d3ab440b3dcccbc65">Git::commitEntry</a>() <span class="comment">// &quot;commit 9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca</span></div>
 <div class="line">                     Author: Rachel McLaughlin Rachel_McLaughlin@gmail.com</div>
 <div class="line">                     <a class="code hl_class" href="classfaker_1_1Date.html">Date</a>: Mon Jan 17 15:05:53 2022 +1100</div>
 <div class="line"> </div>
 <div class="line">                         spawn polyp&quot;</div>
 <div class="ttc" id="aclassfaker_1_1Date_html"><div class="ttname"><a href="classfaker_1_1Date.html">faker::Date</a></div><div class="ttdef"><b>Definition</b> Date.h:8</div></div>
-<div class="ttc" id="aclassfaker_1_1Git_html_a636ece6e5afd20073ac54da56249b32b"><div class="ttname"><a href="classfaker_1_1Git.html#a636ece6e5afd20073ac54da56249b32b">faker::Git::commitEntry</a></div><div class="ttdeci">static std::string commitEntry(std::optional&lt; unsigned &gt; dateYears=std::nullopt, std::optional&lt; unsigned &gt; shaLength=std::nullopt, Language language=Language::English)</div><div class="ttdoc">Generates a random commit entry in form of string.</div></div>
+<div class="ttc" id="aclassfaker_1_1Git_html_ab1dd98e7e18d423d3ab440b3dcccbc65"><div class="ttname"><a href="classfaker_1_1Git.html#ab1dd98e7e18d423d3ab440b3dcccbc65">faker::Git::commitEntry</a></div><div class="ttdeci">static std::string commitEntry(std::optional&lt; unsigned &gt; dateYears=std::nullopt, std::optional&lt; unsigned &gt; shaLength=std::nullopt, Country country=Country::England)</div><div class="ttdoc">Generates a random commit entry in form of string.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
