@@ -33,8 +33,9 @@ set(FAKER_SOURCES
         src/modules/person/Person.cpp
         src/modules/string/String.cpp
         src/modules/word/Word.cpp
-        src/common/StringHelper.cpp
         src/modules/phone/Phone.cpp
+        src/common/StringHelper.cpp
+        src/common/FormatHelper.cpp
         src/common/LuhnCheck.cpp
         src/common/mappers/precisionMapper/PrecisionMapper.cpp
         src/modules/system/System.cpp
@@ -50,7 +51,7 @@ set(FAKER_SOURCES
         src/common/WeatherHelper.cpp
         src/modules/airline/Airline.cpp
         src/modules/image/Image.cpp
-)
+        )
 
 set(FAKER_UT_SOURCES
         src/modules/animal/AnimalTest.cpp
@@ -72,6 +73,7 @@ set(FAKER_UT_SOURCES
         src/modules/phone/PhoneTest.cpp
         src/modules/helper/HelperTest.cpp
         src/common/LuhnCheckTest.cpp
+        src/common/FormatHelperTest.cpp
         src/common/mappers/precisionMapper/PrecisionMapperTest.cpp
         src/modules/system/SystemTest.cpp
         src/modules/database/DatabaseTest.cpp
@@ -86,7 +88,7 @@ set(FAKER_UT_SOURCES
         src/common/WeatherHelperTest.cpp
         src/modules/airline/AirlineTest.cpp
         src/modules/image/ImageTest.cpp
-)
+        )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 
@@ -96,7 +98,7 @@ target_include_directories(${LIBRARY_NAME}
         PRIVATE
         "${CMAKE_CURRENT_LIST_DIR}/include"
         ${FMT_INCLUDE_DIR}
-)
+        )
 
 add_subdirectory(externals/fmt)
 

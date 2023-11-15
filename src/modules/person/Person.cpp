@@ -4,7 +4,7 @@
 #include <regex>
 #include <set>
 
-#include "../../common/StringHelper.h"
+#include "../../common/FormatHelper.h"
 #include "data/czech/CzechPeopleNames.h"
 #include "data/denmark/DanishPeopleNames.h"
 #include "data/england/EnglishPeopleNames.h"
@@ -170,53 +170,14 @@ std::string Person::fullName(Country country, std::optional<Sex> sex)
 
     const auto nameFormat = Helper::weightedArrayElement<std::string>(weightedElements);
 
-    std::string fullName;
+    const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
+        {"firstName", [&country, &sex]() { return Person::firstName(country, sex); }},
+        {"middleName", [&country, &sex]() { return middleNameForCountry(country, sex); }},
+        {"lastName", [&country, &sex]() { return Person::lastName(country, sex); }},
+        {"prefix", [&country, &sex]() { return prefixForCountry(country, sex); }},
+        {"suffix", [&country, &sex]() { return suffixForCountry(country, sex); }}};
 
-    int tokenStart = -1;
-
-    for (auto i = 0u; i <= nameFormat.size(); i++)
-    {
-        if (nameFormat[i] == '{')
-        {
-            tokenStart = static_cast<int>(i) + 1;
-        }
-        else if (nameFormat[i] == '}' && tokenStart != -1 && static_cast<unsigned>(tokenStart) < i)
-        {
-            const auto token =
-                nameFormat.substr(static_cast<unsigned>(tokenStart), i - static_cast<unsigned>(tokenStart));
-
-            std::string nameElement;
-
-            if (token == "firstName")
-            {
-                nameElement = Person::firstName(country, sex);
-            }
-            else if (token == "middleName")
-            {
-                nameElement = middleNameForCountry(country, sex);
-            }
-            else if (token == "lastName")
-            {
-                nameElement = Person::lastName(country, sex);
-            }
-            else if (token == "prefix")
-            {
-                nameElement = prefixForCountry(country, sex);
-            }
-            else if (token == "suffix")
-            {
-                nameElement = suffixForCountry(country, sex);
-            }
-
-            fullName += nameElement;
-
-            tokenStart = -1;
-        }
-        else if (tokenStart == -1)
-        {
-            fullName += nameFormat[i];
-        }
-    }
+    auto fullName = FormatHelper::fillTokenValues(nameFormat, dataGeneratorsMapping);
 
     return fullName;
 }
