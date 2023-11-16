@@ -4,8 +4,7 @@
 #include <string>
 
 #include "faker-cxx/types/Country.h"
-#include "types/Language.h"
-#include "types/Sex.h"
+#include "faker-cxx/types/Sex.h"
 
 namespace faker
 {

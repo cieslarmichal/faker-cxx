@@ -6,7 +6,7 @@
 #include "gtest/gtest.h"
 
 #include "data/Characters.h"
-#include "faker-cxx/types/RandomGenerator.hpp"
+#include "faker-cxx/types/RandomGenerator.h"
 
 using namespace ::testing;
 using namespace faker;

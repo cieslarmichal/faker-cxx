@@ -16,6 +16,7 @@
 #include "data/india/IndianPeopleNames.h"
 #include "data/italy/ItalianPeopleNames.h"
 #include "data/JobTitles.h"
+#include "data/Languages.h"
 #include "data/Nationalities.h"
 #include "data/nepal/NepalesePeopleNames.h"
 #include "data/norway/NorwegianPeopleNames.h"
@@ -387,8 +388,8 @@ TEST_F(PersonTest, shouldGenerateLanguage)
 {
     const auto generatedLanguage = Person::language();
 
-    ASSERT_TRUE(std::ranges::any_of(languages, [generatedLanguage](Language language)
-                                    { return generatedLanguage == toString(language); }));
+    ASSERT_TRUE(std::ranges::any_of(languages, [generatedLanguage](const std::string& language)
+                                    { return generatedLanguage == language; }));
 }
 
 TEST_F(PersonTest, shouldGenerateNationality)

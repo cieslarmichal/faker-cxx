@@ -7,15 +7,34 @@
 #include <vector>
 
 #include "../src/common/StringHelper.h"
+#include "data/CommonInterface.h"
+#include "data/CronDayOfWeek.h"
+#include "data/DirectoryPath.h"
+#include "data/MimeTypes.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/String.h"
-#include "faker-cxx/types/CommonInterface.h"
-#include "faker-cxx/types/CronDayOfWeek.h"
 #include "faker-cxx/Word.h"
 
 namespace faker
 {
+namespace
+{
+std::string extension(const std::string& mimeType)
+{
+    const auto it = mimeTypesExtensions.find(mimeType);
+    if (it == mimeTypesExtensions.end())
+    {
+        auto pos = mimeType.find_last_of('/');
+        return mimeType.substr(pos + 1);
+    }
+    else
+    {
+        return it->second;
+    }
+}
+}
+
 std::string System::fileName(const FileOptions& options)
 {
     std::string baseName = Word::words();
@@ -85,8 +104,11 @@ std::string System::fileExtension(const std::optional<FileType>& mimeType)
 std::string System::commonFileName(const std::optional<std::string>& ext)
 {
     FileOptions options;
+
     options.extensionCount = 0;
+
     std::string str = fileName(options);
+
     if (ext.has_value() && !ext.value().empty())
     {
         return str + "." + ext.value();
@@ -99,13 +121,15 @@ std::string System::commonFileName(const std::optional<std::string>& ext)
 
 std::string System::commonFileExtension()
 {
-    std::string mimeType = Helper::arrayElement<std::string>(commonMimeTypes);
+    auto mimeType = Helper::arrayElement<std::string>(commonMimeTypes);
+
     return extension(mimeType);
 }
 
 std::string System::mimeType()
 {
     std::vector<std::string> mimeTypeKeys;
+
     for (const auto& entry : mimeTypes)
     {
         mimeTypeKeys.push_back(entry);
@@ -122,12 +146,15 @@ std::string System::commonFileType()
 std::string System::fileType()
 {
     std::set<std::string> typeSet;
+
     const auto& localMimeTypes = mimeTypes;
 
     for (const auto& entry : localMimeTypes)
     {
         const std::string& m = entry;
+
         size_t pos = m.find('/');
+
         if (pos != std::string::npos)
         {
             std::string type = m.substr(0, pos);
@@ -136,14 +163,15 @@ std::string System::fileType()
     }
 
     std::vector<std::string> types(typeSet.begin(), typeSet.end());
+
     return Helper::arrayElement<std::string>(types);
 }
 
 std::string System::directoryPath()
 {
-    const std::vector<std::string> paths = directoryPaths;
-    return Helper::arrayElement<std::string>(paths);
+    return Helper::arrayElement<std::string>(directoryPaths);
 }
+
 std::string System::filePath()
 {
     return directoryPath() + fileName();
@@ -156,7 +184,9 @@ std::string System::semver()
     int patch = Number::integer(9);
 
     std::stringstream ss;
+
     ss << major << '.' << minor << '.' << patch;
+
     return ss.str();
 }
 
@@ -208,6 +238,7 @@ std::string System::networkInterface(const std::optional<NetworkInterfaceOptions
 
     return prefix + interfaceType + commonInterfaceSchemas.at(interfaceSchema) + suffix;
 }
+
 std::string System::cron(const CronOptions& options)
 {
     bool includeYear = options.includeYear;

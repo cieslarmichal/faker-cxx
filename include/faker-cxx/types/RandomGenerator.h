@@ -1,6 +1,9 @@
 #pragma once
+
 #include <random>
 
+namespace faker
+{
 template <typename T>
     requires std::uniform_random_bit_generator<T>
 class RandomGenerator
@@ -22,3 +25,4 @@ public:
 private:
     T generator_;
 };
+}
