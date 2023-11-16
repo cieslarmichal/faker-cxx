@@ -6,7 +6,7 @@
 #include <string>
 
 #include "types/Hex.h"
-#include "types/RandomGenerator.hpp"
+#include "types/RandomGenerator.h"
 
 namespace faker
 {

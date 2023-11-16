@@ -9,7 +9,6 @@
 #include "faker-cxx/Number.h"
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
-#include "faker-cxx/types/Language.h"
 #include "faker-cxx/Word.h"
 #include "fmt/format.h"
 
@@ -62,6 +61,7 @@ std::string Git::commitDate(unsigned years)
     }
 
     timeZoneString += std::to_string(timeZone * 100);
+
     if (!timeZone)
     {
         timeZoneString += "00";

@@ -5,6 +5,8 @@
 
 #include "gtest/gtest.h"
 
+#include "data/MimeTypes.h"
+
 using namespace ::testing;
 using namespace faker;
 
@@ -118,7 +120,6 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
 
 TEST_F(SystemTest, CommonFileNameWithEmptyExtensionTest)
 {
-
     std::string actualFileName = System::commonFileName();
 
     std::string actualExtension = actualFileName.substr(actualFileName.find_last_of('.') + 1);

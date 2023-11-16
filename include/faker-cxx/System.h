@@ -1,8 +1,8 @@
 #pragma once
 
 #include "types/CronOptions.h"
-#include "types/DirectoryPath.h"
 #include "types/FileOptions.h"
+#include "types/FileType.h"
 #include "types/MimeTypes.h"
 #include "types/NetworkInterfaceOptions.h"
 

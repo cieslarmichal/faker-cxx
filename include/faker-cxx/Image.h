@@ -6,18 +6,6 @@
 
 #include "types/ImageCategory.h"
 
-namespace
-{
-std::map<faker::ImageCategory, std::string> imageCategoryString = {
-    {faker::ImageCategory::animals, "animals"},   {faker::ImageCategory::business, "business"},
-    {faker::ImageCategory::cats, "cats"},         {faker::ImageCategory::city, "city"},
-    {faker::ImageCategory::food, "food"},         {faker::ImageCategory::nightlife, "nightlife"},
-    {faker::ImageCategory::fashion, "fashion"},   {faker::ImageCategory::people, "people"},
-    {faker::ImageCategory::nature, "nature"},     {faker::ImageCategory::sports, "sports"},
-    {faker::ImageCategory::technics, "technics"}, {faker::ImageCategory::transport, "transport"},
-};
-}
-
 namespace faker
 {
 class Image

@@ -8,14 +8,7 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../date/data/MonthNames.h"
-#include "faker-cxx/Date.h"
-#include "faker-cxx/Internet.h"
 #include "faker-cxx/Number.h"
-#include "faker-cxx/Person.h"
-#include "faker-cxx/String.h"
-#include "faker-cxx/types/Language.h"
-#include "faker-cxx/Word.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -54,7 +47,7 @@ TEST_F(GitTest, shouldGenerateBranch)
 
 TEST_F(GitTest, branchIssueNumTest)
 {
-    unsigned testValue = unsigned(faker::Number::integer(2, 100));
+    auto testValue = unsigned(faker::Number::integer(2, 100));
     std::vector<std::string> branch = faker::StringHelper::split(Git::branch(testValue), "-");
     bool numberAtFront = false;
     int number;

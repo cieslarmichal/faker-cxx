@@ -17,6 +17,7 @@
 #include "data/india/IndianPeopleNames.h"
 #include "data/italy/ItalianPeopleNames.h"
 #include "data/JobTitles.h"
+#include "data/Languages.h"
 #include "data/Nationalities.h"
 #include "data/nepal/NepalesePeopleNames.h"
 #include "data/norway/NorwegianPeopleNames.h"
@@ -288,7 +289,7 @@ std::string Person::hobby()
 
 std::string Person::language()
 {
-    return toString(Helper::arrayElement<Language>(languages));
+    return Helper::arrayElement<std::string>(languages);
 }
 
 std::string Person::nationality()
