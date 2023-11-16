@@ -106,29 +106,28 @@ $(document).ready(function(){initNavTree('Git_8h_source.html',''); initResizable
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;faker-cxx/types/Country.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;faker-cxx/types/Language.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>faker</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Git.html">Git</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html#a1f7cb15191d37320df92098770b01eed">   24</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Git.html#a1f7cb15191d37320df92098770b01eed">branch</a>(<span class="keywordtype">unsigned</span> maxIssueNum = 100);</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html#ab0404e11d51cd0d3a8a0b6037d3e7fb5">   36</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Git.html#ab0404e11d51cd0d3a8a0b6037d3e7fb5">commitDate</a>(<span class="keywordtype">unsigned</span> years = 15);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html#ab1dd98e7e18d423d3ab440b3dcccbc65">   55</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Git.html#ab1dd98e7e18d423d3ab440b3dcccbc65">commitEntry</a>(std::optional&lt;unsigned&gt; dateYears = std::nullopt,</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                                   std::optional&lt;unsigned&gt; shaLength = std::nullopt,</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>                                   Country country = Country::England);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html#acff32a57f9fb98aa7aec672c9b10f0f8">   68</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Git.html#acff32a57f9fb98aa7aec672c9b10f0f8">commitMessage</a>();</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html#a7e8969371065ec43e151a0ec264be99c">   81</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Git.html#a7e8969371065ec43e151a0ec264be99c">commitSha</a>(<span class="keywordtype">unsigned</span> length = 40);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>};</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Git.html">Git</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html#a1f7cb15191d37320df92098770b01eed">   23</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Git.html#a1f7cb15191d37320df92098770b01eed">branch</a>(<span class="keywordtype">unsigned</span> maxIssueNum = 100);</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html#ab0404e11d51cd0d3a8a0b6037d3e7fb5">   35</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Git.html#ab0404e11d51cd0d3a8a0b6037d3e7fb5">commitDate</a>(<span class="keywordtype">unsigned</span> years = 15);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html#ab1dd98e7e18d423d3ab440b3dcccbc65">   54</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Git.html#ab1dd98e7e18d423d3ab440b3dcccbc65">commitEntry</a>(std::optional&lt;unsigned&gt; dateYears = std::nullopt,</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>                                   std::optional&lt;unsigned&gt; shaLength = std::nullopt,</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>                                   Country country = Country::England);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html#acff32a57f9fb98aa7aec672c9b10f0f8">   67</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Git.html#acff32a57f9fb98aa7aec672c9b10f0f8">commitMessage</a>();</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classfaker_1_1Git.html#a7e8969371065ec43e151a0ec264be99c">   80</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Git.html#a7e8969371065ec43e151a0ec264be99c">commitSha</a>(<span class="keywordtype">unsigned</span> length = 40);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
 </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>}</div>
-<div class="ttc" id="aclassfaker_1_1Git_html"><div class="ttname"><a href="classfaker_1_1Git.html">faker::Git</a></div><div class="ttdef"><b>Definition</b> Git.h:12</div></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>}</div>
+<div class="ttc" id="aclassfaker_1_1Git_html"><div class="ttname"><a href="classfaker_1_1Git.html">faker::Git</a></div><div class="ttdef"><b>Definition</b> Git.h:11</div></div>
 <div class="ttc" id="aclassfaker_1_1Git_html_a1f7cb15191d37320df92098770b01eed"><div class="ttname"><a href="classfaker_1_1Git.html#a1f7cb15191d37320df92098770b01eed">faker::Git::branch</a></div><div class="ttdeci">static std::string branch(unsigned maxIssueNum=100)</div><div class="ttdoc">Returns a random branch name.</div></div>
 <div class="ttc" id="aclassfaker_1_1Git_html_a7e8969371065ec43e151a0ec264be99c"><div class="ttname"><a href="classfaker_1_1Git.html#a7e8969371065ec43e151a0ec264be99c">faker::Git::commitSha</a></div><div class="ttdeci">static std::string commitSha(unsigned length=40)</div><div class="ttdoc">Returns a random SHA hash.</div></div>
 <div class="ttc" id="aclassfaker_1_1Git_html_ab0404e11d51cd0d3a8a0b6037d3e7fb5"><div class="ttname"><a href="classfaker_1_1Git.html#ab0404e11d51cd0d3a8a0b6037d3e7fb5">faker::Git::commitDate</a></div><div class="ttdeci">static std::string commitDate(unsigned years=15)</div><div class="ttdoc">Generates a random date in form of string.</div></div>
