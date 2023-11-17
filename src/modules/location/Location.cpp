@@ -4,25 +4,14 @@
 
 #include "../../common/FormatHelper.h"
 #include "../../common/mappers/precisionMapper/PrecisionMapper.h"
-#include "../../common/StringHelper.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
-#include "data/france/FranceAddressFormat.h"
-#include "data/france/FranceCities.h"
-#include "data/france/FranceStreetPrefixes.h"
-#include "data/france/FranceStreetSuffixes.h"
-#include "data/poland/PolandAddressFromat.h"
-#include "data/poland/PolandCities.h"
-#include "data/poland/PolandStreetNames.h"
-#include "data/poland/PolandStreetPrefixes.h"
-#include "data/russia/RussiaAddressFormat.h"
-#include "data/russia/RussiaCities.h"
-#include "data/russia/RussiaStreetPrefixes.h"
+#include "data/france/FranceAddresses.h"
+#include "data/poland/PolandAddresses.h"
+#include "data/russia/RussiaAddresses.h"
 #include "data/States.h"
 #include "data/TimeZones.h"
-#include "data/usa/UsaAddressFormat.h"
-#include "data/usa/UsaCities.h"
-#include "data/usa/UsaStreetSuffixes.h"
+#include "data/usa/UsaAddresses.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
@@ -31,45 +20,12 @@ namespace faker
 {
 namespace
 {
-// TODO: Refactor
-const std::map<Country, std::vector<std::string>> countryToCitiesMapping{{Country::Usa, usaCities},
-                                                                         {Country::Russia, russiaCities},
-                                                                         {Country::Poland, polandCities},
-                                                                         {Country::France, franceCities}};
-
-const std::map<Country, std::vector<std::string>> countryToStreetsMapping{{Country::Poland, polandStreets}};
-
-const std::map<Country, std::string> countryToZipCodeFormatMapping{{Country::Usa, usaZipCodeFormat},
-                                                                   {Country::Russia, russiaZipCodeFormat},
-                                                                   {Country::Poland, polandZipCodeFormat},
-                                                                   {Country::France, franceZipCodeFormat}};
-
-const std::map<Country, std::vector<std::string>> countryToBuildingNumberFormatsMapping{
-    {Country::Usa, usaBuildingNumberFormats},
-    {Country::Russia, russiaBuildingNumberFormats},
-    {Country::Poland, polandBuildingNumberFormats},
-    {Country::France, franceBuildingNumberFormats}};
-
-const std::map<Country, std::vector<std::string>> countryToStreetFormatsMapping{{Country::Usa, usaStreetFormats},
-                                                                                {Country::Russia, russiaStreetFormats},
-                                                                                {Country::Poland, polandStreetFormats},
-                                                                                {Country::France, franceStreetFormats}};
-
-const std::map<Country, std::vector<std::string>> countryToSecondaryAddressFormatsMapping{
-    {Country::Usa, usaSecondaryAddressFormats}, {Country::France, franceSecondaryAddressFormats}};
-
-const std::map<Country, std::string> countryToAddressFormatMapping{{Country::Usa, usaAddressFormat},
-                                                                   {Country::Russia, russiaAddressFormat},
-                                                                   {Country::Poland, polandAddressFormat},
-                                                                   {Country::France, franceAddressFormat}};
-
-const std::map<Country, std::vector<std::string>> countryToStreetSuffixesMapping{
-    {Country::Usa, usaStreetSuffixes}, {Country::France, franceStreetSuffixes}};
-
-const std::map<Country, std::vector<std::string>> countryToStreetPrefixesMapping{
-    {Country::Russia, russiaStreetPrefixes},
-    {Country::Poland, polandStreetPrefixes},
-    {Country::France, franceStreetPrefixes}};
+const std::map<Country, CountryAddresses> countryToCountryAddressesMapping{
+    {Country::Usa, usaAddresses},
+    {Country::Poland, polandAddresses},
+    {Country::Russia, russiaAddresses},
+    {Country::France, franceAddresses},
+};
 }
 
 std::string Location::country()
@@ -89,61 +45,65 @@ std::string Location::state()
 
 std::string Location::city(Country country)
 {
-    const auto& cities = countryToCitiesMapping.at(country);
+    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    return Helper::arrayElement<std::string>(cities);
+    return Helper::arrayElement<std::string>(countryAddresses.cities);
 }
 
 std::string Location::zipCode(Country country)
 {
-    const auto& zipCodeFormat = countryToZipCodeFormatMapping.at(country);
+    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    return Helper::replaceSymbolWithNumber(zipCodeFormat);
+    return Helper::replaceSymbolWithNumber(countryAddresses.zipCodeFormat);
 }
 
 std::string Location::streetAddress(Country country)
 {
-    const auto& addressFormat = countryToAddressFormatMapping.at(country);
+    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
     const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
         {"buildingNumber", [&country]() { return buildingNumber(country); }},
-        {"street", [&country]() { return street(country); }}};
+        {"street", [&country]() { return street(country); }},
+        {"secondaryAddress", [&country]() { return secondaryAddress(country); }}};
+
+    const auto addressFormat = Helper::arrayElement<std::string>(countryAddresses.addressFormats);
 
     return FormatHelper::fillTokenValues(addressFormat, dataGeneratorsMapping);
 }
 
 std::string Location::street(Country country)
 {
-    const auto& streetFormats = countryToStreetFormatsMapping.at(country);
+    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    const auto streetFormat = Helper::arrayElement<std::string>(streetFormats);
+    const auto streetFormat = Helper::arrayElement<std::string>(countryAddresses.streetFormats);
 
     const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
         {"firstName", [&country]() { return Person::firstName(country); }},
         {"lastName", [&country]() { return Person::lastName(country); }},
-        {"streetName", [&country]() { return Helper::arrayElement<std::string>(countryToStreetsMapping.at(country)); }},
+        {"streetName",
+         [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.streetNames); }},
         {"streetPrefix",
-         [&country]() { return Helper::arrayElement<std::string>(countryToStreetPrefixesMapping.at(country)); }},
+         [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.streetPrefixes); }},
         {"streetSuffix",
-         [&country]() { return Helper::arrayElement<std::string>(countryToStreetSuffixesMapping.at(country)); }}};
+         [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.streetSuffixes); }}};
 
     return FormatHelper::fillTokenValues(streetFormat, dataGeneratorsMapping);
 }
 
 std::string Location::buildingNumber(Country country)
 {
-    const auto& buildingNumberFormats = countryToBuildingNumberFormatsMapping.at(country);
+    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    const auto buildingNumberFormat = Helper::arrayElement<std::string>(buildingNumberFormats);
+    const auto buildingNumberFormat = Helper::arrayElement<std::string>(countryAddresses.buildingNumberFormats);
 
     return Helper::replaceSymbolWithNumber(buildingNumberFormat);
 }
 
 std::string Location::secondaryAddress(Country country)
 {
-    const auto& secondaryAddressFormats = countryToSecondaryAddressFormatsMapping.at(country);
+    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    const auto secondaryAddressFormat = Helper::arrayElement<std::string>(secondaryAddressFormats);
+    const auto secondaryAddressFormat = Helper::arrayElement<std::string>(countryAddresses.secondaryAddressFormats);
 
     return Helper::replaceSymbolWithNumber(secondaryAddressFormat);
 }

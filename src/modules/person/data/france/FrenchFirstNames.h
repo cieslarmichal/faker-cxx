@@ -67,7 +67,8 @@ const std::vector<std::string> frenchMalesFirstNames = {
     "Timothée",    "Titien",     "Tonnin",      "Toussaint",  "Trajan",    "Tristan",      "Turold",     "Tim",
     "Ulysse",      "Urbain",     "Valentin",    "Valère",     "Valéry",    "Venance",      "Venceslas",  "Vianney",
     "Victor",      "Victorien",  "Victorin",    "Vigile",     "Vincent",   "Vital",        "Vivien",     "Waleran",
-    "Wandrille",   "Xavier",     "Xénophon",    "Yves",       "Yoann",     "Zacharie",     "Zaché",      "Zéphirin"};
+    "Wandrille",   "Xavier",     "Xénophon",    "Yves",       "Yoann",     "Zacharie",     "Zaché",      "Zéphirin",
+};
 
 const std::vector<std::string> frenchFemalesFirstNames = {
     "Abdonie",    "Abeline",    "Abigaelle",  "Abigaïl",     "Acacie",     "Acanthe",      "Adalbaude",    "Adalsinde",
@@ -126,5 +127,6 @@ const std::vector<std::string> frenchFemalesFirstNames = {
     "Suzanne",    "Suzon",      "Sylviane",   "Sylvie",      "Swassane",   "Tatiana",      "Thaïs",        "Théodora",
     "Thérèse",    "Tiphaine",   "Ursule",     "Valentine",   "Valérie",    "Véronique",    "Victoire",     "Vinciane",
     "Violette",   "Virginie",   "Viviane",    "Xavière",     "Yolande",    "Ysaline",      "Yseult",       "Yvette",
-    "Yvonne",     "Zoé",        "Zoéva"};
+    "Yvonne",     "Zoé",        "Zoéva",
+};
 }

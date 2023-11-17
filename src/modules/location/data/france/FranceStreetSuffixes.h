@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> franceStreetSuffixes = {
+const std::vector<std::string> franceStreetSuffixes{
     "du Faubourg Saint-Honoré", "de Montmorency", "de Solférino", "de la Pompe", "de Rivoli", "de Paris",
     "du Faubourg-Saint-Denis",  "de la Huchette", "Saint-Honoré", "Pastourelle", "Oberkampf", "d'Alésia",
     "de la Chaussée-d'Antin",   "de la Bûcherie", "de Richelieu", "Montorgueil", "Delesseux", "Zadkine",
