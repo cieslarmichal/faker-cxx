@@ -6,6 +6,7 @@
 
 #include "../../common/FormatHelper.h"
 #include "data/brazil/BrazilianPeopleNames.h"
+#include "data/croatia/CroatianPeopleNames.h"
 #include "data/czech/CzechPeopleNames.h"
 #include "data/denmark/DanishPeopleNames.h"
 #include "data/england/EnglishPeopleNames.h"
@@ -55,7 +56,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Sweden, swedishPeopleNames},    {Country::Usa, usaPeopleNames},
     {Country::Brazil, brazilianPeopleNames},  {Country::Norway, norwegianPeopleNames},
     {Country::Japan, japanesePeopleNames},    {Country::Portugal, portuguesePeopleNames},
-    {Country::Hungary, hungarianPeopleNames},
+    {Country::Hungary, hungarianPeopleNames}, {Country::Croatia, croatianPeopleNames},
 };
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
@@ -303,6 +304,16 @@ std::string Person::nationality()
     return Helper::arrayElement<std::string>(nationalities);
 }
 
+std::string Person::westernZodiac()
+{
+    return Helper::arrayElement<std::string>(westernZodiacs);
+}
+
+std::string Person::chineseZodiac()
+{
+    return Helper::arrayElement<std::string>(chineseZodiacs);
+}
+
 namespace
 {
 std::string middleNameForCountry(Country country, std::optional<Sex> sex)
@@ -394,15 +405,5 @@ std::string suffixForCountry(Country country, std::optional<Sex> sex)
 
     return Helper::arrayElement<std::string>(suffixes);
 }
-}
-
-std::string Person::westernZodiac()
-{
-    return Helper::arrayElement<std::string>(westernZodiacs);
-}
-
-std::string Person::chineseZodiac()
-{
-    return Helper::arrayElement<std::string>(chineseZodiacs);
 }
 }
