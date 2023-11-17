@@ -29,25 +29,26 @@ enum class Country
     Brazil,
     Norway,
     Japan,
+    Portugal,
 };
 
 const std::vector<Country> countries{
     Country::Usa,    Country::England, Country::Poland,   Country::Italy,   Country::France,  Country::Germany,
     Country::Russia, Country::Romania, Country::India,    Country::Finland, Country::Nepal,   Country::Spain,
     Country::Turkey, Country::Czech,   Country::Slovakia, Country::Ukraine, Country::Denmark, Country::Sweden,
-    Country::Brazil, Country::Norway,  Country::Japan,
-};
+    Country::Brazil, Country::Norway,  Country::Japan,    Country::Portugal};
 
 inline std::string toString(Country country)
 {
     std::map<Country, std::string> countryToStringMapping{
-        {Country::Usa, "Usa"},         {Country::England, "England"}, {Country::Poland, "Poland"},
-        {Country::Italy, "Italy"},     {Country::France, "France"},   {Country::Germany, "Germany"},
-        {Country::Russia, "Russia"},   {Country::Romania, "Romania"}, {Country::India, "India"},
-        {Country::Finland, "Finland"}, {Country::Nepal, "Nepal"},     {Country::Spain, "Spain"},
-        {Country::Turkey, "Turkey"},   {Country::Czech, "Czech"},     {Country::Slovakia, "Slovakia"},
-        {Country::Ukraine, "Ukraine"}, {Country::Denmark, "Denmark"}, {Country::Sweden, "Sweden"},
-        {Country::Brazil, "Brazil"},   {Country::Norway, "Norway"},   {Country::Japan, "Japan"},
+        {Country::Usa, "Usa"},           {Country::England, "England"}, {Country::Poland, "Poland"},
+        {Country::Italy, "Italy"},       {Country::France, "France"},   {Country::Germany, "Germany"},
+        {Country::Russia, "Russia"},     {Country::Romania, "Romania"}, {Country::India, "India"},
+        {Country::Finland, "Finland"},   {Country::Nepal, "Nepal"},     {Country::Spain, "Spain"},
+        {Country::Turkey, "Turkey"},     {Country::Czech, "Czech"},     {Country::Slovakia, "Slovakia"},
+        {Country::Ukraine, "Ukraine"},   {Country::Denmark, "Denmark"}, {Country::Sweden, "Sweden"},
+        {Country::Brazil, "Brazil"},     {Country::Norway, "Norway"},   {Country::Japan, "Japan"},
+        {Country::Portugal, "Portugal"},
     };
 
     return countryToStringMapping.at(country);
