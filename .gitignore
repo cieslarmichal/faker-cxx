@@ -54,3 +54,5 @@ CMakeSettings.json
 out/
 build-linux-gxx
 build-linux-clang
+#clangd index files
+.cache/
