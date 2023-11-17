@@ -16,6 +16,7 @@
 #include "data/Hobbies.h"
 #include "data/india/IndianPeopleNames.h"
 #include "data/italy/ItalianPeopleNames.h"
+#include "data/japan/JapanesePeopleNames.h"
 #include "data/JobTitles.h"
 #include "data/Languages.h"
 #include "data/Nationalities.h"
@@ -50,7 +51,9 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Czech, czechPeopleNames},       {Country::Slovakia, slovakPeopleNames},
     {Country::Ukraine, ukrainianPeopleNames}, {Country::Denmark, danishPeopleNames},
     {Country::Sweden, swedishPeopleNames},    {Country::Usa, usaPeopleNames},
-    {Country::Brazil, brazilianPeopleNames},  {Country::Norway, norwegianPeopleNames}};
+    {Country::Brazil, brazilianPeopleNames},  {Country::Norway, norwegianPeopleNames},
+    {Country::Japan, japanesePeopleNames},
+};
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
 std::string prefixForCountry(Country country, std::optional<Sex> sex);

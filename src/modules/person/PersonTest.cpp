@@ -15,6 +15,7 @@
 #include "data/Hobbies.h"
 #include "data/india/IndianPeopleNames.h"
 #include "data/italy/ItalianPeopleNames.h"
+#include "data/japan/JapanesePeopleNames.h"
 #include "data/JobTitles.h"
 #include "data/Languages.h"
 #include "data/Nationalities.h"
@@ -50,7 +51,9 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Czech, czechPeopleNames},       {Country::Slovakia, slovakPeopleNames},
     {Country::Ukraine, ukrainianPeopleNames}, {Country::Denmark, danishPeopleNames},
     {Country::Sweden, swedishPeopleNames},    {Country::Usa, usaPeopleNames},
-    {Country::Brazil, brazilianPeopleNames},  {Country::Norway, norwegianPeopleNames}};
+    {Country::Brazil, brazilianPeopleNames},  {Country::Norway, norwegianPeopleNames},
+    {Country::Japan, japanesePeopleNames},
+};
 
 const std::map<Country, std::string> generatedTestName{
     {Country::England, "shouldGenerateEnglishName"},   {Country::France, "shouldGenerateFrenchName"},
@@ -62,7 +65,9 @@ const std::map<Country, std::string> generatedTestName{
     {Country::Czech, "shouldGenerateCzechName"},       {Country::Slovakia, "shouldGenerateSlovakName"},
     {Country::Ukraine, "shouldGenerateUkrainianName"}, {Country::Denmark, "shouldGenerateDanishName"},
     {Country::Sweden, "shouldGenerateSwedishName"},    {Country::Usa, "shouldGenerateAmericanName"},
-    {Country::Brazil, "shouldGenerateBrazilianName"},  {Country::Norway, "shouldGenerateNorwegianName"}};
+    {Country::Brazil, "shouldGenerateBrazilianName"},  {Country::Norway, "shouldGenerateNorwegianName"},
+    {Country::Japan, "shouldGenerateJapaneseName"},
+};
 }
 
 class PersonTest : public TestWithParam<Country>
