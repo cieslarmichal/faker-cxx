@@ -48,8 +48,8 @@ public:
     /**
      * @brief Returns a random lorem sentences.
      *
-     * @param minWordCount The minimum number of sentences to generate. Defaults to `2`.
-     * @param maxWordCount The maximum number of sentences to generate. Defaults to `6`.
+     * @param minNumberOfSentences The minimum number of sentences to generate. Defaults to `2`.
+     * @param maxNumberOfSentences The maximum number of sentences to generate. Defaults to `6`.
      *
      * @returns Lorem sentences separated with spaces.
      *

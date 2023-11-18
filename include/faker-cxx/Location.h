@@ -134,7 +134,7 @@ public:
      * Location::latitude() // "-30.9501"
      * @endcode
      */
-    static std::string latitude(Precision = Precision::FourDp);
+    static std::string latitude(Precision precision = Precision::FourDp);
 
     /**
      * @brief Generates a random longitude.
@@ -147,7 +147,7 @@ public:
      * Location::longitude() // "-30.9501"
      * @endcode
      */
-    static std::string longitude(Precision = Precision::FourDp);
+    static std::string longitude(Precision precision = Precision::FourDp);
 
     /**
      * @brief Generates a random direction from cardinal and ordinal directions.

@@ -65,7 +65,6 @@ public:
      *
      * @param min The minimum value of the range.
      * @param max The maximum value of the range.
-     * @param distribution The distribution to use.
      *
      * @throws std::invalid_argument if min is greater than max.
      *

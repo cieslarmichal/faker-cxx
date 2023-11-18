@@ -40,7 +40,7 @@ public:
      * @returns A file extension.
      *
      * @code
-     * System::fileExt(MimeType::Image) // "png"
+     * System::fileExtension(MimeType::Image) // "png"
      * @endcode
      */
     static std::string fileExtension(const std::optional<FileType>& mimeType = std::nullopt);
@@ -65,7 +65,7 @@ public:
      * @returns A commonly used file extension.
      *
      * @code
-     * System::commonFileExt() // "gif"
+     * System::commonFileExtension() // "gif"
      * @endcode
      */
     static std::string commonFileExtension();

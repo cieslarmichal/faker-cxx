@@ -26,6 +26,7 @@ public:
      * @returns UUIDv4.
      *
      * @param gen A random number generator (type RandomGenerator)
+     *
      * @code
      * String::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
      * @endcode

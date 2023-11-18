@@ -21,7 +21,6 @@ public:
      * Weather::temperature(); // Temperature.metric = 10, Temperature.imperial = 50
      * @endcode
      */
-
     static Temperature temperature();
 
     struct Pressure

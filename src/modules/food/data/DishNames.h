@@ -3,8 +3,9 @@
 #include <string>
 #include <vector>
 
-namespace faker {
-    const std::vector<std::string> dishNames = {
+namespace faker
+{
+const std::vector<std::string> dishNames = {
     "Sushi",
     "Paella",
     "Biryani",
@@ -90,5 +91,5 @@ namespace faker {
     "Chicken Caesar Salad",
     "Beef and Mushroom Pie",
     "Garlic Herb Roasted Potatoes",
-    };
+};
 }
