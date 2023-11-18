@@ -167,9 +167,9 @@ $(document).ready(function(){initNavTree('Helper_8h_source.html',''); initResiza
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        <span class="keyword">const</span> <span class="keyword">auto</span> sumOfWeights =</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>            std::accumulate(data.begin(), data.end(), 0u,</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                            [](<span class="keywordtype">size_t</span> sum, <span class="keyword">const</span> <a class="code hl_struct" href="structfaker_1_1Helper_1_1WeightedElement.html">WeightedElement&lt;T&gt;</a>&amp; element) { return sum + element.weight; });</div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>                            [](<span class="keywordtype">unsigned</span> sum, <span class="keyword">const</span> <a class="code hl_struct" href="structfaker_1_1Helper_1_1WeightedElement.html">WeightedElement&lt;T&gt;</a>&amp; element) { return sum + element.weight; });</div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
-<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">if</span> (sumOfWeights == 0)</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        <span class="keywordflow">if</span> (sumOfWeights == 0u)</div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        {</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>            <span class="keywordflow">throw</span> std::invalid_argument{<span class="stringliteral">&quot;Sum of weights is zero.&quot;</span>};</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>        }</div>
