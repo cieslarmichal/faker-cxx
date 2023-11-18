@@ -1,5 +1,6 @@
 #include "faker-cxx/Internet.h"
 
+#include <array>
 #include <map>
 #include <utility>
 

@@ -1,6 +1,7 @@
 #include "faker-cxx/Internet.h"
 
 #include <algorithm>
+#include <array>
 #include <charconv>
 #include <optional>
 
