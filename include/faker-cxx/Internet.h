@@ -4,8 +4,6 @@
 #include <string>
 
 #include "types/EmojiType.h"
-#include "types/Ipv4Address.h"
-#include "types/Ipv4Class.h"
 
 namespace faker
 {
@@ -22,6 +20,13 @@ enum class WebProtocol
 {
     Http,
     Https
+};
+
+enum class IPv4Class
+{
+    A,
+    B,
+    C
 };
 
 class Internet
@@ -210,7 +215,8 @@ public:
      * Internet::ipv4({255.255.128.0}, {129.168.255.0}) // "192.168.128.10"
      * @endcode
      */
-    static std::string ipv4(const IPv4Address& baseIpv4Address, const IPv4Address& generationMask);
+    static std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
+                            const std::array<unsigned int, 4>& generationMask);
 
     /**
      * @brief Returns a string containing randomized ipv6 address.
