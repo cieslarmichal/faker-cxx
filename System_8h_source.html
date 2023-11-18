@@ -102,45 +102,72 @@ $(document).ready(function(){initNavTree('System_8h_source.html',''); initResiza
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;types/CronOptions.h&quot;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;types/FileOptions.h&quot;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;types/FileType.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;types/MimeTypes.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;types/NetworkInterfaceOptions.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="structfaker_1_1FileOptions.html">    9</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structfaker_1_1FileOptions.html">FileOptions</a></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="};">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html">   11</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1System.html">System</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#ae94e32482a934e22de1d2bd90024c6ff">   33</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#ae94e32482a934e22de1d2bd90024c6ff">fileName</a>(<span class="keyword">const</span> FileOptions&amp; options = {});</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#ab58e4c68202f1139cf182f553a18d7c9">   46</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#ab58e4c68202f1139cf182f553a18d7c9">fileExtension</a>(<span class="keyword">const</span> std::optional&lt;FileType&gt;&amp; <a class="code hl_function" href="classfaker_1_1System.html#a99b0f912a70316085136d075e32ef230">mimeType</a> = std::nullopt);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#aca3c376a17ce4a50b3ee513a8529419e">   60</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#aca3c376a17ce4a50b3ee513a8529419e">commonFileName</a>(<span class="keyword">const</span> std::optional&lt;std::string&gt;&amp; ext = std::nullopt);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#aede4dfb85d1be600d05321a9f56065b1">   71</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#aede4dfb85d1be600d05321a9f56065b1">commonFileExtension</a>();</div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#a99b0f912a70316085136d075e32ef230">   82</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#a99b0f912a70316085136d075e32ef230">mimeType</a>();</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#aeebbc84e7748dfefc7147378da495c26">   93</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#aeebbc84e7748dfefc7147378da495c26">commonFileType</a>();</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#a96a32229dd0e8675f6943bbf7f915ff9">  104</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#a96a32229dd0e8675f6943bbf7f915ff9">fileType</a>();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#af362c5f4a0b869760dc49431227e0029">  115</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#af362c5f4a0b869760dc49431227e0029">directoryPath</a>();</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#a1e138dfcf605012c958f25867b9ccd33">  126</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#a1e138dfcf605012c958f25867b9ccd33">filePath</a>();</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#a82ad2488c2ca7571bbb7c8a6a2324bc8">  137</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#a82ad2488c2ca7571bbb7c8a6a2324bc8">semver</a>();</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#a04c56b9fa4fd0279417b1e0f3e6174fc">  165</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#a04c56b9fa4fd0279417b1e0f3e6174fc">networkInterface</a>(<span class="keyword">const</span> std::optional&lt;NetworkInterfaceOptions&gt;&amp; options = {});</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c">  197</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c">cron</a>(<span class="keyword">const</span> CronOptions&amp; options = {});</div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span>};</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keywordtype">int</span> extensionCount = 1;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    <span class="keyword">struct</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    {</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        <span class="keywordtype">int</span> min = 1;</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <span class="keywordtype">int</span> max = 1;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    } extensionRange;</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>};</div>
 </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span>}</div>
-<div class="ttc" id="aclassfaker_1_1System_html"><div class="ttname"><a href="classfaker_1_1System.html">faker::System</a></div><div class="ttdef"><b>Definition</b> System.h:12</div></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="foldopen" id="foldopen00019" data-start="{" data-end="};">
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="structfaker_1_1CronOptions.html">   19</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structfaker_1_1CronOptions.html">CronOptions</a></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>{</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">bool</span> includeYear = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">bool</span> includeNonStandard = <span class="keyword">false</span>;</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>};</div>
+</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="comment">// TODO: change to enums</span></div>
+<div class="foldopen" id="foldopen00026" data-start="{" data-end="};">
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="structfaker_1_1NetworkInterfaceOptions.html">   26</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structfaker_1_1NetworkInterfaceOptions.html">NetworkInterfaceOptions</a></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    std::optional&lt;std::string&gt; interfaceType;</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    std::optional&lt;std::string&gt; interfaceSchema;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>};</div>
+</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="};">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html">   32</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1System.html">System</a></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#ae94e32482a934e22de1d2bd90024c6ff">   54</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#ae94e32482a934e22de1d2bd90024c6ff">fileName</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structfaker_1_1FileOptions.html">FileOptions</a>&amp; options = {});</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#ab58e4c68202f1139cf182f553a18d7c9">   67</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#ab58e4c68202f1139cf182f553a18d7c9">fileExtension</a>(<span class="keyword">const</span> std::optional&lt;FileType&gt;&amp; <a class="code hl_function" href="classfaker_1_1System.html#a99b0f912a70316085136d075e32ef230">mimeType</a> = std::nullopt);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#aca3c376a17ce4a50b3ee513a8529419e">   81</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#aca3c376a17ce4a50b3ee513a8529419e">commonFileName</a>(<span class="keyword">const</span> std::optional&lt;std::string&gt;&amp; ext = std::nullopt);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#aede4dfb85d1be600d05321a9f56065b1">   92</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#aede4dfb85d1be600d05321a9f56065b1">commonFileExtension</a>();</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#a99b0f912a70316085136d075e32ef230">  103</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#a99b0f912a70316085136d075e32ef230">mimeType</a>();</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#aeebbc84e7748dfefc7147378da495c26">  114</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#aeebbc84e7748dfefc7147378da495c26">commonFileType</a>();</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#a96a32229dd0e8675f6943bbf7f915ff9">  125</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#a96a32229dd0e8675f6943bbf7f915ff9">fileType</a>();</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#af362c5f4a0b869760dc49431227e0029">  136</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#af362c5f4a0b869760dc49431227e0029">directoryPath</a>();</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#a1e138dfcf605012c958f25867b9ccd33">  147</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#a1e138dfcf605012c958f25867b9ccd33">filePath</a>();</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span> </div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#a82ad2488c2ca7571bbb7c8a6a2324bc8">  158</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#a82ad2488c2ca7571bbb7c8a6a2324bc8">semver</a>();</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#a04c56b9fa4fd0279417b1e0f3e6174fc">  186</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#a04c56b9fa4fd0279417b1e0f3e6174fc">networkInterface</a>(<span class="keyword">const</span> std::optional&lt;NetworkInterfaceOptions&gt;&amp; options = {});</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno"><a class="line" href="classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c">  218</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c">cron</a>(<span class="keyword">const</span> <a class="code hl_struct" href="structfaker_1_1CronOptions.html">CronOptions</a>&amp; options = {});</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>};</div>
+</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>}</div>
+<div class="ttc" id="aclassfaker_1_1System_html"><div class="ttname"><a href="classfaker_1_1System.html">faker::System</a></div><div class="ttdef"><b>Definition</b> System.h:33</div></div>
 <div class="ttc" id="aclassfaker_1_1System_html_a04c56b9fa4fd0279417b1e0f3e6174fc"><div class="ttname"><a href="classfaker_1_1System.html#a04c56b9fa4fd0279417b1e0f3e6174fc">faker::System::networkInterface</a></div><div class="ttdeci">static std::string networkInterface(const std::optional&lt; NetworkInterfaceOptions &gt; &amp;options={})</div></div>
 <div class="ttc" id="aclassfaker_1_1System_html_a1e138dfcf605012c958f25867b9ccd33"><div class="ttname"><a href="classfaker_1_1System.html#a1e138dfcf605012c958f25867b9ccd33">faker::System::filePath</a></div><div class="ttdeci">static std::string filePath()</div></div>
 <div class="ttc" id="aclassfaker_1_1System_html_a82ad2488c2ca7571bbb7c8a6a2324bc8"><div class="ttname"><a href="classfaker_1_1System.html#a82ad2488c2ca7571bbb7c8a6a2324bc8">faker::System::semver</a></div><div class="ttdeci">static std::string semver()</div></div>
@@ -153,6 +180,9 @@ $(document).ready(function(){initNavTree('System_8h_source.html',''); initResiza
 <div class="ttc" id="aclassfaker_1_1System_html_aede4dfb85d1be600d05321a9f56065b1"><div class="ttname"><a href="classfaker_1_1System.html#aede4dfb85d1be600d05321a9f56065b1">faker::System::commonFileExtension</a></div><div class="ttdeci">static std::string commonFileExtension()</div></div>
 <div class="ttc" id="aclassfaker_1_1System_html_aeebbc84e7748dfefc7147378da495c26"><div class="ttname"><a href="classfaker_1_1System.html#aeebbc84e7748dfefc7147378da495c26">faker::System::commonFileType</a></div><div class="ttdeci">static std::string commonFileType()</div></div>
 <div class="ttc" id="aclassfaker_1_1System_html_af362c5f4a0b869760dc49431227e0029"><div class="ttname"><a href="classfaker_1_1System.html#af362c5f4a0b869760dc49431227e0029">faker::System::directoryPath</a></div><div class="ttdeci">static std::string directoryPath()</div></div>
+<div class="ttc" id="astructfaker_1_1CronOptions_html"><div class="ttname"><a href="structfaker_1_1CronOptions.html">faker::CronOptions</a></div><div class="ttdef"><b>Definition</b> System.h:20</div></div>
+<div class="ttc" id="astructfaker_1_1FileOptions_html"><div class="ttname"><a href="structfaker_1_1FileOptions.html">faker::FileOptions</a></div><div class="ttdef"><b>Definition</b> System.h:10</div></div>
+<div class="ttc" id="astructfaker_1_1NetworkInterfaceOptions_html"><div class="ttname"><a href="structfaker_1_1NetworkInterfaceOptions.html">faker::NetworkInterfaceOptions</a></div><div class="ttdef"><b>Definition</b> System.h:27</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
