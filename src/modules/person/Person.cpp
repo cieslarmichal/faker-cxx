@@ -5,6 +5,7 @@
 #include <set>
 
 #include "../../common/FormatHelper.h"
+#include "data/austria/AustrianPeopleNames.h"
 #include "data/brazil/BrazilianPeopleNames.h"
 #include "data/croatia/CroatianPeopleNames.h"
 #include "data/czech/CzechPeopleNames.h"
@@ -60,6 +61,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Japan, japanesePeopleNames},    {Country::Portugal, portuguesePeopleNames},
     {Country::Hungary, hungarianPeopleNames}, {Country::Croatia, croatianPeopleNames},
     {Country::Greece, greekPeopleNames},      {Country::Slovenia, slovenianPeopleNames},
+    {Country::Austria, austrianPeopleNames},
 };
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
