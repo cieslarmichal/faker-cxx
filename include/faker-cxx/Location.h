@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "types/Country.h"
+#include "faker-cxx/types/AddressCountry.h"
 #include "types/Precision.h"
 
 namespace faker
@@ -54,7 +54,7 @@ public:
      * Location::city() // "Boston"
      * @endcode
      */
-    static std::string city(Country country = Country::Usa);
+    static std::string city(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random zip code for given country.
@@ -68,7 +68,7 @@ public:
      * Location::zipCode(Country::Poland) // "31-881"
      * @endcode
      */
-    static std::string zipCode(Country country = Country::Usa);
+    static std::string zipCode(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random street address for given country.
@@ -81,7 +81,7 @@ public:
      * Location::streetAddress() // "34830 Erdman Hollow"
      * @endcode
      */
-    static std::string streetAddress(Country country = Country::Usa);
+    static std::string streetAddress(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random street for given country.
@@ -94,7 +94,7 @@ public:
      * Location::street() // "Schroeder Isle"
      * @endcode
      */
-    static std::string street(Country country = Country::Usa);
+    static std::string street(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random building number for given country.
@@ -107,7 +107,7 @@ public:
      * Location::buildingNumber() // "505"
      * @endcode
      */
-    static std::string buildingNumber(Country country = Country::Usa);
+    static std::string buildingNumber(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random secondary address number for given country.
@@ -121,7 +121,7 @@ public:
      * Location::secondaryAddress() // "Apt. 861"
      * @endcode
      */
-    static std::string secondaryAddress(Country country = Country::Usa);
+    static std::string secondaryAddress(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Generates a random latitude.

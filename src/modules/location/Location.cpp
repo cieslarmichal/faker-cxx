@@ -20,11 +20,18 @@ namespace faker
 {
 namespace
 {
-const std::map<Country, CountryAddresses> countryToCountryAddressesMapping{
-    {Country::Usa, usaAddresses},
-    {Country::Poland, polandAddresses},
-    {Country::Russia, russiaAddresses},
-    {Country::France, franceAddresses},
+const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
+    {AddressCountry::Usa, usaAddresses},
+    {AddressCountry::Poland, polandAddresses},
+    {AddressCountry::Russia, russiaAddresses},
+    {AddressCountry::France, franceAddresses},
+};
+
+const std::map<AddressCountry, Country> countryAddressToCountryMapping{
+    {AddressCountry::Usa, Country::Usa},
+    {AddressCountry::Poland, Country::Poland},
+    {AddressCountry::Russia, Country::Russia},
+    {AddressCountry::France, Country::France},
 };
 }
 
@@ -43,21 +50,21 @@ std::string Location::state()
     return Helper::arrayElement<std::string>(states);
 }
 
-std::string Location::city(Country country)
+std::string Location::city(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
     return Helper::arrayElement<std::string>(countryAddresses.cities);
 }
 
-std::string Location::zipCode(Country country)
+std::string Location::zipCode(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
     return Helper::replaceSymbolWithNumber(countryAddresses.zipCodeFormat);
 }
 
-std::string Location::streetAddress(Country country)
+std::string Location::streetAddress(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
@@ -71,15 +78,15 @@ std::string Location::streetAddress(Country country)
     return FormatHelper::fillTokenValues(addressFormat, dataGeneratorsMapping);
 }
 
-std::string Location::street(Country country)
+std::string Location::street(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
     const auto streetFormat = Helper::arrayElement<std::string>(countryAddresses.streetFormats);
 
     const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
-        {"firstName", [&country]() { return Person::firstName(country); }},
-        {"lastName", [&country]() { return Person::lastName(country); }},
+        {"firstName", [&country]() { return Person::firstName(countryAddressToCountryMapping.at(country)); }},
+        {"lastName", [&country]() { return Person::lastName(countryAddressToCountryMapping.at(country)); }},
         {"streetName",
          [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.streetNames); }},
         {"streetPrefix",
@@ -90,7 +97,7 @@ std::string Location::street(Country country)
     return FormatHelper::fillTokenValues(streetFormat, dataGeneratorsMapping);
 }
 
-std::string Location::buildingNumber(Country country)
+std::string Location::buildingNumber(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
@@ -99,7 +106,7 @@ std::string Location::buildingNumber(Country country)
     return Helper::replaceSymbolWithNumber(buildingNumberFormat);
 }
 
-std::string Location::secondaryAddress(Country country)
+std::string Location::secondaryAddress(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
