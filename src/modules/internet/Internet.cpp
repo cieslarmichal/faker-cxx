@@ -179,7 +179,7 @@ std::string Internet::httpMediaType()
 
 std::string Internet::ipv4(IPv4Class ipv4class)
 {
-    IPv4Address sectors;
+    std::array<unsigned int, 4> sectors{};
 
     sectors[3] = Number::integer<unsigned int>(ipv4SectorUpperBound);
     sectors[2] = Number::integer<unsigned int>(ipv4SectorUpperBound);

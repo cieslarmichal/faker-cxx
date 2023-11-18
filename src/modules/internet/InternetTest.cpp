@@ -42,9 +42,9 @@ constexpr unsigned int classBSecondSectionUpperBound = 31;
 constexpr unsigned int classCFirstSection = 192u;
 constexpr unsigned int classCSecondSection = 168u;
 
-IPv4Address deconstructIpv4String(const std::string& ipv4)
+std::array<unsigned int, 4> deconstructIpv4String(const std::string& ipv4)
 {
-    IPv4Address result;
+    std::array<unsigned int, 4> result;
 
     std::istringstream ss(ipv4);
 
@@ -604,8 +604,8 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassCAddress)
 
 TEST_F(InternetTest, shouldGenerateIpv4KeepingTheMaskedPart)
 {
-    const IPv4Address sampleAddress = {192, 168, 10, 12};
-    const IPv4Address generationMask = {255, 128, 0, 0};
+    const std::array<unsigned int, 4> sampleAddress = {192, 168, 10, 12};
+    const std::array<unsigned int, 4> generationMask = {255, 128, 0, 0};
 
     const auto generatedAddress = deconstructIpv4String(Internet::ipv4(sampleAddress, generationMask));
 
