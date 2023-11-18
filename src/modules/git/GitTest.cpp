@@ -40,7 +40,6 @@ TEST_F(GitTest, shouldGenerateBranch)
 {
     const auto branch = Git::branch();
     unsigned long branchSplit = faker::StringHelper::split(branch, "-").size();
-    std::cout << branch << " | " << branchSplit << std::endl;
 
     ASSERT_TRUE(2 <= branchSplit && branchSplit <= 7);
 }
@@ -86,7 +85,6 @@ TEST_F(GitTest, shouldGenerateCommitMessage)
 {
     const std::regex messageRegex("^" + GitTest::MESSAGE_REGEX + "$");
     std::string temp = Git::commitMessage();
-    std::cout << temp << std::endl;
     ASSERT_TRUE(std::regex_match(temp, messageRegex));
 }
 

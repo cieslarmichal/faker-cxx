@@ -98,9 +98,9 @@ public:
 
         const auto sumOfWeights =
             std::accumulate(data.begin(), data.end(), 0u,
-                            [](size_t sum, const WeightedElement<T>& element) { return sum + element.weight; });
+                            [](unsigned sum, const WeightedElement<T>& element) { return sum + element.weight; });
 
-        if (sumOfWeights == 0)
+        if (sumOfWeights == 0u)
         {
             throw std::invalid_argument{"Sum of weights is zero."};
         }

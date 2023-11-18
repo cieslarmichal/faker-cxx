@@ -13,6 +13,7 @@
 #include "data/france/FrenchPeopleNames.h"
 #include "data/Gender.h"
 #include "data/germany/GermanPeopleNames.h"
+#include "data/greece/GreekPeopleNames.h"
 #include "data/Hobbies.h"
 #include "data/hungary/HungarianPeopleNames.h"
 #include "data/india/IndianPeopleNames.h"
@@ -57,6 +58,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Brazil, brazilianPeopleNames},  {Country::Norway, norwegianPeopleNames},
     {Country::Japan, japanesePeopleNames},    {Country::Portugal, portuguesePeopleNames},
     {Country::Hungary, hungarianPeopleNames}, {Country::Croatia, croatianPeopleNames},
+    {Country::Greece, greekPeopleNames},
 };
 
 const std::map<Country, std::string> generatedTestName{
@@ -72,6 +74,7 @@ const std::map<Country, std::string> generatedTestName{
     {Country::Brazil, "shouldGenerateBrazilianName"},  {Country::Norway, "shouldGenerateNorwegianName"},
     {Country::Japan, "shouldGenerateJapaneseName"},    {Country::Portugal, "shouldGeneratePortugueseName"},
     {Country::Hungary, "shouldGenerateHungarianName"}, {Country::Croatia, "shouldGenerateCroatianName"},
+    {Country::Greece, "shouldGenerateGreekName"},
 };
 }
 
