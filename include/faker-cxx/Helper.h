@@ -136,7 +136,7 @@ public:
      * @endcode
      */
     template <class T>
-    static std::vector<T> shuffle(const std::vector<T>& data)
+    static std::vector<T> shuffle(std::vector<T> data)
     {
         std::shuffle(std::begin(data), std::end(data), pseudoRandomGenerator);
 
