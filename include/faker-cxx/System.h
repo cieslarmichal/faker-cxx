@@ -1,13 +1,34 @@
 #pragma once
 
-#include "types/CronOptions.h"
-#include "types/FileOptions.h"
+#include <optional>
+
 #include "types/FileType.h"
-#include "types/MimeTypes.h"
-#include "types/NetworkInterfaceOptions.h"
 
 namespace faker
 {
+struct FileOptions
+{
+    int extensionCount = 1;
+    struct
+    {
+        int min = 1;
+        int max = 1;
+    } extensionRange;
+};
+
+struct CronOptions
+{
+    bool includeYear = false;
+    bool includeNonStandard = false;
+};
+
+// TODO: change to enums
+struct NetworkInterfaceOptions
+{
+    std::optional<std::string> interfaceType;
+    std::optional<std::string> interfaceSchema;
+};
+
 class System
 {
 public:

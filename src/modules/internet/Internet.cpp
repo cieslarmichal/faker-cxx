@@ -179,7 +179,7 @@ std::string Internet::httpMediaType()
 
 std::string Internet::ipv4(IPv4Class ipv4class)
 {
-    IPv4Address sectors;
+    std::array<unsigned int, 4> sectors{};
 
     sectors[3] = Number::integer<unsigned int>(ipv4SectorUpperBound);
     sectors[2] = Number::integer<unsigned int>(ipv4SectorUpperBound);
@@ -208,9 +208,10 @@ std::string Internet::ipv4(IPv4Class ipv4class)
     return fmt::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
-std::string Internet::ipv4(const IPv4Address& baseIpv4Address, const IPv4Address& generationMask)
+std::string Internet::ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
+                           const std::array<unsigned int, 4>& generationMask)
 {
-    IPv4Address sectors;
+    std::array<unsigned int, 4> sectors{};
 
     for (std::size_t i = 0; i < ipv4AddressSectors; i++)
     {
