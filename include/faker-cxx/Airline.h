@@ -15,13 +15,14 @@ public:
         Widebody,
     };
 
-    /*
+    /**
      * @brief Get a random aircraft type
      *
      * @return a random aircraft type
      *
      * @code
      * Airline::aircraftType // "narrowbody"
+     * @endcode
      */
     static std::string aircraftType();
 
@@ -31,7 +32,7 @@ public:
         std::string iataTypeCode;
     };
 
-    /*
+    /**
      * @brief Get a random airplane
      *
      * @return a random airplane and its iataTypeCode
@@ -48,7 +49,7 @@ public:
         std::string iataCode;
     };
 
-    /*
+    /**
      * @brief Get a random airline
      *
      * @return a random airline and its iataCode
@@ -65,7 +66,7 @@ public:
         std::string iataCode;
     };
 
-    /*
+    /**
      * @brief Get a random airport
      *
      * @return a random airport and its iataCode
@@ -76,7 +77,7 @@ public:
      */
     static Airport airport();
 
-    /*
+    /**
      * @brief Get a random seat by aircraft type
      *
      * @param aircraftType the aircraft type
@@ -89,7 +90,7 @@ public:
      */
     static std::string seat(AircraftType aircraftType);
 
-    /*
+    /**
      * @brief Get a random record location
      *
      * @return a random record location
@@ -101,7 +102,7 @@ public:
      */
     static std::string recordLocator(bool allowNumerics = false);
 
-    /*
+    /**
      * @brief Get a random flight number from given length
      *
      * @param addLeadingZeros whether to add leading zeros
@@ -123,7 +124,8 @@ public:
         unsigned int min;
         unsigned int max;
     };
-    /*
+
+    /**
      * @brief Get a random flight number from given length
      *
      * @param addLeadingZeros whether to add leading zeros

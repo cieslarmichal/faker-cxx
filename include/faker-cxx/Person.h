@@ -21,11 +21,11 @@ public:
      *
      * @code
      * Person::firstName() // "Michael"
-     * Person::firstName(Country::English, Sex::Female) // "Emma"
-     * Person::firstName(Country::English, Sex::Male) // "Arthur"
+     * Person::firstName(Country::England, Sex::Female) // "Emma"
+     * Person::firstName(Country::England, Sex::Male) // "Arthur"
      * @endcode
      */
-    static std::string firstName(Country country = Country::England, std::optional<Sex> = std::nullopt);
+    static std::string firstName(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random last name.
@@ -39,7 +39,7 @@ public:
      * Person::lastName() // "Peterson"
      * @endcode
      */
-    static std::string lastName(Country country = Country::England, std::optional<Sex> = std::nullopt);
+    static std::string lastName(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random middle name.
@@ -52,7 +52,7 @@ public:
      * Person::middleName() // "Васильевич"
      * @endcode
      */
-    static std::string middleName(std::optional<Sex> = std::nullopt);
+    static std::string middleName(std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random full name.
@@ -64,11 +64,11 @@ public:
      *
      * @code
      * Person::fullName() // "Marcia Robinson"
-     * Person::fullName(Country::English, Sex::Female) // "Jennifer Martin"
-     * Person::fullName(Country::English, Sex::Male) // "Samuel Walker"
+     * Person::fullName(Country::England, Sex::Female) // "Jennifer Martin"
+     * Person::fullName(Country::England, Sex::Male) // "Samuel Walker"
      * @endcode
      */
-    static std::string fullName(Country country = Country::England, std::optional<Sex> = std::nullopt);
+    static std::string fullName(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random name prefix.
@@ -83,7 +83,7 @@ public:
      * Person::prefix(Sex::Male) // "Mr."
      * @endcode
      */
-    static std::string prefix(std::optional<Sex> = std::nullopt);
+    static std::string prefix(std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random name suffix.
@@ -193,7 +193,6 @@ public:
      * Person::nationality() // "Romanian"
      * @endcode
      */
-
     static std::string nationality();
 
     /**
@@ -205,7 +204,6 @@ public:
      * Person::westernZodiac() // "Virgo"
      * @endcode
      */
-
     static std::string westernZodiac();
 
     /**
@@ -217,7 +215,6 @@ public:
      * Person::chineseZodiac() // "Dragon"
      * @endcode
      */
-
     static std::string chineseZodiac();
 };
 }

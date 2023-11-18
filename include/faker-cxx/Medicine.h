@@ -16,7 +16,6 @@ public:
      * @code
      * Medicine::condition() // "AIDS"
      * @endcode
-     *
      */
     static std::string condition();
 
@@ -28,7 +27,6 @@ public:
      * @code
      * Medicine::medicalTest() // "pulmonary auscultation"
      * @endcode
-     *
      */
     static std::string medicalTest();
 
@@ -36,10 +34,10 @@ public:
      * @brief Returns a random Medical specialty
      *
      * @returns Medical specialty.
+     *
      * @code
      * Medicine::specialty() // "Cardiology"
      * @endcode
-     *
      */
 
     static std::string specialty();

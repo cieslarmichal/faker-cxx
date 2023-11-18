@@ -9,13 +9,13 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(BUILD_FAKER_TESTS DEFAULT ON)
 
-if(MSVC)
+if (MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20 /permissive- /bigobj")
-else()
+else ()
     set(CMAKE_CXX_FLAGS
         "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror"
-    )
-endif()
+        )
+endif ()
 
 set(LIBRARY_NAME faker-cxx)
 
@@ -28,6 +28,7 @@ set(FAKER_SOURCES
     src/modules/datatype/Datatype.cpp
     src/modules/date/Date.cpp
     src/modules/finance/Finance.cpp
+    src/modules/food/Food.cpp
     src/modules/helper/Helper.cpp
     src/modules/internet/Internet.cpp
     src/modules/location/Location.cpp
@@ -64,6 +65,7 @@ set(FAKER_UT_SOURCES
     src/modules/datatype/DatatypeTest.cpp
     src/modules/date/DateTest.cpp
     src/modules/finance/FinanceTest.cpp
+    src/modules/food/FoodTest.cpp
     src/modules/internet/InternetTest.cpp
     src/modules/location/LocationTest.cpp
     src/modules/lorem/LoremTest.cpp
@@ -104,7 +106,7 @@ set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
 
 target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
 
-if(BUILD_FAKER_TESTS)
+if (BUILD_FAKER_TESTS)
     add_subdirectory(externals/googletest)
 
     set(GTEST_INCLUDE_DIR
@@ -123,12 +125,12 @@ if(BUILD_FAKER_TESTS)
     add_executable(${LIBRARY_NAME}-UT ${FAKER_UT_SOURCES})
 
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
-                                                     faker-cxx)
+        faker-cxx)
 
     target_include_directories(
         ${LIBRARY_NAME}-UT
         PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
-                ${CMAKE_CURRENT_LIST_DIR})
+        ${CMAKE_CURRENT_LIST_DIR})
 
     add_test(
         NAME ${LIBRARY_NAME}-UT
@@ -136,4 +138,4 @@ if(BUILD_FAKER_TESTS)
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 
     target_code_coverage(${LIBRARY_NAME}-UT ALL)
-endif()
+endif ()

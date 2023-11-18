@@ -15,8 +15,8 @@ public:
      * @returns ISO formatted string.
      *
      * @code
-     * Date::past() // "2023-12-08T19:31:32Z"
-     * Date::past(5) // "2020-06-16T15:24:09Z"
+     * Date::pastDate() // "2023-12-08T19:31:32Z"
+     * Date::pastDate(5) // "2020-06-16T15:24:09Z"
      * @endcode
      */
     static std::string pastDate(int years = 1);
@@ -29,8 +29,8 @@ public:
      * @returns ISO formatted string.
      *
      * @code
-     * Date::future() // "2023-09-27T09:47:46Z"
-     * Date::future(5) // "2024-06-11T19:46:29Z"
+     * Date::futureDate() // "2023-09-27T09:47:46Z"
+     * Date::futureDate(5) // "2024-06-11T19:46:29Z"
      * @endcode
      */
     static std::string futureDate(int years = 1);
@@ -43,8 +43,8 @@ public:
      * @returns ISO formatted string.
      *
      * @code
-     * Date::recent() // "2023-07-05T14:12:40Z"
-     * Date::recent(10) // "2023-06-29T18:24:12Z"
+     * Date::recentDate() // "2023-07-05T14:12:40Z"
+     * Date::recentDate(10) // "2023-06-29T18:24:12Z"
      * @endcode
      */
     static std::string recentDate(int days = 3);
@@ -57,8 +57,8 @@ public:
      * @returns ISO formatted string.
      *
      * @code
-     * Date::soon() // "2023-07-07T18:19:12Z"
-     * Date::soon(10) // "2023-07-15T09:59:11Z"
+     * Date::soonDate() // "2023-07-07T18:19:12Z"
+     * Date::soonDate(10) // "2023-07-15T09:59:11Z"
      * @endcode
      */
     static std::string soonDate(int days = 3);
@@ -82,7 +82,7 @@ public:
      * @brief Generates a random birthdate by year.
      *
      * @param minYear The minimum year to generate a birthdate. Defaults to `1920`.
-     * @param maxAge The maximum year to generate a birthdate. Defaults to `2000`.
+     * @param maxYear The maximum year to generate a birthdate. Defaults to `2000`.
      *
      * @returns ISO formatted string.
      *

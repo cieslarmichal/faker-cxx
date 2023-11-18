@@ -14,6 +14,7 @@
 using namespace ::testing;
 using namespace faker;
 
+// TODO: add flight number tests
 class AirlineTest : public Test
 {
 public:

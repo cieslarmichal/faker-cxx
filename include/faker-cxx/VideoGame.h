@@ -13,7 +13,7 @@ public:
      * @returns Video game name.
      *
      * @code
-     * Videogame::gameTitle() // "Rayman Arena"
+     * VideoGame::gameTitle() // "Rayman Arena"
      * @endcode
      */
     static std::string gameTitle();

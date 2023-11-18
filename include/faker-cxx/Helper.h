@@ -41,6 +41,19 @@ public:
         return data[index];
     }
 
+    /**
+     * @brief Get a random element from a vector.
+     *
+     * @tparam T an element type of the vector.
+     *
+     * @param data vector of elements.
+     *
+     * @return T a random element from the vector.
+     *
+     * @code
+     * Helper::arrayElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
+     * @endcode
+     */
     template <class T>
     static T arrayElement(const std::vector<T>& data)
     {
@@ -61,6 +74,20 @@ public:
         T value;
     };
 
+    /**
+     * @brief Get a random element by weight from a vector.
+     *
+     * @tparam T an element type of the weighted element.
+     *
+     * @param data vector of weighted elements.
+     *
+     * @return T a weighted element value from the vector.
+     *
+     * @code
+     * Helper::weightedArrayElement<std::string>(std::vector<Helper::WeightedElement<std::string>>{{1, "value1"}, {10,
+     * "value2"}}) // "hello2"
+     * @endcode
+     */
     template <class T>
     static T weightedArrayElement(const std::vector<WeightedElement<T>>& data)
     {
@@ -96,16 +123,16 @@ public:
     }
 
     /**
-     * @brief Returns shuffled STL container.
+     * @brief Returns shuffled vector.
      *
-     * @tparam T an element type of the container.
+     * @tparam T an element type of the vector.
      *
-     * @param data The container.
+     * @param data The vector.
      *
-     * @return Container with shuffled elements.
+     * @return Vector with shuffled elements.
      *
      * @code
-     * Helper::arrayElement<char>(std::string{"abcd"}) // "dcba"
+     * Helper::shuffle<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // {{"world"}, {"hello"}}
      * @endcode
      */
     template <class T>
@@ -116,12 +143,13 @@ public:
         return data;
     }
 
+    // TODO: remove methods below from helper API, move to src/common
+
     /**
      * @brief Returns the given string parsed symbol by symbol and replaced the placeholders with digits ("0" - "9").
      * "!" will be replaced by digits >=2 ("2" - "9").
      *
      * @param str The template to parse string.
-     *
      * @param symbol The symbol to replace with digits. Defaults to '#'.
      *
      * @return The string replaced symbols with digits.
@@ -141,7 +169,6 @@ public:
      * `L` will be replaced with the appropriate Luhn checksum.
      *
      * @param inputString TThe credit card format pattern. Defaults to "6453-####-####-####-###L".
-     *
      * @param symbol The symbol to replace with a digit. Defaults to '#'.
      *
      * @return The string replaced symbols with digits.
@@ -220,7 +247,7 @@ public:
      * @tparam TResult The type of result of the given callback.
      *
      * @param callback The callback to that will be invoked if the probability check was successful.
-     * @param options.probability The probability (`[0.00, 1.00]`) of the callback being invoked. Defaults to `0.5`.
+     * @param probability The probability (`[0.00, 1.00]`) of the callback being invoked. Defaults to `0.5`.
      *
      * @return The result of the callback if the probability check was successful, otherwise empty string.
      *

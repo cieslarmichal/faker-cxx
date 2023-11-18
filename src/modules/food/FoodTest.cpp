@@ -115,6 +115,14 @@ TEST_F(FoodTest, shouldGenerateSeed)
                                     { return generatedSeed == seed; }));
 }
 
+TEST_F(FoodTest, shouldGenerateGrain)
+{
+    const auto generatedGrain = Food::grain();
+
+    ASSERT_TRUE(std::ranges::any_of(grains, [generatedGrain](const std::string& grain)
+                                    { return generatedGrain == grain; }));
+}
+
 TEST_F(FoodTest, shouldGenerateSugarProduct)
 {
     const auto generatedSugarProduct = Food::sugarProduct();
