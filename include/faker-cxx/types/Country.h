@@ -37,6 +37,7 @@ enum class Country
     Austria,
     Switzerland,
     Belgium,
+    Nederlands,
 };
 
 const std::vector<Country> countries{
@@ -44,7 +45,7 @@ const std::vector<Country> countries{
     Country::Russia, Country::Romania,  Country::India,    Country::Finland,     Country::Nepal,   Country::Spain,
     Country::Turkey, Country::Czech,    Country::Slovakia, Country::Ukraine,     Country::Denmark, Country::Sweden,
     Country::Brazil, Country::Norway,   Country::Japan,    Country::Portugal,    Country::Hungary, Country::Croatia,
-    Country::Greece, Country::Slovenia, Country::Austria,  Country::Switzerland, Country::Belgium,
+    Country::Greece, Country::Slovenia, Country::Austria,  Country::Switzerland, Country::Belgium, Country::Nederlands,
 };
 
 inline std::string toString(Country country)
@@ -64,7 +65,7 @@ inline std::string toString(Country country)
         {Country::Hungary, "Hungary"},   {Country::Croatia, "Croatia"},
         {Country::Greece, "Greece"},     {Country::Slovenia, "Slovenia"},
         {Country::Austria, "Austria"},   {Country::Switzerland, "Switzerland"},
-        {Country::Belgium, "Belgium"},
+        {Country::Belgium, "Belgium"},   {Country::Nederlands, "Nederlands"},
     };
 
     return countryToStringMapping.at(country);
