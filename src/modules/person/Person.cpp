@@ -6,6 +6,7 @@
 
 #include "../../common/FormatHelper.h"
 #include "data/argentina/ArgentinianPeopleNames.h"
+#include "data/australia/AustralianPeopleNames.h"
 #include "data/austria/AustrianPeopleNames.h"
 #include "data/belgium/BelgianPeopleNames.h"
 #include "data/brazil/BrazilianPeopleNames.h"
@@ -56,24 +57,24 @@ namespace
 const std::vector<std::string> sexes{"Male", "Female"};
 
 const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
-    {Country::England, englishPeopleNames},   {Country::France, frenchPeopleNames},
-    {Country::Germany, germanPeopleNames},    {Country::Italy, italianPeopleNames},
-    {Country::Poland, polishPeopleNames},     {Country::Russia, russianPeopleNames},
-    {Country::Romania, romanianPeopleNames},  {Country::India, indianPeopleNames},
-    {Country::Finland, finnishPeopleNames},   {Country::Nepal, nepalesePeopleNames},
-    {Country::Spain, spanishPeopleNames},     {Country::Turkey, turkishPeopleNames},
-    {Country::Czech, czechPeopleNames},       {Country::Slovakia, slovakPeopleNames},
-    {Country::Ukraine, ukrainianPeopleNames}, {Country::Denmark, danishPeopleNames},
-    {Country::Sweden, swedishPeopleNames},    {Country::Usa, usaPeopleNames},
-    {Country::Brazil, brazilianPeopleNames},  {Country::Norway, norwegianPeopleNames},
-    {Country::Japan, japanesePeopleNames},    {Country::Portugal, portuguesePeopleNames},
-    {Country::Hungary, hungarianPeopleNames}, {Country::Croatia, croatianPeopleNames},
-    {Country::Greece, greekPeopleNames},      {Country::Slovenia, slovenianPeopleNames},
-    {Country::Austria, austrianPeopleNames},  {Country::Switzerland, swissPeopleNames},
-    {Country::Belgium, belgianPeopleNames},   {Country::Nederlands, dutchPeopleNames},
-    {Country::China, chinesePeopleNames},     {Country::Korea, koreanPeopleNames},
-    {Country::Canada, canadianPeopleNames},   {Country::Mexico, mexicanPeopleNames},
-    {Country::Argentina, argentinianPeopleNames},
+    {Country::England, englishPeopleNames},       {Country::France, frenchPeopleNames},
+    {Country::Germany, germanPeopleNames},        {Country::Italy, italianPeopleNames},
+    {Country::Poland, polishPeopleNames},         {Country::Russia, russianPeopleNames},
+    {Country::Romania, romanianPeopleNames},      {Country::India, indianPeopleNames},
+    {Country::Finland, finnishPeopleNames},       {Country::Nepal, nepalesePeopleNames},
+    {Country::Spain, spanishPeopleNames},         {Country::Turkey, turkishPeopleNames},
+    {Country::Czech, czechPeopleNames},           {Country::Slovakia, slovakPeopleNames},
+    {Country::Ukraine, ukrainianPeopleNames},     {Country::Denmark, danishPeopleNames},
+    {Country::Sweden, swedishPeopleNames},        {Country::Usa, usaPeopleNames},
+    {Country::Brazil, brazilianPeopleNames},      {Country::Norway, norwegianPeopleNames},
+    {Country::Japan, japanesePeopleNames},        {Country::Portugal, portuguesePeopleNames},
+    {Country::Hungary, hungarianPeopleNames},     {Country::Croatia, croatianPeopleNames},
+    {Country::Greece, greekPeopleNames},          {Country::Slovenia, slovenianPeopleNames},
+    {Country::Austria, austrianPeopleNames},      {Country::Switzerland, swissPeopleNames},
+    {Country::Belgium, belgianPeopleNames},       {Country::Nederlands, dutchPeopleNames},
+    {Country::China, chinesePeopleNames},         {Country::Korea, koreanPeopleNames},
+    {Country::Canada, canadianPeopleNames},       {Country::Mexico, mexicanPeopleNames},
+    {Country::Argentina, argentinianPeopleNames}, {Country::Australia, australianPeopleNames},
 };
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
