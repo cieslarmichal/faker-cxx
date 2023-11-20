@@ -43,6 +43,8 @@ struct CharCount
  */
 bool isValidGuarantee(std::map<char, CharCount>& guarantee, std::string& targetCharacters, unsigned int length);
 
+std::string generateAtleastString(const std::map<char, CharCount>& guarantee);
+
 class String
 {
 public:

@@ -1,5 +1,6 @@
 #include "faker-cxx/String.h"
 
+#include <cassert>
 #include <iostream>
 #include <map>
 #include <random>
@@ -52,6 +53,14 @@ bool isValidGuarantee(std::map<char, CharCount>& guarantee, std::string& targetC
     if (atleastCountSum > length || (guarantee.size() == targetCharacters.size() && atmostCountSum < length))
         return false;
     return true;
+}
+
+std::string generateAtleastString(const std::map<char, CharCount>& guarantee)
+{
+    std::string result;
+    for (auto& it : guarantee)
+        result += std::string(it.second.atleastCount, it.first);
+    return result;
 }
 
 std::string String::sample(unsigned int length)
@@ -159,11 +168,18 @@ std::string String::binary(std::map<char, CharCount>&& guarantee, unsigned int l
     {
         throw std::invalid_argument{"Invalid guarantee."};
     }
+
     std::string binary{};
+    binary += generateAtleastString(guarantee);
+    // string with least required chars cannot be greater than the total length
+    assert(binary.size() <= length);
+    // we will generate chars for remaining length only
+    length -= binary.size();
     for (unsigned i = 0; i < length; i++)
     {
         binary += static_cast<char>(Number::integer(1));
     }
+    // TODO shuffle `binary`
 
     return "0b" + binary;
 }
