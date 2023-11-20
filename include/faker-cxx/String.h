@@ -4,6 +4,7 @@
 #include <limits>
 #include <map>
 #include <random>
+#include <set>
 #include <sstream>
 #include <string>
 
@@ -46,7 +47,7 @@ using GuaranteeMap = std::map<char, CharCount>;
  * faker::isValidGuarantee(guarantee,targetCharacters,length) // false
  * @endcode
  */
-bool isValidGuarantee(GuaranteeMap& guarantee, std::string& targetCharacters, unsigned int length);
+bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length);
 
 /*
  * @brief Generates the least required string for a given guarantee map

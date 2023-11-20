@@ -354,7 +354,7 @@ TEST_F(StringTest, shouldGenerateBinary)
 {
     const auto binaryLength = 8;
 
-    const auto binary = String::binary(binaryLength);
+    const auto binary = String::binary({}, binaryLength);
 
     const auto prefix = binary.substr(0, 2);
     const auto binaryNumber = binary.substr(2);

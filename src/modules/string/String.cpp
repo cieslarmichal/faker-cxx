@@ -1,5 +1,6 @@
 #include "faker-cxx/String.h"
 
+#include <algorithm>
 #include <cassert>
 #include <iostream>
 #include <map>
@@ -36,14 +37,14 @@ const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
 };
 }
 
-bool isValidGuarantee(GuaranteeMap& guarantee, std::string& targetCharacters, unsigned int length)
+bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
 {
     unsigned int atleastCountSum{};
     unsigned int atmostCountSum{};
     for (auto& it : guarantee)
     {
         // if a char in guarantee is not in char set, it is an invalid guarantee
-        if (targetCharacters.find(it.first) == std::string::npos)
+        if (targetCharacters.find(it.first) == targetCharacters.end())
             return false;
         atleastCountSum += it.second.atleastCount;
         atmostCountSum += it.second.atmostCount;
@@ -163,7 +164,7 @@ std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix
 
 std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
 {
-    std::string targetCharacters{"01"};
+    std::set<char> targetCharacters{'0', '1'};
     // throw if guarantee is invalid
     if (!isValidGuarantee(guarantee, targetCharacters, length))
     {
@@ -180,13 +181,12 @@ std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
     {
         char generatedChar;
         // generate chars till we find a usable char
-        // TODO
-        // this while loop can loop for too long when probability of generating valid char is too low
-        // we can eliminate this by using a std::set as targetCharacters and removing non valid chars when needed
-        // so that we don't have to depend upon probability of generating valid chars
         while (true)
         {
-            generatedChar = static_cast<char>(Number::integer(1));
+            // pick random char from targetCharacters
+            std::mt19937 gen(std::random_device{}());
+            std::sample(targetCharacters.begin(), targetCharacters.end(), &generatedChar, 1, gen);
+
             auto it = guarantee.find(generatedChar);
             // if no constraint on generated char, break out of loop
             if (it == guarantee.end())
@@ -198,7 +198,11 @@ std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
                 --it->second.atmostCount;
                 break;
             }
-            // else regenerate char
+            // remove this char from targetCharacters as it is no longer valid and regenerate char
+            else
+            {
+                targetCharacters.erase(it->first);
+            }
         }
         binary += generatedChar;
     }
