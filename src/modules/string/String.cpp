@@ -9,6 +9,7 @@
 
 #include "data/Characters.h"
 #include "faker-cxx/Helper.h"
+#include "faker-cxx/Number.h"
 
 namespace faker
 {
@@ -175,12 +176,34 @@ std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
     assert(binary.size() <= length);
     // we will generate chars for remaining length only
     length -= binary.size();
-    for (unsigned i = 0; i < length; i++)
+    for (unsigned i = 0; i < length; ++i)
     {
-        binary += static_cast<char>(Number::integer(1));
+        char generatedChar;
+        // generate chars till we find a usable char
+        // TODO
+        // this while loop can loop for too long when probability of generating valid char is too low
+        // we can eliminate this by using a std::set as targetCharacters and removing non valid chars when needed
+        // so that we don't have to depend upon probability of generating valid chars
+        while (true)
+        {
+            generatedChar = static_cast<char>(Number::integer(1));
+            auto it = guarantee.find(generatedChar);
+            // if no constraint on generated char, break out of loop
+            if (it == guarantee.end())
+                break;
+            auto remainingUses = it->second.atmostCount - it->second.atleastCount;
+            if (remainingUses > 0)
+            {
+                // decrement no of possible uses as we will use it right now
+                --it->second.atmostCount;
+                break;
+            }
+            // else regenerate char
+        }
+        binary += generatedChar;
     }
-    // TODO shuffle `binary`
-
+    // shuffle the generated string as the atleast string generated earlier was not generated randomly
+    binary = Helper::shuffleString(binary);
     return "0b" + binary;
 }
 
