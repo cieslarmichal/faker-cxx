@@ -35,7 +35,7 @@ const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
 };
 }
 
-bool isValidGuarantee(std::map<char, CharCount>& guarantee, std::string& targetCharacters, unsigned int length)
+bool isValidGuarantee(GuaranteeMap& guarantee, std::string& targetCharacters, unsigned int length)
 {
     unsigned int atleastCountSum{};
     unsigned int atmostCountSum{};
@@ -55,7 +55,7 @@ bool isValidGuarantee(std::map<char, CharCount>& guarantee, std::string& targetC
     return true;
 }
 
-std::string generateAtleastString(const std::map<char, CharCount>& guarantee)
+std::string generateAtleastString(const GuaranteeMap& guarantee)
 {
     std::string result;
     for (auto& it : guarantee)
@@ -160,7 +160,7 @@ std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix
     return hexadecimal;
 }
 
-std::string String::binary(std::map<char, CharCount>&& guarantee, unsigned int length)
+std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
 {
     std::string targetCharacters{"01"};
     // throw if guarantee is invalid

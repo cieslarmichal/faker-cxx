@@ -25,6 +25,11 @@ struct CharCount
     unsigned int atmostCount{std::numeric_limits<unsigned int>::max()};
 };
 
+/*
+ * A std::map where user can specify the count required for specific chars
+ */
+using GuaranteeMap = std::map<char, CharCount>;
+
 /**
  * @brief Checks if the given guarantee map is valid for given targetCharacters and length.
  *
@@ -35,15 +40,27 @@ struct CharCount
  * @param length The number of characters to generate.
  *
  * @code
- * std::map<char,CharCount> guarantee = {{'0',{5,10}},{'1',{6,10}}};
+ * GuaranteeMap guarantee = {{'0',{5,10}},{'1',{6,10}}};
  * std::string targetCharacters = "01";
  * unsigned int length = 10;
  * faker::isValidGuarantee(guarantee,targetCharacters,length) // false
  * @endcode
  */
-bool isValidGuarantee(std::map<char, CharCount>& guarantee, std::string& targetCharacters, unsigned int length);
+bool isValidGuarantee(GuaranteeMap& guarantee, std::string& targetCharacters, unsigned int length);
 
-std::string generateAtleastString(const std::map<char, CharCount>& guarantee);
+/*
+ * @brief Generates the least required string for a given guarantee map
+ *
+ * @returns least required std::string
+ *
+ * @param guarantee A std::map<char,CharCount> which stores the guarantee specified by the user
+ *
+ * @code
+ * GuaranteeMap guarantee { {'0',{3,10}},{'a',{6,8}} }; // "000aaaaaa"
+ * faker::generateAtleastString(guarantee);
+ * @endcode
+ */
+std::string generateAtleastString(const GuaranteeMap& guarantee);
 
 class String
 {
@@ -214,7 +231,7 @@ public:
      * String::binary(8) // "0b01110101"
      * @endcode
      */
-    static std::string binary(std::map<char, CharCount>&& guarantee = {}, unsigned length = 1);
+    static std::string binary(GuaranteeMap&& guarantee = {}, unsigned length = 1);
 
     /**
      * @brief Generates an octal string.
