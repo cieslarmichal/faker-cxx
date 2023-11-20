@@ -1,5 +1,6 @@
 #include "faker-cxx/Helper.h"
 
+#include <algorithm>
 #include <chrono>
 #include <random>
 #include <regex>
@@ -14,6 +15,12 @@ namespace faker
 std::random_device Helper::randomDevice;
 
 std::mt19937 Helper::pseudoRandomGenerator(Helper::randomDevice());
+
+std::string Helper::shuffleString(std::string data)
+{
+    std::shuffle(data.begin(), data.end(), pseudoRandomGenerator);
+    return data;
+}
 
 std::string Helper::replaceSymbolWithNumber(std::string str, const char& symbol)
 {

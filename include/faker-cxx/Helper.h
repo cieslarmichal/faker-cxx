@@ -143,6 +143,19 @@ public:
         return data;
     }
 
+    /*
+     * @brief Returns shuffled std::string
+     *
+     * @param data String to be shuffled
+     *
+     * @return std::string with shuffled chars
+     *
+     * @code
+     * Helper::shuffleString("hello") // "eollh"
+     * @endcode
+     */
+    static std::string shuffleString(std::string data);
+
     // TODO: remove methods below from helper API, move to src/common
 
     /**
