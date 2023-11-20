@@ -39,7 +39,7 @@ std::string GitTest::generateShaRegex()
 TEST_F(GitTest, shouldGenerateBranch)
 {
     const auto branch = Git::branch();
-    unsigned long branchSplit = faker::StringHelper::split(branch, "-").size();
+    const auto branchSplit = faker::StringHelper::split(branch, "-").size();
 
     ASSERT_TRUE(2 <= branchSplit && branchSplit <= 7);
 }
