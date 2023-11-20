@@ -3,6 +3,8 @@
 #include <iostream>
 #include <map>
 #include <random>
+#include <stdexcept>
+#include <string>
 
 #include "data/Characters.h"
 #include "faker-cxx/Helper.h"
@@ -30,6 +32,26 @@ const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
     {HexPrefix::Hash, "#"},
     {HexPrefix::None, ""},
 };
+}
+
+bool isValidGuarantee(std::map<char, CharCount>& guarantee, std::string& targetCharacters, unsigned int length)
+{
+    unsigned int atleastCountSum{};
+    unsigned int atmostCountSum{};
+    for (auto& it : guarantee)
+    {
+        // if a char in guarantee is not in char set, it is an invalid guarantee
+        if (targetCharacters.find(it.first) == std::string::npos)
+            return false;
+        atleastCountSum += it.second.atleastCount;
+        atmostCountSum += it.second.atmostCount;
+    }
+    // if atleastCount sums up greater than total length of string, it is an invalid guarantee
+    // if all chars in targetCharacters are mapped in guarantee, we need to check for validity of atmostCount
+    // if atmostCount sumps up less than total length of string, it in an invalid guarantee
+    if (atleastCountSum > length || (guarantee.size() == targetCharacters.size() && atmostCountSum < length))
+        return false;
+    return true;
 }
 
 std::string String::sample(unsigned int length)
@@ -129,16 +151,21 @@ std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix
     return hexadecimal;
 }
 
-std::string String::binary(unsigned int length)
+std::string String::binary(std::map<char, CharCount>&& guarantee, unsigned int length)
 {
-    std::string binary{"0b"};
-
+    std::string targetCharacters{"01"};
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    std::string binary{};
     for (unsigned i = 0; i < length; i++)
     {
         binary += static_cast<char>(Number::integer(1));
     }
 
-    return binary;
+    return "0b" + binary;
 }
 
 std::string String::octal(unsigned int length)

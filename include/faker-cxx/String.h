@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <limits>
+#include <map>
 #include <random>
 #include <sstream>
 #include <string>
@@ -16,6 +18,30 @@ enum class StringCasing
     Lower,
     Upper
 };
+
+struct CharCount
+{
+    unsigned int atleastCount{std::numeric_limits<unsigned int>::min()};
+    unsigned int atmostCount{std::numeric_limits<unsigned int>::max()};
+};
+
+/**
+ * @brief Checks if the given guarantee map is valid for given targetCharacters and length.
+ *
+ * @returns a bool.
+ *
+ * @param guarantee A std::map that maps the count range of specific characters required
+ * @param targetCharacters A std::string consisting of all chars available for that string generating function
+ * @param length The number of characters to generate.
+ *
+ * @code
+ * std::map<char,CharCount> guarantee = {{'0',{5,10}},{'1',{6,10}}};
+ * std::string targetCharacters = "01";
+ * unsigned int length = 10;
+ * faker::isValidGuarantee(guarantee,targetCharacters,length) // false
+ * @endcode
+ */
+bool isValidGuarantee(std::map<char, CharCount>& guarantee, std::string& targetCharacters, unsigned int length);
 
 class String
 {
@@ -126,8 +152,8 @@ public:
      *
      * @param length The number of characters to generate. Defaults to `1`.
      * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
-     * @param excludeCharacters The characters to be excluded from alphanumeric characters to generate string from.
-     * Defaults to ``.
+     * @param excludeCharacters The characters to be excluded from alphanumeric characters to generate
+     * string from. Defaults to ``.
      *
      * @returns Alphanumeric string.
      *
@@ -186,7 +212,7 @@ public:
      * String::binary(8) // "0b01110101"
      * @endcode
      */
-    static std::string binary(unsigned length = 1);
+    static std::string binary(std::map<char, CharCount>&& guarantee = {}, unsigned length = 1);
 
     /**
      * @brief Generates an octal string.
