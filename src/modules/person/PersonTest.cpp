@@ -7,6 +7,7 @@
 #include "../../common/StringHelper.h"
 #include "data/austria/AustrianPeopleNames.h"
 #include "data/belgium/BelgianPeopleNames.h"
+#include "data/canada/CanadianPeopleNames.h"
 #include "data/china/ChinesePeopleNames.h"
 #include "data/croatia/CroatianPeopleNames.h"
 #include "data/czech/CzechPeopleNames.h"
@@ -69,6 +70,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Austria, austrianPeopleNames},  {Country::Switzerland, swissPeopleNames},
     {Country::Belgium, belgianPeopleNames},   {Country::Nederlands, dutchPeopleNames},
     {Country::China, chinesePeopleNames},     {Country::Korea, koreanPeopleNames},
+    {Country::Canada, canadianPeopleNames},
 };
 
 const std::map<Country, std::string> generatedTestName{
@@ -88,6 +90,7 @@ const std::map<Country, std::string> generatedTestName{
     {Country::Austria, "shouldGenerateAustrianName"},  {Country::Switzerland, "shouldGenerateSwissName"},
     {Country::Belgium, "shouldGenerateBelgianName"},   {Country::Nederlands, "shouldGenerateDutchName"},
     {Country::China, "shouldGenerateChineseName"},     {Country::Korea, "shouldGenerateKoreanName"},
+    {Country::Canada, "shouldGenerateCanadianName"},
 };
 }
 
