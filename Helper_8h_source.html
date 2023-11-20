@@ -202,56 +202,69 @@ $(document).ready(function(){initNavTree('Helper_8h_source.html',''); initResiza
 <div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    }</div>
 </div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span> </div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">// TODO: remove methods below from helper API, move to src/common</span></div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#a8241b8aa5d9c9ac41c35db12bcfc4087">  164</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#a8241b8aa5d9c9ac41c35db12bcfc4087">replaceSymbolWithNumber</a>(std::string str, <span class="keyword">const</span> <span class="keywordtype">char</span>&amp; symbol = <span class="charliteral">&#39;#&#39;</span>);</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199">  181</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199">replaceCreditCardSymbols</a>(<span class="keyword">const</span> std::string&amp; inputString = <span class="stringliteral">&quot;6453-####-####-####-###L&quot;</span>,</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>                                                <span class="keywordtype">char</span> symbol = <span class="charliteral">&#39;#&#39;</span>);</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
-<div class="line"><a id="l00204" name="l00204"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">  204</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">regexpStyleStringParse</a>(<span class="keyword">const</span> std::string&amp; input);</div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span> </div>
-<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="foldopen" id="foldopen00227" data-start="{" data-end="}">
-<div class="line"><a id="l00227" name="l00227"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">  227</a></span>    <span class="keyword">static</span> <span class="keyword">typename</span> T::key_type <a class="code hl_function" href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">objectKey</a>(<span class="keyword">const</span> T&amp; <span class="keywordtype">object</span>)</div>
-<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    {</div>
-<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keywordflow">if</span> (<span class="keywordtype">object</span>.empty())</div>
-<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        {</div>
-<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Object is empty.&quot;</span>);</div>
-<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        }</div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>        std::vector&lt;typename T::key_type&gt; keys;</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; entry : object)</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>        {</div>
-<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>            keys.push_back(entry.first);</div>
-<div class="line"><a id="l00238" name="l00238"></a><span class="lineno">  238</span>        }</div>
-<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span> </div>
-<div class="line"><a id="l00240" name="l00240"></a><span class="lineno">  240</span>        <span class="keywordflow">return</span> arrayElement&lt;typename T::key_type&gt;(keys);</div>
-<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    }</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    <span class="comment">/*</span></div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="comment">     * @brief Returns shuffled std::string</span></div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span><span class="comment">     * @param data String to be shuffled</span></div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span><span class="comment">     * @return std::string with shuffled chars</span></div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="comment">     * @code</span></div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment">     * Helper::shuffleString(&quot;hello&quot;) // &quot;eollh&quot;</span></div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">     * @endcode</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keyword">static</span> std::string shuffleString(std::string data);</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="comment">// TODO: remove methods below from helper API, move to src/common</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span> </div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#a8241b8aa5d9c9ac41c35db12bcfc4087">  177</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#a8241b8aa5d9c9ac41c35db12bcfc4087">replaceSymbolWithNumber</a>(std::string str, <span class="keyword">const</span> <span class="keywordtype">char</span>&amp; symbol = <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199">  194</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199">replaceCreditCardSymbols</a>(<span class="keyword">const</span> std::string&amp; inputString = <span class="stringliteral">&quot;6453-####-####-####-###L&quot;</span>,</div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>                                                <span class="keywordtype">char</span> symbol = <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span> </div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">  217</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">regexpStyleStringParse</a>(<span class="keyword">const</span> std::string&amp; input);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span> </div>
+<div class="line"><a id="l00239" name="l00239"></a><span class="lineno">  239</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="foldopen" id="foldopen00240" data-start="{" data-end="}">
+<div class="line"><a id="l00240" name="l00240"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">  240</a></span>    <span class="keyword">static</span> <span class="keyword">typename</span> T::key_type <a class="code hl_function" href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">objectKey</a>(<span class="keyword">const</span> T&amp; <span class="keywordtype">object</span>)</div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    {</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span>        <span class="keywordflow">if</span> (<span class="keywordtype">object</span>.empty())</div>
+<div class="line"><a id="l00243" name="l00243"></a><span class="lineno">  243</span>        {</div>
+<div class="line"><a id="l00244" name="l00244"></a><span class="lineno">  244</span>            <span class="keywordflow">throw</span> std::runtime_error(<span class="stringliteral">&quot;Object is empty.&quot;</span>);</div>
+<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span>        }</div>
+<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno">  247</span>        std::vector&lt;typename T::key_type&gt; keys;</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span>        <span class="keywordflow">for</span> (<span class="keyword">const</span> <span class="keyword">auto</span>&amp; entry : object)</div>
+<div class="line"><a id="l00249" name="l00249"></a><span class="lineno">  249</span>        {</div>
+<div class="line"><a id="l00250" name="l00250"></a><span class="lineno">  250</span>            keys.push_back(entry.first);</div>
+<div class="line"><a id="l00251" name="l00251"></a><span class="lineno">  251</span>        }</div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span> </div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>        <span class="keywordflow">return</span> arrayElement&lt;typename T::key_type&gt;(keys);</div>
+<div class="line"><a id="l00254" name="l00254"></a><span class="lineno">  254</span>    }</div>
 </div>
-<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
-<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TResult&gt;</div>
-<div class="foldopen" id="foldopen00260" data-start="{" data-end="}">
-<div class="line"><a id="l00260" name="l00260"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">  260</a></span>    <span class="keyword">static</span> TResult <a class="code hl_function" href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">maybe</a>(std::function&lt;TResult()&gt; callback, <span class="keywordtype">double</span> probability = 0.5)</div>
-<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span>    {</div>
-<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="classfaker_1_1Datatype.html#adcc47b46212ca99e0eb8db4b888a678f">Datatype::boolean</a>(probability))</div>
-<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>        {</div>
-<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>            <span class="keywordflow">return</span> callback();</div>
-<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>        }</div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>        <span class="keywordflow">return</span> TResult();</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>    }</div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span> </div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> TResult&gt;</div>
+<div class="foldopen" id="foldopen00273" data-start="{" data-end="}">
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">  273</a></span>    <span class="keyword">static</span> TResult <a class="code hl_function" href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">maybe</a>(std::function&lt;TResult()&gt; callback, <span class="keywordtype">double</span> probability = 0.5)</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span>    {</div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="classfaker_1_1Datatype.html#adcc47b46212ca99e0eb8db4b888a678f">Datatype::boolean</a>(probability))</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>        {</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>            <span class="keywordflow">return</span> callback();</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>        }</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>        <span class="keywordflow">return</span> TResult();</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    }</div>
 </div>
-<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
-<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>    <span class="keyword">static</span> std::random_device randomDevice;</div>
-<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator;</div>
-<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>};</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    <span class="keyword">static</span> std::random_device randomDevice;</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator;</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>};</div>
 </div>
-<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>}</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>}</div>
 <div class="ttc" id="aclassfaker_1_1Datatype_html_adcc47b46212ca99e0eb8db4b888a678f"><div class="ttname"><a href="classfaker_1_1Datatype.html#adcc47b46212ca99e0eb8db4b888a678f">faker::Datatype::boolean</a></div><div class="ttdeci">static bool boolean()</div><div class="ttdoc">Returns a random boolean.</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html"><div class="ttname"><a href="classfaker_1_1Helper.html">faker::Helper</a></div><div class="ttdef"><b>Definition</b> Helper.h:15</div></div>
-<div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:227</div></div>
-<div class="ttc" id="aclassfaker_1_1Helper_html_a378bc48e5d3c6438a70b75ede9e2d9a3"><div class="ttname"><a href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">faker::Helper::maybe</a></div><div class="ttdeci">static TResult maybe(std::function&lt; TResult()&gt; callback, double probability=0.5)</div><div class="ttdoc">Returns the result of the callback if the probability check was successful, otherwise empty string.</div><div class="ttdef"><b>Definition</b> Helper.h:260</div></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:240</div></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html_a378bc48e5d3c6438a70b75ede9e2d9a3"><div class="ttname"><a href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">faker::Helper::maybe</a></div><div class="ttdeci">static TResult maybe(std::function&lt; TResult()&gt; callback, double probability=0.5)</div><div class="ttdoc">Returns the result of the callback if the probability check was successful, otherwise empty string.</div><div class="ttdef"><b>Definition</b> Helper.h:273</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html_a46622f2ea33bab9a6ee3d35149f8b01b"><div class="ttname"><a href="classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b">faker::Helper::arrayElement</a></div><div class="ttdeci">static T arrayElement(std::span&lt; const T &gt; data)</div><div class="ttdoc">Get a random element from an STL container.</div><div class="ttdef"><b>Definition</b> Helper.h:32</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html_a5604817b289605971edea4034bd65115"><div class="ttname"><a href="classfaker_1_1Helper.html#a5604817b289605971edea4034bd65115">faker::Helper::shuffle</a></div><div class="ttdeci">static std::vector&lt; T &gt; shuffle(std::vector&lt; T &gt; data)</div><div class="ttdoc">Returns shuffled vector.</div><div class="ttdef"><b>Definition</b> Helper.h:139</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html_a5e0553c162b6398aa7c0ba0927af17bf"><div class="ttname"><a href="classfaker_1_1Helper.html#a5e0553c162b6398aa7c0ba0927af17bf">faker::Helper::weightedArrayElement</a></div><div class="ttdeci">static T weightedArrayElement(const std::vector&lt; WeightedElement&lt; T &gt; &gt; &amp;data)</div><div class="ttdoc">Get a random element by weight from a vector.</div><div class="ttdef"><b>Definition</b> Helper.h:92</div></div>
