@@ -23,6 +23,8 @@ jobs:
         with:
           submodules: recursive
 
+      - uses: seanmiddleditch/gha-setup-ninja@master
+      
       - run: cmake -E make_directory build
 
       - working-directory: build/
