@@ -2,7 +2,7 @@ var searchData=
 [
   ['bear_0',['bear',['../classfaker_1_1Animal.html#a283c2c045c52ead17853e7a1f9cb3e6d',1,'faker::Animal']]],
   ['bic_1',['bic',['../classfaker_1_1Finance.html#a8f9a4ef2b0d11ab1cebce870b6c2182c',1,'faker::Finance']]],
-  ['binary_2',['binary',['../classfaker_1_1String.html#a1a4443dd71fb781206122c53c81896bd',1,'faker::String']]],
+  ['binary_2',['binary',['../classfaker_1_1String.html#aa09452a11c8c5ce54fb6ad0356d7a827',1,'faker::String']]],
   ['bird_3',['bird',['../classfaker_1_1Animal.html#a0ef436f2fbf92a1c15a738f4beee0adb',1,'faker::Animal']]],
   ['birthdatebyage_4',['birthdateByAge',['../classfaker_1_1Date.html#a593f50b064c572aef47d4d7861ce5fbe',1,'faker::Date']]],
   ['birthdatebyyear_5',['birthdateByYear',['../classfaker_1_1Date.html#a54174b314bed0966a0ee316716322805',1,'faker::Date']]],

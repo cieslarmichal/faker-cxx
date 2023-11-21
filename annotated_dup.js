@@ -4,6 +4,7 @@ var annotated_dup =
       [ "Airline", "classfaker_1_1Airline.html", "classfaker_1_1Airline" ],
       [ "Animal", "classfaker_1_1Animal.html", null ],
       [ "Book", "classfaker_1_1Book.html", null ],
+      [ "CharCount", "structfaker_1_1CharCount.html", null ],
       [ "Color", "classfaker_1_1Color.html", null ],
       [ "Commerce", "classfaker_1_1Commerce.html", null ],
       [ "Company", "classfaker_1_1Company.html", null ],
