@@ -1,7 +1,9 @@
 #pragma once
 
+#include <algorithm>
 #include <functional>
 #include <numeric>
+#include <set>
 #include <span>
 #include <string>
 
@@ -65,6 +67,32 @@ public:
         const auto index = Number::integer<size_t>(data.size() - 1);
 
         return data[index];
+    }
+
+    /**
+     * @brief Get a random element from a std::set.
+     *
+     * @tparam T an element type of the std::set.
+     *
+     * @param std::set of elements.
+     *
+     * @return T a random element from the std::set.
+     *
+     * @code
+     * std::set<char> chars{'a', 'b', 'c', 'd', 'e'};
+     * Helper::setElement(chars) // 'd'
+     * @endcode
+     */
+    template <class T>
+    static T setElement(const std::set<T>& data)
+    {
+        if (data.empty())
+        {
+            throw std::invalid_argument{"Data is empty."};
+        }
+        T item;
+        std::sample(data.begin(), data.end(), &item, 1, pseudoRandomGenerator);
+        return item;
     }
 
     template <class T>
