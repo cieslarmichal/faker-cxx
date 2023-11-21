@@ -4,6 +4,7 @@
 #include <regex>
 #include <stdexcept>
 #include <unordered_map>
+#include <vector>
 
 #include "gtest/gtest.h"
 
@@ -18,6 +19,24 @@ class HelperTest : public Test
 namespace
 {
 
+TEST_F(HelperTest, SetElement)
+{
+    std::set<char> chars{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'l', 'm'};
+    std::vector<char> randomChars;
+    for (int i = 0; i < 30; ++i)
+    {
+        randomChars.push_back(Helper::setElement(chars));
+    }
+    for (auto character : randomChars)
+    {
+        ASSERT_TRUE(chars.find(character) != chars.end());
+    }
+}
+TEST_F(HelperTest, SetElementEmptyData)
+{
+    std::set<char> chars{};
+    ASSERT_THROW(Helper::setElement<char>(chars), std::invalid_argument);
+}
 TEST_F(HelperTest, ReplaceSymbolWithNumber)
 {
     std::string input = "123#456!";
