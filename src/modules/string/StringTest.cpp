@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <random>
+#include <stdexcept>
 
 #include "gtest/gtest.h"
 
@@ -354,7 +355,7 @@ TEST_F(StringTest, shouldGenerateBinary)
 {
     const auto binaryLength = 8;
 
-    const auto binary = String::binary(binaryLength);
+    const auto binary = String::binary({}, binaryLength);
 
     const auto prefix = binary.substr(0, 2);
     const auto binaryNumber = binary.substr(2);
@@ -363,6 +364,113 @@ TEST_F(StringTest, shouldGenerateBinary)
     ASSERT_EQ(prefix, "0b");
     ASSERT_TRUE(std::ranges::any_of(binary, [](char binaryNumberCharacter)
                                     { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+}
+
+TEST_F(StringTest, shouldGenerateBinaryWithGuarantee1)
+{
+    const auto binaryLength = 9;
+
+    // atleast 3 '0' and 2 '1'
+    // atmost 7 '0' and 7 '1'
+    faker::GuaranteeMap guarantee{{'0', {3, 7}}, {'1', {2, 7}}};
+    const auto binary = String::binary(std::move(guarantee), binaryLength);
+
+    const auto prefix = binary.substr(0, 2);
+    const auto binaryNumber = binary.substr(2);
+
+    ASSERT_EQ(binaryNumber.size(), binaryLength);
+    ASSERT_EQ(prefix, "0b");
+    ASSERT_TRUE(std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
+                                    { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+    auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
+    auto count_1 = std::count(binaryNumber.begin(), binaryNumber.end(), '1');
+    ASSERT_TRUE(count_0 >= 3 && count_0 <= 7);
+    ASSERT_TRUE(count_1 >= 2 && count_1 <= 7);
+}
+TEST_F(StringTest, shouldGenerateBinaryWithGuarantee2)
+{
+    const auto binaryLength = 10;
+
+    // exactly 8 '0' and 2 '1'
+    faker::GuaranteeMap guarantee{{'0', {8, 8}}, {'1', {2, 2}}};
+    const auto binary = String::binary(std::move(guarantee), binaryLength);
+
+    const auto prefix = binary.substr(0, 2);
+    const auto binaryNumber = binary.substr(2);
+
+    ASSERT_EQ(binaryNumber.size(), binaryLength);
+    ASSERT_EQ(prefix, "0b");
+    ASSERT_TRUE(std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
+                                    { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+    auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
+    auto count_1 = std::count(binaryNumber.begin(), binaryNumber.end(), '1');
+    ASSERT_TRUE(count_0 == 8);
+    ASSERT_TRUE(count_1 == 2);
+}
+TEST_F(StringTest, shouldGenerateBinaryWithGuarantee3)
+{
+    const auto binaryLength = 10;
+
+    // atleast 10 '0'
+    faker::GuaranteeMap guarantee{{'0', {10}}};
+    const auto binary = String::binary(std::move(guarantee), binaryLength);
+
+    const auto prefix = binary.substr(0, 2);
+    const auto binaryNumber = binary.substr(2);
+
+    ASSERT_EQ(binaryNumber.size(), binaryLength);
+    ASSERT_EQ(prefix, "0b");
+    ASSERT_TRUE(std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
+                                    { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+    auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
+    ASSERT_TRUE(count_0 == 10);
+}
+
+TEST_F(StringTest, shouldGenerateBinaryWithGuarantee4)
+{
+    const auto binaryLength = 10;
+
+    // atmost 0 '0'
+    faker::GuaranteeMap guarantee{{'0', {0, 0}}};
+    const auto binary = String::binary(std::move(guarantee), binaryLength);
+
+    const auto prefix = binary.substr(0, 2);
+    const auto binaryNumber = binary.substr(2);
+
+    ASSERT_EQ(binaryNumber.size(), binaryLength);
+    ASSERT_EQ(prefix, "0b");
+    ASSERT_TRUE(std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
+                                    { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+    auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
+    ASSERT_TRUE(count_0 == 0);
+}
+
+TEST_F(StringTest, invalidGuaranteeForBinary1)
+{
+    const auto binaryLength = 10;
+
+    // atleast 6 '0' and 6 '1'  // invalid // total string size will be 12 which is wrong
+    // atleast 10 '0' and 10 '1'
+    faker::GuaranteeMap guarantee{{'0', {6, 10}}, {'1', {6, 10}}};
+    EXPECT_THROW(String::binary(std::move(guarantee), binaryLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForBinary2)
+{
+    const auto binaryLength = 20;
+
+    // atleast 6 '0' and 6 '1'
+    // atleast 10 '0' and 8 '1' // invalid // total string size won't exceed 18 which is wrong
+    faker::GuaranteeMap guarantee{{'0', {6, 10}}, {'1', {6, 8}}};
+    EXPECT_THROW(String::binary(std::move(guarantee), binaryLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForBinary3)
+{
+    const auto binaryLength = 10;
+    //  atleast 4 '0' and 3 'a' // invalid // binary string should consist of only '0' and '1'
+    faker::GuaranteeMap guarantee{{'0', {4}}, {'a', {3}}};
+    EXPECT_THROW(String::binary(std::move(guarantee), binaryLength), std::invalid_argument);
 }
 
 TEST_F(StringTest, shouldGenerateOctalWithPrefix)
