@@ -115,6 +115,10 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ac7c79f7dbcb604b8c1c64e67d01ca1ad"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#ac7c79f7dbcb604b8c1c64e67d01ca1ad">arrayElement</a> (const std::vector&lt; T &gt; &amp;data)</td></tr>
 <tr class="memdesc:ac7c79f7dbcb604b8c1c64e67d01ca1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from a vector.  <br /></td></tr>
 <tr class="separator:ac7c79f7dbcb604b8c1c64e67d01ca1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa9ce3f39af7cdaf537be7de5496e848" id="r_afa9ce3f39af7cdaf537be7de5496e848"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:afa9ce3f39af7cdaf537be7de5496e848"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#afa9ce3f39af7cdaf537be7de5496e848">setElement</a> (const std::set&lt; T &gt; &amp;data)</td></tr>
+<tr class="memdesc:afa9ce3f39af7cdaf537be7de5496e848"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from a std::set.  <br /></td></tr>
+<tr class="separator:afa9ce3f39af7cdaf537be7de5496e848"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e0553c162b6398aa7c0ba0927af17bf" id="r_a5e0553c162b6398aa7c0ba0927af17bf"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a5e0553c162b6398aa7c0ba0927af17bf"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#a5e0553c162b6398aa7c0ba0927af17bf">weightedArrayElement</a> (const std::vector&lt; <a class="el" href="structfaker_1_1Helper_1_1WeightedElement.html">WeightedElement</a>&lt; T &gt; &gt; &amp;data)</td></tr>
 <tr class="memdesc:a5e0553c162b6398aa7c0ba0927af17bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element by weight from a vector.  <br /></td></tr>
@@ -342,7 +346,7 @@ template&lt;typename T &gt; </div>
 <div class="line">{3, <span class="stringliteral">&quot;three&quot;</span>}</div>
 <div class="line">};</div>
 <div class="line"><a class="code hl_function" href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">Helper::objectKey</a>(testMap) <span class="comment">// &quot;2&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:240</div></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:268</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -388,7 +392,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="preprocessor">Helper::regexpStyleStringParse(&quot;#{2,9}&quot;) // &quot;#######&quot;</span></div>
 <div class="line"><span class="preprocessor">Helper::regexpStyleStringParse(&quot;[500-15000]&quot;) // &quot;8375&quot;</span></div>
 <div class="line"><span class="preprocessor">Helper::regexpStyleStringParse(&quot;#{3}test[1-5]&quot;) // &quot;###test3&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Helper_html"><div class="ttname"><a href="classfaker_1_1Helper.html">faker::Helper</a></div><div class="ttdef"><b>Definition</b> Helper.h:15</div></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html"><div class="ttname"><a href="classfaker_1_1Helper.html">faker::Helper</a></div><div class="ttdef"><b>Definition</b> Helper.h:17</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html_ad97b7e42b9f650bdea9ecba04b135768"><div class="ttname"><a href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">faker::Helper::regexpStyleStringParse</a></div><div class="ttdeci">static std::string regexpStyleStringParse(const std::string &amp;input)</div><div class="ttdoc">Returns the replaced regex-like expression in the string with matching values.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -493,6 +497,52 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="afa9ce3f39af7cdaf537be7de5496e848" name="afa9ce3f39af7cdaf537be7de5496e848"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa9ce3f39af7cdaf537be7de5496e848">&#9670;&#160;</a></span>setElement()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static T faker::Helper::setElement </td>
+          <td>(</td>
+          <td class="paramtype">const std::set&lt; T &gt; &amp;&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a random element from a std::set. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">T</td><td>an element type of the std::set.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">std::set</td><td>of elements.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>T a random element from the std::set.</dd></dl>
+<div class="fragment"><div class="line">std::set&lt;char&gt; chars{<span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;b&#39;</span>, <span class="charliteral">&#39;c&#39;</span>, <span class="charliteral">&#39;d&#39;</span>, <span class="charliteral">&#39;e&#39;</span>};</div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1Helper.html#afa9ce3f39af7cdaf537be7de5496e848">Helper::setElement</a>(chars) <span class="comment">// &#39;d&#39;</span></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html_afa9ce3f39af7cdaf537be7de5496e848"><div class="ttname"><a href="classfaker_1_1Helper.html#afa9ce3f39af7cdaf537be7de5496e848">faker::Helper::setElement</a></div><div class="ttdeci">static T setElement(const std::set&lt; T &gt; &amp;data)</div><div class="ttdoc">Get a random element from a std::set.</div><div class="ttdef"><b>Definition</b> Helper.h:87</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="a5604817b289605971edea4034bd65115" name="a5604817b289605971edea4034bd65115"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5604817b289605971edea4034bd65115">&#9670;&#160;</a></span>shuffle()</h2>
 
@@ -579,7 +629,7 @@ template&lt;class T &gt; </div>
 <dl class="section return"><dt>Returns</dt><dd>T a weighted element value from the vector.</dd></dl>
 <div class="fragment"><div class="line">Helper::weightedArrayElement&lt;std::string&gt;(std::vector&lt;<a class="code hl_struct" href="structfaker_1_1Helper_1_1WeightedElement.html">Helper::WeightedElement&lt;std::string&gt;</a>&gt;{{1, <span class="stringliteral">&quot;value1&quot;</span>}, {10,</div>
 <div class="line"><span class="stringliteral">&quot;value2&quot;</span>}}) <span class="comment">// &quot;hello2&quot;</span></div>
-<div class="ttc" id="astructfaker_1_1Helper_1_1WeightedElement_html"><div class="ttname"><a href="structfaker_1_1Helper_1_1WeightedElement.html">faker::Helper::WeightedElement</a></div><div class="ttdef"><b>Definition</b> Helper.h:72</div></div>
+<div class="ttc" id="astructfaker_1_1Helper_1_1WeightedElement_html"><div class="ttname"><a href="structfaker_1_1Helper_1_1WeightedElement.html">faker::Helper::WeightedElement</a></div><div class="ttdef"><b>Definition</b> Helper.h:100</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
