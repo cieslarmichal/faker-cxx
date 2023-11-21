@@ -61,7 +61,9 @@ std::string generateAtleastString(const GuaranteeMap& guarantee)
 {
     std::string result;
     for (auto& it : guarantee)
+    {
         result += std::string(it.second.atleastCount, it.first);
+    }
     return result;
 }
 
@@ -176,7 +178,7 @@ std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
     // string with least required chars cannot be greater than the total length
     assert(binary.size() <= length);
     // we will generate chars for remaining length only
-    length -= binary.size();
+    length -= static_cast<unsigned>(binary.size());
     for (unsigned i = 0; i < length; ++i)
     {
         char generatedChar;
