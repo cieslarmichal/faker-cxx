@@ -186,8 +186,7 @@ std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
         while (true)
         {
             // pick random char from targetCharacters
-            std::mt19937 gen(std::random_device{}());
-            std::sample(targetCharacters.begin(), targetCharacters.end(), &generatedChar, 1, gen);
+            generatedChar = Helper::setElement(targetCharacters);
 
             auto it = guarantee.find(generatedChar);
             // if no constraint on generated char, break out of loop
