@@ -6,6 +6,10 @@ on:
       - 'main'
   pull_request:
 
+defaults:
+  run:
+    shell: bash
+
 env:
   BUILD_TYPE: Debug
 
@@ -19,16 +23,10 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Set up MinGW
-        uses: egor-tensin/setup-mingw@v2
-        id: setup
-        with:
-          platform: x64
-
       - run: cmake -E make_directory build
 
       - working-directory: build/
-        run: cmake .. -GNinja -DCMAKE_CXX_COMPILER='${{ steps.setup.outputs.gxx }}' -DCMAKE_C_COMPILER='${{ steps.setup.outputs.gcc }}' 
+        run: cmake .. -GNinja -DCMAKE_CXX_COMPILER=g++ -DCMAKE_C_COMPILER=gcc
 
       - working-directory: build/
         run: cmake --build .
