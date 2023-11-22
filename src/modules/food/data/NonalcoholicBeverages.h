@@ -3,8 +3,9 @@
 #include <string>
 #include <vector>
 
-namespace faker {
-    const std::vector<std::string> nonalcoholicBeverages = {
+namespace faker
+{
+const std::vector<std::string> nonalcoholicBeverages = {
     "Water",
     "Tea",
     "Coffee",
@@ -36,5 +37,5 @@ namespace faker {
     "Vegetable Juice",
     "Pear Nectar",
     "Mango Lassi",
-    };
+};
 }

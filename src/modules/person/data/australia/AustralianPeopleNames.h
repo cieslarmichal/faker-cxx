@@ -10,7 +10,7 @@ namespace faker
 const NameFormats australianPersonNameFormats{{"{firstName} {lastName}", 1}};
 
 const PeopleNames australianPeopleNames{{australianMalesFirstNames, {}, australianLastNames, {}, {}},
-                                     {australianFemalesFirstNames, {}, australianLastNames, {}, {}},
-                                     australianPersonNameFormats};
+                                        {australianFemalesFirstNames, {}, australianLastNames, {}, {}},
+                                        australianPersonNameFormats};
 
 }
