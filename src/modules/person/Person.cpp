@@ -24,6 +24,7 @@
 #include "data/Hobbies.h"
 #include "data/hungary/HungarianPeopleNames.h"
 #include "data/india/IndianPeopleNames.h"
+#include "data/ireland/IrishPeopleNames.h"
 #include "data/italy/ItalianPeopleNames.h"
 #include "data/japan/JapanesePeopleNames.h"
 #include "data/JobTitles.h"
@@ -79,7 +80,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Canada, canadianPeopleNames},       {Country::Mexico, mexicanPeopleNames},
     {Country::Argentina, argentinianPeopleNames}, {Country::Australia, australianPeopleNames},
     {Country::Serbia, serbianPeopleNames},        {Country::Macedonia, macedonianPeopleNames},
-    {Country::Latvia, latvianPeopleNames},
+    {Country::Latvia, latvianPeopleNames},        {Country::Ireland, irishPeopleNames},
 };
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
