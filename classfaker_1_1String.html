@@ -126,9 +126,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:aa09452a11c8c5ce54fb6ad0356d7a827" id="r_aa09452a11c8c5ce54fb6ad0356d7a827"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#aa09452a11c8c5ce54fb6ad0356d7a827">binary</a> (GuaranteeMap &amp;&amp;guarantee={}, unsigned length=1)</td></tr>
 <tr class="memdesc:aa09452a11c8c5ce54fb6ad0356d7a827"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a binary string.  <br /></td></tr>
 <tr class="separator:aa09452a11c8c5ce54fb6ad0356d7a827"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abc3d4242b2fc5ac285784723801a7c27" id="r_abc3d4242b2fc5ac285784723801a7c27"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#abc3d4242b2fc5ac285784723801a7c27">octal</a> (unsigned length=1)</td></tr>
-<tr class="memdesc:abc3d4242b2fc5ac285784723801a7c27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an octal string.  <br /></td></tr>
-<tr class="separator:abc3d4242b2fc5ac285784723801a7c27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43a660aee23b1438122d4b712639a588" id="r_a43a660aee23b1438122d4b712639a588"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a43a660aee23b1438122d4b712639a588">octal</a> (GuaranteeMap &amp;&amp;guarantee={}, unsigned length=1)</td></tr>
+<tr class="memdesc:a43a660aee23b1438122d4b712639a588"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an octal string.  <br /></td></tr>
+<tr class="separator:a43a660aee23b1438122d4b712639a588"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6d97fdf6f3c37532ee92c2245fd252db" name="a6d97fdf6f3c37532ee92c2245fd252db"></a>
@@ -276,12 +276,13 @@ Static Public Member Functions</h2></td></tr>
 <p>Generates a binary string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">guarantee</td><td>A map specifying char count constraints if any </td></tr>
     <tr><td class="paramname">length</td><td>The number of digits to generate. Defaults to <code>1</code>.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Binary string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#aa09452a11c8c5ce54fb6ad0356d7a827">String::binary</a>(8) <span class="comment">// &quot;0b01110101&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#aa09452a11c8c5ce54fb6ad0356d7a827">String::binary</a>({}, 8) <span class="comment">// &quot;0b01110101&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1String_html_aa09452a11c8c5ce54fb6ad0356d7a827"><div class="ttname"><a href="classfaker_1_1String.html#aa09452a11c8c5ce54fb6ad0356d7a827">faker::String::binary</a></div><div class="ttdeci">static std::string binary(GuaranteeMap &amp;&amp;guarantee={}, unsigned length=1)</div><div class="ttdoc">Generates a binary string.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -443,8 +444,8 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="abc3d4242b2fc5ac285784723801a7c27" name="abc3d4242b2fc5ac285784723801a7c27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc3d4242b2fc5ac285784723801a7c27">&#9670;&#160;</a></span>octal()</h2>
+<a id="a43a660aee23b1438122d4b712639a588" name="a43a660aee23b1438122d4b712639a588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43a660aee23b1438122d4b712639a588">&#9670;&#160;</a></span>octal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -455,9 +456,19 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static std::string faker::String::octal </td>
           <td>(</td>
-          <td class="paramtype">unsigned&#160;</td>
-          <td class="paramname"><em>length</em> = <code>1</code></td><td>)</td>
+          <td class="paramtype">GuaranteeMap &amp;&amp;&#160;</td>
+          <td class="paramname"><em>guarantee</em> = <code>{}</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>length</em> = <code>1</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -470,13 +481,14 @@ Static Public Member Functions</h2></td></tr>
 <p>Generates an octal string. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">guarantee</td><td>A map specifying char count constraints if any </td></tr>
     <tr><td class="paramname">length</td><td>The number of digits to generate. Defaults to <code>1</code>.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Octal string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#abc3d4242b2fc5ac285784723801a7c27">String::octal</a>(8) <span class="comment">// &quot;0o52561721&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1String_html_abc3d4242b2fc5ac285784723801a7c27"><div class="ttname"><a href="classfaker_1_1String.html#abc3d4242b2fc5ac285784723801a7c27">faker::String::octal</a></div><div class="ttdeci">static std::string octal(unsigned length=1)</div><div class="ttdoc">Generates an octal string.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a43a660aee23b1438122d4b712639a588">String::octal</a>({}, 8) <span class="comment">// &quot;0o52561721&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1String_html_a43a660aee23b1438122d4b712639a588"><div class="ttname"><a href="classfaker_1_1String.html#a43a660aee23b1438122d4b712639a588">faker::String::octal</a></div><div class="ttdeci">static std::string octal(GuaranteeMap &amp;&amp;guarantee={}, unsigned length=1)</div><div class="ttdoc">Generates an octal string.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -553,7 +565,7 @@ template&lt;typename T  = std::mt19937&gt; </div>
   </dd>
 </dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a24034056c03b01f957e2408cdc6d63d2">String::uuid</a>() <span class="comment">// &quot;27666229-cedb-4a45-8018-98b1e1d921e2&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1String_html_a24034056c03b01f957e2408cdc6d63d2"><div class="ttname"><a href="classfaker_1_1String.html#a24034056c03b01f957e2408cdc6d63d2">faker::String::uuid</a></div><div class="ttdeci">static std::string uuid(RandomGenerator&lt; T &gt; gen=RandomGenerator&lt; std::mt19937 &gt;{})</div><div class="ttdoc">Generates an Universally Unique Identifier with version 4.</div><div class="ttdef"><b>Definition</b> String.h:81</div></div>
+<div class="ttc" id="aclassfaker_1_1String_html_a24034056c03b01f957e2408cdc6d63d2"><div class="ttname"><a href="classfaker_1_1String.html#a24034056c03b01f957e2408cdc6d63d2">faker::String::uuid</a></div><div class="ttdeci">static std::string uuid(RandomGenerator&lt; T &gt; gen=RandomGenerator&lt; std::mt19937 &gt;{})</div><div class="ttdoc">Generates an Universally Unique Identifier with version 4.</div><div class="ttdef"><b>Definition</b> String.h:85</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
