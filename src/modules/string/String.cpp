@@ -67,6 +67,48 @@ std::string generateAtleastString(const GuaranteeMap& guarantee)
     return result;
 }
 
+std::string String::generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
+                                                unsigned int length)
+{
+    std::string output{};
+    output += generateAtleastString(guarantee);
+    // string with least required chars cannot be greater than the total length
+    assert(output.size() <= length);
+    // we will generate chars for remaining length only
+    length -= static_cast<unsigned>(output.size());
+    for (unsigned i = 0; i < length; ++i)
+    {
+        char generatedChar;
+        // generate chars till we find a usable char
+        while (true)
+        {
+            // pick random char from targetCharacters
+            generatedChar = Helper::setElement(targetCharacters);
+
+            auto it = guarantee.find(generatedChar);
+            // if no constraint on generated char, break out of loop
+            if (it == guarantee.end())
+                break;
+            auto remainingUses = it->second.atmostCount - it->second.atleastCount;
+            if (remainingUses > 0)
+            {
+                // decrement no of possible uses as we will use it right now
+                --it->second.atmostCount;
+                break;
+            }
+            // remove this char from targetCharacters as it is no longer valid and regenerate char
+            else
+            {
+                targetCharacters.erase(it->first);
+            }
+        }
+        output += generatedChar;
+    }
+    // shuffle the generated string as the atleast string generated earlier was not generated randomly
+    output = Helper::shuffleString(output);
+    return output;
+}
+
 std::string String::sample(unsigned int length)
 {
     std::string sample;
@@ -166,6 +208,7 @@ std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix
 
 std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
 {
+    // numbers used by binary representation
     std::set<char> targetCharacters{'0', '1'};
     // throw if guarantee is invalid
     if (!isValidGuarantee(guarantee, targetCharacters, length))
@@ -173,54 +216,19 @@ std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
         throw std::invalid_argument{"Invalid guarantee."};
     }
 
-    std::string binary{};
-    binary += generateAtleastString(guarantee);
-    // string with least required chars cannot be greater than the total length
-    assert(binary.size() <= length);
-    // we will generate chars for remaining length only
-    length -= static_cast<unsigned>(binary.size());
-    for (unsigned i = 0; i < length; ++i)
-    {
-        char generatedChar;
-        // generate chars till we find a usable char
-        while (true)
-        {
-            // pick random char from targetCharacters
-            generatedChar = Helper::setElement(targetCharacters);
-
-            auto it = guarantee.find(generatedChar);
-            // if no constraint on generated char, break out of loop
-            if (it == guarantee.end())
-                break;
-            auto remainingUses = it->second.atmostCount - it->second.atleastCount;
-            if (remainingUses > 0)
-            {
-                // decrement no of possible uses as we will use it right now
-                --it->second.atmostCount;
-                break;
-            }
-            // remove this char from targetCharacters as it is no longer valid and regenerate char
-            else
-            {
-                targetCharacters.erase(it->first);
-            }
-        }
-        binary += generatedChar;
-    }
-    // shuffle the generated string as the atleast string generated earlier was not generated randomly
-    binary = Helper::shuffleString(binary);
-    return "0b" + binary;
+    return "0b" + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string String::octal(unsigned int length)
+std::string String::octal(GuaranteeMap&& guarantee, unsigned int length)
 {
-    std::string octal{"0o"};
-
-    for (unsigned i = 0; i < length; i++)
+    // numbers used by octal representation
+    std::set<char> targetCharacters{'0', '1', '2', '3', '4', '5', '6', '7'};
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
     {
-        octal += static_cast<char>(Number::integer(7));
+        throw std::invalid_argument{"Invalid guarantee."};
     }
 
-    return octal;
+    return "0o" + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 }
