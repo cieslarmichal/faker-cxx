@@ -477,7 +477,7 @@ TEST_F(StringTest, shouldGenerateOctalWithPrefix)
 {
     const auto octalLength = 8;
 
-    const auto octal = String::octal(octalLength);
+    const auto octal = String::octal({}, octalLength);
 
     const auto prefix = octal.substr(0, 2);
     const auto octalNumber = octal.substr(2);
