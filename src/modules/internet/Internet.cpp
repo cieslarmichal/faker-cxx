@@ -16,6 +16,7 @@
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
 #include "fmt/format.h"
+#include "../string/data/Characters.h"
 
 namespace faker
 {
@@ -98,17 +99,17 @@ std::string Internet::password(int length, PasswordOptions options)
     std::string characters;
 
     if (options.upperLetters) {
-        characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    }
-    if (options.lowerLetters) {
-        characters += "abcdefghijklmnopqrstuvwxyz";
-    }
-    if (options.numbers) {
-        characters += "0123456789";
-    }
-    if (options.symbols) {
-        characters += "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
-    }
+            characters += faker::upperCharacters;
+        }
+        if (options.lowerLetters) {
+            characters += faker::lowerCharacters;
+        }
+        if (options.numbers) {
+            characters += faker::numericCharacters;
+        }
+        if (options.symbols) {
+            characters += faker::symbolCharacters;
+        }
 
     std::string password;
     for (int i = 0; i < length; ++i) {

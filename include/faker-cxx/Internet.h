@@ -30,17 +30,12 @@ enum class IPv4Class
     C
 };
 
-// Define the PasswordOptions struct
 struct PasswordOptions {
-    bool upperLetters;
-    bool lowerLetters;
-    bool numbers;
-    bool symbols;d
-
-    PasswordOptions(bool upper = true, bool lower = true, bool num = true, bool sym = true)
-        : upperLetters(upper), lowerLetters(lower), numbers(num), symbols(sym) {}
+    bool upperLetters = true;
+    bool lowerLetters = true;
+    bool numbers = true;
+    bool symbols = true;
 };
-
 
 class Internet
 {
