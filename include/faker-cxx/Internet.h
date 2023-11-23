@@ -30,6 +30,13 @@ enum class IPv4Class
     C
 };
 
+struct PasswordOptions {
+    bool upperLetters = true;
+    bool lowerLetters = true;
+    bool numbers = true;
+    bool symbols = true;
+};
+
 class Internet
 {
 public:
@@ -100,7 +107,7 @@ public:
      * Internet::password(25) // "xv8vDu*wM!Rg0$zd0kH%8p!WY"
      * @endcode
      */
-    static std::string password(int length = 15);
+    static std::string password(int length = 15, PasswordOptions options = {});
 
     /**
      * @brief Returns a random emoji.

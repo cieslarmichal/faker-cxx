@@ -16,6 +16,7 @@
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
 #include "fmt/format.h"
+#include "../string/data/Characters.h"
 
 namespace faker
 {
@@ -93,16 +94,26 @@ std::string Internet::exampleEmail(std::optional<std::string> firstName, std::op
                        Helper::arrayElement<std::string>(emailExampleHosts));
 }
 
-std::string Internet::password(int length)
+std::string Internet::password(int length, PasswordOptions options)
 {
-    const std::string passwordCharacters =
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
+    std::string characters;
+
+    if (options.upperLetters) {
+            characters += faker::upperCharacters;
+        }
+        if (options.lowerLetters) {
+            characters += faker::lowerCharacters;
+        }
+        if (options.numbers) {
+            characters += faker::numericCharacters;
+        }
+        if (options.symbols) {
+            characters += faker::symbolCharacters;
+        }
 
     std::string password;
-
-    for (int i = 0; i < length; i++)
-    {
-        password += Helper::arrayElement<char>(passwordCharacters);
+    for (int i = 0; i < length; ++i) {
+        password += Helper::arrayElement<char>(characters);
     }
 
     return password;

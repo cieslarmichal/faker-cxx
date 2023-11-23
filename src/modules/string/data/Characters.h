@@ -14,4 +14,5 @@ const std::string upperAlphanumericCharacters = upperCharacters + numericCharact
 const std::string mixedAlphanumericCharacters = upperCharacters + lowerCharacters + numericCharacters;
 const std::string hexUpperCharacters = "0123456789ABCDEF";
 const std::string hexLowerCharacters = "0123456789abcdef";
+const std::string symbolCharacters = "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
 }
