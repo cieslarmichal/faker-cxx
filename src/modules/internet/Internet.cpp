@@ -93,20 +93,46 @@ std::string Internet::exampleEmail(std::optional<std::string> firstName, std::op
                        Helper::arrayElement<std::string>(emailExampleHosts));
 }
 
-std::string Internet::password(int length)
+std::string Internet::password(int length, PasswordOptions options)
 {
-    const std::string passwordCharacters =
-        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
+    std::string characters;
+
+    if (options.upperLetters) {
+        characters += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    }
+    if (options.lowerLetters) {
+        characters += "abcdefghijklmnopqrstuvwxyz";
+    }
+    if (options.numbers) {
+        characters += "0123456789";
+    }
+    if (options.symbols) {
+        characters += "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
+    }
 
     std::string password;
-
-    for (int i = 0; i < length; i++)
-    {
-        password += Helper::arrayElement<char>(passwordCharacters);
+    for (int i = 0; i < length; ++i) {
+        password += Helper::arrayElement<char>(characters);
     }
 
     return password;
 }
+
+
+//std::string Internet::password(int length)
+//{
+//    const std::string passwordCharacters =
+//        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
+//
+//    std::string password;
+//
+//    for (int i = 0; i < length; i++)
+//    {
+//        password += Helper::arrayElement<char>(passwordCharacters);
+//    }
+//
+//    return password;
+//}
 
 std::string Internet::emoji(std::optional<EmojiType> type)
 {
