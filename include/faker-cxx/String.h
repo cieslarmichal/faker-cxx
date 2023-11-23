@@ -65,6 +65,10 @@ std::string generateAtleastString(const GuaranteeMap& guarantee);
 
 class String
 {
+private:
+    static std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
+                                                   unsigned int length);
+
 public:
     /**
      * @brief Generates an Universally Unique Identifier with version 4.
@@ -232,7 +236,21 @@ public:
      * String::binary(8) // "0b01110101"
      * @endcode
      */
-    static std::string binary(GuaranteeMap&& guarantee = {}, unsigned length = 1);
+    static std::string binary(unsigned length = 1);
+
+    /**
+     * @brief Generates a binary string.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of digits to generate. Defaults to `1`.
+     *
+     * @returns Binary string.
+     *
+     * @code
+     * String::binary({'1',{7,8}}, 8) // "0b11110111"
+     * @endcode
+     */
+    static std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
 
     /**
      * @brief Generates an octal string.
@@ -246,5 +264,19 @@ public:
      * @endcode
      */
     static std::string octal(unsigned length = 1);
+
+    /**
+     * @brief Generates an octal string.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of digits to generate. Defaults to `1`.
+     *
+     * @returns Octal string.
+     *
+     * @code
+     * String::octal({'4',{4,5}}, 8) // "0o42444041"
+     * @endcode
+     */
+    static std::string octal(GuaranteeMap&& guarantee, unsigned length = 1);
 };
 }

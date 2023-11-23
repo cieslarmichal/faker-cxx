@@ -9,6 +9,7 @@
 #include "data/argentina/ArgentinianPeopleNames.h"
 #include "data/australia/AustralianPeopleNames.h"
 #include "data/austria/AustrianPeopleNames.h"
+#include "data/belarus/BelarusianPeopleNames.h"
 #include "data/belgium/BelgianPeopleNames.h"
 #include "data/canada/CanadianPeopleNames.h"
 #include "data/china/ChinesePeopleNames.h"
@@ -16,6 +17,7 @@
 #include "data/czech/CzechPeopleNames.h"
 #include "data/denmark/DanishPeopleNames.h"
 #include "data/england/EnglishPeopleNames.h"
+#include "data/estonia/EstonianPeopleNames.h"
 #include "data/finland/FinnishPeopleNames.h"
 #include "data/france/FrenchPeopleNames.h"
 #include "data/Gender.h"
@@ -24,11 +26,13 @@
 #include "data/Hobbies.h"
 #include "data/hungary/HungarianPeopleNames.h"
 #include "data/india/IndianPeopleNames.h"
+#include "data/ireland/IrishPeopleNames.h"
 #include "data/italy/ItalianPeopleNames.h"
 #include "data/japan/JapanesePeopleNames.h"
 #include "data/JobTitles.h"
 #include "data/korea/KoreanPeopleNames.h"
 #include "data/Languages.h"
+#include "data/latvia/LatvianPeopleNames.h"
 #include "data/macedonia/MacedonianPeopleNames.h"
 #include "data/mexico/MexicanPeopleNames.h"
 #include "data/Nationalities.h"
@@ -79,7 +83,9 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Canada, canadianPeopleNames},       {Country::Mexico, mexicanPeopleNames},
     {Country::Argentina, argentinianPeopleNames}, {Country::Australia, australianPeopleNames},
     {Country::Serbia, serbianPeopleNames},        {Country::Macedonia, macedonianPeopleNames},
-    {Country::Albania, albanianPeopleNames},
+    {Country::Latvia, latvianPeopleNames},        {Country::Ireland, irishPeopleNames},
+    {Country::Belarus, belarusianPeopleNames},    {Country::Estonia, estonianPeopleNames},
+    {Country::Albania, albanianPeopleNames},    
 };
 
 const std::map<Country, std::string> generatedTestName{
@@ -102,6 +108,8 @@ const std::map<Country, std::string> generatedTestName{
     {Country::Canada, "shouldGenerateCanadianName"},       {Country::Mexico, "shouldGenerateMexicanName"},
     {Country::Argentina, "shouldGenerateArgentinianName"}, {Country::Australia, "shouldGenerateAustralianName"},
     {Country::Serbia, "shouldGenerateSerbianName"},        {Country::Macedonia, "shouldGenerateMacedonianName"},
+    {Country::Latvia, "shouldGenerateLatvianName"},        {Country::Ireland, "shouldGenerateIrishName"},
+    {Country::Belarus, "shouldGenerateBelarusianName"},    {Country::Estonia, "shouldGenerateEstonianName"},
     {Country::Albania, "shouldGenerateAlbanianName"},
 };
 }

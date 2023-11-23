@@ -56,3 +56,5 @@ build-linux-gxx
 build-linux-clang
 #clangd index files
 .cache/
+#vim swap files
+*.sw?
