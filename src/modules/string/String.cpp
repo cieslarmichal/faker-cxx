@@ -219,6 +219,15 @@ std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
     return "0b" + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
+std::string String::octal(unsigned int length)
+{
+    std::string octalNumber;
+    for (unsigned int i = 0; i < length; ++i)
+    {
+        octalNumber += static_cast<char>(Number::integer(7));
+    }
+    return "0o" + octalNumber;
+}
 std::string String::octal(GuaranteeMap&& guarantee, unsigned int length)
 {
     // numbers used by octal representation
