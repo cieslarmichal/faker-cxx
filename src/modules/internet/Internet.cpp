@@ -119,22 +119,6 @@ std::string Internet::password(int length, PasswordOptions options)
     return password;
 }
 
-
-//std::string Internet::password(int length)
-//{
-//    const std::string passwordCharacters =
-//        "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
-//
-//    std::string password;
-//
-//    for (int i = 0; i < length; i++)
-//    {
-//        password += Helper::arrayElement<char>(passwordCharacters);
-//    }
-//
-//    return password;
-//}
-
 std::string Internet::emoji(std::optional<EmojiType> type)
 {
     if (type)
