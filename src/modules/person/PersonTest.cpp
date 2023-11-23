@@ -8,6 +8,7 @@
 #include "data/argentina/ArgentinianPeopleNames.h"
 #include "data/australia/AustralianPeopleNames.h"
 #include "data/austria/AustrianPeopleNames.h"
+#include "data/belarus/BelarusianPeopleNames.h"
 #include "data/belgium/BelgianPeopleNames.h"
 #include "data/canada/CanadianPeopleNames.h"
 #include "data/china/ChinesePeopleNames.h"
@@ -81,6 +82,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Argentina, argentinianPeopleNames}, {Country::Australia, australianPeopleNames},
     {Country::Serbia, serbianPeopleNames},        {Country::Macedonia, macedonianPeopleNames},
     {Country::Latvia, latvianPeopleNames},        {Country::Ireland, irishPeopleNames},
+    {Country::Belarus, belarusianPeopleNames},
 };
 
 const std::map<Country, std::string> generatedTestName{
@@ -104,6 +106,7 @@ const std::map<Country, std::string> generatedTestName{
     {Country::Argentina, "shouldGenerateArgentinianName"}, {Country::Australia, "shouldGenerateAustralianName"},
     {Country::Serbia, "shouldGenerateSerbianName"},        {Country::Macedonia, "shouldGenerateMacedonianName"},
     {Country::Latvia, "shouldGenerateLatvianName"},        {Country::Ireland, "shouldGenerateIrishName"},
+    {Country::Belarus, "shouldGenerateBelarusianName"},
 };
 }
 
