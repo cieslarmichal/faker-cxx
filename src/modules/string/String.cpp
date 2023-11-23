@@ -206,6 +206,16 @@ std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix
     return hexadecimal;
 }
 
+std::string String::binary(unsigned int length)
+{
+    std::string binaryNumber;
+    for (unsigned int i = 0; i < length; ++i)
+    {
+        binaryNumber += static_cast<char>(Number::integer(1));
+    }
+    return "0b" + binaryNumber;
+}
+
 std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
 {
     // numbers used by binary representation

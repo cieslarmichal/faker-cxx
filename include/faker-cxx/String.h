@@ -228,16 +228,29 @@ public:
     /**
      * @brief Generates a binary string.
      *
+     * @param length The number of digits to generate. Defaults to `1`.
+     *
+     * @returns Binary string.
+     *
+     * @code
+     * String::binary(8) // "0b01110101"
+     * @endcode
+     */
+    static std::string binary(unsigned length = 1);
+
+    /**
+     * @brief Generates a binary string.
+     *
      * @param guarantee A map specifying char count constraints if any
      * @param length The number of digits to generate. Defaults to `1`.
      *
      * @returns Binary string.
      *
      * @code
-     * String::binary({}, 8) // "0b01110101"
+     * String::binary({'1',{7,8}}, 8) // "0b11110111"
      * @endcode
      */
-    static std::string binary(GuaranteeMap&& guarantee = {}, unsigned length = 1);
+    static std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
 
     /**
      * @brief Generates an octal string.

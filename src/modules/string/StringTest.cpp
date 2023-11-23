@@ -355,7 +355,7 @@ TEST_F(StringTest, shouldGenerateBinary)
 {
     const auto binaryLength = 8;
 
-    const auto binary = String::binary({}, binaryLength);
+    const auto binary = String::binary(binaryLength);
 
     const auto prefix = binary.substr(0, 2);
     const auto binaryNumber = binary.substr(2);
@@ -373,19 +373,25 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee1)
     // atleast 3 '0' and 2 '1'
     // atmost 7 '0' and 7 '1'
     faker::GuaranteeMap guarantee{{'0', {3, 7}}, {'1', {2, 7}}};
-    const auto binary = String::binary(std::move(guarantee), binaryLength);
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < 20; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
 
-    const auto prefix = binary.substr(0, 2);
-    const auto binaryNumber = binary.substr(2);
+        const auto prefix = binary.substr(0, 2);
+        const auto binaryNumber = binary.substr(2);
 
-    ASSERT_EQ(binaryNumber.size(), binaryLength);
-    ASSERT_EQ(prefix, "0b");
-    ASSERT_TRUE(std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
-                                    { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
-    auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
-    auto count_1 = std::count(binaryNumber.begin(), binaryNumber.end(), '1');
-    ASSERT_TRUE(count_0 >= 3 && count_0 <= 7);
-    ASSERT_TRUE(count_1 >= 2 && count_1 <= 7);
+        ASSERT_EQ(binaryNumber.size(), binaryLength);
+        ASSERT_EQ(prefix, "0b");
+        ASSERT_TRUE(
+            std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
+                                { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+        auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
+        auto count_1 = std::count(binaryNumber.begin(), binaryNumber.end(), '1');
+        ASSERT_TRUE(count_0 >= 3 && count_0 <= 7);
+        ASSERT_TRUE(count_1 >= 2 && count_1 <= 7);
+    }
 }
 TEST_F(StringTest, shouldGenerateBinaryWithGuarantee2)
 {
@@ -393,19 +399,25 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee2)
 
     // exactly 8 '0' and 2 '1'
     faker::GuaranteeMap guarantee{{'0', {8, 8}}, {'1', {2, 2}}};
-    const auto binary = String::binary(std::move(guarantee), binaryLength);
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < 20; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
 
-    const auto prefix = binary.substr(0, 2);
-    const auto binaryNumber = binary.substr(2);
+        const auto prefix = binary.substr(0, 2);
+        const auto binaryNumber = binary.substr(2);
 
-    ASSERT_EQ(binaryNumber.size(), binaryLength);
-    ASSERT_EQ(prefix, "0b");
-    ASSERT_TRUE(std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
-                                    { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
-    auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
-    auto count_1 = std::count(binaryNumber.begin(), binaryNumber.end(), '1');
-    ASSERT_TRUE(count_0 == 8);
-    ASSERT_TRUE(count_1 == 2);
+        ASSERT_EQ(binaryNumber.size(), binaryLength);
+        ASSERT_EQ(prefix, "0b");
+        ASSERT_TRUE(
+            std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
+                                { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+        auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
+        auto count_1 = std::count(binaryNumber.begin(), binaryNumber.end(), '1');
+        ASSERT_TRUE(count_0 == 8);
+        ASSERT_TRUE(count_1 == 2);
+    }
 }
 TEST_F(StringTest, shouldGenerateBinaryWithGuarantee3)
 {
@@ -413,17 +425,23 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee3)
 
     // atleast 10 '0'
     faker::GuaranteeMap guarantee{{'0', {10}}};
-    const auto binary = String::binary(std::move(guarantee), binaryLength);
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < 20; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
 
-    const auto prefix = binary.substr(0, 2);
-    const auto binaryNumber = binary.substr(2);
+        const auto prefix = binary.substr(0, 2);
+        const auto binaryNumber = binary.substr(2);
 
-    ASSERT_EQ(binaryNumber.size(), binaryLength);
-    ASSERT_EQ(prefix, "0b");
-    ASSERT_TRUE(std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
-                                    { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
-    auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
-    ASSERT_TRUE(count_0 == 10);
+        ASSERT_EQ(binaryNumber.size(), binaryLength);
+        ASSERT_EQ(prefix, "0b");
+        ASSERT_TRUE(
+            std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
+                                { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+        auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
+        ASSERT_TRUE(count_0 == 10);
+    }
 }
 
 TEST_F(StringTest, shouldGenerateBinaryWithGuarantee4)
@@ -432,17 +450,23 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee4)
 
     // atmost 0 '0'
     faker::GuaranteeMap guarantee{{'0', {0, 0}}};
-    const auto binary = String::binary(std::move(guarantee), binaryLength);
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < 20; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
 
-    const auto prefix = binary.substr(0, 2);
-    const auto binaryNumber = binary.substr(2);
+        const auto prefix = binary.substr(0, 2);
+        const auto binaryNumber = binary.substr(2);
 
-    ASSERT_EQ(binaryNumber.size(), binaryLength);
-    ASSERT_EQ(prefix, "0b");
-    ASSERT_TRUE(std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
-                                    { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
-    auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
-    ASSERT_TRUE(count_0 == 0);
+        ASSERT_EQ(binaryNumber.size(), binaryLength);
+        ASSERT_EQ(prefix, "0b");
+        ASSERT_TRUE(
+            std::ranges::any_of(binaryNumber, [](char binaryNumberCharacter)
+                                { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+        auto count_0 = std::count(binaryNumber.begin(), binaryNumber.end(), '0');
+        ASSERT_TRUE(count_0 == 0);
+    }
 }
 
 TEST_F(StringTest, invalidGuaranteeForBinary1)
@@ -499,7 +523,8 @@ TEST_F(StringTest, shouldGenerateOctalWithGuarantee1)
     // it is a random function so lets test for 20 random generations
     for (int i = 0; i < 20; ++i)
     {
-        const auto octal = String::octal(std::move(guarantee), octalLength);
+        auto copyGuarantee = guarantee;
+        const auto octal = String::octal(std::move(copyGuarantee), octalLength);
 
         const auto prefix = octal.substr(0, 2);
         const auto octalNumber = octal.substr(2);
@@ -532,7 +557,8 @@ TEST_F(StringTest, shouldGenerateOctalWithGuarantee2)
     // it is a random function so lets test for 20 random generations
     for (int i = 0; i < 20; ++i)
     {
-        const auto octal = String::octal(std::move(guarantee), octalLength);
+        auto copyGuarantee = guarantee;
+        const auto octal = String::octal(std::move(copyGuarantee), octalLength);
 
         const auto prefix = octal.substr(0, 2);
         const auto octalNumber = octal.substr(2);
