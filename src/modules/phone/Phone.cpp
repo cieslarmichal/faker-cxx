@@ -42,6 +42,24 @@ std::string Phone::imei()
     return Helper::replaceCreditCardSymbols("##-######-######-L", '#');
 }
 
+std::string Phone::platform()
+{
+    std::vector<std::string> platforms = {"Android OS", "iOS", "Windows Phone"};
+    return Helper::arrayElement(platforms);
+}
+
+std::string Phone::modelName()
+{
+    std::vector<std::string> modelNames = {"Samsung Galaxy S9", "iPhone X", "Google Pixel 4"};
+    return Helper::arrayElement(modelNames);
+}
+
+std::string Phone::manufacturer()
+{
+    std::vector<std::string> manufacturers = {"Samsung", "Apple", "Google"};
+    return Helper::arrayElement(manufacturers);
+}
+
 std::map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMap()
 {
     std::map<PhoneNumberCountryFormat, std::string> formatMap;
