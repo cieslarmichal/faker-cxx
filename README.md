@@ -126,7 +126,7 @@ Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main
 
 <br />
 
-## ✨ Compilation Documentation
+## 📝 Compilation Documentation
 
 - [Clang++](https://github.com/cieslarmichal/faker-cxx/blob/main/docs/clang%2B%2B_compilation_guide.md)
 - [Apple Clang++](https://github.com/cieslarmichal/faker-cxx/blob/main/docs/apple_clang%2B%2B_compilation_guide.md)
