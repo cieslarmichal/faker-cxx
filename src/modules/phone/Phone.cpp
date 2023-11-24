@@ -44,19 +44,23 @@ std::string Phone::imei()
 
 std::string Phone::platform()
 {
-    std::vector<std::string> platforms = {"Android OS", "iOS", "Windows Phone"};
+    std::vector<std::string> platforms = {"Android OS", "iOS", "Windows Phone", "Symbian", "Palm OS", "Tizen"};
     return Helper::arrayElement(platforms);
 }
 
 std::string Phone::modelName()
 {
-    std::vector<std::string> modelNames = {"Samsung Galaxy S9", "iPhone X", "Google Pixel 4"};
+    std::vector<std::string> modelNames = {
+        "Samsung Galaxy S9", "iPhone X",   "Google Pixel 4", "Samsung Galaxy S22", "iPhone 13",
+        "iPhone 13",         "iPhone 14",  "iPhone 15",      "Google Pixel 6",     "OnePlus 9",
+        "Xiaomi Mi 11",      "Huawei P50", "Oppo Find X3",   "Sony Xperia 1 III",  "Motorola Edge 20"};
     return Helper::arrayElement(modelNames);
 }
 
 std::string Phone::manufacturer()
 {
-    std::vector<std::string> manufacturers = {"Samsung", "Apple", "Google"};
+    std::vector<std::string> manufacturers = {"Samsung", "Apple", "Google", "OnePlus", "Xiaomi",
+                                              "Huawei",  "Oppo",  "Sony",   "Motorola"};
     return Helper::arrayElement(manufacturers);
 }
 

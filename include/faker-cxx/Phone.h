@@ -29,7 +29,6 @@ public:
     static std::string modelName();
     static std::string manufacturer();
 
-
     /**
      * @brief Returns a random phone number based on country phone number template.
      *
