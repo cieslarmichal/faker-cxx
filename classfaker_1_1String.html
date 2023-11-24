@@ -123,6 +123,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae95d6815ba2172cc63374c391d246006" id="r_ae95d6815ba2172cc63374c391d246006"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">hexadecimal</a> (unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</td></tr>
 <tr class="memdesc:ae95d6815ba2172cc63374c391d246006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a hexadecimal string.  <br /></td></tr>
 <tr class="separator:ae95d6815ba2172cc63374c391d246006"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fbbf30a77e61856af68584305a41ca6" id="r_a9fbbf30a77e61856af68584305a41ca6"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a9fbbf30a77e61856af68584305a41ca6">hexadecimal</a> (GuaranteeMap &amp;&amp;guarantee, unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</td></tr>
+<tr class="memdesc:a9fbbf30a77e61856af68584305a41ca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a hexadecimal string.  <br /></td></tr>
+<tr class="separator:a9fbbf30a77e61856af68584305a41ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1a4443dd71fb781206122c53c81896bd" id="r_a1a4443dd71fb781206122c53c81896bd"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a1a4443dd71fb781206122c53c81896bd">binary</a> (unsigned length=1)</td></tr>
 <tr class="memdesc:a1a4443dd71fb781206122c53c81896bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a binary string.  <br /></td></tr>
 <tr class="separator:a1a4443dd71fb781206122c53c81896bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -378,8 +381,73 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="a9fbbf30a77e61856af68584305a41ca6" name="a9fbbf30a77e61856af68584305a41ca6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9fbbf30a77e61856af68584305a41ca6">&#9670;&#160;</a></span>hexadecimal() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::String::hexadecimal </td>
+          <td>(</td>
+          <td class="paramtype">GuaranteeMap &amp;&amp;&#160;</td>
+          <td class="paramname"><em>guarantee</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>length</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HexCasing&#160;</td>
+          <td class="paramname"><em>casing</em> = <code>HexCasing::Lower</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">HexPrefix&#160;</td>
+          <td class="paramname"><em>prefix</em> = <code>HexPrefix::ZeroX</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a hexadecimal string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">guarantee</td><td>A map specifying char count constraints if any </td></tr>
+    <tr><td class="paramname">length</td><td>The number of digits to generate. Defaults to <code>1</code>. </td></tr>
+    <tr><td class="paramname">casing</td><td>Casing of the generated string. Defaults to <code>HexCasing::Lower</code>. </td></tr>
+    <tr><td class="paramname">prefix</td><td>Prefix for the generated string. Defaults to <code>0x</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Hexadecimal string.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">String::hexadecimal</a>({}) <span class="comment">// &quot;0xb&quot;</span></div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">String::hexadecimal</a>({<span class="charliteral">&#39;a&#39;</span>,{2,2}}, 10) <span class="comment">// &quot;0xae13d04acb&quot;</span></div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">String::hexadecimal</a>({<span class="charliteral">&#39;F&#39;</span>, {2,4}}, 6, HexCasing::Upper, HexPrefix::Hash) <span class="comment">// &quot;#E3FFF0&quot;</span></div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">String::hexadecimal</a>({<span class="charliteral">&#39;1&#39;</span>, {1,4}, {<span class="charliteral">&#39;2&#39;</span>, {1, 4}, {<span class="charliteral">&#39;c&#39;</span>, {1,1}}, 6, HexCasing::Lower, HexPrefix::None) <span class="comment">// &quot;121a1c&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1String_html_ae95d6815ba2172cc63374c391d246006"><div class="ttname"><a href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">faker::String::hexadecimal</a></div><div class="ttdeci">static std::string hexadecimal(unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</div><div class="ttdoc">Generates a hexadecimal string.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="ae95d6815ba2172cc63374c391d246006" name="ae95d6815ba2172cc63374c391d246006"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae95d6815ba2172cc63374c391d246006">&#9670;&#160;</a></span>hexadecimal()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae95d6815ba2172cc63374c391d246006">&#9670;&#160;</a></span>hexadecimal() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -432,7 +500,6 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">hexadecimal</a>(10) <span class="comment">// &quot;0xae13d044cb&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">hexadecimal</a>(6, HexCasing::Upper, HexPrefix::Hash) <span class="comment">// &quot;#E3F380&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">hexadecimal</a>(6, HexCasing::Lower, HexPrefix::None) <span class="comment">// &quot;e3f380&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1String_html_ae95d6815ba2172cc63374c391d246006"><div class="ttname"><a href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">faker::String::hexadecimal</a></div><div class="ttdeci">static std::string hexadecimal(unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</div><div class="ttdoc">Generates a hexadecimal string.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
