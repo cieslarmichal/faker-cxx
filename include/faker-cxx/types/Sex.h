@@ -66,12 +66,6 @@ inline std::string toString(Sex sex, Language language = Language::English)
     return translateSex(sex, language);
 }
 
-// inline std::string toString(Sex sex,const std::string& language = "English")
-//{
-//     std::map<Sex, std::string> sexToStringMapping{{Sex::Male, "Male"}, {Sex::Female, "Female"}};
-//
-//     return sexToStringMapping.at(sex);
-// }
 
 inline std::ostream& operator<<(std::ostream& os, Sex sex)
 {
