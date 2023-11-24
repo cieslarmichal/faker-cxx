@@ -35,6 +35,11 @@ const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
     {HexPrefix::Hash, "#"},
     {HexPrefix::None, ""},
 };
+
+const std::map<HexCasing, std::set<char>> hexCasingToCharSetMapping{
+    {HexCasing::Lower, hexLowerCharSet},
+    {HexCasing::Upper, hexUpperCharSet},
+};
 }
 
 bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
@@ -204,6 +209,18 @@ std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix
     }
 
     return hexadecimal;
+}
+
+std::string String::hexadecimal(GuaranteeMap&& guarantee, unsigned int length, HexCasing casing, HexPrefix prefix)
+{
+    std::set<char> targetCharacters = hexCasingToCharSetMapping.at(casing);
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    const auto& hexadecimalPrefix = hexPrefixToStringMapping.at(prefix);
+    return hexadecimalPrefix + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
 std::string String::binary(unsigned int length)

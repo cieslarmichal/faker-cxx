@@ -351,6 +351,147 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithoutPrefix)
                                     { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
+TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee1)
+{
+    const auto hexadecimalLength = 20;
+    // exactly 4 'a'
+    // atleast 3 'f'
+    // atmost 10 'f'
+    faker::GuaranteeMap guarantee{{'a', {4, 4}}, {'f', {3, 10}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < 20; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto hexadecimal = String::hexadecimal(std::move(copyGuarantee), hexadecimalLength);
+        const auto prefix = hexadecimal.substr(0, 2);
+        const auto hexNumber = hexadecimal.substr(2);
+
+        ASSERT_EQ(hexNumber.size(), hexadecimalLength);
+        ASSERT_EQ(prefix, "0x");
+        ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
+                                        { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+
+        auto count_a = std::ranges::count(hexNumber, 'a');
+        auto count_f = std::ranges::count(hexNumber, 'f');
+        ASSERT_TRUE(count_a == 4);
+        ASSERT_TRUE(count_f >= 3 && count_f <= 10);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee2)
+{
+    const auto hexadecimalLength = 20;
+    // exactly 10 'F' - 0 'A'
+    // atleast 5 '0'
+    faker::GuaranteeMap guarantee{{'A', {0, 0}}, {'F', {10, 10}}, {'0', {5}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < 20; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto hexadecimal = String::hexadecimal(std::move(copyGuarantee), hexadecimalLength, HexCasing::Upper);
+        const auto prefix = hexadecimal.substr(0, 2);
+        const auto hexNumber = hexadecimal.substr(2);
+
+        ASSERT_EQ(hexNumber.size(), hexadecimalLength);
+        ASSERT_EQ(prefix, "0x");
+        ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
+                                        { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+
+        auto count_A = std::ranges::count(hexNumber, 'A');
+        auto count_F = std::ranges::count(hexNumber, 'F');
+        auto count_0 = std::ranges::count(hexNumber, '0');
+        ASSERT_TRUE(count_A == 0);
+        ASSERT_TRUE(count_F == 10);
+        ASSERT_TRUE(count_0 >= 5);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee3)
+{
+    const auto hexadecimalLength = 20;
+    // exactly 0 '0' '1' '2' '3' '4' '5' '6' '7'
+    faker::GuaranteeMap guarantee{
+        {'0', {0, 0}}, {'1', {0, 0}}, {'2', {0, 0}}, {'3', {0, 0}},
+        {'4', {0, 0}}, {'5', {0, 0}}, {'6', {0, 0}}, {'7', {0, 0}},
+    };
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < 20; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto hexadecimal = String::hexadecimal(std::move(copyGuarantee), hexadecimalLength, HexCasing::Upper);
+        const auto prefix = hexadecimal.substr(0, 2);
+        const auto hexNumber = hexadecimal.substr(2);
+
+        ASSERT_EQ(hexNumber.size(), hexadecimalLength);
+        ASSERT_EQ(prefix, "0x");
+        ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
+                                        { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+
+        auto count_0 = std::ranges::count(hexNumber, '0');
+        auto count_1 = std::ranges::count(hexNumber, '1');
+        auto count_2 = std::ranges::count(hexNumber, '2');
+        auto count_3 = std::ranges::count(hexNumber, '3');
+        auto count_4 = std::ranges::count(hexNumber, '4');
+        auto count_5 = std::ranges::count(hexNumber, '5');
+        auto count_6 = std::ranges::count(hexNumber, '6');
+        auto count_7 = std::ranges::count(hexNumber, '7');
+        ASSERT_TRUE(count_0 == 0);
+        ASSERT_TRUE(count_1 == 0);
+        ASSERT_TRUE(count_2 == 0);
+        ASSERT_TRUE(count_3 == 0);
+        ASSERT_TRUE(count_4 == 0);
+        ASSERT_TRUE(count_5 == 0);
+        ASSERT_TRUE(count_6 == 0);
+        ASSERT_TRUE(count_7 == 0);
+    }
+}
+
+TEST_F(StringTest, invalidGuaranteeForHexadecimal1)
+{
+    const auto hexadecimalLength = 20;
+    // atleast 5 'G' // invalid // 'G' is not a valid char for hexadecimal numbers
+    faker::GuaranteeMap guarantee{{'A', {0, 0}}, {'F', {10, 10}}, {'G', {5}}};
+    ASSERT_THROW(String::hexadecimal(std::move(guarantee), hexadecimalLength, HexCasing::Upper), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForHexadecimal2)
+{
+    const auto hexadecimalLength = 20;
+    // atleast 5 'F' // invalid // 'F' is not a valid char for hexadecimal numbers with HexCasing::Lower
+    faker::GuaranteeMap guarantee{{'a', {0, 0}}, {'F', {10, 10}}, {'1', {5}}};
+    ASSERT_THROW(String::hexadecimal(std::move(guarantee), hexadecimalLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForHexadecimal3)
+{
+    const auto hexadecimalLength = 20;
+    // atleast 5 'F' // invalid // 'F' is not a valid char for hexadecimal numbers with HexCasing::Lower
+    faker::GuaranteeMap guarantee{{'a', {0, 0}}, {'F', {10, 10}}, {'1', {5}}};
+    ASSERT_THROW(String::hexadecimal(std::move(guarantee), hexadecimalLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForHexadecimal4)
+{
+    const auto hexadecimalLength = 10;
+    // atleast 5 'a' - 8 'b' // invalid // string size will be atleast 13 which is wrong
+    // atmost 10 'b' - 3 '1'
+    faker::GuaranteeMap guarantee{{'a', {5}}, {'b', {8, 10}}, {'1', {0, 3}}};
+    ASSERT_THROW(String::hexadecimal(std::move(guarantee), hexadecimalLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForHexadecimal5)
+{
+    const auto hexadecimalLength = 20;
+    // atmost 1 '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f' // invalid // string size wont exceed 16
+    // which is wrong
+    faker::GuaranteeMap guarantee{
+        {'0', {0, 1}}, {'1', {0, 1}}, {'2', {0, 1}}, {'3', {0, 1}}, {'4', {0, 1}}, {'5', {0, 1}},
+        {'6', {0, 1}}, {'7', {0, 1}}, {'8', {0, 1}}, {'9', {0, 1}}, {'a', {0, 1}}, {'b', {0, 1}},
+        {'c', {0, 1}}, {'d', {0, 1}}, {'e', {0, 1}}, {'f', {0, 1}},
+    };
+    ASSERT_THROW(String::hexadecimal(std::move(guarantee), hexadecimalLength), std::invalid_argument);
+}
+
 TEST_F(StringTest, shouldGenerateBinary)
 {
     const auto binaryLength = 8;
