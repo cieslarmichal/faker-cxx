@@ -15,6 +15,7 @@ using namespace faker;
 class StringTest : public Test
 {
 public:
+    const int runCount{100};
 };
 
 TEST_F(StringTest, shouldUseCustomRandomGeneratorForUuid4)
@@ -317,7 +318,7 @@ TEST_F(StringTest, shouldGenerateNumericWithGuarantee1)
     // atmost 15 '0' - 10 '9'
     const GuaranteeMap guarantee = {{'0', {10, 15}}, {'9', {5, 10}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto numeric = String::numeric(std::move(copyGuarantee), numericLength);
@@ -342,7 +343,7 @@ TEST_F(StringTest, shouldGenerateNumericWithGuarantee2)
     // atmost 20 '2' - 1 '8'
     const GuaranteeMap guarantee = {{'1', {0, 0}}, {'2', {5, 20}}, {'8', {0, 1}}, {'9', {5, 5}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto numeric = String::numeric(std::move(copyGuarantee), numericLength);
@@ -369,7 +370,7 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZerosWithGuarantee1)
     // atleast 19 '0'
     const GuaranteeMap guarantee = {{'0', {19}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto numeric = String::numeric(std::move(copyGuarantee), numericLength, false);
@@ -400,11 +401,10 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZerosWithGuarantee2)
     // atmost 4 '1' - 4 '3'
     const GuaranteeMap guarantee = {{'0', {10}}, {'1', {3, 4}}, {'3', {2, 4}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto numeric = String::numeric(std::move(copyGuarantee), numericLength, false);
-        std::cout << '\n' << numeric;
 
         const auto nonZeroCharacter = numeric[0];
         const auto numericWithPossibleZeroCharacters = numeric.substr(1);
@@ -514,7 +514,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee1)
     // atmost 10 'f'
     faker::GuaranteeMap guarantee{{'a', {4, 4}}, {'f', {3, 10}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto hexadecimal = String::hexadecimal(std::move(copyGuarantee), hexadecimalLength);
@@ -540,7 +540,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee2)
     // atleast 5 '0'
     faker::GuaranteeMap guarantee{{'A', {0, 0}}, {'F', {10, 10}}, {'0', {5}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto hexadecimal = String::hexadecimal(std::move(copyGuarantee), hexadecimalLength, HexCasing::Upper);
@@ -570,7 +570,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee3)
         {'4', {0, 0}}, {'5', {0, 0}}, {'6', {0, 0}}, {'7', {0, 0}},
     };
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto hexadecimal = String::hexadecimal(std::move(copyGuarantee), hexadecimalLength, HexCasing::Upper);
@@ -670,7 +670,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee1)
     // atmost 7 '0' and 7 '1'
     faker::GuaranteeMap guarantee{{'0', {3, 7}}, {'1', {2, 7}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
@@ -696,7 +696,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee2)
     // exactly 8 '0' and 2 '1'
     faker::GuaranteeMap guarantee{{'0', {8, 8}}, {'1', {2, 2}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
@@ -722,7 +722,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee3)
     // atleast 10 '0'
     faker::GuaranteeMap guarantee{{'0', {10}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
@@ -747,7 +747,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee4)
     // atmost 0 '0'
     faker::GuaranteeMap guarantee{{'0', {0, 0}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
@@ -817,7 +817,7 @@ TEST_F(StringTest, shouldGenerateOctalWithGuarantee1)
     // atmost 10 '6' - 10 '7'
     GuaranteeMap guarantee{{'0', {2}}, {'3', {2, 2}}, {'5', {0, 0}}, {'6', {3, 10}}, {'7', {1, 10}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto octal = String::octal(std::move(copyGuarantee), octalLength);
@@ -851,7 +851,7 @@ TEST_F(StringTest, shouldGenerateOctalWithGuarantee2)
     GuaranteeMap guarantee{{'0', {18}},   {'2', {0, 0}}, {'3', {0, 0}}, {'4', {0, 0}},
                            {'5', {0, 0}}, {'6', {0, 0}}, {'7', {0, 0}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto octal = String::octal(std::move(copyGuarantee), octalLength);
