@@ -15,6 +15,7 @@ using namespace faker;
 class StringTest : public Test
 {
 public:
+    const int runCount{100};
 };
 
 TEST_F(StringTest, shouldUseCustomRandomGeneratorForUuid4)
@@ -310,6 +311,160 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZeros)
                                     }));
 }
 
+TEST_F(StringTest, shouldGenerateNumericWithGuarantee1)
+{
+    const auto numericLength = 20;
+    // atleast 10 '0' - 5 '9'
+    // atmost 15 '0' - 10 '9'
+    const GuaranteeMap guarantee = {{'0', {10, 15}}, {'9', {5, 10}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto numeric = String::numeric(std::move(copyGuarantee), numericLength);
+
+        ASSERT_EQ(numeric.size(), numericLength);
+        ASSERT_TRUE(
+            std::ranges::any_of(numeric, [numeric](char numericCharacter) { return numeric[0] == numericCharacter; }));
+
+        auto count_0 = std::ranges::count(numeric, '0');
+        auto count_9 = std::ranges::count(numeric, '9');
+
+        ASSERT_TRUE(count_0 >= 10 && count_0 <= 15);
+        ASSERT_TRUE(count_9 >= 5 && count_9 <= 10);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateNumericWithGuarantee2)
+{
+    const auto numericLength = 20;
+    // exactly 0 '1' - 5 '9'
+    // atleast 5 '2'
+    // atmost 20 '2' - 1 '8'
+    const GuaranteeMap guarantee = {{'1', {0, 0}}, {'2', {5, 20}}, {'8', {0, 1}}, {'9', {5, 5}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto numeric = String::numeric(std::move(copyGuarantee), numericLength);
+
+        ASSERT_EQ(numeric.size(), numericLength);
+        ASSERT_TRUE(
+            std::ranges::any_of(numeric, [numeric](char numericCharacter) { return numeric[0] == numericCharacter; }));
+
+        auto count_1 = std::ranges::count(numeric, '1');
+        auto count_2 = std::ranges::count(numeric, '2');
+        auto count_8 = std::ranges::count(numeric, '8');
+        auto count_9 = std::ranges::count(numeric, '9');
+
+        ASSERT_TRUE(count_1 == 0);
+        ASSERT_TRUE(count_2 >= 5 && count_2 <= 20);
+        ASSERT_TRUE(count_8 <= 1);
+        ASSERT_TRUE(count_9 == 5);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZerosWithGuarantee1)
+{
+    const auto numericLength = 20;
+    // atleast 19 '0'
+    const GuaranteeMap guarantee = {{'0', {19}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto numeric = String::numeric(std::move(copyGuarantee), numericLength, false);
+
+        const auto nonZeroCharacter = numeric[0];
+        const auto numericWithPossibleZeroCharacters = numeric.substr(1);
+
+        ASSERT_EQ(numeric.size(), numericLength);
+        ASSERT_TRUE(std::ranges::any_of(numericCharactersWithoutZero, [nonZeroCharacter](char numericCharacter)
+                                        { return nonZeroCharacter == numericCharacter; }));
+        ASSERT_TRUE(std::ranges::all_of(
+            numericWithPossibleZeroCharacters,
+            [](char numericCharacterWithPossibleZero)
+            {
+                return std::ranges::any_of(numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
+                                           { return numericCharacterWithPossibleZero == numericCharacter; });
+            }));
+        auto count_0 = std::ranges::count(numeric, '0');
+
+        ASSERT_TRUE(count_0 >= 19);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZerosWithGuarantee2)
+{
+    const auto numericLength = 20;
+    // atleast 10 '0' - 3 '1' - 3 '3'
+    // atmost 4 '1' - 4 '3'
+    const GuaranteeMap guarantee = {{'0', {10}}, {'1', {3, 4}}, {'3', {2, 4}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto numeric = String::numeric(std::move(copyGuarantee), numericLength, false);
+
+        const auto nonZeroCharacter = numeric[0];
+        const auto numericWithPossibleZeroCharacters = numeric.substr(1);
+
+        ASSERT_EQ(numeric.size(), numericLength);
+        ASSERT_TRUE(std::ranges::any_of(numericCharactersWithoutZero, [nonZeroCharacter](char numericCharacter)
+                                        { return nonZeroCharacter == numericCharacter; }));
+        ASSERT_TRUE(std::ranges::all_of(
+            numericWithPossibleZeroCharacters,
+            [](char numericCharacterWithPossibleZero)
+            {
+                return std::ranges::any_of(numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
+                                           { return numericCharacterWithPossibleZero == numericCharacter; });
+            }));
+        auto count_0 = std::ranges::count(numeric, '0');
+        auto count_1 = std::ranges::count(numeric, '1');
+        auto count_3 = std::ranges::count(numeric, '3');
+
+        ASSERT_TRUE(count_0 >= 10);
+        ASSERT_TRUE(count_1 >= 3 && count_1 <= 4);
+        ASSERT_TRUE(count_3 >= 2 && count_3 <= 4);
+    }
+}
+
+TEST_F(StringTest, invalidGuaranteeForNumeric1)
+{
+    const auto numericLength = 20;
+    // atleast 10 '0' - 3 '1' - 8 '3' // invalid // string size will be atleast 21 which is wrong
+    // atmost 4 '1' - 10 '3'
+    GuaranteeMap guarantee = {{'0', {10}}, {'1', {3, 4}}, {'3', {8, 10}}};
+    ASSERT_THROW(String::numeric(std::move(guarantee), numericLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForNumeric2)
+{
+    const auto numericLength = 20;
+    // atmost 1 '0','1','2','3','4','5','6','7','8','9' // invalid // string size wont exceed 10 which is wrong
+    GuaranteeMap guarantee = {
+        {'1', {0, 1}}, {'2', {0, 1}}, {'3', {0, 1}}, {'4', {0, 1}}, {'5', {0, 1}},
+        {'6', {0, 1}}, {'7', {0, 1}}, {'8', {0, 1}}, {'9', {0, 1}}, {'0', {0, 1}},
+    };
+    ASSERT_THROW(String::numeric(std::move(guarantee), numericLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForNumeric3)
+{
+    const auto numericLength = 20;
+    // exactly 5 'a' // invalid // numeric string can't have alphabets
+    GuaranteeMap guarantee = {{'0', {10}}, {'1', {3, 4}}, {'3', {2, 4}}, {'a', {5, 5}}};
+    ASSERT_THROW(String::numeric(std::move(guarantee), numericLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForNumeric4)
+{
+    const auto numericLength = 5;
+    // atleast 5 '0' // invalid // leading zeros not allowed so '0' count should be less than numericLength i.e 5
+    GuaranteeMap guarantee = {{'0', {5}}};
+    ASSERT_THROW(String::numeric(std::move(guarantee), numericLength, false), std::invalid_argument);
+}
+
 TEST_F(StringTest, shouldGenerateHexadecimal)
 {
     const auto hexadecimalLength = 8;
@@ -359,7 +514,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee1)
     // atmost 10 'f'
     faker::GuaranteeMap guarantee{{'a', {4, 4}}, {'f', {3, 10}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto hexadecimal = String::hexadecimal(std::move(copyGuarantee), hexadecimalLength);
@@ -385,7 +540,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee2)
     // atleast 5 '0'
     faker::GuaranteeMap guarantee{{'A', {0, 0}}, {'F', {10, 10}}, {'0', {5}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto hexadecimal = String::hexadecimal(std::move(copyGuarantee), hexadecimalLength, HexCasing::Upper);
@@ -415,7 +570,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee3)
         {'4', {0, 0}}, {'5', {0, 0}}, {'6', {0, 0}}, {'7', {0, 0}},
     };
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto hexadecimal = String::hexadecimal(std::move(copyGuarantee), hexadecimalLength, HexCasing::Upper);
@@ -515,7 +670,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee1)
     // atmost 7 '0' and 7 '1'
     faker::GuaranteeMap guarantee{{'0', {3, 7}}, {'1', {2, 7}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
@@ -541,7 +696,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee2)
     // exactly 8 '0' and 2 '1'
     faker::GuaranteeMap guarantee{{'0', {8, 8}}, {'1', {2, 2}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
@@ -567,7 +722,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee3)
     // atleast 10 '0'
     faker::GuaranteeMap guarantee{{'0', {10}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
@@ -592,7 +747,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee4)
     // atmost 0 '0'
     faker::GuaranteeMap guarantee{{'0', {0, 0}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto binary = String::binary(std::move(copyGuarantee), binaryLength);
@@ -662,7 +817,7 @@ TEST_F(StringTest, shouldGenerateOctalWithGuarantee1)
     // atmost 10 '6' - 10 '7'
     GuaranteeMap guarantee{{'0', {2}}, {'3', {2, 2}}, {'5', {0, 0}}, {'6', {3, 10}}, {'7', {1, 10}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto octal = String::octal(std::move(copyGuarantee), octalLength);
@@ -696,7 +851,7 @@ TEST_F(StringTest, shouldGenerateOctalWithGuarantee2)
     GuaranteeMap guarantee{{'0', {18}},   {'2', {0, 0}}, {'3', {0, 0}}, {'4', {0, 0}},
                            {'5', {0, 0}}, {'6', {0, 0}}, {'7', {0, 0}}};
     // it is a random function so lets test for 20 random generations
-    for (int i = 0; i < 20; ++i)
+    for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
         const auto octal = String::octal(std::move(copyGuarantee), octalLength);

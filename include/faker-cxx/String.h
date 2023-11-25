@@ -207,6 +207,23 @@ public:
     static std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
 
     /**
+     * @brief Generates a given length string of digits.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of digits to generate. Defaults to `1`.
+     * @param allowLeadingZeros Whether leading zeros are allowed or not. Defaults to `true`.
+     *
+     * @returns Numeric string.
+     *
+     * @code
+     * String::numeric({}) // "1"
+     * String::numeric({'5',{3,6}}, 6) // "055542"
+     * String::numeric({'0',{0,0}}, {'4',{1,1}}, 6, false) // "854829"
+     * @endcode
+     */
+    static std::string numeric(GuaranteeMap&& guarantee, const unsigned length = 1, bool allowLeadingZeros = true);
+
+    /**
      * @brief Generates a hexadecimal string.
      *
      * @param length The number of digits to generate. Defaults to `1`.
