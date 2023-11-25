@@ -264,6 +264,12 @@ std::string Person::prefix(std::optional<Sex> sex)
     return Helper::arrayElement<std::string>(allPrefixes);
 }
 
+
+std::string Person::bio()
+{
+    
+}
+
 std::string Person::suffix()
 {
     std::vector<std::string> allSuffixes;
