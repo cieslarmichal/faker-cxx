@@ -7,7 +7,7 @@
 #include "gtest/gtest.h"
 
 #include "data/PhoneNumbers.h"
-
+#include "faker-cxx/data/PhoneData.h"
 using namespace ::testing;
 using namespace faker;
 
