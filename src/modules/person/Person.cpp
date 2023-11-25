@@ -37,7 +37,7 @@
 #include "data/macedonia/MacedonianPeopleNames.h"
 #include "data/mexico/MexicanPeopleNames.h"
 #include "data/Nationalities.h"
-#include "data/nederlands/DutchPeopleNames.h"
+#include "data/netherlands/DutchPeopleNames.h"
 #include "data/nepal/NepalesePeopleNames.h"
 #include "data/norway/NorwegianPeopleNames.h"
 #include "data/poland/PolishPeopleNames.h"
@@ -78,7 +78,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Hungary, hungarianPeopleNames},     {Country::Croatia, croatianPeopleNames},
     {Country::Greece, greekPeopleNames},          {Country::Slovenia, slovenianPeopleNames},
     {Country::Austria, austrianPeopleNames},      {Country::Switzerland, swissPeopleNames},
-    {Country::Belgium, belgianPeopleNames},       {Country::Nederlands, dutchPeopleNames},
+    {Country::Belgium, belgianPeopleNames},       {Country::Netherlands, dutchPeopleNames},
     {Country::China, chinesePeopleNames},         {Country::Korea, koreanPeopleNames},
     {Country::Canada, canadianPeopleNames},       {Country::Mexico, mexicanPeopleNames},
     {Country::Argentina, argentinianPeopleNames}, {Country::Australia, australianPeopleNames},
