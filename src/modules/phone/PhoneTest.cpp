@@ -73,9 +73,7 @@ TEST_F(PhoneTest, PlatformGeneration)
 {
     std::string generatedPlatform = Phone::platform();
     std::vector<std::string> platforms = {
-        "Android OS",
-        "iOS",
-        "Windows Phone",
+        "Android OS", "iOS", "Windows Phone", "Symbian", "Palm OS", "Tizen",
     };
     ASSERT_TRUE(std::ranges::any_of(platforms.begin(), platforms.end(),
                                     [generatedPlatform](const std::string& platform)
@@ -86,7 +84,7 @@ TEST_F(PhoneTest, ModelNameGeneration)
 {
     std::string generatedModelName = Phone::modelName();
     std::vector<std::string> modelNames = {
-        "Samsung Galaxy S9", "iPhone X",   "Google Pixel 4", "Samsung Galaxy S22", "iPhone 13",
+       "Samsung Galaxy S9", "iPhone X",   "Google Pixel 4", "Samsung Galaxy S22", "iPhone 13",
         "iPhone 13",         "iPhone 14",  "iPhone 15",      "Google Pixel 6",     "OnePlus 9",
         "Xiaomi Mi 11",      "Huawei P50", "Oppo Find X3",   "Sony Xperia 1 III",  "Motorola Edge 20"};
     ASSERT_TRUE(std::ranges::any_of(modelNames.begin(), modelNames.end(),
