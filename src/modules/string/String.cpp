@@ -35,6 +35,11 @@ const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
     {HexPrefix::Hash, "#"},
     {HexPrefix::None, ""},
 };
+
+const std::map<HexCasing, std::set<char>> hexCasingToCharSetMapping{
+    {HexCasing::Lower, hexLowerCharSet},
+    {HexCasing::Upper, hexUpperCharSet},
+};
 }
 
 bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
@@ -190,6 +195,39 @@ std::string String::numeric(unsigned int length, bool allowLeadingZeros)
     return alphanumeric;
 }
 
+std::string String::numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowLeadingZeros)
+{
+    // if leading zero not allowed, atleastCount of '0' cannot be equal to length
+    if (!allowLeadingZeros)
+    {
+        auto it = guarantee.find('0');
+        if (it != guarantee.end() && it->second.atleastCount > length - 1)
+        {
+            throw std::invalid_argument{"Invalid guarantee."};
+        }
+    }
+    auto targetCharacters = digitSet;
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    if (allowLeadingZeros)
+        return generateStringWithGuarantee(guarantee, targetCharacters, length);
+    // if leading zero not allowed, pick first digit a non zero
+    else
+    {
+        auto firstChar = std::to_string(Number::integer(1, 9));
+        auto it = guarantee.find(firstChar[0]);
+        if (it != guarantee.end())
+        {
+            // decrement possible number of uses as we just used it as first char
+            --it->second.atmostCount;
+        }
+        return firstChar + generateStringWithGuarantee(guarantee, targetCharacters, length - 1);
+    }
+}
+
 std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
 {
     const auto& hexadecimalCharacters = hexCasingToCharactersMapping.at(casing);
@@ -204,6 +242,18 @@ std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix
     }
 
     return hexadecimal;
+}
+
+std::string String::hexadecimal(GuaranteeMap&& guarantee, unsigned int length, HexCasing casing, HexPrefix prefix)
+{
+    std::set<char> targetCharacters = hexCasingToCharSetMapping.at(casing);
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    const auto& hexadecimalPrefix = hexPrefixToStringMapping.at(prefix);
+    return hexadecimalPrefix + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
 std::string String::binary(unsigned int length)
