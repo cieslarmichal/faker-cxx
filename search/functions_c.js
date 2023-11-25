@@ -6,6 +6,6 @@ var searchData=
   ['nonalcoholicbeverage_3',['nonalcoholicBeverage',['../classfaker_1_1Food.html#a960189dfebe1cc08826a82c5f3f6dec0',1,'faker::Food']]],
   ['noun_4',['noun',['../classfaker_1_1Hacker.html#a4891fc46bc1412cee6eeb5bf4d4f83a3',1,'faker::Hacker::noun()'],['../classfaker_1_1Word.html#a6f644dfb44d19e572d5e94385c7b9a72',1,'faker::Word::noun()']]],
   ['number_5',['number',['../classfaker_1_1Phone.html#a59cd1fd7afba171d88413d3a7205ae14',1,'faker::Phone::number(std::optional&lt; std::string &gt;=std::nullopt)'],['../classfaker_1_1Phone.html#a3c4add3af70eb644ded6f99006e27298',1,'faker::Phone::number(PhoneNumberCountryFormat format)']]],
-  ['numeric_6',['numeric',['../classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd',1,'faker::String']]],
+  ['numeric_6',['numeric',['../classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd',1,'faker::String::numeric(unsigned length=1, bool allowLeadingZeros=true)'],['../classfaker_1_1String.html#a2cde626ae90c336553bde19605e103f5',1,'faker::String::numeric(GuaranteeMap &amp;&amp;guarantee, const unsigned length=1, bool allowLeadingZeros=true)']]],
   ['nut_7',['nut',['../classfaker_1_1Food.html#a17eb016f0b958cafab9cec5f065126a6',1,'faker::Food']]]
 ];

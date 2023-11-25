@@ -120,6 +120,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae89b77056f5e13e5bf0418d6a6c231fd" id="r_ae89b77056f5e13e5bf0418d6a6c231fd"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a> (unsigned length=1, bool allowLeadingZeros=true)</td></tr>
 <tr class="memdesc:ae89b77056f5e13e5bf0418d6a6c231fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a given length string of digits.  <br /></td></tr>
 <tr class="separator:ae89b77056f5e13e5bf0418d6a6c231fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2cde626ae90c336553bde19605e103f5" id="r_a2cde626ae90c336553bde19605e103f5"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a2cde626ae90c336553bde19605e103f5">numeric</a> (GuaranteeMap &amp;&amp;guarantee, const unsigned length=1, bool allowLeadingZeros=true)</td></tr>
+<tr class="memdesc:a2cde626ae90c336553bde19605e103f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a given length string of digits.  <br /></td></tr>
+<tr class="separator:a2cde626ae90c336553bde19605e103f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae95d6815ba2172cc63374c391d246006" id="r_ae95d6815ba2172cc63374c391d246006"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#ae95d6815ba2172cc63374c391d246006">hexadecimal</a> (unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</td></tr>
 <tr class="memdesc:ae95d6815ba2172cc63374c391d246006"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a hexadecimal string.  <br /></td></tr>
 <tr class="separator:ae95d6815ba2172cc63374c391d246006"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -503,8 +506,65 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="a2cde626ae90c336553bde19605e103f5" name="a2cde626ae90c336553bde19605e103f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2cde626ae90c336553bde19605e103f5">&#9670;&#160;</a></span>numeric() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::String::numeric </td>
+          <td>(</td>
+          <td class="paramtype">GuaranteeMap &amp;&amp;&#160;</td>
+          <td class="paramname"><em>guarantee</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const unsigned&#160;</td>
+          <td class="paramname"><em>length</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>allowLeadingZeros</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a given length string of digits. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">guarantee</td><td>A map specifying char count constraints if any </td></tr>
+    <tr><td class="paramname">length</td><td>The number of digits to generate. Defaults to <code>1</code>. </td></tr>
+    <tr><td class="paramname">allowLeadingZeros</td><td>Whether leading zeros are allowed or not. Defaults to <code>true</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Numeric string.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">String::numeric</a>({}) <span class="comment">// &quot;1&quot;</span></div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">String::numeric</a>({<span class="charliteral">&#39;5&#39;</span>,{3,6}}, 6) <span class="comment">// &quot;055542&quot;</span></div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">String::numeric</a>({<span class="charliteral">&#39;0&#39;</span>,{0,0}}, {<span class="charliteral">&#39;4&#39;</span>,{1,1}}, 6, <span class="keyword">false</span>) <span class="comment">// &quot;854829&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1String_html_ae89b77056f5e13e5bf0418d6a6c231fd"><div class="ttname"><a href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">faker::String::numeric</a></div><div class="ttdeci">static std::string numeric(unsigned length=1, bool allowLeadingZeros=true)</div><div class="ttdoc">Generates a given length string of digits.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="ae89b77056f5e13e5bf0418d6a6c231fd" name="ae89b77056f5e13e5bf0418d6a6c231fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae89b77056f5e13e5bf0418d6a6c231fd">&#9670;&#160;</a></span>numeric()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#ae89b77056f5e13e5bf0418d6a6c231fd">&#9670;&#160;</a></span>numeric() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -549,7 +609,6 @@ Static Public Member Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">String::numeric</a>() <span class="comment">// &quot;1&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a>(6) <span class="comment">// &quot;035742&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a>(6, false) <span class="comment">// &quot;254429&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1String_html_ae89b77056f5e13e5bf0418d6a6c231fd"><div class="ttname"><a href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">faker::String::numeric</a></div><div class="ttdeci">static std::string numeric(unsigned length=1, bool allowLeadingZeros=true)</div><div class="ttdoc">Generates a given length string of digits.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
