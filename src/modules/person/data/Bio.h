@@ -48,4 +48,27 @@ const std::vector<std::string> bioPart =
   "Veteran",
   "Writer",
 };
+
+const std::vector<std::string> bioSupporter = 
+{
+  "Advocate",
+  "Devotee",
+  "Enthusiast",
+  "Fan",
+  "Junkie",
+  "Lover",
+  "Supporter"
+};
+
+const std::vector<std::string> bioFormats = 
+{
+"{bio_part}",
+"{bio_part}, {bio_part}",
+"{bio_part}, {bio_part}, {bio_part}",
+"{bio_part}, {bio_part}, {bio_part}, {emoji}",
+"{noun} {bio_supporter}",
+"{noun} {bio_supporter} {emoji}",
+"{noun} {bio_supporter}, {bio_part}",
+"{noun} {bio_supporter}, {bio_part} {emoji}"
+};
 }
