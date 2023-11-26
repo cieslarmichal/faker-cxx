@@ -207,6 +207,23 @@ public:
     static std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
 
     /**
+     * @brief Generates a given length string of digits.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of digits to generate. Defaults to `1`.
+     * @param allowLeadingZeros Whether leading zeros are allowed or not. Defaults to `true`.
+     *
+     * @returns Numeric string.
+     *
+     * @code
+     * String::numeric({}) // "1"
+     * String::numeric({'5',{3,6}}, 6) // "055542"
+     * String::numeric({'0',{0,0}}, {'4',{1,1}}, 6, false) // "854829"
+     * @endcode
+     */
+    static std::string numeric(GuaranteeMap&& guarantee, const unsigned length = 1, bool allowLeadingZeros = true);
+
+    /**
      * @brief Generates a hexadecimal string.
      *
      * @param length The number of digits to generate. Defaults to `1`.
@@ -223,6 +240,26 @@ public:
      * @endcode
      */
     static std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
+                                   HexPrefix prefix = HexPrefix::ZeroX);
+
+    /**
+     * @brief Generates a hexadecimal string.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of digits to generate. Defaults to `1`.
+     * @param casing Casing of the generated string. Defaults to `HexCasing::Lower`.
+     * @param prefix Prefix for the generated string. Defaults to `0x`.
+     *
+     * @returns Hexadecimal string.
+     *
+     * @code
+     * String::hexadecimal({}) // "0xb"
+     * String::hexadecimal({'a',{2,2}}, 10) // "0xae13d04acb"
+     * String::hexadecimal({'F', {2,4}}, 6, HexCasing::Upper, HexPrefix::Hash) // "#E3FFF0"
+     * String::hexadecimal({'1', {1,4}, {'2', {1, 4}, {'c', {1,1}}, 6, HexCasing::Lower, HexPrefix::None) // "121a1c"
+     * @endcode
+     */
+    static std::string hexadecimal(GuaranteeMap&& guarantee, unsigned length = 1, HexCasing casing = HexCasing::Lower,
                                    HexPrefix prefix = HexPrefix::ZeroX);
 
     /**

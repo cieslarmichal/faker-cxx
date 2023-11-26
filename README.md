@@ -126,39 +126,7 @@ Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main
 
 <br />
 
-## 🔨 Building from sources with Clang 16
+## 📝 Compilation Documentation
 
-#### 1. Install Clang 16
-
-```
-sudo add-apt-repository ppa:trebelnik-stefina/launchpad-getkeys \
-&& sudo apt-get update \
-&& sudo apt-get install launchpad-getkeys \
-&& sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' \
-&& sudo launchpad-getkeys \
-&& sudo apt-get update -y \
-&& sudo apt-get install -y lld-16 ninja-build  build-essential libstdc++-13-dev \
- clang-16 clang-tools-16 llvm-16 lcov
-```
-
-#### 2. Prepare build directory
-
-```
-git clone https://github.com/cieslarmichal/faker-cxx.git
-cd faker-cxx
-git submodule update --init --recursive
-mkdir build
-cd build
-```
-
-#### 3. CMake setup with Clang 16
-
-```
-cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
-```
-
-#### 4. Build
-
-```
-make
-```
+- [Clang++](https://github.com/cieslarmichal/faker-cxx/blob/main/docs/clang%2B%2B_compilation_guide.md)
+- [Apple Clang++](https://github.com/cieslarmichal/faker-cxx/blob/main/docs/apple_clang%2B%2B_compilation_guide.md)
