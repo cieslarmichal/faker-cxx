@@ -11,6 +11,7 @@
 #include "data/austria/AustrianPeopleNames.h"
 #include "data/belarus/BelarusianPeopleNames.h"
 #include "data/belgium/BelgianPeopleNames.h"
+#include "data/Bio.h"
 #include "data/brazil/BrazilianPeopleNames.h"
 #include "data/canada/CanadianPeopleNames.h"
 #include "data/china/ChinesePeopleNames.h"
@@ -54,6 +55,8 @@
 #include "data/ukraine/UkrainianPeopleNames.h"
 #include "data/usa/UsaPeopleNames.h"
 #include "data/ZodiacSigns.h"
+#include "faker-cxx/Word.h"
+#include "faker-cxx/Internet.h"
 #include "faker-cxx/Helper.h"
 #include "fmt/format.h"
 
@@ -267,7 +270,16 @@ std::string Person::prefix(std::optional<Sex> sex)
 
 std::string Person::bio()
 {
-    
+    const auto randomBioFormat = Helper::arrayElement<std::string>(bioFormats);
+
+
+    const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
+        {"bio_part", []() { return Helper::arrayElement(bioPart);}},
+        {"bio_supporter", []() { return Helper::arrayElement(bioSupporter); }},
+        {"noun", []() { return Word::noun();}},
+        {"emoji", []() { return Internet::emoji();}}};
+        
+    return FormatHelper::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
 }
 
 std::string Person::suffix()
