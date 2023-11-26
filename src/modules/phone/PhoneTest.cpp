@@ -6,8 +6,8 @@
 
 #include "gtest/gtest.h"
 
+#include "data/PhoneData.h"
 #include "data/PhoneNumbers.h"
-#include "faker-cxx/data/PhoneData.h"
 using namespace ::testing;
 using namespace faker;
 
@@ -69,35 +69,26 @@ TEST_F(PhoneTest, NumberFormatTest)
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 }
 
-TEST_F(PhoneTest, PlatformGeneration)
-{
+TEST_F(PhoneTest, PlatformGeneration) {
     std::string generatedPlatform = Phone::platform();
-    std::vector<std::string> platforms = {
-        "Android OS", "iOS", "Windows Phone", "Symbian", "Palm OS", "Tizen",
-    };
-    ASSERT_TRUE(std::ranges::any_of(platforms.begin(), platforms.end(),
-                                    [generatedPlatform](const std::string& platform)
-                                    { return platform == generatedPlatform; }));
+    ASSERT_TRUE(std::ranges::any_of(
+        faker::data::PhonePlatforms.begin(), faker::data::PhonePlatforms.end(),
+        [generatedPlatform](const std::string& platform) { return platform == generatedPlatform; }
+    ));
 }
 
-TEST_F(PhoneTest, ModelNameGeneration)
-{
+TEST_F(PhoneTest, ModelNameGeneration) {
     std::string generatedModelName = Phone::modelName();
-    std::vector<std::string> modelNames = {
-       "Samsung Galaxy S9", "iPhone X",   "Google Pixel 4", "Samsung Galaxy S22", "iPhone 13",
-        "iPhone 13",         "iPhone 14",  "iPhone 15",      "Google Pixel 6",     "OnePlus 9",
-        "Xiaomi Mi 11",      "Huawei P50", "Oppo Find X3",   "Sony Xperia 1 III",  "Motorola Edge 20"};
-    ASSERT_TRUE(std::ranges::any_of(modelNames.begin(), modelNames.end(),
-                                    [generatedModelName](const std::string& modelName)
-                                    { return modelName == generatedModelName; }));
+    ASSERT_TRUE(std::ranges::any_of(
+        faker::data::PhoneModelNames.begin(), faker::data::PhoneModelNames.end(),
+        [generatedModelName](const std::string& modelName) { return modelName == generatedModelName; }
+    ));
 }
 
-TEST_F(PhoneTest, ManufacturerGeneration)
-{
+TEST_F(PhoneTest, ManufacturerGeneration) {
     std::string generatedManufacturer = Phone::manufacturer();
-    std::vector<std::string> manufacturers = {"Samsung", "Apple", "Google", "OnePlus", "Xiaomi",
-                                              "Huawei",  "Oppo",  "Sony",   "Motorola"};
-    ASSERT_TRUE(std::ranges::any_of(manufacturers.begin(), manufacturers.end(),
-                                    [generatedManufacturer](const std::string& manufacturer)
-                                    { return manufacturer == generatedManufacturer; }));
+    ASSERT_TRUE(std::ranges::any_of(
+        faker::data::PhoneManufacturers.begin(), faker::data::PhoneManufacturers.end(),
+        [generatedManufacturer](const std::string& manufacturer) { return manufacturer == generatedManufacturer; }
+    ));
 }

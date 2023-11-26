@@ -4,7 +4,7 @@
 
 #include "data/PhoneNumbers.h"
 #include "faker-cxx/Helper.h"
-#include "faker-cxx/data/PhoneData.h"
+#include "data/PhoneData.h"
 namespace faker
 {
 std::map<PhoneNumberCountryFormat, std::string> Phone::phoneNumberFormatMap = Phone::createPhoneNumberFormatMap();
@@ -42,26 +42,16 @@ std::string Phone::imei()
     return Helper::replaceCreditCardSymbols("##-######-######-L", '#');
 }
 
-std::string Phone::platform()
-{
-    std::vector<std::string> platforms = {"Android OS", "iOS", "Windows Phone", "Symbian", "Palm OS", "Tizen"};
-    return Helper::arrayElement(platforms);
+std::string Phone::platform() {
+    return Helper::arrayElement(faker::data::PhonePlatforms);
 }
 
-std::string Phone::modelName()
-{
-    std::vector<std::string> modelNames = {
-        "Samsung Galaxy S9", "iPhone X",   "Google Pixel 4", "Samsung Galaxy S22", "iPhone 13",
-        "iPhone 13",         "iPhone 14",  "iPhone 15",      "Google Pixel 6",     "OnePlus 9",
-        "Xiaomi Mi 11",      "Huawei P50", "Oppo Find X3",   "Sony Xperia 1 III",  "Motorola Edge 20"};
-    return Helper::arrayElement(modelNames);
+std::string Phone::modelName() {
+    return Helper::arrayElement(faker::data::PhoneModelNames);
 }
 
-std::string Phone::manufacturer()
-{
-    std::vector<std::string> manufacturers = {"Samsung", "Apple", "Google", "OnePlus", "Xiaomi",
-                                              "Huawei",  "Oppo",  "Sony",   "Motorola"};
-    return Helper::arrayElement(manufacturers);
+std::string Phone::manufacturer() {
+    return Helper::arrayElement(faker::data::PhoneManufacturers);
 }
 
 std::map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMap()
