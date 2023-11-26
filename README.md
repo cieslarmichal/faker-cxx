@@ -16,7 +16,7 @@
 
 My goal is to provide a library like [Faker.js](https://github.com/faker-js/faker) for C++ developers.
 
-## Usage
+## Usages
 
 ```cpp
 #include <format>
