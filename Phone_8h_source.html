@@ -115,17 +115,20 @@ $(document).ready(function(){initNavTree('Phone_8h_source.html',''); initResizab
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="classfaker_1_1Phone.html#a59cd1fd7afba171d88413d3a7205ae14">   27</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Phone.html#a59cd1fd7afba171d88413d3a7205ae14">number</a>(std::optional&lt;std::string&gt; = std::nullopt);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classfaker_1_1Phone.html#a3c4add3af70eb644ded6f99006e27298">   40</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Phone.html#a3c4add3af70eb644ded6f99006e27298">number</a>(PhoneNumberCountryFormat format);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classfaker_1_1Phone.html#a85e9685ecdba6dd885fe7108dd661f82">   51</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Phone.html#a85e9685ecdba6dd885fe7108dd661f82">imei</a>();</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">static</span> std::map&lt;PhoneNumberCountryFormat, std::string&gt; createPhoneNumberFormatMap();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keyword">static</span> std::map&lt;PhoneNumberCountryFormat, std::string&gt; phoneNumberFormatMap;</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>};</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keyword">static</span> std::string platform();</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keyword">static</span> std::string modelName();</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keyword">static</span> std::string manufacturer();</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classfaker_1_1Phone.html#a3c4add3af70eb644ded6f99006e27298">   43</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Phone.html#a3c4add3af70eb644ded6f99006e27298">number</a>(PhoneNumberCountryFormat format);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classfaker_1_1Phone.html#a85e9685ecdba6dd885fe7108dd661f82">   54</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Phone.html#a85e9685ecdba6dd885fe7108dd661f82">imei</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    <span class="keyword">static</span> std::map&lt;PhoneNumberCountryFormat, std::string&gt; createPhoneNumberFormatMap();</div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    <span class="keyword">static</span> std::map&lt;PhoneNumberCountryFormat, std::string&gt; phoneNumberFormatMap;</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
 </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>}</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>}</div>
 <div class="ttc" id="aclassfaker_1_1Phone_html"><div class="ttname"><a href="classfaker_1_1Phone.html">faker::Phone</a></div><div class="ttdef"><b>Definition</b> Phone.h:12</div></div>
 <div class="ttc" id="aclassfaker_1_1Phone_html_a3c4add3af70eb644ded6f99006e27298"><div class="ttname"><a href="classfaker_1_1Phone.html#a3c4add3af70eb644ded6f99006e27298">faker::Phone::number</a></div><div class="ttdeci">static std::string number(PhoneNumberCountryFormat format)</div><div class="ttdoc">Returns a random phone number based on country phone number template.</div></div>
 <div class="ttc" id="aclassfaker_1_1Phone_html_a59cd1fd7afba171d88413d3a7205ae14"><div class="ttname"><a href="classfaker_1_1Phone.html#a59cd1fd7afba171d88413d3a7205ae14">faker::Phone::number</a></div><div class="ttdeci">static std::string number(std::optional&lt; std::string &gt;=std::nullopt)</div><div class="ttdoc">Returns a random phone number.</div></div>
