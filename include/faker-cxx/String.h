@@ -172,6 +172,23 @@ public:
     static std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed);
 
     /**
+     * @brief Generates a string consisting of letters in the English alphabet.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of characters to generate. Defaults to `1`.
+     * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
+     *
+     * @returns Alpha string.
+     *
+     * @code
+     * String::alpha({}) // "b"
+     * String::alpha({{'A',{2,2}}, 5, StringCasing::Upper) // "DACAC"
+     * String::alpha({{'a',{0,0}},{'b',{3,3}},{'c', {0,2}}}, 10, StringCasing::Lower) // "bicnmmkbbp"
+     * @endcode
+     */
+    static std::string alpha(GuaranteeMap&& guarantee, unsigned length = 1, StringCasing casing = StringCasing::Mixed);
+
+    /**
      * @brief Generates a string consisting of alpha characters and digits.
      *
      * @param length The number of characters to generate. Defaults to `1`.
