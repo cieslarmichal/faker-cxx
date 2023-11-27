@@ -16,13 +16,13 @@
 
 My goal is to provide a library like [Faker.js](https://github.com/faker-js/faker) for C++ developers.
 
+
 ## Usage
 
 ```cpp
 #include <format>
 #include <iostream>
 
-#include "faker-cxx/Datatype.h"
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/String.h"
@@ -42,40 +42,6 @@ int main()
     return 0;
 }
 ```
-
-## Dependencies
-
-- GTest (```BUILD_FAKER_TESTS=OFF``` CMake flag to disable)
-- fmt
-
-## Compiler support
-
-- [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
-- [GCC➚](https://gcc.gnu.org/) version 13 or newer.
-- [Clang➚](https://clang.llvm.org/) version 16 or newer.
-- [Apple Clang➚](https://clang.llvm.org/) version 16 or newer.
-
-## Consuming library with CMake (CMake 3.22 or newer)
-
-1. Add faker to git submodules (execute in project root):
-
-    ```
-    mkdir externals
-    cd externals
-    git submodule add https://github.com/cieslarmichal/faker-cxx.git
-    ```
-
-2. Link with library:
-
-    ```cmake
-    set(BUILD_FAKER_TESTS OFF)
-    
-    add_subdirectory(externals/faker-cxx)
-    
-    add_executable(main Main.cpp)
-    
-    target_link_libraries(main faker-cxx)
-    ```
 
 ## 💎 Modules
 
@@ -110,14 +76,48 @@ int main()
 - 🌤️ Weather - temperature, pressure, humidity, weather description
 - 💬 Word - sample words, nouns, verbs
 
+
 ## 📖 Documentation
 
 https://cieslarmichal.github.io/faker-cxx/
 
-## 📝 Compilation guides
 
-- [Clang++](https://github.com/cieslarmichal/faker-cxx/blob/main/docs/clang%2B%2B_compilation_guide.md)
-- [Apple Clang++](https://github.com/cieslarmichal/faker-cxx/blob/main/docs/apple_clang%2B%2B_compilation_guide.md)
+## Consuming library with CMake (CMake 3.22 or newer)
+
+1. Add faker to git submodules (execute in project root):
+
+    ```
+    mkdir externals
+    cd externals
+    git submodule add https://github.com/cieslarmichal/faker-cxx.git
+    ```
+
+2. Link with library:
+
+    ```cmake
+    set(BUILD_FAKER_TESTS OFF)
+    
+    add_subdirectory(externals/faker-cxx)
+    
+    add_executable(main Main.cpp)
+    
+    target_link_libraries(main faker-cxx)
+    ```
+
+
+## Compiler support
+
+- [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
+- [GCC➚](https://gcc.gnu.org/) version 13 or newer.
+- [Clang➚](https://clang.llvm.org/) version 16 or newer.
+- [Apple Clang➚](https://clang.llvm.org/) version 16 or newer.
+
+  
+## Dependencies
+
+- GTest (```BUILD_FAKER_TESTS=OFF``` CMake flag to disable)
+- fmt
+
 
 ## ✨ Contributing
 
@@ -126,3 +126,8 @@ Feel free to join Faker C++ development! 🚀
 Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.
 
 [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
+
+## 📝 Compilation guides
+
+- [Clang++](https://github.com/cieslarmichal/faker-cxx/blob/main/docs/clang%2B%2B_compilation_guide.md)
+- [Apple Clang++](https://github.com/cieslarmichal/faker-cxx/blob/main/docs/apple_clang%2B%2B_compilation_guide.md)
