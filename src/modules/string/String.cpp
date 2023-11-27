@@ -36,6 +36,12 @@ const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
     {HexPrefix::None, ""},
 };
 
+const std::map<StringCasing, std::set<char>> stringCasingToAlphaCharSetMapping{
+    {StringCasing::Lower, lowerCharSet},
+    {StringCasing::Upper, upperCharSet},
+    {StringCasing::Mixed, mixedAlphaCharSet},
+};
+
 const std::map<HexCasing, std::set<char>> hexCasingToCharSetMapping{
     {HexCasing::Lower, hexLowerCharSet},
     {HexCasing::Upper, hexUpperCharSet},
@@ -150,6 +156,17 @@ std::string String::alpha(unsigned length, StringCasing casing)
     }
 
     return alpha;
+}
+
+std::string String::alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing casing)
+{
+    auto targetCharacters = stringCasingToAlphaCharSetMapping.at(casing);
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
 std::string String::alphanumeric(unsigned int length, StringCasing casing, const std::string& excludeCharacters)
