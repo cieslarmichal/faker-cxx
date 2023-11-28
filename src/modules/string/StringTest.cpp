@@ -227,7 +227,7 @@ TEST_F(StringTest, shouldGenerateMixedAlphaWithGuarantee)
     // exactly 5 'a'
     // atleast 5 'A' - 3 'B' - 3 'z'
     // atmost 20 'A' - 20 'B' - 6 'z'
-    const GuaranteeMap&& guarantee{{'A', {5, 20}}, {'B', {3, 20}}, {'a', {5, 5}}, {'z', {3, 6}}};
+    const GuaranteeMap guarantee{{'A', {5, 20}}, {'B', {3, 20}}, {'a', {5, 5}}, {'z', {3, 6}}};
     // it is a random function so lets test for 20 random generations
     for (int i = 0; i < runCount; ++i)
     {
@@ -260,7 +260,7 @@ TEST_F(StringTest, shouldGenerateLowerAlphaWithGuarantee)
     // exactly 5 'a'
     // atleast 5 'k' - 3 'o' - 3 'z'
     // atmost 20 'k' - 20 'o' - 6 'z'
-    const GuaranteeMap&& guarantee{{'k', {5, 20}}, {'o', {3, 20}}, {'a', {5, 5}}, {'z', {3, 6}}};
+    const GuaranteeMap guarantee{{'k', {5, 20}}, {'o', {3, 20}}, {'a', {5, 5}}, {'z', {3, 6}}};
     // it is a random function so lets test for 20 random generations
     for (int i = 0; i < runCount; ++i)
     {
@@ -293,7 +293,7 @@ TEST_F(StringTest, shouldGenerateUpperAlphaWithGuarantee)
     // exactly 5 'A'
     // atleast 5 'K' - 3 'O' - 3 'Z'
     // atmost 20 'K' - 20 'O' - 6 'Z'
-    const GuaranteeMap&& guarantee{{'K', {5, 20}}, {'O', {3, 20}}, {'A', {5, 5}}, {'Z', {3, 6}}};
+    const GuaranteeMap guarantee{{'K', {5, 20}}, {'O', {3, 20}}, {'A', {5, 5}}, {'Z', {3, 6}}};
     // it is a random function so lets test for 20 random generations
     for (int i = 0; i < runCount; ++i)
     {
@@ -426,6 +426,162 @@ TEST_F(StringTest, shouldGenerateLowerAlphanumeric)
                                             [alphanumericCharacter](char lowerAlphanumericCharacter)
                                             { return lowerAlphanumericCharacter == alphanumericCharacter; });
                                     }));
+}
+
+TEST_F(StringTest, shouldGenerateMixedAlphanumericWithGuarantee)
+{
+    const auto alphanumericLength = 20;
+    // exactly 1 'a'
+    // atleast 5 'A' - 3 'B' - 3 'z'
+    // atmost 20 'A' - 20 'B' - 6 'z'
+    const GuaranteeMap guarantee{{'1', {5, 20}}, {'B', {3, 20}}, {'a', {5, 5}}, {'z', {3, 6}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto alphanumeric = String::alphanumeric(std::move(copyGuarantee), alphanumericLength);
+
+        ASSERT_EQ(alphanumeric.size(), alphanumericLength);
+        ASSERT_TRUE(std::ranges::all_of(
+            alphanumeric,
+            [](char alphanumericCharacter)
+            {
+                return std::ranges::any_of(mixedAlphanumericCharacters, [alphanumericCharacter](char mixedCharacter)
+                                           { return mixedCharacter == alphanumericCharacter; });
+            }));
+        auto count_1 = std::ranges::count(alphanumeric, '1');
+        auto count_B = std::ranges::count(alphanumeric, 'B');
+        auto count_a = std::ranges::count(alphanumeric, 'a');
+        auto count_z = std::ranges::count(alphanumeric, 'z');
+
+        ASSERT_TRUE(count_1 >= 5 && count_1 <= 20);
+        ASSERT_TRUE(count_B >= 3 && count_B <= 20);
+        ASSERT_TRUE(count_a == 5);
+        ASSERT_TRUE(count_z >= 3 && count_z <= 6);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateLowerAlphanumericWithGuarantee)
+{
+    const auto alphanumericLength = 20;
+    // exactly 5 'a'
+    // atleast 5 'k' - 3 'o' - 3 '0'
+    // atmost 20 'k' - 20 'o' - 6 '0'
+    const GuaranteeMap guarantee{{'k', {5, 20}}, {'o', {3, 20}}, {'a', {5, 5}}, {'0', {3, 6}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto alphanumeric =
+            String::alphanumeric(std::move(copyGuarantee), alphanumericLength, StringCasing::Lower);
+
+        ASSERT_EQ(alphanumeric.size(), alphanumericLength);
+        ASSERT_TRUE(std::ranges::all_of(
+            alphanumeric,
+            [](char alphanumericCharacter)
+            {
+                return std::ranges::any_of(lowerAlphanumericCharacters, [alphanumericCharacter](char lowerCharacter)
+                                           { return lowerCharacter == alphanumericCharacter; });
+            }));
+        auto count_k = std::ranges::count(alphanumeric, 'k');
+        auto count_o = std::ranges::count(alphanumeric, 'o');
+        auto count_a = std::ranges::count(alphanumeric, 'a');
+        auto count_0 = std::ranges::count(alphanumeric, '0');
+
+        ASSERT_TRUE(count_k >= 5 && count_k <= 20);
+        ASSERT_TRUE(count_o >= 3 && count_o <= 20);
+        ASSERT_TRUE(count_a == 5);
+        ASSERT_TRUE(count_0 >= 3 && count_0 <= 6);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateUpperAlphanumericWithGuarantee)
+{
+    const auto alphanumericLength = 20;
+    // exactly 5 'A'
+    // atleast 5 '7' - 3 'O' - 3 'Z'
+    // atmost 20 '7' - 20 'O' - 6 'Z'
+    const GuaranteeMap guarantee{{'7', {5, 20}}, {'O', {3, 20}}, {'A', {5, 5}}, {'Z', {3, 6}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto alphanumeric =
+            String::alphanumeric(std::move(copyGuarantee), alphanumericLength, StringCasing::Upper);
+
+        ASSERT_EQ(alphanumeric.size(), alphanumericLength);
+        ASSERT_TRUE(std::ranges::all_of(
+            alphanumeric,
+            [](char alphanumericCharacter)
+            {
+                return std::ranges::any_of(upperAlphanumericCharacters, [alphanumericCharacter](char lowerCharacter)
+                                           { return lowerCharacter == alphanumericCharacter; });
+            }));
+        auto count_7 = std::ranges::count(alphanumeric, '7');
+        auto count_O = std::ranges::count(alphanumeric, 'O');
+        auto count_A = std::ranges::count(alphanumeric, 'A');
+        auto count_Z = std::ranges::count(alphanumeric, 'Z');
+
+        ASSERT_TRUE(count_7 >= 5 && count_7 <= 20);
+        ASSERT_TRUE(count_O >= 3 && count_O <= 20);
+        ASSERT_TRUE(count_A == 5);
+        ASSERT_TRUE(count_Z >= 3 && count_Z <= 6);
+    }
+}
+
+TEST_F(StringTest, invalidGuaranteeForAlphanumeric1)
+{
+    const auto alphanumericLength = 20;
+    // exactly 3 '8'
+    // atleast 8 'A' - 10 'b' 1 'Y' // invalid // string size will be atleast 22 which is invalid
+    // atmost 10 'A','Y' - 15 'b'
+    GuaranteeMap guarantee = {{'A', {8, 10}}, {'b', {10, 15}}, {'Y', {1, 10}}, {'8', {3, 3}}};
+    ASSERT_THROW(String::alphanumeric(std::move(guarantee), alphanumericLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForAlphanumeric2)
+{
+    const auto alphanumericLength = 40;
+    // atmost 1
+    // 'A','B','C',D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
+    // 'S','T','U','V','W','X','Y','Z','0','1','2','3','4','5','6','7','8','9'
+    // invalid // string size won't exceed 36 which is invalid
+    GuaranteeMap guarantee = {
+        {'A', {0, 1}}, {'B', {0, 1}}, {'C', {0, 1}}, {'D', {0, 1}}, {'E', {0, 1}}, {'F', {0, 1}},
+        {'G', {0, 1}}, {'H', {0, 1}}, {'I', {0, 1}}, {'J', {0, 1}}, {'K', {0, 1}}, {'L', {0, 1}},
+        {'M', {0, 1}}, {'N', {0, 1}}, {'O', {0, 1}}, {'P', {0, 1}}, {'Q', {0, 1}}, {'R', {0, 1}},
+        {'S', {0, 1}}, {'T', {0, 1}}, {'U', {0, 1}}, {'V', {0, 1}}, {'W', {0, 1}}, {'X', {0, 1}},
+        {'Y', {0, 1}}, {'Z', {0, 1}}, {'0', {0, 1}}, {'1', {0, 1}}, {'2', {0, 1}}, {'3', {0, 1}},
+        {'4', {0, 1}}, {'5', {0, 1}}, {'6', {0, 1}}, {'7', {0, 1}}, {'8', {0, 1}}, {'9', {0, 1}},
+    };
+    ASSERT_THROW(String::alphanumeric(std::move(guarantee), alphanumericLength, StringCasing::Upper),
+                 std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForAlphanumeric3)
+{
+    const auto alphanumericLength = 20;
+    // atleast 4 '#' // invalid // alphanumeric can't have symbols
+    GuaranteeMap guarantee = {{'a', {4, 10}}, {'B', {4, 10}}, {'5', {4, 6}}, {'#', {4}}};
+    ASSERT_THROW(String::alphanumeric(std::move(guarantee), alphanumericLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForAlphanumeric4)
+{
+    const auto alphanumericLength = 20;
+    // atleast 4 'a' // invalid // Can't have lower case characters when string casing is set to StringCasing::Upper
+    GuaranteeMap guarantee = {{'a', {4, 10}}, {'B', {4, 10}}, {'2', {1}}};
+    ASSERT_THROW(String::alphanumeric(std::move(guarantee), alphanumericLength, StringCasing::Upper),
+                 std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForAlphanumeric5)
+{
+    const auto alphanumericLength = 20;
+    // atleast 4 'B' // invalid // Can't have upper case characters when string casing is set to StringCasing::Lower
+    GuaranteeMap guarantee = {{'a', {4, 10}}, {'B', {4, 10}}, {'8', {8, 10}}};
+    ASSERT_THROW(String::alphanumeric(std::move(guarantee), alphanumericLength, StringCasing::Lower),
+                 std::invalid_argument);
 }
 
 TEST_F(StringTest, shouldGenerateNumeric)
