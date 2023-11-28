@@ -120,6 +120,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5de8e6ed5846465ac4197356eee53398" id="r_a5de8e6ed5846465ac4197356eee53398"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">alphanumeric</a> (unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)</td></tr>
 <tr class="memdesc:a5de8e6ed5846465ac4197356eee53398"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a string consisting of alpha characters and digits.  <br /></td></tr>
 <tr class="separator:a5de8e6ed5846465ac4197356eee53398"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6fc84f399dd85bb008b1bf56d3b569d7" id="r_a6fc84f399dd85bb008b1bf56d3b569d7"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a6fc84f399dd85bb008b1bf56d3b569d7">alphanumeric</a> (GuaranteeMap &amp;&amp;guarantee, unsigned length=1, StringCasing casing=StringCasing::Mixed)</td></tr>
+<tr class="memdesc:a6fc84f399dd85bb008b1bf56d3b569d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a string consisting of alpha characters and digits.  <br /></td></tr>
+<tr class="separator:a6fc84f399dd85bb008b1bf56d3b569d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae89b77056f5e13e5bf0418d6a6c231fd" id="r_ae89b77056f5e13e5bf0418d6a6c231fd"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">numeric</a> (unsigned length=1, bool allowLeadingZeros=true)</td></tr>
 <tr class="memdesc:ae89b77056f5e13e5bf0418d6a6c231fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a given length string of digits.  <br /></td></tr>
 <tr class="separator:ae89b77056f5e13e5bf0418d6a6c231fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -253,8 +256,65 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="a6fc84f399dd85bb008b1bf56d3b569d7" name="a6fc84f399dd85bb008b1bf56d3b569d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6fc84f399dd85bb008b1bf56d3b569d7">&#9670;&#160;</a></span>alphanumeric() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::String::alphanumeric </td>
+          <td>(</td>
+          <td class="paramtype">GuaranteeMap &amp;&amp;&#160;</td>
+          <td class="paramname"><em>guarantee</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>length</em> = <code>1</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">StringCasing&#160;</td>
+          <td class="paramname"><em>casing</em> = <code>StringCasing::Mixed</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a string consisting of alpha characters and digits. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">guarantee</td><td>A map specifying char count constraints if any </td></tr>
+    <tr><td class="paramname">length</td><td>The number of characters to generate. Defaults to <code>1</code>. </td></tr>
+    <tr><td class="paramname">casing</td><td>The casing of the characters. Defaults to <code>StringCasing::Mixed</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Alphanumeric string.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">String::alphanumeric</a>({}) <span class="comment">// &quot;4&quot;</span></div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">String::alphanumeric</a>({{<span class="charliteral">&#39;A&#39;</span>, {3,6}},{<span class="charliteral">&#39;1&#39;</span>, {1,1}}, 5, StringCasing::Upper) <span class="comment">// &quot;1EAAA&quot;</span></div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">String::alphanumeric</a>({{<span class="charliteral">&#39;a&#39;</span>,{0,2}},{<span class="charliteral">&#39;2&#39;</span>,{0,3}},{<span class="charliteral">&#39;z&#39;</span>,{3,5}}}, 10, StringCasing::Lower) <span class="comment">// &quot;z1naazrqz0&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1String_html_a5de8e6ed5846465ac4197356eee53398"><div class="ttname"><a href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">faker::String::alphanumeric</a></div><div class="ttdeci">static std::string alphanumeric(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)</div><div class="ttdoc">Generates a string consisting of alpha characters and digits.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="a5de8e6ed5846465ac4197356eee53398" name="a5de8e6ed5846465ac4197356eee53398"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5de8e6ed5846465ac4197356eee53398">&#9670;&#160;</a></span>alphanumeric()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a5de8e6ed5846465ac4197356eee53398">&#9670;&#160;</a></span>alphanumeric() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,7 +366,6 @@ Static Public Member Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">String::alphanumeric</a>() <span class="comment">// &quot;4&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">alphanumeric</a>(5, StringCasing::Upper) <span class="comment">// &quot;3e5V7&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">alphanumeric</a>(4, StringCasing::Lower) <span class="comment">// &quot;1nrq&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1String_html_a5de8e6ed5846465ac4197356eee53398"><div class="ttname"><a href="classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398">faker::String::alphanumeric</a></div><div class="ttdeci">static std::string alphanumeric(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)</div><div class="ttdoc">Generates a string consisting of alpha characters and digits.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
