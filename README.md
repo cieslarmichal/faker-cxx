@@ -20,24 +20,30 @@ Goal of the Faker C++ is to provide a library like [Faker.js](https://github.com
 ## Usage
 
 ```cpp
-#include <format>
 #include <iostream>
 
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Internet.h"
+#include "faker-cxx/Location.h"
 #include "faker-cxx/String.h"
 
 int main()
 {
-    const auto id = faker::String::uuid();                   // 6fdb588e-0be9-480e-9eeb-8ff11b8afc00
-    const auto email = faker::Internet::email();             // Sergio_Greenfelder@hotmail.com
-    const auto password = faker::Internet::password();       // 91gZxLB*TfhAA!G
-    const auto verificationCode = faker::String::numeric(8); // 56910620
-    const auto createdAt = faker::Date::pastDate();          // 2023-03-11T08:33:34Z
-    const auto updatedAt = faker::Date::recentDate();        // 2023-07-19T22:59:19Z
+    const auto id = faker::String::uuid();
+    const auto email = faker::Internet::email();
+    const auto password = faker::Internet::password();
+    const auto verificationCode = faker::String::numeric(8);
+    const auto createdAt = faker::Date::pastDate();
+    const auto city = faker::Location::city();
+    const auto streetAddress = faker::Location::streetAddress();
 
-    std::cout << std::format("id: {}, email: {}, password: {}, verificationCode: {}, createdAt: {}, updatedAt: {}",
-                             id, email, password, verificationCode, createdAt, updatedAt);
+    std::cout << id << std::endl;               // 58018063-ce5a-4fa7-adfd-327eb2e2d9a5
+    std::cout << email << std::endl;            // Lois_Hauck@hotmail.com
+    std::cout << password << std::endl;         // @cWLwgM#Knalxeb
+    std::cout << verificationCode << std::endl; // 31457428
+    std::cout << createdAt << std::endl;        // 2023-06-20T02:06:36Z
+    std::cout << city << std::endl;             // Sayreville
+    std::cout << streetAddress << std::endl;    // 1716 Harriet Alley
 
     return 0;
 }
