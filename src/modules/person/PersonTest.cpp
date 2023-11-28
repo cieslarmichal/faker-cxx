@@ -433,6 +433,14 @@ TEST_F(PersonTest, shouldGenerateHobby)
         std::ranges::any_of(hobbies, [generatedHobby](const std::string& hobby) { return hobby == generatedHobby; }));
 }
 
+TEST_F(PersonTest, shouldGenerateBio)
+{
+    const auto generatedBio = Person::bio();
+
+    ASSERT_TRUE(
+        std::ranges::any_of(hobbies, [generatedHobby](const std::string& hobby) { return hobby == generatedHobby; }));
+}
+
 TEST_F(PersonTest, shouldGenerateLanguage)
 {
     const auto generatedLanguage = Person::language();
