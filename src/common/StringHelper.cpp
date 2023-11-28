@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cctype>
 #include <sstream>
+#include <locale>
 #include <codecvt>
 
 namespace faker
