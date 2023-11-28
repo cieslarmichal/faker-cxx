@@ -14,7 +14,7 @@
 
 ## 🎯 Goal
 
-My goal is to provide a library like [Faker.js](https://github.com/faker-js/faker) for C++ developers.
+Goal of the Faker C++ is to provide a library like [Faker.js](https://github.com/faker-js/faker) for C++ community.
 
 
 ## Usage
