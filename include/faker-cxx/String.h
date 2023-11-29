@@ -156,6 +156,22 @@ public:
     static std::string fromCharacters(const std::string& characters, unsigned length = 1);
 
     /**
+     * @brief Generates a string consisting of given characters.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param characters The characters to generate string with.
+     * @param length The number of characters to generate. Defaults to `1`.
+     *
+     * @returns String from characters.
+     *
+     * @code
+     * String::fromCharacters({}, "abc") // "b"
+     * String::fromCharacters({{'q',{2,2}},{'e',{1,5}}}, "qwerty", 8) // "yqreqety"
+     * @endcode
+     */
+    static std::string fromCharacters(GuaranteeMap&& guarantee, const std::string& characters, unsigned length = 1);
+
+    /**
      * @brief Generates a string consisting of letters in the English alphabet.
      *
      * @param length The number of characters to generate. Defaults to `1`.
