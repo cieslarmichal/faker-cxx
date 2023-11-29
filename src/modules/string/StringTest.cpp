@@ -164,6 +164,119 @@ TEST_F(StringTest, shouldGenerateStringFromCharaters)
                                     { return characters.find(sampleCharacter) != std::string::npos; }));
 }
 
+TEST_F(StringTest, shouldGenerateStringFromCharatersWithGuarantee1)
+{
+    const std::string characters{"iosjdaijqw"};
+    // exactly 1 's'
+    // atleast 2 'w'
+    // atmost 1 'a'
+    const GuaranteeMap guarantee{{'s', {1, 1}}, {'w', {2}}, {'a', {0, 1}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto fromCharacters = String::fromCharacters(std::move(copyGuarantee), characters, 6);
+
+        ASSERT_EQ(fromCharacters.size(), 6);
+        ASSERT_TRUE(std::ranges::all_of(fromCharacters, [&characters](char sampleCharacter)
+                                        { return characters.find(sampleCharacter) != std::string::npos; }));
+
+        auto count_s = std::ranges::count(fromCharacters, 's');
+        auto count_w = std::ranges::count(fromCharacters, 'w');
+        auto count_a = std::ranges::count(fromCharacters, 'a');
+
+        ASSERT_TRUE(count_s == 1);
+        ASSERT_TRUE(count_w >= 2);
+        ASSERT_TRUE(count_a <= 1);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateStringFromCharatersWithGuarantee2)
+{
+    const auto fromCharactersLength = 20;
+    const std::string characters{"_abcd6=89#"};
+    // exactly 5 '#'
+    // atleast 3 '_' -
+    // atmost 1 '8' - 2 '='
+    const GuaranteeMap guarantee{{'_', {3}}, {'#', {5, 5}}, {'8', {0, 1}}, {'=', {0, 2}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto fromCharacters = String::fromCharacters(std::move(copyGuarantee), characters, fromCharactersLength);
+
+        ASSERT_EQ(fromCharacters.size(), fromCharactersLength);
+        ASSERT_TRUE(std::ranges::all_of(fromCharacters, [&characters](char sampleCharacter)
+                                        { return characters.find(sampleCharacter) != std::string::npos; }));
+
+        auto count_underscore = std::ranges::count(fromCharacters, '_');
+        auto count_hash = std::ranges::count(fromCharacters, '#');
+        auto count_8 = std::ranges::count(fromCharacters, '8');
+        auto count_equal = std::ranges::count(fromCharacters, '=');
+
+        ASSERT_TRUE(count_underscore >= 3);
+        ASSERT_TRUE(count_hash == 5);
+        ASSERT_TRUE(count_8 <= 1);
+        ASSERT_TRUE(count_equal <= 2);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateStringFromCharatersWithGuarantee3)
+{
+    const auto fromCharactersLength = 20;
+    const std::string characters{"!@#$%^&*()_+-=BA"};
+    // exactly 10 'B' 1 '*'
+    // atmost 2 '-'
+    const GuaranteeMap guarantee{{'B', {10, 10}}, {'*', {1, 1}}, {'-', {0, 2}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto fromCharacters = String::fromCharacters(std::move(copyGuarantee), characters, fromCharactersLength);
+
+        ASSERT_EQ(fromCharacters.size(), fromCharactersLength);
+        ASSERT_TRUE(std::ranges::all_of(fromCharacters, [&characters](char sampleCharacter)
+                                        { return characters.find(sampleCharacter) != std::string::npos; }));
+
+        auto count_B = std::ranges::count(fromCharacters, 'B');
+        auto count_asterisk = std::ranges::count(fromCharacters, '*');
+        auto count_minus = std::ranges::count(fromCharacters, '-');
+
+        ASSERT_TRUE(count_B == 10);
+        ASSERT_TRUE(count_asterisk == 1);
+        ASSERT_TRUE(count_minus <= 2);
+    }
+}
+
+TEST_F(StringTest, invalidGuaranteeForFromCharacters1)
+{
+    const auto fromCharactersLength = 20;
+    const std::string characters{"bnmv*&"};
+    // atleast 10 '&' - 5 '*' - 5 'm' - 1 'b' // invalid // string size will be atleast 21 which is invalid
+    // atmost 10 'b'
+    GuaranteeMap guarantee{{'&', {10}}, {'*', {5}}, {'m', {5}}, {'b', {1, 10}}};
+    ASSERT_THROW(String::fromCharacters(std::move(guarantee), characters, fromCharactersLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForFromCharacters2)
+{
+    const auto fromCharactersLength = 20;
+    const std::string characters{"ab1"};
+    // atleast 6 '1'
+    // atmost 3 'a' - 5 'b' - 8 '1' // invalid // string size wont exceed 16 which is invalid
+    GuaranteeMap guarantee{{'a', {0, 3}}, {'b', {0, 5}}, {'1', {6, 8}}};
+    ASSERT_THROW(String::fromCharacters(std::move(guarantee), characters, fromCharactersLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForFromCharacters3)
+{
+    const auto fromCharactersLength = 20;
+    const std::string characters{"67bnmM"};
+    // exactly 2 '1' // invalid // '1' not in `characters`
+    GuaranteeMap guarantee{{'1', {2, 2}}, {'M', {2, 2}}, {'m', {2, 2}}};
+    ASSERT_THROW(String::fromCharacters(std::move(guarantee), characters, fromCharactersLength), std::invalid_argument);
+}
+
 TEST_F(StringTest, shouldGenerateDefaultApha)
 {
     const auto alpha = String::alpha();
@@ -333,7 +446,8 @@ TEST_F(StringTest, invalidGuaranteeForAlpha1)
 TEST_F(StringTest, invalidGuaranteeForAlpha2)
 {
     const auto alphaLength = 30;
-    // atmost 1 'A','B','C',D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+    // atmost 1
+    // 'A','B','C',D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
     // invalid // string size won't exceed 26 which is invalid
     GuaranteeMap guarantee = {
         {'A', {0, 1}}, {'B', {0, 1}}, {'C', {0, 1}}, {'D', {0, 1}}, {'E', {0, 1}}, {'F', {0, 1}}, {'G', {0, 1}},
@@ -940,8 +1054,8 @@ TEST_F(StringTest, invalidGuaranteeForHexadecimal4)
 TEST_F(StringTest, invalidGuaranteeForHexadecimal5)
 {
     const auto hexadecimalLength = 20;
-    // atmost 1 '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f' // invalid // string size wont exceed 16
-    // which is wrong
+    // atmost 1 '0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f' // invalid // string size wont
+    // exceed 16 which is wrong
     faker::GuaranteeMap guarantee{
         {'0', {0, 1}}, {'1', {0, 1}}, {'2', {0, 1}}, {'3', {0, 1}}, {'4', {0, 1}}, {'5', {0, 1}},
         {'6', {0, 1}}, {'7', {0, 1}}, {'8', {0, 1}}, {'9', {0, 1}}, {'a', {0, 1}}, {'b', {0, 1}},
