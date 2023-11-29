@@ -208,6 +208,24 @@ public:
                                     const std::string& excludeCharacters = "");
 
     /**
+     * @brief Generates a string consisting of alpha characters and digits.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of characters to generate. Defaults to `1`.
+     * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
+     *
+     * @returns Alphanumeric string.
+     *
+     * @code
+     * String::alphanumeric({}) // "4"
+     * String::alphanumeric({{'A', {3,6}},{'1', {1,1}}, 5, StringCasing::Upper) // "1EAAA"
+     * String::alphanumeric({{'a',{0,2}},{'2',{0,3}},{'z',{3,5}}}, 10, StringCasing::Lower) // "z1naazrqz0"
+     * @endcode
+     */
+    static std::string alphanumeric(GuaranteeMap&& guarantee, unsigned length = 1,
+                                    StringCasing casing = StringCasing::Mixed);
+
+    /**
      * @brief Generates a given length string of digits.
      *
      * @param length The number of digits to generate. Defaults to `1`.

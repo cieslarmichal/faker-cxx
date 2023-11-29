@@ -193,6 +193,19 @@ std::string String::alphanumeric(unsigned int length, StringCasing casing, const
     return alphanumeric;
 }
 
+std::string String::alphanumeric(GuaranteeMap&& guarantee, unsigned length, StringCasing casing)
+{
+    auto targetCharacters = digitSet;
+    auto charSet = stringCasingToAlphaCharSetMapping.at(casing);
+    targetCharacters.merge(charSet);
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    return generateStringWithGuarantee(guarantee, targetCharacters, length);
+}
+
 std::string String::numeric(unsigned int length, bool allowLeadingZeros)
 {
     std::string alphanumeric;
