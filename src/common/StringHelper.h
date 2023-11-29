@@ -14,11 +14,6 @@ public:
     static std::string toLower(const std::string& data);
     static bool isPunctuation(char c);
     static std::string removePunctuation(const std::string& word);
-<<<<<<< HEAD
     
-=======
-    // Helper to convert wstring to string for Persian and Arabic characters.
-    static std::vector<std::string> convertToUTF8(const std::vector<std::wstring>& wstr);
->>>>>>> 36de5791406c2238d9c3fae6787ca4e44dc2d55b
 };
 }
