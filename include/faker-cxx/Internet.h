@@ -123,6 +123,9 @@ public:
      */
     static std::string emoji(std::optional<EmojiType> type = std::nullopt);
 
+
+    static bool checkIfEmojiIsValid(const std::string& emojiToCheck);
+
     /**
      * @brief Returns a random web protocol. Either `http` or `https`.
      *
