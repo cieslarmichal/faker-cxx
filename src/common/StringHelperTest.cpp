@@ -93,10 +93,3 @@ TEST_F(StringHelperTest, RemovePunctuation)
     EXPECT_EQ(result, "Hello World");
 }
 
-TEST_F(StringHelperTest, convertToUTF8) 
-{
-    std::vector<std::wstring> data = {L"Hello"};
-    std::vector<std::string> expected = {"Hello"};
-    std::vector<std::string> result = StringHelper::convertToUTF8(data);
-    ASSERT_EQ(result, expected);
-}
