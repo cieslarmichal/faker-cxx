@@ -84,7 +84,7 @@ std::string StringHelper::removePunctuation(const std::string& word)
 
 std::vector<std::string> StringHelper::convertToUTF8(const std::vector<std::wstring>& wstr)
 {
-    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>, wchar_t> converter;
+    std::wstring_convert<std::codecvt_utf8_utf16<wchar_t>, wchar_t> converter; 
     std::vector<std::string> str;
     for (auto& item : wstr)
     {
