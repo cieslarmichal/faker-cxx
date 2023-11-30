@@ -51,6 +51,7 @@ enum class Country
     Ireland,
     Belarus,
     Estonia,
+    Bulgaria,
     Iran,
 };
 
@@ -61,7 +62,7 @@ const std::vector<Country> countries{
     Country::Ukraine,   Country::Denmark,  Country::Sweden,      Country::Brazil,  Country::Norway,
     Country::Japan,     Country::Portugal, Country::Hungary,     Country::Croatia, Country::Greece,
     Country::Slovenia,  Country::Austria,  Country::Switzerland, Country::Belgium, Country::Netherlands,
-    Country::China,     Country::Korea,    Country::Canada,      Country::Mexico,  Country::Argentina,
+    Country::China,     Country::Korea,    Country::Canada,      Country::Mexico,  Country::Argentina, Country::Bulgaria,
     Country::Australia, Country::Serbia,   Country::Macedonia,   Country::Albania, Country::Latvia,  Country::Ireland,
     Country::Belarus,   Country::Estonia,Country::Iran,
 };
@@ -112,6 +113,7 @@ inline std::string toString(Country country)
         {Country::Ireland, "Ireland"},
         {Country::Belarus, "Belarus"},
         {Country::Estonia, "Estonia"},
+        {Country::Estonia, "Bulgaria"},
         {Country::Iran, "Iran"}
     };
 
