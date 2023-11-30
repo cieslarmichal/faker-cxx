@@ -12,6 +12,7 @@
 #include "data/belarus/BelarusianPeopleNames.h"
 #include "data/belgium/BelgianPeopleNames.h"
 #include "data/brazil/BrazilianPeopleNames.h"
+#include "data/bulgaria/BulgarianPeopleNames.h"
 #include "data/canada/CanadianPeopleNames.h"
 #include "data/china/ChinesePeopleNames.h"
 #include "data/croatia/CroatianPeopleNames.h"
