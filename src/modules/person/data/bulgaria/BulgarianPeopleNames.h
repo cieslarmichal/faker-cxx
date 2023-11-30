@@ -8,7 +8,7 @@
 namespace faker
 {
 const NameFormats bulgarianPersonNameFormats{
-    {{"{firstName} {lastName}", 10}}};
+    {"{firstName} {lastName}", 10}};
 
 const PeopleNames bulgarianPeopleNames{
     {bulgarianMalesFirstNames, {}, bulgarianLastNames, {}, {}},
