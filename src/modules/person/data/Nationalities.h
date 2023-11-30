@@ -14,6 +14,6 @@ const std::vector<std::string> nationalities = {
     "Belgian",      "Austrian",      "Finnish",       "Hungarian",  "Czech",       "Romanian",      "Ukrainian",
     "Swedish",      "Norwegian",     "Singaporean",   "Malaysian",  "Filipino",    "Indonesian",    "Kuwaiti",
     "Qatari",       "Emirati",       "Jordanian",     "Chilean",    "Peruvian",    "Colombian",     "Venezuelan",
-    "Ecuadorian",   "Bolivian",      "Costa Rican",   "Panamanian", "Honduran",    "Guatemalan",
+    "Ecuadorian",   "Bolivian",      "Costa Rican",   "Panamanian", "Honduran",    "Bulgarian", "Guatemalan",
 };
 }
