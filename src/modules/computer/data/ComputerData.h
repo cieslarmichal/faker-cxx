@@ -14,13 +14,13 @@ const std::vector<std::string> ComputerManufactures = {
 
 // todo - it is possible to link the models to brands in the future.
 const std::vector<std::string> ComputerModels = {
-    "MacBook Air", "MacBook Pro", "iMac",          "Mac mini",     "Inspiron",       "XPS",         "Alienware",
-    "Latitude",    "Precision",   "Spectre",       "Envy",         "Pavilion",       "EliteBook",   "ThinkPad",
-    "Yoga",        "Legion",      "IdeaPad",       "Aspire",       "Predator",       "TravelMate",  "Swift",
-    "ZenBook",     "ROG",         "VivoBook",      "TUF",          "Surface Laptop", "Surface Pro", "Surface Book",
-    "Galaxy Book", "Notebook",    "Odyssey",       "Portégé",      "Satellite",      "VAIO",        "GS Series",
-    "GE Series",   "GL Series",   "ThinkCentre",   "ThinkStation", "Presario",       "Area-51",     "m15",
-    "Aurora",      "Blade",       "Blade Stealth", "NUC"};
+    "MacBook Air", "MacBook Pro",   "iMac",         "Mac mini",  "Inspiron",       "XPS",         "Alienware",
+    "Latitude",    "Precision",     "Spectre",      "Envy",      "Pavilion",       "EliteBook",   "ThinkPad",
+    "Yoga",        "Legion",        "IdeaPad",      "Aspire",    "Predator",       "TravelMate",  "Swift",
+    "ZenBook",     "ROG",           "VivoBook",     "TUF",       "Surface Laptop", "Surface Pro", "Surface Book",
+    "Galaxy Book", "Notebook",      "Odyssey",      "Satellite", "VAIO",           "GS Series",   "GE Series",
+    "GL Series",   "ThinkCentre",   "ThinkStation", "Presario",  "Area-51",        "m15",         "Aurora",
+    "Blade",       "Blade Stealth", "NUC"};
 
 const std::vector<std::string> ComputerCPUManufactures = {"Intel", "AMD", "ARM", "IBM", "Apple"};
 
