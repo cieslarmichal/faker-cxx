@@ -8,6 +8,7 @@ var annotated_dup =
       [ "Color", "classfaker_1_1Color.html", null ],
       [ "Commerce", "classfaker_1_1Commerce.html", null ],
       [ "Company", "classfaker_1_1Company.html", null ],
+      [ "Computer", "classfaker_1_1Computer.html", null ],
       [ "CronOptions", "structfaker_1_1CronOptions.html", null ],
       [ "Crypto", "classfaker_1_1Crypto.html", null ],
       [ "Database", "classfaker_1_1Database.html", null ],

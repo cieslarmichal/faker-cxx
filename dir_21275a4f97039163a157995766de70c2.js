@@ -6,6 +6,7 @@ var dir_21275a4f97039163a157995766de70c2 =
     [ "Color.h", "Color_8h_source.html", null ],
     [ "Commerce.h", "Commerce_8h_source.html", null ],
     [ "Company.h", "Company_8h_source.html", null ],
+    [ "Computer.h", "Computer_8h_source.html", null ],
     [ "Crypto.h", "Crypto_8h_source.html", null ],
     [ "Database.h", "Database_8h_source.html", null ],
     [ "Datatype.h", "Datatype_8h_source.html", null ],
