@@ -58,6 +58,7 @@ int main()
 - 🎨 Color - color names, rgb, hex, hcl
 - 🛒 Commerce - commerce department, product name, sku, price
 - 🏢 Company - company name, type, industry, catch phrase, buzz phrase
+- 🖥️ Computer -  type, manufacturer, model, CPU info, GPU info
 - 💾 Database - column names, column types, database engines
 - ℹ️ Datatype - booleans
 - 📅 Date - past, future dates
@@ -82,6 +83,7 @@ int main()
 - 🎮 Video game - title, genre, platform, studio
 - 🌤️ Weather - temperature, pressure, humidity, weather description
 - 💬 Word - sample words, nouns, verbs
+
 
 
 ## 📖 Documentation
