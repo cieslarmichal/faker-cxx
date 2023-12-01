@@ -75,7 +75,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Czech, czechPeopleNames},           {Country::Slovakia, slovakPeopleNames},
     {Country::Ukraine, ukrainianPeopleNames},     {Country::Denmark, danishPeopleNames},
     {Country::Sweden, swedishPeopleNames},        {Country::Usa, usaPeopleNames},
-    {Country::Brazil, brazilianPeopleNames},      {Country::Bulgarian, bulgarianPeopleNames},
+    {Country::Brazil, brazilianPeopleNames},      {Country::Bulgaria, bulgarianPeopleNames},
     {Country::Norway, norwegianPeopleNames},
     {Country::Japan, japanesePeopleNames},        {Country::Portugal, portuguesePeopleNames},
     {Country::Hungary, hungarianPeopleNames},     {Country::Croatia, croatianPeopleNames},
