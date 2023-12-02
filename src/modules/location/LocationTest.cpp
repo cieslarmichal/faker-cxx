@@ -35,7 +35,7 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
 const std::map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Usa, "shouldGenerateAmericanAddress"},    {AddressCountry::France, "shouldGenerateFrenchAddress"},
     {AddressCountry::Poland, "shouldGeneratePolishAddress"},   {AddressCountry::Russia, "shouldGenerateRussianAddress"},
-    {AddressCountry::Ukraine, "shouldGenerateRussianAddress"},
+    {AddressCountry::Ukraine, "shouldGenerateUkraineAddress"},
 };
 }
 
