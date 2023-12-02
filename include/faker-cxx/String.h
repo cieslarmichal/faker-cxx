@@ -141,6 +141,21 @@ public:
     static std::string sample(unsigned length = 10);
 
     /**
+     * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of characters to generate. Defaults to `10`.
+     *
+     * @returns Sample string.
+     *
+     * @code
+     * String::sample({}) // "Zo!.:*e>wR"
+     * String::sample({{'|' ,{2,2}},{'^',{0,0}},{':',{1,8}}}, 8) // "|6Bye8:|"
+     * @endcode
+     */
+    static std::string sample(GuaranteeMap&& guarantee, unsigned length = 10);
+
+    /**
      * @brief Generates a string consisting of given characters.
      *
      * @param characters The characters to generate string with.

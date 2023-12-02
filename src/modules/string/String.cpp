@@ -132,6 +132,17 @@ std::string String::sample(unsigned int length)
     return sample;
 }
 
+std::string String::sample(GuaranteeMap&& guarantee, unsigned int length)
+{
+    auto targetCharacters = utf16CharSet;
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    return generateStringWithGuarantee(guarantee, targetCharacters, length);
+}
+
 std::string String::fromCharacters(const std::string& characters, unsigned int length)
 {
     std::string result;
