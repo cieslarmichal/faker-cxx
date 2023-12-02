@@ -18,6 +18,7 @@
 #include "data/russia/RussiaAddresses.h"
 #include "data/States.h"
 #include "data/TimeZones.h"
+#include "data/ukraine/UkraineAddresses.h"
 #include "data/usa/UsaAddresses.h"
 
 using namespace ::testing;
@@ -26,17 +27,15 @@ using namespace faker;
 namespace
 {
 const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
-    {AddressCountry::Usa, usaAddresses},
-    {AddressCountry::Poland, polandAddresses},
-    {AddressCountry::Russia, russiaAddresses},
-    {AddressCountry::France, franceAddresses},
+    {AddressCountry::Usa, usaAddresses},         {AddressCountry::Poland, polandAddresses},
+    {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
+    {AddressCountry::Ukraine, ukraineAddresses},
 };
 
 const std::map<AddressCountry, std::string> generatedTestName{
-    {AddressCountry::Usa, "shouldGenerateAmericanAddress"},
-    {AddressCountry::France, "shouldGenerateFrenchAddress"},
-    {AddressCountry::Poland, "shouldGeneratePolishAddress"},
-    {AddressCountry::Russia, "shouldGenerateRussianAddress"},
+    {AddressCountry::Usa, "shouldGenerateAmericanAddress"},    {AddressCountry::France, "shouldGenerateFrenchAddress"},
+    {AddressCountry::Poland, "shouldGeneratePolishAddress"},   {AddressCountry::Russia, "shouldGenerateRussianAddress"},
+    {AddressCountry::Ukraine, "shouldGenerateRussianAddress"},
 };
 }
 
@@ -251,6 +250,44 @@ TEST_F(LocationTest, shouldGenerateRussiaStreetAddress)
                 std::ranges::any_of(lastNames, [&generatedStreetAddress](const std::string& lastName)
                                     { return generatedStreetAddress.find(lastName) != std::string::npos; }) ||
                 std::ranges::any_of(russiaStreetNames,
+                                    [&generatedStreetAddress](const std::string& streetName)
+                                    {
+                                        return generatedStreetAddress.find(streetName) != std::string::npos;
+                                        ;
+                                    }));
+}
+
+TEST_F(LocationTest, shouldGenerateUkraineStreet)
+{
+    const auto generatedStreet = Location::street(AddressCountry::Ukraine);
+
+    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+
+    const auto& generatedStreetPrefix = generatedStreetElements[0];
+    const auto& generatedStreetSuffix =
+        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+
+    ASSERT_TRUE(std::ranges::any_of(ukraineStreetPrefixes, [&generatedStreetPrefix](const std::string& streetPrefix)
+                                    { return streetPrefix == generatedStreetPrefix; }));
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetSuffix](const std::string& firstName)
+                                    { return firstName == generatedStreetSuffix; }) ||
+                std::ranges::any_of(lastNames, [&generatedStreetSuffix](const std::string& lastName)
+                                    { return lastName == generatedStreetSuffix; }) ||
+                std::ranges::any_of(ukraineStreetNames, [&generatedStreetSuffix](const std::string& streetName)
+                                    { return streetName == generatedStreetSuffix; }));
+}
+
+TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
+{
+    const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Ukraine);
+
+    ASSERT_TRUE(std::ranges::any_of(ukraineStreetPrefixes, [&generatedStreetAddress](const std::string& prefix)
+                                    { return generatedStreetAddress.find(prefix) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string& firstName)
+                                    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
+                std::ranges::any_of(lastNames, [&generatedStreetAddress](const std::string& lastName)
+                                    { return generatedStreetAddress.find(lastName) != std::string::npos; }) ||
+                std::ranges::any_of(ukraineStreetNames,
                                     [&generatedStreetAddress](const std::string& streetName)
                                     {
                                         return generatedStreetAddress.find(streetName) != std::string::npos;
