@@ -142,6 +142,107 @@ TEST_F(StringTest, shouldGenerateSampleString)
         { return static_cast<int>(sampleCharacter) >= 33 && static_cast<int>(sampleCharacter) <= 125; }));
 }
 
+TEST_F(StringTest, shouldGenerateSampleStringWithGuarantee1)
+{
+    const auto sampleLength{20};
+    // atleast 1 ';' - 3 ',' - 2 'a'
+    // atmost 3 ';' - 4 ',' - 10 'a'
+    const GuaranteeMap guarantee = {{';', {1, 3}}, {',', {3, 4}}, {'a', {2, 10}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto sample = String::sample(std::move(copyGuarantee), sampleLength);
+
+        ASSERT_EQ(sample.size(), sampleLength);
+        ASSERT_TRUE(std::ranges::all_of(
+            sample, [](char sampleCharacter)
+            { return static_cast<int>(sampleCharacter) >= 33 && static_cast<int>(sampleCharacter) <= 125; }));
+
+        auto count_semicolon = std::ranges::count(sample, ';');
+        auto count_comma = std::ranges::count(sample, ',');
+        auto count_a = std::ranges::count(sample, 'a');
+
+        ASSERT_TRUE(count_semicolon >= 1 && count_semicolon <= 3);
+        ASSERT_TRUE(count_comma >= 3 && count_comma <= 4);
+        ASSERT_TRUE(count_a >= 2 && count_a <= 10);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateSampleStringWithGuarantee2)
+{
+    const auto sampleLength{20};
+    // exactly 2 '@'
+    // atmost 1 '4' - 2 '5' - 3 'a'
+    const GuaranteeMap guarantee = {{'4', {0, 1}}, {'5', {0, 2}}, {'a', {0, 3}}, {'@', {2, 2}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto sample = String::sample(std::move(copyGuarantee), sampleLength);
+
+        ASSERT_EQ(sample.size(), sampleLength);
+        ASSERT_TRUE(std::ranges::all_of(
+            sample, [](char sampleCharacter)
+            { return static_cast<int>(sampleCharacter) >= 33 && static_cast<int>(sampleCharacter) <= 125; }));
+
+        auto count_4 = std::ranges::count(sample, '4');
+        auto count_5 = std::ranges::count(sample, '5');
+        auto count_a = std::ranges::count(sample, 'a');
+        auto count_at = std::ranges::count(sample, '@');
+
+        ASSERT_TRUE(count_4 <= 1);
+        ASSERT_TRUE(count_5 <= 2);
+        ASSERT_TRUE(count_a <= 3);
+        ASSERT_TRUE(count_at == 2);
+    }
+}
+
+TEST_F(StringTest, shouldGenerateSampleStringWithGuarantee3)
+{
+    const auto sampleLength{20};
+    // atmost 4 '(' - 2 '{' - 1 '\' - 5 '/'
+    const GuaranteeMap guarantee = {{'(', {0, 4}}, {'{', {0, 2}}, {'\\', {0, 1}}, {'/', {0, 5}}};
+    // it is a random function so lets test for 20 random generations
+    for (int i = 0; i < runCount; ++i)
+    {
+        auto copyGuarantee = guarantee;
+        const auto sample = String::sample(std::move(copyGuarantee), sampleLength);
+
+        ASSERT_EQ(sample.size(), sampleLength);
+        ASSERT_TRUE(std::ranges::all_of(
+            sample, [](char sampleCharacter)
+            { return static_cast<int>(sampleCharacter) >= 33 && static_cast<int>(sampleCharacter) <= 125; }));
+
+        auto count_leftBracket = std::ranges::count(sample, '(');
+        auto count_leftBrace = std::ranges::count(sample, '{');
+        auto count_backSlash = std::ranges::count(sample, '\\');
+        auto count_forwardSlash = std::ranges::count(sample, '/');
+
+        ASSERT_TRUE(count_leftBracket <= 4);
+        ASSERT_TRUE(count_leftBrace <= 2);
+        ASSERT_TRUE(count_backSlash <= 1);
+        ASSERT_TRUE(count_forwardSlash <= 5);
+    }
+}
+
+TEST_F(StringTest, invalidGuaranteeForSample1)
+{
+    const auto sampleLength{20};
+    // atleast 5 '3' - 6 ':' - 10 'A' // invalid // string will be atleast 21 which is wrong
+    // atmost 6 '3'
+    GuaranteeMap guarantee = {{'3', {5, 6}}, {':', {6}}, {'A', {10}}};
+    ASSERT_THROW(String::sample(std::move(guarantee), sampleLength), std::invalid_argument);
+}
+
+TEST_F(StringTest, invalidGuaranteeForSample2)
+{
+    const auto sampleLength{20};
+    // exactly 2 '~' // invalid // not in char set
+    GuaranteeMap guarantee = {{'a', {3}}, {'A', {10}}, {'~', {2, 2}}};
+    ASSERT_THROW(String::sample(std::move(guarantee), sampleLength), std::invalid_argument);
+}
+
 TEST_F(StringTest, shouldGenerateDefaultStringFromCharaters)
 {
     const std::string characters{"abc"};
