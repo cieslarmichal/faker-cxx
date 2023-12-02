@@ -277,11 +277,7 @@ TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
 
     ASSERT_TRUE(std::ranges::any_of(ukraineStreetPrefixes, [&generatedStreetAddress](const std::string& prefix)
                                     { return generatedStreetAddress.find(prefix) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string& firstName)
-                                    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
-                std::ranges::any_of(lastNames, [&generatedStreetAddress](const std::string& lastName)
-                                    { return generatedStreetAddress.find(lastName) != std::string::npos; }) ||
-                std::ranges::any_of(ukraineStreetNames,
+    ASSERT_TRUE(std::ranges::any_of(ukraineStreetNames,
                                     [&generatedStreetAddress](const std::string& streetName)
                                     {
                                         return generatedStreetAddress.find(streetName) != std::string::npos;
