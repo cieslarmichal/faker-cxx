@@ -55,7 +55,8 @@ set(FAKER_SOURCES
     src/common/WeatherHelper.cpp
     src/modules/airline/Airline.cpp
     src/modules/image/Image.cpp
-    src/modules/crypto/Crypto.cpp)
+    src/modules/crypto/Crypto.cpp 
+    src/modules/computer/Computer.cpp)
 
 set(FAKER_UT_SOURCES
     src/modules/animal/AnimalTest.cpp
@@ -93,7 +94,8 @@ set(FAKER_UT_SOURCES
     src/common/WeatherHelperTest.cpp
     src/modules/airline/AirlineTest.cpp
     src/modules/image/ImageTest.cpp
-    src/modules/crypto/CryptoTest.cpp)
+    src/modules/crypto/CryptoTest.cpp 
+    src/modules/computer/ComputerTest.cpp)
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 

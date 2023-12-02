@@ -22,6 +22,7 @@ Making Changes
 - Make commits of logical units.
 - Make sure you have added the necessary tests for your changes.
 - Run *all* the tests to assure nothing else was accidentally broken.
+- If you've added a new file to your project with non-Latin characters, ensure that the file encoding is set to <strong>Unicode (UTF-8 without signature) - Codepage 65001</strong> in Microsoft Visual Studio Code.
 
 Submitting Changes
 ------------------

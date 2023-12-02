@@ -14,5 +14,6 @@ public:
     static std::string toLower(const std::string& data);
     static bool isPunctuation(char c);
     static std::string removePunctuation(const std::string& word);
+    
 };
 }

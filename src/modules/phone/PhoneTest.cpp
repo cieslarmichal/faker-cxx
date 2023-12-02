@@ -1,11 +1,13 @@
 #include "faker-cxx/Phone.h"
 
 #include <algorithm>
+#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 
+#include "data/PhoneData.h"
 #include "data/PhoneNumbers.h"
-
 using namespace ::testing;
 using namespace faker;
 
@@ -65,4 +67,28 @@ TEST_F(PhoneTest, NumberFormatTest)
 
     EXPECT_FALSE(phoneNumber.empty());
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
+}
+
+TEST_F(PhoneTest, PlatformGeneration) {
+    std::string generatedPlatform = Phone::platform();
+    ASSERT_TRUE(std::ranges::any_of(
+        faker::data::PhonePlatforms.begin(), faker::data::PhonePlatforms.end(),
+        [generatedPlatform](const std::string& platform) { return platform == generatedPlatform; }
+    ));
+}
+
+TEST_F(PhoneTest, ModelNameGeneration) {
+    std::string generatedModelName = Phone::modelName();
+    ASSERT_TRUE(std::ranges::any_of(
+        faker::data::PhoneModelNames.begin(), faker::data::PhoneModelNames.end(),
+        [generatedModelName](const std::string& modelName) { return modelName == generatedModelName; }
+    ));
+}
+
+TEST_F(PhoneTest, ManufacturerGeneration) {
+    std::string generatedManufacturer = Phone::manufacturer();
+    ASSERT_TRUE(std::ranges::any_of(
+        faker::data::PhoneManufacturers.begin(), faker::data::PhoneManufacturers.end(),
+        [generatedManufacturer](const std::string& manufacturer) { return manufacturer == generatedManufacturer; }
+    ));
 }
