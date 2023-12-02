@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="./docs/public/logo.png" width="250" alt="C++ Faker, a powerful tool for generating realistic and randomized fake data in C++ programming, enhancing data testing and development workflows"/>
+  <img src="https://github.com/cieslarmichal/faker-cxx/blob/main/docs/images/logo.png" width="250" alt="C++ Faker, a powerful tool for generating realistic and randomized fake data in C++ programming, enhancing data testing and development workflows"/>
   <h1>Faker C++</h1>
   <p>Generate fake (but realistic) data for testing and development.</p>
 
@@ -16,7 +16,6 @@
 ## 🎯 Goal
 
 Goal of the Faker C++ is to provide a library like [Faker.js](https://github.com/faker-js/faker) for C++ community.
-
 
 ## Usage
 
@@ -58,7 +57,7 @@ int main()
 - 🎨 Color - color names, rgb, hex, hcl
 - 🛒 Commerce - commerce department, product name, sku, price
 - 🏢 Company - company name, type, industry, catch phrase, buzz phrase
-- 🖥️ Computer -  type, manufacturer, model, CPU info, GPU info
+- 🖥️ Computer - type, manufacturer, model, CPU info, GPU info
 - 💾 Database - column names, column types, database engines
 - ℹ️ Datatype - booleans
 - 📅 Date - past, future dates
@@ -84,12 +83,9 @@ int main()
 - 🌤️ Weather - temperature, pressure, humidity, weather description
 - 💬 Word - sample words, nouns, verbs
 
-
-
 ## 📖 Documentation
 
 https://cieslarmichal.github.io/faker-cxx/
-
 
 ## Consuming library with CMake (CMake 3.22 or newer)
 
@@ -113,7 +109,6 @@ https://cieslarmichal.github.io/faker-cxx/
     target_link_libraries(main faker-cxx)
     ```
 
-
 ## Compiler support
 
 - [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
@@ -121,12 +116,10 @@ https://cieslarmichal.github.io/faker-cxx/
 - [Clang➚](https://clang.llvm.org/) version 16 or newer.
 - [Apple Clang➚](https://clang.llvm.org/) version 16 or newer.
 
-  
 ## Dependencies
 
 - GTest (```BUILD_FAKER_TESTS=OFF``` CMake flag to disable)
 - fmt
-
 
 ## ✨ Contributing
 
