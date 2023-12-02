@@ -108,6 +108,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:acf3e6aafee07f5f1331dd627ce736a41" id="r_acf3e6aafee07f5f1331dd627ce736a41"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">sample</a> (unsigned length=10)</td></tr>
 <tr class="memdesc:acf3e6aafee07f5f1331dd627ce736a41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing UTF-16 chars between 33 and 125 (<code>!</code> to <code>}</code>).  <br /></td></tr>
 <tr class="separator:acf3e6aafee07f5f1331dd627ce736a41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8067d353710df2a9b326ea679e1efc02" id="r_a8067d353710df2a9b326ea679e1efc02"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a8067d353710df2a9b326ea679e1efc02">sample</a> (GuaranteeMap &amp;&amp;guarantee, unsigned length=10)</td></tr>
+<tr class="memdesc:a8067d353710df2a9b326ea679e1efc02"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing UTF-16 chars between 33 and 125 (<code>!</code> to <code>}</code>).  <br /></td></tr>
+<tr class="separator:a8067d353710df2a9b326ea679e1efc02"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a92030c8a33a900266ba32df06aefd331" id="r_a92030c8a33a900266ba32df06aefd331"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331">fromCharacters</a> (const std::string &amp;characters, unsigned length=1)</td></tr>
 <tr class="memdesc:a92030c8a33a900266ba32df06aefd331"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a string consisting of given characters.  <br /></td></tr>
 <tr class="separator:a92030c8a33a900266ba32df06aefd331"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -872,8 +875,57 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="a8067d353710df2a9b326ea679e1efc02" name="a8067d353710df2a9b326ea679e1efc02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8067d353710df2a9b326ea679e1efc02">&#9670;&#160;</a></span>sample() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::String::sample </td>
+          <td>(</td>
+          <td class="paramtype">GuaranteeMap &amp;&amp;&#160;</td>
+          <td class="paramname"><em>guarantee</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned&#160;</td>
+          <td class="paramname"><em>length</em> = <code>10</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a string containing UTF-16 chars between 33 and 125 (<code>!</code> to <code>}</code>). </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">guarantee</td><td>A map specifying char count constraints if any </td></tr>
+    <tr><td class="paramname">length</td><td>The number of characters to generate. Defaults to <code>10</code>.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Sample string.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">String::sample</a>({}) <span class="comment">// &quot;Zo!.:*e&gt;wR&quot;</span></div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">String::sample</a>({{<span class="charliteral">&#39;|&#39;</span> ,{2,2}},{<span class="charliteral">&#39;^&#39;</span>,{0,0}},{<span class="charliteral">&#39;:&#39;</span>,{1,8}}}, 8) <span class="comment">// &quot;|6Bye8:|&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1String_html_acf3e6aafee07f5f1331dd627ce736a41"><div class="ttname"><a href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">faker::String::sample</a></div><div class="ttdeci">static std::string sample(unsigned length=10)</div><div class="ttdoc">Returns a string containing UTF-16 chars between 33 and 125 (! to }).</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="acf3e6aafee07f5f1331dd627ce736a41" name="acf3e6aafee07f5f1331dd627ce736a41"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acf3e6aafee07f5f1331dd627ce736a41">&#9670;&#160;</a></span>sample()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#acf3e6aafee07f5f1331dd627ce736a41">&#9670;&#160;</a></span>sample() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -906,7 +958,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Sample string.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">String::sample</a>() <span class="comment">// &quot;Zo!.:*e&gt;wR&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">sample</a>(5) <span class="comment">// &quot;6Bye8&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1String_html_acf3e6aafee07f5f1331dd627ce736a41"><div class="ttname"><a href="classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41">faker::String::sample</a></div><div class="ttdeci">static std::string sample(unsigned length=10)</div><div class="ttdoc">Returns a string containing UTF-16 chars between 33 and 125 (! to }).</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
