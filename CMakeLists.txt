@@ -38,6 +38,7 @@ set(FAKER_SOURCES
     src/modules/string/String.cpp
     src/modules/word/Word.cpp
     src/modules/phone/Phone.cpp
+    src/common/BioHelper.cpp
     src/common/StringHelper.cpp
     src/common/FormatHelper.cpp
     src/common/LuhnCheck.cpp

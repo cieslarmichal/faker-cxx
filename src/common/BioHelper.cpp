@@ -1,9 +1,8 @@
-#pragma once
-
 #include "BioHelper.h"
-#include "include/faker-cxx/Internet.h"
-#include "src/modules/person/data/Bio.h"
-#include "src/modules/word/data/Nouns.h"
+
+#include "../../include/faker-cxx/Internet.h"
+#include "../../src/modules/person/data/Bio.h"
+#include "../../src/modules/word/data/Nouns.h"
 
 namespace faker
 {
@@ -11,13 +10,13 @@ bool BioHelper::checkTokenFormat(const std::string& bio)
 {
 
     const std::regex firstRegex{R"(^[a-zA-Z0-9_]+$)"};
-    const std::regex secondRegex{R"(^(\w+), (\w+)$)"};
-    const std::regex thirdRegex{R"(^(\w+), (\w+)), (\w+)$)"};
-    const std::regex fourthRegex{R"(^(\w+), (\w+)), (\w+)), (\w+)$)"};
+    const std::regex secondRegex{R"(^(\w+\s?\w+), (\w+\s?\w+)$)"};
+    const std::regex thirdRegex{R"(^(\w+\s?\w+), (\w+\s?\w+), (\w+\s?\w+)$)"};
+    const std::regex fourthRegex{R"(^(\w+\s?\w+), (\w+\s?\w+), (\w+\s?\w+), (\w+)$)"};
     const std::regex fifthRegex{R"(^(\w+) (\w+)$)"};
     const std::regex sixthRegex{R"(^(\w+) (\w+) (\w+)$)"};
-    const std::regex seventhRegex{R"(^(\w+) (\w+), (\w+)$)"};
-    const std::regex eigthRegex{R"(^(\w+) (\w+), (\w+) (\w+)$)"};
+    const std::regex seventhRegex{R"(^(\w+) (\w+), (\w+\s?\w+)$)"};
+    const std::regex eigthRegex{R"(^(\w+) (\w+), (\w+\s?\w+) (\w+)$)"};
 
     std::smatch matches;
     //
@@ -59,8 +58,8 @@ bool BioHelper::checkTokenFormat(const std::string& bio)
         // present in the bio_part vector.
         if (std::find(bioPart.begin(), bioPart.end(), matches[1]) != bioPart.end() &&
             std::find(bioPart.begin(), bioPart.end(), matches[2]) != bioPart.end() &&
-            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() &&
-            checkIfEmojiIsValid(matches[4]))
+            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() && 
+            Internet::checkIfEmojiIsValid(matches[4]))
             return true;
 
         else
@@ -101,5 +100,20 @@ bool BioHelper::checkTokenFormat(const std::string& bio)
         else
             return false;
     }
+    else if (std::regex_match(bio, matches, eigthRegex))
+    {
+        // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} {emoji} so check that the value is present
+        // in the bio_part vector.
+        if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
+            std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
+            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() && 
+            Internet::checkIfEmojiIsValid(matches[4]))
+            return true;
+
+        else
+            return false;
+    }
+
+    return false;
 }
 }

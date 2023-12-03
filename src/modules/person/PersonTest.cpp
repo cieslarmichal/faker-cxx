@@ -4,6 +4,8 @@
 
 #include "gtest/gtest.h"
 
+
+#include "../../common/BioHelper.h"
 #include "../../common/StringHelper.h"
 #include "data/albania/AlbanianPeopleNames.h"
 #include "data/argentina/ArgentinianPeopleNames.h"
@@ -437,8 +439,9 @@ TEST_F(PersonTest, shouldGenerateBio)
 {
     const auto generatedBio = Person::bio();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(hobbies, [generatedHobby](const std::string& hobby) { return hobby == generatedHobby; }));
+    std::cout << "Bio generated: " << generatedBio;
+
+    ASSERT_TRUE(BioHelper::checkTokenFormat(generatedBio));
 }
 
 TEST_F(PersonTest, shouldGenerateLanguage)
