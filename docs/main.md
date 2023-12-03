@@ -4,7 +4,7 @@
 
   <div class="api-groups">
      <div class="api-group">
-        <h3><a href="/api/airline.html" class="header-style">Airline</a></h3>
+        <h2><a href="/api/airline.html" class="header-style">Airline</a></h2>
         <ul>
            <li><a href="/api/airline.html#aircrafttype" class="text-style">aircraftType</a></li>
            <li><a href="/api/airline.html#airline" class="text-style">airline</a></li>
@@ -16,7 +16,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/animal.html" class="header-style">Animal</a></h3>
+        <h2><a href="/api/animal.html" class="header-style">Animal</a></h2>
         <ul>
            <li><a href="/api/animal.html#bear" class="text-style">bear</a></li>
            <li><a href="/api/animal.html#bird" class="text-style">bird</a></li>
@@ -36,7 +36,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/color.html" class="header-style">Color</a></h3>
+        <h2><a href="/api/color.html" class="header-style">Color</a></h2>
         <ul>
            <li><a href="/api/color.html#cmyk" class="text-style">cmyk</a></li>
            <li><a href="/api/color.html#colorbycsscolorspace" class="text-style">colorByCSSColorSpace</a></li>
@@ -52,7 +52,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/commerce.html" class="header-style">Commerce</a></h3>
+        <h2><a href="/api/commerce.html" class="header-style">Commerce</a></h2>
         <ul>
            <li><a href="/api/commerce.html#department" class="text-style">department</a></li>
            <li><a href="/api/commerce.html#isbn" class="text-style">isbn</a></li>
@@ -65,7 +65,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/company.html" class="header-style">Company</a></h3>
+        <h2><a href="/api/company.html" class="header-style">Company</a></h2>
         <ul>
            <li><a href="/api/company.html#buzzadjective" class="text-style">buzzAdjective</a></li>
            <li><a href="/api/company.html#buzznoun" class="text-style">buzzNoun</a></li>
@@ -79,7 +79,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/database.html" class="header-style">Database</a></h3>
+        <h2><a href="/api/database.html" class="header-style">Database</a></h2>
         <ul>
            <li><a href="/api/database.html#collation" class="text-style">collation</a></li>
            <li><a href="/api/database.html#column" class="text-style">column</a></li>
@@ -89,13 +89,13 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/datatype.html" class="header-style">Datatype</a></h3>
+        <h2><a href="/api/datatype.html" class="header-style">Datatype</a></h2>
         <ul>
            <li><a href="/api/datatype.html#boolean" class="text-style">boolean</a></li>
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/date.html" class="header-style">Date</a></h3>
+        <h2><a href="/api/date.html" class="header-style">Date</a></h2>
         <ul>
            <li><a href="/api/date.html#anytime" class="text-style">anytime</a></li>
            <li><a href="/api/date.html#between" class="text-style">between</a></li>
@@ -110,7 +110,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/finance.html" class="header-style">Finance</a></h3>
+        <h2><a href="/api/finance.html" class="header-style">Finance</a></h2>
         <ul>
            <li><a href="/api/finance.html#accountname" class="text-style">accountName</a></li>
            <li><a href="/api/finance.html#accountnumber" class="text-style">accountNumber</a></li>
@@ -135,7 +135,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/git.html" class="header-style">Git</a></h3>
+        <h2><a href="/api/git.html" class="header-style">Git</a></h2>
         <ul>
            <li><a href="/api/git.html#branch" class="text-style">branch</a></li>
            <li><a href="/api/git.html#commitdate" class="text-style">commitDate</a></li>
@@ -145,7 +145,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/hacker.html" class="header-style">Hacker</a></h3>
+        <h2><a href="/api/hacker.html" class="header-style">Hacker</a></h2>
         <ul>
            <li><a href="/api/hacker.html#abbreviation" class="text-style">abbreviation</a></li>
            <li><a href="/api/hacker.html#adjective" class="text-style">adjective</a></li>
@@ -156,7 +156,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/helpers.html" class="header-style">Helpers</a></h3>
+        <h2><a href="/api/helpers.html" class="header-style">Helpers</a></h2>
         <ul>
            <li><a href="/api/helpers.html#arrayelement" class="text-style">arrayElement</a></li>
            <li><a href="/api/helpers.html#arrayelements" class="text-style">arrayElements</a></li>
@@ -180,7 +180,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/image.html" class="header-style">Image</a></h3>
+        <h2><a href="/api/image.html" class="header-style">Image</a></h2>
         <ul>
            <li><a href="/api/image.html#avatar" class="text-style">avatar</a></li>
            <li><a href="/api/image.html#avatargithub" class="text-style">avatarGitHub</a></li>
@@ -193,7 +193,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/internet.html" class="header-style">Internet</a></h3>
+        <h2><a href="/api/internet.html" class="header-style">Internet</a></h2>
         <ul>
            <li><a href="/api/internet.html#avatar" class="text-style">avatar</a></li>
            <li><a href="/api/internet.html#color" class="text-style">color</a></li>
@@ -219,7 +219,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/location.html" class="header-style">Location</a></h3>
+        <h2><a href="/api/location.html" class="header-style">Location</a></h2>
         <ul>
            <li><a href="/api/location.html#buildingnumber" class="text-style">buildingNumber</a></li>
            <li><a href="/api/location.html#cardinaldirection" class="text-style">cardinalDirection</a></li>
@@ -241,7 +241,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/lorem.html" class="header-style">Lorem</a></h3>
+        <h2><a href="/api/lorem.html" class="header-style">Lorem</a></h2>
         <ul>
            <li><a href="/api/lorem.html#lines" class="text-style">lines</a></li>
            <li><a href="/api/lorem.html#paragraph" class="text-style">paragraph</a></li>
@@ -255,14 +255,14 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/music.html" class="header-style">Music</a></h3>
+        <h2><a href="/api/music.html" class="header-style">Music</a></h2>
         <ul>
            <li><a href="/api/music.html#genre" class="text-style">genre</a></li>
            <li><a href="/api/music.html#songname" class="text-style">songName</a></li>
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/number.html" class="header-style">Number</a></h3>
+        <h2><a href="/api/number.html" class="header-style">Number</a></h2>
         <ul>
            <li><a href="/api/number.html#bigint" class="text-style">bigInt</a></li>
            <li><a href="/api/number.html#binary" class="text-style">binary</a></li>
@@ -273,7 +273,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/person.html" class="header-style">Person</a></h3>
+        <h2><a href="/api/person.html" class="header-style">Person</a></h2>
         <ul>
            <li><a href="/api/person.html#bio" class="text-style">bio</a></li>
            <li><a href="/api/person.html#firstname" class="text-style">firstName</a></li>
@@ -293,14 +293,14 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/phone.html" class="header-style">Phone</a></h3>
+        <h2><a href="/api/phone.html" class="header-style">Phone</a></h2>
         <ul>
            <li><a href="/api/phone.html#imei" class="text-style">imei</a></li>
            <li><a href="/api/phone.html#number" class="text-style">number</a></li>
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/string.html" class="header-style">String</a></h3>
+        <h2><a href="/api/string.html" class="header-style">String</a></h2>
         <ul>
            <li><a href="/api/string.html#alpha" class="text-style">alpha</a></li>
            <li><a href="/api/string.html#alphanumeric" class="text-style">alphanumeric</a></li>
@@ -316,7 +316,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/system.html" class="header-style">System</a></h3>
+        <h2><a href="/api/system.html" class="header-style">System</a></h2>
         <ul>
            <li><a href="/api/system.html#commonfileext" class="text-style">commonFileExt</a></li>
            <li><a href="/api/system.html#commonfilename" class="text-style">commonFileName</a></li>
@@ -333,7 +333,7 @@
         </ul>
      </div>
      <div class="api-group">
-        <h3><a href="/api/word.html" class="header-style">Word</a></h3>
+        <h2><a href="/api/word.html" class="header-style">Word</a></h2>
         <ul>
            <li><a href="/api/word.html#adjective" class="text-style">adjective</a></li>
            <li><a href="/api/word.html#adverb" class="text-style">adverb</a></li>
