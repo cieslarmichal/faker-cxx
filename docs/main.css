@@ -1,10 +1,10 @@
-.header-style {
+a.header-style {
     color: #10b981;
     font-size: 24px;
     font-family: Helvetica, Arial, serif
 }
 
-.text-style {
+a.text-style {
     color: #49494a;
     font-size: 17px;
     font-family: Helvetica, Arial, serif
