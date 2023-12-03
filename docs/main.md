@@ -1,7 +1,3 @@
-<div class="header">
-  <h1>API Reference</h1>
-</div>
-
 <style>
 html { font-size: 22px; }
 body { padding: 1rem; }
@@ -50,6 +46,12 @@ height: auto;
   .cards { grid-template-columns: repeat(3, 1fr); }
 }
 </style>
+
+<body>
+<div class="header">
+  <h1>API Reference</h1>
+</div>
+
   <div class="api-groups">
      <div class="api-group">
         <h3><a href="/api/airline.html" class="header-style">Airline</a></h3>
@@ -395,3 +397,4 @@ height: auto;
         </ul>
      </div>
   </div>
+</body>
