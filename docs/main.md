@@ -47,7 +47,6 @@ height: auto;
 }
 </style>
 
-<body>
 <div class="header">
   <h1>API Reference</h1>
 </div>
@@ -397,4 +396,3 @@ height: auto;
         </ul>
      </div>
   </div>
-</body>
