@@ -27,7 +27,6 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><a href="https://cieslarmichal.github.io/faker-cxx"><img height=50 alt="Logo" src="logo.png"/></a></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">Faker C++
    </div>
@@ -111,13 +110,13 @@ Usage</h2>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">int</span> main()</div>
 <div class="line">{</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> <span class="keywordtype">id</span> = <a class="code hl_function" href="classfaker_1_1String.html#a24034056c03b01f957e2408cdc6d63d2">faker::String::uuid</a>();</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> email = <a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">faker::Internet::email</a>();</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> password = <a class="code hl_function" href="classfaker_1_1Internet.html#aa485a1fe01f437fb5787b28d94d9c077">faker::Internet::password</a>();</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> verificationCode = <a class="code hl_function" href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">faker::String::numeric</a>(8);</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> createdAt = <a class="code hl_function" href="classfaker_1_1Date.html#a1dc7c608e07fdb276a1b9cc58d5bb33d">faker::Date::pastDate</a>();</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> city = <a class="code hl_function" href="classfaker_1_1Location.html#a4578e9848a3b0b7234be576135ae273a">faker::Location::city</a>();</div>
-<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> streetAddress = <a class="code hl_function" href="classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5">faker::Location::streetAddress</a>();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> <span class="keywordtype">id</span> = faker::String::uuid();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> email = faker::Internet::email();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> password = faker::Internet::password();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> verificationCode = faker::String::numeric(8);</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> createdAt = faker::Date::pastDate();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> city = faker::Location::city();</div>
+<div class="line">    <span class="keyword">const</span> <span class="keyword">auto</span> streetAddress = faker::Location::streetAddress();</div>
 <div class="line"> </div>
 <div class="line">    std::cout &lt;&lt; <span class="keywordtype">id</span> &lt;&lt; std::endl;               <span class="comment">// 58018063-ce5a-4fa7-adfd-327eb2e2d9a5</span></div>
 <div class="line">    std::cout &lt;&lt; email &lt;&lt; std::endl;            <span class="comment">// Lois_Hauck@hotmail.com</span></div>
@@ -129,13 +128,6 @@ Usage</h2>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> 0;</div>
 <div class="line">}</div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a1dc7c608e07fdb276a1b9cc58d5bb33d"><div class="ttname"><a href="classfaker_1_1Date.html#a1dc7c608e07fdb276a1b9cc58d5bb33d">faker::Date::pastDate</a></div><div class="ttdeci">static std::string pastDate(int years=1)</div><div class="ttdoc">Generates a random date in the past.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_aa485a1fe01f437fb5787b28d94d9c077"><div class="ttname"><a href="classfaker_1_1Internet.html#aa485a1fe01f437fb5787b28d94d9c077">faker::Internet::password</a></div><div class="ttdeci">static std::string password(int length=15, PasswordOptions options={})</div><div class="ttdoc">Generates a random password-like string. Do not use this method for generating actual passwords for u...</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_af39e73f7b102e8ae73a9ebee7693ad2c"><div class="ttname"><a href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">faker::Internet::email</a></div><div class="ttdeci">static std::string email(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_a4578e9848a3b0b7234be576135ae273a"><div class="ttname"><a href="classfaker_1_1Location.html#a4578e9848a3b0b7234be576135ae273a">faker::Location::city</a></div><div class="ttdeci">static std::string city(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random city for given country.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_ad7e4d71ca7d7ce3d0ccd002d53ebe1a5"><div class="ttname"><a href="classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5">faker::Location::streetAddress</a></div><div class="ttdeci">static std::string streetAddress(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random street address for given country.</div></div>
-<div class="ttc" id="aclassfaker_1_1String_html_a24034056c03b01f957e2408cdc6d63d2"><div class="ttname"><a href="classfaker_1_1String.html#a24034056c03b01f957e2408cdc6d63d2">faker::String::uuid</a></div><div class="ttdeci">static std::string uuid(RandomGenerator&lt; T &gt; gen=RandomGenerator&lt; std::mt19937 &gt;{})</div><div class="ttdoc">Generates an Universally Unique Identifier with version 4.</div><div class="ttdef"><b>Definition</b> String.h:85</div></div>
-<div class="ttc" id="aclassfaker_1_1String_html_ae89b77056f5e13e5bf0418d6a6c231fd"><div class="ttname"><a href="classfaker_1_1String.html#ae89b77056f5e13e5bf0418d6a6c231fd">faker::String::numeric</a></div><div class="ttdeci">static std::string numeric(unsigned length=1, bool allowLeadingZeros=true)</div><div class="ttdoc">Generates a given length string of digits.</div></div>
 </div><!-- fragment --><h2><a class="anchor" id="autotoc_md2"></a>
 💎 Modules</h2>
 <ul>
@@ -176,13 +168,11 @@ Usage</h2>
 <p><a href="https://cieslarmichal.github.io/faker-cxx/">https://cieslarmichal.github.io/faker-cxx/</a></p>
 <h2><a class="anchor" id="autotoc_md4"></a>
 Consuming library with CMake (CMake 3.22 or newer)</h2>
-<ol type="1">
-<li><p class="startli">Add faker to git submodules (execute in project root):</p>
+<p>1. Add faker to git submodules (execute in project root):</p>
 <div class="fragment"><div class="line">mkdir externals</div>
 <div class="line">cd externals</div>
 <div class="line">git submodule add https://github.com/cieslarmichal/faker-cxx.git</div>
-</div><!-- fragment --></li>
-<li><p class="startli">Link with library:</p>
+</div><!-- fragment --><p>2. Link with library:</p>
 <div class="fragment"><div class="line">set(BUILD_FAKER_TESTS OFF)</div>
 <div class="line"> </div>
 <div class="line">add_subdirectory(externals/faker-cxx)</div>
@@ -190,9 +180,7 @@ Consuming library with CMake (CMake 3.22 or newer)</h2>
 <div class="line">add_executable(main Main.cpp)</div>
 <div class="line"> </div>
 <div class="line">target_link_libraries(main faker-cxx)</div>
-</div><!-- fragment --></li>
-</ol>
-<h2><a class="anchor" id="autotoc_md5"></a>
+</div><!-- fragment --><h2><a class="anchor" id="autotoc_md5"></a>
 Compiler support</h2>
 <ul>
 <li><a href="https://en.wikipedia.org/wiki/Microsoft_Visual_Studio">MSVC➚</a> version 143 or newer.</li>
