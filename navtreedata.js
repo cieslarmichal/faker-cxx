@@ -35,7 +35,7 @@ var NAVTREE =
       [ "Dependencies", "index.html#autotoc_md6", null ],
       [ "✨ Contributing", "index.html#autotoc_md7", null ],
       [ "📝 Compilation guides", "index.html#autotoc_md8", null ],
-      [ "Class List", "annotated.html", "annotated_dup" ]
+      [ "Modules", "annotated.html", "annotated_dup" ]
     ] ]
   ] ]
 ];
