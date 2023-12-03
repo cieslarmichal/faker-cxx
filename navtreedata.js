@@ -25,7 +25,6 @@
 var NAVTREE =
 [
   [ "Faker C++", "index.html", [
-    [ "main", "md_docs_2main.html", null ],
     [ "API", "annotated.html", [
       [ "Modules", "annotated.html", "annotated_dup" ]
     ] ]
