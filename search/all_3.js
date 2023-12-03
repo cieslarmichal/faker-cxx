@@ -1,18 +1,17 @@
 var searchData=
 [
-  ['bear_0',['bear',['../classfaker_1_1Animal.html#a283c2c045c52ead17853e7a1f9cb3e6d',1,'faker::Animal']]],
-  ['bic_1',['bic',['../classfaker_1_1Finance.html#a8f9a4ef2b0d11ab1cebce870b6c2182c',1,'faker::Finance']]],
-  ['binary_2',['binary',['../classfaker_1_1String.html#a1a4443dd71fb781206122c53c81896bd',1,'faker::String::binary(unsigned length=1)'],['../classfaker_1_1String.html#a30919e90c1c1b1633474bc5afaaf0450',1,'faker::String::binary(GuaranteeMap &amp;&amp;guarantee, unsigned length=1)']]],
-  ['bird_3',['bird',['../classfaker_1_1Animal.html#a0ef436f2fbf92a1c15a738f4beee0adb',1,'faker::Animal']]],
-  ['birthdatebyage_4',['birthdateByAge',['../classfaker_1_1Date.html#a593f50b064c572aef47d4d7861ce5fbe',1,'faker::Date']]],
-  ['birthdatebyyear_5',['birthdateByYear',['../classfaker_1_1Date.html#a54174b314bed0966a0ee316716322805',1,'faker::Date']]],
-  ['bitcoinaddress_6',['bitcoinAddress',['../classfaker_1_1Finance.html#aa701cd131f65d4f0da95d00224d46012',1,'faker::Finance']]],
-  ['book_7',['Book',['../classfaker_1_1Book.html',1,'faker']]],
-  ['boolean_8',['boolean',['../classfaker_1_1Datatype.html#adcc47b46212ca99e0eb8db4b888a678f',1,'faker::Datatype::boolean()'],['../classfaker_1_1Datatype.html#a14388c664778b2822c23492498595dcd',1,'faker::Datatype::boolean(double probability)']]],
-  ['branch_9',['branch',['../classfaker_1_1Git.html#a1f7cb15191d37320df92098770b01eed',1,'faker::Git']]],
-  ['buildingnumber_10',['buildingNumber',['../classfaker_1_1Location.html#aa171973df05a3c1ef52a9dcb09079fd4',1,'faker::Location']]],
-  ['buzzadjective_11',['buzzAdjective',['../classfaker_1_1Company.html#a384e5a728e93d2eed0e33c126c5b02d5',1,'faker::Company']]],
-  ['buzznoun_12',['buzzNoun',['../classfaker_1_1Company.html#a949915b9478d2d200aef614d0bc644e1',1,'faker::Company']]],
-  ['buzzphrase_13',['buzzPhrase',['../classfaker_1_1Company.html#ae113f05a5fb92c2046215a4026a7addf',1,'faker::Company']]],
-  ['buzzverb_14',['buzzVerb',['../classfaker_1_1Company.html#a58812e870a4eab5abb59de86f0235904',1,'faker::Company']]]
+  ['database_0',['Database',['../classfaker_1_1Database.html',1,'faker']]],
+  ['datatype_1',['Datatype',['../classfaker_1_1Datatype.html',1,'faker']]],
+  ['date_2',['Date',['../classfaker_1_1Date.html',1,'faker']]],
+  ['decimal_3',['decimal',['../classfaker_1_1Number.html#a2036ee4645d66c821f7a48896350cea0',1,'faker::Number::decimal(F min, F max)'],['../classfaker_1_1Number.html#a9a9186f41b3b8a3e34452ca0f23f0f96',1,'faker::Number::decimal(F max)']]],
+  ['department_4',['department',['../classfaker_1_1Commerce.html#a1b26450fb0c141e45d16d785177a5658',1,'faker::Commerce']]],
+  ['dimensions_5',['dimensions',['../classfaker_1_1Image.html#a2537363511977a287671b2881210e863',1,'faker::Image']]],
+  ['direction_6',['direction',['../classfaker_1_1Location.html#abffa6c9118be753b0f5bdeeb04177a25',1,'faker::Location']]],
+  ['director_7',['director',['../classfaker_1_1Movie.html#a5d32b5391b4f2bed519a09fc82fe2baa',1,'faker::Movie']]],
+  ['directorypath_8',['directoryPath',['../classfaker_1_1System.html#af362c5f4a0b869760dc49431227e0029',1,'faker::System']]],
+  ['dishname_9',['dishName',['../classfaker_1_1Food.html#a68a96c6dee2a6a23907ab0478498b773',1,'faker::Food']]],
+  ['dog_10',['dog',['../classfaker_1_1Animal.html#a542d239f0a60a877407a147ef45c1dd4',1,'faker::Animal']]],
+  ['domainname_11',['domainName',['../classfaker_1_1Internet.html#a0ea6cb024c64493e473d7b2ffe624623',1,'faker::Internet']]],
+  ['domainsuffix_12',['domainSuffix',['../classfaker_1_1Internet.html#a37f2c674c23e72832384258558c5e47f',1,'faker::Internet']]],
+  ['domainword_13',['domainWord',['../classfaker_1_1Internet.html#a199a6c56acd69f45f07315669ebe0111',1,'faker::Internet']]]
 ];

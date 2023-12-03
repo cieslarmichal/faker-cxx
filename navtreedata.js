@@ -26,15 +26,6 @@ var NAVTREE =
 [
   [ "Faker C++", "index.html", [
     [ "API", "annotated.html", [
-      [ "🎯 Goal", "index.html#autotoc_md0", null ],
-      [ "Usage", "index.html#autotoc_md1", null ],
-      [ "💎 Modules", "index.html#autotoc_md2", null ],
-      [ "📖 Documentation", "index.html#autotoc_md3", null ],
-      [ "Consuming library with CMake (CMake 3.22 or newer)", "index.html#autotoc_md4", null ],
-      [ "Compiler support", "index.html#autotoc_md5", null ],
-      [ "Dependencies", "index.html#autotoc_md6", null ],
-      [ "✨ Contributing", "index.html#autotoc_md7", null ],
-      [ "📝 Compilation guides", "index.html#autotoc_md8", null ],
       [ "Modules", "annotated.html", "annotated_dup" ]
     ] ]
   ] ]

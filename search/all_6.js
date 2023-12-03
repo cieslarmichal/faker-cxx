@@ -1,10 +1,9 @@
 var searchData=
 [
-  ['ean13_0',['EAN13',['../classfaker_1_1Commerce.html#a3adb56b7da2553fe1e6631456b17a658',1,'faker::Commerce']]],
-  ['ean8_1',['EAN8',['../classfaker_1_1Commerce.html#afbd4616d95a522ea9b4dc18858c6fbd0',1,'faker::Commerce']]],
-  ['email_2',['email',['../classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c',1,'faker::Internet']]],
-  ['emoji_3',['emoji',['../classfaker_1_1Internet.html#ab05b16c1008c0c95509b6d88d6d90b60',1,'faker::Internet']]],
-  ['engine_4',['engine',['../classfaker_1_1Database.html#ad56d9cbb0e9dc78fdc05e1861045933e',1,'faker::Database']]],
-  ['ethereumaddress_5',['ethereumAddress',['../classfaker_1_1Finance.html#aa594f9b0b12b277c63b6db8342db8bf7',1,'faker::Finance']]],
-  ['exampleemail_6',['exampleEmail',['../classfaker_1_1Internet.html#a97776d509e7284b2663aa5631dc21bbc',1,'faker::Internet']]]
+  ['gametitle_0',['gameTitle',['../classfaker_1_1VideoGame.html#a7bc8a1d2e486f781b80f4f87b9c81888',1,'faker::VideoGame']]],
+  ['gender_1',['gender',['../classfaker_1_1Person.html#ade55cc28e754c76d5763c01a9ba2f8b4',1,'faker::Person']]],
+  ['genre_2',['genre',['../classfaker_1_1Book.html#a483adb05058da1f23877d600ea997196',1,'faker::Book::genre()'],['../classfaker_1_1Movie.html#a7fd42c4cb6cc6b54751b05460ecc2599',1,'faker::Movie::genre()'],['../classfaker_1_1Music.html#a3e6591b2263d29a96aba6b0978e721a2',1,'faker::Music::genre()'],['../classfaker_1_1VideoGame.html#af01f292dc93175a127de69964978855d',1,'faker::VideoGame::genre()']]],
+  ['git_3',['Git',['../classfaker_1_1Git.html',1,'faker']]],
+  ['githubavatarurl_4',['githubAvatarUrl',['../classfaker_1_1Image.html#aa17613137f1afda2e842c14ce0f55e7b',1,'faker::Image']]],
+  ['grain_5',['grain',['../classfaker_1_1Food.html#a09e59c0fad23f118aafde2b7d5211e42',1,'faker::Food']]]
 ];
