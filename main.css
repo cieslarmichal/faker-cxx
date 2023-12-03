@@ -1,13 +1,13 @@
 a.header-style {
     color: #10b981 !important;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: bold;
     font-family: Arial
 }
 
 a.text-style {
     color: #476582 !important;
-    font-size: 15px;
+    font-size: 16px;
     font-weight: 400;
     font-family: Arial
 }
@@ -34,13 +34,13 @@ ul {
 }
 
 @media (min-width: 600px) {
-    .cards {
+    .api-groups {
         grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (min-width: 900px) {
-    .cards {
+    .api-groups {
         grid-template-columns: repeat(3, 1fr);
     }
 }
