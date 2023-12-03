@@ -1,11 +1,11 @@
 a.header-style {
-    color: #10b981;
+    color: #10b981 !important;
     font-size: 24px;
     font-family: Helvetica, Arial, serif
 }
 
 a.text-style {
-    color: #49494a;
+    color: #49494a !important;
     font-size: 17px;
     font-family: Helvetica, Arial, serif
 }
