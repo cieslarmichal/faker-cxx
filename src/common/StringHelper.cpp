@@ -2,10 +2,9 @@
 
 #include <algorithm>
 #include <cctype>
-#include <sstream>
-#include <locale>
 #include <codecvt>
-
+#include <locale>
+#include <sstream>
 
 namespace faker
 {
