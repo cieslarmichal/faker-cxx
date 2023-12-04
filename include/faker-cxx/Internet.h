@@ -30,7 +30,8 @@ enum class IPv4Class
     C
 };
 
-struct PasswordOptions {
+struct PasswordOptions
+{
     bool upperLetters = true;
     bool lowerLetters = true;
     bool numbers = true;
@@ -125,15 +126,15 @@ public:
 
     /**
      * @brief Verify that a given emoji is valid.
-     * 
+     *
      * @param emojiToCheck the emoji to check.
-     * 
+     *
      * @returns true if emojiToCheck is found in one of the vectors, false otherwise.
-     * 
+     *
      * @code
      * Internet::checkIfEmojiIsValid("👑") // true
      * @endcode
-    */
+     */
     static bool checkIfEmojiIsValid(const std::string& emojiToCheck);
 
     /**

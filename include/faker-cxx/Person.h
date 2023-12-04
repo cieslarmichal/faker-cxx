@@ -98,13 +98,13 @@ public:
 
     /**
      * @brief Returns a random bio.
-     * 
+     *
      * @returns Bio.
-     * 
+     *
      * @code
      * Person::bio() //"Developer"
      * @endcode
-    */
+     */
     static std::string bio();
 
     /**
