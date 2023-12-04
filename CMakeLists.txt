@@ -56,7 +56,9 @@ set(FAKER_SOURCES
     src/modules/airline/Airline.cpp
     src/modules/image/Image.cpp
     src/modules/crypto/Crypto.cpp 
-    src/modules/computer/Computer.cpp)
+    src/modules/computer/Computer.cpp
+    src/modules/vehicle/Vehicle.cpp
+    )
 
 set(FAKER_UT_SOURCES
     src/modules/animal/AnimalTest.cpp
