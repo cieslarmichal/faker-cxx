@@ -171,7 +171,7 @@ public:
         return data;
     }
 
-    /*
+    /**
      * @brief Returns shuffled std::string
      *
      * @param data String to be shuffled
@@ -183,66 +183,6 @@ public:
      * @endcode
      */
     static std::string shuffleString(std::string data);
-
-    // TODO: remove methods below from helper API, move to src/common
-
-    /**
-     * @brief Returns the given string parsed symbol by symbol and replaced the placeholders with digits ("0" - "9").
-     * "!" will be replaced by digits >=2 ("2" - "9").
-     *
-     * @param str The template to parse string.
-     * @param symbol The symbol to replace with digits. Defaults to '#'.
-     *
-     * @return The string replaced symbols with digits.
-     *
-     * @code
-     * Helper::replaceSymbolWithNumber() // ""
-     * Helper::replaceSymbolWithNumber("#####") // "04812"
-     * Helper::replaceSymbolWithNumber("!####") // "27378"
-     * Helper::replaceSymbolWithNumber("Your pin is: !####") // "29841"
-     * @endcode
-     */
-    static std::string replaceSymbolWithNumber(std::string str, const char& symbol = '#');
-
-    /**
-     * @brief Returns credit card schema with replaced symbols and patterns in a credit card  including Luhn checksum
-     * This method supports both range patterns `[4-9]` as well as the patterns used by `replaceSymbolWithNumber()`.
-     * `L` will be replaced with the appropriate Luhn checksum.
-     *
-     * @param inputString TThe credit card format pattern. Defaults to "6453-####-####-####-###L".
-     * @param symbol The symbol to replace with a digit. Defaults to '#'.
-     *
-     * @return The string replaced symbols with digits.
-     *
-     * @code
-     * Helper::replaceCreditCardSymbols() // "6453-4876-8626-8995-3771"
-     * Helper::replaceCreditCardSymbols("1234-[4-9]-##!!-L") // "1234-9-5298-2"
-     * @endcode
-     */
-    static std::string replaceCreditCardSymbols(const std::string& inputString = "6453-####-####-####-###L",
-                                                char symbol = '#');
-
-    /**
-     * @brief Returns the replaced regex-like expression in the string with matching values.
-     *
-     * Supported patterns:
-     * - `.{times}` => Repeat the character exactly `times` times.
-     * - `.{min,max}` => Repeat the character `min` to `max` times.
-     * - `[min-max]` => Generate a number between min and max (inclusive).
-     *
-     * @param input The template string to to parse.
-     *
-     * @return The replaced regex-like expression in the string with matching values.
-     *
-     * @code
-     * Helper::regexpStyleStringParse() // ""
-     * Helper::regexpStyleStringParse("#{5}") // "#####"
-     * Helper::regexpStyleStringParse("#{2,9}") // "#######"
-     * Helper::regexpStyleStringParse("[500-15000]") // "8375"
-     * Helper::regexpStyleStringParse("#{3}test[1-5]") // "###test3"
-     * @endcode
-     */
-    static std::string regexpStyleStringParse(const std::string& input);
 
     /**
      * @brief Returns a random key from given object.
@@ -306,6 +246,64 @@ public:
         }
         return TResult();
     }
+
+    /**
+     * @brief Returns the given string parsed symbol by symbol and replaced the placeholders with digits ("0" - "9").
+     * "!" will be replaced by digits >=2 ("2" - "9").
+     *
+     * @param str The template to parse string.
+     * @param symbol The symbol to replace with digits. Defaults to '#'.
+     *
+     * @return The string replaced symbols with digits.
+     *
+     * @code
+     * Helper::replaceSymbolWithNumber() // ""
+     * Helper::replaceSymbolWithNumber("#####") // "04812"
+     * Helper::replaceSymbolWithNumber("!####") // "27378"
+     * Helper::replaceSymbolWithNumber("Your pin is: !####") // "29841"
+     * @endcode
+     */
+    static std::string replaceSymbolWithNumber(std::string str, const char& symbol = '#');
+
+    /**
+     * @brief Returns credit card schema with replaced symbols and patterns in a credit card  including Luhn checksum
+     * This method supports both range patterns `[4-9]` as well as the patterns used by `replaceSymbolWithNumber()`.
+     * `L` will be replaced with the appropriate Luhn checksum.
+     *
+     * @param inputString TThe credit card format pattern. Defaults to "6453-####-####-####-###L".
+     * @param symbol The symbol to replace with a digit. Defaults to '#'.
+     *
+     * @return The string replaced symbols with digits.
+     *
+     * @code
+     * Helper::replaceCreditCardSymbols() // "6453-4876-8626-8995-3771"
+     * Helper::replaceCreditCardSymbols("1234-[4-9]-##!!-L") // "1234-9-5298-2"
+     * @endcode
+     */
+    static std::string replaceCreditCardSymbols(const std::string& inputString = "6453-####-####-####-###L",
+                                                char symbol = '#');
+
+    /**
+     * @brief Returns the replaced regex-like expression in the string with matching values.
+     *
+     * Supported patterns:
+     * - `.{times}` => Repeat the character exactly `times` times.
+     * - `.{min,max}` => Repeat the character `min` to `max` times.
+     * - `[min-max]` => Generate a number between min and max (inclusive).
+     *
+     * @param input The template string to to parse.
+     *
+     * @return The replaced regex-like expression in the string with matching values.
+     *
+     * @code
+     * Helper::regexpStyleStringParse() // ""
+     * Helper::regexpStyleStringParse("#{5}") // "#####"
+     * Helper::regexpStyleStringParse("#{2,9}") // "#######"
+     * Helper::regexpStyleStringParse("[500-15000]") // "8375"
+     * Helper::regexpStyleStringParse("#{3}test[1-5]") // "###test3"
+     * @endcode
+     */
+    static std::string regexpStyleStringParse(const std::string& input);
 
 private:
     static std::random_device randomDevice;
