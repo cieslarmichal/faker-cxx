@@ -28,6 +28,7 @@
 #include "data/Hobbies.h"
 #include "data/hungary/HungarianPeopleNames.h"
 #include "data/india/IndianPeopleNames.h"
+#include "data/iran/PersianPeopleNames.h"
 #include "data/ireland/IrishPeopleNames.h"
 #include "data/italy/ItalianPeopleNames.h"
 #include "data/japan/JapanesePeopleNames.h"
@@ -38,7 +39,7 @@
 #include "data/macedonia/MacedonianPeopleNames.h"
 #include "data/mexico/MexicanPeopleNames.h"
 #include "data/Nationalities.h"
-#include "data/nederlands/DutchPeopleNames.h"
+#include "data/netherlands/DutchPeopleNames.h"
 #include "data/nepal/NepalesePeopleNames.h"
 #include "data/norway/NorwegianPeopleNames.h"
 #include "data/poland/PolishPeopleNames.h"
@@ -81,15 +82,14 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Hungary, hungarianPeopleNames},     {Country::Croatia, croatianPeopleNames},
     {Country::Greece, greekPeopleNames},          {Country::Slovenia, slovenianPeopleNames},
     {Country::Austria, austrianPeopleNames},      {Country::Switzerland, swissPeopleNames},
-    {Country::Belgium, belgianPeopleNames},       {Country::Nederlands, dutchPeopleNames},
+    {Country::Belgium, belgianPeopleNames},       {Country::Netherlands, dutchPeopleNames},
     {Country::China, chinesePeopleNames},         {Country::Korea, koreanPeopleNames},
     {Country::Canada, canadianPeopleNames},       {Country::Mexico, mexicanPeopleNames},
     {Country::Argentina, argentinianPeopleNames}, {Country::Australia, australianPeopleNames},
     {Country::Serbia, serbianPeopleNames},        {Country::Macedonia, macedonianPeopleNames},
     {Country::Latvia, latvianPeopleNames},        {Country::Ireland, irishPeopleNames},
     {Country::Belarus, belarusianPeopleNames},    {Country::Estonia, estonianPeopleNames},
-    {Country::Albania, albanianPeopleNames},
-};
+    {Country::Albania, albanianPeopleNames},      {Country::Iran,persianPeopleNames}};
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
 std::string prefixForCountry(Country country, std::optional<Sex> sex);

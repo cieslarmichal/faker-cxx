@@ -36,6 +36,12 @@ const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
     {HexPrefix::None, ""},
 };
 
+const std::map<StringCasing, std::set<char>> stringCasingToAlphaCharSetMapping{
+    {StringCasing::Lower, lowerCharSet},
+    {StringCasing::Upper, upperCharSet},
+    {StringCasing::Mixed, mixedAlphaCharSet},
+};
+
 const std::map<HexCasing, std::set<char>> hexCasingToCharSetMapping{
     {HexCasing::Lower, hexLowerCharSet},
     {HexCasing::Upper, hexUpperCharSet},
@@ -126,6 +132,17 @@ std::string String::sample(unsigned int length)
     return sample;
 }
 
+std::string String::sample(GuaranteeMap&& guarantee, unsigned int length)
+{
+    auto targetCharacters = utf16CharSet;
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    return generateStringWithGuarantee(guarantee, targetCharacters, length);
+}
+
 std::string String::fromCharacters(const std::string& characters, unsigned int length)
 {
     std::string result;
@@ -136,6 +153,21 @@ std::string String::fromCharacters(const std::string& characters, unsigned int l
     }
 
     return result;
+}
+
+std::string String::fromCharacters(GuaranteeMap&& guarantee, const std::string& characters, unsigned length)
+{
+    std::set<char> targetCharacters;
+    for (auto character : characters)
+    {
+        targetCharacters.insert(character);
+    }
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
 std::string String::alpha(unsigned length, StringCasing casing)
@@ -150,6 +182,17 @@ std::string String::alpha(unsigned length, StringCasing casing)
     }
 
     return alpha;
+}
+
+std::string String::alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing casing)
+{
+    auto targetCharacters = stringCasingToAlphaCharSetMapping.at(casing);
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
 std::string String::alphanumeric(unsigned int length, StringCasing casing, const std::string& excludeCharacters)
@@ -176,6 +219,19 @@ std::string String::alphanumeric(unsigned int length, StringCasing casing, const
     return alphanumeric;
 }
 
+std::string String::alphanumeric(GuaranteeMap&& guarantee, unsigned length, StringCasing casing)
+{
+    auto targetCharacters = digitSet;
+    auto charSet = stringCasingToAlphaCharSetMapping.at(casing);
+    targetCharacters.merge(charSet);
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    return generateStringWithGuarantee(guarantee, targetCharacters, length);
+}
+
 std::string String::numeric(unsigned int length, bool allowLeadingZeros)
 {
     std::string alphanumeric;
@@ -193,6 +249,39 @@ std::string String::numeric(unsigned int length, bool allowLeadingZeros)
     }
 
     return alphanumeric;
+}
+
+std::string String::numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowLeadingZeros)
+{
+    // if leading zero not allowed, atleastCount of '0' cannot be equal to length
+    if (!allowLeadingZeros)
+    {
+        auto it = guarantee.find('0');
+        if (it != guarantee.end() && it->second.atleastCount > length - 1)
+        {
+            throw std::invalid_argument{"Invalid guarantee."};
+        }
+    }
+    auto targetCharacters = digitSet;
+    // throw if guarantee is invalid
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+    if (allowLeadingZeros)
+        return generateStringWithGuarantee(guarantee, targetCharacters, length);
+    // if leading zero not allowed, pick first digit a non zero
+    else
+    {
+        auto firstChar = std::to_string(Number::integer(1, 9));
+        auto it = guarantee.find(firstChar[0]);
+        if (it != guarantee.end())
+        {
+            // decrement possible number of uses as we just used it as first char
+            --it->second.atmostCount;
+        }
+        return firstChar + generateStringWithGuarantee(guarantee, targetCharacters, length - 1);
+    }
 }
 
 std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
