@@ -8,15 +8,14 @@ namespace faker
 {
 bool BioHelper::checkTokenFormat(const std::string& bio)
 {
-
-    const std::regex firstRegex{R"(^[a-zA-Z0-9_]+$)"};
+    const std::regex firstRegex{R"(^(\w+\s?\w+)$)"};
     const std::regex secondRegex{R"(^(\w+\s?\w+), (\w+\s?\w+)$)"};
     const std::regex thirdRegex{R"(^(\w+\s?\w+), (\w+\s?\w+), (\w+\s?\w+)$)"};
     const std::regex fourthRegex{R"(^(\w+\s?\w+), (\w+\s?\w+), (\w+\s?\w+), (\S+)$)"};
-    const std::regex fifthRegex{R"(^(\w+) (\w+)$)"};
-    const std::regex sixthRegex{R"(^(\w+) (\w+) (\S+)$)"};
-    const std::regex seventhRegex{R"(^(\w+) (\w+), (\w+\s?\w+)$)"};
-    const std::regex eigthRegex{R"(^(\w+) (\w+), (\w+\s?\w+) (\S+)$)"};
+    const std::regex fifthRegex{R"(^(\w+\-?\w+) (\w+)$)"};
+    const std::regex sixthRegex{R"(^(\w+\-?\w+) (\w+) (\S+)$)"};
+    const std::regex seventhRegex{R"(^(\w+\-?\w+) (\w+), (\w+\s?\w+)$)"};
+    const std::regex eigthRegex{R"(^(\w+\-?\w+) (\w+), (\w+\s?\w+) (\S+)$)"};
 
     std::smatch matches;
     //
