@@ -141,6 +141,21 @@ public:
     static std::string sample(unsigned length = 10);
 
     /**
+     * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of characters to generate. Defaults to `10`.
+     *
+     * @returns Sample string.
+     *
+     * @code
+     * String::sample({}) // "Zo!.:*e>wR"
+     * String::sample({{'|' ,{2,2}},{'^',{0,0}},{':',{1,8}}}, 8) // "|6Bye8:|"
+     * @endcode
+     */
+    static std::string sample(GuaranteeMap&& guarantee, unsigned length = 10);
+
+    /**
      * @brief Generates a string consisting of given characters.
      *
      * @param characters The characters to generate string with.
@@ -154,6 +169,22 @@ public:
      * @endcode
      */
     static std::string fromCharacters(const std::string& characters, unsigned length = 1);
+
+    /**
+     * @brief Generates a string consisting of given characters.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param characters The characters to generate string with.
+     * @param length The number of characters to generate. Defaults to `1`.
+     *
+     * @returns String from characters.
+     *
+     * @code
+     * String::fromCharacters({}, "abc") // "b"
+     * String::fromCharacters({{'q',{2,2}},{'e',{1,5}}}, "qwerty", 8) // "yqreqety"
+     * @endcode
+     */
+    static std::string fromCharacters(GuaranteeMap&& guarantee, const std::string& characters, unsigned length = 1);
 
     /**
      * @brief Generates a string consisting of letters in the English alphabet.
@@ -170,6 +201,23 @@ public:
      * @endcode
      */
     static std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed);
+
+    /**
+     * @brief Generates a string consisting of letters in the English alphabet.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of characters to generate. Defaults to `1`.
+     * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
+     *
+     * @returns Alpha string.
+     *
+     * @code
+     * String::alpha({}) // "b"
+     * String::alpha({{'A',{2,2}}, 5, StringCasing::Upper) // "DACAC"
+     * String::alpha({{'a',{0,0}},{'b',{3,3}},{'c', {0,2}}}, 10, StringCasing::Lower) // "bicnmmkbbp"
+     * @endcode
+     */
+    static std::string alpha(GuaranteeMap&& guarantee, unsigned length = 1, StringCasing casing = StringCasing::Mixed);
 
     /**
      * @brief Generates a string consisting of alpha characters and digits.
@@ -191,6 +239,24 @@ public:
                                     const std::string& excludeCharacters = "");
 
     /**
+     * @brief Generates a string consisting of alpha characters and digits.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of characters to generate. Defaults to `1`.
+     * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
+     *
+     * @returns Alphanumeric string.
+     *
+     * @code
+     * String::alphanumeric({}) // "4"
+     * String::alphanumeric({{'A', {3,6}},{'1', {1,1}}, 5, StringCasing::Upper) // "1EAAA"
+     * String::alphanumeric({{'a',{0,2}},{'2',{0,3}},{'z',{3,5}}}, 10, StringCasing::Lower) // "z1naazrqz0"
+     * @endcode
+     */
+    static std::string alphanumeric(GuaranteeMap&& guarantee, unsigned length = 1,
+                                    StringCasing casing = StringCasing::Mixed);
+
+    /**
      * @brief Generates a given length string of digits.
      *
      * @param length The number of digits to generate. Defaults to `1`.
@@ -205,6 +271,23 @@ public:
      * @endcode
      */
     static std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
+
+    /**
+     * @brief Generates a given length string of digits.
+     *
+     * @param guarantee A map specifying char count constraints if any
+     * @param length The number of digits to generate. Defaults to `1`.
+     * @param allowLeadingZeros Whether leading zeros are allowed or not. Defaults to `true`.
+     *
+     * @returns Numeric string.
+     *
+     * @code
+     * String::numeric({}) // "1"
+     * String::numeric({'5',{3,6}}, 6) // "055542"
+     * String::numeric({'0',{0,0}}, {'4',{1,1}}, 6, false) // "854829"
+     * @endcode
+     */
+    static std::string numeric(GuaranteeMap&& guarantee, const unsigned length = 1, bool allowLeadingZeros = true);
 
     /**
      * @brief Generates a hexadecimal string.

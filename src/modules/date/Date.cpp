@@ -22,7 +22,7 @@ std::string serializeTimePoint(const auto& timePoint)
 
     std::stringstream ss;
 
-    ss << std::put_time(&utcTime, "%FT%TZ");
+    ss << std::put_time(&utcTime, "%Y-%m-%dT%H:%M:%SZ");
 
     return ss.str();
 }

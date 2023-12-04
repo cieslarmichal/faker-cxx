@@ -1,4 +1,4 @@
-#include "StringHelper.h"
+﻿#include "StringHelper.h"
 
 #include <algorithm>
 
@@ -92,3 +92,4 @@ TEST_F(StringHelperTest, RemovePunctuation)
     std::string result = StringHelper::removePunctuation(input);
     EXPECT_EQ(result, "Hello World");
 }
+

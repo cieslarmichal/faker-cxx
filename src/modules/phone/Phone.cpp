@@ -4,7 +4,7 @@
 
 #include "data/PhoneNumbers.h"
 #include "faker-cxx/Helper.h"
-
+#include "data/PhoneData.h"
 namespace faker
 {
 std::map<PhoneNumberCountryFormat, std::string> Phone::phoneNumberFormatMap = Phone::createPhoneNumberFormatMap();
@@ -40,6 +40,18 @@ std::string Phone::number(PhoneNumberCountryFormat format)
 std::string Phone::imei()
 {
     return Helper::replaceCreditCardSymbols("##-######-######-L", '#');
+}
+
+std::string Phone::platform() {
+    return Helper::arrayElement(faker::data::PhonePlatforms);
+}
+
+std::string Phone::modelName() {
+    return Helper::arrayElement(faker::data::PhoneModelNames);
+}
+
+std::string Phone::manufacturer() {
+    return Helper::arrayElement(faker::data::PhoneManufacturers);
 }
 
 std::map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMap()
