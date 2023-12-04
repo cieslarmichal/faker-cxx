@@ -9,13 +9,13 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(BUILD_FAKER_TESTS DEFAULT ON)
 
-if (MSVC)
+if(MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20 /permissive- /bigobj")
-else ()
+else()
     set(CMAKE_CXX_FLAGS
         "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror"
-        )
-endif ()
+    )
+endif()
 
 set(LIBRARY_NAME faker-cxx)
 
@@ -38,6 +38,7 @@ set(FAKER_SOURCES
     src/modules/string/String.cpp
     src/modules/word/Word.cpp
     src/modules/phone/Phone.cpp
+    src/common/BioHelper.cpp
     src/common/StringHelper.cpp
     src/common/FormatHelper.cpp
     src/common/LuhnCheck.cpp
@@ -55,7 +56,7 @@ set(FAKER_SOURCES
     src/common/WeatherHelper.cpp
     src/modules/airline/Airline.cpp
     src/modules/image/Image.cpp
-    src/modules/crypto/Crypto.cpp 
+    src/modules/crypto/Crypto.cpp
     src/modules/computer/Computer.cpp)
 
 set(FAKER_UT_SOURCES
@@ -94,7 +95,7 @@ set(FAKER_UT_SOURCES
     src/common/WeatherHelperTest.cpp
     src/modules/airline/AirlineTest.cpp
     src/modules/image/ImageTest.cpp
-    src/modules/crypto/CryptoTest.cpp 
+    src/modules/crypto/CryptoTest.cpp
     src/modules/computer/ComputerTest.cpp)
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
@@ -110,7 +111,7 @@ set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
 
 target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
 
-if (BUILD_FAKER_TESTS)
+if(BUILD_FAKER_TESTS)
     add_subdirectory(externals/googletest)
 
     set(GTEST_INCLUDE_DIR
@@ -129,12 +130,12 @@ if (BUILD_FAKER_TESTS)
     add_executable(${LIBRARY_NAME}-UT ${FAKER_UT_SOURCES})
 
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
-        faker-cxx)
+                                                     faker-cxx)
 
     target_include_directories(
         ${LIBRARY_NAME}-UT
         PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
-        ${CMAKE_CURRENT_LIST_DIR})
+                ${CMAKE_CURRENT_LIST_DIR})
 
     add_test(
         NAME ${LIBRARY_NAME}-UT
@@ -142,4 +143,4 @@ if (BUILD_FAKER_TESTS)
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 
     target_code_coverage(${LIBRARY_NAME}-UT ALL)
-endif ()
+endif()

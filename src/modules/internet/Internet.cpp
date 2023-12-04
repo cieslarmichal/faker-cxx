@@ -144,6 +144,20 @@ std::string Internet::emoji(std::optional<EmojiType> type)
     return Helper::arrayElement<std::string>(emojis);
 }
 
+
+ bool Internet::checkIfEmojiIsValid(const std::string& emojiToCheck)
+ {
+    for (const auto& vector : {smileyEmojis, bodyEmojis, personEmojis, natureEmojis, foodEmojis, travelEmojis, activityEmojis, objectEmojis, symbolEmojis, flagEmojis})
+    {
+        if(std::find(vector.begin(), vector.end(), emojiToCheck) != vector.end()){
+            return true;
+        }
+    }
+
+    return false;
+ }
+
+
 std::string Internet::protocol()
 {
     return Helper::arrayElement<std::string>(webProtocols);

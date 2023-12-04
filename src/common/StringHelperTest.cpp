@@ -92,4 +92,3 @@ TEST_F(StringHelperTest, RemovePunctuation)
     std::string result = StringHelper::removePunctuation(input);
     EXPECT_EQ(result, "Hello World");
 }
-
