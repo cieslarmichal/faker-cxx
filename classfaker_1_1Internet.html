@@ -118,6 +118,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab05b16c1008c0c95509b6d88d6d90b60" id="r_ab05b16c1008c0c95509b6d88d6d90b60"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#ab05b16c1008c0c95509b6d88d6d90b60">emoji</a> (std::optional&lt; EmojiType &gt; type=std::nullopt)</td></tr>
 <tr class="memdesc:ab05b16c1008c0c95509b6d88d6d90b60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random emoji.  <br /></td></tr>
 <tr class="separator:ab05b16c1008c0c95509b6d88d6d90b60"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c9c6bd30d42f99a7a58728034ef8f6a" id="r_a8c9c6bd30d42f99a7a58728034ef8f6a"><td class="memItemLeft" align="right" valign="top">static bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#a8c9c6bd30d42f99a7a58728034ef8f6a">checkIfEmojiIsValid</a> (const std::string &amp;emojiToCheck)</td></tr>
+<tr class="memdesc:a8c9c6bd30d42f99a7a58728034ef8f6a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that a given emoji is valid.  <br /></td></tr>
+<tr class="separator:a8c9c6bd30d42f99a7a58728034ef8f6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afcec10d2c5cccf38bfc9c5ddda6d7a04" id="r_afcec10d2c5cccf38bfc9c5ddda6d7a04"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Internet.html#afcec10d2c5cccf38bfc9c5ddda6d7a04">protocol</a> ()</td></tr>
 <tr class="memdesc:afcec10d2c5cccf38bfc9c5ddda6d7a04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random web protocol. Either `http` or `https`.  <br /></td></tr>
 <tr class="separator:afcec10d2c5cccf38bfc9c5ddda6d7a04"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -165,6 +168,43 @@ Static Public Member Functions</h2></td></tr>
 <tr class="separator:a37f2c674c23e72832384258558c5e47f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
+<a id="a8c9c6bd30d42f99a7a58728034ef8f6a" name="a8c9c6bd30d42f99a7a58728034ef8f6a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c9c6bd30d42f99a7a58728034ef8f6a">&#9670;&#160;</a></span>checkIfEmojiIsValid()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static bool faker::Internet::checkIfEmojiIsValid </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>emojiToCheck</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Verify that a given emoji is valid. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">emojiToCheck</td><td>the emoji to check.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true if emojiToCheck is found in one of the vectors, false otherwise.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Internet.html#a8c9c6bd30d42f99a7a58728034ef8f6a">Internet::checkIfEmojiIsValid</a>(<span class="stringliteral">&quot;👑&quot;</span>) <span class="comment">// true</span></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_a8c9c6bd30d42f99a7a58728034ef8f6a"><div class="ttname"><a href="classfaker_1_1Internet.html#a8c9c6bd30d42f99a7a58728034ef8f6a">faker::Internet::checkIfEmojiIsValid</a></div><div class="ttdeci">static bool checkIfEmojiIsValid(const std::string &amp;emojiToCheck)</div><div class="ttdoc">Verify that a given emoji is valid.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="a0ea6cb024c64493e473d7b2ffe624623" name="a0ea6cb024c64493e473d7b2ffe624623"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0ea6cb024c64493e473d7b2ffe624623">&#9670;&#160;</a></span>domainName()</h2>
 
@@ -310,7 +350,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(std::nullopt, &quot;Howard&quot;) <span class="comment">// &quot;FreddieHoward@hotmail.com&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(&quot;Cindy&quot;, &quot;Young&quot;) <span class="comment">// &quot;Young_Cindy@gmail.com&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a>::<a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(std::nullopt, std::nullopt, &quot;example.com&quot;) <span class="comment">// &quot;Wright.Edna1973@code.com&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html"><div class="ttname"><a href="classfaker_1_1Internet.html">faker::Internet</a></div><div class="ttdef"><b>Definition</b> Internet.h:41</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html"><div class="ttname"><a href="classfaker_1_1Internet.html">faker::Internet</a></div><div class="ttdef"><b>Definition</b> Internet.h:42</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_af39e73f7b102e8ae73a9ebee7693ad2c"><div class="ttname"><a href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">faker::Internet::email</a></div><div class="ttdeci">static std::string email(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base.</div></div>
 </div><!-- fragment --> 
 </div>
