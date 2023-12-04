@@ -439,8 +439,6 @@ TEST_F(PersonTest, shouldGenerateBio)
 {
     const auto generatedBio = Person::bio();
 
-    std::cout << "Bio generated: " << generatedBio;
-
     ASSERT_TRUE(BioHelper::checkTokenFormat(generatedBio));
 }
 
