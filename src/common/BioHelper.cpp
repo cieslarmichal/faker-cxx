@@ -8,7 +8,6 @@ namespace faker
 {
 bool BioHelper::checkTokenFormat(const std::string& bio)
 {
-
     const std::regex firstRegex{R"(^[a-zA-Z0-9_]+$)"};
     const std::regex secondRegex{R"(^(\w+\s?\w+), (\w+\s?\w+)$)"};
     const std::regex thirdRegex{R"(^(\w+\s?\w+), (\w+\s?\w+), (\w+\s?\w+)$)"};
