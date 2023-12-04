@@ -2,11 +2,12 @@
   <h1>API Reference</h1>
 </div>
 
+
   <div class="api-groups">
      <div class="api-group">
         <h2><a href="/api/airline.html" class="header-style">Airline</a></h2>
         <ul>
-           <li><a href="/api/airline.html#aircrafttype" class="text-style">aircraftType</a></li>
+           <li><a href="https://cieslarmichal.github.io/faker-cxx/classfaker_1_1Airline.html#ade2dbd4c0dce99bdd62d61f2fcbd4079" class="text-style">aircraftType</a></li>
            <li><a href="/api/airline.html#airline" class="text-style">airline</a></li>
            <li><a href="/api/airline.html#airplane" class="text-style">airplane</a></li>
            <li><a href="/api/airline.html#airport" class="text-style">airport</a></li>
