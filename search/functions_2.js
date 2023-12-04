@@ -26,12 +26,15 @@ var searchData=
   ['country_23',['country',['../classfaker_1_1Location.html#aeccb6f1381edcf063010684db6c47f66',1,'faker::Location']]],
   ['countrycode_24',['countryCode',['../classfaker_1_1Location.html#a8ea095c82bb74e805c4c24a8dfccc5cf',1,'faker::Location']]],
   ['cow_25',['cow',['../classfaker_1_1Animal.html#a019aa2791ad5a1b79702a69b3cc2f573',1,'faker::Animal']]],
-  ['creditcardcvv_26',['creditCardCvv',['../classfaker_1_1Finance.html#a6b4c79d892fdbbf0a0109dc7927bc947',1,'faker::Finance']]],
-  ['creditcardnumber_27',['creditCardNumber',['../classfaker_1_1Finance.html#ac0aa71a72d411fb89c5ba623db469bd4',1,'faker::Finance']]],
-  ['crocodilia_28',['crocodilia',['../classfaker_1_1Animal.html#a4be5f2e822a7f3aa5d3bb3132bca7738',1,'faker::Animal']]],
-  ['cron_29',['cron',['../classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c',1,'faker::System']]],
-  ['currency_30',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
-  ['currencycode_31',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]],
-  ['currencyname_32',['currencyName',['../classfaker_1_1Finance.html#aea30c16fd3757eec52025100bc553136',1,'faker::Finance']]],
-  ['currencysymbol_33',['currencySymbol',['../classfaker_1_1Finance.html#a61a9d4a689fc4efafed30c47980ce9e3',1,'faker::Finance']]]
+  ['cpumanufacture_26',['cpuManufacture',['../classfaker_1_1Computer.html#a482d38a9470e9f6ebac8e8920ce61090',1,'faker::Computer']]],
+  ['cpumodel_27',['cpuModel',['../classfaker_1_1Computer.html#ade5b1561feb47713f030ea5db4e4f30c',1,'faker::Computer']]],
+  ['cputype_28',['cpuType',['../classfaker_1_1Computer.html#a644b4b5de6cdba99f948d0cb4cb86022',1,'faker::Computer']]],
+  ['creditcardcvv_29',['creditCardCvv',['../classfaker_1_1Finance.html#a6b4c79d892fdbbf0a0109dc7927bc947',1,'faker::Finance']]],
+  ['creditcardnumber_30',['creditCardNumber',['../classfaker_1_1Finance.html#ac0aa71a72d411fb89c5ba623db469bd4',1,'faker::Finance']]],
+  ['crocodilia_31',['crocodilia',['../classfaker_1_1Animal.html#a4be5f2e822a7f3aa5d3bb3132bca7738',1,'faker::Animal']]],
+  ['cron_32',['cron',['../classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c',1,'faker::System']]],
+  ['currency_33',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
+  ['currencycode_34',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]],
+  ['currencyname_35',['currencyName',['../classfaker_1_1Finance.html#aea30c16fd3757eec52025100bc553136',1,'faker::Finance']]],
+  ['currencysymbol_36',['currencySymbol',['../classfaker_1_1Finance.html#a61a9d4a689fc4efafed30c47980ce9e3',1,'faker::Finance']]]
 ];

@@ -129,9 +129,17 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a5604817b289605971edea4034bd65115"><td class="memTemplItemLeft" align="right" valign="top">static std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#a5604817b289605971edea4034bd65115">shuffle</a> (std::vector&lt; T &gt; data)</td></tr>
 <tr class="memdesc:a5604817b289605971edea4034bd65115"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns shuffled vector.  <br /></td></tr>
 <tr class="separator:a5604817b289605971edea4034bd65115"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aac9274ace8624b68896fd049064bcfa3" id="r_aac9274ace8624b68896fd049064bcfa3"><td class="memItemLeft" align="right" valign="top"><a id="aac9274ace8624b68896fd049064bcfa3" name="aac9274ace8624b68896fd049064bcfa3"></a>
-static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>shuffleString</b> (std::string data)</td></tr>
+<tr class="memitem:aac9274ace8624b68896fd049064bcfa3" id="r_aac9274ace8624b68896fd049064bcfa3"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#aac9274ace8624b68896fd049064bcfa3">shuffleString</a> (std::string data)</td></tr>
+<tr class="memdesc:aac9274ace8624b68896fd049064bcfa3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns shuffled std::string.  <br /></td></tr>
 <tr class="separator:aac9274ace8624b68896fd049064bcfa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2767629938711ae619fadcf489698d11" id="r_a2767629938711ae619fadcf489698d11"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2767629938711ae619fadcf489698d11"><td class="memTemplItemLeft" align="right" valign="top">static T::key_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">objectKey</a> (const T &amp;object)</td></tr>
+<tr class="memdesc:a2767629938711ae619fadcf489698d11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random key from given object.  <br /></td></tr>
+<tr class="separator:a2767629938711ae619fadcf489698d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a378bc48e5d3c6438a70b75ede9e2d9a3" id="r_a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="memTemplParams" colspan="2">template&lt;typename TResult &gt; </td></tr>
+<tr class="memitem:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="memTemplItemLeft" align="right" valign="top">static TResult&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">maybe</a> (std::function&lt; TResult()&gt; callback, double probability=0.5)</td></tr>
+<tr class="memdesc:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the callback if the probability check was successful, otherwise empty string.  <br /></td></tr>
+<tr class="separator:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8241b8aa5d9c9ac41c35db12bcfc4087" id="r_a8241b8aa5d9c9ac41c35db12bcfc4087"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#a8241b8aa5d9c9ac41c35db12bcfc4087">replaceSymbolWithNumber</a> (std::string str, const char &amp;symbol='#')</td></tr>
 <tr class="memdesc:a8241b8aa5d9c9ac41c35db12bcfc4087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the given string parsed symbol by symbol and replaced the placeholders with digits ("0" - "9"). "!" will be replaced by digits &gt;=2 ("2" - "9").  <br /></td></tr>
 <tr class="separator:a8241b8aa5d9c9ac41c35db12bcfc4087"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -141,14 +149,6 @@ static std::string&#160;</td><td class="memItemRight" valign="bottom"><b>shuffle
 <tr class="memitem:ad97b7e42b9f650bdea9ecba04b135768" id="r_ad97b7e42b9f650bdea9ecba04b135768"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">regexpStyleStringParse</a> (const std::string &amp;input)</td></tr>
 <tr class="memdesc:ad97b7e42b9f650bdea9ecba04b135768"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the replaced regex-like expression in the string with matching values.  <br /></td></tr>
 <tr class="separator:ad97b7e42b9f650bdea9ecba04b135768"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2767629938711ae619fadcf489698d11" id="r_a2767629938711ae619fadcf489698d11"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a2767629938711ae619fadcf489698d11"><td class="memTemplItemLeft" align="right" valign="top">static T::key_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">objectKey</a> (const T &amp;object)</td></tr>
-<tr class="memdesc:a2767629938711ae619fadcf489698d11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random key from given object.  <br /></td></tr>
-<tr class="separator:a2767629938711ae619fadcf489698d11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a378bc48e5d3c6438a70b75ede9e2d9a3" id="r_a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="memTemplParams" colspan="2">template&lt;typename TResult &gt; </td></tr>
-<tr class="memitem:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="memTemplItemLeft" align="right" valign="top">static TResult&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">maybe</a> (std::function&lt; TResult()&gt; callback, double probability=0.5)</td></tr>
-<tr class="memdesc:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the callback if the probability check was successful, otherwise empty string.  <br /></td></tr>
-<tr class="separator:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ac7c79f7dbcb604b8c1c64e67d01ca1ad" name="ac7c79f7dbcb604b8c1c64e67d01ca1ad"></a>
@@ -348,7 +348,7 @@ template&lt;typename T &gt; </div>
 <div class="line">{3, <span class="stringliteral">&quot;three&quot;</span>}</div>
 <div class="line">};</div>
 <div class="line"><a class="code hl_function" href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">Helper::objectKey</a>(testMap) <span class="comment">// &quot;2&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:268</div></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:208</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -586,6 +586,43 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Vector with shuffled elements.</dd></dl>
 <div class="fragment"><div class="line">Helper::shuffle&lt;std::string&gt;(std::vector&lt;std::string&gt;{{<span class="stringliteral">&quot;hello&quot;</span>}, {<span class="stringliteral">&quot;world&quot;</span>}}) <span class="comment">// {{&quot;world&quot;}, {&quot;hello&quot;}}</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="aac9274ace8624b68896fd049064bcfa3" name="aac9274ace8624b68896fd049064bcfa3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac9274ace8624b68896fd049064bcfa3">&#9670;&#160;</a></span>shuffleString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Helper::shuffleString </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>data</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns shuffled std::string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">data</td><td><a class="el" href="classfaker_1_1String.html">String</a> to be shuffled</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string with shuffled chars</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1Helper.html#aac9274ace8624b68896fd049064bcfa3">Helper::shuffleString</a>(<span class="stringliteral">&quot;hello&quot;</span>) <span class="comment">// &quot;eollh&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html_aac9274ace8624b68896fd049064bcfa3"><div class="ttname"><a href="classfaker_1_1Helper.html#aac9274ace8624b68896fd049064bcfa3">faker::Helper::shuffleString</a></div><div class="ttdeci">static std::string shuffleString(std::string data)</div><div class="ttdoc">Returns shuffled std::string.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
