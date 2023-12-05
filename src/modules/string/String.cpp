@@ -184,6 +184,30 @@ std::string String::alpha(unsigned length, StringCasing casing)
     return alpha;
 }
 
+std::string String::alpha(unsigned length, StringCasing casing, const std::string& excludeCharacters)
+{
+    const auto& alphaCharacters = stringCasingToAlphaCharactersMapping.at(casing);
+
+    std::string targetCharacters;
+
+    for (const auto& character : alphaCharacters)
+    {
+        if (excludeCharacters.find(character) == std::string::npos)
+        {
+            targetCharacters += character;
+        }
+    }
+
+    std::string alpha;
+
+    for (unsigned i = 0; i < length; i++)
+    {
+        alpha += Helper::arrayElement<char>(targetCharacters);
+    }
+
+    return alpha;
+}
+
 std::string String::alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing casing)
 {
     auto targetCharacters = stringCasingToAlphaCharSetMapping.at(casing);
