@@ -2,25 +2,108 @@
 
 #include <string>
 
-namespace faker{
-    class Vehicle{
-        public:
-        std::string vehicle();
+namespace faker
+{
+class Vehicle
+{
+public:
+    /**
+     * @brief Returns a random vehicle(car).
+     *
+     * @returns vehicle composed by a manufacturer and model.
+     *
+     * @code
+     * Vehicle::vehicle() // "BMW Explorer"
+     * @endcode
+     */
+    std::string vehicle();
 
-        std::string manufacturer();
+    /**
+     * @brief Returns a random vehicle(car) manufacturer.
+     *
+     * @returns vehicle(car) manufacturer.
+     *
+     * @code
+     * Vehicle::manufacturer() // "Ferrari"
+     * @endcode
+     */
+    std::string manufacturer();
 
-        std::string model();
+    /**
+     * @brief Returns a random vehicle(car) model.
+     *
+     * @returns vehicle(car) model.
+     *
+     * @code
+     * Vehicle::model() // "Fiesta"
+     * @endcode
+     */
+    std::string model();
 
-        std::string type();
+    /**
+     * @brief Returns a random vehicle type.
+     *
+     * @returns vehicle type.
+     *
+     * @code
+     * Vehicle::type() // "Van"
+     * @endcode
+     */
+    std::string type();
 
-        std::string fuel();
+    /**
+     * @brief Returns a random vehicle fuel.
+     *
+     * @returns vehicle fuel.
+     *
+     * @code
+     * Vehicle::fuel() // "Diesel"
+     * @endcode
+     */
+    std::string fuel();
 
-        std::string vin();
+    /**
+     * @brief Returns a vehicle identification number (VIN).
+     *
+     * @returns vehicle identification number.
+     *
+     * @code
+     * Vehicle::vin() // "YV1MH682762184654"
+     * @endcode
+     */
+    std::string vin();
 
-        std::string color();
+    /**
+     * @brief Returns a random vehicle color.
+     *
+     * @returns vehicle color.
+     *
+     * @code
+     * Vehicle::color() // "Silver"
+     * @endcode
+     */
+    std::string color();
 
-        std::string vrm();
+    /**
+     * @brief Returns a vehicle registration number (Vehicle Registration Mark - VRM).
+     *
+     * @returns vehicle registration number.
+     *
+     * @code
+     * Vehicle::vrm() // "MF56UPA"
+     * @endcode
+     */
+    std::string vrm();
 
-        std::string bicycle();
-    };
+    /**
+     * @brief Returns a random bicycle type.
+     *
+     * @returns bicycle type.
+     *
+     * @code
+     * Vehicle::bicycle() // "Electric bike"
+     * @endcode
+     */
+    std::string bicycle();
+};
 }
