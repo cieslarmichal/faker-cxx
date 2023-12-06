@@ -17,7 +17,7 @@ public:
      * Vehicle::bicycle() // "Electric bike"
      * @endcode
      */
-    std::string bicycle();
+    static std::string bicycle();
 
     /**
      * @brief Returns a random vehicle color.
@@ -28,7 +28,7 @@ public:
      * Vehicle::color() // "Silver"
      * @endcode
      */
-    std::string color();
+    static std::string color();
 
     /**
      * @brief Returns a random vehicle fuel.
@@ -39,7 +39,7 @@ public:
      * Vehicle::fuel() // "Diesel"
      * @endcode
      */
-    std::string fuel();
+    static std::string fuel();
 
     /**
      * @brief Returns a random vehicle(car) manufacturer.
@@ -50,7 +50,7 @@ public:
      * Vehicle::manufacturer() // "Ferrari"
      * @endcode
      */
-    std::string manufacturer();
+    static std::string manufacturer();
 
     /**
      * @brief Returns a random vehicle(car) model.
@@ -61,7 +61,7 @@ public:
      * Vehicle::model() // "Fiesta"
      * @endcode
      */
-    std::string model();
+    static std::string model();
 
     /**
      * @brief Returns a random vehicle type.
@@ -72,7 +72,7 @@ public:
      * Vehicle::type() // "Van"
      * @endcode
      */
-    std::string type();
+    static std::string type();
 
     /**
      * @brief Returns a random vehicle(car).
@@ -83,7 +83,7 @@ public:
      * Vehicle::vehicle() // "BMW Explorer"
      * @endcode
      */
-    std::string vehicle();
+    static std::string vehicle();
 
     /**
      * @brief Returns a vehicle identification number (VIN).
@@ -94,7 +94,7 @@ public:
      * Vehicle::vin() // "YV1MH682762184654"
      * @endcode
      */
-    std::string vin();
+    static std::string vin();
 
     /**
      * @brief Returns a vehicle registration number (Vehicle Registration Mark - VRM).
@@ -105,6 +105,6 @@ public:
      * Vehicle::vrm() // "MF56UPA"
      * @endcode
      */
-    std::string vrm();
+    static std::string vrm();
 };
 }
