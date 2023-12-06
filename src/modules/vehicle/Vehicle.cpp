@@ -47,7 +47,7 @@ std::string Vehicle::type()
 
 std::string Vehicle::vehicle()
 {
-    return fmt::format("{} {}", this->manufacturer(), this->model());
+    return fmt::format("{} {}", manufacturer(), model());
 }
 
 
@@ -65,7 +65,7 @@ std::string Vehicle::vin()
 
 std::string Vehicle::vrm()
 {
-    return fmt::format("{}{}{}", String::alphanumeric(2, StringCasing::Upper), String::numeric(2, true), String::alphanumeric(3, StringCasing::Upper));
+    return fmt::format("{}{}{}", String::alpha(2, StringCasing::Upper), String::numeric(2, true), String::alpha(3, StringCasing::Upper));
 }
 
 }
