@@ -7,16 +7,39 @@ namespace faker
 class Vehicle
 {
 public:
+
     /**
-     * @brief Returns a random vehicle(car).
+     * @brief Returns a random bicycle type.
      *
-     * @returns vehicle composed by a manufacturer and model.
+     * @returns bicycle type.
      *
      * @code
-     * Vehicle::vehicle() // "BMW Explorer"
+     * Vehicle::bicycle() // "Electric bike"
      * @endcode
      */
-    std::string vehicle();
+    std::string bicycle();
+
+    /**
+     * @brief Returns a random vehicle color.
+     *
+     * @returns vehicle color.
+     *
+     * @code
+     * Vehicle::color() // "Silver"
+     * @endcode
+     */
+    std::string color();
+
+    /**
+     * @brief Returns a random vehicle fuel.
+     *
+     * @returns vehicle fuel.
+     *
+     * @code
+     * Vehicle::fuel() // "Diesel"
+     * @endcode
+     */
+    std::string fuel();
 
     /**
      * @brief Returns a random vehicle(car) manufacturer.
@@ -52,15 +75,15 @@ public:
     std::string type();
 
     /**
-     * @brief Returns a random vehicle fuel.
+     * @brief Returns a random vehicle(car).
      *
-     * @returns vehicle fuel.
+     * @returns vehicle composed by a manufacturer and model.
      *
      * @code
-     * Vehicle::fuel() // "Diesel"
+     * Vehicle::vehicle() // "BMW Explorer"
      * @endcode
      */
-    std::string fuel();
+    std::string vehicle();
 
     /**
      * @brief Returns a vehicle identification number (VIN).
@@ -74,17 +97,6 @@ public:
     std::string vin();
 
     /**
-     * @brief Returns a random vehicle color.
-     *
-     * @returns vehicle color.
-     *
-     * @code
-     * Vehicle::color() // "Silver"
-     * @endcode
-     */
-    std::string color();
-
-    /**
      * @brief Returns a vehicle registration number (Vehicle Registration Mark - VRM).
      *
      * @returns vehicle registration number.
@@ -94,16 +106,5 @@ public:
      * @endcode
      */
     std::string vrm();
-
-    /**
-     * @brief Returns a random bicycle type.
-     *
-     * @returns bicycle type.
-     *
-     * @code
-     * Vehicle::bicycle() // "Electric bike"
-     * @endcode
-     */
-    std::string bicycle();
 };
 }

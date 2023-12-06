@@ -40,6 +40,11 @@ std::string Vehicle::model()
     return Helper::arrayElement(models);
 }
 
+std::string Vehicle::type()
+{
+    return Helper::arrayElement(vehicle_types);
+}
+
 std::string Vehicle::vehicle()
 {
     return fmt::format("{} {}", this->manufacturer(), this->model());
@@ -61,11 +66,6 @@ std::string Vehicle::vin()
 std::string Vehicle::vrm()
 {
     return fmt::format("{}{}{}", String::alphanumeric(2, StringCasing::Upper), String::numeric(2, true), String::alphanumeric(3, StringCasing::Upper));
-}
-
-std::string Vehicle::type()
-{
-    return Helper::arrayElement(vehicle_types);
 }
 
 }
