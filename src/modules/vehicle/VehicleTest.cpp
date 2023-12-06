@@ -1,10 +1,10 @@
-#include "faker-cxx/Vehicle.h"
+#include "../../../include/faker-cxx/Vehicle.h"
 
 #include <algorithm>
 #include <string>
+#include <regex>
 
-#include "gtest/gtest.h"
-
+#include "../../../externals/fmt/test/gtest/gtest/gtest.h"
 #include "data/Bicycle.h"
 #include "data/Color.h"
 #include "data/Fuel.h"
@@ -48,7 +48,7 @@ TEST_F(VehicleTest, shouldGenerateManufacturer)
 {
     std::string generatedManufacturer = Vehicle::manufacturer();
 
-    ASSERT_TRUE(std::ranges::any_of(generatedManufacturer, [generatedManufacturer](const std::string& manufacturer)
+    ASSERT_TRUE(std::ranges::any_of(manufacturers, [generatedManufacturer](const std::string& manufacturer)
                                     { return manufacturer == generatedManufacturer; }));
 }
 
@@ -72,14 +72,14 @@ TEST_F(VehicleTest, shouldGenerateVehicle)
 {
     std::string generatedVehicle = Vehicle::vehicle();
 
-    int spaceIndex = generatedVehicle.find(' ');
+    auto spaceIndex = generatedVehicle.find(' ');
+    std::string vehicleManufacturer;
+    std::string vehicleModel;
 
-    if (spaceIndex != -1)
+    if (spaceIndex >= 0)
     {
-        std::string vehicleManufacturer = generatedVehicle.substr(0, spaceIndex);
-        std::string vehicleModel = generatedVehicle.substr(spaceIndex + 1);
-
-        // Process the two words
+        vehicleManufacturer = generatedVehicle.substr(0, spaceIndex);
+        vehicleModel = generatedVehicle.substr(spaceIndex + 1);
     }
 
     ASSERT_TRUE(std::ranges::any_of(manufacturers, [vehicleManufacturer](const std::string& manufacturer)
@@ -87,4 +87,20 @@ TEST_F(VehicleTest, shouldGenerateVehicle)
 
     ASSERT_TRUE(
         std::ranges::any_of(models, [vehicleModel](const std::string& model) { return model == vehicleModel; }));
+}
+
+TEST_F(VehicleTest, shouldGenerateVin)
+{
+    std::string generatedVin = Vehicle::vin();
+    std::regex vinRegex("[A-HJ-NPR-Z0-9]{10}[A-HJ-NPR-Z0-9]{1}[A-HJ-NPR-Z0-9]{1}[0-9]{5}");
+    std::smatch match;
+    ASSERT_TRUE(std::regex_match(generatedVin, match, vinRegex));
+}
+
+TEST_F(VehicleTest, shouldGenerateVrm)
+{
+    std::string generatedVrm = Vehicle::vrm();
+    std::regex vrmRegex("[A-Z]{2}[0-9]{2}[A-Z]{3}");
+    std::smatch match;
+    ASSERT_TRUE(std::regex_match(generatedVrm, match, vrmRegex));
 }
