@@ -97,7 +97,8 @@ set(FAKER_UT_SOURCES
     src/modules/airline/AirlineTest.cpp
     src/modules/image/ImageTest.cpp
     src/modules/crypto/CryptoTest.cpp 
-    src/modules/computer/ComputerTest.cpp)
+    src/modules/computer/ComputerTest.cpp
+    src/modules/vehicle/VehicleTest.cpp)
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 
