@@ -119,9 +119,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a3dca95bfceba12c0c151f0564627bd0c" id="r_a3dca95bfceba12c0c151f0564627bd0c"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a3dca95bfceba12c0c151f0564627bd0c">fromCharacters</a> (GuaranteeMap &amp;&amp;guarantee, const std::string &amp;characters, unsigned length=1)</td></tr>
 <tr class="memdesc:a3dca95bfceba12c0c151f0564627bd0c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a string consisting of given characters.  <br /></td></tr>
 <tr class="separator:a3dca95bfceba12c0c151f0564627bd0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6d97fdf6f3c37532ee92c2245fd252db" id="r_a6d97fdf6f3c37532ee92c2245fd252db"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">alpha</a> (unsigned length=1, StringCasing casing=StringCasing::Mixed)</td></tr>
-<tr class="memdesc:a6d97fdf6f3c37532ee92c2245fd252db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a string consisting of letters in the English alphabet.  <br /></td></tr>
-<tr class="separator:a6d97fdf6f3c37532ee92c2245fd252db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbab2e4390b07455a9386ef718e60703" id="r_abbab2e4390b07455a9386ef718e60703"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#abbab2e4390b07455a9386ef718e60703">alpha</a> (unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)</td></tr>
+<tr class="memdesc:abbab2e4390b07455a9386ef718e60703"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a string consisting of letters in the English alphabet.  <br /></td></tr>
+<tr class="separator:abbab2e4390b07455a9386ef718e60703"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80ef169c2f5a7a96ab11e9d9ce64eb95" id="r_a80ef169c2f5a7a96ab11e9d9ce64eb95"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classfaker_1_1String.html#a80ef169c2f5a7a96ab11e9d9ce64eb95">alpha</a> (GuaranteeMap &amp;&amp;guarantee, unsigned length=1, StringCasing casing=StringCasing::Mixed)</td></tr>
 <tr class="memdesc:a80ef169c2f5a7a96ab11e9d9ce64eb95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a string consisting of letters in the English alphabet.  <br /></td></tr>
 <tr class="separator:a80ef169c2f5a7a96ab11e9d9ce64eb95"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -207,15 +207,15 @@ Static Public Member Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Alpha string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">String::alpha</a>({}) <span class="comment">// &quot;b&quot;</span></div>
-<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">String::alpha</a>({{<span class="charliteral">&#39;A&#39;</span>,{2,2}}, 5, StringCasing::Upper) <span class="comment">// &quot;DACAC&quot;</span></div>
-<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">String::alpha</a>({{<span class="charliteral">&#39;a&#39;</span>,{0,0}},{<span class="charliteral">&#39;b&#39;</span>,{3,3}},{<span class="charliteral">&#39;c&#39;</span>, {0,2}}}, 10, StringCasing::Lower) <span class="comment">// &quot;bicnmmkbbp&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1String_html_a6d97fdf6f3c37532ee92c2245fd252db"><div class="ttname"><a href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">faker::String::alpha</a></div><div class="ttdeci">static std::string alpha(unsigned length=1, StringCasing casing=StringCasing::Mixed)</div><div class="ttdoc">Generates a string consisting of letters in the English alphabet.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#abbab2e4390b07455a9386ef718e60703">String::alpha</a>({}) <span class="comment">// &quot;b&quot;</span></div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#abbab2e4390b07455a9386ef718e60703">String::alpha</a>({{<span class="charliteral">&#39;A&#39;</span>,{2,2}}, 5, StringCasing::Upper) <span class="comment">// &quot;DACAC&quot;</span></div>
+<div class="line"><a class="code hl_function" href="classfaker_1_1String.html#abbab2e4390b07455a9386ef718e60703">String::alpha</a>({{<span class="charliteral">&#39;a&#39;</span>,{0,0}},{<span class="charliteral">&#39;b&#39;</span>,{3,3}},{<span class="charliteral">&#39;c&#39;</span>, {0,2}}}, 10, StringCasing::Lower) <span class="comment">// &quot;bicnmmkbbp&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1String_html_abbab2e4390b07455a9386ef718e60703"><div class="ttname"><a href="classfaker_1_1String.html#abbab2e4390b07455a9386ef718e60703">faker::String::alpha</a></div><div class="ttdeci">static std::string alpha(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)</div><div class="ttdoc">Generates a string consisting of letters in the English alphabet.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a6d97fdf6f3c37532ee92c2245fd252db" name="a6d97fdf6f3c37532ee92c2245fd252db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d97fdf6f3c37532ee92c2245fd252db">&#9670;&#160;</a></span>alpha() <span class="overload">[2/2]</span></h2>
+<a id="abbab2e4390b07455a9386ef718e60703" name="abbab2e4390b07455a9386ef718e60703"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abbab2e4390b07455a9386ef718e60703">&#9670;&#160;</a></span>alpha() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -233,7 +233,13 @@ Static Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">StringCasing&#160;</td>
-          <td class="paramname"><em>casing</em> = <code>StringCasing::Mixed</code>&#160;</td>
+          <td class="paramname"><em>casing</em> = <code>StringCasing::Mixed</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>excludeCharacters</em> = <code>&quot;&quot;</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -252,14 +258,15 @@ Static Public Member Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">length</td><td>The number of characters to generate. Defaults to `1`. </td></tr>
-    <tr><td class="paramname">casing</td><td>The casing of the characters. Defaults to `StringCasingMixed`.</td></tr>
+    <tr><td class="paramname">casing</td><td>The casing of the characters. Defaults to `StringCasingMixed`. </td></tr>
+    <tr><td class="paramname">excludeCharacters</td><td>The characters to be excluded from the string to generate. Defaults to ``.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Alpha string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">String::alpha</a>() <span class="comment">// &quot;b&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">alpha</a>(5, StringCasing::Upper) <span class="comment">// &quot;DTCIC&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#a6d97fdf6f3c37532ee92c2245fd252db">alpha</a>(4, StringCasing::Lower) <span class="comment">// &quot;brpt&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="classfaker_1_1String.html#abbab2e4390b07455a9386ef718e60703">String::alpha</a>() <span class="comment">// &quot;b&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#abbab2e4390b07455a9386ef718e60703">alpha</a>(5, StringCasing::Upper) <span class="comment">// &quot;DTCIC&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1String.html">String</a>::<a class="code hl_function" href="classfaker_1_1String.html#abbab2e4390b07455a9386ef718e60703">alpha</a>(4, StringCasing::Lower) <span class="comment">// &quot;brpt&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1String_html"><div class="ttname"><a href="classfaker_1_1String.html">faker::String</a></div><div class="ttdef"><b>Definition</b> String.h:67</div></div>
 </div><!-- fragment --> 
 </div>

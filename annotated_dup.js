@@ -35,6 +35,7 @@ var annotated_dup =
       [ "Sport", "classfaker_1_1Sport.html", null ],
       [ "String", "classfaker_1_1String.html", null ],
       [ "System", "classfaker_1_1System.html", null ],
+      [ "Vehicle", "classfaker_1_1Vehicle.html", null ],
       [ "VideoGame", "classfaker_1_1VideoGame.html", null ],
       [ "Weather", "classfaker_1_1Weather.html", "classfaker_1_1Weather" ],
       [ "Word", "classfaker_1_1Word.html", null ]

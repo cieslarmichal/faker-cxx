@@ -14,7 +14,7 @@ var searchData=
   ['cloudcover_11',['cloudCover',['../classfaker_1_1Weather.html#a7d0451aec845d0f8e1bd2e9989d818d0',1,'faker::Weather']]],
   ['cmyk_12',['cmyk',['../classfaker_1_1Color.html#ab47da1db6d86a41571bfb39a079e45ad',1,'faker::Color']]],
   ['collation_13',['collation',['../classfaker_1_1Database.html#aed7e54cfd58e1e738ab314c4560da93d',1,'faker::Database']]],
-  ['color_14',['Color',['../classfaker_1_1Color.html',1,'faker']]],
+  ['color_14',['color',['../classfaker_1_1Color.html',1,'faker::Color'],['../classfaker_1_1Vehicle.html#a56e785dc7e34dbb5961db76a86f4a25a',1,'faker::Vehicle::color()']]],
   ['columnname_15',['columnName',['../classfaker_1_1Database.html#abcf37794c994f4eb7ddffe84f5be7f2b',1,'faker::Database']]],
   ['columntype_16',['columnType',['../classfaker_1_1Database.html#afceac6312025f6524a77d5baa242997b',1,'faker::Database']]],
   ['commerce_17',['Commerce',['../classfaker_1_1Commerce.html',1,'faker']]],

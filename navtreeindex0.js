@@ -30,9 +30,10 @@ var NAVTREEINDEX0 =
 "classfaker_1_1Sport.html":[0,0,0,31],
 "classfaker_1_1String.html":[0,0,0,32],
 "classfaker_1_1System.html":[0,0,0,33],
-"classfaker_1_1VideoGame.html":[0,0,0,34],
-"classfaker_1_1Weather.html":[0,0,0,35],
-"classfaker_1_1Word.html":[0,0,0,36],
+"classfaker_1_1Vehicle.html":[0,0,0,34],
+"classfaker_1_1VideoGame.html":[0,0,0,35],
+"classfaker_1_1Weather.html":[0,0,0,36],
+"classfaker_1_1Word.html":[0,0,0,37],
 "index.html":[],
 "pages.html":[],
 "structfaker_1_1Airline_1_1AirlineStruct.html":[0,0,0,0,0],
@@ -45,8 +46,8 @@ var NAVTREEINDEX0 =
 "structfaker_1_1Helper_1_1WeightedElement.html":[0,0,0,18,0],
 "structfaker_1_1NetworkInterfaceOptions.html":[0,0,0,26],
 "structfaker_1_1PasswordOptions.html":[0,0,0,28],
-"structfaker_1_1Weather_1_1Pressure.html":[0,0,0,35,0],
-"structfaker_1_1Weather_1_1Temperature.html":[0,0,0,35,1],
-"structfaker_1_1Weather_1_1Visibility.html":[0,0,0,35,2],
-"structfaker_1_1Weather_1_1WindSpeed.html":[0,0,0,35,3]
+"structfaker_1_1Weather_1_1Pressure.html":[0,0,0,36,0],
+"structfaker_1_1Weather_1_1Temperature.html":[0,0,0,36,1],
+"structfaker_1_1Weather_1_1Visibility.html":[0,0,0,36,2],
+"structfaker_1_1Weather_1_1WindSpeed.html":[0,0,0,36,3]
 };
