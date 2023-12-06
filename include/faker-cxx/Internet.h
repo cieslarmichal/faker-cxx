@@ -30,7 +30,8 @@ enum class IPv4Class
     C
 };
 
-struct PasswordOptions {
+struct PasswordOptions
+{
     bool upperLetters = true;
     bool lowerLetters = true;
     bool numbers = true;

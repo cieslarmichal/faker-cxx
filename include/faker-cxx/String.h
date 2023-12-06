@@ -202,7 +202,8 @@ public:
      * String::alpha(4, StringCasing::Lower) // "brpt"
      * @endcode
      */
-    static std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed, const std::string& excludeCharacters = "");
+    static std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
+                             const std::string& excludeCharacters = "");
 
     /**
      * @brief Generates a string consisting of letters in the English alphabet.

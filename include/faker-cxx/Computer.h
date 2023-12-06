@@ -2,20 +2,19 @@
 
 #include <string>
 
-
 namespace faker
 {
 class Computer
 {
 public:
     /*
-    * @brief Returns a random computer type.
-    * 
-    * @returns computer type
-    * 
-    * @code
-    * Computer::type() // Laptop
-    */
+     * @brief Returns a random computer type.
+     *
+     * @returns computer type
+     *
+     * @code
+     * Computer::type() // Laptop
+     */
     static std::string type();
     /*
      * @brief Returns a random computer manufacture name.
@@ -89,7 +88,6 @@ public:
      * Computer::gpuModel() // NVIDIA GeForce RTX 3080
      */
     static std::string gpuModel();
-
 };
 
 }

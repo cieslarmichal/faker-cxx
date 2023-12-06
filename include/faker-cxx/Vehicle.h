@@ -7,7 +7,6 @@ namespace faker
 class Vehicle
 {
 public:
-
     /**
      * @brief Returns a random bicycle type.
      *
