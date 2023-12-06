@@ -1,10 +1,11 @@
 #include "faker-cxx/Vehicle.h"
 
 #include <algorithm>
-#include <string>
 #include <regex>
+#include <string>
 
 #include "gtest/gtest.h"
+
 #include "data/Bicycle.h"
 #include "data/Color.h"
 #include "data/Fuel.h"
@@ -72,16 +73,15 @@ TEST_F(VehicleTest, shouldGenerateVehicle)
 {
     std::string generatedVehicle = Vehicle::vehicle();
 
+    // Check if a space exists in the generated vehicle string
+    ASSERT_TRUE(generatedVehicle.find(' ') != std::string::npos);
+
+    // Extract the manufacturer and model from the string
     auto spaceIndex = generatedVehicle.find(' ');
-    std::string vehicleManufacturer;
-    std::string vehicleModel;
+    std::string vehicleManufacturer = generatedVehicle.substr(0, spaceIndex);
+    std::string vehicleModel = generatedVehicle.substr(spaceIndex + 1);
 
-    if (spaceIndex >= 0)
-    {
-        vehicleManufacturer = generatedVehicle.substr(0, spaceIndex);
-        vehicleModel = generatedVehicle.substr(spaceIndex + 1);
-    }
-
+    // Assert that the extracted manufacturer and model exist in the respective lists
     ASSERT_TRUE(std::ranges::any_of(manufacturers, [vehicleManufacturer](const std::string& manufacturer)
                                     { return manufacturer == vehicleManufacturer; }));
 
