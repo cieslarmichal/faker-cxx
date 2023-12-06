@@ -1,10 +1,10 @@
-#include "../../../include/faker-cxx/Vehicle.h"
+#include "faker-cxx/Vehicle.h"
 
 #include <algorithm>
 #include <string>
 #include <regex>
 
-#include "../../../externals/fmt/test/gtest/gtest/gtest.h"
+#include "gtest/gtest.h"
 #include "data/Bicycle.h"
 #include "data/Color.h"
 #include "data/Fuel.h"
