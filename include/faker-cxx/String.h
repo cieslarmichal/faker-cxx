@@ -191,23 +191,6 @@ public:
      *
      * @param length The number of characters to generate. Defaults to `1`.
      * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
-     *
-     * @returns Alpha string.
-     *
-     * @code
-     * String::alpha() // "b"
-     * String::alpha(5, StringCasing::Upper) // "DTCIC"
-     * String::alpha(4, StringCasing::Lower) // "brpt"
-     * @endcode
-     */
-    static std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed);
-
-
-    /**
-     * @brief Generates a string consisting of letters in the English alphabet.
-     *
-     * @param length The number of characters to generate. Defaults to `1`.
-     * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
      * @param excludeCharacters The characters to be excluded from the string to generate. Defaults to ``.
      *
      *

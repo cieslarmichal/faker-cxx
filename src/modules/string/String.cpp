@@ -170,20 +170,6 @@ std::string String::fromCharacters(GuaranteeMap&& guarantee, const std::string& 
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string String::alpha(unsigned length, StringCasing casing)
-{
-    const auto& targetCharacters = stringCasingToAlphaCharactersMapping.at(casing);
-
-    std::string alpha;
-
-    for (unsigned i = 0; i < length; i++)
-    {
-        alpha += Helper::arrayElement<char>(targetCharacters);
-    }
-
-    return alpha;
-}
-
 std::string String::alpha(unsigned length, StringCasing casing, const std::string& excludeCharacters)
 {
     const auto& alphaCharacters = stringCasingToAlphaCharactersMapping.at(casing);
