@@ -1,13 +1,15 @@
 a.header-style {
     color: #10b981 !important;
-    font-size: 24px;
-    font-family: Helvetica, Arial, serif
+    font-size: 22px;
+    font-weight: bold;
+    font-family: Arial
 }
 
 a.text-style {
-    color: #49494a !important;
-    font-size: 17px;
-    font-family: Helvetica, Arial, serif
+    color: #476582 !important;
+    font-size: 16px;
+    font-weight: 400;
+    font-family: Arial
 }
 
 ul {
@@ -29,16 +31,4 @@ ul {
     display: grid;
     width: 100%;
     grid-gap: 1rem;
-}
-
-@media (min-width: 600px) {
-    .cards {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (min-width: 900px) {
-    .cards {
-        grid-template-columns: repeat(3, 1fr);
-    }
 }

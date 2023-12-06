@@ -125,6 +125,19 @@ public:
     static std::string emoji(std::optional<EmojiType> type = std::nullopt);
 
     /**
+     * @brief Verify that a given emoji is valid.
+     *
+     * @param emojiToCheck the emoji to check.
+     *
+     * @returns true if emojiToCheck is found in one of the vectors, false otherwise.
+     *
+     * @code
+     * Internet::checkIfEmojiIsValid("👑") // true
+     * @endcode
+     */
+    static bool checkIfEmojiIsValid(const std::string& emojiToCheck);
+
+    /**
      * @brief Returns a random web protocol. Either `http` or `https`.
      *
      * @returns Web protocol.
