@@ -44,11 +44,6 @@ enum class Language
     Estonian
 };
 
-//const std::vector<Language> languages{
-//    Language::English,  Language::Polish, Language::Italian,   Language::French, Language::German,  Language::Russian,
-//    Language::Romanian, Language::Hindi,  Language::Finnish,   Language::Nepali, Language::Spanish, Language::Turkish,
-//    Language::Czech,    Language::Slovak, Language::Ukrainian, Language::Danish, Language::Swedish};
-
 inline std::string toString(Language language)
 {
     static const std::map<Language, std::string> languageToStringMapping{
