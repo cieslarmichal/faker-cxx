@@ -9,7 +9,7 @@ var searchData=
   ['sentence_6',['sentence',['../classfaker_1_1Lorem.html#ace402bfeedb5be11d011a38c5708daa5',1,'faker::Lorem']]],
   ['sentences_7',['sentences',['../classfaker_1_1Lorem.html#a642a0a6fe7293f968b01a46b8202224a',1,'faker::Lorem']]],
   ['setelement_8',['setElement',['../classfaker_1_1Helper.html#afa9ce3f39af7cdaf537be7de5496e848',1,'faker::Helper']]],
-  ['sex_9',['sex',['../classfaker_1_1Person.html#a0347ebf92763183d8eef2fce5f78fc44',1,'faker::Person']]],
+  ['sex_9',['sex',['../classfaker_1_1Person.html#af8f8da8f2cbe05dce89e79f5308cf3e6',1,'faker::Person']]],
   ['sha256_10',['sha256',['../classfaker_1_1Crypto.html#ac0279633961b7060cb0fad3342844b8b',1,'faker::Crypto']]],
   ['shuffle_11',['shuffle',['../classfaker_1_1Helper.html#a5604817b289605971edea4034bd65115',1,'faker::Helper']]],
   ['shufflestring_12',['shuffleString',['../classfaker_1_1Helper.html#aac9274ace8624b68896fd049064bcfa3',1,'faker::Helper']]],
