@@ -31,8 +31,9 @@ TEST_F(FoodTest, shouldGenerateAlcoholicBeverage)
 {
     const auto generatedAlcoholicBeverage = Food::alcoholicBeverage();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(alcoholicBeverages, [generatedAlcoholicBeverage](const std::string& alcoholicBeverage) { return generatedAlcoholicBeverage == alcoholicBeverage; }));
+    ASSERT_TRUE(std::ranges::any_of(alcoholicBeverages,
+                                    [generatedAlcoholicBeverage](const std::string& alcoholicBeverage)
+                                    { return generatedAlcoholicBeverage == alcoholicBeverage; }));
 }
 
 TEST_F(FoodTest, shouldGenerateDishName)
@@ -63,8 +64,7 @@ TEST_F(FoodTest, shouldGenerateMeat)
 {
     const auto generatedMeat = Food::meat();
 
-    ASSERT_TRUE(std::ranges::any_of(meats, [generatedMeat](const std::string& meat)
-                                    { return generatedMeat == meat; }));
+    ASSERT_TRUE(std::ranges::any_of(meats, [generatedMeat](const std::string& meat) { return generatedMeat == meat; }));
 }
 
 TEST_F(FoodTest, shouldGenerateMilkProduct)
@@ -79,7 +79,8 @@ TEST_F(FoodTest, shouldGenerateNonalcoholicBeverages)
 {
     const auto generatedNonalcoholicBeverages = Food::nonalcoholicBeverage();
 
-    ASSERT_TRUE(std::ranges::any_of(nonalcoholicBeverages, [generatedNonalcoholicBeverages](const std::string& nonalcoholicBeverage)
+    ASSERT_TRUE(std::ranges::any_of(nonalcoholicBeverages,
+                                    [generatedNonalcoholicBeverages](const std::string& nonalcoholicBeverage)
                                     { return generatedNonalcoholicBeverages == nonalcoholicBeverage; }));
 }
 
@@ -87,16 +88,14 @@ TEST_F(FoodTest, shouldGenerateNut)
 {
     const auto generatedNut = Food::nut();
 
-    ASSERT_TRUE(std::ranges::any_of(nuts, [generatedNut](const std::string& nut)
-                                    { return generatedNut == nut; }));
+    ASSERT_TRUE(std::ranges::any_of(nuts, [generatedNut](const std::string& nut) { return generatedNut == nut; }));
 }
 
 TEST_F(FoodTest, shouldGenerateOil)
 {
     const auto generatedOil = Food::oil();
 
-    ASSERT_TRUE(std::ranges::any_of(oils, [generatedOil](const std::string& oil)
-                                    { return generatedOil == oil; }));
+    ASSERT_TRUE(std::ranges::any_of(oils, [generatedOil](const std::string& oil) { return generatedOil == oil; }));
 }
 
 TEST_F(FoodTest, shouldGenerateSeafood)
@@ -111,16 +110,15 @@ TEST_F(FoodTest, shouldGenerateSeed)
 {
     const auto generatedSeed = Food::seed();
 
-    ASSERT_TRUE(std::ranges::any_of(seeds, [generatedSeed](const std::string& seed)
-                                    { return generatedSeed == seed; }));
+    ASSERT_TRUE(std::ranges::any_of(seeds, [generatedSeed](const std::string& seed) { return generatedSeed == seed; }));
 }
 
 TEST_F(FoodTest, shouldGenerateGrain)
 {
     const auto generatedGrain = Food::grain();
 
-    ASSERT_TRUE(std::ranges::any_of(grains, [generatedGrain](const std::string& grain)
-                                    { return generatedGrain == grain; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(grains, [generatedGrain](const std::string& grain) { return generatedGrain == grain; }));
 }
 
 TEST_F(FoodTest, shouldGenerateSugarProduct)

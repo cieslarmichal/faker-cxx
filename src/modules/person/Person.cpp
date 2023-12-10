@@ -306,9 +306,13 @@ std::string Person::suffix()
     return Helper::arrayElement<std::string>(allSuffixes);
 }
 
-std::string Person::sex()
+std::string Person::sex(Language language)
 {
-    return Helper::arrayElement<std::string>(sexes);
+    std::string chosenSex = Helper::arrayElement<std::string>(sexes);
+
+    Sex sexEnum = chosenSex == "Male" ? Sex::Male : Sex::Female;
+
+    return translateSex(sexEnum, language);
 }
 
 std::string Person::gender()

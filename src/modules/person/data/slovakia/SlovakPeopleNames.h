@@ -12,7 +12,8 @@ namespace faker
 const NameFormats slovakPersonNameFormats{
     {{"{firstName} {lastName}", 8}, {"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames slovakPeopleNames{{slovakMalesFirstNames, {}, slovakMalesLastNames, slovakPrefixes, slovakSuffixes},
-                                   {slovakFemalesFirstNames, {}, slovakFemalesLastNames, slovakPrefixes, slovakSuffixes},
-                                   slovakPersonNameFormats};
+const PeopleNames slovakPeopleNames{
+    {slovakMalesFirstNames, {}, slovakMalesLastNames, slovakPrefixes, slovakSuffixes},
+    {slovakFemalesFirstNames, {}, slovakFemalesLastNames, slovakPrefixes, slovakSuffixes},
+    slovakPersonNameFormats};
 }

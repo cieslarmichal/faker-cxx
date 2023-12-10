@@ -472,3 +472,63 @@ TEST_F(PersonTest, shouldGenerateChineseZodiacs)
     ASSERT_TRUE(std::ranges::any_of(chineseZodiacs, [generatedChineseZodiacs](const std::string& chineseZodiac)
                                     { return generatedChineseZodiacs == chineseZodiac; }));
 }
+
+class PersonSexSuite : public TestWithParam<std::pair<Language, Sex>> {
+};
+
+TEST_P(PersonSexSuite, shouldTranslateSexCorrectly) {
+    Language language = GetParam().first;
+    Sex sex = GetParam().second;
+
+    std::string expectedTranslation = sexTranslations.at(language).at(sex);
+    std::string actualTranslation = translateSex(sex, language);
+
+    ASSERT_EQ(expectedTranslation, actualTranslation);
+}
+
+std::vector<std::pair<Language, Sex>> languageSexPairs = {
+    {Language::English, Sex::Male}, {Language::English, Sex::Female},
+    {Language::Polish, Sex::Male}, {Language::Polish, Sex::Female},
+    {Language::Italian, Sex::Male}, {Language::Italian, Sex::Female},
+    {Language::French, Sex::Male}, {Language::French, Sex::Female},
+    {Language::German, Sex::Male}, {Language::German, Sex::Female},
+    {Language::Russian, Sex::Male}, {Language::Russian, Sex::Female},
+    {Language::Romanian, Sex::Male}, {Language::Romanian, Sex::Female},
+    {Language::Hindi, Sex::Male}, {Language::Hindi, Sex::Female},
+    {Language::Finnish, Sex::Male}, {Language::Finnish, Sex::Female},
+    {Language::Nepali, Sex::Male}, {Language::Nepali, Sex::Female},
+    {Language::Spanish, Sex::Male}, {Language::Spanish, Sex::Female},
+    {Language::Turkish, Sex::Male}, {Language::Turkish, Sex::Female},
+    {Language::Czech, Sex::Male}, {Language::Czech, Sex::Female},
+    {Language::Slovak, Sex::Male}, {Language::Slovak, Sex::Female},
+    {Language::Ukrainian, Sex::Male}, {Language::Ukrainian, Sex::Female},
+    {Language::Danish, Sex::Male}, {Language::Danish, Sex::Female},
+    {Language::Swedish, Sex::Male}, {Language::Swedish, Sex::Female},
+    {Language::Portuguese, Sex::Male}, {Language::Portuguese, Sex::Female},
+    {Language::Norwegian, Sex::Male}, {Language::Norwegian, Sex::Female},
+    {Language::Japanese, Sex::Male}, {Language::Japanese, Sex::Female},
+    {Language::Hungarian, Sex::Male}, {Language::Hungarian, Sex::Female},
+    {Language::Croatian, Sex::Male}, {Language::Croatian, Sex::Female},
+    {Language::Greek, Sex::Male}, {Language::Greek, Sex::Female},
+    {Language::Slovene, Sex::Male}, {Language::Slovene, Sex::Female},
+    {Language::Dutch, Sex::Male}, {Language::Dutch, Sex::Female},
+    {Language::Mandarin, Sex::Male}, {Language::Mandarin, Sex::Female},
+    {Language::Korean, Sex::Male}, {Language::Korean, Sex::Female},
+    {Language::Serbian, Sex::Male}, {Language::Serbian, Sex::Female},
+    {Language::Macedonian, Sex::Male}, {Language::Macedonian, Sex::Female},
+    {Language::Albanian, Sex::Male}, {Language::Albanian, Sex::Female},
+    {Language::Latvian, Sex::Male}, {Language::Latvian, Sex::Female},
+    {Language::Irish, Sex::Male}, {Language::Irish, Sex::Female},
+    {Language::Belarusian, Sex::Male}, {Language::Belarusian, Sex::Female},
+    {Language::Estonian, Sex::Male}, {Language::Estonian, Sex::Female}
+};
+
+INSTANTIATE_TEST_SUITE_P(
+    TestPersonSexTranslation,
+    PersonSexSuite,
+    testing::ValuesIn(languageSexPairs),
+    [](const testing::TestParamInfo<PersonSexSuite::ParamType>& info) {
+        auto param = info.param;
+        return toString(param.first) + "_" + toString(param.second);
+    }
+);

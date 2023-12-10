@@ -116,7 +116,7 @@ public:
      * Person::sex() // "Male"
      * @endcode
      */
-    static std::string sex();
+    static std::string sex(Language language = Language::English);
 
     /**
      * @brief Returns a random gender.
