@@ -22,8 +22,8 @@ enum class StringCasing
 
 struct CharCount
 {
-    unsigned int atleastCount{std::numeric_limits<unsigned int>::min()};
-    unsigned int atmostCount{std::numeric_limits<unsigned int>::max()};
+    unsigned int atleastCount{(std::numeric_limits<unsigned int>::min)()};
+    unsigned int atmostCount{(std::numeric_limits<unsigned int>::max)()};
 };
 
 /*
