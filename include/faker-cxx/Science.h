@@ -47,7 +47,10 @@ public:
     std::string symbol;
     std::string usedToMeasure;
 
-    Unit(std::string name_, std::string symbol_, std::string usedToMeasure_) : name(name_), symbol(symbol_) {}
+    Unit(std::string name_, std::string symbol_, std::string usedToMeasure_)
+        : name(name_), symbol(symbol_), usedToMeasure(usedToMeasure_)
+    {
+    }
 
     bool operator==(const Unit& obj) const
     {
