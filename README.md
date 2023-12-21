@@ -95,6 +95,7 @@ https://cieslarmichal.github.io/faker-cxx/
     mkdir externals
     cd externals
     git submodule add https://github.com/cieslarmichal/faker-cxx.git
+    git submodule update --init --recursive
     ```
 
 2. Link with library:
