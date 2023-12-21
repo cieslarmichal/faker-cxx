@@ -58,7 +58,8 @@ set(FAKER_SOURCES
     src/modules/image/Image.cpp
     src/modules/crypto/Crypto.cpp
     src/modules/computer/Computer.cpp
-    src/modules/vehicle/Vehicle.cpp)
+    src/modules/vehicle/Vehicle.cpp
+    src/modules/science/Science.cpp)
 
 set(FAKER_UT_SOURCES
     src/modules/animal/AnimalTest.cpp
@@ -98,7 +99,8 @@ set(FAKER_UT_SOURCES
     src/modules/image/ImageTest.cpp
     src/modules/crypto/CryptoTest.cpp
     src/modules/computer/ComputerTest.cpp
-    src/modules/vehicle/VehicleTest.cpp)
+    src/modules/vehicle/VehicleTest.cpp
+    src/modules/science/ScienceTest.cpp)
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 
