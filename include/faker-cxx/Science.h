@@ -61,12 +61,74 @@ public:
 class Science
 {
 public:
+    /**
+     * @brief Returns a random chemical element from the periodic table.
+     *
+     * @returns ChemicalElement
+     *
+     * Science::chemicalElement() // Object of ChemicalElement containing info about a random element in the periodic table
+     * 
+     */
     static ChemicalElement chemicalElement();
+    
+    /**
+     * @brief Returns a unit of measurement for either distance, mass, time, temp, current.
+     *
+     * @returns Unit
+     *
+     * Science::unit() // Object of Unit containing info about a random unit of measurement.
+     *
+     */
     static Unit unit();
+    
+    /**
+     * @brief Returns a unit of measurement for either distance.
+     *
+     * @returns Unit
+     *
+     * Science::unit() // Object of Unit containing info about a random unit of measurement used to measure distance.
+     *
+     */
     static Unit distanceUnit();
+    
+    /**
+     * @brief Returns a unit of measurement for either time.
+     *
+     * @returns Unit
+     *
+     * Science::unit() // Object of Unit containing info about a random unit of measurement used to measure time.
+     *
+     */
     static Unit timeUnit();
+
+    /**
+     * @brief Returns a unit of measurement for either mass.
+     *
+     * @returns Unit
+     *
+     * Science::unit() // Object of Unit containing info about a random unit of measurement used to measure mass.
+     *
+     */
     static Unit massUnit();
+
+    /**
+     * @brief Returns a unit of measurement for either temp.
+     *
+     * @returns Unit
+     *
+     * Science::unit() // Object of Unit containing info about a random unit of measurement used to measure temp.
+     *
+     */
     static Unit tempUnit();
+    
+    /**
+     * @brief Returns a unit of measurement for either current.
+     *
+     * @returns Unit
+     *
+     * Science::unit() // Object of Unit containing info about a random unit of measurement used to measure current.
+     *
+     */
     static Unit currentUnit();
 
 };
