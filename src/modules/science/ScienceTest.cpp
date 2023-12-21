@@ -1,5 +1,3 @@
-#pragma once
-
 #include "faker-cxx/Science.h"
 
 #include <algorithm>
