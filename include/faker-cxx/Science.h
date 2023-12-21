@@ -66,7 +66,9 @@ public:
      *
      * @returns ChemicalElement
      *
-     * Science::chemicalElement() // Object of ChemicalElement containing info about a random element in the periodic table
+     * @code
+     * Science::chemicalElement() // Object of ChemicalElement containing info about a random element in the periodic table.
+     * @endcode
      * 
      */
     static ChemicalElement chemicalElement();
@@ -76,8 +78,10 @@ public:
      *
      * @returns Unit
      *
+     * @code
      * Science::unit() // Object of Unit containing info about a random unit of measurement.
-     *
+     * @endcode
+     * 
      */
     static Unit unit();
     
@@ -86,8 +90,10 @@ public:
      *
      * @returns Unit
      *
-     * Science::unit() // Object of Unit containing info about a random unit of measurement used to measure distance.
-     *
+     * @code
+     * Science::distanceUnit() // Object of Unit containing info about a random unit of measurement used to measure distance.
+     * @endcode
+     * 
      */
     static Unit distanceUnit();
     
@@ -96,8 +102,10 @@ public:
      *
      * @returns Unit
      *
-     * Science::unit() // Object of Unit containing info about a random unit of measurement used to measure time.
-     *
+     * @code
+     * Science::timeUnit() // Object of Unit containing info about a random unit of measurement used to measure time.
+     * @endcode
+     * 
      */
     static Unit timeUnit();
 
@@ -106,8 +114,10 @@ public:
      *
      * @returns Unit
      *
-     * Science::unit() // Object of Unit containing info about a random unit of measurement used to measure mass.
-     *
+     * @code
+     * Science::massUnit() // Object of Unit containing info about a random unit of measurement used to measure mass.
+     * @endcode
+     * 
      */
     static Unit massUnit();
 
@@ -116,8 +126,10 @@ public:
      *
      * @returns Unit
      *
-     * Science::unit() // Object of Unit containing info about a random unit of measurement used to measure temp.
-     *
+     * @code
+     * Science::tempUnit() // Object of Unit containing info about a random unit of measurement used to measure temp.
+     * @endcode
+     * 
      */
     static Unit tempUnit();
     
@@ -126,8 +138,10 @@ public:
      *
      * @returns Unit
      *
-     * Science::unit() // Object of Unit containing info about a random unit of measurement used to measure current.
-     *
+     * @code
+     * Science::currentUnit() // Object of Unit containing info about a random unit of measurement used to measure current.
+     * @endcode
+     * 
      */
     static Unit currentUnit();
 
