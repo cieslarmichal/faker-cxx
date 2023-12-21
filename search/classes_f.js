@@ -1,6 +1,4 @@
 var searchData=
 [
-  ['vehicle_0',['Vehicle',['../classfaker_1_1Vehicle.html',1,'faker']]],
-  ['videogame_1',['VideoGame',['../classfaker_1_1VideoGame.html',1,'faker']]],
-  ['visibility_2',['Visibility',['../structfaker_1_1Weather_1_1Visibility.html',1,'faker::Weather']]]
+  ['unit_0',['Unit',['../classfaker_1_1Unit.html',1,'faker']]]
 ];
