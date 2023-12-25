@@ -38,8 +38,8 @@ std::string faker::Sructure::csv(const std::map<std::string, faker::Token> items
         }
     }
     result.append("\n");
-    unsigned int n = funcs.size();
-    for (int i = 0; i < rows; i++)
+    std::size_t n = funcs.size();
+    for (size_t i = 0; i < rows; i++)
     {
         for (size_t j = 0; j < n; ++j)
         {
