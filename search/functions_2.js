@@ -35,9 +35,10 @@ var searchData=
   ['creditcardnumber_32',['creditCardNumber',['../classfaker_1_1Finance.html#ac0aa71a72d411fb89c5ba623db469bd4',1,'faker::Finance']]],
   ['crocodilia_33',['crocodilia',['../classfaker_1_1Animal.html#a4be5f2e822a7f3aa5d3bb3132bca7738',1,'faker::Animal']]],
   ['cron_34',['cron',['../classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c',1,'faker::System']]],
-  ['currency_35',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
-  ['currencycode_36',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]],
-  ['currencyname_37',['currencyName',['../classfaker_1_1Finance.html#aea30c16fd3757eec52025100bc553136',1,'faker::Finance']]],
-  ['currencysymbol_38',['currencySymbol',['../classfaker_1_1Finance.html#a61a9d4a689fc4efafed30c47980ce9e3',1,'faker::Finance']]],
-  ['currentunit_39',['currentUnit',['../classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50',1,'faker::Science']]]
+  ['csv_35',['csv',['../classfaker_1_1Structure.html#a6c4e6240c2968a92ededb73eedc6b400',1,'faker::Structure']]],
+  ['currency_36',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
+  ['currencycode_37',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]],
+  ['currencyname_38',['currencyName',['../classfaker_1_1Finance.html#aea30c16fd3757eec52025100bc553136',1,'faker::Finance']]],
+  ['currencysymbol_39',['currencySymbol',['../classfaker_1_1Finance.html#a61a9d4a689fc4efafed30c47980ce9e3',1,'faker::Finance']]],
+  ['currentunit_40',['currentUnit',['../classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50',1,'faker::Science']]]
 ];
