@@ -31,7 +31,7 @@ TEST_F(StructureTest, shouldGenerateJson) {
     testTokens.emplace("Bird name", Token::AnimalBird);
     testTokens.emplace("Book title", Token::BookTitle);
     testTokens.emplace("Actor name",Token::MovieActor);
-    const auto generatedJson = Sructure::json(testTokens);
+    const auto generatedJson = Structure::json(testTokens);
 
     const auto parsedJson = JsonHelper::simpleJsonParser(generatedJson);
 
@@ -69,7 +69,7 @@ TEST_F(StructureTest, shouldGenerateCSV) {
     testTokens.emplace("Book title", Token::BookTitle);
     testTokens.emplace("Actor name", Token::MovieActor);
     
-    const auto generatedCSV = Sructure::csv(testTokens,noRows);
+    const auto generatedCSV = Structure::csv(testTokens,noRows);
     
     std::istringstream dataStream(generatedCSV);
     std::string line;
