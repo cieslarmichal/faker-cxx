@@ -18,7 +18,7 @@ var searchData=
   ['snake_15',['snake',['../classfaker_1_1Animal.html#a8cd0fa7f6ec8e1b7cf0b6edcfc47f4b1',1,'faker::Animal']]],
   ['soccerteam_16',['soccerTeam',['../classfaker_1_1Sport.html#a97e02344486aa08439383f0c094fb1ef',1,'faker::Sport']]],
   ['songname_17',['songName',['../classfaker_1_1Music.html#a08ab507712947fbbbb924963b83e2844',1,'faker::Music']]],
-  ['soondate_18',['soonDate',['../classfaker_1_1Date.html#a67910b9ec3d3e0b57285f96a8dfbc659',1,'faker::Date']]],
+  ['soondate_18',['soonDate',['../classfaker_1_1Date.html#af7321b4172983b6d2fc64bcd65338ac5',1,'faker::Date']]],
   ['specialty_19',['specialty',['../classfaker_1_1Medicine.html#afca1a4e80264720088d0a9fb5d82a846',1,'faker::Medicine']]],
   ['sport_20',['sport',['../classfaker_1_1Sport.html#a01a8afd92aaf5f2fab77bfff89ab7f4f',1,'faker::Sport']]],
   ['sportevent_21',['sportEvent',['../classfaker_1_1Sport.html#a514a07460ab175e9c738c4754bfd4df5',1,'faker::Sport']]],

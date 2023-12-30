@@ -3,7 +3,7 @@ var searchData=
   ['paragraph_0',['paragraph',['../classfaker_1_1Lorem.html#a33a5333530f8b321e5808fcadc39dd12',1,'faker::Lorem']]],
   ['paragraphs_1',['paragraphs',['../classfaker_1_1Lorem.html#a57d8b13b30b251ada56adcd861859b77',1,'faker::Lorem']]],
   ['password_2',['password',['../classfaker_1_1Internet.html#aa485a1fe01f437fb5787b28d94d9c077',1,'faker::Internet']]],
-  ['pastdate_3',['pastDate',['../classfaker_1_1Date.html#a1dc7c608e07fdb276a1b9cc58d5bb33d',1,'faker::Date']]],
+  ['pastdate_3',['pastDate',['../classfaker_1_1Date.html#a4dd0c5ac91cfd75e02001acbf736b831',1,'faker::Date']]],
   ['phrase_4',['phrase',['../classfaker_1_1Hacker.html#aff74c0df497fd3324347f960e7bb202d',1,'faker::Hacker']]],
   ['pin_5',['pin',['../classfaker_1_1Finance.html#a15e187cc0587b8f94c7a41e48ae87ba6',1,'faker::Finance']]],
   ['platform_6',['platform',['../classfaker_1_1VideoGame.html#a25f2f7f0df0df05fc08fb822fa36d0b5',1,'faker::VideoGame']]],
