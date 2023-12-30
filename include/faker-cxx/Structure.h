@@ -135,13 +135,19 @@ enum class Token
     // Datatype module
     DatatypeBoolean,
 
-    // Date module
-    DatePastDate,
-    DatefutureDate,
-    DateRecentDate,
-    DateSoonDate,
-    DateBirthdateByAge,
-    DateBirthdateByYear,
+    // Date module ISO and Timestamp
+    DatePastDateISO,
+    DatePastDateTimestamp,
+    DatefutureDateISO,
+    DatefutureDateTimestamp,
+    DateRecentDateISO,
+    DateRecentDateTimestamp,
+    DateSoonDateISO,
+    DateSoonDateTimestamp,
+    DateBirthdateByAgeISO,
+    DateBirthdateByAgeTimestamp,
+    DateBirthdateByYearISO,
+    DateBirthdateByYearTimestamp,
     DateWeekdayName,
     DateWeekdayAbbreviatedName,
     DateMontName,
