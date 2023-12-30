@@ -7,6 +7,11 @@ namespace faker
 class Date
 {
 public:
+    enum class DateFormat {
+        ISO,
+        Timestamp,
+    };
+
     /**
      * @brief Generates a random date in the past.
      *
@@ -19,7 +24,7 @@ public:
      * Date::pastDate(5) // "2020-06-16T15:24:09Z"
      * @endcode
      */
-    static std::string pastDate(int years = 1);
+    static std::string pastDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Generates a random date in the future.
@@ -33,7 +38,7 @@ public:
      * Date::futureDate(5) // "2024-06-11T19:46:29Z"
      * @endcode
      */
-    static std::string futureDate(int years = 1);
+    static std::string futureDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Generates a random date in the recent past.
@@ -47,7 +52,7 @@ public:
      * Date::recentDate(10) // "2023-06-29T18:24:12Z"
      * @endcode
      */
-    static std::string recentDate(int days = 3);
+    static std::string recentDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Generates a random date in the soon future.
@@ -61,7 +66,7 @@ public:
      * Date::soonDate(10) // "2023-07-15T09:59:11Z"
      * @endcode
      */
-    static std::string soonDate(int days = 3);
+    static std::string soonDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Generates a random birthdate by age.
@@ -76,7 +81,7 @@ public:
      * Date::birthdateByAge(20, 30) // "1996-11-14T11:27:09Z"
      * @endcode
      */
-    static std::string birthdateByAge(int minAge = 18, int maxAge = 80);
+    static std::string birthdateByAge(int minAge = 18, int maxAge = 80, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Generates a random birthdate by year.
@@ -91,7 +96,7 @@ public:
      * Date::birthdateByYear(1996, 1996) // "1996-05-19T12:00:23Z"
      * @endcode
      */
-    static std::string birthdateByYear(int minYear = 1920, int maxYear = 2000);
+    static std::string birthdateByYear(int minYear = 1920, int maxYear = 2000, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Returns a name of random day of the week.

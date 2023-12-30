@@ -14,7 +14,7 @@ namespace faker
 {
 namespace
 {
-std::string serializeTimePoint(const auto& timePoint)
+std::string serializeTimePoint(const auto& timePoint, Date::DateFormat dateFormat)
 {
     time_t timePointTimeT = std::chrono::system_clock::to_time_t(timePoint);
 
@@ -22,68 +22,75 @@ std::string serializeTimePoint(const auto& timePoint)
 
     std::stringstream ss;
 
-    ss << std::put_time(&utcTime, "%Y-%m-%dT%H:%M:%SZ");
+    if (dateFormat == Date::DateFormat::Timestamp)
+    {
+        ss << std::put_time(&utcTime, "%s");
+    }
+
+    else {
+        ss << std::put_time(&utcTime, "%Y-%m-%dT%H:%M:%SZ");
+    }
 
     return ss.str();
 }
 
-std::string betweenDate(const auto& from, const auto& to)
+std::string betweenDate(const auto& from, const auto& to, Date::DateFormat dateFormat)
 {
     if (from > to)
     {
         throw std::runtime_error{fmt::format("Start date is greater than end date. {{from: {}, to: {}}}",
-                                             serializeTimePoint(from), serializeTimePoint(to))};
+                                             serializeTimePoint(from, dateFormat), serializeTimePoint(to, dateFormat))};
     }
 
     const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();
 
     const auto randomDateWithinRange = from + std::chrono::seconds{Number::integer(size - 1)};
 
-    return serializeTimePoint(randomDateWithinRange);
+    return serializeTimePoint(randomDateWithinRange, dateFormat);
 }
 
 const auto numberOfHoursInDay = 24;
 const auto numberOfDaysInYear = 365;
 }
 
-std::string Date::futureDate(int years)
+std::string Date::futureDate(int years, Date::DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() + std::chrono::hours{1};
 
     const auto endDate = startDate + std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * years};
 
-    return betweenDate(startDate, endDate);
+    return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::pastDate(int years)
+std::string Date::pastDate(int years, Date::DateFormat dateFormat)
 {
     const auto startDate =
         std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * years};
 
     const auto endDate = std::chrono::system_clock::now() - std::chrono::hours{1};
 
-    return betweenDate(startDate, endDate);
+    return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::soonDate(int days)
+std::string Date::soonDate(int days, Date::DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() + std::chrono::hours{1};
 
     const auto endDate = startDate + std::chrono::hours{numberOfHoursInDay * days};
 
-    return betweenDate(startDate, endDate);
+    return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::recentDate(int days)
+std::string Date::recentDate(int days, Date::DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * days};
 
     const auto endDate = std::chrono::system_clock::now() - std::chrono::hours{1};
 
-    return betweenDate(startDate, endDate);
+    return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::birthdateByAge(int minAge, int maxAge)
+std::string Date::birthdateByAge(int minAge, int maxAge, Date::DateFormat dateFormat)
 {
     const auto startDate =
         std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * maxAge};
@@ -91,10 +98,10 @@ std::string Date::birthdateByAge(int minAge, int maxAge)
     const auto endDate =
         std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * minAge};
 
-    return betweenDate(startDate, endDate);
+    return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::birthdateByYear(int minYear, int maxYear)
+std::string Date::birthdateByYear(int minYear, int maxYear, Date::DateFormat dateFormat)
 {
     tm startDateTime{};
     startDateTime.tm_year = minYear - 1900;
@@ -118,7 +125,7 @@ std::string Date::birthdateByYear(int minYear, int maxYear)
 
     const auto endDate = std::chrono::system_clock::from_time_t(mktime(&endDateTime));
 
-    return betweenDate(startDate, endDate);
+    return betweenDate(startDate, endDate, dateFormat);
 }
 
 std::string Date::weekdayName()
