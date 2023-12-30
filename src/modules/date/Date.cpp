@@ -24,10 +24,11 @@ std::string serializeTimePoint(const auto& timePoint, Date::DateFormat dateForma
 
     if (dateFormat == Date::DateFormat::Timestamp)
     {
-        ss << std::put_time(&utcTime, "%s");
+        ss << std::chrono::duration_cast<std::chrono::seconds>(timePoint.time_since_epoch()).count();
     }
 
-    else {
+    else
+    {
         ss << std::put_time(&utcTime, "%Y-%m-%dT%H:%M:%SZ");
     }
 
