@@ -13,6 +13,7 @@
 #include "data/belgium/BelgianPeopleNames.h"
 #include "data/Bio.h"
 #include "data/brazil/BrazilianPeopleNames.h"
+#include "data/bulgaria/BulgarianPeopleNames.h"
 #include "data/canada/CanadianPeopleNames.h"
 #include "data/china/ChinesePeopleNames.h"
 #include "data/croatia/CroatianPeopleNames.h"
@@ -39,8 +40,8 @@
 #include "data/macedonia/MacedonianPeopleNames.h"
 #include "data/mexico/MexicanPeopleNames.h"
 #include "data/Nationalities.h"
-#include "data/netherlands/DutchPeopleNames.h"
 #include "data/nepal/NepalesePeopleNames.h"
+#include "data/netherlands/DutchPeopleNames.h"
 #include "data/norway/NorwegianPeopleNames.h"
 #include "data/poland/PolishPeopleNames.h"
 #include "data/portugal/PortuguesePeopleNames.h"
@@ -56,9 +57,9 @@
 #include "data/ukraine/UkrainianPeopleNames.h"
 #include "data/usa/UsaPeopleNames.h"
 #include "data/ZodiacSigns.h"
-#include "faker-cxx/Word.h"
-#include "faker-cxx/Internet.h"
 #include "faker-cxx/Helper.h"
+#include "faker-cxx/Internet.h"
+#include "faker-cxx/Word.h"
 #include "fmt/format.h"
 
 namespace faker
@@ -89,7 +90,9 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Serbia, serbianPeopleNames},        {Country::Macedonia, macedonianPeopleNames},
     {Country::Latvia, latvianPeopleNames},        {Country::Ireland, irishPeopleNames},
     {Country::Belarus, belarusianPeopleNames},    {Country::Estonia, estonianPeopleNames},
-    {Country::Albania, albanianPeopleNames},      {Country::Iran,persianPeopleNames}};
+    {Country::Albania, albanianPeopleNames},      {Country::Iran, persianPeopleNames},
+    {Country::Bulgaria, bulgarianPeopleNames},
+};
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
 std::string prefixForCountry(Country country, std::optional<Sex> sex);
@@ -267,18 +270,16 @@ std::string Person::prefix(std::optional<Sex> sex)
     return Helper::arrayElement<std::string>(allPrefixes);
 }
 
-
 std::string Person::bio()
 {
     const auto randomBioFormat = Helper::arrayElement<std::string>(bioFormats);
 
-
     const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
-        {"bio_part", []() { return Helper::arrayElement(bioPart);}},
+        {"bio_part", []() { return Helper::arrayElement(bioPart); }},
         {"bio_supporter", []() { return Helper::arrayElement(bioSupporter); }},
-        {"noun", []() { return Word::noun();}},
-        {"emoji", []() { return Internet::emoji();}}};
-        
+        {"noun", []() { return Word::noun(); }},
+        {"emoji", []() { return Internet::emoji(); }}};
+
     return FormatHelper::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
 }
 
