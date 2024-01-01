@@ -6,10 +6,10 @@
 #include <locale>
 #include <sstream>
 
-#ifdef __apple__
-#include "fmt/format.h"
+#ifdef __clang__
+    #include "fmt/format.h"
 #else
-#include <format>
+    #include <format>
 #endif
 
 namespace faker
