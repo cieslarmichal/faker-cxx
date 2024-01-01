@@ -8,6 +8,7 @@
 #include "gtest/gtest.h"
 
 #include "../../common/FormatHelper.h"
+#include "../../common/StringHelper.h"
 #include "../person/data/england/EnglishFirstNames.h"
 #include "../person/data/england/EnglishLastNames.h"
 #include "../string/data/Characters.h"
@@ -19,7 +20,6 @@
 #include "data/HttpMediaType.h"
 #include "data/HttpRequestHeaders.h"
 #include "data/HttpResponseHeaders.h"
-#include "../../common/StringHelper.h"
 
 using namespace ::testing;
 using namespace faker;

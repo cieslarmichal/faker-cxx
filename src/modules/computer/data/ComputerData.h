@@ -28,13 +28,12 @@ const std::vector<std::string> ComputerCPUTypes = {
     "Dual-Core", "Quad-Core", "Hexa-Core", "Octa-Core", "Deca-Core", "Heterogeneous System Architecture",
     "ARM",       "x86",       "64-bit",    "32-bit",    "RISC",      "CISC"};
 
-const std::vector<std::string>
-    ComputerCPUModels = {"Core i9-11900K",     "Core i7-11700K", "Core i5-11600K", "Core i3-10100",  "Xeon E-2278G",
-                         "Pentium Gold G6400", "Ryzen 9 5950X",  "Ryzen 7 5800X",  "Ryzen 5 5600X",  "Ryzen 3 3300X",
-                         "EPYC 7763",          "Athlon 3000G",   "Apple M1",       "Apple M1 Max",   "Apple M1 Ultra",
-                         "Apple M2",           "Apple M2 Pro",   "Apple M2 Max",   "Apple M3 Ultra", "Apple M3 Pro",
-                         "Apple M3 Max",       "Apple M3 Ultra", "IBM POWER9",     "ARM Cortex-A78", "ARM Cortex-A76",
-                         "ARM Cortex-A55"};
+const std::vector<std::string> ComputerCPUModels = {
+    "Core i9-11900K", "Core i7-11700K", "Core i5-11600K", "Core i3-10100",  "Xeon E-2278G", "Pentium Gold G6400",
+    "Ryzen 9 5950X",  "Ryzen 7 5800X",  "Ryzen 5 5600X",  "Ryzen 3 3300X",  "EPYC 7763",    "Athlon 3000G",
+    "Apple M1",       "Apple M1 Max",   "Apple M1 Ultra", "Apple M2",       "Apple M2 Pro", "Apple M2 Max",
+    "Apple M3 Ultra", "Apple M3 Pro",   "Apple M3 Max",   "Apple M3 Ultra", "IBM POWER9",   "ARM Cortex-A78",
+    "ARM Cortex-A76", "ARM Cortex-A55"};
 
 const std::vector<std::string> ComputerGPUManufactures = {
     "NVIDIA", "AMD", "Intel", "ARM", "Qualcomm",

@@ -1,5 +1,7 @@
 #include "../include/faker-cxx/Structure.h"
 
+#include <vector>
+
 #include "../include/faker-cxx/Airline.h"
 #include "../include/faker-cxx/Animal.h"
 #include "../include/faker-cxx/Book.h"
@@ -31,8 +33,6 @@
 #include "../include/faker-cxx/VideoGame.h"
 #include "../include/faker-cxx/Weather.h"
 #include "../include/faker-cxx/Word.h"
-
-#include <vector>
 const std::map<faker::Token, std::function<std::string()>> moduleFunctions = {
     {faker::Token::AirlineAircraftType, []() { return faker::Airline::aircraftType(); }},
     {faker::Token::AirlineAirplaneName, []() { return faker::Airline::airplane().name; }},
@@ -121,15 +121,20 @@ const std::map<faker::Token, std::function<std::string()>> moduleFunctions = {
     {faker::Token::DatatypeBoolean, []() { return std::to_string(faker::Datatype::boolean()); }},
 
     {faker::Token::DatePastDateISO, []() { return faker::Date::pastDate(); }},
-    {faker::Token::DatePastDateTimestamp, []() { return faker::Date::pastDate(1, faker::Date::DateFormat::Timestamp); }},
+    {faker::Token::DatePastDateTimestamp,
+     []() { return faker::Date::pastDate(1, faker::Date::DateFormat::Timestamp); }},
     {faker::Token::DatefutureDateISO, []() { return faker::Date::futureDate(); }},
-    {faker::Token::DatefutureDateTimestamp, []() { return faker::Date::futureDate(1, faker::Date::DateFormat::Timestamp); }},
+    {faker::Token::DatefutureDateTimestamp,
+     []() { return faker::Date::futureDate(1, faker::Date::DateFormat::Timestamp); }},
     {faker::Token::DateRecentDateISO, []() { return faker::Date::recentDate(); }},
-    {faker::Token::DateRecentDateTimestamp, []() { return faker::Date::recentDate(3, faker::Date::DateFormat::Timestamp); }},
+    {faker::Token::DateRecentDateTimestamp,
+     []() { return faker::Date::recentDate(3, faker::Date::DateFormat::Timestamp); }},
     {faker::Token::DateSoonDateISO, []() { return faker::Date::soonDate(); }},
-    {faker::Token::DateSoonDateTimestamp, []() { return faker::Date::soonDate(3, faker::Date::DateFormat::Timestamp); }},
+    {faker::Token::DateSoonDateTimestamp,
+     []() { return faker::Date::soonDate(3, faker::Date::DateFormat::Timestamp); }},
     {faker::Token::DateBirthdateByAgeISO, []() { return faker::Date::birthdateByAge(); }},
-    {faker::Token::DateBirthdateByYearTimestamp, []() { return faker::Date::birthdateByYear(1920, 2000, faker::Date::DateFormat::Timestamp); }},
+    {faker::Token::DateBirthdateByYearTimestamp,
+     []() { return faker::Date::birthdateByYear(1920, 2000, faker::Date::DateFormat::Timestamp); }},
     {faker::Token::DateWeekdayName, []() { return faker::Date::weekdayName(); }},
     {faker::Token::DateWeekdayAbbreviatedName, []() { return faker::Date::weekdayAbbreviatedName(); }},
     {faker::Token::DateMontName, []() { return faker::Date::monthName(); }},
@@ -333,7 +338,6 @@ std::string faker::Structure::json(const std::map<std::string, faker::Token> ite
         auto func = moduleFunctions.find(it->second)->second;
         result.append("\"" + it->first + "\":\"" + func() + "\"");
 
-        
         if (std::next(it) != items.end())
         {
             result.append(",");

@@ -367,5 +367,4 @@ std::string String::octal(GuaranteeMap&& guarantee, unsigned int length)
     return "0o" + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-
 }

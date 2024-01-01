@@ -7,9 +7,9 @@
 
 namespace faker
 {
-    const NameFormats albanianPersonNameFormats{{"{firstName} {lastName}", 1}};
+const NameFormats albanianPersonNameFormats{{"{firstName} {lastName}", 1}};
 
-    const PeopleNames albanianPeopleNames{{albanianMalesFirstNames, {}, albanianLastNames, {}, {}},
-                                     {albanianFemalesFirstNames, {}, albanianLastNames, {}, {}},
-                                     albanianPersonNameFormats};
+const PeopleNames albanianPeopleNames{{albanianMalesFirstNames, {}, albanianLastNames, {}, {}},
+                                      {albanianFemalesFirstNames, {}, albanianLastNames, {}, {}},
+                                      albanianPersonNameFormats};
 }

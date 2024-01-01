@@ -1,5 +1,6 @@
 #include "faker-cxx/Company.h"
 
+#include "../../common/FormatHelper.h"
 #include "data/BuzzAdjectives.h"
 #include "data/BuzzNouns.h"
 #include "data/BuzzVerbs.h"
@@ -11,7 +12,6 @@
 #include "data/Suffixes.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
-#include "../../common/FormatHelper.h"
 namespace faker
 {
 // TODO: add internalization
@@ -23,17 +23,19 @@ std::string Company::name()
     switch (Number::integer<int>(3))
     {
     case 0:
-        companyName = FormatHelper::format("{} {}", Person::lastName(), Helper::arrayElement<std::string>(companySuffixes));
+        companyName =
+            FormatHelper::format("{} {}", Person::lastName(), Helper::arrayElement<std::string>(companySuffixes));
         break;
     case 1:
         companyName = FormatHelper::format("{} {} {}", Person::firstName(), Person::lastName(), Person::jobArea());
         break;
     case 2:
-        companyName = FormatHelper::format("{} {} {} Services", Person::firstName(), Person::lastName(), Person::jobArea());
+        companyName =
+            FormatHelper::format("{} {} {} Services", Person::firstName(), Person::lastName(), Person::jobArea());
         break;
     case 3:
         companyName = FormatHelper::format("{} {} {} {}", Person::firstName(), Person::lastName(), Person::jobArea(),
-                                  Helper::arrayElement<std::string>(companySuffixes));
+                                           Helper::arrayElement<std::string>(companySuffixes));
         break;
     }
 

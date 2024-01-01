@@ -7,7 +7,8 @@ namespace faker
 class Date
 {
 public:
-    enum class DateFormat {
+    enum class DateFormat
+    {
         ISO,
         Timestamp,
     };

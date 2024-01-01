@@ -6,8 +6,8 @@
 #include "gtest/gtest.h"
 
 #include "../../common/FormatHelper.h"
-#include "../string/data/Characters.h"
 #include "../../common/StringHelper.h"
+#include "../string/data/Characters.h"
 #include "data/Colors.h"
 
 using namespace ::testing;

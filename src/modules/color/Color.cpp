@@ -2,11 +2,11 @@
 
 #include <sstream>
 
+#include "../../common/FormatHelper.h"
 #include "data/Colors.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
-#include "../../common/FormatHelper.h"
 namespace faker
 {
 std::string Color::name()

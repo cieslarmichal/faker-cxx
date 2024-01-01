@@ -1,5 +1,6 @@
 #include "faker-cxx/Finance.h"
 
+#include "../../common/FormatHelper.h"
 #include "../../common/mappers/precisionMapper/PrecisionMapper.h"
 #include "data/AccountTypes.h"
 #include "data/BankIndentifiersCodes.h"
@@ -9,7 +10,6 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
-#include "../../common/FormatHelper.h"
 namespace faker
 {
 namespace

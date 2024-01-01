@@ -1,10 +1,10 @@
 #include "faker-cxx/Commerce.h"
 
+#include "../../common/FormatHelper.h"
 #include "data/Commerce.h"
 #include "faker-cxx/Finance.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/String.h"
-#include "../../common/FormatHelper.h"
 namespace faker
 {
 std::string Commerce::department()

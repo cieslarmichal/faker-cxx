@@ -5,7 +5,7 @@
 namespace faker
 {
 template <typename T>
-    requires std::uniform_random_bit_generator<T>
+requires std::uniform_random_bit_generator<T>
 class RandomGenerator
 {
 public:

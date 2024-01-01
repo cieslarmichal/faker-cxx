@@ -11,10 +11,10 @@ using namespace ::testing;
 using namespace faker;
 class ComputerTest : public Test
 {
-
 };
 
-TEST_F(ComputerTest, ComputerTypeGeneration) {
+TEST_F(ComputerTest, ComputerTypeGeneration)
+{
     std::string generatedType = Computer::type();
     ASSERT_TRUE(std::ranges::any_of(faker::data::ComputerTypes.begin(), faker::data::ComputerTypes.end(),
                                     [generatedType](const std::string& type) { return type == generatedType; }));
@@ -24,7 +24,8 @@ TEST_F(ComputerTest, ComputerManufactureGeneration)
 {
     std::string generatedManufacture = Computer::manufacture();
     ASSERT_TRUE(std::ranges::any_of(faker::data::ComputerManufactures.begin(), faker::data::ComputerManufactures.end(),
-                                    [generatedManufacture](const std::string& manufacture) { return manufacture == generatedManufacture; }));
+                                    [generatedManufacture](const std::string& manufacture)
+                                    { return manufacture == generatedManufacture; }));
 }
 
 TEST_F(ComputerTest, ComputerModelGeneration)
@@ -37,15 +38,16 @@ TEST_F(ComputerTest, ComputerModelGeneration)
 TEST_F(ComputerTest, ComputerCPUManufactureGeneration)
 {
     std::string generatedCPUManufacture = Computer::cpuManufacture();
-    ASSERT_TRUE(std::ranges::any_of(faker::data::ComputerCPUManufactures.begin(), faker::data::ComputerCPUManufactures.end(),
-                                    [generatedCPUManufacture](const std::string& cpuManufacture) { return cpuManufacture == generatedCPUManufacture; }));
+    ASSERT_TRUE(std::ranges::any_of(faker::data::ComputerCPUManufactures.begin(),
+                                    faker::data::ComputerCPUManufactures.end(),
+                                    [generatedCPUManufacture](const std::string& cpuManufacture)
+                                    { return cpuManufacture == generatedCPUManufacture; }));
 }
 
 TEST_F(ComputerTest, ComputerCPUTypeGeneration)
 {
     std::string generatedCPUType = Computer::cpuType();
-    ASSERT_TRUE(std::ranges::any_of(faker::data::ComputerCPUTypes.begin(),
-                                    faker::data::ComputerCPUTypes.end(),
+    ASSERT_TRUE(std::ranges::any_of(faker::data::ComputerCPUTypes.begin(), faker::data::ComputerCPUTypes.end(),
                                     [generatedCPUType](const std::string& cpuType)
                                     { return cpuType == generatedCPUType; }));
 }
@@ -53,8 +55,7 @@ TEST_F(ComputerTest, ComputerCPUTypeGeneration)
 TEST_F(ComputerTest, ComputerCPUModelGeneration)
 {
     std::string generatedCPUModel = Computer::cpuModel();
-    ASSERT_TRUE(std::ranges::any_of(faker::data::ComputerCPUModels.begin(),
-                                    faker::data::ComputerCPUModels.end(),
+    ASSERT_TRUE(std::ranges::any_of(faker::data::ComputerCPUModels.begin(), faker::data::ComputerCPUModels.end(),
                                     [generatedCPUModel](const std::string& cpuModel)
                                     { return cpuModel == generatedCPUModel; }));
 }

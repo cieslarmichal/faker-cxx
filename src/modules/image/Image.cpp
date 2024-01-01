@@ -1,7 +1,7 @@
 #include "faker-cxx/Image.h"
 
-#include "faker-cxx/Number.h"
 #include "../../common/FormatHelper.h"
+#include "faker-cxx/Number.h"
 namespace faker
 {
 namespace
@@ -19,7 +19,9 @@ std::map<faker::ImageCategory, std::string> imageCategoryToLoremFlickrStringMapp
 std::string Image::imageUrl(unsigned int width, unsigned int height, std::optional<ImageCategory> category)
 {
     const std::string image_category =
-        category.has_value() ? FormatHelper::format("/{}", imageCategoryToLoremFlickrStringMapping.at(category.value())) : "";
+        category.has_value() ?
+            FormatHelper::format("/{}", imageCategoryToLoremFlickrStringMapping.at(category.value())) :
+            "";
     return FormatHelper::format("https://loremflickr.com/{}/{}{}", width, height, image_category);
 }
 

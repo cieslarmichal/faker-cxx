@@ -7,14 +7,14 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/LuhnCheck.h"
 #include "../../common/FormatHelper.h"
+#include "../../common/LuhnCheck.h"
+#include "../../common/StringHelper.h"
 #include "../string/data/Characters.h"
 #include "data/AccountTypes.h"
 #include "data/BankIndentifiersCodes.h"
 #include "data/Currencies.h"
 #include "gmock/gmock.h"
-#include "../../common/StringHelper.h"
 
 using namespace ::testing;
 using namespace faker;

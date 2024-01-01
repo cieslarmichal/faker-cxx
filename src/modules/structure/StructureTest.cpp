@@ -6,11 +6,11 @@
 #include "gtest/gtest.h"
 
 #include "../../common/JsonHelper.h"
+#include "../../common/StringHelper.h"
 #include "../airline/data/Airports.h"
 #include "../animal/data/Birds.h"
 #include "../book/data/Titles.h"
 #include "../movie/data/Actors.h"
-#include "../../common/StringHelper.h"
 
 using namespace faker;
 using namespace ::testing;

@@ -3,6 +3,7 @@
 #include <string>
 
 #include "../../common/FormatHelper.h"
+#include "../../common/StringHelper.h"
 #include "../date/data/MonthNames.h"
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Internet.h"
@@ -10,7 +11,6 @@
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
-#include "../../common/StringHelper.h"
 
 namespace faker
 {
@@ -24,8 +24,8 @@ std::string Git::branch(unsigned maxIssueNum)
     case 2:
         return FormatHelper::format("{}-{}-{}", Word::verb(), Word::adjective(), Word::noun());
     default:
-        return FormatHelper::format("{}-{}-{}-{}", Number::integer(unsigned(1), maxIssueNum), Word::verb(), Word::adjective(),
-                           Word::noun());
+        return FormatHelper::format("{}-{}-{}-{}", Number::integer(unsigned(1), maxIssueNum), Word::verb(),
+                                    Word::adjective(), Word::noun());
     }
 }
 
@@ -68,7 +68,7 @@ std::string Git::commitDate(unsigned years)
     }
 
     return FormatHelper::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(),
-                       monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
+                                monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
 }
 
 std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Country country)

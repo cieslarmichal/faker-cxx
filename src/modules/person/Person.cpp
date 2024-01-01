@@ -60,7 +60,6 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/Word.h"
-#include "../../common/FormatHelper.h"
 namespace faker
 {
 namespace
@@ -196,7 +195,8 @@ std::string Person::middleName(std::optional<Sex> sex)
 
     if (allMiddleNames.empty())
     {
-        throw std::runtime_error{FormatHelper::format("No middle name fround, sex: {}.", sex ? toString(*sex) : "none")};
+        throw std::runtime_error{
+            FormatHelper::format("No middle name fround, sex: {}.", sex ? toString(*sex) : "none")};
     }
 
     return Helper::arrayElement<std::string>(allMiddleNames);

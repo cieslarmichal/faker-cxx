@@ -7,8 +7,8 @@
 
 #include "gtest/gtest.h"
 
-#include "faker-cxx/Number.h"
 #include "../../common/StringHelper.h"
+#include "faker-cxx/Number.h"
 
 using namespace ::testing;
 using namespace faker;

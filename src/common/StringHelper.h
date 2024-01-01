@@ -4,9 +4,9 @@
 #include <vector>
 
 #ifdef __apple__
-    #include "fmt/format.h"
+#include "fmt/format.h"
 #else
-    #include <format>
+#include <format>
 #endif
 
 namespace faker
@@ -22,4 +22,3 @@ public:
     static std::string removePunctuation(const std::string& word);
 };
 }
-

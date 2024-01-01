@@ -5,6 +5,8 @@
 #include <utility>
 
 #include "../../common/FormatHelper.h"
+#include "../../common/StringHelper.h"
+#include "../string/data/Characters.h"
 #include "data/DomainSuffixes.h"
 #include "data/EmailHosts.h"
 #include "data/Emojis.h"
@@ -15,8 +17,6 @@
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
-#include "../string/data/Characters.h"
-#include "../../common/StringHelper.h"
 
 namespace faker
 {
@@ -68,13 +68,13 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
         username = FormatHelper::format("{}{}{}", firstName, lastName, Number::integer<int>(999));
         break;
     case 1:
-        username = FormatHelper::format("{}{}{}", firstName,
-                               Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName);
+        username = FormatHelper::format(
+            "{}{}{}", firstName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
         username = FormatHelper::format("{}{}{}{}", firstName,
-                               Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName,
-                               Number::integer<int>(99));
+                                        Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}),
+                                        lastName, Number::integer<int>(99));
         break;
     }
 
@@ -85,34 +85,39 @@ std::string Internet::email(std::optional<std::string> firstName, std::optional<
                             std::optional<std::string> emailHost)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                       emailHost ? *emailHost : Helper::arrayElement<std::string>(emailHosts));
+                                emailHost ? *emailHost : Helper::arrayElement<std::string>(emailHosts));
 }
 
 std::string Internet::exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                       Helper::arrayElement<std::string>(emailExampleHosts));
+                                Helper::arrayElement<std::string>(emailExampleHosts));
 }
 
 std::string Internet::password(int length, PasswordOptions options)
 {
     std::string characters;
 
-    if (options.upperLetters) {
-            characters += faker::upperCharacters;
-        }
-        if (options.lowerLetters) {
-            characters += faker::lowerCharacters;
-        }
-        if (options.numbers) {
-            characters += faker::numericCharacters;
-        }
-        if (options.symbols) {
-            characters += faker::symbolCharacters;
-        }
+    if (options.upperLetters)
+    {
+        characters += faker::upperCharacters;
+    }
+    if (options.lowerLetters)
+    {
+        characters += faker::lowerCharacters;
+    }
+    if (options.numbers)
+    {
+        characters += faker::numericCharacters;
+    }
+    if (options.symbols)
+    {
+        characters += faker::symbolCharacters;
+    }
 
     std::string password;
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < length; ++i)
+    {
         password += Helper::arrayElement<char>(characters);
     }
 
@@ -144,19 +149,19 @@ std::string Internet::emoji(std::optional<EmojiType> type)
     return Helper::arrayElement<std::string>(emojis);
 }
 
-
- bool Internet::checkIfEmojiIsValid(const std::string& emojiToCheck)
- {
-    for (const auto& vector : {smileyEmojis, bodyEmojis, personEmojis, natureEmojis, foodEmojis, travelEmojis, activityEmojis, objectEmojis, symbolEmojis, flagEmojis})
+bool Internet::checkIfEmojiIsValid(const std::string& emojiToCheck)
+{
+    for (const auto& vector : {smileyEmojis, bodyEmojis, personEmojis, natureEmojis, foodEmojis, travelEmojis,
+                               activityEmojis, objectEmojis, symbolEmojis, flagEmojis})
     {
-        if(std::find(vector.begin(), vector.end(), emojiToCheck) != vector.end()){
+        if (std::find(vector.begin(), vector.end(), emojiToCheck) != vector.end())
+        {
             return true;
         }
     }
 
     return false;
- }
-
+}
 
 std::string Internet::protocol()
 {
