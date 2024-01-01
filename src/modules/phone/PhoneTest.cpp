@@ -69,26 +69,26 @@ TEST_F(PhoneTest, NumberFormatTest)
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 }
 
-TEST_F(PhoneTest, PlatformGeneration) {
+TEST_F(PhoneTest, PlatformGeneration)
+{
     std::string generatedPlatform = Phone::platform();
-    ASSERT_TRUE(std::ranges::any_of(
-        faker::data::PhonePlatforms.begin(), faker::data::PhonePlatforms.end(),
-        [generatedPlatform](const std::string& platform) { return platform == generatedPlatform; }
-    ));
+    ASSERT_TRUE(std::ranges::any_of(faker::data::PhonePlatforms.begin(), faker::data::PhonePlatforms.end(),
+                                    [generatedPlatform](const std::string& platform)
+                                    { return platform == generatedPlatform; }));
 }
 
-TEST_F(PhoneTest, ModelNameGeneration) {
+TEST_F(PhoneTest, ModelNameGeneration)
+{
     std::string generatedModelName = Phone::modelName();
-    ASSERT_TRUE(std::ranges::any_of(
-        faker::data::PhoneModelNames.begin(), faker::data::PhoneModelNames.end(),
-        [generatedModelName](const std::string& modelName) { return modelName == generatedModelName; }
-    ));
+    ASSERT_TRUE(std::ranges::any_of(faker::data::PhoneModelNames.begin(), faker::data::PhoneModelNames.end(),
+                                    [generatedModelName](const std::string& modelName)
+                                    { return modelName == generatedModelName; }));
 }
 
-TEST_F(PhoneTest, ManufacturerGeneration) {
+TEST_F(PhoneTest, ManufacturerGeneration)
+{
     std::string generatedManufacturer = Phone::manufacturer();
-    ASSERT_TRUE(std::ranges::any_of(
-        faker::data::PhoneManufacturers.begin(), faker::data::PhoneManufacturers.end(),
-        [generatedManufacturer](const std::string& manufacturer) { return manufacturer == generatedManufacturer; }
-    ));
+    ASSERT_TRUE(std::ranges::any_of(faker::data::PhoneManufacturers.begin(), faker::data::PhoneManufacturers.end(),
+                                    [generatedManufacturer](const std::string& manufacturer)
+                                    { return manufacturer == generatedManufacturer; }));
 }

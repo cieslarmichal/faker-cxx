@@ -1,10 +1,10 @@
 #include "faker-cxx/Science.h"
 
+#include <vector>
+
 #include "data/elements.h"
 #include "data/units.h"
 #include "faker-cxx/Helper.h"
-
-#include <vector>
 
 namespace faker
 {
@@ -25,27 +25,27 @@ Unit Science::unit()
     return Helper::arrayElement<Unit>(units);
 }
 
-Unit Science::distanceUnit() 
+Unit Science::distanceUnit()
 {
     return Helper::arrayElement<Unit>(distanceUnits);
 }
 
-Unit Science::timeUnit() 
+Unit Science::timeUnit()
 {
     return Helper::arrayElement<Unit>(timeUnits);
 }
 
-Unit Science::massUnit() 
+Unit Science::massUnit()
 {
     return Helper::arrayElement<Unit>(massUnits);
 }
 
-Unit Science::tempUnit() 
+Unit Science::tempUnit()
 {
     return Helper::arrayElement<Unit>(temperatureUnits);
 }
 
-Unit Science::currentUnit() 
+Unit Science::currentUnit()
 {
     return Helper::arrayElement<Unit>(currentUnits);
 }
