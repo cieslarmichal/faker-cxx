@@ -38,3 +38,10 @@ TEST_F(FormatHelperTest, givenTokensWithNotDefinedGenerator_shouldThrow)
 
     ASSERT_THROW(FormatHelper::fillTokenValues(format, dataGeneratorsMapping), errors::TokenGeneratorNotFoundError);
 }
+
+
+TEST_F(FormatHelperTest, shouldFormat) {
+    EXPECT_EQ(FormatHelper::format("{}", 1), "1");
+    EXPECT_EQ(FormatHelper::format("{} {}", "Hello", "World"), "Hello World");
+    EXPECT_EQ(FormatHelper::format("{0} {1}", "Hello", "World"), "Hello World");
+}

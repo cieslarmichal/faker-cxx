@@ -41,5 +41,4 @@ const std::vector<std::string> albanianFemalesFirstNames = {
     "Sonila",   "Tea",       "Teuta",   "Valbona",   "Valentina", "Vanessa",    "Vera",    "Verona",    "Vesa",
     "Veselina", "Viona",     "Vjollca", "Xhensila",  "Zamira",    "Zana",
 };
-
 }

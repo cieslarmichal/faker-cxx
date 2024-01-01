@@ -5,6 +5,7 @@
 
 #include "gtest/gtest.h"
 
+#include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
 #include "../string/data/Characters.h"
 #include "data/Colors.h"

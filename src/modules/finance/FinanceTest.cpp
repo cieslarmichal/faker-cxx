@@ -7,6 +7,7 @@
 
 #include "gtest/gtest.h"
 
+#include "../../common/FormatHelper.h"
 #include "../../common/LuhnCheck.h"
 #include "../../common/StringHelper.h"
 #include "../string/data/Characters.h"

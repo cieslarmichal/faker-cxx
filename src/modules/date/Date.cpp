@@ -4,12 +4,11 @@
 #include <ctime>
 #include <iomanip>
 
+#include "../../common/FormatHelper.h"
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
-#include "fmt/format.h"
-
 namespace faker
 {
 namespace
@@ -39,8 +38,9 @@ std::string betweenDate(const auto& from, const auto& to, Date::DateFormat dateF
 {
     if (from > to)
     {
-        throw std::runtime_error{fmt::format("Start date is greater than end date. {{from: {}, to: {}}}",
-                                             serializeTimePoint(from, dateFormat), serializeTimePoint(to, dateFormat))};
+        throw std::runtime_error{FormatHelper::format("Start date is greater than end date. {{from: {}, to: {}}}",
+                                                      serializeTimePoint(from, dateFormat),
+                                                      serializeTimePoint(to, dateFormat))};
     }
 
     const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();

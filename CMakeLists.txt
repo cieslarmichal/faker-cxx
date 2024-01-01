@@ -109,23 +109,24 @@ set(FAKER_UT_SOURCES
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 
 target_include_directories(
-    ${LIBRARY_NAME}
-    INTERFACE "${CMAKE_CURRENT_LIST_DIR}/include"
-    PRIVATE "${CMAKE_CURRENT_LIST_DIR}/include" ${FMT_INCLUDE_DIR})
+        ${LIBRARY_NAME}
+        INTERFACE "${CMAKE_CURRENT_LIST_DIR}/include"
+        PRIVATE "${CMAKE_CURRENT_LIST_DIR}/include"
+)
 
-add_subdirectory(externals/fmt)
-
-set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
-
-target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
+if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang" OR (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU") OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+    add_subdirectory(externals/fmt)
+    set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
+    target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
+endif()
 
 if(BUILD_FAKER_TESTS)
     add_subdirectory(externals/googletest)
 
     set(GTEST_INCLUDE_DIR
-        "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
+            "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
     set(GMOCK_INCLUDE_DIR
-        "${CMAKE_SOURCE_DIR}/externals/googletest/googlemock/include")
+            "${CMAKE_SOURCE_DIR}/externals/googletest/googlemock/include")
 
     enable_testing()
 
@@ -138,17 +139,24 @@ if(BUILD_FAKER_TESTS)
     add_executable(${LIBRARY_NAME}-UT ${FAKER_UT_SOURCES})
 
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
-                                                     faker-cxx)
-
-    target_include_directories(
-        ${LIBRARY_NAME}-UT
-        PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
+            faker-cxx)
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang" OR (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU") OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        target_include_directories(
+                ${LIBRARY_NAME}-UT
+                PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
                 ${CMAKE_CURRENT_LIST_DIR})
 
+    else()
+        target_include_directories(
+                ${LIBRARY_NAME}-UT
+                PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
+                ${CMAKE_CURRENT_LIST_DIR})
+    endif()
+
     add_test(
-        NAME ${LIBRARY_NAME}-UT
-        COMMAND ${LIBRARY_NAME}-UT
-        WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
+            NAME ${LIBRARY_NAME}-UT
+            COMMAND ${LIBRARY_NAME}-UT
+            WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 
     target_code_coverage(${LIBRARY_NAME}-UT ALL)
 endif()

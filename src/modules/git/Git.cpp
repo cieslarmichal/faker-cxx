@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
 #include "../date/data/MonthNames.h"
 #include "faker-cxx/Date.h"
@@ -10,7 +11,6 @@
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
-#include "fmt/format.h"
 
 namespace faker
 {
@@ -20,12 +20,12 @@ std::string Git::branch(unsigned maxIssueNum)
     switch (Number::integer(1, 3))
     {
     case 1:
-        return fmt::format("{}-{}", Word::verb(), Word::noun());
+        return FormatHelper::format("{}-{}", Word::verb(), Word::noun());
     case 2:
-        return fmt::format("{}-{}-{}", Word::verb(), Word::adjective(), Word::noun());
+        return FormatHelper::format("{}-{}-{}", Word::verb(), Word::adjective(), Word::noun());
     default:
-        return fmt::format("{}-{}-{}-{}", Number::integer(unsigned(1), maxIssueNum), Word::verb(), Word::adjective(),
-                           Word::noun());
+        return FormatHelper::format("{}-{}-{}-{}", Number::integer(unsigned(1), maxIssueNum), Word::verb(),
+                                    Word::adjective(), Word::noun());
     }
 }
 
@@ -67,8 +67,8 @@ std::string Git::commitDate(unsigned years)
         timeZoneString += "00";
     }
 
-    return fmt::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(),
-                       monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
+    return FormatHelper::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(),
+                                monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
 }
 
 std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Country country)
@@ -108,13 +108,13 @@ std::string Git::commitMessage()
     switch (Number::integer(1, 4))
     {
     case 1:
-        return fmt::format("{} {}", Word::verb(), Word::noun());
+        return FormatHelper::format("{} {}", Word::verb(), Word::noun());
     case 2:
-        return fmt::format("{} {} {}", Word::verb(), Word::adjective(), Word::noun());
+        return FormatHelper::format("{} {} {}", Word::verb(), Word::adjective(), Word::noun());
     case 3:
-        return fmt::format("{} {} {}", Word::verb(), Word::noun(), Word::adverb());
+        return FormatHelper::format("{} {} {}", Word::verb(), Word::noun(), Word::adverb());
     default:
-        return fmt::format("{} {} {} {}", Word::verb(), Word::adjective(), Word::noun(), Word::adverb());
+        return FormatHelper::format("{} {} {} {}", Word::verb(), Word::adjective(), Word::noun(), Word::adverb());
     }
 }
 

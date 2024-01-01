@@ -1,5 +1,6 @@
 #include "faker-cxx/Company.h"
 
+#include "../../common/FormatHelper.h"
 #include "data/BuzzAdjectives.h"
 #include "data/BuzzNouns.h"
 #include "data/BuzzVerbs.h"
@@ -11,8 +12,6 @@
 #include "data/Suffixes.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
-#include "fmt/format.h"
-
 namespace faker
 {
 // TODO: add internalization
@@ -24,17 +23,19 @@ std::string Company::name()
     switch (Number::integer<int>(3))
     {
     case 0:
-        companyName = fmt::format("{} {}", Person::lastName(), Helper::arrayElement<std::string>(companySuffixes));
+        companyName =
+            FormatHelper::format("{} {}", Person::lastName(), Helper::arrayElement<std::string>(companySuffixes));
         break;
     case 1:
-        companyName = fmt::format("{} {} {}", Person::firstName(), Person::lastName(), Person::jobArea());
+        companyName = FormatHelper::format("{} {} {}", Person::firstName(), Person::lastName(), Person::jobArea());
         break;
     case 2:
-        companyName = fmt::format("{} {} {} Services", Person::firstName(), Person::lastName(), Person::jobArea());
+        companyName =
+            FormatHelper::format("{} {} {} Services", Person::firstName(), Person::lastName(), Person::jobArea());
         break;
     case 3:
-        companyName = fmt::format("{} {} {} {}", Person::firstName(), Person::lastName(), Person::jobArea(),
-                                  Helper::arrayElement<std::string>(companySuffixes));
+        companyName = FormatHelper::format("{} {} {} {}", Person::firstName(), Person::lastName(), Person::jobArea(),
+                                           Helper::arrayElement<std::string>(companySuffixes));
         break;
     }
 
@@ -53,7 +54,7 @@ std::string Company::industry()
 
 std::string Company::buzzPhrase()
 {
-    return fmt::format("{} {} {}", buzzVerb(), buzzAdjective(), buzzNoun());
+    return FormatHelper::format("{} {} {}", buzzVerb(), buzzAdjective(), buzzNoun());
 }
 
 std::string Company::buzzAdjective()
@@ -73,7 +74,7 @@ std::string Company::buzzVerb()
 
 std::string Company::catchPhrase()
 {
-    return fmt::format("{} {} {}", catchPhraseAdjective(), catchPhraseDescriptor(), catchPhraseNoun());
+    return FormatHelper::format("{} {} {}", catchPhraseAdjective(), catchPhraseDescriptor(), catchPhraseNoun());
 }
 
 std::string Company::catchPhraseAdjective()

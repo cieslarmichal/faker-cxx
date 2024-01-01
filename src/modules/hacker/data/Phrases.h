@@ -6,7 +6,6 @@
 #include "Abbreviations.h"
 #include "Adjectives.h"
 #include "faker-cxx/Helper.h"
-#include "fmt/format.h"
 #include "Ingverbs.h"
 #include "Nouns.h"
 #include "Verbs.h"

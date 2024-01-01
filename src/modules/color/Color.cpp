@@ -2,12 +2,11 @@
 
 #include <sstream>
 
+#include "../../common/FormatHelper.h"
 #include "data/Colors.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
-#include "fmt/format.h"
-
 namespace faker
 {
 std::string Color::name()
@@ -23,7 +22,7 @@ std::string Color::rgb(bool includeAlpha)
 
     if (!includeAlpha)
     {
-        return fmt::format("rgb({}, {}, {})", red, green, blue);
+        return FormatHelper::format("rgb({}, {}, {})", red, green, blue);
     }
 
     const std::floating_point auto alpha = Number::decimal<double>(1);
@@ -34,7 +33,7 @@ std::string Color::rgb(bool includeAlpha)
     ss << alpha;
     const auto formattedAlpha = ss.str();
 
-    return fmt::format("rgba({}, {}, {}, {})", red, green, blue, formattedAlpha);
+    return FormatHelper::format("rgba({}, {}, {}, {})", red, green, blue, formattedAlpha);
 }
 
 std::string Color::hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
@@ -54,7 +53,7 @@ std::string Color::hsl(bool includeAlpha)
 
     if (!includeAlpha)
     {
-        return fmt::format("hsl({}, {}, {})", hue, saturation, lightness);
+        return FormatHelper::format("hsl({}, {}, {})", hue, saturation, lightness);
     }
 
     const std::floating_point auto alpha = Number::decimal<double>(1);
@@ -65,7 +64,7 @@ std::string Color::hsl(bool includeAlpha)
     ss << alpha;
     const auto formattedAlpha = ss.str();
 
-    return fmt::format("hsla({}, {}, {}, {})", hue, saturation, lightness, formattedAlpha);
+    return FormatHelper::format("hsla({}, {}, {}, {})", hue, saturation, lightness, formattedAlpha);
 }
 std::string Color::lch(bool includeAlpha)
 {
@@ -75,7 +74,7 @@ std::string Color::lch(bool includeAlpha)
 
     if (!includeAlpha)
     {
-        return fmt::format("lch({}, {}, {})", luminance, chroma, hue);
+        return FormatHelper::format("lch({}, {}, {})", luminance, chroma, hue);
     }
 
     const std::floating_point auto alpha = Number::decimal<double>(1);
@@ -86,7 +85,7 @@ std::string Color::lch(bool includeAlpha)
     ss << alpha;
     const auto formattedAlpha = ss.str();
 
-    return fmt::format("lcha({}, {}, {}, {})", luminance, chroma, hue, formattedAlpha);
+    return FormatHelper::format("lcha({}, {}, {}, {})", luminance, chroma, hue, formattedAlpha);
 }
 
 std::string Color::cmyk()
@@ -96,7 +95,7 @@ std::string Color::cmyk()
     const std::floating_point auto yellow = Number::decimal<double>(1.);
     const std::floating_point auto key = Number::decimal<double>(1.);
 
-    return fmt::format("cmyk({:.2f}, {:.2f}, {:.2f}, {:.2f})", cyan, magenta, yellow, key);
+    return FormatHelper::format("cmyk({:.2f}, {:.2f}, {:.2f}, {:.2f})", cyan, magenta, yellow, key);
 }
 
 }

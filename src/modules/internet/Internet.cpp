@@ -4,6 +4,7 @@
 #include <map>
 #include <utility>
 
+#include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
 #include "../string/data/Characters.h"
 #include "data/DomainSuffixes.h"
@@ -16,7 +17,6 @@
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
-#include "fmt/format.h"
 
 namespace faker
 {
@@ -65,16 +65,16 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
     switch (Number::integer<int>(2))
     {
     case 0:
-        username = fmt::format("{}{}{}", firstName, lastName, Number::integer<int>(999));
+        username = FormatHelper::format("{}{}{}", firstName, lastName, Number::integer<int>(999));
         break;
     case 1:
-        username = fmt::format("{}{}{}", firstName,
-                               Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName);
+        username = FormatHelper::format(
+            "{}{}{}", firstName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
-        username = fmt::format("{}{}{}{}", firstName,
-                               Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName,
-                               Number::integer<int>(99));
+        username = FormatHelper::format("{}{}{}{}", firstName,
+                                        Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}),
+                                        lastName, Number::integer<int>(99));
         break;
     }
 
@@ -84,14 +84,14 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
 std::string Internet::email(std::optional<std::string> firstName, std::optional<std::string> lastName,
                             std::optional<std::string> emailHost)
 {
-    return fmt::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                       emailHost ? *emailHost : Helper::arrayElement<std::string>(emailHosts));
+    return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
+                                emailHost ? *emailHost : Helper::arrayElement<std::string>(emailHosts));
 }
 
 std::string Internet::exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
-    return fmt::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                       Helper::arrayElement<std::string>(emailExampleHosts));
+    return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
+                                Helper::arrayElement<std::string>(emailExampleHosts));
 }
 
 std::string Internet::password(int length, PasswordOptions options)
@@ -236,7 +236,7 @@ std::string Internet::ipv4(IPv4Class ipv4class)
     }
     }
 
-    return fmt::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
+    return FormatHelper::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
 std::string Internet::ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
@@ -250,7 +250,7 @@ std::string Internet::ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
         sectors[i] |= (baseIpv4Address[i] & generationMask[i]);
     }
 
-    return fmt::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
+    return FormatHelper::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
 std::string Internet::ipv6()
@@ -296,17 +296,17 @@ std::string Internet::url(WebProtocol webProtocol)
 {
     const auto protocol = webProtocol == WebProtocol::Https ? "https" : "http";
 
-    return fmt::format("{}://{}", protocol, domainName());
+    return FormatHelper::format("{}://{}", protocol, domainName());
 }
 
 std::string Internet::domainName()
 {
-    return fmt::format("{}.{}", domainWord(), domainSuffix());
+    return FormatHelper::format("{}.{}", domainWord(), domainSuffix());
 }
 
 std::string Internet::domainWord()
 {
-    return StringHelper::toLower(fmt::format("{}-{}", Word::adjective(), Word::noun()));
+    return StringHelper::toLower(FormatHelper::format("{}-{}", Word::adjective(), Word::noun()));
 }
 
 std::string Internet::domainSuffix()
