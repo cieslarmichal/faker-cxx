@@ -10,10 +10,9 @@ std::map<std::string, std::string> JsonHelper::simpleJsonParser(std::string json
     std::string key, value, temp;
     char ch;
 
-    
     while (stream >> ch && ch != '}')
     {
-        if (ch == '"' )
+        if (ch == '"')
         {
 
             std::getline(stream, key, '"');

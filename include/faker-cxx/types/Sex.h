@@ -44,8 +44,7 @@ const std::map<Language, std::map<Sex, std::string>> sexTranslations = {
     {Language::Latvian, {{Sex::Male, "Vīrietis"}, {Sex::Female, "Sieviete"}}},
     {Language::Belarusian, {{Sex::Male, "Мужчына"}, {Sex::Female, "Жанчына"}}},
     {Language::Estonian, {{Sex::Male, "Mees"}, {Sex::Female, "Naine"}}},
-    {Language::Irish, {{Sex::Male, "fireannach"}, {Sex::Female, "baineann"}}}
-};
+    {Language::Irish, {{Sex::Male, "fireannach"}, {Sex::Female, "baineann"}}}};
 
 inline std::string translateSex(Sex sex, Language language = Language::English)
 {
@@ -65,7 +64,6 @@ inline std::string toString(Sex sex, Language language = Language::English)
 {
     return translateSex(sex, language);
 }
-
 
 inline std::ostream& operator<<(std::ostream& os, Sex sex)
 {

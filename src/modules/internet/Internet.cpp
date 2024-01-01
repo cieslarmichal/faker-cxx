@@ -5,6 +5,7 @@
 #include <utility>
 
 #include "../../common/StringHelper.h"
+#include "../string/data/Characters.h"
 #include "data/DomainSuffixes.h"
 #include "data/EmailHosts.h"
 #include "data/Emojis.h"
@@ -16,7 +17,6 @@
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
 #include "fmt/format.h"
-#include "../string/data/Characters.h"
 
 namespace faker
 {
@@ -98,21 +98,26 @@ std::string Internet::password(int length, PasswordOptions options)
 {
     std::string characters;
 
-    if (options.upperLetters) {
-            characters += faker::upperCharacters;
-        }
-        if (options.lowerLetters) {
-            characters += faker::lowerCharacters;
-        }
-        if (options.numbers) {
-            characters += faker::numericCharacters;
-        }
-        if (options.symbols) {
-            characters += faker::symbolCharacters;
-        }
+    if (options.upperLetters)
+    {
+        characters += faker::upperCharacters;
+    }
+    if (options.lowerLetters)
+    {
+        characters += faker::lowerCharacters;
+    }
+    if (options.numbers)
+    {
+        characters += faker::numericCharacters;
+    }
+    if (options.symbols)
+    {
+        characters += faker::symbolCharacters;
+    }
 
     std::string password;
-    for (int i = 0; i < length; ++i) {
+    for (int i = 0; i < length; ++i)
+    {
         password += Helper::arrayElement<char>(characters);
     }
 
@@ -144,19 +149,19 @@ std::string Internet::emoji(std::optional<EmojiType> type)
     return Helper::arrayElement<std::string>(emojis);
 }
 
-
- bool Internet::checkIfEmojiIsValid(const std::string& emojiToCheck)
- {
-    for (const auto& vector : {smileyEmojis, bodyEmojis, personEmojis, natureEmojis, foodEmojis, travelEmojis, activityEmojis, objectEmojis, symbolEmojis, flagEmojis})
+bool Internet::checkIfEmojiIsValid(const std::string& emojiToCheck)
+{
+    for (const auto& vector : {smileyEmojis, bodyEmojis, personEmojis, natureEmojis, foodEmojis, travelEmojis,
+                               activityEmojis, objectEmojis, symbolEmojis, flagEmojis})
     {
-        if(std::find(vector.begin(), vector.end(), emojiToCheck) != vector.end()){
+        if (std::find(vector.begin(), vector.end(), emojiToCheck) != vector.end())
+        {
             return true;
         }
     }
 
     return false;
- }
-
+}
 
 std::string Internet::protocol()
 {

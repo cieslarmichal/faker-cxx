@@ -347,14 +347,13 @@ enum class Token
 
 };
 
-
 class Structure
 {
 public:
     /**
-     * @brief Get a json string based on input 
+     * @brief Get a json string based on input
      *
-     * @return a josn string based on user selected tokens 
+     * @return a josn string based on user selected tokens
      *
      * @code
      * std::map<std::string, faker::Token> testTokens;
@@ -362,7 +361,8 @@ public:
      * testTokens.emplace("Bird name", faker::Token::AnimalBird);
      * testTokens.emplace("Actor name", faker::Token::MovieActor);
      * testTokens.emplace("Book title", faker::Token::BookTitle);
-     * Structure::json(testTokens) // {"FoodName":"Cajun Shrimp Pasta","airlineType":"narrowbody","airportName":"Brisbane International Airport"}
+     * Structure::json(testTokens) // {"FoodName":"Cajun Shrimp
+     * Pasta","airlineType":"narrowbody","airportName":"Brisbane International Airport"}
      * @endcode
      */
     static std::string json(const std::map<std::string, faker::Token> items);

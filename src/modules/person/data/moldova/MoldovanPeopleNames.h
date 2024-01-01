@@ -7,9 +7,9 @@
 
 namespace faker
 {
-    const NameFormats moldovanPersonNameFormats{{"{firstName} {lastName}", 1}};
+const NameFormats moldovanPersonNameFormats{{"{firstName} {lastName}", 1}};
 
-    const PeopleNames moldovanPeopleNames{{moldovanMalesFirstNames, {}, moldovanLastNames, {}, {}},
-                                     {moldovanFemalesFirstNames, {}, moldovanLastNames, {}, {}},
-                                     moldovanPersonNameFormats};
+const PeopleNames moldovanPeopleNames{{moldovanMalesFirstNames, {}, moldovanLastNames, {}, {}},
+                                      {moldovanFemalesFirstNames, {}, moldovanLastNames, {}, {}},
+                                      moldovanPersonNameFormats};
 }
