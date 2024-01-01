@@ -11,6 +11,7 @@
 #include "data/russia/RussiaAddresses.h"
 #include "data/States.h"
 #include "data/TimeZones.h"
+#include "data/ukraine/UkraineAddresses.h"
 #include "data/usa/UsaAddresses.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
@@ -21,17 +22,15 @@ namespace faker
 namespace
 {
 const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
-    {AddressCountry::Usa, usaAddresses},
-    {AddressCountry::Poland, polandAddresses},
-    {AddressCountry::Russia, russiaAddresses},
-    {AddressCountry::France, franceAddresses},
+    {AddressCountry::Usa, usaAddresses},         {AddressCountry::Poland, polandAddresses},
+    {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
+    {AddressCountry::Ukraine, ukraineAddresses},
 };
 
 const std::map<AddressCountry, Country> countryAddressToCountryMapping{
-    {AddressCountry::Usa, Country::Usa},
-    {AddressCountry::Poland, Country::Poland},
-    {AddressCountry::Russia, Country::Russia},
-    {AddressCountry::France, Country::France},
+    {AddressCountry::Usa, Country::Usa},         {AddressCountry::Poland, Country::Poland},
+    {AddressCountry::Russia, Country::Russia},   {AddressCountry::France, Country::France},
+    {AddressCountry::Ukraine, Country::Ukraine},
 };
 }
 

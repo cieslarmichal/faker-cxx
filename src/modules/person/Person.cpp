@@ -37,8 +37,10 @@
 #include "data/korea/KoreanPeopleNames.h"
 #include "data/Languages.h"
 #include "data/latvia/LatvianPeopleNames.h"
+#include "data/lithuania/LithuanianPeopleNames.h"
 #include "data/macedonia/MacedonianPeopleNames.h"
 #include "data/mexico/MexicanPeopleNames.h"
+#include "data/moldova/MoldovanPeopleNames.h"
 #include "data/Nationalities.h"
 #include "data/nepal/NepalesePeopleNames.h"
 #include "data/netherlands/DutchPeopleNames.h"
@@ -89,7 +91,8 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Latvia, latvianPeopleNames},        {Country::Ireland, irishPeopleNames},
     {Country::Belarus, belarusianPeopleNames},    {Country::Estonia, estonianPeopleNames},
     {Country::Albania, albanianPeopleNames},      {Country::Iran, persianPeopleNames},
-    {Country::Bulgaria, bulgarianPeopleNames},
+    {Country::Bulgaria, bulgarianPeopleNames},    {Country::Moldova, moldovanPeopleNames},
+    {Country::Lithuania, lithuanianPeopleNames},
 };
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
