@@ -140,7 +140,7 @@ if(BUILD_FAKER_TESTS)
 
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
             faker-cxx)
-    if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang")
+    if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang" OR (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU") OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
         target_include_directories(
                 ${LIBRARY_NAME}-UT
                 PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}

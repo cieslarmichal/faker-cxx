@@ -3,12 +3,6 @@
 #include <string>
 #include <vector>
 
-#ifdef __APPLE__
-    #include "fmt/format.h"
-#else
-    #include <format>
-#endif
-
 namespace faker
 {
 class StringHelper
