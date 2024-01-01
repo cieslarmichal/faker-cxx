@@ -1,8 +1,6 @@
 #include "FormatHelper.h"
 
 #include "errors/TokenGeneratorNotFoundError.h"
-#include "../common/StringHelper.h"
-#include "../common/Format.h"
 
 namespace faker
 {
@@ -28,7 +26,7 @@ std::string FormatHelper::fillTokenValues(const std::string& format,
 
             if (foundTokenGenerator == tokenValueGenerators.end())
             {
-                throw errors::TokenGeneratorNotFoundError{Format::format("Generator not found for token {}.", token)};
+                throw errors::TokenGeneratorNotFoundError{FormatHelper::format("Generator not found for token {}.", token)};
             }
 
             filledFormat += foundTokenGenerator->second();

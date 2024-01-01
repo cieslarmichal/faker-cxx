@@ -9,7 +9,7 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
-#include "../../common/Format.h"
+#include "../../common/FormatHelper.h"
 namespace faker
 {
 namespace
@@ -62,7 +62,7 @@ std::string Finance::amount(double min, double max, Precision precision, const s
 
     ss << generatedNumber;
 
-    return Format::format("{}{}", symbol, ss.str());
+    return FormatHelper::format("{}{}", symbol, ss.str());
 }
 
 std::string Finance::iban(std::optional<IbanCountry> country)

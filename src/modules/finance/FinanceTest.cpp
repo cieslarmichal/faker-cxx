@@ -8,7 +8,7 @@
 #include "gtest/gtest.h"
 
 #include "../../common/LuhnCheck.h"
-#include "../../common/Format.h"
+#include "../../common/FormatHelper.h"
 #include "../string/data/Characters.h"
 #include "data/AccountTypes.h"
 #include "data/BankIndentifiersCodes.h"

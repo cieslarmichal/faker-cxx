@@ -11,7 +11,7 @@
 #include "data/Suffixes.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
-#include "../../common/Format.h"
+#include "../../common/FormatHelper.h"
 namespace faker
 {
 // TODO: add internalization
@@ -23,16 +23,16 @@ std::string Company::name()
     switch (Number::integer<int>(3))
     {
     case 0:
-        companyName = Format::format("{} {}", Person::lastName(), Helper::arrayElement<std::string>(companySuffixes));
+        companyName = FormatHelper::format("{} {}", Person::lastName(), Helper::arrayElement<std::string>(companySuffixes));
         break;
     case 1:
-        companyName = Format::format("{} {} {}", Person::firstName(), Person::lastName(), Person::jobArea());
+        companyName = FormatHelper::format("{} {} {}", Person::firstName(), Person::lastName(), Person::jobArea());
         break;
     case 2:
-        companyName = Format::format("{} {} {} Services", Person::firstName(), Person::lastName(), Person::jobArea());
+        companyName = FormatHelper::format("{} {} {} Services", Person::firstName(), Person::lastName(), Person::jobArea());
         break;
     case 3:
-        companyName = Format::format("{} {} {} {}", Person::firstName(), Person::lastName(), Person::jobArea(),
+        companyName = FormatHelper::format("{} {} {} {}", Person::firstName(), Person::lastName(), Person::jobArea(),
                                   Helper::arrayElement<std::string>(companySuffixes));
         break;
     }
@@ -52,7 +52,7 @@ std::string Company::industry()
 
 std::string Company::buzzPhrase()
 {
-    return Format::format("{} {} {}", buzzVerb(), buzzAdjective(), buzzNoun());
+    return FormatHelper::format("{} {} {}", buzzVerb(), buzzAdjective(), buzzNoun());
 }
 
 std::string Company::buzzAdjective()
@@ -72,7 +72,7 @@ std::string Company::buzzVerb()
 
 std::string Company::catchPhrase()
 {
-    return Format::format("{} {} {}", catchPhraseAdjective(), catchPhraseDescriptor(), catchPhraseNoun());
+    return FormatHelper::format("{} {} {}", catchPhraseAdjective(), catchPhraseDescriptor(), catchPhraseNoun());
 }
 
 std::string Company::catchPhraseAdjective()

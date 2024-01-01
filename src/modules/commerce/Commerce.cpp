@@ -4,7 +4,7 @@
 #include "faker-cxx/Finance.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/String.h"
-#include "../../common/Format.h"
+#include "../../common/FormatHelper.h"
 namespace faker
 {
 std::string Commerce::department()
@@ -39,7 +39,7 @@ std::string Commerce::productName()
 
 std::string Commerce::productFullName()
 {
-    return Format::format("{} {} {}", productAdjective(), productMaterial(), productName());
+    return FormatHelper::format("{} {} {}", productAdjective(), productMaterial(), productName());
 }
 
 std::string Commerce::EAN13()
