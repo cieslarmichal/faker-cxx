@@ -114,7 +114,7 @@ target_include_directories(
         PRIVATE "${CMAKE_CURRENT_LIST_DIR}/include"
 )
 
-if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang" OR (MINGW AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU") OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang" OR (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU") OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
     add_subdirectory(externals/fmt)
     set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
     target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
