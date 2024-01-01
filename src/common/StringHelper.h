@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#ifdef __clang__
+#ifdef __APPLE__
     #include "fmt/format.h"
 #else
     #include <format>

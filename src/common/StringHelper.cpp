@@ -6,7 +6,7 @@
 #include <locale>
 #include <sstream>
 
-#ifdef __clang__
+#ifdef __APPLE__
     #include "fmt/format.h"
 #else
     #include <format>

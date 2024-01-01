@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#ifdef __clang__
+#ifdef __APPLE__
     #include <fmt/format.h>
 #else
 #   include <format>
@@ -16,7 +16,7 @@ namespace faker
 class FormatHelper
 {
 public:
-    #ifdef __clang__
+    #ifdef __APPLE__
         template <typename... Args>
         static std::string format(fmt::format_string<Args...> fmt, Args&&... args)
         {
