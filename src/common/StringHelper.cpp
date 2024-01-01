@@ -2,15 +2,7 @@
 
 #include <algorithm>
 #include <cctype>
-#include <codecvt>
-#include <locale>
 #include <sstream>
-
-#ifdef __APPLE__
-    #include "fmt/format.h"
-#else
-    #include <format>
-#endif
 
 namespace faker
 {
