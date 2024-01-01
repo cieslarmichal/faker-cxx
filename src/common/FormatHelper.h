@@ -5,19 +5,20 @@
 #include <string>
 #include <vector>
 
-#ifdef __APPLE__
+#if defined(__APPLE__) || defined(__MINGW32__)
     #include <fmt/format.h>
 #else
-#   include <format>
+    #include <format>
 #endif
+
 
 namespace faker
 {
 class FormatHelper
 {
 public:
-    #ifdef __APPLE__
-        template <typename... Args>
+    #if defined(__APPLE__) || defined(__MINGW32__)
+    template <typename... Args>
         static std::string format(fmt::format_string<Args...> fmt, Args&&... args)
         {
             return fmt::format(fmt, std::forward<Args>(args)...);
