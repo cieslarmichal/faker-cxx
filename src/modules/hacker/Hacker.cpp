@@ -3,13 +3,13 @@
 #include <string>
 #include <vector>
 
-#include "../../common/StringHelper.h"
 #include "data/Abbreviations.h"
 #include "data/Adjectives.h"
 #include "data/Ingverbs.h"
 #include "data/Nouns.h"
 #include "data/Phrases.h"
 #include "data/Verbs.h"
+#include "../../common/StringHelper.h"
 
 namespace faker
 {

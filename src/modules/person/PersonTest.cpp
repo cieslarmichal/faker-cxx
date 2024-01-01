@@ -5,7 +5,6 @@
 #include "gtest/gtest.h"
 
 #include "../../common/BioHelper.h"
-#include "../../common/StringHelper.h"
 #include "data/albania/AlbanianPeopleNames.h"
 #include "data/argentina/ArgentinianPeopleNames.h"
 #include "data/australia/AustralianPeopleNames.h"

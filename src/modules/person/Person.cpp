@@ -60,8 +60,7 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/Word.h"
-#include "fmt/format.h"
-
+#include "../../common/Format.h"
 namespace faker
 {
 namespace
@@ -197,7 +196,7 @@ std::string Person::middleName(std::optional<Sex> sex)
 
     if (allMiddleNames.empty())
     {
-        throw std::runtime_error{fmt::format("No middle name fround, sex: {}.", sex ? toString(*sex) : "none")};
+        throw std::runtime_error{Format::format("No middle name fround, sex: {}.", sex ? toString(*sex) : "none")};
     }
 
     return Helper::arrayElement<std::string>(allMiddleNames);
@@ -264,7 +263,7 @@ std::string Person::prefix(std::optional<Sex> sex)
 
     if (allPrefixes.empty())
     {
-        throw std::runtime_error{fmt::format("No prefixes fround, sex: {}.", sex ? toString(*sex) : "none")};
+        throw std::runtime_error{Format::format("No prefixes fround, sex: {}.", sex ? toString(*sex) : "none")};
     }
 
     return Helper::arrayElement<std::string>(allPrefixes);
@@ -323,7 +322,7 @@ std::string Person::gender()
 
 std::string Person::jobTitle()
 {
-    return fmt::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
+    return Format::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
 }
 
 std::string Person::jobDescriptor()

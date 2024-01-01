@@ -4,7 +4,7 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
+#include "../../common/Format.h"
 #include "../person/data/england/EnglishFirstNames.h"
 #include "../person/data/england/EnglishLastNames.h"
 #include "../person/data/russia/RussianFirstNames.h"
@@ -19,6 +19,7 @@
 #include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/usa/UsaAddresses.h"
+#include "../../common/StringHelper.h"
 
 using namespace ::testing;
 using namespace faker;

@@ -8,8 +8,7 @@
 #include "data/WeekdayNames.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
-#include "fmt/format.h"
-
+#include "../../common/Format.h"
 namespace faker
 {
 namespace
@@ -39,7 +38,7 @@ std::string betweenDate(const auto& from, const auto& to, Date::DateFormat dateF
 {
     if (from > to)
     {
-        throw std::runtime_error{fmt::format("Start date is greater than end date. {{from: {}, to: {}}}",
+        throw std::runtime_error{Format::format("Start date is greater than end date. {{from: {}, to: {}}}",
                                              serializeTimePoint(from, dateFormat), serializeTimePoint(to, dateFormat))};
     }
 

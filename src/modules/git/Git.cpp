@@ -2,7 +2,7 @@
 
 #include <string>
 
-#include "../../common/StringHelper.h"
+#include "../../common/Format.h"
 #include "../date/data/MonthNames.h"
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Internet.h"
@@ -10,7 +10,7 @@
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
-#include "fmt/format.h"
+#include "../../common/StringHelper.h"
 
 namespace faker
 {
@@ -20,11 +20,11 @@ std::string Git::branch(unsigned maxIssueNum)
     switch (Number::integer(1, 3))
     {
     case 1:
-        return fmt::format("{}-{}", Word::verb(), Word::noun());
+        return Format::format("{}-{}", Word::verb(), Word::noun());
     case 2:
-        return fmt::format("{}-{}-{}", Word::verb(), Word::adjective(), Word::noun());
+        return Format::format("{}-{}-{}", Word::verb(), Word::adjective(), Word::noun());
     default:
-        return fmt::format("{}-{}-{}-{}", Number::integer(unsigned(1), maxIssueNum), Word::verb(), Word::adjective(),
+        return Format::format("{}-{}-{}-{}", Number::integer(unsigned(1), maxIssueNum), Word::verb(), Word::adjective(),
                            Word::noun());
     }
 }
@@ -67,7 +67,7 @@ std::string Git::commitDate(unsigned years)
         timeZoneString += "00";
     }
 
-    return fmt::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(),
+    return Format::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(),
                        monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
 }
 
@@ -108,13 +108,13 @@ std::string Git::commitMessage()
     switch (Number::integer(1, 4))
     {
     case 1:
-        return fmt::format("{} {}", Word::verb(), Word::noun());
+        return Format::format("{} {}", Word::verb(), Word::noun());
     case 2:
-        return fmt::format("{} {} {}", Word::verb(), Word::adjective(), Word::noun());
+        return Format::format("{} {} {}", Word::verb(), Word::adjective(), Word::noun());
     case 3:
-        return fmt::format("{} {} {}", Word::verb(), Word::noun(), Word::adverb());
+        return Format::format("{} {} {}", Word::verb(), Word::noun(), Word::adverb());
     default:
-        return fmt::format("{} {} {} {}", Word::verb(), Word::adjective(), Word::noun(), Word::adverb());
+        return Format::format("{} {} {} {}", Word::verb(), Word::adjective(), Word::noun(), Word::adverb());
     }
 }
 

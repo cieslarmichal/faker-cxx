@@ -106,6 +106,7 @@ set(FAKER_UT_SOURCES
     src/modules/structure/StructureTest.cpp
     src/common/JsonHelperTest.cpp)
 
+
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 
 target_include_directories(

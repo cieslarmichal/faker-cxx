@@ -9,8 +9,7 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
-#include "fmt/format.h"
-
+#include "../../common/Format.h"
 namespace faker
 {
 
@@ -46,21 +45,21 @@ std::string Vehicle::type()
 
 std::string Vehicle::vehicle()
 {
-    return fmt::format("{} {}", manufacturer(), model());
+    return Format::format("{} {}", manufacturer(), model());
 }
 
 std::string Vehicle::vin()
 {
     std::string exclude_characters{"oiqOIQ"};
 
-    return fmt::format("{}{}{}{}", String::alphanumeric(10, StringCasing::Upper, exclude_characters),
+    return Format::format("{}{}{}{}", String::alphanumeric(10, StringCasing::Upper, exclude_characters),
                        String::alpha(1, StringCasing::Upper, exclude_characters),
                        String::alphanumeric(1, StringCasing::Upper, exclude_characters), Number::integer(10000, 99999));
 }
 
 std::string Vehicle::vrm()
 {
-    return fmt::format("{}{}{}", String::alpha(2, StringCasing::Upper), String::numeric(2, true),
+    return Format::format("{}{}{}", String::alpha(2, StringCasing::Upper), String::numeric(2, true),
                        String::alpha(3, StringCasing::Upper));
 }
 

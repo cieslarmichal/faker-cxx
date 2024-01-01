@@ -6,6 +6,12 @@
 #include <locale>
 #include <sstream>
 
+#ifdef __apple__
+    #include "fmt/format.h"
+#else
+    #include <format>
+#endif
+
 namespace faker
 {
 std::vector<std::string> StringHelper::split(const std::string& data, const std::string& separator)
@@ -80,5 +86,4 @@ std::string StringHelper::removePunctuation(const std::string& word)
 
     return result;
 }
-
 }

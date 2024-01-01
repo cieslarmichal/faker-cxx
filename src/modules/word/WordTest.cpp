@@ -4,8 +4,8 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
 #include "data/Adjectives.h"
+#include "../../common/StringHelper.h"
 #include "data/Adverbs.h"
 #include "data/Conjunctions.h"
 #include "data/Interjections.h"

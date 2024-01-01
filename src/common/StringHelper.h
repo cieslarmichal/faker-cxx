@@ -3,6 +3,12 @@
 #include <string>
 #include <vector>
 
+#ifdef __apple__
+    #include "fmt/format.h"
+#else
+    #include <format>
+#endif
+
 namespace faker
 {
 class StringHelper
@@ -16,3 +22,4 @@ public:
     static std::string removePunctuation(const std::string& word);
 };
 }
+

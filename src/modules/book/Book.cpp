@@ -6,7 +6,7 @@
 #include "data/Titles.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/String.h"
-#include "fmt/format.h"
+#include "../../common/Format.h"
 
 namespace faker
 {
@@ -32,7 +32,7 @@ std::string Book::publisher()
 
 std::string Book::isbn()
 {
-    return fmt::format("{}-{}-{}-{}-{}", String::numeric(3, false), String::numeric(2), String::numeric(2),
+    return Format::format("{}-{}-{}-{}-{}", String::numeric(3, false), String::numeric(2), String::numeric(2),
                        String::numeric(5), String::numeric(1));
 }
 }
