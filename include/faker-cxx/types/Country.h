@@ -53,6 +53,7 @@ enum class Country
     Estonia,
     Iran,
     Bulgaria,
+    Moldova,
 };
 
 const std::vector<Country> countries{
@@ -65,6 +66,7 @@ const std::vector<Country> countries{
     Country::China,     Country::Korea,    Country::Canada,      Country::Mexico,  Country::Argentina,
     Country::Australia, Country::Serbia,   Country::Macedonia,   Country::Albania, Country::Latvia,
     Country::Ireland,   Country::Belarus,  Country::Estonia,     Country::Iran,    Country::Bulgaria,
+    Country::Moldova,
 };
 
 inline std::string toString(Country country)
@@ -115,6 +117,7 @@ inline std::string toString(Country country)
         {Country::Estonia, "Estonia"},
         {Country::Iran, "Iran"},
         {Country::Bulgaria, "Bulgaria"},
+        {Country::Moldova, "Moldova"},
     };
 
     return countryToStringMapping.at(country);

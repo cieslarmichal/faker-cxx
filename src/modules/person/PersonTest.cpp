@@ -38,6 +38,7 @@
 #include "data/latvia/LatvianPeopleNames.h"
 #include "data/macedonia/MacedonianPeopleNames.h"
 #include "data/mexico/MexicanPeopleNames.h"
+#include "data/moldova/MoldovanPeopleNames.h"
 #include "data/Nationalities.h"
 #include "data/nepal/NepalesePeopleNames.h"
 #include "data/netherlands/DutchPeopleNames.h"
@@ -89,7 +90,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Latvia, latvianPeopleNames},        {Country::Ireland, irishPeopleNames},
     {Country::Belarus, belarusianPeopleNames},    {Country::Estonia, estonianPeopleNames},
     {Country::Albania, albanianPeopleNames},      {Country::Iran, persianPeopleNames},
-    {Country::Bulgaria, bulgarianPeopleNames},
+    {Country::Bulgaria, bulgarianPeopleNames},    {Country::Moldova, moldovanPeopleNames},
 };
 
 const std::map<Country, std::string> generatedTestName{
@@ -115,7 +116,7 @@ const std::map<Country, std::string> generatedTestName{
     {Country::Latvia, "shouldGenerateLatvianName"},        {Country::Ireland, "shouldGenerateIrishName"},
     {Country::Belarus, "shouldGenerateBelarusianName"},    {Country::Estonia, "shouldGenerateEstonianName"},
     {Country::Albania, "shouldGenerateAlbanianName"},      {Country::Iran, "shouldGeneratePersianName"},
-    {Country::Bulgaria, "shouldGenerateBulgarianName"},
+    {Country::Bulgaria, "shouldGenerateBulgarianName"},    {Country::Moldova, "shouldGenerateMoldovanName"},
 };
 }
 
