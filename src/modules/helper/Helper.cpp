@@ -22,20 +22,27 @@ std::string Helper::shuffleString(std::string data)
     return data;
 }
 
-std::string Helper::replaceSymbolWithNumber(std::string str, const char& symbol)
+std::string Helper::replaceSymbolWithNumber(const std::string& str, const char& symbol)
 {
-    for (char& ch : str)
+    std::string result;
+
+    for (const auto& ch : str)
     {
         if (ch == symbol)
         {
-            ch = static_cast<char>(Number::integer(0, 9) + '0');
+            result += std::to_string(Number::integer(0, 9));
         }
         else if (ch == '!')
         {
-            ch = static_cast<char>(Number::integer(2, 9) + '0');
+            result += std::to_string(Number::integer(2, 9));
+        }
+        else
+        {
+            result += ch;
         }
     }
-    return str;
+
+    return result;
 }
 
 std::string Helper::replaceCreditCardSymbols(const std::string& inputString, char symbol)
