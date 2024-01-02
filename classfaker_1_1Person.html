@@ -152,6 +152,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a13c40a4e8dfb2738288ea0c1d01c2076" id="r_a13c40a4e8dfb2738288ea0c1d01c2076"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a13c40a4e8dfb2738288ea0c1d01c2076">nationality</a> ()</td></tr>
 <tr class="memdesc:a13c40a4e8dfb2738288ea0c1d01c2076"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random nationality.  <br /></td></tr>
 <tr class="separator:a13c40a4e8dfb2738288ea0c1d01c2076"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc94f5f344ab51e0f34860b8ec872893" id="r_afc94f5f344ab51e0f34860b8ec872893"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afc94f5f344ab51e0f34860b8ec872893">ssn</a> (std::optional&lt; SsnCountry &gt; country)</td></tr>
+<tr class="memdesc:afc94f5f344ab51e0f34860b8ec872893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random SSN.  <br /></td></tr>
+<tr class="separator:afc94f5f344ab51e0f34860b8ec872893"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab3c42fd36e28a42ab8c0c73181d1135a" id="r_ab3c42fd36e28a42ab8c0c73181d1135a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab3c42fd36e28a42ab8c0c73181d1135a">westernZodiac</a> ()</td></tr>
 <tr class="memdesc:ab3c42fd36e28a42ab8c0c73181d1135a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random Western Zodiac.  <br /></td></tr>
 <tr class="separator:ab3c42fd36e28a42ab8c0c73181d1135a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -259,7 +262,7 @@ Static Public Member Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a42b7088a6b7f9e646ced57ddbef18160">Person::firstName</a>() <span class="comment">// &quot;Michael&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="#a42b7088a6b7f9e646ced57ddbef18160">firstName</a>(Country::England, Sex::Female) <span class="comment">// &quot;Emma&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="#a42b7088a6b7f9e646ced57ddbef18160">firstName</a>(Country::England, Sex::Male) <span class="comment">// &quot;Arthur&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Person_html"><div class="ttname"><a href="classfaker_1_1Person.html">faker::Person</a></div><div class="ttdef"><b>Definition</b> Person.h:12</div></div>
+<div class="ttc" id="aclassfaker_1_1Person_html"><div class="ttname"><a href="classfaker_1_1Person.html">faker::Person</a></div><div class="ttdef"><b>Definition</b> Person.h:13</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_a42b7088a6b7f9e646ced57ddbef18160"><div class="ttname"><a href="#a42b7088a6b7f9e646ced57ddbef18160">faker::Person::firstName</a></div><div class="ttdeci">static std::string firstName(Country country=Country::England, std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random first name.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -689,6 +692,43 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Sex.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#af8f8da8f2cbe05dce89e79f5308cf3e6">Person::sex</a>() <span class="comment">// &quot;Male&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_af8f8da8f2cbe05dce89e79f5308cf3e6"><div class="ttname"><a href="#af8f8da8f2cbe05dce89e79f5308cf3e6">faker::Person::sex</a></div><div class="ttdeci">static std::string sex(Language language=Language::English)</div><div class="ttdoc">Returns a sex.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="afc94f5f344ab51e0f34860b8ec872893" name="afc94f5f344ab51e0f34860b8ec872893"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc94f5f344ab51e0f34860b8ec872893">&#9670;&#160;</a></span>ssn()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Person::ssn </td>
+          <td>(</td>
+          <td class="paramtype">std::optional&lt; SsnCountry &gt;</td>          <td class="paramname"><span class="paramname"><em>country</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a random SSN. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">country</td><td>The optional country to use.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Social Security <a class="el" href="classfaker_1_1Number.html">Number</a>.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#afc94f5f344ab51e0f34860b8ec872893">Person::ssn</a>() <span class="comment">// &quot;437-12-6854&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1Person.html">Person</a>::<a class="code hl_function" href="#afc94f5f344ab51e0f34860b8ec872893">ssn</a>(SsnCountry::Polish) <span class="comment">// &quot;95111901567&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Person_html_afc94f5f344ab51e0f34860b8ec872893"><div class="ttname"><a href="#afc94f5f344ab51e0f34860b8ec872893">faker::Person::ssn</a></div><div class="ttdeci">static std::string ssn(std::optional&lt; SsnCountry &gt; country)</div><div class="ttdoc">Returns a random SSN.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

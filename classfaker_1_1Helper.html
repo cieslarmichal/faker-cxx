@@ -141,9 +141,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="memTemplItemLeft" align="right" valign="top">static TResult&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a378bc48e5d3c6438a70b75ede9e2d9a3">maybe</a> (std::function&lt; TResult()&gt; callback, double probability=0.5)</td></tr>
 <tr class="memdesc:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the callback if the probability check was successful, otherwise empty string.  <br /></td></tr>
 <tr class="separator:a378bc48e5d3c6438a70b75ede9e2d9a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8241b8aa5d9c9ac41c35db12bcfc4087" id="r_a8241b8aa5d9c9ac41c35db12bcfc4087"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8241b8aa5d9c9ac41c35db12bcfc4087">replaceSymbolWithNumber</a> (std::string str, const char &amp;symbol='#')</td></tr>
-<tr class="memdesc:a8241b8aa5d9c9ac41c35db12bcfc4087"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the given string parsed symbol by symbol and replaced the placeholders with digits ("0" - "9"). "!" will be replaced by digits &gt;=2 ("2" - "9").  <br /></td></tr>
-<tr class="separator:a8241b8aa5d9c9ac41c35db12bcfc4087"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab639ccfc5cae32dc2bf09e07b4b5c8d6" id="r_ab639ccfc5cae32dc2bf09e07b4b5c8d6"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab639ccfc5cae32dc2bf09e07b4b5c8d6">replaceSymbolWithNumber</a> (const std::string &amp;str, const char &amp;symbol='#')</td></tr>
+<tr class="memdesc:ab639ccfc5cae32dc2bf09e07b4b5c8d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the given string parsed symbol by symbol and replaced the placeholders with digits ("0" - "9"). "!" will be replaced by digits &gt;=2 ("2" - "9").  <br /></td></tr>
+<tr class="separator:ab639ccfc5cae32dc2bf09e07b4b5c8d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa5b961cfbb6d333449127750f9e95199" id="r_aa5b961cfbb6d333449127750f9e95199"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa5b961cfbb6d333449127750f9e95199">replaceCreditCardSymbols</a> (const std::string &amp;inputString=&quot;6453-####-####-####-###L&quot;, char symbol='#')</td></tr>
 <tr class="memdesc:aa5b961cfbb6d333449127750f9e95199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns credit card schema with replaced symbols and patterns in a credit card including Luhn checksum This method supports both range patterns `[4-9]` as well as the patterns used by `replaceSymbolWithNumber()`. `L` will be replaced with the appropriate Luhn checksum.  <br /></td></tr>
 <tr class="separator:aa5b961cfbb6d333449127750f9e95199"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -431,8 +431,8 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a8241b8aa5d9c9ac41c35db12bcfc4087" name="a8241b8aa5d9c9ac41c35db12bcfc4087"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8241b8aa5d9c9ac41c35db12bcfc4087">&#9670;&#160;</a></span>replaceSymbolWithNumber()</h2>
+<a id="ab639ccfc5cae32dc2bf09e07b4b5c8d6" name="ab639ccfc5cae32dc2bf09e07b4b5c8d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab639ccfc5cae32dc2bf09e07b4b5c8d6">&#9670;&#160;</a></span>replaceSymbolWithNumber()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -443,7 +443,7 @@ template&lt;typename T &gt; </div>
         <tr>
           <td class="memname">static std::string faker::Helper::replaceSymbolWithNumber </td>
           <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>str</em>, </span></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -467,11 +467,11 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>The string replaced symbols with digits.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a8241b8aa5d9c9ac41c35db12bcfc4087">Helper::replaceSymbolWithNumber</a>() <span class="comment">// &quot;&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Helper.html">Helper</a>::<a class="code hl_function" href="#a8241b8aa5d9c9ac41c35db12bcfc4087">replaceSymbolWithNumber</a>(&quot;<span class="preprocessor">#####&quot;) // &quot;04812&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ab639ccfc5cae32dc2bf09e07b4b5c8d6">Helper::replaceSymbolWithNumber</a>() <span class="comment">// &quot;&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1Helper.html">Helper</a>::<a class="code hl_function" href="#ab639ccfc5cae32dc2bf09e07b4b5c8d6">replaceSymbolWithNumber</a>(&quot;<span class="preprocessor">#####&quot;) // &quot;04812&quot;</span></div>
 <div class="line"><span class="preprocessor">Helper::replaceSymbolWithNumber(&quot;!####&quot;) // &quot;27378&quot;</span></div>
 <div class="line"><span class="preprocessor">Helper::replaceSymbolWithNumber(&quot;Your pin is: !####&quot;) // &quot;29841&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Helper_html_a8241b8aa5d9c9ac41c35db12bcfc4087"><div class="ttname"><a href="#a8241b8aa5d9c9ac41c35db12bcfc4087">faker::Helper::replaceSymbolWithNumber</a></div><div class="ttdeci">static std::string replaceSymbolWithNumber(std::string str, const char &amp;symbol='#')</div><div class="ttdoc">Returns the given string parsed symbol by symbol and replaced the placeholders with digits (&quot;0&quot; - &quot;9&quot;...</div></div>
+<div class="ttc" id="aclassfaker_1_1Helper_html_ab639ccfc5cae32dc2bf09e07b4b5c8d6"><div class="ttname"><a href="#ab639ccfc5cae32dc2bf09e07b4b5c8d6">faker::Helper::replaceSymbolWithNumber</a></div><div class="ttdeci">static std::string replaceSymbolWithNumber(const std::string &amp;str, const char &amp;symbol='#')</div><div class="ttdoc">Returns the given string parsed symbol by symbol and replaced the placeholders with digits (&quot;0&quot; - &quot;9&quot;...</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

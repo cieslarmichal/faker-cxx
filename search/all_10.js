@@ -24,13 +24,14 @@ var searchData=
   ['sport_21',['Sport',['../classfaker_1_1Sport.html',1,'faker']]],
   ['sport_22',['sport',['../classfaker_1_1Sport.html#a01a8afd92aaf5f2fab77bfff89ab7f4f',1,'faker::Sport']]],
   ['sportevent_23',['sportEvent',['../classfaker_1_1Sport.html#a514a07460ab175e9c738c4754bfd4df5',1,'faker::Sport']]],
-  ['state_24',['state',['../classfaker_1_1Location.html#a2658feb8bf823c514914787a5dcdca92',1,'faker::Location']]],
-  ['street_25',['street',['../classfaker_1_1Location.html#ab7b136a671e83f17a5eb2cae4f43b67e',1,'faker::Location']]],
-  ['streetaddress_26',['streetAddress',['../classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5',1,'faker::Location']]],
-  ['string_27',['String',['../classfaker_1_1String.html',1,'faker']]],
-  ['structure_28',['Structure',['../classfaker_1_1Structure.html',1,'faker']]],
-  ['studioname_29',['studioName',['../classfaker_1_1VideoGame.html#a31fb6dddb984b9ff4b1b82f27033a217',1,'faker::VideoGame']]],
-  ['suffix_30',['suffix',['../classfaker_1_1Person.html#a386646bcc4139d378d890bb38f661196',1,'faker::Person']]],
-  ['sugarproduct_31',['sugarProduct',['../classfaker_1_1Food.html#a7ff3f3f3aa1ab6d71d863d31fe267a07',1,'faker::Food']]],
-  ['system_32',['System',['../classfaker_1_1System.html',1,'faker']]]
+  ['ssn_24',['ssn',['../classfaker_1_1Person.html#afc94f5f344ab51e0f34860b8ec872893',1,'faker::Person']]],
+  ['state_25',['state',['../classfaker_1_1Location.html#a2658feb8bf823c514914787a5dcdca92',1,'faker::Location']]],
+  ['street_26',['street',['../classfaker_1_1Location.html#ab7b136a671e83f17a5eb2cae4f43b67e',1,'faker::Location']]],
+  ['streetaddress_27',['streetAddress',['../classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5',1,'faker::Location']]],
+  ['string_28',['String',['../classfaker_1_1String.html',1,'faker']]],
+  ['structure_29',['Structure',['../classfaker_1_1Structure.html',1,'faker']]],
+  ['studioname_30',['studioName',['../classfaker_1_1VideoGame.html#a31fb6dddb984b9ff4b1b82f27033a217',1,'faker::VideoGame']]],
+  ['suffix_31',['suffix',['../classfaker_1_1Person.html#a386646bcc4139d378d890bb38f661196',1,'faker::Person']]],
+  ['sugarproduct_32',['sugarProduct',['../classfaker_1_1Food.html#a7ff3f3f3aa1ab6d71d863d31fe267a07',1,'faker::Food']]],
+  ['system_33',['System',['../classfaker_1_1System.html',1,'faker']]]
 ];
