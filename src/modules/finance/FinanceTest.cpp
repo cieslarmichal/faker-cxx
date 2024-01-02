@@ -7,7 +7,6 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/FormatHelper.h"
 #include "../../common/LuhnCheck.h"
 #include "../../common/StringHelper.h"
 #include "../string/data/Characters.h"
@@ -80,6 +79,19 @@ const std::map<IbanCountry, std::string> generatedTestName{
     {IbanCountry::Slovenia, "shouldGenerateSloveniaIban"},
     {IbanCountry::Spain, "shouldGenerateSpainIban"},
     {IbanCountry::Sweden, "shouldGenerateSwedenIban"},
+};
+
+const std::map<BicCountry, std::string> generatedBicTestName{
+    {BicCountry::Poland, "shouldGeneratePolandBic"},
+    {BicCountry::United_States, "shouldGenerateUnitedStatesBic"},
+    {BicCountry::United_Kingdom, "shouldGenerateUnitedKingdomBic"},
+    {BicCountry::Germany, "shouldGenerateGermanyBic"},
+    {BicCountry::Romania, "shouldGenerateRomaniaBic"},
+    {BicCountry::France, "shouldGenerateFranceBic"},
+    {BicCountry::Italy, "shouldGenerateItalyBic"},
+    {BicCountry::Spain, "shouldGenerateSpainBic"},
+    {BicCountry::Netherlands, "shouldGenerateNetherlandsBic"},
+    {BicCountry::India, "shouldGenerateIndiaBic"},
 };
 }
 
@@ -216,26 +228,6 @@ TEST_F(FinanceTest, shouldGenerateIban)
                 iban.starts_with("LT") || iban.starts_with("LU") || iban.starts_with("MT") || iban.starts_with("NL") ||
                 iban.starts_with("PL") || iban.starts_with("PT") || iban.starts_with("RO") || iban.starts_with("SK") ||
                 iban.starts_with("SI") || iban.starts_with("ES") || iban.starts_with("SE"));
-}
-
-TEST_F(FinanceTest, shouldGenerateBic)
-{
-    const auto bic = Finance::bic();
-
-    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(BicCountry::Poland);
-
-    ASSERT_TRUE(std::ranges::any_of(polandBankIdentifiersCodes, [bic](const std::string& polandBankIdentifierCode)
-                                    { return bic == polandBankIdentifierCode; }));
-}
-
-TEST_F(FinanceTest, shouldGeneratePolandBic)
-{
-    const auto bic = Finance::bic(BicCountry::Poland);
-
-    const auto polandBankIdentifiersCodes = bankIdentifiersCodesMapping.at(BicCountry::Poland);
-
-    ASSERT_TRUE(std::ranges::any_of(polandBankIdentifiersCodes, [bic](const std::string& polandBankIdentifierCode)
-                                    { return bic == polandBankIdentifierCode; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateAccountNumber)
@@ -393,3 +385,27 @@ TEST_F(FinanceTest, shouldGenerateEthereumAddress)
     ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
                                     { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
+
+
+class FinanceBicTest : public TestWithParam<BicCountry>
+{
+};
+
+TEST_P(FinanceBicTest, CheckBicGenerator)
+{
+    const auto country = GetParam();
+
+    const auto bic = Finance::bic(country);
+
+    const auto& bankIdentifiersCodes = bankIdentifiersCodesMapping.at(country);
+
+    ASSERT_TRUE(std::ranges::any_of(bankIdentifiersCodes, [bic](const std::string& bankIdentifierCode) {
+                                        return bic == bankIdentifierCode;
+                                    }));
+}
+
+INSTANTIATE_TEST_SUITE_P(TestBicGenerator, FinanceBicTest,
+                         Values(BicCountry::Poland, BicCountry::United_States, BicCountry::United_Kingdom,
+                                BicCountry::Germany, BicCountry::Romania, BicCountry::France, BicCountry::Italy,
+                                BicCountry::Spain, BicCountry::Netherlands, BicCountry::India),
+                         [](const TestParamInfo<BicCountry>& info) { return generatedBicTestName.at(info.param); });
