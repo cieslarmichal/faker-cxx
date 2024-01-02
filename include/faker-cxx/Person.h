@@ -5,6 +5,7 @@
 
 #include "faker-cxx/types/Country.h"
 #include "faker-cxx/types/Sex.h"
+#include "faker-cxx/types/SsnCountry.h"
 
 namespace faker
 {
@@ -205,6 +206,20 @@ public:
      * @endcode
      */
     static std::string nationality();
+
+    /**
+     * @brief Returns a random SSN.
+     *
+     * @param country The optional country to use.
+     *
+     * @returns Social Security Number.
+     *
+     * @code
+     * Person::ssn() // "437-12-6854"
+     * Person::ssn(SsnCountry::Polish) // "95111901567"
+     * @endcode
+     */
+    static std::string ssn(std::optional<SsnCountry> country);
 
     /**
      * @brief Returns a random Western Zodiac

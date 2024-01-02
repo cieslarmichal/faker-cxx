@@ -53,6 +53,7 @@
 #include "data/slovakia/SlovakPeopleNames.h"
 #include "data/slovenia/SlovenianPeopleNames.h"
 #include "data/spain/SpanishPeopleNames.h"
+#include "data/SsnFormats.h"
 #include "data/sweden/SwedishPeopleNames.h"
 #include "data/switzerland/SwissPeopleNames.h"
 #include "data/turkey/TurkishPeopleNames.h"
@@ -61,13 +62,13 @@
 #include "data/ZodiacSigns.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
+#include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
+
 namespace faker
 {
 namespace
 {
-const std::vector<std::string> sexes{"Male", "Female"};
-
 const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::England, englishPeopleNames},       {Country::France, frenchPeopleNames},
     {Country::Germany, germanPeopleNames},        {Country::Italy, italianPeopleNames},
@@ -311,9 +312,11 @@ std::string Person::suffix()
 
 std::string Person::sex(Language language)
 {
-    std::string chosenSex = Helper::arrayElement<std::string>(sexes);
+    const std::vector<std::string> sexes{"Male", "Female"};
 
-    Sex sexEnum = chosenSex == "Male" ? Sex::Male : Sex::Female;
+    const auto chosenSex = Helper::arrayElement<std::string>(sexes);
+
+    const auto sexEnum = chosenSex == "Male" ? Sex::Male : Sex::Female;
 
     return translateSex(sexEnum, language);
 }
@@ -356,6 +359,39 @@ std::string Person::language()
 std::string Person::nationality()
 {
     return Helper::arrayElement<std::string>(nationalities);
+}
+
+std::string Person::ssn(std::optional<SsnCountry> country)
+{
+    const auto ssnCountry = country ? *country : Helper::arrayElement<SsnCountry>(supportedSsnCountries);
+
+    const auto& ssnFormat = ssnFormats.at(ssnCountry);
+
+    auto ssnWithoutRegexes = Helper::regexpStyleStringParse(ssnFormat);
+
+    std::string ssn;
+
+    for (const auto& ssnFormatCharacter : ssnWithoutRegexes)
+    {
+        if (ssnFormatCharacter == 'L')
+        {
+            ssn += String::alpha(1, StringCasing::Upper);
+        }
+        else if (ssnFormatCharacter == 'F')
+        {
+            ssn += String::alphanumeric(1, StringCasing::Upper);
+        }
+        else if (ssnFormatCharacter == '#')
+        {
+            ssn += std::to_string(Number::integer(0, 9));
+        }
+        else
+        {
+            ssn += ssnFormatCharacter;
+        }
+    }
+
+    return ssn;
 }
 
 std::string Person::westernZodiac()

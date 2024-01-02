@@ -486,11 +486,11 @@ class PersonSexSuite : public TestWithParam<std::pair<Language, Sex>>
 
 TEST_P(PersonSexSuite, shouldTranslateSexCorrectly)
 {
-    Language language = GetParam().first;
-    Sex sex = GetParam().second;
+    const auto language = GetParam().first;
+    const auto sex = GetParam().second;
 
-    std::string expectedTranslation = sexTranslations.at(language).at(sex);
-    std::string actualTranslation = translateSex(sex, language);
+    const auto expectedTranslation = sexTranslations.at(language).at(sex);
+    const auto actualTranslation = translateSex(sex, language);
 
     ASSERT_EQ(expectedTranslation, actualTranslation);
 }
@@ -526,3 +526,29 @@ INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, testing::Valu
                              auto param = info.param;
                              return toString(param.first) + "_" + toString(param.second);
                          });
+
+const std::map<SsnCountry, unsigned> ssnLengths{
+    {SsnCountry::Poland, 11},  {SsnCountry::UnitedStates, 11}, {SsnCountry::UnitedKingdom, 13},
+    {SsnCountry::Germany, 12}, {SsnCountry::France, 19},       {SsnCountry::Italy, 19},
+    {SsnCountry::Spain, 10},   {SsnCountry::India, 10},
+};
+
+class PersonSsnSuite : public TestWithParam<SsnCountry>
+{
+};
+
+// TODO: add more precise tests
+TEST_P(PersonSsnSuite, shouldGenerateSsn)
+{
+    const auto country = GetParam();
+
+    const auto ssn = Person::ssn(country);
+
+    const auto expectedSsnLength = ssnLengths.at(country);
+
+    ASSERT_EQ(ssn.size(), expectedSsnLength);
+}
+
+INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite, testing::ValuesIn(supportedSsnCountries),
+                         [](const testing::TestParamInfo<PersonSsnSuite::ParamType>& info)
+                         { return "shouldGenerate" + toString(info.param) + "Ssn"; });

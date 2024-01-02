@@ -263,7 +263,7 @@ public:
      * Helper::replaceSymbolWithNumber("Your pin is: !####") // "29841"
      * @endcode
      */
-    static std::string replaceSymbolWithNumber(std::string str, const char& symbol = '#');
+    static std::string replaceSymbolWithNumber(const std::string& str, const char& symbol = '#');
 
     /**
      * @brief Returns credit card schema with replaced symbols and patterns in a credit card  including Luhn checksum
