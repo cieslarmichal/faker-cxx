@@ -9,13 +9,13 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(BUILD_FAKER_TESTS DEFAULT ON)
 
-if(MSVC)
+if (MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20 /permissive- /bigobj")
-else()
+else ()
     set(CMAKE_CXX_FLAGS
         "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror"
     )
-endif()
+endif ()
 
 set(LIBRARY_NAME faker-cxx)
 
@@ -113,15 +113,14 @@ target_include_directories(
     INTERFACE "${CMAKE_CURRENT_LIST_DIR}/include"
     PRIVATE "${CMAKE_CURRENT_LIST_DIR}/include")
 
-if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang"
-   OR (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-   OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+if (CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang"
+    OR (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU"))
     add_subdirectory(externals/fmt)
     set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
     target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
-endif()
+endif ()
 
-if(BUILD_FAKER_TESTS)
+if (BUILD_FAKER_TESTS)
     add_subdirectory(externals/googletest)
 
     set(GTEST_INCLUDE_DIR
@@ -140,21 +139,20 @@ if(BUILD_FAKER_TESTS)
     add_executable(${LIBRARY_NAME}-UT ${FAKER_UT_SOURCES})
 
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
-                                                     faker-cxx)
-    if(CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang"
-       OR (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
-       OR CMAKE_CXX_COMPILER_ID STREQUAL "Clang")
+        faker-cxx)
+    if (CMAKE_CXX_COMPILER_ID STREQUAL "AppleClang"
+        OR (WIN32 AND CMAKE_CXX_COMPILER_ID STREQUAL "GNU"))
         target_include_directories(
             ${LIBRARY_NAME}-UT
             PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}
-                    ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
+            ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
 
-    else()
+    else ()
         target_include_directories(
             ${LIBRARY_NAME}-UT
             PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
-                    ${CMAKE_CURRENT_LIST_DIR})
-    endif()
+            ${CMAKE_CURRENT_LIST_DIR})
+    endif ()
 
     add_test(
         NAME ${LIBRARY_NAME}-UT
@@ -162,4 +160,4 @@ if(BUILD_FAKER_TESTS)
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 
     target_code_coverage(${LIBRARY_NAME}-UT ALL)
-endif()
+endif ()
