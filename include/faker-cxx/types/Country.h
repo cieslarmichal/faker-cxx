@@ -127,6 +127,7 @@ inline std::string toString(Country country)
         {Country::Lithuania, "Lithuania"},
         {Country::Iceland, "Iceland"},
         {Country::Palestine, "Palestine"},
+        {Country::Israel, "Israel"},
         {Country::Monaco, "Monaco"},
     };
 
