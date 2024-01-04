@@ -56,20 +56,21 @@ enum class Country
     Moldova,
     Lithuania,
     Iceland,
-    Israel
+    Palestine,
+    Israel,
 };
 
 const std::vector<Country> countries{
-    Country::Usa,       Country::England,   Country::Poland,      Country::Italy,   Country::France,
-    Country::Germany,   Country::Russia,    Country::Romania,     Country::India,   Country::Finland,
-    Country::Nepal,     Country::Spain,     Country::Turkey,      Country::Czech,   Country::Slovakia,
-    Country::Ukraine,   Country::Denmark,   Country::Sweden,      Country::Brazil,  Country::Norway,
-    Country::Japan,     Country::Portugal,  Country::Hungary,     Country::Croatia, Country::Greece,
-    Country::Slovenia,  Country::Austria,   Country::Switzerland, Country::Belgium, Country::Netherlands,
-    Country::China,     Country::Korea,     Country::Canada,      Country::Mexico,  Country::Argentina,
-    Country::Australia, Country::Serbia,    Country::Macedonia,   Country::Albania, Country::Latvia,
-    Country::Ireland,   Country::Belarus,   Country::Estonia,     Country::Iran,    Country::Bulgaria,
-    Country::Moldova,   Country::Lithuania, Country::Iceland,     Country::Israel
+    Country::Usa,       Country::England,   Country::Poland,      Country::Italy,     Country::France,
+    Country::Germany,   Country::Russia,    Country::Romania,     Country::India,     Country::Finland,
+    Country::Nepal,     Country::Spain,     Country::Turkey,      Country::Czech,     Country::Slovakia,
+    Country::Ukraine,   Country::Denmark,   Country::Sweden,      Country::Brazil,    Country::Norway,
+    Country::Japan,     Country::Portugal,  Country::Hungary,     Country::Croatia,   Country::Greece,
+    Country::Slovenia,  Country::Austria,   Country::Switzerland, Country::Belgium,   Country::Netherlands,
+    Country::China,     Country::Korea,     Country::Canada,      Country::Mexico,    Country::Argentina,
+    Country::Australia, Country::Serbia,    Country::Macedonia,   Country::Albania,   Country::Latvia,
+    Country::Ireland,   Country::Belarus,   Country::Estonia,     Country::Iran,      Country::Bulgaria,
+    Country::Moldova,   Country::Lithuania, Country::Iceland,     Country::Palestine, Country::Israel
 };
 
 inline std::string toString(Country country)
@@ -123,7 +124,8 @@ inline std::string toString(Country country)
         {Country::Moldova, "Moldova"},
         {Country::Lithuania, "Lithuania"},
         {Country::Iceland, "Iceland"},
-        {Country::Israel, "Israel"}
+        {Country::Palestine, "Palestine"},
+        {Country::Israel, "Israel"},
     };
 
     return countryToStringMapping.at(country);
