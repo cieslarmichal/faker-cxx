@@ -54,6 +54,7 @@
 #include "data/spain/SpanishPeopleNames.h"
 #include "data/sweden/SwedishPeopleNames.h"
 #include "data/switzerland/SwissPeopleNames.h"
+#include "data/vietnam/VietnamesePeopleNames.h"
 #include "data/turkey/TurkishPeopleNames.h"
 #include "data/ukraine/UkrainianPeopleNames.h"
 #include "data/ZodiacSigns.h"
@@ -93,6 +94,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Albania, albanianPeopleNames},      {Country::Iran, persianPeopleNames},
     {Country::Bulgaria, bulgarianPeopleNames},    {Country::Moldova, moldovanPeopleNames},
     {Country::Lithuania, lithuanianPeopleNames},  {Country::Iceland, icelandicPeopleNames},
+    {Country::Vietnam, vietnamesePeopleNames},
 };
 
 const std::map<Country, std::string> generatedTestName{
@@ -120,6 +122,7 @@ const std::map<Country, std::string> generatedTestName{
     {Country::Albania, "shouldGenerateAlbanianName"},      {Country::Iran, "shouldGeneratePersianName"},
     {Country::Bulgaria, "shouldGenerateBulgarianName"},    {Country::Moldova, "shouldGenerateMoldovanName"},
     {Country::Lithuania, "shouldGenerateLithuanianName"},  {Country::Iceland, "shouldGenerateIcelandicName"},
+    {Country::Vietnam, "shouldGenerateVietnameseName"},
 };
 }
 
