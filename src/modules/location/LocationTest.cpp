@@ -458,7 +458,6 @@ TEST_F(LocationTest, shouldGenerateGermanyStreetAddress)
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Germany);
 
     std::vector<std::string> streetNames{germanyStreetNames};
-    streetNames.insert(streetNames.end(), germanyStreetNames.begin(), germanyStreetNames.end());
 
     ASSERT_TRUE(std::ranges::any_of(streetNames, [&generatedStreetAddress](const std::string& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
