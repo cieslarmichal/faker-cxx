@@ -12,6 +12,8 @@
 #include "../person/data/russia/RussianLastNames.h"
 #include "../person/data/ukraine/UkrainianFirstNames.h"
 #include "../person/data/ukraine/UkrainianLastNames.h"
+#include "../person/data/italy/ItalianFirstNames.h"
+#include "../person/data/italy/ItalianLastNames.h"
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
 #include "data/CountryAddresses.h"
@@ -22,6 +24,7 @@
 #include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/ukraine/UkraineAddresses.h"
+#include "data/italy/ItalyAddresses.h"
 #include "data/usa/UsaAddresses.h"
 
 using namespace ::testing;
@@ -32,7 +35,7 @@ namespace
 const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
     {AddressCountry::Usa, usaAddresses},         {AddressCountry::Poland, polandAddresses},
     {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
-    {AddressCountry::Ukraine, ukraineAddresses},
+    {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Italy, italyAddresses},
 };
 
 const std::map<AddressCountry, std::string> generatedTestName{
@@ -41,6 +44,7 @@ const std::map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Poland, "shouldGeneratePolishAddress"},
     {AddressCountry::Russia, "shouldGenerateRussianAddress"},
     {AddressCountry::Ukraine, "shouldGenerateUkrainianAddress"},
+    {AddressCountry::Italy, "shouldGenerateItalianAddress"},
 };
 }
 
@@ -441,4 +445,46 @@ TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
                                     { return generatedStreetAddress.find(lastName) != std::string::npos; }) ||
                 std::ranges::any_of(ukraineStreetNames, [&generatedStreetAddress](const std::string& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateItalyStreet)
+{
+    const auto generatedStreet = Location::street(AddressCountry::Italy);
+
+    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+
+    const auto& generatedStreetPrefix = generatedStreetElements[0];
+    const auto& generatedStreetSuffix =
+        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+
+    ASSERT_TRUE(std::ranges::any_of(italyStreetPrefixes, [&generatedStreetPrefix](const std::string& streetPrefix)
+                                    { return streetPrefix == generatedStreetPrefix; }));
+
+    std::vector<std::string> firstNames{italianMalesFirstNames};
+    firstNames.insert(firstNames.end(), italianFemalesFirstNames.begin(), italianFemalesFirstNames.end());
+
+    std::vector<std::string> lastNames{italianLastNames};
+
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetSuffix](const std::string& firstName)
+                                    { return generatedStreetSuffix.find(firstName) != std::string::npos; }) ||
+                std::ranges::any_of(lastNames, [&generatedStreetSuffix](const std::string& lastName)
+                                    { return generatedStreetSuffix.find(lastName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateItalyStreetAddress)
+{
+    const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Italy);
+
+    ASSERT_TRUE(std::ranges::any_of(italyStreetPrefixes, [&generatedStreetAddress](const std::string& prefix)
+                                    { return generatedStreetAddress.find(prefix) != std::string::npos; }));
+
+    std::vector<std::string> firstNames{italianMalesFirstNames};
+    firstNames.insert(firstNames.end(), italianFemalesFirstNames.begin(), italianFemalesFirstNames.end());
+
+    std::vector<std::string> lastNames{italianLastNames};
+
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string& firstName)
+                                    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
+                std::ranges::any_of(lastNames, [&generatedStreetAddress](const std::string& lastName)
+                                    { return generatedStreetAddress.find(lastName) != std::string::npos; }));
 }
