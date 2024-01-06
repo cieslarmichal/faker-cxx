@@ -2,7 +2,7 @@
 
 #include "../CountryAddresses.h"
 #include "ItalyCities.h"
-#include "ItalyStreetSuffixes.h"
+#include "ItalyStreetPrefixes.h"
 
 namespace faker
 {
@@ -15,15 +15,15 @@ const std::vector<std::string> italySecondaryAddressFormats{"Appartamento ##", "
 
 const std::vector<std::string> italyBuildingNumberFormats{"###", "##", "#"};
 
-const std::vector<std::string> italyStreetFormats{"{streetSuffix} {firstName}", "{streetSuffix} {lastName}"};
+const std::vector<std::string> italyStreetFormats{"{streetPrefix} {firstName}", "{streetPrefix} {lastName}"};
 
 const CountryAddresses italyAddresses{italyCities,
                                         italyZipCodeFormat,
                                         italyAddressFormats,
                                         italySecondaryAddressFormats,
                                         italyStreetFormats,
+                                        italyStreetPrefixes,
                                         {},
                                         {},
-                                        italyStreetSuffixes,
                                         italyBuildingNumberFormats};
 }

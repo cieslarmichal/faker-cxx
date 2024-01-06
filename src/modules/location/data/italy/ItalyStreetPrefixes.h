@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> italyStreetSuffixes{
+const std::vector<std::string> italyStreetPrefixes{
   "Piazza",
   "Strada",
   "Via",
