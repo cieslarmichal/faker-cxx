@@ -22,6 +22,7 @@
 #include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/ukraine/UkraineAddresses.h"
+#include "data/italy/ItalyAddresses.h"
 #include "data/usa/UsaAddresses.h"
 
 using namespace ::testing;
@@ -32,7 +33,7 @@ namespace
 const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
     {AddressCountry::Usa, usaAddresses},         {AddressCountry::Poland, polandAddresses},
     {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
-    {AddressCountry::Ukraine, ukraineAddresses},
+    {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Italy, italyAddresses},
 };
 
 const std::map<AddressCountry, std::string> generatedTestName{
@@ -41,6 +42,7 @@ const std::map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Poland, "shouldGeneratePolishAddress"},
     {AddressCountry::Russia, "shouldGenerateRussianAddress"},
     {AddressCountry::Ukraine, "shouldGenerateUkrainianAddress"},
+    {AddressCountry::Italy, "shouldGenerateItalianAddress"},
 };
 }
 
