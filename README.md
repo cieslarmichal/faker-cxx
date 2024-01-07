@@ -91,8 +91,7 @@ https://cieslarmichal.github.io/faker-cxx/
 1. Add faker to git submodules (execute in project root):
 
     ```
-    mkdir externals
-    cd externals
+    mkdir externals && cd externals
     git submodule add https://github.com/cieslarmichal/faker-cxx.git
     git submodule update --init --recursive
     ```
@@ -131,5 +130,6 @@ Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main
 
 ## 📝 Compilation guides
 
-- [Clang++](./docs/guides/clang++_compilation_guide.md)
-- [Apple Clang++](./docs/guides/apple_clang++_compilation_guide.md)
+- [Clang++](./docs/guides/clang-compilation-guide.md)
+- [Apple Clang++](./docs/guides/apple-clang-compilation-guide.md)
+- [G++](./docs/guides/gcc-compilation-guide.md)
