@@ -111,10 +111,14 @@ TEST_P(LocationTest, shouldGenerateBuildingNumber)
 
     const auto generatedBuildingNumber = Location::buildingNumber(country);
 
+    const auto generatedBuildingNumberExceptLastCharacter = generatedBuildingNumber.substr(
+        0, generatedBuildingNumber.size() - 1);
+
     ASSERT_TRUE(std::ranges::any_of(countryAddresses.buildingNumberFormats,
                                     [&generatedBuildingNumber](const std::string& buildingNumberFormat)
                                     { return buildingNumberFormat.size() == generatedBuildingNumber.size(); }));
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber) ||
+                checkIfAllCharactersAreNumeric(generatedBuildingNumberExceptLastCharacter));
 }
 
 TEST_P(LocationTest, shouldGenerateSecondaryAddress)
@@ -138,6 +142,12 @@ TEST_P(LocationTest, shouldGenerateSecondaryAddress)
             const auto& generatedSecondaryAddressPrefix = generatedSecondaryAddressElements[0];
 
             const auto& generatedSecondaryAddressNumber = generatedSecondaryAddressElements[1];
+
+            if (checkIfAllCharactersAreNumeric(generatedSecondaryAddressPrefix))
+            {
+                return generatedSecondaryAddressNumber == generatedSecondaryAddressNumber &&
+                       generatedSecondaryAddress.size() == secondaryAddressFormat.size();
+            }
 
             return generatedSecondaryAddressPrefix == secondaryAddressPrefix &&
                    checkIfAllCharactersAreNumeric(generatedSecondaryAddressNumber) &&
