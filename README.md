@@ -133,3 +133,4 @@ Please check [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main
 - [Clang++](./docs/guides/clang-compilation-guide.md)
 - [Apple Clang++](./docs/guides/apple-clang-compilation-guide.md)
 - [G++](./docs/guides/gcc-compilation-guide.md)
+- [MSVC](./docs/guides/msvc-compilation-guide.md)

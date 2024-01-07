@@ -36,4 +36,4 @@ cmake --build .
 ### Additional information
 
 If you can't install g++ 13 on your system, you can use
-prepared [Dockerfile](https://github.com/cieslarmichal/faker-cxx/blob/main/Dockerfile.gcc13).
+prepared [Dockerfile](../../Dockerfile.gcc13).
