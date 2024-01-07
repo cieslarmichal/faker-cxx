@@ -115,6 +115,7 @@ target_include_directories(
 
 if (APPLE)
     add_subdirectory(externals/fmt)
+    set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
     target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
 endif ()
 
@@ -139,10 +140,17 @@ if (BUILD_FAKER_TESTS)
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
         faker-cxx)
 
-    target_include_directories(
-        ${LIBRARY_NAME}-UT
-        PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
-        ${CMAKE_CURRENT_LIST_DIR})
+    if (APPLE)
+        target_include_directories(
+            ${LIBRARY_NAME}-UT
+            PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}
+            ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
+    else ()
+        target_include_directories(
+            ${LIBRARY_NAME}-UT
+            PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
+            ${CMAKE_CURRENT_LIST_DIR})
+    endif ()
 
     add_test(
         NAME ${LIBRARY_NAME}-UT
