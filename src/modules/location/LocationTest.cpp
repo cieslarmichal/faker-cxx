@@ -4,7 +4,6 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
 #include "../person/data/england/EnglishFirstNames.h"
 #include "../person/data/england/EnglishLastNames.h"
@@ -14,17 +13,15 @@
 #include "../person/data/ukraine/UkrainianLastNames.h"
 #include "../person/data/italy/ItalianFirstNames.h"
 #include "../person/data/italy/ItalianLastNames.h"
-#include "../person/data/czech/CzechFirstNames.h"
-#include "../person/data/czech/CzechLastNames.h"
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
 #include "data/CountryAddresses.h"
 #include "data/Directions.h"
+#include "data/australia/AustraliaAddresses.h"
 #include "data/czech/CzechAddresses.h"
 #include "data/france/FranceAddresses.h"
 #include "data/poland/PolandAddresses.h"
 #include "data/russia/RussiaAddresses.h"
-#include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/ukraine/UkraineAddresses.h"
 #include "data/italy/ItalyAddresses.h"
@@ -41,6 +38,7 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
     {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Italy, italyAddresses},
     {AddressCountry::Germany, germanyAddresses}, {AddressCountry::Czech, czechAddresses},
+    {AddressCountry::Australia, australiaAddresses},
 };
 
 const std::map<AddressCountry, std::string> generatedTestName{
@@ -52,6 +50,7 @@ const std::map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Italy, "shouldGenerateItalianAddress"},
     {AddressCountry::Germany, "shouldGenerateGermanAddress"},
     {AddressCountry::Czech, "shouldGenerateCzechAddress"},
+    {AddressCountry::Australia, "shouldGenerateAustraliaAddress"},
 };
 }
 
@@ -82,6 +81,18 @@ public:
                                    });
     }
 };
+
+TEST_P(LocationTest, shouldGenerateState)
+{
+    const auto country = GetParam();
+
+    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+
+    const auto generatedState = Location::state(country);
+
+    ASSERT_TRUE(std::ranges::any_of(countryAddresses.states,
+                                    [&generatedState](const std::string& state) { return state == generatedState; }));
+}
 
 TEST_P(LocationTest, shouldGenerateCity)
 {
@@ -332,14 +343,6 @@ TEST_F(LocationTest, shouldGenerateCountryCode)
                                     { return countryCode == generatedCountryCode; }));
 }
 
-TEST_F(LocationTest, shouldGenerateState)
-{
-    const auto generatedState = Location::state();
-
-    ASSERT_TRUE(
-        std::ranges::any_of(states, [generatedState](const std::string& state) { return state == generatedState; }));
-}
-
 TEST_F(LocationTest, shouldGenerateLatitude)
 {
     const auto latitude = Location::latitude();
@@ -540,4 +543,36 @@ TEST_F(LocationTest, shouldGenerateCzechStreetAddress)
 
     ASSERT_TRUE(std::ranges::any_of(streetNames, [&generatedStreetAddress](const std::string& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateAustraliaStreet)
+{
+    const auto generatedStreet = Location::street(AddressCountry::Australia);
+
+    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+
+    const auto& generatedStreetSuffix =
+        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+
+    ASSERT_GE(generatedStreetElements.size(), 2);
+
+    ASSERT_TRUE(std::ranges::any_of(australiaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
+                                    { return streetSuffix == generatedStreetSuffix; }));
+}
+
+TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
+{
+    const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Australia);
+
+    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+
+    const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
+    const auto& generatedStreetSuffix =
+        StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
+
+    ASSERT_GE(generatedStreetAddressElements.size(), 3);
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 4);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+    ASSERT_TRUE(std::ranges::any_of(australiaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
+                                    { return streetSuffix == generatedStreetSuffix; }));
 }

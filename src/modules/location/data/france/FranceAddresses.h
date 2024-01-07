@@ -4,6 +4,7 @@
 #include "FranceCities.h"
 #include "FranceStreetPrefixes.h"
 #include "FranceStreetSuffixes.h"
+#include "FranceStates.h"
 
 namespace faker
 {
@@ -25,5 +26,6 @@ const CountryAddresses franceAddresses{franceCities,
                                        franceStreetPrefixes,
                                        {},
                                        franceStreetSuffixes,
-                                       franceBuildingNumberFormats};
+                                       franceBuildingNumberFormats,
+                                       franceStates };
 }

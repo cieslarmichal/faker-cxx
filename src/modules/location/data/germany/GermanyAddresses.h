@@ -3,6 +3,7 @@
 #include "../CountryAddresses.h"
 #include "GermanyCities.h"
 #include "GermanyStreetNames.h"
+#include "GermanyStates.h"
 
 namespace faker
 {
@@ -25,5 +26,6 @@ const CountryAddresses germanyAddresses{germanyCities,
                                        {},
                                        germanyStreetNames,
                                        {},
-                                       germanyBuildingNumberFormats};
+                                       germanyBuildingNumberFormats,
+                                        germanyStates };
 }

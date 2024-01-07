@@ -4,6 +4,7 @@
 #include "UkraineCities.h"
 #include "UkraineStreetNames.h"
 #include "UkraineStreetPrefixes.h"
+#include "UkraineStates.h"
 
 namespace faker
 {
@@ -27,5 +28,6 @@ const CountryAddresses ukraineAddresses{ukraineCities,
                                         ukraineStreetPrefixes,
                                         ukraineStreetNames,
                                         {},
-                                        ukraineBuildingNumberFormats};
+                                        ukraineBuildingNumberFormats,
+                                        ukraineStates };
 }

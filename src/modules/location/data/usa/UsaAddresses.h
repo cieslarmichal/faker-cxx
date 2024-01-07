@@ -3,6 +3,7 @@
 #include "../CountryAddresses.h"
 #include "UsaCities.h"
 #include "UsaStreetSuffixes.h"
+#include "UsaStates.h"
 
 namespace faker
 {
@@ -16,7 +17,14 @@ const std::vector<std::string> usaBuildingNumberFormats{"#####", "####", "###"};
 
 const std::vector<std::string> usaStreetFormats{"{firstName} {streetSuffix}", "{lastName} {streetSuffix}"};
 
-const CountryAddresses usaAddresses{
-    usaCities, usaZipCodeFormat,  usaAddressFormats,       usaSecondaryAddressFormats, usaStreetFormats, {},
-    {},        usaStreetSuffixes, usaBuildingNumberFormats};
+const CountryAddresses usaAddresses{usaCities,
+                                    usaZipCodeFormat,
+                                    usaAddressFormats,
+                                    usaSecondaryAddressFormats,
+                                    usaStreetFormats,
+                                    {},
+                                    {},
+                                    usaStreetSuffixes,
+                                    usaBuildingNumberFormats,
+                                    usaStates };
 }
