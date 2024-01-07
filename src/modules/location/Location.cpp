@@ -13,6 +13,7 @@
 #include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/ukraine/UkraineAddresses.h"
+#include "data/germany/GermanyAddresses.h"
 #include "data/usa/UsaAddresses.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
@@ -26,12 +27,14 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Usa, usaAddresses},         {AddressCountry::Poland, polandAddresses},
     {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
     {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Italy, italyAddresses},
+    {AddressCountry::Germany, germanyAddresses},
 };
 
 const std::map<AddressCountry, Country> countryAddressToCountryMapping{
     {AddressCountry::Usa, Country::Usa},         {AddressCountry::Poland, Country::Poland},
     {AddressCountry::Russia, Country::Russia},   {AddressCountry::France, Country::France},
     {AddressCountry::Ukraine, Country::Ukraine}, {AddressCountry::Italy, Country::Italy},
+    {AddressCountry::Germany, Country::Germany},
 };
 }
 
