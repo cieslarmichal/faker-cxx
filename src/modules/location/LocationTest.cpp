@@ -14,10 +14,13 @@
 #include "../person/data/ukraine/UkrainianLastNames.h"
 #include "../person/data/italy/ItalianFirstNames.h"
 #include "../person/data/italy/ItalianLastNames.h"
+#include "../person/data/czech/CzechFirstNames.h"
+#include "../person/data/czech/CzechLastNames.h"
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
 #include "data/CountryAddresses.h"
 #include "data/Directions.h"
+#include "data/czech/CzechAddresses.h"
 #include "data/france/FranceAddresses.h"
 #include "data/poland/PolandAddresses.h"
 #include "data/russia/RussiaAddresses.h"
@@ -37,7 +40,7 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Usa, usaAddresses},         {AddressCountry::Poland, polandAddresses},
     {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
     {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Italy, italyAddresses},
-    {AddressCountry::Germany, germanyAddresses},
+    {AddressCountry::Germany, germanyAddresses}, {AddressCountry::Czech, czechAddresses},
 };
 
 const std::map<AddressCountry, std::string> generatedTestName{
@@ -48,6 +51,7 @@ const std::map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Ukraine, "shouldGenerateUkrainianAddress"},
     {AddressCountry::Italy, "shouldGenerateItalianAddress"},
     {AddressCountry::Germany, "shouldGenerateGermanAddress"},
+    {AddressCountry::Czech, "shouldGenerateCzechAddress"},
 };
 }
 
@@ -515,6 +519,24 @@ TEST_F(LocationTest, shouldGenerateGermanyStreetAddress)
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Germany);
 
     std::vector<std::string> streetNames{germanyStreetNames};
+
+    ASSERT_TRUE(std::ranges::any_of(streetNames, [&generatedStreetAddress](const std::string& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateCzechStreet)
+{
+    const auto generatedStreet = Location::street(AddressCountry::Czech);
+
+    ASSERT_TRUE(std::ranges::any_of(czechStreetNames, [&generatedStreet](const std::string& streetName)
+                                    { return streetName == generatedStreet; }));
+}
+
+TEST_F(LocationTest, shouldGenerateCzechStreetAddress)
+{
+    const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Czech);
+
+    std::vector<std::string> streetNames{czechStreetNames};
 
     ASSERT_TRUE(std::ranges::any_of(streetNames, [&generatedStreetAddress](const std::string& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
