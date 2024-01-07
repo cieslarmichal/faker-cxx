@@ -1,6 +1,6 @@
-## 🔨 Building from sources with Clang 16
+## 🔨 Building project with Clang 16
 
-#### 1. Install Clang 16
+### 1. Install Clang 16
 
 ```bash
 sudo add-apt-repository ppa:trebelnik-stefina/launchpad-getkeys \
@@ -13,31 +13,28 @@ sudo add-apt-repository ppa:trebelnik-stefina/launchpad-getkeys \
  clang-16 clang-tools-16 llvm-16 lcov
 ```
 
-#### 2. Prepare build directory
+### 2. Prepare build directory
 
 ```bash
 git clone https://github.com/cieslarmichal/faker-cxx.git
 cd faker-cxx
 git submodule update --init --recursive
-mkdir build
-cd build
+mkdir build && cd build
 ```
 
-#### 3. CMake setup with Clang 16
+### 3. Setup CMake
 
 ```bash
 cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
 ```
 
-#### 4. Build
+### 4. Build
 
 ```bash
 make
 ```
 
-## 5. Run
-
-After building, you can run the built executable:
+### 5. Run tests
 
 ```bash
 ./faker-cxx-UT
