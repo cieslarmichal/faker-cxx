@@ -8,6 +8,7 @@
 #include "data/Directions.h"
 #include "data/france/FranceAddresses.h"
 #include "data/poland/PolandAddresses.h"
+#include "data/italy/ItalyAddresses.h"
 #include "data/russia/RussiaAddresses.h"
 #include "data/States.h"
 #include "data/TimeZones.h"
@@ -25,13 +26,15 @@ namespace
 const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
     {AddressCountry::Usa, usaAddresses},         {AddressCountry::Poland, polandAddresses},
     {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
-    {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Germany, germanyAddresses},
+    {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Italy, italyAddresses},
+    {AddressCountry::Germany, germanyAddresses},
 };
 
 const std::map<AddressCountry, Country> countryAddressToCountryMapping{
     {AddressCountry::Usa, Country::Usa},         {AddressCountry::Poland, Country::Poland},
     {AddressCountry::Russia, Country::Russia},   {AddressCountry::France, Country::France},
-    {AddressCountry::Ukraine, Country::Ukraine}, {AddressCountry::Germany, Country::Germany},
+    {AddressCountry::Ukraine, Country::Ukraine}, {AddressCountry::Italy, Country::Italy},
+    {AddressCountry::Germany, Country::Germany},
 };
 }
 
