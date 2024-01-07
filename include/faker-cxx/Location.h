@@ -33,15 +33,17 @@ public:
     static std::string countryCode();
 
     /**
-     * @brief Returns a random USA state.
+     * @brief Returns a random state for a given country..
      *
-     * @returns USA state.
+     * @param country The country to generate state from. Defaults to `Country::Usa`.
+     *
+     * @returns State.
      *
      * @code
      * Location::state() // "Arizona"
      * @endcode
      */
-    static std::string state();
+    static std::string state(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random city for given country.

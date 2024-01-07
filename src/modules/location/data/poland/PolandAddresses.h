@@ -4,6 +4,7 @@
 #include "PolandCities.h"
 #include "PolandStreetNames.h"
 #include "PolandStreetPrefixes.h"
+#include "PolandStates.h"
 
 namespace faker
 {
@@ -27,5 +28,6 @@ const CountryAddresses polandAddresses{polandCities,
                                        polandStreetPrefixes,
                                        polandStreetNames,
                                        {},
-                                       polandBuildingNumberFormats};
+                                       polandBuildingNumberFormats,
+                                       polandStates };
 }

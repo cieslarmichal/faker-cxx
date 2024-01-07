@@ -6,6 +6,7 @@
 #include "../../common/mappers/precisionMapper/PrecisionMapper.h"
 #include "data/Countries.h"
 #include "data/Directions.h"
+#include "data/australia/AustraliaAddresses.h"
 #include "data/czech/CzechAddresses.h"
 #include "data/france/FranceAddresses.h"
 #include "data/poland/PolandAddresses.h"
@@ -29,6 +30,7 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
     {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Italy, italyAddresses},
     {AddressCountry::Germany, germanyAddresses}, {AddressCountry::Czech, czechAddresses},
+    {AddressCountry::Australia, australiaAddresses},
 };
 
 const std::map<AddressCountry, Country> countryAddressToCountryMapping{
@@ -36,6 +38,7 @@ const std::map<AddressCountry, Country> countryAddressToCountryMapping{
     {AddressCountry::Russia, Country::Russia},   {AddressCountry::France, Country::France},
     {AddressCountry::Ukraine, Country::Ukraine}, {AddressCountry::Italy, Country::Italy},
     {AddressCountry::Germany, Country::Germany}, {AddressCountry::Czech, Country::Czech},
+    {AddressCountry::Australia, Country::Australia},
 };
 }
 
@@ -49,9 +52,10 @@ std::string Location::countryCode()
     return Helper::arrayElement<std::string>(countryCodes);
 }
 
-std::string Location::state()
+std::string Location::state(AddressCountry country)
 {
-    return Helper::arrayElement<std::string>(states);
+    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    return Helper::arrayElement<std::string>(countryAddresses.states);
 }
 
 std::string Location::city(AddressCountry country)

@@ -3,6 +3,7 @@
 #include "../CountryAddresses.h"
 #include "ItalyCities.h"
 #include "ItalyStreetPrefixes.h"
+#include "ItalyStates.h"
 
 namespace faker
 {
@@ -25,5 +26,6 @@ const CountryAddresses italyAddresses{italyCities,
                                         italyStreetPrefixes,
                                         {},
                                         {},
-                                        italyBuildingNumberFormats};
+                                        italyBuildingNumberFormats,
+                                        italyStates };
 }

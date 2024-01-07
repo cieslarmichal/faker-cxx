@@ -3,6 +3,7 @@
 #include "../CountryAddresses.h"
 #include "CzechCities.h"
 #include "CzechStreetNames.h"
+#include "CzechStates.h"
 
 
 namespace faker
@@ -26,5 +27,6 @@ const CountryAddresses czechAddresses{czechCities,
                                         {},
                                         czechStreetNames,
                                         {},
-                                        czechBuildingNumberFormats};
+                                        czechBuildingNumberFormats,
+                                        czechStates };
 }

@@ -4,6 +4,7 @@
 #include "RussiaCities.h"
 #include "RussiaStreetNames.h"
 #include "RussiaStreetPrefixes.h"
+#include "RussiaStates.h"
 
 namespace faker
 {
@@ -27,5 +28,6 @@ const CountryAddresses russiaAddresses{russiaCities,
                                        russiaStreetPrefixes,
                                        russiaStreetNames,
                                        {},
-                                       russiaBuildingNumberFormats};
+                                       russiaBuildingNumberFormats,
+                                       russiaStates };
 }
