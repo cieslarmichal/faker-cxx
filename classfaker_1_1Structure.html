@@ -104,16 +104,16 @@ $(function(){initNavTree('classfaker_1_1Structure.html',''); initResizable(); })
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:adbae05168b0e3dcec41128702b3ff8e2" id="r_adbae05168b0e3dcec41128702b3ff8e2"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adbae05168b0e3dcec41128702b3ff8e2">json</a> (const std::map&lt; std::string, faker::Token &gt; items)</td></tr>
-<tr class="memdesc:adbae05168b0e3dcec41128702b3ff8e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a json string based on input.  <br /></td></tr>
-<tr class="separator:adbae05168b0e3dcec41128702b3ff8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c4e6240c2968a92ededb73eedc6b400" id="r_a6c4e6240c2968a92ededb73eedc6b400"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6c4e6240c2968a92ededb73eedc6b400">csv</a> (const std::map&lt; std::string, faker::Token &gt; items, const unsigned int rows)</td></tr>
-<tr class="memdesc:a6c4e6240c2968a92ededb73eedc6b400"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a csv string based on input.  <br /></td></tr>
-<tr class="separator:a6c4e6240c2968a92ededb73eedc6b400"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a108de9706f705a6a9fd63f250e4b568a" id="r_a108de9706f705a6a9fd63f250e4b568a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a108de9706f705a6a9fd63f250e4b568a">json</a> (const std::map&lt; std::string, faker::StructureToken &gt; &amp;items)</td></tr>
+<tr class="memdesc:a108de9706f705a6a9fd63f250e4b568a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a json string based on input.  <br /></td></tr>
+<tr class="separator:a108de9706f705a6a9fd63f250e4b568a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af53a81d02be66dc2d27a671621cead41" id="r_af53a81d02be66dc2d27a671621cead41"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af53a81d02be66dc2d27a671621cead41">csv</a> (const std::map&lt; std::string, faker::StructureToken &gt; &amp;items, unsigned int rows)</td></tr>
+<tr class="memdesc:af53a81d02be66dc2d27a671621cead41"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a csv string based on input.  <br /></td></tr>
+<tr class="separator:af53a81d02be66dc2d27a671621cead41"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a6c4e6240c2968a92ededb73eedc6b400" name="a6c4e6240c2968a92ededb73eedc6b400"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c4e6240c2968a92ededb73eedc6b400">&#9670;&#160;</a></span>csv()</h2>
+<a id="af53a81d02be66dc2d27a671621cead41" name="af53a81d02be66dc2d27a671621cead41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af53a81d02be66dc2d27a671621cead41">&#9670;&#160;</a></span>csv()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -124,12 +124,12 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static std::string faker::Structure::csv </td>
           <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, faker::Token &gt;</td>          <td class="paramname"><span class="paramname"><em>items</em>, </span></td>
+          <td class="paramtype">const std::map&lt; std::string, faker::StructureToken &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>items</em>, </span></td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const unsigned int</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>&#160;)</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>rows</em></span>&#160;)</td>
         </tr>
       </table>
   </td>
@@ -141,20 +141,20 @@ Static Public Member Functions</h2></td></tr>
 
 <p>Get a csv string based on input. </p>
 <dl class="section return"><dt>Returns</dt><dd>a josn csv based on user selected tokens and rows</dd></dl>
-<div class="fragment"><div class="line">std::map&lt;std::string, faker::Token&gt; testTokens;</div>
-<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Airport name&quot;</span>, faker::Token::AirlineAirportName);</div>
-<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Bird name&quot;</span>, faker::Token::AnimalBird);</div>
-<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Actor name&quot;</span>, faker::Token::MovieActor);</div>
-<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Book title&quot;</span>, faker::Token::BookTitle);</div>
-<div class="line"><a class="code hl_function" href="#a6c4e6240c2968a92ededb73eedc6b400">Structure::csv</a>(testTokens,2) <span class="comment">// FoodName,airlineType,airportName</span></div>
+<div class="fragment"><div class="line">std::map&lt;std::string, faker::StructureToken&gt; testTokens;</div>
+<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Airport name&quot;</span>, faker::StructureToken::AirlineAirportName);</div>
+<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Bird name&quot;</span>, faker::StructureToken::AnimalBird);</div>
+<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Actor name&quot;</span>, faker::StructureToken::MovieActor);</div>
+<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Book title&quot;</span>, faker::StructureToken::BookTitle);</div>
+<div class="line"><a class="code hl_function" href="#af53a81d02be66dc2d27a671621cead41">Structure::csv</a>(testTokens,2) <span class="comment">// FoodName,airlineType,airportName</span></div>
 <div class="line">                           Lobster Roll,widebody,Soekarno-Hatta International Airport</div>
 <div class="line">                           Pierogi,widebody,Brasilia-Presidente Juscelino Kubitschek International Airport</div>
-<div class="ttc" id="aclassfaker_1_1Structure_html_a6c4e6240c2968a92ededb73eedc6b400"><div class="ttname"><a href="#a6c4e6240c2968a92ededb73eedc6b400">faker::Structure::csv</a></div><div class="ttdeci">static std::string csv(const std::map&lt; std::string, faker::Token &gt; items, const unsigned int rows)</div><div class="ttdoc">Get a csv string based on input.</div></div>
+<div class="ttc" id="aclassfaker_1_1Structure_html_af53a81d02be66dc2d27a671621cead41"><div class="ttname"><a href="#af53a81d02be66dc2d27a671621cead41">faker::Structure::csv</a></div><div class="ttdeci">static std::string csv(const std::map&lt; std::string, faker::StructureToken &gt; &amp;items, unsigned int rows)</div><div class="ttdoc">Get a csv string based on input.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="adbae05168b0e3dcec41128702b3ff8e2" name="adbae05168b0e3dcec41128702b3ff8e2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbae05168b0e3dcec41128702b3ff8e2">&#9670;&#160;</a></span>json()</h2>
+<a id="a108de9706f705a6a9fd63f250e4b568a" name="a108de9706f705a6a9fd63f250e4b568a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a108de9706f705a6a9fd63f250e4b568a">&#9670;&#160;</a></span>json()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -165,7 +165,7 @@ Static Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">static std::string faker::Structure::json </td>
           <td>(</td>
-          <td class="paramtype">const std::map&lt; std::string, faker::Token &gt;</td>          <td class="paramname"><span class="paramname"><em>items</em></span></td><td>)</td>
+          <td class="paramtype">const std::map&lt; std::string, faker::StructureToken &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>items</em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
@@ -177,15 +177,15 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Get a json string based on input. </p>
-<dl class="section return"><dt>Returns</dt><dd>a josn string based on user selected tokens</dd></dl>
-<div class="fragment"><div class="line">std::map&lt;std::string, faker::Token&gt; testTokens;</div>
-<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Airport name&quot;</span>, faker::Token::AirlineAirportName);</div>
-<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Bird name&quot;</span>, faker::Token::AnimalBird);</div>
-<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Actor name&quot;</span>, faker::Token::MovieActor);</div>
-<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Book title&quot;</span>, faker::Token::BookTitle);</div>
-<div class="line"><a class="code hl_function" href="#adbae05168b0e3dcec41128702b3ff8e2">Structure::json</a>(testTokens) <span class="comment">// {&quot;FoodName&quot;:&quot;Cajun Shrimp</span></div>
+<dl class="section return"><dt>Returns</dt><dd>a json string based on user selected tokens</dd></dl>
+<div class="fragment"><div class="line">std::map&lt;std::string, faker::StructureToken&gt; testTokens;</div>
+<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Airport name&quot;</span>, faker::StructureToken::AirlineAirportName);</div>
+<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Bird name&quot;</span>, faker::StructureToken::AnimalBird);</div>
+<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Actor name&quot;</span>, faker::StructureToken::MovieActor);</div>
+<div class="line">testTokens.emplace(<span class="stringliteral">&quot;Book title&quot;</span>, faker::StructureToken::BookTitle);</div>
+<div class="line"><a class="code hl_function" href="#a108de9706f705a6a9fd63f250e4b568a">Structure::json</a>(testTokens) <span class="comment">// {&quot;FoodName&quot;:&quot;Cajun Shrimp</span></div>
 <div class="line">Pasta<span class="stringliteral">&quot;,&quot;</span>airlineType<span class="stringliteral">&quot;:&quot;</span>narrowbody<span class="stringliteral">&quot;,&quot;</span>airportName<span class="stringliteral">&quot;:&quot;</span>Brisbane International Airport<span class="stringliteral">&quot;}</span></div>
-<div class="ttc" id="aclassfaker_1_1Structure_html_adbae05168b0e3dcec41128702b3ff8e2"><div class="ttname"><a href="#adbae05168b0e3dcec41128702b3ff8e2">faker::Structure::json</a></div><div class="ttdeci">static std::string json(const std::map&lt; std::string, faker::Token &gt; items)</div><div class="ttdoc">Get a json string based on input.</div></div>
+<div class="ttc" id="aclassfaker_1_1Structure_html_a108de9706f705a6a9fd63f250e4b568a"><div class="ttname"><a href="#a108de9706f705a6a9fd63f250e4b568a">faker::Structure::json</a></div><div class="ttdeci">static std::string json(const std::map&lt; std::string, faker::StructureToken &gt; &amp;items)</div><div class="ttdoc">Get a json string based on input.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

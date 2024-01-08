@@ -105,91 +105,33 @@ $(function(){initNavTree('Science_8h_source.html',''); initResizable(); });
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classfaker_1_1ChemicalElement.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1ChemicalElement.html">ChemicalElement</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    std::string name;</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::string symbol;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">int</span> atomic_number;</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_class" href="classfaker_1_1ChemicalElement.html">ChemicalElement</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_class" href="classfaker_1_1ChemicalElement.html">ChemicalElement</a>(std::string name_, std::string symbol_, <span class="keywordtype">int</span> atomic_number_)</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        : name(name_), symbol(symbol_), atomic_number(atomic_number_)</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    {</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <a class="code hl_class" href="classfaker_1_1ChemicalElement.html">ChemicalElement</a>(std::string info) : name(<span class="stringliteral">&quot;&quot;</span>), symbol(<span class="stringliteral">&quot;&quot;</span>), atomic_number(-1)</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>        <span class="keyword">auto</span> idx1 = info.find_first_of(<span class="charliteral">&#39;-&#39;</span>);</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>        <span class="keyword">auto</span> idx2 = info.find_last_of(<span class="charliteral">&#39;-&#39;</span>);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>        std::string name_ = info.substr(0, idx1 - 1);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        std::string symbol_ = info.substr(idx1 + 2, idx2 - idx1 - 3);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        std::string atomic_number = info.substr(idx2 + 2, info.length() - idx2 - 2);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    }</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <a class="code hl_class" href="classfaker_1_1ChemicalElement.html">~ChemicalElement</a>() = <span class="keywordflow">default</span>;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="classfaker_1_1ChemicalElement.html">ChemicalElement</a>&amp; obj)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">return</span> (this-&gt;name == obj.name &amp;&amp; this-&gt;symbol == obj.symbol &amp;&amp; this-&gt;atomic_number == obj.atomic_number);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>};</div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &quot;types/ChemicalElement.h&quot;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;types/Unit.h&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
+<div class="foldopen" id="foldopen00008" data-start="{" data-end="};">
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html">    8</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Science.html">Science</a></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#a5116cd34282af4c47442a32567da8c81">   21</a></span>    <span class="keyword">static</span> ChemicalElement <a class="code hl_function" href="classfaker_1_1Science.html#a5116cd34282af4c47442a32567da8c81">chemicalElement</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#a1603947449ecc5b7bc31f5a4bbc4cc97">   32</a></span>    <span class="keyword">static</span> Unit <a class="code hl_function" href="classfaker_1_1Science.html#a1603947449ecc5b7bc31f5a4bbc4cc97">unit</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#ab42a1c8263c0a0f2f74c6db5fcccd134">   44</a></span>    <span class="keyword">static</span> Unit <a class="code hl_function" href="classfaker_1_1Science.html#ab42a1c8263c0a0f2f74c6db5fcccd134">distanceUnit</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#a326517a93a08ce089df339e11a96e40d">   55</a></span>    <span class="keyword">static</span> Unit <a class="code hl_function" href="classfaker_1_1Science.html#a326517a93a08ce089df339e11a96e40d">timeUnit</a>();</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#a11c2fe7aa766dcb44275eeb8fdc01896">   66</a></span>    <span class="keyword">static</span> Unit <a class="code hl_function" href="classfaker_1_1Science.html#a11c2fe7aa766dcb44275eeb8fdc01896">massUnit</a>();</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#ab3667bf9c6d644ac1e07d42239b42179">   77</a></span>    <span class="keyword">static</span> Unit <a class="code hl_function" href="classfaker_1_1Science.html#ab3667bf9c6d644ac1e07d42239b42179">tempUnit</a>();</div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50">   89</a></span>    <span class="keyword">static</span> Unit <a class="code hl_function" href="classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50">currentUnit</a>();</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>};</div>
 </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="foldopen" id="foldopen00043" data-start="{" data-end="};">
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classfaker_1_1Unit.html">   43</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Unit.html">Unit</a></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>{</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    std::string name;</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    std::string symbol;</div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    std::string usedToMeasure;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <a class="code hl_class" href="classfaker_1_1Unit.html">Unit</a>(std::string name_, std::string symbol_, std::string usedToMeasure_)</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        : name(name_), symbol(symbol_), usedToMeasure(usedToMeasure_)</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    {</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>    }</div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    <span class="keywordtype">bool</span> operator==(<span class="keyword">const</span> <a class="code hl_class" href="classfaker_1_1Unit.html">Unit</a>&amp; obj)<span class="keyword"> const</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>        <span class="keywordflow">return</span> (this-&gt;name == obj.name &amp;&amp; this-&gt;symbol == obj.symbol &amp;&amp; this-&gt;usedToMeasure == obj.usedToMeasure);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>    }</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>};</div>
-</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
-<div class="foldopen" id="foldopen00061" data-start="{" data-end="};">
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html">   61</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Science.html">Science</a></div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>{</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#a5116cd34282af4c47442a32567da8c81">   75</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classfaker_1_1ChemicalElement.html">ChemicalElement</a> <a class="code hl_function" href="classfaker_1_1Science.html#a5116cd34282af4c47442a32567da8c81">chemicalElement</a>();</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#a1603947449ecc5b7bc31f5a4bbc4cc97">   87</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classfaker_1_1Unit.html">Unit</a> <a class="code hl_function" href="classfaker_1_1Science.html#a1603947449ecc5b7bc31f5a4bbc4cc97">unit</a>();</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#ab42a1c8263c0a0f2f74c6db5fcccd134">  100</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classfaker_1_1Unit.html">Unit</a> <a class="code hl_function" href="classfaker_1_1Science.html#ab42a1c8263c0a0f2f74c6db5fcccd134">distanceUnit</a>();</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#a326517a93a08ce089df339e11a96e40d">  112</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classfaker_1_1Unit.html">Unit</a> <a class="code hl_function" href="classfaker_1_1Science.html#a326517a93a08ce089df339e11a96e40d">timeUnit</a>();</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#a11c2fe7aa766dcb44275eeb8fdc01896">  124</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classfaker_1_1Unit.html">Unit</a> <a class="code hl_function" href="classfaker_1_1Science.html#a11c2fe7aa766dcb44275eeb8fdc01896">massUnit</a>();</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#ab3667bf9c6d644ac1e07d42239b42179">  136</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classfaker_1_1Unit.html">Unit</a> <a class="code hl_function" href="classfaker_1_1Science.html#ab3667bf9c6d644ac1e07d42239b42179">tempUnit</a>();</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span> </div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50">  149</a></span>    <span class="keyword">static</span> <a class="code hl_class" href="classfaker_1_1Unit.html">Unit</a> <a class="code hl_function" href="classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50">currentUnit</a>();</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>};</div>
-</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>}</div>
-<div class="ttc" id="aclassfaker_1_1ChemicalElement_html"><div class="ttname"><a href="classfaker_1_1ChemicalElement.html">faker::ChemicalElement</a></div><div class="ttdef"><b>Definition</b> Science.h:11</div></div>
-<div class="ttc" id="aclassfaker_1_1Science_html"><div class="ttname"><a href="classfaker_1_1Science.html">faker::Science</a></div><div class="ttdef"><b>Definition</b> Science.h:62</div></div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>}</div>
+<div class="ttc" id="aclassfaker_1_1Science_html"><div class="ttname"><a href="classfaker_1_1Science.html">faker::Science</a></div><div class="ttdef"><b>Definition</b> Science.h:9</div></div>
 <div class="ttc" id="aclassfaker_1_1Science_html_a11c2fe7aa766dcb44275eeb8fdc01896"><div class="ttname"><a href="classfaker_1_1Science.html#a11c2fe7aa766dcb44275eeb8fdc01896">faker::Science::massUnit</a></div><div class="ttdeci">static Unit massUnit()</div><div class="ttdoc">Returns a unit of measurement for either mass.</div></div>
 <div class="ttc" id="aclassfaker_1_1Science_html_a1603947449ecc5b7bc31f5a4bbc4cc97"><div class="ttname"><a href="classfaker_1_1Science.html#a1603947449ecc5b7bc31f5a4bbc4cc97">faker::Science::unit</a></div><div class="ttdeci">static Unit unit()</div><div class="ttdoc">Returns a unit of measurement for either distance, mass, time, temp, current.</div></div>
 <div class="ttc" id="aclassfaker_1_1Science_html_a326517a93a08ce089df339e11a96e40d"><div class="ttname"><a href="classfaker_1_1Science.html#a326517a93a08ce089df339e11a96e40d">faker::Science::timeUnit</a></div><div class="ttdeci">static Unit timeUnit()</div><div class="ttdoc">Returns a unit of measurement for either time.</div></div>
@@ -197,7 +139,6 @@ $(function(){initNavTree('Science_8h_source.html',''); initResizable(); });
 <div class="ttc" id="aclassfaker_1_1Science_html_ab3667bf9c6d644ac1e07d42239b42179"><div class="ttname"><a href="classfaker_1_1Science.html#ab3667bf9c6d644ac1e07d42239b42179">faker::Science::tempUnit</a></div><div class="ttdeci">static Unit tempUnit()</div><div class="ttdoc">Returns a unit of measurement for either temp.</div></div>
 <div class="ttc" id="aclassfaker_1_1Science_html_ab42a1c8263c0a0f2f74c6db5fcccd134"><div class="ttname"><a href="classfaker_1_1Science.html#ab42a1c8263c0a0f2f74c6db5fcccd134">faker::Science::distanceUnit</a></div><div class="ttdeci">static Unit distanceUnit()</div><div class="ttdoc">Returns a unit of measurement for either distance.</div></div>
 <div class="ttc" id="aclassfaker_1_1Science_html_ac2014d2e2ef7e8f1ac52a47a72444c50"><div class="ttname"><a href="classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50">faker::Science::currentUnit</a></div><div class="ttdeci">static Unit currentUnit()</div><div class="ttdoc">Returns a unit of measurement for either current.</div></div>
-<div class="ttc" id="aclassfaker_1_1Unit_html"><div class="ttname"><a href="classfaker_1_1Unit.html">faker::Unit</a></div><div class="ttdef"><b>Definition</b> Science.h:44</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
