@@ -118,7 +118,7 @@ https://cieslarmichal.github.io/faker-cxx/
 ## Dependencies
 
 - GTest (```BUILD_FAKER_TESTS=OFF``` CMake flag to disable)
-- fmt
+- fmt (only for Apple Clang++ compiler)
 
 ## ✨ Contributing
 
