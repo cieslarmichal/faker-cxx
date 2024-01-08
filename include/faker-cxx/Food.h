@@ -4,10 +4,8 @@
 
 namespace faker
 {
-
 class Food
 {
-
 public:
     /**
      * @brief Returns a random alcoholic beverage name.

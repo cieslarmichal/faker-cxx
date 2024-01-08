@@ -14,14 +14,17 @@ bool Datatype::boolean(double probability)
     if (probability != NAN)
     {
         double prob = probability;
+
         if (prob <= 0.f)
         {
             return false;
         }
+
         if (prob >= 1.f)
         {
             return true;
         }
+
         return Number::decimal(0.f, 1.f) < prob;
     }
 

@@ -7,8 +7,8 @@
 #include <string>
 #include <vector>
 
-#include "../src/common/LuhnCheck.h"
-#include "../src/common/StringHelper.h"
+#include "../../common/LuhnCheck.h"
+#include "../../common/StringHelper.h"
 
 namespace faker
 {
@@ -19,6 +19,7 @@ std::mt19937 Helper::pseudoRandomGenerator(Helper::randomDevice());
 std::string Helper::shuffleString(std::string data)
 {
     std::shuffle(data.begin(), data.end(), pseudoRandomGenerator);
+    
     return data;
 }
 

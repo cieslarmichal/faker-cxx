@@ -102,20 +102,24 @@ std::string Internet::password(int length, PasswordOptions options)
     {
         characters += faker::upperCharacters;
     }
+
     if (options.lowerLetters)
     {
         characters += faker::lowerCharacters;
     }
+
     if (options.numbers)
     {
         characters += faker::numericCharacters;
     }
+
     if (options.symbols)
     {
         characters += faker::symbolCharacters;
     }
 
     std::string password;
+
     for (int i = 0; i < length; ++i)
     {
         password += Helper::arrayElement<char>(characters);
@@ -256,6 +260,8 @@ std::string Internet::ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
 std::string Internet::ipv6()
 {
     std::vector<std::string> ipv6Parts;
+
+    ipv6Parts.reserve(8);
 
     for (int i = 0; i < 8; i++)
     {
