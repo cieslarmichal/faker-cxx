@@ -5,6 +5,7 @@
 #include "faker-cxx/Finance.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/String.h"
+
 namespace faker
 {
 std::string Commerce::department()

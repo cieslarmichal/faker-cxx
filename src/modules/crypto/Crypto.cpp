@@ -1,5 +1,11 @@
 #include "faker-cxx/Crypto.h"
 
+#include <array>
+#include <cstdint>
+#include <cstring>
+#include <iomanip>
+#include <sstream>
+
 #include "faker-cxx/Word.h"
 
 namespace faker
@@ -55,7 +61,7 @@ public:
 private:
     md5_hash() = default;
 
-    static uint32_t rotate_left(const uint32_t x, const int32_t n);
+    static uint32_t rotate_left(uint32_t x, int32_t n);
     static std::array<uint8_t, 4> uint32_to_4_bytes(uint32_t value);
     static uint32_t uint32_from_4_bytes(std::array<uint8_t, 4> bytes);
 
@@ -299,7 +305,7 @@ void SHA256::update(const std::string& data)
 
 std::array<uint8_t, 32> SHA256::digest()
 {
-    std::array<uint8_t, 32> hash;
+    std::array<uint8_t, 32> hash{};
 
     pad();
     revert(hash);

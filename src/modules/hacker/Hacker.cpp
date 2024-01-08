@@ -1,7 +1,6 @@
 #include "faker-cxx/Hacker.h"
 
 #include <string>
-#include <vector>
 
 #include "../../common/StringHelper.h"
 #include "data/Abbreviations.h"

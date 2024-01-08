@@ -290,7 +290,7 @@ public:
      * String::numeric({'0',{0,0}}, {'4',{1,1}}, 6, false) // "854829"
      * @endcode
      */
-    static std::string numeric(GuaranteeMap&& guarantee, const unsigned length = 1, bool allowLeadingZeros = true);
+    static std::string numeric(GuaranteeMap&& guarantee, unsigned length = 1, bool allowLeadingZeros = true);
 
     /**
      * @brief Generates a hexadecimal string.

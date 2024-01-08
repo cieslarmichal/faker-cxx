@@ -12,7 +12,6 @@
 
 namespace faker
 {
-// TODO: Add error handling if data empty
 class Helper
 {
 public:

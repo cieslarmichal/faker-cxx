@@ -5,6 +5,7 @@
 #include "data/PhoneData.h"
 #include "data/PhoneNumbers.h"
 #include "faker-cxx/Helper.h"
+
 namespace faker
 {
 std::map<PhoneNumberCountryFormat, std::string> Phone::phoneNumberFormatMap = Phone::createPhoneNumberFormatMap();

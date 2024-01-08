@@ -1,5 +1,7 @@
 #pragma once
 
+#include <stdexcept>
+
 #include "Language.h"
 
 namespace faker
@@ -48,16 +50,14 @@ const std::map<Language, std::map<Sex, std::string>> sexTranslations = {
 
 inline std::string translateSex(Sex sex, Language language = Language::English)
 {
-    auto langItr = sexTranslations.find(language);
-    if (langItr != sexTranslations.end())
+    const auto sexTranslation = sexTranslations.find(language);
+
+    if (sexTranslation == sexTranslations.end())
     {
-        auto sexItr = langItr->second.find(sex);
-        if (sexItr != langItr->second.end())
-        {
-            return sexItr->second;
-        }
+        throw std::runtime_error{"Sex not found."};
     }
-    return "Unknown";
+
+    return sexTranslation->second.at(sex);
 }
 
 inline std::string toString(Sex sex, Language language = Language::English)

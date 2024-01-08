@@ -9,6 +9,7 @@
 #include "data/WeekdayNames.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
+
 namespace faker
 {
 namespace
