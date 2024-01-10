@@ -12,6 +12,7 @@
 #include "data/belarus/BelarusianPeopleNames.h"
 #include "data/belgium/BelgianPeopleNames.h"
 #include "data/Bio.h"
+#include "data/bosnia/BosnianPeopleNames.h"
 #include "data/brazil/BrazilianPeopleNames.h"
 #include "data/bulgaria/BulgarianPeopleNames.h"
 #include "data/canada/CanadianPeopleNames.h"
@@ -98,6 +99,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Belarus, belarusianPeopleNames},    {Country::Estonia, estonianPeopleNames},
     {Country::Albania, albanianPeopleNames},      {Country::Iran, persianPeopleNames},
     {Country::Bulgaria, bulgarianPeopleNames},    {Country::Moldova, moldovanPeopleNames},
+    {Country::Bosnia, bosnianPeopleNames},        {Country::Bosnia, bosnianPeopleNames},
     {Country::Lithuania, lithuanianPeopleNames},  {Country::Iceland, icelandicPeopleNames},
     {Country::Palestine, palestinianPeopleNames}, {Country::Israel, israeliPeopleNames},
     {Country::Vietnam, vietnamesePeopleNames},    {Country::Monaco, monacanPeopleNames},
