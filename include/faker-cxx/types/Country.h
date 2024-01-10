@@ -62,6 +62,7 @@ enum class Country
     Monaco,
     Bosnia,
     Lebanon,
+    Syria,
 };
 
 const std::vector<Country> countries{
@@ -75,7 +76,7 @@ const std::vector<Country> countries{
     Country::Australia, Country::Serbia,    Country::Macedonia,   Country::Albania,   Country::Latvia,
     Country::Ireland,   Country::Belarus,   Country::Estonia,     Country::Iran,      Country::Bulgaria,
     Country::Moldova,   Country::Lithuania, Country::Iceland,     Country::Palestine, Country::Israel,
-    Country::Vietnam,   Country::Monaco,    Country::Bosnia,      Country::Lebanon,
+    Country::Vietnam,   Country::Monaco,    Country::Bosnia,      Country::Lebanon,   Country::Syria
 };
 
 inline std::string toString(Country country)
@@ -134,7 +135,8 @@ inline std::string toString(Country country)
         {Country::Vietnam, "Vietnam"},
         {Country::Monaco, "Monaco"},
         {Country::Bosnia, "Bosnia"},
-        {Country::Lebanon, "Lebanon"}
+        {Country::Lebanon, "Lebanon"},
+        {Country::Syria, "Syria"}
     };
 
     return countryToStringMapping.at(country);
