@@ -5,47 +5,51 @@
 #include "data/ComputerData.h"
 #include "faker-cxx/Helper.h"
 
-std::string faker::Computer::type()
+namespace faker
 {
-    return Helper::arrayElement(faker::data::ComputerTypes);
+
+std::string Computer::type()
+{
+    return Helper::arrayElement(data::ComputerTypes);
 }
 
-std::string faker::Computer::manufacture()
+std::string Computer::manufacture()
 {
-    return Helper::arrayElement(faker::data::ComputerManufactures);
+    return Helper::arrayElement(data::ComputerManufactures);
 }
 
-std::string faker::Computer::model()
+std::string Computer::model()
 {
-    return Helper::arrayElement(faker::data::ComputerModels);
+    return Helper::arrayElement(data::ComputerModels);
 }
 
-std::string faker::Computer::cpuManufacture()
+std::string Computer::cpuManufacture()
 {
-    return Helper::arrayElement(faker::data::ComputerCPUManufactures);
+    return Helper::arrayElement(data::ComputerCPUManufactures);
 }
 
-std::string faker::Computer::cpuType()
+std::string Computer::cpuType()
 {
-    return Helper::arrayElement(faker::data::ComputerCPUTypes);
+    return Helper::arrayElement(data::ComputerCPUTypes);
 }
 
-std::string faker::Computer::cpuModel()
+std::string Computer::cpuModel()
 {
-    return Helper::arrayElement(faker::data::ComputerCPUModels);
+    return Helper::arrayElement(data::ComputerCPUModels);
 }
 
-std::string faker::Computer::gpuManufacture()
+std::string Computer::gpuManufacture()
 {
-    return Helper::arrayElement(faker::data::ComputerGPUManufactures);
+    return Helper::arrayElement(data::ComputerGPUManufactures);
 }
 
-std::string faker::Computer::gpuType()
+std::string Computer::gpuType()
 {
-    return Helper::arrayElement(faker::data::ComputerGPUTypes);
+    return Helper::arrayElement(data::ComputerGPUTypes);
 }
 
-std::string faker::Computer::gpuModel()
+std::string Computer::gpuModel()
 {
-    return Helper::arrayElement(faker::data::ComputerGPUModels);
+    return Helper::arrayElement(data::ComputerGPUModels);
+}
 }

@@ -2,8 +2,8 @@
 
 #include <vector>
 
-#include "data/elements.h"
-#include "data/units.h"
+#include "data/ChemicalElements.h"
+#include "data/Units.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
@@ -11,7 +11,7 @@ namespace faker
 
 ChemicalElement Science::chemicalElement()
 {
-    return Helper::arrayElement<ChemicalElement>(elements);
+    return Helper::arrayElement<ChemicalElement>(chemicalElements);
 }
 
 Unit Science::unit()

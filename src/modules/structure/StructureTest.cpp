@@ -22,11 +22,11 @@ public:
 
 TEST_F(StructureTest, shouldGenerateJson)
 {
-    std::map<std::string, Token> testTokens;
-    testTokens.emplace("Airport name", Token::AirlineAirportName);
-    testTokens.emplace("Bird name", Token::AnimalBird);
-    testTokens.emplace("Book title", Token::BookTitle);
-    testTokens.emplace("Actor name", Token::MovieActor);
+    std::map<std::string, StructureToken> testTokens;
+    testTokens.emplace("Airport name", StructureToken::AirlineAirportName);
+    testTokens.emplace("Bird name", StructureToken::AnimalBird);
+    testTokens.emplace("Book title", StructureToken::BookTitle);
+    testTokens.emplace("Actor name", StructureToken::MovieActor);
     const auto generatedJson = Structure::json(testTokens);
 
     const auto parsedJson = JsonHelper::simpleJsonParser(generatedJson);
@@ -56,12 +56,12 @@ TEST_F(StructureTest, shouldGenerateJson)
 
 TEST_F(StructureTest, shouldGenerateCSV)
 {
-    std::map<std::string, Token> testTokens;
+    std::map<std::string, StructureToken> testTokens;
     const unsigned int noRows = 2;
-    testTokens.emplace("Airport name", Token::AirlineAirportName);
-    testTokens.emplace("Bird name", Token::AnimalBird);
-    testTokens.emplace("Book title", Token::BookTitle);
-    testTokens.emplace("Actor name", Token::MovieActor);
+    testTokens.emplace("Airport name", StructureToken::AirlineAirportName);
+    testTokens.emplace("Bird name", StructureToken::AnimalBird);
+    testTokens.emplace("Book title", StructureToken::BookTitle);
+    testTokens.emplace("Actor name", StructureToken::MovieActor);
 
     const auto generatedCSV = Structure::csv(testTokens, noRows);
 

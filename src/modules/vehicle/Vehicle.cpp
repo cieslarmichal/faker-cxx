@@ -10,6 +10,7 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
+
 namespace faker
 {
 

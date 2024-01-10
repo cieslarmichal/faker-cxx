@@ -9,7 +9,6 @@
 
 namespace faker
 {
-
 std::string Database::columnName()
 {
     return Helper::arrayElement<std::string>(columnNames);

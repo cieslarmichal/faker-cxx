@@ -7,6 +7,7 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
+
 namespace faker
 {
 std::string Color::name()
@@ -31,6 +32,7 @@ std::string Color::rgb(bool includeAlpha)
     ss << std::fixed;
     ss.precision(2);
     ss << alpha;
+
     const auto formattedAlpha = ss.str();
 
     return FormatHelper::format("rgba({}, {}, {}, {})", red, green, blue, formattedAlpha);
@@ -45,6 +47,7 @@ std::string Color::hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
 
     return String::hexadecimal(6, casing, prefix);
 }
+
 std::string Color::hsl(bool includeAlpha)
 {
     const std::integral auto hue = Number::integer(360);
@@ -66,6 +69,7 @@ std::string Color::hsl(bool includeAlpha)
 
     return FormatHelper::format("hsla({}, {}, {}, {})", hue, saturation, lightness, formattedAlpha);
 }
+
 std::string Color::lch(bool includeAlpha)
 {
     const std::integral auto luminance = Number::integer(100);

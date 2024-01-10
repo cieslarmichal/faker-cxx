@@ -9,7 +9,6 @@
 #include "data/Prepositions.h"
 #include "data/Verbs.h"
 #include "faker-cxx/Helper.h"
-#include "faker-cxx/String.h"
 
 namespace faker
 {

@@ -1,7 +1,6 @@
 #include "faker-cxx/System.h"
 
 #include <algorithm>
-#include <ctime>
 #include <set>
 #include <string>
 #include <vector>

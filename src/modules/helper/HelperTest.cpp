@@ -9,6 +9,7 @@
 #include "gtest/gtest.h"
 
 #include "faker-cxx/String.h"
+
 using namespace faker;
 using namespace ::testing;
 
@@ -16,27 +17,83 @@ class HelperTest : public Test
 {
 };
 
-namespace
+TEST_F(HelperTest, ArrayElement)
 {
+    std::vector<std::string> data{"hello", "world"};
+
+    std::string result = Helper::arrayElement(data);
+
+    ASSERT_TRUE(std::ranges::any_of(data, [&result](const std::string& element) { return result == element; }));
+}
+
+TEST_F(HelperTest, ArrayElementEmptyData)
+{
+    std::vector<std::string> data{};
+
+    ASSERT_THROW(Helper::arrayElement(data), std::invalid_argument);
+}
+
+TEST_F(HelperTest, ArrayElementSpan)
+{
+    std::vector<std::string> data{"hello", "world"};
+
+    std::string result = Helper::arrayElement(std::span<const std::string>(data));
+
+    ASSERT_TRUE(std::ranges::any_of(data, [&result](const std::string& element) { return result == element; }));
+}
+
+TEST_F(HelperTest, ArrayElementSpanEmptyData)
+{
+    std::vector<std::string> data{};
+
+    ASSERT_THROW(Helper::arrayElement(std::span<const std::string>(data)), std::invalid_argument);
+}
+
+TEST_F(HelperTest, WeightedArrayElement)
+{
+    std::vector<Helper::WeightedElement<std::string>> data{{1, "hello"}, {9, "world"}};
+
+    const auto result = Helper::weightedArrayElement(data);
+
+    ASSERT_TRUE(std::ranges::any_of(data, [&result](const Helper::WeightedElement<std::string>& element)
+                                    { return result == element.value; }));
+}
+
+TEST_F(HelperTest, ShuffleString)
+{
+    std::string input = "Hello World!";
+
+    std::string result = Helper::shuffleString(input);
+
+    ASSERT_TRUE(
+        std::ranges::all_of(input, [&result](char character) { return result.find(character) != std::string::npos; }));
+}
 
 TEST_F(HelperTest, SetElement)
 {
     std::set<char> chars{'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'l', 'm'};
+
     std::vector<char> randomChars;
+
+    randomChars.reserve(30);
+
     for (int i = 0; i < 30; ++i)
     {
         randomChars.push_back(Helper::setElement(chars));
     }
+
     for (auto character : randomChars)
     {
         ASSERT_TRUE(chars.find(character) != chars.end());
     }
 }
+
 TEST_F(HelperTest, SetElementEmptyData)
 {
     std::set<char> chars{};
     ASSERT_THROW(Helper::setElement<char>(chars), std::invalid_argument);
 }
+
 TEST_F(HelperTest, ReplaceSymbolWithNumber)
 {
     std::string input = "123#456!";
@@ -125,5 +182,4 @@ TEST_F(HelperTest, MaybeDouble)
     double lowProbability = 0;
     result = Helper::maybe<double>([]() { return 3.14; }, lowProbability);
     EXPECT_EQ(result, 0.0);
-}
 }

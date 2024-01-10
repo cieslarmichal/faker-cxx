@@ -4,8 +4,8 @@
 
 #include "gtest/gtest.h"
 
-#include "data/elements.h"
-#include "data/units.h"
+#include "data/ChemicalElements.h"
+#include "data/Units.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -18,7 +18,7 @@ public:
 TEST_F(ScienceTest, shouldGenerateChemElement)
 {
     const auto generatedChemElement = Science::chemicalElement();
-    ASSERT_TRUE(std::ranges::any_of(elements, [generatedChemElement](const ChemicalElement& chemElement)
+    ASSERT_TRUE(std::ranges::any_of(chemicalElements, [generatedChemElement](const ChemicalElement& chemElement)
                                     { return generatedChemElement == chemElement; }));
 }
 
