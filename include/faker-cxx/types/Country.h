@@ -60,6 +60,7 @@ enum class Country
     Israel,
     Vietnam,
     Monaco,
+    Bosnia,
     Lebanon,
 };
 
@@ -74,7 +75,7 @@ const std::vector<Country> countries{
     Country::Australia, Country::Serbia,    Country::Macedonia,   Country::Albania,   Country::Latvia,
     Country::Ireland,   Country::Belarus,   Country::Estonia,     Country::Iran,      Country::Bulgaria,
     Country::Moldova,   Country::Lithuania, Country::Iceland,     Country::Palestine, Country::Israel,
-    Country::Vietnam,   Country::Monaco,    Country::Lebanon,
+    Country::Vietnam,   Country::Monaco,    Country::Bosnia,      Country::Lebanon,
 };
 
 inline std::string toString(Country country)
@@ -132,6 +133,7 @@ inline std::string toString(Country country)
         {Country::Israel, "Israel"},
         {Country::Vietnam, "Vietnam"},
         {Country::Monaco, "Monaco"},
+        {Country::Bosnia, "Bosnia"},
         {Country::Lebanon, "Lebanon"}
     };
 
