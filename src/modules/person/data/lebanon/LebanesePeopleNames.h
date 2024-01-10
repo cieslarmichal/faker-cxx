@@ -10,6 +10,6 @@ namespace faker
 const NameFormats lebanesePersonNameFormats{{"{firstName} {lastName}", 1}};
 
 const PeopleNames lebanesePeopleNames{{lebaneseMalesFirstNames, {}, lebaneseLastNames, {}, {}},
-                                      {palestinianFemalesFirstNames, {}, lebaneseLastNames, {}, {}},
+                                      {lebaneseFemalesFirstNames, {}, lebaneseLastNames, {}, {}},
                                       lebanesePersonNameFormats};
 }
