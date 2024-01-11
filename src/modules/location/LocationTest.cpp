@@ -27,6 +27,7 @@
 #include "data/italy/ItalyAddresses.h"
 #include "data/germany/GermanyAddresses.h"
 #include "data/usa/UsaAddresses.h"
+#include "data/india/IndiaAddresses.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -38,7 +39,7 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
     {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Italy, italyAddresses},
     {AddressCountry::Germany, germanyAddresses}, {AddressCountry::Czech, czechAddresses},
-    {AddressCountry::Australia, australiaAddresses},
+    {AddressCountry::Australia, australiaAddresses}, {AddressCountry::India, indiaAddresses},
 };
 
 const std::map<AddressCountry, std::string> generatedTestName{
@@ -51,6 +52,7 @@ const std::map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Germany, "shouldGenerateGermanAddress"},
     {AddressCountry::Czech, "shouldGenerateCzechAddress"},
     {AddressCountry::Australia, "shouldGenerateAustraliaAddress"},
+    {AddressCountry::India, "shouldGenerateIndiaAddress"},
 };
 }
 
@@ -575,4 +577,36 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
     ASSERT_TRUE(std::ranges::any_of(australiaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
                                     { return streetSuffix == generatedStreetSuffix; }));
+}
+
+TEST_F(LocationTest, shouldGenerateIndiaStreet)
+{
+    const auto generatedStreet = Location::street(AddressCountry::India);
+
+    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+
+    const auto& generatedStreetSuffix =
+            StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+
+    ASSERT_GE(generatedStreetElements.size(), 2);
+
+    ASSERT_TRUE(std::ranges::any_of(indiaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
+    { return streetSuffix == generatedStreetSuffix; }));
+}
+
+TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
+{
+    const auto generatedStreetAddress = Location::streetAddress(AddressCountry::India);
+
+    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+
+    const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
+    const auto& generatedStreetSuffix =
+            StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
+
+    ASSERT_GE(generatedStreetAddressElements.size(), 3);
+    ASSERT_TRUE(!generatedBuildingNumber.empty());
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+    ASSERT_TRUE(std::ranges::any_of(indiaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
+    { return streetSuffix == generatedStreetSuffix; }));
 }

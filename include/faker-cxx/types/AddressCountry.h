@@ -18,12 +18,13 @@ enum class AddressCountry
     Germany,
     Czech,
     Australia,
+    India,
 };
 
 const std::vector<AddressCountry> addressCountries{
     AddressCountry::Usa,    AddressCountry::Poland,  AddressCountry::France,
     AddressCountry::Russia, AddressCountry::Ukraine, AddressCountry::Italy,
-    AddressCountry::Germany, AddressCountry::Czech,
+    AddressCountry::Germany, AddressCountry::Czech,  AddressCountry::India,
 };
 
 inline std::string toString(AddressCountry country)
@@ -32,6 +33,7 @@ inline std::string toString(AddressCountry country)
         {AddressCountry::Usa, "Usa"},       {AddressCountry::Poland, "Poland"},   {AddressCountry::France, "France"},
         {AddressCountry::Russia, "Russia"}, {AddressCountry::Ukraine, "Ukraine"}, {AddressCountry::Italy, "Italy"},
         {AddressCountry::Germany, "Germany"}, {AddressCountry::Czech, "Czech"}, {AddressCountry::Australia, "Australia"},
+        {AddressCountry::India, "India"},
     };
 
     return countryToStringMapping.at(country);
