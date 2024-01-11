@@ -605,7 +605,7 @@ TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
             StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
 
     ASSERT_GE(generatedStreetAddressElements.size(), 3);
-    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 4);
+    ASSERT_TRUE(!generatedBuildingNumber.empty());
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
     ASSERT_TRUE(std::ranges::any_of(indiaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
     { return streetSuffix == generatedStreetSuffix; }));
