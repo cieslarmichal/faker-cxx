@@ -25,5 +25,6 @@ namespace faker {
                                           {},
                                           indiaStreetSuffixes,
                                           indiaBuildingNumberFormats,
-                                          indiaStates};
+                                          indiaStates,
+                                          {}};
 }

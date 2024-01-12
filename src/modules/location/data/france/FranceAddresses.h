@@ -27,5 +27,6 @@ const CountryAddresses franceAddresses{franceCities,
                                        {},
                                        franceStreetSuffixes,
                                        franceBuildingNumberFormats,
-                                       franceStates };
+                                       franceStates,
+                                       {}};
 }

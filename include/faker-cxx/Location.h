@@ -33,7 +33,7 @@ public:
     static std::string countryCode();
 
     /**
-     * @brief Returns a random state for a given country..
+     * @brief Returns a random state for a given country.
      *
      * @param country The country to generate state from. Defaults to `Country::Usa`.
      *
@@ -44,6 +44,19 @@ public:
      * @endcode
      */
     static std::string state(AddressCountry country = AddressCountry::Usa);
+
+    /**
+     * @brief Returns a random county for a given country.
+     *
+     * @param country The country to generate county from. Defaults to `Country::Usa`.
+     *
+     * @returns County.
+     *
+     * @code
+     * Location::county() // "Adams County"
+     * @endcode
+     */
+    static std::string county(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random city for given country.

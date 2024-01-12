@@ -29,5 +29,6 @@ const CountryAddresses polandAddresses{polandCities,
                                        polandStreetNames,
                                        {},
                                        polandBuildingNumberFormats,
-                                       polandStates };
+                                       polandStates,
+                                       {}};
 }

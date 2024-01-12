@@ -12,11 +12,11 @@
 #include "data/poland/PolandAddresses.h"
 #include "data/italy/ItalyAddresses.h"
 #include "data/russia/RussiaAddresses.h"
-#include "data/States.h"
 #include "data/TimeZones.h"
 #include "data/ukraine/UkraineAddresses.h"
 #include "data/germany/GermanyAddresses.h"
 #include "data/usa/UsaAddresses.h"
+#include "data/spain/SpainAddresses.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
@@ -33,7 +33,7 @@ namespace faker
                 {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Italy, italyAddresses},
                 {AddressCountry::Germany, germanyAddresses}, {AddressCountry::Czech, czechAddresses},
                 {AddressCountry::Australia, australiaAddresses}, {AddressCountry::India, indiaAddresses},
-                {AddressCountry::Denmark, denmarkAddresses}
+                {AddressCountry::Denmark, denmarkAddresses}, {AddressCountry::Spain, spainAddresses},
         };
 
         const std::map<AddressCountry, Country> countryAddressToCountryMapping{
@@ -42,7 +42,7 @@ namespace faker
                 {AddressCountry::Ukraine, Country::Ukraine}, {AddressCountry::Italy, Country::Italy},
                 {AddressCountry::Germany, Country::Germany}, {AddressCountry::Czech, Country::Czech},
                 {AddressCountry::Australia, Country::Australia}, {AddressCountry::India, Country::India},
-                {AddressCountry::Denmark, Country::Denmark},
+                {AddressCountry::Denmark, Country::Denmark}, {AddressCountry::Spain, Country::Spain},
         };
     }
 
@@ -54,6 +54,16 @@ namespace faker
     std::string Location::countryCode()
     {
         return Helper::arrayElement<std::string>(countryCodes);
+    }
+
+    std::string Location::county(AddressCountry country)
+    {
+        const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+        if(countryAddresses.counties.empty())
+        {
+            return "";
+        }
+        return Helper::arrayElement<std::string>(countryAddresses.counties);
     }
 
     std::string Location::state(AddressCountry country)
@@ -121,6 +131,11 @@ namespace faker
     std::string Location::secondaryAddress(AddressCountry country)
     {
         const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+
+        if (countryAddresses.secondaryAddressFormats.empty())
+        {
+            return "";
+        }
 
         const auto secondaryAddressFormat = Helper::arrayElement<std::string>(countryAddresses.secondaryAddressFormats);
 

@@ -29,5 +29,6 @@ const CountryAddresses ukraineAddresses{ukraineCities,
                                         ukraineStreetNames,
                                         {},
                                         ukraineBuildingNumberFormats,
-                                        ukraineStates };
+                                        ukraineStates,
+                                        {}};
 }

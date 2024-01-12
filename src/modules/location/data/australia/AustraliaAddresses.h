@@ -16,15 +16,15 @@ const std::vector<std::string> australiaBuildingNumberFormats{"####", "###", "##
 const std::vector<std::string> australiaStreetFormats{"{firstName} {streetSuffix}", "{lastName} {streetSuffix}"};
 
 
-
 const CountryAddresses australiaAddresses{australiaCities,
-                                     australiaZipCodeFormat,
-                                     australiaAddressFormats,
-                                     {},
-                                     australiaStreetFormats,
-                                     {},
-                                     {},
-                                     australiaStreetSuffixes,
-                                     australiaBuildingNumberFormats,
-                                     australiaStates };
+                                          australiaZipCodeFormat,
+                                          australiaAddressFormats,
+                                          {},
+                                          australiaStreetFormats,
+                                          {},
+                                          {},
+                                          australiaStreetSuffixes,
+                                          australiaBuildingNumberFormats,
+                                          australiaStates,
+                                          {}};
 }

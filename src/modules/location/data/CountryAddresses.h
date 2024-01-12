@@ -17,5 +17,6 @@ struct CountryAddresses
     std::vector<std::string> streetSuffixes;
     std::vector<std::string> buildingNumberFormats;
     std::vector<std::string> states;
+    std::vector<std::string> counties;
 };
 }
