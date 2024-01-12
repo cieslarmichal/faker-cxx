@@ -19,13 +19,14 @@ const std::vector<std::string> germanyBuildingNumberFormats{"###", "##", "#", "#
 const std::vector<std::string> germanyStreetFormats{"{streetName}"};
 
 const CountryAddresses germanyAddresses{germanyCities,
-                                       germanyZipCodeFormat,
-                                       germanyAddressFormats,
-                                       germanySecondaryAddressFormats,
-                                       germanyStreetFormats,
-                                       {},
-                                       germanyStreetNames,
-                                       {},
-                                       germanyBuildingNumberFormats,
-                                        germanyStates };
+                                        germanyZipCodeFormat,
+                                        germanyAddressFormats,
+                                        germanySecondaryAddressFormats,
+                                        germanyStreetFormats,
+                                        {},
+                                        germanyStreetNames,
+                                        {},
+                                        germanyBuildingNumberFormats,
+                                        germanyStates,
+                                        {}};
 }

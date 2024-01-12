@@ -26,5 +26,6 @@ const CountryAddresses usaAddresses{usaCities,
                                     {},
                                     usaStreetSuffixes,
                                     usaBuildingNumberFormats,
-                                    usaStates };
+                                    usaStates,
+                                    {}};
 }

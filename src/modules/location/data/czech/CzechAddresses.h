@@ -20,13 +20,14 @@ const std::vector<std::string> czechBuildingNumberFormats{"#", "##", "###"};
 const std::vector<std::string> czechStreetFormats{"{streetName}"};
 
 const CountryAddresses czechAddresses{czechCities,
-                                        czechZipCodeFormat,
-                                        czechAddressFormats,
-                                        czechSecondaryAddressFormats,
-                                        czechStreetFormats,
-                                        {},
-                                        czechStreetNames,
-                                        {},
-                                        czechBuildingNumberFormats,
-                                        czechStates };
+                                      czechZipCodeFormat,
+                                      czechAddressFormats,
+                                      czechSecondaryAddressFormats,
+                                      czechStreetFormats,
+                                      {},
+                                      czechStreetNames,
+                                      {},
+                                      czechBuildingNumberFormats,
+                                      czechStates,
+                                      {}};
 }
