@@ -198,7 +198,7 @@ TEST_P(LocationTest, shouldGenerateSecondaryAddress)
                     if (checkIfAllCharactersAreNumeric(generatedSecondaryAddressPrefix))
                     {
                         return generatedSecondaryAddressNumber == secondaryAddressNumber &&
-                                generatedSecondaryAddress.size() == secondaryAddressFormat.size();
+                               generatedSecondaryAddress.size() == secondaryAddressFormat.size();
                     }
                 }
 
