@@ -111,8 +111,11 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memdesc:a8ea095c82bb74e805c4c24a8dfccc5cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random country code.  <br /></td></tr>
 <tr class="separator:a8ea095c82bb74e805c4c24a8dfccc5cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47a85c5d99b4dbd74e3fe82a37d74c25" id="r_a47a85c5d99b4dbd74e3fe82a37d74c25"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a47a85c5d99b4dbd74e3fe82a37d74c25">state</a> (AddressCountry <a class="el" href="#aeccb6f1381edcf063010684db6c47f66">country</a>=AddressCountry::Usa)</td></tr>
-<tr class="memdesc:a47a85c5d99b4dbd74e3fe82a37d74c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random state for a given country..  <br /></td></tr>
+<tr class="memdesc:a47a85c5d99b4dbd74e3fe82a37d74c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random state for a given country.  <br /></td></tr>
 <tr class="separator:a47a85c5d99b4dbd74e3fe82a37d74c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3df16f37cc59c77606ffcec78de3d15e" id="r_a3df16f37cc59c77606ffcec78de3d15e"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3df16f37cc59c77606ffcec78de3d15e">county</a> (AddressCountry <a class="el" href="#aeccb6f1381edcf063010684db6c47f66">country</a>=AddressCountry::Usa)</td></tr>
+<tr class="memdesc:a3df16f37cc59c77606ffcec78de3d15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random county for a given country.  <br /></td></tr>
+<tr class="separator:a3df16f37cc59c77606ffcec78de3d15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4578e9848a3b0b7234be576135ae273a" id="r_a4578e9848a3b0b7234be576135ae273a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4578e9848a3b0b7234be576135ae273a">city</a> (AddressCountry <a class="el" href="#aeccb6f1381edcf063010684db6c47f66">country</a>=AddressCountry::Usa)</td></tr>
 <tr class="memdesc:a4578e9848a3b0b7234be576135ae273a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random city for given country.  <br /></td></tr>
 <tr class="separator:a4578e9848a3b0b7234be576135ae273a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -277,6 +280,42 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="a3df16f37cc59c77606ffcec78de3d15e" name="a3df16f37cc59c77606ffcec78de3d15e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3df16f37cc59c77606ffcec78de3d15e">&#9670;&#160;</a></span>county()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Location::county </td>
+          <td>(</td>
+          <td class="paramtype">AddressCountry</td>          <td class="paramname"><span class="paramname"><em>country</em><span class="paramdefsep"> = </span><span class="paramdefval">AddressCountry::Usa</span></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a random county for a given country. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">country</td><td>The country to generate county from. Defaults to `Country::Usa`.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>County.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a3df16f37cc59c77606ffcec78de3d15e">Location::county</a>() <span class="comment">// &quot;Adams County&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Location_html_a3df16f37cc59c77606ffcec78de3d15e"><div class="ttname"><a href="#a3df16f37cc59c77606ffcec78de3d15e">faker::Location::county</a></div><div class="ttdeci">static std::string county(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random county for a given country.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="abffa6c9118be753b0f5bdeeb04177a25" name="abffa6c9118be753b0f5bdeeb04177a25"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abffa6c9118be753b0f5bdeeb04177a25">&#9670;&#160;</a></span>direction()</h2>
 
@@ -438,7 +477,7 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns a random state for a given country.. </p>
+<p>Returns a random state for a given country. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">country</td><td>The country to generate state from. Defaults to `Country::Usa`.</td></tr>
@@ -447,7 +486,7 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>State.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a47a85c5d99b4dbd74e3fe82a37d74c25">Location::state</a>() <span class="comment">// &quot;Arizona&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_a47a85c5d99b4dbd74e3fe82a37d74c25"><div class="ttname"><a href="#a47a85c5d99b4dbd74e3fe82a37d74c25">faker::Location::state</a></div><div class="ttdeci">static std::string state(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random state for a given country..</div></div>
+<div class="ttc" id="aclassfaker_1_1Location_html_a47a85c5d99b4dbd74e3fe82a37d74c25"><div class="ttname"><a href="#a47a85c5d99b4dbd74e3fe82a37d74c25">faker::Location::state</a></div><div class="ttdeci">static std::string state(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random state for a given country.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
