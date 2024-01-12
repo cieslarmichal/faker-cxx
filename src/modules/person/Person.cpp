@@ -40,19 +40,20 @@
 #include "data/korea/KoreanPeopleNames.h"
 #include "data/Languages.h"
 #include "data/latvia/LatvianPeopleNames.h"
-#include "data/monaco/MonacanPeopleNames.h"
+#include "data/lebanon/LebanesePeopleNames.h"
 #include "data/lithuania/LithuanianPeopleNames.h"
 #include "data/macedonia/MacedonianPeopleNames.h"
+#include "data/malta/MaltesePeopleNames.h"
 #include "data/mexico/MexicanPeopleNames.h"
 #include "data/moldova/MoldovanPeopleNames.h"
+#include "data/monaco/MonacanPeopleNames.h"
 #include "data/Nationalities.h"
 #include "data/nepal/NepalesePeopleNames.h"
 #include "data/netherlands/DutchPeopleNames.h"
 #include "data/norway/NorwegianPeopleNames.h"
-#include "data/poland/PolishPeopleNames.h"
 #include "data/palestine/PalestinianPeopleNames.h"
+#include "data/poland/PolishPeopleNames.h"
 #include "data/portugal/PortuguesePeopleNames.h"
-#include "data/vietnam/VietnamesePeopleNames.h"
 #include "data/romania/RomanianPeopleNames.h"
 #include "data/russia/RussianPeopleNames.h"
 #include "data/serbia/SerbianPeopleNames.h"
@@ -62,11 +63,11 @@
 #include "data/SsnFormats.h"
 #include "data/sweden/SwedishPeopleNames.h"
 #include "data/switzerland/SwissPeopleNames.h"
+#include "data/syria/SyrianPeopleNames.h"
 #include "data/turkey/TurkishPeopleNames.h"
 #include "data/ukraine/UkrainianPeopleNames.h"
 #include "data/usa/UsaPeopleNames.h"
-#include "data/lebanon/LebanesePeopleNames.h"
-#include "data/syria/SyrianPeopleNames.h"
+#include "data/vietnam/VietnamesePeopleNames.h"
 #include "data/ZodiacSigns.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
@@ -101,11 +102,11 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Belarus, belarusianPeopleNames},    {Country::Estonia, estonianPeopleNames},
     {Country::Albania, albanianPeopleNames},      {Country::Iran, persianPeopleNames},
     {Country::Bulgaria, bulgarianPeopleNames},    {Country::Moldova, moldovanPeopleNames},
-    {Country::Bosnia, bosnianPeopleNames},        {Country::Bosnia, bosnianPeopleNames},
-    {Country::Lithuania, lithuanianPeopleNames},  {Country::Iceland, icelandicPeopleNames},
-    {Country::Palestine, palestinianPeopleNames}, {Country::Israel, israeliPeopleNames},
-    {Country::Vietnam, vietnamesePeopleNames},    {Country::Monaco, monacanPeopleNames},
-    {Country::Lebanon, lebanesePeopleNames},      {Country::Syria, syrianPeopleNames}
+    {Country::Bosnia, bosnianPeopleNames},        {Country::Lithuania, lithuanianPeopleNames},
+    {Country::Iceland, icelandicPeopleNames},     {Country::Palestine, palestinianPeopleNames},
+    {Country::Israel, israeliPeopleNames},        {Country::Vietnam, vietnamesePeopleNames},
+    {Country::Monaco, monacanPeopleNames},        {Country::Lebanon, lebanesePeopleNames},
+    {Country::Syria, syrianPeopleNames},          {Country::Malta, maltesePeopleNames},
 };
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
