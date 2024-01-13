@@ -108,7 +108,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Israel, israeliPeopleNames},        {Country::Vietnam, vietnamesePeopleNames},
     {Country::Monaco, monacanPeopleNames},        {Country::Lebanon, lebanesePeopleNames},
     {Country::Syria, syrianPeopleNames},          {Country::Malta, maltesePeopleNames},
-    {Country::SouthAfrica, southAfricanPeopleNames}};
+    {Country::SouthAfrica, southAfricanPeopleNames},
 };
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
