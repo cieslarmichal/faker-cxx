@@ -64,6 +64,7 @@
 #include "data/sweden/SwedishPeopleNames.h"
 #include "data/switzerland/SwissPeopleNames.h"
 #include "data/syria/SyrianPeopleNames.h"
+#include "data/southAfrica/SouthAfricanPeopleNames.h"
 #include "data/turkey/TurkishPeopleNames.h"
 #include "data/ukraine/UkrainianPeopleNames.h"
 #include "data/usa/UsaPeopleNames.h"
@@ -107,6 +108,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Israel, israeliPeopleNames},        {Country::Vietnam, vietnamesePeopleNames},
     {Country::Monaco, monacanPeopleNames},        {Country::Lebanon, lebanesePeopleNames},
     {Country::Syria, syrianPeopleNames},          {Country::Malta, maltesePeopleNames},
+    {Country::SouthAfrica, southAfricanPeopleNames}};
 };
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
