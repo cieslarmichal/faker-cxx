@@ -18,8 +18,9 @@ const std::vector<std::string> italyBuildingNumberFormats{"###", "##", "#"};
 
 const std::vector<std::string> italyStreetFormats{"{streetPrefix} {firstName}", "{streetPrefix} {lastName}"};
 
-const CountryAddresses italyAddresses{italyCities,
-                                      italyZipCodeFormat,
+const std::vector<std::string> italyCityFormats{"{cityName}"};
+
+const CountryAddresses italyAddresses{italyZipCodeFormat,
                                       italyAddressFormats,
                                       italySecondaryAddressFormats,
                                       italyStreetFormats,
@@ -27,6 +28,10 @@ const CountryAddresses italyAddresses{italyCities,
                                       {},
                                       {},
                                       italyBuildingNumberFormats,
+                                      italyCityFormats,
+                                      {},
+                                      italyCities,
+                                      {},
                                       italyStates,
                                       {}};
 }

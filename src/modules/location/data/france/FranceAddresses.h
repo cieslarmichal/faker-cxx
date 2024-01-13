@@ -18,15 +18,20 @@ const std::vector<std::string> franceSecondaryAddressFormats{"Apt. ###", "Étage
 
 const std::vector<std::string> franceStreetFormats{"{streetPrefix} {streetSuffix}"};
 
-const CountryAddresses franceAddresses{franceCities,
-                                       franceZipCodeFormat,
-                                       franceAddressFormats,
-                                       franceSecondaryAddressFormats,
-                                       franceStreetFormats,
-                                       franceStreetPrefixes,
-                                       {},
-                                       franceStreetSuffixes,
-                                       franceBuildingNumberFormats,
-                                       franceStates,
-                                       {}};
+const std::vector<std::string> franceCityFormats{"{cityName}"};
+
+const CountryAddresses franceAddresses{ franceZipCodeFormat,
+                                        franceAddressFormats,
+                                        franceSecondaryAddressFormats,
+                                        franceStreetFormats,
+                                        franceStreetPrefixes,
+                                        {},
+                                        franceStreetSuffixes,
+                                        franceBuildingNumberFormats,
+                                        franceCityFormats,
+                                        {},
+                                        franceCities,
+                                        {},
+                                        franceStates,
+                                        {}};
 }

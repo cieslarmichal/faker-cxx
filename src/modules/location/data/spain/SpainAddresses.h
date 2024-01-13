@@ -19,8 +19,9 @@ const std::vector<std::string> spainBuildingNumberFormats{"s/n.", "#", "##"};
 
 const std::vector<std::string> spainStreetFormats{"{streetSuffix} {firstName}", "{streetSuffix} {firstName} {lastName}"};
 
-const CountryAddresses spainAddresses{spainCities,
-                                      spainZipCodeFormat,
+const std::vector<std::string> spainCityFormats{"{cityName}"};
+
+const CountryAddresses spainAddresses{spainZipCodeFormat,
                                       spainAddressFormats,
                                       spainSecondaryAddressFormats,
                                       spainStreetFormats,
@@ -28,6 +29,10 @@ const CountryAddresses spainAddresses{spainCities,
                                       {},
                                       spainStreetSuffixes,
                                       spainBuildingNumberFormats,
+                                      spainCityFormats,
+                                      {},
+                                      spainCities,
+                                      {},
                                       spainStates,
                                       spainCounties};
 }
