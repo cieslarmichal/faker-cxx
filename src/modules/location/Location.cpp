@@ -12,6 +12,7 @@
 #include "data/poland/PolandAddresses.h"
 #include "data/italy/ItalyAddresses.h"
 #include "data/russia/RussiaAddresses.h"
+#include "data/brazil/BrazilAddresses.h"
 #include "data/TimeZones.h"
 #include "data/ukraine/UkraineAddresses.h"
 #include "data/germany/GermanyAddresses.h"
@@ -34,6 +35,7 @@ namespace faker
                 {AddressCountry::Germany, germanyAddresses}, {AddressCountry::Czech, czechAddresses},
                 {AddressCountry::Australia, australiaAddresses}, {AddressCountry::India, indiaAddresses},
                 {AddressCountry::Denmark, denmarkAddresses}, {AddressCountry::Spain, spainAddresses},
+                {AddressCountry::Brazil, brazilAddresses}
         };
 
         const std::map<AddressCountry, Country> countryAddressToCountryMapping{
@@ -43,6 +45,7 @@ namespace faker
                 {AddressCountry::Germany, Country::Germany}, {AddressCountry::Czech, Country::Czech},
                 {AddressCountry::Australia, Country::Australia}, {AddressCountry::India, Country::India},
                 {AddressCountry::Denmark, Country::Denmark}, {AddressCountry::Spain, Country::Spain},
+                {AddressCountry::Brazil, Country::Brazil}
         };
     }
 
@@ -76,7 +79,19 @@ namespace faker
     {
         const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-        return Helper::arrayElement<std::string>(countryAddresses.cities);
+        const auto cityFormat = Helper::arrayElement<std::string>(countryAddresses.cityFormats);
+
+        const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
+                {"firstName", [&country]() { return Person::firstName(countryAddressToCountryMapping.at(country)); }},
+                {"lastName", [&country]() { return Person::lastName(countryAddressToCountryMapping.at(country)); }},
+                {"cityName",
+                              [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.cities); }},
+                {"cityPrefix",
+                              [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.cityPrefixes); }},
+                {"citySuffix",
+                              [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.citySuffixes); }}};
+
+        return FormatHelper::fillTokenValues(cityFormat, dataGeneratorsMapping);
     }
 
     std::string Location::zipCode(AddressCountry country)

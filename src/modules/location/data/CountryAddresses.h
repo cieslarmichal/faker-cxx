@@ -7,7 +7,6 @@ namespace faker
 {
 struct CountryAddresses
 {
-    std::vector<std::string> cities;
     std::string zipCodeFormat;
     std::vector<std::string> addressFormats;
     std::vector<std::string> secondaryAddressFormats;
@@ -16,6 +15,10 @@ struct CountryAddresses
     std::vector<std::string> streetNames;
     std::vector<std::string> streetSuffixes;
     std::vector<std::string> buildingNumberFormats;
+    std::vector<std::string> cityFormats;
+    std::vector<std::string> cityPrefixes;
+    std::vector<std::string> cities;
+    std::vector<std::string> citySuffixes;
     std::vector<std::string> states;
     std::vector<std::string> counties;
 };

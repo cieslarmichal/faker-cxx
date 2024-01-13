@@ -21,6 +21,7 @@ namespace faker
         India,
         Denmark,
         Spain,
+        Brazil,
     };
 
     const std::vector<AddressCountry> addressCountries{
@@ -28,6 +29,7 @@ namespace faker
             AddressCountry::Russia, AddressCountry::Ukraine, AddressCountry::Italy,
             AddressCountry::Germany, AddressCountry::Czech,  AddressCountry::India,
             AddressCountry::Denmark, AddressCountry::Australia, AddressCountry::Spain,
+            AddressCountry::Brazil,
     };
 
     inline std::string toString(AddressCountry country)
@@ -37,7 +39,7 @@ namespace faker
                 {AddressCountry::Russia, "Russia"}, {AddressCountry::Ukraine, "Ukraine"}, {AddressCountry::Italy, "Italy"},
                 {AddressCountry::Germany, "Germany"}, {AddressCountry::Czech, "Czech"}, {AddressCountry::Australia, "Australia"},
                 {AddressCountry::India, "India"}, {AddressCountry::Denmark, "Denmark"},
-                {AddressCountry::Spain, "Spain"},
+                {AddressCountry::Spain, "Spain"}, {AddressCountry::Brazil, "Brazil"},
         };
 
         return countryToStringMapping.at(country);
