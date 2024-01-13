@@ -20,15 +20,20 @@ const std::vector<std::string> polandBuildingNumberFormats{"#", "##", "###"};
 
 const std::vector<std::string> polandStreetFormats{"{streetPrefix} {streetName}"};
 
-const CountryAddresses polandAddresses{polandCities,
-                                       polandZipCodeFormat,
-                                       polandAddressFormats,
-                                       polandSecondaryAddressFormats,
-                                       polandStreetFormats,
-                                       polandStreetPrefixes,
-                                       polandStreetNames,
-                                       {},
-                                       polandBuildingNumberFormats,
-                                       polandStates,
-                                       {}};
+const std::vector<std::string> polandCityFormats{"{cityName}"};
+
+const CountryAddresses polandAddresses{ polandZipCodeFormat,
+                                        polandAddressFormats,
+                                        polandSecondaryAddressFormats,
+                                        polandStreetFormats,
+                                        polandStreetPrefixes,
+                                        polandStreetNames,
+                                        {},
+                                        polandBuildingNumberFormats,
+                                        polandCityFormats,
+                                        {},
+                                        polandCities,
+                                        {},
+                                        polandStates,
+                                        {}};
 }

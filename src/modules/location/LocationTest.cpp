@@ -9,6 +9,8 @@
 #include "../person/data/england/EnglishLastNames.h"
 #include "../person/data/spain/SpanishFirstNames.h"
 #include "../person/data/spain/SpanishLastNames.h"
+#include "../person/data/brazil/BrazilianFirstNames.h"
+#include "../person/data/brazil/BrazilianLastNames.h"
 #include "../person/data/russia/RussianFirstNames.h"
 #include "../person/data/russia/RussianLastNames.h"
 #include "../person/data/ukraine/UkrainianFirstNames.h"
@@ -32,6 +34,7 @@
 #include "data/india/IndiaAddresses.h"
 #include "data/denmark/DenmarkAddresses.h"
 #include "data/spain/SpainAddresses.h"
+#include "data/brazil/BrazilAddresses.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -45,6 +48,7 @@ namespace
             {AddressCountry::Germany, germanyAddresses}, {AddressCountry::Czech, czechAddresses},
             {AddressCountry::Australia, australiaAddresses}, {AddressCountry::India, indiaAddresses},
             {AddressCountry::Denmark, denmarkAddresses}, {AddressCountry::Spain, spainAddresses},
+            {AddressCountry::Brazil, brazilAddresses}
     };
 
     const std::map<AddressCountry, std::string> generatedTestName{
@@ -60,6 +64,7 @@ namespace
             {AddressCountry::India, "shouldGenerateIndiaAddress"},
             {AddressCountry::Denmark, "shouldGenerateDenmarkAddress"},
             {AddressCountry::Spain, "shouldGenerateSpainAddress"},
+            {AddressCountry::Brazil, "shouldGenerateBrazilAddress"}
     };
 }
 
@@ -124,8 +129,29 @@ TEST_P(LocationTest, shouldGenerateCity)
 
     const auto generatedCity = Location::city(country);
 
-    ASSERT_TRUE(std::ranges::any_of(countryAddresses.cities,
-                                    [&generatedCity](const std::string& city) { return city == generatedCity; }));
+    if (country == faker::AddressCountry::Brazil)
+    {
+        const auto generatedCityElements = StringHelper::split(generatedCity, " ");
+
+        const auto& generatedCityPrefix = generatedCityElements[0];
+
+        std::vector<std::string> firstNames{brazilianMalesFirstNames};
+        firstNames.insert(firstNames.end(), brazilianFemalesFirstNames.begin(), brazilianFemalesFirstNames.end());
+
+        std::vector<std::string> lastNames{brazilianLastNames};
+
+        ASSERT_TRUE(std::ranges::any_of(firstNames,
+        [&generatedCityPrefix](const std::string& firstName) { return generatedCityPrefix.find(firstName) != std::string::npos; }) ||
+                    std::ranges::any_of(lastNames, 
+        [&generatedCityPrefix](const std::string& lastName) { return generatedCityPrefix.find(lastName) != std::string::npos; }) ||
+                    std::ranges::any_of(brazilCitySuffixes,
+        [&generatedCity](const std::string& citySuffix) { return generatedCity.find(citySuffix) != std::string::npos; }));
+        
+    } else 
+    {
+        ASSERT_TRUE(std::ranges::any_of(countryAddresses.cities,
+                                [&generatedCity](const std::string& city){ return city == generatedCity; }));
+    }
 }
 
 TEST_P(LocationTest, shouldGenerateZipCode)

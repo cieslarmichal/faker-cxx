@@ -20,15 +20,20 @@ const std::vector<std::string> russiaBuildingNumberFormats{"#", "##", "###"};
 const std::vector<std::string> russiaStreetFormats{"{streetPrefix} {firstName}", "{streetPrefix} {lastName}",
                                                    "{streetPrefix} {streetName}"};
 
-const CountryAddresses russiaAddresses{russiaCities,
-                                       russiaZipCodeFormat,
-                                       russiaAddressFormats,
-                                       russiaSecondaryAddressFormats,
-                                       russiaStreetFormats,
-                                       russiaStreetPrefixes,
-                                       russiaStreetNames,
-                                       {},
-                                       russiaBuildingNumberFormats,
-                                       russiaStates,
-                                       {}};
+const std::vector<std::string> russiaCityFormats{"{cityName}"};
+
+const CountryAddresses russiaAddresses{ russiaZipCodeFormat,
+                                        russiaAddressFormats,
+                                        russiaSecondaryAddressFormats,
+                                        russiaStreetFormats,
+                                        russiaStreetPrefixes,
+                                        russiaStreetNames,
+                                        {},
+                                        russiaBuildingNumberFormats,
+                                        russiaCityFormats,
+                                        {},
+                                        russiaCities,
+                                        {},
+                                        russiaStates,
+                                        {}};
 }
