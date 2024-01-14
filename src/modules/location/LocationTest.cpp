@@ -207,11 +207,19 @@ TEST_P(LocationTest, shouldGenerateSecondaryAddress)
             {
                 const auto secondaryAddressElements = StringHelper::split(secondaryAddressFormat, " ");
 
+                const auto generatedSecondaryAddressElements = StringHelper::split(generatedSecondaryAddress, " ");
+
+                if (country == faker::AddressCountry::Finland)
+                {
+                    if (generatedSecondaryAddressElements.size() == 1) 
+                    {
+                        return generatedSecondaryAddress == secondaryAddressFormat;
+                    }
+                }
+
                 const auto& secondaryAddressPrefix = secondaryAddressElements[0];
 
                 const auto& secondaryAddressNumber = secondaryAddressElements[1];
-
-                const auto generatedSecondaryAddressElements = StringHelper::split(generatedSecondaryAddress, " ");
 
                 const auto& generatedSecondaryAddressPrefix = generatedSecondaryAddressElements[0];
 
