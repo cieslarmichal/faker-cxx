@@ -66,6 +66,7 @@ enum class Country
     Malta,
     SouthAfrica,
     Azerbaijan,
+    Ghana,
 };
 
 const std::vector<Country> countries{
@@ -80,7 +81,7 @@ const std::vector<Country> countries{
     Country::Ireland,   Country::Belarus,   Country::Estonia,     Country::Iran,      Country::Bulgaria,
     Country::Moldova,   Country::Lithuania, Country::Iceland,     Country::Palestine, Country::Israel,
     Country::Vietnam,   Country::Monaco,    Country::Bosnia,      Country::Lebanon,   Country::Syria,
-    Country::Malta,     Country::SouthAfrica, Country::Azerbaijan,
+    Country::Malta,     Country::SouthAfrica, Country::Azerbaijan, Country::Ghana,
 };
 
 inline std::string toString(Country country)
@@ -144,6 +145,7 @@ inline std::string toString(Country country)
         {Country::Malta, "Malta"},
         {Country::SouthAfrica, "South Africa"},
         {Country::Azerbaijan, "Azerbaijan"},
+        {Country::Ghana, "Ghana"},
     };
 
     return countryToStringMapping.at(country);
