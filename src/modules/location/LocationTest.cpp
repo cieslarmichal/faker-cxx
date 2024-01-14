@@ -205,17 +205,17 @@ TEST_P(LocationTest, shouldGenerateSecondaryAddress)
             countryAddresses.secondaryAddressFormats,
             [&generatedSecondaryAddress, &country](const std::string& secondaryAddressFormat)
             {
-                const auto secondaryAddressElements = StringHelper::split(secondaryAddressFormat, " ");
-
-                const auto generatedSecondaryAddressElements = StringHelper::split(generatedSecondaryAddress, " ");
-
                 if (country == faker::AddressCountry::Finland)
                 {
-                    if (generatedSecondaryAddressElements.size() == 1) 
+                    if (generatedSecondaryAddress.size() == 1) 
                     {
                         return generatedSecondaryAddress == secondaryAddressFormat;
                     }
                 }
+
+                const auto secondaryAddressElements = StringHelper::split(secondaryAddressFormat, " ");
+
+                const auto generatedSecondaryAddressElements = StringHelper::split(generatedSecondaryAddress, " ");
 
                 const auto& secondaryAddressPrefix = secondaryAddressElements[0];
 
