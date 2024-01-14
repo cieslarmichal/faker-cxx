@@ -12,6 +12,7 @@
 #include "data/poland/PolandAddresses.h"
 #include "data/italy/ItalyAddresses.h"
 #include "data/russia/RussiaAddresses.h"
+#include "data/finland/FinlandAddresses.h"
 #include "data/brazil/BrazilAddresses.h"
 #include "data/TimeZones.h"
 #include "data/ukraine/UkraineAddresses.h"
@@ -35,7 +36,7 @@ namespace faker
                 {AddressCountry::Germany, germanyAddresses}, {AddressCountry::Czech, czechAddresses},
                 {AddressCountry::Australia, australiaAddresses}, {AddressCountry::India, indiaAddresses},
                 {AddressCountry::Denmark, denmarkAddresses}, {AddressCountry::Spain, spainAddresses},
-                {AddressCountry::Brazil, brazilAddresses}
+                {AddressCountry::Brazil, brazilAddresses},   {AddressCountry::Finland, finlandAddresses},
         };
 
         const std::map<AddressCountry, Country> countryAddressToCountryMapping{
@@ -45,7 +46,7 @@ namespace faker
                 {AddressCountry::Germany, Country::Germany}, {AddressCountry::Czech, Country::Czech},
                 {AddressCountry::Australia, Country::Australia}, {AddressCountry::India, Country::India},
                 {AddressCountry::Denmark, Country::Denmark}, {AddressCountry::Spain, Country::Spain},
-                {AddressCountry::Brazil, Country::Brazil}
+                {AddressCountry::Brazil, Country::Brazil},   {AddressCountry::Finland, Country::Finland},
         };
     }
 
