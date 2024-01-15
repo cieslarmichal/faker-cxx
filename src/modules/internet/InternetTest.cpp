@@ -7,10 +7,11 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
 #include "../person/data/england/EnglishFirstNames.h"
 #include "../person/data/england/EnglishLastNames.h"
+#include "../person/data/romania/RomanianFirstNames.h"
+#include "../person/data/romania/RomanianLastNames.h"
 #include "../string/data/Characters.h"
 #include "../word/data/Adjectives.h"
 #include "../word/data/Nouns.h"
@@ -151,6 +152,21 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFullNameProvided)
 
     ASSERT_TRUE(username.find(firstName) != std::string::npos);
     ASSERT_TRUE(username.find(lastName) != std::string::npos);
+}
+
+TEST_F(InternetTest, shouldGenerateInternationalUsernames)
+{
+    std::vector<std::string> romanianFirstNames{romanianMalesFirstNames};
+
+    romanianFirstNames.insert(romanianFirstNames.end(), romanianFemalesFirstNames.begin(), romanianFemalesFirstNames.end());
+  
+    const auto username = Internet::username(std::nullopt, std::nullopt, Country::Romania);
+
+    ASSERT_TRUE(std::ranges::any_of(romanianFirstNames, [username](const std::string& romanianFirstName)
+                                    { return username.find(romanianFirstName) != std::string::npos; }));
+
+    ASSERT_TRUE(std::ranges::any_of(romanianLastNames, [username](const std::string& romanianLastName)
+                                    { return username.find(romanianLastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmail)

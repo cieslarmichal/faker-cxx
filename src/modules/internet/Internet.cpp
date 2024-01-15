@@ -17,6 +17,7 @@
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
+#include "faker-cxx/types/Country.h"
 
 namespace faker
 {
@@ -54,11 +55,10 @@ const std::map<EmojiType, std::vector<std::string>> emojiTypeToEmojisMapping{
 };
 }
 
-// TODO: add internalization
-std::string Internet::username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit)
+std::string Internet::username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit, Country country)
 {
-    const auto firstName = firstNameInit ? *firstNameInit : Person::firstName();
-    const auto lastName = lastNameInit ? *lastNameInit : Person::lastName();
+    const auto firstName = firstNameInit ? *firstNameInit : Person::firstName(country);
+    const auto lastName = lastNameInit ? *lastNameInit : Person::lastName(country);
 
     std::string username;
 
