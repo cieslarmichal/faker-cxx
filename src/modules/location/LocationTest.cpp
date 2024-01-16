@@ -21,6 +21,8 @@
 #include "../person/data/australia/AustralianLastNames.h"
 #include "../person/data/finland/FinnishFirstNames.h"
 #include "../person/data/finland/FinnishLastNames.h"
+#include "../person/data/estonia/EstonianFirstNames.h"
+#include "../person/data/estonia/EstonianLastNames.h"
 #include "../string/data/Characters.h"
 #include "data/Countries.h"
 #include "data/CountryAddresses.h"
@@ -40,6 +42,7 @@
 #include "data/spain/SpainAddresses.h"
 #include "data/brazil/BrazilAddresses.h"
 #include "data/finland/FinlandAddresses.h"
+#include "data/estonia/EstoniaAddresses.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -54,6 +57,7 @@ namespace
             {AddressCountry::Australia, australiaAddresses}, {AddressCountry::India, indiaAddresses},
             {AddressCountry::Denmark, denmarkAddresses}, {AddressCountry::Spain, spainAddresses},
             {AddressCountry::Brazil, brazilAddresses},   {AddressCountry::Finland, finlandAddresses},
+            {AddressCountry::Estonia, estoniaAddresses}, 
     };
 
     const std::map<AddressCountry, std::string> generatedTestName{
@@ -71,6 +75,7 @@ namespace
             {AddressCountry::Spain, "shouldGenerateSpainAddress"},
             {AddressCountry::Brazil, "shouldGenerateBrazilAddress"},
             {AddressCountry::Finland, "shouldGenerateFinlandAddress"},
+            {AddressCountry::Estonia, "shouldGenerateEstoniaAddress"},
     };
 }
 
@@ -790,4 +795,21 @@ TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
     { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
                 std::ranges::any_of(lastNames, [&generatedStreetAddress](const std::string& lastName)
                 { return generatedStreetAddress.find(lastName) != std::string::npos; }));
+}
+
+
+TEST_F(LocationTest, shouldGenerateEstoniaStreet)
+{
+    const auto generatedStreet = Location::street(AddressCountry::Estonia);
+
+    ASSERT_TRUE(std::ranges::any_of(estoniaStreetNames, [&generatedStreet](const std::string& streetName)
+    { return streetName == generatedStreet; }));
+}
+
+TEST_F(LocationTest, shouldGenerateEstoniaStreetAddress)
+{
+    const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Estonia);
+
+    ASSERT_TRUE(std::ranges::any_of(estoniaStreetNames, [&generatedStreetAddress](const std::string& streetName)
+    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }

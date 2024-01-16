@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> finlandStates  {
+const std::vector<std::string> estoniaCounties  {
 
     "Harju",
     "Hiiu",
