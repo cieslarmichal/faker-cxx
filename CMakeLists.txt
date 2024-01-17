@@ -114,7 +114,7 @@ target_include_directories(
     PRIVATE "${CMAKE_CURRENT_LIST_DIR}/include")
 
 if(APPLE OR (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION
-                                                      VERSION_LESS 12))
+                                                      VERSION_LESS 12) OR MSVC OR (CMAKE_CXX_COMPILER_ID STREQUAL "Clang"))
 
     add_subdirectory(externals/fmt)
     set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
