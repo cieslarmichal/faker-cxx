@@ -6,18 +6,18 @@
 namespace faker
 {
 const std::vector<std::string> estoniaStreetNames{
-"Laagna tee",
+"Laagna",
 "Punane",
 "Paepargi",
 "Pae",
-"Peterburi tee",
+"Peterburi",
 "Valukoja",
 "Betooni",
-"Sõpruse pst",
-"Mustamäe tee",
+"Sõpruse",
+"Mustamäe",
 "Tuisu",
 "Külmallika",
-"Tammi tee",
+"Tammi",
 "Koore",
 "Kuubi",
 "Okka",

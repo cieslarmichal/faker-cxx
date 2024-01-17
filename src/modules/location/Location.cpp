@@ -24,6 +24,7 @@
 #include "faker-cxx/String.h"
 #include "data/india/IndiaAddresses.h"
 #include "data/denmark/DenmarkAddresses.h"
+#include "data/estonia/EstoniaAddresses.h"
 
 namespace faker
 {
@@ -37,6 +38,7 @@ namespace faker
                 {AddressCountry::Australia, australiaAddresses}, {AddressCountry::India, indiaAddresses},
                 {AddressCountry::Denmark, denmarkAddresses}, {AddressCountry::Spain, spainAddresses},
                 {AddressCountry::Brazil, brazilAddresses},   {AddressCountry::Finland, finlandAddresses},
+                {AddressCountry::Estonia, estoniaAddresses},
         };
 
         const std::map<AddressCountry, Country> countryAddressToCountryMapping{
@@ -47,6 +49,7 @@ namespace faker
                 {AddressCountry::Australia, Country::Australia}, {AddressCountry::India, Country::India},
                 {AddressCountry::Denmark, Country::Denmark}, {AddressCountry::Spain, Country::Spain},
                 {AddressCountry::Brazil, Country::Brazil},   {AddressCountry::Finland, Country::Finland},
+                 {AddressCountry::Estonia, Country::Estonia},
         };
     }
 

@@ -139,12 +139,13 @@ if(BUILD_FAKER_TESTS)
 
     add_executable(${LIBRARY_NAME}-UT ${FAKER_UT_SOURCES})
 
-    target_link_libraries(${LIBRARY_NAME}-UT PRIVATE fmt gtest_main gmock_main
+    target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
                                                      faker-cxx)
 
     if(APPLE OR (CMAKE_CXX_COMPILER_ID STREQUAL "GNU"
                  AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 12))
-        message(STATUS , "format library is included")
+
+        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE fmt)
         target_include_directories(
             ${LIBRARY_NAME}-UT
             PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}

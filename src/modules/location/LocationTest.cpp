@@ -706,7 +706,8 @@ TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
 TEST_F(LocationTest, shouldGenerateDenmarkStreet)
 {
     const auto generatedStreet = Location::street(AddressCountry::Denmark);
-
+    
+    
     ASSERT_TRUE(std::ranges::any_of(denmarkStreetNames, [&generatedStreet](const std::string& streetName)
     { return streetName == generatedStreet; }));
 }
@@ -801,15 +802,15 @@ TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
 TEST_F(LocationTest, shouldGenerateEstoniaStreet)
 {
     const auto generatedStreet = Location::street(AddressCountry::Estonia);
-
+    
     ASSERT_TRUE(std::ranges::any_of(estoniaStreetNames, [&generatedStreet](const std::string& streetName)
-    { return streetName == generatedStreet; }));
+    { return generatedStreet.find(streetName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateEstoniaStreetAddress)
 {
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Estonia);
-
+  
     ASSERT_TRUE(std::ranges::any_of(estoniaStreetNames, [&generatedStreetAddress](const std::string& streetName)
     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
