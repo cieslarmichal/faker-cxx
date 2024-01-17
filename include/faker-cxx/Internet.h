@@ -3,6 +3,7 @@
 #include <array>
 #include <optional>
 #include <string>
+
 #include "types/Country.h"
 #include "types/EmojiType.h"
 
@@ -57,8 +58,7 @@ public:
      * @endcode
      */
     static std::string username(std::optional<std::string> firstName = std::nullopt,
-                                std::optional<std::string> lastName = std::nullopt,
-                                Country country = Country::Usa);
+                                std::optional<std::string> lastName = std::nullopt, Country country = Country::Usa);
 
     /**
      * @brief Generates an email address using the given person's name as base.

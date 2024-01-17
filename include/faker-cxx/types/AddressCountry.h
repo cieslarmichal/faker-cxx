@@ -22,7 +22,8 @@ namespace faker
         Denmark,
         Spain,
         Brazil,
-        Finland
+        Finland,
+        Estonia
     };
 
     const std::vector<AddressCountry> addressCountries{
