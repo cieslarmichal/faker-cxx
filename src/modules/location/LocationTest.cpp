@@ -5,78 +5,85 @@
 #include "gtest/gtest.h"
 
 #include "../../common/StringHelper.h"
-#include "../person/data/england/EnglishFirstNames.h"
-#include "../person/data/england/EnglishLastNames.h"
-#include "../person/data/spain/SpanishFirstNames.h"
-#include "../person/data/spain/SpanishLastNames.h"
-#include "../person/data/brazil/BrazilianFirstNames.h"
-#include "../person/data/brazil/BrazilianLastNames.h"
-#include "../person/data/russia/RussianFirstNames.h"
-#include "../person/data/russia/RussianLastNames.h"
-#include "../person/data/ukraine/UkrainianFirstNames.h"
-#include "../person/data/ukraine/UkrainianLastNames.h"
-#include "../person/data/italy/ItalianFirstNames.h"
-#include "../person/data/italy/ItalianLastNames.h"
 #include "../person/data/australia/AustralianFirstNames.h"
 #include "../person/data/australia/AustralianLastNames.h"
-#include "../person/data/finland/FinnishFirstNames.h"
-#include "../person/data/finland/FinnishLastNames.h"
+#include "../person/data/brazil/BrazilianFirstNames.h"
+#include "../person/data/brazil/BrazilianLastNames.h"
+#include "../person/data/england/EnglishFirstNames.h"
+#include "../person/data/england/EnglishLastNames.h"
 #include "../person/data/estonia/EstonianFirstNames.h"
 #include "../person/data/estonia/EstonianLastNames.h"
+#include "../person/data/finland/FinnishFirstNames.h"
+#include "../person/data/finland/FinnishLastNames.h"
+#include "../person/data/italy/ItalianFirstNames.h"
+#include "../person/data/italy/ItalianLastNames.h"
+#include "../person/data/russia/RussianFirstNames.h"
+#include "../person/data/russia/RussianLastNames.h"
+#include "../person/data/spain/SpanishFirstNames.h"
+#include "../person/data/spain/SpanishLastNames.h"
+#include "../person/data/ukraine/UkrainianFirstNames.h"
+#include "../person/data/ukraine/UkrainianLastNames.h"
 #include "../string/data/Characters.h"
+#include "data/australia/AustraliaAddresses.h"
+#include "data/brazil/BrazilAddresses.h"
 #include "data/Countries.h"
 #include "data/CountryAddresses.h"
-#include "data/Directions.h"
-#include "data/australia/AustraliaAddresses.h"
 #include "data/czech/CzechAddresses.h"
+#include "data/denmark/DenmarkAddresses.h"
+#include "data/Directions.h"
+#include "data/estonia/EstoniaAddresses.h"
+#include "data/finland/FinlandAddresses.h"
 #include "data/france/FranceAddresses.h"
+#include "data/germany/GermanyAddresses.h"
+#include "data/india/IndiaAddresses.h"
+#include "data/italy/ItalyAddresses.h"
 #include "data/poland/PolandAddresses.h"
 #include "data/russia/RussiaAddresses.h"
+#include "data/spain/SpainAddresses.h"
 #include "data/TimeZones.h"
 #include "data/ukraine/UkraineAddresses.h"
-#include "data/italy/ItalyAddresses.h"
-#include "data/germany/GermanyAddresses.h"
 #include "data/usa/UsaAddresses.h"
-#include "data/india/IndiaAddresses.h"
-#include "data/denmark/DenmarkAddresses.h"
-#include "data/spain/SpainAddresses.h"
-#include "data/brazil/BrazilAddresses.h"
-#include "data/finland/FinlandAddresses.h"
-#include "data/estonia/EstoniaAddresses.h"
 
 using namespace ::testing;
 using namespace faker;
 
 namespace
 {
-    const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
-            {AddressCountry::Usa, usaAddresses},         {AddressCountry::Poland, polandAddresses},
-            {AddressCountry::Russia, russiaAddresses},   {AddressCountry::France, franceAddresses},
-            {AddressCountry::Ukraine, ukraineAddresses}, {AddressCountry::Italy, italyAddresses},
-            {AddressCountry::Germany, germanyAddresses}, {AddressCountry::Czech, czechAddresses},
-            {AddressCountry::Australia, australiaAddresses}, {AddressCountry::India, indiaAddresses},
-            {AddressCountry::Denmark, denmarkAddresses}, {AddressCountry::Spain, spainAddresses},
-            {AddressCountry::Brazil, brazilAddresses},   {AddressCountry::Finland, finlandAddresses},
-            {AddressCountry::Estonia, estoniaAddresses}, 
-    };
+const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
+    {AddressCountry::Usa, usaAddresses},
+    {AddressCountry::Poland, polandAddresses},
+    {AddressCountry::Russia, russiaAddresses},
+    {AddressCountry::France, franceAddresses},
+    {AddressCountry::Ukraine, ukraineAddresses},
+    {AddressCountry::Italy, italyAddresses},
+    {AddressCountry::Germany, germanyAddresses},
+    {AddressCountry::Czech, czechAddresses},
+    {AddressCountry::Australia, australiaAddresses},
+    {AddressCountry::India, indiaAddresses},
+    {AddressCountry::Denmark, denmarkAddresses},
+    {AddressCountry::Spain, spainAddresses},
+    {AddressCountry::Brazil, brazilAddresses},
+    {AddressCountry::Finland, finlandAddresses},
+    {AddressCountry::Estonia, estoniaAddresses},
+};
 
-    const std::map<AddressCountry, std::string> generatedTestName{
-            {AddressCountry::Usa, "shouldGenerateAmericanAddress"},
-            {AddressCountry::France, "shouldGenerateFrenchAddress"},
-            {AddressCountry::Poland, "shouldGeneratePolishAddress"},
-            {AddressCountry::Russia, "shouldGenerateRussianAddress"},
-            {AddressCountry::Ukraine, "shouldGenerateUkrainianAddress"},
-            {AddressCountry::Italy, "shouldGenerateItalianAddress"},
-            {AddressCountry::Germany, "shouldGenerateGermanAddress"},
-            {AddressCountry::Czech, "shouldGenerateCzechAddress"},
-            {AddressCountry::Australia, "shouldGenerateAustraliaAddress"},
-            {AddressCountry::India, "shouldGenerateIndiaAddress"},
-            {AddressCountry::Denmark, "shouldGenerateDenmarkAddress"},
-            {AddressCountry::Spain, "shouldGenerateSpainAddress"},
-            {AddressCountry::Brazil, "shouldGenerateBrazilAddress"},
-            {AddressCountry::Finland, "shouldGenerateFinlandAddress"},
-            {AddressCountry::Estonia, "shouldGenerateEstoniaAddress"},
-    };
+const std::map<AddressCountry, std::string> generatedTestName{
+    {AddressCountry::Usa, "shouldGenerateAmericanAddress"},
+    {AddressCountry::France, "shouldGenerateFrenchAddress"},
+    {AddressCountry::Poland, "shouldGeneratePolishAddress"},
+    {AddressCountry::Russia, "shouldGenerateRussianAddress"},
+    {AddressCountry::Ukraine, "shouldGenerateUkrainianAddress"},
+    {AddressCountry::Italy, "shouldGenerateItalianAddress"},
+    {AddressCountry::Germany, "shouldGenerateGermanAddress"},
+    {AddressCountry::Czech, "shouldGenerateCzechAddress"},
+    {AddressCountry::Australia, "shouldGenerateAustraliaAddress"},
+    {AddressCountry::India, "shouldGenerateIndiaAddress"},
+    {AddressCountry::Denmark, "shouldGenerateDenmarkAddress"},
+    {AddressCountry::Spain, "shouldGenerateSpainAddress"},
+    {AddressCountry::Brazil, "shouldGenerateBrazilAddress"},
+    {AddressCountry::Finland, "shouldGenerateFinlandAddress"},
+    {AddressCountry::Estonia, "shouldGenerateEstoniaAddress"},
+};
 }
 
 class LocationTest : public TestWithParam<AddressCountry>
@@ -105,6 +112,12 @@ public:
                                                                   { return numericCharacter == dataCharacter; });
                                    });
     }
+
+    static bool checkIfCharacterIsNumeric(char character)
+    {
+        return std::ranges::any_of(numericCharacters,
+                                   [character](char numericCharacter) { return numericCharacter == character; });
+    }
 };
 
 TEST_P(LocationTest, shouldGenerateCounty)
@@ -115,8 +128,8 @@ TEST_P(LocationTest, shouldGenerateCounty)
 
     const auto generatedCounty = Location::county(country);
 
-    ASSERT_TRUE(std::ranges::any_of(countryAddresses.counties,
-                                    [&generatedCounty](const std::string& county) { return county == generatedCounty; }) ||
+    ASSERT_TRUE(std::ranges::any_of(countryAddresses.counties, [&generatedCounty](const std::string& county)
+                                    { return county == generatedCounty; }) ||
                 (countryAddresses.counties.empty() && generatedCounty.empty()));
 }
 
@@ -151,17 +164,17 @@ TEST_P(LocationTest, shouldGenerateCity)
 
         std::vector<std::string> lastNames{brazilianLastNames};
 
-        ASSERT_TRUE(std::ranges::any_of(firstNames,
-        [&generatedCityPrefix](const std::string& firstName) { return generatedCityPrefix.find(firstName) != std::string::npos; }) ||
-                    std::ranges::any_of(lastNames, 
-        [&generatedCityPrefix](const std::string& lastName) { return generatedCityPrefix.find(lastName) != std::string::npos; }) ||
-                    std::ranges::any_of(brazilCitySuffixes,
-        [&generatedCity](const std::string& citySuffix) { return generatedCity.find(citySuffix) != std::string::npos; }));
-        
-    } else 
+        ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedCityPrefix](const std::string& firstName)
+                                        { return generatedCityPrefix.find(firstName) != std::string::npos; }) ||
+                    std::ranges::any_of(lastNames, [&generatedCityPrefix](const std::string& lastName)
+                                        { return generatedCityPrefix.find(lastName) != std::string::npos; }) ||
+                    std::ranges::any_of(brazilCitySuffixes, [&generatedCity](const std::string& citySuffix)
+                                        { return generatedCity.find(citySuffix) != std::string::npos; }));
+    }
+    else
     {
         ASSERT_TRUE(std::ranges::any_of(countryAddresses.cities,
-                                [&generatedCity](const std::string& city){ return city == generatedCity; }));
+                                        [&generatedCity](const std::string& city) { return city == generatedCity; }));
     }
 }
 
@@ -185,16 +198,35 @@ TEST_P(LocationTest, shouldGenerateBuildingNumber)
 
     const auto generatedBuildingNumber = Location::buildingNumber(country);
 
-    const auto generatedBuildingNumberExceptLastCharacter = generatedBuildingNumber.substr(
-            0, generatedBuildingNumber.size() - 1);
+    const auto generatedBuildingNumberExceptLastCharacter =
+        generatedBuildingNumber.substr(0, generatedBuildingNumber.size() - 1);
 
-    ASSERT_TRUE(std::ranges::any_of(countryAddresses.buildingNumberFormats,
-                                    [&generatedBuildingNumber](const std::string& buildingNumberFormat)
-                                    { return buildingNumberFormat.size() == generatedBuildingNumber.size(); }));
+    ASSERT_TRUE(
+        std::ranges::any_of(countryAddresses.buildingNumberFormats,
+                            [&generatedBuildingNumber](const std::string& buildingNumberFormat)
+                            {
+                                for (std::size_t i = 0; i < buildingNumberFormat.size(); i++)
+                                {
+                                    if (buildingNumberFormat[i] == '#')
+                                    {
+                                        const auto isNumeric = checkIfCharacterIsNumeric(generatedBuildingNumber[i]);
 
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber) ||
-                checkIfAllCharactersAreNumeric(generatedBuildingNumberExceptLastCharacter) ||
-                generatedBuildingNumber == spainAddresses.buildingNumberFormats[0]);
+                                        if (!isNumeric)
+                                        {
+                                            return false;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        if (generatedBuildingNumber.find(buildingNumberFormat[i]) == std::string::npos)
+                                        {
+                                            return false;
+                                        }
+                                    }
+                                }
+
+                                return true;
+                            }));
 }
 
 TEST_P(LocationTest, shouldGenerateSecondaryAddress)
@@ -206,51 +238,32 @@ TEST_P(LocationTest, shouldGenerateSecondaryAddress)
     const auto generatedSecondaryAddress = Location::secondaryAddress(country);
 
     ASSERT_TRUE((countryAddresses.secondaryAddressFormats.empty() && generatedSecondaryAddress.empty()) ||
-        std::ranges::any_of(
-            countryAddresses.secondaryAddressFormats,
-            [&generatedSecondaryAddress, &country](const std::string& secondaryAddressFormat)
-            {
-                if (country == faker::AddressCountry::Finland)
-                {
-                    if (generatedSecondaryAddress.size() == 1) 
+                std::ranges::any_of(
+                    countryAddresses.secondaryAddressFormats,
+                    [&generatedSecondaryAddress](const std::string& secondaryAddressFormat)
                     {
-                        return generatedSecondaryAddress == secondaryAddressFormat;
-                    }
-                }
+                        for (std::size_t i = 0; i < secondaryAddressFormat.size(); i++)
+                        {
+                            if (secondaryAddressFormat[i] == '#')
+                            {
+                                const auto isNumeric = checkIfCharacterIsNumeric(generatedSecondaryAddress[i]);
 
-                const auto secondaryAddressElements = StringHelper::split(secondaryAddressFormat, " ");
+                                if (!isNumeric)
+                                {
+                                    return false;
+                                }
+                            }
+                            else
+                            {
+                                if (generatedSecondaryAddress.find(secondaryAddressFormat[i]) == std::string::npos)
+                                {
+                                    return false;
+                                }
+                            }
+                        }
 
-                const auto generatedSecondaryAddressElements = StringHelper::split(generatedSecondaryAddress, " ");
-
-                const auto& secondaryAddressPrefix = secondaryAddressElements[0];
-
-                const auto& secondaryAddressNumber = secondaryAddressElements[1];
-
-                const auto& generatedSecondaryAddressPrefix = generatedSecondaryAddressElements[0];
-
-                const auto& generatedSecondaryAddressNumber = generatedSecondaryAddressElements[1];
-
-                if (country == faker::AddressCountry::Denmark)
-                {
-                    const auto generatedSecondaryAddressNumberPart = generatedSecondaryAddressPrefix.substr(
-                            0, generatedSecondaryAddressPrefix.size() - 1);
-                    return generatedSecondaryAddressNumber == secondaryAddressNumber &&
-                            generatedSecondaryAddress.size() == secondaryAddressFormat.size() &&
-                            checkIfAllCharactersAreNumeric(generatedSecondaryAddressNumberPart);
-                }
-                else if (country == faker::AddressCountry::Germany)
-                {
-                    if (checkIfAllCharactersAreNumeric(generatedSecondaryAddressPrefix))
-                    {
-                        return generatedSecondaryAddressNumber == secondaryAddressNumber &&
-                               generatedSecondaryAddress.size() == secondaryAddressFormat.size();
-                    }
-                }
-
-                return generatedSecondaryAddressPrefix == secondaryAddressPrefix &&
-                       checkIfAllCharactersAreNumeric(generatedSecondaryAddressNumber) &&
-                       generatedSecondaryAddress.size() == secondaryAddressFormat.size();
-            }));
+                        return true;
+                    }));
 }
 
 INSTANTIATE_TEST_SUITE_P(TestLocationByCountries, LocationTest, ValuesIn(addressCountries),
@@ -270,11 +283,11 @@ TEST_F(LocationTest, shouldGenerateUsaStreet)
 
     ASSERT_EQ(generatedStreetElements.size(), 2);
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedFirstOrLastName](const std::string& firstName)
-    { return firstName == generatedFirstOrLastName; }) ||
+                                    { return firstName == generatedFirstOrLastName; }) ||
                 std::ranges::any_of(englishLastNames, [&generatedFirstOrLastName](const std::string& lastName)
-                { return lastName == generatedFirstOrLastName; }));
+                                    { return lastName == generatedFirstOrLastName; }));
     ASSERT_TRUE(std::ranges::any_of(usaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
-    { return streetSuffix == generatedStreetSuffix; }));
+                                    { return streetSuffix == generatedStreetSuffix; }));
 }
 
 TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
@@ -294,11 +307,11 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
     ASSERT_TRUE(generatedBuildingNumber.size() >= 3 && generatedBuildingNumber.size() <= 5);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedFirstOrLastName](const std::string& firstName)
-    { return firstName == generatedFirstOrLastName; }) ||
+                                    { return firstName == generatedFirstOrLastName; }) ||
                 std::ranges::any_of(englishLastNames, [&generatedFirstOrLastName](const std::string& lastName)
-                { return lastName == generatedFirstOrLastName; }));
+                                    { return lastName == generatedFirstOrLastName; }));
     ASSERT_TRUE(std::ranges::any_of(usaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
-    { return streetSuffix == generatedStreetSuffix; }));
+                                    { return streetSuffix == generatedStreetSuffix; }));
 }
 
 TEST_F(LocationTest, shouldGeneratePolandStreet)
@@ -309,12 +322,12 @@ TEST_F(LocationTest, shouldGeneratePolandStreet)
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetName =
-            StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     ASSERT_TRUE(std::ranges::any_of(polandStreetPrefixes, [&generatedStreetPrefix](const std::string& streetPrefix)
-    { return streetPrefix == generatedStreetPrefix; }));
+                                    { return streetPrefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(polandStreetNames, [&generatedStreetName](const std::string& streetName)
-    { return streetName == generatedStreetName; }));
+                                    { return streetName == generatedStreetName; }));
 }
 
 TEST_F(LocationTest, shouldGeneratePolandStreetAddress)
@@ -322,9 +335,9 @@ TEST_F(LocationTest, shouldGeneratePolandStreetAddress)
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Poland);
 
     ASSERT_TRUE(std::ranges::any_of(polandStreetPrefixes, [&generatedStreetAddress](const std::string& prefix)
-    { return generatedStreetAddress.find(prefix) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(prefix) != std::string::npos; }));
     ASSERT_TRUE(std::ranges::any_of(polandStreetNames, [&generatedStreetAddress](const std::string& street)
-    { return generatedStreetAddress.find(street) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(street) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateRussiaStreet)
@@ -335,7 +348,7 @@ TEST_F(LocationTest, shouldGenerateRussiaStreet)
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix =
-            StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     std::vector<std::string> firstNames{russianMalesFirstNames};
     firstNames.insert(firstNames.end(), russianFemalesFirstNames.begin(), russianFemalesFirstNames.end());
@@ -344,13 +357,13 @@ TEST_F(LocationTest, shouldGenerateRussiaStreet)
     firstNames.insert(firstNames.end(), russianFemalesLastNames.begin(), russianFemalesLastNames.end());
 
     ASSERT_TRUE(std::ranges::any_of(russiaStreetPrefixes, [&generatedStreetPrefix](const std::string& streetPrefix)
-    { return streetPrefix == generatedStreetPrefix; }));
+                                    { return streetPrefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetSuffix](const std::string& firstName)
-    { return firstName == generatedStreetSuffix; }) ||
+                                    { return firstName == generatedStreetSuffix; }) ||
                 std::ranges::any_of(lastNames, [&generatedStreetSuffix](const std::string& lastName)
-                { return lastName == generatedStreetSuffix; }) ||
+                                    { return lastName == generatedStreetSuffix; }) ||
                 std::ranges::any_of(russiaStreetNames, [&generatedStreetSuffix](const std::string& streetName)
-                { return streetName == generatedStreetSuffix; }));
+                                    { return streetName == generatedStreetSuffix; }));
 }
 
 TEST_F(LocationTest, shouldGenerateRussiaStreetAddress)
@@ -364,13 +377,13 @@ TEST_F(LocationTest, shouldGenerateRussiaStreetAddress)
     lastNames.insert(lastNames.end(), russianFemalesLastNames.begin(), russianFemalesLastNames.end());
 
     ASSERT_TRUE(std::ranges::any_of(russiaStreetPrefixes, [&generatedStreetAddress](const std::string& prefix)
-    { return generatedStreetAddress.find(prefix) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(prefix) != std::string::npos; }));
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string& firstName)
-    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
+                                    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
                 std::ranges::any_of(lastNames, [&generatedStreetAddress](const std::string& lastName)
-                { return generatedStreetAddress.find(lastName) != std::string::npos; }) ||
+                                    { return generatedStreetAddress.find(lastName) != std::string::npos; }) ||
                 std::ranges::any_of(russiaStreetNames, [&generatedStreetAddress](const std::string& streetName)
-                { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateFranceStreet)
@@ -381,13 +394,13 @@ TEST_F(LocationTest, shouldGenerateFranceStreet)
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix =
-            StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     ASSERT_GE(generatedStreetElements.size(), 2);
     ASSERT_TRUE(std::ranges::any_of(franceStreetPrefixes, [&generatedStreetPrefix](const std::string& streetPrefix)
-    { return streetPrefix == generatedStreetPrefix; }));
+                                    { return streetPrefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(franceStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
-    { return streetSuffix == generatedStreetSuffix; }));
+                                    { return streetSuffix == generatedStreetSuffix; }));
 }
 
 TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
@@ -399,15 +412,15 @@ TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedStreetPrefix = generatedStreetAddressElements[1];
     const auto& generatedStreetSuffix =
-            StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
+        StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
 
     ASSERT_GE(generatedStreetAddressElements.size(), 3);
     ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 4);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
     ASSERT_TRUE(std::ranges::any_of(franceStreetPrefixes, [&generatedStreetPrefix](const std::string& streetPrefix)
-    { return streetPrefix == generatedStreetPrefix; }));
+                                    { return streetPrefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(franceStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
-    { return streetSuffix == generatedStreetSuffix; }));
+                                    { return streetSuffix == generatedStreetSuffix; }));
 }
 
 TEST_F(LocationTest, shouldGenerateCountry)
@@ -415,7 +428,7 @@ TEST_F(LocationTest, shouldGenerateCountry)
     const auto generatedCountry = Location::country();
 
     ASSERT_TRUE(std::ranges::any_of(allCountries, [generatedCountry](const std::string& country)
-    { return country == generatedCountry; }));
+                                    { return country == generatedCountry; }));
 }
 
 TEST_F(LocationTest, shouldGenerateCountryCode)
@@ -423,7 +436,7 @@ TEST_F(LocationTest, shouldGenerateCountryCode)
     const auto generatedCountryCode = Location::countryCode();
 
     ASSERT_TRUE(std::ranges::any_of(countryCodes, [generatedCountryCode](const std::string& countryCode)
-    { return countryCode == generatedCountryCode; }));
+                                    { return countryCode == generatedCountryCode; }));
 }
 
 TEST_F(LocationTest, shouldGenerateLatitude)
@@ -491,7 +504,7 @@ TEST_F(LocationTest, shouldGenerateDirection)
     const auto generatedDirection = Location::direction();
 
     ASSERT_TRUE(std::ranges::any_of(directions, [generatedDirection](const std::string& direction)
-    { return direction == generatedDirection; }));
+                                    { return direction == generatedDirection; }));
 }
 
 TEST_F(LocationTest, shouldGenerateTimeZone)
@@ -499,7 +512,7 @@ TEST_F(LocationTest, shouldGenerateTimeZone)
     const auto generatedTimeZone = Location::timeZone();
 
     ASSERT_TRUE(std::ranges::any_of(timeZones, [generatedTimeZone](const std::string& timeZone)
-    { return timeZone == generatedTimeZone; }));
+                                    { return timeZone == generatedTimeZone; }));
 }
 
 TEST_F(LocationTest, shouldGenerateUkraineStreet)
@@ -510,10 +523,10 @@ TEST_F(LocationTest, shouldGenerateUkraineStreet)
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix =
-            StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     ASSERT_TRUE(std::ranges::any_of(ukraineStreetPrefixes, [&generatedStreetPrefix](const std::string& streetPrefix)
-    { return streetPrefix == generatedStreetPrefix; }));
+                                    { return streetPrefix == generatedStreetPrefix; }));
 
     std::vector<std::string> firstNames{ukrainianMalesFirstNames};
     firstNames.insert(firstNames.end(), ukrainianFemalesFirstNames.begin(), ukrainianFemalesFirstNames.end());
@@ -522,11 +535,11 @@ TEST_F(LocationTest, shouldGenerateUkraineStreet)
     lastNames.insert(lastNames.end(), ukrainianFemalesLastNames.begin(), ukrainianFemalesLastNames.end());
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetSuffix](const std::string& firstName)
-    { return generatedStreetSuffix.find(firstName) != std::string::npos; }) ||
+                                    { return generatedStreetSuffix.find(firstName) != std::string::npos; }) ||
                 std::ranges::any_of(lastNames, [&generatedStreetSuffix](const std::string& lastName)
-                { return generatedStreetSuffix.find(lastName) != std::string::npos; }) ||
+                                    { return generatedStreetSuffix.find(lastName) != std::string::npos; }) ||
                 std::ranges::any_of(ukraineStreetNames, [&generatedStreetSuffix](const std::string& streetName)
-                { return generatedStreetSuffix.find(streetName) != std::string::npos; }));
+                                    { return generatedStreetSuffix.find(streetName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
@@ -534,7 +547,7 @@ TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Ukraine);
 
     ASSERT_TRUE(std::ranges::any_of(ukraineStreetPrefixes, [&generatedStreetAddress](const std::string& prefix)
-    { return generatedStreetAddress.find(prefix) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(prefix) != std::string::npos; }));
 
     std::vector<std::string> firstNames{ukrainianMalesFirstNames};
     firstNames.insert(firstNames.end(), ukrainianFemalesFirstNames.begin(), ukrainianFemalesFirstNames.end());
@@ -543,11 +556,11 @@ TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
     lastNames.insert(lastNames.end(), ukrainianFemalesLastNames.begin(), ukrainianFemalesLastNames.end());
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string& firstName)
-    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
+                                    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
                 std::ranges::any_of(lastNames, [&generatedStreetAddress](const std::string& lastName)
-                { return generatedStreetAddress.find(lastName) != std::string::npos; }) ||
+                                    { return generatedStreetAddress.find(lastName) != std::string::npos; }) ||
                 std::ranges::any_of(ukraineStreetNames, [&generatedStreetAddress](const std::string& streetName)
-                { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateItalyStreet)
@@ -558,10 +571,10 @@ TEST_F(LocationTest, shouldGenerateItalyStreet)
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix =
-            StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     ASSERT_TRUE(std::ranges::any_of(italyStreetPrefixes, [&generatedStreetPrefix](const std::string& streetPrefix)
-    { return streetPrefix == generatedStreetPrefix; }));
+                                    { return streetPrefix == generatedStreetPrefix; }));
 
     std::vector<std::string> firstNames{italianMalesFirstNames};
     firstNames.insert(firstNames.end(), italianFemalesFirstNames.begin(), italianFemalesFirstNames.end());
@@ -569,9 +582,9 @@ TEST_F(LocationTest, shouldGenerateItalyStreet)
     std::vector<std::string> lastNames{italianLastNames};
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetSuffix](const std::string& firstName)
-    { return generatedStreetSuffix.find(firstName) != std::string::npos; }) ||
+                                    { return generatedStreetSuffix.find(firstName) != std::string::npos; }) ||
                 std::ranges::any_of(lastNames, [&generatedStreetSuffix](const std::string& lastName)
-                { return generatedStreetSuffix.find(lastName) != std::string::npos; }));
+                                    { return generatedStreetSuffix.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateItalyStreetAddress)
@@ -579,7 +592,7 @@ TEST_F(LocationTest, shouldGenerateItalyStreetAddress)
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Italy);
 
     ASSERT_TRUE(std::ranges::any_of(italyStreetPrefixes, [&generatedStreetAddress](const std::string& prefix)
-    { return generatedStreetAddress.find(prefix) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(prefix) != std::string::npos; }));
 
     std::vector<std::string> firstNames{italianMalesFirstNames};
     firstNames.insert(firstNames.end(), italianFemalesFirstNames.begin(), italianFemalesFirstNames.end());
@@ -587,9 +600,9 @@ TEST_F(LocationTest, shouldGenerateItalyStreetAddress)
     std::vector<std::string> lastNames{italianLastNames};
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string& firstName)
-    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
+                                    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
                 std::ranges::any_of(lastNames, [&generatedStreetAddress](const std::string& lastName)
-                { return generatedStreetAddress.find(lastName) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateGermanyStreet)
@@ -597,7 +610,7 @@ TEST_F(LocationTest, shouldGenerateGermanyStreet)
     const auto generatedStreet = Location::street(AddressCountry::Germany);
 
     ASSERT_TRUE(std::ranges::any_of(germanyStreetNames, [&generatedStreet](const std::string& streetName)
-    { return streetName == generatedStreet; }));
+                                    { return streetName == generatedStreet; }));
 }
 
 TEST_F(LocationTest, shouldGenerateGermanyStreetAddress)
@@ -607,7 +620,7 @@ TEST_F(LocationTest, shouldGenerateGermanyStreetAddress)
     std::vector<std::string> streetNames{germanyStreetNames};
 
     ASSERT_TRUE(std::ranges::any_of(streetNames, [&generatedStreetAddress](const std::string& streetName)
-    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateCzechStreet)
@@ -615,7 +628,7 @@ TEST_F(LocationTest, shouldGenerateCzechStreet)
     const auto generatedStreet = Location::street(AddressCountry::Czech);
 
     ASSERT_TRUE(std::ranges::any_of(czechStreetNames, [&generatedStreet](const std::string& streetName)
-    { return streetName == generatedStreet; }));
+                                    { return streetName == generatedStreet; }));
 }
 
 TEST_F(LocationTest, shouldGenerateCzechStreetAddress)
@@ -625,24 +638,24 @@ TEST_F(LocationTest, shouldGenerateCzechStreetAddress)
     std::vector<std::string> streetNames{czechStreetNames};
 
     ASSERT_TRUE(std::ranges::any_of(streetNames, [&generatedStreetAddress](const std::string& streetName)
-    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateAustraliaStreet)
-{   
+{
     const auto generatedStreet = Location::street(AddressCountry::Australia);
 
     std::vector<std::string> firstNames{australianMalesFirstNames};
     firstNames.insert(firstNames.end(), australianFemalesFirstNames.begin(), australianFemalesFirstNames.end());
 
     std::vector<std::string> lastNames{australianLastNames};
-    
+
     ASSERT_TRUE((std::ranges::any_of(firstNames, [&generatedStreet](const std::string& firstName)
-    { return generatedStreet.find(firstName) != std::string::npos; }) ||
-                std::ranges::any_of(lastNames, [&generatedStreet](const std::string& lastName)
-    { return generatedStreet.find(lastName) != std::string::npos; })) &&
+                                     { return generatedStreet.find(firstName) != std::string::npos; }) ||
+                 std::ranges::any_of(lastNames, [&generatedStreet](const std::string& lastName)
+                                     { return generatedStreet.find(lastName) != std::string::npos; })) &&
                 std::ranges::any_of(australiaStreetSuffixes, [&generatedStreet](const std::string& streetSuffix)
-    { return generatedStreet.find(streetSuffix) != std::string::npos; }));
+                                    { return generatedStreet.find(streetSuffix) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
@@ -653,8 +666,8 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedStreetSuffix =
-            StringHelper::join({generatedStreetAddressElements.begin() + 1, generatedStreetAddressElements.end()});
-            
+        StringHelper::join({generatedStreetAddressElements.begin() + 1, generatedStreetAddressElements.end()});
+
     std::vector<std::string> firstNames{australianMalesFirstNames};
     firstNames.insert(firstNames.end(), australianFemalesFirstNames.begin(), australianFemalesFirstNames.end());
 
@@ -662,13 +675,13 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
 
     ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 4);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
-    
+
     ASSERT_TRUE((std::ranges::any_of(firstNames, [&generatedStreetSuffix](const std::string& firstName)
-    { return generatedStreetSuffix.find(firstName) != std::string::npos; }) ||
-                std::ranges::any_of(lastNames, [&generatedStreetSuffix](const std::string& lastName)
-    { return generatedStreetSuffix.find(lastName) != std::string::npos; })) &&
+                                     { return generatedStreetSuffix.find(firstName) != std::string::npos; }) ||
+                 std::ranges::any_of(lastNames, [&generatedStreetSuffix](const std::string& lastName)
+                                     { return generatedStreetSuffix.find(lastName) != std::string::npos; })) &&
                 std::ranges::any_of(australiaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
-    { return generatedStreetSuffix.find(streetSuffix) != std::string::npos; }));
+                                    { return generatedStreetSuffix.find(streetSuffix) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateIndiaStreet)
@@ -678,12 +691,12 @@ TEST_F(LocationTest, shouldGenerateIndiaStreet)
     const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
 
     const auto& generatedStreetSuffix =
-            StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     ASSERT_GE(generatedStreetElements.size(), 2);
     std::vector<std::string> streetNames{denmarkStreetNames};
     ASSERT_TRUE(std::ranges::any_of(indiaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
-    { return streetSuffix == generatedStreetSuffix; }));
+                                    { return streetSuffix == generatedStreetSuffix; }));
 }
 
 TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
@@ -694,22 +707,21 @@ TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedStreetSuffix =
-            StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
+        StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
 
     ASSERT_GE(generatedStreetAddressElements.size(), 3);
     ASSERT_TRUE(!generatedBuildingNumber.empty());
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
     ASSERT_TRUE(std::ranges::any_of(indiaStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
-    { return streetSuffix == generatedStreetSuffix; }));
+                                    { return streetSuffix == generatedStreetSuffix; }));
 }
 
 TEST_F(LocationTest, shouldGenerateDenmarkStreet)
 {
     const auto generatedStreet = Location::street(AddressCountry::Denmark);
-    
-    
+
     ASSERT_TRUE(std::ranges::any_of(denmarkStreetNames, [&generatedStreet](const std::string& streetName)
-    { return streetName == generatedStreet; }));
+                                    { return streetName == generatedStreet; }));
 }
 
 TEST_F(LocationTest, shouldGenerateDenmarkStreetAddress)
@@ -717,7 +729,7 @@ TEST_F(LocationTest, shouldGenerateDenmarkStreetAddress)
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Denmark);
 
     ASSERT_TRUE(std::ranges::any_of(denmarkStreetNames, [&generatedStreetAddress](const std::string& streetName)
-    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateSpainStreet)
@@ -728,13 +740,13 @@ TEST_F(LocationTest, shouldGenerateSpainStreet)
     firstNames.insert(firstNames.end(), spanishFemalesFirstNames.begin(), spanishFemalesFirstNames.end());
 
     std::vector<std::string> lastNames{spanishLastNames};
-    
+
     ASSERT_TRUE((std::ranges::any_of(firstNames, [&generatedStreet](const std::string& firstName)
-    { return generatedStreet.find(firstName) != std::string::npos; }) ||
-                std::ranges::any_of(lastNames, [&generatedStreet](const std::string& lastName)
-    { return generatedStreet.find(lastName) != std::string::npos; })) &&
+                                     { return generatedStreet.find(firstName) != std::string::npos; }) ||
+                 std::ranges::any_of(lastNames, [&generatedStreet](const std::string& lastName)
+                                     { return generatedStreet.find(lastName) != std::string::npos; })) &&
                 std::ranges::any_of(spainStreetSuffixes, [&generatedStreet](const std::string& streetSuffix)
-    { return generatedStreet.find(streetSuffix) != std::string::npos; }));
+                                    { return generatedStreet.find(streetSuffix) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateSpainStreetAddress)
@@ -742,7 +754,7 @@ TEST_F(LocationTest, shouldGenerateSpainStreetAddress)
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Spain);
 
     ASSERT_TRUE(std::ranges::any_of(spainStreetSuffixes, [&generatedStreetAddress](const std::string& suffix)
-    { return generatedStreetAddress.find(suffix) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(suffix) != std::string::npos; }));
 
     std::vector<std::string> firstNames{spanishMalesFirstNames};
     firstNames.insert(firstNames.end(), spanishFemalesFirstNames.begin(), spanishFemalesFirstNames.end());
@@ -750,9 +762,9 @@ TEST_F(LocationTest, shouldGenerateSpainStreetAddress)
     std::vector<std::string> lastNames{spanishLastNames};
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string& firstName)
-    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
+                                    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
                 std::ranges::any_of(lastNames, [&generatedStreetAddress](const std::string& lastName)
-                { return generatedStreetAddress.find(lastName) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateFinlandStreet)
@@ -772,12 +784,12 @@ TEST_F(LocationTest, shouldGenerateFinlandStreet)
     ASSERT_GE(generatedStreetElements.size(), 2);
 
     ASSERT_TRUE(std::ranges::any_of(finlandStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
-    { return streetSuffix == generatedStreetSuffix; }));
+                                    { return streetSuffix == generatedStreetSuffix; }));
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetPrefix](const std::string& firstName)
-    { return generatedStreetPrefix.find(firstName) != std::string::npos; }) ||
+                                    { return generatedStreetPrefix.find(firstName) != std::string::npos; }) ||
                 std::ranges::any_of(lastNames, [&generatedStreetPrefix](const std::string& lastName)
-    { return generatedStreetPrefix.find(lastName) != std::string::npos; }));
+                                    { return generatedStreetPrefix.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
@@ -785,7 +797,7 @@ TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Finland);
 
     ASSERT_TRUE(std::ranges::any_of(finlandStreetSuffixes, [&generatedStreetAddress](const std::string& suffix)
-    { return generatedStreetAddress.find(suffix) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(suffix) != std::string::npos; }));
 
     std::vector<std::string> firstNames{finnishMalesFirstNames};
     firstNames.insert(firstNames.end(), finnishFemalesFirstNames.begin(), finnishFemalesFirstNames.end());
@@ -793,24 +805,23 @@ TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
     std::vector<std::string> lastNames{finnishLastNames};
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string& firstName)
-    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
+                                    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
                 std::ranges::any_of(lastNames, [&generatedStreetAddress](const std::string& lastName)
-                { return generatedStreetAddress.find(lastName) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(lastName) != std::string::npos; }));
 }
-
 
 TEST_F(LocationTest, shouldGenerateEstoniaStreet)
 {
     const auto generatedStreet = Location::street(AddressCountry::Estonia);
-    
+
     ASSERT_TRUE(std::ranges::any_of(estoniaStreetNames, [&generatedStreet](const std::string& streetName)
-    { return generatedStreet.find(streetName) != std::string::npos; }));
+                                    { return generatedStreet.find(streetName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateEstoniaStreetAddress)
 {
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Estonia);
-  
+
     ASSERT_TRUE(std::ranges::any_of(estoniaStreetNames, [&generatedStreetAddress](const std::string& streetName)
-    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
