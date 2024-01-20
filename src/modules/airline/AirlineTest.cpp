@@ -1,6 +1,7 @@
 #include "faker-cxx/Airline.h"
 
 #include <algorithm>
+#include <iostream>
 #include <string>
 
 #include "gtest/gtest.h"
@@ -10,6 +11,8 @@
 #include "data/Airplanes.h"
 #include "data/Airports.h"
 #include "data/Seat.h"
+#include "faker-cxx/Number.h"
+#include "faker-cxx/String.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -147,3 +150,35 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberWidebody)
                                     [generatedSeatNumber](char letter)
                                     { return generatedSeatNumber.back() == letter; }));
 }
+
+TEST_F(AirlineTest, shouldGenerateFlightNumberNoLeadingZeros)
+{
+    std::string flightNumber = Airline::flightNumber();
+    int flightNumberInt = std::stoi(flightNumber);
+
+    ASSERT_TRUE(flightNumber.length() == 4);
+
+    ASSERT_TRUE((flightNumberInt > 999) && (flightNumberInt <= 9999));
+}
+
+TEST_F(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
+{
+    bool leadingZero = false;
+    while (!leadingZero)
+    {
+        std::string flightNumber = Airline::flightNumber(true, 4);
+        if (flightNumber.substr(0, 1) == "0")
+        {
+            leadingZero = true;
+        }
+    }
+
+    ASSERT_TRUE(leadingZero);
+}
+
+TEST_F(AirlineTest, shouldGenerateFlightNumberByRange)
+{
+    std::string flightNumber = Airline::flightNumberByRange(false, {1, 6});
+    ASSERT_TRUE(flightNumber.length() <= 6);
+}
+

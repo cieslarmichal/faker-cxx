@@ -59,7 +59,7 @@ std::string Airline::flightNumber(bool addLeadingZeros, unsigned int length)
     return String::numeric(length, false);
 }
 
-std::string Airline::flightNumber(bool addLeadingZeros, faker::Range length)
+std::string Airline::flightNumberByRange(bool addLeadingZeros, faker::Range length)
 {
     if (addLeadingZeros)
     {
@@ -69,3 +69,4 @@ std::string Airline::flightNumber(bool addLeadingZeros, faker::Range length)
     return String::numeric(Number::integer(length.min, length.max), false);
 }
 }
+

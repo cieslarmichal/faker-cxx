@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+
 #include "./types/AirlineTypes.h"
 
 namespace faker
@@ -110,6 +111,6 @@ public:
      * Airline::flightNumber(false, {1, 4}) // "234" // "12" // "1234"
      * @endcode
      */
-    static std::string flightNumber(bool addLeadingZeros = false, Range length = {1, 4});
+    static std::string flightNumberByRange(bool addLeadingZeros = false, Range length = {1, 4});
 };
 }
