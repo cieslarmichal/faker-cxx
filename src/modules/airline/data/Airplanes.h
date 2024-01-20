@@ -7,7 +7,7 @@
 
 namespace faker
 {
-const std::vector<Airline::Airplane> airplanes{
+const std::vector<faker::Airplane> airplanes{
     {.name = "Aerospatiale/BAC Concorde", .iataTypeCode = "SSC"},
     {.name = "Airbus A300", .iataTypeCode = "AB3"},
     {.name = "Airbus A310", .iataTypeCode = "310"},
