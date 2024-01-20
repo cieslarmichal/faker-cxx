@@ -43,7 +43,7 @@ const std::map<faker::StructureToken, std::function<std::string()>> moduleFuncti
     {faker::StructureToken::AirlineAirlineCode, []() { return faker::Airline::airline().iataCode; }},
     {faker::StructureToken::AirlineAirportName, []() { return faker::Airline::airport().name; }},
     {faker::StructureToken::AirlineAirportCode, []() { return faker::Airline::airport().iataCode; }},
-    {faker::StructureToken::AirlineSeat, []() { return faker::Airline::seat(faker::Airline::AircraftType()); }},
+    {faker::StructureToken::AirlineSeat, []() { return faker::Airline::seat(faker::AircraftType()); }},
     {faker::StructureToken::AirlineRecordLocator, []() { return faker::Airline::recordLocator(); }},
     {faker::StructureToken::AirlineFlightNumber, []() { return faker::Airline::flightNumber(false, 4); }},
 

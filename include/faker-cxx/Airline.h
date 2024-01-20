@@ -2,19 +2,13 @@
 
 #include <string>
 #include <vector>
+#include "./types/AirlineTypes.h"
 
 namespace faker
 {
 class Airline
 {
 public:
-    enum class AircraftType
-    {
-        Regional,
-        Narrowbody,
-        Widebody,
-    };
-
     /**
      * @brief Get a random aircraft type
      *
@@ -25,12 +19,6 @@ public:
      * @endcode
      */
     static std::string aircraftType();
-
-    struct Airplane
-    {
-        std::string name;
-        std::string iataTypeCode;
-    };
 
     /**
      * @brief Get a random airplane
@@ -43,12 +31,6 @@ public:
      */
     static Airplane airplane();
 
-    struct AirlineStruct
-    {
-        std::string name;
-        std::string iataCode;
-    };
-
     /**
      * @brief Get a random airline
      *
@@ -59,12 +41,6 @@ public:
      * @endcode
      */
     static AirlineStruct airline();
-
-    struct Airport
-    {
-        std::string name;
-        std::string iataCode;
-    };
 
     /**
      * @brief Get a random airport
@@ -118,12 +94,6 @@ public:
      * @endcode
      */
     static std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
-
-    struct Range
-    {
-        unsigned int min;
-        unsigned int max;
-    };
 
     /**
      * @brief Get a random flight number from given length

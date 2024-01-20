@@ -30,19 +30,19 @@ TEST_F(AirlineTest, shouldGenerateAircraftType)
 
 TEST_F(AirlineTest, shouldGenerateAirline)
 {
-    Airline::AirlineStruct generatedAirline = Airline::airline();
+    faker::AirlineStruct generatedAirline = Airline::airline();
 
     ASSERT_TRUE(std::ranges::any_of(
-        airlines, [generatedAirline](const Airline::AirlineStruct& airline)
+        airlines, [generatedAirline](const faker::AirlineStruct& airline)
         { return airline.name == generatedAirline.name && airline.iataCode == generatedAirline.iataCode; }));
 }
 
 TEST_F(AirlineTest, shouldGenerateAirplane)
 {
-    Airline::Airplane generatedAirplane = Airline::airplane();
+    faker::Airplane generatedAirplane = Airline::airplane();
 
     ASSERT_TRUE(std::ranges::any_of(airplanes,
-                                    [generatedAirplane](const Airline::Airplane& airplane) {
+                                    [generatedAirplane](const faker::Airplane& airplane) {
                                         return airplane.name == generatedAirplane.name &&
                                                airplane.iataTypeCode == generatedAirplane.iataTypeCode;
                                     }));
@@ -50,10 +50,10 @@ TEST_F(AirlineTest, shouldGenerateAirplane)
 
 TEST_F(AirlineTest, shouldGenerateAirport)
 {
-    Airline::Airport generatedAirport = Airline::airport();
+    faker::Airport generatedAirport = Airline::airport();
 
     ASSERT_TRUE(std::ranges::any_of(
-        airports, [generatedAirport](const Airline::Airport& airport)
+        airports, [generatedAirport](const faker::Airport& airport)
         { return airport.name == generatedAirport.name && airport.iataCode == generatedAirport.iataCode; }));
 }
 
@@ -72,12 +72,12 @@ TEST_F(AirlineTest, shouldGenerateRecordLocator)
 
 TEST_F(AirlineTest, shouldGenerateSeatNumberRegional)
 {
-    std::string generatedSeatNumber = Airline::seat(Airline::AircraftType::Regional);
+    std::string generatedSeatNumber = Airline::seat(faker::AircraftType::Regional);
 
     ASSERT_TRUE(generatedSeatNumber.length() == 2 || generatedSeatNumber.length() == 3);
 
     int min = 1;
-    int max = aircraftTypeMaxRows.at(Airline::AircraftType::Regional);
+    int max = aircraftTypeMaxRows.at(faker::AircraftType::Regional);
 
     bool inRange = false;
     for (int i = max; i >= min; --i)
@@ -91,19 +91,19 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberRegional)
     }
 
     ASSERT_TRUE(inRange);
-    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(Airline::AircraftType::Regional),
+    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(faker::AircraftType::Regional),
                                     [generatedSeatNumber](char letter)
                                     { return generatedSeatNumber.back() == letter; }));
 }
 
 TEST_F(AirlineTest, shouldGenerateSeatNumberNarrowbody)
 {
-    std::string generatedSeatNumber = Airline::seat(Airline::AircraftType::Narrowbody);
+    std::string generatedSeatNumber = Airline::seat(faker::AircraftType::Narrowbody);
 
     ASSERT_TRUE(generatedSeatNumber.length() == 2 || generatedSeatNumber.length() == 3);
 
     int min = 1;
-    int max = aircraftTypeMaxRows.at(Airline::AircraftType::Narrowbody);
+    int max = aircraftTypeMaxRows.at(faker::AircraftType::Narrowbody);
 
     bool inRange = false;
     for (int i = max; i >= min; --i)
@@ -117,19 +117,19 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberNarrowbody)
     }
 
     ASSERT_TRUE(inRange);
-    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(Airline::AircraftType::Narrowbody),
+    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(faker::AircraftType::Narrowbody),
                                     [generatedSeatNumber](char letter)
                                     { return generatedSeatNumber.back() == letter; }));
 }
 
 TEST_F(AirlineTest, shouldGenerateSeatNumberWidebody)
 {
-    std::string generatedSeatNumber = Airline::seat(Airline::AircraftType::Widebody);
+    std::string generatedSeatNumber = Airline::seat(faker::AircraftType::Widebody);
 
     ASSERT_TRUE(generatedSeatNumber.length() == 2 || generatedSeatNumber.length() == 3);
 
     int min = 1;
-    int max = aircraftTypeMaxRows.at(Airline::AircraftType::Widebody);
+    int max = aircraftTypeMaxRows.at(faker::AircraftType::Widebody);
 
     bool inRange = false;
     for (int i = max; i >= min; --i)
@@ -143,7 +143,7 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberWidebody)
     }
 
     ASSERT_TRUE(inRange);
-    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(Airline::AircraftType::Widebody),
+    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(faker::AircraftType::Widebody),
                                     [generatedSeatNumber](char letter)
                                     { return generatedSeatNumber.back() == letter; }));
 }

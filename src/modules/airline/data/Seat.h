@@ -9,16 +9,16 @@
 namespace faker
 {
 
-const std::unordered_map<Airline::AircraftType, int> aircraftTypeMaxRows = {
-    {Airline::AircraftType::Regional, 20},
-    {Airline::AircraftType::Narrowbody, 40},
-    {Airline::AircraftType::Widebody, 60},
+const std::unordered_map<faker::AircraftType, int> aircraftTypeMaxRows = {
+    {faker::AircraftType::Regional, 20},
+    {faker::AircraftType::Narrowbody, 40},
+    {faker::AircraftType::Widebody, 60},
 };
 
-const std::unordered_map<Airline::AircraftType, std::vector<char>> aircraftTypeSeatLetters = {
-    {Airline::AircraftType::Regional, {'A', 'B', 'C', 'D'}},
-    {Airline::AircraftType::Narrowbody, {'A', 'B', 'C', 'D', 'E', 'F'}},
-    {Airline::AircraftType::Widebody, {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K'}},
+const std::unordered_map<faker::AircraftType, std::vector<char>> aircraftTypeSeatLetters = {
+    {faker::AircraftType::Regional, {'A', 'B', 'C', 'D'}},
+    {faker::AircraftType::Narrowbody, {'A', 'B', 'C', 'D', 'E', 'F'}},
+    {faker::AircraftType::Widebody, {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'J', 'K'}},
 };
 }
 
