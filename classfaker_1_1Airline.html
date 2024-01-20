@@ -125,9 +125,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a0d95bc40e3ce2c5624be7efb096c5ece" id="r_a0d95bc40e3ce2c5624be7efb096c5ece"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d95bc40e3ce2c5624be7efb096c5ece">flightNumber</a> (bool addLeadingZeros=false, unsigned int length=4)</td></tr>
 <tr class="memdesc:a0d95bc40e3ce2c5624be7efb096c5ece"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random flight number from given length.  <br /></td></tr>
 <tr class="separator:a0d95bc40e3ce2c5624be7efb096c5ece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63a3d91e533bec819c5d457be47b8653" id="r_a63a3d91e533bec819c5d457be47b8653"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a63a3d91e533bec819c5d457be47b8653">flightNumber</a> (bool addLeadingZeros=false, Range length={1, 4})</td></tr>
-<tr class="memdesc:a63a3d91e533bec819c5d457be47b8653"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random flight number from given length.  <br /></td></tr>
-<tr class="separator:a63a3d91e533bec819c5d457be47b8653"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7526b0e51dee317cfe41d2620251bcfa" id="r_a7526b0e51dee317cfe41d2620251bcfa"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7526b0e51dee317cfe41d2620251bcfa">flightNumberByRange</a> (bool addLeadingZeros=false, Range length={1, 4})</td></tr>
+<tr class="memdesc:a7526b0e51dee317cfe41d2620251bcfa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random flight number from given length.  <br /></td></tr>
+<tr class="separator:a7526b0e51dee317cfe41d2620251bcfa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="ade2dbd4c0dce99bdd62d61f2fcbd4079" name="ade2dbd4c0dce99bdd62d61f2fcbd4079"></a>
@@ -250,52 +250,8 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a63a3d91e533bec819c5d457be47b8653" name="a63a3d91e533bec819c5d457be47b8653"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a63a3d91e533bec819c5d457be47b8653">&#9670;&#160;</a></span>flightNumber() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static std::string faker::Airline::flightNumber </td>
-          <td>(</td>
-          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>addLeadingZeros</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Range</td>          <td class="paramname"><span class="paramname"><em>length</em><span class="paramdefsep"> = </span><span class="paramdefval">{1,&#160;4}</span></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Get a random flight number from given length. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">addLeadingZeros</td><td>whether to add leading zeros</td></tr>
-    <tr><td class="paramname">length</td><td>the length of the flight number</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>a random flight number</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a0d95bc40e3ce2c5624be7efb096c5ece">Airline::flightNumber</a>() <span class="comment">// &quot;1234&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Airline.html">Airline</a>::<a class="code hl_function" href="#a0d95bc40e3ce2c5624be7efb096c5ece">flightNumber</a>(true) <span class="comment">// &quot;0123&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Airline.html">Airline</a>::<a class="code hl_function" href="#a0d95bc40e3ce2c5624be7efb096c5ece">flightNumber</a>(false, {1, 4}) <span class="comment">// &quot;234&quot; // &quot;12&quot; // &quot;1234&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Airline_html"><div class="ttname"><a href="classfaker_1_1Airline.html">faker::Airline</a></div><div class="ttdef"><b>Definition</b> Airline.h:10</div></div>
-<div class="ttc" id="aclassfaker_1_1Airline_html_a0d95bc40e3ce2c5624be7efb096c5ece"><div class="ttname"><a href="#a0d95bc40e3ce2c5624be7efb096c5ece">faker::Airline::flightNumber</a></div><div class="ttdeci">static std::string flightNumber(bool addLeadingZeros=false, unsigned int length=4)</div><div class="ttdoc">Get a random flight number from given length.</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
 <a id="a0d95bc40e3ce2c5624be7efb096c5ece" name="a0d95bc40e3ce2c5624be7efb096c5ece"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d95bc40e3ce2c5624be7efb096c5ece">&#9670;&#160;</a></span>flightNumber() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d95bc40e3ce2c5624be7efb096c5ece">&#9670;&#160;</a></span>flightNumber()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -333,6 +289,50 @@ Static Public Member Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a0d95bc40e3ce2c5624be7efb096c5ece">Airline::flightNumber</a>() <span class="comment">// &quot;1234&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Airline.html">Airline</a>::<a class="code hl_function" href="#a0d95bc40e3ce2c5624be7efb096c5ece">flightNumber</a>(true) <span class="comment">// &quot;0123&quot;</span></div>
 <div class="line"><a class="code hl_class" href="classfaker_1_1Airline.html">Airline</a>::<a class="code hl_function" href="#a0d95bc40e3ce2c5624be7efb096c5ece">flightNumber</a>(false, 3) <span class="comment">// &quot;234&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Airline_html"><div class="ttname"><a href="classfaker_1_1Airline.html">faker::Airline</a></div><div class="ttdef"><b>Definition</b> Airline.h:11</div></div>
+<div class="ttc" id="aclassfaker_1_1Airline_html_a0d95bc40e3ce2c5624be7efb096c5ece"><div class="ttname"><a href="#a0d95bc40e3ce2c5624be7efb096c5ece">faker::Airline::flightNumber</a></div><div class="ttdeci">static std::string flightNumber(bool addLeadingZeros=false, unsigned int length=4)</div><div class="ttdoc">Get a random flight number from given length.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a7526b0e51dee317cfe41d2620251bcfa" name="a7526b0e51dee317cfe41d2620251bcfa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7526b0e51dee317cfe41d2620251bcfa">&#9670;&#160;</a></span>flightNumberByRange()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Airline::flightNumberByRange </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>addLeadingZeros</em><span class="paramdefsep"> = </span><span class="paramdefval">false</span>, </span></td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Range</td>          <td class="paramname"><span class="paramname"><em>length</em><span class="paramdefsep"> = </span><span class="paramdefval">{1,&#160;4}</span></span>&#160;)</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Get a random flight number from given length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">addLeadingZeros</td><td>whether to add leading zeros</td></tr>
+    <tr><td class="paramname">length</td><td>the length of the flight number</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a random flight number</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a0d95bc40e3ce2c5624be7efb096c5ece">Airline::flightNumber</a>() <span class="comment">// &quot;1234&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1Airline.html">Airline</a>::<a class="code hl_function" href="#a0d95bc40e3ce2c5624be7efb096c5ece">flightNumber</a>(true) <span class="comment">// &quot;0123&quot;</span></div>
+<div class="line"><a class="code hl_class" href="classfaker_1_1Airline.html">Airline</a>::<a class="code hl_function" href="#a0d95bc40e3ce2c5624be7efb096c5ece">flightNumber</a>(false, {1, 4}) <span class="comment">// &quot;234&quot; // &quot;12&quot; // &quot;1234&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
