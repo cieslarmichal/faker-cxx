@@ -11,6 +11,7 @@
 #include "data/Titles.h"
 #include "data/Translators.h"
 #include "data/Series.h"
+#include "data/BookFormat.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -64,8 +65,8 @@ TEST_F(BookTest, shouldGenerateIsbn)
 }
 
 TEST_F(BookTest, shouldGenerateReleaseYear) {
-	int year = std::stoi(Book::releaseYear().substr(0,4));
-	ASSERT_TRUE((year >= 1924) && (year <= 2024));
+	int releaseYear = Book::releaseYear();
+	ASSERT_TRUE((releaseYear >= 1924) && (releaseYear <= 2024));
 }
 
 TEST_F(BookTest, shouldGenerateTranslator)
@@ -79,9 +80,9 @@ TEST_F(BookTest, shouldGenerateTranslator)
 TEST_F(BookTest, shouldGenerateFormat)
 {
     const auto bookFormat = Book::format();
-
-    ASSERT_TRUE(bookFormat == Book::BookFormat::Paperback || bookFormat == Book::BookFormat::Hardcover ||
-                bookFormat == Book::BookFormat::Kindle);
+	
+	ASSERT_TRUE(std::ranges::any_of(bookFormats, [bookFormat](const std::string& format)
+									{ return format == bookFormat; }));
 }
 
 TEST_F(BookTest, shouldGeneratePage)

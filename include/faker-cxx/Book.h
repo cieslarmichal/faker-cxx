@@ -68,10 +68,10 @@ public:
 	 * @returns int year
 	 *
 	 * @code
-	 * Book::releaseYear() // "2016-06-27"
+	 * Book::releaseYear() // 2016
 	 * @endcode
 	 */
-	static std::string releaseYear();
+	static int releaseYear();
 
 	/**
 	 * @brief Returns the full name of a translator
@@ -84,13 +84,6 @@ public:
 	 */
 	static std::string translator();
 	
-	enum class BookFormat {
-		Paperback,
-		Hardcover,
-		Kindle,
-		// Add more formats if needed
-	};
-	
 	/**
 	 * @brief Returns format of book
 	 *
@@ -100,7 +93,7 @@ public:
 	 * Book::format() // BookFormat::paperback
 	 * @endcode
 	 */
-	static BookFormat format();
+	static std::string format();
 
 	/*
 	 * @brief returns a random page number (50-999)

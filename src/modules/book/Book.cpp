@@ -7,6 +7,7 @@
 #include "data/Titles.h"
 #include "data/Translators.h"
 #include "data/Series.h"
+#include "data/BookFormat.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/Date.h"
@@ -40,9 +41,9 @@ std::string Book::isbn()
                                 String::numeric(5), String::numeric(1));
 }
 
-std::string Book::releaseYear()
+int Book::releaseYear()
 {
-	return Date::pastDate(100).substr(0, 10);
+	return std::stoi(Date::pastDate(100).substr(0, 4));
 }
 
 std::string Book::translator()
@@ -50,9 +51,9 @@ std::string Book::translator()
 	return Helper::arrayElement<std::string>(translators);
 }
 
-Book::BookFormat Book::format()
+std::string Book::format()
 {
-    return static_cast<Book::BookFormat>(Number::integer(0, 2));
+   return Helper::arrayElement<std::string>(bookFormats); 
 }
 
 int Book::page()
