@@ -9,6 +9,9 @@
 #include "data/Genres.h"
 #include "data/Publishers.h"
 #include "data/Titles.h"
+#include "data/Translators.h"
+#include "data/Series.h"
+#include "data/BookFormat.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -59,4 +62,40 @@ TEST_F(BookTest, shouldGenerateIsbn)
     ASSERT_EQ(isbnNumbersGroups[2].size(), 2);
     ASSERT_EQ(isbnNumbersGroups[3].size(), 5);
     ASSERT_EQ(isbnNumbersGroups[4].size(), 1);
+}
+
+TEST_F(BookTest, shouldGenerateReleaseYear) {
+	int releaseYear = Book::releaseYear();
+	ASSERT_TRUE((releaseYear >= 1924) && (releaseYear <= 2024));
+}
+
+TEST_F(BookTest, shouldGenerateTranslator)
+{
+    const auto bookTranslator = Book::translator();
+
+    ASSERT_TRUE(std::ranges::any_of(translators, [bookTranslator](const std::string& translator)
+                                    { return translator == bookTranslator; }));
+}
+
+TEST_F(BookTest, shouldGenerateFormat)
+{
+    const auto bookFormat = Book::format();
+	
+	ASSERT_TRUE(std::ranges::any_of(bookFormats, [bookFormat](const std::string& format)
+									{ return format == bookFormat; }));
+}
+
+TEST_F(BookTest, shouldGeneratePage)
+{
+    const auto bookPage = Book::page();
+
+    ASSERT_TRUE(bookPage >= 50 && bookPage <= 999);
+}
+
+TEST_F(BookTest, shouldGenerateSeries)
+{
+    const auto randomSeries = Book::series();
+
+    ASSERT_TRUE(std::ranges::any_of(bookSeries, [randomSeries](const std::string& series)
+                                    { return series == randomSeries; }));
 }
