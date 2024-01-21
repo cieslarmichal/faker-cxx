@@ -386,6 +386,13 @@ TEST_F(FinanceTest, shouldGenerateEthereumAddress)
                                     { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
+TEST_F(FinanceTest, shouldGenerateExpirationDate)
+{
+    const auto expirationDate = Finance::creditCardExpirationDate();
+    int tenthPlaceYear = std::stoi(expirationDate.substr(3, 2));
+    std::cout << expirationDate << " " << tenthPlaceYear << "\n";
+    ASSERT_TRUE(tenthPlaceYear >= 24);
+}
 
 class FinanceBicTest : public TestWithParam<BicCountry>
 {
@@ -399,9 +406,8 @@ TEST_P(FinanceBicTest, CheckBicGenerator)
 
     const auto& bankIdentifiersCodes = bankIdentifiersCodesMapping.at(country);
 
-    ASSERT_TRUE(std::ranges::any_of(bankIdentifiersCodes, [bic](const std::string& bankIdentifierCode) {
-                                        return bic == bankIdentifierCode;
-                                    }));
+    ASSERT_TRUE(std::ranges::any_of(bankIdentifiersCodes, [bic](const std::string& bankIdentifierCode)
+                                    { return bic == bankIdentifierCode; }));
 }
 
 INSTANTIATE_TEST_SUITE_P(TestBicGenerator, FinanceBicTest,

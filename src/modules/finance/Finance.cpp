@@ -7,6 +7,7 @@
 #include "data/CreditCardsFormats.h"
 #include "data/Currencies.h"
 #include "data/IbanFormats.h"
+#include "faker-cxx/Date.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
@@ -166,4 +167,9 @@ std::string Finance::ethereumAddress()
     return String::hexadecimal(40, HexCasing::Lower);
 }
 
+std::string Finance::creditCardExpirationDate()
+{
+    const auto expirationDate = Date::futureDate(3);
+    return expirationDate.substr(5, 2) + "/" + expirationDate.substr(2, 2);
+}
 }
