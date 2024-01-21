@@ -105,5 +105,6 @@ const std::vector<std::string> titles = {
     "Josefine Mutzenbacher",
     "Heart of Darkness",
     "David Copperfield",
-    "Three Men in a Boat (To Say Nothing of the Dog)"};
+    "Three Men in a Boat (To Say Nothing of the Dog)"
+};
 }
