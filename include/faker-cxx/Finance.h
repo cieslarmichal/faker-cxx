@@ -220,5 +220,16 @@ public:
      * @endcode
      */
     static std::string ethereumAddress();
+
+    /**
+     * Generates a random expiration date.
+     *
+     * @returns std::string date.
+     *
+     * @code
+     * Finance::creditCardExpirationDate() // "03/26"
+     * @endcode
+     */
+    static std::string creditCardExpirationDate();
 };
 }
