@@ -122,15 +122,47 @@ $(function(){initNavTree('Book_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno"><a class="line" href="classfaker_1_1Book.html#a12b8569f795c476dace10cb980ff8d4f">   52</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Book.html#a12b8569f795c476dace10cb980ff8d4f">publisher</a>();</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="classfaker_1_1Book.html#a36a029ac46aec31dcacb77de11d8ccfc">   63</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Book.html#a36a029ac46aec31dcacb77de11d8ccfc">isbn</a>();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>};</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="classfaker_1_1Book.html#af24f2c68e29dc9668db02579727a6a56">   74</a></span>    <span class="keyword">static</span> <span class="keywordtype">int</span> <a class="code hl_function" href="classfaker_1_1Book.html#af24f2c68e29dc9668db02579727a6a56">releaseYear</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="classfaker_1_1Book.html#a86a7f15715b3ae731cb58dacdbf015c1">   85</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Book.html#a86a7f15715b3ae731cb58dacdbf015c1">translator</a>();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classfaker_1_1Book.html#a89417b2a066a632fbfa105f2c3a6120e">   96</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Book.html#a89417b2a066a632fbfa105f2c3a6120e">format</a>();</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="comment">/*</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span><span class="comment">     * @brief returns a random page number (50-999)</span></div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">     * @returns int page number</span></div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment">     * @code</span></div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">     * Book::page() // 314</span></div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment">     * @endcode</span></div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <span class="keyword">static</span> <span class="keywordtype">int</span> page();</div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="comment">/*</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment">     * @brief returns a random book series</span></div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span><span class="comment">     * @returns std::string book series</span></div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="comment">     *</span></div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span><span class="comment">     * @code</span></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span><span class="comment">     * Book::series() // &quot;Harry Potter&quot;</span></div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span><span class="comment">     * @endcode</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment">     */</span></div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keyword">static</span> std::string series();</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>};</div>
 </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>}</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
 <div class="ttc" id="aclassfaker_1_1Book_html"><div class="ttname"><a href="classfaker_1_1Book.html">faker::Book</a></div><div class="ttdef"><b>Definition</b> Book.h:8</div></div>
 <div class="ttc" id="aclassfaker_1_1Book_html_a12b8569f795c476dace10cb980ff8d4f"><div class="ttname"><a href="classfaker_1_1Book.html#a12b8569f795c476dace10cb980ff8d4f">faker::Book::publisher</a></div><div class="ttdeci">static std::string publisher()</div><div class="ttdoc">Returns a random book publisher.</div></div>
 <div class="ttc" id="aclassfaker_1_1Book_html_a36a029ac46aec31dcacb77de11d8ccfc"><div class="ttname"><a href="classfaker_1_1Book.html#a36a029ac46aec31dcacb77de11d8ccfc">faker::Book::isbn</a></div><div class="ttdeci">static std::string isbn()</div><div class="ttdoc">Returns a random book ISBN.</div></div>
 <div class="ttc" id="aclassfaker_1_1Book_html_a483adb05058da1f23877d600ea997196"><div class="ttname"><a href="classfaker_1_1Book.html#a483adb05058da1f23877d600ea997196">faker::Book::genre</a></div><div class="ttdeci">static std::string genre()</div><div class="ttdoc">Returns a random book genre.</div></div>
 <div class="ttc" id="aclassfaker_1_1Book_html_a74078db73d26c2b148c16992d4045348"><div class="ttname"><a href="classfaker_1_1Book.html#a74078db73d26c2b148c16992d4045348">faker::Book::title</a></div><div class="ttdeci">static std::string title()</div><div class="ttdoc">Returns a random book title.</div></div>
 <div class="ttc" id="aclassfaker_1_1Book_html_a81eeda6350d328c56043bff85342e4d4"><div class="ttname"><a href="classfaker_1_1Book.html#a81eeda6350d328c56043bff85342e4d4">faker::Book::author</a></div><div class="ttdeci">static std::string author()</div><div class="ttdoc">Returns a random book author.</div></div>
+<div class="ttc" id="aclassfaker_1_1Book_html_a86a7f15715b3ae731cb58dacdbf015c1"><div class="ttname"><a href="classfaker_1_1Book.html#a86a7f15715b3ae731cb58dacdbf015c1">faker::Book::translator</a></div><div class="ttdeci">static std::string translator()</div><div class="ttdoc">Returns the full name of a translator.</div></div>
+<div class="ttc" id="aclassfaker_1_1Book_html_a89417b2a066a632fbfa105f2c3a6120e"><div class="ttname"><a href="classfaker_1_1Book.html#a89417b2a066a632fbfa105f2c3a6120e">faker::Book::format</a></div><div class="ttdeci">static std::string format()</div><div class="ttdoc">Returns format of book.</div></div>
+<div class="ttc" id="aclassfaker_1_1Book_html_af24f2c68e29dc9668db02579727a6a56"><div class="ttname"><a href="classfaker_1_1Book.html#af24f2c68e29dc9668db02579727a6a56">faker::Book::releaseYear</a></div><div class="ttdeci">static int releaseYear()</div><div class="ttdoc">Returns a random release year.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
