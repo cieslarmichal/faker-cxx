@@ -152,6 +152,6 @@ std::string Commerce::ISBN10()
 
 std::string Commerce::productId()
 {
-    return String::alphaNumeric(10, StringCasing::Upper, "");
+    return String::alphanumeric(10, StringCasing::Upper, "");
 }
 }
