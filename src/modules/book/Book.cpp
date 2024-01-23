@@ -2,16 +2,16 @@
 
 #include "../../common/FormatHelper.h"
 #include "data/Authors.h"
+#include "data/BookFormat.h"
 #include "data/Genres.h"
 #include "data/Publishers.h"
+#include "data/Series.h"
 #include "data/Titles.h"
 #include "data/Translators.h"
-#include "data/Series.h"
-#include "data/BookFormat.h"
-#include "faker-cxx/Helper.h"
-#include "faker-cxx/String.h"
 #include "faker-cxx/Date.h"
+#include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
+#include "faker-cxx/String.h"
 
 namespace faker
 {
@@ -43,26 +43,26 @@ std::string Book::isbn()
 
 int Book::releaseYear()
 {
-	return std::stoi(Date::pastDate(100).substr(0, 4));
+    return Number::integer(1940, 2024);
 }
 
 std::string Book::translator()
 {
-	return Helper::arrayElement<std::string>(translators);
+    return Helper::arrayElement<std::string>(translators);
 }
 
 std::string Book::format()
 {
-   return Helper::arrayElement<std::string>(bookFormats); 
+    return Helper::arrayElement<std::string>(bookFormats);
 }
 
 int Book::page()
 {
-	return Number::integer(50, 999);
+    return Number::integer(50, 999);
 }
 
 std::string Book::series()
 {
-	return Helper::arrayElement<std::string>(bookSeries);
+    return Helper::arrayElement<std::string>(bookSeries);
 }
 }
