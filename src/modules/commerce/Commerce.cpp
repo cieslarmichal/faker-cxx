@@ -149,4 +149,9 @@ std::string Commerce::ISBN10()
 
     return isbn10 + std::to_string(checkDigit);
 }
+
+std::string Commerce::productId()
+{
+    return String::alphaNumeric(10, StringCasing::Upper, "");
+}
 }

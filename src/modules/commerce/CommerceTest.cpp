@@ -201,3 +201,11 @@ TEST_F(CommerceTest, shouldGenerateIsbn10)
     ASSERT_EQ(generatedIsbn10.size(), 10);
     ASSERT_TRUE(sum % 11 == 0);
 }
+
+TEST_F(CommerceTest, shouldGenerateProductId)
+{
+    const auto generatedProductId = Commerce::productId();  
+
+    ASSERT_EQ(generatedProductId.length(), 10);
+    ASSERT_TRUE(std::ranges::all_of(generatedProductId, [](const char& c) { return std::isalnum(c); }));
+}

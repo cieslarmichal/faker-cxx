@@ -129,5 +129,16 @@ public:
      * @endcode
      */
     static std::string ISBN10();
+
+    /**
+     * @brief Returns a random product ID.
+     *
+     * @returns productId.
+     *
+     * @code
+     * Commerce::productId() // "ABCD123456"
+     * @endcode
+     */
+    static std::string productId();
 };
 }
