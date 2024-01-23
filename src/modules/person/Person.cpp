@@ -9,6 +9,7 @@
 #include "data/argentina/ArgentinianPeopleNames.h"
 #include "data/australia/AustralianPeopleNames.h"
 #include "data/austria/AustrianPeopleNames.h"
+#include "data/azerbaijan/AzerbaijaniPeopleNames.h"
 #include "data/belarus/BelarusianPeopleNames.h"
 #include "data/belgium/BelgianPeopleNames.h"
 #include "data/Bio.h"
@@ -26,6 +27,7 @@
 #include "data/france/FrenchPeopleNames.h"
 #include "data/Gender.h"
 #include "data/germany/GermanPeopleNames.h"
+#include "data/ghana/GhanaianPeopleNames.h"
 #include "data/greece/GreekPeopleNames.h"
 #include "data/Hobbies.h"
 #include "data/hungary/HungarianPeopleNames.h"
@@ -37,12 +39,12 @@
 #include "data/italy/ItalianPeopleNames.h"
 #include "data/japan/JapanesePeopleNames.h"
 #include "data/JobTitles.h"
+#include "data/kazakhstan/KazakhPeopleNames.h"
 #include "data/korea/KoreanPeopleNames.h"
 #include "data/Languages.h"
 #include "data/latvia/LatvianPeopleNames.h"
 #include "data/lebanon/LebanesePeopleNames.h"
 #include "data/lithuania/LithuanianPeopleNames.h"
-#include "data/azerbaijan/AzerbaijaniPeopleNames.h"
 #include "data/macedonia/MacedonianPeopleNames.h"
 #include "data/malta/MaltesePeopleNames.h"
 #include "data/mexico/MexicanPeopleNames.h"
@@ -60,17 +62,16 @@
 #include "data/serbia/SerbianPeopleNames.h"
 #include "data/slovakia/SlovakPeopleNames.h"
 #include "data/slovenia/SlovenianPeopleNames.h"
+#include "data/southAfrica/SouthAfricanPeopleNames.h"
 #include "data/spain/SpanishPeopleNames.h"
 #include "data/SsnFormats.h"
 #include "data/sweden/SwedishPeopleNames.h"
 #include "data/switzerland/SwissPeopleNames.h"
 #include "data/syria/SyrianPeopleNames.h"
-#include "data/southAfrica/SouthAfricanPeopleNames.h"
 #include "data/turkey/TurkishPeopleNames.h"
 #include "data/ukraine/UkrainianPeopleNames.h"
 #include "data/usa/UsaPeopleNames.h"
 #include "data/vietnam/VietnamesePeopleNames.h"
-#include "data/ghana/GhanaianPeopleNames.h"
 #include "data/ZodiacSigns.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
@@ -82,36 +83,66 @@ namespace faker
 namespace
 {
 const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
-    {Country::England, englishPeopleNames},       {Country::France, frenchPeopleNames},
-    {Country::Germany, germanPeopleNames},        {Country::Italy, italianPeopleNames},
-    {Country::Poland, polishPeopleNames},         {Country::Russia, russianPeopleNames},
-    {Country::Romania, romanianPeopleNames},      {Country::India, indianPeopleNames},
-    {Country::Finland, finnishPeopleNames},       {Country::Nepal, nepalesePeopleNames},
-    {Country::Spain, spanishPeopleNames},         {Country::Turkey, turkishPeopleNames},
-    {Country::Czech, czechPeopleNames},           {Country::Slovakia, slovakPeopleNames},
-    {Country::Ukraine, ukrainianPeopleNames},     {Country::Denmark, danishPeopleNames},
-    {Country::Sweden, swedishPeopleNames},        {Country::Usa, usaPeopleNames},
-    {Country::Brazil, brazilianPeopleNames},      {Country::Norway, norwegianPeopleNames},
-    {Country::Japan, japanesePeopleNames},        {Country::Portugal, portuguesePeopleNames},
-    {Country::Hungary, hungarianPeopleNames},     {Country::Croatia, croatianPeopleNames},
-    {Country::Greece, greekPeopleNames},          {Country::Slovenia, slovenianPeopleNames},
-    {Country::Austria, austrianPeopleNames},      {Country::Switzerland, swissPeopleNames},
-    {Country::Belgium, belgianPeopleNames},       {Country::Netherlands, dutchPeopleNames},
-    {Country::China, chinesePeopleNames},         {Country::Korea, koreanPeopleNames},
-    {Country::Canada, canadianPeopleNames},       {Country::Mexico, mexicanPeopleNames},
-    {Country::Argentina, argentinianPeopleNames}, {Country::Australia, australianPeopleNames},
-    {Country::Serbia, serbianPeopleNames},        {Country::Macedonia, macedonianPeopleNames},
-    {Country::Latvia, latvianPeopleNames},        {Country::Ireland, irishPeopleNames},
-    {Country::Belarus, belarusianPeopleNames},    {Country::Estonia, estonianPeopleNames},
-    {Country::Albania, albanianPeopleNames},      {Country::Iran, persianPeopleNames},
-    {Country::Bulgaria, bulgarianPeopleNames},    {Country::Moldova, moldovanPeopleNames},
-    {Country::Bosnia, bosnianPeopleNames},        {Country::Lithuania, lithuanianPeopleNames},
-    {Country::Iceland, icelandicPeopleNames},     {Country::Palestine, palestinianPeopleNames},
-    {Country::Israel, israeliPeopleNames},        {Country::Vietnam, vietnamesePeopleNames},
-    {Country::Monaco, monacanPeopleNames},        {Country::Lebanon, lebanesePeopleNames},
-    {Country::Syria, syrianPeopleNames},          {Country::Malta, maltesePeopleNames},
-    {Country::SouthAfrica, southAfricanPeopleNames}, {Country::Azerbaijan, azerbaijaniPeopleNames},
+    {Country::England, englishPeopleNames},
+    {Country::France, frenchPeopleNames},
+    {Country::Germany, germanPeopleNames},
+    {Country::Italy, italianPeopleNames},
+    {Country::Poland, polishPeopleNames},
+    {Country::Russia, russianPeopleNames},
+    {Country::Romania, romanianPeopleNames},
+    {Country::India, indianPeopleNames},
+    {Country::Finland, finnishPeopleNames},
+    {Country::Nepal, nepalesePeopleNames},
+    {Country::Spain, spanishPeopleNames},
+    {Country::Turkey, turkishPeopleNames},
+    {Country::Czech, czechPeopleNames},
+    {Country::Slovakia, slovakPeopleNames},
+    {Country::Ukraine, ukrainianPeopleNames},
+    {Country::Denmark, danishPeopleNames},
+    {Country::Sweden, swedishPeopleNames},
+    {Country::Usa, usaPeopleNames},
+    {Country::Brazil, brazilianPeopleNames},
+    {Country::Norway, norwegianPeopleNames},
+    {Country::Japan, japanesePeopleNames},
+    {Country::Portugal, portuguesePeopleNames},
+    {Country::Hungary, hungarianPeopleNames},
+    {Country::Croatia, croatianPeopleNames},
+    {Country::Greece, greekPeopleNames},
+    {Country::Slovenia, slovenianPeopleNames},
+    {Country::Austria, austrianPeopleNames},
+    {Country::Switzerland, swissPeopleNames},
+    {Country::Belgium, belgianPeopleNames},
+    {Country::Netherlands, dutchPeopleNames},
+    {Country::China, chinesePeopleNames},
+    {Country::Korea, koreanPeopleNames},
+    {Country::Canada, canadianPeopleNames},
+    {Country::Mexico, mexicanPeopleNames},
+    {Country::Argentina, argentinianPeopleNames},
+    {Country::Australia, australianPeopleNames},
+    {Country::Serbia, serbianPeopleNames},
+    {Country::Macedonia, macedonianPeopleNames},
+    {Country::Latvia, latvianPeopleNames},
+    {Country::Ireland, irishPeopleNames},
+    {Country::Belarus, belarusianPeopleNames},
+    {Country::Estonia, estonianPeopleNames},
+    {Country::Albania, albanianPeopleNames},
+    {Country::Iran, persianPeopleNames},
+    {Country::Bulgaria, bulgarianPeopleNames},
+    {Country::Moldova, moldovanPeopleNames},
+    {Country::Bosnia, bosnianPeopleNames},
+    {Country::Lithuania, lithuanianPeopleNames},
+    {Country::Iceland, icelandicPeopleNames},
+    {Country::Palestine, palestinianPeopleNames},
+    {Country::Israel, israeliPeopleNames},
+    {Country::Vietnam, vietnamesePeopleNames},
+    {Country::Monaco, monacanPeopleNames},
+    {Country::Lebanon, lebanesePeopleNames},
+    {Country::Syria, syrianPeopleNames},
+    {Country::Malta, maltesePeopleNames},
+    {Country::SouthAfrica, southAfricanPeopleNames},
+    {Country::Azerbaijan, azerbaijaniPeopleNames},
     {Country::Ghana, ghanaianPeopleNames},
+    {Country::Kazakhstan, kazakhPeopleNames},
 };
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
