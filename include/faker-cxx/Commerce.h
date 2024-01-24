@@ -129,5 +129,40 @@ public:
      * @endcode
      */
     static std::string ISBN10();
+
+    /**
+     * @brief Returns a random product ID.
+     *
+     * @returns productId.
+     *
+     * @code
+     * Commerce::productId() // "ABCD123456"
+     * @endcode
+     */
+    static std::string productId();
+
+    /**
+     * @brief Returns a random payment type.
+     *
+     * @returns paymentType.
+     *
+     * @code
+     * Commerce::paymentType() // "Credit Card"
+     * @endcode
+     */
+    static std::string paymentType();
+
+    /**
+     * @brief Returns a random payment provider.
+     *
+     * @returns paymentProvider.
+     *
+     * @code
+     * Commerce::paymentProvider() // "Paypal"
+     * @endcode
+     */
+    static std::string paymentProvider();
+
+
 };
 }
