@@ -22,4 +22,9 @@ const std::vector<std::string> productNames = {"Chair",  "Car",    "Computer", "
                                                "Ball",   "Gloves", "Pants",    "Shirt",    "Table",    "Shoes",
                                                "Hat",    "Towels", "Soap",     "Tuna",     "Chicken",  "Fish",
                                                "Cheese", "Bacon",  "Pizza",    "Salad",    "Sausages", "Chips"};
+
+const std::vector<std::string> paymentTypes = {"Credit Card", "Debit Card", "Cash", "Bank Transfer", "Check"};
+
+const std::vector<std::string> paymentProviders = {"Stripe", "Paypal", "Square", "Helcim", "Merchant One", 
+                                                  "Flagship Merchant Services", "Stax"};
 }

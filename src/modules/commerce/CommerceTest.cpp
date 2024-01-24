@@ -209,3 +209,19 @@ TEST_F(CommerceTest, shouldGenerateProductId)
     ASSERT_EQ(generatedProductId.length(), 10);
     ASSERT_TRUE(std::ranges::all_of(generatedProductId, [](const char& c) { return std::isalnum(c); }));
 }
+
+TEST_F(CommerceTest, shouldGeneratePaymentType)
+{
+    const auto generatedPaymentType = Commerce::paymentType();
+
+    ASSERT_TRUE(std::ranges::any_of(paymentTypes, [generatedPaymentType](const std::string& paymentType)
+                                    { return paymentType == generatedPaymentType; }));
+}
+
+TEST_F(CommerceTest, shouldGeneratePaymentProvider)
+{
+    const auto generatedPaymentProvider = Commerce::paymentProvider();
+
+    ASSERT_TRUE(std::ranges::any_of(paymentProviders, [generatedPaymentProvider](const std::string& paymentProvider)
+                                    { return paymentProvider == generatedPaymentProvider; }));
+}

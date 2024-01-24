@@ -154,4 +154,14 @@ std::string Commerce::productId()
 {
     return String::alphanumeric(10, StringCasing::Upper, "");
 }
+
+std::string Commerce::paymentType()
+{
+    return Helper::arrayElement<std::string>(paymentTypes);
+}
+
+std::string Commerce::paymentProvider()
+{
+    return Helper::arrayElement<std::string>(paymentProviders);
+}
 }
