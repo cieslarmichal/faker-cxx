@@ -147,7 +147,7 @@ public:
      * @returns paymentType.
      *
      * @code
-     * Commerce::paymentType() // "credit card"
+     * Commerce::paymentType() // "Credit Card"
      * @endcode
      */
     static std::string paymentType();
