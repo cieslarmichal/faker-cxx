@@ -122,4 +122,16 @@ std::string Git::commitSha(unsigned length)
 {
     return faker::String::hexadecimal(length, HexCasing::Lower, HexPrefix::None);
 }
+
+Git::Author Git::author()
+{
+    const std::string firstName = Person::firstName();
+    const std::string lastName = Person::lastName();
+
+    const std::string name = firstName + " " + lastName;
+    const std::string email = Internet::email(firstName, lastName);
+
+    return {name, email};
+}
+
 }
