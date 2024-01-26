@@ -102,4 +102,13 @@ std::string Color::cmyk()
     return FormatHelper::format("cmyk({:.2f}, {:.2f}, {:.2f}, {:.2f})", cyan, magenta, yellow, key);
 }
 
+std::string Color::lab()
+{
+    const std::floating_point auto lightness = Number::decimal<double>(100.0);
+    const std::floating_point auto redGreenValue = Number::decimal<double>(-128.0, 128.0);
+    const std::floating_point auto blueYellowValue = Number::decimal<double>(-128.0, 128.0);
+
+    return FormatHelper::format("lab({:.2f}, {:.2f}, {:.2f})", lightness, redGreenValue, blueYellowValue);
+}
+
 }
