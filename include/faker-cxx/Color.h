@@ -90,7 +90,7 @@ public:
      *
      * @returns LAB color formatted with lab(X,X,X)
      * @code
-     * Color::lab() // "lab(98, 2, -2)"
+     * Color::lab() // "lab(98.74, 2.18, -2.35)"
      * @endcode
      */
     static std::string lab();

@@ -104,11 +104,11 @@ std::string Color::cmyk()
 
 std::string Color::lab()
 {
-    const std::integral auto lightness = Number::integer(100);
-    const std::integral auto redGreenValue = Number::integer(-128, 128);
-    const std::integral auto blueYellowValue = Number::integer(-128, 128);
+    const std::floating_point auto lightness = Number::decimal<double>(100.0);
+    const std::floating_point auto redGreenValue = Number::decimal<double>(-128.0, 128.0);
+    const std::floating_point auto blueYellowValue = Number::decimal<double>(-128.0, 128.0);
 
-    return FormatHelper::format("lab({}, {}, {})", lightness, redGreenValue, blueYellowValue);
+    return FormatHelper::format("lab({:.2f}, {:.2f}, {:.2f})", lightness, redGreenValue, blueYellowValue);
 }
 
 }
