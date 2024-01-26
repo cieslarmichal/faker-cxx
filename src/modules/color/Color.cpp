@@ -104,7 +104,11 @@ std::string Color::cmyk()
 
 std::string Color::lab()
 {
-    return "";
+    const std::integral auto lightness = Number::integer(100);
+    const std::integral auto redGreenValue = Number::integer(-128, 128);
+    const std::integral auto blueYellowValue = Number::integer(-128, 128);
+
+    return FormatHelper::format("lab({}, {}, {})", lightness, redGreenValue, blueYellowValue);
 }
 
 }
