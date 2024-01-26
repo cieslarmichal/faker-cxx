@@ -102,4 +102,9 @@ std::string Color::cmyk()
     return FormatHelper::format("cmyk({:.2f}, {:.2f}, {:.2f}, {:.2f})", cyan, magenta, yellow, key);
 }
 
+std::string Color::lab()
+{
+    return "";
+}
+
 }

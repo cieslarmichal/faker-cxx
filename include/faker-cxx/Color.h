@@ -84,5 +84,15 @@ public:
      * @endcode
      */
     static std::string cmyk();
+
+    /**
+     * @brief Return a LAB color
+     *
+     * @returns LAB color formatted with lab(X,X,X)
+     * @code
+     * Color::lab() // "lab(98, 2, -2)"
+     * @endcode
+     */
+    static std::string lab();
 };
 }

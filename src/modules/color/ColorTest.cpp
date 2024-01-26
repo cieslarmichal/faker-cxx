@@ -192,3 +192,21 @@ TEST_F(ColorTest, shouldGenerateCmykColor)
     ASSERT_TRUE(0. <= yellow && yellow <= 1.);
     ASSERT_TRUE(0. <= key && key <= 1.);
 }
+
+TEST_F(ColorTest, shouldGenerateLabColor)
+{
+    const auto generatedLabColor = faker::Color::lab();
+    const auto labValues = faker::StringHelper::split(generatedLabColor.substr(4, generatedLabColor.size() - 1), " ");
+
+    int lightness, redGreenValue, blueYellowValue;
+
+    std::from_chars(labValues[0].data(), labValues[0].data() + labValues[0].size(), lightness);
+    std::from_chars(labValues[1].data(), labValues[1].data() + labValues[1].size(), redGreenValue);
+    std::from_chars(labValues[2].data(), labValues[2].data() + labValues[2].size(), blueYellowValue);
+
+    ASSERT_TRUE(generatedLabColor.starts_with("lab("));
+    ASSERT_TRUE(generatedLabColor.ends_with(")"));
+    ASSERT_TRUE(lightness >= 0 && lightness <= 100);
+    ASSERT_TRUE(redGreenValue >= -128 && redGreenValue <= 128);
+    ASSERT_TRUE(blueYellowValue >= -128 && blueYellowValue <= 128);
+}
