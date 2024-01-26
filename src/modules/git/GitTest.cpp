@@ -21,6 +21,10 @@ public:
         "[1-2][0-9]{3} (-|\\+)((0[0-9])|(1[0-2]))00";
     inline static const std::string MESSAGE_REGEX =
         R"([a-zA-Z]+(\-[a-zA-Z]+)* ([a-zA-Z\-]+(\-[a-zA-Z]+)*\s)*[a-zA-Z\-]+(\-[a-zA-Z]+)*)";
+    inline static const std::string EMAIL_REGEX =
+        "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
+    inline static const std::string NAME_REGEX =
+        "^[A-Z][a-zA-Z]+\\s[A-Z][a-zA-Z]+$";
 
     static std::string generateShaRegex(unsigned length);
     static std::string generateShaRegex();
@@ -93,4 +97,13 @@ TEST_F(GitTest, shouldGenerateCommitSha)
     unsigned length = 40;
     const std::regex shaRegex("^" + GitTest::generateShaRegex(length) + "$");
     ASSERT_TRUE(std::regex_match(Git::commitSha(length), shaRegex));
+}
+
+TEST_F(GitTest, shouldGenerateAuthor)
+{
+    Git::Author generatedAuthor = Git::author();
+    const std::regex nameRegex(NAME_REGEX);
+    const std::regex emailRegex(EMAIL_REGEX);
+    ASSERT_TRUE(std::regex_match(generatedAuthor.name, nameRegex));
+    ASSERT_TRUE(std::regex_match(generatedAuthor.email, emailRegex));
 }

@@ -10,6 +10,11 @@ namespace faker
 class Git
 {
 public:
+    struct Author
+    {
+        std::string name, email;
+    };
+
     /**
      * @brief Returns a random branch name.
      *
@@ -78,5 +83,19 @@ public:
      * @endcode
      */
     static std::string commitSha(unsigned length = 40);
+
+
+    /**
+     * @brief Returns a random author name and email.
+     *
+     * @param
+     *
+     * @returns Author.
+     *
+     * @code
+     * Git::author // {Author.name = "Rachel McLaughlin", Author.email = "Rachel_McLaughlin@gmail.com"}
+     * @endcode
+     */
+     static Author author();
 };
 }
