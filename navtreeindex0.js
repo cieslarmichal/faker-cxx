@@ -41,6 +41,7 @@ var NAVTREEINDEX0 =
 "structfaker_1_1CharCount.html":[0,0,0,3],
 "structfaker_1_1CronOptions.html":[0,0,0,8],
 "structfaker_1_1FileOptions.html":[0,0,0,13],
+"structfaker_1_1Git_1_1Author.html":[0,0,0,16,0],
 "structfaker_1_1Helper_1_1WeightedElement.html":[0,0,0,18,0],
 "structfaker_1_1NetworkInterfaceOptions.html":[0,0,0,26],
 "structfaker_1_1PasswordOptions.html":[0,0,0,28],
