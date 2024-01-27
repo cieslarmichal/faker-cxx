@@ -25,8 +25,38 @@ public:
      * @endcode
      */
     static std::string number(std::optional<std::string> = std::nullopt);
+
+    /**
+     * @brief Returns a random phone platform.
+     *
+     * @returns Random phone platform.
+     *
+     * @code
+     * Phone::platform() // "iOS"
+     * @endcode
+     */
     static std::string platform();
+
+    /**
+     * @brief Returns a random phone model.
+     *
+     * @returns Random phone model.
+     *
+     * @code
+     * Phone::modelName() // "Samsung Galaxy S22"
+     * @endcode
+     */
     static std::string modelName();
+
+    /**
+     * @brief Returns a random phone manufacturer.
+     *
+     * @returns Random phone manufacturer.
+     *
+     * @code
+     * Phone::manufacturer() // "Sony"
+     * @endcode
+     */
     static std::string manufacturer();
 
     /**
