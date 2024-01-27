@@ -11,7 +11,7 @@ var searchData=
   ['phone_8',['Phone',['../classfaker_1_1Phone.html',1,'faker']]],
   ['phrase_9',['phrase',['../classfaker_1_1Hacker.html#aff74c0df497fd3324347f960e7bb202d',1,'faker::Hacker']]],
   ['pin_10',['pin',['../classfaker_1_1Finance.html#a15e187cc0587b8f94c7a41e48ae87ba6',1,'faker::Finance']]],
-  ['platform_11',['platform',['../classfaker_1_1VideoGame.html#a25f2f7f0df0df05fc08fb822fa36d0b5',1,'faker::VideoGame']]],
+  ['platform_11',['platform',['../classfaker_1_1Phone.html#aeed1be9ae49f7a1d5bc24863f7fc8ce3',1,'faker::Phone::platform()'],['../classfaker_1_1VideoGame.html#a25f2f7f0df0df05fc08fb822fa36d0b5',1,'faker::VideoGame::platform()']]],
   ['port_12',['port',['../classfaker_1_1Internet.html#aa4ae235611f88b6f607b2958b49dcdd0',1,'faker::Internet']]],
   ['prefix_13',['prefix',['../classfaker_1_1Person.html#a1d4e8274664980f45ec8b474519623da',1,'faker::Person']]],
   ['preposition_14',['preposition',['../classfaker_1_1Word.html#aec3320b52da4f63cb67c394ab2c18ffe',1,'faker::Word']]],
