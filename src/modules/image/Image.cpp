@@ -1,6 +1,8 @@
 #include "faker-cxx/Image.h"
 
 #include "../../common/FormatHelper.h"
+#include "data/Type.h"
+#include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 
 namespace faker
@@ -37,4 +39,8 @@ std::string Image::dimensions()
     return FormatHelper::format("{}x{}", Number::integer<int>(1, 32720), Number::integer<int>(1, 17280));
 }
 
+std::string Image::type()
+{
+    return Helper::arrayElement(image_types);
+}
 }
