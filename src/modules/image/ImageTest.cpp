@@ -72,6 +72,6 @@ TEST_F(ImageTest, shouldGenerateType)
 {
     const auto generatedType = Image::type();
 
-    ASSERT_TRUE(std::any_of(image_types.begin(), image_types.end(),
+    ASSERT_TRUE(std::any_of(imageTypes.begin(), imageTypes.end(),
                             [generatedType](const std::string& type) { return type == generatedType; }));
 }

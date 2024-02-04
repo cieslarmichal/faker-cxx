@@ -5,6 +5,6 @@
 
 namespace faker
 {
-const std::vector<std::string> image_types = {"ai",  "bmp", "eps", "gif", "heif", "indd", "jpeg", "jpg",
+const std::vector<std::string> imageTypes = {"ai",  "bmp", "eps", "gif", "heif", "indd", "jpeg", "jpg",
                                               "pdf", "png", "psd", "raw", "svg",  "tiff", "webp"};
 }

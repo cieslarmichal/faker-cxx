@@ -41,6 +41,6 @@ std::string Image::dimensions()
 
 std::string Image::type()
 {
-    return Helper::arrayElement(image_types);
+    return Helper::arrayElement(imageTypes);
 }
 }
