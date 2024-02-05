@@ -114,5 +114,15 @@ public:
      * @endcode
      */
     static std::string hsv();
+    
+     /**
+     * @brief Return a YUV color
+     *
+     * @returns YUV color formatted with yuv(X,X,X)
+     * @code
+     * Color::yuv() // "yuv(42, 234, 109)"
+     * @endcode
+     */
+    static std::string yuv();
 };
 }

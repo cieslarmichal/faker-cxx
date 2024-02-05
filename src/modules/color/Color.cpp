@@ -129,4 +129,13 @@ std::string Color::hsv()
     return FormatHelper::format("hsv({}, {}, {})", hue, saturation, value);
 }
 
+std::string Color::yuv()
+{
+    const std::integral auto luminance = Number::integer(255);
+    const std::integral auto chrominanceBlueColor = Number::integer(255);
+    const std::integral auto chrominanceRedColor = Number::integer(255);
+
+    return FormatHelper::format("yuv({}, {}, {})", luminance, chrominanceBlueColor, chrominanceRedColor);
+}
+
 }
