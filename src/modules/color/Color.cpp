@@ -111,4 +111,22 @@ std::string Color::lab()
     return FormatHelper::format("lab({:.2f}, {:.2f}, {:.2f})", lightness, redGreenValue, blueYellowValue);
 }
 
+std::string Color::hsb()
+{
+    const std::integral auto hue = Number::integer(360);
+    const std::integral auto saturation = Number::integer(100);
+    const std::integral auto brightness = Number::integer(100);
+
+    return FormatHelper::format("hsb({}, {}, {})", hue, saturation, brightness);
+}
+
+std::string Color::hsv()
+{
+    const std::integral auto hue = Number::integer(360);
+    const std::integral auto saturation = Number::integer(100);
+    const std::integral auto value = Number::integer(100);
+
+    return FormatHelper::format("hsv({}, {}, {})", hue, saturation, value);
+}
+
 }

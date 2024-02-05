@@ -211,3 +211,39 @@ TEST_F(ColorTest, shouldGenerateLabColor)
     ASSERT_TRUE(redGreenValue >= -128. && redGreenValue <= 128.);
     ASSERT_TRUE(blueYellowValue >= -128. && blueYellowValue <= 128.);
 }
+
+TEST_F(ColorTest, shouldGenerateHsb)
+{
+    const auto generatedHsbColor = faker::Color::hsb();
+    const auto hsbValues = faker::StringHelper::split(generatedHsbColor.substr(4, generatedHsbColor.size() - 1), " ");
+
+    int hue, staturation, brightness;
+
+    std::from_chars(hsbValues[0].data(), hsbValues[0].data() + hsbValues[0].size(), hue);
+    std::from_chars(hsbValues[1].data(), hsbValues[1].data() + hsbValues[1].size(), staturation);
+    std::from_chars(hsbValues[2].data(), hsbValues[2].data() + hsbValues[2].size(), brightness);
+
+    ASSERT_TRUE(generatedHsbColor.starts_with("hsb("));
+    ASSERT_TRUE(generatedHsbColor.ends_with(")"));
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+    ASSERT_TRUE(staturation >= 0 && staturation <= 100);
+    ASSERT_TRUE(brightness >= 0 && brightness <= 100);
+}
+
+TEST_F(ColorTest, shouldGenerateHsv)
+{
+    const auto generatedHsvColor = faker::Color::hsv();
+    const auto hsvValues = faker::StringHelper::split(generatedHsvColor.substr(4, generatedHsvColor.size() - 1), " ");
+
+    int hue, staturation, brightness;
+
+    std::from_chars(hsvValues[0].data(), hsvValues[0].data() + hsvValues[0].size(), hue);
+    std::from_chars(hsvValues[1].data(), hsvValues[1].data() + hsvValues[1].size(), staturation);
+    std::from_chars(hsvValues[2].data(), hsvValues[2].data() + hsvValues[2].size(), brightness);
+
+    ASSERT_TRUE(generatedHsvColor.starts_with("hsv("));
+    ASSERT_TRUE(generatedHsvColor.ends_with(")"));
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+    ASSERT_TRUE(staturation >= 0 && staturation <= 100);
+    ASSERT_TRUE(brightness >= 0 && brightness <= 100);
+}

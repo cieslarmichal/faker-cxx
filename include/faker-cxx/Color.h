@@ -94,5 +94,25 @@ public:
      * @endcode
      */
     static std::string lab();
+
+    /**
+     * @brief Return a HSB color
+     *
+     * @returns HSB color formatted with hsb(X,X,X)
+     * @code
+     * Color::hsb() // "hsb(37, 82, 50)"
+     * @endcode
+     */
+    static std::string hsb();
+
+    /**
+     * @brief Return a HSV color
+     *
+     * @returns HSV color formatted with hsv(X,X,X)
+     * @code
+     * Color::hsv() // "hsv(21, 67, 39)"
+     * @endcode
+     */
+    static std::string hsv();
 };
 }
