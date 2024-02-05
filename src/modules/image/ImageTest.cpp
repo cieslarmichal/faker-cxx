@@ -1,10 +1,12 @@
 #include "faker-cxx/Image.h"
 
 #include <string>
+#include <algorithm>
 
 #include "gtest/gtest.h"
 
 #include "../src/common/StringHelper.h"
+#include "data/Type.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -65,4 +67,12 @@ TEST_F(ImageTest, shouldGenerateDimensions)
 
     auto height_dimension = std::stoi(split_dimensions[1]);
     ASSERT_TRUE(height_dimension >= 1 && height_dimension <= 17280);
+}
+
+TEST_F(ImageTest, shouldGenerateType)
+{
+    const auto generatedType = Image::type();
+
+    ASSERT_TRUE(std::ranges::any_of(imageTypes, [generatedType](const std::string& type) 
+                                    { return type == generatedType; }));
 }
