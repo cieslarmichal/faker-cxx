@@ -247,3 +247,21 @@ TEST_F(ColorTest, shouldGenerateHsv)
     ASSERT_TRUE(staturation >= 0 && staturation <= 100);
     ASSERT_TRUE(brightness >= 0 && brightness <= 100);
 }
+
+TEST_F(ColorTest, shouldGenerateYuv)
+{
+    const auto generatedYuvColor = faker::Color::yuv();
+    const auto yuvValues = faker::StringHelper::split(generatedYuvColor.substr(4, generatedYuvColor.size() - 1), " ");
+
+    int luminance, chrominanceBlueColor, chrominanceRedColor;
+
+    std::from_chars(yuvValues[0].data(), yuvValues[0].data() + yuvValues[0].size(), luminance);
+    std::from_chars(yuvValues[1].data(), yuvValues[1].data() + yuvValues[1].size(), chrominanceBlueColor);
+    std::from_chars(yuvValues[2].data(), yuvValues[2].data() + yuvValues[2].size(), chrominanceRedColor);
+
+    ASSERT_TRUE(generatedYuvColor.starts_with("yuv("));
+    ASSERT_TRUE(generatedYuvColor.ends_with(")"));
+    ASSERT_TRUE(luminance >= 0 && luminance <= 255);
+    ASSERT_TRUE(chrominanceBlueColor >= 0 && chrominanceBlueColor <= 255);
+    ASSERT_TRUE(chrominanceRedColor >= 0 && chrominanceRedColor <= 255);
+}
