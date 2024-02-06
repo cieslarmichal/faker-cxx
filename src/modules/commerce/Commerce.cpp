@@ -164,4 +164,22 @@ std::string Commerce::paymentProvider()
 {
     return Helper::arrayElement<std::string>(paymentProviders);
 }
+
+std::string Commerce::productDescription() {
+    return Helper::arrayElement<std::string>(productDescriptions);
+}
+
+std::string Commerce::productCategory()
+{
+    return Helper::arrayElement<std::string>(productCategoryNames);
+}
+
+std::string Commerce::productReview() {
+    return Helper::arrayElement<std::string>(productReviews);
+}
+
+double Commerce::productRating() {
+    return Number::decimal<double>(5.);
+}
+
 }

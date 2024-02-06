@@ -225,3 +225,34 @@ TEST_F(CommerceTest, shouldGeneratePaymentProvider)
     ASSERT_TRUE(std::ranges::any_of(paymentProviders, [generatedPaymentProvider](const std::string& paymentProvider)
                                     { return paymentProvider == generatedPaymentProvider; }));
 }
+
+TEST_F(CommerceTest, shouldGenerateProductDescription)
+{
+    const auto generatedProductDescription = Commerce::productDescription();
+
+    ASSERT_TRUE(std::ranges::any_of(productDescriptions, [generatedProductDescription](const std::string& productDescription)
+                                    { return productDescription == generatedProductDescription; }));
+}
+
+TEST_F(CommerceTest, shouldGenerateProductCategory)
+{
+    const auto generatedProductCategory = Commerce::productCategory();
+
+    ASSERT_TRUE(std::ranges::any_of(productCategoryNames, [generatedProductCategory](const std::string& productCategory)
+                                    { return productCategory == generatedProductCategory; }));
+}
+
+TEST_F(CommerceTest, shouldGenerateProductReview)
+{
+    const auto generatedProductReview = Commerce::productReview();
+
+    ASSERT_TRUE(std::ranges::any_of(productReviews, [generatedProductReview](const std::string& productReview)
+                                    { return productReview == generatedProductReview; }));
+}
+
+TEST_F(CommerceTest, shouldGenerateProductRating)
+{
+    const auto generatedProductRating = Commerce::productRating();
+
+    ASSERT_TRUE(0. <= generatedProductRating && generatedProductRating <= 5.);
+}
