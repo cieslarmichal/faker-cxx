@@ -163,6 +163,49 @@ public:
      */
     static std::string paymentProvider();
 
+    /**
+     * @brief Returns a random product description.
+     *
+     * @returns productDescription.
+     *
+     * @code
+     * Commerce::productDescription() // "Elevate your lifestyle with premium quality product."
+     * @endcode
+     */
+    static std::string productDescription();
+
+    /**
+     * @brief Returns a random product category.
+     *
+     * @returns productCategory.
+     *
+     * @code
+     * Commerce::productCategory() // "Electronics"
+     * @endcode
+     */
+    static std::string productCategory();
+
+    /**
+     * @brief Returns a random product review.
+     *
+     * @returns productReview.
+     *
+     * @code
+     * Commerce::productReview() //  "Unfortunately, it broke shortly after I started using it."
+     * @endcode
+     */
+    static std::string productReview();
+    
+    /**
+     * @brief Returns a random product rating (0-5).
+     *
+     * @returns productRating.
+     *
+     * @code
+     * Commerce::productRating() // 4.1
+     * @endcode
+     */
+    static double productRating();
 
 };
 }
