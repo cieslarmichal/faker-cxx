@@ -169,7 +169,7 @@ public:
      * @returns productDescription.
      *
      * @code
-     * Commerce::productDescription() // "bear traces of use"
+     * Commerce::productDescription() // "Elevate your lifestyle with premium quality product."
      * @endcode
      */
     static std::string productDescription();
@@ -180,7 +180,7 @@ public:
      * @returns productCategory.
      *
      * @code
-     * Commerce::productCategory() // "food"
+     * Commerce::productCategory() // "Electronics"
      * @endcode
      */
     static std::string productCategory();
@@ -191,7 +191,7 @@ public:
      * @returns productReview.
      *
      * @code
-     * Commerce::productReview() // "I am satisfied with this purchase"
+     * Commerce::productReview() //  "Unfortunately, it broke shortly after I started using it."
      * @endcode
      */
     static std::string productReview();

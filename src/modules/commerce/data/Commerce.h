@@ -50,7 +50,7 @@ const std::vector<std::string> productDescriptions = {
 };
 
 const std::vector<std::string> productCategoryNames = {
-    "Art and Craft",            "Baby Products",        "Beauty Products",
+    "Art and Craft",           "Baby Products",         "Beauty Products",
     "Board Games and Puzzles", "Books and Stationery",  "Clothing, Shoes, and Jewelry",
     "Electronics",             "Fitness Equipment",     "Furniture and Furnishings",
     "Health and Wellness",     "Home Decor",            "Kitchen Appliances",
