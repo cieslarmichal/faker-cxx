@@ -158,6 +158,18 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a4a86e309f5a7ebe2d093e4e8f3bd1907" id="r_a4a86e309f5a7ebe2d093e4e8f3bd1907"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a86e309f5a7ebe2d093e4e8f3bd1907">productRating</a> ()</td></tr>
 <tr class="memdesc:a4a86e309f5a7ebe2d093e4e8f3bd1907"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random product rating (0-5).  <br /></td></tr>
 <tr class="separator:a4a86e309f5a7ebe2d093e4e8f3bd1907"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa75dab505400467b717a0f5b40b7385c" id="r_aa75dab505400467b717a0f5b40b7385c"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa75dab505400467b717a0f5b40b7385c">discountType</a> ()</td></tr>
+<tr class="memdesc:aa75dab505400467b717a0f5b40b7385c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random discount type.  <br /></td></tr>
+<tr class="separator:aa75dab505400467b717a0f5b40b7385c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73ef699ae27be7d9fea49f05aff5331a" id="r_a73ef699ae27be7d9fea49f05aff5331a"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73ef699ae27be7d9fea49f05aff5331a">discountCode</a> ()</td></tr>
+<tr class="memdesc:a73ef699ae27be7d9fea49f05aff5331a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random discount code within the specified range of 6 to 12 characters.  <br /></td></tr>
+<tr class="separator:a73ef699ae27be7d9fea49f05aff5331a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a79bba73b24961ba1578a74af05f6a675" id="r_a79bba73b24961ba1578a74af05f6a675"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a79bba73b24961ba1578a74af05f6a675">discountAmount</a> ()</td></tr>
+<tr class="memdesc:a79bba73b24961ba1578a74af05f6a675"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random discount amount within the specified range of 10 to 1000.  <br /></td></tr>
+<tr class="separator:a79bba73b24961ba1578a74af05f6a675"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad195166c9faffbdf0a8cf9b8a95ef6db" id="r_ad195166c9faffbdf0a8cf9b8a95ef6db"><td class="memItemLeft" align="right" valign="top">static double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad195166c9faffbdf0a8cf9b8a95ef6db">discountPercentage</a> ()</td></tr>
+<tr class="memdesc:ad195166c9faffbdf0a8cf9b8a95ef6db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random discount percentage within the specified range of 1. to 90.  <br /></td></tr>
+<tr class="separator:ad195166c9faffbdf0a8cf9b8a95ef6db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a1b26450fb0c141e45d16d785177a5658" name="a1b26450fb0c141e45d16d785177a5658"></a>
@@ -187,6 +199,126 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="classfaker_1_1Commerce.html">Commerce</a> department name.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a1b26450fb0c141e45d16d785177a5658">Commerce::department</a>() <span class="comment">// &quot;Books&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1Commerce_html_a1b26450fb0c141e45d16d785177a5658"><div class="ttname"><a href="#a1b26450fb0c141e45d16d785177a5658">faker::Commerce::department</a></div><div class="ttdeci">static std::string department()</div><div class="ttdoc">Returns a random commerce department.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a79bba73b24961ba1578a74af05f6a675" name="a79bba73b24961ba1578a74af05f6a675"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a79bba73b24961ba1578a74af05f6a675">&#9670;&#160;</a></span>discountAmount()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double faker::Commerce::discountAmount </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a random discount amount within the specified range of 10 to 1000. </p>
+<dl class="section return"><dt>Returns</dt><dd>discountAmount.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a79bba73b24961ba1578a74af05f6a675">Commerce::discountAmount</a>() <span class="comment">// 57.80</span></div>
+<div class="ttc" id="aclassfaker_1_1Commerce_html_a79bba73b24961ba1578a74af05f6a675"><div class="ttname"><a href="#a79bba73b24961ba1578a74af05f6a675">faker::Commerce::discountAmount</a></div><div class="ttdeci">static double discountAmount()</div><div class="ttdoc">Returns a random discount amount within the specified range of 10 to 1000.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a73ef699ae27be7d9fea49f05aff5331a" name="a73ef699ae27be7d9fea49f05aff5331a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73ef699ae27be7d9fea49f05aff5331a">&#9670;&#160;</a></span>discountCode()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Commerce::discountCode </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns random discount code within the specified range of 6 to 12 characters. </p>
+<dl class="section return"><dt>Returns</dt><dd>discount code consists of uppercase letters and numbers.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a73ef699ae27be7d9fea49f05aff5331a">Commerce::discountCode</a>() <span class="comment">// &quot;VNM15DEC1&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Commerce_html_a73ef699ae27be7d9fea49f05aff5331a"><div class="ttname"><a href="#a73ef699ae27be7d9fea49f05aff5331a">faker::Commerce::discountCode</a></div><div class="ttdeci">static std::string discountCode()</div><div class="ttdoc">Returns random discount code within the specified range of 6 to 12 characters.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ad195166c9faffbdf0a8cf9b8a95ef6db" name="ad195166c9faffbdf0a8cf9b8a95ef6db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad195166c9faffbdf0a8cf9b8a95ef6db">&#9670;&#160;</a></span>discountPercentage()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static double faker::Commerce::discountPercentage </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a random discount percentage within the specified range of 1. to 90. </p>
+<dl class="section return"><dt>Returns</dt><dd>discountPercentage.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ad195166c9faffbdf0a8cf9b8a95ef6db">Commerce::discountPercentage</a>() <span class="comment">// 35.50</span></div>
+<div class="ttc" id="aclassfaker_1_1Commerce_html_ad195166c9faffbdf0a8cf9b8a95ef6db"><div class="ttname"><a href="#ad195166c9faffbdf0a8cf9b8a95ef6db">faker::Commerce::discountPercentage</a></div><div class="ttdeci">static double discountPercentage()</div><div class="ttdoc">Returns a random discount percentage within the specified range of 1. to 90.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="aa75dab505400467b717a0f5b40b7385c" name="aa75dab505400467b717a0f5b40b7385c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa75dab505400467b717a0f5b40b7385c">&#9670;&#160;</a></span>discountType()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::string faker::Commerce::discountType </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Returns a random discount type. </p>
+<dl class="section return"><dt>Returns</dt><dd>discountType.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#aa75dab505400467b717a0f5b40b7385c">Commerce::discountType</a>() <span class="comment">// &quot;percentage&quot;</span></div>
+<div class="ttc" id="aclassfaker_1_1Commerce_html_aa75dab505400467b717a0f5b40b7385c"><div class="ttname"><a href="#aa75dab505400467b717a0f5b40b7385c">faker::Commerce::discountType</a></div><div class="ttdeci">static std::string discountType()</div><div class="ttdoc">Returns a random discount type.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
