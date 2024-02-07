@@ -207,5 +207,49 @@ public:
      */
     static double productRating();
 
+    /**
+     * @brief Returns a random discount type.
+     *
+     * @returns discountType.
+     *
+     * @code
+     * Commerce::discountType() // "percentage"
+     * @endcode
+     */
+    static std::string discountType();
+    
+    /**
+     * @brief Returns random discount code within the specified range of 6 to 12 characters.
+     *
+     * @returns discount code consists of lowercase letters and numbers.
+     *
+     * @code
+     * Commerce::discountCode() // "VNM15DEC1"
+     * @endcode
+     */
+    static std::string discountCode();
+
+    /**
+     * @brief Returns a random discount amount within the specified range of 10 to 1000.
+     *
+     * @returns discountAmount.
+     *
+     * @code
+     * Commerce::discountAmount() // 57.80
+     * @endcode
+     */
+    static double discountAmount();
+
+    /**
+     * @brief Returns a random discount percentage within the specified range of 1. to 90. 
+     *
+     * @returns discountPercentage.
+     *
+     * @code
+     * Commerce::discountPercentage() // 35.50
+     * @endcode
+     */
+    static double discountPercentage();
+
 };
 }
