@@ -221,7 +221,7 @@ public:
     /**
      * @brief Returns random discount code within the specified range of 6 to 12 characters.
      *
-     * @returns discount code consists of lowercase letters and numbers.
+     * @returns discount code consists of uppercase letters and numbers.
      *
      * @code
      * Commerce::discountCode() // "VNM15DEC1"
