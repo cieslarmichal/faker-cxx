@@ -256,3 +256,26 @@ TEST_F(CommerceTest, shouldGenerateProductRating)
 
     ASSERT_TRUE(0. <= generatedProductRating && generatedProductRating <= 5.);
 }
+
+TEST_F(CommerceTest, shouldGenerateShippingCarrier)
+{
+    const auto generatedShippingCarrier = Commerce::shippingCarrier();
+
+    ASSERT_TRUE(std::ranges::any_of(shippingCarriers, [generatedShippingCarrier](const std::string& shippingCarrier)
+                                    { return shippingCarrier == generatedShippingCarrier; }));
+}
+
+TEST_F(CommerceTest, shouldGenerateOrderStatus)
+{
+    const auto generatedOrderStatus = Commerce::orderStatus();
+
+    ASSERT_TRUE(std::ranges::any_of(orderStatuses, [generatedOrderStatus](const std::string& orderStatus)
+                                    { return orderStatus == generatedOrderStatus; }));
+}
+
+TEST_F(CommerceTest, shouldGenerateOrderNumber)
+{
+    const auto generatedOrderNumber = Commerce::orderNumber();
+
+    ASSERT_TRUE(generatedOrderNumber.size() == 7);
+}

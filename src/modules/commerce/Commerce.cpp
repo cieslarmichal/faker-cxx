@@ -182,4 +182,19 @@ double Commerce::productRating() {
     return Number::decimal<double>(5.);
 }
 
+std::string Commerce::shippingCarrier()
+{
+    return Helper::arrayElement<std::string>(shippingCarriers);
+}
+
+std::string Commerce::orderStatus()
+{
+    return Helper::arrayElement<std::string>(orderStatuses);
+}
+
+std::string Commerce::orderNumber()
+{
+    return String::numeric(7, true);
+}
+
 }

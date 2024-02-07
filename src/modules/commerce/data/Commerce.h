@@ -82,4 +82,10 @@ const std::vector<std::string> productReviews = {
     "It's difficult to operate and not user-friendly."
 };
 
+const std::vector<std::string> shippingCarriers = {"UPS", "USPS", "FedEx", "DHL", "Amazon", "Ceva"};
+
+const std::vector<std::string> orderStatuses = {"Created", "Processing", "Shipped", "In Transit", "Accepted", "Pickup",
+                                                "Delivered", "Pending", "Confirmed", "Awaiting Fulfillment", "Backordered", 
+                                                "On Hold", "Cancelled", "Refunded", "Returned", "Delayed", "Pending Payment"};
+
 }

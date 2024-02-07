@@ -207,5 +207,41 @@ public:
      */
     static double productRating();
 
+    /**
+     * @brief Returns a random shipping carrier.
+     *
+     * @returns shippingCarrier
+     *
+     * @code
+     * Commerce::shippingCarrier() // "UPS"
+     *
+     * @endcode
+    */
+    static std::string shippingCarrier();
+
+    /**
+     * @brief Returns a random order status.
+     *
+     * @returns orderStatus
+     *
+     * @code
+     * Commerce::orderStatus() // "Shipped"
+     *
+     * @endcode
+    */
+    static std::string orderStatus();
+
+    /**
+     * @brief Returns a random order number (7-digit)
+     *
+     * @returns orderNumber
+     *
+     * @code
+     * Commerce::shippingCarrier() // "1045823"
+     *
+     * @endcode
+    */
+    static std::string orderNumber();
+
 };
 }
