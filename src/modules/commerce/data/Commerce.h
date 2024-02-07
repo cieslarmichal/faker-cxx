@@ -5,6 +5,16 @@
 
 namespace faker
 {
+    const unsigned int kMinDiscountCodeLength = 6,
+                       kMaxDiscountCodeLength = 12;
+    
+    const double kMinDiscountAmountValue = 10.,
+                 kMaxDiscountAmountValue = 1000.;
+    
+    const double kMinDiscountPercentageValue = 1.,
+                 kMaxDiscountPercentageValue = 90.;
+
+
 const std::vector<std::string> departments = {
     "Books", "Movies",   "Music",  "Games",    "Electronics", "Computers", "Home", "Garden",
     "Tools", "Grocery",  "Health", "Beauty",   "Toys",        "Kids",      "Baby", "Clothing",
@@ -81,5 +91,7 @@ const std::vector<std::string> productReviews = {
     "It feels cheaply made and lacks durability.",
     "It's difficult to operate and not user-friendly."
 };
+
+const std::vector<std::string> discountTypes = {"percentage", "value"};
 
 }

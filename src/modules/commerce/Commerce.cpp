@@ -174,12 +174,34 @@ std::string Commerce::productCategory()
     return Helper::arrayElement<std::string>(productCategoryNames);
 }
 
-std::string Commerce::productReview() {
+std::string Commerce::productReview() 
+{
     return Helper::arrayElement<std::string>(productReviews);
 }
 
-double Commerce::productRating() {
-    return Number::decimal<double>(5.);
+double Commerce::productRating() 
+{
+    const auto ratingValue = Number::decimal<double>(5.);
+    return std::ceil(ratingValue * 100) / 100;
+}
+
+std::string Commerce::discountType() {
+    return Helper::arrayElement<std::string>(discountTypes);
+}
+
+std::string Commerce::discountCode() {
+    const auto codeLength = Number::integer<unsigned int>(kMinDiscountCodeLength, kMaxDiscountCodeLength);
+    return String::alphanumeric(codeLength, StringCasing::Upper);
+}
+
+double Commerce::discountAmount() {
+    const auto amountValue = Number::decimal<double>(kMinDiscountAmountValue, kMaxDiscountAmountValue);
+    return std::ceil(amountValue * 100) / 100;
+}
+
+double Commerce::discountPercentage() {
+    const auto percentageValue = Number::decimal<double>(kMinDiscountPercentageValue, kMaxDiscountPercentageValue);
+    return std::ceil(percentageValue * 100) / 100;
 }
 
 }
