@@ -172,4 +172,27 @@ std::string Finance::creditCardExpirationDate()
     const auto expirationDate = Date::futureDate(3);
     return expirationDate.substr(5, 2) + "/" + expirationDate.substr(2, 2);
 }
+
+std::string Finance::creditCardType(const std::string& creditCardNumber)
+{
+    //Visa: starts with 4
+    //MasterCard: starts with 5[1-5] or 6771-89
+    //Amer. Ex.: starts with 34 or 37
+    //Discover: starts with 6011, 65, 64[4-9], 6011-62, 65##-62, or 64[4-9]#-62
+
+    if (creditCardNumber.fromt() == '4'){
+        return "Visa";
+    }
+    else if ((creditCardNumber.substr(0, 2) >= "51" && creditCardNumber.substr(0, 2) <= "55") || (creditCardNumber.substr(0, 7) == "6771-89")){
+        return "MasterCard";
+    }
+    else if (creditCardNumber.substr(0, 2) == "34" || creditCardNumber.substr(0, 2) == "37"){
+        return "American Express";
+    }
+    else if (creditCardNumber.substr(0, 4) == "6011" || creditCardNumber.substr(0, 2) == "65" || (creditCardNumber.substr(0, 3) >= "644" && creditCardNumber.substr(0, 3) <= "649") || creditCardNumber.substr(0, 7) >= "6011-62" || (creditCardNumber.substr(0, 2) == "65" && creditCardNumber.substr(5, 7) == "62") || ((creditCardNumber.substr(0, 3) == "644" || creditCardNumber.substr(0, 3) == "645" || creditCardNumber.substr(0, 3) == "646" || creditCardNumber.substr(0, 3) == "647" || creditCardNumber.substr(0, 3) == "648" || creditCardNumber.substr(0, 3) == "649") && creditCardNumber.substr(5, 7) == "62")){
+        return "Discover";
+    }
+    else{
+        return "Unknown";
+    }
 }
