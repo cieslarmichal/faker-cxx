@@ -83,6 +83,8 @@ public:
      */
     static std::string imei();
 
+    static std::string areaCode(const std::string& phoneNumber);
+
 private:
     static std::map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap();
     static std::map<PhoneNumberCountryFormat, std::string> phoneNumberFormatMap;
