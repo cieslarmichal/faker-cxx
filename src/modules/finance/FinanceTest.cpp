@@ -410,6 +410,26 @@ TEST_P(FinanceBicTest, CheckBicGenerator)
                                     { return bic == bankIdentifierCode; }));
 }
 
+TEST_F(FinanceTest, shouldDetermineCorrectCreditCardType){
+    // Test Visa
+    ASSERT_EQ(Finance::creditCardType("4123456789012"), "Visa");
+    // Test MasterCard
+    ASSERT_EQ(Finance::creditCardType("5112345678901234"), "MasterCard");
+    ASSERT_EQ(Finance::creditCardType("6771-891234567"), "MasterCard");
+    // Test American Express
+    ASSERT_EQ(Finance::creditCardType("341234567890123"), "American Express");
+    ASSERT_EQ(Finance::creditCardType("371234567890123"), "American Express");
+    // Test Discover
+    ASSERT_EQ(Finance::creditCardType("6011123456789012"), "Discover");
+    ASSERT_EQ(Finance::creditCardType("6512345678901234"), "Discover");
+    ASSERT_EQ(Finance::creditCardType("6441234567890123"), "Discover");
+    ASSERT_EQ(Finance::creditCardType("6011-6212345678"), "Discover");
+    ASSERT_EQ(Finance::creditCardType("6543-6212345678"), "Discover"); 
+    ASSERT_EQ(Finance::creditCardType("6493-6212345678"), "Discover"); 
+    // Test Unknown
+    ASSERT_EQ(Finance::creditCardType("1234567890123456"), "Unknown");
+}
+
 INSTANTIATE_TEST_SUITE_P(TestBicGenerator, FinanceBicTest,
                          Values(BicCountry::Poland, BicCountry::United_States, BicCountry::United_Kingdom,
                                 BicCountry::Germany, BicCountry::Romania, BicCountry::France, BicCountry::Italy,
