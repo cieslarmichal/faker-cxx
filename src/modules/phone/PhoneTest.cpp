@@ -92,3 +92,18 @@ TEST_F(PhoneTest, ManufacturerGeneration)
                                     [generatedManufacturer](const std::string& manufacturer)
                                     { return manufacturer == generatedManufacturer; }));
 }
+
+TEST_F(PhoneTest, AreaCodeExtraction){
+    for(const auto& phoneNumber : faker::phoneNumbers){
+        std::string extracedAreCode = Phone::areaCode(phoneNumber);
+
+        //Verify that the rxtracted area code starts with a '+' and is followed by digits only
+        if(!extractedAreaCode.empty()){
+            EXPECT_EQ(extractedAreaCode[0], '+');
+
+            for(size_t i = 1; i < extractedAreaCode.size(); i++){
+                EXPECT_TRUE(std::isdigit(extractedAreaCode[i])) << "Failed at phone number: " << phoneNumber;
+            }
+        }
+    }
+}
