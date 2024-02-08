@@ -95,9 +95,9 @@ TEST_F(PhoneTest, ManufacturerGeneration)
 
 TEST_F(PhoneTest, AreaCodeExtraction){
     for(const auto& phoneNumber : faker::phoneNumbers){
-        std::string extracedAreCode = Phone::areaCode(phoneNumber);
+        std::string extractedAreaCode = Phone::areaCode(phoneNumber);
 
-        //Verify that the rxtracted area code starts with a '+' and is followed by digits only
+        //Verify that the extracted area code starts with a '+' and is followed by digits only
         if(!extractedAreaCode.empty()){
             EXPECT_EQ(extractedAreaCode[0], '+');
 
