@@ -279,3 +279,42 @@ TEST_F(CommerceTest, shouldGenerateOrderNumber)
 
     ASSERT_TRUE(generatedOrderNumber.size() == 7);
 }
+
+TEST_F(CommerceTest, shouldGenerateDiscountType)
+{
+    const auto generatedDiscountType = Commerce::discountType();
+
+    ASSERT_TRUE(std::ranges::any_of(discountTypes, [generatedDiscountType](const std::string& discountType)
+                                    { return discountType == generatedDiscountType; }));
+}
+
+TEST_F(CommerceTest, shouldGenerateDiscountCode)
+{
+
+    const auto generatedDiscountCode = Commerce::discountCode();
+   
+    ASSERT_TRUE(kMinDiscountCodeLength <= generatedDiscountCode.length() && generatedDiscountCode.length() <= kMaxDiscountCodeLength);
+
+    ASSERT_TRUE(std::ranges::all_of(generatedDiscountCode,
+                                    [](char generatedDiscountCodeCharacter)
+                                    {
+                                        return std::ranges::any_of(
+                                            upperAlphanumericCharacters,
+                                            [generatedDiscountCodeCharacter](char upperAlphanumericCharacter)
+                                            { return upperAlphanumericCharacter == generatedDiscountCodeCharacter; });
+                                    }));
+}
+
+TEST_F(CommerceTest, shouldGenerateDiscountAmount)
+{
+    const auto generatedDiscountAmount = Commerce::discountAmount();
+
+    ASSERT_TRUE(kMinDiscountAmountValue <= generatedDiscountAmount && generatedDiscountAmount <= kMaxDiscountAmountValue);
+}
+
+TEST_F(CommerceTest, shouldGenerateDiscountPercentage)
+{
+    const auto generatedDiscountPercentage = Commerce::discountPercentage();
+
+    ASSERT_TRUE(kMinDiscountPercentageValue <= generatedDiscountPercentage && generatedDiscountPercentage <= kMaxDiscountPercentageValue);
+}

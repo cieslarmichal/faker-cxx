@@ -5,6 +5,16 @@
 
 namespace faker
 {
+    const unsigned int kMinDiscountCodeLength = 6,
+                       kMaxDiscountCodeLength = 12;
+    
+    const double kMinDiscountAmountValue = 10.,
+                 kMaxDiscountAmountValue = 1000.;
+    
+    const double kMinDiscountPercentageValue = 1.,
+                 kMaxDiscountPercentageValue = 90.;
+
+
 const std::vector<std::string> departments = {
     "Books", "Movies",   "Music",  "Games",    "Electronics", "Computers", "Home", "Garden",
     "Tools", "Grocery",  "Health", "Beauty",   "Toys",        "Kids",      "Baby", "Clothing",
@@ -87,5 +97,7 @@ const std::vector<std::string> shippingCarriers = {"UPS", "USPS", "FedEx", "DHL"
 const std::vector<std::string> orderStatuses = {"Created", "Processing", "Shipped", "In Transit", "Accepted", "Pickup",
                                                 "Delivered", "Pending", "Confirmed", "Awaiting Fulfillment", "Backordered", 
                                                 "On Hold", "Cancelled", "Refunded", "Returned", "Delayed", "Pending Payment"};
+
+const std::vector<std::string> discountTypes = {"percentage", "value"};
 
 }
