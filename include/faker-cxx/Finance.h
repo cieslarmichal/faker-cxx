@@ -231,5 +231,13 @@ public:
      * @endcode
      */
     static std::string creditCardExpirationDate();
+
+    /**
+     * @brief Determines the type of a credit card based on its number.
+     *
+     * @param creditCardNumber The credit card number to check.
+     * @returns The type of the credit card (e.g., "Visa", "MasterCard", "American Express", "Discover", "Unknown").
+     */
+    static std::string creditCardType(const std::string& creditCardNumber);
 };
 }
