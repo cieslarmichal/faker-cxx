@@ -99,3 +99,4 @@ std::string Phone::areaCode(const std::string& phoneNumber)
     //returns an empty string if no country code is found, otherwise return the country code
     return countryCode == "+" ? "" : countryCode;
 }
+}
