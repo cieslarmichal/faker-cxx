@@ -73,4 +73,29 @@ std::map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMa
 
     return formatMap;
 }
+
+// New areaCode function
+std::string Phone::areaCode(const std::string& phoneNumber)
+{
+    //assuming country codes always start with "+"
+    std::string countryCode = "+";
+    bool plusFound = false;
+
+    for(char ch : phoneNumber){
+        if (ch == '+'){
+            plusFound = true;
+            //skip the '+' sign but mark it as found
+            continue;
+        }
+        if (plusFound && std::isdigit(ch)){
+            countryCode += ch;
+        }
+        else if (plusFound && !std::isdigit(ch)){
+            //stop if a non-digit character is found after finding "+"
+            break;
+        }
+    }
+
+    //returns an empty string if no country code is found, otherwise return the country code
+    return countryCode == "+" ? "" : countryCode;
 }
