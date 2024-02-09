@@ -183,13 +183,13 @@ std::string Finance::creditCardType(const std::string& creditCardNumber)
     if ((creditCardNumber.front()) == '4' && (creditCardNumber.length() == 13 || creditCardNumber.length() == 16)){
         return "Visa";
     }
-    else if (((creditCardNumber.substr(0, 2) >= "51" && creditCardNumber.substr(0, 2) <= "55") || (creditCardNumber.substr(0, 7) == "6771-89")) && (creditCardNumber.length() == 16)){
+    else if (((creditCardNumber.substr(0, 2) >= "51" && creditCardNumber.substr(0, 2) <= "55") || (creditCardNumber.substr(0, 7) == "677189")) && (creditCardNumber.length() == 16)){
         return "MasterCard";
     }
     else if ((creditCardNumber.substr(0, 2) == "34" || creditCardNumber.substr(0, 2) == "37") && && (creditCardNumber.length() == 15)){
         return "American Express";
     }
-    else if ((creditCardNumber.substr(0, 4) == "6011" || creditCardNumber.substr(0, 2) == "65" || (creditCardNumber.substr(0, 3) >= "644" && creditCardNumber.substr(0, 3) <= "649") || creditCardNumber.substr(0, 7) >= "6011-62" || (creditCardNumber.substr(0, 2) == "65" && creditCardNumber.substr(5, 7) == "62") || ((creditCardNumber.substr(0, 3) == "644" || creditCardNumber.substr(0, 3) == "645" || creditCardNumber.substr(0, 3) == "646" || creditCardNumber.substr(0, 3) == "647" || creditCardNumber.substr(0, 3) == "648" || creditCardNumber.substr(0, 3) == "649") && creditCardNumber.substr(5, 7) == "62")) && (creditCardNumber.length() == 20 || creditCardNumber.length() == 16)){
+    else if ((creditCardNumber.substr(0, 4) == "6011" || creditCardNumber.substr(0, 2) == "65" || (creditCardNumber.substr(0, 3) >= "644" && creditCardNumber.substr(0, 3) <= "649") || creditCardNumber.substr(0, 7) >= "601162" || (creditCardNumber.substr(0, 2) == "65" && creditCardNumber.substr(5, 7) == "62") || ((creditCardNumber.substr(0, 3) == "644" || creditCardNumber.substr(0, 3) == "645" || creditCardNumber.substr(0, 3) == "646" || creditCardNumber.substr(0, 3) == "647" || creditCardNumber.substr(0, 3) == "648" || creditCardNumber.substr(0, 3) == "649") && creditCardNumber.substr(5, 7) == "62")) && (creditCardNumber.length() == 20 || creditCardNumber.length() == 16)){
         return "Discover";
     }
     else{
