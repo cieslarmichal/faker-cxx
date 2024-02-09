@@ -195,7 +195,7 @@ public:
      * @endcode
      */
     static std::string productReview();
-    
+
     /**
      * @brief Returns a random product rating (0-5).
      *
@@ -217,7 +217,7 @@ public:
      * @endcode
      */
     static std::string discountType();
-    
+
     /**
      * @brief Returns random discount code within the specified range of 6 to 12 characters.
      *
@@ -241,7 +241,7 @@ public:
     static double discountAmount();
 
     /**
-     * @brief Returns a random discount percentage within the specified range of 1. to 90. 
+     * @brief Returns a random discount percentage within the specified range of 1. to 90.
      *
      * @returns discountPercentage.
      *
@@ -250,6 +250,5 @@ public:
      * @endcode
      */
     static double discountPercentage();
-
 };
 }
