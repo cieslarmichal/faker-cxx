@@ -415,7 +415,7 @@ TEST_F(FinanceTest, shouldDetermineCorrectCreditCardType){
     ASSERT_EQ(Finance::creditCardType("4123456789012"), "Visa");
     // Test MasterCard
     ASSERT_EQ(Finance::creditCardType("5112345678901234"), "MasterCard");
-    ASSERT_EQ(Finance::creditCardType("6771891234567"), "MasterCard");
+    ASSERT_EQ(Finance::creditCardType("6771891234567474"), "MasterCard");
     // Test American Express
     ASSERT_EQ(Finance::creditCardType("341234567890123"), "American Express");
     ASSERT_EQ(Finance::creditCardType("371234567890123"), "American Express");
@@ -423,9 +423,9 @@ TEST_F(FinanceTest, shouldDetermineCorrectCreditCardType){
     ASSERT_EQ(Finance::creditCardType("6011123456789012"), "Discover");
     ASSERT_EQ(Finance::creditCardType("6512345678901234"), "Discover");
     ASSERT_EQ(Finance::creditCardType("6441234567890123"), "Discover");
-    ASSERT_EQ(Finance::creditCardType("60116212345678"), "Discover");
-    ASSERT_EQ(Finance::creditCardType("65436212345678"), "Discover"); 
-    ASSERT_EQ(Finance::creditCardType("64936212345678"), "Discover"); 
+    ASSERT_EQ(Finance::creditCardType("60116212345678456789"), "Discover");
+    ASSERT_EQ(Finance::creditCardType("65436212345678298235"), "Discover"); 
+    ASSERT_EQ(Finance::creditCardType("6493621234567860"), "Discover"); 
     // Test Unknown
     ASSERT_EQ(Finance::creditCardType("1234567890123456"), "Unknown");
 }
