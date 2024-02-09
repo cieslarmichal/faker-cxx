@@ -93,17 +93,41 @@ TEST_F(PhoneTest, ManufacturerGeneration)
                                     { return manufacturer == generatedManufacturer; }));
 }
 
-TEST_F(PhoneTest, AreaCodeExtraction){
-    for(const auto& phoneNumber : faker::phoneNumbers){
-        std::string extractedAreaCode = Phone::areaCode(phoneNumber);
+TEST_F(PhoneTest, AreaCodeExtraction)
+{
+    // Test with a valid phone number including country code
+    std::string phoneNumberWithCountryCode = "+1234567890";
+    std::string expectedCountryCode = "+1";
+    std::string actualCountryCode = Phone::areaCode(phoneNumberWithCountryCode);
+    ASSERT_EQ(expectedCountryCode, actualCountryCode);
 
-        //Verify that the extracted area code starts with a '+' and is followed by digits only
-        if(!extractedAreaCode.empty()){
-            EXPECT_EQ(extractedAreaCode[0], '+');
+    // Test with a phone number without country code
+    std::string phoneNumberWithoutCountryCode = "1234567890";
+    std::string expectedNoCountryCode = "";
+    actualCountryCode = Phone::areaCode(phoneNumberWithoutCountryCode);
+    ASSERT_EQ(expectedNoCountryCode, actualCountryCode);
 
-            for(size_t i = 1; i < extractedAreaCode.size(); i++){
-                EXPECT_TRUE(std::isdigit(extractedAreaCode[i])) << "Failed at phone number: " << phoneNumber;
-            }
-        }
-    }
+    // Test with a phone number that includes non-digit characters immediately after "+"
+    std::string phoneNumberWithNonDigitAfterPlus = "+1-234567890";
+    expectedCountryCode = "+1";
+    actualCountryCode = Phone::areaCode(phoneNumberWithNonDigitAfterPlus);
+    ASSERT_EQ(expectedCountryCode, actualCountryCode);
+
+    // Test with an empty string
+    std::string emptyPhoneNumber = "";
+    expectedNoCountryCode = "";
+    actualCountryCode = Phone::areaCode(emptyPhoneNumber);
+    ASSERT_EQ(expectedNoCountryCode, actualCountryCode);
+
+    // Test with a phone number that starts with "+" but followed by non-digits
+    std::string phoneNumberWithPlusAndNonDigits = "+abcdefg";
+    expectedNoCountryCode = "";
+    actualCountryCode = Phone::areaCode(phoneNumberWithPlusAndNonDigits);
+    ASSERT_EQ(expectedNoCountryCode, actualCountryCode);
+
+    // Test with a phone number that has "+" not at the beginning
+    std::string phoneNumberWithPlusNotAtStart = "123+4567890";
+    expectedNoCountryCode = "";
+    actualCountryCode = Phone::areaCode(phoneNumberWithPlusNotAtStart);
+    ASSERT_EQ(expectedNoCountryCode, actualCountryCode);
 }
