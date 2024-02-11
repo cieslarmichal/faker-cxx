@@ -2,6 +2,7 @@
 
 #include <chrono>
 #include <ctime>
+#include <random>
 #include <iomanip>
 
 #include "../../common/FormatHelper.h"
@@ -148,6 +149,36 @@ std::string Date::monthName()
 std::string Date::monthAbbreviatedName()
 {
     return Helper::arrayElement<std::string>(monthAbbreviatedNames);
+}
+
+unsigned int Date::year(int minYear, int maxYear)
+{
+    std::random_device rd;
+    std::mt19937 eng(rd());
+    std::uniform_int_distribution<unsigned int> distr(minYear, maxYear);
+
+    return distr(eng);
+}
+
+unsigned int Date::month()
+{
+    std::random_device rd;
+    std::mt19937 eng(rd());
+    std::uniform_int_distribution<unsigned int> distr(1, 12);
+}
+
+unsigned int Date::dayOfMonth()
+{
+    std::random_device rd;
+    std::mt19937 eng(rd());
+    std::uniform_int_distribution<unsigned int> distr(1, 31);
+}
+
+unsigned int Date::dayOfWeek()
+{
+    std::random_device rd;
+    std::mt19937 eng(rd());
+    std::uniform_int_distribution<unsigned int> distr(1, 7);
 }
 
 }
