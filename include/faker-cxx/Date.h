@@ -154,8 +154,6 @@ public:
      * @endcode
      */
     static std::string monthAbbreviatedName();
-    
-    static unsigned int year(int minYear=1920, int maxYear=2000);
 
     /**
      * @brief Returns a random year.
@@ -169,8 +167,7 @@ public:
      * Date::year() // "1996"
      * @endcode
      */ 
-     
-    static unsigned int month();
+    static unsigned int year(int minYear=1920, int maxYear=2000);
 
     /**
      * @brief Returns a month.
@@ -182,8 +179,7 @@ public:
      * Date::month() // "1"
      * @endcode
      */ 
-     
-    static unsigned int dayOfMonth();
+    static unsigned int month();
 
     /**
      * @brief Returns a random day of month.
@@ -194,11 +190,10 @@ public:
      * @code
      * Date::dayOfMonth() // "1"
      * @endcode
-     */ 
-     
-    static unsigned int dayOfWeek();
+     */  
+    static unsigned int dayOfMonth();
 
-    /**
+      /**
      * @brief Returns a random day of the week.
      *
      *
@@ -207,8 +202,8 @@ public:
      * @code
      * Date::dayOfWeek() // "1"
      * @endcode
-     */ 
-     
+     */  
+    static unsigned int dayOfWeek();
      
 };
 }
