@@ -263,3 +263,30 @@ TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
                                     [generatedMonthAbbreviatedName](const std::string& monthAbbreviatedName)
                                     { return monthAbbreviatedName == generatedMonthAbbreviatedName; }));
 }
+
+TEST_F(DateTest, shouldGenerateYearWithinRange) {
+    int minYear = 1900;
+    int maxYear = 2100;
+    auto generatedYear = Date::year(minYear, maxYear);
+
+    ASSERT_TRUE(generatedYear >= minYear && generatedYear <= maxYear);
+}
+
+TEST_F(DateTest, shouldGenerateMonthWithinRange) {
+    auto generatedMonth = Date::month();
+
+    ASSERT_TRUE(generatedMonth >= 1 && generatedMonth <= 12);
+}
+
+TEST_F(DateTest, shouldGenerateDayOfMonthWithinRange) {
+    auto generatedDay = Date::dayOfMonth();
+
+    ASSERT_TRUE(generatedDay >= 1 && generatedDay <= 31);
+}
+
+TEST_F(DateTest, shouldGenerateDayOfWeekWithinRange) {
+    auto generatedDayOfWeek = Date::dayOfWeek();
+
+    ASSERT_TRUE(generatedDayOfWeek >= 1 && generatedDayOfWeek <= 7);
+}
+
