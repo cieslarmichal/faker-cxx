@@ -132,21 +132,18 @@ public:
             throw std::invalid_argument{"Sum of weights is zero."};
         }
 
-        const std::integral auto targetWeightValue = Number::integer<unsigned>(sumOfWeights);
-
+        const std::integral auto targetWeightValue = Number::integer<unsigned>(1, sumOfWeights);
         unsigned currentSum = 0;
+        size_t currentIdx = 0;
 
-        for (const auto& element : data)
-        {
-            currentSum += element.weight;
-
-            if (targetWeightValue <= currentSum)
-            {
-                return element.value;
-            }
+        while (currentIdx < data.size()) {
+            currentSum += data[currentIdx].weight;
+            if (currentSum >= targetWeightValue)
+                break;
+            currentIdx++;
         }
 
-        return data.at(data.size() - 1).value;
+        return data.at(currentIdx).value;
     }
 
     /**
