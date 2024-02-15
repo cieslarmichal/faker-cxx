@@ -14,20 +14,19 @@
 
 ## 🎯 Goal
 
-The goal of Faker C++ is to provide a library similar to [Faker.js](https://github.com/faker-js/faker) for C++ community. Faker C++ is a powerful library designed to streamline the creation of realistic and customizable fake data for testing and development purposes within C++ applications for all developers to use. The use of this library will provide a quick and user-friendly experience for developers, offering a wide variety of modules that cover everything from generating random names and addresses to crafting realistic financial and internet related data. By using Faker C++, developers can efficiently supply their applications with authentic-looking test data, facilitating an effective and accurate testing and development process.
+The goal of Faker C++ is to provide a library similar to [Faker.js](https://github.com/faker-js/faker) for C++ community. Faker C++ is a powerful library designed to streamline the creation of realistic and customizable fake data for testing and development purposes within C++ applications. The use of this library will provide a quick and user-friendly experience for developers, offering a wide variety of modules that cover everything from generating random names and addresses to crafting realistic financial and internet related data.
 
 ## Usage and Documentation
 
 To properly use Faker C++ you must first assimilate the Faker library (see Consuming Library with CMake).
-Once that is done, you need to include the proper header files depending on the module you wish to generate data from. The module header file names can be found by looking in the directory include/faker-cxx. A list of the functions, their descriptions, and how to use them can be found here --> https://cieslarmichal.github.io/faker-cxx/
+Once that is done, you need to include the proper header files depending on the module you wish to generate data from. The module header file names can be found by looking in the directory `include/faker-cxx`. A list of the functions, their descriptions, and how to use them can be found in [docs](https://cieslarmichal.github.io/faker-cxx).
 Make sure to include the proper header file that corresponds to the data and subsequent functions you are trying to generate.
 
-Below is an example of how to implement Faker C++ in your code.
+Below is an example of how to use Faker C++ in your code.
 
 ```cpp
 #include <iostream>
 
-//Include statements for the header files.
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/Location.h"
@@ -35,7 +34,6 @@ Below is an example of how to implement Faker C++ in your code.
 
 int main()
 {
-    //variable declarations and function calls.
     const auto id = faker::String::uuid();
     const auto email = faker::Internet::email();
     const auto password = faker::Internet::password();
