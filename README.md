@@ -125,7 +125,7 @@ If you have any confusion please refer to the respective guides.
 
 ## Dependencies
 
-- GTest (```BUILD_FAKER_TESTS=OFF``` CMake flag to disable)
+- GTest (set `BUILD_CONFIG_CXX_TESTS=OFF` CMake flag to disable this dependency)
 - fmt (only for Apple Clang++ compiler)
 
 ## ✨ Contributing
