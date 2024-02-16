@@ -1,7 +1,7 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/cieslarmichal/faker-cxx/main/docs/images/logo.png" width="250" alt="C++ Faker, a powerful tool for generating realistic and randomized fake data in C++ programming, enhancing data testing and development workflows"/>
   <h1>Faker C++</h1>
-  <p>The function of Faker C++ is to generate fake (but realistic) data for testing and development</p>
+  <p>Generate fake (but realistic) data for testing and development</p>
 
 [![clang++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml?query=branch%3Amain)
 [![apple clang++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/macos-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/macos-clang-build.yml?query=branch%3Amain)
