@@ -1,4 +1,5 @@
 #include <faker/types/country.h>
+#include <stdexcept>
 
 namespace faker {
 

@@ -1,4 +1,5 @@
 #include <faker/types/file_type.h>
+#include <stdexcept>
 
 namespace faker {
 std::string_view toString(FileType type)

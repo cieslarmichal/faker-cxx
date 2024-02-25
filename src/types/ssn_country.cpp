@@ -1,4 +1,5 @@
 #include <faker/types/ssn_country.h>
+#include <stdexcept>
 
 namespace faker {
 const std::array<SsnCountry, 8> supportedSsnCountries {

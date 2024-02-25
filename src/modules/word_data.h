@@ -2,7 +2,7 @@
 #define FAKER_MODULES_WORD_DATA_H
 
 #include <array>
-#include <string>
+#include <string_view>
 
 namespace faker::word::data {
 extern const std::array<std::string_view, 1328> adjectives;

@@ -1,4 +1,5 @@
 #include <faker/types/address_country.h>
+#include <stdexcept>
 
 namespace faker {
 const std::array<AddressCountry, 14> addressCountries {

@@ -1,8 +1,8 @@
 #ifndef FAKER_MODULES_MOVIE_DATA_H
 #define FAKER_MODULES_MOVIE_DATA_H
 
-#include <string>
-#include <vector>
+#include <string_view>
+#include <array>
 
 namespace faker::movie {
 extern const std::array<std::string_view, 299> actors;
