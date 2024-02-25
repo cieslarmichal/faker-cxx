@@ -13,12 +13,12 @@ namespace faker::system {
 namespace {
     std::string_view extension(std::string_view mimeType)
     {
-        const auto it = mimeTypesExtensions.find(mimeType);
-        if (it == mimeTypesExtensions.end()) {
+        const auto it = data::mimeTypesExtensions.find(mimeType);
+        if (it == data::mimeTypesExtensions.end()) {
             auto pos = mimeType.find_last_of('/');
             return mimeType.substr(pos + 1);
         } else {
-            return std::string(it->second);
+            return it->second;
         }
     }
 }
@@ -57,7 +57,7 @@ std::string fileExtension(const std::optional<FileType>& mimeType)
     if (mimeType.has_value()) {
         const auto mimeTypeName = toString(mimeType.value());
         std::vector<std::string_view> extensions;
-        for (const auto& mime : mimeTypes) {
+        for (const auto& mime : data::mimeTypes) {
             size_t pos = mime.find_first_of('/');
             const auto mt = mime.substr(0, pos);
             if (mimeTypeName == mt) {
@@ -68,7 +68,7 @@ std::string fileExtension(const std::optional<FileType>& mimeType)
     } else {
         std::unordered_set<std::string_view> extensionSet;
 
-        for (const auto& mimeTypeName : mimeTypes) {
+        for (const auto& mimeTypeName : data::mimeTypes) {
             extensionSet.insert(extension(mimeTypeName));
         }
 
@@ -97,7 +97,7 @@ std::string commonFileName(const std::optional<std::string>& ext)
 
 std::string_view commonFileExtension()
 {
-    auto mimeType = Helper::arrayElement(commonMimeTypes);
+    auto mimeType = Helper::arrayElement(data::commonMimeTypes);
 
     return extension(mimeType);
 }
@@ -106,20 +106,20 @@ std::string_view mimeType()
 {
     std::vector<std::string_view> mimeTypeKeys;
 
-    for (const auto& entry : mimeTypes) {
+    for (const auto& entry : data::mimeTypes) {
         mimeTypeKeys.push_back(entry);
     }
 
     return Helper::arrayElement(mimeTypeKeys);
 }
 
-std::string_view commonFileType() { return Helper::arrayElement(commonFileTypes); }
+std::string_view commonFileType() { return Helper::arrayElement(data::commonFileTypes); }
 
 std::string_view fileType()
 {
     std::unordered_set<std::string_view> typeSet;
 
-    const auto& localMimeTypes = mimeTypes;
+    const auto& localMimeTypes = data::mimeTypes;
 
     for (const auto& entry : localMimeTypes) {
         auto m = entry;
@@ -137,7 +137,7 @@ std::string_view fileType()
     return Helper::arrayElement(types);
 }
 
-std::string_view directoryPath() { return Helper::arrayElement(directoryPaths); }
+std::string_view directoryPath() { return Helper::arrayElement(data::directoryPaths); }
 
 std::string filePath()
 {
@@ -164,8 +164,8 @@ std::string semver()
 
 std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options)
 {
-    const auto defaultInterfaceType = Helper::arrayElement(commonInterfaceTypes);
-    const auto defaultInterfaceSchema = Helper::objectKey(commonInterfaceSchemas);
+    const auto defaultInterfaceType = Helper::arrayElement(data::commonInterfaceTypes);
+    const auto defaultInterfaceSchema = Helper::objectKey(data::commonInterfaceSchemas);
 
     std::string interfaceType { defaultInterfaceType };
     std::string interfaceSchema { defaultInterfaceSchema };
@@ -200,10 +200,10 @@ std::string networkInterface(const std::optional<NetworkInterfaceOptions>& optio
 
     std::string result;
     result.reserve(prefix.size() + interfaceType.size()
-        + commonInterfaceSchemas.at(interfaceSchema).size() + suffix.size());
+        + data::commonInterfaceSchemas.at(interfaceSchema).size() + suffix.size());
     result += prefix;
     result += interfaceType;
-    result += commonInterfaceSchemas.at(interfaceSchema);
+    result += data::commonInterfaceSchemas.at(interfaceSchema);
     result += suffix;
     return result;
 }
@@ -217,8 +217,8 @@ std::string cron(const CronOptions& options)
     std::vector<std::string> days = { std::to_string(number::integer(1, 31)), "*", "?" };
     std::vector<std::string> months = { std::to_string(number::integer(1, 12)), "*" };
     std::vector<std::string> daysOfWeek = { std::to_string(number::integer(6)),
-        std::string(cronDayOfWeek[static_cast<unsigned long>(
-            number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))]),
+        std::string(data::cronDayOfWeek[static_cast<unsigned long>(
+            number::integer(0, static_cast<int>(data::cronDayOfWeek.size() - 1)))]),
         "*", "?" };
 
     std::vector<std::string> years;

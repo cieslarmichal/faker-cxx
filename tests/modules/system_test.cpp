@@ -53,7 +53,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
     auto application = FileType::Application;
 
     std::vector<std::string_view> imageExtensions;
-    for (const auto& mimeType : mimeTypes) {
+    for (const auto& mimeType : data::mimeTypes) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == toString(image)) {
@@ -61,7 +61,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> audioExtensions;
-    for (const auto& mimeType : mimeTypes) {
+    for (const auto& mimeType : data::mimeTypes) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == toString(audio)) {
@@ -69,7 +69,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> videoExtensions;
-    for (const auto& mimeType : mimeTypes) {
+    for (const auto& mimeType : data::mimeTypes) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == toString(video)) {
@@ -77,7 +77,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> textExtensions;
-    for (const auto& mimeType : mimeTypes) {
+    for (const auto& mimeType : data::mimeTypes) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == toString(text)) {
@@ -85,7 +85,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> applicationExtensions;
-    for (const auto& mimeType : mimeTypes) {
+    for (const auto& mimeType : data::mimeTypes) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == toString(application)) {
@@ -123,7 +123,8 @@ TEST_F(SystemTest, MimeTypeTest)
 {
     auto mimeTypeResult = system::mimeType();
 
-    bool isValidMimeType = faker::testing::find(mimeTypes, mimeTypeResult) != mimeTypes.end();
+    bool isValidMimeType
+        = faker::testing::find(data::mimeTypes, mimeTypeResult) != data::mimeTypes.end();
     EXPECT_TRUE(isValidMimeType);
 }
 
@@ -131,15 +132,15 @@ TEST_F(SystemTest, CommonFileTypeTest)
 {
     auto commonFileTypeResult = system::commonFileType();
 
-    bool isValidCommonFileType
-        = faker::testing::find(commonFileTypes, commonFileTypeResult) != commonFileTypes.end();
+    bool isValidCommonFileType = faker::testing::find(data::commonFileTypes, commonFileTypeResult)
+        != data::commonFileTypes.end();
     EXPECT_TRUE(isValidCommonFileType);
 }
 
 TEST_F(SystemTest, FileTypeTest)
 {
     std::unordered_set<std::string_view> typeSet;
-    for (const auto& entry : mimeTypes) {
+    for (const auto& entry : data::mimeTypes) {
         const auto& m = entry;
         size_t pos = m.find('/');
         if (pos != std::string::npos) {

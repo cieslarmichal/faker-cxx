@@ -5,7 +5,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace faker {
+namespace faker::system::data {
 extern const std::vector<std::string_view> commonInterfaceTypes;
 extern const std::unordered_map<std::string_view, std::string_view> commonInterfaceSchemas;
 extern const std::vector<std::string_view> cronDayOfWeek;
