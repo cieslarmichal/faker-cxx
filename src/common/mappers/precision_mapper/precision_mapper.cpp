@@ -1,14 +1,28 @@
 #include "precision_mapper.h"
+#include <stdexcept>
 
 namespace faker {
-const std::unordered_map<Precision, unsigned> PrecisionMapper::precisionToDecimalPlacesMapping {
-    { Precision::ZeroDp, 0 }, { Precision::OneDp, 1 }, { Precision::TwoDp, 2 },
-    { Precision::ThreeDp, 3 }, { Precision::FourDp, 4 }, { Precision::FiveDp, 5 },
-    { Precision::SixDp, 6 }, { Precision::SevenDp, 7 }
-};
-
 unsigned PrecisionMapper::mapToDecimalPlaces(Precision precision)
 {
-    return precisionToDecimalPlacesMapping.at(precision);
+    switch (precision) {
+        case Precision::ZeroDp:
+            return 0;
+        case Precision::OneDp:
+            return 1;
+        case Precision::TwoDp:
+            return 2;
+        case Precision::ThreeDp:
+            return 3;
+        case Precision::FourDp:
+            return 4;
+        case Precision::FiveDp:
+            return 5;
+        case Precision::SixDp:
+            return 6;
+        case Precision::SevenDp:
+            return 7;
+        default:
+            throw std::invalid_argument("Invalid precision");
+    }
 }
 }
