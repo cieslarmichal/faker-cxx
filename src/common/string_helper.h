@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_COMMON_STRING_HELPER_H
+#define FAKER_COMMON_STRING_HELPER_H
 
 #include <string>
 #include <vector>
@@ -18,3 +19,5 @@ public:
     static std::string removePunctuation(const std::string& word);
 };
 }
+
+#endif

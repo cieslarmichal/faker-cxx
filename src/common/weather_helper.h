@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_COMMON_WEATHER_HELPER_H
+#define FAKER_COMMON_WEATHER_HELPER_H
 
 namespace faker {
 class WeatherHelper {
@@ -43,3 +44,5 @@ public:
     static double milesToKilometers(double miles);
 };
 }
+
+#endif

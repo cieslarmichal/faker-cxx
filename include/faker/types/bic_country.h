@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_BIC_COUNTRY_H
+#define FAKER_TYPES_BIC_COUNTRY_H
 
 #include <array>
 
@@ -19,3 +20,5 @@ enum class BicCountry {
 extern const std::array<BicCountry, 10> supportedBicCountries;
 
 }
+
+#endif

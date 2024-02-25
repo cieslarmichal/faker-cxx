@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_FOOD_H
+#define FAKER_FOOD_H
 
 #include <string_view>
 
@@ -157,3 +158,5 @@ std::string_view dishName();
  */
 std::string_view foodCategory();
 }
+
+#endif

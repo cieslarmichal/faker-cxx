@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_RANDOM_GENERATOR_H
+#define FAKER_TYPES_RANDOM_GENERATOR_H
 
 #include <random>
 
@@ -22,3 +23,5 @@ private:
     T generator_;
 };
 }
+
+#endif

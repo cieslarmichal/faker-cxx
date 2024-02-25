@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_PHONE_NUMBER_COUNTRY_FORMAT_H
+#define FAKER_TYPES_PHONE_NUMBER_COUNTRY_FORMAT_H
 
 namespace faker {
 enum class PhoneNumberCountryFormat {
@@ -234,3 +235,5 @@ enum class PhoneNumberCountryFormat {
     Zimbabwe
 };
 }
+
+#endif

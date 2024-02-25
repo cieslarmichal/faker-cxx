@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_STRUCTURE_H
+#define FAKER_STRUCTURE_H
 
 #include <faker/types/structure_token.h>
 #include <string>
@@ -41,3 +42,5 @@ std::string json(const std::unordered_map<std::string, faker::StructureToken>& i
 std::string csv(
     const std::unordered_map<std::string, faker::StructureToken>& items, unsigned int rows);
 }
+
+#endif

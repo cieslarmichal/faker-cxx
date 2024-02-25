@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_AIRLINE_H
+#define FAKER_AIRLINE_H
 
 #include <faker/types/airline_types.h>
 #include <string>
@@ -107,3 +108,5 @@ std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
  */
 std::string flightNumberByRange(bool addLeadingZeros = false, Range length = { 1, 4 });
 }
+
+#endif

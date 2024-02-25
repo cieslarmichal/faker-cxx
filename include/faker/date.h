@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_DATE_H
+#define FAKER_DATE_H
 
 #include <string>
 
@@ -152,3 +153,5 @@ std::string_view monthName();
  */
 std::string_view monthAbbreviatedName();
 }
+
+#endif

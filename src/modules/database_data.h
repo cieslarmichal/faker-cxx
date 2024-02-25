@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_DATABASE_DATA_H
+#define FAKER_MODULES_DATABASE_DATA_H
 
 #include <array>
 #include <string_view>
@@ -9,3 +10,5 @@ extern const std::array<std::string_view, 17> columnNames;
 extern const std::array<std::string_view, 24> columnTypes;
 extern const std::array<std::string_view, 6> engines;
 }
+
+#endif

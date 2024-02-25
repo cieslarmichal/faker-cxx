@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_COMPANY_DATA_H
+#define FAKER_MODULES_COMPANY_DATA_H
 
 #include <array>
 #include <string_view>
@@ -14,3 +15,5 @@ extern const std::array<std::string_view, 8> companyTypes;
 extern const std::array<std::string_view, 147> companyIndustries;
 extern const std::array<std::string_view, 3> companySuffixes;
 }
+
+#endif

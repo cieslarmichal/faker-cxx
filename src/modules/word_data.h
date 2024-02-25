@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_WORD_DATA_H
+#define FAKER_MODULES_WORD_DATA_H
 
 #include <array>
 #include <string>
@@ -12,3 +13,5 @@ extern const std::array<std::string_view, 6659> nouns;
 extern const std::array<std::string_view, 109> prepositions;
 extern const std::array<std::string_view, 5910> verbs;
 }
+
+#endif

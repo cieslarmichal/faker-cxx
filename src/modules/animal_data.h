@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_ANIMAL_DATA_H
+#define FAKER_MODULES_ANIMAL_DATA_H
 
 #include <array>
 #include <string_view>
@@ -20,3 +21,5 @@ extern const std::array<std::string_view, 185> rodents;
 extern const std::array<std::string_view, 576> snakes;
 extern const std::array<std::string_view, 13> types;
 }
+
+#endif

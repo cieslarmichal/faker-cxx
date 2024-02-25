@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_SYSTEM_H
+#define FAKER_SYSTEM_H
 
 #include <faker/types/file_type.h>
 #include <optional>
@@ -212,3 +213,5 @@ std::string networkInterface(const std::optional<NetworkInterfaceOptions>& optio
  */
 std::string cron(const CronOptions& options = {});
 }
+
+#endif

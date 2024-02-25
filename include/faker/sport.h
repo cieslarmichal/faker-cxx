@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_SPORT_H
+#define FAKER_SPORT_H
 
 #include <string>
 
@@ -58,3 +59,5 @@ std::string femaleAthlete();
  */
 std::string sportEvent();
 }
+
+#endif

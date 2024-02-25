@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_HELPER_H
+#define FAKER_HELPER_H
 
 #include <algorithm>
 #include <array>
@@ -327,3 +328,5 @@ private:
     static std::mt19937 pseudoRandomGenerator;
 };
 }
+
+#endif

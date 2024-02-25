@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_SCIENCE_H
+#define FAKER_SCIENCE_H
 
 #include <faker/types/chemical_element.h>
 #include <faker/types/unit.h>
@@ -88,3 +89,5 @@ Unit tempUnit();
 Unit currentUnit();
 
 }
+
+#endif

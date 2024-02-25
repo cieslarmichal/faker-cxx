@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_WORD_H
+#define FAKER_WORD_H
 
 #include <optional>
 #include <string>
@@ -141,3 +142,5 @@ public:
     static std::string_view verb(std::optional<unsigned> length = std::nullopt);
 };
 }
+
+#endif

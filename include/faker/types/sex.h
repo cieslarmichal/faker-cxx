@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_SEX_H
+#define FAKER_TYPES_SEX_H
 
 #include <faker/types/language.h>
 #include <string_view>
@@ -21,3 +22,5 @@ inline std::string_view toString(Sex sex, Language language = Language::English)
 }
 
 }
+
+#endif

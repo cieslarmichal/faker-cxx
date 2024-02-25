@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_DATABASE_H
+#define FAKER_DATABASE_H
 
 #include <string>
 
@@ -58,3 +59,5 @@ std::string_view engine();
  */
 std::string mongoDbObjectId();
 }
+
+#endif

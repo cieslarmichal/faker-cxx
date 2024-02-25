@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_HACKER_H
+#define FAKER_HACKER_H
 
 #include <string>
 
@@ -70,3 +71,5 @@ std::string_view ingverb();
  */
 std::string phrase();
 }
+
+#endif

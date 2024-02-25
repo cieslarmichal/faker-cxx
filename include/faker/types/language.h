@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_LANGUAGE_H
+#define FAKER_TYPES_LANGUAGE_H
 
 #include <string_view>
 
@@ -44,3 +45,5 @@ enum class Language {
 std::string_view toString(Language language);
 
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_VIDEO_GAME_H
+#define FAKER_VIDEO_GAME_H
 
 #include <string>
 
@@ -47,3 +48,5 @@ std::string platform();
  */
 std::string studioName();
 }
+
+#endif

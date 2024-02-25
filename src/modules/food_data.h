@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_FOOD_DATA_H
+#define FAKER_MODULES_FOOD_DATA_H
 
 #include <array>
 #include <string_view>
@@ -19,3 +20,5 @@ extern const std::array<std::string_view, 29> seeds;
 extern const std::array<std::string_view, 24> sugarProducts;
 extern const std::array<std::string_view, 30> vegetables;
 }
+
+#endif

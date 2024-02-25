@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_MOVIE_DATA_H
+#define FAKER_MODULES_MOVIE_DATA_H
 
 #include <string>
 #include <vector>
@@ -11,3 +12,5 @@ extern const std::array<std::string_view, 9> genres;
 extern const std::array<std::string_view, 250> movies;
 extern const std::array<std::string_view, 122> tvShows;
 }
+
+#endif

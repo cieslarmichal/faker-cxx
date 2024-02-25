@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_AIRLINE_TYPES_H
+#define FAKER_TYPES_AIRLINE_TYPES_H
 
 #include <string_view>
 
@@ -58,3 +59,5 @@ inline bool operator==(const AirlineStruct& lhs, const AirlineStruct& rhs)
 inline bool operator!=(const AirlineStruct& lhs, const AirlineStruct& rhs) { return !(lhs == rhs); }
 
 }
+
+#endif

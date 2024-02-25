@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_NUMBER_H
+#define FAKER_NUMBER_H
 
 #include <algorithm>
 #include <optional>
@@ -95,3 +96,5 @@ inline double decimal(double max) { return decimal(0.0, max); }
 std::string hex(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
 
 }
+
+#endif

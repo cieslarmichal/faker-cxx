@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_FINANCE_H
+#define FAKER_FINANCE_H
 
 #include <faker/types/bic_country.h>
 #include <faker/types/country.h>
@@ -222,3 +223,5 @@ std::string ethereumAddress();
  */
 std::string creditCardExpirationDate();
 }
+
+#endif

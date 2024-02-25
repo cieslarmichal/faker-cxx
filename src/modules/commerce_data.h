@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_COMMERCE_DATA_H
+#define FAKER_MODULES_COMMERCE_DATA_H
 
 #include <array>
 #include <string_view>
@@ -22,3 +23,5 @@ extern const std::array<std::string_view, 20> productCategoryNames;
 extern const std::array<std::string_view, 20> productReviews;
 extern const std::array<std::string_view, 2> discountTypes;
 }
+
+#endif

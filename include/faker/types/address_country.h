@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_ADDRESS_COUNTRY_H
+#define FAKER_TYPES_ADDRESS_COUNTRY_H
 
 #include <array>
 #include <string_view>
@@ -27,3 +28,5 @@ extern const std::array<AddressCountry, 14> addressCountries;
 
 std::string_view toString(AddressCountry country);
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_BOOK_H
+#define FAKER_BOOK_H
 
 #include <string>
 
@@ -113,3 +114,5 @@ int page();
  */
 std::string_view series();
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_LOCATION_H
+#define FAKER_LOCATION_H
 
 #include <faker/types/address_country.h>
 #include <faker/types/precision.h>
@@ -183,3 +184,5 @@ std::string_view direction();
  */
 std::string_view timeZone();
 }
+
+#endif

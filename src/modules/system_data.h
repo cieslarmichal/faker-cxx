@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_SYSTEM_DATA_H
+#define FAKER_MODULES_SYSTEM_DATA_H
 
 #include <string>
 #include <unordered_map>
@@ -14,3 +15,5 @@ extern const std::unordered_map<std::string, std::string> mimeTypesExtensions;
 extern const std::vector<std::string> commonMimeTypes;
 extern const std::vector<std::string> commonFileTypes;
 }
+
+#endif

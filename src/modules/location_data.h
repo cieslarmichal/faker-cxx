@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_LOCATION_DATA_H
+#define FAKER_MODULES_LOCATION_DATA_H
 
 #include <array>
 #include <string>
@@ -228,3 +229,5 @@ extern const std::vector<std::string> usaCityFormats;
 extern const CountryAddresses usaAddresses;
 
 }
+
+#endif

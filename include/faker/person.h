@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_PERSON_H
+#define FAKER_PERSON_H
 
 #include <faker/types/country.h>
 #include <faker/types/sex.h>
@@ -238,3 +239,5 @@ std::string westernZodiac();
  */
 std::string chineseZodiac();
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_PHONE_H
+#define FAKER_PHONE_H
 
 #include <faker/types/phone_number_country_format.h>
 #include <optional>
@@ -77,3 +78,5 @@ std::string number(PhoneNumberCountryFormat format);
  */
 std::string imei();
 }
+
+#endif

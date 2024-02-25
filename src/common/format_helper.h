@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_COMMON_FORMAT_HELPER_H
+#define FAKER_COMMON_FORMAT_HELPER_H
 
 #include <functional>
 #include <string>
@@ -34,3 +35,5 @@ public:
         std::unordered_map<std::string, std::function<std::string()>> tokenValueGenerators);
 };
 }
+
+#endif

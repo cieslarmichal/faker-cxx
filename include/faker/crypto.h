@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_CRYPTO_H
+#define FAKER_CRYPTO_H
 
 #include <optional>
 #include <string>
@@ -29,3 +30,5 @@ std::string sha256(std::optional<std::string> = std::nullopt);
  */
 std::string md5(std::optional<std::string> = std::nullopt);
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_STRUCTURE_TOKEN_H
+#define FAKER_TYPES_STRUCTURE_TOKEN_H
 
 namespace faker {
 enum class StructureToken {
@@ -308,3 +309,5 @@ enum class StructureToken {
     WordVerb,
 };
 }
+
+#endif

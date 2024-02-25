@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_IMAGE_H
+#define FAKER_IMAGE_H
 
 #include <faker/types/image_category.h>
 #include <optional>
@@ -56,3 +57,5 @@ std::string dimensions();
  */
 std::string_view type();
 }
+
+#endif

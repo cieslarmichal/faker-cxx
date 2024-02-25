@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_COLOR_H
+#define FAKER_COLOR_H
 
 #include <faker/types/hex.h>
 #include <string>
@@ -120,3 +121,5 @@ std::string hsv();
  */
 std::string yuv();
 }
+
+#endif

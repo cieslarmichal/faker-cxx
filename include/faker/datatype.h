@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_DATATYPE_H
+#define FAKER_DATATYPE_H
 
 namespace faker::datatype {
 /**
@@ -31,3 +32,5 @@ bool boolean();
  */
 bool boolean(double probability);
 }
+
+#endif

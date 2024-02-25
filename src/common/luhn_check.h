@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_COMMON_LUHN_CHECK_H
+#define FAKER_COMMON_LUHN_CHECK_H
 
 #include <algorithm>
 #include <string>
@@ -38,3 +39,5 @@ public:
     static int luhnCheckValue(const std::string& inputString);
 };
 }
+
+#endif

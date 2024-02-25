@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MOVIE_H
+#define FAKER_MOVIE_H
 
 #include <string_view>
 
@@ -69,3 +70,5 @@ std::string_view actor();
  */
 std::string_view actress();
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MUSIC_H
+#define FAKER_MUSIC_H
 
 #include <string>
 
@@ -36,3 +37,5 @@ std::string genre();
  */
 std::string songName();
 }
+
+#endif

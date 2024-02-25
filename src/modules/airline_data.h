@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_AIRLINE_DATA_H
+#define FAKER_MODULES_AIRLINE_DATA_H
 
 #include <array>
 #include <faker/airline.h>
@@ -13,3 +14,5 @@ extern const std::array<Airport, 119> airports;
 extern const std::unordered_map<AircraftType, int> aircraftTypeMaxRows;
 extern const std::unordered_map<AircraftType, std::string_view> aircraftTypeSeatLetters;
 }
+
+#endif

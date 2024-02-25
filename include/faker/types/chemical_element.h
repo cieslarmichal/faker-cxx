@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_CHEMICAL_ELEMENT_H
+#define FAKER_TYPES_CHEMICAL_ELEMENT_H
 
 #include <string_view>
 
@@ -14,3 +15,5 @@ inline bool operator==(const ChemicalElement& lhs, const ChemicalElement& rhs)
     return lhs.name == rhs.name && lhs.symbol == rhs.symbol && lhs.atomicNumber == rhs.atomicNumber;
 }
 }
+
+#endif

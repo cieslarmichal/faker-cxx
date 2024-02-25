@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_SSN_COUNTRY_H
+#define FAKER_TYPES_SSN_COUNTRY_H
 
 #include <array>
 #include <string_view>
@@ -20,3 +21,5 @@ extern const std::array<SsnCountry, 8> supportedSsnCountries;
 std::string_view toString(SsnCountry country);
 
 }
+
+#endif

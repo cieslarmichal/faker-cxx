@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_HACKER_DATA_H
+#define FAKER_MODULES_HACKER_DATA_H
 
 #include <array>
 #include <string_view>
@@ -11,3 +12,5 @@ extern const std::array<std::string_view, 16> nouns;
 extern const std::array<std::string_view, 8> phrases;
 extern const std::array<std::string_view, 16> verbs;
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_IBAN_COUNTRY_H
+#define FAKER_TYPES_IBAN_COUNTRY_H
 
 #include <array>
 
@@ -36,3 +37,5 @@ enum class IbanCountry {
 extern const std::array<IbanCountry, 27> supportedIbanCountries;
 
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_COMPANY_H
+#define FAKER_COMPANY_H
 
 #include <string>
 
@@ -124,3 +125,5 @@ std::string_view catchPhraseDescriptor();
  */
 std::string_view catchPhraseNoun();
 }
+
+#endif

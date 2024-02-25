@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_INTERNET_H
+#define FAKER_INTERNET_H
 
 #include <array>
 #include <faker/types/country.h>
@@ -308,3 +309,5 @@ std::string domainWord();
  */
 std::string_view domainSuffix();
 }
+
+#endif

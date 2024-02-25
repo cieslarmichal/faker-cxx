@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_PERSON_DATA_H
+#define FAKER_MODULES_PERSON_DATA_H
 
 #include <array>
 #include <faker/types/country.h>
@@ -615,3 +616,5 @@ extern const PeopleNames vietnamesePeopleNames;
 extern const std::unordered_map<Country, PeopleNames> countryToPeopleNamesMapping;
 
 }
+
+#endif

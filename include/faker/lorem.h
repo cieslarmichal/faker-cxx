@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_LOREM_H
+#define FAKER_LOREM_H
 
 #include <string>
 
@@ -102,3 +103,5 @@ std::string paragraph(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSen
  */
 std::string paragraphs(unsigned minNumberOfParagraphs = 2, unsigned maxNumberOfParagraphs = 4);
 }
+
+#endif

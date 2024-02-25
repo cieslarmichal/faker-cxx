@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_STRING_DATA_H
+#define FAKER_MODULES_STRING_DATA_H
 
 #include <faker/types/string_casing.h>
 #include <string>
@@ -27,3 +28,5 @@ extern const std::unordered_set<char> utf16CharSet;
 extern const std::unordered_map<StringCasing, std::unordered_set<char>>
     stringCasingToAlphaCharSetMapping;
 }
+
+#endif

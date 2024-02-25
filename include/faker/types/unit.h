@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_UNIT_H
+#define FAKER_TYPES_UNIT_H
 
 #include <string_view>
 
@@ -18,3 +19,5 @@ inline bool operator==(const Unit& lhs, const Unit& rhs)
 inline bool operator!=(const Unit& lhs, const Unit& rhs) { return !(lhs == rhs); }
 
 }
+
+#endif

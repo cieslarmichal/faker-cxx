@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_SPORT_DATA_H
+#define FAKER_MODULES_SPORT_DATA_H
 
 #include <string>
 #include <vector>
@@ -10,3 +11,5 @@ extern const std::vector<std::string> soccerTeams;
 extern const std::vector<std::string> sportEvents;
 extern const std::vector<std::string> sportNames;
 }
+
+#endif

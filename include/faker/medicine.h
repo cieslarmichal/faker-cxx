@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MEDICINE_H
+#define FAKER_MEDICINE_H
 
 #include <string_view>
 
@@ -37,3 +38,5 @@ std::string_view medicalTest();
 
 std::string_view specialty();
 }
+
+#endif

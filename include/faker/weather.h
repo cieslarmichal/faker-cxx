@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_WEATHER_H
+#define FAKER_WEATHER_H
 
 #include <string>
 
@@ -110,3 +111,5 @@ std::string weatherDescription();
  */
 int cloudCover();
 }
+
+#endif

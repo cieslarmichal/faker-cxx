@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_STRING_H
+#define FAKER_STRING_H
 
 #include <faker/types/hex.h>
 #include <faker/types/random_generator.h>
@@ -382,3 +383,5 @@ public:
     static std::string octal(GuaranteeMap&& guarantee, unsigned length = 1);
 };
 }
+
+#endif

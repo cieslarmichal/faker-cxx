@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_COMPUTER_DATA_H
+#define FAKER_MODULES_COMPUTER_DATA_H
 
 #include <array>
 #include <string_view>
@@ -16,3 +17,5 @@ namespace data {
     extern const std::array<std::string_view, 23> ComputerGPUModels;
 }
 }
+
+#endif

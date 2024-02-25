@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_COMMERCE_H
+#define FAKER_COMMERCE_H
 
 #include <string>
 
@@ -247,3 +248,5 @@ double discountAmount();
  */
 double discountPercentage();
 }
+
+#endif

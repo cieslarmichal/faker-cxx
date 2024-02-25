@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_COMMON_JSON_HELPER_H
+#define FAKER_COMMON_JSON_HELPER_H
 
 #include <sstream>
 #include <string>
@@ -12,3 +13,5 @@ public:
     static std::unordered_map<std::string, std::string> simpleJsonParser(std::string json);
 };
 }
+
+#endif

@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_VEHICLE_H
+#define FAKER_VEHICLE_H
 
 #include <string>
 
@@ -102,3 +103,5 @@ std::string vin();
  */
 std::string vrm();
 }
+
+#endif

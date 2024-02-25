@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TEST_HELPERS_H
+#define FAKER_TEST_HELPERS_H
 
 #include <algorithm>
 #include <gtest/gtest.h>
@@ -46,3 +47,5 @@ inline auto find(const RangeT& range, const ElementT& element)
 }
 
 }
+
+#endif

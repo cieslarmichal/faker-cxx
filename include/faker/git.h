@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_GIT_H
+#define FAKER_GIT_H
 
 #include <faker/types/country.h>
 #include <optional>
@@ -91,3 +92,5 @@ std::string commitSha(unsigned length = 40);
  */
 Author author();
 }
+
+#endif

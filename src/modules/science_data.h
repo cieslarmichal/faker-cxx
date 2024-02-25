@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_SCIENCE_DATA_H
+#define FAKER_MODULES_SCIENCE_DATA_H
 
 #include <faker/types/unit.h>
 #include <array>
@@ -12,3 +13,5 @@ extern const std::array<Unit, 7> timeUnits;
 extern const std::array<Unit, 3> currentUnits;
 extern const std::array<Unit, 3> temperatureUnits;
 };
+
+#endif

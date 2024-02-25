@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_COMPUTER_H
+#define FAKER_COMPUTER_H
 
 #include <string_view>
 
@@ -103,3 +104,5 @@ std::string_view gpuType();
 std::string_view gpuModel();
 
 }
+
+#endif

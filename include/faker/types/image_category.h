@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_TYPES_IMAGE_CATEGORY_H
+#define FAKER_TYPES_IMAGE_CATEGORY_H
 
 namespace faker {
 enum class ImageCategory {
@@ -16,3 +17,5 @@ enum class ImageCategory {
     Transport
 };
 }
+
+#endif

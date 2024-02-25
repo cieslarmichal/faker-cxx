@@ -1,4 +1,5 @@
-#pragma once
+#ifndef FAKER_MODULES_INTERNET_DATA_H
+#define FAKER_MODULES_INTERNET_DATA_H
 
 #include <array>
 #include <string_view>
@@ -21,3 +22,5 @@ extern const std::array<std::string_view, 45> httpMediaTypes;
 extern const std::array<std::string_view, 41> httpRequestHeaders;
 extern const std::array<std::string_view, 44> httpResponseHeaders;
 }
+
+#endif
