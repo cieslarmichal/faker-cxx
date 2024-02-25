@@ -1,18 +1,17 @@
 #include "string_data.h"
 
 namespace faker::string::data {
-const std::string upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-const std::string lowerCharacters = "abcdefghijklmnopqrstuvwxyz";
-const std::string numericCharactersWithoutZero = "123456789";
-const std::string numericCharacters = "0123456789";
-const std::string mixedAlphaCharacters = upperCharacters + lowerCharacters;
-const std::string lowerAlphanumericCharacters = lowerCharacters + numericCharacters;
-const std::string upperAlphanumericCharacters = upperCharacters + numericCharacters;
-const std::string mixedAlphanumericCharacters
-    = upperCharacters + lowerCharacters + numericCharacters;
-const std::string hexUpperCharacters = "0123456789ABCDEF";
-const std::string hexLowerCharacters = "0123456789abcdef";
-const std::string symbolCharacters = "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
+const std::string_view upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+const std::string_view lowerCharacters = "abcdefghijklmnopqrstuvwxyz";
+const std::string_view numericCharactersWithoutZero = "123456789";
+const std::string_view numericCharacters = "0123456789";
+const std::string_view mixedAlphaCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const std::string_view lowerAlphanumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789";
+const std::string_view upperAlphanumericCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+const std::string_view mixedAlphanumericCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+const std::string_view hexUpperCharacters = "0123456789ABCDEF";
+const std::string_view hexLowerCharacters = "0123456789abcdef";
+const std::string_view symbolCharacters = "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
 
 const std::unordered_set<char> lowerCharSet {
     'a',

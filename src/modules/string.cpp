@@ -131,7 +131,7 @@ std::string fromCharacters(GuaranteeMap&& guarantee, const std::string& characte
 
 std::string alpha(unsigned length, StringCasing casing, const std::string& excludeCharacters)
 {
-    static const std::unordered_map<StringCasing, std::string>
+    static const std::unordered_map<StringCasing, std::string_view>
         stringCasingToAlphaCharactersMapping {
             { StringCasing::Lower, data::lowerCharacters },
             { StringCasing::Upper, data::upperCharacters },
@@ -170,7 +170,7 @@ std::string alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing ca
 std::string alphanumeric(
     unsigned int length, StringCasing casing, const std::string& excludeCharacters)
 {
-    static const std::unordered_map<StringCasing, std::string>
+    static const std::unordered_map<StringCasing, std::string_view>
         stringCasingToAlphanumericCharactersMapping {
             { StringCasing::Lower, data::lowerAlphanumericCharacters },
             { StringCasing::Upper, data::upperAlphanumericCharacters },
@@ -253,7 +253,7 @@ std::string numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowL
 
 std::string hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
 {
-    static const std::unordered_map<HexCasing, std::string> hexCasingToCharactersMapping {
+    static const std::unordered_map<HexCasing, std::string_view> hexCasingToCharactersMapping {
         { HexCasing::Lower, data::hexLowerCharacters },
         { HexCasing::Upper, data::hexUpperCharacters },
     };
