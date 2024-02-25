@@ -13,7 +13,7 @@ namespace faker::vehicle {
  * vehicle::bicycle() // "Electric bike"
  * @endcode
  */
-std::string bicycle();
+std::string_view bicycle();
 
 /**
  * @brief Returns a random vehicle color.
@@ -24,7 +24,7 @@ std::string bicycle();
  * vehicle::color() // "Silver"
  * @endcode
  */
-std::string color();
+std::string_view color();
 
 /**
  * @brief Returns a random vehicle fuel.
@@ -35,7 +35,7 @@ std::string color();
  * vehicle::fuel() // "Diesel"
  * @endcode
  */
-std::string fuel();
+std::string_view fuel();
 
 /**
  * @brief Returns a random vehicle(car) manufacturer.
@@ -46,7 +46,7 @@ std::string fuel();
  * vehicle::manufacturer() // "Ferrari"
  * @endcode
  */
-std::string manufacturer();
+std::string_view manufacturer();
 
 /**
  * @brief Returns a random vehicle(car) model.
@@ -57,7 +57,7 @@ std::string manufacturer();
  * vehicle::model() // "Fiesta"
  * @endcode
  */
-std::string model();
+std::string_view model();
 
 /**
  * @brief Returns a random vehicle type.
@@ -68,7 +68,7 @@ std::string model();
  * vehicle::type() // "Van"
  * @endcode
  */
-std::string type();
+std::string_view type();
 
 /**
  * @brief Returns a random vehicle(car).
