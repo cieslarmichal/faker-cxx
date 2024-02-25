@@ -1,13 +1,13 @@
 #ifndef FAKER_MODULES_MUSIC_DATA_H
 #define FAKER_MODULES_MUSIC_DATA_H
 
+#include <array>
 #include <string_view>
-#include <vector>
 
 namespace faker::music::data {
-extern const std::vector<std::string_view> artists;
-extern const std::vector<std::string_view> genres;
-extern const std::vector<std::string_view> songNames;
+extern const std::array<std::string_view, 298> artists;
+extern const std::array<std::string_view, 17> genres;
+extern const std::array<std::string_view, 971> songNames;
 }
 
 #endif
