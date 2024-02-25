@@ -98,7 +98,7 @@ int humidity();
  * weather::description(); // "Sunny"
  * @endcode
  */
-std::string weatherDescription();
+std::string_view weatherDescription();
 
 /**
  * @brief Generated a random cloud cover percentage

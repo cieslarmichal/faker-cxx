@@ -423,7 +423,7 @@ const std::unordered_map<faker::StructureToken, std::function<std::string()>> mo
     { faker::StructureToken::WeatherHumidity,
         []() { return std::to_string(faker::weather::humidity()); } },
     { faker::StructureToken::WeatherWeatherDescription,
-        []() { return faker::weather::weatherDescription(); } },
+        []() { return std::string(faker::weather::weatherDescription()); } },
     { faker::StructureToken::WeatherCloudCover,
         []() { return std::to_string(faker::weather::cloudCover()); } },
 

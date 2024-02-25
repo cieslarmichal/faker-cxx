@@ -1,7 +1,7 @@
 #include "weather_data.h"
 
-namespace faker {
-const std::vector<std::string> weatherDescriptions = {
+namespace faker::weather::data {
+const std::array<std::string_view, 16> weatherDescriptions = {
     "clear sky",
     "few clouds",
     "scattered clouds",

@@ -35,7 +35,7 @@ int uvIndex() { return number::integer(0, 11); }
 
 int humidity() { return number::integer(0, 100); }
 
-std::string weatherDescription() { return Helper::arrayElement<std::string>(weatherDescriptions); }
+std::string_view weatherDescription() { return Helper::arrayElement(data::weatherDescriptions); }
 
 int cloudCover() { return number::integer(0, 100); }
 }

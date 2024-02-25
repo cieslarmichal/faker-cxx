@@ -1,11 +1,11 @@
 #ifndef FAKER_MODULES_WEATHER_DATA_H
 #define FAKER_MODULES_WEATHER_DATA_H
 
-#include <string>
-#include <vector>
+#include <string_view>
+#include <array>
 
-namespace faker {
-extern const std::vector<std::string> weatherDescriptions;
+namespace faker::weather::data {
+extern const std::array<std::string_view, 16> weatherDescriptions;
 }
 
 #endif
