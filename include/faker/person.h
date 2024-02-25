@@ -226,7 +226,7 @@ std::string ssn(std::optional<SsnCountry> country);
  * person::westernZodiac() // "Virgo"
  * @endcode
  */
-std::string westernZodiac();
+std::string_view westernZodiac();
 
 /**
  * @brief Returns a random Chinese Zodiac
@@ -237,7 +237,7 @@ std::string westernZodiac();
  * person::chineseZodiac() // "Dragon"
  * @endcode
  */
-std::string chineseZodiac();
+std::string_view chineseZodiac();
 }
 
 #endif

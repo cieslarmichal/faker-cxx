@@ -109,14 +109,14 @@ std::string fullName(Country country, std::optional<Sex> sex)
 {
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
-    std::vector<Helper::WeightedElement<std::string>> weightedElements;
+    std::vector<Helper::WeightedElement<std::string_view>> weightedElements;
     for (const auto& nameFormat : peopleNames.nameFormats) {
         weightedElements.push_back({ nameFormat.weight, nameFormat.format });
     }
 
-    const auto nameFormat = Helper::weightedArrayElement<std::string>(weightedElements);
+    const auto nameFormat = Helper::weightedArrayElement(weightedElements);
 
-    return FormatHelper::fillTokenValues(nameFormat, [country, sex](std::string_view token) {
+    return FormatHelper::fillTokenValues(nameFormat, [country, sex](auto token) {
         if (token == "firstName") {
             return firstName(country, sex);
         } else if (token == "middleName") {
@@ -267,9 +267,9 @@ std::string ssn(std::optional<SsnCountry> country)
     return ssn;
 }
 
-std::string westernZodiac() { return Helper::arrayElement<std::string>(westernZodiacs); }
+std::string_view westernZodiac() { return Helper::arrayElement(westernZodiacs); }
 
-std::string chineseZodiac() { return Helper::arrayElement<std::string>(chineseZodiacs); }
+std::string_view chineseZodiac() { return Helper::arrayElement(chineseZodiacs); }
 
 namespace {
     std::string middleNameForCountry(Country country, std::optional<Sex> sex)

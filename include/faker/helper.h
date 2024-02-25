@@ -323,6 +323,10 @@ public:
      */
     static std::string regexpStyleStringParse(const std::string& input);
 
+    static std::string regexpStyleStringParse(const std::string_view& input) {
+        return regexpStyleStringParse(std::string(input));
+    }
+
 private:
     static std::random_device randomDevice;
     static std::mt19937 pseudoRandomGenerator;

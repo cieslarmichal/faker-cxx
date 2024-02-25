@@ -180,8 +180,7 @@ std::string buildingNumber(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
 
-    const auto buildingNumberFormat
-        = Helper::arrayElement(countryAddresses.buildingNumberFormats);
+    const auto buildingNumberFormat = Helper::arrayElement(countryAddresses.buildingNumberFormats);
 
     return Helper::replaceSymbolWithNumber(buildingNumberFormat);
 }

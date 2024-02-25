@@ -152,113 +152,82 @@ public:
 TEST_P(PersonTest, shouldGenerateFirstName)
 {
     const auto country = GetParam();
-
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
-
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
-    std::vector<std::string> firstNames { malesFirstNames };
-
+    std::vector<std::string_view> firstNames { malesFirstNames };
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
 
     const auto generatedFirstName = person::firstName(country);
 
-    ASSERT_TRUE(
-        faker::testing::any_of(firstNames, [generatedFirstName](const std::string& firstName) {
-            return firstName == generatedFirstName;
-        }));
+    FAKER_EXPECT_CONTAINS(firstNames, generatedFirstName);
 }
 
 TEST_P(PersonTest, shouldGenerateMaleFirstName)
 {
     const auto country = GetParam();
-
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
-
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
     const auto generatedFirstName = person::firstName(country, Sex::Male);
 
-    ASSERT_TRUE(
-        faker::testing::any_of(malesFirstNames, [generatedFirstName](const std::string& firstName) {
-            return firstName == generatedFirstName;
-        }));
+    FAKER_EXPECT_CONTAINS(malesFirstNames, generatedFirstName);
 }
 
 TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 {
     const auto country = GetParam();
-
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
-
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
     const auto generatedFirstName = person::firstName(country, Sex::Female);
 
-    ASSERT_TRUE(faker::testing::any_of(
-        femalesFirstNames, [generatedFirstName](const std::string& firstName) {
-            return firstName == generatedFirstName;
-        }));
+    FAKER_EXPECT_CONTAINS(femalesFirstNames, generatedFirstName);
 }
 
 TEST_P(PersonTest, shouldGenerateLastNameMale)
 {
     const auto country = GetParam();
-
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
-
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
     const auto generatedLastName = person::lastName(country, Sex::Male);
 
-    ASSERT_TRUE(
-        faker::testing::any_of(malesLastNames, [generatedLastName](const std::string& lastName) {
-            return lastName == generatedLastName;
-        }));
+    FAKER_EXPECT_CONTAINS(malesLastNames, generatedLastName);
 }
 
 TEST_P(PersonTest, shouldGenerateLastNameFemale)
 {
     const auto country = GetParam();
-
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
-
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
     const auto generatedLastName = person::lastName(country, Sex::Female);
 
-    ASSERT_TRUE(
-        faker::testing::any_of(femalesLastNames, [generatedLastName](const std::string& lastName) {
-            return lastName == generatedLastName;
-        }));
+    FAKER_EXPECT_CONTAINS(femalesLastNames, generatedLastName);
 }
 
 TEST_P(PersonTest, shouldGenerateFullName)
 {
     const auto country = GetParam();
-
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
-
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
-
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
-    std::vector<std::string> firstNames { malesFirstNames };
-    std::vector<std::string> lastNames { malesLastNames };
-
+    std::vector<std::string_view> firstNames { malesFirstNames };
+    std::vector<std::string_view> lastNames { malesLastNames };
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
     lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
 
     const auto generatedFullName = person::fullName(country);
 
-    ASSERT_TRUE(
-        faker::testing::any_of(firstNames, [generatedFullName](const std::string& firstName) {
-            return generatedFullName.find(firstName) != std::string::npos;
-        }));
-    ASSERT_TRUE(faker::testing::any_of(lastNames, [generatedFullName](const std::string& lastName) {
+    ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedFullName](auto firstName) {
+        return generatedFullName.find(firstName) != std::string::npos;
+    }));
+    ASSERT_TRUE(faker::testing::any_of(lastNames, [generatedFullName](auto lastName) {
         return generatedFullName.find(lastName) != std::string::npos;
     }));
 }
@@ -275,14 +244,12 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 
     const auto generatedFullName = person::fullName(country, Sex::Male);
 
-    ASSERT_TRUE(
-        faker::testing::any_of(malesFirstNames, [generatedFullName](const std::string& firstName) {
-            return generatedFullName.find(firstName) != std::string::npos;
-        }));
-    ASSERT_TRUE(
-        faker::testing::any_of(malesLastNames, [generatedFullName](const std::string& lastName) {
-            return generatedFullName.find(lastName) != std::string::npos;
-        }));
+    ASSERT_TRUE(faker::testing::any_of(malesFirstNames, [generatedFullName](auto firstName) {
+        return generatedFullName.find(firstName) != std::string::npos;
+    }));
+    ASSERT_TRUE(faker::testing::any_of(malesLastNames, [generatedFullName](auto lastName) {
+        return generatedFullName.find(lastName) != std::string::npos;
+    }));
 }
 
 TEST_P(PersonTest, shouldGenerateFemaleFullName)
@@ -297,14 +264,12 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 
     const auto generatedFullName = person::fullName(country, Sex::Female);
 
-    ASSERT_TRUE(faker::testing::any_of(
-        femalesFirstNames, [generatedFullName](const std::string& firstName) {
-            return generatedFullName.find(firstName) != std::string::npos;
-        }));
-    ASSERT_TRUE(
-        faker::testing::any_of(femalesLastNames, [generatedFullName](const std::string& lastName) {
-            return generatedFullName.find(lastName) != std::string::npos;
-        }));
+    ASSERT_TRUE(faker::testing::any_of(femalesFirstNames, [generatedFullName](auto firstName) {
+        return generatedFullName.find(firstName) != std::string::npos;
+    }));
+    ASSERT_TRUE(faker::testing::any_of(femalesLastNames, [generatedFullName](auto lastName) {
+        return generatedFullName.find(lastName) != std::string::npos;
+    }));
 }
 
 INSTANTIATE_TEST_SUITE_P(TestPersonNamesByCountries, PersonTest, ValuesIn(countries),

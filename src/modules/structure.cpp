@@ -450,9 +450,9 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::PersonNationality:
         return std::string(std::string(person::nationality()));
     case StructureToken::PersonWesternZodiac:
-        return person::westernZodiac();
+        return std::string(person::westernZodiac());
     case StructureToken::PersonChineseZodiac:
-        return person::chineseZodiac();
+        return std::string(person::chineseZodiac());
     // Phone module
     case StructureToken::PhoneNumber:
         return phone::number();

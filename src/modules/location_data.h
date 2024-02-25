@@ -2,7 +2,7 @@
 #define FAKER_MODULES_LOCATION_DATA_H
 
 #include <array>
-#include <string>
+#include <string_view>
 #include <vector>
 
 namespace faker::location::data {

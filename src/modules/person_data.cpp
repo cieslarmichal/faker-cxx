@@ -308,7 +308,7 @@ const std::array<std::string_view, 62> nationalities = { {
     "Guatemalan",
 } };
 
-const std::unordered_map<SsnCountry, std::string> ssnFormats {
+const std::unordered_map<SsnCountry, std::string_view> ssnFormats {
     { SsnCountry::Poland, "##[0-1][0-2][0-2]######" },
     { SsnCountry::UnitedStates, "###-##-####" },
     // TODO: handle letters
@@ -322,10 +322,10 @@ const std::unordered_map<SsnCountry, std::string> ssnFormats {
     { SsnCountry::India, "LLLLL####L" },
 };
 
-const std::vector<std::string> westernZodiacs = { "Aries", "Taurus", "Gemini", "Cancer", "Leo",
+const std::vector<std::string_view> westernZodiacs = { "Aries", "Taurus", "Gemini", "Cancer", "Leo",
     "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces" };
 
-const std::vector<std::string> chineseZodiacs = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon",
+const std::vector<std::string_view> chineseZodiacs = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon",
     "Snake"
     "Horse",
     "Sheep",
@@ -335,10 +335,10 @@ const std::vector<std::string> chineseZodiacs = { "Rat", "Ox", "Tiger", "Rabbit"
 
 // Albania
 
-const std::vector<std::string> albanianMalesFirstNames = { "Adriatik", "Afrim", "Agim", "Agron",
-    "Alban", "Altin", "Andi", "Artion", "Asim", "Arbnor", "Arber", "Ardian", "Ardit", "Armend",
-    "Arlind", "Astrit", "Avni", "Bamir", "Bardh", "Bardhyl", "Bashkim", "Besart", "Besim", "Besmir",
-    "Besnik", "Niko", "Bekim", "Betim", "Bledar", "Bledian", "Blendi", "Blerim", "Bujar",
+const std::vector<std::string_view> albanianMalesFirstNames = { "Adriatik", "Afrim", "Agim",
+    "Agron", "Alban", "Altin", "Andi", "Artion", "Asim", "Arbnor", "Arber", "Ardian", "Ardit",
+    "Armend", "Arlind", "Astrit", "Avni", "Bamir", "Bardh", "Bardhyl", "Bashkim", "Besart", "Besim",
+    "Besmir", "Besnik", "Niko", "Bekim", "Betim", "Bledar", "Bledian", "Blendi", "Blerim", "Bujar",
     "Bukurosh", "Burim", "Clirim", "Halit", "Hysen", "Ilir", "Ismail", "Jonuz", "Julian", "Kadri",
     "Dashamir", "Dardan", "Dash", "Dëfrim", "Dëshir", "Diell", "Drilon", "Dritan", "Durim",
     "Endrit", "Endri", "Enkel", "Erin", "Eris", "Erion", "Erjon", "Ergys", "Erkand", "Ermir",
@@ -353,7 +353,7 @@ const std::vector<std::string> albanianMalesFirstNames = { "Adriatik", "Afrim", 
     "Shpend", "Shkumbin", "Taulant", "Tomor", "Trim", "Urim", "Valdet", "Valmir", "Vedat",
     "Xhevdet", "Xhevahir", "Zef", "Vath", "Vidan", "Vullnet", "Ylber", "Zamir" };
 
-const std::vector<std::string> albanianFemalesFirstNames = {
+const std::vector<std::string_view> albanianFemalesFirstNames = {
     "Adelina",
     "Aferdita",
     "Agnesa",
@@ -497,22 +497,22 @@ const std::vector<std::string> albanianFemalesFirstNames = {
     "Zana",
 };
 
-const std::vector<std::string> albanianLastNames = { "Agolli", "Ahmeti", "Aliaj", "Aliu", "Arifi",
-    "Avdullahu", "Bajrami", "Balaj", "Basha", "Begolli", "Berisha", "Bilalli", "Brahimi", "Bytyqi",
-    "Cakuli", "Cela", "Cenaj", "Dedvukaj", "Dervishi", "Domgjonaj", "Dreshaj", "Driza", "Duka",
-    "Duraku", "Dushku", "Elezi", "Fazliu", "Ferizi", "Gashi", "Gega", "Gjinaj", "Gjokaj", "Gjoka",
-    "Gjonaj", "Gjoni", "Gjuraj", "Gruda", "Hadergjonaj", "Hajdari", "Hajzeri", "Haliti", "Hamiti",
-    "Hasani", "Hyseni", "Ibrahimi", "Ismaili", "Jashari", "Jusufi", "Kadriu", "Kajtazi", "Kapllani",
-    "Karaj", "Kastrati", "Kavaja", "Kazazi", "Kelmendi", "Kicaj", "Kola", "Krasniqi", "Kukaj",
-    "Kulla", "Kurti", "Kusari", "Leka", "Leka", "Lushi", "Majko", "Marku", "Maxhuni", "Mazreku",
-    "Meta", "Miftari", "Muharremi", "Murati", "Murtishi", "Mustafa", "Ndoj", "Nimani", "Nikçi",
-    "Nuhiu", "Osmani", "Pacuku", "Pajaziti", "Paloka", "Peci", "Përmeti", "Prenkaj", "Qerimi",
-    "Rama", "Rrahmani", "Rrudhani", "Rugova", "Rustemi", "Sahiti", "Salihu", "Shala", "Shala",
-    "Shkreli", "Shoshi", "Shuaipi", "Sopi", "Spahiu", "Statovci", "Sula", "Sylaj", "Thaçi", "Thaqi",
-    "Topalli", "Topi", "Tushi", "Ujkani", "Ulqini", "Useni", "Vehapi", "Vejseli", "Veliaj", "Vocaj",
-    "Vokshi", "Vula", "Vukaj", "Xhaferi", "Xhemajli", "Xhemalaj", "Xhemshiti", "Xhokli", "Xhufi",
-    "Ylli", "Zeka", "Zeqiri", "Zhubi", "Zogaj", "Zogu", "Zeka", "Zefi", "Zeka", "Zekaj", "Zhubi",
-    "Zhuta", "Ziu", "Zogiani" };
+const std::vector<std::string_view> albanianLastNames = { "Agolli", "Ahmeti", "Aliaj", "Aliu",
+    "Arifi", "Avdullahu", "Bajrami", "Balaj", "Basha", "Begolli", "Berisha", "Bilalli", "Brahimi",
+    "Bytyqi", "Cakuli", "Cela", "Cenaj", "Dedvukaj", "Dervishi", "Domgjonaj", "Dreshaj", "Driza",
+    "Duka", "Duraku", "Dushku", "Elezi", "Fazliu", "Ferizi", "Gashi", "Gega", "Gjinaj", "Gjokaj",
+    "Gjoka", "Gjonaj", "Gjoni", "Gjuraj", "Gruda", "Hadergjonaj", "Hajdari", "Hajzeri", "Haliti",
+    "Hamiti", "Hasani", "Hyseni", "Ibrahimi", "Ismaili", "Jashari", "Jusufi", "Kadriu", "Kajtazi",
+    "Kapllani", "Karaj", "Kastrati", "Kavaja", "Kazazi", "Kelmendi", "Kicaj", "Kola", "Krasniqi",
+    "Kukaj", "Kulla", "Kurti", "Kusari", "Leka", "Leka", "Lushi", "Majko", "Marku", "Maxhuni",
+    "Mazreku", "Meta", "Miftari", "Muharremi", "Murati", "Murtishi", "Mustafa", "Ndoj", "Nimani",
+    "Nikçi", "Nuhiu", "Osmani", "Pacuku", "Pajaziti", "Paloka", "Peci", "Përmeti", "Prenkaj",
+    "Qerimi", "Rama", "Rrahmani", "Rrudhani", "Rugova", "Rustemi", "Sahiti", "Salihu", "Shala",
+    "Shala", "Shkreli", "Shoshi", "Shuaipi", "Sopi", "Spahiu", "Statovci", "Sula", "Sylaj", "Thaçi",
+    "Thaqi", "Topalli", "Topi", "Tushi", "Ujkani", "Ulqini", "Useni", "Vehapi", "Vejseli", "Veliaj",
+    "Vocaj", "Vokshi", "Vula", "Vukaj", "Xhaferi", "Xhemajli", "Xhemalaj", "Xhemshiti", "Xhokli",
+    "Xhufi", "Ylli", "Zeka", "Zeqiri", "Zhubi", "Zogaj", "Zogu", "Zeka", "Zefi", "Zeka", "Zekaj",
+    "Zhubi", "Zhuta", "Ziu", "Zogiani" };
 
 const NameFormats albanianPersonNameFormats { { "{firstName} {lastName}", 1 } };
 
@@ -521,7 +521,7 @@ const PeopleNames albanianPeopleNames { { albanianMalesFirstNames, {}, albanianL
 
 // Argentina
 
-const std::vector<std::string> argentinianMalesFirstNames = {
+const std::vector<std::string_view> argentinianMalesFirstNames = {
     "Jose",
     "Carlos",
     "Jorge",
@@ -874,7 +874,7 @@ const std::vector<std::string> argentinianMalesFirstNames = {
     "Ladislao",
 };
 
-const std::vector<std::string> argentinianFemalesFirstNames = {
+const std::vector<std::string_view> argentinianFemalesFirstNames = {
     "Maria",
     "Juan",
     "Ana",
@@ -1227,7 +1227,7 @@ const std::vector<std::string> argentinianFemalesFirstNames = {
     "Feliciana",
 };
 
-const std::vector<std::string> argentinianLastNames = {
+const std::vector<std::string_view> argentinianLastNames = {
     "Gonzalez",
     "Rodriguez",
     "Gomez",
@@ -1587,7 +1587,7 @@ const PeopleNames argentinianPeopleNames {
 
 // Australia
 
-const std::vector<std::string> australianMalesFirstNames = {
+const std::vector<std::string_view> australianMalesFirstNames = {
     "William",
     "Jack",
     "Oliver",
@@ -1690,7 +1690,7 @@ const std::vector<std::string> australianMalesFirstNames = {
     "Joel",
 };
 
-const std::vector<std::string> australianFemalesFirstNames = {
+const std::vector<std::string_view> australianFemalesFirstNames = {
     "Isabella",
     "Ruby",
     "Chloe",
@@ -1793,7 +1793,7 @@ const std::vector<std::string> australianFemalesFirstNames = {
     "Kiara",
 };
 
-const std::vector<std::string> australianLastNames = {
+const std::vector<std::string_view> australianLastNames = {
     "Smith",
     "Jones",
     "Williams",
@@ -2090,7 +2090,7 @@ const PeopleNames australianPeopleNames { { australianMalesFirstNames, {}, austr
 
 // Austria
 
-const std::vector<std::string> austrianMalesFirstNames = {
+const std::vector<std::string_view> austrianMalesFirstNames = {
     "Aaron",
     "Abdul",
     "Abdullah",
@@ -2665,7 +2665,7 @@ const std::vector<std::string> austrianMalesFirstNames = {
     "Ömer",
 };
 
-const std::vector<std::string> austrianFemalesFirstNames = {
+const std::vector<std::string_view> austrianFemalesFirstNames = {
     "Aaliyah",
     "Abby",
     "Abigail",
@@ -3241,7 +3241,7 @@ const std::vector<std::string> austrianFemalesFirstNames = {
     "Zoé",
 };
 
-const std::vector<std::string> austrianLastNames = {
+const std::vector<std::string_view> austrianLastNames = {
     "Abel",
     "Abicht",
     "Abraham",
@@ -4932,9 +4932,9 @@ const std::vector<std::string> austrianLastNames = {
     "Überacker",
 };
 
-const std::vector<std::string> austrianMalesPrefixes { "Herr", "Dr.", "Prof. Dr." };
+const std::vector<std::string_view> austrianMalesPrefixes { "Herr", "Dr.", "Prof. Dr." };
 
-const std::vector<std::string> austrianFemalesPrefixes { "Frau", "Dr.", "Prof. Dr." };
+const std::vector<std::string_view> austrianFemalesPrefixes { "Frau", "Dr.", "Prof. Dr." };
 
 const NameFormats austrianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 5 } } };
@@ -4946,7 +4946,7 @@ const PeopleNames austrianPeopleNames { { austrianMalesFirstNames, {}, austrianL
 
 // Azerbaijan
 
-const std::vector<std::string> azerbaijaniMalesFirstNames = {
+const std::vector<std::string_view> azerbaijaniMalesFirstNames = {
     "Anar",
     "Amid",
     "Afəl",
@@ -4984,7 +4984,7 @@ const std::vector<std::string> azerbaijaniMalesFirstNames = {
     "Nadir",
 };
 
-const std::vector<std::string> azerbaijaniFemalesFirstNames = {
+const std::vector<std::string_view> azerbaijaniFemalesFirstNames = {
     "Anna",
     "Adeliya",
     "Afaq",
@@ -5060,7 +5060,7 @@ const std::vector<std::string> azerbaijaniFemalesFirstNames = {
     "Ülkər",
 };
 
-const std::vector<std::string> azerbaijaniMalesLastNames = {
+const std::vector<std::string_view> azerbaijaniMalesLastNames = {
     "Əhmədov",
     "Ələkbərov",
     "Əliyev",
@@ -5073,7 +5073,7 @@ const std::vector<std::string> azerbaijaniMalesLastNames = {
     "Rəhimov",
 };
 
-const std::vector<std::string> azerbaijaniFemalesLastNames = {
+const std::vector<std::string_view> azerbaijaniFemalesLastNames = {
     "Qasımova",
     "Əfəndiyeva",
     "Soltanova",
@@ -5098,7 +5098,7 @@ const PeopleNames azerbaijaniPeopleNames { { azerbaijaniMalesFirstNames, {},
 
 // Belarus
 
-const std::vector<std::string> belarusianMalesFirstNames = {
+const std::vector<std::string_view> belarusianMalesFirstNames = {
     "Sergey",
     "Andrey",
     "Aleksandr",
@@ -5451,7 +5451,7 @@ const std::vector<std::string> belarusianMalesFirstNames = {
     "Wladimir",
 };
 
-const std::vector<std::string> belarusianFemalesFirstNames = {
+const std::vector<std::string_view> belarusianFemalesFirstNames = {
     "Olga",
     "Tatyana",
     "Ekaterina",
@@ -5804,7 +5804,7 @@ const std::vector<std::string> belarusianFemalesFirstNames = {
     "Nelly",
 };
 
-const std::vector<std::string> belarusianMalesLastNames = {
+const std::vector<std::string_view> belarusianMalesLastNames = {
     "Ivanov",
     "Novik",
     "Zhuk",
@@ -6068,7 +6068,7 @@ const std::vector<std::string> belarusianMalesLastNames = {
     "Korolyov",
 };
 
-const std::vector<std::string> belarusianFemalesLastNames = {
+const std::vector<std::string_view> belarusianFemalesLastNames = {
     "Ivanova",
     "Novikova",
     "Kotova",
@@ -6169,7 +6169,7 @@ const PeopleNames belarusianPeopleNames { { belarusianMalesFirstNames, {}, belar
 
 // Belgium
 
-const std::vector<std::string> belgianMalesFirstNames = {
+const std::vector<std::string_view> belgianMalesFirstNames = {
     "Lucas",
     "Liam",
     "Louis",
@@ -6272,7 +6272,7 @@ const std::vector<std::string> belgianMalesFirstNames = {
     "Kasper",
 };
 
-const std::vector<std::string> belgianFemalesFirstNames = {
+const std::vector<std::string_view> belgianFemalesFirstNames = {
     "Emma",
     "Louise",
     "Marie",
@@ -6374,7 +6374,7 @@ const std::vector<std::string> belgianFemalesFirstNames = {
     "Chloe",
 };
 
-const std::vector<std::string> belgianLastNames = {
+const std::vector<std::string_view> belgianLastNames = {
     "Claes",
     "Claeys",
     "Declerck",
@@ -6409,9 +6409,9 @@ const std::vector<std::string> belgianLastNames = {
     "Wouters",
 };
 
-const std::vector<std::string> belgianSuffixes { "MBA", "Phd." };
+const std::vector<std::string_view> belgianSuffixes { "MBA", "Phd." };
 
-const std::vector<std::string> belgianPrefixes { "Dr.", "Ir.", "Ing.", "Prof." };
+const std::vector<std::string_view> belgianPrefixes { "Dr.", "Ir.", "Ing.", "Prof." };
 
 const NameFormats belgianPersonNameFormats { {
     { "{firstName} {lastName}", 8 },
@@ -6426,7 +6426,7 @@ const PeopleNames belgianPeopleNames { { belgianMalesFirstNames, {}, belgianLast
 
 // Bosnia
 
-const std::vector<std::string> bosnianMalesFirstNames = { "Adin", "Alem", "Amar", "Benjamin",
+const std::vector<std::string_view> bosnianMalesFirstNames = { "Adin", "Alem", "Amar", "Benjamin",
     "Dino", "Edin", "Elvir", "Emir", "Faruk", "Haris", "Ibrahim", "Jasmin", "Kenan", "Lejla",
     "Mehmed", "Nedim", "Osman", "Safet", "Tarik", "Vedad", "Zlatan", "Emin", "Nikola", "Eldar",
     "Senad", "D?enan", "Aldin", "Emir", "Davor", "Adnan", "Emir", "Amar", "Alen", "Nihad", "Damir",
@@ -6438,7 +6438,7 @@ const std::vector<std::string> bosnianMalesFirstNames = { "Adin", "Alem", "Amar"
     "Lina", "Amina", "Adna", "Lejla", "Ajla", "Zerina", "Mirnesa", "Ayla", "Adna", "Dijana", "Hana",
     "Amila" };
 
-const std::vector<std::string> bosnianFemalesFirstNames = { "Adin", "Alem", "Amar", "Benjamin",
+const std::vector<std::string_view> bosnianFemalesFirstNames = { "Adin", "Alem", "Amar", "Benjamin",
     "Dino", "Edin", "Elvir", "Emir", "Faruk", "Haris", "Ibrahim", "Jasmin", "Kenan", "Lejla",
     "Mehmed", "Nedim", "Osman", "Safet", "Tarik", "Vedad", "Zlatan", "Emin", "Nikola", "Eldar",
     "Senad", "D?enan", "Aldin", "Emir", "Davor", "Adnan", "Emir", "Amar", "Alen", "Nihad", "Damir",
@@ -6450,22 +6450,22 @@ const std::vector<std::string> bosnianFemalesFirstNames = { "Adin", "Alem", "Ama
     "Lina", "Amina", "Adna", "Lejla", "Ajla", "Zerina", "Mirnesa", "Ayla", "Adna", "Dijana", "Hana",
     "Amila" };
 
-const std::vector<std::string> bosnianLastNames = { "Hodzi", "Mujagic", "Hadzi", "Ahmetovic", "Ali",
-    "Delic", "Osmanagic", "Hrnjici", "Omeragic", "Suljic", "Kovacevic", "Brkic", "Kurtic", "Mehic",
-    "Zukic", "Hasic", "Zimic", "Salihovic", "Dedic", "Kolic", "Dzafi", "Salkic", "Omerhodzi",
-    "Alagic", "Sijercic", "Suljagic", "Dautovic", "Habibovic", "Cauzevic", "Hadziahmetovic",
-    "Muminovic", "Brkan", "Cici", "Zvizdic", "Maksumic", "Pilav", "Cehic", "Skopljak", "Dizdarevic",
-    "Cengic", "Karahasanovic", "Piric", "Cici", "Mujic", "Kujundzic", "Puzic", "Suljic", "Joldic",
-    "Maksumic", "Hota", "Kova", "Selimovic", "Terzic", "Malko", "Aganovic", "Polic", "Catic",
-    "Dedic", "Okanovic", "Suljanovic", "Bajramovic", "Mehanovic", "Karahodzi", "Campara", "Nukic",
-    "Ramic", "Ibricimovic", "Musi", "Talic", "Zimic", "Zulfic", "Dizdar", "Spahic", "Zaimovic",
-    "Ibrahimovic", "Mehic", "Kapic", "Beglija", "Zukic", "Cehic", "Mahmic", "Hodzi", "Osman",
-    "Zukan", "Dedic", "Maksumic", "Tiro", "Fazlic", "Smajic", "Hatic", "Muhamedagic", "Dervisevic",
-    "Mujagic", "Mujezinovic", "Husagic", "Zeki", "Mehanovic", "Malko", "Alagic", "Kolic",
-    "Nadarevic", "Suljic", "Omanovic", "Omanovic", "Huski", "Aljic", "Cici", "Begic", "Sijercic",
-    "Cengic", "Karacic", "Begirbajic", "Smajlovic", "Mahmutovic", "Kapetanovic", "Osman",
-    "Ibrahimagic", "Hadibegic", "Becirovic", "Jusic", "Brkic", "Cozic", "Musi", "Cehic",
-    "Selimovic", "Cehic", "Muminovic", "Hodzi" };
+const std::vector<std::string_view> bosnianLastNames = { "Hodzi", "Mujagic", "Hadzi", "Ahmetovic",
+    "Ali", "Delic", "Osmanagic", "Hrnjici", "Omeragic", "Suljic", "Kovacevic", "Brkic", "Kurtic",
+    "Mehic", "Zukic", "Hasic", "Zimic", "Salihovic", "Dedic", "Kolic", "Dzafi", "Salkic",
+    "Omerhodzi", "Alagic", "Sijercic", "Suljagic", "Dautovic", "Habibovic", "Cauzevic",
+    "Hadziahmetovic", "Muminovic", "Brkan", "Cici", "Zvizdic", "Maksumic", "Pilav", "Cehic",
+    "Skopljak", "Dizdarevic", "Cengic", "Karahasanovic", "Piric", "Cici", "Mujic", "Kujundzic",
+    "Puzic", "Suljic", "Joldic", "Maksumic", "Hota", "Kova", "Selimovic", "Terzic", "Malko",
+    "Aganovic", "Polic", "Catic", "Dedic", "Okanovic", "Suljanovic", "Bajramovic", "Mehanovic",
+    "Karahodzi", "Campara", "Nukic", "Ramic", "Ibricimovic", "Musi", "Talic", "Zimic", "Zulfic",
+    "Dizdar", "Spahic", "Zaimovic", "Ibrahimovic", "Mehic", "Kapic", "Beglija", "Zukic", "Cehic",
+    "Mahmic", "Hodzi", "Osman", "Zukan", "Dedic", "Maksumic", "Tiro", "Fazlic", "Smajic", "Hatic",
+    "Muhamedagic", "Dervisevic", "Mujagic", "Mujezinovic", "Husagic", "Zeki", "Mehanovic", "Malko",
+    "Alagic", "Kolic", "Nadarevic", "Suljic", "Omanovic", "Omanovic", "Huski", "Aljic", "Cici",
+    "Begic", "Sijercic", "Cengic", "Karacic", "Begirbajic", "Smajlovic", "Mahmutovic",
+    "Kapetanovic", "Osman", "Ibrahimagic", "Hadibegic", "Becirovic", "Jusic", "Brkic", "Cozic",
+    "Musi", "Cehic", "Selimovic", "Cehic", "Muminovic", "Hodzi" };
 
 const NameFormats bosnianPersonNameFormats { { "{lastName} {firstName}", 1 } };
 
@@ -6474,19 +6474,19 @@ const PeopleNames bosnianPeopleNames { { bosnianMalesFirstNames, {}, bosnianLast
 
 // Brazil
 
-const std::vector<std::string> brazilianMalesFirstNames = { "Alessandro", "Alexandre", "Anthony",
-    "Antônio", "Arthur", "Benjamin", "Benício", "Bernardo", "Breno", "Bryan", "Caio", "Calebe",
-    "Carlos", "Cauã", "César", "Daniel", "Danilo", "Davi", "Davi Lucca", "Deneval", "Eduardo",
-    "Elísio", "Emanuel", "Enzo", "Enzo Gabriel", "Fabiano", "Fabrício", "Feliciano", "Felipe",
-    "Frederico", "Fábio", "Félix", "Gabriel", "Gael", "Guilherme", "Gustavo", "Gúbio", "Heitor",
-    "Henrique", "Hugo", "Hélio", "Isaac", "Joaquim", "João", "João Lucas", "João Miguel",
+const std::vector<std::string_view> brazilianMalesFirstNames = { "Alessandro", "Alexandre",
+    "Anthony", "Antônio", "Arthur", "Benjamin", "Benício", "Bernardo", "Breno", "Bryan", "Caio",
+    "Calebe", "Carlos", "Cauã", "César", "Daniel", "Danilo", "Davi", "Davi Lucca", "Deneval",
+    "Eduardo", "Elísio", "Emanuel", "Enzo", "Enzo Gabriel", "Fabiano", "Fabrício", "Feliciano",
+    "Felipe", "Frederico", "Fábio", "Félix", "Gabriel", "Gael", "Guilherme", "Gustavo", "Gúbio",
+    "Heitor", "Henrique", "Hugo", "Hélio", "Isaac", "Joaquim", "João", "João Lucas", "João Miguel",
     "João Pedro", "Júlio", "Júlio César", "Kléber", "Ladislau", "Leonardo", "Lorenzo", "Lucas",
     "Lucca", "Marcelo", "Marcos", "Matheus", "Miguel", "Murilo", "Nataniel", "Nicolas", "Noah",
     "Norberto", "Pablo", "Paulo", "Pedro", "Pedro Henrique", "Pietro", "Rafael", "Raul", "Ricardo",
     "Roberto", "Salvador", "Samuel", "Silas", "Sirineu", "Tertuliano", "Théo", "Vicente", "Vitor",
     "Víctor", "Warley", "Washington", "Yago", "Yango", "Yuri", "Ígor" };
 
-const std::vector<std::string> brazilianFemalesFirstNames = { "Alessandra", "Alice", "Aline",
+const std::vector<std::string_view> brazilianFemalesFirstNames = { "Alessandra", "Alice", "Aline",
     "Alícia", "Ana Clara", "Ana Júlia", "Ana Laura", "Ana Luiza", "Antonella", "Beatriz", "Bruna",
     "Carla", "Cecília", "Clara", "Célia", "Dalila", "Eduarda", "Elisa", "Eloá", "Emanuelly",
     "Esther", "Fabrícia", "Felícia", "Giovanna", "Helena", "Heloísa", "Isabel", "Isabela",
@@ -6498,15 +6498,15 @@ const std::vector<std::string> brazilianFemalesFirstNames = { "Alessandra", "Ali
     "Roberta", "Sara", "Sarah", "Sophia", "Suélen", "Sílvia", "Talita", "Valentina", "Vitória",
     "Yasmin" };
 
-const std::vector<std::string> brazilianLastNames = { "Silva", "Souza", "Carvalho", "Santos",
+const std::vector<std::string_view> brazilianLastNames = { "Silva", "Souza", "Carvalho", "Santos",
     "Reis", "Xavier", "Franco", "Braga", "Macedo", "Batista", "Barros", "Moraes", "Costa",
     "Pereira", "Melo", "Saraiva", "Nogueira", "Oliveira", "Martins", "Moreira", "Albuquerque" };
 
-const std::vector<std::string> brazilianSuffixes { "Jr.", "Neto", "Filho" };
+const std::vector<std::string_view> brazilianSuffixes { "Jr.", "Neto", "Filho" };
 
-const std::vector<std::string> brazilianMalesPrefixes { "Sr.", "Dr." };
+const std::vector<std::string_view> brazilianMalesPrefixes { "Sr.", "Dr." };
 
-const std::vector<std::string> brazilianFemalesPrefixes { "Sra.", "Srta.", "Dra." };
+const std::vector<std::string_view> brazilianFemalesPrefixes { "Sra.", "Srta.", "Dra." };
 
 const NameFormats brazilianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 }, { "{firstName} {lastName} {suffix}", 1 } } };
@@ -6519,7 +6519,7 @@ const PeopleNames brazilianPeopleNames { { brazilianMalesFirstNames, {}, brazili
 
 // Bulgaria
 
-const std::vector<std::string> bulgarianMalesFirstNames = {
+const std::vector<std::string_view> bulgarianMalesFirstNames = {
     "Aleksandar",
     "Angel",
     "Anton",
@@ -6552,7 +6552,7 @@ const std::vector<std::string> bulgarianMalesFirstNames = {
     "Zahari",
 };
 
-const std::vector<std::string> bulgarianFemalesFirstNames = {
+const std::vector<std::string_view> bulgarianFemalesFirstNames = {
     "Aleksandra",
     "Anastasiya",
     "Anna",
@@ -6587,7 +6587,7 @@ const std::vector<std::string> bulgarianFemalesFirstNames = {
     "Zoya",
 };
 
-const std::vector<std::string> bulgarianLastNames = {
+const std::vector<std::string_view> bulgarianLastNames = {
     "Angelov",
     "Atanasov",
     "Bozhilov",
@@ -6615,11 +6615,11 @@ const std::vector<std::string> bulgarianLastNames = {
     "Zahariev",
 };
 
-const std::vector<std::string> bulgarianSuffixes { "мл.", "ст." };
+const std::vector<std::string_view> bulgarianSuffixes { "мл.", "ст." };
 
-const std::vector<std::string> bulgarianMalesPrefixes { "Г-н", "Д-р", "Проф." };
+const std::vector<std::string_view> bulgarianMalesPrefixes { "Г-н", "Д-р", "Проф." };
 
-const std::vector<std::string> bulgarianFemalesPrefixes { "Г-жа", "Г-ца", "Д-р", "Проф." };
+const std::vector<std::string_view> bulgarianFemalesPrefixes { "Г-жа", "Г-ца", "Д-р", "Проф." };
 
 const NameFormats bulgarianPersonNameFormats { {
     { "{firstName} {lastName}", 8 },
@@ -6635,7 +6635,7 @@ const PeopleNames bulgarianPeopleNames { { bulgarianMalesFirstNames, {}, bulgari
 
 // Canada
 
-const std::vector<std::string> canadianMalesFirstNames = {
+const std::vector<std::string_view> canadianMalesFirstNames = {
     "John",
     "David",
     "Robert",
@@ -6988,7 +6988,7 @@ const std::vector<std::string> canadianMalesFirstNames = {
     "Norbert",
 };
 
-const std::vector<std::string> canadianFemalesFirstNames = {
+const std::vector<std::string_view> canadianFemalesFirstNames = {
     "Mary",
     "Linda",
     "Karen",
@@ -7341,7 +7341,7 @@ const std::vector<std::string> canadianFemalesFirstNames = {
     "Katrina",
 };
 
-const std::vector<std::string> canadianLastNames = {
+const std::vector<std::string_view> canadianLastNames = {
     "Smith",
     "Brown",
     "Tremblay",
@@ -7697,7 +7697,7 @@ const PeopleNames canadianPeopleNames { { canadianMalesFirstNames, {}, canadianL
 
 // China
 
-const std::vector<std::string> chineseLastNames = {
+const std::vector<std::string_view> chineseLastNames = {
     "赵",
     "钱",
     "孙",
@@ -8700,7 +8700,7 @@ const std::vector<std::string> chineseLastNames = {
     "碧鲁",
 };
 
-const std::vector<std::string> chineseMalesFirstNames = {
+const std::vector<std::string_view> chineseMalesFirstNames = {
     "建华",
     "建国",
     "建军",
@@ -8781,7 +8781,7 @@ const std::vector<std::string> chineseMalesFirstNames = {
     "呈轩",
 };
 
-const std::vector<std::string> chineseFemalesFirstNames = {
+const std::vector<std::string_view> chineseFemalesFirstNames = {
     "秀英",
     "秀兰",
     "秀珍",
@@ -8876,7 +8876,7 @@ const PeopleNames chinesePeopleNames { { chineseMalesFirstNames, {}, chineseLast
 
 // Croatia
 
-const std::vector<std::string> croatianMalesFirstNames = { "Adi", "Ado", "Andel", "Andelin",
+const std::vector<std::string_view> croatianMalesFirstNames = { "Adi", "Ado", "Andel", "Andelin",
     "Andelko", "Andelo", "Andi", "Andras", "Andrej", "Andrija", "Andro", "Anko", "Ante", "Antek",
     "Antonin", "Antonio", "Antun", "Bela", "Belimir", "Berti", "Boris", "Borko", "Borna", "Božidar",
     "Branimir", "Bruno", "Časlav", "Dado", "Damil", "Damir", "Danijel", "Dario", "Darko", "David",
@@ -8896,94 +8896,96 @@ const std::vector<std::string> croatianMalesFirstNames = { "Adi", "Ado", "Andel"
     "Vjenceslav", "Vladek", "Vladislav", "Vlado", "Vlatko", "Zdenko", "Zdravko", "Željko", "Zoltan",
     "Zrinislav", "Zrinko", "Zvonimir" };
 
-const std::vector<std::string> croatianFemalesFirstNames = { "Ada", "Adina", "Adriana", "Adrijana",
-    "Agata", "Alemka", "Alenka", "Alisa", "Alka", "Alma", "Amalija", "Ana", "Ančica", "Anamarija",
-    "Anastazija", "Anci", "Anči", "Ancica", "Anda", "Anđela", "Anđelika", "Anđelina", "Andi",
-    "Andrea", "Andreja", "Andrina", "Anesa", "Aneta", "Ani", "Anica", "Anja", "Anka", "Antea",
-    "Antonija", "Asija", "Asja", "Bara", "Barbara", "Barica", "Beata", "Bela", "Biserka", "Borka",
-    "Borna", "Božena", "Božica", "Branimira", "Branka", "Brankica", "Brigita", "Dada", "Dagmar",
-    "Dalibora", "Daliborka", "Danica", "Danijela", "Danka", "Dara", "Darinka", "Dea", "Đina",
-    "Dona", "Donka", "Dora", "Dorana", "Dorica", "Draga", "Ela", "Eli", "Elka", "Evelin", "Ina",
-    "Inga", "Inge", "Inja", "Inka", "Ita", "Iva", "Ivančica", "Ivanka", "Ivica", "Ivna", "Jagica",
-    "Jana", "Janica", "Janka", "Jasna", "Jela", "Jelica", "Ješa", "Kata", "Kate", "Katica",
-    "Katija", "Katina", "Kika", "Lara", "Laura", "Lea", "Lela", "Lena", "Leona", "Lola", "Maca",
-    "Magda", "Maja", "Majda", "Manda", "Mara", "Mare", "Marena", "Marica", "Marta", "Maša", "Mica",
-    "Mika", "Mila", "Milica", "Milka", "Mima", "Mina", "Mira", "Mirka", "Naja", "Nana", "Natalija",
-    "Nataša", "Natka", "Neda", "Nela", "Neli", "Nena", "Nera", "Nesa", "Neva", "Nevenka", "Nina",
-    "Nuša", "Paulina", "Pava", "Pave", "Pavica", "Rajna", "Rija", "Rina", "Ružica", "Staša", "Tasa",
-    "Teja", "Tija", "Tijana", "Tina", "Tončica", "Tonija", "Tonka", "Vala", "Valera", "Vali",
-    "Vela", "Velana", "Velina", "Vera", "Verica", "Vinka", "Zlatica", "Zlatka", "Darija", "Darina",
-    "Divna", "Donata", "Doroteja", "Dragica", "Dubravka", "Dunja", "Đurda", "Edita", "Elena", "Ema",
-    "Eva", "Gabrijela", "Goranka", "Gordana", "Grozdana", "Helena", "Hrvojka", "Ira", "Irena",
-    "Irma", "Ivana", "Jadranka", "Jaga", "Jasmina", "Josipa", "Karmela", "Katarina", "Kristina",
-    "Leda", "Leonida", "Lidija", "Ljiljana", "Ljubica", "Lovorka", "Lucija", "Magdalena", "Marija",
-    "Marijana", "Marina", "Martina", "Miranda", "Mirna", "Monika", "Nada", "Nadalina", "Nedjeljka",
-    "Nevena", "Nora", "Paula", "Petra", "Renata", "Romana", "Rosana", "Ruža", "Sanja", "Silvija",
-    "Slavica", "Snježana", "Tereza", "Tomislava", "Valentina", "Valerija", "Vedrana", "Velimira",
-    "Veronika", "Vesna", "Vladimira", "Zdenka", "Zdeslava", "Zlata" };
+const std::vector<std::string_view> croatianFemalesFirstNames = { "Ada", "Adina", "Adriana",
+    "Adrijana", "Agata", "Alemka", "Alenka", "Alisa", "Alka", "Alma", "Amalija", "Ana", "Ančica",
+    "Anamarija", "Anastazija", "Anci", "Anči", "Ancica", "Anda", "Anđela", "Anđelika", "Anđelina",
+    "Andi", "Andrea", "Andreja", "Andrina", "Anesa", "Aneta", "Ani", "Anica", "Anja", "Anka",
+    "Antea", "Antonija", "Asija", "Asja", "Bara", "Barbara", "Barica", "Beata", "Bela", "Biserka",
+    "Borka", "Borna", "Božena", "Božica", "Branimira", "Branka", "Brankica", "Brigita", "Dada",
+    "Dagmar", "Dalibora", "Daliborka", "Danica", "Danijela", "Danka", "Dara", "Darinka", "Dea",
+    "Đina", "Dona", "Donka", "Dora", "Dorana", "Dorica", "Draga", "Ela", "Eli", "Elka", "Evelin",
+    "Ina", "Inga", "Inge", "Inja", "Inka", "Ita", "Iva", "Ivančica", "Ivanka", "Ivica", "Ivna",
+    "Jagica", "Jana", "Janica", "Janka", "Jasna", "Jela", "Jelica", "Ješa", "Kata", "Kate",
+    "Katica", "Katija", "Katina", "Kika", "Lara", "Laura", "Lea", "Lela", "Lena", "Leona", "Lola",
+    "Maca", "Magda", "Maja", "Majda", "Manda", "Mara", "Mare", "Marena", "Marica", "Marta", "Maša",
+    "Mica", "Mika", "Mila", "Milica", "Milka", "Mima", "Mina", "Mira", "Mirka", "Naja", "Nana",
+    "Natalija", "Nataša", "Natka", "Neda", "Nela", "Neli", "Nena", "Nera", "Nesa", "Neva",
+    "Nevenka", "Nina", "Nuša", "Paulina", "Pava", "Pave", "Pavica", "Rajna", "Rija", "Rina",
+    "Ružica", "Staša", "Tasa", "Teja", "Tija", "Tijana", "Tina", "Tončica", "Tonija", "Tonka",
+    "Vala", "Valera", "Vali", "Vela", "Velana", "Velina", "Vera", "Verica", "Vinka", "Zlatica",
+    "Zlatka", "Darija", "Darina", "Divna", "Donata", "Doroteja", "Dragica", "Dubravka", "Dunja",
+    "Đurda", "Edita", "Elena", "Ema", "Eva", "Gabrijela", "Goranka", "Gordana", "Grozdana",
+    "Helena", "Hrvojka", "Ira", "Irena", "Irma", "Ivana", "Jadranka", "Jaga", "Jasmina", "Josipa",
+    "Karmela", "Katarina", "Kristina", "Leda", "Leonida", "Lidija", "Ljiljana", "Ljubica",
+    "Lovorka", "Lucija", "Magdalena", "Marija", "Marijana", "Marina", "Martina", "Miranda", "Mirna",
+    "Monika", "Nada", "Nadalina", "Nedjeljka", "Nevena", "Nora", "Paula", "Petra", "Renata",
+    "Romana", "Rosana", "Ruža", "Sanja", "Silvija", "Slavica", "Snježana", "Tereza", "Tomislava",
+    "Valentina", "Valerija", "Vedrana", "Velimira", "Veronika", "Vesna", "Vladimira", "Zdenka",
+    "Zdeslava", "Zlata" };
 
-const std::vector<std::string> croatianLastNames = { "Abadžić", "Abadžija", "Abazi", "Abdulahi",
-    "Abdulić", "Abdurahmanović", "Abebe", "Abel", "Abfal", "Abičić", "Abičić-Tomac", "Abjanić",
-    "Abjanović", "Abrahamski", "Abramić", "Abramović", "Abrecht", "Abrić", "Abrišin", "Abrlić",
-    "Abu El Saoud", "Ackermann", "Ač", "Ačai", "Ačaji", "Ačanski", "Ačić", "Ačimović", "Ačkar",
-    "Aćimov", "Aćimović", "Adam", "Adam Perl", "Adamček", "Adamčević", "Adamec", "Adamić", "Adamko",
-    "Adamović", "Adašević", "Adelsberger", "Ademi", "Ademović", "Adjić", "Adjulović", "Adler",
-    "Adlešić", "Ador", "Adrić", "Adžaga", "Adžaip", "Adžamić", "Adžić", "Adžidović", "Adžija",
-    "Adžijević", "Ađaip", "Ađajip", "Ađamić", "Ađanski", "Ađić", "Ađin", "Ađulović", "Afrić", "Ag",
-    "Agami", "Agatić", "Agbaba", "Ageljić", "Agh", "Agičić", "Agić", "Agoč", "Agostini", "Agotić",
-    "Agović", "Ahić", "Ahmedbašić", "Ahmetbašić", "Ahmeti", "Ahmetović", "Ahmetspahić", "Ahmić",
-    "Ajdari", "Ajdišek", "Ajdovac", "Ajduk", "Ajduković", "Ajfrid", "Ajh", "Ajhart", "Ajhenberger",
-    "Ajhinberger", "Ajhinger", "Ajhler", "Ajhner", "Ajhorn", "Ajkić", "Ajro", "Ajtlbez", "Ajtman",
-    "Ajzele", "Ajzeli", "Akerman", "Akik", "Akmadžić", "Akrap", "Aksentijević", "Akšamović",
-    "AkšamovićAndrić", "Al Khamis", "Al Laham", "Al Younis", "Alaber", "Alaber Milić", "Aladenić",
-    "Aladić", "AladićLjubišić", "Aladrović", "Aladžić", "Alagić", "Alaica", "Alaica Vlasalija",
-    "Alajbeg", "Alajica", "Alapović", "Alavanja", "Alavuk", "Alberković", "Albert", "Albini",
-    "Albrecht", "Albreht", "Albreht Mihaljević", "Alduk", "Alebić", "Alegić", "Aleksa",
-    "Aleksandrov", "Aleksi", "Aleksić", "Aleksin", "Alempić", "Alerić", "Alfeldi", "Alfermann",
-    "Alfort", "Alibašić", "Alibegović", "AlibegovićVašanda", "Aličić", "Alić", "AlićPartić",
-    "Alidi", "Alih", "Alija", "Alikavazović", "Alili", "Alilović", "Alimanović", "Alimehaj",
-    "Alimović", "Aliti", "Alkaz", "Alkhamis", "Alković", "Almadi", "Almaši", "Alošinac", "Alpeza",
-    "Alšić", "AlšićMatković", "Alt", "Alt Higeli", "Altmann", "Aluga", "Alukić", "Alvadj",
-    "Alvadžić", "Alvađ", "Aljija", "Aman", "Aman Krnjajić", "Amanović", "Ambreuš", "Ambrinac",
-    "Ambroš", "Ambrozić", "Ambrožić", "Ambruš", "Ambrušić", "Ambruž", "Ament", "Ameti", "Amić",
-    "Amidžić", "Amiti", "Amrein", "Amst", "Amšlinger", "Anastasović", "Ancić", "Ančić", "Andabak",
-    "Andabak Fernandez", "Andabaka", "Andačić", "Andel", "Andelfinger", "Andelić", "Anderluch",
-    "Andić", "Andjal", "Andl", "Andoči", "Andonovski", "Andračenko", "Andračić", "Andraković",
-    "Andraković Štefanac", "Andraš", "Andrašec", "Andrašek", "Andrašev", "Andrašević", "Andraši",
-    "Andrašić", "Andrašić Živalj", "Andrečenko", "Andrejek", "Andrejev", "Andrejević", "Andreković",
-    "Andres", "Andri", "Andričević", "Andričić", "Andrić", "Andrić Blažević", "Andrić Karavidić",
-    "Andrić Knežević", "Andrić Tomašević", "Andrijanić", "Andrijašević", "Andrijević", "Andrijin",
-    "Andrik", "Andrin", "Andrišek", "Andrišić", "Andriška", "Andrlon", "Andročec", "Androić",
-    "Androjić", "Androš", "Androšević", "Androšević Plevnik", "Andrušić", "Andučić", "Andžaković",
-    "Anđal", "Anđan", "Anđel", "Anđelić", "Anđelković", "Anđić", "Anđić Grubešić", "Anetić",
-    "Angalt", "Angebrandt", "Angirević", "Angster", "Aničić", "Aničić Viviora", "Anić", "AnićČabai",
-    "AnićIvičić", "AnićKaliger", "AnićTot", "Anitić", "Anlauf-Raizner", "Anočić", "Anočić Valentić",
-    "Antal", "Antal-Meničanin", "Antalašić", "Antaruk", "Antičević", "Antić", "Antinac",
-    "Antolašić", "Antolić", "Antolković", "Antolović", "Antoljak", "Anton", "Antoni", "Antonić",
-    "Antonijević", "Antonina", "Antoniutti", "Antonović", "Antoš", "Antrit", "Antukić", "Antunić",
-    "Antunković", "Antunov", "Antunović", "Anušić", "Apalović", "Apari", "Apati", "Apatić", "Apčag",
-    "Apel", "Apro", "Arab", "Arabadžić", "Arabašić", "Arači", "Aračić", "Aralica", "Arambašić",
-    "Aranbašić", "Aranđelović", "Arap", "Arapović", "Arbanas", "Arbutina", "Arc", "Ardalić",
-    "Arežina", "Arhanić", "Arić", "Arlavi", "Arlov", "Arlović", "Arman", "Armbrust", "Arnaut",
-    "Arnautović", "Arnold", "Arnuš", "Arpaši", "Arsenić", "Arsenović", "Arsić", "Arsov", "Arsoy",
-    "Artić", "Artuković", "Aručaj", "Arvaj", "Arvanitakos", "Arz", "Arzenšek", "Asan", "Asanov",
-    "Asanović", "Asentić", "Asić", "Askočenski", "Aslanidis", "Astaloš", "Asztalos", "Ašađanin",
-    "Aščić", "AščićLuketina", "Ašenbrener", "Ašimi", "Ašner", "Ašner-Boli", "Ašperger", "Ašvanj",
-    "Ašvanji", "Atalić", "Atanacković", "Atanasovski", "Atlagić", "Atlašević", "Atlija", "Atmadžić",
-    "Atvalić", "Aubelj", "Aubrecht", "Aubreht", "Augustić", "Augustin", "Augustinov",
-    "Augustinović", "Augustinović Baronji", "Auguštanec", "Auguštin", "Ausec", "Ausman", "Ausmann",
-    "Aust", "Aušperger", "Avdagić", "Avdaković", "Avdejev", "Avdičević", "Avdić", "Avdija", "Avi",
-    "Avlijaš", "Avramek", "Avramoski", "Avramović", "Avrelio", "Avsec", "Axmann", "Azap",
-    "Azapović", "Azaševac", "Azenić", "Azenić Mikulić", "Azinić", "Azinović", "Aziri", "Aždajić",
-    "Ažić", "AžićVargaš", "Babac", "Babaj", "Babaja", "Babajić", "Baban", "Babatz", "Babel", "Babi",
-    "Babičković", "Babić", "BabićKrižić", "Babić Matovinović", "Babić Romić", "Babić Štern",
-    "Babijanski", "Babin", "Babli", "Babli Šandor", "Babočai", "Babogredac", "Babok", "Baborac",
-    "Baboselac", "Baboš", "Babović", "Babunović", "Baburić", "Bacalo", "Bacanović", "Bacelj",
-    "Bach", "Bachert", "Bachmann", "Bacho", "Backo", "Bač", "Bača", "Bačak", "Bačani", "Bačarko",
-    "Baček", "Bačelić", "Bačelić Medić", "Bačić", "Bačić Panić", "Bačinski", "Bačko", "Bačkonja",
-    "Bačković", "Bačlija", "Bačmaga", "Bačun", "Bačvanin", "Bačvanin-Balog", "Baćak", "Baćani",
-    "Baći", "Baćin", "Baćinac", "Badanjak", "Badanjek", "Bader", "Badinsky", "Badjuk", "Badnjević",
-    "Badovinac", "Badovinac-Golinac", "Badurina", "Badža", "Badžek", "Bađari", "Bađun", "Bagarić",
+const std::vector<std::string_view> croatianLastNames = { "Abadžić", "Abadžija", "Abazi",
+    "Abdulahi", "Abdulić", "Abdurahmanović", "Abebe", "Abel", "Abfal", "Abičić", "Abičić-Tomac",
+    "Abjanić", "Abjanović", "Abrahamski", "Abramić", "Abramović", "Abrecht", "Abrić", "Abrišin",
+    "Abrlić", "Abu El Saoud", "Ackermann", "Ač", "Ačai", "Ačaji", "Ačanski", "Ačić", "Ačimović",
+    "Ačkar", "Aćimov", "Aćimović", "Adam", "Adam Perl", "Adamček", "Adamčević", "Adamec", "Adamić",
+    "Adamko", "Adamović", "Adašević", "Adelsberger", "Ademi", "Ademović", "Adjić", "Adjulović",
+    "Adler", "Adlešić", "Ador", "Adrić", "Adžaga", "Adžaip", "Adžamić", "Adžić", "Adžidović",
+    "Adžija", "Adžijević", "Ađaip", "Ađajip", "Ađamić", "Ađanski", "Ađić", "Ađin", "Ađulović",
+    "Afrić", "Ag", "Agami", "Agatić", "Agbaba", "Ageljić", "Agh", "Agičić", "Agić", "Agoč",
+    "Agostini", "Agotić", "Agović", "Ahić", "Ahmedbašić", "Ahmetbašić", "Ahmeti", "Ahmetović",
+    "Ahmetspahić", "Ahmić", "Ajdari", "Ajdišek", "Ajdovac", "Ajduk", "Ajduković", "Ajfrid", "Ajh",
+    "Ajhart", "Ajhenberger", "Ajhinberger", "Ajhinger", "Ajhler", "Ajhner", "Ajhorn", "Ajkić",
+    "Ajro", "Ajtlbez", "Ajtman", "Ajzele", "Ajzeli", "Akerman", "Akik", "Akmadžić", "Akrap",
+    "Aksentijević", "Akšamović", "AkšamovićAndrić", "Al Khamis", "Al Laham", "Al Younis", "Alaber",
+    "Alaber Milić", "Aladenić", "Aladić", "AladićLjubišić", "Aladrović", "Aladžić", "Alagić",
+    "Alaica", "Alaica Vlasalija", "Alajbeg", "Alajica", "Alapović", "Alavanja", "Alavuk",
+    "Alberković", "Albert", "Albini", "Albrecht", "Albreht", "Albreht Mihaljević", "Alduk",
+    "Alebić", "Alegić", "Aleksa", "Aleksandrov", "Aleksi", "Aleksić", "Aleksin", "Alempić",
+    "Alerić", "Alfeldi", "Alfermann", "Alfort", "Alibašić", "Alibegović", "AlibegovićVašanda",
+    "Aličić", "Alić", "AlićPartić", "Alidi", "Alih", "Alija", "Alikavazović", "Alili", "Alilović",
+    "Alimanović", "Alimehaj", "Alimović", "Aliti", "Alkaz", "Alkhamis", "Alković", "Almadi",
+    "Almaši", "Alošinac", "Alpeza", "Alšić", "AlšićMatković", "Alt", "Alt Higeli", "Altmann",
+    "Aluga", "Alukić", "Alvadj", "Alvadžić", "Alvađ", "Aljija", "Aman", "Aman Krnjajić", "Amanović",
+    "Ambreuš", "Ambrinac", "Ambroš", "Ambrozić", "Ambrožić", "Ambruš", "Ambrušić", "Ambruž",
+    "Ament", "Ameti", "Amić", "Amidžić", "Amiti", "Amrein", "Amst", "Amšlinger", "Anastasović",
+    "Ancić", "Ančić", "Andabak", "Andabak Fernandez", "Andabaka", "Andačić", "Andel", "Andelfinger",
+    "Andelić", "Anderluch", "Andić", "Andjal", "Andl", "Andoči", "Andonovski", "Andračenko",
+    "Andračić", "Andraković", "Andraković Štefanac", "Andraš", "Andrašec", "Andrašek", "Andrašev",
+    "Andrašević", "Andraši", "Andrašić", "Andrašić Živalj", "Andrečenko", "Andrejek", "Andrejev",
+    "Andrejević", "Andreković", "Andres", "Andri", "Andričević", "Andričić", "Andrić",
+    "Andrić Blažević", "Andrić Karavidić", "Andrić Knežević", "Andrić Tomašević", "Andrijanić",
+    "Andrijašević", "Andrijević", "Andrijin", "Andrik", "Andrin", "Andrišek", "Andrišić",
+    "Andriška", "Andrlon", "Andročec", "Androić", "Androjić", "Androš", "Androšević",
+    "Androšević Plevnik", "Andrušić", "Andučić", "Andžaković", "Anđal", "Anđan", "Anđel", "Anđelić",
+    "Anđelković", "Anđić", "Anđić Grubešić", "Anetić", "Angalt", "Angebrandt", "Angirević",
+    "Angster", "Aničić", "Aničić Viviora", "Anić", "AnićČabai", "AnićIvičić", "AnićKaliger",
+    "AnićTot", "Anitić", "Anlauf-Raizner", "Anočić", "Anočić Valentić", "Antal", "Antal-Meničanin",
+    "Antalašić", "Antaruk", "Antičević", "Antić", "Antinac", "Antolašić", "Antolić", "Antolković",
+    "Antolović", "Antoljak", "Anton", "Antoni", "Antonić", "Antonijević", "Antonina", "Antoniutti",
+    "Antonović", "Antoš", "Antrit", "Antukić", "Antunić", "Antunković", "Antunov", "Antunović",
+    "Anušić", "Apalović", "Apari", "Apati", "Apatić", "Apčag", "Apel", "Apro", "Arab", "Arabadžić",
+    "Arabašić", "Arači", "Aračić", "Aralica", "Arambašić", "Aranbašić", "Aranđelović", "Arap",
+    "Arapović", "Arbanas", "Arbutina", "Arc", "Ardalić", "Arežina", "Arhanić", "Arić", "Arlavi",
+    "Arlov", "Arlović", "Arman", "Armbrust", "Arnaut", "Arnautović", "Arnold", "Arnuš", "Arpaši",
+    "Arsenić", "Arsenović", "Arsić", "Arsov", "Arsoy", "Artić", "Artuković", "Aručaj", "Arvaj",
+    "Arvanitakos", "Arz", "Arzenšek", "Asan", "Asanov", "Asanović", "Asentić", "Asić", "Askočenski",
+    "Aslanidis", "Astaloš", "Asztalos", "Ašađanin", "Aščić", "AščićLuketina", "Ašenbrener", "Ašimi",
+    "Ašner", "Ašner-Boli", "Ašperger", "Ašvanj", "Ašvanji", "Atalić", "Atanacković", "Atanasovski",
+    "Atlagić", "Atlašević", "Atlija", "Atmadžić", "Atvalić", "Aubelj", "Aubrecht", "Aubreht",
+    "Augustić", "Augustin", "Augustinov", "Augustinović", "Augustinović Baronji", "Auguštanec",
+    "Auguštin", "Ausec", "Ausman", "Ausmann", "Aust", "Aušperger", "Avdagić", "Avdaković",
+    "Avdejev", "Avdičević", "Avdić", "Avdija", "Avi", "Avlijaš", "Avramek", "Avramoski",
+    "Avramović", "Avrelio", "Avsec", "Axmann", "Azap", "Azapović", "Azaševac", "Azenić",
+    "Azenić Mikulić", "Azinić", "Azinović", "Aziri", "Aždajić", "Ažić", "AžićVargaš", "Babac",
+    "Babaj", "Babaja", "Babajić", "Baban", "Babatz", "Babel", "Babi", "Babičković", "Babić",
+    "BabićKrižić", "Babić Matovinović", "Babić Romić", "Babić Štern", "Babijanski", "Babin",
+    "Babli", "Babli Šandor", "Babočai", "Babogredac", "Babok", "Baborac", "Baboselac", "Baboš",
+    "Babović", "Babunović", "Baburić", "Bacalo", "Bacanović", "Bacelj", "Bach", "Bachert",
+    "Bachmann", "Bacho", "Backo", "Bač", "Bača", "Bačak", "Bačani", "Bačarko", "Baček", "Bačelić",
+    "Bačelić Medić", "Bačić", "Bačić Panić", "Bačinski", "Bačko", "Bačkonja", "Bačković", "Bačlija",
+    "Bačmaga", "Bačun", "Bačvanin", "Bačvanin-Balog", "Baćak", "Baćani", "Baći", "Baćin", "Baćinac",
+    "Badanjak", "Badanjek", "Bader", "Badinsky", "Badjuk", "Badnjević", "Badovinac",
+    "Badovinac-Golinac", "Badurina", "Badža", "Badžek", "Bađari", "Bađun", "Bagarić",
     "Bagarić Barišić", "Bagić", "Baginac", "Baglama", "Bago", "Bagudić", "Bahat", "Bahert",
     "Bahmajer", "Bahmet", "Bahović", "Bahun", "Baić", "Bainhart", "Bajac", "Bajak", "Bajakić",
     "Bajalo", "Bajamić", "Bajan", "Bajčetić", "Bajči", "Bajčinovci", "Bajer", "Bajer-Vitner",
@@ -10438,11 +10440,11 @@ const std::vector<std::string> croatianLastNames = { "Abadžić", "Abadžija", "
     "Župan Perasić", "Župančić", "Županić", "Županović", "Župarić", "Žurga", "Žuro Tijardović",
     "Žuvela", "Žuža", "Žužak", "Žužanić", "ŽužanićKlapan", "Žvab" };
 
-const std::vector<std::string> croatianSuffixes { "dipl.oecc", "dipl.ing" };
+const std::vector<std::string_view> croatianSuffixes { "dipl.oecc", "dipl.ing" };
 
-const std::vector<std::string> croatianMalesPrefixes { "g.", "dr." };
+const std::vector<std::string_view> croatianMalesPrefixes { "g.", "dr." };
 
-const std::vector<std::string> croatianFemalesPrefixes { "gđa.", "gđa", "dr." };
+const std::vector<std::string_view> croatianFemalesPrefixes { "gđa.", "gđa", "dr." };
 
 const NameFormats croatianPersonNameFormats { { { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 }, { "{firstName} {lastName} {suffix}", 1 } } };
@@ -10454,7 +10456,7 @@ const PeopleNames croatianPeopleNames { { croatianMalesFirstNames, {}, croatianL
 
 // Czechia
 
-const std::vector<std::string> czechMalesFirstNames = { "Abadon", "Abdon", "Ábel", "Abelard",
+const std::vector<std::string_view> czechMalesFirstNames = { "Abadon", "Abdon", "Ábel", "Abelard",
     "Abraham", "Abrahám", "Absolon", "Absolón", "Adalbert", "Adam", "Adin", "Adolf", "Adrian",
     "Adrián", "Agaton", "Achil", "Achiles", "Alan", "Alban", "Albert", "Albín", "Albrecht", "Aldo",
     "Alen", "Aleš", "Alexandr", "Alexej", "Alfons", "Alfréd", "Alois", "Alojz", "Alva", "Alvar",
@@ -10545,43 +10547,44 @@ const std::vector<std::string> czechMalesFirstNames = { "Abadon", "Abdon", "Ábe
     "Zvonimír", "Žarko", "Ždan", "Želibor", "Želimír", "Želislav", "Želmír", "Žitomír", "Žitoslav",
     "Živan" };
 
-const std::vector<std::string> czechFemalesFirstNames = { "Abigail", "Ada", "Adalberta", "Adéla",
-    "Adelaida", "Adina", "Adolfa", "Adolfína", "Adriana", "Adriána", "Adriena", "Afra", "Agáta",
-    "Aglaja", "Aida", "Alana", "Albena", "Alberta", "Albertina", "Albertýna", "Albína", "Alena",
-    "Aleška", "Alexandra", "Alfréda", "Alice", "Alida", "Alina", "Alma", "Aloisie", "Alojzije",
-    "Alžběta", "Amálie", "Amanda", "Amáta", "Amélie", "Anabela", "Anastázie", "Anatázie",
-    "Anatolie", "Anatólie", "Anděla", "Andělína", "Andrea", "Aneta", "Anežka", "Angela", "Angelika",
-    "Anita", "Anna", "Anselma", "Antonie", "Apolena", "Arabela", "Aranka", "Areta", "Ariadna",
-    "Ariana", "Ariela", "Arleta", "Armida", "Arna", "Arnolda", "Arnoštka", "Astrid", "Astrida",
-    "Atanázie", "Augusta", "Augustina", "Augustýna", "Aura", "Aurélie", "Aurora", "Babeta",
-    "Barbara", "Barbora", "Beáta", "Beatrice", "Bedřiška", "Bela", "Běla", "Belinda", "Benedikta",
-    "Berenika", "Berit", "Bernarda", "Berta", "Bertolda", "Bianka", "Bibiana", "Birgit", "Birgita",
-    "Blahomila", "Blahomíra", "Blahoslava", "Blanka", "Blažena", "Bohdana", "Bohumila", "Bohumíra",
-    "Bohuna", "Bohuslava", "Bohuše", "Bojana", "Bojislava", "Boleslava", "Borislava", "Bořislava",
-    "Božena", "Božetěcha", "Božidara", "Branimíra", "Branislava", "Bratislava", "Brenda", "Brigita",
-    "Brita", "Bronislava", "Bruna", "Brunhilda", "Břetislava", "Cecilie", "Cecílie", "Celestina",
-    "Celestýna", "Celie", "Celina", "Ctibora", "Ctirada", "Ctislava", "Cyntie", "Cyrila", "Čeňka",
-    "Čestmíra", "Čistoslava", "Dagmar", "Dagmara", "Dalibora", "Dalida", "Dalie", "Dalila",
-    "Dalimila", "Dalimíra", "Damaris", "Damiana", "Damiána", "Dana", "Danica", "Daniela", "Danuše",
-    "Danuta", "Daria", "Darie", "Darina", "Darja", "Davida", "Debora", "Delie", "Denisa", "Diana",
-    "Dina", "Dita", "Diviška", "Dobrava", "Dobromila", "Dobromíra", "Dobroslava", "Dominika",
-    "Donalda", "Donáta", "Dora", "Doris", "Dorota", "Doubrava", "Doubravka", "Drahomila",
-    "Drahomíra", "Drahoslava", "Drahotína", "Drahuše", "Dulcinea", "Dušana", "Edita", "Eduarda",
-    "Edvarda", "Egona", "Ela", "Elektra", "Elena", "Eleonora", "Elfrída", "Eliška", "Elsa",
-    "Elvíra", "Elza", "Ema", "Emanuela", "Emilie", "Emílie", "Erika", "Erna", "Ervína", "Estela",
-    "Ester", "Estera", "Etela", "Eufrozina", "Eufrozína", "Eugenie", "Eulálie", "Eunika", "Eusebie",
-    "Eva", "Evelina", "Evelína", "Evženie", "Fabiána", "Fabie", "Fatima", "Faustina", "Faustýna",
-    "Féba", "Fedora", "Felicie", "Felície", "Felicita", "Ferdinanda", "Fidelie", "Filipa",
-    "Filoména", "Flavie", "Flora", "Flóra", "Florentina", "Florentýna", "Františka", "Frída",
-    "Gabriela", "Gaja", "Gajana", "Galina", "Garika", "Gema", "Geralda", "Geraldina", "Gerarda",
-    "Gerardina", "Gerda", "Gerharda", "Gertruda", "Gilberta", "Gina", "Gisela", "Gita", "Gizela",
-    "Glorie", "Gordana", "Graciána", "Gracie", "Grácie", "Gražina", "Gréta", "Griselda", "Grizelda",
-    "Gudrun", "Gustava", "Gvendolina", "Gvendolína", "Halina", "Hana", "Háta", "Havla", "Heda",
-    "Hedvika", "Heidrun", "Helena", "Helga", "Herberta", "Hermína", "Herta", "Hilda", "Hortensie",
-    "Hortenzie", "Horymíra", "Hostimila", "Hostimíra", "Hostislava", "Hvězdoslava", "Hyacinta",
-    "Chranislava", "Iboja", "Ida", "Ignácie", "Ignáta", "Ildika", "Iljana", "Ilona", "Ilsa", "Ilza",
-    "Ines", "Inesa", "Inéz", "Ingeborg", "Ingeborga", "Ingrid", "Ingrida", "Inka", "Irena", "Iris",
-    "Irma", "Isabela", "Isidora", "Isolda", "Iva", "Ivana", "Iveta", "Ivona", "Izabela", "Izidora",
+const std::vector<std::string_view> czechFemalesFirstNames = { "Abigail", "Ada", "Adalberta",
+    "Adéla", "Adelaida", "Adina", "Adolfa", "Adolfína", "Adriana", "Adriána", "Adriena", "Afra",
+    "Agáta", "Aglaja", "Aida", "Alana", "Albena", "Alberta", "Albertina", "Albertýna", "Albína",
+    "Alena", "Aleška", "Alexandra", "Alfréda", "Alice", "Alida", "Alina", "Alma", "Aloisie",
+    "Alojzije", "Alžběta", "Amálie", "Amanda", "Amáta", "Amélie", "Anabela", "Anastázie",
+    "Anatázie", "Anatolie", "Anatólie", "Anděla", "Andělína", "Andrea", "Aneta", "Anežka", "Angela",
+    "Angelika", "Anita", "Anna", "Anselma", "Antonie", "Apolena", "Arabela", "Aranka", "Areta",
+    "Ariadna", "Ariana", "Ariela", "Arleta", "Armida", "Arna", "Arnolda", "Arnoštka", "Astrid",
+    "Astrida", "Atanázie", "Augusta", "Augustina", "Augustýna", "Aura", "Aurélie", "Aurora",
+    "Babeta", "Barbara", "Barbora", "Beáta", "Beatrice", "Bedřiška", "Bela", "Běla", "Belinda",
+    "Benedikta", "Berenika", "Berit", "Bernarda", "Berta", "Bertolda", "Bianka", "Bibiana",
+    "Birgit", "Birgita", "Blahomila", "Blahomíra", "Blahoslava", "Blanka", "Blažena", "Bohdana",
+    "Bohumila", "Bohumíra", "Bohuna", "Bohuslava", "Bohuše", "Bojana", "Bojislava", "Boleslava",
+    "Borislava", "Bořislava", "Božena", "Božetěcha", "Božidara", "Branimíra", "Branislava",
+    "Bratislava", "Brenda", "Brigita", "Brita", "Bronislava", "Bruna", "Brunhilda", "Břetislava",
+    "Cecilie", "Cecílie", "Celestina", "Celestýna", "Celie", "Celina", "Ctibora", "Ctirada",
+    "Ctislava", "Cyntie", "Cyrila", "Čeňka", "Čestmíra", "Čistoslava", "Dagmar", "Dagmara",
+    "Dalibora", "Dalida", "Dalie", "Dalila", "Dalimila", "Dalimíra", "Damaris", "Damiana",
+    "Damiána", "Dana", "Danica", "Daniela", "Danuše", "Danuta", "Daria", "Darie", "Darina", "Darja",
+    "Davida", "Debora", "Delie", "Denisa", "Diana", "Dina", "Dita", "Diviška", "Dobrava",
+    "Dobromila", "Dobromíra", "Dobroslava", "Dominika", "Donalda", "Donáta", "Dora", "Doris",
+    "Dorota", "Doubrava", "Doubravka", "Drahomila", "Drahomíra", "Drahoslava", "Drahotína",
+    "Drahuše", "Dulcinea", "Dušana", "Edita", "Eduarda", "Edvarda", "Egona", "Ela", "Elektra",
+    "Elena", "Eleonora", "Elfrída", "Eliška", "Elsa", "Elvíra", "Elza", "Ema", "Emanuela", "Emilie",
+    "Emílie", "Erika", "Erna", "Ervína", "Estela", "Ester", "Estera", "Etela", "Eufrozina",
+    "Eufrozína", "Eugenie", "Eulálie", "Eunika", "Eusebie", "Eva", "Evelina", "Evelína", "Evženie",
+    "Fabiána", "Fabie", "Fatima", "Faustina", "Faustýna", "Féba", "Fedora", "Felicie", "Felície",
+    "Felicita", "Ferdinanda", "Fidelie", "Filipa", "Filoména", "Flavie", "Flora", "Flóra",
+    "Florentina", "Florentýna", "Františka", "Frída", "Gabriela", "Gaja", "Gajana", "Galina",
+    "Garika", "Gema", "Geralda", "Geraldina", "Gerarda", "Gerardina", "Gerda", "Gerharda",
+    "Gertruda", "Gilberta", "Gina", "Gisela", "Gita", "Gizela", "Glorie", "Gordana", "Graciána",
+    "Gracie", "Grácie", "Gražina", "Gréta", "Griselda", "Grizelda", "Gudrun", "Gustava",
+    "Gvendolina", "Gvendolína", "Halina", "Hana", "Háta", "Havla", "Heda", "Hedvika", "Heidrun",
+    "Helena", "Helga", "Herberta", "Hermína", "Herta", "Hilda", "Hortensie", "Hortenzie",
+    "Horymíra", "Hostimila", "Hostimíra", "Hostislava", "Hvězdoslava", "Hyacinta", "Chranislava",
+    "Iboja", "Ida", "Ignácie", "Ignáta", "Ildika", "Iljana", "Ilona", "Ilsa", "Ilza", "Ines",
+    "Inesa", "Inéz", "Ingeborg", "Ingeborga", "Ingrid", "Ingrida", "Inka", "Irena", "Iris", "Irma",
+    "Isabela", "Isidora", "Isolda", "Iva", "Ivana", "Iveta", "Ivona", "Izabela", "Izidora",
     "Izolda", "Jadrana", "Jadranka", "Jakuba", "Jakubka", "Jana", "Jarmila", "Jarolíma", "Jaromíra",
     "Jaroslava", "Jasmína", "Jasna", "Jasněna", "Jelena", "Jenovéfa", "Jesika", "Jindra",
     "Jindřiška", "Jiřina", "Jitka", "Johana", "Jolana", "Jolanta", "Jordana", "Jorga", "Josefa",
@@ -10637,7 +10640,7 @@ const std::vector<std::string> czechFemalesFirstNames = { "Abigail", "Ada", "Ada
     "Zoja", "Zora", "Zoroslava", "Zuzana", "Zvonimíra", "Žakelina", "Žakelína", "Žaneta", "Ždana",
     "Želimíra", "Želislava", "Želmíra", "Žitomíra", "Žitoslava", "Živa", "Živana", "Žofie" };
 
-const std::vector<std::string> czechMalesLastNames = { "Adam", "Adamec", "Adámek", "Albrecht",
+const std::vector<std::string_view> czechMalesLastNames = { "Adam", "Adamec", "Adámek", "Albrecht",
     "Ambrož", "Anděl", "Andrle", "Antoš", "Bajer", "Baláž", "Balcar", "Balog", "Baloun", "Barák",
     "Baran", "Bareš", "Bárta", "Barták", "Bartoň", "Bartoš", "Bartošek", "Bartůněk", "Bašta",
     "Bauer", "Bayer", "Bažant", "Bečka", "Bečvář", "Bednář", "Bednařík", "Bělohlávek", "Benda",
@@ -10747,7 +10750,7 @@ const std::vector<std::string> czechMalesLastNames = { "Adam", "Adamec", "Adáme
     "Zezula", "Žídek", "Žiga", "Zíka", "Zikmund", "Zima", "Žižka", "Zlámal", "Zoubek", "Zouhar",
     "Žůrek", "Zvěřina" };
 
-const std::vector<std::string> czechFemalesLastNames = { "Adamová", "Adamcová", "Adámková",
+const std::vector<std::string_view> czechFemalesLastNames = { "Adamová", "Adamcová", "Adámková",
     "Albrechtová", "Ambrožová", "Andělová", "Andrlová", "Antošová", "Bajerová", "Balážová",
     "Balcarová", "Balogová", "Balounová", "Baráková", "Baranová", "Barešová", "Bártová",
     "Bartáková", "Bartoňová", "Bartošová", "Bartošková", "Bartůňková", "Baštová", "Bauerová",
@@ -10882,9 +10885,9 @@ const std::vector<std::string> czechFemalesLastNames = { "Adamová", "Adamcová"
     "Žídková", "Žigová", "Zíková", "Zikmundová", "Zimová", "Žižková", "Zlámalová", "Zoubková",
     "Zouharová", "Žůrková", "Zvěřinová" };
 
-const std::vector<std::string> czechPrefixes { "Ing.", "Mgr.", "JUDr.", "MUDr." };
+const std::vector<std::string_view> czechPrefixes { "Ing.", "Mgr.", "JUDr.", "MUDr." };
 
-const std::vector<std::string> czechSuffixes { "Phd." };
+const std::vector<std::string_view> czechSuffixes { "Phd." };
 
 const NameFormats czechPersonNameFormats { { { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 }, { "{firstName} {lastName} {suffix}", 1 } } };
@@ -10896,7 +10899,7 @@ const PeopleNames czechPeopleNames { { czechMalesFirstNames, {}, czechMalesLastN
 
 // Denmark
 
-const std::vector<std::string> danishMalesFirstNames = { "Adam", "Adrian", "Ahmad", "Aksel",
+const std::vector<std::string_view> danishMalesFirstNames = { "Adam", "Adrian", "Ahmad", "Aksel",
     "Albert", "Alexander", "Alfred", "Ali", "Anders", "Andreas", "Anton", "Arthur",
     "Arunthavanathan", "August", "Benjamin", "Bjørn", "Brian", "Carl", "Christian", "Christopher",
     "Claus", "Daniel", "David", "Elias", "Elliot", "Emil", "Erik", "Esben", "Felix", "Frank",
@@ -10910,7 +10913,7 @@ const std::vector<std::string> danishMalesFirstNames = { "Adam", "Adrian", "Ahma
     "Søren", "Theo", "Thomas", "Tim", "Tobias", "Troels", "Uffe", "Ulrik", "Vagn", "Valdemar",
     "Victor", "Viggo", "Viktor", "Vilhelm", "Villy", "Vincent", "William" };
 
-const std::vector<std::string> danishFemalesFirstNames = { "Agnes", "Alberte", "Alexandrea",
+const std::vector<std::string_view> danishFemalesFirstNames = { "Agnes", "Alberte", "Alexandrea",
     "Alice", "Alma", "Amanda", "Anita", "Anna", "Anne", "Annette", "Astrid", "Bente", "Betina",
     "Birgitte", "Britt", "Camilla", "Caroline", "Cecilie", "Charlotte", "Christina", "Clara",
     "Ditte-Marie", "Dorit", "Dorthe", "Ea", "Elisabeth", "Elise", "Ella", "Ellen-Margrethe", "Else",
@@ -10924,9 +10927,9 @@ const std::vector<std::string> danishFemalesFirstNames = { "Agnes", "Alberte", "
     "Sofie", "Stine", "Susanne", "Therese", "Tina", "Tine", "Trine", "Vibeke", "Viktoria", "Yasmin",
     "Zara" };
 
-const std::vector<std::string> danishLastNames = { "Abbas", "Abdi", "Andersen", "Andresen", "Bak",
-    "Bang", "Bech", "Beckmann", "Berg", "Bertelsen", "Bisgaard", "Bjerregaard", "Blom", "Bonde",
-    "Brandt", "Brix", "Bruun", "Buch", "Buhl", "Bundgaard", "Carlsen", "Christensen",
+const std::vector<std::string_view> danishLastNames = { "Abbas", "Abdi", "Andersen", "Andresen",
+    "Bak", "Bang", "Bech", "Beckmann", "Berg", "Bertelsen", "Bisgaard", "Bjerregaard", "Blom",
+    "Bonde", "Brandt", "Brix", "Bruun", "Buch", "Buhl", "Bundgaard", "Carlsen", "Christensen",
     "Christiansen", "Clausen", "Dahl", "Dalgaard", "Dam", "Damm", "Davidsen", "Dupont", "Esbensen",
     "Fischer", "Foged", "Frandsen", "Frederiksen", "Gade", "Garcia", "Gregersen", "Hald", "Hansen",
     "Haugaard", "Hedegaard", "Henriksen", "Hermansen", "Hjort", "Hjorth", "Holm", "Iversen",
@@ -10938,14 +10941,14 @@ const std::vector<std::string> danishLastNames = { "Abbas", "Abdi", "Andersen", 
     "Richter", "Schmidt", "Schrøder", "Simonsen", "Skov", "Steffensen", "Storm", "Svendsen",
     "Svensson", "Sørensen", "Thomsen", "Toft", "Vestergaard", "Villadsen", "Vinther", "Winther" };
 
-const std::vector<std::string> danishMiddleNames = { "Birk", "Bjerg", "Bjerre", "Bundgaard", "Dahl",
-    "Dal", "Dam", "Feldt", "Frost", "Grøn", "Hald", "Hjorth", "Holm", "Husum", "Jul", "Kjær",
-    "Klit", "Koch", "Krog", "Linde", "Lund", "Mose", "Mølgaard", "Nord", "Præst", "Rosen", "Skov",
-    "Smed", "Vestergaard", "Østergaard" };
+const std::vector<std::string_view> danishMiddleNames = { "Birk", "Bjerg", "Bjerre", "Bundgaard",
+    "Dahl", "Dal", "Dam", "Feldt", "Frost", "Grøn", "Hald", "Hjorth", "Holm", "Husum", "Jul",
+    "Kjær", "Klit", "Koch", "Krog", "Linde", "Lund", "Mose", "Mølgaard", "Nord", "Præst", "Rosen",
+    "Skov", "Smed", "Vestergaard", "Østergaard" };
 
-const std::vector<std::string> danishMalesPrefixes { "hr." };
+const std::vector<std::string_view> danishMalesPrefixes { "hr." };
 
-const std::vector<std::string> danishFemalesPrefixes { "fr." };
+const std::vector<std::string_view> danishFemalesPrefixes { "fr." };
 
 const NameFormats danishPersonNameFormats { { { "{firstName} {lastName}", 1 },
     { "{firstName} {middleName} {lastName}", 1 } } };
@@ -10957,7 +10960,7 @@ const PeopleNames danishPeopleNames { { danishMalesFirstNames, danishMiddleNames
 
 // Dutch
 
-const std::vector<std::string> dutchMalesFirstNames = {
+const std::vector<std::string_view> dutchMalesFirstNames = {
     "Tymon",
     "Steven",
     "Semih",
@@ -11547,7 +11550,7 @@ const std::vector<std::string> dutchMalesFirstNames = {
     "Noah",
 };
 
-const std::vector<std::string> dutchFemalesFirstNames = {
+const std::vector<std::string_view> dutchFemalesFirstNames = {
     "Yarah",
     "Vere",
     "Siënna",
@@ -12064,7 +12067,7 @@ const std::vector<std::string> dutchFemalesFirstNames = {
     "Emma",
 };
 
-const std::vector<std::string> dutchLastNames = {
+const std::vector<std::string_view> dutchLastNames = {
     "Aalbers",
     "Bakker",
     "Bijl",
@@ -12198,13 +12201,13 @@ const std::vector<std::string> dutchLastNames = {
     "Zuiderveld",
 };
 
-const std::vector<std::string> dutchSuffixes { "Jr.", "Sr." };
+const std::vector<std::string_view> dutchSuffixes { "Jr.", "Sr." };
 
-const std::vector<std::string> dutchMalesPrefixes { "Dhr.", "Bsc", "Msc", "Prof.", "Ir.", "Drs.",
-    "Dr." };
+const std::vector<std::string_view> dutchMalesPrefixes { "Dhr.", "Bsc", "Msc", "Prof.", "Ir.",
+    "Drs.", "Dr." };
 
-const std::vector<std::string> dutchFemalesPrefixes { "Mevr.", "Bsc", "Msc", "Prof.", "Ir.", "Drs.",
-    "Dr." };
+const std::vector<std::string_view> dutchFemalesPrefixes { "Mevr.", "Bsc", "Msc", "Prof.", "Ir.",
+    "Drs.", "Dr." };
 
 const NameFormats dutchPersonNameFormats { {
     { "{firstName} {lastName}", 8 },
@@ -12219,7 +12222,7 @@ const PeopleNames dutchPeopleNames { { dutchMalesFirstNames, {}, dutchLastNames,
 
 // England
 
-const std::vector<std::string> englishMalesFirstNames = {
+const std::vector<std::string_view> englishMalesFirstNames = {
     "James",
     "John",
     "Robert",
@@ -12722,7 +12725,7 @@ const std::vector<std::string> englishMalesFirstNames = {
     "Edmond",
 };
 
-const std::vector<std::string> englishFemalesFirstNames = {
+const std::vector<std::string_view> englishFemalesFirstNames = {
     "Mary",
     "Patricia",
     "Linda",
@@ -13225,7 +13228,7 @@ const std::vector<std::string> englishFemalesFirstNames = {
     "Kristie",
 };
 
-const std::vector<std::string> englishLastNames = {
+const std::vector<std::string_view> englishLastNames = {
     "Abbott",
     "Abernathy",
     "Abshire",
@@ -13691,12 +13694,12 @@ const std::vector<std::string> englishLastNames = {
     "Zulauf",
 };
 
-const std::vector<std::string> englishSuffixes { "Jr.", "Sr.", "I", "II", "III", "IV", "V", "MD",
-    "DDS", "PhD", "DVM" };
+const std::vector<std::string_view> englishSuffixes { "Jr.", "Sr.", "I", "II", "III", "IV", "V",
+    "MD", "DDS", "PhD", "DVM" };
 
-const std::vector<std::string> englishMalesPrefixes { "Mr.", "Dr." };
+const std::vector<std::string_view> englishMalesPrefixes { "Mr.", "Dr." };
 
-const std::vector<std::string> englishFemalesPrefixes { "Mrs.", "Ms.", "Miss", "Dr." };
+const std::vector<std::string_view> englishFemalesPrefixes { "Mrs.", "Ms.", "Miss", "Dr." };
 
 const NameFormats englishPersonNameFormats { { { "{firstName} {lastName}", 49 },
     { "{prefix} {firstName} {lastName}", 7 }, { "{firstName} {lastName} {suffix}", 7 },
@@ -13709,7 +13712,7 @@ const PeopleNames englishPeopleNames { { englishMalesFirstNames, {}, englishLast
 
 // Estonia
 
-const std::vector<std::string> estonianMalesFirstNames = {
+const std::vector<std::string_view> estonianMalesFirstNames = {
     "Aleksandr",
     "Andres",
     "Sergei",
@@ -14062,7 +14065,7 @@ const std::vector<std::string> estonianMalesFirstNames = {
     "Gary",
 };
 
-const std::vector<std::string> estonianFemalesFirstNames = {
+const std::vector<std::string_view> estonianFemalesFirstNames = {
     "Olga",
     "Irina",
     "Jelena",
@@ -14415,7 +14418,7 @@ const std::vector<std::string> estonianFemalesFirstNames = {
     "Amanda",
 };
 
-const std::vector<std::string> estonianLastNames = {
+const std::vector<std::string_view> estonianLastNames = {
     "Tamm",
     "Saar",
     "Sepp",
@@ -14775,7 +14778,7 @@ const PeopleNames estonianPeopleNames { { estonianMalesFirstNames, {}, estonianL
 
 // Finland
 
-const std::vector<std::string> finnishMalesFirstNames = {
+const std::vector<std::string_view> finnishMalesFirstNames = {
     "Leo",
     "Elias",
     "Eino",
@@ -14823,7 +14826,7 @@ const std::vector<std::string> finnishMalesFirstNames = {
     "Visa",
 };
 
-const std::vector<std::string> finnishFemalesFirstNames = {
+const std::vector<std::string_view> finnishFemalesFirstNames = {
     "Aino",
     "Eevi",
     "Emma",
@@ -14872,7 +14875,7 @@ const std::vector<std::string> finnishFemalesFirstNames = {
     "Kaneli",
 };
 
-const std::vector<std::string> finnishLastNames = {
+const std::vector<std::string_view> finnishLastNames = {
     "Mäkinen",
     "Virtanen",
     "Nieminen",
@@ -14928,7 +14931,7 @@ const PeopleNames finnishPeopleNames { { finnishMalesFirstNames, {}, finnishLast
 
 // France
 
-const std::vector<std::string> frenchMalesFirstNames = {
+const std::vector<std::string_view> frenchMalesFirstNames = {
     "Aaron",
     "Abdon",
     "Abel",
@@ -15427,7 +15430,7 @@ const std::vector<std::string> frenchMalesFirstNames = {
     "Zéphirin",
 };
 
-const std::vector<std::string> frenchFemalesFirstNames = {
+const std::vector<std::string_view> frenchFemalesFirstNames = {
     "Abdonie",
     "Abeline",
     "Abigaelle",
@@ -15881,7 +15884,7 @@ const std::vector<std::string> frenchFemalesFirstNames = {
     "Zoéva",
 };
 
-const std::vector<std::string> frenchLastNames = {
+const std::vector<std::string_view> frenchLastNames = {
     "Martin",
     "Bernard",
     "Dubois",
@@ -16034,9 +16037,9 @@ const std::vector<std::string> frenchLastNames = {
     "Cousin",
 };
 
-const std::vector<std::string> frenchMalesPrefixes { "M", "Dr", "Prof" };
+const std::vector<std::string_view> frenchMalesPrefixes { "M", "Dr", "Prof" };
 
-const std::vector<std::string> frenchFemalesPrefixes { "Mme", "Mlle", "Dr", "Prof" };
+const std::vector<std::string_view> frenchFemalesPrefixes { "Mme", "Mlle", "Dr", "Prof" };
 
 const NameFormats frenchPersonNameFormats { { { "{prefix} {firstName} {lastName}", 2 },
     { "{firstName} {lastName}", 8 } } };
@@ -16048,7 +16051,7 @@ const PeopleNames frenchPeopleNames { { frenchMalesFirstNames, {}, frenchLastNam
 
 // Germany
 
-const std::vector<std::string> germanMalesFirstNames = { "Aaron", "Abdul", "Abdullah", "Adam",
+const std::vector<std::string_view> germanMalesFirstNames = { "Aaron", "Abdul", "Abdullah", "Adam",
     "Adrian", "Adriano", "Ahmad", "Ahmed", "Ahmet", "Alan", "Albert", "Alessandro", "Alessio",
     "Alex", "Alexander", "Alfred", "Ali", "Amar", "Amir", "Amon", "Andre", "Andreas", "Andrew",
     "Angelo", "Ansgar", "Anthony", "Anton", "Antonio", "Arda", "Arian", "Armin", "Arne", "Arno",
@@ -16108,7 +16111,7 @@ const std::vector<std::string> germanMalesFirstNames = { "Aaron", "Abdul", "Abdu
     "Willy", "Xaver", "Yannic", "Yannick", "Yannik", "Yannis", "Yasin", "Youssef", "Yunus", "Yusuf",
     "Yven", "Yves", "Ömer" };
 
-const std::vector<std::string> germanFemalesFirstNames = { "Aaliyah", "Abby", "Abigail", "Ada",
+const std::vector<std::string_view> germanFemalesFirstNames = { "Aaliyah", "Abby", "Abigail", "Ada",
     "Adelina", "Adriana", "Aileen", "Aimee", "Alana", "Alea", "Alena", "Alessa", "Alessia", "Alexa",
     "Alexandra", "Alexia", "Alexis", "Aleyna", "Alia", "Alica", "Alice", "Alicia", "Alina", "Alisa",
     "Alisha", "Alissa", "Aliya", "Aliyah", "Allegra", "Alma", "Alyssa", "Amalia", "Amanda",
@@ -16171,16 +16174,16 @@ const std::vector<std::string> germanFemalesFirstNames = { "Aaliyah", "Abby", "A
     "Yara", "Yaren", "Yasmin", "Ylvi", "Ylvie", "Yvonne", "Zara", "Zehra", "Zeynep", "Zoe", "Zoey",
     "Zoé" };
 
-const std::vector<std::string> germanLastNames = { "Abel", "Abicht", "Abraham", "Abramovic", "Abt",
-    "Achilles", "Achkinadze", "Ackermann", "Adam", "Adams", "Ade", "Agostini", "Ahlke", "Ahrenberg",
-    "Ahrens", "Aigner", "Albert", "Albrecht", "Alexa", "Alexander", "Alizadeh", "Allgeyer", "Amann",
-    "Amberg", "Anding", "Anggreny", "Apitz", "Arendt", "Arens", "Arndt", "Aryee", "Aschenbroich",
-    "Assmus", "Astafei", "Auer", "Axmann", "Baarck", "Bachmann", "Badane", "Bader", "Baganz",
-    "Bahl", "Bak", "Balcer", "Balck", "Balkow", "Balnuweit", "Balzer", "Banse", "Barr", "Bartels",
-    "Barth", "Barylla", "Baseda", "Battke", "Bauer", "Bauermeister", "Baumann", "Baumeister",
-    "Bauschinger", "Bauschke", "Bayer", "Beavogui", "Beck", "Beckel", "Becker", "Beckmann",
-    "Bedewitz", "Beele", "Beer", "Beggerow", "Beh", "Behr", "Behrenbruch", "Belz", "Bender",
-    "Benecke", "Benner", "Benninger", "Benzing", "Berends", "Berger", "Berner", "Berning",
+const std::vector<std::string_view> germanLastNames = { "Abel", "Abicht", "Abraham", "Abramovic",
+    "Abt", "Achilles", "Achkinadze", "Ackermann", "Adam", "Adams", "Ade", "Agostini", "Ahlke",
+    "Ahrenberg", "Ahrens", "Aigner", "Albert", "Albrecht", "Alexa", "Alexander", "Alizadeh",
+    "Allgeyer", "Amann", "Amberg", "Anding", "Anggreny", "Apitz", "Arendt", "Arens", "Arndt",
+    "Aryee", "Aschenbroich", "Assmus", "Astafei", "Auer", "Axmann", "Baarck", "Bachmann", "Badane",
+    "Bader", "Baganz", "Bahl", "Bak", "Balcer", "Balck", "Balkow", "Balnuweit", "Balzer", "Banse",
+    "Barr", "Bartels", "Barth", "Barylla", "Baseda", "Battke", "Bauer", "Bauermeister", "Baumann",
+    "Baumeister", "Bauschinger", "Bauschke", "Bayer", "Beavogui", "Beck", "Beckel", "Becker",
+    "Beckmann", "Bedewitz", "Beele", "Beer", "Beggerow", "Beh", "Behr", "Behrenbruch", "Belz",
+    "Bender", "Benecke", "Benner", "Benninger", "Benzing", "Berends", "Berger", "Berner", "Berning",
     "Bertenbreiter", "Best", "Bethke", "Betz", "Beushausen", "Beutelspacher", "Beyer", "Biba",
     "Bichler", "Bickel", "Biedermann", "Bieler", "Bielert", "Bienasch", "Bienias", "Biesenbach",
     "Bigdeli", "Birkemeyer", "Bittner", "Blank", "Blaschek", "Blassneck", "Bloch", "Blochwitz",
@@ -16371,9 +16374,9 @@ const std::vector<std::string> germanLastNames = { "Abel", "Abicht", "Abraham", 
     "Zintl", "Zipp", "Zipse", "Zschunke", "Zuber", "Zwiener", "Zümsande", "Östringer",
     "Überacker" };
 
-const std::vector<std::string> germanMalesPrefixes { "Herr", "Dr.", "Prof. Dr." };
+const std::vector<std::string_view> germanMalesPrefixes { "Herr", "Dr.", "Prof. Dr." };
 
-const std::vector<std::string> germanFemalesPrefixes { "Frau", "Dr.", "Prof. Dr." };
+const std::vector<std::string_view> germanFemalesPrefixes { "Frau", "Dr.", "Prof. Dr." };
 
 const NameFormats germanPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 8 } } };
@@ -16385,7 +16388,7 @@ const PeopleNames germanPeopleNames { { germanMalesFirstNames, {}, germanLastNam
 
 // Ghana
 
-const std::vector<std::string> ghanaianMalesFirstNames = {
+const std::vector<std::string_view> ghanaianMalesFirstNames = {
     "Aaron",
     "Abeiku",
     "Adam",
@@ -16520,7 +16523,7 @@ const std::vector<std::string> ghanaianMalesFirstNames = {
     "Yaw",
 };
 
-const std::vector<std::string> ghanaianFemalesFirstNames = {
+const std::vector<std::string_view> ghanaianFemalesFirstNames = {
     "Aba",
     "Abena",
     "Abigail",
@@ -16655,7 +16658,7 @@ const std::vector<std::string> ghanaianFemalesFirstNames = {
     "Yvonne",
 };
 
-const std::vector<std::string> ghanaianLastNames = {
+const std::vector<std::string_view> ghanaianLastNames = {
     "Acheampong",
     "Adadevoh",
     "Adomah",
@@ -16785,7 +16788,7 @@ const PeopleNames ghanaianPeopleNames { { ghanaianMalesFirstNames, {}, ghanaianL
 
 // Greece
 
-const std::vector<std::string> greekMalesFirstNames = {
+const std::vector<std::string_view> greekMalesFirstNames = {
     "Georgios",
     "Dimitrios",
     "Ioannis",
@@ -17138,7 +17141,7 @@ const std::vector<std::string> greekMalesFirstNames = {
     "Faik",
 };
 
-const std::vector<std::string> greekFemalesFirstNames = {
+const std::vector<std::string_view> greekFemalesFirstNames = {
     "Maria",
     "Eleni",
     "Aikaterini",
@@ -17491,7 +17494,7 @@ const std::vector<std::string> greekFemalesFirstNames = {
     "Rina",
 };
 
-const std::vector<std::string> greekLastNames = {
+const std::vector<std::string_view> greekLastNames = {
     "Papadopoulos",
     "Papadopoulou",
     "Papageorgiou",
@@ -17851,9 +17854,9 @@ const PeopleNames greekPeopleNames { { greekMalesFirstNames, {}, greekLastNames,
 
 // Hungary
 
-const std::vector<std::string> hungarianMalesFirstNames = { "Bence", "Máté", "Dominik", "Levente",
-    "Noel", "Dániel", "Zalán", "Marcell", "Olivér", "Ádám", "Milán", "Dávid", "Botond", "Benett",
-    "Áron", "Zsombor", "Balázs", "Márk", "Péter", "Kristóf", "Zétény", "Nimród", "László",
+const std::vector<std::string_view> hungarianMalesFirstNames = { "Bence", "Máté", "Dominik",
+    "Levente", "Noel", "Dániel", "Zalán", "Marcell", "Olivér", "Ádám", "Milán", "Dávid", "Botond",
+    "Benett", "Áron", "Zsombor", "Balázs", "Márk", "Péter", "Kristóf", "Zétény", "Nimród", "László",
     "Benedek", "Tamás", "Gergő", "Patrik", "Zente", "Bálint", "András", "Zoltán", "Attila",
     "Barnabás", "Márton", "Hunor", "Kornél", "Martin", "Ákos", "Gábor", "Alex", "István", "Vince",
     "Ábel", "Krisztián", "Zsolt", "János", "Nolen", "Erik", "Bendegúz", "Sándor", "József",
@@ -17864,7 +17867,7 @@ const std::vector<std::string> hungarianMalesFirstNames = { "Bence", "Máté", "
     "Dorián", "Denisz", "Sámuel", "Noé", "Csanád", "Lajos", "Kolos", "Alexander", "Laurent",
     "Mirkó", "György", "Nátán", "Iván" };
 
-const std::vector<std::string> hungarianFemalesFirstNames = { "Hanna", "Anna", "Zoé", "Léna",
+const std::vector<std::string_view> hungarianFemalesFirstNames = { "Hanna", "Anna", "Zoé", "Léna",
     "Luca", "Emma", "Zsófia", "Boglárka", "Lili", "Mira", "Lilien", "Nóra", "Laura", "Lara", "Maja",
     "Fanni", "Jázmin", "Izabella", "Olívia", "Sára", "Gréta", "Alíz", "Adél", "Lilla", "Liza",
     "Flóra", "Dorka", "Zselyke", "Dóra", "Csenge", "Janka", "Liliána", "Viktória", "Szofia", "Réka",
@@ -17876,19 +17879,19 @@ const std::vector<std::string> hungarianFemalesFirstNames = { "Hanna", "Anna", "
     "Borbála", "Emese", "Bíborka", "Barbara", "Letícia", "Lujza", "Zita", "Kincső", "Nina", "Vanda",
     "Veronika", "Zara", "Lana", "Lora", "Kiara", "Lívia", "Rozina", "Zejnep", "Virág" };
 
-const std::vector<std::string> hungarianLastNames = { "Nagy", "Kovács", "Tóth", "Szabó", "Horváth",
-    "Varga", "Kiss", "Molnár", "Németh", "Farkas", "Balogh", "Papp", "Takács", "Juhász", "Lakatos",
-    "Mészáros", "Oláh", "Simon", "Rácz", "Fekete", "Szilágyi", "Török", "Fehér", "Balázs", "Gál",
-    "Kis", "Szűcs", "Kocsis", "Orsós", "Pintér", "Fodor", "Szalai", "Sipos", "Magyar", "Lukács",
-    "Gulyás", "Biró", "Király", "László", "Katona", "Jakab", "Bogdán", "Balog", "Sándor", "Boros",
-    "Fazekas", "Kelemen", "Váradi", "Antal", "Somogyi", "Orosz", "Fülöp", "Veres", "Vincze",
-    "Hegedűs", "Budai", "Deák", "Pap", "Bálint", "Pál", "Illés", "Vass", "Szőke", "Vörös", "Bognár",
-    "Fábián", "Lengyel", "Bodnár", "Szücs", "Hajdu", "Halász", "Jónás", "Máté", "Székely", "Kozma",
-    "Gáspár", "Pásztor", "Bakos", "Dudás", "Major", "Orbán", "Hegedüs", "Virág", "Barna", "Novák",
-    "Soós", "Tamás", "Nemes", "Pataki", "Balla", "Faragó", "Kerekes", "Borbély", "Barta", "Péter",
-    "Szekeres", "Csonka", "Mezei", "Márton", "Sárközi" };
+const std::vector<std::string_view> hungarianLastNames = { "Nagy", "Kovács", "Tóth", "Szabó",
+    "Horváth", "Varga", "Kiss", "Molnár", "Németh", "Farkas", "Balogh", "Papp", "Takács", "Juhász",
+    "Lakatos", "Mészáros", "Oláh", "Simon", "Rácz", "Fekete", "Szilágyi", "Török", "Fehér",
+    "Balázs", "Gál", "Kis", "Szűcs", "Kocsis", "Orsós", "Pintér", "Fodor", "Szalai", "Sipos",
+    "Magyar", "Lukács", "Gulyás", "Biró", "Király", "László", "Katona", "Jakab", "Bogdán", "Balog",
+    "Sándor", "Boros", "Fazekas", "Kelemen", "Váradi", "Antal", "Somogyi", "Orosz", "Fülöp",
+    "Veres", "Vincze", "Hegedűs", "Budai", "Deák", "Pap", "Bálint", "Pál", "Illés", "Vass", "Szőke",
+    "Vörös", "Bognár", "Fábián", "Lengyel", "Bodnár", "Szücs", "Hajdu", "Halász", "Jónás", "Máté",
+    "Székely", "Kozma", "Gáspár", "Pásztor", "Bakos", "Dudás", "Major", "Orbán", "Hegedüs", "Virág",
+    "Barna", "Novák", "Soós", "Tamás", "Nemes", "Pataki", "Balla", "Faragó", "Kerekes", "Borbély",
+    "Barta", "Péter", "Szekeres", "Csonka", "Mezei", "Márton", "Sárközi" };
 
-const std::vector<std::string> hungarianPrefixes { "Dr.", "Prof." };
+const std::vector<std::string_view> hungarianPrefixes { "Dr.", "Prof." };
 
 const NameFormats hungarianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
@@ -17900,10 +17903,10 @@ const PeopleNames hungarianPeopleNames { { hungarianMalesFirstNames, {}, hungari
 
 // Iceland
 
-const std::vector<std::string> icelandicMalesFirstNames = { "Gunnar", "Einar", "Ragnar", "Karl",
-    "Aron", "Benedikt", "Jon", "Jakob", "Steinar", "Ari", "Viktor", "Axel", "Alexander", "Anton",
-    "Hannes", "Hermann", "Emil", "Jens", "Hans", "Geir", "Daniel", "David", "Magnus", "Adam",
-    "Stefan", "Robert", "John", "Piotr", "Elmar", "Georg", "Albert", "Johann", "Krzysztof",
+const std::vector<std::string_view> icelandicMalesFirstNames = { "Gunnar", "Einar", "Ragnar",
+    "Karl", "Aron", "Benedikt", "Jon", "Jakob", "Steinar", "Ari", "Viktor", "Axel", "Alexander",
+    "Anton", "Hannes", "Hermann", "Emil", "Jens", "Hans", "Geir", "Daniel", "David", "Magnus",
+    "Adam", "Stefan", "Robert", "John", "Piotr", "Elmar", "Georg", "Albert", "Johann", "Krzysztof",
     "Erling", "Tomasz", "Marcin", "Jose", "Carlos", "Michael", "Mariusz", "Alex", "Andrzej",
     "Bjorn", "Mikael", "Richard", "Jan", "Omar", "Dariusz", "Victor", "Martin", "Marek", "Kingsley",
     "Erik", "Oskar", "Tomas", "Pawel", "Johannes", "Jonas", "Mark", "Umar", "Paulo", "Rafal",
@@ -17919,7 +17922,7 @@ const std::vector<std::string> icelandicMalesFirstNames = { "Gunnar", "Einar", "
     "Kevin", "Samuel", "Hugo", "Patryk", "Ashok", "Adrian", "Julio", "Bent", "Ikechukwu", "Cesar",
     "Jerzy", "Fritz", "Haruna", "Jonathan" };
 
-const std::vector<std::string> icelandicFemalesFirstNames = {
+const std::vector<std::string_view> icelandicFemalesFirstNames = {
     "Anna",
     "Helga",
     "Inga",
@@ -18063,31 +18066,31 @@ const std::vector<std::string> icelandicFemalesFirstNames = {
     "Jessica",
 };
 
-const std::vector<std::string> icelandicLastNames = { "Jónsdóttir", "Jónsson", "Sigurðardóttir",
-    "Guðmundsdóttir", "Guðmundsson", "Sigurðsson", "Gunnarsdóttir", "Gunnarsson", "ólafsson",
-    "ólafsdóttir", "Magnúsdóttir", "Magnússon", "Einarsson", "Einarsdóttir", "Kristjánsdóttir",
-    "Kristjánsson", "Björnsdóttir", "Stefánsson", "Jóhannsson", "Jóhannsdóttir", "Björnsson",
-    "Stefánsdóttir", "árnadóttir", "Bjarnason", "Bjarnadóttir", "árnason", "Halldórsson",
-    "Helgason", "Halldórsdóttir", "Helgadóttir", "Sveinsson", "Ragnarsdóttir", "Kristinsson",
-    "Pétursdóttir", "Pálsson", "Guðjónsdóttir", "Kristinsdóttir", "Pálsdóttir", "Karlsson",
-    "Guðjónsson", "Pétursson", "þorsteinsson", "þorsteinsdóttir", "Sveinsdóttir", "Ragnarsson",
-    "óskarsdóttir", "Karlsdóttir", "Haraldsson", "Jóhannesson", "Jóhannesdóttir", "Sigurjónsdóttir",
-    "Birgisson", "Birgisdóttir", "Hauksson", "Harðardóttir", "þórðardóttir", "ásgeirsdóttir",
-    "Haraldsdóttir", "Jónasdóttir", "Hauksdóttir", "Harðarson", "Jónasson", "Sigurjónsson",
-    "Kjartansdóttir", "Kjartansson", "ágústsson", "þórðarson", "Arnarson", "Friðriksson",
-    "Baldursdóttir", "Baldursson", "ágústsdóttir", "Sverrisson", "Hilmarsson", "ásgeirsson",
-    "Friðriksdóttir", "Guðnadóttir", "Ingólfsson", "Guðnason", "Ingólfsdóttir", "Arnardóttir",
-    "Benediktsdóttir", "Hilmarsdóttir", "Sverrisdóttir", "Valdimarsdóttir", "þórarinsdóttir",
-    "Reynisson", "Benediktsson", "Björgvinsdóttir", "Gunnlaugsson", "Jonsson", "Gunnlaugsdóttir",
-    "Reynisdóttir", "Aðalsteinsdóttir", "þórisdóttir", "Skúladóttir", "Hafsteinsdóttir",
-    "ómarsdóttir", "Sævarsdóttir", "Sigurðarson", "Valdimarsson", "þórisson", "Rúnarsdóttir",
-    "Snorrason", "Vilhjálmsdóttir", "þórarinsson", "Hermannsson", "Svavarsdóttir", "Tryggvason",
-    "Sævarsson", "Garðarsdóttir", "þorvaldsdóttir", "Rúnarsson", "Bragason", "þorvaldsson",
-    "Hannesdóttir", "Vilhjálmsson", "Björgvinsson", "Bragadóttir", "Egilsson", "Ingvarsdóttir",
-    "Gylfason", "Skúlason", "Hjartardóttir", "Hjartarson", "Ingvarsson", "Hannesson",
-    "Guðlaugsdóttir", "Lárusdóttir", "ómarsson", "Garðarsson", "Gylfadóttir", "Guðlaugsson",
-    "Grétarsson", "Snorradóttir", "Aðalsteinsson", "Lárusson", "Tryggvadóttir", "Tómasson",
-    "Jakobsdóttir" };
+const std::vector<std::string_view> icelandicLastNames = { "Jónsdóttir", "Jónsson",
+    "Sigurðardóttir", "Guðmundsdóttir", "Guðmundsson", "Sigurðsson", "Gunnarsdóttir", "Gunnarsson",
+    "ólafsson", "ólafsdóttir", "Magnúsdóttir", "Magnússon", "Einarsson", "Einarsdóttir",
+    "Kristjánsdóttir", "Kristjánsson", "Björnsdóttir", "Stefánsson", "Jóhannsson", "Jóhannsdóttir",
+    "Björnsson", "Stefánsdóttir", "árnadóttir", "Bjarnason", "Bjarnadóttir", "árnason",
+    "Halldórsson", "Helgason", "Halldórsdóttir", "Helgadóttir", "Sveinsson", "Ragnarsdóttir",
+    "Kristinsson", "Pétursdóttir", "Pálsson", "Guðjónsdóttir", "Kristinsdóttir", "Pálsdóttir",
+    "Karlsson", "Guðjónsson", "Pétursson", "þorsteinsson", "þorsteinsdóttir", "Sveinsdóttir",
+    "Ragnarsson", "óskarsdóttir", "Karlsdóttir", "Haraldsson", "Jóhannesson", "Jóhannesdóttir",
+    "Sigurjónsdóttir", "Birgisson", "Birgisdóttir", "Hauksson", "Harðardóttir", "þórðardóttir",
+    "ásgeirsdóttir", "Haraldsdóttir", "Jónasdóttir", "Hauksdóttir", "Harðarson", "Jónasson",
+    "Sigurjónsson", "Kjartansdóttir", "Kjartansson", "ágústsson", "þórðarson", "Arnarson",
+    "Friðriksson", "Baldursdóttir", "Baldursson", "ágústsdóttir", "Sverrisson", "Hilmarsson",
+    "ásgeirsson", "Friðriksdóttir", "Guðnadóttir", "Ingólfsson", "Guðnason", "Ingólfsdóttir",
+    "Arnardóttir", "Benediktsdóttir", "Hilmarsdóttir", "Sverrisdóttir", "Valdimarsdóttir",
+    "þórarinsdóttir", "Reynisson", "Benediktsson", "Björgvinsdóttir", "Gunnlaugsson", "Jonsson",
+    "Gunnlaugsdóttir", "Reynisdóttir", "Aðalsteinsdóttir", "þórisdóttir", "Skúladóttir",
+    "Hafsteinsdóttir", "ómarsdóttir", "Sævarsdóttir", "Sigurðarson", "Valdimarsson", "þórisson",
+    "Rúnarsdóttir", "Snorrason", "Vilhjálmsdóttir", "þórarinsson", "Hermannsson", "Svavarsdóttir",
+    "Tryggvason", "Sævarsson", "Garðarsdóttir", "þorvaldsdóttir", "Rúnarsson", "Bragason",
+    "þorvaldsson", "Hannesdóttir", "Vilhjálmsson", "Björgvinsson", "Bragadóttir", "Egilsson",
+    "Ingvarsdóttir", "Gylfason", "Skúlason", "Hjartardóttir", "Hjartarson", "Ingvarsson",
+    "Hannesson", "Guðlaugsdóttir", "Lárusdóttir", "ómarsson", "Garðarsson", "Gylfadóttir",
+    "Guðlaugsson", "Grétarsson", "Snorradóttir", "Aðalsteinsson", "Lárusson", "Tryggvadóttir",
+    "Tómasson", "Jakobsdóttir" };
 
 const NameFormats icelandicPersonNameFormats { { "{firstName} {lastName}", 1 } };
 
@@ -18097,7 +18100,7 @@ const PeopleNames icelandicPeopleNames { { icelandicMalesFirstNames, {}, iceland
 
 // India
 
-const std::vector<std::string> indianMalesFirstNames = {
+const std::vector<std::string_view> indianMalesFirstNames = {
     "Aadi",
     "Aadil",
     "Aahan",
@@ -18451,26 +18454,26 @@ const std::vector<std::string> indianMalesFirstNames = {
     "Zayyan",
 };
 
-const std::vector<std::string> indianFemalesFirstNames = { "Aadrika", "Aadya", "Aakriti", "Aanya",
-    "Aanyaya", "Aaradhya", "Aarohi", "Aashi", "Aashika", "Adhithi", "Aditi", "Aisha", "Akshara",
-    "Alia", "Amaira", "Amara", "Ananya", "Anika", "Anisha", "Anushka", "Anvi", "Anwaya", "Aria",
-    "Arunima", "Avani", "Avishi", "Avni", "Banita", "Bhavana", "Bhavisha", "Bhavna", "Bhavya",
-    "Bhavyata", "Bhumi", "Bhumika", "Bhuvitha", "Chakori", "Chandika", "Chandna", "Chandni",
-    "Chandrika", "Charmika", "Charu", "Charul", "Charvi", "Chhavi", "Chitra", "Deepika", "Devanshi",
-    "Devika", "Dhanya", "Dhriti", "Disha", "Divisha", "Divishi", "Divya", "Diya", "Drishti",
-    "Dyuthi", "Eeshaal", "EeshaaniEk", "Esha", "Eshitha", "Falguni", "Falini", "Faria", "Farida",
-    "Freesha", "Fulki", "Gargee", "Gargi", "Garima", "Gauri", "Giribala", "Gitali", "Gitanjali",
-    "Grishma", "Harini", "Haritha", "Harshini", "Harshita", "Himani", "Hina", "Hiral", "Hrishita",
-    "Inaya", "Ira", "Isha", "Ishana", "Ishani", "Ishika", "Ishiqa", "Ishira", "Ishita", "Ishitha",
-    "Ishmita", "Janvi", "Janya", "Jara", "Jaswita", "Jia", "Jivana", "Jivika", "Jivisha", "Jiya",
-    "Jyotsna", "Kanya", "Kashvi", "Kashvii", "Kavya", "Khushi", "Kia", "Kiara", "Kiran", "Kirti",
-    "Kritika", "Kshirja", "Lasya", "Lavanya", "Lavisha", "Lavitha", "Leah", "Lisha", "Manasvi",
-    "Manika", "Manisha", "Mannat", "Manvi", "Manvita", "Meenal", "Meera", "Megha", "Mira", "Myra",
-    "Mysha", "Naina", "Nandita", "Natasha", "Neha", "Nidhi", "Nidhita", "Niharika", "Nishi",
-    "Nitya", "Nityari", "Nityasha", "Nityashi", "Nyra", "Oishi", "Ojal", "Ojaswi", "Oshin", "Oviya",
-    "Pankhudi", "Pankhuri", "Pari", "Parinidhi", "Parul", "Pihu", "Praniti", "Pranjal", "Prisha",
-    "Prishita", "Priyanka", "Qirat", "Queenie", "Quinara", "Quisha", "Rashi", "Rasika", "Rhea",
-    "Riddhi", "Rishi", "Ritara", "Rithika", "Riya", "Roshni", "Rupali", "Saanvi", "Saesha",
+const std::vector<std::string_view> indianFemalesFirstNames = { "Aadrika", "Aadya", "Aakriti",
+    "Aanya", "Aanyaya", "Aaradhya", "Aarohi", "Aashi", "Aashika", "Adhithi", "Aditi", "Aisha",
+    "Akshara", "Alia", "Amaira", "Amara", "Ananya", "Anika", "Anisha", "Anushka", "Anvi", "Anwaya",
+    "Aria", "Arunima", "Avani", "Avishi", "Avni", "Banita", "Bhavana", "Bhavisha", "Bhavna",
+    "Bhavya", "Bhavyata", "Bhumi", "Bhumika", "Bhuvitha", "Chakori", "Chandika", "Chandna",
+    "Chandni", "Chandrika", "Charmika", "Charu", "Charul", "Charvi", "Chhavi", "Chitra", "Deepika",
+    "Devanshi", "Devika", "Dhanya", "Dhriti", "Disha", "Divisha", "Divishi", "Divya", "Diya",
+    "Drishti", "Dyuthi", "Eeshaal", "EeshaaniEk", "Esha", "Eshitha", "Falguni", "Falini", "Faria",
+    "Farida", "Freesha", "Fulki", "Gargee", "Gargi", "Garima", "Gauri", "Giribala", "Gitali",
+    "Gitanjali", "Grishma", "Harini", "Haritha", "Harshini", "Harshita", "Himani", "Hina", "Hiral",
+    "Hrishita", "Inaya", "Ira", "Isha", "Ishana", "Ishani", "Ishika", "Ishiqa", "Ishira", "Ishita",
+    "Ishitha", "Ishmita", "Janvi", "Janya", "Jara", "Jaswita", "Jia", "Jivana", "Jivika", "Jivisha",
+    "Jiya", "Jyotsna", "Kanya", "Kashvi", "Kashvii", "Kavya", "Khushi", "Kia", "Kiara", "Kiran",
+    "Kirti", "Kritika", "Kshirja", "Lasya", "Lavanya", "Lavisha", "Lavitha", "Leah", "Lisha",
+    "Manasvi", "Manika", "Manisha", "Mannat", "Manvi", "Manvita", "Meenal", "Meera", "Megha",
+    "Mira", "Myra", "Mysha", "Naina", "Nandita", "Natasha", "Neha", "Nidhi", "Nidhita", "Niharika",
+    "Nishi", "Nitya", "Nityari", "Nityasha", "Nityashi", "Nyra", "Oishi", "Ojal", "Ojaswi", "Oshin",
+    "Oviya", "Pankhudi", "Pankhuri", "Pari", "Parinidhi", "Parul", "Pihu", "Praniti", "Pranjal",
+    "Prisha", "Prishita", "Priyanka", "Qirat", "Queenie", "Quinara", "Quisha", "Rashi", "Rasika",
+    "Rhea", "Riddhi", "Rishi", "Ritara", "Rithika", "Riya", "Roshni", "Rupali", "Saanvi", "Saesha",
     "Saisha", "Sanika", "Sanvi", "Sanya", "Sara", "Saraswati", "Sarita", "Savita", "Shanaya",
     "Simran", "Sita", "Siya", "Sneha", "Sonam", "Tamanna", "Tanishi", "Tanvi", "Tishira", "Tithira",
     "Trisha", "Ujjwala", "Urisha", "Urvashi", "Urvi", "Utkarsha", "Vaishnavi", "Vanshika", "Vanya",
@@ -18478,10 +18481,10 @@ const std::vector<std::string> indianFemalesFirstNames = { "Aadrika", "Aadya", "
     "Yashi", "Yashika", "Yashvi", "Yukta", "Yukthi", "Zaina", "Zaira", "Zara", "Zarika", "Zarna",
     "Zoya" };
 
-const std::vector<std::string> indianLastNames = { "Acharya", "Agarwal", "Aggarwal", "Ahluwalia",
-    "Ahuja", "Amin", "Anand", "Arora", "Arvind", "Babu", "Bajaj", "Bajwa", "Banerjee", "Bansal",
-    "Batra", "Bhagat", "Bhardwaj", "Bhargava", "Bhasin", "Bhat", "Bhatia", "Bhatnagar", "Bhatt",
-    "Bhattacharya", "Biswas", "Bose", "Chabra", "Chadha", "Chakrabarti", "Chakrabarty",
+const std::vector<std::string_view> indianLastNames = { "Acharya", "Agarwal", "Aggarwal",
+    "Ahluwalia", "Ahuja", "Amin", "Anand", "Arora", "Arvind", "Babu", "Bajaj", "Bajwa", "Banerjee",
+    "Bansal", "Batra", "Bhagat", "Bhardwaj", "Bhargava", "Bhasin", "Bhat", "Bhatia", "Bhatnagar",
+    "Bhatt", "Bhattacharya", "Biswas", "Bose", "Chabra", "Chadha", "Chakrabarti", "Chakrabarty",
     "Chakraborty", "Chakravarti", "Chandra", "Chatterjee", "Chaturvedi", "Chauhan", "Chawla",
     "Chopra", "Choudhary", "Choudhury", "Das", "Deshmukh", "Deshpande", "Dewan", "Dey", "Dhawan",
     "Dhillon", "Dixit", "Dube", "Dutt", "Dutta", "Easwaran", "Edwin", "Ekbote", "Eswaran",
@@ -18507,7 +18510,7 @@ const PeopleNames indianPeopleNames { { indianMalesFirstNames, {}, indianLastNam
 
 // Ireland
 
-const std::vector<std::string> irishMalesFirstNames = {
+const std::vector<std::string_view> irishMalesFirstNames = {
     "John",
     "Michael",
     "Patrick",
@@ -18860,7 +18863,7 @@ const std::vector<std::string> irishMalesFirstNames = {
     "Jorge",
 };
 
-const std::vector<std::string> irishFemalesFirstNames = {
+const std::vector<std::string_view> irishFemalesFirstNames = {
     "Mary",
     "Margaret",
     "Ann",
@@ -19213,7 +19216,7 @@ const std::vector<std::string> irishFemalesFirstNames = {
     "Cynthia",
 };
 
-const std::vector<std::string> irishLastNames = {
+const std::vector<std::string_view> irishLastNames = {
     "Murphy",
     "Kelly",
     "Byrne",
@@ -19566,12 +19569,12 @@ const std::vector<std::string> irishLastNames = {
     "O'farrell",
 };
 
-const std::vector<std::string> irishSuffixes { "Jr.", "Sr.", "I", "II", "III", "IV", "V", "MD",
+const std::vector<std::string_view> irishSuffixes { "Jr.", "Sr.", "I", "II", "III", "IV", "V", "MD",
     "DDS", "PhD", "DVM" };
 
-const std::vector<std::string> irishMalesPrefixes { "Mr.", "Dr." };
+const std::vector<std::string_view> irishMalesPrefixes { "Mr.", "Dr." };
 
-const std::vector<std::string> irishFemalesPrefixes { "Mrs.", "Ms.", "Miss", "Dr." };
+const std::vector<std::string_view> irishFemalesPrefixes { "Mrs.", "Ms.", "Miss", "Dr." };
 
 // TODO: add handling lastName-lastName
 
@@ -19586,36 +19589,36 @@ const PeopleNames irishPeopleNames { { irishMalesFirstNames, {}, irishLastNames,
 
 // Israel
 
-const std::vector<std::string> israelisMalesFirstNames = { "דוד", "לביא", "אריאל", "יוסף", "נועם",
-    "אורי", "רפאל", "ארי", "משה", "יהודה", "אברהם", "איתן", "דניאל", "ישראל", "איתי", "שמואל",
-    "אליה", "יהונתן", "יצחק", "שמעון", "יעקב", "מיכאל", "עומר", "יונתן", "אהרון", "חיים", "אימרי",
-    "אדם", "שלמה", "איתמר", "עידו", "יאיר", "ינאי", "מאיר", "ישי", "מרדכי", "הראל", "בניה", "ניתאי",
-    "בנימין", "אליהו", "מנחם", "ליאם", "בארי", "אלון", "עילאי", "עמית", "בן", "נתן", "אור", "נתנאל",
-    "ריף", "אביב", "גיא", "נהוראי", "מאור", "ריי", "רום", "ליאו", "נוה", "יובל", "הלל", "עומרי",
-    "שחר", "אלרואי", "רוי", "נריה", "נדב", "דור", "צבי", "מלאכי", "רועי", "עידן", "ראם", "אביתר",
-    "נבו", "תום", "אלחנן", "אוריאל", "מעיין", "אריה", "שלום", "גבריאל", "אליאב", "עוז", "אליעזר",
-    "שילה", "ארבל", "ירדן", "לני", "יואב", "נחמן", "גפן", "ליאור", "יהושע", "אביאל", "דן", "לוי",
-    "אמיתי", "יהב", "עמנואל", "זיו", "אייל", "אלעזר", "מתן", "ידידיה", "פנחס", "יהלי", "אופק",
-    "אופיר", "אבישי", "בר", "דביר", "יחיאל", "עברי", "אוריה", "שקד", "לירוי", "שי", "רני", "ים",
-    "נפתלי", "יגל", "פלג", "אסף", "ינון", "אדיר", "רון", "שליו", "אושר", "כפיר", "אשר", "ברוך",
-    "רותם", "שניאור", "אפרים", "גל", "דין", "טום", "רואי", "תומר", "אוראל", "נטע", "אלמוג", "עתי",
-    "ראובן", "יותם", "שמחה", "זוהר", "טומי", "שון", "רז", "עופרי", "יחזקאל", "יהל", "ירין", "יואל",
-    "צור", "סהר", "ליאב", "דב", "עקיבא", "טל", "זאב", "גלעד", "ברי", "גבע", "איליי", "אלישע", "הדר",
-    "אילון", "ניב", "אדר", "קורן", "עילי", "ליעד", "הילל", "אליאור", "אחיה", "סיני", "אושרי", "קאי",
-    "אמרי", "אלימלך", "בועז", "יוחנן", "כרמל", "אלרועי", "יאן", "שאול", "אסיף", "שלו", "ליאל",
-    "ברק", "עדן", "ארז", "עדיאל", "דרור", "ניל", "ישעיה", "עופר", "יפתח", "נחום", "אראל", "כרמי",
-    "טוהר", "פאר", "מרום", "דורי", "ארד", "לאו", "רעי", "אלעד", "עמיחי", "מאורי", "נגב", "גור",
-    "אביחי", "ליאון", "עובדיה", "עדי", "אורן", "ריו", "און", "שוהם", "אלרוי", "טוביה", "בניהו",
-    "עזרא", "גיל", "אלאור", "נח", "דולב", "אפק", "אביעד", "אלנתן", "יאר", "אילן", "דילן", "סאן",
-    "נאור", "ניצן", "מבשר", "אליעד", "קדם", "תבור", "לאון", "אליאל", "אלקנה", "ריין", "נורי",
+const std::vector<std::string_view> israelisMalesFirstNames = { "דוד", "לביא", "אריאל", "יוסף",
+    "נועם", "אורי", "רפאל", "ארי", "משה", "יהודה", "אברהם", "איתן", "דניאל", "ישראל", "איתי",
+    "שמואל", "אליה", "יהונתן", "יצחק", "שמעון", "יעקב", "מיכאל", "עומר", "יונתן", "אהרון", "חיים",
+    "אימרי", "אדם", "שלמה", "איתמר", "עידו", "יאיר", "ינאי", "מאיר", "ישי", "מרדכי", "הראל", "בניה",
+    "ניתאי", "בנימין", "אליהו", "מנחם", "ליאם", "בארי", "אלון", "עילאי", "עמית", "בן", "נתן", "אור",
+    "נתנאל", "ריף", "אביב", "גיא", "נהוראי", "מאור", "ריי", "רום", "ליאו", "נוה", "יובל", "הלל",
+    "עומרי", "שחר", "אלרואי", "רוי", "נריה", "נדב", "דור", "צבי", "מלאכי", "רועי", "עידן", "ראם",
+    "אביתר", "נבו", "תום", "אלחנן", "אוריאל", "מעיין", "אריה", "שלום", "גבריאל", "אליאב", "עוז",
+    "אליעזר", "שילה", "ארבל", "ירדן", "לני", "יואב", "נחמן", "גפן", "ליאור", "יהושע", "אביאל", "דן",
+    "לוי", "אמיתי", "יהב", "עמנואל", "זיו", "אייל", "אלעזר", "מתן", "ידידיה", "פנחס", "יהלי",
+    "אופק", "אופיר", "אבישי", "בר", "דביר", "יחיאל", "עברי", "אוריה", "שקד", "לירוי", "שי", "רני",
+    "ים", "נפתלי", "יגל", "פלג", "אסף", "ינון", "אדיר", "רון", "שליו", "אושר", "כפיר", "אשר",
+    "ברוך", "רותם", "שניאור", "אפרים", "גל", "דין", "טום", "רואי", "תומר", "אוראל", "נטע", "אלמוג",
+    "עתי", "ראובן", "יותם", "שמחה", "זוהר", "טומי", "שון", "רז", "עופרי", "יחזקאל", "יהל", "ירין",
+    "יואל", "צור", "סהר", "ליאב", "דב", "עקיבא", "טל", "זאב", "גלעד", "ברי", "גבע", "איליי",
+    "אלישע", "הדר", "אילון", "ניב", "אדר", "קורן", "עילי", "ליעד", "הילל", "אליאור", "אחיה", "סיני",
+    "אושרי", "קאי", "אמרי", "אלימלך", "בועז", "יוחנן", "כרמל", "אלרועי", "יאן", "שאול", "אסיף",
+    "שלו", "ליאל", "ברק", "עדן", "ארז", "עדיאל", "דרור", "ניל", "ישעיה", "עופר", "יפתח", "נחום",
+    "אראל", "כרמי", "טוהר", "פאר", "מרום", "דורי", "ארד", "לאו", "רעי", "אלעד", "עמיחי", "מאורי",
+    "נגב", "גור", "אביחי", "ליאון", "עובדיה", "עדי", "אורן", "ריו", "און", "שוהם", "אלרוי", "טוביה",
+    "בניהו", "עזרא", "גיל", "אלאור", "נח", "דולב", "אפק", "אביעד", "אלנתן", "יאר", "אילן", "דילן",
+    "סאן", "נאור", "ניצן", "מבשר", "אליעד", "קדם", "תבור", "לאון", "אליאל", "אלקנה", "ריין", "נורי",
     "יונה", "אלכסנדר", "מתניה", "מייקל", "איתיאל", "אלרום", "בצלאל", "יוחאי", "יקותיאל", "מיאל",
     "סול", "דורון", "אבינועם", "אוהד", "חגי", "יששכר", "שיר", "ענבר", "אביגדור", "יוגב", "ניסים",
     "שגיא", "ניר", "נרי", "מתנאל", "אייר", "מנור", "לידור", "אביאור", "ישעיהו", "עזריאל", "עמוס",
     "תבל", "חנוך", "להב", "צורי", "נחמיה", "שמשון", "כרם", "אלי", "הוד", "יער", "אפיק", "שגב",
     "אלישיב", "אמיר" };
 
-const std::vector<std::string> israelisFemalesFirstNames = { "תמר", "מאיה", "אביגיל", "נועה", "שרה",
-    "איילה", "אדל", "יעל", "שירה", "אסתר", "חנה", "אלה", "מרים", "רחל", "רבקה", "ליה", "חיה",
+const std::vector<std::string_view> israelisFemalesFirstNames = { "תמר", "מאיה", "אביגיל", "נועה",
+    "שרה", "איילה", "אדל", "יעל", "שירה", "אסתר", "חנה", "אלה", "מרים", "רחל", "רבקה", "ליה", "חיה",
     "טליה", "רוני", "רומי", "מיכל", "נויה", "אריאל", "רות", "ליבי", "עלמה", "הלל", "אמה", "גפן",
     "גאיה", "נעמי", "הודיה", "עומר", "נגה", "אגם", "יובל", "שי-לי", "אפרת", "לאה", "מלכה", "אורי",
     "אוריה", "יהלי", "תהילה", "אמילי", "יהודית", "תהל", "ארבל", "טוהר", "ליאן", "הדסה", "אבישג",
@@ -19642,8 +19645,8 @@ const std::vector<std::string> israelisFemalesFirstNames = { "תמר", "מאיה
     "פריידא", "קדם", "בל", "אליאנה", "קמה", "רום", "פאר", "לי", "מטר", "סימא", "עליזה", "ריי",
     "אוליביה", "אשירה", "הענא" };
 
-const std::vector<std::string> israelisLastNames = { "כהן", "לוי", "מזרחי", "פרץ", "ביטון", "דהן",
-    "אברהם", "פרידמן", "אזולאי", "מלכה", "כץ", "דוד", "אוחיון", "חדד", "עמר", "גבאי", "יוסף",
+const std::vector<std::string_view> israelisLastNames = { "כהן", "לוי", "מזרחי", "פרץ", "ביטון",
+    "דהן", "אברהם", "פרידמן", "אזולאי", "מלכה", "כץ", "דוד", "אוחיון", "חדד", "עמר", "גבאי", "יוסף",
     "בן דוד", "אדרי", "קליין", "חן", "טל", "לוין", "שפירא", "חזן", "מחאמיד", "זועבי", "לוין",
     "מנשה", "אוחנה", "סועאד", "גולן", "סגל", "אשכנזי", "יצחק", "בר", "יעקב", "מור", "שלום", "אליהו",
     "דיין", "סויסה", "לביא", "אלבז", "שמש", "אטיאס", "בכר", "נחום", "שטרן", "שרעבי", "אלון",
@@ -19676,7 +19679,7 @@ const PeopleNames israeliPeopleNames { { israelisMalesFirstNames, {}, israelisLa
 
 // Italy
 
-const std::vector<std::string> italianMalesFirstNames = { "Abaco", "Abbondanzio", "Abbondio",
+const std::vector<std::string_view> italianMalesFirstNames = { "Abaco", "Abbondanzio", "Abbondio",
     "Abdone", "Abelardo", "Abele", "Abenzio", "Abibo", "Abramio", "Abramo", "Acacio", "Acario",
     "Accursio", "Achille", "Acilio", "Aciscolo", "Acrisio", "Adalardo", "Adalberto", "Adalfredo",
     "Adalgiso", "Adalrico", "Adamo", "Addo", "Adelardo", "Adelberto", "Adelchi", "Adelfo",
@@ -19809,7 +19812,7 @@ const std::vector<std::string> italianMalesFirstNames = { "Abaco", "Abbondanzio"
     "Zabedeo", "Zaccaria", "Zaccheo", "Zanobi", "Zefiro", "Zena", "Zenaide", "Zenebio", "Zeno",
     "Zenobio", "Zenone", "Zetico", "Zoilo", "Zosimo" };
 
-const std::vector<std::string> italianFemalesFirstNames = { "Abbondanza", "Acilia", "Ada",
+const std::vector<std::string_view> italianFemalesFirstNames = { "Abbondanza", "Acilia", "Ada",
     "Adalberta", "Adalgisa", "Addolorata", "Adelaide", "Adelasia", "Adele", "Adelina", "Adina",
     "Adria", "Adriana", "Agape", "Agata", "Agnese", "Agostina", "Aida", "Alba", "Alberta", "Albina",
     "Alcina", "Alda", "Alessandra", "Alessia", "Alfonsa", "Alfreda", "Alice", "Alida", "Alina",
@@ -19883,53 +19886,53 @@ const std::vector<std::string> italianFemalesFirstNames = { "Abbondanza", "Acili
     "Viviana", "Wanda", "Zabina", "Zaira", "Zama", "Zanita", "Zarina", "Zelinda", "Zenobia", "Zita",
     "Zoe", "Zosima" };
 
-const std::vector<std::string> italianLastNames = { "Abate", "Abbate", "Abbondanza", "Abbrescia",
-    "Accardi", "Accardo", "Accurso", "Aceto", "Acquadro", "Acquaviva", "Acquistapace", "Adami",
-    "Adamo", "Addari", "Addis", "Adragna", "Affinito", "Agnello", "Agostinelli", "Agostini",
-    "Agresta", "Aiello", "Alaimo", "Albanese", "Albano", "Alberti", "Alcamo", "Alessandrini",
-    "Alessi", "Alfano", "Alfieri", "Alivernini", "Allegretti", "Aloi", "Altieri", "Amabile",
-    "Amadori", "Amato", "Ambrosini", "Ambrosino", "Ambrosio", "Amendola", "Amerio", "Amici",
-    "Amico", "Ammoscato", "Amoroso", "Amoruso", "Ancona", "Andreoli", "Andrisani", "Anelli",
-    "Angeletti", "Angeli", "Angelini", "Angeloni", "Angelucci", "Annunziata", "Anselmi", "Anselmo",
-    "Antenucci", "Antezza", "Antonacci", "Antonelli", "Antonini", "Antonucci", "Anzalone",
-    "Apicella", "Aprile", "Aquino", "Aramini", "Arcangeli", "Arena", "Argenio", "Argento",
-    "Argiolas", "Artioli", "Asaro", "Ascione", "Astolfi", "Atzeni", "Atzori", "Avallone", "Avola",
-    "Azara", "Babini", "Bacci", "Baggio", "Baiocco", "Balboni", "Baldacci", "Baldassarre", "Baldi",
-    "Baldini", "Baldo", "Balducci", "Balestra", "Balistreri", "Ballarin", "Balsamo", "Balzano",
-    "Bandini", "Bani", "Baraldi", "Barbagallo", "Barbarossa", "Barbarulo", "Barbato", "Barbera",
-    "Barberi", "Barberis", "Barbero", "Barbieri", "Barbiero", "Barile", "Barillà", "Barletta",
-    "Barone", "Baroni", "Barra", "Barreca", "Barresi", "Barretta", "Barsotti", "Bartoli",
-    "Bartolini", "Bartolomei", "Bartolucci", "Basile", "Bassani", "Bassi", "Basso", "Battaglia",
-    "Battista", "Battisti", "Battistini", "Bedini", "Belli", "Bellini", "Bellomo", "Bellotti",
-    "Bellucci", "Belmonte", "Belotti", "Beltrame", "Beltrami", "Belvisi", "Benatti", "Benedetti",
-    "Benedetto", "Benetti", "Benigni", "Benini", "Bennardo", "Bentivoglio", "Benvenuti",
-    "Benvenuto", "Berardi", "Beretta", "Bergamasco", "Bergamini", "Bernabei", "Bernardi",
-    "Bernardini", "Bernasconi", "Bertaccini", "Bertani", "Bertelli", "Berti", "Bertini", "Berto",
-    "Bertolini", "Bertolussi", "Beso", "Betti", "Bevilacqua", "Biagetti", "Biagi", "Biagini",
-    "Bianc", "Biancheri", "Bianchetti", "Bianchi", "Bianchini", "Bianco", "Biasci", "Biccari",
-    "Biggi", "Bindi", "Bini", "Bionaz", "Biondi", "Bisconti", "Bisio", "Bizzarri", "Blanc", "Blasi",
-    "Bocchi", "Boccia", "Bodini", "Boffa", "Boi", "Bologna", "Bonanni", "Bonanno", "Bonato",
-    "Bonazzi", "Bonelli", "Bonetti", "Bongiorno", "Bongiovanni", "Boni", "Bonifazi", "Bonini",
-    "Bono", "Bonomi", "Bonomo", "Bordoni", "Borelli", "Borghi", "Borgia", "Borrelli", "Bortolin",
-    "Bortoluzzi", "Bortot", "Boscaino", "Boschetti", "Boschi", "Bosco", "Boscolo", "Bosi", "Botta",
-    "Bove", "Bovolenta", "Bozzi", "Bozzo", "Braia", "Brambilla", "Branca", "Brandi", "Bresciani",
-    "Bressan", "Briano", "Brigandì", "Brignone", "Brizzi", "Brogi", "Brumat", "Brunelli",
-    "Brunetti", "Bruni", "Bruno", "Bruschi", "Bruzzone", "Buccheri", "Bucci", "Bulgarelli",
-    "Buongiorno", "Buonomo", "Burgio", "Butera", "Buzzi", "Cabras", "Caccamo", "Caccavo",
-    "Cacciapuoti", "Cacciatore", "Cadoni", "Caforio", "Caggiano", "Caiazza", "Caiazzo", "Calabrese",
-    "Calabria", "Calabrò", "Calafiore", "Calandro", "Calì", "Califano", "Callegari", "Calligaris",
-    "Calò", "Camilli", "Cammarata", "Cammisa", "Campagna", "Campana", "Campanella", "Campanile",
-    "Campanini", "Campisi", "Campo", "Campoli", "Campus", "Canale", "Cancelliere", "Cancellieri",
-    "Candela", "Candido", "Canepa", "Cangiano", "Canino", "Cannas", "Cannata", "Cannella",
-    "Cannone", "Canova", "Cantagallo", "Cantoni", "Canu", "Capannolo", "Capasso", "Capecchi",
-    "Capelli", "Capitani", "Capizzi", "Capoccia", "Capocotta", "Capogna", "Capone", "Caporaso",
-    "Cappai", "Cappelletti", "Cappelli", "Cappello", "Cappiello", "Capponi", "Capraro", "Capriotti",
-    "Capuano", "Caputo", "Cara", "Caracciolo", "Caradonna", "Carbon", "Carbone", "Carboni",
-    "Cardella", "Cardia", "Cardinale", "Cardinali", "Cardini", "Cardone", "Carè", "Careddu",
-    "Carella", "Caretti", "Caricari", "Carini", "Carletti", "Carli", "Carlini", "Carlino",
-    "Carloni", "Carlotti", "Carlucci", "Carminati", "Carnevale", "Carnovale", "Carollo", "Carosi",
-    "Carrara", "Carraro", "Carrieri", "Carriero", "Carrozza", "Carrozzo", "Carrus", "Carta",
-    "Caruso", "Carvelli", "Casadei", "Casadio", "Casagrande", "Casale", "Casali", "Casano",
+const std::vector<std::string_view> italianLastNames = { "Abate", "Abbate", "Abbondanza",
+    "Abbrescia", "Accardi", "Accardo", "Accurso", "Aceto", "Acquadro", "Acquaviva", "Acquistapace",
+    "Adami", "Adamo", "Addari", "Addis", "Adragna", "Affinito", "Agnello", "Agostinelli",
+    "Agostini", "Agresta", "Aiello", "Alaimo", "Albanese", "Albano", "Alberti", "Alcamo",
+    "Alessandrini", "Alessi", "Alfano", "Alfieri", "Alivernini", "Allegretti", "Aloi", "Altieri",
+    "Amabile", "Amadori", "Amato", "Ambrosini", "Ambrosino", "Ambrosio", "Amendola", "Amerio",
+    "Amici", "Amico", "Ammoscato", "Amoroso", "Amoruso", "Ancona", "Andreoli", "Andrisani",
+    "Anelli", "Angeletti", "Angeli", "Angelini", "Angeloni", "Angelucci", "Annunziata", "Anselmi",
+    "Anselmo", "Antenucci", "Antezza", "Antonacci", "Antonelli", "Antonini", "Antonucci",
+    "Anzalone", "Apicella", "Aprile", "Aquino", "Aramini", "Arcangeli", "Arena", "Argenio",
+    "Argento", "Argiolas", "Artioli", "Asaro", "Ascione", "Astolfi", "Atzeni", "Atzori", "Avallone",
+    "Avola", "Azara", "Babini", "Bacci", "Baggio", "Baiocco", "Balboni", "Baldacci", "Baldassarre",
+    "Baldi", "Baldini", "Baldo", "Balducci", "Balestra", "Balistreri", "Ballarin", "Balsamo",
+    "Balzano", "Bandini", "Bani", "Baraldi", "Barbagallo", "Barbarossa", "Barbarulo", "Barbato",
+    "Barbera", "Barberi", "Barberis", "Barbero", "Barbieri", "Barbiero", "Barile", "Barillà",
+    "Barletta", "Barone", "Baroni", "Barra", "Barreca", "Barresi", "Barretta", "Barsotti",
+    "Bartoli", "Bartolini", "Bartolomei", "Bartolucci", "Basile", "Bassani", "Bassi", "Basso",
+    "Battaglia", "Battista", "Battisti", "Battistini", "Bedini", "Belli", "Bellini", "Bellomo",
+    "Bellotti", "Bellucci", "Belmonte", "Belotti", "Beltrame", "Beltrami", "Belvisi", "Benatti",
+    "Benedetti", "Benedetto", "Benetti", "Benigni", "Benini", "Bennardo", "Bentivoglio",
+    "Benvenuti", "Benvenuto", "Berardi", "Beretta", "Bergamasco", "Bergamini", "Bernabei",
+    "Bernardi", "Bernardini", "Bernasconi", "Bertaccini", "Bertani", "Bertelli", "Berti", "Bertini",
+    "Berto", "Bertolini", "Bertolussi", "Beso", "Betti", "Bevilacqua", "Biagetti", "Biagi",
+    "Biagini", "Bianc", "Biancheri", "Bianchetti", "Bianchi", "Bianchini", "Bianco", "Biasci",
+    "Biccari", "Biggi", "Bindi", "Bini", "Bionaz", "Biondi", "Bisconti", "Bisio", "Bizzarri",
+    "Blanc", "Blasi", "Bocchi", "Boccia", "Bodini", "Boffa", "Boi", "Bologna", "Bonanni", "Bonanno",
+    "Bonato", "Bonazzi", "Bonelli", "Bonetti", "Bongiorno", "Bongiovanni", "Boni", "Bonifazi",
+    "Bonini", "Bono", "Bonomi", "Bonomo", "Bordoni", "Borelli", "Borghi", "Borgia", "Borrelli",
+    "Bortolin", "Bortoluzzi", "Bortot", "Boscaino", "Boschetti", "Boschi", "Bosco", "Boscolo",
+    "Bosi", "Botta", "Bove", "Bovolenta", "Bozzi", "Bozzo", "Braia", "Brambilla", "Branca",
+    "Brandi", "Bresciani", "Bressan", "Briano", "Brigandì", "Brignone", "Brizzi", "Brogi", "Brumat",
+    "Brunelli", "Brunetti", "Bruni", "Bruno", "Bruschi", "Bruzzone", "Buccheri", "Bucci",
+    "Bulgarelli", "Buongiorno", "Buonomo", "Burgio", "Butera", "Buzzi", "Cabras", "Caccamo",
+    "Caccavo", "Cacciapuoti", "Cacciatore", "Cadoni", "Caforio", "Caggiano", "Caiazza", "Caiazzo",
+    "Calabrese", "Calabria", "Calabrò", "Calafiore", "Calandro", "Calì", "Califano", "Callegari",
+    "Calligaris", "Calò", "Camilli", "Cammarata", "Cammisa", "Campagna", "Campana", "Campanella",
+    "Campanile", "Campanini", "Campisi", "Campo", "Campoli", "Campus", "Canale", "Cancelliere",
+    "Cancellieri", "Candela", "Candido", "Canepa", "Cangiano", "Canino", "Cannas", "Cannata",
+    "Cannella", "Cannone", "Canova", "Cantagallo", "Cantoni", "Canu", "Capannolo", "Capasso",
+    "Capecchi", "Capelli", "Capitani", "Capizzi", "Capoccia", "Capocotta", "Capogna", "Capone",
+    "Caporaso", "Cappai", "Cappelletti", "Cappelli", "Cappello", "Cappiello", "Capponi", "Capraro",
+    "Capriotti", "Capuano", "Caputo", "Cara", "Caracciolo", "Caradonna", "Carbon", "Carbone",
+    "Carboni", "Cardella", "Cardia", "Cardinale", "Cardinali", "Cardini", "Cardone", "Carè",
+    "Careddu", "Carella", "Caretti", "Caricari", "Carini", "Carletti", "Carli", "Carlini",
+    "Carlino", "Carloni", "Carlotti", "Carlucci", "Carminati", "Carnevale", "Carnovale", "Carollo",
+    "Carosi", "Carrara", "Carraro", "Carrieri", "Carriero", "Carrozza", "Carrozzo", "Carrus",
+    "Carta", "Caruso", "Carvelli", "Casadei", "Casadio", "Casagrande", "Casale", "Casali", "Casano",
     "Casavecchia", "Cascio", "Cascone", "Casella", "Caselli", "Caserta", "Casini", "Casolaro",
     "Cassano", "Castagna", "Castaldi", "Castaldo", "Castellana", "Castellani", "Castellano",
     "Castelli", "Castiello", "Castiglioni", "Casu", "Casula", "Catalano", "Cataldi", "Cataldo",
@@ -20148,7 +20151,7 @@ const std::vector<std::string> italianLastNames = { "Abate", "Abbate", "Abbondan
     "Zappacosta", "Zappalà", "Zappia", "Zedda", "Zeni", "Zennaro", "Zingaretti", "Zito", "Zollo",
     "Zordan", "Zotti", "Zucca", "Zuliani", "Zullo", "Zumbo", "Zunino" };
 
-const std::vector<std::string> italianPrefixes { "Sig.", "Dott.", "Dr.", "Ing." };
+const std::vector<std::string_view> italianPrefixes { "Sig.", "Dott.", "Dr.", "Ing." };
 
 const NameFormats italianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
@@ -20160,7 +20163,7 @@ const PeopleNames italianPeopleNames { { italianMalesFirstNames, {}, italianLast
 
 // Japan
 
-const std::vector<std::string> japaneseMaleFirstNames {
+const std::vector<std::string_view> japaneseMaleFirstNames {
     "正一",
     "正二",
     "正三",
@@ -20297,7 +20300,7 @@ const std::vector<std::string> japaneseMaleFirstNames {
     "悠希",
     "歩夢",
 };
-const std::vector<std::string> japaneseFemaleFirstNames {
+const std::vector<std::string_view> japaneseFemaleFirstNames {
     "千代子",
     "静子",
     "文子",
@@ -20445,7 +20448,7 @@ const std::vector<std::string> japaneseFemaleFirstNames {
     "美結",
 };
 
-const std::vector<std::string> japaneseLastNames {
+const std::vector<std::string_view> japaneseLastNames {
     "佐藤",
     "鈴木",
     "高橋",
@@ -20474,22 +20477,22 @@ const PeopleNames japanesePeopleNames { { japaneseMaleFirstNames, {}, japaneseLa
 
 // Kazakhstan
 
-const std::vector<std::string> kazakhMalesFirstNames = { "Абай", "Абдолла", "Абдулла", "Абдуллаһ",
-    "Абдінасір", "Абылай", "Азамат", "Азиз", "Айбек", "Айберген", "Айболат", "Айдос", "Айнабек",
-    "Айсұлтан", "Айтқали", "Ақжан", "Ақжол", "Аққу", "Алдаберген", "Алдияр", "Алпан", "Алпысбай",
-    "Алтай", "Алтынбай", "Алтынбек", "Амангелді", "Амандос", "Аманжол", "Амантай", "Аңсар",
-    "Арыстан", "Арыстанбек", "Асанбай", "Асанғали", "Асқар", "Асылбек", "Ахмет", "Аюхан", "Әбдуәли",
-    "Әбдіғазиз", "Әбдіғани", "Әбдіғаппар", "Әбдіжаппар", "Әбдіжәміл", "Әбдіқадыр", "Әбділда",
-    "Әбділхамит", "Әбдімәлік", "Әбдіразақ", "Әбдірахман", "Әбдірәсіл", "Әбдішүкір", "Әбиірбек",
-    "Әбубәкір", "Әбуғали", "Әбілғазы", "Әбілқайыр", "Әділ", "Әділбек", "Әділхан", "Әкежан", "Әлжан",
-    "Әлжаппар", "Әли", "Әлімжан", "Әлімқұл", "Әліхан", "Әмірбек", "Әнес", "Әсет", "Әубәкір",
-    "Әуелхан", "Бағдат", "Базарбай", "Байысхан", "Бақтияр", "Бақытжан", "Балтабек", "Бауыржан",
-    "Бәкір", "Бейбіт", "Бейсен", "Бекболат", "Бекзат", "Бердібек", "Бердіқұл", "Болат", "Боранбай",
-    "Бөріхан", "Бүркітбай", "Біржан", "Ғабдулла", "Ғабдұлла", "Ғабит", "Ғазиз", "Ғазизхан",
-    "Ғалымжан", "Ғани", "Ғаппар", "Ғұсман", "Дамир", "Даниял", "Дастан", "Дәлелхан", "Дәнеш",
-    "Дәулет", "Дәуіт", "Дос", "Досай", "Дүйсен", "Дүйсенғазы", "Дінмұхамед", "Дінмұхаммед", "Еділ",
-    "Елнұр", "Ербол", "Ерболат", "Ербосын", "Ережеп", "Ерекен", "Еркебұлан", "Еркін", "Ерлан",
-    "Ермек", "Ермұхамет", "Ерік", "Есбосын", "Есенгелді", "Ескендір", "Жабайхан", "Жақия",
+const std::vector<std::string_view> kazakhMalesFirstNames = { "Абай", "Абдолла", "Абдулла",
+    "Абдуллаһ", "Абдінасір", "Абылай", "Азамат", "Азиз", "Айбек", "Айберген", "Айболат", "Айдос",
+    "Айнабек", "Айсұлтан", "Айтқали", "Ақжан", "Ақжол", "Аққу", "Алдаберген", "Алдияр", "Алпан",
+    "Алпысбай", "Алтай", "Алтынбай", "Алтынбек", "Амангелді", "Амандос", "Аманжол", "Амантай",
+    "Аңсар", "Арыстан", "Арыстанбек", "Асанбай", "Асанғали", "Асқар", "Асылбек", "Ахмет", "Аюхан",
+    "Әбдуәли", "Әбдіғазиз", "Әбдіғани", "Әбдіғаппар", "Әбдіжаппар", "Әбдіжәміл", "Әбдіқадыр",
+    "Әбділда", "Әбділхамит", "Әбдімәлік", "Әбдіразақ", "Әбдірахман", "Әбдірәсіл", "Әбдішүкір",
+    "Әбиірбек", "Әбубәкір", "Әбуғали", "Әбілғазы", "Әбілқайыр", "Әділ", "Әділбек", "Әділхан",
+    "Әкежан", "Әлжан", "Әлжаппар", "Әли", "Әлімжан", "Әлімқұл", "Әліхан", "Әмірбек", "Әнес", "Әсет",
+    "Әубәкір", "Әуелхан", "Бағдат", "Базарбай", "Байысхан", "Бақтияр", "Бақытжан", "Балтабек",
+    "Бауыржан", "Бәкір", "Бейбіт", "Бейсен", "Бекболат", "Бекзат", "Бердібек", "Бердіқұл", "Болат",
+    "Боранбай", "Бөріхан", "Бүркітбай", "Біржан", "Ғабдулла", "Ғабдұлла", "Ғабит", "Ғазиз",
+    "Ғазизхан", "Ғалымжан", "Ғани", "Ғаппар", "Ғұсман", "Дамир", "Даниял", "Дастан", "Дәлелхан",
+    "Дәнеш", "Дәулет", "Дәуіт", "Дос", "Досай", "Дүйсен", "Дүйсенғазы", "Дінмұхамед", "Дінмұхаммед",
+    "Еділ", "Елнұр", "Ербол", "Ерболат", "Ербосын", "Ережеп", "Ерекен", "Еркебұлан", "Еркін",
+    "Ерлан", "Ермек", "Ермұхамет", "Ерік", "Есбосын", "Есенгелді", "Ескендір", "Жабайхан", "Жақия",
     "Жақсыбек", "Жақып", "Жақыпбек", "Жамалбек", "Жанбек", "Жанболат", "Жандос", "Жанқуат",
     "Жанпейіс", "Жаңабай", "Жаңабек", "Жарасбай", "Жарасқан", "Жармұқамет", "Жармұхамед",
     "Жармұхамет", "Жауынбай", "Жеменей", "Жеңіс", "Жолбарыс", "Жолжақсы", "Жомарт", "Жомартбай",
@@ -20500,7 +20503,7 @@ const std::vector<std::string> kazakhMalesFirstNames = { "Абай", "Абдол
     "Қаныш", "Қаржаубай", "Қасым", "Қасымбек", "Қатшыбек", "Қияқбай", "Қойшыбек", "Қуан", "Қуаныш",
     "Қуат", "Құбыш", "Құдайберген", "Құдыс" };
 
-const std::vector<std::string> kazakhFemalesFirstNames = { "Ағила", "Ажар", "Ажаргүл", "Аида",
+const std::vector<std::string_view> kazakhFemalesFirstNames = { "Ағила", "Ажар", "Ажаргүл", "Аида",
     "Айгүл", "Айдай", "Айжан", "Айжүрек", "Айнұр", "Айша", "Ақбота", "Ақгүл", "Ақерке", "Ақжан",
     "Ақкүміс", "Аққу", "Алмагүл", "Алтынай", "Анаргүл", "Ардақ", "Аруай", "Аружан", "Аяжан",
     "Аяужан", "Әдила", "Әдина", "Әлима", "Әлия", "Әсел", "Әсемай", "Әсемгүл", "Базаргүл",
@@ -20516,12 +20519,12 @@ const std::vector<std::string> kazakhFemalesFirstNames = { "Ағила", "Ажа
     "Хадиша", "Халида", "Шарапат", "Шахзада", "Шаһизада", "Шәмшия", "Шәрбану", "Шолпан", "Ырысты",
     "Іңкәр" };
 
-const std::vector<std::string> kazakhMalesLastNames = { "Асылмұратов", "Әбдірахманов", "Әлімқұлов",
-    "Етекбаев", "Жүнісов", "Жүсіп", "Иманқұлов", "Исламқұлов", "Қуатбаев", "Құлов", "Мәженов",
-    "Назарбаев", "Рүстемов", "Сәтбаев", "Сұлтанбеков", "Сүгірбаев", "Сүлейменов", "Тоқаев",
-    "Торайғыров", "Тұяқбаев", "Ысмайылов" };
+const std::vector<std::string_view> kazakhMalesLastNames = { "Асылмұратов", "Әбдірахманов",
+    "Әлімқұлов", "Етекбаев", "Жүнісов", "Жүсіп", "Иманқұлов", "Исламқұлов", "Қуатбаев", "Құлов",
+    "Мәженов", "Назарбаев", "Рүстемов", "Сәтбаев", "Сұлтанбеков", "Сүгірбаев", "Сүлейменов",
+    "Тоқаев", "Торайғыров", "Тұяқбаев", "Ысмайылов" };
 
-const std::vector<std::string> kazakhFemalesLastNames
+const std::vector<std::string_view> kazakhFemalesLastNames
     = { "Әбдірахманова", "Әлімқұлова", "Етекбаева", "Жүнісова", "Иманқұлова", "Исламқұлова",
           "Қуатбаева", "Құлова", "Мәженова", "Назарбаева", "Рүстемова", "Сұлтанбекова",
           "Сүгірбаева", "Сүлейменова", "Тоқаева", "Тұяқбаева", "Ысмайылова", "Асылмұратова" };
@@ -20533,7 +20536,7 @@ const PeopleNames kazakhPeopleNames { { kazakhMalesFirstNames, {}, kazakhMalesLa
 
 // Korea
 
-const std::vector<std::string> koreanFirstNames = {
+const std::vector<std::string_view> koreanFirstNames = {
     "서연",
     "민서",
     "서현",
@@ -23499,7 +23502,7 @@ const std::vector<std::string> koreanFirstNames = {
     "슬희",
 };
 
-const std::vector<std::string> koreanLastNames = {
+const std::vector<std::string_view> koreanLastNames = {
     "김",
     "이",
     "박",
@@ -23621,7 +23624,7 @@ const PeopleNames koreanPeopleNames { { koreanFirstNames, {}, koreanLastNames, {
 
 // Latvia
 
-const std::vector<std::string> latvianMalesFirstNames = {
+const std::vector<std::string_view> latvianMalesFirstNames = {
     "Ainārs",
     "Alfrēds",
     "Aloīzs",
@@ -23715,7 +23718,7 @@ const std::vector<std::string> latvianMalesFirstNames = {
     "Žanis",
 };
 
-const std::vector<std::string> latvianFemalesFirstNames = {
+const std::vector<std::string_view> latvianFemalesFirstNames = {
     "Aīda",
     "Akvelīna",
     "Albertīne",
@@ -23823,7 +23826,7 @@ const std::vector<std::string> latvianFemalesFirstNames = {
     "Žubīte",
 };
 
-const std::vector<std::string> latvianMalesLastNames = {
+const std::vector<std::string_view> latvianMalesLastNames = {
     "Aigars",
     "Alksnis",
     "Andersons",
@@ -24032,7 +24035,7 @@ const std::vector<std::string> latvianMalesLastNames = {
     "Sosārs",
 };
 
-const std::vector<std::string> latvianFemalesLastNames = {
+const std::vector<std::string_view> latvianFemalesLastNames = {
     "Aigare",
     "Alksne",
     "Andersone",
@@ -24242,9 +24245,9 @@ const std::vector<std::string> latvianFemalesLastNames = {
     "Meškūne",
 };
 
-const std::vector<std::string> latvianSuffixes { "k-dze", "kundze" };
+const std::vector<std::string_view> latvianSuffixes { "k-dze", "kundze" };
 
-const std::vector<std::string> latvianPrefixes { "Prof.", "Dr.", "Biedrs" };
+const std::vector<std::string_view> latvianPrefixes { "Prof.", "Dr.", "Biedrs" };
 
 const NameFormats latvianPersonNameFormats { { { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 }, { "{firstName} {lastName} {suffix}", 1 } } };
@@ -24256,7 +24259,7 @@ const PeopleNames latvianPeopleNames { { latvianMalesFirstNames, {}, latvianMale
 
 // Lebanon
 
-const std::vector<std::string> lebaneseMalesFirstNames = { "Mohamed", "Ali", "Ahmed", "Hassan",
+const std::vector<std::string_view> lebaneseMalesFirstNames = { "Mohamed", "Ali", "Ahmed", "Hassan",
     "Hussein", "Abdel", "George", "Elias", "Yousef", "Joseph", "Mahmoud", "Ibrahim", "Khaled",
     "Antoine", "Fadi", "Mostafa", "Michel", "Jan", "Rabie", "Samir", "Waleed", "Abbas", "Omar",
     "Nabil", "Khalil", "Bilal", "Emad", "Ghassan", "Jamal", "Ziad", "Samih", "Bassam", "Sami",
@@ -24328,28 +24331,28 @@ const std::vector<std::string> lebaneseMalesFirstNames = { "Mohamed", "Ali", "Ah
     "Shah", "Mathieu", "Rubin", "Karmel", "Clemens", "Oliver", "Erik", "Bakr", "Mikael", "Shamil",
     "Nael", "Nassar", "Jonathan", "Akbar", "Jalil", "Mumtaz", "Haj", "Armin", "Fatih", "Taj" };
 
-const std::vector<std::string> lebaneseFemalesFirstNames = { "Fatima", "Zainab", "Mary", "Mariam",
-    "Laila", "Mona", "Elly", "Amal", "Nada", "Hoda", "Samira", "Rita", "Khadija", "Rima", "Nadia",
-    "Souad", "Iman", "Lina", "Rania", "Sarah", "Rana", "Wafa", "Hanan", "Ghada", "Hala", "Zahra",
-    "Samar", "Siham", "Wissam", "Nawal", "Jihad", "Fadia", "Nasreen", "Nour", "Jamila", "Manal",
-    "Aida", "Hana", "Sana", "Mirna", "Salwa", "Heba", "Elham", "Maria", "Hayam", "Nihad", "Susan",
-    "Maya", "Dalal", "Randa", "Hanna", "Sahar", "Najwa", "Faten", "Mai", "Alaa", "Dany", "Sabah",
-    "Sawsan", "Ibtisam", "Noha", "Josephine", "Nicola", "Georgette", "Antoinette", "Samia", "Hayat",
-    "Diana", "Salma", "Amna", "Najah", "Hind", "Farah", "Rasha", "Sonia", "Jacqueline", "Rose",
-    "Magda", "Lilian", "Nadine", "Alia", "Najat", "Safa", "Anam", "Therese", "Linda", "Janet",
-    "Elissa", "Karol", "Rajaa", "Yasmin", "Rayan", "Maha", "Marwa", "Donia", "Lara", "Nancy",
-    "Claude", "Elian", "Maysaa", "Halima", "Rene", "Latifa", "Afaf", "Basma", "Najla", "Ayesha",
-    "Nathalie", "Jocelyn", "Katia", "Batoul", "Reda", "Ahlam", "Norma", "Christine", "Caroline",
-    "Malak", "Nidal", "Elin", "Karen", "Marilyn", "Yola", "Janan", "Shadia", "Rabab", "Carla",
-    "Nicole", "Stefani", "Fadwa", "Samah", "Nahla", "Lamia", "Sandra", "Nora", "Jihan", "Jessica",
-    "Tania", "Hina", "Ihsan", "Badia", "Kawthar", "Hikmat", "Dalia", "Fattoum", "Rehab", "Nelly",
-    "Dina", "Jannat", "Kholoud", "Nazira", "Nariman", "Mira", "Elia", "Violet", "Catherine",
-    "Elaine", "Bahia", "Pauline", "Bushra", "Ala", "Aya", "Joyce", "Aisha", "Asma", "Sally",
-    "Grace", "Asmahan", "Julia", "Joanna", "Fayrouz", "Dima", "Kristel", "Suhaila", "Sabine",
-    "Juliet", "Dana", "Emily", "Olga", "Carmen", "Nina", "Bernadette", "Nahed", "Awatif", "Nasim",
-    "Pamela", "Ana", "Madeleine", "Dania", "Ikram", "Marian", "Claire", "Silva", "Deniz", "Lydia",
-    "Margret", "Lubna", "Duaa", "Sandy", "Vera", "Zina", "Lea", "Mariana", "Christina", "Raja",
-    "Yara", "Abla", "Laura", "Hilda", "Hajar", "Amira", "Anaya", "Fahima", "Lamis", "Ria",
+const std::vector<std::string_view> lebaneseFemalesFirstNames = { "Fatima", "Zainab", "Mary",
+    "Mariam", "Laila", "Mona", "Elly", "Amal", "Nada", "Hoda", "Samira", "Rita", "Khadija", "Rima",
+    "Nadia", "Souad", "Iman", "Lina", "Rania", "Sarah", "Rana", "Wafa", "Hanan", "Ghada", "Hala",
+    "Zahra", "Samar", "Siham", "Wissam", "Nawal", "Jihad", "Fadia", "Nasreen", "Nour", "Jamila",
+    "Manal", "Aida", "Hana", "Sana", "Mirna", "Salwa", "Heba", "Elham", "Maria", "Hayam", "Nihad",
+    "Susan", "Maya", "Dalal", "Randa", "Hanna", "Sahar", "Najwa", "Faten", "Mai", "Alaa", "Dany",
+    "Sabah", "Sawsan", "Ibtisam", "Noha", "Josephine", "Nicola", "Georgette", "Antoinette", "Samia",
+    "Hayat", "Diana", "Salma", "Amna", "Najah", "Hind", "Farah", "Rasha", "Sonia", "Jacqueline",
+    "Rose", "Magda", "Lilian", "Nadine", "Alia", "Najat", "Safa", "Anam", "Therese", "Linda",
+    "Janet", "Elissa", "Karol", "Rajaa", "Yasmin", "Rayan", "Maha", "Marwa", "Donia", "Lara",
+    "Nancy", "Claude", "Elian", "Maysaa", "Halima", "Rene", "Latifa", "Afaf", "Basma", "Najla",
+    "Ayesha", "Nathalie", "Jocelyn", "Katia", "Batoul", "Reda", "Ahlam", "Norma", "Christine",
+    "Caroline", "Malak", "Nidal", "Elin", "Karen", "Marilyn", "Yola", "Janan", "Shadia", "Rabab",
+    "Carla", "Nicole", "Stefani", "Fadwa", "Samah", "Nahla", "Lamia", "Sandra", "Nora", "Jihan",
+    "Jessica", "Tania", "Hina", "Ihsan", "Badia", "Kawthar", "Hikmat", "Dalia", "Fattoum", "Rehab",
+    "Nelly", "Dina", "Jannat", "Kholoud", "Nazira", "Nariman", "Mira", "Elia", "Violet",
+    "Catherine", "Elaine", "Bahia", "Pauline", "Bushra", "Ala", "Aya", "Joyce", "Aisha", "Asma",
+    "Sally", "Grace", "Asmahan", "Julia", "Joanna", "Fayrouz", "Dima", "Kristel", "Suhaila",
+    "Sabine", "Juliet", "Dana", "Emily", "Olga", "Carmen", "Nina", "Bernadette", "Nahed", "Awatif",
+    "Nasim", "Pamela", "Ana", "Madeleine", "Dania", "Ikram", "Marian", "Claire", "Silva", "Deniz",
+    "Lydia", "Margret", "Lubna", "Duaa", "Sandy", "Vera", "Zina", "Lea", "Mariana", "Christina",
+    "Raja", "Yara", "Abla", "Laura", "Hilda", "Hajar", "Amira", "Anaya", "Fahima", "Lamis", "Ria",
     "Cynthia", "Rachel", "Asmaa", "Manar", "Claudine", "Marina", "Naima", "Rahma", "Wahiba",
     "Tamara", "Joan", "Dori", "Walaa", "Rosa", "Melia", "Ramona", "Georgina", "Saba", "Asia",
     "Janine", "Nahia", "Lana", "Elizabeth", "Amanda", "Khadra", "Claudia", "Bahija", "Anahid",
@@ -24366,7 +24369,7 @@ const std::vector<std::string> lebaneseFemalesFirstNames = { "Fatima", "Zainab",
     "Hawa", "Eliza", "Theresa", "Eliana", "Salima", "Monica", "Sima", "Nargis", "Brigitte",
     "Kamila", "Samiha", "Daniella", "Dolly" };
 
-const std::vector<std::string> lebaneseLastNames = { "El din", "Allah", "El khoury", "Khalil",
+const std::vector<std::string_view> lebaneseLastNames = { "El din", "Allah", "El khoury", "Khalil",
     "Saad", "El hajj", "Ali", "Ibrahim", "El masry", "Hassan", "Haidar", "Hamoud", "Saleh", "Ahmed",
     "Suleiman", "Mousa", "Younis", "Yousef", "Karam", "Eisaa", "Mansour", "Farhat", "Aboud",
     "Haddad", "Harb", "Deeb", "Hussein", "Ayoub", "Eid", "Saliba", "Hanna", "Shaheen", "Dahir",
@@ -24413,7 +24416,7 @@ const PeopleNames lebanesePeopleNames { { lebaneseMalesFirstNames, {}, lebaneseL
 
 // Lithuania
 
-const std::vector<std::string> lithuanianMalesFirstNames = {
+const std::vector<std::string_view> lithuanianMalesFirstNames = {
     "Jonas",
     "Vytautas",
     "Antanas",
@@ -24766,7 +24769,7 @@ const std::vector<std::string> lithuanianMalesFirstNames = {
     "Aleksandar",
 };
 
-const std::vector<std::string> lithuanianFemalesFirstNames = {
+const std::vector<std::string_view> lithuanianFemalesFirstNames = {
     "Ona",
     "Irena",
     "Janina",
@@ -25119,7 +25122,7 @@ const std::vector<std::string> lithuanianFemalesFirstNames = {
     "Natalya",
 };
 
-const std::vector<std::string> lithuanianLastNames = {
+const std::vector<std::string_view> lithuanianLastNames = {
     "Petrauskas",
     "Jankauskas",
     "Kazlauskas",
@@ -25480,7 +25483,7 @@ const PeopleNames lithuanianPeopleNames { { lithuanianMalesFirstNames, {}, lithu
 
 // Macedonia
 
-const std::vector<std::string> macedonianMalesFirstNames = {
+const std::vector<std::string_view> macedonianMalesFirstNames = {
     "Александар",
     "Алексо",
     "Ангел",
@@ -25766,7 +25769,7 @@ const std::vector<std::string> macedonianMalesFirstNames = {
     "Шишман",
 };
 
-const std::vector<std::string> macedonianFemalesFirstNames = {
+const std::vector<std::string_view> macedonianFemalesFirstNames = {
     "Ава",
     "Александра",
     "Ана",
@@ -26001,7 +26004,7 @@ const std::vector<std::string> macedonianFemalesFirstNames = {
     "Цветанка",
 };
 
-const std::vector<std::string> macedonianMalesLastNames = {
+const std::vector<std::string_view> macedonianMalesLastNames = {
     "Абаџиев",
     "Аврамов",
     "Аврамовски",
@@ -26497,7 +26500,7 @@ const std::vector<std::string> macedonianMalesLastNames = {
     "Шулинчевски",
 };
 
-const std::vector<std::string> macedonianFemalesLastNames = {
+const std::vector<std::string_view> macedonianFemalesLastNames = {
     "Абаџиева",
     "Абова",
     "Аврамова",
@@ -26995,9 +26998,9 @@ const std::vector<std::string> macedonianFemalesLastNames = {
     "Шулинчевска",
 };
 
-const std::vector<std::string> macedonianMalesPrefixes { "г-дин", "д-р", "м-р" };
+const std::vector<std::string_view> macedonianMalesPrefixes { "г-дин", "д-р", "м-р" };
 
-const std::vector<std::string> macedonianFemalesPrefixes { "г-ѓа", "г-ца", "д-р", "м-р" };
+const std::vector<std::string_view> macedonianFemalesPrefixes { "г-ѓа", "г-ца", "д-р", "м-р" };
 
 const NameFormats macedonianPersonNameFormats { { { "{firstName} {lastName}", 10 },
     { "{prefix} {firstName} {lastName}", 1 } } };
@@ -27009,7 +27012,7 @@ const PeopleNames macedonianPeopleNames { { macedonianMalesFirstNames, {}, maced
 
 // Maldives
 
-const std::vector<std::string> maldiviansMalesFirstNames = {
+const std::vector<std::string_view> maldiviansMalesFirstNames = {
     "އާދަމް",
     "އިބްރާހީމް",
     "އިލްޔާސް",
@@ -27026,13 +27029,13 @@ const std::vector<std::string> maldiviansMalesFirstNames = {
     "ޔޫސުފް",
 };
 
-const std::vector<std::string> maldiviansFemalesFirstNames = { "ރަމްލާ", "ހިންދު", "ޙަފްޞާ", "ޚަދީޖާ", "ޒައިނަބު",
-    "ޞަފިއްޔާ", "ޢާއިޝާ", "މައިމޫނާ", "ޖުވައިރިއްޔާ", "ސައުދާ", "މާރިޔާ", "ރުޤައްޔާ", "ފާޠިމާ", "އުއްމުކުލްޘޫމޮ", "ޙައްވާ", "ސާރާ", "ހާޖަރު",
-    "މަރްޔަމޮ", "ޒުލައިޚާ", "އާސިޔާ", "ބަލްޤީސް", "އާމިނަތު", "އަސްމާއު", "އުމާމާ", "ބަރްކާ", "ޖަމީލާ", "ޙަސްނާއު", "ޙަލީމާ", "ޚަވްލާ", "ޚައިރާ",
-    "ރުމައިޞާއު", "ރުފައިދާ", "ރަޤީޤާ", "ސަޢާދު", "ސަލްމާ", "ސުލައިމް", "ސުމައްޔާ", "ޝަހީދާ", "ޝިފާ", "ޢާތިކާ", "ޤައިލާ", "ލަޔާލީ", "ކުލްޘޫމް",
-    "މުސްލިމާ", "ނަސީބާ", "ނަފީސާ", "ނަވާރު", "ހާނީ", "ހުނައިދާ" };
+const std::vector<std::string_view> maldiviansFemalesFirstNames = { "ރަމްލާ", "ހިންދު", "ޙަފްޞާ", "ޚަދީޖާ",
+    "ޒައިނަބު", "ޞަފިއްޔާ", "ޢާއިޝާ", "މައިމޫނާ", "ޖުވައިރިއްޔާ", "ސައުދާ", "މާރިޔާ", "ރުޤައްޔާ", "ފާޠިމާ", "އުއްމުކުލްޘޫމޮ", "ޙައްވާ", "ސާރާ",
+    "ހާޖަރު", "މަރްޔަމޮ", "ޒުލައިޚާ", "އާސިޔާ", "ބަލްޤީސް", "އާމިނަތު", "އަސްމާއު", "އުމާމާ", "ބަރްކާ", "ޖަމީލާ", "ޙަސްނާއު", "ޙަލީމާ", "ޚަވްލާ",
+    "ޚައިރާ", "ރުމައިޞާއު", "ރުފައިދާ", "ރަޤީޤާ", "ސަޢާދު", "ސަލްމާ", "ސުލައިމް", "ސުމައްޔާ", "ޝަހީދާ", "ޝިފާ", "ޢާތިކާ", "ޤައިލާ", "ލަޔާލީ",
+    "ކުލްޘޫމް", "މުސްލިމާ", "ނަސީބާ", "ނަފީސާ", "ނަވާރު", "ހާނީ", "ހުނައިދާ" };
 
-const std::vector<std::string> maldiviansMalesLastNames = {
+const std::vector<std::string_view> maldiviansMalesLastNames = {
     "އަކްޙަލް",
     "އަޘްހަރު",
     "ބުރްހާން",
@@ -27147,7 +27150,7 @@ const std::vector<std::string> maldiviansMalesLastNames = {
     "ޔަގްޡާން",
 };
 
-const std::vector<std::string> maldiviansFemalesLastNames = {
+const std::vector<std::string_view> maldiviansFemalesLastNames = {
     "އިބާ",
     "އަޘްމާރު",
     "އަޘީލާ",
@@ -27398,9 +27401,9 @@ const std::vector<std::string> maldiviansFemalesLastNames = {
     "ޔަޝްމް",
 };
 
-const std::vector<std::string> maldiviansMalesPrefixes = { "އަމީރު", "އަމީރާ", "ބަނޑޭރި", "ބޮޑު" };
+const std::vector<std::string_view> maldiviansMalesPrefixes = { "އަމީރު", "އަމީރާ", "ބަނޑޭރި", "ބޮޑު" };
 
-const std::vector<std::string> maldiviansFemalesPrefixes = { "އަމީރު", "އަމީރާ", "ބަނޑޭރި", "ބޮޑު" };
+const std::vector<std::string_view> maldiviansFemalesPrefixes = { "އަމީރު", "އަމީރާ", "ބަނޑޭރި", "ބޮޑު" };
 
 const NameFormats maldiviansPersonNameFormats { { "{firstName} {lastName}", 1 } };
 
@@ -27411,7 +27414,7 @@ const PeopleNames maldiviansPeopleNames { { maldiviansMalesFirstNames, {}, maldi
 
 // Malta
 
-const std::vector<std::string> malteseMalesFirstNames = {
+const std::vector<std::string_view> malteseMalesFirstNames = {
     "Joseph",
     "John",
     "Mark",
@@ -27514,7 +27517,7 @@ const std::vector<std::string> malteseMalesFirstNames = {
     "Clive",
 };
 
-const std::vector<std::string> malteseFemalesFirstNames = {
+const std::vector<std::string_view> malteseFemalesFirstNames = {
     "Maria",
     "Anna",
     "Mary",
@@ -27617,7 +27620,7 @@ const std::vector<std::string> malteseFemalesFirstNames = {
     "Susan",
 };
 
-const std::vector<std::string> malteseLastNames = {
+const std::vector<std::string_view> malteseLastNames = {
     "Borg",
     "Vella",
     "Camilleri",
@@ -27727,7 +27730,7 @@ const PeopleNames maltesePeopleNames { { malteseMalesFirstNames, {}, malteseLast
 
 // Mexico
 
-const std::vector<std::string> mexicanMalesFirstNames = {
+const std::vector<std::string_view> mexicanMalesFirstNames = {
     "Aarón",
     "Abraham",
     "Adán",
@@ -27869,7 +27872,7 @@ const std::vector<std::string> mexicanMalesFirstNames = {
     "Victor Manuel",
 };
 
-const std::vector<std::string> mexicanFemalesFirstNames = {
+const std::vector<std::string_view> mexicanFemalesFirstNames = {
     "Abigail",
     "Abril",
     "Adela",
@@ -28033,7 +28036,7 @@ const std::vector<std::string> mexicanFemalesFirstNames = {
     "Zoe",
 };
 
-const std::vector<std::string> mexicanLastNames = {
+const std::vector<std::string_view> mexicanLastNames = {
     "Abeyta",
     "Abrego",
     "Abreu",
@@ -28723,7 +28726,7 @@ const std::vector<std::string> mexicanLastNames = {
     "Zúñiga",
 };
 
-const std::vector<std::string> mexicanSuffixes {
+const std::vector<std::string_view> mexicanSuffixes {
     "Jr.",
     "Sr.",
     "I",
@@ -28741,9 +28744,9 @@ const std::vector<std::string> mexicanSuffixes {
     "Mtro.",
 };
 
-const std::vector<std::string> mexicanMalesPrefixes { "Sr." };
+const std::vector<std::string_view> mexicanMalesPrefixes { "Sr." };
 
-const std::vector<std::string> mexicanFemalesPrefixes { "Sra.", "Sta." };
+const std::vector<std::string_view> mexicanFemalesPrefixes { "Sra.", "Sta." };
 
 const NameFormats mexicanPersonNameFormats { { { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 }, { "{firstName} {lastName} {suffix}", 1 } } };
@@ -28755,7 +28758,7 @@ const PeopleNames mexicanPeopleNames { { mexicanMalesFirstNames, {}, mexicanLast
 
 // Moldova
 
-const std::vector<std::string> moldovanMalesFirstNames = {
+const std::vector<std::string_view> moldovanMalesFirstNames = {
     "Ion",
     "Vasile",
     "Mihail",
@@ -29108,7 +29111,7 @@ const std::vector<std::string> moldovanMalesFirstNames = {
     "Akim",
 };
 
-const std::vector<std::string> moldovanFemalesFirstNames = {
+const std::vector<std::string_view> moldovanFemalesFirstNames = {
     "Maria",
     "Elena",
     "Valentina",
@@ -29461,7 +29464,7 @@ const std::vector<std::string> moldovanFemalesFirstNames = {
     "Simona",
 };
 
-const std::vector<std::string> moldovanLastNames = {
+const std::vector<std::string_view> moldovanLastNames = {
     "Rusu",
     "Ceban",
     "Ciobanu",
@@ -29821,7 +29824,7 @@ const PeopleNames moldovanPeopleNames { { moldovanMalesFirstNames, {}, moldovanL
 
 // Monaco
 
-const std::vector<std::string> monacanMalesFirstNames = {
+const std::vector<std::string_view> monacanMalesFirstNames = {
     "Philippe",
     "David",
     "Robert",
@@ -30025,7 +30028,7 @@ const std::vector<std::string> monacanMalesFirstNames = {
     "Sandro",
 };
 
-const std::vector<std::string> monacanFemalesFirstNames = {
+const std::vector<std::string_view> monacanFemalesFirstNames = {
     "Jean",
     "Andrea",
     "Maria",
@@ -30378,7 +30381,7 @@ const std::vector<std::string> monacanFemalesFirstNames = {
     "Lise",
 };
 
-const std::vector<std::string> monacanLastNames = {
+const std::vector<std::string_view> monacanLastNames = {
     "Rossi",
     "Lorenzi",
     "Pastor",
@@ -30714,23 +30717,23 @@ const PeopleNames monacanPeopleNames { { monacanMalesFirstNames, {}, monacanLast
 
 // Nepal
 
-const std::vector<std::string> nepaleseMalesFirstNames = { "Sijan", "Prabesh", "Niwang", "Nabin",
-    "Sanjok", "Bibek", "Sujal", "Sagar", "Mukunda", "Arun", "Nirdesh", "Rabin", "Ramesh", "Manoj",
-    "Bimal", "Anil", "Bipin", "Gopal", "Sunil", "Bikash", "Sujan", "Sudeep", "Nikhil", "Nishant",
-    "Kiran", "Pramod", "Saroj", "Rajesh", "Dilip", "Sandesh", "Krishna", "Hari", "Suresh", "Arjun",
-    "Bibash", "Rajiv", "Rajendra", "Bijay", "Aashish", "Raju", "Sabin", "Keshav", "Rabi", "Sanjeev",
-    "Puspa", "Saroj", "Khem", "Shiva", "Mohan", "Dinesh", "Rajendra", "Suman", "Ujjwal", "Bhuwan",
-    "Birendra", "Birat", "Lalit", "Bhola", "Pradip", "Nabin", "Suman", "Shankar", "Laxman",
-    "Sushant", "Roshan", "Buddha", "Kapil", "Rajbir", "Suraj", "Manish", "Ajay", "Dipak", "Anish",
-    "Sabin", "Prem", "Bijay", "Narayan", "Rajat", "Rishi", "Yogesh", "Rajendra", "Pawan", "Bhawesh",
-    "Pramod", "Pramod", "Saurav", "Hemant", "Subash", "Sparsha", "Sabin", "Manohar", "Anuj",
-    "Aryan", "Yogendra", "Nischal", "Samir", "Sanjay", "Bijay", "Rohit", "Rajat", "Biraj", "Kiran",
-    "Pravin", "Pramod" };
+const std::vector<std::string_view> nepaleseMalesFirstNames = { "Sijan", "Prabesh", "Niwang",
+    "Nabin", "Sanjok", "Bibek", "Sujal", "Sagar", "Mukunda", "Arun", "Nirdesh", "Rabin", "Ramesh",
+    "Manoj", "Bimal", "Anil", "Bipin", "Gopal", "Sunil", "Bikash", "Sujan", "Sudeep", "Nikhil",
+    "Nishant", "Kiran", "Pramod", "Saroj", "Rajesh", "Dilip", "Sandesh", "Krishna", "Hari",
+    "Suresh", "Arjun", "Bibash", "Rajiv", "Rajendra", "Bijay", "Aashish", "Raju", "Sabin", "Keshav",
+    "Rabi", "Sanjeev", "Puspa", "Saroj", "Khem", "Shiva", "Mohan", "Dinesh", "Rajendra", "Suman",
+    "Ujjwal", "Bhuwan", "Birendra", "Birat", "Lalit", "Bhola", "Pradip", "Nabin", "Suman",
+    "Shankar", "Laxman", "Sushant", "Roshan", "Buddha", "Kapil", "Rajbir", "Suraj", "Manish",
+    "Ajay", "Dipak", "Anish", "Sabin", "Prem", "Bijay", "Narayan", "Rajat", "Rishi", "Yogesh",
+    "Rajendra", "Pawan", "Bhawesh", "Pramod", "Pramod", "Saurav", "Hemant", "Subash", "Sparsha",
+    "Sabin", "Manohar", "Anuj", "Aryan", "Yogendra", "Nischal", "Samir", "Sanjay", "Bijay", "Rohit",
+    "Rajat", "Biraj", "Kiran", "Pravin", "Pramod" };
 
-const std::vector<std::string> nepaleseFemalesFirstNames = { "Sita", "Gita", "Shristi", "Anita",
-    "Priya", "Sabina", "Nisha", "Saraswati", "Asha", "Binita", "Deepa", "Kamala", "Laxmi", "Rina",
-    "Bishnu", "Meera", "Sushma", "Pooja", "Rajani", "Sunita", "Nirmala", "Rita", "Sumitra", "Usha",
-    "Manisha", "Rekha", "Sarita", "Kusum", "Puja", "Sanjana", "Smriti", "Pratima", "Sabita",
+const std::vector<std::string_view> nepaleseFemalesFirstNames = { "Sita", "Gita", "Shristi",
+    "Anita", "Priya", "Sabina", "Nisha", "Saraswati", "Asha", "Binita", "Deepa", "Kamala", "Laxmi",
+    "Rina", "Bishnu", "Meera", "Sushma", "Pooja", "Rajani", "Sunita", "Nirmala", "Rita", "Sumitra",
+    "Usha", "Manisha", "Rekha", "Sarita", "Kusum", "Puja", "Sanjana", "Smriti", "Pratima", "Sabita",
     "Kanchan", "Nandita", "Anjali", "Harsha", "Sangita", "Sushmita", "Suman", "Sweta", "Sadhana",
     "Anju", "Nabina", "Bhawana", "Srijana", "Nikita", "Aarati", "Anita", "Nitu", "Sima", "Sita",
     "Goma", "Sarala", "Sarika", "Sabita", "Madhavi", "Indira", "Ankita", "Bhumika", "Neha",
@@ -30740,14 +30743,14 @@ const std::vector<std::string> nepaleseFemalesFirstNames = { "Sita", "Gita", "Sh
     "Swastika", "Priyanka", "Sharmila", "Manju", "Sudha", "Laxmi", "Sunita", "Tulsi", "Usha",
     "Saraswati", "Rachana" };
 
-const std::vector<std::string> nepaleseLastNames = { "Adhikari", "Bhattarai", "Gurung", "Tamang",
-    "Magar", "Shrestha", "Rai", "Limbu", "Poudel", "Joshi", "Karki", "Shah", "Thapa", "Rana",
-    "Regmi", "Acharya", "Basnet", "Shrestha", "Lama", "Khadka", "Maharjan", "Panta", "Sherpa",
-    "Lohani", "Giri", "Gupta", "Mishra", "Chhetri", "Magar", "Parajuli", "Dhakal", "Malla",
-    "Gyawali", "Pariyar", "Thakuri", "Roka", "Sapkota", "Waiba", "Pariyar", "Chand", "Subedi",
-    "Ghimere", "Khatri", "Bista", "Bajracharya", "Dhungana", "Budhathoki", "Yadav", "Rokaya",
-    "Chaudhary", "Pathak", "Pandey", "Baniya", "Devkota", "Dangol", "Koirala", "Mishra", "Oli",
-    "Sherchan", "Rajbanshi", "Bhandari", "Niroula", "Nepal", "Nepali" };
+const std::vector<std::string_view> nepaleseLastNames = { "Adhikari", "Bhattarai", "Gurung",
+    "Tamang", "Magar", "Shrestha", "Rai", "Limbu", "Poudel", "Joshi", "Karki", "Shah", "Thapa",
+    "Rana", "Regmi", "Acharya", "Basnet", "Shrestha", "Lama", "Khadka", "Maharjan", "Panta",
+    "Sherpa", "Lohani", "Giri", "Gupta", "Mishra", "Chhetri", "Magar", "Parajuli", "Dhakal",
+    "Malla", "Gyawali", "Pariyar", "Thakuri", "Roka", "Sapkota", "Waiba", "Pariyar", "Chand",
+    "Subedi", "Ghimere", "Khatri", "Bista", "Bajracharya", "Dhungana", "Budhathoki", "Yadav",
+    "Rokaya", "Chaudhary", "Pathak", "Pandey", "Baniya", "Devkota", "Dangol", "Koirala", "Mishra",
+    "Oli", "Sherchan", "Rajbanshi", "Bhandari", "Niroula", "Nepal", "Nepali" };
 
 const NameFormats nepalesePersonNameFormats { { "{firstName} {lastName}", 1 } };
 
@@ -30756,21 +30759,21 @@ const PeopleNames nepalesePeopleNames { { nepaleseMalesFirstNames, {}, nepaleseL
 
 // Norway
 
-const std::vector<std::string> norwegianMalesFirstNames = { "Markus", "Mathias", "Kristian",
+const std::vector<std::string_view> norwegianMalesFirstNames = { "Markus", "Mathias", "Kristian",
     "Jonas", "Andreas", "Alexander", "Martin", "Sander", "Daniel", "Magnus", "Henrik", "Tobias",
     "Kristoffer", "Emil", "Adrian", "Sebastian", "Marius", "Elias", "Fredrik", "Thomas", "Sondre",
     "Benjamin", "Jakob", "Oliver", "Lucas", "Oskar", "Nikolai", "Filip", "Mats", "William", "Erik",
     "Simen", "Ole", "Eirik", "Isak", "Kasper", "Noah", "Lars", "Joakim", "Johannes", "Håkon",
     "Sindre", "Jørgen", "Herman", "Anders", "Jonathan", "Even", "Theodor", "Mikkel", "Aksel" };
 
-const std::vector<std::string> norwegianFemalesFirstNames = { "Emma", "Sara", "Thea", "Ida",
+const std::vector<std::string_view> norwegianFemalesFirstNames = { "Emma", "Sara", "Thea", "Ida",
     "Julie", "Nora", "Emilie", "Ingrid", "Hanna", "Maria", "Sofie", "Anna", "Malin", "Amalie",
     "Vilde", "Frida", "Andrea", "Tuva", "Victoria", "Mia", "Karoline", "Mathilde", "Martine",
     "Linnea", "Marte", "Hedda", "Marie", "Helene", "Silje", "Leah", "Maja", "Elise", "Oda",
     "Kristine", "Aurora", "Kaja", "Camilla", "Mari", "Maren", "Mina", "Selma", "Jenny", "Celine",
     "Eline", "Sunniva", "Natalie", "Tiril", "Synne", "Sandra", "Madeleine" };
 
-const std::vector<std::string> norwegianLastNames = { "Johansen", "Hansen", "Andersen",
+const std::vector<std::string_view> norwegianLastNames = { "Johansen", "Hansen", "Andersen",
     "Kristiansen", "Larsen", "Olsen", "Solberg", "Andresen", "Pedersen", "Nilsen", "Berg",
     "Halvorsen", "Karlsen", "Svendsen", "Jensen", "Haugen", "Martinsen", "Eriksen", "Sørensen",
     "Johnsen", "Myhrer", "Johannessen", "Nielsen", "Hagen", "Pettersen", "Bakke", "Skuterud",
@@ -30784,9 +30787,9 @@ const std::vector<std::string> norwegianLastNames = { "Johansen", "Hansen", "And
     "Lunde", "Kleven", "Huseby", "Bjørnstad", "Ryan", "Rasmussen", "Nygård", "Nordskaug", "Nordby",
     "Mathisen", "Hopland", "Gran", "Finstad", "Edvardsen" };
 
-const std::vector<std::string> norwegianSuffixes { "Jr.", "Sr.", "I", "II", "III", "IV", "V" };
+const std::vector<std::string_view> norwegianSuffixes { "Jr.", "Sr.", "I", "II", "III", "IV", "V" };
 
-const std::vector<std::string> norwegianPrefixes { "Dr.", "Prof." };
+const std::vector<std::string_view> norwegianPrefixes { "Dr.", "Prof." };
 
 const NameFormats norwegianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 }, { "{firstName} {lastName} {suffix}", 1 } } };
@@ -30798,7 +30801,7 @@ const PeopleNames norwegianPeopleNames { { norwegianMalesFirstNames, {}, norwegi
 
 // Palestine
 
-const std::vector<std::string> palestinianMalesFirstNames = {
+const std::vector<std::string_view> palestinianMalesFirstNames = {
     "Mohamed",
     "Ahmed",
     "Abdel",
@@ -31100,7 +31103,7 @@ const std::vector<std::string> palestinianMalesFirstNames = {
     "Talha",
 };
 
-const std::vector<std::string> palestinianFemalesFirstNames = {
+const std::vector<std::string_view> palestinianFemalesFirstNames = {
     "Fatima",
     "Mariam",
     "Iman",
@@ -31453,7 +31456,7 @@ const std::vector<std::string> palestinianFemalesFirstNames = {
     "Yana",
 };
 
-const std::vector<std::string> palestinianLastNames = {
+const std::vector<std::string_view> palestinianLastNames = {
     "Awad",
     "Al najjar",
     "El masry",
@@ -31770,7 +31773,7 @@ const PeopleNames palestinianPeopleNames {
 
 // Persian
 
-const std::vector<std::string> persianMalesFirstNames = { "آرمان", "بهروز", "کیان", "فریدون",
+const std::vector<std::string_view> persianMalesFirstNames = { "آرمان", "بهروز", "کیان", "فریدون",
     "سپهر", "میلاد", "آرشام", "پوریا", "بهراد", "سیاوش", "احسان", "شایان", "شهریار", "آرتین",
     "امیدوار", "پارسا", "کاوه", "پیام", "آرین", "مانی", "نیما", "فرهاد", "کسری", "کیوان", "رهام",
     "فرشاد", "آرمین", "فرزاد", "ساماندار", "امینوار", "امیرعلی", "رضوان", "حسینیان", "ناصر",
@@ -31778,7 +31781,7 @@ const std::vector<std::string> persianMalesFirstNames = { "آرمان", "بهر�
     "سجاد", "محمد", "یوسف", "محمدعلی", "حسین", "رحمان", "رضا", "کاظم", "مهران", "نادر", "مهدیار",
     "پرهام", "پیروز", "میثم", "احمد", "مصطفی" };
 
-const std::vector<std::string> persianFemalesFirstNames = { "آتنا", "پریسا", "نازنین", "شیرین",
+const std::vector<std::string_view> persianFemalesFirstNames = { "آتنا", "پریسا", "نازنین", "شیرین",
     "الناز", "سارا", "زهرا", "ریحانه", "بهار", "آیدا", "نیکا", "مهسا", "نگین", "یاسمن", "آرزو",
     "لاله", "روژین", "ترانه", "پرنیا", "مریم", "پگاه", "سلما", "ملیسا", "نسترن", "مینا", "پرشین",
     "مهتا", "لیلا", "مهرانگیز", "زینب", "آزیتا", "پرستو", "رها", "شهناز", "سوگند", "فرانکا",
@@ -31786,7 +31789,7 @@ const std::vector<std::string> persianFemalesFirstNames = { "آتنا", "پری�
     "ناهید", "آتوسا", "بهناز", "راحله", "شبنم", "فریبا", "نرگس", "رها", "سهیلا", "شیدا", "محیا",
     "زهره", "زیبا", "رقیه", "مهتاب", "الهه", "ریما", "مهدیس" };
 
-const std::vector<std::string> persianLastNames = { "خانی", "رحمانی", "احمدی", "زاده", "نژاد",
+const std::vector<std::string_view> persianLastNames = { "خانی", "رحمانی", "احمدی", "زاده", "نژاد",
     "صفری", "جعفری", "محمدی", "اکبری", "میرزایی", "فرهادی", "رستمی", "نوری", "جلالی", "حسینی",
     "رسولی", "موسوی", "یوسفی", "مقدم", "پورمحمد", "بهرامی", "قربانی", "فیاض", "فرجی", "بخشی",
     "بهشتی", "سلطانی", "قاسمی", "جوادی", "جهانگیری", "نصیری", "عبداللهی", "علیزاده", "مجد",
@@ -31800,9 +31803,9 @@ const std::vector<std::string> persianLastNames = { "خانی", "رحمانی", 
     "فرج‌اللهی", "زنجانی", "مهدی‌زاده", "فرجامی", "قنبرزاده", "رهنما",
     "خسروجاه", "تهرانی", "اسدی", "معتمدی", "حسینی‌نژاد", "نظری" };
 
-const std::vector<std::string> persianMalesPrefixes { "آقا", "دکتر", "استاد" };
+const std::vector<std::string_view> persianMalesPrefixes { "آقا", "دکتر", "استاد" };
 
-const std::vector<std::string> persianFemalesPrefixes { "خانم", "دکتر", "استاد" };
+const std::vector<std::string_view> persianFemalesPrefixes { "خانم", "دکتر", "استاد" };
 
 const NameFormats persianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
@@ -31815,7 +31818,7 @@ const PeopleNames persianPeopleNames { { persianMalesFirstNames, {}, persianLast
 
 // Poland
 
-const std::vector<std::string> polishMalesFirstNames = { "Aaron", "Abraham", "Adam", "Adrian",
+const std::vector<std::string_view> polishMalesFirstNames = { "Aaron", "Abraham", "Adam", "Adrian",
     "Atanazy", "Agaton", "Alan", "Albert", "Aleksander", "Aleksy", "Alfred", "Alwar", "Ambroży",
     "Anatol", "Andrzej", "Antoni", "Apollinary", "Apollo", "Arkady", "Arkadiusz", "Archibald",
     "Arystarch", "Arnold", "Arseniusz", "Artur", "August", "Baldwin", "Bazyli", "Benedykt",
@@ -31844,9 +31847,9 @@ const std::vector<std::string> polishMalesFirstNames = { "Aaron", "Abraham", "Ad
     "Władysław", "Błażej", "Walter", "Walgierz", "Wacław", "Wilfryd", "Wilhelm", "Ksawery",
     "Ksenofont", "Zachariasz", "Zachary" };
 
-const std::vector<std::string> polishFemalesFirstNames = { "Ada", "Adelajda", "Agata", "Agnieszka",
-    "Agrypina", "Aida", "Aleksandra", "Alicja", "Alina", "Amanda", "Anastazja", "Angela",
-    "Andżelika", "Angelina", "Anna", "Hanna", "Antonina", "Ariadna", "Aurora", "Barbara",
+const std::vector<std::string_view> polishFemalesFirstNames = { "Ada", "Adelajda", "Agata",
+    "Agnieszka", "Agrypina", "Aida", "Aleksandra", "Alicja", "Alina", "Amanda", "Anastazja",
+    "Angela", "Andżelika", "Angelina", "Anna", "Hanna", "Antonina", "Ariadna", "Aurora", "Barbara",
     "Beatrycze", "Berta", "Brygida", "Kamila", "Karolina", "Kornelia", "Katarzyna", "Cecylia",
     "Chloe", "Krystyna", "Klara", "Klaudia", "Klementyna", "Konstancja", "Koralia", "Daria",
     "Diana", "Dina", "Dorota", "Edyta", "Eleonora", "Eliza", "Elżbieta", "Izabela", "Elwira",
@@ -31865,7 +31868,7 @@ const std::vector<std::string> polishFemalesFirstNames = { "Ada", "Adelajda", "A
     "Waleria", "Wanesa", "Wiara", "Weronika", "Wiktoria", "Wirginia", "Bibiana", "Bibianna",
     "Wanda", "Wilhelmina", "Ksawera", "Ksenia", "Zoe" };
 
-const std::vector<std::string> polishLastNames = { "Adamczak", "Adamczyk", "Adamek", "Adamiak",
+const std::vector<std::string_view> polishLastNames = { "Adamczak", "Adamczyk", "Adamek", "Adamiak",
     "Adamiec", "Adamowicz", "Adamski", "Adamus", "Aleksandrowicz", "Andrzejczak", "Andrzejewski",
     "Antczak", "Augustyn", "Augustyniak", "Bagiński", "Balcerzak", "Banach", "Banasiak", "Banasik",
     "Banaś", "Baran", "Baranowski", "Barański", "Bartczak", "Bartkowiak", "Bartnik", "Bartosik",
@@ -31958,9 +31961,9 @@ const std::vector<std::string> polishLastNames = { "Adamczak", "Adamczyk", "Adam
     "Ślusarczyk", "Świderski", "Świerczyński", "Świątek", "Żak", "Żebrowski", "Żmuda", "Żuk",
     "Żukowski", "Żurawski", "Żurek", "Żyła" };
 
-const std::vector<std::string> polishMalesPrefixes { "Pan" };
+const std::vector<std::string_view> polishMalesPrefixes { "Pan" };
 
-const std::vector<std::string> polishFemalesPrefixes { "Pani" };
+const std::vector<std::string_view> polishFemalesPrefixes { "Pani" };
 
 const NameFormats polishPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
@@ -31972,7 +31975,7 @@ const PeopleNames polishPeopleNames { { polishMalesFirstNames, {}, polishLastNam
 
 // Portugal
 
-const std::vector<std::string> portugueseMalesFirstNames = { "Afonso", "Alexandre", "André",
+const std::vector<std::string_view> portugueseMalesFirstNames = { "Afonso", "Alexandre", "André",
     "Ângelo", "António", "Artur", "Benjamim", "Bernardo", "Bruno", "Carlos", "César", "Cristiano",
     "Daniel", "David", "Dinis", "Diogo", "Duarte", "Edgar", "Eduardo", "Elias", "Emanuel", "Fábio",
     "Feliciano", "Fernando", "Filipe", "Francisco", "Frederico", "Gabriel", "Gaspar", "Gil",
@@ -31984,7 +31987,7 @@ const std::vector<std::string> portugueseMalesFirstNames = { "Afonso", "Alexandr
     "Salvador", "Samuel", "Sandro", "Santiago", "Sebastião", "Sérgio", "Simão", "Tiago", "Tomás",
     "Tomé", "Valentim", "Valter", "Vasco", "Vicente", "Vítor", "Xavier" };
 
-const std::vector<std::string> portugueseFemalesFirstNames = { "Adriana", "Alexandra", "Alice",
+const std::vector<std::string_view> portugueseFemalesFirstNames = { "Adriana", "Alexandra", "Alice",
     "Amélia", "Ana", "Ariana", "Áurea", "Aurora", "Bárbara", "Beatriz", "Benedita", "Bruna",
     "Caetana", "Camila", "Carla", "Carlota", "Carminho", "Carmo", "Carolina", "Catarina", "Cecília",
     "Célia", "Clara", "Constança", "Daniela", "Débora", "Diana", "Eduarda", "Elisa", "Ema",
@@ -31996,22 +31999,22 @@ const std::vector<std::string> portugueseFemalesFirstNames = { "Adriana", "Alexa
     "Rafaela", "Raquel", "Rita", "Rosa", "Safira", "Sara", "Sílvia", "Sofia", "Soraia", "Tatiana",
     "Teresa", "Valentina", "Vânia", "Vera", "Vitória" };
 
-const std::vector<std::string> portugueseLastNames = { "Abreu", "Albuquerque", "Almeida", "Alves",
-    "Amaral", "Amorim", "Andrade", "Anjos", "Antunes", "Araújo", "Assunção", "Azevedo", "Baptista",
-    "Barbosa", "Barros", "Batista", "Borges", "Braga", "Branco", "Brito", "Campos", "Cardoso",
-    "Carneiro", "Carvalho", "Castro", "Coelho", "Correia", "Costa", "Cruz", "Cunha", "Domingues",
-    "Esteves", "Faria", "Fernandes", "Ferreira", "Figueiredo", "Fonseca", "Freitas", "Garcia",
-    "Gaspar", "Gomes", "Gonçalves", "Guerreiro", "Henriques", "Jesus", "Leal", "Leite", "Lima",
-    "Lopes", "Loureiro", "Lourenço", "Macedo", "Machado", "Magalhães", "Maia", "Marques", "Martins",
-    "Matias", "Matos", "Melo", "Mendes", "Miranda", "Monteiro", "Morais", "Moreira", "Mota",
-    "Moura", "Nascimento", "Neto", "Neves", "Nobre", "Nogueira", "Nunes", "Oliveira", "Pacheco",
-    "Paiva", "Pereira", "Pinheiro", "Pinho", "Pinto", "Pires", "Ramos", "Raposo", "Reis", "Ribeiro",
-    "Rocha", "Rodrigues", "Santos", "Saraiva", "Silva", "Simões", "Soares", "Sousa", "Sá",
-    "Tavares", "Teixeira", "Torres", "Valente", "Vaz", "Vicente", "Vieira" };
+const std::vector<std::string_view> portugueseLastNames = { "Abreu", "Albuquerque", "Almeida",
+    "Alves", "Amaral", "Amorim", "Andrade", "Anjos", "Antunes", "Araújo", "Assunção", "Azevedo",
+    "Baptista", "Barbosa", "Barros", "Batista", "Borges", "Braga", "Branco", "Brito", "Campos",
+    "Cardoso", "Carneiro", "Carvalho", "Castro", "Coelho", "Correia", "Costa", "Cruz", "Cunha",
+    "Domingues", "Esteves", "Faria", "Fernandes", "Ferreira", "Figueiredo", "Fonseca", "Freitas",
+    "Garcia", "Gaspar", "Gomes", "Gonçalves", "Guerreiro", "Henriques", "Jesus", "Leal", "Leite",
+    "Lima", "Lopes", "Loureiro", "Lourenço", "Macedo", "Machado", "Magalhães", "Maia", "Marques",
+    "Martins", "Matias", "Matos", "Melo", "Mendes", "Miranda", "Monteiro", "Morais", "Moreira",
+    "Mota", "Moura", "Nascimento", "Neto", "Neves", "Nobre", "Nogueira", "Nunes", "Oliveira",
+    "Pacheco", "Paiva", "Pereira", "Pinheiro", "Pinho", "Pinto", "Pires", "Ramos", "Raposo", "Reis",
+    "Ribeiro", "Rocha", "Rodrigues", "Santos", "Saraiva", "Silva", "Simões", "Soares", "Sousa",
+    "Sá", "Tavares", "Teixeira", "Torres", "Valente", "Vaz", "Vicente", "Vieira" };
 
-const std::vector<std::string> portugueseMalesPrefixes { "Sr.", "Dr.", "Prof.", "Eng." };
+const std::vector<std::string_view> portugueseMalesPrefixes { "Sr.", "Dr.", "Prof.", "Eng." };
 
-const std::vector<std::string> portugueseFemalesPrefixes { "Sra.", "Dra.", "Prof.", "Eng." };
+const std::vector<std::string_view> portugueseFemalesPrefixes { "Sra.", "Dra.", "Prof.", "Eng." };
 
 const NameFormats portuguesePersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
@@ -32023,7 +32026,7 @@ const PeopleNames portuguesePeopleNames { { portugueseMalesFirstNames, {}, portu
 
 // Romania
 
-const std::vector<std::string> romanianMalesFirstNames = {
+const std::vector<std::string_view> romanianMalesFirstNames = {
     "Ion",
     "Mihai",
     "Andrei",
@@ -32091,7 +32094,7 @@ const std::vector<std::string> romanianMalesFirstNames = {
     "Tiberiu",
 };
 
-const std::vector<std::string> romanianFemalesFirstNames = {
+const std::vector<std::string_view> romanianFemalesFirstNames = {
     "Maria",
     "Ioana",
     "Elena",
@@ -32157,7 +32160,7 @@ const std::vector<std::string> romanianFemalesFirstNames = {
     "Oana",
 };
 
-const std::vector<std::string> romanianLastNames = {
+const std::vector<std::string_view> romanianLastNames = {
     "Popescu",
     "Ionescu",
     "Popa",
@@ -32261,11 +32264,11 @@ const std::vector<std::string> romanianLastNames = {
     "Chiriac",
 };
 
-const std::vector<std::string> romanianSuffixes { "Jr.", "Sr." };
+const std::vector<std::string_view> romanianSuffixes { "Jr.", "Sr." };
 
-const std::vector<std::string> romanianMalesPrefixes { "Dl", "Dra" };
+const std::vector<std::string_view> romanianMalesPrefixes { "Dl", "Dra" };
 
-const std::vector<std::string> romanianFemalesPrefixes { "Dna", "Dra" };
+const std::vector<std::string_view> romanianFemalesPrefixes { "Dna", "Dra" };
 
 const NameFormats romanianPersonNameFormats { { { "{firstName} {lastName}", 49 },
     { "{lastName} {firstName}", 7 }, { "{prefix} {firstName} {lastName}", 7 },
@@ -32278,73 +32281,73 @@ const PeopleNames romanianPeopleNames { { romanianMalesFirstNames, {}, romanianL
 
 // Russia
 
-const std::vector<std::string> russianMalesFirstNames = { "Авдей", "Авксентий", "Агапит", "Агафон",
-    "Акакий", "Акиндин", "Александр", "Алексей", "Альберт", "Анатолий", "Андрей", "Аникий",
-    "Аникита", "Антон", "Антонин", "Анфим", "Аристарх", "Аркадий", "Арсений", "Артём", "Артемий",
-    "Артур", "Архипп", "Афанасий", "Богдан", "Борис", "Вавила", "Вадим", "Валентин", "Валерий",
-    "Валерьян", "Варлам", "Варсонофий", "Варфоломей", "Василий", "Венедикт", "Вениамин", "Викентий",
-    "Виктор", "Виссарион", "Виталий", "Владимир", "Владислав", "Владлен", "Влас", "Всеволод",
-    "Вячеслав", "Гавриил", "Галактион", "Геласий", "Геннадий", "Георгий", "Герасим", "Герман",
-    "Германн", "Глеб", "Гордей", "Григорий", "Данакт", "Даниил", "Демид", "Демьян", "Денис",
-    "Дмитрий", "Добрыня", "Донат", "Дорофей", "Евгений", "Евграф", "Евдоким", "Евсей", "Евстафий",
-    "Егор", "Емельян", "Еремей", "Ермолай", "Ерофей", "Ефим", "Ефрем", "Ждан", "Зиновий", "Иакинф",
-    "Иван", "Игнатий", "Игорь", "Изот", "Илья", "Иннокентий", "Ираклий", "Ириней", "Исаак",
-    "Исидор", "Иуда", "Иулиан", "Капитон", "Ким", "Кир", "Кирилл", "Климент", "Кондрат", "Конон",
-    "Константин", "Корнилий", "Кузьма", "Куприян", "Лаврентий", "Лев", "Леонид", "Леонтий",
-    "Логгин", "Лука", "Лукий", "Лукьян", "Магистриан", "Макар", "Максим", "Мамонт", "Марк",
-    "Мартын", "Матвей", "Мелентий", "Мина", "Мирослав", "Митрофан", "Михаил", "Мстислав", "Назар",
-    "Нестор", "Никандр", "Никанор", "Никита", "Никифор", "Никодим", "Николай", "Никон", "Олег",
-    "Онисим", "Онуфрий", "Павел", "Паисий", "Панкратий", "Пантелеймон", "Парфений", "Пафнутий",
-    "Пахомий", "Пётр", "Платон", "Поликарп", "Порфирий", "Потап", "Пров", "Прокопий", "Протасий",
-    "Прохор", "Разумник", "Родион", "Роман", "Ростислав", "Руслан", "Савва", "Савелий", "Самуил",
-    "Святополк", "Святослав", "Севастьян", "Семён", "Серафим", "Сергей", "Сила", "Сильвестр",
-    "Созон", "Софрон", "Спиридон", "Станислав", "Степан", "Тарас", "Тимофей", "Тимур", "Тит",
-    "Тихон", "Трифон", "Трофим", "Урбан", "Фаддей", "Фёдор", "Федосей", "Федот", "Феликс",
+const std::vector<std::string_view> russianMalesFirstNames = { "Авдей", "Авксентий", "Агапит",
+    "Агафон", "Акакий", "Акиндин", "Александр", "Алексей", "Альберт", "Анатолий", "Андрей",
+    "Аникий", "Аникита", "Антон", "Антонин", "Анфим", "Аристарх", "Аркадий", "Арсений", "Артём",
+    "Артемий", "Артур", "Архипп", "Афанасий", "Богдан", "Борис", "Вавила", "Вадим", "Валентин",
+    "Валерий", "Валерьян", "Варлам", "Варсонофий", "Варфоломей", "Василий", "Венедикт", "Вениамин",
+    "Викентий", "Виктор", "Виссарион", "Виталий", "Владимир", "Владислав", "Владлен", "Влас",
+    "Всеволод", "Вячеслав", "Гавриил", "Галактион", "Геласий", "Геннадий", "Георгий", "Герасим",
+    "Герман", "Германн", "Глеб", "Гордей", "Григорий", "Данакт", "Даниил", "Демид", "Демьян",
+    "Денис", "Дмитрий", "Добрыня", "Донат", "Дорофей", "Евгений", "Евграф", "Евдоким", "Евсей",
+    "Евстафий", "Егор", "Емельян", "Еремей", "Ермолай", "Ерофей", "Ефим", "Ефрем", "Ждан",
+    "Зиновий", "Иакинф", "Иван", "Игнатий", "Игорь", "Изот", "Илья", "Иннокентий", "Ираклий",
+    "Ириней", "Исаак", "Исидор", "Иуда", "Иулиан", "Капитон", "Ким", "Кир", "Кирилл", "Климент",
+    "Кондрат", "Конон", "Константин", "Корнилий", "Кузьма", "Куприян", "Лаврентий", "Лев", "Леонид",
+    "Леонтий", "Логгин", "Лука", "Лукий", "Лукьян", "Магистриан", "Макар", "Максим", "Мамонт",
+    "Марк", "Мартын", "Матвей", "Мелентий", "Мина", "Мирослав", "Митрофан", "Михаил", "Мстислав",
+    "Назар", "Нестор", "Никандр", "Никанор", "Никита", "Никифор", "Никодим", "Николай", "Никон",
+    "Олег", "Онисим", "Онуфрий", "Павел", "Паисий", "Панкратий", "Пантелеймон", "Парфений",
+    "Пафнутий", "Пахомий", "Пётр", "Платон", "Поликарп", "Порфирий", "Потап", "Пров", "Прокопий",
+    "Протасий", "Прохор", "Разумник", "Родион", "Роман", "Ростислав", "Руслан", "Савва", "Савелий",
+    "Самуил", "Святополк", "Святослав", "Севастьян", "Семён", "Серафим", "Сергей", "Сила",
+    "Сильвестр", "Созон", "Софрон", "Спиридон", "Станислав", "Степан", "Тарас", "Тимофей", "Тимур",
+    "Тит", "Тихон", "Трифон", "Трофим", "Урбан", "Фаддей", "Фёдор", "Федосей", "Федот", "Феликс",
     "Феоктист", "Филат", "Филимон", "Филипп", "Фирс", "Фока", "Фома", "Фотий", "Фрол", "Харитон",
     "Хрисанф", "Христофор" };
 
-const std::vector<std::string> russianFemalesFirstNames = { "Агафья", "Аглая", "Агния", "Агриппина",
-    "Аза", "Акулина", "Алевтина", "Александра", "Алина", "Алиса", "Алла", "Анастасия", "Ангелина",
-    "Анжела", "Анжелика", "Анна", "Антонина", "Анфиса", "Валентина", "Валерия", "Варвара",
-    "Василиса", "Вера", "Вероника", "Виктория", "Владимира", "Галина", "Глафира", "Гликерия",
-    "Дана", "Дарья", "Евгения", "Евдокия", "Евлалия", "Евлампия", "Евпраксия", "Евфросиния",
-    "Екатерина", "Елена", "Елизавета", "Епистима", "Ермиония", "Жанна", "Зинаида", "Злата", "Зоя",
-    "Инга", "Инесса", "Инна", "Иоанна", "Ираида", "Ирина", "Капитолина", "Карина", "Каролина",
-    "Кира", "Клавдия", "Ксения", "Лада", "Лариса", "Лидия", "Лилия", "Любовь", "Людмила",
-    "Маргарита", "Марина", "Мария", "Марфа", "Матрёна", "Милана", "Милица", "Мирослава", "Надежда",
-    "Наталья", "Нина", "Нонна", "Оксана", "Октябрина", "Олимпиада", "Ольга", "Павлина", "Пелагея",
-    "Пинна", "Полина", "Прасковья", "Рада", "Раиса", "Регина", "Римма", "Рогнеда", "Светлана",
-    "Серафима", "Снежана", "София", "Сусанна", "Таисия", "Тамара", "Татьяна", "Улита", "Ульяна",
-    "Урсула", "Фаина", "Феврония", "Фёкла", "Феодора", "Целестина", "Элеонора", "Юлия", "Яна",
-    "Ярослава" };
+const std::vector<std::string_view> russianFemalesFirstNames = { "Агафья", "Аглая", "Агния",
+    "Агриппина", "Аза", "Акулина", "Алевтина", "Александра", "Алина", "Алиса", "Алла", "Анастасия",
+    "Ангелина", "Анжела", "Анжелика", "Анна", "Антонина", "Анфиса", "Валентина", "Валерия",
+    "Варвара", "Василиса", "Вера", "Вероника", "Виктория", "Владимира", "Галина", "Глафира",
+    "Гликерия", "Дана", "Дарья", "Евгения", "Евдокия", "Евлалия", "Евлампия", "Евпраксия",
+    "Евфросиния", "Екатерина", "Елена", "Елизавета", "Епистима", "Ермиония", "Жанна", "Зинаида",
+    "Злата", "Зоя", "Инга", "Инесса", "Инна", "Иоанна", "Ираида", "Ирина", "Капитолина", "Карина",
+    "Каролина", "Кира", "Клавдия", "Ксения", "Лада", "Лариса", "Лидия", "Лилия", "Любовь",
+    "Людмила", "Маргарита", "Марина", "Мария", "Марфа", "Матрёна", "Милана", "Милица", "Мирослава",
+    "Надежда", "Наталья", "Нина", "Нонна", "Оксана", "Октябрина", "Олимпиада", "Ольга", "Павлина",
+    "Пелагея", "Пинна", "Полина", "Прасковья", "Рада", "Раиса", "Регина", "Римма", "Рогнеда",
+    "Светлана", "Серафима", "Снежана", "София", "Сусанна", "Таисия", "Тамара", "Татьяна", "Улита",
+    "Ульяна", "Урсула", "Фаина", "Феврония", "Фёкла", "Феодора", "Целестина", "Элеонора", "Юлия",
+    "Яна", "Ярослава" };
 
-const std::vector<std::string> russianMalesLastNames = { "Авдеев", "Агапов", "Агафонов", "Агеев",
-    "Акимов", "Аксёнов", "Александров", "Алексеев", "Алёхин", "Алешин", "Алёшин", "Ананьев",
-    "Андреев", "Андрианов", "Аникин", "Анисимов", "Анохин", "Антипов", "Антонов", "Артамонов",
-    "Артёмов", "Архипов", "Астафьев", "Астахов", "Афанасьев", "Бабушкин", "Баженов", "Балашов",
-    "Баранов", "Барсуков", "Басов", "Безруков", "Беликов", "Белкин", "Белов", "Белоусов", "Беляев",
-    "Беляков", "Березин", "Берия", "Беспалов", "Бессонов", "Бирюков", "Блинов", "Блохин", "Бобров",
-    "Богданов", "Богомолов", "Болдырев", "Большаков", "Бондарев", "Борисов", "Бородин", "Бочаров",
-    "Булатов", "Булгаков", "Буров", "Быков", "Бычков", "Вавилов", "Вагин", "Васильев", "Вдовин",
-    "Верещагин", "Вешняков", "Виноградов", "Винокуров", "Вишневский", "Владимиров", "Власов",
-    "Волков", "Волошин", "Воробьёв", "Воронин", "Воронков", "Воронов", "Воронцов", "Второв",
-    "Высоцкий", "Гаврилов", "Гайдуков", "Гакабов", "Галкин", "Герасимов", "Гладков", "Глебов",
-    "Глухов", "Глушков", "Гноев", "Голиков", "Голованов", "Головин", "Голубев", "Гончаров",
-    "Горбань", "Горбачав", "Горбачёв", "Горбунов", "Гордеев", "Горелов", "Горлов", "Горохов",
-    "Горшков", "Горюнов", "Горячев", "Грачёв", "Греков", "Грибков", "Грибов", "Григорьев", "Гришин",
-    "Громов", "Губанов", "Гуляев", "Гуров", "Гусев", "Гущин", "Давыдов", "Данилов", "Дашков",
-    "Дегтярев", "Дегтярёв", "Дементьев", "Демидов", "Дёмин", "Демьянов", "Денисов", "Дмитриев",
-    "Добрынин", "Долгов", "Дорофеев", "Дорохов", "Дроздов", "Дружинин", "Дубинин", "Дубов",
-    "Дубровин", "Дьяков", "Дьяконов", "Евдокимов", "Евсеев", "Егоров", "Ежов", "Елизаров",
-    "Елисеев", "Ельцин", "Емельянов", "Еремеев", "Ерёмин", "Ермаков", "Ермилов", "Ермолаев",
-    "Ермолов", "Еромлаев", "Ерофеев", "Ерохин", "Ершов", "Ефимов", "Ефремов", "Жаров", "Жданов",
-    "Жилин", "Жириновский", "Жуков", "Журавлёв", "Завьялов", "Заец", "Зайцев", "Захаров", "Зверев",
-    "Звягинцев", "Зеленин", "Зимин", "Зиновьев", "Злобин", "Золотарев", "Золотарёв", "Золотов",
-    "Зорин", "Зотов", "Зубков", "Зубов", "Зуев", "Зыков", "Зюганов", "Иванов", "Ивашов", "Игнатов",
-    "Игнатьев", "Измайлов", "Ильин", "Ильинский", "Ильюхин", "Исаев", "Исаков", "Казаков",
-    "Казанцев", "Калачев", "Калачёв", "Калашников", "Калинин", "Калмыков", "Калугин", "Капустин",
-    "Карасев", "Карасёв", "Карпов", "Карташов", "Касаткин", "Касьянов", "Киреев", "Кириллов",
-    "Киселёв", "Кислов", "Климов", "Клюев", "Князев", "Ковалёв", "Коваленко", "Коваль",
+const std::vector<std::string_view> russianMalesLastNames = { "Авдеев", "Агапов", "Агафонов",
+    "Агеев", "Акимов", "Аксёнов", "Александров", "Алексеев", "Алёхин", "Алешин", "Алёшин",
+    "Ананьев", "Андреев", "Андрианов", "Аникин", "Анисимов", "Анохин", "Антипов", "Антонов",
+    "Артамонов", "Артёмов", "Архипов", "Астафьев", "Астахов", "Афанасьев", "Бабушкин", "Баженов",
+    "Балашов", "Баранов", "Барсуков", "Басов", "Безруков", "Беликов", "Белкин", "Белов", "Белоусов",
+    "Беляев", "Беляков", "Березин", "Берия", "Беспалов", "Бессонов", "Бирюков", "Блинов", "Блохин",
+    "Бобров", "Богданов", "Богомолов", "Болдырев", "Большаков", "Бондарев", "Борисов", "Бородин",
+    "Бочаров", "Булатов", "Булгаков", "Буров", "Быков", "Бычков", "Вавилов", "Вагин", "Васильев",
+    "Вдовин", "Верещагин", "Вешняков", "Виноградов", "Винокуров", "Вишневский", "Владимиров",
+    "Власов", "Волков", "Волошин", "Воробьёв", "Воронин", "Воронков", "Воронов", "Воронцов",
+    "Второв", "Высоцкий", "Гаврилов", "Гайдуков", "Гакабов", "Галкин", "Герасимов", "Гладков",
+    "Глебов", "Глухов", "Глушков", "Гноев", "Голиков", "Голованов", "Головин", "Голубев",
+    "Гончаров", "Горбань", "Горбачав", "Горбачёв", "Горбунов", "Гордеев", "Горелов", "Горлов",
+    "Горохов", "Горшков", "Горюнов", "Горячев", "Грачёв", "Греков", "Грибков", "Грибов",
+    "Григорьев", "Гришин", "Громов", "Губанов", "Гуляев", "Гуров", "Гусев", "Гущин", "Давыдов",
+    "Данилов", "Дашков", "Дегтярев", "Дегтярёв", "Дементьев", "Демидов", "Дёмин", "Демьянов",
+    "Денисов", "Дмитриев", "Добрынин", "Долгов", "Дорофеев", "Дорохов", "Дроздов", "Дружинин",
+    "Дубинин", "Дубов", "Дубровин", "Дьяков", "Дьяконов", "Евдокимов", "Евсеев", "Егоров", "Ежов",
+    "Елизаров", "Елисеев", "Ельцин", "Емельянов", "Еремеев", "Ерёмин", "Ермаков", "Ермилов",
+    "Ермолаев", "Ермолов", "Еромлаев", "Ерофеев", "Ерохин", "Ершов", "Ефимов", "Ефремов", "Жаров",
+    "Жданов", "Жилин", "Жириновский", "Жуков", "Журавлёв", "Завьялов", "Заец", "Зайцев", "Захаров",
+    "Зверев", "Звягинцев", "Зеленин", "Зимин", "Зиновьев", "Злобин", "Золотарев", "Золотарёв",
+    "Золотов", "Зорин", "Зотов", "Зубков", "Зубов", "Зуев", "Зыков", "Зюганов", "Иванов", "Ивашов",
+    "Игнатов", "Игнатьев", "Измайлов", "Ильин", "Ильинский", "Ильюхин", "Исаев", "Исаков",
+    "Казаков", "Казанцев", "Калачев", "Калачёв", "Калашников", "Калинин", "Калмыков", "Калугин",
+    "Капустин", "Карасев", "Карасёв", "Карпов", "Карташов", "Касаткин", "Касьянов", "Киреев",
+    "Кириллов", "Киселёв", "Кислов", "Климов", "Клюев", "Князев", "Ковалёв", "Коваленко", "Коваль",
     "Кожевников", "Козин", "Козлов", "Козловский", "Козырев", "Колесников", "Колесов", "Колосов",
     "Колпаков", "Кольцов", "Комаров", "Комиссаров", "Кондратов", "Кондратьев", "Кондрашов",
     "Коновалов", "Кононов", "Константинов", "Копылов", "Корнев", "Корнеев", "Корнилов", "Коровин",
@@ -32389,7 +32392,7 @@ const std::vector<std::string> russianMalesLastNames = { "Авдеев", "Ага
     "Шестаков", "Шилов", "Широков", "Ширяев", "Шишкин", "Шмелёв", "Шубин", "Шувалов", "Шульгин",
     "Щеглов", "Щербаков", "Щукин", "Юдин", "Яковлев", "Яшин" };
 
-const std::vector<std::string> russianFemalesLastNames = { "Авдеева", "Агапова", "Агафонова",
+const std::vector<std::string_view> russianFemalesLastNames = { "Авдеева", "Агапова", "Агафонова",
     "Агеева", "Акимова", "Аксёнова", "Александрова", "Алексеева", "Алёхина", "Алешина", "Алёшина",
     "Ананьева", "Андреева", "Андрианова", "Аникина", "Анисимова", "Анохина", "Антипова", "Антонова",
     "Артамонова", "Артёмова", "Архипова", "Астафьева", "Астахова", "Афанасьева", "Бабушкина",
@@ -32465,10 +32468,10 @@ const std::vector<std::string> russianFemalesLastNames = { "Авдеева", "А
     "Шестакова", "Шилова", "Широкова", "Ширяева", "Шишкина", "Шмелёва", "Шубина", "Шувалова",
     "Шульгина", "Щеглова", "Щербакова", "Щукина", "Юдина", "Яковлева", "Яшина" };
 
-const std::vector<std::string> russianMalesMiddleNames = { "Ааронович", "Абрамович", "Августович",
-    "Авдеевич", "Аверьянович", "Адамович", "Адрианович", "Аксёнович", "Александрович", "Алексеевич",
-    "Анатольевич", "Андреевич", "Анисимович", "Антипович", "Антонович", "Ануфриевич", "Арсенович",
-    "Арсеньевич", "Артёмович", "Артемьевич", "Артурович", "Архипович", "Афанасьевич",
+const std::vector<std::string_view> russianMalesMiddleNames = { "Ааронович", "Абрамович",
+    "Августович", "Авдеевич", "Аверьянович", "Адамович", "Адрианович", "Аксёнович", "Александрович",
+    "Алексеевич", "Анатольевич", "Андреевич", "Анисимович", "Антипович", "Антонович", "Ануфриевич",
+    "Арсенович", "Арсеньевич", "Артёмович", "Артемьевич", "Артурович", "Архипович", "Афанасьевич",
     "Бенедиктович", "Богданович", "Бориславович", "Борисович", "Брониславович", "Валентинович",
     "Валерианович", "Валерьевич", "Валерьянович", "Васильевич", "Венедиктович", "Викентьевич",
     "Викторович", "Виленович", "Вилорович", "Витальевич", "Владиленович", "Владиславович",
@@ -32487,7 +32490,7 @@ const std::vector<std::string> russianMalesMiddleNames = { "Ааронович",
     "Харлампьевич", "Чеславович", "Эдгардович", "Эдгарович", "Эдуардович", "Юлианович", "Юльевич",
     "Яковлевич", "Якубович", "Ярославович" };
 
-const std::vector<std::string> russianFemalesMiddleNames = { "Александровна", "Андреевна",
+const std::vector<std::string_view> russianFemalesMiddleNames = { "Александровна", "Андреевна",
     "Архиповна", "Алексеевна", "Антоновна", "Аскольдовна", "Альбертовна", "Аркадьевна",
     "Афанасьевна", "Анатольевна", "Артемовна", "Богдановна", "Болеславовна", "Борисовна",
     "Вадимовна", "Васильевна", "Владимировна", "Валентиновна", "Вениаминовна", "Владиславовна",
@@ -32512,7 +32515,7 @@ const PeopleNames russianPeopleNames { { russianMalesFirstNames, russianMalesMid
 
 // Serbia
 
-const std::vector<std::string> serbianMalesFirstNames = {
+const std::vector<std::string_view> serbianMalesFirstNames = {
     "Adam",
     "Aleksa",
     "Aleksandar",
@@ -32715,7 +32718,7 @@ const std::vector<std::string> serbianMalesFirstNames = {
     "Đurađ",
 };
 
-const std::vector<std::string> serbianFemalesFirstNames = {
+const std::vector<std::string_view> serbianFemalesFirstNames = {
     "Adrijana",
     "Aleksandra",
     "Ana",
@@ -32918,7 +32921,7 @@ const std::vector<std::string> serbianFemalesFirstNames = {
     "Željka",
 };
 
-const std::vector<std::string> serbianLastNames = {
+const std::vector<std::string_view> serbianLastNames = {
     "Abadžija",
     "Abadžić",
     "Abazović",
@@ -33927,30 +33930,31 @@ const PeopleNames serbianPeopleNames { { serbianMalesFirstNames, {}, serbianLast
 
 // Slovakia
 
-const std::vector<std::string> slovakMalesFirstNames = { "Drahoslav", "Severín", "Alexej", "Ernest",
-    "Rastislav", "Radovan", "Dobroslav", "Dalibor", "Vincent", "Miloš", "Timotej", "Gejza", "Bohuš",
-    "Alfonz", "Gašpar", "Emil", "Erik", "Blažej", "Zdenko", "Dezider", "Arpád", "Valentín",
-    "Pravoslav", "Jaromír", "Roman", "Matej", "Frederik", "Viktor", "Alexander", "Radomír", "Albín",
-    "Bohumil", "Kazimír", "Fridrich", "Radoslav", "Tomáš", "Alan", "Branislav", "Bruno", "Gregor",
-    "Vlastimil", "Boleslav", "Eduard", "Jozef", "Víťazoslav", "Blahoslav", "Beňadik", "Adrián",
-    "Gabriel", "Marián", "Emanuel", "Miroslav", "Benjamín", "Hugo", "Richard", "Izidor", "Zoltán",
-    "Albert", "Igor", "Július", "Aleš", "Fedor", "Rudolf", "Valér", "Marcel", "Ervín", "Slavomír",
-    "Vojtech", "Juraj", "Marek", "Jaroslav", "Žigmund", "Florián", "Roland", "Pankrác", "Servác",
-    "Bonifác", "Svetozár", "Bernard", "Júlia", "Urban", "Dušan", "Viliam", "Ferdinand", "Norbert",
-    "Róbert", "Medard", "Zlatko", "Anton", "Vasil", "Vít", "Adolf", "Vratislav", "Alfréd", "Alojz",
-    "Ján", "Tadeáš", "Ladislav", "Peter", "Pavol", "Miloslav", "Prokop", "Cyril", "Metod", "Patrik",
-    "Oliver", "Ivan", "Kamil", "Henrich", "Drahomír", "Bohuslav", "Iľja", "Daniel", "Vladimír",
-    "Jakub", "Krištof", "Ignác", "Gustáv", "Jerguš", "Dominik", "Oskar", "Vavrinec", "Ľubomír",
-    "Mojmír", "Leonard", "Tichomír", "Filip", "Bartolomej", "Ľudovít", "Samuel", "Augustín", "Belo",
-    "Oleg", "Bystrík", "Ctibor", "Ľudomil", "Konštantín", "Ľuboslav", "Matúš", "Móric", "Ľuboš",
-    "Ľubor", "Vladislav", "Cyprián", "Václav", "Michal", "Jarolím", "Arnold", "Levoslav",
-    "František", "Dionýz", "Maximilián", "Koloman", "Boris", "Lukáš", "Kristián", "Vendelín",
-    "Sergej", "Aurel", "Demeter", "Denis", "Hubert", "Karol", "Imrich", "René", "Bohumír", "Teodor",
-    "Tibor", "Maroš", "Martin", "Svätopluk", "Stanislav", "Leopold", "Eugen", "Félix", "Klement",
-    "Kornel", "Milan", "Vratko", "Ondrej", "Andrej", "Edmund", "Oldrich", "Oto", "Mikuláš",
-    "Ambróz", "Radúz", "Bohdan", "Adam", "Štefan", "Dávid", "Silvester" };
+const std::vector<std::string_view> slovakMalesFirstNames = { "Drahoslav", "Severín", "Alexej",
+    "Ernest", "Rastislav", "Radovan", "Dobroslav", "Dalibor", "Vincent", "Miloš", "Timotej",
+    "Gejza", "Bohuš", "Alfonz", "Gašpar", "Emil", "Erik", "Blažej", "Zdenko", "Dezider", "Arpád",
+    "Valentín", "Pravoslav", "Jaromír", "Roman", "Matej", "Frederik", "Viktor", "Alexander",
+    "Radomír", "Albín", "Bohumil", "Kazimír", "Fridrich", "Radoslav", "Tomáš", "Alan", "Branislav",
+    "Bruno", "Gregor", "Vlastimil", "Boleslav", "Eduard", "Jozef", "Víťazoslav", "Blahoslav",
+    "Beňadik", "Adrián", "Gabriel", "Marián", "Emanuel", "Miroslav", "Benjamín", "Hugo", "Richard",
+    "Izidor", "Zoltán", "Albert", "Igor", "Július", "Aleš", "Fedor", "Rudolf", "Valér", "Marcel",
+    "Ervín", "Slavomír", "Vojtech", "Juraj", "Marek", "Jaroslav", "Žigmund", "Florián", "Roland",
+    "Pankrác", "Servác", "Bonifác", "Svetozár", "Bernard", "Júlia", "Urban", "Dušan", "Viliam",
+    "Ferdinand", "Norbert", "Róbert", "Medard", "Zlatko", "Anton", "Vasil", "Vít", "Adolf",
+    "Vratislav", "Alfréd", "Alojz", "Ján", "Tadeáš", "Ladislav", "Peter", "Pavol", "Miloslav",
+    "Prokop", "Cyril", "Metod", "Patrik", "Oliver", "Ivan", "Kamil", "Henrich", "Drahomír",
+    "Bohuslav", "Iľja", "Daniel", "Vladimír", "Jakub", "Krištof", "Ignác", "Gustáv", "Jerguš",
+    "Dominik", "Oskar", "Vavrinec", "Ľubomír", "Mojmír", "Leonard", "Tichomír", "Filip",
+    "Bartolomej", "Ľudovít", "Samuel", "Augustín", "Belo", "Oleg", "Bystrík", "Ctibor", "Ľudomil",
+    "Konštantín", "Ľuboslav", "Matúš", "Móric", "Ľuboš", "Ľubor", "Vladislav", "Cyprián", "Václav",
+    "Michal", "Jarolím", "Arnold", "Levoslav", "František", "Dionýz", "Maximilián", "Koloman",
+    "Boris", "Lukáš", "Kristián", "Vendelín", "Sergej", "Aurel", "Demeter", "Denis", "Hubert",
+    "Karol", "Imrich", "René", "Bohumír", "Teodor", "Tibor", "Maroš", "Martin", "Svätopluk",
+    "Stanislav", "Leopold", "Eugen", "Félix", "Klement", "Kornel", "Milan", "Vratko", "Ondrej",
+    "Andrej", "Edmund", "Oldrich", "Oto", "Mikuláš", "Ambróz", "Radúz", "Bohdan", "Adam", "Štefan",
+    "Dávid", "Silvester" };
 
-const std::vector<std::string> slovakFemalesFirstNames = { "Alexandra", "Karina", "Daniela",
+const std::vector<std::string_view> slovakFemalesFirstNames = { "Alexandra", "Karina", "Daniela",
     "Andrea", "Antónia", "Bohuslava", "Dáša", "Malvína", "Kristína", "Nataša", "Bohdana",
     "Drahomíra", "Sára", "Zora", "Tamara", "Ema", "Tatiana", "Erika", "Veronika", "Agáta", "Dorota",
     "Vanda", "Zoja", "Gabriela", "Perla", "Ida", "Liana", "Miloslava", "Vlasta", "Lívia",
@@ -33975,37 +33979,37 @@ const std::vector<std::string> slovakFemalesFirstNames = { "Alexandra", "Karina"
     "Albína", "Kornélia", "Sláva", "Slávka", "Judita", "Dagmara", "Adela", "Nadežda", "Eva",
     "Filoména", "Ivana", "Milada" };
 
-const std::vector<std::string> slovakMalesLastNames = { "Antal", "Babka", "Bahna", "Bahno", "Baláž",
-    "Baran", "Baranka", "Bartovič", "Bartoš", "Bača", "Bernolák", "Beňo", "Bicek", "Bielik",
-    "Blaho", "Bondra", "Bosák", "Boška", "Brezina", "Bukovský", "Chalupka", "Chudík", "Cibula",
-    "Cibulka", "Cibuľa", "Cyprich", "Cíger", "Danko", "Daňko", "Daňo", "Debnár", "Dej", "Dekýš",
-    "Doležal", "Dočolomanský", "Droppa", "Dubovský", "Dudek", "Dula", "Dulla", "Dusík", "Dvonč",
-    "Dzurjanin", "Dávid", "Fabian", "Fabián", "Fajnor", "Farkašovský", "Fico", "Filc", "Filip",
-    "Finka", "Ftorek", "Gašpar", "Gašparovič", "Gocník", "Gregor", "Greguš", "Grznár", "Hablák",
-    "Habšuda", "Halda", "Haluška", "Halák", "Hanko", "Hanzal", "Haščák", "Heretik", "Hečko",
-    "Hlaváček", "Hlinka", "Holub", "Holuby", "Hossa", "Hoza", "Hraško", "Hric", "Hrmo", "Hrušovský",
-    "Huba", "Ihnačák", "Janeček", "Janoška", "Jantošovič", "Janík", "Janček", "Jedľovský", "Jendek",
-    "Jonata", "Jurina", "Jurkovič", "Jurík", "Jánošík", "Kafenda", "Kaliský", "Karul", "Keníž",
-    "Klapka", "Kmeť", "Kolesár", "Kollár", "Kolnik", "Kolník", "Kolár", "Korec", "Kostka",
-    "Kostrec", "Kováč", "Kováčik", "Koza", "Kočiš", "Krajíček", "Krajči", "Krajčo", "Krajčovič",
-    "Krajčír", "Králik", "Krúpa", "Kubík", "Kyseľ", "Kállay", "Labuda", "Lepšík", "Lipták",
-    "Lisický", "Lubina", "Lukáč", "Lupták", "Líška", "Madej", "Majeský", "Malachovský", "Malíšek",
-    "Mamojka", "Marcinko", "Marián", "Masaryk", "Maslo", "Matiaško", "Medveď", "Melcer", "Mečiar",
-    "Michalík", "Mihalik", "Mihál", "Mihálik", "Mikloško", "Mikulík", "Mikuš", "Mikúš", "Milota",
-    "Mináč", "Mišík", "Mojžiš", "Mokroš", "Mora", "Moravčík", "Mydlo", "Nemec", "Nitra", "Novák",
-    "Obšut", "Ondruš", "Otčenáš", "Pauko", "Pavlikovský", "Pavúk", "Pašek", "Paška", "Paško",
-    "Pelikán", "Petrovický", "Petruška", "Peško", "Plch", "Plekanec", "Podhradský", "Podkonický",
-    "Poliak", "Pupák", "Rak", "Repiský", "Romančík", "Rus", "Ružička", "Rybníček", "Rybár",
-    "Rybárik", "Samson", "Sedliak", "Senko", "Sklenka", "Skokan", "Skutecký", "Slašťan", "Sloboda",
-    "Slobodník", "Slota", "Slovák", "Smrek", "Stodola", "Straka", "Strnisko", "Svrbík", "Sámel",
-    "Sýkora", "Tatar", "Tatarka", "Tatár", "Tatárka", "Thomka", "Tomeček", "Tomka", "Tomko",
-    "Truben", "Turčok", "Uram", "Urblík", "Vajcík", "Vajda", "Valach", "Valachovič", "Valent",
-    "Valuška", "Vanek", "Vesel", "Vicen", "Višňovský", "Vlach", "Vojtek", "Vydarený", "Zajac",
-    "Zima", "Zimka", "Záborský", "Zúbrik", "Čapkovič", "Čaplovič", "Čarnogurský", "Čierny",
+const std::vector<std::string_view> slovakMalesLastNames = { "Antal", "Babka", "Bahna", "Bahno",
+    "Baláž", "Baran", "Baranka", "Bartovič", "Bartoš", "Bača", "Bernolák", "Beňo", "Bicek",
+    "Bielik", "Blaho", "Bondra", "Bosák", "Boška", "Brezina", "Bukovský", "Chalupka", "Chudík",
+    "Cibula", "Cibulka", "Cibuľa", "Cyprich", "Cíger", "Danko", "Daňko", "Daňo", "Debnár", "Dej",
+    "Dekýš", "Doležal", "Dočolomanský", "Droppa", "Dubovský", "Dudek", "Dula", "Dulla", "Dusík",
+    "Dvonč", "Dzurjanin", "Dávid", "Fabian", "Fabián", "Fajnor", "Farkašovský", "Fico", "Filc",
+    "Filip", "Finka", "Ftorek", "Gašpar", "Gašparovič", "Gocník", "Gregor", "Greguš", "Grznár",
+    "Hablák", "Habšuda", "Halda", "Haluška", "Halák", "Hanko", "Hanzal", "Haščák", "Heretik",
+    "Hečko", "Hlaváček", "Hlinka", "Holub", "Holuby", "Hossa", "Hoza", "Hraško", "Hric", "Hrmo",
+    "Hrušovský", "Huba", "Ihnačák", "Janeček", "Janoška", "Jantošovič", "Janík", "Janček",
+    "Jedľovský", "Jendek", "Jonata", "Jurina", "Jurkovič", "Jurík", "Jánošík", "Kafenda", "Kaliský",
+    "Karul", "Keníž", "Klapka", "Kmeť", "Kolesár", "Kollár", "Kolnik", "Kolník", "Kolár", "Korec",
+    "Kostka", "Kostrec", "Kováč", "Kováčik", "Koza", "Kočiš", "Krajíček", "Krajči", "Krajčo",
+    "Krajčovič", "Krajčír", "Králik", "Krúpa", "Kubík", "Kyseľ", "Kállay", "Labuda", "Lepšík",
+    "Lipták", "Lisický", "Lubina", "Lukáč", "Lupták", "Líška", "Madej", "Majeský", "Malachovský",
+    "Malíšek", "Mamojka", "Marcinko", "Marián", "Masaryk", "Maslo", "Matiaško", "Medveď", "Melcer",
+    "Mečiar", "Michalík", "Mihalik", "Mihál", "Mihálik", "Mikloško", "Mikulík", "Mikuš", "Mikúš",
+    "Milota", "Mináč", "Mišík", "Mojžiš", "Mokroš", "Mora", "Moravčík", "Mydlo", "Nemec", "Nitra",
+    "Novák", "Obšut", "Ondruš", "Otčenáš", "Pauko", "Pavlikovský", "Pavúk", "Pašek", "Paška",
+    "Paško", "Pelikán", "Petrovický", "Petruška", "Peško", "Plch", "Plekanec", "Podhradský",
+    "Podkonický", "Poliak", "Pupák", "Rak", "Repiský", "Romančík", "Rus", "Ružička", "Rybníček",
+    "Rybár", "Rybárik", "Samson", "Sedliak", "Senko", "Sklenka", "Skokan", "Skutecký", "Slašťan",
+    "Sloboda", "Slobodník", "Slota", "Slovák", "Smrek", "Stodola", "Straka", "Strnisko", "Svrbík",
+    "Sámel", "Sýkora", "Tatar", "Tatarka", "Tatár", "Tatárka", "Thomka", "Tomeček", "Tomka",
+    "Tomko", "Truben", "Turčok", "Uram", "Urblík", "Vajcík", "Vajda", "Valach", "Valachovič",
+    "Valent", "Valuška", "Vanek", "Vesel", "Vicen", "Višňovský", "Vlach", "Vojtek", "Vydarený",
+    "Zajac", "Zima", "Zimka", "Záborský", "Zúbrik", "Čapkovič", "Čaplovič", "Čarnogurský", "Čierny",
     "Čobrda", "Ďaďo", "Ďurica", "Ďuriš", "Šidlo", "Šimonovič", "Škriniar", "Škultéty", "Šmajda",
     "Šoltés", "Šoltýs", "Štefan", "Štefanka", "Šulc", "Šurka", "Švehla", "Šťastný" };
 
-const std::vector<std::string> slovakFemalesLastNames = { "Antalová", "Babková", "Bahnová",
+const std::vector<std::string_view> slovakFemalesLastNames = { "Antalová", "Babková", "Bahnová",
     "Balážová", "Baranová", "Baranková", "Bartovičová", "Bartošová", "Bačová", "Bernoláková",
     "Beňová", "Biceková", "Bieliková", "Blahová", "Bondrová", "Bosáková", "Bošková", "Brezinová",
     "Bukovská", "Chalupková", "Chudíková", "Cibulová", "Cibulková", "Cyprichová", "Cígerová",
@@ -34042,9 +34046,9 @@ const std::vector<std::string> slovakFemalesLastNames = { "Antalová", "Babková
     "Škultétyová", "Šmajdová", "Šoltésová", "Šoltýsová", "Štefanová", "Štefanková", "Šulcová",
     "Šurková", "Švehlová", "Šťastná" };
 
-const std::vector<std::string> slovakSuffixes { "Phd." };
+const std::vector<std::string_view> slovakSuffixes { "Phd." };
 
-const std::vector<std::string> slovakPrefixes { "Ing.", "Mgr.", "JUDr.", "MUDr." };
+const std::vector<std::string_view> slovakPrefixes { "Ing.", "Mgr.", "JUDr.", "MUDr." };
 
 const NameFormats slovakPersonNameFormats { { { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 }, { "{firstName} {lastName} {suffix}", 1 } } };
@@ -34056,7 +34060,7 @@ const PeopleNames slovakPeopleNames { { slovakMalesFirstNames, {}, slovakMalesLa
 
 // Slovenia
 
-const std::vector<std::string> slovenianMalesFirstNames {
+const std::vector<std::string_view> slovenianMalesFirstNames {
     "Franc",
     "Marko",
     "Ivan",
@@ -34409,7 +34413,7 @@ const std::vector<std::string> slovenianMalesFirstNames {
     "Engelbert",
 };
 
-const std::vector<std::string> slovenianFemalesFirstNames {
+const std::vector<std::string_view> slovenianFemalesFirstNames {
     "Marija",
     "Ana",
     "Maja",
@@ -34762,7 +34766,7 @@ const std::vector<std::string> slovenianFemalesFirstNames {
     "Arian",
 };
 
-const std::vector<std::string> slovenianLastNames {
+const std::vector<std::string_view> slovenianLastNames {
     "Novak",
     "Horvat",
     "Krajnc",
@@ -35123,7 +35127,7 @@ const PeopleNames slovenianPeopleNames { { slovenianMalesFirstNames, {}, sloveni
 
 // South Africa
 
-const std::vector<std::string> southAfricanMalesFirstNames {
+const std::vector<std::string_view> southAfricanMalesFirstNames {
     "Johan",
     "Robert",
     "Michael",
@@ -35239,7 +35243,7 @@ const std::vector<std::string> southAfricanMalesFirstNames {
     "Stephaans",
 };
 
-const std::vector<std::string> southAfricanFemalesFirstNames {
+const std::vector<std::string_view> southAfricanFemalesFirstNames {
     "Susan",
     "Monica",
     "Linda",
@@ -35349,7 +35353,7 @@ const std::vector<std::string> southAfricanFemalesFirstNames {
     "Kristie",
 };
 
-const std::vector<std::string> southAfricanLastNames {
+const std::vector<std::string_view> southAfricanLastNames {
     "van de Merwe",
     "Schoeman",
     "Barnard",
@@ -35523,7 +35527,7 @@ const PeopleNames southAfricanPeopleNames { { southAfricanMalesFirstNames, {},
 
 // Spain
 
-const std::vector<std::string> spanishMalesFirstNames = {
+const std::vector<std::string_view> spanishMalesFirstNames = {
     "Agapetus",
     "Aimon",
     "Ángel",
@@ -35639,7 +35643,7 @@ const std::vector<std::string> spanishMalesFirstNames = {
     "Zenon ",
 };
 
-const std::vector<std::string> spanishFemalesFirstNames = {
+const std::vector<std::string_view> spanishFemalesFirstNames = {
     "Adalia",
     "Aidia",
     "Alva",
@@ -35789,7 +35793,7 @@ const std::vector<std::string> spanishFemalesFirstNames = {
     "Zurine ",
 };
 
-const std::vector<std::string> spanishLastNames = { "Abeyta", "Abrego", "Abreu", "Acevedo",
+const std::vector<std::string_view> spanishLastNames = { "Abeyta", "Abrego", "Abreu", "Acevedo",
     "Acosta", "Acuña", "Adame", "Adorno", "Agosto", "Aguayo", "Aguilar", "Aguilera", "Aguirre",
     "Alanis", "Alaníz", "Alarcón", "Alba", "Alcalá", "Alcántar", "Alcaraz", "Alejandro", "Alemán",
     "Alfaro", "Alicea", "Almanza", "Almaráz", "Almonte", "Alonso", "Alonzo", "Altamirano", "Alva",
@@ -35863,9 +35867,9 @@ const std::vector<std::string> spanishLastNames = { "Abeyta", "Abrego", "Abreu",
     "Villaseñor", "Villegas", "Yáñez", "Ybarra", "Zambrano", "Zamora", "Zamudio", "Zapata",
     "Zaragoza", "Zarate", "Zavala", "Zayas", "Zelaya", "Zepeda", "Zúñiga" };
 
-const std::vector<std::string> spanishMalesPrefixes { "Sr." };
+const std::vector<std::string_view> spanishMalesPrefixes { "Sr." };
 
-const std::vector<std::string> spanishFemalesPrefixes { "Sra.", "Sta." };
+const std::vector<std::string_view> spanishFemalesPrefixes { "Sra.", "Sta." };
 
 const NameFormats spanishPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
@@ -35877,7 +35881,7 @@ const PeopleNames spanishPeopleNames { { spanishMalesFirstNames, {}, spanishLast
 
 // Sweden
 
-const std::vector<std::string> swedishMalesFirstNames = { "Lars", "Mikael", "Anders", "Johan",
+const std::vector<std::string_view> swedishMalesFirstNames = { "Lars", "Mikael", "Anders", "Johan",
     "Erik", "Per", "Peter", "Karl", "Thomas", "Jan", "Daniel", "Fredrik", "Andreas", "Hans",
     "Stefan", "Mohamed", "Mats", "Marcus", "Mattias", "Magnus", "Jonas", "Oskar", "Alexander",
     "Niklas", "Bengt", "Martin", "Bo", "Nils", "Viktor", "Patrik", "Björn", "David", "Leif",
@@ -35889,34 +35893,35 @@ const std::vector<std::string> swedishMalesFirstNames = { "Lars", "Mikael", "And
     "Gunnar", "Dennis", "Josef", "Johnny", "Olle", "Liam", "Leo", "Olof", "Pontus", "Åke", "Kurt",
     "Kevin", "Samuel", "Edvin", "Gabriel", "Torbjörn", "Arvid", "Felix" };
 
-const std::vector<std::string> swedishFemalesFirstNames = { "Anna", "Eva", "Maria", "Karin", "Sara",
-    "Kristina", "Lena", "Emma", "Kerstin", "Marie", "Malin", "Ingrid", "Jenny", "Hanna", "Linda",
-    "Annika", "Susanne", "Elin", "Monica", "Birgitta", "Sofia", "Johanna", "Inger", "Carina",
-    "Elisabeth", "Julia", "Ulla", "Katarina", "Linnéa", "Emelie", "Ida", "Helena", "Camilla", "Åsa",
-    "Anette", "Sandra", "Gunilla", "Anita", "Maja", "Marianne", "Margareta", "Amanda", "Anneli",
-    "Therese", "Ann", "Josefin", "Cecilia", "Jessica", "Helen", "Lisa", "Matilda", "Caroline",
-    "Alice", "Frida", "Ulrika", "Elsa", "Barbro", "Siv", "Rebecca", "Madeleine", "Klara", "Ebba",
-    "Sofie", "Isabelle", "Agneta", "Gun", "Wilma", "Lina", "Berit", "Pia", "Ella", "Ellen",
-    "Yvonne", "Louise", "Astrid", "Moa", "Olivia", "Nathalie", "Mona", "Agnes", "Emilia",
-    "Alexandra", "Alva", "Britt", "Erika", "Viktoria", "Ann-Christin", "Felicia", "Ann-Marie",
-    "Sonja", "Britt-Marie", "Pernilla", "Lovisa", "Charlotte", "Linn", "Gunnel", "Nina", "Mikaela",
-    "Karolina", "Lisbeth" };
+const std::vector<std::string_view> swedishFemalesFirstNames = { "Anna", "Eva", "Maria", "Karin",
+    "Sara", "Kristina", "Lena", "Emma", "Kerstin", "Marie", "Malin", "Ingrid", "Jenny", "Hanna",
+    "Linda", "Annika", "Susanne", "Elin", "Monica", "Birgitta", "Sofia", "Johanna", "Inger",
+    "Carina", "Elisabeth", "Julia", "Ulla", "Katarina", "Linnéa", "Emelie", "Ida", "Helena",
+    "Camilla", "Åsa", "Anette", "Sandra", "Gunilla", "Anita", "Maja", "Marianne", "Margareta",
+    "Amanda", "Anneli", "Therese", "Ann", "Josefin", "Cecilia", "Jessica", "Helen", "Lisa",
+    "Matilda", "Caroline", "Alice", "Frida", "Ulrika", "Elsa", "Barbro", "Siv", "Rebecca",
+    "Madeleine", "Klara", "Ebba", "Sofie", "Isabelle", "Agneta", "Gun", "Wilma", "Lina", "Berit",
+    "Pia", "Ella", "Ellen", "Yvonne", "Louise", "Astrid", "Moa", "Olivia", "Nathalie", "Mona",
+    "Agnes", "Emilia", "Alexandra", "Alva", "Britt", "Erika", "Viktoria", "Ann-Christin", "Felicia",
+    "Ann-Marie", "Sonja", "Britt-Marie", "Pernilla", "Lovisa", "Charlotte", "Linn", "Gunnel",
+    "Nina", "Mikaela", "Karolina", "Lisbeth" };
 
-const std::vector<std::string> swedishLastNames = { "Andersson", "Johansson", "Karlsson", "Nilsson",
-    "Eriksson", "Larsson", "Olsson", "Persson", "Svensson", "Gustafsson", "Pettersson", "Jonsson",
-    "Jansson", "Hansson", "Bengtsson", "Jönsson", "Lindberg", "Jakobsson", "Magnusson", "Olofsson",
-    "Lindström", "Lindqvist", "Lindgren", "Berg", "Axelsson", "Bergström", "Lundberg", "Lind",
-    "Lundgren", "Lundqvist", "Mattsson", "Berglund", "Fredriksson", "Sandberg", "Henriksson",
-    "Forsberg", "Sjöberg", "Ali", "Wallin", "Mohamed", "Engström", "Eklund", "Danielsson", "Lundin",
-    "Håkansson", "Björk", "Bergman", "Gunnarsson", "Holm", "Wikström", "Samuelsson", "Isaksson",
-    "Fransson", "Bergqvist", "Nyström", "Holmberg", "Arvidsson", "Löfgren", "Söderberg", "Nyberg",
-    "Blomqvist", "Claesson", "Nordström", "Ahmed", "Mårtensson", "Lundström", "Hassan", "Viklund",
-    "Björklund", "Eliasson", "Pålsson", "Berggren", "Sandström", "Lund", "Nordin", "Ström", "Åberg",
-    "Falk", "Ekström", "Hermansson", "Holmgren", "Hellström", "Dahlberg", "Hedlund", "Sundberg",
-    "Sjögren", "Ek", "Blom", "Abrahamsson", "Martinsson", "Öberg", "Andreasson", "Strömberg",
-    "Månsson", "Hansen", "Åkesson", "Dahl", "Lindholm", "Norberg", "Holmqvist" };
+const std::vector<std::string_view> swedishLastNames = { "Andersson", "Johansson", "Karlsson",
+    "Nilsson", "Eriksson", "Larsson", "Olsson", "Persson", "Svensson", "Gustafsson", "Pettersson",
+    "Jonsson", "Jansson", "Hansson", "Bengtsson", "Jönsson", "Lindberg", "Jakobsson", "Magnusson",
+    "Olofsson", "Lindström", "Lindqvist", "Lindgren", "Berg", "Axelsson", "Bergström", "Lundberg",
+    "Lind", "Lundgren", "Lundqvist", "Mattsson", "Berglund", "Fredriksson", "Sandberg",
+    "Henriksson", "Forsberg", "Sjöberg", "Ali", "Wallin", "Mohamed", "Engström", "Eklund",
+    "Danielsson", "Lundin", "Håkansson", "Björk", "Bergman", "Gunnarsson", "Holm", "Wikström",
+    "Samuelsson", "Isaksson", "Fransson", "Bergqvist", "Nyström", "Holmberg", "Arvidsson",
+    "Löfgren", "Söderberg", "Nyberg", "Blomqvist", "Claesson", "Nordström", "Ahmed", "Mårtensson",
+    "Lundström", "Hassan", "Viklund", "Björklund", "Eliasson", "Pålsson", "Berggren", "Sandström",
+    "Lund", "Nordin", "Ström", "Åberg", "Falk", "Ekström", "Hermansson", "Holmgren", "Hellström",
+    "Dahlberg", "Hedlund", "Sundberg", "Sjögren", "Ek", "Blom", "Abrahamsson", "Martinsson",
+    "Öberg", "Andreasson", "Strömberg", "Månsson", "Hansen", "Åkesson", "Dahl", "Lindholm",
+    "Norberg", "Holmqvist" };
 
-const std::vector<std::string> swedishPrefixes { "Dr.", "Prof.", "PhD." };
+const std::vector<std::string_view> swedishPrefixes { "Dr.", "Prof.", "PhD." };
 
 const NameFormats swedishPersonNameFormats { { { "{firstName} {lastName}", 10 },
     { "{prefix} {firstName} {lastName}", 1 } } };
@@ -35928,7 +35933,7 @@ const PeopleNames swedishPeopleNames { { swedishMalesFirstNames, {}, swedishLast
 
 // Switzerland
 
-const std::vector<std::string> swissMalesFirstNames = {
+const std::vector<std::string_view> swissMalesFirstNames = {
     "Alfons",
     "Alfred",
     "Alois",
@@ -36110,7 +36115,7 @@ const std::vector<std::string> swissMalesFirstNames = {
     "Yves",
 };
 
-const std::vector<std::string> swissFemalesFirstNames = {
+const std::vector<std::string_view> swissFemalesFirstNames = {
     "Alice",
     "Andrea",
     "Angela",
@@ -36251,7 +36256,7 @@ const std::vector<std::string> swissFemalesFirstNames = {
     "Yvonne",
 };
 
-const std::vector<std::string> swissLastNames = {
+const std::vector<std::string_view> swissLastNames = {
     "Ackermann",
     "Aebi",
     "Albrecht",
@@ -36463,9 +36468,9 @@ const std::vector<std::string> swissLastNames = {
     "Zürcher",
 };
 
-const std::vector<std::string> swissMalesPrefixes { "Herr", "Dr.", "Prof. Dr." };
+const std::vector<std::string_view> swissMalesPrefixes { "Herr", "Dr.", "Prof. Dr." };
 
-const std::vector<std::string> swissFemalesPrefixes { "Frau", "Dr.", "Prof. Dr." };
+const std::vector<std::string_view> swissFemalesPrefixes { "Frau", "Dr.", "Prof. Dr." };
 
 const NameFormats swissPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
@@ -36477,7 +36482,7 @@ const PeopleNames swissPeopleNames {
 
 // Syria
 
-const std::vector<std::string> syrianMalesFirstNames = { "Mohamed", "Ahmed", "Abdel", "Hassan",
+const std::vector<std::string_view> syrianMalesFirstNames = { "Mohamed", "Ahmed", "Abdel", "Hassan",
     "Ali", "Saleh", "Mahmoud", "Abou", "Ibrahim", "Hussein", "Khaled", "Fayez", "Sheikh", "Mostafa",
     "Abdo", "Anwar", "Hilal", "Yousef", "Ghazi", "Omar", "Hama", "Kamel", "Zuhair", "Khalil",
     "Suleiman", "Zaher", "Ismail", "Adnan", "Zain", "Yasser", "Ammar", "Farhan", "Nabil", "Raed",
@@ -36514,7 +36519,7 @@ const std::vector<std::string> syrianMalesFirstNames = { "Mohamed", "Ahmed", "Ab
     "Walid", "Antonius", "Nizam", "Aslan", "John", "Aday", "Faraz", "Rasheed", "Akash", "Ibo",
     "Wassim", "Muad", "Salih", "Mikael", "Husam" };
 
-const std::vector<std::string> syrianFemalesFirstNames = { "Nour", "Fatima", "Dara", "Mariam",
+const std::vector<std::string_view> syrianFemalesFirstNames = { "Nour", "Fatima", "Dara", "Mariam",
     "Darya", "Amara", "Mari", "Jihad", "Hikmat", "Sabah", "Hanan", "Nihad", "Khadija", "Rana",
     "Mona", "Zainab", "Alaa", "Heba", "Hala", "Rama", "Hoda", "Nasreen", "Wissam", "Sarah", "Manal",
     "Reda", "Rasha", "Iman", "Zahra", "Nada", "Jamila", "Wafa", "Najah", "Samira", "Aya", "Maysaa",
@@ -36551,45 +36556,46 @@ const std::vector<std::string> syrianFemalesFirstNames = { "Nour", "Fatima", "Da
     "Nirmin", "Zina", "Suzan", "May", "Majida", "Yana", "Mouna", "Jocelyn", "Moumna", "Eman",
     "Rabha", "Thania" };
 
-const std::vector<std::string> syrianLastNames = { "Khaled", "Mohamed", "Al numan", "Ahmed", "Ali",
-    "Hussein", "Hassan", "Ibrahim", "Mahmoud", "Samaan", "Alzuhur", "Saleh", "Alththania", "Allah",
-    "Mostafa", "Suleiman", "Yousef", "Aldaman", "Khalil", "Khalaf", "El din", "Ismail", "Eisaa",
-    "Hamoud", "Abdel", "Saeed", "Mousa", "Omar", "Jassim", "Sheikh", "Awad", "Deeb", "Al-karim",
-    "Azza", "Abdo", "Qasim", "Elkader", "Osman", "Abbas", "Badr", "Al-razzaq", "El hajj", "Khader",
-    "Abdullah", "Hamad", "El abd", "Yassin", "Al jassim", "Aboud", "Shamalieh", "Al aziz", "Haj",
-    "Ramadan", "Hamid", "Asaad", "El arab", "Obaid", "Jerash", "Khalif", "Nasser", "Salim", "Shams",
-    "Al hamoud", "Fares", "Rashid", "Khair", "Juma", "Hamdan", "Eid", "Salem", "Darwish", "Salloum",
-    "Adnan", "Younis", "Sobhy", "Mansour", "Jamil", "Habib", "Yujad", "Nayef", "Shehadeh", "Salman",
-    "El latif", "Amin", "Taha", "Mari", "Al ward", "Salama", "Hilal", "Alyousf", "Hamada",
-    "Al mousa", "Turki", "Duyub", "Jumah", "Khadour", "Diab", "Al awamid", "Haji", "Sharqia",
-    "Al omar", "Yahya", "Farhan", "Mohsen", "Shaaban", "Al khatib", "Hamed", "Fahd", "Hamidi",
-    "Masry", "Dawood", "Saad", "Bashir", "Kamel", "Al-majeed", "Al sheikh", "Matar", "El helou",
-    "Haddad", "El sharqeya", "Mahfoud", "El hadi", "Al ain", "El wahab", "Fayez", "Haidar", "Zidan",
-    "Hassoun", "Hamdou", "Hamza", "Al hamad", "Omran", "Tawfiq", "Khalifa", "Ayed", "Sah",
-    "Qasarneh", "Al fattah", "Al thina", "Daoud", "Islam", "Hammadi", "Fadel", "Sherif", "Al rahim",
-    "Shaheen", "Al haji", "Arab", "Barakat", "Hamo", "Ghanim", "Maarouf", "Idris", "El salam",
-    "Sameh", "Al humaidi", "Aladol", "Aziz", "Muslim", "Ragab", "Mukhlaf", "Attieh", "Fawaz",
-    "Al dahour", "Alawi", "Jamal", "Jan", "Artouz", "Adel", "El ghany", "Halab", "Refaat", "Oued",
-    "Fayad", "Waleed", "Kamal", "Assaf", "Al aboud", "Jiblah", "Al aliawi", "Aswad", "Zakaria",
-    "Mehrez", "Al mashrafah", "Saber", "Al-khader", "Faraj", "Nawaf", "Faisal", "Khalouf", "Sultan",
-    "Al othman", "Zuhair", "Aref", "Elias", "Mariam", "Mamdouh", "Bedour", "Radwan", "Hanna",
-    "Al-abdullah", "Ghazi", "Asas", "Sattouf", "Zaky", "El sayed", "Hamdy", "Alloush", "Adeeb",
-    "Al menem", "Al-zayt", "Raslan", "Odeh", "Asber", "Yabous", "Abyad", "Fawzi", "Al ismail",
-    "Allawi", "Mounir", "Jandal", "Abou", "Taher", "Nour", "Najm", "Al najjar", "Naguib", "Tayseer",
-    "Saqr", "Qabaliyah", "Muhanna", "Al-khalif", "Bakr", "Ezz", "Nasan", "Hashem", "Alakhas",
-    "Jaber", "Nouri", "Al-mansour", "Ayoub", "Al turkman", "Hassou", "El hamdou", "Nader",
-    "Shahoud", "Fouad", "Abdul rahman", "Hammad", "Taleb", "Alo", "Al jabbar", "Samir", "Qadour",
-    "Salah", "Al hilal", "Fendi", "Mihoub", "Reda", "Melhem", "Nawos", "Al tina", "Bakri",
-    "Al jalil", "Dahir", "Damascus", "Bouzan", "Fattoum", "Bakour", "Sue", "Bilal", "El hadid",
-    "Al jamaa", "Zaher", "Amoun", "Jadoua", "Marwan", "Jadaan", "Qubailah", "Gamalan", "Qalq",
-    "Daham", "Hajj", "Al dahir", "Kaeika", "Aqeel", "Tahta", "Karim", "Murad", "El shamaly",
-    "Kurdi", "Aklah", "Shawah", "Abdel rahman", "Nasr", "Rabie", "Rustom", "Barhoum", "Al hamada",
-    "Assi", "Al qasim", "El halaby", "Khoury", "Al-kurdi", "Hama", "Maala", "Saud", "Khatib",
-    "El fares", "Abdul karim", "Ela", "Sharqi", "Akram", "Farah", "Rahil", "Riad", "Al hayy",
-    "Al assaf", "Shehab", "Hatem", "Sakour", "Heloum", "Rateb", "Ghaleb", "Jneid", "Nazir", "Nemeh",
-    "Al-basset", "Badawi", "Halaboun", "Moheisen", "Hegazy", "Al sbaa", "Tamer", "Nazzal",
-    "Wassouf", "Al-hakim", "El said", "Khamis", "Kabir", "Habash", "Maahed", "Madameh", "Gerges",
-    "Oly", "Abdelkader", "Al awad", "Al safa", "Sayah", "Trama" };
+const std::vector<std::string_view> syrianLastNames = { "Khaled", "Mohamed", "Al numan", "Ahmed",
+    "Ali", "Hussein", "Hassan", "Ibrahim", "Mahmoud", "Samaan", "Alzuhur", "Saleh", "Alththania",
+    "Allah", "Mostafa", "Suleiman", "Yousef", "Aldaman", "Khalil", "Khalaf", "El din", "Ismail",
+    "Eisaa", "Hamoud", "Abdel", "Saeed", "Mousa", "Omar", "Jassim", "Sheikh", "Awad", "Deeb",
+    "Al-karim", "Azza", "Abdo", "Qasim", "Elkader", "Osman", "Abbas", "Badr", "Al-razzaq",
+    "El hajj", "Khader", "Abdullah", "Hamad", "El abd", "Yassin", "Al jassim", "Aboud", "Shamalieh",
+    "Al aziz", "Haj", "Ramadan", "Hamid", "Asaad", "El arab", "Obaid", "Jerash", "Khalif", "Nasser",
+    "Salim", "Shams", "Al hamoud", "Fares", "Rashid", "Khair", "Juma", "Hamdan", "Eid", "Salem",
+    "Darwish", "Salloum", "Adnan", "Younis", "Sobhy", "Mansour", "Jamil", "Habib", "Yujad", "Nayef",
+    "Shehadeh", "Salman", "El latif", "Amin", "Taha", "Mari", "Al ward", "Salama", "Hilal",
+    "Alyousf", "Hamada", "Al mousa", "Turki", "Duyub", "Jumah", "Khadour", "Diab", "Al awamid",
+    "Haji", "Sharqia", "Al omar", "Yahya", "Farhan", "Mohsen", "Shaaban", "Al khatib", "Hamed",
+    "Fahd", "Hamidi", "Masry", "Dawood", "Saad", "Bashir", "Kamel", "Al-majeed", "Al sheikh",
+    "Matar", "El helou", "Haddad", "El sharqeya", "Mahfoud", "El hadi", "Al ain", "El wahab",
+    "Fayez", "Haidar", "Zidan", "Hassoun", "Hamdou", "Hamza", "Al hamad", "Omran", "Tawfiq",
+    "Khalifa", "Ayed", "Sah", "Qasarneh", "Al fattah", "Al thina", "Daoud", "Islam", "Hammadi",
+    "Fadel", "Sherif", "Al rahim", "Shaheen", "Al haji", "Arab", "Barakat", "Hamo", "Ghanim",
+    "Maarouf", "Idris", "El salam", "Sameh", "Al humaidi", "Aladol", "Aziz", "Muslim", "Ragab",
+    "Mukhlaf", "Attieh", "Fawaz", "Al dahour", "Alawi", "Jamal", "Jan", "Artouz", "Adel",
+    "El ghany", "Halab", "Refaat", "Oued", "Fayad", "Waleed", "Kamal", "Assaf", "Al aboud",
+    "Jiblah", "Al aliawi", "Aswad", "Zakaria", "Mehrez", "Al mashrafah", "Saber", "Al-khader",
+    "Faraj", "Nawaf", "Faisal", "Khalouf", "Sultan", "Al othman", "Zuhair", "Aref", "Elias",
+    "Mariam", "Mamdouh", "Bedour", "Radwan", "Hanna", "Al-abdullah", "Ghazi", "Asas", "Sattouf",
+    "Zaky", "El sayed", "Hamdy", "Alloush", "Adeeb", "Al menem", "Al-zayt", "Raslan", "Odeh",
+    "Asber", "Yabous", "Abyad", "Fawzi", "Al ismail", "Allawi", "Mounir", "Jandal", "Abou", "Taher",
+    "Nour", "Najm", "Al najjar", "Naguib", "Tayseer", "Saqr", "Qabaliyah", "Muhanna", "Al-khalif",
+    "Bakr", "Ezz", "Nasan", "Hashem", "Alakhas", "Jaber", "Nouri", "Al-mansour", "Ayoub",
+    "Al turkman", "Hassou", "El hamdou", "Nader", "Shahoud", "Fouad", "Abdul rahman", "Hammad",
+    "Taleb", "Alo", "Al jabbar", "Samir", "Qadour", "Salah", "Al hilal", "Fendi", "Mihoub", "Reda",
+    "Melhem", "Nawos", "Al tina", "Bakri", "Al jalil", "Dahir", "Damascus", "Bouzan", "Fattoum",
+    "Bakour", "Sue", "Bilal", "El hadid", "Al jamaa", "Zaher", "Amoun", "Jadoua", "Marwan",
+    "Jadaan", "Qubailah", "Gamalan", "Qalq", "Daham", "Hajj", "Al dahir", "Kaeika", "Aqeel",
+    "Tahta", "Karim", "Murad", "El shamaly", "Kurdi", "Aklah", "Shawah", "Abdel rahman", "Nasr",
+    "Rabie", "Rustom", "Barhoum", "Al hamada", "Assi", "Al qasim", "El halaby", "Khoury",
+    "Al-kurdi", "Hama", "Maala", "Saud", "Khatib", "El fares", "Abdul karim", "Ela", "Sharqi",
+    "Akram", "Farah", "Rahil", "Riad", "Al hayy", "Al assaf", "Shehab", "Hatem", "Sakour", "Heloum",
+    "Rateb", "Ghaleb", "Jneid", "Nazir", "Nemeh", "Al-basset", "Badawi", "Halaboun", "Moheisen",
+    "Hegazy", "Al sbaa", "Tamer", "Nazzal", "Wassouf", "Al-hakim", "El said", "Khamis", "Kabir",
+    "Habash", "Maahed", "Madameh", "Gerges", "Oly", "Abdelkader", "Al awad", "Al safa", "Sayah",
+    "Trama" };
 
 const NameFormats syrianPersonNameFormats { { "{firstName} {lastName}", 1 } };
 
@@ -36598,28 +36604,28 @@ const PeopleNames syrianPeopleNames { { syrianMalesFirstNames, {}, syrianLastNam
 
 // Turkey
 
-const std::vector<std::string> turkishMalesFirstNames = { "Ahmet", "Mehmet", "Mustafa", "Ali",
+const std::vector<std::string_view> turkishMalesFirstNames = { "Ahmet", "Mehmet", "Mustafa", "Ali",
     "Emre", "Burak", "Can", "Cem", "Eren", "Onur", "Kaan", "Serkan", "Hakan", "Yusuf", "Okan",
     "Barış", "Tolga", "Kerem", "Deniz", "Oğuz", "Umut", "Gökhan", "İsmail", "Metin", "Orhan",
     "İlker", "Levent", "Selim", "Berk", "Uğur", "Murat", "Tarık", "Cihan", "Fatih", "Furkan",
     "Yiğit", "Tarkan", "Volkan", "Mert", "Alp", "Taylan", "Burhan", "Ege", "Koray" };
 
-const std::vector<std::string> turkishFemalesFirstNames = { "Ayşe", "Fatma", "Zeynep", "Emine",
+const std::vector<std::string_view> turkishFemalesFirstNames = { "Ayşe", "Fatma", "Zeynep", "Emine",
     "Merve", "Elif", "Melis", "Esra", "İrem", "Ebru", "Selma", "Leyla", "Selin", "Gamze", "Gizem",
     "Ceren", "Deniz", "Aslı", "Nazlı", "Pınar", "İlayda", "Dilara", "Büşra", "Rabia", "Yasemin",
     "Gül", "Nur", "Melek", "Sude", "Şeyma", "Beren", "Eylül", "İpek", "Hande", "Cansu", "Özge",
     "Hilal", "Bilge", "Serra", "İlknur", "Cemre", "Tuğba", "Yelda" };
 
-const std::vector<std::string> turkishLastNames = { "Yılmaz", "Demir", "Kaya", "Çelik", "Yıldız",
-    "Türk", "Güneş", "Ergin", "Arslan", "Doğan", "Kurt", "Şahin", "Güler", "Çetin", "Aydın",
-    "Yalçın", "Kaplan", "Aksoy", "Taş", "Koç", "Erdoğan", "Yılmazer", "Bulut", "Acar", "Uçar",
-    "Kılıç", "Karahan", "Tekin", "Soydan", "Çalışkan", "Öztürk", "Yalın", "Kara", "Özkan", "Akın",
-    "Aktaş", "Büyükcengiz", "Okan", "Şimşek", "Keskin", "Kayabaş", "Kayabaşı", "Atalay", "Ünal",
-    "Demirci", "Yaman", "Gündoğdu", "Çevik", "Durmaz", "Aslan", "Güzel", "Kahraman" };
+const std::vector<std::string_view> turkishLastNames = { "Yılmaz", "Demir", "Kaya", "Çelik",
+    "Yıldız", "Türk", "Güneş", "Ergin", "Arslan", "Doğan", "Kurt", "Şahin", "Güler", "Çetin",
+    "Aydın", "Yalçın", "Kaplan", "Aksoy", "Taş", "Koç", "Erdoğan", "Yılmazer", "Bulut", "Acar",
+    "Uçar", "Kılıç", "Karahan", "Tekin", "Soydan", "Çalışkan", "Öztürk", "Yalın", "Kara", "Özkan",
+    "Akın", "Aktaş", "Büyükcengiz", "Okan", "Şimşek", "Keskin", "Kayabaş", "Kayabaşı", "Atalay",
+    "Ünal", "Demirci", "Yaman", "Gündoğdu", "Çevik", "Durmaz", "Aslan", "Güzel", "Kahraman" };
 
-const std::vector<std::string> turkishMalesPrefixes { "Bay", "Dr.", "Prof. Dr." };
+const std::vector<std::string_view> turkishMalesPrefixes { "Bay", "Dr.", "Prof. Dr." };
 
-const std::vector<std::string> turkishFemalesPrefixes { "Bayan", "Dr.", "Prof. Dr." };
+const std::vector<std::string_view> turkishFemalesPrefixes { "Bayan", "Dr.", "Prof. Dr." };
 
 const NameFormats turkishPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 8 } } };
@@ -36631,10 +36637,10 @@ const PeopleNames turkishPeopleNames { { turkishMalesFirstNames, {}, turkishLast
 
 // Ukraine
 
-const std::vector<std::string> ukrainianMalesFirstNames = { "Августин", "Аврелій", "Адам", "Адріян",
-    "Азарій", "Алевтин", "Альберт", "Анастас", "Анастасій", "Анатолій", "Андрій", "Антін", "Антон",
-    "Антоній", "Аркадій", "Арсен", "Арсеній", "Артем", "Архип", "Аскольд", "Афанасій", "Біломир",
-    "Білослав", "Богдан", "Божемир", "Божен", "Болеслав", "Боримир", "Боримисл", "Борис",
+const std::vector<std::string_view> ukrainianMalesFirstNames = { "Августин", "Аврелій", "Адам",
+    "Адріян", "Азарій", "Алевтин", "Альберт", "Анастас", "Анастасій", "Анатолій", "Андрій", "Антін",
+    "Антон", "Антоній", "Аркадій", "Арсен", "Арсеній", "Артем", "Архип", "Аскольд", "Афанасій",
+    "Біломир", "Білослав", "Богдан", "Божемир", "Божен", "Болеслав", "Боримир", "Боримисл", "Борис",
     "Борислав", "Братимир", "Братислав", "Братомил", "Братослав", "Брячислав", "Будимир", "Буйтур",
     "Буревіст", "В’ячеслав", "Вадим", "Валентин", "Валерій", "Василь", "Велемир", "Віктор",
     "Віталій", "Влад", "Владислав", "Володимир", "Володислав", "Всевлад", "Всеволод", "Всеслав",
@@ -36656,7 +36662,7 @@ const std::vector<std::string> ukrainianMalesFirstNames = { "Августин", 
     "Щастислав", "Щек", "Юліан", "Юрій", "Юхим", "Ян", "Ярема", "Яровид", "Яромил", "Яромир",
     "Ярополк", "Ярослав" };
 
-const std::vector<std::string> ukrainianFemalesFirstNames = { "Аврелія", "Аврора", "Агапія",
+const std::vector<std::string_view> ukrainianFemalesFirstNames = { "Аврелія", "Аврора", "Агапія",
     "Агата", "Агафія", "Агнеса", "Агнія", "Агрипина", "Ада", "Аделаїда", "Аделіна", "Адріана",
     "Азалія", "Алевтина", "Аліна", "Алла", "Альбіна", "Альвіна", "Анастасія", "Анатолія",
     "Ангеліна", "Анжела", "Анна", "Антонида", "Антоніна", "Антонія", "Анфіса", "Аполлінарія",
@@ -36681,7 +36687,7 @@ const std::vector<std::string> ukrainianFemalesFirstNames = { "Аврелія", 
     "Феодосія", "Харитина", "Христина", "Христя", "Юліанна", "Юлія", "Юстина", "Юхима", "Юхимія",
     "Яна", "Ярина", "Ярослава" };
 
-const std::vector<std::string> ukrainianMalesLastNames = { "Андрухович", "Бабух", "Балабан",
+const std::vector<std::string_view> ukrainianMalesLastNames = { "Андрухович", "Бабух", "Балабан",
     "Балабух", "Балакун", "Балицький", "Бамбула", "Бандера", "Барановський", "Бачей", "Башук",
     "Бердник", "Білич", "Бондаренко", "Борецький", "Боровський", "Борочко", "Боярчук", "Брицький",
     "Бурмило", "Бутько", "Василин", "Василишин", "Васильківський", "Вергун", "Вередун", "Верещук",
@@ -36712,7 +36718,7 @@ const std::vector<std::string> ukrainianMalesLastNames = { "Андрухович
     "Шиян", "Шкараба", "Шудрик", "Шумило", "Шупик", "Шухевич", "Щербак", "Юрчишин", "Юхно", "Ющик",
     "Ющук", "Яворівський", "Яловий", "Ялюк", "Янюк", "Ярмак", "Яцишин", "Яцьків", "Ящук" };
 
-const std::vector<std::string> ukrainianFemalesLastNames = { "Андрухович", "Бабух", "Балабан",
+const std::vector<std::string_view> ukrainianFemalesLastNames = { "Андрухович", "Бабух", "Балабан",
     "Балабуха", "Балакун", "Балицька", "Бамбула", "Бандера", "Барановська", "Бачей", "Башук",
     "Бердник", "Білич", "Бондаренко", "Борецька", "Боровська", "Борочко", "Боярчук", "Брицька",
     "Бурмило", "Бутько", "Василишина", "Васильківська", "Вергун", "Вередун", "Верещук",
@@ -36742,14 +36748,14 @@ const std::vector<std::string> ukrainianFemalesLastNames = { "Андрухови
     "Шумило", "Шупик", "Шухевич", "Щербак", "Юрчишина", "Юхно", "Ющик", "Ющук", "Яворівська",
     "Ялова", "Ялюк", "Янюк", "Ярмак", "Яцишина", "Яцьків", "Ящук" };
 
-const std::vector<std::string> ukrainianMalesMiddleNames = { "Адамович", "Азарович", "Алевтинович",
-    "Альбертович", "Анастасович", "Анатолійович", "Андрійович", "Антонович", "Аркадійович",
-    "Арсенійович", "Арсенович", "Артемович", "Архипович", "Аскольдович", "Афанасійович",
-    "Білославович", "Богданович", "Божемирович", "Боженович", "Болеславович", "Боримирович",
-    "Борисович", "Бориславович", "Братиславович", "В’ячеславович", "Вадимович", "Валентинович",
-    "Валерійович", "Васильович", "Вікторович", "Віталійович", "Владиславович", "Володимирович",
-    "Всеволодович", "Всеславович", "Гаврилович", "Герасимович", "Георгійович", "Гнатович",
-    "Гордійович", "Григорійович", "Данилович", "Даромирович", "Денисович", "Дмитрович",
+const std::vector<std::string_view> ukrainianMalesMiddleNames = { "Адамович", "Азарович",
+    "Алевтинович", "Альбертович", "Анастасович", "Анатолійович", "Андрійович", "Антонович",
+    "Аркадійович", "Арсенійович", "Арсенович", "Артемович", "Архипович", "Аскольдович",
+    "Афанасійович", "Білославович", "Богданович", "Божемирович", "Боженович", "Болеславович",
+    "Боримирович", "Борисович", "Бориславович", "Братиславович", "В’ячеславович", "Вадимович",
+    "Валентинович", "Валерійович", "Васильович", "Вікторович", "Віталійович", "Владиславович",
+    "Володимирович", "Всеволодович", "Всеславович", "Гаврилович", "Герасимович", "Георгійович",
+    "Гнатович", "Гордійович", "Григорійович", "Данилович", "Даромирович", "Денисович", "Дмитрович",
     "Добромирович", "Доброславович", "Євгенович", "Захарович", "Захарійович", "Збориславович",
     "Звенимирович", "Звениславович", "Зеновійович", "Зиновійович", "Златомирович", "Зореславович",
     "Іванович", "Ігорович", "Ізяславович", "Корнелійович", "Корнилович", "Корнійович",
@@ -36763,7 +36769,7 @@ const std::vector<std::string> ukrainianMalesMiddleNames = { "Адамович",
     "Станіславович", "Степанович", "Стефанович", "Тарасович", "Тимофійович", "Тихонович",
     "Устимович", "Юрійович", "Юхимович", "Ярославович" };
 
-const std::vector<std::string> ukrainianFemalesMiddleNames = { "Адамівна", "Азарівна",
+const std::vector<std::string_view> ukrainianFemalesMiddleNames = { "Адамівна", "Азарівна",
     "Алевтинівна", "Альбертівна", "Анастасівна", "Анатоліївна", "Андріївна", "Антонівна",
     "Аркадіївна", "Арсенівна", "Арсеніївна", "Артемівна", "Архипівна", "Аскольдівна", "Афанасіївна",
     "Білославівна", "Богданівна", "Божемирівна", "Боженівна", "Болеславівна", "Боримирівна",
@@ -36784,9 +36790,9 @@ const std::vector<std::string> ukrainianFemalesMiddleNames = { "Адамівна
     "Станіславівна", "Степанівна", "Стефаніївна", "Тарасівна", "Тимофіївна", "Тихонівна",
     "Устимівна", "Юріївна", "Юхимівна", "Ярославівна" };
 
-const std::vector<std::string> ukrainianMalesPrefixes { "Пан" };
+const std::vector<std::string_view> ukrainianMalesPrefixes { "Пан" };
 
-const std::vector<std::string> ukrainianFemalesPrefixes { "Пані" };
+const std::vector<std::string_view> ukrainianFemalesPrefixes { "Пані" };
 
 const NameFormats ukrainianPersonNameFormats { {
     { "{firstName} {lastName}", 1 },
@@ -36814,7 +36820,7 @@ const PeopleNames usaPeopleNames { { englishMalesFirstNames, {}, englishLastName
 
 // Vietnam
 
-const std::vector<std::string> vietnameseMalesFirstNames = {
+const std::vector<std::string_view> vietnameseMalesFirstNames = {
     "An Cơ",
     "An Khang",
     "Ân Lai",
@@ -38041,7 +38047,7 @@ const std::vector<std::string> vietnameseMalesFirstNames = {
     "Yên Sơn",
 };
 
-const std::vector<std::string> vietnameseFemalesFirstNames = {
+const std::vector<std::string_view> vietnameseFemalesFirstNames = {
     "An Bình",
     "An Di",
     "An Hạ",
@@ -39344,7 +39350,7 @@ const std::vector<std::string> vietnameseFemalesFirstNames = {
     "Ngọc Trâm",
 };
 
-const std::vector<std::string> vietnameseLastNames = {
+const std::vector<std::string_view> vietnameseLastNames = {
     "Phạm",
     "Nguyễn",
     "Trần",

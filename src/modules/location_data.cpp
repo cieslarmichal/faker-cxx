@@ -837,8 +837,8 @@ const CountryAddresses australiaAddresses { australiaZipCodeFormat, australiaAdd
 
 // Brazil
 
-const std::vector<std::string_view> brazilCitySuffixes { "do Descoberto", "de Nossa Senhora", "do Norte",
-    "do Sul" };
+const std::vector<std::string_view> brazilCitySuffixes { "do Descoberto", "de Nossa Senhora",
+    "do Norte", "do Sul" };
 
 const std::vector<std::string_view> brazilStates = {
     "Acre",
@@ -884,8 +884,8 @@ const std::string_view brazilZipCodeFormat { "#####-###" };
 const std::vector<std::string_view> brazilAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string_view> brazilSecondaryAddressFormats { "Apto. ###", "Sobrado ##", "Casa #",
-    "Lote ##", "Quadra ##" };
+const std::vector<std::string_view> brazilSecondaryAddressFormats { "Apto. ###", "Sobrado ##",
+    "Casa #", "Lote ##", "Quadra ##" };
 
 const std::vector<std::string_view> brazilBuildingNumberFormats { "#####", "####", "###" };
 
@@ -9633,8 +9633,8 @@ const std::string_view finlandZipCodeFormat { "#####" };
 const std::vector<std::string_view> finlandAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string_view> finlandSecondaryAddressFormats { "A", "B", "C", "A #", "A ##", "B #",
-    "B ##", "C #", "C ##" };
+const std::vector<std::string_view> finlandSecondaryAddressFormats { "A", "B", "C", "A #", "A ##",
+    "B #", "B ##", "C #", "C ##" };
 
 const std::vector<std::string_view> finlandBuildingNumberFormats { "###", "##", "#" };
 
@@ -9844,21 +9844,21 @@ const std::vector<std::string_view> franceStates = {
     "Rhône-Alpes",
 };
 
-const std::vector<std::string_view> franceStreetPrefixes { "allée", "voie", "rue", "avenue", "boulevard",
-    "quai", "passage", "impasse", "place", "chemin", "lotissement" };
+const std::vector<std::string_view> franceStreetPrefixes { "allée", "voie", "rue", "avenue",
+    "boulevard", "quai", "passage", "impasse", "place", "chemin", "lotissement" };
 
-const std::vector<std::string_view> franceStreetSuffixes { "du Faubourg Saint-Honoré", "de Montmorency",
-    "de Solférino", "de la Pompe", "de Rivoli", "de Paris", "du Faubourg-Saint-Denis",
-    "de la Huchette", "Saint-Honoré", "Pastourelle", "Oberkampf", "d'Alésia",
-    "de la Chaussée-d'Antin", "de la Bûcherie", "de Richelieu", "Montorgueil", "Delesseux",
-    "Zadkine", "des Grands Augustins", "des Saussaies", "de Presbourg", "de la Harpe", "Bonaparte",
-    "d'Orsel", "des Francs-Bourgeois", "Saint-Séverin", "des Lombards", "Charlemagne", "La Boétie",
-    "Molière", "Monsieur-le-Prince", "Saint-Jacques", "de Caumartin", "de l'Abbaye", "de Seine",
-    "Joubert", "de la Ferronnerie", "Saint-Bernard", "d'Argenteuil", "de Tilsitt", "de Nesle",
-    "d'Assas", "du Chat-qui-Pêche", "des Panoramas", "Saint-Denis", "de la Paix", "Marcadet",
-    "Vaneau", "Saint-Dominique", "Adolphe Mille", "d'Abbeville", "de l'Odéon", "Laffitte", "Royale",
-    "de la Victoire", "de Vaugirard", "des Rosiers", "Mouffetard", "du Havre", "du Bac",
-    "Pierre Charron", "Du Sommerard", "de Provence", "du Dahomey", "Dauphine", "Lepic" };
+const std::vector<std::string_view> franceStreetSuffixes { "du Faubourg Saint-Honoré",
+    "de Montmorency", "de Solférino", "de la Pompe", "de Rivoli", "de Paris",
+    "du Faubourg-Saint-Denis", "de la Huchette", "Saint-Honoré", "Pastourelle", "Oberkampf",
+    "d'Alésia", "de la Chaussée-d'Antin", "de la Bûcherie", "de Richelieu", "Montorgueil",
+    "Delesseux", "Zadkine", "des Grands Augustins", "des Saussaies", "de Presbourg", "de la Harpe",
+    "Bonaparte", "d'Orsel", "des Francs-Bourgeois", "Saint-Séverin", "des Lombards", "Charlemagne",
+    "La Boétie", "Molière", "Monsieur-le-Prince", "Saint-Jacques", "de Caumartin", "de l'Abbaye",
+    "de Seine", "Joubert", "de la Ferronnerie", "Saint-Bernard", "d'Argenteuil", "de Tilsitt",
+    "de Nesle", "d'Assas", "du Chat-qui-Pêche", "des Panoramas", "Saint-Denis", "de la Paix",
+    "Marcadet", "Vaneau", "Saint-Dominique", "Adolphe Mille", "d'Abbeville", "de l'Odéon",
+    "Laffitte", "Royale", "de la Victoire", "de Vaugirard", "des Rosiers", "Mouffetard", "du Havre",
+    "du Bac", "Pierre Charron", "Du Sommerard", "de Provence", "du Dahomey", "Dauphine", "Lepic" };
 
 const std::string_view franceZipCodeFormat { "#####" };
 
@@ -11140,7 +11140,8 @@ const std::string_view germanyZipCodeFormat { "#####" };
 const std::vector<std::string_view> germanyAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string_view> germanySecondaryAddressFormats { "Apt. ###", "Zimmer ###", "# OG" };
+const std::vector<std::string_view> germanySecondaryAddressFormats { "Apt. ###", "Zimmer ###",
+    "# OG" };
 
 const std::vector<std::string_view> germanyBuildingNumberFormats { "###", "##", "#", "##a", "##b",
     "##c" };
@@ -14690,8 +14691,8 @@ const std::vector<std::string_view> polandStreetNames { "Stanisława Kunickiego"
     "Aleja Wojska Polskiego", "Witolda Lutosławskiego", "Teodora Toeplitza", "Skotnicka",
     "Adama Mickiewicz" };
 
-const std::vector<std::string_view> polandStreetPrefixes { "ulica", "aleja", "osiedle", "plac", "park",
-    "skwer" };
+const std::vector<std::string_view> polandStreetPrefixes { "ulica", "aleja", "osiedle", "plac",
+    "park", "skwer" };
 
 const std::string_view polandZipCodeFormat { "##-###" };
 
@@ -15814,8 +15815,8 @@ const CountryAddresses ukraineAddresses { ukraineZipCodeFormat, ukraineAddressFo
 
 // USA
 
-const std::vector<std::string_view> usaCities = { "Abilene", "Akron", "Alafaya", "Alameda", "Albany",
-    "Albuquerque", "Alexandria", "Alhambra", "Aliso Viejo", "Allen", "Allentown", "Aloha",
+const std::vector<std::string_view> usaCities = { "Abilene", "Akron", "Alafaya", "Alameda",
+    "Albany", "Albuquerque", "Alexandria", "Alhambra", "Aliso Viejo", "Allen", "Allentown", "Aloha",
     "Alpharetta", "Altadena", "Altamonte Springs", "Altoona", "Amarillo", "Ames", "Anaheim",
     "Anchorage", "Anderson", "Ankeny", "Ann Arbor", "Annandale", "Antelope", "Antioch", "Apex",
     "Apopka", "Apple Valley", "Appleton", "Arcadia", "Arden-Arcade", "Arecibo", "Arlington",
@@ -15998,23 +15999,23 @@ const std::vector<std::string_view> usaStates = { "Alabama", "Alaska", "Arizona"
     "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
     "West Virginia", "Wisconsin", "Wyoming" };
 
-const std::vector<std::string_view> usaStreetSuffixes = { "Alley", "Avenue", "Branch", "Bridge", "Brook",
-    "Brooks", "Burg", "Burgs", "Bypass", "Camp", "Canyon", "Cape", "Causeway", "Center", "Centers",
-    "Circle", "Circles", "Cliff", "Cliffs", "Club", "Common", "Corner", "Corners", "Course",
-    "Court", "Courts", "Cove", "Coves", "Creek", "Crescent", "Crest", "Crossing", "Crossroad",
-    "Curve", "Dale", "Dam", "Divide", "Drive", "Drives", "Estate", "Estates", "Expressway",
-    "Extension", "Extensions", "Fall", "Falls", "Ferry", "Field", "Fields", "Flat", "Flats", "Ford",
-    "Fords", "Forest", "Forge", "Forges", "Fork", "Forks", "Fort", "Freeway", "Garden", "Gardens",
-    "Gateway", "Glen", "Glens", "Green", "Greens", "Grove", "Groves", "Harbor", "Harbors", "Haven",
-    "Heights", "Highway", "Hill", "Hills", "Hollow", "Inlet", "Island", "Islands", "Isle",
-    "Junction", "Junctions", "Key", "Keys", "Knoll", "Knolls", "Lake", "Lakes", "Land", "Landing",
-    "Lane", "Light", "Lights", "Loaf", "Lock", "Locks", "Lodge", "Loop", "Mall", "Manor", "Manors",
-    "Meadow", "Meadows", "Mews", "Mill", "Mills", "Mission", "Motorway", "Mount", "Mountain",
-    "Mountains", "Neck", "Orchard", "Oval", "Overpass", "Park", "Parks", "Parkway", "Parkways",
-    "Pass", "Passage", "Path", "Pike", "Pine", "Pines", "Place", "Plain", "Plains", "Plaza",
-    "Point", "Points", "Port", "Ports", "Prairie", "Radial", "Ramp", "Ranch", "Rapid", "Rapids",
-    "Rest", "Ridge", "Ridges", "River", "Road", "Roads", "Route", "Row", "Rue", "Run", "Shoal",
-    "Shoals", "Shore", "Shores", "Skyway", "Spring", "Springs", "Spur", "Spurs", "Square",
+const std::vector<std::string_view> usaStreetSuffixes = { "Alley", "Avenue", "Branch", "Bridge",
+    "Brook", "Brooks", "Burg", "Burgs", "Bypass", "Camp", "Canyon", "Cape", "Causeway", "Center",
+    "Centers", "Circle", "Circles", "Cliff", "Cliffs", "Club", "Common", "Corner", "Corners",
+    "Course", "Court", "Courts", "Cove", "Coves", "Creek", "Crescent", "Crest", "Crossing",
+    "Crossroad", "Curve", "Dale", "Dam", "Divide", "Drive", "Drives", "Estate", "Estates",
+    "Expressway", "Extension", "Extensions", "Fall", "Falls", "Ferry", "Field", "Fields", "Flat",
+    "Flats", "Ford", "Fords", "Forest", "Forge", "Forges", "Fork", "Forks", "Fort", "Freeway",
+    "Garden", "Gardens", "Gateway", "Glen", "Glens", "Green", "Greens", "Grove", "Groves", "Harbor",
+    "Harbors", "Haven", "Heights", "Highway", "Hill", "Hills", "Hollow", "Inlet", "Island",
+    "Islands", "Isle", "Junction", "Junctions", "Key", "Keys", "Knoll", "Knolls", "Lake", "Lakes",
+    "Land", "Landing", "Lane", "Light", "Lights", "Loaf", "Lock", "Locks", "Lodge", "Loop", "Mall",
+    "Manor", "Manors", "Meadow", "Meadows", "Mews", "Mill", "Mills", "Mission", "Motorway", "Mount",
+    "Mountain", "Mountains", "Neck", "Orchard", "Oval", "Overpass", "Park", "Parks", "Parkway",
+    "Parkways", "Pass", "Passage", "Path", "Pike", "Pine", "Pines", "Place", "Plain", "Plains",
+    "Plaza", "Point", "Points", "Port", "Ports", "Prairie", "Radial", "Ramp", "Ranch", "Rapid",
+    "Rapids", "Rest", "Ridge", "Ridges", "River", "Road", "Roads", "Route", "Row", "Rue", "Run",
+    "Shoal", "Shoals", "Shore", "Shores", "Skyway", "Spring", "Springs", "Spur", "Spurs", "Square",
     "Squares", "Station", "Stravenue", "Stream", "Street", "Streets", "Summit", "Terrace",
     "Throughway", "Trace", "Track", "Trafficway", "Trail", "Tunnel", "Turnpike", "Underpass",
     "Union", "Unions", "Valley", "Valleys", "Via", "Viaduct", "View", "Views", "Village",
