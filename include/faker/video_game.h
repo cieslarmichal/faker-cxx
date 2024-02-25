@@ -1,7 +1,7 @@
 #ifndef FAKER_VIDEO_GAME_H
 #define FAKER_VIDEO_GAME_H
 
-#include <string>
+#include <string_view>
 
 namespace faker::video_game {
 /**
@@ -13,7 +13,7 @@ namespace faker::video_game {
  * video_game::gameTitle() // "Rayman Arena"
  * @endcode
  */
-std::string gameTitle();
+std::string_view gameTitle();
 
 /**
  * @brief Returns a random video game genre.
@@ -24,7 +24,7 @@ std::string gameTitle();
  * video_game::genre() // "Platformer"
  * @endcode
  */
-std::string genre();
+std::string_view genre();
 
 /**
  * @brief Returns a random video game platform.
@@ -35,7 +35,7 @@ std::string genre();
  * video_game::platform() // "Playstation 5"
  * @endcode
  */
-std::string platform();
+std::string_view platform();
 
 /**
  * @brief Returns a random video game studio name.
@@ -46,7 +46,7 @@ std::string platform();
  * video_game::studioName() // "Activision Blizzard"
  * @endcode
  */
-std::string studioName();
+std::string_view studioName();
 }
 
 #endif

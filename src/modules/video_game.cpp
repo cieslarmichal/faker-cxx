@@ -3,11 +3,11 @@
 #include <faker/video_game.h>
 
 namespace faker::video_game {
-std::string gameTitle() { return Helper::arrayElement<std::string>(videoGameNames); }
+std::string_view gameTitle() { return Helper::arrayElement(data::videoGameNames); }
 
-std::string genre() { return Helper::arrayElement<std::string>(genres); }
+std::string_view genre() { return Helper::arrayElement(data::genres); }
 
-std::string platform() { return Helper::arrayElement<std::string>(platforms); }
+std::string_view platform() { return Helper::arrayElement(data::platforms); }
 
-std::string studioName() { return Helper::arrayElement<std::string>(studioNames); }
+std::string_view studioName() { return Helper::arrayElement(data::studioNames); }
 }

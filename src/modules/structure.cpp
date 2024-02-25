@@ -502,13 +502,13 @@ std::string moduleFunction(StructureToken token)
         return system::cron();
     // VideoGame module
     case StructureToken::VideoGameGameTitle:
-        return video_game::gameTitle();
+        return std::string(video_game::gameTitle());
     case StructureToken::VideoGameGenre:
-        return video_game::genre();
+        return std::string(video_game::genre());
     case StructureToken::VideoGamePlatform:
-        return video_game::platform();
+        return std::string(video_game::platform());
     case StructureToken::VideoGameStudioName:
-        return video_game::studioName();
+        return std::string(video_game::studioName());
     // Weather module
     case StructureToken::WeatherTemperatureMetric:
         return std::to_string(weather::temperature().metric);
