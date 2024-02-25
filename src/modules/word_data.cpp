@@ -1,6 +1,6 @@
 #include "word_data.h"
 
-namespace faker::words {
+namespace faker::word::data {
 const std::array<std::string_view, 1328> adjectives = { "abandoned", "able", "absolute", "adorable",
     "adventurous", "academic", "acceptable", "acclaimed", "accomplished", "accurate", "aching",
     "acidic", "acrobatic", "active", "actual", "adept", "admirable", "admired", "adolescent",

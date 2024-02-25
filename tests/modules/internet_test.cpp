@@ -81,13 +81,13 @@ public:
         const auto generatedNoun = domainWord.substr(foundAdjective->size() + 1);
 
         ASSERT_TRUE(
-            faker::testing::any_of(words::nouns, [generatedNoun](const std::string_view& noun) {
+            faker::testing::any_of(word::data::nouns, [generatedNoun](const std::string_view& noun) {
                 return StringHelper::compareNoCase(generatedNoun, noun);
             }));
     }
 
-    std::vector<std::string_view> sortedAdjectivesDescendingBySize { words::adjectives.begin(),
-        words::adjectives.end() };
+    std::vector<std::string_view> sortedAdjectivesDescendingBySize { word::data::adjectives.begin(),
+        word::data::adjectives.end() };
 };
 
 TEST_F(InternetTest, shouldGenerateUsername)

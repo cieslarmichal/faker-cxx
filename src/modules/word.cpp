@@ -3,41 +3,41 @@
 #include <faker/helper.h>
 #include <faker/word.h>
 
-namespace faker {
-std::string_view word::sample(std::optional<unsigned int> length)
+namespace faker::word {
+std::string_view sample(std::optional<unsigned int> length)
 {
     static std::vector<std::string_view> allWords;
     static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
 
     if (wordsByLength.empty()) {
-        allWords.reserve(words::adjectives.size() + words::adverbs.size()
-            + words::conjunctions.size() + words::interjections.size() + words::nouns.size()
-            + words::prepositions.size() + words::verbs.size());
-        for (const auto& word : words::adjectives) {
+        allWords.reserve(data::adjectives.size() + data::adverbs.size()
+            + data::conjunctions.size() + data::interjections.size() + data::nouns.size()
+            + data::prepositions.size() + data::verbs.size());
+        for (const auto& word : data::adjectives) {
             allWords.push_back(word);
             wordsByLength[word.size()].push_back(word);
         }
-        for (const auto& word : words::adverbs) {
+        for (const auto& word : data::adverbs) {
             allWords.push_back(word);
             wordsByLength[word.size()].push_back(word);
         }
-        for (const auto& word : words::conjunctions) {
+        for (const auto& word : data::conjunctions) {
             allWords.push_back(word);
             wordsByLength[word.size()].push_back(word);
         }
-        for (const auto& word : words::interjections) {
+        for (const auto& word : data::interjections) {
             allWords.push_back(word);
             wordsByLength[word.size()].push_back(word);
         }
-        for (const auto& word : words::nouns) {
+        for (const auto& word : data::nouns) {
             allWords.push_back(word);
             wordsByLength[word.size()].push_back(word);
         }
-        for (const auto& word : words::prepositions) {
+        for (const auto& word : data::prepositions) {
             allWords.push_back(word);
             wordsByLength[word.size()].push_back(word);
         }
-        for (const auto& word : words::verbs) {
+        for (const auto& word : data::verbs) {
             allWords.push_back(word);
             wordsByLength[word.size()].push_back(word);
         }
@@ -53,7 +53,7 @@ std::string_view word::sample(std::optional<unsigned int> length)
     return Helper::arrayElement(allWords);
 }
 
-std::string word::words(unsigned numberOfWords)
+std::string words(unsigned numberOfWords)
 {
     std::string result;
     for (unsigned i = 0; i < numberOfWords; i++) {
@@ -65,12 +65,12 @@ std::string word::words(unsigned numberOfWords)
     return result;
 }
 
-std::string_view word::adjective(std::optional<unsigned int> length)
+std::string_view adjective(std::optional<unsigned int> length)
 {
     static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
 
     if (wordsByLength.empty()) {
-        for (const auto& word : words::adjectives) {
+        for (const auto& word : data::adjectives) {
             wordsByLength[word.size()].push_back(word);
         }
     }
@@ -82,15 +82,15 @@ std::string_view word::adjective(std::optional<unsigned int> length)
         }
     }
 
-    return Helper::arrayElement(words::adjectives);
+    return Helper::arrayElement(data::adjectives);
 }
 
-std::string_view word::adverb(std::optional<unsigned int> length)
+std::string_view adverb(std::optional<unsigned int> length)
 {
     static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
 
     if (wordsByLength.empty()) {
-        for (const auto& word : words::adverbs) {
+        for (const auto& word : data::adverbs) {
             wordsByLength[word.size()].push_back(word);
         }
     }
@@ -102,15 +102,15 @@ std::string_view word::adverb(std::optional<unsigned int> length)
         }
     }
 
-    return Helper::arrayElement(words::adverbs);
+    return Helper::arrayElement(data::adverbs);
 }
 
-std::string_view word::conjunction(std::optional<unsigned int> length)
+std::string_view conjunction(std::optional<unsigned int> length)
 {
     static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
 
     if (wordsByLength.empty()) {
-        for (const auto& word : words::conjunctions) {
+        for (const auto& word : data::conjunctions) {
             wordsByLength[word.size()].push_back(word);
         }
     }
@@ -122,15 +122,15 @@ std::string_view word::conjunction(std::optional<unsigned int> length)
         }
     }
 
-    return Helper::arrayElement(words::conjunctions);
+    return Helper::arrayElement(data::conjunctions);
 }
 
-std::string_view word::interjection(std::optional<unsigned int> length)
+std::string_view interjection(std::optional<unsigned int> length)
 {
     static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
 
     if (wordsByLength.empty()) {
-        for (const auto& word : words::interjections) {
+        for (const auto& word : data::interjections) {
             wordsByLength[word.size()].push_back(word);
         }
     }
@@ -142,15 +142,15 @@ std::string_view word::interjection(std::optional<unsigned int> length)
         }
     }
 
-    return Helper::arrayElement(words::interjections);
+    return Helper::arrayElement(data::interjections);
 }
 
-std::string_view word::noun(std::optional<unsigned int> length)
+std::string_view noun(std::optional<unsigned int> length)
 {
     static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
 
     if (wordsByLength.empty()) {
-        for (const auto& word : words::nouns) {
+        for (const auto& word : data::nouns) {
             wordsByLength[word.size()].push_back(word);
         }
     }
@@ -162,15 +162,15 @@ std::string_view word::noun(std::optional<unsigned int> length)
         }
     }
 
-    return Helper::arrayElement(words::nouns);
+    return Helper::arrayElement(data::nouns);
 }
 
-std::string_view word::preposition(std::optional<unsigned int> length)
+std::string_view preposition(std::optional<unsigned int> length)
 {
     static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
 
     if (wordsByLength.empty()) {
-        for (const auto& word : words::prepositions) {
+        for (const auto& word : data::prepositions) {
             wordsByLength[word.size()].push_back(word);
         }
     }
@@ -182,15 +182,15 @@ std::string_view word::preposition(std::optional<unsigned int> length)
         }
     }
 
-    return Helper::arrayElement(words::prepositions);
+    return Helper::arrayElement(data::prepositions);
 }
 
-std::string_view word::verb(std::optional<unsigned int> length)
+std::string_view verb(std::optional<unsigned int> length)
 {
     static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
 
     if (wordsByLength.empty()) {
-        for (const auto& word : words::verbs) {
+        for (const auto& word : data::verbs) {
             wordsByLength[word.size()].push_back(word);
         }
     }
@@ -202,6 +202,6 @@ std::string_view word::verb(std::optional<unsigned int> length)
         }
     }
 
-    return Helper::arrayElement(words::verbs);
+    return Helper::arrayElement(data::verbs);
 }
 }

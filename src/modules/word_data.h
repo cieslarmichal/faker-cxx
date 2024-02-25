@@ -4,7 +4,7 @@
 #include <array>
 #include <string>
 
-namespace faker::words {
+namespace faker::word::data {
 extern const std::array<std::string_view, 1328> adjectives;
 extern const std::array<std::string_view, 325> adverbs;
 extern const std::array<std::string_view, 51> conjunctions;
