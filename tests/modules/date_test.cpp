@@ -238,26 +238,26 @@ TEST_F(DateTest, shouldGenerateWeekdayName)
 {
     const auto generatedWeekdayName = date::weekdayName();
 
-    ASSERT_TRUE(faker::testing::contains(weekdayNames, generatedWeekdayName));
+    FAKER_EXPECT_CONTAINS(weekdayNames, generatedWeekdayName);
 }
 
 TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
 {
     const auto generatedWeekdayAbbreviatedName = date::weekdayAbbreviatedName();
 
-    ASSERT_TRUE(faker::testing::contains(weekdayAbbreviatedNames, generatedWeekdayAbbreviatedName));
+    FAKER_EXPECT_CONTAINS(weekdayAbbreviatedNames, generatedWeekdayAbbreviatedName);
 }
 
 TEST_F(DateTest, shouldGenerateMonthName)
 {
     const auto generatedMonthName = date::monthName();
 
-    ASSERT_TRUE(faker::testing::contains(monthNames, generatedMonthName));
+    FAKER_EXPECT_CONTAINS(monthNames, generatedMonthName);
 }
 
 TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
 {
     const auto generatedMonthAbbreviatedName = date::monthAbbreviatedName();
 
-    ASSERT_TRUE(faker::testing::contains(monthAbbreviatedNames, generatedMonthAbbreviatedName));
+    FAKER_EXPECT_CONTAINS(monthAbbreviatedNames, generatedMonthAbbreviatedName);
 }

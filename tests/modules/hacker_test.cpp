@@ -15,35 +15,35 @@ TEST_F(HackerTest, shouldGenerateAbbreviation)
 {
     auto generatedAbbreviation = hacker::abbreviation();
 
-    ASSERT_TRUE(faker::testing::contains(abbreviations, generatedAbbreviation));
+    FAKER_EXPECT_CONTAINS(abbreviations, generatedAbbreviation);
 }
 
 TEST_F(HackerTest, shouldGenerateAdjective)
 {
     auto generatedAdjective = hacker::adjective();
 
-    ASSERT_TRUE(faker::testing::contains(adjectives, generatedAdjective));
+    FAKER_EXPECT_CONTAINS(adjectives, generatedAdjective);
 }
 
 TEST_F(HackerTest, shouldGenerateNoun)
 {
     auto generatedNoun = hacker::noun();
 
-    ASSERT_TRUE(faker::testing::contains(nouns, generatedNoun));
+    FAKER_EXPECT_CONTAINS(nouns, generatedNoun);
 }
 
 TEST_F(HackerTest, shouldGenerateVerb)
 {
     auto generatedVerb = hacker::verb();
 
-    ASSERT_TRUE(faker::testing::contains(verbs, generatedVerb));
+    FAKER_EXPECT_CONTAINS(verbs, generatedVerb);
 }
 
 TEST_F(HackerTest, shouldGenerateIngverb)
 {
     auto generatedIngverb = hacker::ingverb();
 
-    ASSERT_TRUE(faker::testing::contains(ingverbs, generatedIngverb));
+    FAKER_EXPECT_CONTAINS(ingverbs, generatedIngverb);
 }
 
 TEST_F(HackerTest, shouldGeneratePhrase)

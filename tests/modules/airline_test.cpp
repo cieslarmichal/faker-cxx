@@ -4,43 +4,37 @@
 #include <faker/string.h>
 #include <modules/airline_data.h>
 
-using namespace ::testing;
 using namespace faker;
 
-// TODO: add flight number tests
-class AirlineTest : public Test {
-public:
-};
-
-TEST_F(AirlineTest, shouldGenerateAircraftType)
+TEST(AirlineTest, shouldGenerateAircraftType)
 {
     auto generatedAircraftType = airline::aircraftType();
 
-    ASSERT_TRUE(faker::testing::contains(aircraftTypes, generatedAircraftType));
+    FAKER_EXPECT_CONTAINS(aircraftTypes, generatedAircraftType);
 }
 
-TEST_F(AirlineTest, shouldGenerateAirline)
+TEST(AirlineTest, shouldGenerateAirline)
 {
-    faker::AirlineStruct generatedAirline = airline::airline();
+    auto generatedAirline = airline::airline();
 
-    ASSERT_TRUE(faker::testing::contains(airlines, generatedAirline));
+    FAKER_EXPECT_CONTAINS(airlines, generatedAirline);
 }
 
-TEST_F(AirlineTest, shouldGenerateAirplane)
+TEST(AirlineTest, shouldGenerateAirplane)
 {
-    faker::Airplane generatedAirplane = airline::airplane();
+    auto generatedAirplane = airline::airplane();
 
-    ASSERT_TRUE(faker::testing::contains(airplanes, generatedAirplane));
+    FAKER_EXPECT_CONTAINS(airplanes, generatedAirplane);
 }
 
-TEST_F(AirlineTest, shouldGenerateAirport)
+TEST(AirlineTest, shouldGenerateAirport)
 {
-    faker::Airport generatedAirport = airline::airport();
+    auto generatedAirport = airline::airport();
 
-    ASSERT_TRUE(faker::testing::contains(airports, generatedAirport));
+    FAKER_EXPECT_CONTAINS(airports, generatedAirport);
 }
 
-// TEST_F(AirlineTest, shouldGenerateRecordLocator)
+// TEST(AirlineTest, shouldGenerateRecordLocator)
 // {
 //     std::string generatedRecordLocatorWithAlpha = airline::recordLocator(false);
 
@@ -55,7 +49,7 @@ TEST_F(AirlineTest, shouldGenerateAirport)
 //         generatedRecordLocatorWithNumerics, [](const char& c) { return std::isalnum(c); });
 // }
 
-// TEST_F(AirlineTest, shouldGenerateSeatNumberRegional)
+// TEST(AirlineTest, shouldGenerateSeatNumberRegional)
 // {
 //     std::string generatedSeatNumber = airline::seat(faker::AircraftType::Regional);
 
@@ -78,7 +72,7 @@ TEST_F(AirlineTest, shouldGenerateAirport)
 //         [generatedSeatNumber](char letter) { return generatedSeatNumber.back() == letter; });
 // }
 
-// TEST_F(AirlineTest, shouldGenerateSeatNumberNarrowbody)
+// TEST(AirlineTest, shouldGenerateSeatNumberNarrowbody)
 // {
 //     std::string generatedSeatNumber = airline::seat(faker::AircraftType::Narrowbody);
 
@@ -101,7 +95,7 @@ TEST_F(AirlineTest, shouldGenerateAirport)
 //         [generatedSeatNumber](char letter) { return generatedSeatNumber.back() == letter; });
 // }
 
-// TEST_F(AirlineTest, shouldGenerateSeatNumberWidebody)
+// TEST(AirlineTest, shouldGenerateSeatNumberWidebody)
 // {
 //     std::string generatedSeatNumber = airline::seat(faker::AircraftType::Widebody);
 
@@ -124,17 +118,16 @@ TEST_F(AirlineTest, shouldGenerateAirport)
 //         [generatedSeatNumber](char letter) { return generatedSeatNumber.back() == letter; });
 // }
 
-TEST_F(AirlineTest, shouldGenerateFlightNumberNoLeadingZeros)
+TEST(AirlineTest, shouldGenerateFlightNumberNoLeadingZeros)
 {
-    std::string flightNumber = airline::flightNumber();
-    int flightNumberInt = std::stoi(flightNumber);
+    auto flightNumber = airline::flightNumber();
+    auto flightNumberInt = std::stoi(flightNumber);
 
     ASSERT_TRUE(flightNumber.length() == 4);
-
     ASSERT_TRUE((flightNumberInt > 999) && (flightNumberInt <= 9999));
 }
 
-TEST_F(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
+TEST(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
 {
     bool leadingZero = false;
     while (!leadingZero) {
@@ -147,8 +140,9 @@ TEST_F(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
     ASSERT_TRUE(leadingZero);
 }
 
-TEST_F(AirlineTest, shouldGenerateFlightNumberByRange)
+TEST(AirlineTest, shouldGenerateFlightNumberByRange)
 {
-    std::string flightNumber = airline::flightNumberByRange(false, { 1, 6 });
+    auto flightNumber = airline::flightNumberByRange(false, { 1, 6 });
+
     ASSERT_TRUE(flightNumber.length() <= 6);
 }

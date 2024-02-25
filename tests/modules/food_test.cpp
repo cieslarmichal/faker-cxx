@@ -14,96 +14,96 @@ TEST_F(FoodTest, shouldGenerateAlcoholicBeverage)
 {
     const auto generatedAlcoholicBeverage = food::alcoholicBeverage();
 
-    ASSERT_TRUE(faker::testing::contains(alcoholicBeverages, generatedAlcoholicBeverage));
+    FAKER_EXPECT_CONTAINS(alcoholicBeverages, generatedAlcoholicBeverage);
 }
 
 TEST_F(FoodTest, shouldGenerateDishName)
 {
     const auto generatedDishName = food::dishName();
 
-    ASSERT_TRUE(faker::testing::contains(dishNames, generatedDishName));
+    FAKER_EXPECT_CONTAINS(dishNames, generatedDishName);
 }
 
 TEST_F(FoodTest, shouldGenerateFoodCategories)
 {
     const auto generatedFoodCategory = food::foodCategory();
 
-    ASSERT_TRUE(faker::testing::contains(foodCategories, generatedFoodCategory));
+    FAKER_EXPECT_CONTAINS(foodCategories, generatedFoodCategory);
 }
 
 TEST_F(FoodTest, shouldGenerateFruit)
 {
     const auto generatedFruit = food::fruit();
 
-    ASSERT_TRUE(faker::testing::contains(fruits, generatedFruit));
+    FAKER_EXPECT_CONTAINS(fruits, generatedFruit);
 }
 
 TEST_F(FoodTest, shouldGenerateMeat)
 {
     const auto generatedMeat = food::meat();
 
-    ASSERT_TRUE(faker::testing::contains(meats, generatedMeat));
+    FAKER_EXPECT_CONTAINS(meats, generatedMeat);
 }
 
 TEST_F(FoodTest, shouldGenerateMilkProduct)
 {
     const auto generatedMilkProduct = food::milkProduct();
 
-    ASSERT_TRUE(faker::testing::contains(milkProducts, generatedMilkProduct));
+    FAKER_EXPECT_CONTAINS(milkProducts, generatedMilkProduct);
 }
 
 TEST_F(FoodTest, shouldGenerateNonalcoholicBeverages)
 {
     const auto generatedNonalcoholicBeverages = food::nonalcoholicBeverage();
 
-    ASSERT_TRUE(faker::testing::contains(nonalcoholicBeverages, generatedNonalcoholicBeverages));
+    FAKER_EXPECT_CONTAINS(nonalcoholicBeverages, generatedNonalcoholicBeverages);
 }
 
 TEST_F(FoodTest, shouldGenerateNut)
 {
     const auto generatedNut = food::nut();
 
-    ASSERT_TRUE(faker::testing::contains(nuts, generatedNut));
+    FAKER_EXPECT_CONTAINS(nuts, generatedNut);
 }
 
 TEST_F(FoodTest, shouldGenerateOil)
 {
     const auto generatedOil = food::oil();
 
-    ASSERT_TRUE(faker::testing::contains(oils, generatedOil));
+    FAKER_EXPECT_CONTAINS(oils, generatedOil);
 }
 
 TEST_F(FoodTest, shouldGenerateSeafood)
 {
     const auto generatedSeafood = food::seafood();
 
-    ASSERT_TRUE(faker::testing::contains(seafoods, generatedSeafood));
+    FAKER_EXPECT_CONTAINS(seafoods, generatedSeafood);
 }
 
 TEST_F(FoodTest, shouldGenerateSeed)
 {
     const auto generatedSeed = food::seed();
 
-    ASSERT_TRUE(faker::testing::contains(seeds, generatedSeed));
+    FAKER_EXPECT_CONTAINS(seeds, generatedSeed);
 }
 
 TEST_F(FoodTest, shouldGenerateGrain)
 {
     const auto generatedGrain = food::grain();
 
-    ASSERT_TRUE(faker::testing::contains(grains, generatedGrain));
+    FAKER_EXPECT_CONTAINS(grains, generatedGrain);
 }
 
 TEST_F(FoodTest, shouldGenerateSugarProduct)
 {
     const auto generatedSugarProduct = food::sugarProduct();
 
-    ASSERT_TRUE(faker::testing::contains(sugarProducts, generatedSugarProduct));
+    FAKER_EXPECT_CONTAINS(sugarProducts, generatedSugarProduct);
 }
 
 TEST_F(FoodTest, shouldGenerateVegetable)
 {
     const auto generatedVegetable = food::vegetable();
 
-    ASSERT_TRUE(faker::testing::contains(vegetables, generatedVegetable));
+    FAKER_EXPECT_CONTAINS(vegetables, generatedVegetable);
 }

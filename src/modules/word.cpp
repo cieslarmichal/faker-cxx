@@ -10,9 +10,9 @@ std::string_view sample(std::optional<unsigned int> length)
     static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
 
     if (wordsByLength.empty()) {
-        allWords.reserve(data::adjectives.size() + data::adverbs.size()
-            + data::conjunctions.size() + data::interjections.size() + data::nouns.size()
-            + data::prepositions.size() + data::verbs.size());
+        allWords.reserve(data::adjectives.size() + data::adverbs.size() + data::conjunctions.size()
+            + data::interjections.size() + data::nouns.size() + data::prepositions.size()
+            + data::verbs.size());
         for (const auto& word : data::adjectives) {
             allWords.push_back(word);
             wordsByLength[word.size()].push_back(word);

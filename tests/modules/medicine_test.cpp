@@ -13,19 +13,19 @@ TEST_F(MedicineTest, shouldGenerateMedicalCondition)
 {
     const auto generatedMedicalCondition = medicine::condition();
 
-    ASSERT_TRUE(faker::testing::contains(medicalConditions, generatedMedicalCondition));
+    FAKER_EXPECT_CONTAINS(medicalConditions, generatedMedicalCondition);
 }
 
 TEST_F(MedicineTest, shouldGenerateMedicalTest)
 {
     const auto generatedMedicalTest = medicine::medicalTest();
 
-    ASSERT_TRUE(faker::testing::contains(medicalTests, generatedMedicalTest));
+    FAKER_EXPECT_CONTAINS(medicalTests, generatedMedicalTest);
 }
 
 TEST_F(MedicineTest, shouldGenerateSpecialty)
 {
     const auto generatedSpecialty = medicine::specialty();
 
-    ASSERT_TRUE(faker::testing::contains(specialties, generatedSpecialty));
+    FAKER_EXPECT_CONTAINS(specialties, generatedSpecialty);
 }

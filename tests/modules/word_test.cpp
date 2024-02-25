@@ -9,12 +9,16 @@ class WordTest : public ::testing::Test {
 public:
     WordTest()
     {
-        allWords.insert(allWords.end(), word::data::adjectives.begin(), word::data::adjectives.end());
+        allWords.insert(
+            allWords.end(), word::data::adjectives.begin(), word::data::adjectives.end());
         allWords.insert(allWords.end(), word::data::adverbs.begin(), word::data::adverbs.end());
-        allWords.insert(allWords.end(), word::data::conjunctions.begin(), word::data::conjunctions.end());
-        allWords.insert(allWords.end(), word::data::interjections.begin(), word::data::interjections.end());
+        allWords.insert(
+            allWords.end(), word::data::conjunctions.begin(), word::data::conjunctions.end());
+        allWords.insert(
+            allWords.end(), word::data::interjections.begin(), word::data::interjections.end());
         allWords.insert(allWords.end(), word::data::nouns.begin(), word::data::nouns.end());
-        allWords.insert(allWords.end(), word::data::prepositions.begin(), word::data::prepositions.end());
+        allWords.insert(
+            allWords.end(), word::data::prepositions.begin(), word::data::prepositions.end());
         allWords.insert(allWords.end(), word::data::verbs.begin(), word::data::verbs.end());
     }
 

@@ -14,40 +14,40 @@ TEST_F(MovieTest, shouldGenerateGenre)
 {
     const auto generatedGenre = movie::genre();
 
-    ASSERT_TRUE(faker::testing::contains(movie::genres, generatedGenre));
+    FAKER_EXPECT_CONTAINS(movie::genres, generatedGenre);
 }
 
 TEST_F(MovieTest, shouldGenerateMovieTitle)
 {
     const auto generatedMovieTitle = movie::movieTitle();
 
-    ASSERT_TRUE(faker::testing::contains(movie::movies, generatedMovieTitle));
+    FAKER_EXPECT_CONTAINS(movie::movies, generatedMovieTitle);
 }
 
 TEST_F(MovieTest, shouldGenerateTvShow)
 {
     const auto generatedTvShow = movie::tvShow();
 
-    ASSERT_TRUE(faker::testing::contains(movie::tvShows, generatedTvShow));
+    FAKER_EXPECT_CONTAINS(movie::tvShows, generatedTvShow);
 }
 
 TEST_F(MovieTest, shouldGenerateDirector)
 {
     const auto generatedDirector = movie::director();
 
-    ASSERT_TRUE(faker::testing::contains(movie::directors, generatedDirector));
+    FAKER_EXPECT_CONTAINS(movie::directors, generatedDirector);
 }
 
 TEST_F(MovieTest, shouldGenerateActor)
 {
     const auto generatedActor = movie::actor();
 
-    ASSERT_TRUE(faker::testing::contains(movie::actors, generatedActor));
+    FAKER_EXPECT_CONTAINS(movie::actors, generatedActor);
 }
 
 TEST_F(MovieTest, shouldGenerateActress)
 {
     const auto generatedActress = movie::actress();
 
-    ASSERT_TRUE(faker::testing::contains(movie::actresses, generatedActress));
+    FAKER_EXPECT_CONTAINS(movie::actresses, generatedActress);
 }

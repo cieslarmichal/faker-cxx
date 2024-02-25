@@ -48,7 +48,7 @@ TEST_F(ImageTest, shouldGenerateGithubAvatarUrl)
 
     const auto userNumber = std::stoi(githubAvatarUrl.substr(expectedGithubAvatarPrefix.size()));
 
-    ASSERT_TRUE(faker::testing::starts_with(githubAvatarUrl, expectedGithubAvatarPrefix));
+    FAKER_EXPECT_STARTS_WITH(githubAvatarUrl, expectedGithubAvatarPrefix);
     ASSERT_TRUE(userNumber >= 0 && userNumber <= 100000000);
 }
 
@@ -69,5 +69,5 @@ TEST_F(ImageTest, shouldGenerateType)
 {
     const auto generatedType = image::type();
 
-    ASSERT_TRUE(faker::testing::contains(imageTypes, generatedType));
+    FAKER_EXPECT_CONTAINS(imageTypes, generatedType);
 }

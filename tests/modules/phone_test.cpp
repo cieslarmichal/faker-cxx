@@ -5,27 +5,23 @@
 #include <string>
 #include <vector>
 
-using namespace ::testing;
 using namespace faker;
 
-class PhoneTest : public Test {
-protected:
-    static bool isStringNumericWithSpecialChars(const std::string& str)
-    {
-        return faker::testing::all_of(str, [](char c) {
-            return std::isdigit(c) || c == '-' || c == '(' || c == ')' || c == '+' || c == ' ';
-        });
-    }
-};
-
-TEST_F(PhoneTest, NumberWithNoFormat)
+bool isStringNumericWithSpecialChars(const std::string& str)
 {
-    std::string phoneNumber = phone::number();
+    return faker::testing::all_of(str, [](char c) {
+        return std::isdigit(c) || c == '-' || c == '(' || c == ')' || c == '+' || c == ' ';
+    });
+}
+
+TEST(PhoneTest, NumberWithNoFormat)
+{
+    auto phoneNumber = phone::number();
 
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 }
 
-TEST_F(PhoneTest, NumberWithFormat)
+TEST(PhoneTest, NumberWithFormat)
 {
     std::string format = "501-###-###";
     std::string phoneNumber = phone::number(format);
@@ -48,7 +44,7 @@ TEST_F(PhoneTest, NumberWithFormat)
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 }
 
-TEST_F(PhoneTest, IMEIGeneration)
+TEST(PhoneTest, IMEIGeneration)
 {
     std::string imei = phone::imei();
 
@@ -58,7 +54,7 @@ TEST_F(PhoneTest, IMEIGeneration)
     ASSERT_TRUE(isStringNumericWithSpecialChars(imei));
 }
 
-TEST_F(PhoneTest, NumberFormatTest)
+TEST(PhoneTest, NumberFormatTest)
 {
     std::string phoneNumber = phone::number(PhoneNumberCountryFormat::Zimbabwe);
 
@@ -66,20 +62,23 @@ TEST_F(PhoneTest, NumberFormatTest)
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 }
 
-TEST_F(PhoneTest, PlatformGeneration)
+TEST(PhoneTest, PlatformGeneration)
 {
-    std::string generatedPlatform = phone::platform();
-    ASSERT_TRUE(faker::testing::contains(faker::data::PhonePlatforms, generatedPlatform));
+    auto generatedPlatform = phone::platform();
+
+    FAKER_EXPECT_CONTAINS(faker::data::PhonePlatforms, generatedPlatform);
 }
 
-TEST_F(PhoneTest, ModelNameGeneration)
+TEST(PhoneTest, ModelNameGeneration)
 {
-    std::string generatedModelName = phone::modelName();
-    ASSERT_TRUE(faker::testing::contains(faker::data::PhoneModelNames, generatedModelName));
+    auto generatedModelName = phone::modelName();
+
+    FAKER_EXPECT_CONTAINS(faker::data::PhoneModelNames, generatedModelName);
 }
 
-TEST_F(PhoneTest, ManufacturerGeneration)
+TEST(PhoneTest, ManufacturerGeneration)
 {
-    std::string generatedManufacturer = phone::manufacturer();
-    ASSERT_TRUE(faker::testing::contains(faker::data::PhoneManufacturers, generatedManufacturer));
+    auto generatedManufacturer = phone::manufacturer();
+
+    FAKER_EXPECT_CONTAINS(faker::data::PhoneManufacturers, generatedManufacturer);
 }

@@ -1,45 +1,39 @@
 #include "../test_helpers.h"
-#include <algorithm>
 #include <faker/database.h>
 #include <modules/database_data.h>
 #include <modules/string_data.h>
 
-using namespace ::testing;
 using namespace faker;
 
-class DatabaseTest : public Test {
-public:
-};
-
-TEST_F(DatabaseTest, shouldGenerateColumnName)
+TEST(DatabaseTest, shouldGenerateColumnName)
 {
     const auto generatedColumnName = database::columnName();
 
-    ASSERT_TRUE(faker::testing::contains(columnNames, generatedColumnName));
+    FAKER_EXPECT_CONTAINS(columnNames, generatedColumnName);
 }
 
-TEST_F(DatabaseTest, shouldGenerateColumnType)
+TEST(DatabaseTest, shouldGenerateColumnType)
 {
     const auto generatedColumnType = database::columnType();
 
-    ASSERT_TRUE(faker::testing::contains(columnTypes, generatedColumnType));
+    FAKER_EXPECT_CONTAINS(columnTypes, generatedColumnType);
 }
 
-TEST_F(DatabaseTest, shouldGenerateEngine)
+TEST(DatabaseTest, shouldGenerateEngine)
 {
     const auto generatedEngine = database::engine();
 
-    ASSERT_TRUE(faker::testing::contains(engines, generatedEngine));
+    FAKER_EXPECT_CONTAINS(engines, generatedEngine);
 }
 
-TEST_F(DatabaseTest, shouldGenerateCollation)
+TEST(DatabaseTest, shouldGenerateCollation)
 {
     const auto generatedCollation = database::collation();
 
-    ASSERT_TRUE(faker::testing::contains(collations, generatedCollation));
+    FAKER_EXPECT_CONTAINS(collations, generatedCollation);
 }
 
-TEST_F(DatabaseTest, shouldGenerateMongoDbObjectId)
+TEST(DatabaseTest, shouldGenerateMongoDbObjectId)
 {
     const auto mongoDbObjectId = database::mongoDbObjectId();
 

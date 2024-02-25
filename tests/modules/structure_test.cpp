@@ -1,5 +1,4 @@
 #include "../test_helpers.h"
-#include <algorithm>
 #include <common/json_helper.h>
 #include <common/string_helper.h>
 #include <faker/structure.h>
@@ -11,13 +10,8 @@
 #include <unordered_set>
 
 using namespace faker;
-using namespace ::testing;
 
-class StructureTest : public Test {
-public:
-};
-
-TEST_F(StructureTest, shouldGenerateJson)
+TEST(StructureTest, shouldGenerateJson)
 {
     std::unordered_map<std::string, StructureToken> testTokens;
     testTokens.emplace("Airport name", StructureToken::AirlineAirportName);
@@ -46,14 +40,14 @@ TEST_F(StructureTest, shouldGenerateJson)
 
     ASSERT_TRUE(faker::testing::any_of(
         airports, [value1](const faker::Airport& airport) { return airport.name == value1; }));
-    ASSERT_TRUE(faker::testing::contains(birds, value2));
+    FAKER_EXPECT_CONTAINS(birds, value2);
     ASSERT_TRUE(faker::testing::any_of(
         books::titles, [value3](const auto& title) { return title == value3; }));
     ASSERT_TRUE(faker::testing::any_of(
         movie::actors, [value4](const auto& actor) { return actor == value4; }));
 }
 
-TEST_F(StructureTest, shouldGenerateCSV)
+TEST(StructureTest, shouldGenerateCSV)
 {
     std::unordered_map<std::string, StructureToken> testTokens;
     const unsigned int noRows = 2;

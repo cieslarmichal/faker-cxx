@@ -24,7 +24,7 @@ inline bool contains(const ContainerT& container, const ElementT& element)
     return any_of(container, [&element](const auto& e) { return e == element; });
 }
 
-#define FAKER_EXPECT_CONTAINS(container, element) \
+#define FAKER_EXPECT_CONTAINS(container, element)                                                  \
     EXPECT_TRUE(faker::testing::contains((container), (element)))
 
 inline bool starts_with(const std::string& str, const std::string& prefix)
@@ -32,10 +32,35 @@ inline bool starts_with(const std::string& str, const std::string& prefix)
     return str.rfind(prefix, 0) == 0;
 }
 
+inline bool starts_with(const std::string& str, const std::string_view& prefix)
+{
+    return str.rfind(prefix, 0) == 0;
+}
+
+inline bool starts_with(const std::string& str, const char* prefix)
+{
+    return starts_with(str, std::string_view(prefix));
+}
+
+#define FAKER_EXPECT_STARTS_WITH(str, prefix)                                                      \
+    EXPECT_TRUE(faker::testing::starts_with((str), (prefix)))
+
 inline bool ends_with(const std::string& str, const std::string& suffix)
 {
     return str.size() >= suffix.size() && str.rfind(suffix) == (str.size() - suffix.size());
 }
+
+inline bool ends_with(const std::string& str, const std::string_view& suffix)
+{
+    return str.size() >= suffix.size() && str.rfind(suffix) == (str.size() - suffix.size());
+}
+
+inline bool ends_with(const std::string& str, const char* suffix)
+{
+    return ends_with(str, std::string_view(suffix));
+}
+
+#define FAKER_EXPECT_ENDS_WITH(str, suffix) EXPECT_TRUE(faker::testing::ends_with((str), (suffix)))
 
 template <typename ContainerT, typename ElementT>
 inline size_t count(const ContainerT& container, const ElementT& elements)

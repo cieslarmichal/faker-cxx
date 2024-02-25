@@ -423,21 +423,21 @@ TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
         franceStreetPrefixes, [&generatedStreetPrefix](const std::string& streetPrefix) {
             return streetPrefix == generatedStreetPrefix;
         }));
-    ASSERT_TRUE(faker::testing::contains(franceStreetSuffixes, generatedStreetSuffix));
+    FAKER_EXPECT_CONTAINS(franceStreetSuffixes, generatedStreetSuffix);
 }
 
 TEST_F(LocationTest, shouldGenerateCountry)
 {
     const auto generatedCountry = location::country();
 
-    ASSERT_TRUE(faker::testing::contains(allCountries, generatedCountry));
+    FAKER_EXPECT_CONTAINS(allCountries, generatedCountry);
 }
 
 TEST_F(LocationTest, shouldGenerateCountryCode)
 {
     const auto generatedCountryCode = location::countryCode();
 
-    ASSERT_TRUE(faker::testing::contains(countryCodes, generatedCountryCode));
+    FAKER_EXPECT_CONTAINS(countryCodes, generatedCountryCode);
 }
 
 TEST_F(LocationTest, shouldGenerateLatitude)
@@ -504,14 +504,14 @@ TEST_F(LocationTest, shouldGenerateDirection)
 {
     const auto generatedDirection = location::direction();
 
-    ASSERT_TRUE(faker::testing::contains(directions, generatedDirection));
+    FAKER_EXPECT_CONTAINS(directions, generatedDirection);
 }
 
 TEST_F(LocationTest, shouldGenerateTimeZone)
 {
     const auto generatedTimeZone = location::timeZone();
 
-    ASSERT_TRUE(faker::testing::contains(timeZones, generatedTimeZone));
+    FAKER_EXPECT_CONTAINS(timeZones, generatedTimeZone);
 }
 
 TEST_F(LocationTest, shouldGenerateUkraineStreet)
@@ -524,7 +524,7 @@ TEST_F(LocationTest, shouldGenerateUkraineStreet)
     const auto& generatedStreetSuffix = StringHelper::join(
         { generatedStreetElements.begin() + 1, generatedStreetElements.end() });
 
-    ASSERT_TRUE(faker::testing::contains(ukraineStreetPrefixes, generatedStreetPrefix));
+    FAKER_EXPECT_CONTAINS(ukraineStreetPrefixes, generatedStreetPrefix);
 
     std::vector<std::string> firstNames { ukrainianMalesFirstNames };
     firstNames.insert(

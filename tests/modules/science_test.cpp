@@ -1,22 +1,17 @@
 #include "../test_helpers.h"
-#include <algorithm>
 #include <faker/science.h>
 #include <modules/science_data.h>
 
-using namespace ::testing;
 using namespace faker;
 
-class ScienceTest : public Test {
-public:
-};
-
-TEST_F(ScienceTest, shouldGenerateChemElement)
+TEST(ScienceTest, shouldGenerateChemElement)
 {
-    const auto generatedChemElement = science::chemicalElement();
-    ASSERT_TRUE(faker::testing::contains(chemicalElements, generatedChemElement));
+    auto generatedChemElement = science::chemicalElement();
+
+    FAKER_EXPECT_CONTAINS(chemicalElements, generatedChemElement);
 }
 
-TEST_F(ScienceTest, shouldGenerateAnyUnit)
+TEST(ScienceTest, shouldGenerateAnyUnit)
 {
     std::vector<faker::Unit> units;
     units.insert(units.end(), distanceUnits.begin(), distanceUnits.end());
@@ -25,36 +20,42 @@ TEST_F(ScienceTest, shouldGenerateAnyUnit)
     units.insert(units.end(), currentUnits.begin(), currentUnits.end());
     units.insert(units.end(), temperatureUnits.begin(), temperatureUnits.end());
 
-    const auto generatedAnyUnit = science::unit();
-    ASSERT_TRUE(faker::testing::contains(units, generatedAnyUnit));
+    auto generatedAnyUnit = science::unit();
+
+    FAKER_EXPECT_CONTAINS(units, generatedAnyUnit);
 }
 
-TEST_F(ScienceTest, shouldGenerateDistanceUnit)
+TEST(ScienceTest, shouldGenerateDistanceUnit)
 {
-    const auto generatedDistanceUnit = science::distanceUnit();
-    ASSERT_TRUE(faker::testing::contains(distanceUnits, generatedDistanceUnit));
+    auto generatedDistanceUnit = science::distanceUnit();
+
+    FAKER_EXPECT_CONTAINS(distanceUnits, generatedDistanceUnit);
 }
 
-TEST_F(ScienceTest, shouldGenerateMassUnit)
+TEST(ScienceTest, shouldGenerateMassUnit)
 {
-    const auto generatedMassUnit = science::massUnit();
-    ASSERT_TRUE(faker::testing::contains(massUnits, generatedMassUnit));
+    auto generatedMassUnit = science::massUnit();
+
+    FAKER_EXPECT_CONTAINS(massUnits, generatedMassUnit);
 }
 
-TEST_F(ScienceTest, shouldGenerateTimeUnit)
+TEST(ScienceTest, shouldGenerateTimeUnit)
 {
-    const auto generatedTimeUnit = science::timeUnit();
-    ASSERT_TRUE(faker::testing::contains(timeUnits, generatedTimeUnit));
+    auto generatedTimeUnit = science::timeUnit();
+
+    FAKER_EXPECT_CONTAINS(timeUnits, generatedTimeUnit);
 }
 
-TEST_F(ScienceTest, shouldGenerateTempUnit)
+TEST(ScienceTest, shouldGenerateTempUnit)
 {
-    const auto generatedTempUnit = science::tempUnit();
-    ASSERT_TRUE(faker::testing::contains(temperatureUnits, generatedTempUnit));
+    auto generatedTempUnit = science::tempUnit();
+
+    FAKER_EXPECT_CONTAINS(temperatureUnits, generatedTempUnit);
 }
 
-TEST_F(ScienceTest, shouldGenerateCurrentUnit)
+TEST(ScienceTest, shouldGenerateCurrentUnit)
 {
-    const auto generatedCurrentUnit = science::currentUnit();
-    ASSERT_TRUE(faker::testing::contains(currentUnits, generatedCurrentUnit));
+    auto generatedCurrentUnit = science::currentUnit();
+
+    FAKER_EXPECT_CONTAINS(currentUnits, generatedCurrentUnit);
 }

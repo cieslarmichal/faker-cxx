@@ -1,8 +1,8 @@
 #include "test_helpers.h"
 #include <iostream>
-#include <modules/movie_data.h>
+#include <modules/vehicle_data.h>
 
-using namespace faker::movie;
+using namespace faker::vehicle::data;
 
 #define PRINT_ARRAY_SIZE(name)                                                                     \
     std::cout << "extern const std::array<std::string_view, " << name.size() << "> " << (#name)    \
@@ -10,10 +10,10 @@ using namespace faker::movie;
 
 TEST(BasicTest, printsArraySizes)
 {
-    PRINT_ARRAY_SIZE(actors);
-    PRINT_ARRAY_SIZE(actresses);
-    PRINT_ARRAY_SIZE(directors);
-    PRINT_ARRAY_SIZE(genres);
-    PRINT_ARRAY_SIZE(movies);
-    PRINT_ARRAY_SIZE(tvShows);
+    PRINT_ARRAY_SIZE(bicycle_types);
+    PRINT_ARRAY_SIZE(vehicle_colors);
+    PRINT_ARRAY_SIZE(fuel_types);
+    PRINT_ARRAY_SIZE(manufacturers);
+    PRINT_ARRAY_SIZE(models);
+    PRINT_ARRAY_SIZE(vehicle_types);
 }

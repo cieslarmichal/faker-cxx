@@ -15,7 +15,7 @@ TEST_F(LoremTest, shouldGenerateWord)
 {
     const auto generatedWord = lorem::word();
 
-    ASSERT_TRUE(faker::testing::contains(loremWords, generatedWord));
+    FAKER_EXPECT_CONTAINS(loremWords, generatedWord);
 }
 
 TEST_F(LoremTest, shouldGenerateWords)
@@ -44,7 +44,7 @@ TEST_F(LoremTest, shouldGenerateSentence)
     const auto sentenceWords = StringHelper::split(sentenceWithoutEndingDot, " ");
 
     ASSERT_TRUE(std::isupper(sentence[0]));
-    ASSERT_TRUE(faker::testing::ends_with(sentence, "."));
+    FAKER_EXPECT_ENDS_WITH(sentence, ".");
     ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
     ASSERT_TRUE(faker::testing::all_of(sentenceWords, [](const auto& sentenceWord) {
         return faker::testing::any_of(loremWords, [sentenceWord](const auto& word) {
