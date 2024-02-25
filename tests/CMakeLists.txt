@@ -1,0 +1,48 @@
+add_executable(
+    test_faker
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/format_helper_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/json_helper_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/luhn_check_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/mappers/precision_mapper/precision_mapper_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/string_helper_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/weather_helper_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/airline_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/animal_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/book_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/color_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/commerce_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/company_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/computer_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/crypto_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/database_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/datatype_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/date_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/finance_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/food_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/git_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/hacker_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/helper_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/image_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/internet_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/location_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/lorem_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/medicine_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/movie_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/music_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/number_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/person_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/phone_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/science_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/sport_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/string_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/structure_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/system_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/vehicle_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/video_game_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/weather_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/modules/word_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/array_size_test.cpp
+)
+target_link_libraries(test_faker PRIVATE faker GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
+target_include_directories(test_faker PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../src)
+add_test(NAME test_faker COMMAND test_faker)

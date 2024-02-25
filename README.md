@@ -27,10 +27,10 @@ Below is an example of how to use Faker C++ in your code.
 ```cpp
 #include <iostream>
 
-#include "faker-cxx/Date.h"
-#include "faker-cxx/Internet.h"
-#include "faker-cxx/Location.h"
-#include "faker-cxx/String.h"
+#include <faker/Date.h"
+#include <faker/Internet.h"
+#include <faker/Location.h"
+#include <faker/String.h"
 
 int main()
 {
