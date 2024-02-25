@@ -52,7 +52,8 @@ TEST(WeatherTest, shouldGenerateWeatherDescription)
 {
     auto generatedWeatherDescription = faker::weather::weatherDescription();
 
-    ASSERT_TRUE(faker::testing::contains(faker::weather::data::weatherDescriptions, generatedWeatherDescription));
+    ASSERT_TRUE(faker::testing::contains(
+        faker::weather::data::weatherDescriptions, generatedWeatherDescription));
 }
 
 TEST(WeatherTest, shouldGenerateWeatherCloudCover)

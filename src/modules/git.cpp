@@ -27,7 +27,7 @@ std::string branch(unsigned maxIssueNum)
 std::string commitDate(unsigned years)
 {
     std::string date = date::pastDate(int(years));
-    std::string_view outputDate = date::weekdayAbbreviatedName();
+    // std::string_view outputDate = date::weekdayAbbreviatedName();
 
     std::vector<std::string> dateSplit = StringHelper::split(date, "-");
     std::string year = dateSplit[0];

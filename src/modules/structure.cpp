@@ -1,3 +1,4 @@
+#include <cassert>
 #include <faker/airline.h>
 #include <faker/animal.h>
 #include <faker/book.h>
@@ -29,424 +30,546 @@
 #include <faker/video_game.h>
 #include <faker/weather.h>
 #include <faker/word.h>
-#include <functional>
 
 namespace faker::structure {
 
-const std::unordered_map<faker::StructureToken, std::function<std::string()>> moduleFunctions = {
-    { faker::StructureToken::AirlineAircraftType,
-        []() { return std::string(faker::airline::aircraftType()); } },
-    { faker::StructureToken::AirlineAirplaneName,
-        []() { return std::string(faker::airline::airplane().name); } },
-    { faker::StructureToken::AirlineAirplaneCode,
-        []() { return std::string(faker::airline::airplane().iataTypeCode); } },
-    { faker::StructureToken::AirlineAirplaneName,
-        []() { return std::string(faker::airline::airplane().name); } },
-    { faker::StructureToken::AirlineAirplaneCode,
-        []() { return std::string(faker::airline::airplane().iataTypeCode); } },
-    { faker::StructureToken::AirlineAirlineName,
-        []() { return std::string(faker::airline::airline().name); } },
-    { faker::StructureToken::AirlineAirlineCode,
-        []() { return std::string(faker::airline::airline().iataCode); } },
-    { faker::StructureToken::AirlineAirportName,
-        []() { return std::string(faker::airline::airport().name); } },
-    { faker::StructureToken::AirlineAirportCode,
-        []() { return std::string(faker::airline::airport().iataCode); } },
-    { faker::StructureToken::AirlineSeat,
-        []() { return faker::airline::seat(faker::AircraftType()); } },
-    { faker::StructureToken::AirlineRecordLocator,
-        []() { return faker::airline::recordLocator(); } },
-    { faker::StructureToken::AirlineFlightNumber,
-        []() { return faker::airline::flightNumber(false, 4); } },
-
-    { faker::StructureToken::AnimalBear, []() { return std::string(faker::animal::bear()); } },
-    { faker::StructureToken::AnimalBird, []() { return std::string(faker::animal::bird()); } },
-    { faker::StructureToken::AnimalCat, []() { return std::string(faker::animal::cat()); } },
-    { faker::StructureToken::AnimalCetacean,
-        []() { return std::string(faker::animal::cetacean()); } },
-    { faker::StructureToken::AnimalCow, []() { return std::string(faker::animal::cow()); } },
-    { faker::StructureToken::AnimalCrocodilia,
-        []() { return std::string(faker::animal::crocodilia()); } },
-    { faker::StructureToken::AnimalDog, []() { return std::string(faker::animal::dog()); } },
-    { faker::StructureToken::AnimalFish, []() { return std::string(faker::animal::fish()); } },
-    { faker::StructureToken::AnimalHorse, []() { return std::string(faker::animal::horse()); } },
-    { faker::StructureToken::AnimalInsect, []() { return std::string(faker::animal::insect()); } },
-    { faker::StructureToken::AnimalLion, []() { return std::string(faker::animal::lion()); } },
-    { faker::StructureToken::AnimalRabbit, []() { return std::string(faker::animal::rabbit()); } },
-    { faker::StructureToken::AnimalRodent, []() { return std::string(faker::animal::rodent()); } },
-    { faker::StructureToken::AnimalSnake, []() { return std::string(faker::animal::snake()); } },
-    { faker::StructureToken::AnimalType, []() { return std::string(faker::animal::type()); } },
-
-    { faker::StructureToken::BookTitle, []() { return std::string(faker::book::title()); } },
-    { faker::StructureToken::BookGenre, []() { return std::string(faker::book::genre()); } },
-    { faker::StructureToken::BookAuthor, []() { return std::string(faker::book::author()); } },
-    { faker::StructureToken::BookPublisher,
-        []() { return std::string(faker::book::publisher()); } },
-    { faker::StructureToken::BookIsbn, []() { return faker::book::isbn(); } },
-
-    { faker::StructureToken::ColorName, []() { return std::string(faker::color::name()); } },
-    { faker::StructureToken::ColorRGB, []() { return faker::color::rgb(); } },
-    { faker::StructureToken::ColorHEX, []() { return faker::color::hex(); } },
-    { faker::StructureToken::ColorHSL, []() { return faker::color::hsl(); } },
-    { faker::StructureToken::ColorLCH, []() { return faker::color::lch(); } },
-    { faker::StructureToken::ColorCMYK, []() { return faker::color::cmyk(); } },
-
-    { faker::StructureToken::CommerceDepartment,
-        []() { return std::string(faker::commerce::department()); } },
-    { faker::StructureToken::CommercePrice, []() { return faker::commerce::price(); } },
-    { faker::StructureToken::CommerceSku, []() { return faker::commerce::sku(); } },
-    { faker::StructureToken::CommerceProductAdjective,
-        []() { return std::string(faker::commerce::productAdjective()); } },
-    { faker::StructureToken::CommerceProductMaterial,
-        []() { return std::string(faker::commerce::productMaterial()); } },
-    { faker::StructureToken::CommerceProductName,
-        []() { return std::string(faker::commerce::productName()); } },
-    { faker::StructureToken::CommerceProductFullName,
-        []() { return faker::commerce::productFullName(); } },
-    { faker::StructureToken::CommerceEAN13, []() { return faker::commerce::EAN13(); } },
-    { faker::StructureToken::CommerceEAN8, []() { return faker::commerce::EAN8(); } },
-    { faker::StructureToken::CommerceISBN13, []() { return faker::commerce::ISBN13(); } },
-    { faker::StructureToken::CommerceISBN10, []() { return faker::commerce::ISBN10(); } },
-
-    { faker::StructureToken::CompanyName, []() { return faker::company::name(); } },
-    { faker::StructureToken::CompanyType, []() { return std::string(faker::company::type()); } },
-    { faker::StructureToken::CompanyIndustry,
-        []() { return std::string(faker::company::industry()); } },
-    { faker::StructureToken::CompanyBuzzPhrase, []() { return faker::company::buzzPhrase(); } },
-    { faker::StructureToken::CompanyBuzzAdjective,
-        []() { return std::string(faker::company::buzzAdjective()); } },
-    { faker::StructureToken::CompanyBuzzNoun,
-        []() { return std::string(faker::company::buzzNoun()); } },
-    { faker::StructureToken::CompanyBuzzVerb,
-        []() { return std::string(faker::company::buzzVerb()); } },
-    { faker::StructureToken::CompanyCatchPhrase, []() { return faker::company::catchPhrase(); } },
-    { faker::StructureToken::CompanyCtachPhraseAdjective,
-        []() { return std::string(faker::company::catchPhraseAdjective()); } },
-    { faker::StructureToken::CompanyCatchPhraseDescriptor,
-        []() { return std::string(faker::company::catchPhraseDescriptor()); } },
-    { faker::StructureToken::CompanyCatchPhraseNoun,
-        []() { return std::string(faker::company::catchPhraseNoun()); } },
-
-    { faker::StructureToken::ComputerManufacture,
-        []() { return std::string(faker::computer::manufacture()); } },
-    { faker::StructureToken::ComputerModel,
-        []() { return std::string(faker::computer::model()); } },
-    { faker::StructureToken::ComputerCPUManufacture,
-        []() { return std::string(faker::computer::cpuManufacture()); } },
-    { faker::StructureToken::ComputerCPUType,
-        []() { return std::string(faker::computer::cpuType()); } },
-    { faker::StructureToken::ComputerCPUModel,
-        []() { return std::string(faker::computer::cpuModel()); } },
-    { faker::StructureToken::ComputerGPUManufacture,
-        []() { return std::string(faker::computer::gpuManufacture()); } },
-    { faker::StructureToken::ComputerGPUType,
-        []() { return std::string(faker::computer::gpuType()); } },
-    { faker::StructureToken::ComputerGPUModel,
-        []() { return std::string(faker::computer::gpuModel()); } },
-
-    { faker::StructureToken::CryptoSHA256, []() { return faker::crypto::sha256(); } },
-    { faker::StructureToken::CryptoMD5, []() { return faker::crypto::md5(); } },
-
-    { faker::StructureToken::DatabaseColumnName,
-        []() { return std::string(faker::database::columnName()); } },
-    { faker::StructureToken::DatabaseColumnType,
-        []() { return std::string(faker::database::columnType()); } },
-    { faker::StructureToken::DatabaseCollation,
-        []() { return std::string(faker::database::collation()); } },
-    { faker::StructureToken::DatabaseEngine,
-        []() { return std::string(faker::database::engine()); } },
-    { faker::StructureToken::DatabaseMongoDBObjectId,
-        []() { return faker::database::mongoDbObjectId(); } },
-
-    { faker::StructureToken::DatatypeBoolean,
-        []() { return std::to_string(faker::datatype::boolean()); } },
-
-    { faker::StructureToken::DatePastDateISO, []() { return faker::date::pastDate(); } },
-    { faker::StructureToken::DatePastDateTimestamp,
-        []() { return faker::date::pastDate(1, faker::date::DateFormat::Timestamp); } },
-    { faker::StructureToken::DatefutureDateISO, []() { return faker::date::futureDate(); } },
-    { faker::StructureToken::DatefutureDateTimestamp,
-        []() { return faker::date::futureDate(1, faker::date::DateFormat::Timestamp); } },
-    { faker::StructureToken::DateRecentDateISO, []() { return faker::date::recentDate(); } },
-    { faker::StructureToken::DateRecentDateTimestamp,
-        []() { return faker::date::recentDate(3, faker::date::DateFormat::Timestamp); } },
-    { faker::StructureToken::DateSoonDateISO, []() { return faker::date::soonDate(); } },
-    { faker::StructureToken::DateSoonDateTimestamp,
-        []() { return faker::date::soonDate(3, faker::date::DateFormat::Timestamp); } },
-    { faker::StructureToken::DateBirthdateByAgeISO,
-        []() { return faker::date::birthdateByAge(); } },
-    { faker::StructureToken::DateBirthdateByYearTimestamp,
-        []() {
-            return faker::date::birthdateByYear(1920, 2000, faker::date::DateFormat::Timestamp);
-        } },
-    { faker::StructureToken::DateWeekdayName,
-        []() { return std::string(faker::date::weekdayName()); } },
-    { faker::StructureToken::DateWeekdayAbbreviatedName,
-        []() { return std::string(faker::date::weekdayAbbreviatedName()); } },
-    { faker::StructureToken::DateMontName, []() { return std::string(faker::date::monthName()); } },
-    { faker::StructureToken::DateMonthAbbreviatedName,
-        []() { return std::string(faker::date::monthAbbreviatedName()); } },
-
-    { faker::StructureToken::FinanceCurrencyName,
-        []() { return std::string(faker::finance::currencyName()); } },
-    { faker::StructureToken::FinanceCurrencyCode,
-        []() { return std::string(faker::finance::currencyCode()); } },
-    { faker::StructureToken::FinanceCurrencySymbol,
-        []() { return std::string(faker::finance::currencySymbol()); } },
-    { faker::StructureToken::FinanceAccountType,
-        []() { return std::string(faker::finance::accountType()); } },
-    { faker::StructureToken::FinanceAmount, []() { return faker::finance::amount(); } },
-    { faker::StructureToken::FinanceIban, []() { return faker::finance::iban(); } },
-    { faker::StructureToken::FinanceBic, []() { return std::string(faker::finance::bic()); } },
-    { faker::StructureToken::FinanceAccountNumber,
-        []() { return faker::finance::accountNumber(); } },
-    { faker::StructureToken::FinancePin, []() { return faker::finance::pin(); } },
-    { faker::StructureToken::FinanceRoutingNumber,
-        []() { return faker::finance::routingNumber(); } },
-    { faker::StructureToken::FinanceCreditCardNumber,
-        []() { return faker::finance::creditCardNumber(); } },
-    { faker::StructureToken::FinanceCreditCardCvv,
-        []() { return faker::finance::creditCardCvv(); } },
-    { faker::StructureToken::FinanceBitcoinAddress,
-        []() { return faker::finance::bitcoinAddress(); } },
-    { faker::StructureToken::FinanceLitecoinAddress,
-        []() { return faker::finance::litecoinAddress(); } },
-    { faker::StructureToken::FinanceEthereumAddress,
-        []() { return faker::finance::ethereumAddress(); } },
-
-    { faker::StructureToken::FoodAlcoholicBeverage,
-        []() { return std::string(faker::food::alcoholicBeverage()); } },
-    { faker::StructureToken::FoodGrain, []() { return std::string(faker::food::grain()); } },
-    { faker::StructureToken::FoodMilkProduct,
-        []() { return std::string(faker::food::milkProduct()); } },
-    { faker::StructureToken::FoodFruit, []() { return std::string(faker::food::fruit()); } },
-    { faker::StructureToken::FoodMeat, []() { return std::string(faker::food::meat()); } },
-    { faker::StructureToken::FoodSeafood, []() { return std::string(faker::food::seafood()); } },
-    { faker::StructureToken::FoodVegetable,
-        []() { return std::string(faker::food::vegetable()); } },
-    { faker::StructureToken::FoodOil, []() { return std::string(faker::food::oil()); } },
-    { faker::StructureToken::FoodNut, []() { return std::string(faker::food::nut()); } },
-    { faker::StructureToken::FoodSeed, []() { return std::string(faker::food::seed()); } },
-    { faker::StructureToken::FoodSugarProduct,
-        []() { return std::string(faker::food::sugarProduct()); } },
-    { faker::StructureToken::FoodNonAlcoholicBeverage,
-        []() { return std::string(faker::food::nonalcoholicBeverage()); } },
-    { faker::StructureToken::FoodDishName, []() { return std::string(faker::food::dishName()); } },
-    { faker::StructureToken::FoodFoodCategory,
-        []() { return std::string(faker::food::foodCategory()); } },
-
-    { faker::StructureToken::GitBranch, []() { return faker::git::branch(); } },
-    { faker::StructureToken::GitCommitDate, []() { return faker::git::commitDate(); } },
-    { faker::StructureToken::GitCommitEntry, []() { return faker::git::commitEntry(); } },
-    { faker::StructureToken::GitCommitMessage, []() { return faker::git::commitMessage(); } },
-    { faker::StructureToken::GitCommitSha, []() { return faker::git::commitSha(); } },
-
-    { faker::StructureToken::HackerAbbreviation,
-        []() { return std::string(faker::hacker::abbreviation()); } },
-    { faker::StructureToken::HackerAdjective,
-        []() { return std::string(faker::hacker::adjective()); } },
-    { faker::StructureToken::HackerNoun, []() { return std::string(faker::hacker::noun()); } },
-    { faker::StructureToken::HackerVerb, []() { return std::string(faker::hacker::verb()); } },
-    { faker::StructureToken::HackerIngverb,
-        []() { return std::string(faker::hacker::ingverb()); } },
-    { faker::StructureToken::HackerPhrase, []() { return faker::hacker::phrase(); } },
-
-    { faker::StructureToken::ImageImageURL, []() { return faker::image::imageUrl(); } },
-    { faker::StructureToken::ImageGitHubAvatarURL,
-        []() { return faker::image::githubAvatarUrl(); } },
-    { faker::StructureToken::ImageDimensions,
-        []() { return std::string(faker::image::dimensions()); } },
-
-    { faker::StructureToken::InternetUsername, []() { return faker::internet::username(); } },
-    { faker::StructureToken::InternetEmail, []() { return faker::internet::email(); } },
-    { faker::StructureToken::InternetExampleEmail,
-        []() { return faker::internet::exampleEmail(); } },
-    { faker::StructureToken::InternetPassword, []() { return faker::internet::password(); } },
-    { faker::StructureToken::InternetEmoji,
-        []() { return std::string(faker::internet::emoji()); } },
-    { faker::StructureToken::InternetProtocol,
-        []() { return std::string(faker::internet::protocol()); } },
-    { faker::StructureToken::InternetHttpMethod,
-        []() { return std::string(faker::internet::httpMethod()); } },
-    { faker::StructureToken::InternetHttpRequestHeader,
-        []() { return std::string(faker::internet::httpRequestHeader()); } },
-    { faker::StructureToken::InternetHttpResponseHeader,
-        []() { return std::string(faker::internet::httpResponseHeader()); } },
-    { faker::StructureToken::InternetHttpMediaType,
-        []() { return std::string(faker::internet::httpMediaType()); } },
-    { faker::StructureToken::InternetIpv4, []() { return faker::internet::ipv4(); } },
-    { faker::StructureToken::InternetIpv6, []() { return faker::internet::ipv6(); } },
-    { faker::StructureToken::InternetMac, []() { return faker::internet::mac(); } },
-    { faker::StructureToken::InternetURL, []() { return faker::internet::url(); } },
-    { faker::StructureToken::InternetDomainName, []() { return faker::internet::domainName(); } },
-    { faker::StructureToken::InternetDomainWord, []() { return faker::internet::domainWord(); } },
-    { faker::StructureToken::InternetDomainSuffix,
-        []() { return std::string(faker::internet::domainSuffix()); } },
-
-    { faker::StructureToken::LocationCountry,
-        []() { return std::string(faker::location::country()); } },
-    { faker::StructureToken::LocationCountryCode,
-        []() { return std::string(faker::location::countryCode()); } },
-    { faker::StructureToken::LocationState, []() { return faker::location::state(); } },
-    { faker::StructureToken::LocationCity, []() { return faker::location::city(); } },
-    { faker::StructureToken::LocationZipCode, []() { return faker::location::zipCode(); } },
-    { faker::StructureToken::LocationStreetAddress,
-        []() { return faker::location::streetAddress(); } },
-    { faker::StructureToken::LocationStreet, []() { return faker::location::street(); } },
-    { faker::StructureToken::LocationBuildingNumber,
-        []() { return faker::location::buildingNumber(); } },
-    { faker::StructureToken::LocationSecondaryAddress,
-        []() { return faker::location::secondaryAddress(); } },
-    { faker::StructureToken::LocationLatitude, []() { return faker::location::latitude(); } },
-    { faker::StructureToken::LocationLongitude, []() { return faker::location::longitude(); } },
-    { faker::StructureToken::LocationDirection,
-        []() { return std::string(faker::location::direction()); } },
-    { faker::StructureToken::LocationTimeZone,
-        []() { return std::string(faker::location::timeZone()); } },
-
+std::string moduleFunction(StructureToken token)
+{
+    switch (token) {
+    // Airline module
+    case StructureToken::AirlineAircraftType:
+        return std::string(airline::aircraftType());
+    case StructureToken::AirlineAirplaneName:
+        return std::string(airline::airplane().name);
+    case StructureToken::AirlineAirplaneCode:
+        return std::string(airline::airplane().iataTypeCode);
+    case StructureToken::AirlineAirlineName:
+        return std::string(airline::airline().name);
+    case StructureToken::AirlineAirlineCode:
+        return std::string(airline::airline().iataCode);
+    case StructureToken::AirlineAirportName:
+        return std::string(airline::airport().name);
+    case StructureToken::AirlineAirportCode:
+        return std::string(airline::airport().iataCode);
+    case StructureToken::AirlineSeat:
+        return airline::seat(AircraftType());
+    case StructureToken::AirlineRecordLocator:
+        return airline::recordLocator();
+    case StructureToken::AirlineFlightNumber:
+        return airline::flightNumber(false, 4);
+    // Animal module
+    case StructureToken::AnimalBear:
+        return std::string(animal::bear());
+    case StructureToken::AnimalBird:
+        return std::string(animal::bird());
+    case StructureToken::AnimalCat:
+        return std::string(animal::cat());
+    case StructureToken::AnimalCetacean:
+        return std::string(animal::cetacean());
+    case StructureToken::AnimalCow:
+        return std::string(animal::cow());
+    case StructureToken::AnimalCrocodilia:
+        return std::string(animal::crocodilia());
+    case StructureToken::AnimalDog:
+        return std::string(animal::dog());
+    case StructureToken::AnimalFish:
+        return std::string(animal::fish());
+    case StructureToken::AnimalHorse:
+        return std::string(animal::horse());
+    case StructureToken::AnimalInsect:
+        return std::string(animal::insect());
+    case StructureToken::AnimalLion:
+        return std::string(animal::lion());
+    case StructureToken::AnimalRabbit:
+        return std::string(animal::rabbit());
+    case StructureToken::AnimalRodent:
+        return std::string(animal::rodent());
+    case StructureToken::AnimalSnake:
+        return std::string(animal::snake());
+    case StructureToken::AnimalType:
+        return std::string(animal::type());
+    // Book module
+    case StructureToken::BookTitle:
+        return std::string(book::title());
+    case StructureToken::BookGenre:
+        return std::string(book::genre());
+    case StructureToken::BookAuthor:
+        return std::string(book::author());
+    case StructureToken::BookPublisher:
+        return std::string(book::publisher());
+    case StructureToken::BookIsbn:
+        return book::isbn();
+    // Color module
+    case StructureToken::ColorName:
+        return std::string(color::name());
+    case StructureToken::ColorRGB:
+        return color::rgb();
+    case StructureToken::ColorHEX:
+        return color::hex();
+    case StructureToken::ColorHSL:
+        return color::hsl();
+    case StructureToken::ColorLCH:
+        return color::lch();
+    case StructureToken::ColorCMYK:
+        return color::cmyk();
+    // Commerce module
+    case StructureToken::CommerceDepartment:
+        return std::string(commerce::department());
+    case StructureToken::CommercePrice:
+        return commerce::price();
+    case StructureToken::CommerceSku:
+        return commerce::sku();
+    case StructureToken::CommerceProductAdjective:
+        return std::string(commerce::productAdjective());
+    case StructureToken::CommerceProductMaterial:
+        return std::string(commerce::productMaterial());
+    case StructureToken::CommerceProductName:
+        return std::string(commerce::productName());
+    case StructureToken::CommerceProductFullName:
+        return commerce::productFullName();
+    case StructureToken::CommerceEAN13:
+        return commerce::EAN13();
+    case StructureToken::CommerceEAN8:
+        return commerce::EAN8();
+    case StructureToken::CommerceISBN13:
+        return commerce::ISBN13();
+    case StructureToken::CommerceISBN10:
+        return commerce::ISBN10();
+    // Company module
+    case StructureToken::CompanyName:
+        return company::name();
+    case StructureToken::CompanyType:
+        return std::string(company::type());
+    case StructureToken::CompanyIndustry:
+        return std::string(company::industry());
+    case StructureToken::CompanyBuzzPhrase:
+        return company::buzzPhrase();
+    case StructureToken::CompanyBuzzAdjective:
+        return std::string(company::buzzAdjective());
+    case StructureToken::CompanyBuzzNoun:
+        return std::string(company::buzzNoun());
+    case StructureToken::CompanyBuzzVerb:
+        return std::string(company::buzzVerb());
+    case StructureToken::CompanyCatchPhrase:
+        return company::catchPhrase();
+    case StructureToken::CompanyCtachPhraseAdjective:
+        return std::string(company::catchPhraseAdjective());
+    case StructureToken::CompanyCatchPhraseDescriptor:
+        return std::string(company::catchPhraseDescriptor());
+    case StructureToken::CompanyCatchPhraseNoun:
+        return std::string(company::catchPhraseNoun());
+    // Computer module
+    case StructureToken::ComputerManufacture:
+        return std::string(computer::manufacture());
+    case StructureToken::ComputerModel:
+        return std::string(computer::model());
+    case StructureToken::ComputerCPUManufacture:
+        return std::string(computer::cpuManufacture());
+    case StructureToken::ComputerCPUType:
+        return std::string(computer::cpuType());
+    case StructureToken::ComputerCPUModel:
+        return std::string(computer::cpuModel());
+    case StructureToken::ComputerGPUManufacture:
+        return std::string(computer::gpuManufacture());
+    case StructureToken::ComputerGPUType:
+        return std::string(computer::gpuType());
+    case StructureToken::ComputerGPUModel:
+        return std::string(computer::gpuModel());
+    // Crypto module
+    case StructureToken::CryptoSHA256:
+        return crypto::sha256();
+    case StructureToken::CryptoMD5:
+        return crypto::md5();
+    // Database module
+    case StructureToken::DatabaseColumnName:
+        return std::string(database::columnName());
+    case StructureToken::DatabaseColumnType:
+        return std::string(database::columnType());
+    case StructureToken::DatabaseCollation:
+        return std::string(database::collation());
+    case StructureToken::DatabaseEngine:
+        return std::string(database::engine());
+    case StructureToken::DatabaseMongoDBObjectId:
+        return database::mongoDbObjectId();
+    // Datatype module
+    case StructureToken::DatatypeBoolean:
+        return std::to_string(datatype::boolean());
+    // Date module
+    case StructureToken::DatePastDateISO:
+        return date::pastDate();
+    case StructureToken::DatePastDateTimestamp:
+        return date::pastDate(1, date::DateFormat::Timestamp);
+    case StructureToken::DatefutureDateISO:
+        return date::futureDate();
+    case StructureToken::DatefutureDateTimestamp:
+        return date::futureDate(1, date::DateFormat::Timestamp);
+    case StructureToken::DateRecentDateISO:
+        return date::recentDate();
+    case StructureToken::DateRecentDateTimestamp:
+        return date::recentDate(3, date::DateFormat::Timestamp);
+    case StructureToken::DateSoonDateISO:
+        return date::soonDate();
+    case StructureToken::DateSoonDateTimestamp:
+        return date::soonDate(3, date::DateFormat::Timestamp);
+    case StructureToken::DateBirthdateByAgeISO:
+        return date::birthdateByAge();
+    case StructureToken::DateBirthdateByYearTimestamp:
+        return date::birthdateByYear(1920, 2000, date::DateFormat::Timestamp);
+    case StructureToken::DateWeekdayName:
+        return std::string(date::weekdayName());
+    case StructureToken::DateWeekdayAbbreviatedName:
+        return std::string(date::weekdayAbbreviatedName());
+    case StructureToken::DateMontName:
+        return std::string(date::monthName());
+    case StructureToken::DateMonthAbbreviatedName:
+        return std::string(date::monthAbbreviatedName());
+    // Finance module
+    case StructureToken::FinanceCurrencyName:
+        return std::string(finance::currencyName());
+    case StructureToken::FinanceCurrencyCode:
+        return std::string(finance::currencyCode());
+    case StructureToken::FinanceCurrencySymbol:
+        return std::string(finance::currencySymbol());
+    case StructureToken::FinanceAccountType:
+        return std::string(finance::accountType());
+    case StructureToken::FinanceAmount:
+        return finance::amount();
+    case StructureToken::FinanceIban:
+        return finance::iban();
+    case StructureToken::FinanceBic:
+        return std::string(finance::bic());
+    case StructureToken::FinanceAccountNumber:
+        return finance::accountNumber();
+    case StructureToken::FinancePin:
+        return finance::pin();
+    case StructureToken::FinanceRoutingNumber:
+        return finance::routingNumber();
+    case StructureToken::FinanceCreditCardNumber:
+        return finance::creditCardNumber();
+    case StructureToken::FinanceCreditCardCvv:
+        return finance::creditCardCvv();
+    case StructureToken::FinanceBitcoinAddress:
+        return finance::bitcoinAddress();
+    case StructureToken::FinanceLitecoinAddress:
+        return finance::litecoinAddress();
+    case StructureToken::FinanceEthereumAddress:
+        return finance::ethereumAddress();
+    // Food module
+    case StructureToken::FoodAlcoholicBeverage:
+        return std::string(food::alcoholicBeverage());
+    case StructureToken::FoodGrain:
+        return std::string(food::grain());
+    case StructureToken::FoodMilkProduct:
+        return std::string(food::milkProduct());
+    case StructureToken::FoodFruit:
+        return std::string(food::fruit());
+    case StructureToken::FoodMeat:
+        return std::string(food::meat());
+    case StructureToken::FoodSeafood:
+        return std::string(food::seafood());
+    case StructureToken::FoodVegetable:
+        return std::string(food::vegetable());
+    case StructureToken::FoodOil:
+        return std::string(food::oil());
+    case StructureToken::FoodNut:
+        return std::string(food::nut());
+    case StructureToken::FoodSeed:
+        return std::string(food::seed());
+    case StructureToken::FoodSugarProduct:
+        return std::string(food::sugarProduct());
+    case StructureToken::FoodNonAlcoholicBeverage:
+        return std::string(food::nonalcoholicBeverage());
+    case StructureToken::FoodDishName:
+        return std::string(food::dishName());
+    case StructureToken::FoodFoodCategory:
+        return std::string(food::foodCategory());
+    // Git module
+    case StructureToken::GitBranch:
+        return git::branch();
+    case StructureToken::GitCommitDate:
+        return git::commitDate();
+    case StructureToken::GitCommitEntry:
+        return git::commitEntry();
+    case StructureToken::GitCommitMessage:
+        return git::commitMessage();
+    case StructureToken::GitCommitSha:
+        return git::commitSha();
+    // Hacker module
+    case StructureToken::HackerAbbreviation:
+        return std::string(hacker::abbreviation());
+    case StructureToken::HackerAdjective:
+        return std::string(hacker::adjective());
+    case StructureToken::HackerNoun:
+        return std::string(hacker::noun());
+    case StructureToken::HackerVerb:
+        return std::string(hacker::verb());
+    case StructureToken::HackerIngverb:
+        return std::string(hacker::ingverb());
+    case StructureToken::HackerPhrase:
+        return hacker::phrase();
+    // Image module
+    case StructureToken::ImageImageURL:
+        return image::imageUrl();
+    case StructureToken::ImageGitHubAvatarURL:
+        return image::githubAvatarUrl();
+    case StructureToken::ImageDimensions:
+        return std::string(image::dimensions());
+    // Internet module
+    case StructureToken::InternetUsername:
+        return internet::username();
+    case StructureToken::InternetEmail:
+        return internet::email();
+    case StructureToken::InternetExampleEmail:
+        return internet::exampleEmail();
+    case StructureToken::InternetPassword:
+        return internet::password();
+    case StructureToken::InternetEmoji:
+        return std::string(internet::emoji());
+    case StructureToken::InternetProtocol:
+        return std::string(internet::protocol());
+    case StructureToken::InternetHttpMethod:
+        return std::string(internet::httpMethod());
+    case StructureToken::InternetHttpRequestHeader:
+        return std::string(internet::httpRequestHeader());
+    case StructureToken::InternetHttpResponseHeader:
+        return std::string(internet::httpResponseHeader());
+    case StructureToken::InternetHttpMediaType:
+        return std::string(internet::httpMediaType());
+    case StructureToken::InternetIpv4:
+        return internet::ipv4();
+    case StructureToken::InternetIpv6:
+        return internet::ipv6();
+    case StructureToken::InternetMac:
+        return internet::mac();
+    case StructureToken::InternetURL:
+        return internet::url();
+    case StructureToken::InternetDomainName:
+        return internet::domainName();
+    case StructureToken::InternetDomainWord:
+        return internet::domainWord();
+    case StructureToken::InternetDomainSuffix:
+        return std::string(internet::domainSuffix());
+    // Location module
+    case StructureToken::LocationCountry:
+        return std::string(location::country());
+    case StructureToken::LocationCountryCode:
+        return std::string(location::countryCode());
+    case StructureToken::LocationState:
+        return location::state();
+    case StructureToken::LocationCity:
+        return location::city();
+    case StructureToken::LocationZipCode:
+        return location::zipCode();
+    case StructureToken::LocationStreetAddress:
+        return location::streetAddress();
+    case StructureToken::LocationStreet:
+        return location::street();
+    case StructureToken::LocationBuildingNumber:
+        return location::buildingNumber();
+    case StructureToken::LocationSecondaryAddress:
+        return location::secondaryAddress();
+    case StructureToken::LocationLatitude:
+        return location::latitude();
+    case StructureToken::LocationLongitude:
+        return location::longitude();
+    case StructureToken::LocationDirection:
+        return std::string(location::direction());
+    case StructureToken::LocationTimeZone:
+        return std::string(location::timeZone());
     // Lorem module
-    { faker::StructureToken::LoremWord, []() { return std::string(faker::lorem::word()); } },
-    { faker::StructureToken::LoremWords, []() { return faker::lorem::words(); } },
-    { faker::StructureToken::LoremSentence, []() { return faker::lorem::sentence(); } },
-    { faker::StructureToken::LoremSentences, []() { return faker::lorem::sentences(); } },
-    { faker::StructureToken::LoremSlung, []() { return faker::lorem::slug(10); } },
-    { faker::StructureToken::LoremParagraph, []() { return faker::lorem::paragraph(); } },
-    { faker::StructureToken::LoremParagraphs, []() { return faker::lorem::paragraphs(); } },
-
+    case StructureToken::LoremWord:
+        return std::string(lorem::word());
+    case StructureToken::LoremWords:
+        return lorem::words();
+    case StructureToken::LoremSentence:
+        return lorem::sentence();
+    case StructureToken::LoremSentences:
+        return lorem::sentences();
+    case StructureToken::LoremSlung:
+        return lorem::slug(10);
+    case StructureToken::LoremParagraph:
+        return lorem::paragraph();
+    case StructureToken::LoremParagraphs:
+        return lorem::paragraphs();
     // Medicine module
-    { faker::StructureToken::MedicineCondition,
-        []() { return std::string(faker::medicine::condition()); } },
-    { faker::StructureToken::MedicineMedicalTest,
-        []() { return std::string(faker::medicine::medicalTest()); } },
-    { faker::StructureToken::MedicineSpecialty,
-        []() { return std::string(faker::medicine::specialty()); } },
-
+    case StructureToken::MedicineCondition:
+        return std::string(medicine::condition());
+    case StructureToken::MedicineMedicalTest:
+        return std::string(medicine::medicalTest());
+    case StructureToken::MedicineSpecialty:
+        return std::string(medicine::specialty());
     // Movie module
-    { faker::StructureToken::MovieGenre, []() { return std::string(faker::movie::genre()); } },
-    { faker::StructureToken::MovieMovieTitle,
-        []() { return std::string(faker::movie::movieTitle()); } },
-    { faker::StructureToken::MovieTvShow, []() { return std::string(faker::movie::tvShow()); } },
-    { faker::StructureToken::MovieDirector,
-        []() { return std::string(faker::movie::director()); } },
-    { faker::StructureToken::MovieActor, []() { return std::string(faker::movie::actor()); } },
-    { faker::StructureToken::MovieActress, []() { return std::string(faker::movie::actress()); } },
-
+    case StructureToken::MovieGenre:
+        return std::string(movie::genre());
+    case StructureToken::MovieMovieTitle:
+        return std::string(movie::movieTitle());
+    case StructureToken::MovieTvShow:
+        return std::string(movie::tvShow());
+    case StructureToken::MovieDirector:
+        return std::string(movie::director());
+    case StructureToken::MovieActor:
+        return std::string(movie::actor());
+    case StructureToken::MovieActress:
+        return std::string(movie::actress());
     // Music module
-    { faker::StructureToken::MusicArtist, []() { return faker::music::artist(); } },
-    { faker::StructureToken::MusicGenre, []() { return faker::music::genre(); } },
-    { faker::StructureToken::MusicSongName, []() { return faker::music::songName(); } },
-
+    case StructureToken::MusicArtist:
+        return music::artist();
+    case StructureToken::MusicGenre:
+        return music::genre();
+    case StructureToken::MusicSongName:
+        return music::songName();
     // Person module
-    { faker::StructureToken::PersonFirstName, []() { return faker::person::firstName(); } },
-    { faker::StructureToken::PersonLastName, []() { return faker::person::lastName(); } },
-    { faker::StructureToken::PersonMiddleName, []() { return faker::person::middleName(); } },
-    { faker::StructureToken::PersonFullName, []() { return faker::person::fullName(); } },
-    { faker::StructureToken::PersonPrefix, []() { return faker::person::prefix(); } },
-    { faker::StructureToken::PersonSuffix, []() { return faker::person::suffix(); } },
-    { faker::StructureToken::PersonSex, []() { return std::string(faker::person::sex()); } },
-    { faker::StructureToken::PersonGender, []() { return std::string(faker::person::gender()); } },
-    { faker::StructureToken::PersonJobTitle,
-        []() { return std::string(faker::person::jobTitle()); } },
-    { faker::StructureToken::PersonJobDescriptor,
-        []() { return std::string(faker::person::jobDescriptor()); } },
-    { faker::StructureToken::PersonJobArea,
-        []() { return std::string(faker::person::jobArea()); } },
-    { faker::StructureToken::PersonJobType,
-        []() { return std::string(faker::person::jobType()); } },
-    { faker::StructureToken::PersonHoby, []() { return std::string(faker::person::hobby()); } },
-    { faker::StructureToken::PersonLanguage,
-        []() { return std::string(std::string(faker::person::language())); } },
-    { faker::StructureToken::PersonNationality,
-        []() { return std::string(std::string(faker::person::nationality())); } },
-    { faker::StructureToken::PersonWesternZodiac, []() { return faker::person::westernZodiac(); } },
-    { faker::StructureToken::PersonChineseZodiac, []() { return faker::person::chineseZodiac(); } },
-
+    case StructureToken::PersonFirstName:
+        return person::firstName();
+    case StructureToken::PersonLastName:
+        return person::lastName();
+    case StructureToken::PersonMiddleName:
+        return person::middleName();
+    case StructureToken::PersonFullName:
+        return person::fullName();
+    case StructureToken::PersonPrefix:
+        return person::prefix();
+    case StructureToken::PersonSuffix:
+        return person::suffix();
+    case StructureToken::PersonSex:
+        return std::string(person::sex());
+    case StructureToken::PersonGender:
+        return std::string(person::gender());
+    case StructureToken::PersonJobTitle:
+        return std::string(person::jobTitle());
+    case StructureToken::PersonJobDescriptor:
+        return std::string(person::jobDescriptor());
+    case StructureToken::PersonJobArea:
+        return std::string(person::jobArea());
+    case StructureToken::PersonJobType:
+        return std::string(person::jobType());
+    case StructureToken::PersonHoby:
+        return std::string(person::hobby());
+    case StructureToken::PersonLanguage:
+        return std::string(std::string(person::language()));
+    case StructureToken::PersonNationality:
+        return std::string(std::string(person::nationality()));
+    case StructureToken::PersonWesternZodiac:
+        return person::westernZodiac();
+    case StructureToken::PersonChineseZodiac:
+        return person::chineseZodiac();
     // Phone module
-    { faker::StructureToken::PhoneNumber, []() { return faker::phone::number(); } },
-    { faker::StructureToken::PhonePlatform, []() { return faker::phone::platform(); } },
-    { faker::StructureToken::PhoneModelName, []() { return faker::phone::modelName(); } },
-    { faker::StructureToken::PhoneManufacturer, []() { return faker::phone::manufacturer(); } },
-    { faker::StructureToken::PhoneIMEI, []() { return faker::phone::imei(); } },
-
+    case StructureToken::PhoneNumber:
+        return phone::number();
+    case StructureToken::PhonePlatform:
+        return phone::platform();
+    case StructureToken::PhoneModelName:
+        return phone::modelName();
+    case StructureToken::PhoneManufacturer:
+        return phone::manufacturer();
+    case StructureToken::PhoneIMEI:
+        return phone::imei();
     // Sport module
-    { faker::StructureToken::SportSport, []() { return faker::sport::sport(); } },
-    { faker::StructureToken::SportSoccerTeam, []() { return faker::sport::soccerTeam(); } },
-    { faker::StructureToken::SportMaleAthelete, []() { return faker::sport::maleAthlete(); } },
-    { faker::StructureToken::SportFemaleAthlete, []() { return faker::sport::femaleAthlete(); } },
-    { faker::StructureToken::SportSportEvent, []() { return faker::sport::sportEvent(); } },
-
+    case StructureToken::SportSport:
+        return sport::sport();
+    case StructureToken::SportSoccerTeam:
+        return sport::soccerTeam();
+    case StructureToken::SportMaleAthelete:
+        return sport::maleAthlete();
+    case StructureToken::SportFemaleAthlete:
+        return sport::femaleAthlete();
+    case StructureToken::SportSportEvent:
+        return sport::sportEvent();
     // System module
-    { faker::StructureToken::SystemFileName, []() { return faker::system::fileName(); } },
-    { faker::StructureToken::SystemFileExtension, []() { return faker::system::fileExtension(); } },
-    { faker::StructureToken::SystemCommonFileName,
-        []() { return faker::system::commonFileName(); } },
-    { faker::StructureToken::SystemCommonFileExtension,
-        []() { return faker::system::commonFileExtension(); } },
-    { faker::StructureToken::SystemMimeType, []() { return faker::system::mimeType(); } },
-    { faker::StructureToken::SystemCommonFileType,
-        []() { return faker::system::commonFileType(); } },
-    { faker::StructureToken::SystemFileType, []() { return faker::system::fileType(); } },
-    { faker::StructureToken::SystemDirectoryPath, []() { return faker::system::directoryPath(); } },
-    { faker::StructureToken::SystemFilePath, []() { return faker::system::filePath(); } },
-    { faker::StructureToken::SystemSemver, []() { return faker::system::semver(); } },
-    { faker::StructureToken::SystemNetworkInterface,
-        []() { return faker::system::networkInterface(); } },
-    { faker::StructureToken::SystemCron, []() { return faker::system::cron(); } },
-
+    case StructureToken::SystemFileName:
+        return system::fileName();
+    case StructureToken::SystemFileExtension:
+        return system::fileExtension();
+    case StructureToken::SystemCommonFileName:
+        return system::commonFileName();
+    case StructureToken::SystemCommonFileExtension:
+        return system::commonFileExtension();
+    case StructureToken::SystemMimeType:
+        return system::mimeType();
+    case StructureToken::SystemCommonFileType:
+        return system::commonFileType();
+    case StructureToken::SystemFileType:
+        return system::fileType();
+    case StructureToken::SystemDirectoryPath:
+        return system::directoryPath();
+    case StructureToken::SystemFilePath:
+        return system::filePath();
+    case StructureToken::SystemSemver:
+        return system::semver();
+    case StructureToken::SystemNetworkInterface:
+        return system::networkInterface();
+    case StructureToken::SystemCron:
+        return system::cron();
     // VideoGame module
-    { faker::StructureToken::VideoGameGameTitle, []() { return faker::video_game::gameTitle(); } },
-    { faker::StructureToken::VideoGameGenre, []() { return faker::video_game::genre(); } },
-    { faker::StructureToken::VideoGamePlatform, []() { return faker::video_game::platform(); } },
-    { faker::StructureToken::VideoGameStudioName,
-        []() { return faker::video_game::studioName(); } },
-
+    case StructureToken::VideoGameGameTitle:
+        return video_game::gameTitle();
+    case StructureToken::VideoGameGenre:
+        return video_game::genre();
+    case StructureToken::VideoGamePlatform:
+        return video_game::platform();
+    case StructureToken::VideoGameStudioName:
+        return video_game::studioName();
     // Weather module
-    { faker::StructureToken::WeatherTemperatureMetric,
-        []() { return std::to_string(faker::weather::temperature().metric); } },
-
-    { faker::StructureToken::WeatherTemperatureImperial,
-        []() { return std::to_string(faker::weather::temperature().imperial); } },
-    { faker::StructureToken::WeatherPressureMetric,
-        []() { return std::to_string(faker::weather::pressure().metric); } },
-    { faker::StructureToken::WeatherPressureImperial,
-        []() { return std::to_string(faker::weather::pressure().imperial); } },
-    { faker::StructureToken::WeatherVisibilityMetric,
-        []() { return std::to_string(faker::weather::visibility().metric); } },
-    { faker::StructureToken::WeatherVisibilityImperial,
-        []() { return std::to_string(faker::weather::visibility().imperial); } },
-    { faker::StructureToken::WeatherWindSpeedMetric,
-        []() { return std::to_string(faker::weather::windSpeed().metric); } },
-    { faker::StructureToken::WeatherWindSpeedImperial,
-        []() { return std::to_string(faker::weather::windSpeed().imperial); } },
-    { faker::StructureToken::WeatherUvIndex,
-        []() { return std::to_string(faker::weather::uvIndex()); } },
-    { faker::StructureToken::WeatherHumidity,
-        []() { return std::to_string(faker::weather::humidity()); } },
-    { faker::StructureToken::WeatherWeatherDescription,
-        []() { return std::string(faker::weather::weatherDescription()); } },
-    { faker::StructureToken::WeatherCloudCover,
-        []() { return std::to_string(faker::weather::cloudCover()); } },
-
+    case StructureToken::WeatherTemperatureMetric:
+        return std::to_string(weather::temperature().metric);
+    case StructureToken::WeatherTemperatureImperial:
+        return std::to_string(weather::temperature().imperial);
+    case StructureToken::WeatherPressureMetric:
+        return std::to_string(weather::pressure().metric);
+    case StructureToken::WeatherPressureImperial:
+        return std::to_string(weather::pressure().imperial);
+    case StructureToken::WeatherVisibilityMetric:
+        return std::to_string(weather::visibility().metric);
+    case StructureToken::WeatherVisibilityImperial:
+        return std::to_string(weather::visibility().imperial);
+    case StructureToken::WeatherWindSpeedMetric:
+        return std::to_string(weather::windSpeed().metric);
+    case StructureToken::WeatherWindSpeedImperial:
+        return std::to_string(weather::windSpeed().imperial);
+    case StructureToken::WeatherUvIndex:
+        return std::to_string(weather::uvIndex());
+    case StructureToken::WeatherHumidity:
+        return std::to_string(weather::humidity());
+    case StructureToken::WeatherWeatherDescription:
+        return std::string(weather::weatherDescription());
+    case StructureToken::WeatherCloudCover:
+        return std::to_string(weather::cloudCover());
     // Word module
-    { faker::StructureToken::WordSample, []() { return std::string(word::sample()); } },
-    { faker::StructureToken::WordWords, []() { return faker::word::words(); } },
-    { faker::StructureToken::WordAdjective, []() { return std::string(word::adjective()); } },
-    { faker::StructureToken::WordAdverb, []() { return std::string(word::adverb()); } },
-    { faker::StructureToken::WordConjunction, []() { return std::string(word::conjunction()); } },
-    { faker::StructureToken::WordInterjection, []() { return std::string(word::interjection()); } },
-    { faker::StructureToken::WordNoun, []() { return std::string(word::noun()); } },
-    { faker::StructureToken::WordPreposition, []() { return std::string(word::preposition()); } },
-    { faker::StructureToken::WordVerb, []() { return std::string(word::verb()); } },
-};
+    case StructureToken::WordSample:
+        return std::string(word::sample());
+    case StructureToken::WordWords:
+        return word::words();
+    case StructureToken::WordAdjective:
+        return std::string(word::adjective());
+    case StructureToken::WordAdverb:
+        return std::string(word::adverb());
+    case StructureToken::WordConjunction:
+        return std::string(word::conjunction());
+    case StructureToken::WordInterjection:
+        return std::string(word::interjection());
+    case StructureToken::WordNoun:
+        return std::string(word::noun());
+    case StructureToken::WordPreposition:
+        return std::string(word::preposition());
+    case StructureToken::WordVerb:
+        return std::string(word::verb());
+    // leftovers
+    case StructureToken::ComputerType:
+    case StructureToken::DateBirthdateByAgeTimestamp:
+    case StructureToken::DateBirthdateByYearISO:
+        return "";
+    default:
+        assert(false && "Invalid token");
+        return "";
+    }
+}
 
-std::string json(const std::unordered_map<std::string, faker::StructureToken>& items)
+std::string json(const std::unordered_map<std::string, StructureToken>& items)
 {
     std::string result = "{";
 
     for (auto it = items.begin(); it != items.end(); ++it) {
-        auto func = moduleFunctions.find(it->second)->second;
-
-        result.append("\"" + it->first + "\":\"" + func() + "\"");
+        result.append("\"" + it->first + "\":\"" + moduleFunction(it->second) + "\"");
 
         if (std::next(it) != items.end()) {
             result.append(",");
@@ -459,17 +582,14 @@ std::string json(const std::unordered_map<std::string, faker::StructureToken>& i
 }
 
 std::string csv(
-    const std::unordered_map<std::string, faker::StructureToken>& items, const unsigned int rows)
+    const std::unordered_map<std::string, StructureToken>& items, const unsigned int rows)
 {
+    std::vector<StructureToken> tokens;
     std::string result;
 
-    std::vector<std::function<std::string()>> funcs;
-
     for (auto it = items.begin(); it != items.end(); ++it) {
+        tokens.push_back(it->second);
         result.append(it->first);
-
-        funcs.push_back(moduleFunctions.find(it->second)->second);
-
         if (std::next(it) != items.end()) {
             result.append(",");
         }
@@ -477,17 +597,15 @@ std::string csv(
 
     result.append("\n");
 
-    std::size_t n = funcs.size();
-
     for (size_t i = 0; i < rows; i++) {
-        for (size_t j = 0; j < n; ++j) {
-            result.append(funcs[j]());
-
-            if (j != n - 1) {
-                result.append(",");
+        bool first = true;
+        for (auto token : tokens) {
+            if (first) {
+                result.append(1, ',');
+                first = false;
             }
+            result.append(moduleFunction(token));
         }
-
         result.append("\n");
     }
 

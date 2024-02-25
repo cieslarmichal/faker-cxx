@@ -1,9 +1,9 @@
 #ifndef FAKER_MODULES_SCIENCE_DATA_H
 #define FAKER_MODULES_SCIENCE_DATA_H
 
-#include <faker/types/unit.h>
 #include <array>
 #include <faker/types/chemical_element.h>
+#include <faker/types/unit.h>
 
 namespace faker {
 extern const std::array<ChemicalElement, 118> chemicalElements;
