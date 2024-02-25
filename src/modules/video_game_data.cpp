@@ -1,10 +1,10 @@
 #include "video_game_data.h"
 
 namespace faker::video_game::data {
-const std::vector<std::string_view> videoGameNames = { "1552: Tenka Tairan", "1941: Counter Attack",
-    "1943 Kai", "Addams Family, The", "Advanced V.G.", "Aero Blasters", "After Burner II",
-    "Aldynes", "Alien Crush", "Alshark", "Alzadick", "Ane-san", "Aoi Blink", "Appare! Gateball",
-    "Astralius", "Asuka 120% Maxima", "The Atlas", "Atomic Robo-Kid Special",
+const std::array<std::string_view, 3152> videoGameNames = { "1552: Tenka Tairan",
+    "1941: Counter Attack", "1943 Kai", "Addams Family, The", "Advanced V.G.", "Aero Blasters",
+    "After Burner II", "Aldynes", "Alien Crush", "Alshark", "Alzadick", "Ane-san", "Aoi Blink",
+    "Appare! Gateball", "Astralius", "Asuka 120% Maxima", "The Atlas", "Atomic Robo-Kid Special",
     "Aurora Quest: Otaku no Seiza in Another World", "Auto Crusher Palladium", "Avenger",
     "Andre Panza Kick Boxing", "Babel", "Baby Jo the Superhero", "Bakuden: Unbalanced Zone",
     "Ballistix", "Bari Bari Densetsu", "Barunba", "Basted", "Batman", "Battle Ace",
@@ -933,14 +933,14 @@ const std::vector<std::string_view> videoGameNames = { "1552: Tenka Tairan", "19
     "Lost Soul Aside", "Lost Sphear", "Lost Wing", "Lost Words: Beyond the Page",
     "Lovecraft's Untold Stories", "Lovers in a Dangerous Spacetime" };
 
-const std::vector<std::string_view> genres = { "Action", "Adventure", "Battle royale", "Dating sim",
-    "Endless runner", "Fighting", "First-person shooter", "Hack and slash", "Horror",
+const std::array<std::string_view, 28> genres = { "Action", "Adventure", "Battle royale",
+    "Dating sim", "Endless runner", "Fighting", "First-person shooter", "Hack and slash", "Horror",
     "Massively multiplayer online", "Music", "Platformer", "Puzzle", "Racing", "Real-time strategy",
     "Roguelike", "Role-playing game", "Sandbox", "Science fiction game", "Shooter", "Sim racing",
     "Soulslike", "Sports", "Stealth", "Strategy", "Survival", "Third-person shooter",
     "Tower defense" };
 
-const std::vector<std::string_view> platforms = {
+const std::array<std::string_view, 9> platforms = {
     "PC",
     "Playstation 5",
     "Xbox Series X",
@@ -952,8 +952,8 @@ const std::vector<std::string_view> platforms = {
     "Oculus Quest",
 };
 
-const std::vector<std::string_view> studioNames = { "0verflow", "1st Playable Productions", "2K Czech",
-    "989 Studios", "Acclaim Entertainment", "Accolade", "Access Games", "ACE Team",
+const std::array<std::string_view, 392> studioNames = { "0verflow", "1st Playable Productions",
+    "2K Czech", "989 Studios", "Acclaim Entertainment", "Accolade", "Access Games", "ACE Team",
     "Acheron Design", "Acquire", "Active Gaming Media", "Activision Blizzard", "Adventure Soft",
     "Akella", "Aki Corporation", "Alfa System", "Ancient", "Anino Games", "AQ Interactive",
     "Arc System Works", "Arkane Studios", "Arkedo Studio", "ArenaNet", "Arika", "Artdink",
