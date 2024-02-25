@@ -102,16 +102,7 @@ std::string_view commonFileExtension()
     return extension(mimeType);
 }
 
-std::string_view mimeType()
-{
-    std::vector<std::string_view> mimeTypeKeys;
-
-    for (const auto& entry : data::mimeTypes) {
-        mimeTypeKeys.push_back(entry);
-    }
-
-    return Helper::arrayElement(mimeTypeKeys);
-}
+std::string_view mimeType() { return Helper::arrayElement(data::mimeTypes); }
 
 std::string_view commonFileType() { return Helper::arrayElement(data::commonFileTypes); }
 
