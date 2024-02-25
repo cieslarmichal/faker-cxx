@@ -82,7 +82,7 @@ std::string commonFileName(const std::optional<std::string>& ext = std::nullopt)
  * system::commonFileExtension() // "gif"
  * @endcode
  */
-std::string commonFileExtension();
+std::string_view commonFileExtension();
 
 /**
  * Returns a mime-type.
@@ -93,7 +93,7 @@ std::string commonFileExtension();
  * system::mimeType() // "video/vnd.vivo"
  * @endcode
  */
-std::string mimeType();
+std::string_view mimeType();
 
 /**
  * Returns a commonly used file type.
@@ -104,7 +104,7 @@ std::string mimeType();
  * system::commonFileType() // "audio"
  * @endcode
  */
-std::string commonFileType();
+std::string_view commonFileType();
 
 /**
  * Returns a commonly used file type.
@@ -115,7 +115,7 @@ std::string commonFileType();
  * system::fileType() // "image"
  * @endcode
  */
-std::string fileType();
+std::string_view fileType();
 
 /**
  * Returns a directory path.
@@ -126,7 +126,7 @@ std::string fileType();
  * system::directoryPath() // "/etc/mail"
  * @endcode
  */
-std::string directoryPath();
+std::string_view directoryPath();
 
 /**
  * Returns a file path.

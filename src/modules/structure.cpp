@@ -483,15 +483,15 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::SystemCommonFileName:
         return system::commonFileName();
     case StructureToken::SystemCommonFileExtension:
-        return system::commonFileExtension();
+        return std::string(system::commonFileExtension());
     case StructureToken::SystemMimeType:
-        return system::mimeType();
+        return std::string(system::mimeType());
     case StructureToken::SystemCommonFileType:
-        return system::commonFileType();
+        return std::string(system::commonFileType());
     case StructureToken::SystemFileType:
-        return system::fileType();
+        return std::string(system::fileType());
     case StructureToken::SystemDirectoryPath:
-        return system::directoryPath();
+        return std::string(system::directoryPath());
     case StructureToken::SystemFilePath:
         return system::filePath();
     case StructureToken::SystemSemver:

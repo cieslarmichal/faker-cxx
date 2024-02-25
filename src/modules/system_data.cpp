@@ -1,14 +1,15 @@
 #include "system_data.h"
 
 namespace faker {
-const std::vector<std::string> commonInterfaceTypes = { "en", "wl", "ww" };
+const std::vector<std::string_view> commonInterfaceTypes = { "en", "wl", "ww" };
 
-const std::unordered_map<std::string, std::string> commonInterfaceSchemas
+const std::unordered_map<std::string_view, std::string_view> commonInterfaceSchemas
     = { { "index", "o" }, { "slot", "s" }, { "mac", "x" }, { "pci", "p" } };
 
-const std::vector<std::string> cronDayOfWeek = { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
+const std::vector<std::string_view> cronDayOfWeek
+    = { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
 
-const std::vector<std::string> directoryPaths = { "/etc/mail", "/var/log", "/usr/bin", "/tmp",
+const std::vector<std::string_view> directoryPaths = { "/etc/mail", "/var/log", "/usr/bin", "/tmp",
     "/usr/local/lib", "/var/www/html", "/opt/app", "/home/user/documents", "/usr/share/fonts",
     "/var/cache/apt", "/etc/nginx", "/usr/local/bin", "/var/tmp", "/opt/data",
     "/home/user/pictures", "/usr/local/include", "/var/www/cgi-bin", "/etc/ssh", "/usr/local/share",
@@ -19,7 +20,7 @@ const std::vector<std::string> directoryPaths = { "/etc/mail", "/var/log", "/usr
     "/var/lock", "/opt/scripts", "/home/user/public_html", "/usr/local/etc", "/var/www/logs",
     "/etc/httpd", "/usr/local/share/man", "/var/log/apache2", "/opt/files", "/home/user/backups" };
 
-const std::vector<std::string> mimeTypes = { "application/atom+xml", "application/font-woff",
+const std::vector<std::string_view> mimeTypes = { "application/atom+xml", "application/font-woff",
     "application/gzip", "application/java-archive", "application/javascript", "application/json",
     "application/ld+json", "application/msword", "application/octet-stream", "application/ogg",
     "application/pdf", "application/rdf+xml", "application/rtf", "application/vnd.apple.mpegurl",
@@ -38,13 +39,13 @@ const std::vector<std::string> mimeTypes = { "application/atom+xml", "applicatio
     "video/ogg", "video/webm", "video/x-msvideo", "video/x-flv" };
 
 // Only contains non obvious extensions.
-const std::unordered_map<std::string, std::string> mimeTypesExtensions { { "application/atom+xml",
-                                                                             "xml" },
-    { "application/font-woff", "woff" }, { "application/gzip", "gz" },
-    { "application/java-archive", "jar" }, { "application/javascript", "js" },
-    { "application/ld+json", "jsonld" }, { "application/msword", "doc" },
-    { "application/octet-stream", "bin" }, { "application/ogg", "ogx" },
-    { "application/vnd.ms-excel", "xls" }, { "application/vnd.ms-fontobject", "eot" },
+const std::unordered_map<std::string_view, std::string_view> mimeTypesExtensions {
+    { "application/atom+xml", "xml" }, { "application/font-woff", "woff" },
+    { "application/gzip", "gz" }, { "application/java-archive", "jar" },
+    { "application/javascript", "js" }, { "application/ld+json", "jsonld" },
+    { "application/msword", "doc" }, { "application/octet-stream", "bin" },
+    { "application/ogg", "ogx" }, { "application/vnd.ms-excel", "xls" },
+    { "application/vnd.ms-fontobject", "eot" },
     { "application/vnd.openxmlformats-officedocument.presentationml.presentation", "pptx" },
     { "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "xlsx" },
     { "application/vnd.openxmlformats-officedocument.wordprocessingml.document", "docx" },
@@ -58,12 +59,13 @@ const std::unordered_map<std::string, std::string> mimeTypesExtensions { { "appl
     { "text/calendar", "ics" }, { "text/javascript", "js" }, { "text/plain", "txt" },
 
     { "video/3gpp", "3gp" }, { "video/3gpp2", "3g2" }, { "video/mp2t", "ts" },
-    { "video/ogg", "ogv" }, { "video/x-msvideo", "avi" } };
+    { "video/ogg", "ogv" }, { "video/x-msvideo", "avi" }
+};
 
-const std::vector<std::string> commonMimeTypes = { "application/pdf", "audio/mpeg", "audio/wav",
-    "image/png", "image/jpeg", "image/gif", "video/mp4", "video/mpeg", "text/html" };
+const std::vector<std::string_view> commonMimeTypes = { "application/pdf", "audio/mpeg",
+    "audio/wav", "image/png", "image/jpeg", "image/gif", "video/mp4", "video/mpeg", "text/html" };
 
-const std::vector<std::string> commonFileTypes
+const std::vector<std::string_view> commonFileTypes
     = { "video", "audio", "image", "text", "application" };
 
 }
