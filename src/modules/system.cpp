@@ -171,7 +171,7 @@ std::string networkInterface(const std::optional<NetworkInterfaceOptions>& optio
 
     std::string suffix;
     std::string prefix;
-    auto digit = []() { return String::numeric(); };
+    auto digit = []() { return string::numeric(); };
 
     if (interfaceSchema == "index") {
         suffix = digit();

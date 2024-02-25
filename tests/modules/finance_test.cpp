@@ -95,7 +95,7 @@ public:
     {
         return faker::testing::all_of(data, [](char dataCharacter) {
             return faker::testing::any_of(
-                numericCharacters, [dataCharacter](char numericCharacter) {
+                string::data::numericCharacters, [dataCharacter](char numericCharacter) {
                     return numericCharacter == dataCharacter;
                 });
         });
@@ -404,7 +404,7 @@ TEST_F(FinanceTest, shouldGenerateEthereumAddress)
     ASSERT_EQ(ethereumAddress.size(), 42);
     ASSERT_EQ(prefix, "0x");
     ASSERT_TRUE(faker::testing::any_of(hexNumber, [hexNumber](char hexNumberCharacter) {
-        return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos;
+        return string::data::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos;
     }));
 }
 

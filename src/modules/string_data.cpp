@@ -1,6 +1,6 @@
 #include "string_data.h"
 
-namespace faker {
+namespace faker::string::data {
 const std::string upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const std::string lowerCharacters = "abcdefghijklmnopqrstuvwxyz";
 const std::string numericCharactersWithoutZero = "123456789";

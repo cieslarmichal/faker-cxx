@@ -12,5 +12,5 @@ std::string_view collation() { return Helper::arrayElement(collations); }
 
 std::string_view engine() { return Helper::arrayElement(engines); }
 
-std::string mongoDbObjectId() { return String::hexadecimal(24, HexCasing::Lower, HexPrefix::None); }
+std::string mongoDbObjectId() { return string::hexadecimal(24, HexCasing::Lower, HexPrefix::None); }
 }

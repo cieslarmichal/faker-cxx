@@ -6,7 +6,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-namespace faker {
+namespace faker::string::data {
 extern const std::string upperCharacters;
 extern const std::string lowerCharacters;
 extern const std::string numericCharactersWithoutZero;

@@ -12,7 +12,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-namespace faker {
+namespace faker::string {
 
 struct CharCount {
     unsigned int atleastCount { (std::numeric_limits<unsigned int>::min)() };
@@ -59,12 +59,6 @@ bool isValidGuarantee(
  */
 std::string generateAtleastString(const GuaranteeMap& guarantee);
 
-class String {
-private:
-    static std::string generateStringWithGuarantee(
-        GuaranteeMap& guarantee, std::unordered_set<char>& targetCharacters, unsigned int length);
-
-public:
     /**
      * @brief Generates an Universally Unique Identifier with version 4.
      *
@@ -73,11 +67,11 @@ public:
      * @param gen A random number generator (type RandomGenerator)
      *
      * @code
-     * String::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
+     * string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
      * @endcode
      */
     template <typename T = std::mt19937>
-    static std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937> {})
+    std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937> {})
     {
         static std::uniform_int_distribution<> dist(0, 15);
         static std::uniform_int_distribution<> dist2(8, 11);
@@ -124,11 +118,11 @@ public:
      * @returns Sample string.
      *
      * @code
-     * String::sample() // "Zo!.:*e>wR"
-     * String::sample(5) // "6Bye8"
+     * string::sample() // "Zo!.:*e>wR"
+     * string::sample(5) // "6Bye8"
      * @endcode
      */
-    static std::string sample(unsigned length = 10);
+    std::string sample(unsigned length = 10);
 
     /**
      * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
@@ -139,11 +133,11 @@ public:
      * @returns Sample string.
      *
      * @code
-     * String::sample({}) // "Zo!.:*e>wR"
-     * String::sample({{'|' ,{2,2}},{'^',{0,0}},{':',{1,8}}}, 8) // "|6Bye8:|"
+     * string::sample({}) // "Zo!.:*e>wR"
+     * string::sample({{'|' ,{2,2}},{'^',{0,0}},{':',{1,8}}}, 8) // "|6Bye8:|"
      * @endcode
      */
-    static std::string sample(GuaranteeMap&& guarantee, unsigned length = 10);
+    std::string sample(GuaranteeMap&& guarantee, unsigned length = 10);
 
     /**
      * @brief Generates a string consisting of given characters.
@@ -151,14 +145,14 @@ public:
      * @param characters The characters to generate string with.
      * @param length The number of characters to generate. Defaults to `1`.
      *
-     * @returns String from characters.
+     * @returns string from characters.
      *
      * @code
-     * String::fromCharacters("abc") // "b"
-     * String::fromCharacters("qwerty", 5) // "qrwqt"
+     * string::fromCharacters("abc") // "b"
+     * string::fromCharacters("qwerty", 5) // "qrwqt"
      * @endcode
      */
-    static std::string fromCharacters(const std::string& characters, unsigned length = 1);
+    std::string fromCharacters(const std::string& characters, unsigned length = 1);
 
     /**
      * @brief Generates a string consisting of given characters.
@@ -167,14 +161,14 @@ public:
      * @param characters The characters to generate string with.
      * @param length The number of characters to generate. Defaults to `1`.
      *
-     * @returns String from characters.
+     * @returns string from characters.
      *
      * @code
-     * String::fromCharacters({}, "abc") // "b"
-     * String::fromCharacters({{'q',{2,2}},{'e',{1,5}}}, "qwerty", 8) // "yqreqety"
+     * string::fromCharacters({}, "abc") // "b"
+     * string::fromCharacters({{'q',{2,2}},{'e',{1,5}}}, "qwerty", 8) // "yqreqety"
      * @endcode
      */
-    static std::string fromCharacters(
+    std::string fromCharacters(
         GuaranteeMap&& guarantee, const std::string& characters, unsigned length = 1);
 
     /**
@@ -189,12 +183,12 @@ public:
      * @returns Alpha string.
      *
      * @code
-     * String::alpha() // "b"
-     * String::alpha(5, StringCasing::Upper) // "DTCIC"
-     * String::alpha(4, StringCasing::Lower) // "brpt"
+     * string::alpha() // "b"
+     * string::alpha(5, StringCasing::Upper) // "DTCIC"
+     * string::alpha(4, StringCasing::Lower) // "brpt"
      * @endcode
      */
-    static std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
+    std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
         const std::string& excludeCharacters = "");
 
     /**
@@ -207,13 +201,13 @@ public:
      * @returns Alpha string.
      *
      * @code
-     * String::alpha({}) // "b"
-     * String::alpha({{'A',{2,2}}, 5, StringCasing::Upper) // "DACAC"
-     * String::alpha({{'a',{0,0}},{'b',{3,3}},{'c', {0,2}}}, 10, StringCasing::Lower) //
+     * string::alpha({}) // "b"
+     * string::alpha({{'A',{2,2}}, 5, StringCasing::Upper) // "DACAC"
+     * string::alpha({{'a',{0,0}},{'b',{3,3}},{'c', {0,2}}}, 10, StringCasing::Lower) //
      * "bicnmmkbbp"
      * @endcode
      */
-    static std::string alpha(
+    std::string alpha(
         GuaranteeMap&& guarantee, unsigned length = 1, StringCasing casing = StringCasing::Mixed);
 
     /**
@@ -227,12 +221,12 @@ public:
      * @returns Alphanumeric string.
      *
      * @code
-     * String::alphanumeric() // "4"
-     * String::alphanumeric(5, StringCasing::Upper) // "3e5V7"
-     * String::alphanumeric(4, StringCasing::Lower) // "1nrq"
+     * string::alphanumeric() // "4"
+     * string::alphanumeric(5, StringCasing::Upper) // "3e5V7"
+     * string::alphanumeric(4, StringCasing::Lower) // "1nrq"
      * @endcode
      */
-    static std::string alphanumeric(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
+    std::string alphanumeric(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
         const std::string& excludeCharacters = "");
 
     /**
@@ -245,13 +239,13 @@ public:
      * @returns Alphanumeric string.
      *
      * @code
-     * String::alphanumeric({}) // "4"
-     * String::alphanumeric({{'A', {3,6}},{'1', {1,1}}, 5, StringCasing::Upper) // "1EAAA"
-     * String::alphanumeric({{'a',{0,2}},{'2',{0,3}},{'z',{3,5}}}, 10, StringCasing::Lower) //
+     * string::alphanumeric({}) // "4"
+     * string::alphanumeric({{'A', {3,6}},{'1', {1,1}}, 5, StringCasing::Upper) // "1EAAA"
+     * string::alphanumeric({{'a',{0,2}},{'2',{0,3}},{'z',{3,5}}}, 10, StringCasing::Lower) //
      * "z1naazrqz0"
      * @endcode
      */
-    static std::string alphanumeric(
+    std::string alphanumeric(
         GuaranteeMap&& guarantee, unsigned length = 1, StringCasing casing = StringCasing::Mixed);
 
     /**
@@ -263,12 +257,12 @@ public:
      * @returns Numeric string.
      *
      * @code
-     * String::numeric() // "1"
-     * String::numeric(6) // "035742"
-     * String::numeric(6, false) // "254429"
+     * string::numeric() // "1"
+     * string::numeric(6) // "035742"
+     * string::numeric(6, false) // "254429"
      * @endcode
      */
-    static std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
+    std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
 
     /**
      * @brief Generates a given length string of digits.
@@ -280,12 +274,12 @@ public:
      * @returns Numeric string.
      *
      * @code
-     * String::numeric({}) // "1"
-     * String::numeric({'5',{3,6}}, 6) // "055542"
-     * String::numeric({'0',{0,0}}, {'4',{1,1}}, 6, false) // "854829"
+     * string::numeric({}) // "1"
+     * string::numeric({'5',{3,6}}, 6) // "055542"
+     * string::numeric({'0',{0,0}}, {'4',{1,1}}, 6, false) // "854829"
      * @endcode
      */
-    static std::string numeric(
+    std::string numeric(
         GuaranteeMap&& guarantee, unsigned length = 1, bool allowLeadingZeros = true);
 
     /**
@@ -298,13 +292,13 @@ public:
      * @returns Hexadecimal string.
      *
      * @code
-     * String::hexadecimal() // "0xb"
-     * String::hexadecimal(10) // "0xae13d044cb"
-     * String::hexadecimal(6, HexCasing::Upper, HexPrefix::Hash) // "#E3F380"
-     * String::hexadecimal(6, HexCasing::Lower, HexPrefix::None) // "e3f380"
+     * string::hexadecimal() // "0xb"
+     * string::hexadecimal(10) // "0xae13d044cb"
+     * string::hexadecimal(6, HexCasing::Upper, HexPrefix::Hash) // "#E3F380"
+     * string::hexadecimal(6, HexCasing::Lower, HexPrefix::None) // "e3f380"
      * @endcode
      */
-    static std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
+    std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
         HexPrefix prefix = HexPrefix::ZeroX);
 
     /**
@@ -318,14 +312,14 @@ public:
      * @returns Hexadecimal string.
      *
      * @code
-     * String::hexadecimal({}) // "0xb"
-     * String::hexadecimal({'a',{2,2}}, 10) // "0xae13d04acb"
-     * String::hexadecimal({'F', {2,4}}, 6, HexCasing::Upper, HexPrefix::Hash) // "#E3FFF0"
-     * String::hexadecimal({'1', {1,4}, {'2', {1, 4}, {'c', {1,1}}, 6, HexCasing::Lower,
+     * string::hexadecimal({}) // "0xb"
+     * string::hexadecimal({'a',{2,2}}, 10) // "0xae13d04acb"
+     * string::hexadecimal({'F', {2,4}}, 6, HexCasing::Upper, HexPrefix::Hash) // "#E3FFF0"
+     * string::hexadecimal({'1', {1,4}, {'2', {1, 4}, {'c', {1,1}}, 6, HexCasing::Lower,
      * HexPrefix::None) // "121a1c"
      * @endcode
      */
-    static std::string hexadecimal(GuaranteeMap&& guarantee, unsigned length = 1,
+    std::string hexadecimal(GuaranteeMap&& guarantee, unsigned length = 1,
         HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::ZeroX);
 
     /**
@@ -336,10 +330,10 @@ public:
      * @returns Binary string.
      *
      * @code
-     * String::binary(8) // "0b01110101"
+     * string::binary(8) // "0b01110101"
      * @endcode
      */
-    static std::string binary(unsigned length = 1);
+    std::string binary(unsigned length = 1);
 
     /**
      * @brief Generates a binary string.
@@ -350,10 +344,10 @@ public:
      * @returns Binary string.
      *
      * @code
-     * String::binary({'1',{7,8}}, 8) // "0b11110111"
+     * string::binary({'1',{7,8}}, 8) // "0b11110111"
      * @endcode
      */
-    static std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
+    std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
 
     /**
      * @brief Generates an octal string.
@@ -363,10 +357,10 @@ public:
      * @returns Octal string.
      *
      * @code
-     * String::octal(8) // "0o52561721"
+     * string::octal(8) // "0o52561721"
      * @endcode
      */
-    static std::string octal(unsigned length = 1);
+    std::string octal(unsigned length = 1);
 
     /**
      * @brief Generates an octal string.
@@ -377,11 +371,10 @@ public:
      * @returns Octal string.
      *
      * @code
-     * String::octal({'4',{4,5}}, 8) // "0o42444041"
+     * string::octal({'4',{4,5}}, 8) // "0o42444041"
      * @endcode
      */
-    static std::string octal(GuaranteeMap&& guarantee, unsigned length = 1);
-};
+    std::string octal(GuaranteeMap&& guarantee, unsigned length = 1);
 }
 
 #endif

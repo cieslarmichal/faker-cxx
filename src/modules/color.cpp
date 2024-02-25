@@ -34,10 +34,10 @@ std::string rgb(bool includeAlpha)
 std::string hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
 {
     if (includeAlpha) {
-        return String::hexadecimal(8, casing, prefix);
+        return string::hexadecimal(8, casing, prefix);
     }
 
-    return String::hexadecimal(6, casing, prefix);
+    return string::hexadecimal(6, casing, prefix);
 }
 
 std::string hsl(bool includeAlpha)

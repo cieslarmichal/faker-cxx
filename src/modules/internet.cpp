@@ -82,19 +82,19 @@ std::string password(int length, PasswordOptions options)
     std::string characters;
 
     if (options.upperLetters) {
-        characters += faker::upperCharacters;
+        characters += string::data::upperCharacters;
     }
 
     if (options.lowerLetters) {
-        characters += faker::lowerCharacters;
+        characters += string::data::lowerCharacters;
     }
 
     if (options.numbers) {
-        characters += faker::numericCharacters;
+        characters += string::data::numericCharacters;
     }
 
     if (options.symbols) {
-        characters += faker::symbolCharacters;
+        characters += string::data::symbolCharacters;
     }
 
     std::string password;
@@ -277,7 +277,7 @@ std::string ipv6()
     ipv6Parts.reserve(8);
 
     for (int i = 0; i < 8; i++) {
-        ipv6Parts.push_back(String::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
+        ipv6Parts.push_back(string::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
     }
 
     return StringHelper::join(ipv6Parts, ":");

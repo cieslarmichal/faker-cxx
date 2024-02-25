@@ -10,7 +10,7 @@ std::string_view department() { return Helper::arrayElement(departments); }
 
 std::string price(double min, double max) { return finance::amount(min, max); }
 
-std::string sku(unsigned int length) { return String::numeric(length, false); }
+std::string sku(unsigned int length) { return string::numeric(length, false); }
 
 std::string_view productAdjective() { return Helper::arrayElement(productAdjectives); }
 
@@ -25,7 +25,7 @@ std::string productFullName()
 
 std::string EAN13()
 {
-    std::string ean13 = String::numeric(12, false);
+    std::string ean13 = string::numeric(12, false);
 
     int sum = 0;
     for (size_t i = 0; i < 12; i++) {
@@ -47,7 +47,7 @@ std::string EAN13()
 
 std::string EAN8()
 {
-    std::string ean8 = String::numeric(7, false);
+    std::string ean8 = string::numeric(7, false);
 
     int sum = 0;
     for (size_t i = 0; i < 7; i++) {
@@ -69,7 +69,7 @@ std::string EAN8()
 
 std::string ISBN13()
 {
-    std::string isbn13 = String::numeric(12, true);
+    std::string isbn13 = string::numeric(12, true);
 
     int sum = 0;
     for (size_t i = 0; i < 12; i++) {
@@ -91,7 +91,7 @@ std::string ISBN13()
 
 std::string ISBN10()
 {
-    std::string isbn10 = String::numeric(9, true);
+    std::string isbn10 = string::numeric(9, true);
 
     int sum = 0, weight = 10;
     for (size_t i = 0; i < 9; i++) {
@@ -112,7 +112,7 @@ std::string ISBN10()
     return isbn10 + std::to_string(checkDigit);
 }
 
-std::string productId() { return String::alphanumeric(10, StringCasing::Upper, ""); }
+std::string productId() { return string::alphanumeric(10, StringCasing::Upper, ""); }
 
 std::string_view paymentType() { return Helper::arrayElement(paymentTypes); }
 
@@ -135,7 +135,7 @@ std::string_view discountType() { return Helper::arrayElement(discountTypes); }
 std::string discountCode()
 {
     const auto codeLength = number::integer(kMinDiscountCodeLength, kMaxDiscountCodeLength);
-    return String::alphanumeric(codeLength, StringCasing::Upper);
+    return string::alphanumeric(codeLength, StringCasing::Upper);
 }
 
 double discountAmount()

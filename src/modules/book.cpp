@@ -17,8 +17,8 @@ std::string_view publisher() { return Helper::arrayElement(books::publishers); }
 
 std::string isbn()
 {
-    return FormatHelper::format("{}-{}-{}-{}-{}", String::numeric(3, false), String::numeric(2),
-        String::numeric(2), String::numeric(5), String::numeric(1));
+    return FormatHelper::format("{}-{}-{}-{}-{}", string::numeric(3, false), string::numeric(2),
+        string::numeric(2), string::numeric(5), string::numeric(1));
 }
 
 int releaseYear() { return number::integer(1940, 2024); }

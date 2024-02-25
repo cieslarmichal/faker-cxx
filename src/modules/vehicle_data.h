@@ -1,8 +1,8 @@
 #ifndef FAKER_MODULES_VEHICLE_DATA_H
 #define FAKER_MODULES_VEHICLE_DATA_H
 
-#include <string>
-#include <vector>
+#include <array>
+#include <string_view>
 
 namespace faker::vehicle::data {
 extern const std::array<std::string_view, 10> bicycle_types;

@@ -247,9 +247,9 @@ std::string ssn(std::optional<SsnCountry> country)
 
     for (const auto& ssnFormatCharacter : ssnWithoutRegexes) {
         if (ssnFormatCharacter == 'L') {
-            ssn += String::alpha(1, StringCasing::Upper);
+            ssn += string::alpha(1, StringCasing::Upper);
         } else if (ssnFormatCharacter == 'F') {
-            ssn += String::alphanumeric(1, StringCasing::Upper);
+            ssn += string::alphanumeric(1, StringCasing::Upper);
         } else if (ssnFormatCharacter == '#') {
             ssn += std::to_string(number::integer(0, 9));
         } else {
