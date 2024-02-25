@@ -4,7 +4,6 @@
 #include <functional>
 #include <regex>
 #include <string>
-#include <unordered_map>
 #include <vector>
 
 namespace faker {
