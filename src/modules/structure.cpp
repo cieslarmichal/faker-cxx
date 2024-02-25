@@ -413,11 +413,11 @@ std::string moduleFunction(StructureToken token)
         return std::string(movie::actress());
     // Music module
     case StructureToken::MusicArtist:
-        return music::artist();
+        return std::string(music::artist());
     case StructureToken::MusicGenre:
-        return music::genre();
+        return std::string(music::genre());
     case StructureToken::MusicSongName:
-        return music::songName();
+        return std::string(music::songName());
     // Person module
     case StructureToken::PersonFirstName:
         return person::firstName();

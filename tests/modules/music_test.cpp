@@ -6,21 +6,21 @@ using namespace faker;
 
 TEST(MusicTest, shouldGenerateArtist)
 {
-    const auto generatedArtist = music::artist();
+    auto generatedArtist = music::artist();
 
-    FAKER_EXPECT_CONTAINS(music::artists, generatedArtist);
+    FAKER_EXPECT_CONTAINS(music::data::artists, generatedArtist);
 }
 
 TEST(MusicTest, shouldGenerateGenre)
 {
-    const auto generatedGenre = music::genre();
+    auto generatedGenre = music::genre();
 
-    FAKER_EXPECT_CONTAINS(music::genres, generatedGenre);
+    FAKER_EXPECT_CONTAINS(music::data::genres, generatedGenre);
 }
 
 TEST(MusicTest, shouldGenerateSongName)
 {
-    const auto generatedSongName = music::songName();
+    auto generatedSongName = music::songName();
 
-    FAKER_EXPECT_CONTAINS(music::songNames, generatedSongName);
+    FAKER_EXPECT_CONTAINS(music::data::songNames, generatedSongName);
 }

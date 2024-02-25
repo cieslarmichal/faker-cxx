@@ -1,7 +1,7 @@
 #include "music_data.h"
 
-namespace faker::music {
-const std::vector<std::string> artists = { "Beatles", "Elvis Presley", "Frank Sinatra",
+namespace faker::music::data {
+const std::vector<std::string_view> artists = { "Beatles", "Elvis Presley", "Frank Sinatra",
     "Bing Crosby", "Michael Jackson / Jackson 5", "Louis Armstrong", "James Brown",
     "Billie Holiday", "Johnny Cash", "Duke Ellington", "Bob Dylan", "Ray Charles", "Chuck Berry",
     "Hank Williams", "Aretha Franklin", "Madonna", "Stevie Wonder", "Al Jolson", "Glenn Miller",
@@ -64,7 +64,7 @@ const std::vector<std::string> artists = { "Beatles", "Elvis Presley", "Frank Si
     "Hank Snow", "Kraftwerk", "O'Jays", "Marty Robbins", "Roy Acuff", "Tennessee Ernie Ford",
     "Blondie", "Nas", "Daryl Hall & John Oates", "Ed Sheeran" };
 
-const std::vector<std::string> genres = {
+const std::vector<std::string_view> genres = {
     "Rock",
     "Metal",
     "Pop",
@@ -84,7 +84,7 @@ const std::vector<std::string> genres = {
     "Rap",
 };
 
-const std::vector<std::string> songNames = { "White Christmas", "Hey Jude", "Every Breath You Take",
+const std::vector<std::string_view> songNames = { "White Christmas", "Hey Jude", "Every Breath You Take",
     "Mack the Knife", "Rock Around the Clock", "I Want to Hold Your Hand", "The Twist",
     "(Everything I Do) I Do it For You", "Bridge Over Troubled Water", "When Doves Cry", "Call Me",
     "Bette Davis Eyes", "I Will Always Love You", "Over the Rainbow", "American Pie",

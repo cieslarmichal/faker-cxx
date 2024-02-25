@@ -1,7 +1,7 @@
 #ifndef FAKER_MUSIC_H
 #define FAKER_MUSIC_H
 
-#include <string>
+#include <string_view>
 
 namespace faker::music {
 /**
@@ -13,7 +13,7 @@ namespace faker::music {
  * music::artist() // "Nirvana"
  * @endcode
  */
-std::string artist();
+std::string_view artist();
 
 /**
  * @brief Returns a random music genre.
@@ -24,7 +24,7 @@ std::string artist();
  * music::genre() // "Rock"
  * @endcode
  */
-std::string genre();
+std::string_view genre();
 
 /**
  * @brief Returns a random song name.
@@ -35,7 +35,7 @@ std::string genre();
  * music::songName() // "Light My Fire"
  * @endcode
  */
-std::string songName();
+std::string_view songName();
 }
 
 #endif

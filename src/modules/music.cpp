@@ -3,9 +3,9 @@
 #include <faker/music.h>
 
 namespace faker::music {
-std::string artist() { return Helper::arrayElement<std::string>(music::artists); }
+std::string_view artist() { return Helper::arrayElement(data::artists); }
 
-std::string genre() { return Helper::arrayElement<std::string>(music::genres); }
+std::string_view genre() { return Helper::arrayElement(data::genres); }
 
-std::string songName() { return Helper::arrayElement<std::string>(music::songNames); }
+std::string_view songName() { return Helper::arrayElement(data::songNames); }
 }
