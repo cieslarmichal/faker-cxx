@@ -1,17 +1,17 @@
 #include "system_data.h"
 
 namespace faker::system::data {
-const std::vector<std::string_view> commonInterfaceTypes = { "en", "wl", "ww" };
+const std::array<std::string_view, 3> commonInterfaceTypes = { "en", "wl", "ww" };
 
 const std::unordered_map<std::string_view, std::string_view> commonInterfaceSchemas
     = { { "index", "o" }, { "slot", "s" }, { "mac", "x" }, { "pci", "p" } };
 
-const std::vector<std::string_view> cronDayOfWeek
+const std::array<std::string_view, 7> cronDayOfWeek
     = { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
 
-const std::vector<std::string_view> directoryPaths = { "/etc/mail", "/var/log", "/usr/bin", "/tmp",
-    "/usr/local/lib", "/var/www/html", "/opt/app", "/home/user/documents", "/usr/share/fonts",
-    "/var/cache/apt", "/etc/nginx", "/usr/local/bin", "/var/tmp", "/opt/data",
+const std::array<std::string_view, 50> directoryPaths = { "/etc/mail", "/var/log", "/usr/bin",
+    "/tmp", "/usr/local/lib", "/var/www/html", "/opt/app", "/home/user/documents",
+    "/usr/share/fonts", "/var/cache/apt", "/etc/nginx", "/usr/local/bin", "/var/tmp", "/opt/data",
     "/home/user/pictures", "/usr/local/include", "/var/www/cgi-bin", "/etc/ssh", "/usr/local/share",
     "/var/spool/mail", "/opt/logs", "/home/user/music", "/usr/local/libexec", "/var/www/cgi-bin",
     "/etc/ssl", "/usr/local/var", "/var/spool/cron", "/opt/config", "/home/user/videos",
@@ -20,11 +20,12 @@ const std::vector<std::string_view> directoryPaths = { "/etc/mail", "/var/log", 
     "/var/lock", "/opt/scripts", "/home/user/public_html", "/usr/local/etc", "/var/www/logs",
     "/etc/httpd", "/usr/local/share/man", "/var/log/apache2", "/opt/files", "/home/user/backups" };
 
-const std::vector<std::string_view> mimeTypes = { "application/atom+xml", "application/font-woff",
-    "application/gzip", "application/java-archive", "application/javascript", "application/json",
-    "application/ld+json", "application/msword", "application/octet-stream", "application/ogg",
-    "application/pdf", "application/rdf+xml", "application/rtf", "application/vnd.apple.mpegurl",
-    "application/vnd.ms-excel", "application/vnd.ms-fontobject",
+const std::array<std::string_view, 64> mimeTypes = { "application/atom+xml",
+    "application/font-woff", "application/gzip", "application/java-archive",
+    "application/javascript", "application/json", "application/ld+json", "application/msword",
+    "application/octet-stream", "application/ogg", "application/pdf", "application/rdf+xml",
+    "application/rtf", "application/vnd.apple.mpegurl", "application/vnd.ms-excel",
+    "application/vnd.ms-fontobject",
     "application/vnd.openxmlformats-officedocument.presentationml.presentation",
     "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
     "application/vnd.openxmlformats-officedocument.wordprocessingml.document",
@@ -62,10 +63,10 @@ const std::unordered_map<std::string_view, std::string_view> mimeTypesExtensions
     { "video/ogg", "ogv" }, { "video/x-msvideo", "avi" }
 };
 
-const std::vector<std::string_view> commonMimeTypes = { "application/pdf", "audio/mpeg",
+const std::array<std::string_view, 9> commonMimeTypes = { "application/pdf", "audio/mpeg",
     "audio/wav", "image/png", "image/jpeg", "image/gif", "video/mp4", "video/mpeg", "text/html" };
 
-const std::vector<std::string_view> commonFileTypes
+const std::array<std::string_view, 5> commonFileTypes
     = { "video", "audio", "image", "text", "application" };
 
 }
