@@ -1,60 +1,40 @@
 #include "../test_helpers.h"
-#include <algorithm>
 #include <faker/sport.h>
 #include <modules/sport_data.h>
-#include <string>
 
-using namespace ::testing;
 using namespace faker;
 
-class SportTest : public Test {
-public:
-};
-
-TEST_F(SportTest, shouldGenerateSport)
+TEST(SportTest, shouldGenerateSport)
 {
-    std::string generatedSport = sport::sport();
+    auto generatedSport = sport::sport();
 
-    ASSERT_TRUE(faker::testing::any_of(sportNames,
-        [generatedSport](const std::string& sport) { return sport == generatedSport; }));
+    FAKER_EXPECT_CONTAINS(sport::data::sportNames, generatedSport);
 }
 
-TEST_F(SportTest, shouldGenerateSoccerTeam)
+TEST(SportTest, shouldGenerateSoccerTeam)
 {
-    std::string generatedSoccerTeam = sport::soccerTeam();
+    auto generatedSoccerTeam = sport::soccerTeam();
 
-    ASSERT_TRUE(
-        faker::testing::any_of(soccerTeams, [generatedSoccerTeam](const std::string& soccerTeam) {
-            return soccerTeam == generatedSoccerTeam;
-        }));
+    FAKER_EXPECT_CONTAINS(sport::data::soccerTeams, generatedSoccerTeam);
 }
 
-TEST_F(SportTest, shouldGenerateSportEvent)
+TEST(SportTest, shouldGenerateSportEvent)
 {
-    std::string generatedSportEvent = sport::sportEvent();
+    auto generatedSportEvent = sport::sportEvent();
 
-    ASSERT_TRUE(
-        faker::testing::any_of(sportEvents, [generatedSportEvent](const std::string& sportEvent) {
-            return sportEvent == generatedSportEvent;
-        }));
+    FAKER_EXPECT_CONTAINS(sport::data::sportEvents, generatedSportEvent);
 }
 
-TEST_F(SportTest, shouldGenerateMaleAthlete)
+TEST(SportTest, shouldGenerateMaleAthlete)
 {
-    std::string generatedMaleAthlete = sport::maleAthlete();
+    auto generatedMaleAthlete = sport::maleAthlete();
 
-    ASSERT_TRUE(faker::testing::any_of(
-        maleAthletes, [generatedMaleAthlete](const std::string& maleAthlete) {
-            return maleAthlete == generatedMaleAthlete;
-        }));
+    FAKER_EXPECT_CONTAINS(sport::data::maleAthletes, generatedMaleAthlete);
 }
 
-TEST_F(SportTest, shouldGenerateFemaleAthlete)
+TEST(SportTest, shouldGenerateFemaleAthlete)
 {
-    std::string generatedFemaleAthlete = sport::femaleAthlete();
+    auto generatedFemaleAthlete = sport::femaleAthlete();
 
-    ASSERT_TRUE(faker::testing::any_of(
-        femaleAthletes, [generatedFemaleAthlete](const std::string& femaleAthlete) {
-            return femaleAthlete == generatedFemaleAthlete;
-        }));
+    FAKER_EXPECT_CONTAINS(sport::data::femaleAthletes, generatedFemaleAthlete);
 }

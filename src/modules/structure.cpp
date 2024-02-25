@@ -466,15 +466,15 @@ std::string moduleFunction(StructureToken token)
         return phone::imei();
     // Sport module
     case StructureToken::SportSport:
-        return sport::sport();
+        return std::string(sport::sport());
     case StructureToken::SportSoccerTeam:
-        return sport::soccerTeam();
+        return std::string(sport::soccerTeam());
     case StructureToken::SportMaleAthelete:
-        return sport::maleAthlete();
+        return std::string(sport::maleAthlete());
     case StructureToken::SportFemaleAthlete:
-        return sport::femaleAthlete();
+        return std::string(sport::femaleAthlete());
     case StructureToken::SportSportEvent:
-        return sport::sportEvent();
+        return std::string(sport::sportEvent());
     // System module
     case StructureToken::SystemFileName:
         return system::fileName();

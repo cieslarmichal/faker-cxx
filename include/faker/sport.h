@@ -1,7 +1,7 @@
 #ifndef FAKER_SPORT_H
 #define FAKER_SPORT_H
 
-#include <string>
+#include <string_view>
 
 namespace faker::sport {
 /**
@@ -13,7 +13,7 @@ namespace faker::sport {
  * sport::sport() // "football"
  * @endcode
  */
-std::string sport();
+std::string_view sport();
 
 /**
  * @brief Returns a random soccer team.
@@ -24,7 +24,7 @@ std::string sport();
  * sport::soccerTeam() // "Manchester United"
  * @endcode
  */
-std::string soccerTeam();
+std::string_view soccerTeam();
 
 /**
  * @brief Returns a random male athlete.
@@ -35,7 +35,7 @@ std::string soccerTeam();
  * sport::maleAthlete() // "Cristiano Ronaldo"
  * @endcode
  */
-std::string maleAthlete();
+std::string_view maleAthlete();
 
 /**
  * @brief Returns a random female athlete.
@@ -46,7 +46,7 @@ std::string maleAthlete();
  * sport::femaleAthlete() // "Serena Williams"
  * @endcode
  */
-std::string femaleAthlete();
+std::string_view femaleAthlete();
 
 /**
  * @brief Returns a random sport Event.
@@ -57,7 +57,7 @@ std::string femaleAthlete();
  * sport::sportEvent() // "Super Bowl"
  * @endcode
  */
-std::string sportEvent();
+std::string_view sportEvent();
 }
 
 #endif

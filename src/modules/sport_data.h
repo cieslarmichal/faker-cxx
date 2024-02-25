@@ -1,15 +1,15 @@
 #ifndef FAKER_MODULES_SPORT_DATA_H
 #define FAKER_MODULES_SPORT_DATA_H
 
-#include <string>
-#include <vector>
+#include <array>
+#include <string_view>
 
-namespace faker {
-extern const std::vector<std::string> femaleAthletes;
-extern const std::vector<std::string> maleAthletes;
-extern const std::vector<std::string> soccerTeams;
-extern const std::vector<std::string> sportEvents;
-extern const std::vector<std::string> sportNames;
+namespace faker::sport::data {
+extern const std::array<std::string_view, 10> femaleAthletes;
+extern const std::array<std::string_view, 10> maleAthletes;
+extern const std::array<std::string_view, 10> soccerTeams;
+extern const std::array<std::string_view, 10> sportEvents;
+extern const std::array<std::string_view, 10> sportNames;
 }
 
 #endif

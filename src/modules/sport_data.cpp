@@ -1,7 +1,7 @@
 #include "sport_data.h"
 
-namespace faker {
-const std::vector<std::string> femaleAthletes = {
+namespace faker::sport::data {
+const std::array<std::string_view, 10> femaleAthletes = {
     "Serena Williams",
     "Simone Biles",
     "Mia Hamm",
@@ -14,7 +14,7 @@ const std::vector<std::string> femaleAthletes = {
     "Steffi Graf",
 };
 
-const std::vector<std::string> maleAthletes = {
+const std::array<std::string_view, 10> maleAthletes = {
     "Lionel Messi",
     "Cristiano Ronaldo",
     "LeBron James",
@@ -27,7 +27,7 @@ const std::vector<std::string> maleAthletes = {
     "Michael Jordan",
 };
 
-const std::vector<std::string> soccerTeams {
+const std::array<std::string_view, 10> soccerTeams {
     "FC Barcelona",
     "Real Madrid CF",
     "Manchester United FC",
@@ -40,7 +40,7 @@ const std::vector<std::string> soccerTeams {
     "Chelsea FC",
 };
 
-const std::vector<std::string> sportEvents = {
+const std::array<std::string_view, 10> sportEvents = {
     "World Cup",
     "Olympics",
     "Super Bowl",
@@ -53,7 +53,7 @@ const std::vector<std::string> sportEvents = {
     "Rugby World Cup",
 };
 
-const std::vector<std::string> sportNames = {
+const std::array<std::string_view, 10> sportNames = {
     "Soccer",
     "Cricket",
     "Basketball",

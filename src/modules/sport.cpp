@@ -3,13 +3,13 @@
 #include <faker/sport.h>
 
 namespace faker::sport {
-std::string sport() { return Helper::arrayElement<std::string>(sportNames); }
+std::string_view sport() { return Helper::arrayElement(data::sportNames); }
 
-std::string soccerTeam() { return Helper::arrayElement<std::string>(soccerTeams); }
+std::string_view soccerTeam() { return Helper::arrayElement(data::soccerTeams); }
 
-std::string maleAthlete() { return Helper::arrayElement<std::string>(maleAthletes); }
+std::string_view maleAthlete() { return Helper::arrayElement(data::maleAthletes); }
 
-std::string femaleAthlete() { return Helper::arrayElement<std::string>(femaleAthletes); }
+std::string_view femaleAthlete() { return Helper::arrayElement(data::femaleAthletes); }
 
-std::string sportEvent() { return Helper::arrayElement<std::string>(sportEvents); }
+std::string_view sportEvent() { return Helper::arrayElement(data::sportEvents); }
 }
