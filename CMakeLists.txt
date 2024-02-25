@@ -7,6 +7,11 @@ set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+include(scripts/cmake/ClangFormat.cmake)
+include(scripts/cmake/SafetyFeatures.cmake)
+
+enable_testing()
+
 add_library(faker STATIC)
 target_include_directories(
     faker
@@ -18,8 +23,7 @@ target_link_libraries(
     PUBLIC
         fmt::fmt
 )
-
-enable_testing()
+turn_on_warnings(faker)
 
 add_subdirectory(externals)
 add_subdirectory(src)
