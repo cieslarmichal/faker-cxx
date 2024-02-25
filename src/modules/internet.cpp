@@ -9,7 +9,6 @@
 #include <faker/string.h>
 #include <faker/types/country.h>
 #include <faker/word.h>
-#include <unordered_map>
 #include <utility>
 #include <vector>
 

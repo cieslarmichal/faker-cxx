@@ -1,25 +1,18 @@
 #include "../test_helpers.h"
-#include <algorithm>
 #include <common/string_helper.h>
 #include <faker/image.h>
 #include <modules/image_data.h>
-#include <string>
 
-using namespace ::testing;
 using namespace faker;
 
-class ImageTest : public Test {
-public:
-};
-
-TEST_F(ImageTest, shouldGenerateImageUrlDefault)
+TEST(ImageTest, shouldGenerateImageUrlDefault)
 {
     const auto imageUrl = image::imageUrl();
 
     ASSERT_EQ(imageUrl, "https://loremflickr.com/640/480");
 }
 
-TEST_F(ImageTest, shouldGenerateImageUrl)
+TEST(ImageTest, shouldGenerateImageUrl)
 {
     const auto width = 800;
     const auto height = 600;
@@ -29,7 +22,7 @@ TEST_F(ImageTest, shouldGenerateImageUrl)
     ASSERT_EQ(imageUrl, "https://loremflickr.com/800/600");
 }
 
-TEST_F(ImageTest, shouldGenerateImageUrlCategory)
+TEST(ImageTest, shouldGenerateImageUrlCategory)
 {
     const auto width = 800;
     const auto height = 600;
@@ -40,7 +33,7 @@ TEST_F(ImageTest, shouldGenerateImageUrlCategory)
     ASSERT_EQ(imageUrl, "https://loremflickr.com/800/600/fashion");
 }
 
-TEST_F(ImageTest, shouldGenerateGithubAvatarUrl)
+TEST(ImageTest, shouldGenerateGithubAvatarUrl)
 {
     const auto githubAvatarUrl = image::githubAvatarUrl();
 
@@ -52,7 +45,7 @@ TEST_F(ImageTest, shouldGenerateGithubAvatarUrl)
     ASSERT_TRUE(userNumber >= 0 && userNumber <= 100000000);
 }
 
-TEST_F(ImageTest, shouldGenerateDimensions)
+TEST(ImageTest, shouldGenerateDimensions)
 {
     const auto dimensions = image::dimensions();
 
@@ -65,7 +58,7 @@ TEST_F(ImageTest, shouldGenerateDimensions)
     ASSERT_TRUE(height_dimension >= 1 && height_dimension <= 17280);
 }
 
-TEST_F(ImageTest, shouldGenerateType)
+TEST(ImageTest, shouldGenerateType)
 {
     const auto generatedType = image::type();
 

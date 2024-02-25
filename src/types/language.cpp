@@ -1,31 +1,79 @@
 #include <faker/types/language.h>
-#include <unordered_map>
 
 namespace faker {
 
-std::string_view toString(Language language)
-{
-    static const std::unordered_map<Language, std::string_view> languageToStringMapping {
-        { Language::English, "English" }, { Language::Polish, "Polish" },
-        { Language::Italian, "Italian" }, { Language::French, "French" },
-        { Language::German, "German" }, { Language::Russian, "Russian" },
-        { Language::Romanian, "Romanian" }, { Language::Hindi, "Hindi" },
-        { Language::Finnish, "Finnish" }, { Language::Nepali, "Nepali" },
-        { Language::Spanish, "Spanish" }, { Language::Turkish, "Turkish" },
-        { Language::Czech, "Czech" }, { Language::Slovak, "Slovak" },
-        { Language::Ukrainian, "Ukrainian" }, { Language::Danish, "Danish" },
-        { Language::Swedish, "Swedish" }, { Language::Portuguese, "Portuguese" },
-        { Language::Norwegian, "Norwegian" }, { Language::Japanese, "Japanese" },
-        { Language::Hungarian, "Hungarian" }, { Language::Croatian, "Croatian" },
-        { Language::Greek, "Greek" }, { Language::Slovene, "Slovene" },
-        { Language::Dutch, "Dutch" }, { Language::Mandarin, "Mandarin" },
-        { Language::Korean, "Korean" }, { Language::Serbian, "Serbian" },
-        { Language::Macedonian, "Macedonian" }, { Language::Albanian, "Albanian" },
-        { Language::Latvian, "Latvian" }, { Language::Irish, "Irish" },
-        { Language::Belarusian, "Belarusian" }, { Language::Estonian, "Estonian" }
-    };
-
-    return languageToStringMapping.at(language);
+std::string_view toString(Language language) {
+    switch (language) {
+        case Language::English:
+            return "English";
+        case Language::Polish:
+            return "Polish";
+        case Language::Italian:
+            return "Italian";
+        case Language::French:
+            return "French";
+        case Language::German:
+            return "German";
+        case Language::Russian:
+            return "Russian";
+        case Language::Romanian:
+            return "Romanian";
+        case Language::Hindi:
+            return "Hindi";
+        case Language::Finnish:
+            return "Finnish";
+        case Language::Nepali:
+            return "Nepali";
+        case Language::Spanish:
+            return "Spanish";
+        case Language::Turkish:
+            return "Turkish";
+        case Language::Czech:
+            return "Czech";
+        case Language::Slovak:
+            return "Slovak";
+        case Language::Ukrainian:
+            return "Ukrainian";
+        case Language::Danish:
+            return "Danish";
+        case Language::Swedish:
+            return "Swedish";
+        case Language::Portuguese:
+            return "Portuguese";
+        case Language::Norwegian:
+            return "Norwegian";
+        case Language::Japanese:
+            return "Japanese";
+        case Language::Hungarian:
+            return "Hungarian";
+        case Language::Croatian:
+            return "Croatian";
+        case Language::Greek:
+            return "Greek";
+        case Language::Slovene:
+            return "Slovene";
+        case Language::Dutch:
+            return "Dutch";
+        case Language::Mandarin:
+            return "Mandarin";
+        case Language::Korean:
+            return "Korean";
+        case Language::Serbian:
+            return "Serbian";
+        case Language::Macedonian:
+            return "Macedonian";
+        case Language::Albanian:
+            return "Albanian";
+        case Language::Latvian:
+            return "Latvian";
+        case Language::Irish:
+            return "Irish";
+        case Language::Belarusian:
+            return "Belarusian";
+        case Language::Estonian:
+            return "Estonian";
+        default:
+            throw std::invalid_argument("Invalid language");
+    }
 }
-
 }

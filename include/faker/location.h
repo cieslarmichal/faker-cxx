@@ -39,7 +39,7 @@ std::string_view countryCode();
  * location::state() // "Arizona"
  * @endcode
  */
-std::string state(AddressCountry country = AddressCountry::Usa);
+std::string_view state(AddressCountry country = AddressCountry::Usa);
 
 /**
  * @brief Returns a random county for a given country.
@@ -52,7 +52,7 @@ std::string state(AddressCountry country = AddressCountry::Usa);
  * location::county() // "Adams County"
  * @endcode
  */
-std::string county(AddressCountry country = AddressCountry::Usa);
+std::string_view county(AddressCountry country = AddressCountry::Usa);
 
 /**
  * @brief Returns a random city for given country.

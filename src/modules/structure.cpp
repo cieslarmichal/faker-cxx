@@ -355,7 +355,7 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::LocationCountryCode:
         return std::string(location::countryCode());
     case StructureToken::LocationState:
-        return location::state();
+        return std::string(location::state());
     case StructureToken::LocationCity:
         return location::city();
     case StructureToken::LocationZipCode:

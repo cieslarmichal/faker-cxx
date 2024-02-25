@@ -3,32 +3,55 @@
 #include <faker/helper.h>
 #include <faker/image.h>
 #include <faker/number.h>
-#include <unordered_map>
 
 namespace faker::image {
-namespace {
-    std::unordered_map<faker::ImageCategory, std::string_view>
-        imageCategoryToLoremFlickrStringMapping = {
-            { faker::ImageCategory::Animals, "animals" },
-            { faker::ImageCategory::Business, "business" },
-            { faker::ImageCategory::Cats, "cats" },
-            { faker::ImageCategory::City, "city" },
-            { faker::ImageCategory::Food, "food" },
-            { faker::ImageCategory::Nightlife, "nightlife" },
-            { faker::ImageCategory::Fashion, "fashion" },
-            { faker::ImageCategory::People, "people" },
-            { faker::ImageCategory::Nature, "nature" },
-            { faker::ImageCategory::Sports, "sports" },
-            { faker::ImageCategory::Technics, "technics" },
-            { faker::ImageCategory::Transport, "transport" },
-        };
-}
 
 std::string imageUrl(unsigned int width, unsigned int height, std::optional<ImageCategory> category)
 {
-    const auto image_category = category.has_value()
-        ? FormatHelper::format("/{}", imageCategoryToLoremFlickrStringMapping.at(category.value()))
-        : "";
+    std::string_view image_category;
+
+    if (category.has_value()) {
+        switch (*category) {
+        case ImageCategory::Animals:
+            image_category = "/animals";
+            break;
+        case ImageCategory::Business:
+            image_category = "/business";
+            break;
+        case ImageCategory::Cats:
+            image_category = "/cats";
+            break;
+        case faker::ImageCategory::City:
+            image_category = "/city";
+            break;
+        case faker::ImageCategory::Food:
+            image_category = "/food";
+            break;
+        case faker::ImageCategory::Nightlife:
+            image_category = "/nightlife";
+            break;
+        case faker::ImageCategory::Fashion:
+            image_category = "/fashion";
+            break;
+        case faker::ImageCategory::People:
+            image_category = "/people";
+            break;
+        case faker::ImageCategory::Nature:
+            image_category = "/nature";
+            break;
+        case faker::ImageCategory::Sports:
+            image_category = "/sports";
+            break;
+        case faker::ImageCategory::Technics:
+            image_category = "/technics";
+            break;
+        case faker::ImageCategory::Transport:
+            image_category = "/transport";
+            break;
+        default:
+            throw std::invalid_argument("Invalid image category");
+        }
+    }
 
     return FormatHelper::format("https://loremflickr.com/{}/{}{}", width, height, image_category);
 }

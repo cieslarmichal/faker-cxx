@@ -30,6 +30,14 @@ public:
     }
 #endif
 
+    static std::string fillTokenValues(const char* format,
+        std::function<std::string(std::string_view)> tokenValueGenerator) {
+        return fillTokenValues(std::string_view(format), tokenValueGenerator);
+        }
+
+    static std::string fillTokenValues(std::string_view format,
+        std::function<std::string(std::string_view)> tokenValueGenerator);
+
     static std::string fillTokenValues(const std::string& format,
         std::function<std::string(std::string_view)> tokenValueGenerator);
 };

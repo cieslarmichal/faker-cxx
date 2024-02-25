@@ -722,7 +722,7 @@ const std::array<std::string_view, 418> timeZones = {
 
 // Australia
 
-const std::vector<std::string> australiaCities = { "Sydney", "Melbourne", "Brisbane", "Perth",
+const std::vector<std::string_view> australiaCities = { "Sydney", "Melbourne", "Brisbane", "Perth",
     "Adelaide", "Gold Coast", "Cranbourne", "Canberra", "Central Coast", "Wollongong", "Hobart",
     "Geelong", "Townsville", "Ipswich", "Newcastle", "Cairns", "Darwin", "Toowoomba", "Launceston",
     "Ballarat", "Bendigo", "Mackay", "Wagga Wagga", "Hervey Bay", "Pakenham", "Port Macquarie",
@@ -769,7 +769,7 @@ const std::vector<std::string> australiaCities = { "Sydney", "Melbourne", "Brisb
     "Drummond Cove", "Surfside", "Evandale", "Kurrajong Heights", "Seven Mile Beach", "San Remo",
     "Valley Heights", "Greenwell Point", "Innisfail", "Wahgunyah", "Tinonee", "Mollymook" };
 
-const std::vector<std::string> australiaStates = {
+const std::vector<std::string_view> australiaStates = {
     "New South Wales",
     "Queensland",
     "Northern Territory",
@@ -780,7 +780,7 @@ const std::vector<std::string> australiaStates = {
     "Victoria",
 };
 
-const std::vector<std::string> australiaStreetSuffixes = {
+const std::vector<std::string_view> australiaStreetSuffixes = {
     "Avenue",
     "Boulevard",
     "Circle",
@@ -822,14 +822,14 @@ const std::vector<std::string> australiaStreetSuffixes = {
 
 const std::string_view australiaZipCodeFormat { "####" };
 
-const std::vector<std::string> australiaAddressFormats { "{buildingNumber} {street}" };
+const std::vector<std::string_view> australiaAddressFormats { "{buildingNumber} {street}" };
 
-const std::vector<std::string> australiaBuildingNumberFormats { "####", "###", "##" };
+const std::vector<std::string_view> australiaBuildingNumberFormats { "####", "###", "##" };
 
-const std::vector<std::string> australiaStreetFormats { "{firstName} {streetSuffix}",
+const std::vector<std::string_view> australiaStreetFormats { "{firstName} {streetSuffix}",
     "{lastName} {streetSuffix}" };
 
-const std::vector<std::string> australiaCityFormats { "{cityName}" };
+const std::vector<std::string_view> australiaCityFormats { "{cityName}" };
 
 const CountryAddresses australiaAddresses { australiaZipCodeFormat, australiaAddressFormats, {},
     australiaStreetFormats, {}, {}, australiaStreetSuffixes, australiaBuildingNumberFormats,
@@ -837,10 +837,10 @@ const CountryAddresses australiaAddresses { australiaZipCodeFormat, australiaAdd
 
 // Brazil
 
-const std::vector<std::string> brazilCitySuffixes { "do Descoberto", "de Nossa Senhora", "do Norte",
+const std::vector<std::string_view> brazilCitySuffixes { "do Descoberto", "de Nossa Senhora", "do Norte",
     "do Sul" };
 
-const std::vector<std::string> brazilStates = {
+const std::vector<std::string_view> brazilStates = {
     "Acre",
     "Alagoas",
     "Amapá",
@@ -870,7 +870,7 @@ const std::vector<std::string> brazilStates = {
     "Tocantins",
 };
 
-const std::vector<std::string> brazilStreetSuffixes {
+const std::vector<std::string_view> brazilStreetSuffixes {
     "Rua",
     "Avenida",
     "Travessa",
@@ -881,18 +881,18 @@ const std::vector<std::string> brazilStreetSuffixes {
 
 const std::string_view brazilZipCodeFormat { "#####-###" };
 
-const std::vector<std::string> brazilAddressFormats { "{street} {buildingNumber}",
+const std::vector<std::string_view> brazilAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string> brazilSecondaryAddressFormats { "Apto. ###", "Sobrado ##", "Casa #",
+const std::vector<std::string_view> brazilSecondaryAddressFormats { "Apto. ###", "Sobrado ##", "Casa #",
     "Lote ##", "Quadra ##" };
 
-const std::vector<std::string> brazilBuildingNumberFormats { "#####", "####", "###" };
+const std::vector<std::string_view> brazilBuildingNumberFormats { "#####", "####", "###" };
 
-const std::vector<std::string> brazilStreetFormats { "{firstName} {streetSuffix}",
+const std::vector<std::string_view> brazilStreetFormats { "{firstName} {streetSuffix}",
     "{lastName} {streetSuffix}" };
 
-const std::vector<std::string> brazilCityFormats { "{firstName} {citySuffix}",
+const std::vector<std::string_view> brazilCityFormats { "{firstName} {citySuffix}",
     "{lastName} {citySuffix}" };
 
 const CountryAddresses brazilAddresses { brazilZipCodeFormat, brazilAddressFormats,
@@ -901,7 +901,7 @@ const CountryAddresses brazilAddresses { brazilZipCodeFormat, brazilAddressForma
 
 // Czech Republic
 
-const std::vector<std::string> czechCities {
+const std::vector<std::string_view> czechCities {
     "Abertamy",
     "Adamov",
     "Andělská Hora",
@@ -1506,7 +1506,7 @@ const std::vector<std::string> czechCities {
     "Žulová",
 };
 
-const std::vector<std::string> czechStates = {
+const std::vector<std::string_view> czechStates = {
     "Jihočeský kraj",
     "Jihomoravský kraj",
     "Karlovarský kraj",
@@ -1523,7 +1523,7 @@ const std::vector<std::string> czechStates = {
     "Zlínský kraj",
 };
 
-const std::vector<std::string> czechStreetNames {
+const std::vector<std::string_view> czechStreetNames {
     "17. Listopadu",
     "28. Pluku",
     "28. Října",
@@ -9054,16 +9054,16 @@ const std::vector<std::string> czechStreetNames {
 
 const std::string_view czechZipCodeFormat { "#####" };
 
-const std::vector<std::string> czechAddressFormats { "{street} {buildingNumber}",
+const std::vector<std::string_view> czechAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string> czechSecondaryAddressFormats { "Apt. ###", "Suite ###" };
+const std::vector<std::string_view> czechSecondaryAddressFormats { "Apt. ###", "Suite ###" };
 
-const std::vector<std::string> czechBuildingNumberFormats { "#", "##", "###" };
+const std::vector<std::string_view> czechBuildingNumberFormats { "#", "##", "###" };
 
-const std::vector<std::string> czechStreetFormats { "{streetName}" };
+const std::vector<std::string_view> czechStreetFormats { "{streetName}" };
 
-const std::vector<std::string> czechCityFormats { "{cityName}" };
+const std::vector<std::string_view> czechCityFormats { "{cityName}" };
 
 const CountryAddresses czechAddresses { czechZipCodeFormat, czechAddressFormats,
     czechSecondaryAddressFormats, czechStreetFormats, {}, czechStreetNames, {},
@@ -9071,7 +9071,7 @@ const CountryAddresses czechAddresses { czechZipCodeFormat, czechAddressFormats,
 
 // Denmark
 
-const std::vector<std::string> denmarkCities {
+const std::vector<std::string_view> denmarkCities {
     "Albertslund",
     "Arden",
     "Asnæs",
@@ -9295,7 +9295,7 @@ const std::vector<std::string> denmarkCities {
     "Aarup",
 };
 
-const std::vector<std::string> denmarkStates = {
+const std::vector<std::string_view> denmarkStates = {
     "Region Hovedstaden",
     "Region Midtjylland",
     "Region Nordjylland",
@@ -9303,7 +9303,7 @@ const std::vector<std::string> denmarkStates = {
     "Region Syddanmark",
 };
 
-const std::vector<std::string> denmarkStreetNames = {
+const std::vector<std::string_view> denmarkStreetNames = {
     "Agervej",
     "Askevej",
     "Bakkedraget",
@@ -9466,16 +9466,16 @@ const std::vector<std::string> denmarkStreetNames = {
 
 const std::string_view denmarkZipCodeFormat { "####" };
 
-const std::vector<std::string> denmarkAddressFormats { "{street} {buildingNumber}",
+const std::vector<std::string_view> denmarkAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string> denmarkSecondaryAddressFormats { "#. tv", "#. th" };
+const std::vector<std::string_view> denmarkSecondaryAddressFormats { "#. tv", "#. th" };
 
-const std::vector<std::string> denmarkBuildingNumberFormats { "#", "##", "###", "##A", "##B" };
+const std::vector<std::string_view> denmarkBuildingNumberFormats { "#", "##", "###", "##A", "##B" };
 
-const std::vector<std::string> denmarkStreetFormats { "{streetName}" };
+const std::vector<std::string_view> denmarkStreetFormats { "{streetName}" };
 
-const std::vector<std::string> denmarkCityFormats { "{cityName}" };
+const std::vector<std::string_view> denmarkCityFormats { "{cityName}" };
 
 const CountryAddresses denmarkAddresses { denmarkZipCodeFormat, denmarkAddressFormats,
     denmarkSecondaryAddressFormats, denmarkStreetFormats, {}, denmarkStreetNames, {},
@@ -9483,7 +9483,7 @@ const CountryAddresses denmarkAddresses { denmarkZipCodeFormat, denmarkAddressFo
 
 // Estonia
 
-const std::vector<std::string> estoniaCities {
+const std::vector<std::string_view> estoniaCities {
     "Tallinn",
     "Tartu",
     "Narva",
@@ -9491,7 +9491,7 @@ const std::vector<std::string> estoniaCities {
     "Kohtla-Järve",
 };
 
-const std::vector<std::string> estoniaCounties {
+const std::vector<std::string_view> estoniaCounties {
     "Harju",
     "Hiiu",
     "Ida-Viru",
@@ -9509,7 +9509,7 @@ const std::vector<std::string> estoniaCounties {
     "Võru",
 };
 
-const std::vector<std::string> estoniaStreetNames {
+const std::vector<std::string_view> estoniaStreetNames {
     "Laagna",
     "Punane",
     "Paepargi",
@@ -9543,7 +9543,7 @@ const std::vector<std::string> estoniaStreetNames {
     "Veski",
 };
 
-const std::vector<std::string> estoniaStreetSuffixes {
+const std::vector<std::string_view> estoniaStreetSuffixes {
     "Tänav",
     "tn",
     "Tee",
@@ -9555,13 +9555,13 @@ const std::vector<std::string> estoniaStreetSuffixes {
 
 const std::string_view estoniaZipCodeFormat { "#####" };
 
-const std::vector<std::string> estoniaAddressFormats { "{street} {buildingNumber}" };
+const std::vector<std::string_view> estoniaAddressFormats { "{street} {buildingNumber}" };
 
-const std::vector<std::string> estoniaBuildingNumberFormats { "###", "##", "#" };
+const std::vector<std::string_view> estoniaBuildingNumberFormats { "###", "##", "#" };
 
-const std::vector<std::string> estoniaStreetFormats { "{streetName} {streetSuffix}" };
+const std::vector<std::string_view> estoniaStreetFormats { "{streetName} {streetSuffix}" };
 
-const std::vector<std::string> estoniaCityFormats { "{cityName}" };
+const std::vector<std::string_view> estoniaCityFormats { "{cityName}" };
 
 const CountryAddresses estoniaAddresses { estoniaZipCodeFormat, estoniaAddressFormats, {},
     estoniaStreetFormats, {}, estoniaStreetNames, estoniaStreetSuffixes,
@@ -9569,7 +9569,7 @@ const CountryAddresses estoniaAddresses { estoniaZipCodeFormat, estoniaAddressFo
 
 // Finland
 
-const std::vector<std::string> finlandCities {
+const std::vector<std::string_view> finlandCities {
     "Espoo",
     "Helsinki",
     "Hyvinkää",
@@ -9592,7 +9592,7 @@ const std::vector<std::string> finlandCities {
     "Vantaa",
 };
 
-const std::vector<std::string> finlandStates = {
+const std::vector<std::string_view> finlandStates = {
     "Ahvenanmaa",
     "Etelä-Karjala",
     "Etelä-Pohjanmaa",
@@ -9614,7 +9614,7 @@ const std::vector<std::string> finlandStates = {
     "Varsinais-Suomi",
 };
 
-const std::vector<std::string> finlandStreetSuffixes = {
+const std::vector<std::string_view> finlandStreetSuffixes = {
     "katu",
     "tie",
     "kuja",
@@ -9630,18 +9630,18 @@ const std::vector<std::string> finlandStreetSuffixes = {
 
 const std::string_view finlandZipCodeFormat { "#####" };
 
-const std::vector<std::string> finlandAddressFormats { "{street} {buildingNumber}",
+const std::vector<std::string_view> finlandAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string> finlandSecondaryAddressFormats { "A", "B", "C", "A #", "A ##", "B #",
+const std::vector<std::string_view> finlandSecondaryAddressFormats { "A", "B", "C", "A #", "A ##", "B #",
     "B ##", "C #", "C ##" };
 
-const std::vector<std::string> finlandBuildingNumberFormats { "###", "##", "#" };
+const std::vector<std::string_view> finlandBuildingNumberFormats { "###", "##", "#" };
 
-const std::vector<std::string> finlandStreetFormats { "{firstName} {streetSuffix}",
+const std::vector<std::string_view> finlandStreetFormats { "{firstName} {streetSuffix}",
     "{lastName} {streetSuffix}" };
 
-const std::vector<std::string> finlandCityFormats { "{cityName}" };
+const std::vector<std::string_view> finlandCityFormats { "{cityName}" };
 
 const CountryAddresses finlandAddresses { finlandZipCodeFormat, finlandAddressFormats,
     finlandSecondaryAddressFormats, finlandStreetFormats, {}, {}, finlandStreetSuffixes,
@@ -9649,7 +9649,7 @@ const CountryAddresses finlandAddresses { finlandZipCodeFormat, finlandAddressFo
 
 // France
 
-const std::vector<std::string> franceCities { "Abbeville", "Achères", "Agde", "Agen",
+const std::vector<std::string_view> franceCities { "Abbeville", "Achères", "Agde", "Agen",
     "Aix-en-Provence", "Aix-les-Bains", "Ajaccio", "Albertville", "Albi", "Alençon", "Alès",
     "Alfortville", "Allauch", "Allonnes", "Ambarès-et-Lagrave", "Ambérieu-en-Bugey", "Amboise",
     "Amiens", "Amilly", "Amnéville", "Ancenis-Saint-Géréon", "Andernos-les-Bains", "Andrésy",
@@ -9819,7 +9819,7 @@ const std::vector<std::string> franceCities { "Abbeville", "Achères", "Agde", "
     "Voiron", "Voisins-le-Bretonneux", "Wambrechies", "Wasquehal", "Wattignies", "Wattrelos",
     "Wittelsheim", "Wittenheim", "Woippy", "Yerres", "Yutz", "Yvetot", "Yzeure" };
 
-const std::vector<std::string> franceStates = {
+const std::vector<std::string_view> franceStates = {
     "Alsace",
     "Aquitaine",
     "Auvergne",
@@ -9844,10 +9844,10 @@ const std::vector<std::string> franceStates = {
     "Rhône-Alpes",
 };
 
-const std::vector<std::string> franceStreetPrefixes { "allée", "voie", "rue", "avenue", "boulevard",
+const std::vector<std::string_view> franceStreetPrefixes { "allée", "voie", "rue", "avenue", "boulevard",
     "quai", "passage", "impasse", "place", "chemin", "lotissement" };
 
-const std::vector<std::string> franceStreetSuffixes { "du Faubourg Saint-Honoré", "de Montmorency",
+const std::vector<std::string_view> franceStreetSuffixes { "du Faubourg Saint-Honoré", "de Montmorency",
     "de Solférino", "de la Pompe", "de Rivoli", "de Paris", "du Faubourg-Saint-Denis",
     "de la Huchette", "Saint-Honoré", "Pastourelle", "Oberkampf", "d'Alésia",
     "de la Chaussée-d'Antin", "de la Bûcherie", "de Richelieu", "Montorgueil", "Delesseux",
@@ -9862,15 +9862,15 @@ const std::vector<std::string> franceStreetSuffixes { "du Faubourg Saint-Honoré
 
 const std::string_view franceZipCodeFormat { "#####" };
 
-const std::vector<std::string> franceAddressFormats { "{buildingNumber} {street}" };
+const std::vector<std::string_view> franceAddressFormats { "{buildingNumber} {street}" };
 
-const std::vector<std::string> franceBuildingNumberFormats { "####", "###", "##", "#" };
+const std::vector<std::string_view> franceBuildingNumberFormats { "####", "###", "##", "#" };
 
-const std::vector<std::string> franceSecondaryAddressFormats { "Apt. ###", "Étage #" };
+const std::vector<std::string_view> franceSecondaryAddressFormats { "Apt. ###", "Étage #" };
 
-const std::vector<std::string> franceStreetFormats { "{streetPrefix} {streetSuffix}" };
+const std::vector<std::string_view> franceStreetFormats { "{streetPrefix} {streetSuffix}" };
 
-const std::vector<std::string> franceCityFormats { "{cityName}" };
+const std::vector<std::string_view> franceCityFormats { "{cityName}" };
 
 const CountryAddresses franceAddresses { franceZipCodeFormat, franceAddressFormats,
     franceSecondaryAddressFormats, franceStreetFormats, franceStreetPrefixes, {},
@@ -9879,7 +9879,7 @@ const CountryAddresses franceAddresses { franceZipCodeFormat, franceAddressForma
 
 // Germany
 
-const std::vector<std::string> germanyCities {
+const std::vector<std::string_view> germanyCities {
     "Aachen",
     "Aalen",
     "Ahlen",
@@ -10082,7 +10082,7 @@ const std::vector<std::string> germanyCities {
     "Zwickau",
 };
 
-const std::vector<std::string> germanyStates = {
+const std::vector<std::string_view> germanyStates = {
     "Baden-Württemberg",
     "Bayern",
     "Berlin",
@@ -10101,7 +10101,7 @@ const std::vector<std::string> germanyStates = {
     "Thüringen",
 };
 
-const std::vector<std::string> germanyStreetNames {
+const std::vector<std::string_view> germanyStreetNames {
     "Ackerweg",
     "Adalbert-Stifter-Str.",
     "Adalbertstr.",
@@ -11137,17 +11137,17 @@ const std::vector<std::string> germanyStreetNames {
 
 const std::string_view germanyZipCodeFormat { "#####" };
 
-const std::vector<std::string> germanyAddressFormats { "{street} {buildingNumber}",
+const std::vector<std::string_view> germanyAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string> germanySecondaryAddressFormats { "Apt. ###", "Zimmer ###", "# OG" };
+const std::vector<std::string_view> germanySecondaryAddressFormats { "Apt. ###", "Zimmer ###", "# OG" };
 
-const std::vector<std::string> germanyBuildingNumberFormats { "###", "##", "#", "##a", "##b",
+const std::vector<std::string_view> germanyBuildingNumberFormats { "###", "##", "#", "##a", "##b",
     "##c" };
 
-const std::vector<std::string> germanyStreetFormats { "{streetName}" };
+const std::vector<std::string_view> germanyStreetFormats { "{streetName}" };
 
-const std::vector<std::string> germanyCityFormats { "{cityName}" };
+const std::vector<std::string_view> germanyCityFormats { "{cityName}" };
 
 const CountryAddresses germanyAddresses { germanyZipCodeFormat, germanyAddressFormats,
     germanySecondaryAddressFormats, germanyStreetFormats, {}, germanyStreetNames, {},
@@ -11155,7 +11155,7 @@ const CountryAddresses germanyAddresses { germanyZipCodeFormat, germanyAddressFo
 
 // India
 
-const std::vector<std::string> indiaCities {
+const std::vector<std::string_view> indiaCities {
     "Achalpur",
     "Achhnera",
     "Adalaj",
@@ -12356,7 +12356,7 @@ const std::vector<std::string> indiaCities {
     "Zunheboto",
 };
 
-const std::vector<std::string> indiaStates = {
+const std::vector<std::string_view> indiaStates = {
     "Andaman and Nicobar Islands",
     "Andra Pradesh",
     "Arunachal Pradesh",
@@ -12395,7 +12395,7 @@ const std::vector<std::string> indiaStates = {
     "West Bengal",
 };
 
-const std::vector<std::string> indiaStreetSuffixes = {
+const std::vector<std::string_view> indiaStreetSuffixes = {
     "Pur",
     "Puri",
     "Halli",
@@ -12435,16 +12435,16 @@ const std::vector<std::string> indiaStreetSuffixes = {
 
 const std::string_view indiaZipCodeFormat { "######" };
 
-const std::vector<std::string> indiaAddressFormats { "{buildingNumber} {street}" };
+const std::vector<std::string_view> indiaAddressFormats { "{buildingNumber} {street}" };
 
-const std::vector<std::string> indiaSecondaryAddressFormats { "Apt. ###", "Flat ###" };
+const std::vector<std::string_view> indiaSecondaryAddressFormats { "Apt. ###", "Flat ###" };
 
-const std::vector<std::string> indiaBuildingNumberFormats { "#####", "####", "###" };
+const std::vector<std::string_view> indiaBuildingNumberFormats { "#####", "####", "###" };
 
-const std::vector<std::string> indiaStreetFormats { "{firstName} {streetSuffix}",
+const std::vector<std::string_view> indiaStreetFormats { "{firstName} {streetSuffix}",
     "{lastName} {streetSuffix}" };
 
-const std::vector<std::string> indiaCityFormats { "{cityName}" };
+const std::vector<std::string_view> indiaCityFormats { "{cityName}" };
 
 const CountryAddresses indiaAddresses { indiaZipCodeFormat, indiaAddressFormats,
     indiaSecondaryAddressFormats, indiaStreetFormats, {}, {}, indiaStreetSuffixes,
@@ -12452,7 +12452,7 @@ const CountryAddresses indiaAddresses { indiaZipCodeFormat, indiaAddressFormats,
 
 // Italy
 
-const std::vector<std::string> italyCities {
+const std::vector<std::string_view> italyCities {
     "Agliè",
     "Andezeno",
     "Barbania",
@@ -13434,7 +13434,7 @@ const std::vector<std::string> italyCities {
     "Villaspeciosa",
 };
 
-const std::vector<std::string> italyStates = {
+const std::vector<std::string_view> italyStates = {
     "Agrigento",
     "Alessandria",
     "Ancona",
@@ -13547,7 +13547,7 @@ const std::vector<std::string> italyStates = {
     "Viterbo",
 };
 
-const std::vector<std::string> italyStreetPrefixes {
+const std::vector<std::string_view> italyStreetPrefixes {
     "Piazza",
     "Strada",
     "Via",
@@ -13559,17 +13559,17 @@ const std::vector<std::string> italyStreetPrefixes {
 
 const std::string_view italyZipCodeFormat { "#####" };
 
-const std::vector<std::string> italyAddressFormats { "{street} {buildingNumber}",
+const std::vector<std::string_view> italyAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string> italySecondaryAddressFormats { "Appartamento ##", "Piano #" };
+const std::vector<std::string_view> italySecondaryAddressFormats { "Appartamento ##", "Piano #" };
 
-const std::vector<std::string> italyBuildingNumberFormats { "###", "##", "#" };
+const std::vector<std::string_view> italyBuildingNumberFormats { "###", "##", "#" };
 
-const std::vector<std::string> italyStreetFormats { "{streetPrefix} {firstName}",
+const std::vector<std::string_view> italyStreetFormats { "{streetPrefix} {firstName}",
     "{streetPrefix} {lastName}" };
 
-const std::vector<std::string> italyCityFormats { "{cityName}" };
+const std::vector<std::string_view> italyCityFormats { "{cityName}" };
 
 const CountryAddresses italyAddresses { italyZipCodeFormat, italyAddressFormats,
     italySecondaryAddressFormats, italyStreetFormats, italyStreetPrefixes, {}, {},
@@ -13577,7 +13577,7 @@ const CountryAddresses italyAddresses { italyZipCodeFormat, italyAddressFormats,
 
 // Poland
 
-const std::vector<std::string> polandCities { "Aleksandrów Kujawski", "Aleksandrów Łódzki",
+const std::vector<std::string_view> polandCities { "Aleksandrów Kujawski", "Aleksandrów Łódzki",
     "Alwernia", "Andrychów", "Annopol", "Augustów", "Babimost", "Baborów", "Baranów Sandomierski",
     "Barcin", "Barczewo", "Bardo", "Barlinek", "Bartoszyce", "Barwice", "Bełchatów", "Bełżyce",
     "Będzin", "Biała", "Biała Piska", "Biała Podlaska", "Biała Rawska", "Białobrzegi", "Białogard",
@@ -13717,7 +13717,7 @@ const std::vector<std::string> polandCities { "Aleksandrów Kujawski", "Aleksand
     "Żarów", "Żary", "Żelechów", "Żerków", "Żmigród", "Żnin", "Żory", "Żukowo", "Żuromin",
     "Żychlin", "Żyrardów", "Żywiec" };
 
-const std::vector<std::string> polandStates = {
+const std::vector<std::string_view> polandStates = {
     "dolnośląskie",
     "kujawsko-pomorskie",
     "lubelskie",
@@ -13736,7 +13736,7 @@ const std::vector<std::string> polandStates = {
     "zachodniopomorskie",
 };
 
-const std::vector<std::string> polandStreetNames { "Stanisława Kunickiego",
+const std::vector<std::string_view> polandStreetNames { "Stanisława Kunickiego",
     "gen. Mikołaja Bołtucia", "Fort Chrzanów", "Eugeniusza Szwankowskiego", "Cokołowa",
     "Cieplarniana", "Borowej Góry", "Babimojska", "Artemidy", "Apollina", "Antoniego Kocjana",
     "Dźwigowa", "gen. Tadeusza Kutrzeby", "gen. Stanisława Maczka", "Fort Bema", "Człuchowska",
@@ -14690,21 +14690,21 @@ const std::vector<std::string> polandStreetNames { "Stanisława Kunickiego",
     "Aleja Wojska Polskiego", "Witolda Lutosławskiego", "Teodora Toeplitza", "Skotnicka",
     "Adama Mickiewicz" };
 
-const std::vector<std::string> polandStreetPrefixes { "ulica", "aleja", "osiedle", "plac", "park",
+const std::vector<std::string_view> polandStreetPrefixes { "ulica", "aleja", "osiedle", "plac", "park",
     "skwer" };
 
 const std::string_view polandZipCodeFormat { "##-###" };
 
-const std::vector<std::string> polandAddressFormats { "{street} {buildingNumber}",
+const std::vector<std::string_view> polandAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}", "{street} {buildingNumber}/{buildingNumber}" };
 
-const std::vector<std::string> polandSecondaryAddressFormats { "m. ###", "m. ##", "m. #" };
+const std::vector<std::string_view> polandSecondaryAddressFormats { "m. ###", "m. ##", "m. #" };
 
-const std::vector<std::string> polandBuildingNumberFormats { "#", "##", "###" };
+const std::vector<std::string_view> polandBuildingNumberFormats { "#", "##", "###" };
 
-const std::vector<std::string> polandStreetFormats { "{streetPrefix} {streetName}" };
+const std::vector<std::string_view> polandStreetFormats { "{streetPrefix} {streetName}" };
 
-const std::vector<std::string> polandCityFormats { "{cityName}" };
+const std::vector<std::string_view> polandCityFormats { "{cityName}" };
 
 const CountryAddresses polandAddresses { polandZipCodeFormat, polandAddressFormats,
     polandSecondaryAddressFormats, polandStreetFormats, polandStreetPrefixes, polandStreetNames, {},
@@ -14712,7 +14712,7 @@ const CountryAddresses polandAddresses { polandZipCodeFormat, polandAddressForma
 
 // Russia
 
-const std::vector<std::string> russiaCities { "Абакан", "Азов", "Александров", "Алексин",
+const std::vector<std::string_view> russiaCities { "Абакан", "Азов", "Александров", "Алексин",
     "Альметьевск", "Анапа", "Ангарск", "Анжеро-Судженск", "Апатиты", "Арзамас", "Армавир",
     "Арсеньев", "Артем", "Архангельск", "Асбест", "Астрахань", "Ачинск", "Балаково", "Балахна",
     "Балашиха", "Балашов", "Барнаул", "Батайск", "Белгород", "Белебей", "Белово", "Белогорск",
@@ -14757,7 +14757,7 @@ const std::vector<std::string> russiaCities { "Абакан", "Азов", "Ал�
     "Чистополь", "Чита", "Шадринск", "Шали", "Шахты", "Шуя", "Щекино", "Щелково", "Электросталь",
     "Элиста", "Энгельс", "Южно-Сахалинск", "Юрга", "Якутск", "Ялта", "Ярославль" };
 
-const std::vector<std::string> russiaStates = {
+const std::vector<std::string_view> russiaStates = {
     "Алтайский край",
     "Амурская область",
     "Архангельская область",
@@ -14844,7 +14844,7 @@ const std::vector<std::string> russiaStates = {
     "Ярославская область",
 };
 
-const std::vector<std::string> russiaStreetNames { "Советская", "Молодежная", "Центральная",
+const std::vector<std::string_view> russiaStreetNames { "Советская", "Молодежная", "Центральная",
     "Школьная", "Новая", "Садовая", "Лесная", "Набережная", "Октябрьская", "Зеленая",
     "Комсомольская", "Заречная", "Первомайская", "Полевая", "Луговая", "Пионерская", "Юбилейная",
     "Северная", "Пролетарская", "Степная", "Южная", "Колхозная", "Рабочая", "Солнечная",
@@ -14891,22 +14891,22 @@ const std::vector<std::string> russiaStreetNames { "Советская", "Мол
     "Дальневосточная", "Балтийская", "Февральская", "Лунная", "Высотная", "Рязанская",
     "Малиновая" };
 
-const std::vector<std::string> russiaStreetPrefixes { "улица", "аллея", "бульвар", "линия",
+const std::vector<std::string_view> russiaStreetPrefixes { "улица", "аллея", "бульвар", "линия",
     "набережная", "тракт", "тупик", "шоссе", "переулок", "проспект", "мост", "авеню" };
 
 const std::string_view russiaZipCodeFormat { "######" };
 
-const std::vector<std::string> russiaAddressFormats { "{street} {buildingNumber}",
+const std::vector<std::string_view> russiaAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string> russiaSecondaryAddressFormats { "кв. ###", "кв. ##", "кв. #" };
+const std::vector<std::string_view> russiaSecondaryAddressFormats { "кв. ###", "кв. ##", "кв. #" };
 
-const std::vector<std::string> russiaBuildingNumberFormats { "#", "##", "###" };
+const std::vector<std::string_view> russiaBuildingNumberFormats { "#", "##", "###" };
 
-const std::vector<std::string> russiaStreetFormats { "{streetPrefix} {firstName}",
+const std::vector<std::string_view> russiaStreetFormats { "{streetPrefix} {firstName}",
     "{streetPrefix} {lastName}", "{streetPrefix} {streetName}" };
 
-const std::vector<std::string> russiaCityFormats { "{cityName}" };
+const std::vector<std::string_view> russiaCityFormats { "{cityName}" };
 
 const CountryAddresses russiaAddresses { russiaZipCodeFormat, russiaAddressFormats,
     russiaSecondaryAddressFormats, russiaStreetFormats, russiaStreetPrefixes, russiaStreetNames, {},
@@ -14914,7 +14914,7 @@ const CountryAddresses russiaAddresses { russiaZipCodeFormat, russiaAddressForma
 
 // Spain
 
-const std::vector<std::string> spainCities {
+const std::vector<std::string_view> spainCities {
     "Parla",
     "Telde",
     "Baracaldo",
@@ -15047,7 +15047,7 @@ const std::vector<std::string> spainCities {
     "Aýna",
 };
 
-const std::vector<std::string> spainCounties {
+const std::vector<std::string_view> spainCounties {
     "Álava",
     "Albacete",
     "Alicante",
@@ -15100,7 +15100,7 @@ const std::vector<std::string> spainCounties {
     "Zaragoza",
 };
 
-const std::vector<std::string> spainStates = {
+const std::vector<std::string_view> spainStates = {
     "Andalucía",
     "Aragón",
     "Principado de Asturias",
@@ -15120,7 +15120,7 @@ const std::vector<std::string> spainStates = {
     "Región de Murcia",
 };
 
-const std::vector<std::string> spainStreetSuffixes {
+const std::vector<std::string_view> spainStreetSuffixes {
     "Aldea",
     "Apartamento",
     "Arrabal",
@@ -15195,17 +15195,17 @@ const std::vector<std::string> spainStreetSuffixes {
 
 const std::string_view spainZipCodeFormat { "#####" };
 
-const std::vector<std::string> spainAddressFormats { "{street} {buildingNumber}",
+const std::vector<std::string_view> spainAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string> spainSecondaryAddressFormats { "Esc. ###", "Puerta ###" };
+const std::vector<std::string_view> spainSecondaryAddressFormats { "Esc. ###", "Puerta ###" };
 
-const std::vector<std::string> spainBuildingNumberFormats { "s/n.", "#", "##" };
+const std::vector<std::string_view> spainBuildingNumberFormats { "s/n.", "#", "##" };
 
-const std::vector<std::string> spainStreetFormats { "{streetSuffix} {firstName}",
+const std::vector<std::string_view> spainStreetFormats { "{streetSuffix} {firstName}",
     "{streetSuffix} {firstName} {lastName}" };
 
-const std::vector<std::string> spainCityFormats { "{cityName}" };
+const std::vector<std::string_view> spainCityFormats { "{cityName}" };
 
 const CountryAddresses spainAddresses { spainZipCodeFormat, spainAddressFormats,
     spainSecondaryAddressFormats, spainStreetFormats, {}, {}, spainStreetSuffixes,
@@ -15213,7 +15213,7 @@ const CountryAddresses spainAddresses { spainZipCodeFormat, spainAddressFormats,
 
 // Ukraine
 
-const std::vector<std::string> ukraineCities {
+const std::vector<std::string_view> ukraineCities {
     "Авдіївка",
     "Аджи-Мушкай",
     "Алмазна",
@@ -15696,7 +15696,7 @@ const std::vector<std::string> ukraineCities {
     "Яремче",
 };
 
-const std::vector<std::string> ukraineStates = {
+const std::vector<std::string_view> ukraineStates = {
     "АР Крим",
     "Вінницька область",
     "Волинська область",
@@ -15726,7 +15726,7 @@ const std::vector<std::string> ukraineStates = {
     "Севастополь",
 };
 
-const std::vector<std::string> ukraineStreetNames {
+const std::vector<std::string_view> ukraineStreetNames {
     "Хрещатик",
     "Бессарабська",
     "Саксаганського",
@@ -15790,22 +15790,22 @@ const std::vector<std::string> ukraineStreetNames {
     "Васильківський",
 };
 
-const std::vector<std::string> ukraineStreetPrefixes { "вулиця", "аллея", "бульвар", "лінія",
+const std::vector<std::string_view> ukraineStreetPrefixes { "вулиця", "аллея", "бульвар", "лінія",
     "набережна", "шоссе", "перевулок", "проспект", "міст", "авеню" };
 
 const std::string_view ukraineZipCodeFormat { "#####" };
 
-const std::vector<std::string> ukraineAddressFormats { "{street} {buildingNumber}",
+const std::vector<std::string_view> ukraineAddressFormats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::vector<std::string> ukraineSecondaryAddressFormats { "кв. ###", "кв. ##", "кв. #" };
+const std::vector<std::string_view> ukraineSecondaryAddressFormats { "кв. ###", "кв. ##", "кв. #" };
 
-const std::vector<std::string> ukraineBuildingNumberFormats { "#", "##", "###" };
+const std::vector<std::string_view> ukraineBuildingNumberFormats { "#", "##", "###" };
 
-const std::vector<std::string> ukraineStreetFormats { "{streetPrefix} {firstName}",
+const std::vector<std::string_view> ukraineStreetFormats { "{streetPrefix} {firstName}",
     "{streetPrefix} {lastName}", "{streetPrefix} {streetName}" };
 
-const std::vector<std::string> ukraineCityFormats { "{cityName}" };
+const std::vector<std::string_view> ukraineCityFormats { "{cityName}" };
 
 const CountryAddresses ukraineAddresses { ukraineZipCodeFormat, ukraineAddressFormats,
     ukraineSecondaryAddressFormats, ukraineStreetFormats, ukraineStreetPrefixes, ukraineStreetNames,
@@ -15814,7 +15814,7 @@ const CountryAddresses ukraineAddresses { ukraineZipCodeFormat, ukraineAddressFo
 
 // USA
 
-const std::vector<std::string> usaCities = { "Abilene", "Akron", "Alafaya", "Alameda", "Albany",
+const std::vector<std::string_view> usaCities = { "Abilene", "Akron", "Alafaya", "Alameda", "Albany",
     "Albuquerque", "Alexandria", "Alhambra", "Aliso Viejo", "Allen", "Allentown", "Aloha",
     "Alpharetta", "Altadena", "Altamonte Springs", "Altoona", "Amarillo", "Ames", "Anaheim",
     "Anchorage", "Anderson", "Ankeny", "Ann Arbor", "Annandale", "Antelope", "Antioch", "Apex",
@@ -15950,7 +15950,7 @@ const std::vector<std::string> usaCities = { "Abilene", "Akron", "Alafaya", "Ala
     "Woodland", "Worcester", "Wylie", "Wyoming", "Yakima", "Yonkers", "Yorba Linda", "York",
     "Youngstown", "Yuba City", "Yucaipa", "Yuma" };
 
-const std::vector<std::string> usaCounties {
+const std::vector<std::string_view> usaCounties {
     "Adams County",
     "Calhoun County",
     "Carroll County",
@@ -15989,7 +15989,7 @@ const std::vector<std::string> usaCounties {
     "Wayne County",
 };
 
-const std::vector<std::string> usaStates = { "Alabama", "Alaska", "Arizona", "Arkansas",
+const std::vector<std::string_view> usaStates = { "Alabama", "Alaska", "Arizona", "Arkansas",
     "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho",
     "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
     "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
@@ -15998,7 +15998,7 @@ const std::vector<std::string> usaStates = { "Alabama", "Alaska", "Arizona", "Ar
     "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
     "West Virginia", "Wisconsin", "Wyoming" };
 
-const std::vector<std::string> usaStreetSuffixes = { "Alley", "Avenue", "Branch", "Bridge", "Brook",
+const std::vector<std::string_view> usaStreetSuffixes = { "Alley", "Avenue", "Branch", "Bridge", "Brook",
     "Brooks", "Burg", "Burgs", "Bypass", "Camp", "Canyon", "Cape", "Causeway", "Center", "Centers",
     "Circle", "Circles", "Cliff", "Cliffs", "Club", "Common", "Corner", "Corners", "Course",
     "Court", "Courts", "Cove", "Coves", "Creek", "Crescent", "Crest", "Crossing", "Crossroad",
@@ -16022,16 +16022,16 @@ const std::vector<std::string> usaStreetSuffixes = { "Alley", "Avenue", "Branch"
 
 const std::string_view usaZipCodeFormat { "#####" };
 
-const std::vector<std::string> usaAddressFormats { "{buildingNumber} {street}" };
+const std::vector<std::string_view> usaAddressFormats { "{buildingNumber} {street}" };
 
-const std::vector<std::string> usaSecondaryAddressFormats { "Apt. ###", "Suite ###" };
+const std::vector<std::string_view> usaSecondaryAddressFormats { "Apt. ###", "Suite ###" };
 
-const std::vector<std::string> usaBuildingNumberFormats { "#####", "####", "###" };
+const std::vector<std::string_view> usaBuildingNumberFormats { "#####", "####", "###" };
 
-const std::vector<std::string> usaStreetFormats { "{firstName} {streetSuffix}",
+const std::vector<std::string_view> usaStreetFormats { "{firstName} {streetSuffix}",
     "{lastName} {streetSuffix}" };
 
-const std::vector<std::string> usaCityFormats { "{cityName}" };
+const std::vector<std::string_view> usaCityFormats { "{cityName}" };
 
 const CountryAddresses usaAddresses { usaZipCodeFormat, usaAddressFormats,
     usaSecondaryAddressFormats, usaStreetFormats, {}, {}, usaStreetSuffixes,

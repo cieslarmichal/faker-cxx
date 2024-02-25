@@ -89,19 +89,19 @@ std::string_view country() { return Helper::arrayElement(data::allCountries); }
 
 std::string_view countryCode() { return Helper::arrayElement(data::countryCodes); }
 
-std::string county(AddressCountry country)
+std::string_view county(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
     if (countryAddresses.counties.empty()) {
         return "";
     }
-    return Helper::arrayElement<std::string>(countryAddresses.counties);
+    return Helper::arrayElement(countryAddresses.counties);
 }
 
-std::string state(AddressCountry country)
+std::string_view state(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
-    return Helper::arrayElement<std::string>(countryAddresses.states);
+    return Helper::arrayElement(countryAddresses.states);
 }
 
 std::string city(AddressCountry country)
@@ -116,11 +116,11 @@ std::string city(AddressCountry country)
             } else if (token == "lastName") {
                 return person::lastName(countryAddressToCountryMapping(country));
             } else if (token == "cityName") {
-                return Helper::arrayElement(countryAddresses.cities);
+                return std::string(Helper::arrayElement(countryAddresses.cities));
             } else if (token == "cityPrefix") {
-                return Helper::arrayElement(countryAddresses.cityPrefixes);
+                return std::string(Helper::arrayElement(countryAddresses.cityPrefixes));
             } else if (token == "citySuffix") {
-                return Helper::arrayElement(countryAddresses.citySuffixes);
+                return std::string(Helper::arrayElement(countryAddresses.citySuffixes));
             } else {
                 return std::string();
             }
@@ -165,11 +165,11 @@ std::string street(AddressCountry country)
             } else if (token == "lastName") {
                 return person::lastName(countryAddressToCountryMapping(country));
             } else if (token == "streetName") {
-                return Helper::arrayElement<std::string>(countryAddresses.streetNames);
+                return std::string(Helper::arrayElement(countryAddresses.streetNames));
             } else if (token == "streetPrefix") {
-                return Helper::arrayElement<std::string>(countryAddresses.streetPrefixes);
+                return std::string(Helper::arrayElement(countryAddresses.streetPrefixes));
             } else if (token == "streetSuffix") {
-                return Helper::arrayElement<std::string>(countryAddresses.streetSuffixes);
+                return std::string(Helper::arrayElement(countryAddresses.streetSuffixes));
             } else {
                 return std::string();
             }
@@ -181,7 +181,7 @@ std::string buildingNumber(AddressCountry country)
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
 
     const auto buildingNumberFormat
-        = Helper::arrayElement<std::string>(countryAddresses.buildingNumberFormats);
+        = Helper::arrayElement(countryAddresses.buildingNumberFormats);
 
     return Helper::replaceSymbolWithNumber(buildingNumberFormat);
 }
@@ -195,7 +195,7 @@ std::string secondaryAddress(AddressCountry country)
     }
 
     const auto secondaryAddressFormat
-        = Helper::arrayElement<std::string>(countryAddresses.secondaryAddressFormats);
+        = Helper::arrayElement(countryAddresses.secondaryAddressFormats);
 
     return Helper::replaceSymbolWithNumber(secondaryAddressFormat);
 }
