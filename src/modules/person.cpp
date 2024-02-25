@@ -6,7 +6,6 @@
 #include <faker/string.h>
 #include <faker/word.h>
 #include <regex>
-#include <unordered_map>
 #include <unordered_set>
 
 namespace faker::person {
@@ -111,23 +110,27 @@ std::string fullName(Country country, std::optional<Sex> sex)
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     std::vector<Helper::WeightedElement<std::string>> weightedElements;
-
     for (const auto& nameFormat : peopleNames.nameFormats) {
         weightedElements.push_back({ nameFormat.weight, nameFormat.format });
     }
 
     const auto nameFormat = Helper::weightedArrayElement<std::string>(weightedElements);
 
-    const auto dataGeneratorsMapping
-        = std::unordered_map<std::string, std::function<std::string()>> {
-              { "firstName", [&country, &sex]() { return firstName(country, sex); } },
-              { "middleName", [&country, &sex]() { return middleNameForCountry(country, sex); } },
-              { "lastName", [&country, &sex]() { return lastName(country, sex); } },
-              { "prefix", [&country, &sex]() { return prefixForCountry(country, sex); } },
-              { "suffix", [&country, &sex]() { return suffixForCountry(country, sex); } }
-          };
-
-    return FormatHelper::fillTokenValues(nameFormat, dataGeneratorsMapping);
+    return FormatHelper::fillTokenValues(nameFormat, [country, sex](std::string_view token) {
+        if (token == "firstName") {
+            return firstName(country, sex);
+        } else if (token == "middleName") {
+            return middleNameForCountry(country, sex);
+        } else if (token == "lastName") {
+            return lastName(country, sex);
+        } else if (token == "prefix") {
+            return prefixForCountry(country, sex);
+        } else if (token == "suffix") {
+            return suffixForCountry(country, sex);
+        } else {
+            return std::string();
+        }
+    });
 }
 
 std::string prefix(std::optional<Sex> sex)
@@ -172,15 +175,19 @@ std::string bio()
 {
     const auto randomBioFormat = Helper::arrayElement(bioFormats);
 
-    const auto dataGeneratorsMapping
-        = std::unordered_map<std::string, std::function<std::string()>> {
-              { "bio_part", []() { return std::string(Helper::arrayElement(bioPart)); } },
-              { "bio_supporter", []() { return std::string(Helper::arrayElement(bioSupporter)); } },
-              { "noun", []() { return std::string(word::noun()); } },
-              { "emoji", []() { return std::string(internet::emoji()); } }
-          };
-
-    return FormatHelper::fillTokenValues(std::string(randomBioFormat), dataGeneratorsMapping);
+    return FormatHelper::fillTokenValues(std::string(randomBioFormat), [](std::string_view token) {
+        if (token == "bio_part") {
+            return std::string(Helper::arrayElement(bioPart));
+        } else if (token == "bio_supporter") {
+            return std::string(Helper::arrayElement(bioSupporter));
+        } else if (token == "noun") {
+            return std::string(word::noun());
+        } else if (token == "emoji") {
+            return std::string(internet::emoji());
+        } else {
+            return std::string();
+        }
+    });
 }
 
 std::string suffix()

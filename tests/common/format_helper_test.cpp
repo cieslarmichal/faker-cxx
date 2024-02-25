@@ -2,45 +2,52 @@
 #include <common/errors/token_generator_not_found_error.h>
 #include <common/format_helper.h>
 
-using namespace ::testing;
 using namespace faker;
 
-class FormatHelperTest : public Test {
-public:
-};
-
-TEST_F(FormatHelperTest, fillFormatTokensData)
+TEST(FormatHelperTest, fillFormatTokensData)
 {
     const auto format = "{hello} {faker}-{cxx} {library}";
 
-    const auto dataGeneratorsMapping
-        = std::unordered_map<std::string, std::function<std::string()>> {
-              { "hello", []() { return "library"; } }, { "faker", []() { return "cxx"; } },
-              { "cxx", []() { return "faker"; } }, { "library", []() { return "hello"; } }
-          };
-
-    const auto result = FormatHelper::fillTokenValues(format, dataGeneratorsMapping);
+    const auto result = FormatHelper::fillTokenValues(format, [](std::string_view token) {
+        if (token == "hello") {
+            return "library";
+        } else if (token == "faker") {
+            return "cxx";
+        } else if (token == "cxx") {
+            return "faker";
+        } else if (token == "library") {
+            return "hello";
+        } else {
+            return "";
+        }
+    });
 
     const auto expectedResult = "library cxx-faker hello";
 
     EXPECT_EQ(result, expectedResult);
 }
 
-TEST_F(FormatHelperTest, givenTokensWithNotDefinedGenerator_shouldThrow)
+TEST(FormatHelperTest, givenTokensWithNotDefinedGenerator_shouldThrow)
 {
     const auto format = "{hello} {faker}-{cxx} {library}";
 
-    const auto dataGeneratorsMapping
-        = std::unordered_map<std::string, std::function<std::string()>> {
-              { "hello", []() { return "library"; } }, { "faker", []() { return "cxx"; } },
-              { "cxx", []() { return "faker"; } }
-          };
-
-    ASSERT_THROW(FormatHelper::fillTokenValues(format, dataGeneratorsMapping),
-        errors::TokenGeneratorNotFoundError);
+    ASSERT_THROW(FormatHelper::fillTokenValues(format,
+        [](std::string_view token) {
+            if (token == "hello") {
+                return "library";
+            } else if (token == "faker") {
+                return "cxx";
+            } else if (token == "cxx") {
+                return "faker";
+            } else {
+                throw errors::TokenGeneratorNotFoundError { FormatHelper::format(
+                    "Generator not found for token {}.", token) };
+            }
+        });
+                 , errors::TokenGeneratorNotFoundError);
 }
 
-TEST_F(FormatHelperTest, shouldFormat)
+TEST(FormatHelperTest, shouldFormat)
 {
     EXPECT_EQ(FormatHelper::format("{}", 1), "1");
     EXPECT_EQ(FormatHelper::format("{} {}", "Hello", "World"), "Hello World");

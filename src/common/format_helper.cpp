@@ -3,8 +3,8 @@
 
 namespace faker {
 
-std::string FormatHelper::fillTokenValues(const std::string& format,
-    std::unordered_map<std::string, std::function<std::string()>> tokenValueGenerators)
+std::string FormatHelper::fillTokenValues(
+    const std::string& format, std::function<std::string(std::string_view)> tokenValueGenerator)
 {
     std::string filledFormat;
 
@@ -16,16 +16,7 @@ std::string FormatHelper::fillTokenValues(const std::string& format,
         } else if (format[i] == '}' && tokenStart != -1 && static_cast<unsigned>(tokenStart) < i) {
             const auto token = format.substr(
                 static_cast<unsigned>(tokenStart), i - static_cast<unsigned>(tokenStart));
-
-            const auto foundTokenGenerator = tokenValueGenerators.find(token);
-
-            if (foundTokenGenerator == tokenValueGenerators.end()) {
-                throw errors::TokenGeneratorNotFoundError { FormatHelper::format(
-                    "Generator not found for token {}.", token) };
-            }
-
-            filledFormat += foundTokenGenerator->second();
-
+            filledFormat += tokenValueGenerator(token);
             tokenStart = -1;
         } else if (tokenStart == -1) {
             filledFormat += format[i];
@@ -34,4 +25,5 @@ std::string FormatHelper::fillTokenValues(const std::string& format,
 
     return filledFormat;
 }
+
 }

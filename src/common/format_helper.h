@@ -3,7 +3,6 @@
 
 #include <functional>
 #include <string>
-#include <unordered_map>
 #include <vector>
 
 #if defined(__APPLE__) || defined(__MINGW32__)                                                     \
@@ -32,7 +31,7 @@ public:
 #endif
 
     static std::string fillTokenValues(const std::string& format,
-        std::unordered_map<std::string, std::function<std::string()>> tokenValueGenerators);
+        std::function<std::string(std::string_view)> tokenValueGenerator);
 };
 }
 

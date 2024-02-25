@@ -5,7 +5,6 @@
 #include <faker/location.h>
 #include <faker/person.h>
 #include <faker/string.h>
-#include <unordered_map>
 
 namespace faker::location {
 namespace {
@@ -107,35 +106,25 @@ std::string state(AddressCountry country)
 
 std::string city(AddressCountry country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping(country);
+    auto& countryAddresses = countryToCountryAddressesMapping(country);
+    auto cityFormat = Helper::arrayElement(countryAddresses.cityFormats);
 
-    const auto cityFormat = Helper::arrayElement(countryAddresses.cityFormats);
-
-    const auto dataGeneratorsMapping
-        = std::unordered_map<std::string, std::function<std::string()>> {
-              { "firstName",
-                  [&country]() {
-                      return person::firstName(countryAddressToCountryMapping(country));
-                  } },
-              { "lastName",
-                  [&country]() {
-                      return person::lastName(countryAddressToCountryMapping(country));
-                  } },
-              { "cityName",
-                  [&countryAddresses]() {
-                      return Helper::arrayElement<std::string>(countryAddresses.cities);
-                  } },
-              { "cityPrefix",
-                  [&countryAddresses]() {
-                      return Helper::arrayElement<std::string>(countryAddresses.cityPrefixes);
-                  } },
-              { "citySuffix",
-                  [&countryAddresses]() {
-                      return Helper::arrayElement<std::string>(countryAddresses.citySuffixes);
-                  } }
-          };
-
-    return FormatHelper::fillTokenValues(cityFormat, dataGeneratorsMapping);
+    return FormatHelper::fillTokenValues(
+        cityFormat, [country, countryAddresses](std::string_view token) {
+            if (token == "firstName") {
+                return person::firstName(countryAddressToCountryMapping(country));
+            } else if (token == "lastName") {
+                return person::lastName(countryAddressToCountryMapping(country));
+            } else if (token == "cityName") {
+                return Helper::arrayElement(countryAddresses.cities);
+            } else if (token == "cityPrefix") {
+                return Helper::arrayElement(countryAddresses.cityPrefixes);
+            } else if (token == "citySuffix") {
+                return Helper::arrayElement(countryAddresses.citySuffixes);
+            } else {
+                return std::string();
+            }
+        });
 }
 
 std::string zipCode(AddressCountry country)
@@ -148,50 +137,43 @@ std::string zipCode(AddressCountry country)
 std::string streetAddress(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
+    const auto addressFormat = Helper::arrayElement(countryAddresses.addressFormats);
 
-    const auto dataGeneratorsMapping
-        = std::unordered_map<std::string, std::function<std::string()>> {
-              { "buildingNumber", [&country]() { return buildingNumber(country); } },
-              { "street", [&country]() { return street(country); } },
-              { "secondaryAddress", [&country]() { return secondaryAddress(country); } }
-          };
-
-    const auto addressFormat = Helper::arrayElement<std::string>(countryAddresses.addressFormats);
-
-    return FormatHelper::fillTokenValues(addressFormat, dataGeneratorsMapping);
+    return FormatHelper::fillTokenValues(
+        addressFormat, [country, countryAddresses](std::string_view token) {
+            if (token == "buildingNumber") {
+                return buildingNumber(country);
+            } else if (token == "street") {
+                return street(country);
+            } else if (token == "secondaryAddress") {
+                return secondaryAddress(country);
+            } else {
+                return std::string();
+            }
+        });
 }
 
 std::string street(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
+    const auto streetFormat = Helper::arrayElement(countryAddresses.streetFormats);
 
-    const auto streetFormat = Helper::arrayElement<std::string>(countryAddresses.streetFormats);
-
-    const auto dataGeneratorsMapping
-        = std::unordered_map<std::string, std::function<std::string()>> {
-              { "firstName",
-                  [&country]() {
-                      return person::firstName(countryAddressToCountryMapping(country));
-                  } },
-              { "lastName",
-                  [&country]() {
-                      return person::lastName(countryAddressToCountryMapping(country));
-                  } },
-              { "streetName",
-                  [&countryAddresses]() {
-                      return Helper::arrayElement<std::string>(countryAddresses.streetNames);
-                  } },
-              { "streetPrefix",
-                  [&countryAddresses]() {
-                      return Helper::arrayElement<std::string>(countryAddresses.streetPrefixes);
-                  } },
-              { "streetSuffix",
-                  [&countryAddresses]() {
-                      return Helper::arrayElement<std::string>(countryAddresses.streetSuffixes);
-                  } }
-          };
-
-    return FormatHelper::fillTokenValues(streetFormat, dataGeneratorsMapping);
+    return FormatHelper::fillTokenValues(
+        streetFormat, [country, countryAddresses](std::string_view token) {
+            if (token == "firstName") {
+                return person::firstName(countryAddressToCountryMapping(country));
+            } else if (token == "lastName") {
+                return person::lastName(countryAddressToCountryMapping(country));
+            } else if (token == "streetName") {
+                return Helper::arrayElement<std::string>(countryAddresses.streetNames);
+            } else if (token == "streetPrefix") {
+                return Helper::arrayElement<std::string>(countryAddresses.streetPrefixes);
+            } else if (token == "streetSuffix") {
+                return Helper::arrayElement<std::string>(countryAddresses.streetSuffixes);
+            } else {
+                return std::string();
+            }
+        });
 }
 
 std::string buildingNumber(AddressCountry country)
