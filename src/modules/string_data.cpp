@@ -5,10 +5,12 @@ const std::string_view upperCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 const std::string_view lowerCharacters = "abcdefghijklmnopqrstuvwxyz";
 const std::string_view numericCharactersWithoutZero = "123456789";
 const std::string_view numericCharacters = "0123456789";
-const std::string_view mixedAlphaCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+const std::string_view mixedAlphaCharacters
+    = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 const std::string_view lowerAlphanumericCharacters = "abcdefghijklmnopqrstuvwxyz0123456789";
 const std::string_view upperAlphanumericCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-const std::string_view mixedAlphanumericCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+const std::string_view mixedAlphanumericCharacters
+    = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 const std::string_view hexUpperCharacters = "0123456789ABCDEF";
 const std::string_view hexLowerCharacters = "0123456789abcdef";
 const std::string_view symbolCharacters = "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";

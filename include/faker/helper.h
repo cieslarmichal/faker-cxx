@@ -5,6 +5,7 @@
 #include <array>
 #include <faker/datatype.h>
 #include <faker/number.h>
+#include <faker/compat/span.h>
 #include <functional>
 #include <numeric>
 #include <string>
@@ -13,6 +14,17 @@
 namespace faker {
 class Helper {
 public:
+    template <typename T, size_t N> static T arrayElement(const tcb::span<T, N>& data)
+    {
+        if (data.empty()) {
+            throw std::invalid_argument { "Data is empty." };
+        }
+
+        const auto index = number::integer(data.size() - 1);
+
+        return data[index];
+    }
+
     template <typename T, size_t N> static T arrayElement(const std::array<T, N>& data)
     {
         if (data.empty()) {

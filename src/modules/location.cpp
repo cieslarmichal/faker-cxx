@@ -139,18 +139,17 @@ std::string streetAddress(AddressCountry country)
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
     const auto addressFormat = Helper::arrayElement(countryAddresses.addressFormats);
 
-    return FormatHelper::fillTokenValues(
-        addressFormat, [country, countryAddresses](std::string_view token) {
-            if (token == "buildingNumber") {
-                return buildingNumber(country);
-            } else if (token == "street") {
-                return street(country);
-            } else if (token == "secondaryAddress") {
-                return secondaryAddress(country);
-            } else {
-                return std::string();
-            }
-        });
+    return FormatHelper::fillTokenValues(addressFormat, [country](std::string_view token) {
+        if (token == "buildingNumber") {
+            return buildingNumber(country);
+        } else if (token == "street") {
+            return street(country);
+        } else if (token == "secondaryAddress") {
+            return secondaryAddress(country);
+        } else {
+            return std::string();
+        }
+    });
 }
 
 std::string street(AddressCountry country)
