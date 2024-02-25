@@ -1,7 +1,7 @@
 #include "phone_data.h"
 
-namespace faker::data {
-const std::vector<std::string> PhonePlatforms = {
+namespace faker::phone::data {
+const std::array<std::string_view, 6> platforms = {
     "Android OS",
     "iOS",
     "Windows Phone",
@@ -10,15 +10,15 @@ const std::vector<std::string> PhonePlatforms = {
     "Tizen",
 };
 
-const std::vector<std::string> PhoneModelNames
+const std::array<std::string_view, 15> model_names
     = { "Samsung Galaxy S9", "iPhone X", "Google Pixel 4", "Samsung Galaxy S22", "iPhone 13",
           "iPhone 13", "iPhone 14", "iPhone 15", "Google Pixel 6", "OnePlus 9", "Xiaomi Mi 11",
           "Huawei P50", "Oppo Find X3", "Sony Xperia 1 III", "Motorola Edge 20" };
 
-const std::vector<std::string> PhoneManufacturers
+const std::array<std::string_view, 9> manufacturers
     = { "Samsung", "Apple", "Google", "OnePlus", "Xiaomi", "Huawei", "Oppo", "Sony", "Motorola" };
 
-const std::vector<std::string> phoneNumbers = {
+const std::array<std::string_view, 230> number_formats = {
     "!##-###-###", // Default
     "+93 (###) ###-####", // Afghanistan
     "+358 (###) ###-####", // Aland Islands

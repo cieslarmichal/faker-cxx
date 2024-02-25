@@ -1,8 +1,8 @@
 #include "test_helpers.h"
 #include <iostream>
-#include <modules/sport_data.h>
+#include <modules/phone_data.h>
 
-using namespace faker::sport::data;
+using namespace faker::phone::data;
 
 #define PRINT_ARRAY_SIZE(name)                                                                     \
     std::cout << "extern const std::array<std::string_view, " << name.size() << "> " << (#name)    \
@@ -10,9 +10,8 @@ using namespace faker::sport::data;
 
 TEST(BasicTest, printsArraySizes)
 {
-    PRINT_ARRAY_SIZE(femaleAthletes);
-    PRINT_ARRAY_SIZE(maleAthletes);
-    PRINT_ARRAY_SIZE(soccerTeams);
-    PRINT_ARRAY_SIZE(sportEvents);
-    PRINT_ARRAY_SIZE(sportNames);
+    PRINT_ARRAY_SIZE(platforms);
+    PRINT_ARRAY_SIZE(model_names);
+    PRINT_ARRAY_SIZE(manufacturers);
+    PRINT_ARRAY_SIZE(number_formats);
 }

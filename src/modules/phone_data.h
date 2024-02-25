@@ -1,14 +1,14 @@
 #ifndef FAKER_MODULES_PHONE_DATA_H
 #define FAKER_MODULES_PHONE_DATA_H
 
-#include <string>
-#include <vector>
+#include <array>
+#include <string_view>
 
-namespace faker::data {
-extern const std::vector<std::string> PhonePlatforms;
-extern const std::vector<std::string> PhoneModelNames;
-extern const std::vector<std::string> PhoneManufacturers;
-extern const std::vector<std::string> phoneNumbers;
+namespace faker::phone::data {
+extern const std::array<std::string_view, 6> platforms;
+extern const std::array<std::string_view, 15> model_names;
+extern const std::array<std::string_view, 9> manufacturers;
+extern const std::array<std::string_view, 230> number_formats;
 }
 
 #endif

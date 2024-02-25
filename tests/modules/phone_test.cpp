@@ -46,7 +46,7 @@ TEST(PhoneTest, NumberWithFormat)
 
 TEST(PhoneTest, IMEIGeneration)
 {
-    std::string imei = phone::imei();
+    auto imei = phone::imei();
 
     imei.erase(std::remove(imei.begin(), imei.end(), '-'), imei.end());
 
@@ -56,7 +56,7 @@ TEST(PhoneTest, IMEIGeneration)
 
 TEST(PhoneTest, NumberFormatTest)
 {
-    std::string phoneNumber = phone::number(PhoneNumberCountryFormat::Zimbabwe);
+    auto phoneNumber = phone::number(PhoneNumberCountryFormat::Zimbabwe);
 
     EXPECT_FALSE(phoneNumber.empty());
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
@@ -66,19 +66,19 @@ TEST(PhoneTest, PlatformGeneration)
 {
     auto generatedPlatform = phone::platform();
 
-    FAKER_EXPECT_CONTAINS(faker::data::PhonePlatforms, generatedPlatform);
+    FAKER_EXPECT_CONTAINS(phone::data::platforms, generatedPlatform);
 }
 
 TEST(PhoneTest, ModelNameGeneration)
 {
     auto generatedModelName = phone::modelName();
 
-    FAKER_EXPECT_CONTAINS(faker::data::PhoneModelNames, generatedModelName);
+    FAKER_EXPECT_CONTAINS(phone::data::model_names, generatedModelName);
 }
 
 TEST(PhoneTest, ManufacturerGeneration)
 {
     auto generatedManufacturer = phone::manufacturer();
 
-    FAKER_EXPECT_CONTAINS(faker::data::PhoneManufacturers, generatedManufacturer);
+    FAKER_EXPECT_CONTAINS(phone::data::manufacturers, generatedManufacturer);
 }

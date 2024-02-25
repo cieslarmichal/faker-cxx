@@ -30,7 +30,7 @@ std::string number(std::optional<std::string> = std::nullopt);
  * phone::platform() // "iOS"
  * @endcode
  */
-std::string platform();
+std::string_view platform();
 
 /**
  * @brief Returns a random phone model.
@@ -41,7 +41,7 @@ std::string platform();
  * phone::modelName() // "Samsung Galaxy S22"
  * @endcode
  */
-std::string modelName();
+std::string_view modelName();
 
 /**
  * @brief Returns a random phone manufacturer.
@@ -52,7 +52,7 @@ std::string modelName();
  * phone::manufacturer() // "Sony"
  * @endcode
  */
-std::string manufacturer();
+std::string_view manufacturer();
 
 /**
  * @brief Returns a random phone number based on country phone number template.

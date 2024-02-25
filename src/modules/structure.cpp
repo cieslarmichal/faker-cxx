@@ -457,11 +457,11 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::PhoneNumber:
         return phone::number();
     case StructureToken::PhonePlatform:
-        return phone::platform();
+        return std::string(phone::platform());
     case StructureToken::PhoneModelName:
-        return phone::modelName();
+        return std::string(phone::modelName());
     case StructureToken::PhoneManufacturer:
-        return phone::manufacturer();
+        return std::string(phone::manufacturer());
     case StructureToken::PhoneIMEI:
         return phone::imei();
     // Sport module

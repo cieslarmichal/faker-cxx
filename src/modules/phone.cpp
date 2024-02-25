@@ -11,7 +11,7 @@ std::string number(std::optional<std::string> format)
     std::string selectedFormat;
 
     if (!format.has_value() || format->empty()) {
-        selectedFormat = Helper::arrayElement<std::string>(data::phoneNumbers);
+        selectedFormat = Helper::arrayElement(data::number_formats);
     } else {
         selectedFormat = format.value();
     }
@@ -28,7 +28,7 @@ std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberForma
          i <= static_cast<unsigned long>(PhoneNumberCountryFormat::Zimbabwe); i++) {
         auto formatEnum = static_cast<PhoneNumberCountryFormat>(i);
 
-        formatMap[formatEnum] = data::phoneNumbers[i];
+        formatMap[formatEnum] = data::number_formats[i];
     }
 
     return formatMap;
@@ -50,10 +50,10 @@ std::string number(PhoneNumberCountryFormat format)
 
 std::string imei() { return Helper::replaceCreditCardSymbols("##-######-######-L", '#'); }
 
-std::string platform() { return Helper::arrayElement(faker::data::PhonePlatforms); }
+std::string_view platform() { return Helper::arrayElement(data::platforms); }
 
-std::string modelName() { return Helper::arrayElement(faker::data::PhoneModelNames); }
+std::string_view modelName() { return Helper::arrayElement(data::model_names); }
 
-std::string manufacturer() { return Helper::arrayElement(faker::data::PhoneManufacturers); }
+std::string_view manufacturer() { return Helper::arrayElement(data::manufacturers); }
 
 }
