@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-namespace faker {
+namespace faker::location::data {
 struct CountryAddresses {
     std::string_view zipCodeFormat;
     std::vector<std::string> addressFormats;

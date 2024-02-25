@@ -1,6 +1,6 @@
 #include "location_data.h"
 
-namespace faker {
+namespace faker::location::data {
 
 const std::array<std::string_view, 246> allCountries = { "Afghanistan", "Aland Islands", "Albania",
     "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica",

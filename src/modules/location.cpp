@@ -9,56 +9,86 @@
 
 namespace faker::location {
 namespace {
-    const CountryAddresses& countryToCountryAddressesMapping(AddressCountry country)
+    const data::CountryAddresses& countryToCountryAddressesMapping(AddressCountry country)
     {
-        static const std::unordered_map<AddressCountry, CountryAddresses> items {
-            { AddressCountry::Usa, usaAddresses },
-            { AddressCountry::Poland, polandAddresses },
-            { AddressCountry::Russia, russiaAddresses },
-            { AddressCountry::France, franceAddresses },
-            { AddressCountry::Ukraine, ukraineAddresses },
-            { AddressCountry::Italy, italyAddresses },
-            { AddressCountry::Germany, germanyAddresses },
-            { AddressCountry::Czech, czechAddresses },
-            { AddressCountry::Australia, australiaAddresses },
-            { AddressCountry::India, indiaAddresses },
-            { AddressCountry::Denmark, denmarkAddresses },
-            { AddressCountry::Spain, spainAddresses },
-            { AddressCountry::Brazil, brazilAddresses },
-            { AddressCountry::Finland, finlandAddresses },
-            { AddressCountry::Estonia, estoniaAddresses },
-        };
-
-        return items.at(country);
+        switch (country) {
+        case AddressCountry::Usa:
+            return data::usaAddresses;
+        case AddressCountry::Poland:
+            return data::polandAddresses;
+        case AddressCountry::Russia:
+            return data::russiaAddresses;
+        case AddressCountry::France:
+            return data::franceAddresses;
+        case AddressCountry::Ukraine:
+            return data::ukraineAddresses;
+        case AddressCountry::Italy:
+            return data::italyAddresses;
+        case AddressCountry::Germany:
+            return data::germanyAddresses;
+        case AddressCountry::Czech:
+            return data::czechAddresses;
+        case AddressCountry::Australia:
+            return data::australiaAddresses;
+        case AddressCountry::India:
+            return data::indiaAddresses;
+        case AddressCountry::Denmark:
+            return data::denmarkAddresses;
+        case AddressCountry::Spain:
+            return data::spainAddresses;
+        case AddressCountry::Brazil:
+            return data::brazilAddresses;
+        case AddressCountry::Finland:
+            return data::finlandAddresses;
+        case AddressCountry::Estonia:
+            return data::estoniaAddresses;
+        default:
+            throw std::invalid_argument("Invalid country");
+        }
     }
 
     Country countryAddressToCountryMapping(AddressCountry country)
     {
-        static const std::unordered_map<AddressCountry, Country> countryAddressToCountryMapping {
-            { AddressCountry::Usa, Country::Usa },
-            { AddressCountry::Poland, Country::Poland },
-            { AddressCountry::Russia, Country::Russia },
-            { AddressCountry::France, Country::France },
-            { AddressCountry::Ukraine, Country::Ukraine },
-            { AddressCountry::Italy, Country::Italy },
-            { AddressCountry::Germany, Country::Germany },
-            { AddressCountry::Czech, Country::Czech },
-            { AddressCountry::Australia, Country::Australia },
-            { AddressCountry::India, Country::India },
-            { AddressCountry::Denmark, Country::Denmark },
-            { AddressCountry::Spain, Country::Spain },
-            { AddressCountry::Brazil, Country::Brazil },
-            { AddressCountry::Finland, Country::Finland },
-            { AddressCountry::Estonia, Country::Estonia },
-        };
-
-        return countryAddressToCountryMapping.at(country);
+        switch (country) {
+        case AddressCountry::Usa:
+            return Country::Usa;
+        case AddressCountry::Poland:
+            return Country::Poland;
+        case AddressCountry::Russia:
+            return Country::Russia;
+        case AddressCountry::France:
+            return Country::France;
+        case AddressCountry::Ukraine:
+            return Country::Ukraine;
+        case AddressCountry::Italy:
+            return Country::Italy;
+        case AddressCountry::Germany:
+            return Country::Germany;
+        case AddressCountry::Czech:
+            return Country::Czech;
+        case AddressCountry::Australia:
+            return Country::Australia;
+        case AddressCountry::India:
+            return Country::India;
+        case AddressCountry::Denmark:
+            return Country::Denmark;
+        case AddressCountry::Spain:
+            return Country::Spain;
+        case AddressCountry::Brazil:
+            return Country::Brazil;
+        case AddressCountry::Finland:
+            return Country::Finland;
+        case AddressCountry::Estonia:
+            return Country::Estonia;
+        default:
+            throw std::invalid_argument("Invalid country");
+        }
     }
 }
 
-std::string_view country() { return Helper::arrayElement(allCountries); }
+std::string_view country() { return Helper::arrayElement(data::allCountries); }
 
-std::string_view countryCode() { return Helper::arrayElement(countryCodes); }
+std::string_view countryCode() { return Helper::arrayElement(data::countryCodes); }
 
 std::string county(AddressCountry country)
 {
@@ -218,8 +248,8 @@ std::string longitude(Precision precision)
     return ss.str();
 }
 
-std::string_view direction() { return Helper::arrayElement(directions); }
+std::string_view direction() { return Helper::arrayElement(data::directions); }
 
-std::string_view timeZone() { return Helper::arrayElement(timeZones); }
+std::string_view timeZone() { return Helper::arrayElement(data::timeZones); }
 
 }
