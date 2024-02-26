@@ -4,7 +4,6 @@
 #include <faker/types/hex.h>
 #include <faker/types/random_generator.h>
 #include <faker/types/string_casing.h>
-#include <iostream>
 #include <limits>
 #include <random>
 #include <sstream>

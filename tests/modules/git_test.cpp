@@ -3,7 +3,6 @@
 #include <common/string_helper.h>
 #include <faker/git.h>
 #include <faker/number.h>
-#include <iostream>
 #include <regex>
 #include <string>
 
