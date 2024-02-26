@@ -10,42 +10,42 @@ TEST(VehicleTest, shouldGenerateBicycle)
 {
     auto generatedBicycle = vehicle::bicycle();
 
-    FAKER_EXPECT_CONTAINS(vehicle::data::bicycle_types, generatedBicycle);
+    FAKER_EXPECT_CONTAINER_CONTAINS(vehicle::data::bicycle_types, generatedBicycle);
 }
 
 TEST(VehicleTest, shouldGenerateColor)
 {
     auto generatedColor = vehicle::color();
 
-    FAKER_EXPECT_CONTAINS(vehicle::data::vehicle_colors, generatedColor);
+    FAKER_EXPECT_CONTAINER_CONTAINS(vehicle::data::vehicle_colors, generatedColor);
 }
 
 TEST(VehicleTest, shouldGenerateFuel)
 {
     auto generatedFuel = vehicle::fuel();
 
-    FAKER_EXPECT_CONTAINS(vehicle::data::fuel_types, generatedFuel);
+    FAKER_EXPECT_CONTAINER_CONTAINS(vehicle::data::fuel_types, generatedFuel);
 }
 
 TEST(VehicleTest, shouldGenerateManufacturer)
 {
     auto generatedManufacturer = vehicle::manufacturer();
 
-    FAKER_EXPECT_CONTAINS(vehicle::data::manufacturers, generatedManufacturer);
+    FAKER_EXPECT_CONTAINER_CONTAINS(vehicle::data::manufacturers, generatedManufacturer);
 }
 
 TEST(VehicleTest, shouldGenerateModel)
 {
     auto generatedModel = vehicle::model();
 
-    FAKER_EXPECT_CONTAINS(vehicle::data::models, generatedModel);
+    FAKER_EXPECT_CONTAINER_CONTAINS(vehicle::data::models, generatedModel);
 }
 
 TEST(VehicleTest, shouldGenerateType)
 {
     auto generatedType = vehicle::type();
 
-    FAKER_EXPECT_CONTAINS(vehicle::data::vehicle_types, generatedType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(vehicle::data::vehicle_types, generatedType);
 }
 
 TEST(VehicleTest, shouldGenerateVehicle)

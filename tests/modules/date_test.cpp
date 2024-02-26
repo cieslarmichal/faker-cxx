@@ -238,26 +238,28 @@ TEST_F(DateTest, shouldGenerateWeekdayName)
 {
     auto generatedWeekdayName = date::weekdayName();
 
-    FAKER_EXPECT_CONTAINS(date::data::weekdayNames, generatedWeekdayName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(date::data::weekdayNames, generatedWeekdayName);
 }
 
 TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
 {
     auto generatedWeekdayAbbreviatedName = date::weekdayAbbreviatedName();
 
-    FAKER_EXPECT_CONTAINS(date::data::weekdayAbbreviatedNames, generatedWeekdayAbbreviatedName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(
+        date::data::weekdayAbbreviatedNames, generatedWeekdayAbbreviatedName);
 }
 
 TEST_F(DateTest, shouldGenerateMonthName)
 {
     auto generatedMonthName = date::monthName();
 
-    FAKER_EXPECT_CONTAINS(date::data::monthNames, generatedMonthName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(date::data::monthNames, generatedMonthName);
 }
 
 TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
 {
     auto generatedMonthAbbreviatedName = date::monthAbbreviatedName();
 
-    FAKER_EXPECT_CONTAINS(date::data::monthAbbreviatedNames, generatedMonthAbbreviatedName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(
+        date::data::monthAbbreviatedNames, generatedMonthAbbreviatedName);
 }

@@ -9,28 +9,28 @@ TEST(DatabaseTest, shouldGenerateColumnName)
 {
     auto generatedColumnName = database::columnName();
 
-    FAKER_EXPECT_CONTAINS(database::data::columnNames, generatedColumnName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(database::data::columnNames, generatedColumnName);
 }
 
 TEST(DatabaseTest, shouldGenerateColumnType)
 {
     auto generatedColumnType = database::columnType();
 
-    FAKER_EXPECT_CONTAINS(database::data::columnTypes, generatedColumnType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(database::data::columnTypes, generatedColumnType);
 }
 
 TEST(DatabaseTest, shouldGenerateEngine)
 {
     auto generatedEngine = database::engine();
 
-    FAKER_EXPECT_CONTAINS(database::data::engines, generatedEngine);
+    FAKER_EXPECT_CONTAINER_CONTAINS(database::data::engines, generatedEngine);
 }
 
 TEST(DatabaseTest, shouldGenerateCollation)
 {
     auto generatedCollation = database::collation();
 
-    FAKER_EXPECT_CONTAINS(database::data::collations, generatedCollation);
+    FAKER_EXPECT_CONTAINER_CONTAINS(database::data::collations, generatedCollation);
 }
 
 TEST(DatabaseTest, shouldGenerateMongoDbObjectId)

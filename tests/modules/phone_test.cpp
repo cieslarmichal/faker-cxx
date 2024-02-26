@@ -66,19 +66,19 @@ TEST(PhoneTest, PlatformGeneration)
 {
     auto generatedPlatform = phone::platform();
 
-    FAKER_EXPECT_CONTAINS(phone::data::platforms, generatedPlatform);
+    FAKER_EXPECT_CONTAINER_CONTAINS(phone::data::platforms, generatedPlatform);
 }
 
 TEST(PhoneTest, ModelNameGeneration)
 {
     auto generatedModelName = phone::modelName();
 
-    FAKER_EXPECT_CONTAINS(phone::data::model_names, generatedModelName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(phone::data::model_names, generatedModelName);
 }
 
 TEST(PhoneTest, ManufacturerGeneration)
 {
     auto generatedManufacturer = phone::manufacturer();
 
-    FAKER_EXPECT_CONTAINS(phone::data::manufacturers, generatedManufacturer);
+    FAKER_EXPECT_CONTAINER_CONTAINS(phone::data::manufacturers, generatedManufacturer);
 }

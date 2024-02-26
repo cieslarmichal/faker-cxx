@@ -12,7 +12,7 @@ TEST(ColorTest, shouldGenerateColorName)
 {
     auto generatedColorName = color::name();
 
-    FAKER_EXPECT_CONTAINS(color::data::colors, generatedColorName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(color::data::colors, generatedColorName);
 }
 
 TEST(ColorTest, shouldGenerateRgbColorWithoutAlpha)
@@ -27,8 +27,8 @@ TEST(ColorTest, shouldGenerateRgbColorWithoutAlpha)
     std::from_chars(rgbNumbers[1].data(), rgbNumbers[1].data() + rgbNumbers[1].size(), green);
     std::from_chars(rgbNumbers[2].data(), rgbNumbers[2].data() + rgbNumbers[2].size(), blue);
 
-    FAKER_EXPECT_STARTS_WITH(generatedRgbColor, "rgb(");
-    FAKER_EXPECT_ENDS_WITH(generatedRgbColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedRgbColor, "rgb(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedRgbColor, ")");
     ASSERT_TRUE(red >= 0 && red <= 255);
     ASSERT_TRUE(green >= 0 && red <= 255);
     ASSERT_TRUE(blue >= 0 && red <= 255);
@@ -47,8 +47,8 @@ TEST(ColorTest, shouldGenerateRgbColorWithAlpha)
     std::from_chars(rgbaNumbers[2].data(), rgbaNumbers[2].data() + rgbaNumbers[2].size(), blue);
     std::from_chars(rgbaNumbers[3].data(), rgbaNumbers[3].data() + rgbaNumbers[3].size(), alpha);
 
-    FAKER_EXPECT_STARTS_WITH(generatedRgbaColor, "rgba(");
-    FAKER_EXPECT_ENDS_WITH(generatedRgbaColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedRgbaColor, "rgba(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedRgbaColor, ")");
     ASSERT_TRUE(red >= 0 && red <= 255);
     ASSERT_TRUE(green >= 0 && red <= 255);
     ASSERT_TRUE(blue >= 0 && red <= 255);
@@ -95,8 +95,8 @@ TEST(ColorTest, shouldGenerateHslWithoutAlpha)
     std::from_chars(hslValues[1].data(), hslValues[1].data() + hslValues[1].size(), staturation);
     std::from_chars(hslValues[2].data(), hslValues[2].data() + hslValues[2].size(), lightness);
 
-    FAKER_EXPECT_STARTS_WITH(generatedHslColor, "hsl(");
-    FAKER_EXPECT_ENDS_WITH(generatedHslColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedHslColor, "hsl(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedHslColor, ")");
     ASSERT_TRUE(hue >= 0 && hue <= 360);
     ASSERT_TRUE(staturation >= 0 && staturation <= 100);
     ASSERT_TRUE(lightness >= 0 && lightness <= 100);
@@ -117,8 +117,8 @@ TEST(ColorTest, shouldGenerateHslWithAlpha)
     auto offset = hslValues[3].size();
     auto alpha = std::stod(hslValues[3].data(), &offset);
 
-    FAKER_EXPECT_STARTS_WITH(generatedHslaColor, "hsla(");
-    FAKER_EXPECT_ENDS_WITH(generatedHslaColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedHslaColor, "hsla(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedHslaColor, ")");
     ASSERT_TRUE(hue >= 0 && hue <= 360);
     ASSERT_TRUE(staturation >= 0 && staturation <= 100);
     ASSERT_TRUE(lightness >= 0 && lightness <= 100);
@@ -137,8 +137,8 @@ TEST(ColorTest, shouldGenerateLchWithoutAlpha)
     std::from_chars(lchValues[1].data(), lchValues[1].data() + lchValues[1].size(), chroma);
     std::from_chars(lchValues[2].data(), lchValues[2].data() + lchValues[2].size(), hue);
 
-    FAKER_EXPECT_STARTS_WITH(generatedLchColor, "lch(");
-    FAKER_EXPECT_ENDS_WITH(generatedLchColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedLchColor, "lch(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedLchColor, ")");
     ASSERT_TRUE(luminance >= 0 && luminance <= 100);
     ASSERT_TRUE(chroma >= 0 && chroma <= 100);
     ASSERT_TRUE(hue >= 0 && hue <= 360);
@@ -159,8 +159,8 @@ TEST(ColorTest, shouldGenerateLchWithAlpha)
     auto offset = lchValues[3].size();
     auto alpha = std::stod(lchValues[3].data(), &offset);
 
-    FAKER_EXPECT_STARTS_WITH(generatedLchaColor, "lcha(");
-    FAKER_EXPECT_ENDS_WITH(generatedLchaColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedLchaColor, "lcha(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedLchaColor, ")");
     ASSERT_TRUE(luminance >= 0 && luminance <= 100);
     ASSERT_TRUE(chroma >= 0 && chroma <= 100);
     ASSERT_TRUE(hue >= 0 && hue <= 360);
@@ -182,8 +182,8 @@ TEST(ColorTest, shouldGenerateCmykColor)
     offset = cmykValues[3].size();
     auto key = std::stod(cmykValues[3].data(), &offset);
 
-    FAKER_EXPECT_STARTS_WITH(generatedCmykColor, "cmyk(");
-    FAKER_EXPECT_ENDS_WITH(generatedCmykColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedCmykColor, "cmyk(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedCmykColor, ")");
     ASSERT_TRUE(0. <= cyan && cyan <= 1.);
     ASSERT_TRUE(0. <= magenta && magenta <= 1.);
     ASSERT_TRUE(0. <= yellow && yellow <= 1.);
@@ -203,8 +203,8 @@ TEST(ColorTest, shouldGenerateLabColor)
     offset = labValues[2].size();
     auto blueYellowValue = std::stod(labValues[2].data(), &offset);
 
-    FAKER_EXPECT_STARTS_WITH(generatedLabColor, "lab(");
-    FAKER_EXPECT_ENDS_WITH(generatedLabColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedLabColor, "lab(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedLabColor, ")");
     ASSERT_TRUE(lightness >= 0. && lightness <= 100.);
     ASSERT_TRUE(redGreenValue >= -128. && redGreenValue <= 128.);
     ASSERT_TRUE(blueYellowValue >= -128. && blueYellowValue <= 128.);
@@ -222,8 +222,8 @@ TEST(ColorTest, shouldGenerateHsb)
     std::from_chars(hsbValues[1].data(), hsbValues[1].data() + hsbValues[1].size(), staturation);
     std::from_chars(hsbValues[2].data(), hsbValues[2].data() + hsbValues[2].size(), brightness);
 
-    FAKER_EXPECT_STARTS_WITH(generatedHsbColor, "hsb(");
-    FAKER_EXPECT_ENDS_WITH(generatedHsbColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedHsbColor, "hsb(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedHsbColor, ")");
     ASSERT_TRUE(hue >= 0 && hue <= 360);
     ASSERT_TRUE(staturation >= 0 && staturation <= 100);
     ASSERT_TRUE(brightness >= 0 && brightness <= 100);
@@ -241,8 +241,8 @@ TEST(ColorTest, shouldGenerateHsv)
     std::from_chars(hsvValues[1].data(), hsvValues[1].data() + hsvValues[1].size(), staturation);
     std::from_chars(hsvValues[2].data(), hsvValues[2].data() + hsvValues[2].size(), brightness);
 
-    FAKER_EXPECT_STARTS_WITH(generatedHsvColor, "hsv(");
-    FAKER_EXPECT_ENDS_WITH(generatedHsvColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedHsvColor, "hsv(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedHsvColor, ")");
     ASSERT_TRUE(hue >= 0 && hue <= 360);
     ASSERT_TRUE(staturation >= 0 && staturation <= 100);
     ASSERT_TRUE(brightness >= 0 && brightness <= 100);
@@ -262,8 +262,8 @@ TEST(ColorTest, shouldGenerateYuv)
     std::from_chars(
         yuvValues[2].data(), yuvValues[2].data() + yuvValues[2].size(), chrominanceRedColor);
 
-    FAKER_EXPECT_STARTS_WITH(generatedYuvColor, "yuv(");
-    FAKER_EXPECT_ENDS_WITH(generatedYuvColor, ")");
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedYuvColor, "yuv(");
+    FAKER_EXPECT_STRING_ENDS_WITH(generatedYuvColor, ")");
     ASSERT_TRUE(luminance >= 0 && luminance <= 255);
     ASSERT_TRUE(chrominanceBlueColor >= 0 && chrominanceBlueColor <= 255);
     ASSERT_TRUE(chrominanceRedColor >= 0 && chrominanceRedColor <= 255);

@@ -162,7 +162,7 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 
     const auto generatedFirstName = person::firstName(country);
 
-    FAKER_EXPECT_CONTAINS(firstNames, generatedFirstName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(firstNames, generatedFirstName);
 }
 
 TEST_P(PersonTest, shouldGenerateMaleFirstName)
@@ -173,7 +173,7 @@ TEST_P(PersonTest, shouldGenerateMaleFirstName)
 
     const auto generatedFirstName = person::firstName(country, person::Sex::Male);
 
-    FAKER_EXPECT_CONTAINS(malesFirstNames, generatedFirstName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(malesFirstNames, generatedFirstName);
 }
 
 TEST_P(PersonTest, shouldGenerateFemaleFirstName)
@@ -184,7 +184,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 
     const auto generatedFirstName = person::firstName(country, person::Sex::Female);
 
-    FAKER_EXPECT_CONTAINS(femalesFirstNames, generatedFirstName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(femalesFirstNames, generatedFirstName);
 }
 
 TEST_P(PersonTest, shouldGenerateLastNameMale)
@@ -195,7 +195,7 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
 
     const auto generatedLastName = person::lastName(country, person::Sex::Male);
 
-    FAKER_EXPECT_CONTAINS(malesLastNames, generatedLastName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(malesLastNames, generatedLastName);
 }
 
 TEST_P(PersonTest, shouldGenerateLastNameFemale)
@@ -206,7 +206,7 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
 
     const auto generatedLastName = person::lastName(country, person::Sex::Female);
 
-    FAKER_EXPECT_CONTAINS(femalesLastNames, generatedLastName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(femalesLastNames, generatedLastName);
 }
 
 TEST_P(PersonTest, shouldGenerateFullName)
@@ -344,70 +344,70 @@ TEST_F(PersonTest, shouldGenerateMiddleName)
 {
     const auto generatedMiddleName = person::middleName();
 
-    FAKER_EXPECT_CONTAINS(allMiddleNames, generatedMiddleName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(allMiddleNames, generatedMiddleName);
 }
 
 TEST_F(PersonTest, shouldGeneratePrefix)
 {
     const auto generatedPrefix = person::prefix();
 
-    FAKER_EXPECT_CONTAINS(allPrefixes, generatedPrefix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(allPrefixes, generatedPrefix);
 }
 
 TEST_F(PersonTest, shouldGenerateMalePrefix)
 {
     const auto generatedPrefix = person::prefix(person::Sex::Male);
 
-    FAKER_EXPECT_CONTAINS(malesPrefixes, generatedPrefix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(malesPrefixes, generatedPrefix);
 }
 
 TEST_F(PersonTest, shouldGenerateFemalePrefix)
 {
     const auto generatedPrefix = person::prefix(person::Sex::Female);
 
-    FAKER_EXPECT_CONTAINS(femalesPrefixes, generatedPrefix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(femalesPrefixes, generatedPrefix);
 }
 
 TEST_F(PersonTest, shouldGenerateSuffix)
 {
     const auto generatedSuffix = person::suffix();
 
-    FAKER_EXPECT_CONTAINS(allSuffixes, generatedSuffix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(allSuffixes, generatedSuffix);
 }
 
 TEST_F(PersonTest, shouldGenerateSex)
 {
     const auto generatedSex = person::sex();
 
-    FAKER_EXPECT_CONTAINS(sexes, generatedSex);
+    FAKER_EXPECT_CONTAINER_CONTAINS(sexes, generatedSex);
 }
 
 TEST_F(PersonTest, shouldGenerateGender)
 {
     const auto generatedGender = person::gender();
 
-    FAKER_EXPECT_CONTAINS(person::data::genders, generatedGender);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::genders, generatedGender);
 }
 
 TEST_F(PersonTest, shouldGenerateJobDescriptor)
 {
     const auto generatedJobDescriptor = person::jobDescriptor();
 
-    FAKER_EXPECT_CONTAINS(person::data::jobDescriptors, generatedJobDescriptor);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobDescriptors, generatedJobDescriptor);
 }
 
 TEST_F(PersonTest, shouldGenerateJobArea)
 {
     const auto generatedJobArea = person::jobArea();
 
-    FAKER_EXPECT_CONTAINS(person::data::jobAreas, generatedJobArea);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobAreas, generatedJobArea);
 }
 
 TEST_F(PersonTest, shouldGenerateJobType)
 {
     const auto generatedJobType = person::jobType();
 
-    FAKER_EXPECT_CONTAINS(person::data::jobTypes, generatedJobType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobTypes, generatedJobType);
 }
 
 TEST_F(PersonTest, shouldGenerateJobTitle)
@@ -420,16 +420,16 @@ TEST_F(PersonTest, shouldGenerateJobTitle)
     const auto& generatedJobArea = jobTitleElements[1];
     const auto& generatedJobType = jobTitleElements[2];
 
-    FAKER_EXPECT_CONTAINS(person::data::jobDescriptors, generatedJobDescriptor);
-    FAKER_EXPECT_CONTAINS(person::data::jobAreas, generatedJobArea);
-    FAKER_EXPECT_CONTAINS(person::data::jobTypes, generatedJobType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobDescriptors, generatedJobDescriptor);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobAreas, generatedJobArea);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobTypes, generatedJobType);
 }
 
 TEST_F(PersonTest, shouldGenerateHobby)
 {
     const auto generatedHobby = person::hobby();
 
-    FAKER_EXPECT_CONTAINS(person::data::hobbies, generatedHobby);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::hobbies, generatedHobby);
 }
 
 TEST_F(PersonTest, shouldGenerateBio)
@@ -443,28 +443,28 @@ TEST_F(PersonTest, shouldGenerateLanguage)
 {
     auto generatedLanguage = person::language();
 
-    FAKER_EXPECT_CONTAINS(person::data::languages, generatedLanguage);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::languages, generatedLanguage);
 }
 
 TEST_F(PersonTest, shouldGenerateNationality)
 {
     auto generatedNationality = person::nationality();
 
-    FAKER_EXPECT_CONTAINS(person::data::nationalities, generatedNationality);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::nationalities, generatedNationality);
 }
 
 TEST_F(PersonTest, shouldGenerateWesternZodiacs)
 {
     auto generatedWesternZodiacs = person::westernZodiac();
 
-    FAKER_EXPECT_CONTAINS(person::data::westernZodiacs, generatedWesternZodiacs);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::westernZodiacs, generatedWesternZodiacs);
 }
 
 TEST_F(PersonTest, shouldGenerateChineseZodiacs)
 {
     const auto generatedChineseZodiacs = person::chineseZodiac();
 
-    FAKER_EXPECT_CONTAINS(person::data::chineseZodiacs, generatedChineseZodiacs);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::chineseZodiacs, generatedChineseZodiacs);
 }
 
 class PersonSexSuite : public TestWithParam<std::pair<person::Language, person::Sex>> { };

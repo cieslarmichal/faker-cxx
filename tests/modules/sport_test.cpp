@@ -8,33 +8,33 @@ TEST(SportTest, shouldGenerateSport)
 {
     auto generatedSport = sport::sport();
 
-    FAKER_EXPECT_CONTAINS(sport::data::sportNames, generatedSport);
+    FAKER_EXPECT_CONTAINER_CONTAINS(sport::data::sportNames, generatedSport);
 }
 
 TEST(SportTest, shouldGenerateSoccerTeam)
 {
     auto generatedSoccerTeam = sport::soccerTeam();
 
-    FAKER_EXPECT_CONTAINS(sport::data::soccerTeams, generatedSoccerTeam);
+    FAKER_EXPECT_CONTAINER_CONTAINS(sport::data::soccerTeams, generatedSoccerTeam);
 }
 
 TEST(SportTest, shouldGenerateSportEvent)
 {
     auto generatedSportEvent = sport::sportEvent();
 
-    FAKER_EXPECT_CONTAINS(sport::data::sportEvents, generatedSportEvent);
+    FAKER_EXPECT_CONTAINER_CONTAINS(sport::data::sportEvents, generatedSportEvent);
 }
 
 TEST(SportTest, shouldGenerateMaleAthlete)
 {
     auto generatedMaleAthlete = sport::maleAthlete();
 
-    FAKER_EXPECT_CONTAINS(sport::data::maleAthletes, generatedMaleAthlete);
+    FAKER_EXPECT_CONTAINER_CONTAINS(sport::data::maleAthletes, generatedMaleAthlete);
 }
 
 TEST(SportTest, shouldGenerateFemaleAthlete)
 {
     auto generatedFemaleAthlete = sport::femaleAthlete();
 
-    FAKER_EXPECT_CONTAINS(sport::data::femaleAthletes, generatedFemaleAthlete);
+    FAKER_EXPECT_CONTAINER_CONTAINS(sport::data::femaleAthletes, generatedFemaleAthlete);
 }

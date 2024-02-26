@@ -10,35 +10,35 @@ TEST(HackerTest, shouldGenerateAbbreviation)
 {
     auto generatedAbbreviation = hacker::abbreviation();
 
-    FAKER_EXPECT_CONTAINS(hacker::data::abbreviations, generatedAbbreviation);
+    FAKER_EXPECT_CONTAINER_CONTAINS(hacker::data::abbreviations, generatedAbbreviation);
 }
 
 TEST(HackerTest, shouldGenerateAdjective)
 {
     auto generatedAdjective = hacker::adjective();
 
-    FAKER_EXPECT_CONTAINS(hacker::data::adjectives, generatedAdjective);
+    FAKER_EXPECT_CONTAINER_CONTAINS(hacker::data::adjectives, generatedAdjective);
 }
 
 TEST(HackerTest, shouldGenerateNoun)
 {
     auto generatedNoun = hacker::noun();
 
-    FAKER_EXPECT_CONTAINS(hacker::data::nouns, generatedNoun);
+    FAKER_EXPECT_CONTAINER_CONTAINS(hacker::data::nouns, generatedNoun);
 }
 
 TEST(HackerTest, shouldGenerateVerb)
 {
     auto generatedVerb = hacker::verb();
 
-    FAKER_EXPECT_CONTAINS(hacker::data::verbs, generatedVerb);
+    FAKER_EXPECT_CONTAINER_CONTAINS(hacker::data::verbs, generatedVerb);
 }
 
 TEST(HackerTest, shouldGenerateIngverb)
 {
     auto generatedIngverb = hacker::ingverb();
 
-    FAKER_EXPECT_CONTAINS(hacker::data::ingverbs, generatedIngverb);
+    FAKER_EXPECT_CONTAINER_CONTAINS(hacker::data::ingverbs, generatedIngverb);
 }
 
 TEST(HackerTest, shouldGeneratePhrase)

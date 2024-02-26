@@ -120,7 +120,7 @@ TEST_F(FinanceTest, shouldGenerateCurrency)
 {
     const auto generatedCurrency = finance::currency();
 
-    FAKER_EXPECT_CONTAINS(finance::data::currencies, generatedCurrency);
+    FAKER_EXPECT_CONTAINER_CONTAINS(finance::data::currencies, generatedCurrency);
 }
 
 TEST_F(FinanceTest, shouldGenerateCurrencyName)
@@ -157,7 +157,7 @@ TEST_F(FinanceTest, shouldGenerateAccountType)
 {
     const auto generatedAccountType = finance::accountType();
 
-    FAKER_EXPECT_CONTAINS(finance::data::accountTypes, generatedAccountType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(finance::data::accountTypes, generatedAccountType);
 }
 
 TEST_F(FinanceTest, shouldGenerateAmount)
@@ -219,7 +219,7 @@ TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 
     const auto generatedAmountParts = StringHelper::split(generatedAmount, ".");
 
-    FAKER_EXPECT_STARTS_WITH(generatedAmount, currencySymbol);
+    FAKER_EXPECT_STRING_STARTS_WITH(generatedAmount, currencySymbol);
     ASSERT_EQ(generatedAmountParts.size(), 2);
     ASSERT_EQ(generatedAmountParts[1].size(), 4);
     ASSERT_GE(amountAsFloat, min);
@@ -344,7 +344,7 @@ TEST_F(FinanceTest, shouldGenerateVisaCreditCardNumber)
 {
     const auto creditCardNumber = finance::creditCardNumber(finance::CreditCardType::Visa);
 
-    FAKER_EXPECT_STARTS_WITH(creditCardNumber, "4");
+    FAKER_EXPECT_STRING_STARTS_WITH(creditCardNumber, "4");
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
     ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
 }
@@ -430,9 +430,7 @@ TEST_P(FinanceBicTest, CheckBicGenerator)
 
     const auto bic = finance::bic(country);
 
-    const auto& bankIdentifiersCodes = finance::data::bankIdentifiersCodesMapping.at(country);
-
-    ASSERT_TRUE(faker::testing::contains(bankIdentifiersCodes, bic));
+    FAKER_EXPECT_CONTAINER_CONTAINS(finance::data::bankIdentifiersCodesMapping.at(country), bic);
 }
 
 INSTANTIATE_TEST_SUITE_P(TestBicGenerator, FinanceBicTest,

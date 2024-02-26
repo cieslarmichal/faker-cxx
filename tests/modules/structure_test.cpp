@@ -40,7 +40,7 @@ TEST(StructureTest, shouldGenerateJson)
 
     ASSERT_TRUE(faker::testing::any_of(
         airline::data::airports, [value1](auto& airport) { return airport.name == value1; }));
-    FAKER_EXPECT_CONTAINS(animal::data::birds, value2);
+    FAKER_EXPECT_CONTAINER_CONTAINS(animal::data::birds, value2);
     ASSERT_TRUE(faker::testing::any_of(
         book::data::titles, [value3](const auto& title) { return title == value3; }));
     ASSERT_TRUE(faker::testing::any_of(

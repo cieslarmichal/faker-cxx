@@ -8,19 +8,19 @@ TEST(MusicTest, shouldGenerateArtist)
 {
     auto generatedArtist = music::artist();
 
-    FAKER_EXPECT_CONTAINS(music::data::artists, generatedArtist);
+    FAKER_EXPECT_CONTAINER_CONTAINS(music::data::artists, generatedArtist);
 }
 
 TEST(MusicTest, shouldGenerateGenre)
 {
     auto generatedGenre = music::genre();
 
-    FAKER_EXPECT_CONTAINS(music::data::genres, generatedGenre);
+    FAKER_EXPECT_CONTAINER_CONTAINS(music::data::genres, generatedGenre);
 }
 
 TEST(MusicTest, shouldGenerateSongName)
 {
     auto generatedSongName = music::songName();
 
-    FAKER_EXPECT_CONTAINS(music::data::songNames, generatedSongName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(music::data::songNames, generatedSongName);
 }

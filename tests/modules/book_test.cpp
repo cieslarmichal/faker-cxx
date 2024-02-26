@@ -9,28 +9,28 @@ TEST(BookTest, shouldGenerateTitle)
 {
     auto bookTitle = book::title();
 
-    FAKER_EXPECT_CONTAINS(book::data::titles, bookTitle);
+    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::titles, bookTitle);
 }
 
 TEST(BookTest, shouldGenerateGenre)
 {
     auto bookGenre = book::genre();
 
-    FAKER_EXPECT_CONTAINS(book::data::genres, bookGenre);
+    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::genres, bookGenre);
 }
 
 TEST(BookTest, shouldGenerateAuthor)
 {
     auto bookAuthor = book::author();
 
-    FAKER_EXPECT_CONTAINS(book::data::authors, bookAuthor);
+    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::authors, bookAuthor);
 }
 
 TEST(BookTest, shouldGeneratePublisher)
 {
     auto bookPublisher = book::publisher();
 
-    FAKER_EXPECT_CONTAINS(book::data::publishers, bookPublisher);
+    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::publishers, bookPublisher);
 }
 
 TEST(BookTest, shouldGenerateIsbn)
@@ -58,14 +58,14 @@ TEST(BookTest, shouldGenerateTranslator)
 {
     auto bookTranslator = book::translator();
 
-    FAKER_EXPECT_CONTAINS(book::data::translators, bookTranslator);
+    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::translators, bookTranslator);
 }
 
 TEST(BookTest, shouldGenerateFormat)
 {
     auto bookFormat = book::format();
 
-    FAKER_EXPECT_CONTAINS(book::data::bookFormats, bookFormat);
+    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::bookFormats, bookFormat);
 }
 
 TEST(BookTest, shouldGeneratePage)
@@ -79,5 +79,5 @@ TEST(BookTest, shouldGenerateSeries)
 {
     auto randomSeries = book::series();
 
-    FAKER_EXPECT_CONTAINS(book::data::bookSeries, randomSeries);
+    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::bookSeries, randomSeries);
 }

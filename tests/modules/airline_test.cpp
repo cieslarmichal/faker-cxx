@@ -10,28 +10,28 @@ TEST(AirlineTest, shouldGenerateAircraftType)
 {
     auto generatedAircraftType = airline::aircraftType();
 
-    FAKER_EXPECT_CONTAINS(airline::data::aircraftTypes, generatedAircraftType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(airline::data::aircraftTypes, generatedAircraftType);
 }
 
 TEST(AirlineTest, shouldGenerateAirline)
 {
     auto generatedAirline = airline::airline();
 
-    FAKER_EXPECT_CONTAINS(airline::data::airlines, generatedAirline);
+    FAKER_EXPECT_CONTAINER_CONTAINS(airline::data::airlines, generatedAirline);
 }
 
 TEST(AirlineTest, shouldGenerateAirplane)
 {
     auto generatedAirplane = airline::airplane();
 
-    FAKER_EXPECT_CONTAINS(airline::data::airplanes, generatedAirplane);
+    FAKER_EXPECT_CONTAINER_CONTAINS(airline::data::airplanes, generatedAirplane);
 }
 
 TEST(AirlineTest, shouldGenerateAirport)
 {
     auto generatedAirport = airline::airport();
 
-    FAKER_EXPECT_CONTAINS(airline::data::airports, generatedAirport);
+    FAKER_EXPECT_CONTAINER_CONTAINS(airline::data::airports, generatedAirport);
 }
 
 // TEST(AirlineTest, shouldGenerateRecordLocator)

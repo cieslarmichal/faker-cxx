@@ -132,7 +132,7 @@ TEST_P(LocationTest, shouldGenerateState)
 
     const auto generatedState = location::state(country);
 
-    FAKER_EXPECT_CONTAINS(countryAddresses.states, generatedState);
+    FAKER_EXPECT_CONTAINER_CONTAINS(countryAddresses.states, generatedState);
 }
 
 TEST_P(LocationTest, shouldGenerateCity)
@@ -169,7 +169,7 @@ TEST_P(LocationTest, shouldGenerateCity)
                     return generatedCity.find(citySuffix) != std::string::npos;
                 }));
     } else {
-        FAKER_EXPECT_CONTAINS(countryAddresses.cities, generatedCity);
+        FAKER_EXPECT_CONTAINER_CONTAINS(countryAddresses.cities, generatedCity);
     }
 }
 
@@ -276,7 +276,7 @@ TEST_F(LocationTest, shouldGenerateUsaStreet)
             person::data::englishLastNames, [&generatedFirstOrLastName](auto lastName) {
                 return lastName == generatedFirstOrLastName;
             }));
-    FAKER_EXPECT_CONTAINS(location::data::usaStreetSuffixes, generatedStreetSuffix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::usaStreetSuffixes, generatedStreetSuffix);
 }
 
 TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
@@ -446,21 +446,21 @@ TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
     ASSERT_TRUE(
         faker::testing::contains(location::data::franceStreetPrefixes, generatedStreetPrefix));
-    FAKER_EXPECT_CONTAINS(location::data::franceStreetSuffixes, generatedStreetSuffix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::franceStreetSuffixes, generatedStreetSuffix);
 }
 
 TEST_F(LocationTest, shouldGenerateCountry)
 {
     const auto generatedCountry = location::country_name();
 
-    FAKER_EXPECT_CONTAINS(location::data::allCountries, generatedCountry);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::allCountries, generatedCountry);
 }
 
 TEST_F(LocationTest, shouldGenerateCountryCode)
 {
     const auto generatedCountryCode = location::country_code();
 
-    FAKER_EXPECT_CONTAINS(location::data::countryCodes, generatedCountryCode);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::countryCodes, generatedCountryCode);
 }
 
 TEST_F(LocationTest, shouldGenerateLatitude)
@@ -527,14 +527,14 @@ TEST_F(LocationTest, shouldGenerateDirection)
 {
     const auto generatedDirection = location::direction();
 
-    FAKER_EXPECT_CONTAINS(location::data::directions, generatedDirection);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::directions, generatedDirection);
 }
 
 TEST_F(LocationTest, shouldGenerateTimeZone)
 {
     const auto generatedTimeZone = location::time_zone();
 
-    FAKER_EXPECT_CONTAINS(location::data::timeZones, generatedTimeZone);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::timeZones, generatedTimeZone);
 }
 
 TEST_F(LocationTest, shouldGenerateUkraineStreet)
@@ -547,7 +547,7 @@ TEST_F(LocationTest, shouldGenerateUkraineStreet)
     const auto& generatedStreetSuffix = StringHelper::join(
         { generatedStreetElements.begin() + 1, generatedStreetElements.end() });
 
-    FAKER_EXPECT_CONTAINS(location::data::ukraineStreetPrefixes, generatedStreetPrefix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::ukraineStreetPrefixes, generatedStreetPrefix);
 
     std::vector<std::string_view> firstNames { person::data::ukrainianMalesFirstNames.begin(),
         person::data::ukrainianMalesFirstNames.end() };
@@ -664,7 +664,7 @@ TEST_F(LocationTest, shouldGenerateGermanyStreet)
 {
     const auto generatedStreet = location::street(location::AddressCountry::Germany);
 
-    FAKER_EXPECT_CONTAINS(location::data::germanyStreetNames, generatedStreet);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::germanyStreetNames, generatedStreet);
 }
 
 TEST_F(LocationTest, shouldGenerateGermanyStreetAddress)
@@ -786,14 +786,14 @@ TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
     ASSERT_GE(generatedStreetAddressElements.size(), 3);
     ASSERT_TRUE(!generatedBuildingNumber.empty());
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
-    FAKER_EXPECT_CONTAINS(location::data::indiaStreetSuffixes, generatedStreetSuffix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::indiaStreetSuffixes, generatedStreetSuffix);
 }
 
 TEST_F(LocationTest, shouldGenerateDenmarkStreet)
 {
     const auto generatedStreet = location::street(location::AddressCountry::Denmark);
 
-    FAKER_EXPECT_CONTAINS(location::data::denmarkStreetNames, generatedStreet);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::denmarkStreetNames, generatedStreet);
 }
 
 TEST_F(LocationTest, shouldGenerateDenmarkStreetAddress)
@@ -875,7 +875,7 @@ TEST_F(LocationTest, shouldGenerateFinlandStreet)
 
     ASSERT_GE(generatedStreetElements.size(), 2);
 
-    FAKER_EXPECT_CONTAINS(location::data::finlandStreetSuffixes, generatedStreetSuffix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(location::data::finlandStreetSuffixes, generatedStreetSuffix);
 
     ASSERT_TRUE(faker::testing::any_of(firstNames, [&generatedStreetPrefix](auto firstName) {
         return generatedStreetPrefix.find(firstName) != std::string::npos;
@@ -893,11 +893,13 @@ TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
             return generatedStreetAddress.find(suffix) != std::string::npos;
         }));
 
-    std::vector<std::string_view> firstNames { person::data::finnishMalesFirstNames.begin(), person::data::finnishMalesFirstNames.end() };
+    std::vector<std::string_view> firstNames { person::data::finnishMalesFirstNames.begin(),
+        person::data::finnishMalesFirstNames.end() };
     firstNames.insert(firstNames.end(), person::data::finnishFemalesFirstNames.begin(),
         person::data::finnishFemalesFirstNames.end());
 
-    std::vector<std::string_view> lastNames { person::data::finnishLastNames.begin(), person::data::finnishLastNames.end() };
+    std::vector<std::string_view> lastNames { person::data::finnishLastNames.begin(),
+        person::data::finnishLastNames.end() };
 
     ASSERT_TRUE(faker::testing::any_of(firstNames, [&generatedStreetAddress](auto firstName) {
         return generatedStreetAddress.find(firstName) != std::string::npos;
