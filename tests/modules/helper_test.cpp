@@ -8,11 +8,8 @@
 #include <vector>
 
 using namespace faker;
-using namespace ::testing;
 
-class HelperTest : public Test { };
-
-TEST_F(HelperTest, ArrayElement)
+TEST(HelperTest, ArrayElement)
 {
     std::vector<std::string> data { "hello", "world" };
 
@@ -22,14 +19,14 @@ TEST_F(HelperTest, ArrayElement)
         data, [&result](const std::string& element) { return result == element; }));
 }
 
-TEST_F(HelperTest, ArrayElementEmptyData)
+TEST(HelperTest, ArrayElementEmptyData)
 {
     std::vector<std::string> data {};
 
     ASSERT_THROW(Helper::arrayElement(data), std::invalid_argument);
 }
 
-TEST_F(HelperTest, ArrayElementSpan)
+TEST(HelperTest, ArrayElementSpan)
 {
     std::vector<std::string> data { "hello", "world" };
 
@@ -39,14 +36,14 @@ TEST_F(HelperTest, ArrayElementSpan)
         data, [&result](const std::string& element) { return result == element; }));
 }
 
-TEST_F(HelperTest, ArrayElementSpanEmptyData)
+TEST(HelperTest, ArrayElementSpanEmptyData)
 {
     std::vector<std::string> data {};
 
     ASSERT_THROW(Helper::arrayElement(data), std::invalid_argument);
 }
 
-TEST_F(HelperTest, WeightedArrayElement)
+TEST(HelperTest, WeightedArrayElement)
 {
     std::vector<Helper::WeightedElement<std::string>> data { { 1, "hello" }, { 9, "world" } };
 
@@ -58,19 +55,19 @@ TEST_F(HelperTest, WeightedArrayElement)
         }));
 }
 
-TEST_F(HelperTest, WeightedArrayZeroSum)
+TEST(HelperTest, WeightedArrayZeroSum)
 {
     std::vector<Helper::WeightedElement<std::string>> data { { 0, "hello" }, { 0, "world" } };
     ASSERT_THROW(Helper::weightedArrayElement(data), std::invalid_argument);
 }
 
-TEST_F(HelperTest, WeightedArrayEmptyData)
+TEST(HelperTest, WeightedArrayEmptyData)
 {
     std::vector<Helper::WeightedElement<std::string>> data {};
     ASSERT_THROW(Helper::weightedArrayElement(data), std::invalid_argument);
 }
 
-TEST_F(HelperTest, ShuffleString)
+TEST(HelperTest, ShuffleString)
 {
     std::string input = "Hello World!";
 
@@ -80,7 +77,7 @@ TEST_F(HelperTest, ShuffleString)
         input, [&result](char character) { return result.find(character) != std::string::npos; }));
 }
 
-TEST_F(HelperTest, SetElement)
+TEST(HelperTest, SetElement)
 {
     std::unordered_set<char> chars { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'l', 'm' };
 
@@ -97,13 +94,13 @@ TEST_F(HelperTest, SetElement)
     }
 }
 
-TEST_F(HelperTest, SetElementEmptyData)
+TEST(HelperTest, SetElementEmptyData)
 {
     std::unordered_set<char> chars {};
     ASSERT_THROW(Helper::setElement<char>(chars), std::invalid_argument);
 }
 
-TEST_F(HelperTest, ReplaceSymbolWithNumber)
+TEST(HelperTest, ReplaceSymbolWithNumber)
 {
     std::string input = "123#456!";
     std::string result = Helper::replaceSymbolWithNumber(input);
@@ -112,7 +109,7 @@ TEST_F(HelperTest, ReplaceSymbolWithNumber)
     ASSERT_TRUE(faker::testing::all_of(result, ::isdigit));
 }
 
-TEST_F(HelperTest, RegexpStyleStringParse)
+TEST(HelperTest, RegexpStyleStringParse)
 {
     std::string input = "#{5}[2-4]test[1-3]";
     std::string result = Helper::regexpStyleStringParse(input);
@@ -120,7 +117,7 @@ TEST_F(HelperTest, RegexpStyleStringParse)
     ASSERT_EQ(result.size(), 11);
 }
 
-TEST_F(HelperTest, ReplaceCreditCardSymbols)
+TEST(HelperTest, ReplaceCreditCardSymbols)
 {
     // Test with the default format "6453-####-####-####-###L"
     std::string result_default = Helper::replaceCreditCardSymbols();
@@ -145,7 +142,7 @@ TEST_F(HelperTest, ReplaceCreditCardSymbols)
     ASSERT_TRUE(result_custom[9] >= '0' && result_custom[9] <= '9');
 }
 
-TEST_F(HelperTest, ObjectKeyTest)
+TEST(HelperTest, ObjectKeyTest)
 {
     std::unordered_map<int, std::string> testMap = { { 1, "one" }, { 2, "two" }, { 3, "three" } };
 
@@ -159,7 +156,7 @@ TEST_F(HelperTest, ObjectKeyTest)
     ASSERT_THROW({ Helper::objectKey(emptyMap); }, std::runtime_error);
 }
 
-TEST_F(HelperTest, MaybeString)
+TEST(HelperTest, MaybeString)
 {
     double highProbability = 1;
     auto result = Helper::maybe<std::string>([]() { return "Hello World!"; }, highProbability);
@@ -170,7 +167,7 @@ TEST_F(HelperTest, MaybeString)
     EXPECT_EQ(result, "");
 }
 
-TEST_F(HelperTest, MaybeInt)
+TEST(HelperTest, MaybeInt)
 {
     double highProbability = 1;
     auto result = Helper::maybe<int>([]() { return 42; }, highProbability);
@@ -181,7 +178,7 @@ TEST_F(HelperTest, MaybeInt)
     EXPECT_EQ(result, 0);
 }
 
-TEST_F(HelperTest, MaybeDouble)
+TEST(HelperTest, MaybeDouble)
 {
     double highProbability = 1;
     auto result = Helper::maybe<double>([]() { return 3.14; }, highProbability);

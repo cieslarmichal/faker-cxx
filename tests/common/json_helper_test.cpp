@@ -2,14 +2,9 @@
 #include "../test_helpers.h"
 #include <algorithm>
 
-using namespace ::testing;
 using namespace faker;
 
-class JsonHelperTest : public Test {
-public:
-};
-
-TEST_F(JsonHelperTest, simpleJsonParser)
+TEST(JsonHelperTest, simpleJsonParser)
 {
     const auto result = JsonHelper::simpleJsonParser("{\"Test1\":\"Hello\",\"Test2\":\"World!\"}");
 

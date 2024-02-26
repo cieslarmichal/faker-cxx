@@ -2,6 +2,7 @@
 #define FAKER_TEST_HELPERS_H
 
 #include <algorithm>
+#include <faker/compat/span.h>
 #include <gtest/gtest.h>
 
 namespace faker::testing {
@@ -29,6 +30,16 @@ inline bool contains(const ContainerT& container, const ElementT& element)
 template <size_t N1, size_t N2>
 inline std::vector<std::string_view> make_vector(
     const std::array<std::string_view, N1>& a, const std::array<std::string_view, N2>& b)
+{
+    std::vector<std::string_view> result;
+    result.reserve(a.size() + b.size());
+    result.insert(result.end(), a.begin(), a.end());
+    result.insert(result.end(), b.begin(), b.end());
+    return result;
+}
+
+inline std::vector<std::string_view> make_vector(
+    const tcb::span<const std::string_view>& a, const tcb::span<const std::string_view>& b)
 {
     std::vector<std::string_view> result;
     result.reserve(a.size() + b.size());

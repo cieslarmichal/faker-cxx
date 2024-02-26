@@ -1,14 +1,9 @@
 ﻿#include "../test_helpers.h"
-#include <algorithm>
 #include <common/string_helper.h>
 
 using namespace faker;
 
-class StringHelperTest : public ::testing::Test {
-public:
-};
-
-TEST_F(StringHelperTest, splitStringBySpace)
+TEST(StringHelperTest, splitStringBySpace)
 {
     const auto result = StringHelper::split("faker cxx open source");
 
@@ -19,7 +14,7 @@ TEST_F(StringHelperTest, splitStringBySpace)
     ASSERT_EQ(result[3], "source");
 }
 
-TEST_F(StringHelperTest, splitStringByNewLine)
+TEST(StringHelperTest, splitStringByNewLine)
 {
     const auto result = StringHelper::split("faker\ncxx\nopen\nsource", "\n");
 
@@ -30,7 +25,7 @@ TEST_F(StringHelperTest, splitStringByNewLine)
     ASSERT_EQ(result[3], "source");
 }
 
-TEST_F(StringHelperTest, joinStringsIntoVectorBySpace)
+TEST(StringHelperTest, joinStringsIntoVectorBySpace)
 {
     const std::vector<std::string> input { "Join", "faker", "development!" };
 
@@ -39,7 +34,7 @@ TEST_F(StringHelperTest, joinStringsIntoVectorBySpace)
     ASSERT_EQ(result, "Join faker development!");
 }
 
-TEST_F(StringHelperTest, joinStringsIntoVectorByNewLine)
+TEST(StringHelperTest, joinStringsIntoVectorByNewLine)
 {
     const std::vector<std::string> input { "Join", "faker", "development!" };
 
@@ -48,7 +43,7 @@ TEST_F(StringHelperTest, joinStringsIntoVectorByNewLine)
     ASSERT_EQ(result, "Join\nfaker\ndevelopment!");
 }
 
-TEST_F(StringHelperTest, repeatString)
+TEST(StringHelperTest, repeatString)
 {
     const std::string data = "hello ";
     const int repetition = 3;
@@ -58,7 +53,7 @@ TEST_F(StringHelperTest, repeatString)
     ASSERT_EQ(result, "hello hello hello ");
 }
 
-TEST_F(StringHelperTest, toLower)
+TEST(StringHelperTest, toLower)
 {
     const std::string data = "HeLlo!";
 
@@ -67,7 +62,7 @@ TEST_F(StringHelperTest, toLower)
     ASSERT_EQ(result, "hello!");
 }
 
-TEST_F(StringHelperTest, IsPunctuation)
+TEST(StringHelperTest, IsPunctuation)
 {
     std::string punctuation = ".,;:!?";
     for (char c : punctuation) {
@@ -80,7 +75,7 @@ TEST_F(StringHelperTest, IsPunctuation)
     }
 }
 
-TEST_F(StringHelperTest, RemovePunctuation)
+TEST(StringHelperTest, RemovePunctuation)
 {
     std::string input = "Hello, World!";
     std::string result = StringHelper::removePunctuation(input);

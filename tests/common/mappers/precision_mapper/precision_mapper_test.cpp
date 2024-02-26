@@ -3,11 +3,7 @@
 
 using namespace faker;
 
-class PrecisionMapperTest : public ::testing::Test {
-public:
-};
-
-TEST_F(PrecisionMapperTest, mapsPrecisionToDecimalPlaces)
+TEST(PrecisionMapperTest, mapsPrecisionToDecimalPlaces)
 {
     const auto zeroDp = PrecisionMapper::mapToDecimalPlaces(Precision::ZeroDp);
     const auto oneDp = PrecisionMapper::mapToDecimalPlaces(Precision::OneDp);

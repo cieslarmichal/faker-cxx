@@ -5,11 +5,7 @@
 #include <regex>
 #include <unordered_set>
 
-using namespace ::testing;
 using namespace faker;
-using namespace faker::system;
-
-class SystemTest : public Test { };
 
 const std::regex validCronPattern(
     R"((\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)( (\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)){4,5})");
@@ -19,16 +15,16 @@ bool isValidCronExpression(const std::string& cronExpr)
     return std::regex_match(cronExpr, validCronPattern);
 }
 
-TEST_F(SystemTest, FileNameTestWithExtensionCount)
+TEST(SystemTest, FileNameTestWithExtensionCount)
 {
-    FileOptions options;
+    system::FileOptions options;
     options.extensionCount = 3;
 
     std::string expectedFileName = system::fileName(options);
 
     EXPECT_FALSE(expectedFileName.empty());
 
-    FileOptions options2;
+    system::FileOptions options2;
     options2.extensionRange.min = 1;
     options2.extensionRange.max = 3;
 
@@ -37,23 +33,23 @@ TEST_F(SystemTest, FileNameTestWithExtensionCount)
     EXPECT_FALSE(expectedFileName2.empty());
 }
 
-TEST_F(SystemTest, FileExtTestWithMimeType)
+TEST(SystemTest, FileExtTestWithMimeType)
 {
     std::string exampleFileExtension = system::fileExtension();
 
     EXPECT_FALSE(exampleFileExtension.empty());
 }
 
-TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
+TEST(SystemTest, FileExtTestWithMimeTypeEnum)
 {
-    auto image = FileType::Image;
-    auto audio = FileType::Audio;
-    auto video = FileType::Video;
-    auto text = FileType::Text;
-    auto application = FileType::Application;
+    auto image = system::FileType::Image;
+    auto audio = system::FileType::Audio;
+    auto video = system::FileType::Video;
+    auto text = system::FileType::Text;
+    auto application = system::FileType::Application;
 
     std::vector<std::string_view> imageExtensions;
-    for (const auto& mimeType : data::mimeTypes) {
+    for (const auto& mimeType : system::data::mimeTypes) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == toString(image)) {
@@ -61,7 +57,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> audioExtensions;
-    for (const auto& mimeType : data::mimeTypes) {
+    for (const auto& mimeType : system::data::mimeTypes) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == toString(audio)) {
@@ -69,7 +65,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> videoExtensions;
-    for (const auto& mimeType : data::mimeTypes) {
+    for (const auto& mimeType : system::data::mimeTypes) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == toString(video)) {
@@ -77,7 +73,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> textExtensions;
-    for (const auto& mimeType : data::mimeTypes) {
+    for (const auto& mimeType : system::data::mimeTypes) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == toString(text)) {
@@ -85,7 +81,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> applicationExtensions;
-    for (const auto& mimeType : data::mimeTypes) {
+    for (const auto& mimeType : system::data::mimeTypes) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == toString(application)) {
@@ -98,15 +94,14 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
     auto textExt = system::fileExtension(text);
     auto applicationExt = system::fileExtension(application);
 
-    EXPECT_TRUE(faker::testing::find(imageExtensions, imageExt) != imageExtensions.end());
-    EXPECT_TRUE(faker::testing::find(audioExtensions, audioExt) != audioExtensions.end());
-    EXPECT_TRUE(faker::testing::find(videoExtensions, videoExt) != videoExtensions.end());
-    EXPECT_TRUE(faker::testing::find(textExtensions, textExt) != textExtensions.end());
-    EXPECT_TRUE(
-        faker::testing::find(applicationExtensions, applicationExt) != applicationExtensions.end());
+    FAKER_EXPECT_CONTAINER_CONTAINS(imageExtensions, imageExt);
+    FAKER_EXPECT_CONTAINER_CONTAINS(audioExtensions, audioExt);
+    FAKER_EXPECT_CONTAINER_CONTAINS(videoExtensions, videoExt);
+    FAKER_EXPECT_CONTAINER_CONTAINS(textExtensions, textExt);
+    FAKER_EXPECT_CONTAINER_CONTAINS(applicationExtensions, applicationExt);
 }
 
-TEST_F(SystemTest, CommonFileNameWithEmptyExtensionTest)
+TEST(SystemTest, CommonFileNameWithEmptyExtensionTest)
 {
     auto actualFileName = system::commonFileName();
 
@@ -119,28 +114,24 @@ TEST_F(SystemTest, CommonFileNameWithEmptyExtensionTest)
     EXPECT_EQ(extensionWithParam, "txt");
 }
 
-TEST_F(SystemTest, MimeTypeTest)
+TEST(SystemTest, MimeTypeTest)
 {
     auto mimeTypeResult = system::mimeType();
 
-    bool isValidMimeType
-        = faker::testing::find(data::mimeTypes, mimeTypeResult) != data::mimeTypes.end();
-    EXPECT_TRUE(isValidMimeType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(system::data::mimeTypes, mimeTypeResult);
 }
 
-TEST_F(SystemTest, CommonFileTypeTest)
+TEST(SystemTest, CommonFileTypeTest)
 {
     auto commonFileTypeResult = system::commonFileType();
 
-    bool isValidCommonFileType = faker::testing::find(data::commonFileTypes, commonFileTypeResult)
-        != data::commonFileTypes.end();
-    EXPECT_TRUE(isValidCommonFileType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(system::data::commonFileTypes, commonFileTypeResult);
 }
 
-TEST_F(SystemTest, FileTypeTest)
+TEST(SystemTest, FileTypeTest)
 {
     std::unordered_set<std::string_view> typeSet;
-    for (const auto& entry : data::mimeTypes) {
+    for (const auto& entry : system::data::mimeTypes) {
         const auto& m = entry;
         size_t pos = m.find('/');
         if (pos != std::string::npos) {
@@ -152,58 +143,56 @@ TEST_F(SystemTest, FileTypeTest)
 
     auto fileTypeResult = system::fileType();
 
-    bool isValidFileType
-        = faker::testing::find(expectedTypes, fileTypeResult) != expectedTypes.end();
-    EXPECT_TRUE(isValidFileType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(expectedTypes, fileTypeResult);
 }
 
-TEST_F(SystemTest, FilePathTest)
+TEST(SystemTest, FilePathTest)
 {
     auto filePath = system::filePath();
 
     EXPECT_FALSE(filePath.empty());
 }
 
-TEST_F(SystemTest, SemverTest)
+TEST(SystemTest, SemverTest)
 {
     auto semverResult = system::semver();
 
     EXPECT_TRUE(std::regex_match(semverResult, std::regex("\\d+\\.\\d+\\.\\d+")));
 }
 
-TEST_F(SystemTest, NetworkInterfaceMethodTest)
+TEST(SystemTest, NetworkInterfaceMethodTest)
 {
 
     auto result1 = system::networkInterface(std::nullopt);
     ASSERT_TRUE(!result1.empty());
 
-    NetworkInterfaceOptions options2;
+    system::NetworkInterfaceOptions options2;
     options2.interfaceType = "wl";
     auto result2 = system::networkInterface(options2);
     ASSERT_TRUE(!result2.empty());
 
-    NetworkInterfaceOptions options3;
+    system::NetworkInterfaceOptions options3;
     options3.interfaceSchema = "mac";
     auto result3 = system::networkInterface(options3);
     ASSERT_EQ(result3.size(), 15);
 
-    NetworkInterfaceOptions options4;
+    system::NetworkInterfaceOptions options4;
     options4.interfaceType = "en";
     options4.interfaceSchema = "pci";
     auto result4 = system::networkInterface(options4);
     ASSERT_TRUE(!result4.empty());
 }
 
-TEST_F(SystemTest, ValidCronExpression)
+TEST(SystemTest, ValidCronExpression)
 {
     auto cronExpr = system::cron();
 
     EXPECT_TRUE(isValidCronExpression(cronExpr));
 }
 
-TEST_F(SystemTest, IncludeYearOption)
+TEST(SystemTest, IncludeYearOption)
 {
-    CronOptions options;
+    system::CronOptions options;
     options.includeYear = true;
     auto cronExpr = system::cron(options);
 
@@ -219,9 +208,9 @@ TEST_F(SystemTest, IncludeYearOption)
     EXPECT_LE(yearValue, 2099);
 }
 
-TEST_F(SystemTest, IncludeNonStandardOption)
+TEST(SystemTest, IncludeNonStandardOption)
 {
-    CronOptions options;
+    system::CronOptions options;
     options.includeNonStandard = true;
 
     auto cronExpr = system::cron(options);

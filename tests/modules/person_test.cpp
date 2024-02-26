@@ -154,11 +154,8 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 {
     const auto country = GetParam();
     const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
-    const auto& malesFirstNames = peopleNames.malesNames.firstNames;
-    const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
-
-    std::vector<std::string_view> firstNames { malesFirstNames.begin(), malesFirstNames.end() };
-    firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
+    auto firstNames = faker::testing::make_vector(
+        peopleNames.malesNames.firstNames, peopleNames.femalesNames.firstNames);
 
     const auto generatedFirstName = person::firstName(country);
 
@@ -168,8 +165,8 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 TEST_P(PersonTest, shouldGenerateMaleFirstName)
 {
     const auto country = GetParam();
-    const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
-    const auto& malesFirstNames = peopleNames.malesNames.firstNames;
+    const auto& malesFirstNames
+        = person::data::countryToPeopleNamesMapping.at(country).malesNames.firstNames;
 
     const auto generatedFirstName = person::firstName(country, person::Sex::Male);
 
@@ -179,8 +176,8 @@ TEST_P(PersonTest, shouldGenerateMaleFirstName)
 TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 {
     const auto country = GetParam();
-    const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
-    const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
+    const auto& femalesFirstNames
+        = person::data::countryToPeopleNamesMapping.at(country).femalesNames.firstNames;
 
     const auto generatedFirstName = person::firstName(country, person::Sex::Female);
 
@@ -190,8 +187,8 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 TEST_P(PersonTest, shouldGenerateLastNameMale)
 {
     const auto country = GetParam();
-    const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
-    const auto& malesLastNames = peopleNames.malesNames.lastNames;
+    const auto& malesLastNames
+        = person::data::countryToPeopleNamesMapping.at(country).malesNames.lastNames;
 
     const auto generatedLastName = person::lastName(country, person::Sex::Male);
 
@@ -201,8 +198,8 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
 TEST_P(PersonTest, shouldGenerateLastNameFemale)
 {
     const auto country = GetParam();
-    const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
-    const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
+    const auto& femalesLastNames
+        = person::data::countryToPeopleNamesMapping.at(country).femalesNames.lastNames;
 
     const auto generatedLastName = person::lastName(country, person::Sex::Female);
 
@@ -213,64 +210,37 @@ TEST_P(PersonTest, shouldGenerateFullName)
 {
     const auto country = GetParam();
     const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
-    const auto& malesFirstNames = peopleNames.malesNames.firstNames;
-    const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
-    const auto& malesLastNames = peopleNames.malesNames.lastNames;
-    const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
-
-    std::vector<std::string_view> firstNames { malesFirstNames.begin(), malesFirstNames.end() };
-    std::vector<std::string_view> lastNames { malesLastNames.begin(), malesLastNames.end() };
-    firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
-    lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
+    auto firstNames = faker::testing::make_vector(
+        peopleNames.malesNames.firstNames, peopleNames.femalesNames.firstNames);
+    auto lastNames = faker::testing::make_vector(
+        peopleNames.malesNames.lastNames, peopleNames.femalesNames.lastNames);
 
     const auto generatedFullName = person::fullName(country);
 
-    ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedFullName](auto firstName) {
-        return generatedFullName.find(firstName) != std::string::npos;
-    }));
-    ASSERT_TRUE(faker::testing::any_of(lastNames, [generatedFullName](auto lastName) {
-        return generatedFullName.find(lastName) != std::string::npos;
-    }));
+    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, firstNames);
+    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, lastNames);
 }
 
 TEST_P(PersonTest, shouldGenerateMaleFullName)
 {
     const auto country = GetParam();
-
     const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
-
-    const auto& malesFirstNames = peopleNames.malesNames.firstNames;
-
-    const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
     const auto generatedFullName = person::fullName(country, person::Sex::Male);
 
-    ASSERT_TRUE(faker::testing::any_of(malesFirstNames, [generatedFullName](auto firstName) {
-        return generatedFullName.find(firstName) != std::string::npos;
-    }));
-    ASSERT_TRUE(faker::testing::any_of(malesLastNames, [generatedFullName](auto lastName) {
-        return generatedFullName.find(lastName) != std::string::npos;
-    }));
+    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.malesNames.firstNames);
+    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.malesNames.lastNames);
 }
 
 TEST_P(PersonTest, shouldGenerateFemaleFullName)
 {
     const auto country = GetParam();
-
     const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
-
-    const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
-
-    const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
     const auto generatedFullName = person::fullName(country, person::Sex::Female);
 
-    ASSERT_TRUE(faker::testing::any_of(femalesFirstNames, [generatedFullName](auto firstName) {
-        return generatedFullName.find(firstName) != std::string::npos;
-    }));
-    ASSERT_TRUE(faker::testing::any_of(femalesLastNames, [generatedFullName](auto lastName) {
-        return generatedFullName.find(lastName) != std::string::npos;
-    }));
+    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.femalesNames.firstNames);
+    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.femalesNames.lastNames);
 }
 
 const std::array<Country, 61> countries {

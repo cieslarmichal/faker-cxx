@@ -2,14 +2,9 @@
 #include <algorithm>
 #include <faker/datatype.h>
 
-using namespace ::testing;
 using namespace faker;
 
-class DatatypeTest : public Test {
-public:
-};
-
-TEST_F(DatatypeTest, shouldGenerateBoolean)
+TEST(DatatypeTest, shouldGenerateBoolean)
 {
     std::vector<bool> booleanValues { false, true };
 
@@ -19,7 +14,7 @@ TEST_F(DatatypeTest, shouldGenerateBoolean)
         booleanValues, [boolean](bool booleanValue) { return boolean == booleanValue; }));
 }
 
-TEST_F(DatatypeTest, BooleanWithProbTest)
+TEST(DatatypeTest, BooleanWithProbTest)
 {
     bool result2 = datatype::boolean(0.3);
     EXPECT_TRUE(result2 || !result2);

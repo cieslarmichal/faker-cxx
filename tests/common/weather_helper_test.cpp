@@ -2,13 +2,8 @@
 #include <common/weather_helper.h>
 
 using namespace faker;
-using namespace ::testing;
 
-class WeatherHelperTest : public Test {
-public:
-};
-
-TEST_F(WeatherHelperTest, shouldConvertCelsiusToFahrenheit)
+TEST(WeatherHelperTest, shouldConvertCelsiusToFahrenheit)
 {
     double celsius = 10.0;
     double fahrenheit = WeatherHelper::celsiusToFahrenheit(celsius);
@@ -16,7 +11,7 @@ TEST_F(WeatherHelperTest, shouldConvertCelsiusToFahrenheit)
     ASSERT_EQ(fahrenheit, 50.0);
 }
 
-TEST_F(WeatherHelperTest, shouldConvertKPaToPsi)
+TEST(WeatherHelperTest, shouldConvertKPaToPsi)
 {
     double kPa = 100.0;
     double psi = WeatherHelper::kPaToPsi(kPa);
@@ -24,7 +19,7 @@ TEST_F(WeatherHelperTest, shouldConvertKPaToPsi)
     ASSERT_EQ(psi, 14.503773773375);
 }
 
-TEST_F(WeatherHelperTest, shouldConvertMilesToKilometers)
+TEST(WeatherHelperTest, shouldConvertMilesToKilometers)
 {
     double miles = 10.0;
     double kilometers = WeatherHelper::milesToKilometers(miles);

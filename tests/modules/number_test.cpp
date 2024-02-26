@@ -2,26 +2,21 @@
 #include <algorithm>
 #include <faker/number.h>
 
-using namespace ::testing;
 using namespace faker;
 
-class NumberTest : public Test {
-public:
-};
-
-TEST_F(NumberTest, integer_givenInvalidRangeArguments_shouldThrowInvalidArgument)
+TEST(NumberTest, integer_givenInvalidRangeArguments_shouldThrowInvalidArgument)
 {
     ASSERT_THROW(number::integer(10, 2), std::invalid_argument);
 }
 
-TEST_F(NumberTest, givenRangeWithSameNumbers_shouldGenerateThisNumber)
+TEST(NumberTest, givenRangeWithSameNumbers_shouldGenerateThisNumber)
 {
     const int actualRandomNumber = number::integer(2, 2);
 
     ASSERT_EQ(actualRandomNumber, 2);
 }
 
-TEST_F(NumberTest, givenValidRange_shouldGenerateNumberWithinGivenRange)
+TEST(NumberTest, givenValidRange_shouldGenerateNumberWithinGivenRange)
 {
     const int actualRandomNumber = number::integer(2, 10);
 
@@ -29,7 +24,7 @@ TEST_F(NumberTest, givenValidRange_shouldGenerateNumberWithinGivenRange)
     ASSERT_TRUE(actualRandomNumber <= 10);
 }
 
-TEST_F(NumberTest, givenSingleArgument_shouldCorrectlyResolveToTwoArgsOverload)
+TEST(NumberTest, givenSingleArgument_shouldCorrectlyResolveToTwoArgsOverload)
 {
     const int randomNumber = number::integer(10);
 
@@ -37,12 +32,12 @@ TEST_F(NumberTest, givenSingleArgument_shouldCorrectlyResolveToTwoArgsOverload)
     ASSERT_TRUE(randomNumber <= 10);
 }
 
-TEST_F(NumberTest, decimal_givenInvalidRangeArguments_shouldThrowInvalidArgument)
+TEST(NumberTest, decimal_givenInvalidRangeArguments_shouldThrowInvalidArgument)
 {
     ASSERT_THROW(number::decimal(10.f, 2.f), std::invalid_argument);
 }
 
-TEST_F(NumberTest, givenValidRangeArguments_shouldGenerateDecimalNumberThatIsInGivenRange)
+TEST(NumberTest, givenValidRangeArguments_shouldGenerateDecimalNumberThatIsInGivenRange)
 {
     const auto actualRandomNumber = number::decimal(2.f, 10.f);
 
@@ -50,14 +45,14 @@ TEST_F(NumberTest, givenValidRangeArguments_shouldGenerateDecimalNumberThatIsInG
     ASSERT_TRUE(actualRandomNumber <= 10.f);
 }
 
-TEST_F(NumberTest, givenRangeWithSameNumberSection_shouldGenerateThisNumberForDecimal)
+TEST(NumberTest, givenRangeWithSameNumberSection_shouldGenerateThisNumberForDecimal)
 {
     const auto actualRandomNumber = number::decimal(2.f, 2.f);
 
     ASSERT_EQ(actualRandomNumber, 2.f);
 }
 
-TEST_F(NumberTest, shouldGenerateHexNumber)
+TEST(NumberTest, shouldGenerateHexNumber)
 {
     auto result = number::hex();
     ASSERT_EQ(result.size(), 1);
