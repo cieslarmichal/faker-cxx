@@ -1,4 +1,5 @@
-#include "../src/common/string_helper.h"
+#include "../common/format_helper.h"
+#include "../common/string_helper.h"
 #include "system_data.h"
 #include <algorithm>
 #include <faker/helper.h>
@@ -163,12 +164,7 @@ std::string semver()
     int major = number::integer(9);
     int minor = number::integer(9);
     int patch = number::integer(9);
-
-    std::stringstream ss;
-
-    ss << major << '.' << minor << '.' << patch;
-
-    return ss.str();
+    return FormatHelper::format("{}.{}.{}", major, minor, patch);
 }
 
 std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options)

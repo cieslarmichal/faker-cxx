@@ -1,10 +1,8 @@
 target_sources(
     faker
     PRIVATE
-        common/bio_helper.cpp
         common/string_helper.cpp
         common/format_helper.cpp
-        common/json_helper.cpp
         common/luhn_check.cpp
         common/mappers/precision_mapper/precision_mapper.cpp
         common/weather_helper.cpp

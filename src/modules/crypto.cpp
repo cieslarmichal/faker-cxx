@@ -3,13 +3,26 @@
 #include <cstring>
 #include <faker/crypto.h>
 #include <faker/word.h>
-#include <iomanip>
-#include <sstream>
 
 namespace faker::crypto {
-namespace {
-    class SHA256 {
 
+namespace {
+    template <size_t N> inline std::string toHex(const std::array<uint8_t, N>& data)
+    {
+        static std::string_view hexDigits { "0123456789abcdef" };
+
+        std::string result;
+        result.reserve(N * 2);
+
+        for (uint8_t byte : data) {
+            result.push_back(hexDigits[byte >> 4]);
+            result.push_back(hexDigits[byte & 0x0f]);
+        }
+
+        return result;
+    }
+
+    class SHA256 {
     public:
         SHA256();
         void update(const uint8_t* data, size_t length);
@@ -76,46 +89,7 @@ namespace {
                   20, 5, 9, 14, 20, 5, 9, 14, 20, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4,
                   11, 16, 23, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21 };
     };
-}
 
-std::string sha256(std::optional<std::string> data)
-{
-    std::string orgData;
-    if (!data.has_value() || data->empty()) {
-        orgData = word::sample();
-    } else {
-        orgData = data.value();
-    }
-    std::string result;
-    SHA256 sha;
-    sha.update(orgData);
-    std::array<uint8_t, 32> digest = sha.digest();
-    result = SHA256::toString(digest);
-
-    return result;
-}
-
-std::string md5(std::optional<std::string> data)
-{
-    std::string orgData;
-    if (!data.has_value() || data->empty()) {
-        orgData = word::sample();
-    } else {
-        orgData = data.value();
-    }
-    std::array<uint8_t, 16> md5Stream = md5_hash::compute(orgData);
-    std::ostringstream md5String;
-    for (uint8_t byte : md5Stream) {
-        // Append each byte to the stringstream in hexadecimal format
-        md5String << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(byte);
-    }
-    // Convert the stringstream to a string
-    std::string result = md5String.str();
-
-    return result;
-}
-
-namespace {
     uint32_t md5_hash::uint32_from_4_bytes(std::array<uint8_t, 4> bytes)
     {
         uint32_t value = 0;
@@ -425,16 +399,36 @@ namespace {
         }
     }
 
-    std::string SHA256::toString(const std::array<uint8_t, 32>& digest)
-    {
-        std::stringstream s;
-        s << std::setfill('0') << std::hex;
-
-        for (uint8_t i = 0; i < 32; i++) {
-            s << std::setw(2) << (unsigned int)digest[i];
-        }
-
-        return s.str();
-    }
+    std::string SHA256::toString(const std::array<uint8_t, 32>& digest) { return toHex(digest); }
 }
+
+std::string sha256(std::optional<std::string> data)
+{
+    std::string orgData;
+    if (!data.has_value() || data->empty()) {
+        orgData = word::sample();
+    } else {
+        orgData = data.value();
+    }
+    std::string result;
+    SHA256 sha;
+    sha.update(orgData);
+    std::array<uint8_t, 32> digest = sha.digest();
+    result = SHA256::toString(digest);
+
+    return result;
+}
+
+std::string md5(std::optional<std::string> data)
+{
+    std::string orgData;
+    if (!data.has_value() || data->empty()) {
+        orgData = word::sample();
+    } else {
+        orgData = data.value();
+    }
+
+    return toHex(md5_hash::compute(orgData));
+}
+
 }

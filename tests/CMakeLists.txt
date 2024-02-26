@@ -1,5 +1,7 @@
 add_executable(
     test_faker
+    ${CMAKE_CURRENT_SOURCE_DIR}/bio_helper.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/json_helper.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/common/format_helper_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/common/json_helper_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/common/luhn_check_test.cpp

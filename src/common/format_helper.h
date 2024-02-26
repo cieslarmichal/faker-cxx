@@ -7,7 +7,8 @@
 
 #if defined(__APPLE__) || defined(__MINGW32__)                                                     \
     || (defined(__GNUC__) && (__GNUC__ < 12) && !defined(__clang__))
-#include <fmt/format.h>
+#include <fmt/chrono.h>
+#include <fmt/core.h>
 #else
 #include <format>
 #endif

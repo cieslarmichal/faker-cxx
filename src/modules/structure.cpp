@@ -351,23 +351,23 @@ std::string moduleFunction(StructureToken token)
         return std::string(internet::domainSuffix());
     // Location module
     case StructureToken::LocationCountry:
-        return std::string(location::country());
+        return std::string(location::country_name());
     case StructureToken::LocationCountryCode:
-        return std::string(location::countryCode());
+        return std::string(location::country_code());
     case StructureToken::LocationState:
         return std::string(location::state());
     case StructureToken::LocationCity:
         return location::city();
     case StructureToken::LocationZipCode:
-        return location::zipCode();
+        return location::zip_code();
     case StructureToken::LocationStreetAddress:
-        return location::streetAddress();
+        return location::street_address();
     case StructureToken::LocationStreet:
         return location::street();
     case StructureToken::LocationBuildingNumber:
-        return location::buildingNumber();
+        return location::building_number();
     case StructureToken::LocationSecondaryAddress:
-        return location::secondaryAddress();
+        return location::secondary_address();
     case StructureToken::LocationLatitude:
         return location::latitude();
     case StructureToken::LocationLongitude:
@@ -375,7 +375,7 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::LocationDirection:
         return std::string(location::direction());
     case StructureToken::LocationTimeZone:
-        return std::string(location::timeZone());
+        return std::string(location::time_zone());
     // Lorem module
     case StructureToken::LoremWord:
         return std::string(lorem::word());

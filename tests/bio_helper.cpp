@@ -1,7 +1,9 @@
 #include "bio_helper.h"
-#include "../modules/person_data.h"
-#include "../modules/word_data.h"
 #include <faker/internet.h>
+#include <modules/person_data.h>
+#include <modules/word_data.h>
+#include <regex>
+#include <vector>
 
 namespace faker {
 

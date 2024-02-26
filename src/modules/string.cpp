@@ -3,16 +3,26 @@
 #include <faker/helper.h>
 #include <faker/number.h>
 #include <faker/string.h>
+#include <random>
 #include <stdexcept>
-#include <string>
 #include <unordered_map>
 
 namespace faker::string {
-const std::unordered_map<HexPrefix, std::string> hexPrefixToStringMapping {
-    { HexPrefix::ZeroX, "0x" },
-    { HexPrefix::Hash, "#" },
-    { HexPrefix::None, "" },
-};
+
+std::string_view hexPrefixToStringMapping(HexPrefix prefix)
+{
+    switch (prefix) {
+    case HexPrefix::ZeroX:
+        return "0x";
+    case HexPrefix::Hash:
+        return "#";
+    case HexPrefix::None:
+        return "";
+    default:
+        assert(false && "Invalid hex prefix");
+        return "";
+    }
+}
 
 bool isValidGuarantee(
     GuaranteeMap& guarantee, std::unordered_set<char>& targetCharacters, unsigned int length)
@@ -82,6 +92,71 @@ std::string generateStringWithGuarantee(
     // randomly
     output = Helper::shuffleString(output);
     return output;
+}
+
+template <typename T> class RandomGenerator {
+public:
+    RandomGenerator()
+        : generator_ { T(std::random_device {}()) }
+    {
+    }
+    ~RandomGenerator() = default;
+
+    RandomGenerator(const RandomGenerator&) = default;
+    RandomGenerator(RandomGenerator&&) = default;
+    RandomGenerator& operator=(const RandomGenerator&) = default;
+    RandomGenerator& operator=(RandomGenerator&&) = default;
+
+    int operator()(std::uniform_int_distribution<>& dist) { return dist(generator_); }
+
+private:
+    T generator_;
+};
+
+template <typename T = std::mt19937>
+std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937> {})
+{
+    static std::uniform_int_distribution<> dist(0, 15);
+    static std::uniform_int_distribution<> dist2(8, 11);
+    static std::string_view hexCharacters { "0123456789abcdef" };
+
+    std::string result;
+    result.reserve(36);
+
+    for (int i = 0; i < 8; i++) {
+        result.append(1, hexCharacters[gen(dist)]);
+    }
+    result.append(1, '-');
+
+    for (int i = 0; i < 4; i++) {
+        result.append(1, hexCharacters[gen(dist)]);
+    }
+    result.append(1, '-');
+
+    result.append(1, '4');
+    for (int i = 0; i < 3; i++) {
+        result.append(1, hexCharacters[gen(dist)]);
+    }
+    result.append(1, '-');
+
+    result.append(1, hexCharacters[gen(dist2)]);
+    for (int i = 0; i < 3; i++) {
+        result.append(1, hexCharacters[gen(dist)]);
+    }
+    result.append(1, '-');
+
+    for (int i = 0; i < 12; i++) {
+        result.append(1, hexCharacters[gen(dist)]);
+    };
+
+    return result;
+}
+
+std::string uuid()
+{
+    static RandomGenerator<std::mt19937> gen;
+
+    return uuid(gen);
 }
 
 std::string sample(unsigned int length)
@@ -253,19 +328,25 @@ std::string numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowL
 
 std::string hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
 {
-    static const std::unordered_map<HexCasing, std::string_view> hexCasingToCharactersMapping {
-        { HexCasing::Lower, data::hexLowerCharacters },
-        { HexCasing::Upper, data::hexUpperCharacters },
-    };
+    auto hexadecimalPrefix = hexPrefixToStringMapping(prefix);
 
-    const auto& hexadecimalCharacters = hexCasingToCharactersMapping.at(casing);
+    std::string hexadecimal;
+    hexadecimal.reserve(length + hexadecimalPrefix.size());
+    hexadecimal += hexadecimalPrefix;
 
-    const auto& hexadecimalPrefix = hexPrefixToStringMapping.at(prefix);
-
-    std::string hexadecimal { hexadecimalPrefix };
-
-    for (unsigned i = 0; i < length; i++) {
-        hexadecimal += Helper::arrayElement(hexadecimalCharacters);
+    switch (casing) {
+    case HexCasing::Lower:
+        for (unsigned i = 0; i < length; i++) {
+            hexadecimal += Helper::arrayElement(data::hexLowerCharacters);
+        }
+        break;
+    case HexCasing::Upper:
+        for (unsigned i = 0; i < length; i++) {
+            hexadecimal += Helper::arrayElement(data::hexUpperCharacters);
+        }
+        break;
+    default:
+        assert(false && "Invalid hex casing");
     }
 
     return hexadecimal;
@@ -284,8 +365,8 @@ std::string hexadecimal(
     if (!isValidGuarantee(guarantee, targetCharacters, length)) {
         throw std::invalid_argument { "Invalid guarantee." };
     }
-    const auto& hexadecimalPrefix = hexPrefixToStringMapping.at(prefix);
-    return hexadecimalPrefix + generateStringWithGuarantee(guarantee, targetCharacters, length);
+    std::string result { hexPrefixToStringMapping(prefix) };
+    return result + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
 std::string binary(unsigned int length)

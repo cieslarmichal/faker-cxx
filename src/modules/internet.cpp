@@ -273,15 +273,16 @@ std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
 
 std::string ipv6()
 {
-    std::vector<std::string> ipv6Parts;
+    std::string result;
+    result.reserve(39);
 
-    ipv6Parts.reserve(8);
-
-    for (int i = 0; i < 8; i++) {
-        ipv6Parts.push_back(string::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
+    result += string::hexadecimal(4, HexCasing::Lower, HexPrefix::None);
+    for (size_t i = 0; i < 7; ++i) {
+        result += ':';
+        result += string::hexadecimal(4, HexCasing::Lower, HexPrefix::None);
     }
 
-    return StringHelper::join(ipv6Parts, ":");
+    return result;
 }
 
 std::string mac(const std::string& sep)

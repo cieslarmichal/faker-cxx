@@ -85,9 +85,9 @@ namespace {
     }
 }
 
-std::string_view country() { return Helper::arrayElement(data::allCountries); }
+std::string_view country_name() { return Helper::arrayElement(data::allCountries); }
 
-std::string_view countryCode() { return Helper::arrayElement(data::countryCodes); }
+std::string_view country_code() { return Helper::arrayElement(data::countryCodes); }
 
 std::string_view county(AddressCountry country)
 {
@@ -127,25 +127,25 @@ std::string city(AddressCountry country)
         });
 }
 
-std::string zipCode(AddressCountry country)
+std::string zip_code(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
 
     return Helper::replaceSymbolWithNumber(countryAddresses.zipCodeFormat);
 }
 
-std::string streetAddress(AddressCountry country)
+std::string street_address(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
     const auto addressFormat = Helper::arrayElement(countryAddresses.addressFormats);
 
     return FormatHelper::fillTokenValues(addressFormat, [country](std::string_view token) {
         if (token == "buildingNumber") {
-            return buildingNumber(country);
+            return building_number(country);
         } else if (token == "street") {
             return street(country);
         } else if (token == "secondaryAddress") {
-            return secondaryAddress(country);
+            return secondary_address(country);
         } else {
             return std::string();
         }
@@ -175,7 +175,7 @@ std::string street(AddressCountry country)
         });
 }
 
-std::string buildingNumber(AddressCountry country)
+std::string building_number(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
 
@@ -184,7 +184,7 @@ std::string buildingNumber(AddressCountry country)
     return Helper::replaceSymbolWithNumber(buildingNumberFormat);
 }
 
-std::string secondaryAddress(AddressCountry country)
+std::string secondary_address(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
 
@@ -201,35 +201,17 @@ std::string secondaryAddress(AddressCountry country)
 std::string latitude(Precision precision)
 {
     const auto latitude = number::decimal(-90.0, 90.0);
-
-    std::stringstream ss;
-
-    ss << std::fixed;
-
-    ss.precision(PrecisionMapper::mapToDecimalPlaces(precision));
-
-    ss << latitude;
-
-    return ss.str();
+    return FormatHelper::format(PrecisionMapper::mapToFormatString(precision), latitude);
 }
 
 std::string longitude(Precision precision)
 {
     const auto longitude = number::decimal(-180.0, 180.0);
-
-    std::stringstream ss;
-
-    ss << std::fixed;
-
-    ss.precision(PrecisionMapper::mapToDecimalPlaces(precision));
-
-    ss << longitude;
-
-    return ss.str();
+    return FormatHelper::format(PrecisionMapper::mapToFormatString(precision), longitude);
 }
 
 std::string_view direction() { return Helper::arrayElement(data::directions); }
 
-std::string_view timeZone() { return Helper::arrayElement(data::timeZones); }
+std::string_view time_zone() { return Helper::arrayElement(data::timeZones); }
 
 }

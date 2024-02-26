@@ -1,7 +1,6 @@
 #include "string_helper.h"
 #include <algorithm>
 #include <cctype>
-#include <sstream>
 
 namespace faker {
 
@@ -37,23 +36,26 @@ std::vector<std::string> StringHelper::split(const std::string& data, const std:
 
 std::string StringHelper::join(const std::vector<std::string>& data, const std::string& separator)
 {
-    std::ostringstream result;
-
-    for (size_t i = 0; i < (data.size() - 1); ++i) {
-        result << data[i] << separator;
+    switch (data.size()) {
+    case 0:
+        return "";
+    case 1:
+        return data[0];
+    default: {
+        std::string result { data[0] };
+        for (auto it = data.begin() + 1; it != data.end(); ++it) {
+            result += separator;
+            result += *it;
+        }
+        return result;
     }
-
-    if (!data.empty()) /* [[likely]] */
-    {
-        result << data[data.size() - 1];
     }
-
-    return result.str();
 }
 
 std::string StringHelper::repeat(const std::string& data, int repetition)
 {
     std::string result;
+    result.reserve(data.size() * repetition);
 
     for (int i = 0; i < repetition; ++i) {
         result += data;

@@ -1,4 +1,5 @@
 #include "json_helper.h"
+#include <sstream>
 
 namespace faker {
 

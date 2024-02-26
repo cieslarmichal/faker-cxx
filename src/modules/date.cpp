@@ -5,30 +5,23 @@
 #include <faker/date.h>
 #include <faker/helper.h>
 #include <faker/number.h>
-#include <iomanip>
-#include <sstream>
 
 namespace faker::date {
 namespace {
 
     template <typename T> std::string serializeTimePoint(const T& timePoint, DateFormat dateFormat)
     {
-        time_t timePointTimeT = std::chrono::system_clock::to_time_t(timePoint);
+        std::time_t timePointTimeT = std::chrono::system_clock::to_time_t(timePoint);
+
+        if (dateFormat == DateFormat::Timestamp) {
+            return std::to_string(
+                std::chrono::duration_cast<std::chrono::seconds>(timePoint.time_since_epoch())
+                    .count());
+        }
 
         std::tm utcTime = *std::gmtime(&timePointTimeT);
 
-        std::stringstream ss;
-
-        if (dateFormat == DateFormat::Timestamp) {
-            ss << std::chrono::duration_cast<std::chrono::seconds>(timePoint.time_since_epoch())
-                      .count();
-        }
-
-        else {
-            ss << std::put_time(&utcTime, "%Y-%m-%dT%H:%M:%SZ");
-        }
-
-        return ss.str();
+        return FormatHelper::format("{0:%Y-%m-%d}T{0:%H:%M:%S}Z", utcTime);
     }
 
     template <typename T> std::string betweenDate(const T& from, const T& to, DateFormat dateFormat)

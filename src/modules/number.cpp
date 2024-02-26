@@ -1,21 +1,12 @@
+#include "../common/format_helper.h"
 #include <faker/number.h>
 #include <random>
-#include <sstream>
 
 namespace faker::number {
 
 std::random_device randomDevice;
 
 std::mt19937 pseudoRandomGenerator(randomDevice());
-
-std::string convertToHex(int number)
-{
-    std::stringstream stream;
-
-    stream << std::hex << number;
-
-    return stream.str();
-}
 
 int integer(int min, int max)
 {
@@ -96,7 +87,7 @@ std::string hex(std::optional<int> min, std::optional<int> max)
         defaultMax = max.value();
     }
 
-    return convertToHex(integer(defaultMin, defaultMax));
+    return FormatHelper::format("{:x}", integer(defaultMin, defaultMax));
 }
 
 }

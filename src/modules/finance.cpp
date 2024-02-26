@@ -22,15 +22,9 @@ std::string amount(double min, double max, Precision precision, const std::strin
 {
     const auto generatedNumber = number::decimal(min, max);
 
-    std::stringstream ss;
-
-    ss << std::fixed;
-
-    ss.precision(PrecisionMapper::mapToDecimalPlaces(precision));
-
-    ss << generatedNumber;
-
-    return FormatHelper::format("{}{}", symbol, ss.str());
+    std::string result { symbol };
+    result += FormatHelper::format(PrecisionMapper::mapToFormatString(precision), generatedNumber);
+    return result;
 }
 
 std::string iban(std::optional<IbanCountry> country)

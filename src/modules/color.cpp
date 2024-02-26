@@ -4,40 +4,28 @@
 #include <faker/helper.h>
 #include <faker/number.h>
 #include <faker/string.h>
-#include <sstream>
 
 namespace faker::color {
 std::string_view name() { return Helper::arrayElement(data::colors); }
 
 std::string rgb(bool includeAlpha)
 {
-    const auto red = number::integer(255);
-    const auto green = number::integer(255);
-    const auto blue = number::integer(255);
+    auto red = number::integer(255);
+    auto green = number::integer(255);
+    auto blue = number::integer(255);
 
     if (!includeAlpha) {
         return FormatHelper::format("rgb({}, {}, {})", red, green, blue);
     }
 
-    const auto alpha = number::decimal(1.0);
+    auto alpha = number::decimal(1.0);
 
-    std::stringstream ss;
-    ss << std::fixed;
-    ss.precision(2);
-    ss << alpha;
-
-    const auto formattedAlpha = ss.str();
-
-    return FormatHelper::format("rgba({}, {}, {}, {})", red, green, blue, formattedAlpha);
+    return FormatHelper::format("rgba({}, {}, {}, {:.2f})", red, green, blue, alpha);
 }
 
 std::string hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
 {
-    if (includeAlpha) {
-        return string::hexadecimal(8, casing, prefix);
-    }
-
-    return string::hexadecimal(6, casing, prefix);
+    return string::hexadecimal(includeAlpha ? 8 : 6, casing, prefix);
 }
 
 std::string hsl(bool includeAlpha)
@@ -52,13 +40,7 @@ std::string hsl(bool includeAlpha)
 
     const auto alpha = number::decimal(1.0);
 
-    std::stringstream ss;
-    ss << std::fixed;
-    ss.precision(2);
-    ss << alpha;
-    const auto formattedAlpha = ss.str();
-
-    return FormatHelper::format("hsla({}, {}, {}, {})", hue, saturation, lightness, formattedAlpha);
+    return FormatHelper::format("hsla({}, {}, {}, {:.2f})", hue, saturation, lightness, alpha);
 }
 
 std::string lch(bool includeAlpha)
@@ -73,13 +55,7 @@ std::string lch(bool includeAlpha)
 
     const auto alpha = number::decimal(1.0);
 
-    std::stringstream ss;
-    ss << std::fixed;
-    ss.precision(2);
-    ss << alpha;
-    const auto formattedAlpha = ss.str();
-
-    return FormatHelper::format("lcha({}, {}, {}, {})", luminance, chroma, hue, formattedAlpha);
+    return FormatHelper::format("lcha({}, {}, {}, {:.2f})", luminance, chroma, hue, alpha);
 }
 
 std::string cmyk()

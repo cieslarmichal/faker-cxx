@@ -2,10 +2,7 @@
 #define FAKER_STRING_H
 
 #include <faker/types/hex.h>
-#include <faker/types/random_generator.h>
 #include <limits>
-#include <random>
-#include <sstream>
 #include <string>
 #include <unordered_map>
 #include <unordered_set>
@@ -69,45 +66,7 @@ std::string generateAtleastString(const GuaranteeMap& guarantee);
      * string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
      * @endcode
      */
-    template <typename T = std::mt19937>
-    std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937> {})
-    {
-        static std::uniform_int_distribution<> dist(0, 15);
-        static std::uniform_int_distribution<> dist2(8, 11);
-
-        std::stringstream ss;
-        ss << std::hex;
-
-        for (int i = 0; i < 8; i++) {
-            ss << gen(dist);
-        }
-
-        ss << "-";
-        for (int i = 0; i < 4; i++) {
-            ss << gen(dist);
-        }
-
-        ss << "-4";
-        for (int i = 0; i < 3; i++) {
-            ss << gen(dist);
-        }
-
-        ss << "-";
-
-        ss << gen(dist2);
-
-        for (int i = 0; i < 3; i++) {
-            ss << gen(dist);
-        }
-
-        ss << "-";
-
-        for (int i = 0; i < 12; i++) {
-            ss << gen(dist);
-        };
-
-        return ss.str();
-    }
+    std::string uuid();
 
     /**
      * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
