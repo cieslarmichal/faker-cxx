@@ -3,7 +3,6 @@
 
 #include <faker/types/hex.h>
 #include <faker/types/random_generator.h>
-#include <faker/types/string_casing.h>
 #include <limits>
 #include <random>
 #include <sstream>
@@ -12,6 +11,7 @@
 #include <unordered_set>
 
 namespace faker::string {
+enum class StringCasing { Mixed, Lower, Upper };
 
 struct CharCount {
     unsigned int atleastCount { (std::numeric_limits<unsigned int>::min)() };

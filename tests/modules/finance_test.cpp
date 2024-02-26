@@ -15,81 +15,85 @@ using namespace faker;
 
 namespace {
 const std::string creditCardCharacters = "0123456789-";
-const std::unordered_map<IbanCountry, std::string> expectedRegex {
-    { IbanCountry::Austria, "^(AT)([0-9]{2})([0-9]{5})([0-9]{11})$" },
-    { IbanCountry::Belgium, "^(BE)([0-9]{2})([0-9]{3})([0-9]{7})([0-9]{2})$" },
-    { IbanCountry::Bulgaria, "^(BG)([0-9]{2})([A-Z]{4})([0-9]{4})([0-9]{2})([a-zA-Z0-9]{8})$" },
-    { IbanCountry::Croatia, "^(HR)([0-9]{2})([0-9]{7})([0-9]{10})$" },
-    { IbanCountry::Cyprus, "^(CY)([0-9]{2})([0-9]{3})([0-9]{5})([a-zA-Z0-9]{16})$" },
-    { IbanCountry::Czechia, "^(CZ)([0-9]{2})([0-9]{4})([0-9]{6})([0-9]{10})$" },
-    { IbanCountry::Denmark, "^(DK)([0-9]{2})([0-9]{4})([0-9]{9})([0-9]{1})$" },
-    { IbanCountry::Estonia, "^(EE)([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{11})([0-9]{1})$" },
-    { IbanCountry::Finland, "^(FI)([0-9]{2})([0-9]{6})([0-9]{7})([0-9]{1})$" },
-    { IbanCountry::France, "^(FR)([0-9]{2})([0-9]{5})([0-9]{5})([a-zA-Z0-9]{11})([0-9]{2})$" },
-    { IbanCountry::Germany, "^(DE)([0-9]{2})([0-9]{8})([0-9]{10})$" },
-    { IbanCountry::Greece, "^(GR)([0-9]{2})([0-9]{3})([0-9]{4})([a-zA-Z0-9]{16})$" },
-    { IbanCountry::Hungary, "^(HU)([0-9]{2})([0-9]{3})([0-9]{4})([0-9]{1})([0-9]{15})([0-9]{1})$" },
-    { IbanCountry::Ireland, "^(IE)([0-9]{2})([A-Z]{4})([0-9]{6})([0-9]{8})$" },
-    { IbanCountry::Italy, "^(IT)([0-9]{2})([A-Z]{1})([0-9]{5})([0-9]{5})([a-zA-Z0-9]{12})$" },
-    { IbanCountry::Latvia, "^(LV)([0-9]{2})([A-Z]{4})([a-zA-Z0-9]{13})$" },
-    { IbanCountry::Lithuania, "^(LT)([0-9]{2})([0-9]{5})([0-9]{11})$" },
-    { IbanCountry::Luxembourg, "^(LU)([0-9]{2})([0-9]{3})([a-zA-Z0-9]{13})$" },
-    { IbanCountry::Malta, "^(MT)([0-9]{2})([A-Z]{4})([0-9]{5})([a-zA-Z0-9]{18})$" },
-    { IbanCountry::Netherlands, "^(NL)([0-9]{2})([A-Z]{4})([0-9]{10})$" },
-    { IbanCountry::Poland, "^(PL)([0-9]{2})([0-9]{3})([0-9]{4})([0-9]{1})([0-9]{16})$" },
-    { IbanCountry::Portugal, "^(PT)([0-9]{2})([0-9]{4})([0-9]{4})([0-9]{11})([0-9]{2})$" },
-    { IbanCountry::Romania, "^(RO)([0-9]{2})([A-Z]{4})([a-zA-Z0-9]{16})$" },
-    { IbanCountry::Slovakia, "^(SK)([0-9]{2})([0-9]{4})([0-9]{6})([0-9]{10})$" },
-    { IbanCountry::Slovenia, "^(SI)([0-9]{2})([0-9]{2})([0-9]{3})([0-9]{8})([0-9]{2})$" },
-    { IbanCountry::Spain, "^(ES)([0-9]{2})([0-9]{4})([0-9]{4})([0-9]{2})([0-9]{10})$" },
-    { IbanCountry::Sweden, "^(SE)([0-9]{2})([0-9]{3})([0-9]{17})$" },
+const std::unordered_map<finance::IbanCountry, std::string> expectedRegex {
+    { finance::IbanCountry::Austria, "^(AT)([0-9]{2})([0-9]{5})([0-9]{11})$" },
+    { finance::IbanCountry::Belgium, "^(BE)([0-9]{2})([0-9]{3})([0-9]{7})([0-9]{2})$" },
+    { finance::IbanCountry::Bulgaria,
+        "^(BG)([0-9]{2})([A-Z]{4})([0-9]{4})([0-9]{2})([a-zA-Z0-9]{8})$" },
+    { finance::IbanCountry::Croatia, "^(HR)([0-9]{2})([0-9]{7})([0-9]{10})$" },
+    { finance::IbanCountry::Cyprus, "^(CY)([0-9]{2})([0-9]{3})([0-9]{5})([a-zA-Z0-9]{16})$" },
+    { finance::IbanCountry::Czechia, "^(CZ)([0-9]{2})([0-9]{4})([0-9]{6})([0-9]{10})$" },
+    { finance::IbanCountry::Denmark, "^(DK)([0-9]{2})([0-9]{4})([0-9]{9})([0-9]{1})$" },
+    { finance::IbanCountry::Estonia, "^(EE)([0-9]{2})([0-9]{2})([0-9]{2})([0-9]{11})([0-9]{1})$" },
+    { finance::IbanCountry::Finland, "^(FI)([0-9]{2})([0-9]{6})([0-9]{7})([0-9]{1})$" },
+    { finance::IbanCountry::France,
+        "^(FR)([0-9]{2})([0-9]{5})([0-9]{5})([a-zA-Z0-9]{11})([0-9]{2})$" },
+    { finance::IbanCountry::Germany, "^(DE)([0-9]{2})([0-9]{8})([0-9]{10})$" },
+    { finance::IbanCountry::Greece, "^(GR)([0-9]{2})([0-9]{3})([0-9]{4})([a-zA-Z0-9]{16})$" },
+    { finance::IbanCountry::Hungary,
+        "^(HU)([0-9]{2})([0-9]{3})([0-9]{4})([0-9]{1})([0-9]{15})([0-9]{1})$" },
+    { finance::IbanCountry::Ireland, "^(IE)([0-9]{2})([A-Z]{4})([0-9]{6})([0-9]{8})$" },
+    { finance::IbanCountry::Italy,
+        "^(IT)([0-9]{2})([A-Z]{1})([0-9]{5})([0-9]{5})([a-zA-Z0-9]{12})$" },
+    { finance::IbanCountry::Latvia, "^(LV)([0-9]{2})([A-Z]{4})([a-zA-Z0-9]{13})$" },
+    { finance::IbanCountry::Lithuania, "^(LT)([0-9]{2})([0-9]{5})([0-9]{11})$" },
+    { finance::IbanCountry::Luxembourg, "^(LU)([0-9]{2})([0-9]{3})([a-zA-Z0-9]{13})$" },
+    { finance::IbanCountry::Malta, "^(MT)([0-9]{2})([A-Z]{4})([0-9]{5})([a-zA-Z0-9]{18})$" },
+    { finance::IbanCountry::Netherlands, "^(NL)([0-9]{2})([A-Z]{4})([0-9]{10})$" },
+    { finance::IbanCountry::Poland, "^(PL)([0-9]{2})([0-9]{3})([0-9]{4})([0-9]{1})([0-9]{16})$" },
+    { finance::IbanCountry::Portugal, "^(PT)([0-9]{2})([0-9]{4})([0-9]{4})([0-9]{11})([0-9]{2})$" },
+    { finance::IbanCountry::Romania, "^(RO)([0-9]{2})([A-Z]{4})([a-zA-Z0-9]{16})$" },
+    { finance::IbanCountry::Slovakia, "^(SK)([0-9]{2})([0-9]{4})([0-9]{6})([0-9]{10})$" },
+    { finance::IbanCountry::Slovenia, "^(SI)([0-9]{2})([0-9]{2})([0-9]{3})([0-9]{8})([0-9]{2})$" },
+    { finance::IbanCountry::Spain, "^(ES)([0-9]{2})([0-9]{4})([0-9]{4})([0-9]{2})([0-9]{10})$" },
+    { finance::IbanCountry::Sweden, "^(SE)([0-9]{2})([0-9]{3})([0-9]{17})$" },
 };
 
-const std::unordered_map<IbanCountry, std::string> generatedTestName {
-    { IbanCountry::Austria, "shouldGenerateAustriaIban" },
-    { IbanCountry::Belgium, "shouldGenerateBelgiumIban" },
-    { IbanCountry::Bulgaria, "shouldGenerateBulgariaIban" },
-    { IbanCountry::Croatia, "shouldGenerateCroatiaIban" },
-    { IbanCountry::Cyprus, "shouldGenerateCyprusIban" },
-    { IbanCountry::Czechia, "shouldGenerateCzechiaIban" },
-    { IbanCountry::Denmark, "shouldGenerateDenmarkIban" },
-    { IbanCountry::Estonia, "shouldGenerateEstoniaIban" },
-    { IbanCountry::Finland, "shouldGenerateFinlandIban" },
-    { IbanCountry::France, "shouldGenerateFranceIban" },
-    { IbanCountry::Germany, "shouldGenerateGermanyIban" },
-    { IbanCountry::Greece, "shouldGenerateGreeceIban" },
-    { IbanCountry::Hungary, "shouldGenerateHungaryIban" },
-    { IbanCountry::Ireland, "shouldGenerateIrelandIban" },
-    { IbanCountry::Italy, "shouldGenerateItalyIban" },
-    { IbanCountry::Latvia, "shouldGenerateLatviaIban" },
-    { IbanCountry::Lithuania, "shouldGenerateLithuaniaIban" },
-    { IbanCountry::Luxembourg, "shouldGenerateLuxembourgIban" },
-    { IbanCountry::Malta, "shouldGenerateMaltaIban" },
-    { IbanCountry::Netherlands, "shouldGenerateNetherlandsIban" },
-    { IbanCountry::Poland, "shouldGeneratePolandIban" },
-    { IbanCountry::Portugal, "shouldGeneratePortugalIban" },
-    { IbanCountry::Romania, "shouldGenerateRomaniaIban" },
-    { IbanCountry::Slovakia, "shouldGenerateSlovakiaIban" },
-    { IbanCountry::Slovenia, "shouldGenerateSloveniaIban" },
-    { IbanCountry::Spain, "shouldGenerateSpainIban" },
-    { IbanCountry::Sweden, "shouldGenerateSwedenIban" },
+const std::unordered_map<finance::IbanCountry, std::string> generatedTestName {
+    { finance::IbanCountry::Austria, "shouldGenerateAustriaIban" },
+    { finance::IbanCountry::Belgium, "shouldGenerateBelgiumIban" },
+    { finance::IbanCountry::Bulgaria, "shouldGenerateBulgariaIban" },
+    { finance::IbanCountry::Croatia, "shouldGenerateCroatiaIban" },
+    { finance::IbanCountry::Cyprus, "shouldGenerateCyprusIban" },
+    { finance::IbanCountry::Czechia, "shouldGenerateCzechiaIban" },
+    { finance::IbanCountry::Denmark, "shouldGenerateDenmarkIban" },
+    { finance::IbanCountry::Estonia, "shouldGenerateEstoniaIban" },
+    { finance::IbanCountry::Finland, "shouldGenerateFinlandIban" },
+    { finance::IbanCountry::France, "shouldGenerateFranceIban" },
+    { finance::IbanCountry::Germany, "shouldGenerateGermanyIban" },
+    { finance::IbanCountry::Greece, "shouldGenerateGreeceIban" },
+    { finance::IbanCountry::Hungary, "shouldGenerateHungaryIban" },
+    { finance::IbanCountry::Ireland, "shouldGenerateIrelandIban" },
+    { finance::IbanCountry::Italy, "shouldGenerateItalyIban" },
+    { finance::IbanCountry::Latvia, "shouldGenerateLatviaIban" },
+    { finance::IbanCountry::Lithuania, "shouldGenerateLithuaniaIban" },
+    { finance::IbanCountry::Luxembourg, "shouldGenerateLuxembourgIban" },
+    { finance::IbanCountry::Malta, "shouldGenerateMaltaIban" },
+    { finance::IbanCountry::Netherlands, "shouldGenerateNetherlandsIban" },
+    { finance::IbanCountry::Poland, "shouldGeneratePolandIban" },
+    { finance::IbanCountry::Portugal, "shouldGeneratePortugalIban" },
+    { finance::IbanCountry::Romania, "shouldGenerateRomaniaIban" },
+    { finance::IbanCountry::Slovakia, "shouldGenerateSlovakiaIban" },
+    { finance::IbanCountry::Slovenia, "shouldGenerateSloveniaIban" },
+    { finance::IbanCountry::Spain, "shouldGenerateSpainIban" },
+    { finance::IbanCountry::Sweden, "shouldGenerateSwedenIban" },
 };
 
-const std::unordered_map<BicCountry, std::string> generatedBicTestName {
-    { BicCountry::Poland, "shouldGeneratePolandBic" },
-    { BicCountry::United_States, "shouldGenerateUnitedStatesBic" },
-    { BicCountry::United_Kingdom, "shouldGenerateUnitedKingdomBic" },
-    { BicCountry::Germany, "shouldGenerateGermanyBic" },
-    { BicCountry::Romania, "shouldGenerateRomaniaBic" },
-    { BicCountry::France, "shouldGenerateFranceBic" },
-    { BicCountry::Italy, "shouldGenerateItalyBic" },
-    { BicCountry::Spain, "shouldGenerateSpainBic" },
-    { BicCountry::Netherlands, "shouldGenerateNetherlandsBic" },
-    { BicCountry::India, "shouldGenerateIndiaBic" },
+const std::unordered_map<finance::BicCountry, std::string> generatedBicTestName {
+    { finance::BicCountry::Poland, "shouldGeneratePolandBic" },
+    { finance::BicCountry::United_States, "shouldGenerateUnitedStatesBic" },
+    { finance::BicCountry::United_Kingdom, "shouldGenerateUnitedKingdomBic" },
+    { finance::BicCountry::Germany, "shouldGenerateGermanyBic" },
+    { finance::BicCountry::Romania, "shouldGenerateRomaniaBic" },
+    { finance::BicCountry::France, "shouldGenerateFranceBic" },
+    { finance::BicCountry::Italy, "shouldGenerateItalyBic" },
+    { finance::BicCountry::Spain, "shouldGenerateSpainBic" },
+    { finance::BicCountry::Netherlands, "shouldGenerateNetherlandsBic" },
+    { finance::BicCountry::India, "shouldGenerateIndiaBic" },
 };
 }
 
-class FinanceTest : public TestWithParam<IbanCountry> {
+class FinanceTest : public TestWithParam<finance::IbanCountry> {
 public:
     static bool checkIfAllCharactersAreNumeric(const std::string& data)
     {
@@ -124,7 +128,7 @@ TEST_F(FinanceTest, shouldGenerateCurrencyName)
     const auto generatedCurrencyName = finance::currencyName();
 
     ASSERT_TRUE(faker::testing::any_of(
-        finance::data::currencies, [generatedCurrencyName](const Currency& currency) {
+        finance::data::currencies, [generatedCurrencyName](const finance::Currency& currency) {
             return currency.name == generatedCurrencyName;
         }));
 }
@@ -134,7 +138,7 @@ TEST_F(FinanceTest, shouldGenerateCurrencyCode)
     const auto generatedCurrencyCode = finance::currencyCode();
 
     ASSERT_TRUE(faker::testing::any_of(
-        finance::data::currencies, [generatedCurrencyCode](const Currency& currency) {
+        finance::data::currencies, [generatedCurrencyCode](const finance::Currency& currency) {
             return currency.code == generatedCurrencyCode;
         }));
 }
@@ -144,7 +148,7 @@ TEST_F(FinanceTest, shouldGenerateCurrencySymbol)
     const auto generatedCurrencySymbol = finance::currencySymbol();
 
     ASSERT_TRUE(faker::testing::any_of(
-        finance::data::currencies, [generatedCurrencySymbol](const Currency& currency) {
+        finance::data::currencies, [generatedCurrencySymbol](const finance::Currency& currency) {
             return currency.symbol == generatedCurrencySymbol;
         }));
 }
@@ -185,20 +189,22 @@ TEST_P(FinanceTest, CheckIbanGenerator)
     ASSERT_THAT(finance::iban(ibanCountry), MatchesRegexCpp(expectedRegex.at(ibanCountry)));
 }
 
-std::unordered_set<IbanCountry> getIbanCountryKeys()
+std::unordered_set<finance::IbanCountry> getIbanCountryKeys()
 {
-    std::unordered_set<IbanCountry> ibanCountries;
+    std::unordered_set<finance::IbanCountry> ibanCountries;
     for (const auto& [ibanCountry, _] : expectedRegex) {
         ibanCountries.insert(ibanCountry);
     }
     return ibanCountries;
 }
 
-std::unordered_set<IbanCountry> ibanCountryKeys = getIbanCountryKeys();
+std::unordered_set<finance::IbanCountry> ibanCountryKeys = getIbanCountryKeys();
 
 INSTANTIATE_TEST_SUITE_P(TestIbanGenerator, FinanceTest,
     ValuesIn(ibanCountryKeys.begin(), ibanCountryKeys.end()),
-    [](const TestParamInfo<IbanCountry>& info) { return generatedTestName.at(info.param); });
+    [](const TestParamInfo<finance::IbanCountry>& info) {
+        return generatedTestName.at(info.param);
+    });
 
 TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 {
@@ -416,7 +422,7 @@ TEST_F(FinanceTest, shouldGenerateExpirationDate)
     ASSERT_TRUE(tenthPlaceYear >= 24);
 }
 
-class FinanceBicTest : public TestWithParam<BicCountry> { };
+class FinanceBicTest : public TestWithParam<finance::BicCountry> { };
 
 TEST_P(FinanceBicTest, CheckBicGenerator)
 {
@@ -430,7 +436,10 @@ TEST_P(FinanceBicTest, CheckBicGenerator)
 }
 
 INSTANTIATE_TEST_SUITE_P(TestBicGenerator, FinanceBicTest,
-    Values(BicCountry::Poland, BicCountry::United_States, BicCountry::United_Kingdom,
-        BicCountry::Germany, BicCountry::Romania, BicCountry::France, BicCountry::Italy,
-        BicCountry::Spain, BicCountry::Netherlands, BicCountry::India),
-    [](const TestParamInfo<BicCountry>& info) { return generatedBicTestName.at(info.param); });
+    Values(finance::BicCountry::Poland, finance::BicCountry::United_States,
+        finance::BicCountry::United_Kingdom, finance::BicCountry::Germany,
+        finance::BicCountry::Romania, finance::BicCountry::France, finance::BicCountry::Italy,
+        finance::BicCountry::Spain, finance::BicCountry::Netherlands, finance::BicCountry::India),
+    [](const TestParamInfo<finance::BicCountry>& info) {
+        return generatedBicTestName.at(info.param);
+    });

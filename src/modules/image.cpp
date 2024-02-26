@@ -21,31 +21,31 @@ std::string imageUrl(unsigned int width, unsigned int height, std::optional<Imag
         case ImageCategory::Cats:
             image_category = "/cats";
             break;
-        case faker::ImageCategory::City:
+        case ImageCategory::City:
             image_category = "/city";
             break;
-        case faker::ImageCategory::Food:
+        case ImageCategory::Food:
             image_category = "/food";
             break;
-        case faker::ImageCategory::Nightlife:
+        case ImageCategory::Nightlife:
             image_category = "/nightlife";
             break;
-        case faker::ImageCategory::Fashion:
+        case ImageCategory::Fashion:
             image_category = "/fashion";
             break;
-        case faker::ImageCategory::People:
+        case ImageCategory::People:
             image_category = "/people";
             break;
-        case faker::ImageCategory::Nature:
+        case ImageCategory::Nature:
             image_category = "/nature";
             break;
-        case faker::ImageCategory::Sports:
+        case ImageCategory::Sports:
             image_category = "/sports";
             break;
-        case faker::ImageCategory::Technics:
+        case ImageCategory::Technics:
             image_category = "/technics";
             break;
-        case faker::ImageCategory::Transport:
+        case ImageCategory::Transport:
             image_category = "/transport";
             break;
         default:

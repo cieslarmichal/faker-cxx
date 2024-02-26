@@ -1,15 +1,66 @@
 #ifndef FAKER_FINANCE_H
 #define FAKER_FINANCE_H
 
-#include <faker/types/bic_country.h>
 #include <faker/types/country.h>
-#include <faker/types/currency.h>
-#include <faker/types/iban_country.h>
 #include <faker/types/precision.h>
 #include <optional>
 #include <string>
 
 namespace faker::finance {
+enum class IbanCountry {
+    Austria,
+    Belgium,
+    Bulgaria,
+    Croatia,
+    Cyprus,
+    Czechia,
+    Denmark,
+    Estonia,
+    Finland,
+    France,
+    Germany,
+    Greece,
+    Hungary,
+    Ireland,
+    Italy,
+    Latvia,
+    Lithuania,
+    Luxembourg,
+    Malta,
+    Netherlands,
+    Poland,
+    Portugal,
+    Romania,
+    Slovakia,
+    Slovenia,
+    Spain,
+    Sweden
+};
+
+struct Currency {
+    std::string_view name;
+    std::string_view code;
+    std::string_view symbol;
+};
+
+inline bool operator==(const Currency& lhs, const Currency& rhs)
+{
+    return lhs.name == rhs.name && lhs.code == rhs.code && lhs.symbol == rhs.symbol;
+}
+
+enum class BicCountry {
+    Poland,
+    United_States,
+    United_Kingdom,
+    Germany,
+    Romania,
+    France,
+    Italy,
+    Spain,
+    Netherlands,
+    India,
+};
+
 enum class CreditCardType { AmericanExpress, Discover, MasterCard, Visa };
 
 /**

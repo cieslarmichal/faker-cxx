@@ -15,6 +15,17 @@ namespace {
     std::string suffixForCountry(Country country, std::optional<Sex> sex);
 }
 
+std::string_view toString(Sex sex, Language language)
+{
+    const auto& sexTranslation = data::sexTranslations.find(language);
+
+    if (sexTranslation == data::sexTranslations.end()) {
+        throw std::runtime_error { "Sex not found." };
+    }
+
+    return sexTranslation->second.at(sex);
+}
+
 std::string firstName(Country country, std::optional<Sex> sex)
 {
     const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
@@ -219,7 +230,7 @@ std::string_view sex(Language language)
 
     const auto chosenSex = Helper::arrayElement(sexes);
 
-    return translateSex(chosenSex, language);
+    return toString(chosenSex, language);
 }
 
 std::string_view gender() { return Helper::arrayElement(data::genders); }
@@ -243,8 +254,7 @@ std::string_view nationality() { return Helper::arrayElement(data::nationalities
 
 std::string ssn(std::optional<SsnCountry> country)
 {
-    const auto ssnCountry
-        = country ? *country : Helper::arrayElement<SsnCountry>(supportedSsnCountries);
+    const auto ssnCountry = country ? *country : Helper::arrayElement(data::supportedSsnCountries);
 
     const auto& ssnFormat = data::ssnFormats.at(ssnCountry);
 
@@ -254,9 +264,9 @@ std::string ssn(std::optional<SsnCountry> country)
 
     for (const auto& ssnFormatCharacter : ssnWithoutRegexes) {
         if (ssnFormatCharacter == 'L') {
-            ssn += string::alpha(1, StringCasing::Upper);
+            ssn += string::alpha(1, string::StringCasing::Upper);
         } else if (ssnFormatCharacter == 'F') {
-            ssn += string::alphanumeric(1, StringCasing::Upper);
+            ssn += string::alphanumeric(1, string::StringCasing::Upper);
         } else if (ssnFormatCharacter == '#') {
             ssn += std::to_string(number::integer(0, 9));
         } else {

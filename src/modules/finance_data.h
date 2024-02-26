@@ -2,14 +2,14 @@
 #define FAKER_MODULES_FINANCE_DATA_H
 
 #include <array>
-#include <faker/types/bic_country.h>
-#include <faker/types/currency.h>
-#include <faker/types/iban_country.h>
+#include <faker/finance.h>
 #include <string_view>
 #include <unordered_map>
 #include <vector>
 
 namespace faker::finance::data {
+extern const std::array<BicCountry, 10> supportedBicCountries;
+extern const std::array<IbanCountry, 27> supportedIbanCountries;
 extern const std::array<std::string_view, 8> accountTypes;
 extern const std::unordered_map<BicCountry, std::vector<std::string_view>>
     bankIdentifiersCodesMapping;

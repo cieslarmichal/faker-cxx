@@ -440,70 +440,70 @@ TEST_F(InternetTest, shouldGenerateEmoji)
 
 TEST_F(InternetTest, shouldGenerateSmileyEmoji)
 {
-    const auto generatedEmoji = internet::emoji(EmojiType::Smiley);
+    const auto generatedEmoji = internet::emoji(internet::EmojiType::Smiley);
 
     FAKER_EXPECT_CONTAINS(internet::data::smileyEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateBodyEmoji)
 {
-    const auto generatedEmoji = internet::emoji(EmojiType::Body);
+    const auto generatedEmoji = internet::emoji(internet::EmojiType::Body);
 
     FAKER_EXPECT_CONTAINS(internet::data::bodyEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGeneratePersonEmoji)
 {
-    const auto generatedEmoji = internet::emoji(EmojiType::Person);
+    const auto generatedEmoji = internet::emoji(internet::EmojiType::Person);
 
     FAKER_EXPECT_CONTAINS(internet::data::personEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateNatureEmoji)
 {
-    const auto generatedEmoji = internet::emoji(EmojiType::Nature);
+    const auto generatedEmoji = internet::emoji(internet::EmojiType::Nature);
 
     FAKER_EXPECT_CONTAINS(internet::data::natureEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateFoodEmoji)
 {
-    const auto generatedEmoji = internet::emoji(EmojiType::Food);
+    const auto generatedEmoji = internet::emoji(internet::EmojiType::Food);
 
     FAKER_EXPECT_CONTAINS(internet::data::foodEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateTravelEmoji)
 {
-    const auto generatedEmoji = internet::emoji(EmojiType::Travel);
+    const auto generatedEmoji = internet::emoji(internet::EmojiType::Travel);
 
     FAKER_EXPECT_CONTAINS(internet::data::travelEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateActivityEmoji)
 {
-    const auto generatedEmoji = internet::emoji(EmojiType::Activity);
+    const auto generatedEmoji = internet::emoji(internet::EmojiType::Activity);
 
     FAKER_EXPECT_CONTAINS(internet::data::activityEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateObjectEmoji)
 {
-    const auto generatedEmoji = internet::emoji(EmojiType::Object);
+    const auto generatedEmoji = internet::emoji(internet::EmojiType::Object);
 
     FAKER_EXPECT_CONTAINS(internet::data::objectEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateSymbolEmoji)
 {
-    const auto generatedEmoji = internet::emoji(EmojiType::Symbol);
+    const auto generatedEmoji = internet::emoji(internet::EmojiType::Symbol);
 
     FAKER_EXPECT_CONTAINS(internet::data::symbolEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateFlagEmoji)
 {
-    const auto generatedEmoji = internet::emoji(EmojiType::Flag);
+    const auto generatedEmoji = internet::emoji(internet::EmojiType::Flag);
 
     FAKER_EXPECT_CONTAINS(internet::data::flagEmojis, generatedEmoji);
 }

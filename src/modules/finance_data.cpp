@@ -1,6 +1,41 @@
 #include "finance_data.h"
 
 namespace faker::finance::data {
+const std::array<BicCountry, 10> supportedBicCountries { BicCountry::Poland,
+    BicCountry::United_States, BicCountry::United_Kingdom, BicCountry::Germany, BicCountry::Romania,
+    BicCountry::France, BicCountry::Italy, BicCountry::Spain, BicCountry::Netherlands,
+    BicCountry::India };
+
+const std::array<IbanCountry, 27> supportedIbanCountries {
+    IbanCountry::Austria,
+    IbanCountry::Belgium,
+    IbanCountry::Bulgaria,
+    IbanCountry::Croatia,
+    IbanCountry::Cyprus,
+    IbanCountry::Czechia,
+    IbanCountry::Denmark,
+    IbanCountry::Estonia,
+    IbanCountry::Finland,
+    IbanCountry::France,
+    IbanCountry::Germany,
+    IbanCountry::Greece,
+    IbanCountry::Hungary,
+    IbanCountry::Ireland,
+    IbanCountry::Italy,
+    IbanCountry::Latvia,
+    IbanCountry::Lithuania,
+    IbanCountry::Luxembourg,
+    IbanCountry::Malta,
+    IbanCountry::Netherlands,
+    IbanCountry::Poland,
+    IbanCountry::Portugal,
+    IbanCountry::Romania,
+    IbanCountry::Slovakia,
+    IbanCountry::Slovenia,
+    IbanCountry::Spain,
+    IbanCountry::Sweden,
+};
+
 const std::array<std::string_view, 8> accountTypes = {
     "Checking",
     "Savings",

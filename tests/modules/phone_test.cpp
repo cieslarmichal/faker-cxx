@@ -56,7 +56,7 @@ TEST(PhoneTest, IMEIGeneration)
 
 TEST(PhoneTest, NumberFormatTest)
 {
-    auto phoneNumber = phone::number(PhoneNumberCountryFormat::Zimbabwe);
+    auto phoneNumber = phone::number(phone::PhoneNumberCountryFormat::Zimbabwe);
 
     EXPECT_FALSE(phoneNumber.empty());
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));

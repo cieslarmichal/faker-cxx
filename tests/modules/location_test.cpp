@@ -9,63 +9,81 @@
 using namespace ::testing;
 using namespace faker;
 
-const location::data::CountryAddresses& countryToCountryAddressesMapping(AddressCountry country)
+const std::array<location::AddressCountry, 14> addressCountries {
+    location::AddressCountry::Usa,
+    location::AddressCountry::Poland,
+    location::AddressCountry::France,
+    location::AddressCountry::Russia,
+    location::AddressCountry::Ukraine,
+    location::AddressCountry::Italy,
+    location::AddressCountry::Germany,
+    location::AddressCountry::Czech,
+    location::AddressCountry::India,
+    location::AddressCountry::Denmark,
+    location::AddressCountry::Australia,
+    location::AddressCountry::Spain,
+    location::AddressCountry::Brazil,
+    location::AddressCountry::Finland,
+};
+
+const location::data::CountryAddresses& countryToCountryAddressesMapping(
+    location::AddressCountry country)
 {
     switch (country) {
-    case AddressCountry::Usa:
+    case location::AddressCountry::Usa:
         return location::data::usaAddresses;
-    case AddressCountry::Poland:
+    case location::AddressCountry::Poland:
         return location::data::polandAddresses;
-    case AddressCountry::Russia:
+    case location::AddressCountry::Russia:
         return location::data::russiaAddresses;
-    case AddressCountry::France:
+    case location::AddressCountry::France:
         return location::data::franceAddresses;
-    case AddressCountry::Ukraine:
+    case location::AddressCountry::Ukraine:
         return location::data::ukraineAddresses;
-    case AddressCountry::Italy:
+    case location::AddressCountry::Italy:
         return location::data::italyAddresses;
-    case AddressCountry::Germany:
+    case location::AddressCountry::Germany:
         return location::data::germanyAddresses;
-    case AddressCountry::Czech:
+    case location::AddressCountry::Czech:
         return location::data::czechAddresses;
-    case AddressCountry::Australia:
+    case location::AddressCountry::Australia:
         return location::data::australiaAddresses;
-    case AddressCountry::India:
+    case location::AddressCountry::India:
         return location::data::indiaAddresses;
-    case AddressCountry::Denmark:
+    case location::AddressCountry::Denmark:
         return location::data::denmarkAddresses;
-    case AddressCountry::Spain:
+    case location::AddressCountry::Spain:
         return location::data::spainAddresses;
-    case AddressCountry::Brazil:
+    case location::AddressCountry::Brazil:
         return location::data::brazilAddresses;
-    case AddressCountry::Finland:
+    case location::AddressCountry::Finland:
         return location::data::finlandAddresses;
-    case AddressCountry::Estonia:
+    case location::AddressCountry::Estonia:
         return location::data::estoniaAddresses;
     default:
         throw std::invalid_argument("Invalid country");
     }
 }
 
-const std::unordered_map<AddressCountry, std::string> generatedTestName {
-    { AddressCountry::Usa, "shouldGenerateAmericanAddress" },
-    { AddressCountry::France, "shouldGenerateFrenchAddress" },
-    { AddressCountry::Poland, "shouldGeneratePolishAddress" },
-    { AddressCountry::Russia, "shouldGenerateRussianAddress" },
-    { AddressCountry::Ukraine, "shouldGenerateUkrainianAddress" },
-    { AddressCountry::Italy, "shouldGenerateItalianAddress" },
-    { AddressCountry::Germany, "shouldGenerateGermanAddress" },
-    { AddressCountry::Czech, "shouldGenerateCzechAddress" },
-    { AddressCountry::Australia, "shouldGenerateAustraliaAddress" },
-    { AddressCountry::India, "shouldGenerateIndiaAddress" },
-    { AddressCountry::Denmark, "shouldGenerateDenmarkAddress" },
-    { AddressCountry::Spain, "shouldGenerateSpainAddress" },
-    { AddressCountry::Brazil, "shouldGenerateBrazilAddress" },
-    { AddressCountry::Finland, "shouldGenerateFinlandAddress" },
-    { AddressCountry::Estonia, "shouldGenerateEstoniaAddress" },
+const std::unordered_map<location::AddressCountry, std::string> generatedTestName {
+    { location::AddressCountry::Usa, "shouldGenerateAmericanAddress" },
+    { location::AddressCountry::France, "shouldGenerateFrenchAddress" },
+    { location::AddressCountry::Poland, "shouldGeneratePolishAddress" },
+    { location::AddressCountry::Russia, "shouldGenerateRussianAddress" },
+    { location::AddressCountry::Ukraine, "shouldGenerateUkrainianAddress" },
+    { location::AddressCountry::Italy, "shouldGenerateItalianAddress" },
+    { location::AddressCountry::Germany, "shouldGenerateGermanAddress" },
+    { location::AddressCountry::Czech, "shouldGenerateCzechAddress" },
+    { location::AddressCountry::Australia, "shouldGenerateAustraliaAddress" },
+    { location::AddressCountry::India, "shouldGenerateIndiaAddress" },
+    { location::AddressCountry::Denmark, "shouldGenerateDenmarkAddress" },
+    { location::AddressCountry::Spain, "shouldGenerateSpainAddress" },
+    { location::AddressCountry::Brazil, "shouldGenerateBrazilAddress" },
+    { location::AddressCountry::Finland, "shouldGenerateFinlandAddress" },
+    { location::AddressCountry::Estonia, "shouldGenerateEstoniaAddress" },
 };
 
-class LocationTest : public TestWithParam<AddressCountry> {
+class LocationTest : public TestWithParam<location::AddressCountry> {
 public:
     static bool checkIfZipCode(const std::string& zipCode)
     {
@@ -125,7 +143,7 @@ TEST_P(LocationTest, shouldGenerateCity)
 
     const auto generatedCity = location::city(country);
 
-    if (country == faker::AddressCountry::Brazil) {
+    if (country == faker::location::AddressCountry::Brazil) {
         const auto generatedCityElements = StringHelper::split(generatedCity, " ");
 
         const auto& generatedCityPrefix = generatedCityElements[0];
@@ -230,7 +248,9 @@ TEST_P(LocationTest, shouldGenerateSecondaryAddress)
 }
 
 INSTANTIATE_TEST_SUITE_P(TestLocationByCountries, LocationTest, ValuesIn(addressCountries),
-    [](const TestParamInfo<AddressCountry>& info) { return generatedTestName.at(info.param); });
+    [](const TestParamInfo<location::AddressCountry>& info) {
+        return generatedTestName.at(info.param);
+    });
 
 TEST_F(LocationTest, shouldGenerateUsaStreet)
 {
@@ -288,7 +308,7 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
 
 TEST_F(LocationTest, shouldGeneratePolandStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Poland);
+    const auto generatedStreet = location::street(location::AddressCountry::Poland);
 
     const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
 
@@ -306,7 +326,7 @@ TEST_F(LocationTest, shouldGeneratePolandStreet)
 
 TEST_F(LocationTest, shouldGeneratePolandStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Poland);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::Poland);
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::polandStreetPrefixes, [&generatedStreetAddress](auto prefix) {
@@ -320,7 +340,7 @@ TEST_F(LocationTest, shouldGeneratePolandStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateRussiaStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Russia);
+    const auto generatedStreet = location::street(location::AddressCountry::Russia);
 
     const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
 
@@ -353,7 +373,7 @@ TEST_F(LocationTest, shouldGenerateRussiaStreet)
 
 TEST_F(LocationTest, shouldGenerateRussiaStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Russia);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::Russia);
 
     std::vector<std::string_view> firstNames { person::data::russianMalesFirstNames };
     firstNames.insert(firstNames.end(), person::data::russianFemalesFirstNames.begin(),
@@ -383,7 +403,7 @@ TEST_F(LocationTest, shouldGenerateRussiaStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateFranceStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::France);
+    const auto generatedStreet = location::street(location::AddressCountry::France);
 
     const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
 
@@ -404,7 +424,7 @@ TEST_F(LocationTest, shouldGenerateFranceStreet)
 
 TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::France);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::France);
 
     const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
 
@@ -511,7 +531,7 @@ TEST_F(LocationTest, shouldGenerateTimeZone)
 
 TEST_F(LocationTest, shouldGenerateUkraineStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Ukraine);
+    const auto generatedStreet = location::street(location::AddressCountry::Ukraine);
 
     const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
 
@@ -545,7 +565,7 @@ TEST_F(LocationTest, shouldGenerateUkraineStreet)
 
 TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Ukraine);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::Ukraine);
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::ukraineStreetPrefixes, [&generatedStreetAddress](auto prefix) {
@@ -576,7 +596,7 @@ TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateItalyStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Italy);
+    const auto generatedStreet = location::street(location::AddressCountry::Italy);
 
     const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
 
@@ -604,7 +624,7 @@ TEST_F(LocationTest, shouldGenerateItalyStreet)
 
 TEST_F(LocationTest, shouldGenerateItalyStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Italy);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::Italy);
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::italyStreetPrefixes, [&generatedStreetAddress](auto prefix) {
@@ -626,14 +646,14 @@ TEST_F(LocationTest, shouldGenerateItalyStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateGermanyStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Germany);
+    const auto generatedStreet = location::street(location::AddressCountry::Germany);
 
     FAKER_EXPECT_CONTAINS(location::data::germanyStreetNames, generatedStreet);
 }
 
 TEST_F(LocationTest, shouldGenerateGermanyStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Germany);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::Germany);
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::germanyStreetNames, [&generatedStreetAddress](auto streetName) {
@@ -643,7 +663,7 @@ TEST_F(LocationTest, shouldGenerateGermanyStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateCzechStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Czech);
+    const auto generatedStreet = location::street(location::AddressCountry::Czech);
 
     ASSERT_TRUE(faker::testing::any_of(location::data::czechStreetNames,
         [&generatedStreet](auto streetName) { return streetName == generatedStreet; }));
@@ -651,7 +671,7 @@ TEST_F(LocationTest, shouldGenerateCzechStreet)
 
 TEST_F(LocationTest, shouldGenerateCzechStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Czech);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::Czech);
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::czechStreetNames, [&generatedStreetAddress](auto streetName) {
@@ -661,7 +681,7 @@ TEST_F(LocationTest, shouldGenerateCzechStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateAustraliaStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Australia);
+    const auto generatedStreet = location::street(location::AddressCountry::Australia);
 
     std::vector<std::string_view> firstNames { person::data::australianMalesFirstNames };
     firstNames.insert(firstNames.end(), person::data::australianFemalesFirstNames.begin(),
@@ -685,7 +705,8 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreet)
 
 TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Australia);
+    const auto generatedStreetAddress
+        = location::streetAddress(location::AddressCountry::Australia);
 
     const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
 
@@ -718,7 +739,7 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateIndiaStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::India);
+    const auto generatedStreet = location::street(location::AddressCountry::India);
 
     const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
 
@@ -734,7 +755,7 @@ TEST_F(LocationTest, shouldGenerateIndiaStreet)
 
 TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::India);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::India);
 
     const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
 
@@ -750,14 +771,14 @@ TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateDenmarkStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Denmark);
+    const auto generatedStreet = location::street(location::AddressCountry::Denmark);
 
     FAKER_EXPECT_CONTAINS(location::data::denmarkStreetNames, generatedStreet);
 }
 
 TEST_F(LocationTest, shouldGenerateDenmarkStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Denmark);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::Denmark);
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::denmarkStreetNames, [&generatedStreetAddress](auto streetName) {
@@ -767,7 +788,7 @@ TEST_F(LocationTest, shouldGenerateDenmarkStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateSpainStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Spain);
+    const auto generatedStreet = location::street(location::AddressCountry::Spain);
 
     std::vector<std::string_view> firstNames { person::data::spanishMalesFirstNames };
     firstNames.insert(firstNames.end(), person::data::spanishFemalesFirstNames.begin(),
@@ -791,7 +812,7 @@ TEST_F(LocationTest, shouldGenerateSpainStreet)
 
 TEST_F(LocationTest, shouldGenerateSpainStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Spain);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::Spain);
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::spainStreetSuffixes, [&generatedStreetAddress](auto suffix) {
@@ -813,7 +834,7 @@ TEST_F(LocationTest, shouldGenerateSpainStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateFinlandStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Finland);
+    const auto generatedStreet = location::street(location::AddressCountry::Finland);
 
     const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
 
@@ -839,7 +860,7 @@ TEST_F(LocationTest, shouldGenerateFinlandStreet)
 
 TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Finland);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::Finland);
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::finlandStreetSuffixes, [&generatedStreetAddress](auto suffix) {
@@ -861,7 +882,7 @@ TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateEstoniaStreet)
 {
-    const auto generatedStreet = location::street(AddressCountry::Estonia);
+    const auto generatedStreet = location::street(location::AddressCountry::Estonia);
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::estoniaStreetNames, [&generatedStreet](auto streetName) {
@@ -871,7 +892,7 @@ TEST_F(LocationTest, shouldGenerateEstoniaStreet)
 
 TEST_F(LocationTest, shouldGenerateEstoniaStreetAddress)
 {
-    const auto generatedStreetAddress = location::streetAddress(AddressCountry::Estonia);
+    const auto generatedStreetAddress = location::streetAddress(location::AddressCountry::Estonia);
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::estoniaStreetNames, [&generatedStreetAddress](auto streetName) {

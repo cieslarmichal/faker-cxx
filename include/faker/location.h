@@ -1,11 +1,29 @@
 #ifndef FAKER_LOCATION_H
 #define FAKER_LOCATION_H
 
-#include <faker/types/address_country.h>
 #include <faker/types/precision.h>
 #include <string>
 
 namespace faker::location {
+// TODO: remove when AddressCountry enum values will be same as Country values
+enum class AddressCountry {
+    Usa,
+    Poland,
+    France,
+    Russia,
+    Ukraine,
+    Italy,
+    Germany,
+    Czech,
+    Australia,
+    India,
+    Denmark,
+    Spain,
+    Brazil,
+    Finland,
+    Estonia
+};
+
 /**
  * @brief Returns a random country name.
  *

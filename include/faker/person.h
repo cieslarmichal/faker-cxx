@@ -2,12 +2,65 @@
 #define FAKER_PERSON_H
 
 #include <faker/types/country.h>
-#include <faker/types/sex.h>
-#include <faker/types/ssn_country.h>
 #include <optional>
 #include <string>
 
 namespace faker::person {
+enum class Sex {
+    Male,
+    Female,
+};
+
+enum class Language {
+    English,
+    Polish,
+    French,
+    German,
+    Italian,
+    Russian,
+    Romanian,
+    Hindi,
+    Finnish,
+    Nepali,
+    Spanish,
+    Turkish,
+    Czech,
+    Slovak,
+    Ukrainian,
+    Danish,
+    Swedish,
+    Portuguese,
+    Norwegian,
+    Japanese,
+    Hungarian,
+    Croatian,
+    Greek,
+    Slovene,
+    Dutch,
+    Mandarin,
+    Korean,
+    Serbian,
+    Macedonian,
+    Albanian,
+    Latvian,
+    Irish,
+    Belarusian,
+    Estonian
+};
+
+std::string_view toString(Sex sex, Language language = Language::English);
+
+enum class SsnCountry {
+    Poland,
+    UnitedStates,
+    UnitedKingdom,
+    Germany,
+    France,
+    Italy,
+    Spain,
+    India,
+};
+
 /**
  * @brief Returns a random first name.
  *

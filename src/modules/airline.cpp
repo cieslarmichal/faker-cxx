@@ -10,11 +10,11 @@ std::string_view aircraftType() { return Helper::arrayElement(data::aircraftType
 
 Airplane airplane() { return Helper::arrayElement(data::airplanes); }
 
-AirlineStruct airline() { return Helper::arrayElement<faker::AirlineStruct>(data::airlines); }
+AirlineStruct airline() { return Helper::arrayElement<AirlineStruct>(data::airlines); }
 
 Airport airport() { return Helper::arrayElement(data::airports); }
 
-std::string seat(faker::AircraftType aircraftType)
+std::string seat(AircraftType aircraftType)
 {
     return std::to_string(number::integer(1, data::aircraftTypeMaxRows.at(aircraftType)))
         + Helper::arrayElement(data::aircraftTypeSeatLetters.at(aircraftType));
@@ -23,10 +23,10 @@ std::string seat(faker::AircraftType aircraftType)
 std::string recordLocator(bool allowNumerics)
 {
     if (allowNumerics) {
-        return string::alphanumeric(6, StringCasing::Upper);
+        return string::alphanumeric(6, string::StringCasing::Upper);
     }
 
-    return string::alpha(6, StringCasing::Upper);
+    return string::alpha(6, string::StringCasing::Upper);
 }
 
 std::string flightNumber(bool addLeadingZeros, unsigned int length)
@@ -38,7 +38,7 @@ std::string flightNumber(bool addLeadingZeros, unsigned int length)
     return string::numeric(length, false);
 }
 
-std::string flightNumberByRange(bool addLeadingZeros, faker::Range length)
+std::string flightNumberByRange(bool addLeadingZeros, Range length)
 {
     if (addLeadingZeros) {
         return string::numeric(number::integer(length.min, length.max), true);

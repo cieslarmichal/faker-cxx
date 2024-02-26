@@ -6,6 +6,7 @@
 #include <faker/helper.h>
 #include <faker/number.h>
 #include <iomanip>
+#include <sstream>
 
 namespace faker::date {
 namespace {

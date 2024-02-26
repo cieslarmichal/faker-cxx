@@ -5,7 +5,7 @@ namespace faker::airline::data {
 
 const std::array<std::string_view, 3> aircraftTypes = { "regional", "narrowbody", "widebody" };
 
-const std::array<faker::AirlineStruct, 125> airlines = { {
+const std::array<AirlineStruct, 125> airlines = { {
     { "Aegean Airlines", "A3" },
     { "Aeroflot", "SU" },
     { "Aerolineas Argentinas", "AR" },
@@ -133,7 +133,7 @@ const std::array<faker::AirlineStruct, 125> airlines = { {
     { "Wizz Air", "W6" },
 } };
 
-const std::array<faker::Airplane, 155> airplanes { {
+const std::array<Airplane, 155> airplanes { {
     { "Aerospatiale/BAC Concorde", "SSC" },
     { "Airbus A300", "AB3" },
     { "Airbus A310", "310" },
@@ -291,7 +291,7 @@ const std::array<faker::Airplane, 155> airplanes { {
     { "Yakovlev Yak-42", "YK2" },
 } };
 
-const std::array<faker::Airport, 119> airports = { {
+const std::array<Airport, 119> airports = { {
     { "Adelaide International Airport", "ADL" },
     { "Adolfo Suarez Madrid-Barajas Airport", "MAD" },
     { "Aeroparque Jorge Newbery Airport", "AEP" },
@@ -430,16 +430,16 @@ const std::array<faker::Airport, 119> airports = { {
     { "Zurich Airport", "ZRH" },
 } };
 
-const std::unordered_map<faker::AircraftType, int> aircraftTypeMaxRows = {
-    { faker::AircraftType::Regional, 20 },
-    { faker::AircraftType::Narrowbody, 40 },
-    { faker::AircraftType::Widebody, 60 },
+const std::unordered_map<AircraftType, int> aircraftTypeMaxRows = {
+    { AircraftType::Regional, 20 },
+    { AircraftType::Narrowbody, 40 },
+    { AircraftType::Widebody, 60 },
 };
 
-const std::unordered_map<faker::AircraftType, std::string_view> aircraftTypeSeatLetters = {
-    { faker::AircraftType::Regional, "ABCD" },
-    { faker::AircraftType::Narrowbody, "ABCDEF" },
-    { faker::AircraftType::Widebody, "ABCDEFGHJK" },
+const std::unordered_map<AircraftType, std::string_view> aircraftTypeSeatLetters = {
+    { AircraftType::Regional, "ABCD" },
+    { AircraftType::Narrowbody, "ABCDEF" },
+    { AircraftType::Widebody, "ABCDEFGHJK" },
 };
 
 }

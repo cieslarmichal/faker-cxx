@@ -36,7 +36,7 @@ std::string amount(double min, double max, Precision precision, const std::strin
 std::string iban(std::optional<IbanCountry> country)
 {
     const auto ibanCountry
-        = country ? *country : Helper::arrayElement<IbanCountry>(supportedIbanCountries);
+        = country ? *country : Helper::arrayElement(data::supportedIbanCountries);
 
     const auto& ibanFormat = data::ibanFormats.at(ibanCountry);
 
@@ -53,10 +53,10 @@ std::string iban(std::optional<IbanCountry> country)
 
         if (ibanFormatEntryDataType == 'a') {
             iban += string::alpha(
-                static_cast<unsigned>(ibanFormatEntryDataLength), StringCasing::Upper);
+                static_cast<unsigned>(ibanFormatEntryDataLength), string::StringCasing::Upper);
         } else if (ibanFormatEntryDataType == 'c') {
             iban += string::alphanumeric(
-                static_cast<unsigned>(ibanFormatEntryDataLength), StringCasing::Upper);
+                static_cast<unsigned>(ibanFormatEntryDataLength), string::StringCasing::Upper);
         } else if (ibanFormatEntryDataType == 'n') {
             iban += string::numeric(static_cast<unsigned>(ibanFormatEntryDataLength));
         }
@@ -67,8 +67,7 @@ std::string iban(std::optional<IbanCountry> country)
 
 std::string_view bic(std::optional<BicCountry> country)
 {
-    const auto bicCountry
-        = country ? *country : Helper::arrayElement<BicCountry>(supportedBicCountries);
+    const auto bicCountry = country ? *country : Helper::arrayElement(data::supportedBicCountries);
 
     return Helper::arrayElement(data::bankIdentifiersCodesMapping.at(bicCountry));
 }
@@ -117,7 +116,7 @@ std::string bitcoinAddress()
 
     auto address = Helper::arrayElement<std::string>(std::vector<std::string> { "1", "3" });
 
-    address += string::alphanumeric(addressLength, StringCasing::Mixed, "0OIl");
+    address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
     return address;
 }
@@ -128,7 +127,7 @@ std::string litecoinAddress()
 
     auto address = Helper::arrayElement<std::string>(std::vector<std::string> { "L", "M", "3" });
 
-    address += string::alphanumeric(addressLength, StringCasing::Mixed, "0OIl");
+    address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
     return address;
 }

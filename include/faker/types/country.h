@@ -1,9 +1,6 @@
 #ifndef FAKER_TYPES_COUNTRY_H
 #define FAKER_TYPES_COUNTRY_H
 
-#include <array>
-#include <string_view>
-
 namespace faker {
 enum class Country {
     Usa,
@@ -69,8 +66,6 @@ enum class Country {
     Maldives,
 };
 
-extern const std::array<Country, 61> countries;
-std::string_view toString(Country country);
 }
 
 #endif

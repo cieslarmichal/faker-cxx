@@ -1,11 +1,25 @@
 #ifndef FAKER_IMAGE_H
 #define FAKER_IMAGE_H
 
-#include <faker/types/image_category.h>
 #include <optional>
 #include <string>
 
 namespace faker::image {
+enum class ImageCategory {
+    Animals,
+    Business,
+    Cats,
+    City,
+    Food,
+    Nightlife,
+    Fashion,
+    People,
+    Nature,
+    Sports,
+    Technics,
+    Transport
+};
+
 /**
  * @brief Generates a real image url with `https://loremflickr.com/`.
  *

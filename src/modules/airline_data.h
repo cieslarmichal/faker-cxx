@@ -3,7 +3,6 @@
 
 #include <array>
 #include <faker/airline.h>
-#include <string_view>
 #include <unordered_map>
 
 namespace faker::airline::data {

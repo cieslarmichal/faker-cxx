@@ -13,7 +13,7 @@ TEST(ScienceTest, shouldGenerateChemElement)
 
 TEST(ScienceTest, shouldGenerateAnyUnit)
 {
-    std::vector<faker::Unit> units;
+    std::vector<science::Unit> units;
     units.insert(
         units.end(), science::data::distanceUnits.begin(), science::data::distanceUnits.end());
     units.insert(units.end(), science::data::massUnits.begin(), science::data::massUnits.end());

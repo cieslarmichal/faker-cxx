@@ -52,7 +52,7 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::AirlineAirportCode:
         return std::string(airline::airport().iataCode);
     case StructureToken::AirlineSeat:
-        return airline::seat(AircraftType());
+        return airline::seat(airline::AircraftType());
     case StructureToken::AirlineRecordLocator:
         return airline::recordLocator();
     case StructureToken::AirlineFlightNumber:

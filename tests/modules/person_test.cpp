@@ -1,5 +1,6 @@
 #include "../test_helpers.h"
 #include <algorithm>
+#include <array>
 #include <common/bio_helper.h>
 #include <common/string_helper.h>
 #include <faker/person.h>
@@ -170,7 +171,7 @@ TEST_P(PersonTest, shouldGenerateMaleFirstName)
     const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
-    const auto generatedFirstName = person::firstName(country, Sex::Male);
+    const auto generatedFirstName = person::firstName(country, person::Sex::Male);
 
     FAKER_EXPECT_CONTAINS(malesFirstNames, generatedFirstName);
 }
@@ -181,7 +182,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
     const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
-    const auto generatedFirstName = person::firstName(country, Sex::Female);
+    const auto generatedFirstName = person::firstName(country, person::Sex::Female);
 
     FAKER_EXPECT_CONTAINS(femalesFirstNames, generatedFirstName);
 }
@@ -192,7 +193,7 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
     const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
-    const auto generatedLastName = person::lastName(country, Sex::Male);
+    const auto generatedLastName = person::lastName(country, person::Sex::Male);
 
     FAKER_EXPECT_CONTAINS(malesLastNames, generatedLastName);
 }
@@ -203,7 +204,7 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
     const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
-    const auto generatedLastName = person::lastName(country, Sex::Female);
+    const auto generatedLastName = person::lastName(country, person::Sex::Female);
 
     FAKER_EXPECT_CONTAINS(femalesLastNames, generatedLastName);
 }
@@ -242,7 +243,7 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
-    const auto generatedFullName = person::fullName(country, Sex::Male);
+    const auto generatedFullName = person::fullName(country, person::Sex::Male);
 
     ASSERT_TRUE(faker::testing::any_of(malesFirstNames, [generatedFullName](auto firstName) {
         return generatedFullName.find(firstName) != std::string::npos;
@@ -262,7 +263,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
-    const auto generatedFullName = person::fullName(country, Sex::Female);
+    const auto generatedFullName = person::fullName(country, person::Sex::Female);
 
     ASSERT_TRUE(faker::testing::any_of(femalesFirstNames, [generatedFullName](auto firstName) {
         return generatedFullName.find(firstName) != std::string::npos;
@@ -271,6 +272,70 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
         return generatedFullName.find(lastName) != std::string::npos;
     }));
 }
+
+const std::array<Country, 61> countries {
+    Country::Usa,
+    Country::England,
+    Country::Poland,
+    Country::Italy,
+    Country::France,
+    Country::Germany,
+    Country::Russia,
+    Country::Romania,
+    Country::India,
+    Country::Finland,
+    Country::Nepal,
+    Country::Spain,
+    Country::Turkey,
+    Country::Czech,
+    Country::Slovakia,
+    Country::Ukraine,
+    Country::Denmark,
+    Country::Sweden,
+    Country::Brazil,
+    Country::Norway,
+    Country::Japan,
+    Country::Portugal,
+    Country::Hungary,
+    Country::Croatia,
+    Country::Greece,
+    Country::Slovenia,
+    Country::Austria,
+    Country::Switzerland,
+    Country::Belgium,
+    Country::Netherlands,
+    Country::China,
+    Country::Korea,
+    Country::Canada,
+    Country::Mexico,
+    Country::Argentina,
+    Country::Australia,
+    Country::Serbia,
+    Country::Macedonia,
+    Country::Albania,
+    Country::Latvia,
+    Country::Ireland,
+    Country::Belarus,
+    Country::Estonia,
+    Country::Iran,
+    Country::Bulgaria,
+    Country::Moldova,
+    Country::Lithuania,
+    Country::Iceland,
+    Country::Palestine,
+    Country::Israel,
+    Country::Vietnam,
+    Country::Monaco,
+    Country::Bosnia,
+    Country::Lebanon,
+    Country::Syria,
+    Country::Malta,
+    Country::SouthAfrica,
+    Country::Azerbaijan,
+    Country::Ghana,
+    Country::Kazakhstan,
+    Country::Maldives,
+};
 
 INSTANTIATE_TEST_SUITE_P(TestPersonNamesByCountries, PersonTest, ValuesIn(countries),
     [](const TestParamInfo<Country>& info) { return generatedTestName.at(info.param); });
@@ -291,14 +356,14 @@ TEST_F(PersonTest, shouldGeneratePrefix)
 
 TEST_F(PersonTest, shouldGenerateMalePrefix)
 {
-    const auto generatedPrefix = person::prefix(Sex::Male);
+    const auto generatedPrefix = person::prefix(person::Sex::Male);
 
     FAKER_EXPECT_CONTAINS(malesPrefixes, generatedPrefix);
 }
 
 TEST_F(PersonTest, shouldGenerateFemalePrefix)
 {
-    const auto generatedPrefix = person::prefix(Sex::Female);
+    const auto generatedPrefix = person::prefix(person::Sex::Female);
 
     FAKER_EXPECT_CONTAINS(femalesPrefixes, generatedPrefix);
 }
@@ -402,54 +467,164 @@ TEST_F(PersonTest, shouldGenerateChineseZodiacs)
     FAKER_EXPECT_CONTAINS(person::data::chineseZodiacs, generatedChineseZodiacs);
 }
 
-class PersonSexSuite : public TestWithParam<std::pair<Language, Sex>> { };
+class PersonSexSuite : public TestWithParam<std::pair<person::Language, person::Sex>> { };
 
 TEST_P(PersonSexSuite, shouldTranslateSexCorrectly)
 {
     const auto language = GetParam().first;
     const auto sex = GetParam().second;
 
-    const auto expectedTranslation = sexTranslations.at(language).at(sex);
-    const auto actualTranslation = translateSex(sex, language);
+    const auto expectedTranslation = person::data::sexTranslations.at(language).at(sex);
+    const auto actualTranslation = toString(sex, language);
 
     ASSERT_EQ(expectedTranslation, actualTranslation);
 }
 
-std::vector<std::pair<Language, Sex>> languageSexPairs
-    = { { Language::English, Sex::Male }, { Language::English, Sex::Female },
-          { Language::Polish, Sex::Male }, { Language::Polish, Sex::Female },
-          { Language::Italian, Sex::Male }, { Language::Italian, Sex::Female },
-          { Language::French, Sex::Male }, { Language::French, Sex::Female },
-          { Language::German, Sex::Male }, { Language::German, Sex::Female },
-          { Language::Russian, Sex::Male }, { Language::Russian, Sex::Female },
-          { Language::Romanian, Sex::Male }, { Language::Romanian, Sex::Female },
-          { Language::Hindi, Sex::Male }, { Language::Hindi, Sex::Female },
-          { Language::Finnish, Sex::Male }, { Language::Finnish, Sex::Female },
-          { Language::Nepali, Sex::Male }, { Language::Nepali, Sex::Female },
-          { Language::Spanish, Sex::Male }, { Language::Spanish, Sex::Female },
-          { Language::Turkish, Sex::Male }, { Language::Turkish, Sex::Female },
-          { Language::Czech, Sex::Male }, { Language::Czech, Sex::Female },
-          { Language::Slovak, Sex::Male }, { Language::Slovak, Sex::Female },
-          { Language::Ukrainian, Sex::Male }, { Language::Ukrainian, Sex::Female },
-          { Language::Danish, Sex::Male }, { Language::Danish, Sex::Female },
-          { Language::Swedish, Sex::Male }, { Language::Swedish, Sex::Female },
-          { Language::Portuguese, Sex::Male }, { Language::Portuguese, Sex::Female },
-          { Language::Norwegian, Sex::Male }, { Language::Norwegian, Sex::Female },
-          { Language::Japanese, Sex::Male }, { Language::Japanese, Sex::Female },
-          { Language::Hungarian, Sex::Male }, { Language::Hungarian, Sex::Female },
-          { Language::Croatian, Sex::Male }, { Language::Croatian, Sex::Female },
-          { Language::Greek, Sex::Male }, { Language::Greek, Sex::Female },
-          { Language::Slovene, Sex::Male }, { Language::Slovene, Sex::Female },
-          { Language::Dutch, Sex::Male }, { Language::Dutch, Sex::Female },
-          { Language::Mandarin, Sex::Male }, { Language::Mandarin, Sex::Female },
-          { Language::Korean, Sex::Male }, { Language::Korean, Sex::Female },
-          { Language::Serbian, Sex::Male }, { Language::Serbian, Sex::Female },
-          { Language::Macedonian, Sex::Male }, { Language::Macedonian, Sex::Female },
-          { Language::Albanian, Sex::Male }, { Language::Albanian, Sex::Female },
-          { Language::Latvian, Sex::Male }, { Language::Latvian, Sex::Female },
-          { Language::Irish, Sex::Male }, { Language::Irish, Sex::Female },
-          { Language::Belarusian, Sex::Male }, { Language::Belarusian, Sex::Female },
-          { Language::Estonian, Sex::Male }, { Language::Estonian, Sex::Female } };
+std::vector<std::pair<person::Language, person::Sex>> languageSexPairs
+    = { { person::Language::English, person::Sex::Male },
+          { person::Language::English, person::Sex::Female },
+          { person::Language::Polish, person::Sex::Male },
+          { person::Language::Polish, person::Sex::Female },
+          { person::Language::Italian, person::Sex::Male },
+          { person::Language::Italian, person::Sex::Female },
+          { person::Language::French, person::Sex::Male },
+          { person::Language::French, person::Sex::Female },
+          { person::Language::German, person::Sex::Male },
+          { person::Language::German, person::Sex::Female },
+          { person::Language::Russian, person::Sex::Male },
+          { person::Language::Russian, person::Sex::Female },
+          { person::Language::Romanian, person::Sex::Male },
+          { person::Language::Romanian, person::Sex::Female },
+          { person::Language::Hindi, person::Sex::Male },
+          { person::Language::Hindi, person::Sex::Female },
+          { person::Language::Finnish, person::Sex::Male },
+          { person::Language::Finnish, person::Sex::Female },
+          { person::Language::Nepali, person::Sex::Male },
+          { person::Language::Nepali, person::Sex::Female },
+          { person::Language::Spanish, person::Sex::Male },
+          { person::Language::Spanish, person::Sex::Female },
+          { person::Language::Turkish, person::Sex::Male },
+          { person::Language::Turkish, person::Sex::Female },
+          { person::Language::Czech, person::Sex::Male },
+          { person::Language::Czech, person::Sex::Female },
+          { person::Language::Slovak, person::Sex::Male },
+          { person::Language::Slovak, person::Sex::Female },
+          { person::Language::Ukrainian, person::Sex::Male },
+          { person::Language::Ukrainian, person::Sex::Female },
+          { person::Language::Danish, person::Sex::Male },
+          { person::Language::Danish, person::Sex::Female },
+          { person::Language::Swedish, person::Sex::Male },
+          { person::Language::Swedish, person::Sex::Female },
+          { person::Language::Portuguese, person::Sex::Male },
+          { person::Language::Portuguese, person::Sex::Female },
+          { person::Language::Norwegian, person::Sex::Male },
+          { person::Language::Norwegian, person::Sex::Female },
+          { person::Language::Japanese, person::Sex::Male },
+          { person::Language::Japanese, person::Sex::Female },
+          { person::Language::Hungarian, person::Sex::Male },
+          { person::Language::Hungarian, person::Sex::Female },
+          { person::Language::Croatian, person::Sex::Male },
+          { person::Language::Croatian, person::Sex::Female },
+          { person::Language::Greek, person::Sex::Male },
+          { person::Language::Greek, person::Sex::Female },
+          { person::Language::Slovene, person::Sex::Male },
+          { person::Language::Slovene, person::Sex::Female },
+          { person::Language::Dutch, person::Sex::Male },
+          { person::Language::Dutch, person::Sex::Female },
+          { person::Language::Mandarin, person::Sex::Male },
+          { person::Language::Mandarin, person::Sex::Female },
+          { person::Language::Korean, person::Sex::Male },
+          { person::Language::Korean, person::Sex::Female },
+          { person::Language::Serbian, person::Sex::Male },
+          { person::Language::Serbian, person::Sex::Female },
+          { person::Language::Macedonian, person::Sex::Male },
+          { person::Language::Macedonian, person::Sex::Female },
+          { person::Language::Albanian, person::Sex::Male },
+          { person::Language::Albanian, person::Sex::Female },
+          { person::Language::Latvian, person::Sex::Male },
+          { person::Language::Latvian, person::Sex::Female },
+          { person::Language::Irish, person::Sex::Male },
+          { person::Language::Irish, person::Sex::Female },
+          { person::Language::Belarusian, person::Sex::Male },
+          { person::Language::Belarusian, person::Sex::Female },
+          { person::Language::Estonian, person::Sex::Male },
+          { person::Language::Estonian, person::Sex::Female } };
+
+std::string_view toString(person::Language language)
+{
+    switch (language) {
+    case person::Language::English:
+        return "English";
+    case person::Language::Polish:
+        return "Polish";
+    case person::Language::Italian:
+        return "Italian";
+    case person::Language::French:
+        return "French";
+    case person::Language::German:
+        return "German";
+    case person::Language::Russian:
+        return "Russian";
+    case person::Language::Romanian:
+        return "Romanian";
+    case person::Language::Hindi:
+        return "Hindi";
+    case person::Language::Finnish:
+        return "Finnish";
+    case person::Language::Nepali:
+        return "Nepali";
+    case person::Language::Spanish:
+        return "Spanish";
+    case person::Language::Turkish:
+        return "Turkish";
+    case person::Language::Czech:
+        return "Czech";
+    case person::Language::Slovak:
+        return "Slovak";
+    case person::Language::Ukrainian:
+        return "Ukrainian";
+    case person::Language::Danish:
+        return "Danish";
+    case person::Language::Swedish:
+        return "Swedish";
+    case person::Language::Portuguese:
+        return "Portuguese";
+    case person::Language::Norwegian:
+        return "Norwegian";
+    case person::Language::Japanese:
+        return "Japanese";
+    case person::Language::Hungarian:
+        return "Hungarian";
+    case person::Language::Croatian:
+        return "Croatian";
+    case person::Language::Greek:
+        return "Greek";
+    case person::Language::Slovene:
+        return "Slovene";
+    case person::Language::Dutch:
+        return "Dutch";
+    case person::Language::Mandarin:
+        return "Mandarin";
+    case person::Language::Korean:
+        return "Korean";
+    case person::Language::Serbian:
+        return "Serbian";
+    case person::Language::Macedonian:
+        return "Macedonian";
+    case person::Language::Albanian:
+        return "Albanian";
+    case person::Language::Latvian:
+        return "Latvian";
+    case person::Language::Irish:
+        return "Irish";
+    case person::Language::Belarusian:
+        return "Belarusian";
+    case person::Language::Estonian:
+        return "Estonian";
+    default:
+        throw std::invalid_argument("Invalid language");
+    }
+}
 
 INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, ValuesIn(languageSexPairs),
     [](const TestParamInfo<PersonSexSuite::ParamType>& info) {
@@ -460,18 +635,7 @@ INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, ValuesIn(lang
         return result;
     });
 
-const std::unordered_map<SsnCountry, unsigned> ssnLengths {
-    { SsnCountry::Poland, 11 },
-    { SsnCountry::UnitedStates, 11 },
-    { SsnCountry::UnitedKingdom, 13 },
-    { SsnCountry::Germany, 12 },
-    { SsnCountry::France, 19 },
-    { SsnCountry::Italy, 19 },
-    { SsnCountry::Spain, 10 },
-    { SsnCountry::India, 10 },
-};
-
-class PersonSsnSuite : public TestWithParam<SsnCountry> { };
+class PersonSsnSuite : public TestWithParam<person::SsnCountry> { };
 
 // TODO: add more precise tests
 TEST_P(PersonSsnSuite, shouldGenerateSsn)
@@ -480,12 +644,37 @@ TEST_P(PersonSsnSuite, shouldGenerateSsn)
 
     const auto ssn = person::ssn(country);
 
-    const auto expectedSsnLength = ssnLengths.at(country);
+    const auto expectedSsnLength = person::data::ssnLengths.at(country);
 
     ASSERT_EQ(ssn.size(), expectedSsnLength);
 }
 
-INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite, ValuesIn(supportedSsnCountries),
+std::string_view toString(person::SsnCountry country)
+{
+    switch (country) {
+    case person::SsnCountry::UnitedStates:
+        return "UnitedStates";
+    case person::SsnCountry::UnitedKingdom:
+        return "UnitedKingdom";
+    case person::SsnCountry::Poland:
+        return "Poland";
+    case person::SsnCountry::Italy:
+        return "Italy";
+    case person::SsnCountry::France:
+        return "France";
+    case person::SsnCountry::Germany:
+        return "Germany";
+    case person::SsnCountry::India:
+        return "India";
+    case person::SsnCountry::Spain:
+        return "Spain";
+    default:
+        throw std::invalid_argument("Invalid country");
+    }
+}
+
+INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite,
+    ValuesIn(person::data::supportedSsnCountries),
     [](const TestParamInfo<PersonSsnSuite::ParamType>& info) {
         std::string result("shouldGenerate");
         result += toString(info.param);

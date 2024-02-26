@@ -3,11 +3,12 @@
 
 #include <array>
 #include <faker/types/country.h>
-#include <faker/types/emoji_type.h>
 #include <optional>
 #include <string>
 
 namespace faker::internet {
+enum class EmojiType { Smiley, Body, Person, Nature, Food, Travel, Activity, Object, Symbol, Flag };
+
 enum class HttpResponseType { Informational, Success, Redirection, ClientError, ServerError };
 
 enum class WebProtocol { Http, Https };

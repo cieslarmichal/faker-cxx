@@ -1,11 +1,14 @@
 #ifndef FAKER_SYSTEM_H
 #define FAKER_SYSTEM_H
 
-#include <faker/types/file_type.h>
 #include <optional>
 #include <string>
 
 namespace faker::system {
+enum class FileType { Video, Audio, Image, Text, Application };
+
+std::string_view toString(FileType type);
+
 struct FileOptions {
     int extensionCount = 1;
     struct {

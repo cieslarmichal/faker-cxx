@@ -2,8 +2,8 @@
 #define FAKER_MODULES_PERSON_DATA_H
 
 #include <array>
+#include <faker/person.h>
 #include <faker/types/country.h>
-#include <faker/types/ssn_country.h>
 #include <string_view>
 #include <unordered_map>
 #include <vector>
@@ -45,6 +45,10 @@ struct PeopleNames {
 extern const std::unordered_map<SsnCountry, std::string_view> ssnFormats;
 extern const std::vector<std::string_view> westernZodiacs;
 extern const std::vector<std::string_view> chineseZodiacs;
+extern const std::unordered_map<Language, std::unordered_map<Sex, std::string_view>>
+    sexTranslations;
+extern const std::array<SsnCountry, 8> supportedSsnCountries;
+extern const std::unordered_map<SsnCountry, unsigned> ssnLengths;
 
 // Albania
 

@@ -70,6 +70,8 @@
         "unordered_set": "cpp",
         "variant": "cpp",
         "vector": "cpp",
-        "span": "cpp"
+        "span": "cpp",
+        "memory_resource": "cpp",
+        "version": "cpp"
     }
 }

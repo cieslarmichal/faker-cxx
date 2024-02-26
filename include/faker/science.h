@@ -1,10 +1,20 @@
 #ifndef FAKER_SCIENCE_H
 #define FAKER_SCIENCE_H
 
-#include <faker/types/chemical_element.h>
-#include <faker/types/unit.h>
+#include <string_view>
 
 namespace faker::science {
+struct ChemicalElement {
+    std::string_view name;
+    std::string_view symbol;
+    int atomicNumber;
+};
+
+inline bool operator==(const ChemicalElement& lhs, const ChemicalElement& rhs)
+{
+    return lhs.name == rhs.name && lhs.symbol == rhs.symbol && lhs.atomicNumber == rhs.atomicNumber;
+}
+
 /**
  * @brief Returns a random chemical element from the periodic table.
  *
@@ -16,6 +26,20 @@ namespace faker::science {
  * @endcode
  */
 ChemicalElement chemicalElement();
+
+struct Unit {
+    std::string_view name;
+    std::string_view symbol;
+    std::string_view usedToMeasure;
+};
+
+inline bool operator==(const Unit& lhs, const Unit& rhs)
+{
+    return lhs.name == rhs.name && lhs.symbol == rhs.symbol
+        && lhs.usedToMeasure == rhs.usedToMeasure;
+}
+
+inline bool operator!=(const Unit& lhs, const Unit& rhs) { return !(lhs == rhs); }
 
 /**
  * @brief Returns a unit of measurement for either distance, mass, time, temp, current.

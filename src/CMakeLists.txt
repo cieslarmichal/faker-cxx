@@ -72,12 +72,4 @@ target_sources(
         modules/weather_data.cpp
         modules/word.cpp
         modules/word_data.cpp
-        types/address_country.cpp
-        types/bic_country.cpp
-        types/country.cpp
-        types/file_type.cpp
-        types/iban_country.cpp
-        types/language.cpp
-        types/sex.cpp
-        types/ssn_country.cpp
 )

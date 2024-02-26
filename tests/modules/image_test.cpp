@@ -26,7 +26,7 @@ TEST(ImageTest, shouldGenerateImageUrlCategory)
 {
     auto width = 800;
     auto height = 600;
-    const ImageCategory category = ImageCategory::Fashion;
+    const image::ImageCategory category = image::ImageCategory::Fashion;
 
     auto imageUrl = image::imageUrl(width, height, category);
 

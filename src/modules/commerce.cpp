@@ -112,7 +112,7 @@ std::string ISBN10()
     return isbn10 + std::to_string(checkDigit);
 }
 
-std::string productId() { return string::alphanumeric(10, StringCasing::Upper, ""); }
+std::string productId() { return string::alphanumeric(10, string::StringCasing::Upper, ""); }
 
 std::string_view paymentType() { return Helper::arrayElement(data::paymentTypes); }
 
@@ -135,7 +135,7 @@ std::string_view discountType() { return Helper::arrayElement(data::discountType
 std::string discountCode()
 {
     auto codeLength = number::integer(data::kMinDiscountCodeLength, data::kMaxDiscountCodeLength);
-    return string::alphanumeric(codeLength, StringCasing::Upper);
+    return string::alphanumeric(codeLength, string::StringCasing::Upper);
 }
 
 double discountAmount()

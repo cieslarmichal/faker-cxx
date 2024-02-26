@@ -1,7 +1,7 @@
 #ifndef FAKER_MODULES_STRING_DATA_H
 #define FAKER_MODULES_STRING_DATA_H
 
-#include <faker/types/string_casing.h>
+#include <faker/string.h>
 #include <string_view>
 #include <unordered_map>
 #include <unordered_set>

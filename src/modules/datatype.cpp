@@ -1,5 +1,6 @@
 #include <faker/datatype.h>
 #include <faker/number.h>
+#include <cmath>
 
 namespace faker::datatype {
 bool boolean() { return number::decimal(0., 1.) > 0.5; }

@@ -52,6 +52,24 @@ std::string fileName(const FileOptions& options)
     return baseName + extensionsStr;
 }
 
+std::string_view toString(FileType type)
+{
+    switch (type) {
+    case FileType::Video:
+        return "video";
+    case FileType::Audio:
+        return "audio";
+    case FileType::Image:
+        return "image";
+    case FileType::Text:
+        return "text";
+    case FileType::Application:
+        return "application";
+    default:
+        throw std::invalid_argument("Invalid file type");
+    }
+}
+
 std::string fileExtension(const std::optional<FileType>& mimeType)
 {
     if (mimeType.has_value()) {

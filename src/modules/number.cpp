@@ -1,4 +1,5 @@
 #include <faker/number.h>
+#include <random>
 #include <sstream>
 
 namespace faker::number {
