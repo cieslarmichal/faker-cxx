@@ -1,5 +1,5 @@
+#include "../common/helper.h"
 #include "video_game_data.h"
-#include <faker/helper.h>
 #include <faker/video_game.h>
 
 namespace faker::video_game {

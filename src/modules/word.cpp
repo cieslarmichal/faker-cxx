@@ -1,6 +1,6 @@
+#include "../common/helper.h"
 #include "../common/string_helper.h"
 #include "word_data.h"
-#include <faker/helper.h>
 #include <faker/word.h>
 
 namespace faker::word {

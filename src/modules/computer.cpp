@@ -1,6 +1,6 @@
+#include "../common/helper.h"
 #include "computer_data.h"
 #include <faker/computer.h>
-#include <faker/helper.h>
 
 namespace faker::computer {
 

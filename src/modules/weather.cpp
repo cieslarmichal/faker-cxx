@@ -1,6 +1,6 @@
+#include "../common/helper.h"
 #include "../common/weather_helper.h"
 #include "weather_data.h"
-#include <faker/helper.h>
 #include <faker/number.h>
 #include <faker/weather.h>
 

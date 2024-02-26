@@ -1,5 +1,5 @@
+#include "../common/helper.h"
 #include "medicine_data.h"
-#include <faker/helper.h>
 #include <faker/medicine.h>
 
 namespace faker::medicine {

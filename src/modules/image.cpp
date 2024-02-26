@@ -1,6 +1,6 @@
 #include "../common/format_helper.h"
+#include "../common/helper.h"
 #include "image_data.h"
-#include <faker/helper.h>
 #include <faker/image.h>
 #include <faker/number.h>
 

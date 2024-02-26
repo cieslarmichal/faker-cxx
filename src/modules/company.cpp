@@ -1,7 +1,7 @@
 #include "../common/format_helper.h"
+#include "../common/helper.h"
 #include "company_data.h"
 #include <faker/company.h>
-#include <faker/helper.h>
 #include <faker/person.h>
 
 namespace faker::company {

@@ -1,6 +1,6 @@
+#include "../common/helper.h"
 #include "animal_data.h"
 #include <faker/animal.h>
-#include <faker/helper.h>
 
 namespace faker::animal {
 std::string_view bear() { return Helper::arrayElement(data::bears); }

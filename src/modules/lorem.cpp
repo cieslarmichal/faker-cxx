@@ -1,7 +1,7 @@
 #include "../common/format_helper.h"
+#include "../common/helper.h"
 #include "../common/string_helper.h"
 #include "lorem_data.h"
-#include <faker/helper.h>
 #include <faker/lorem.h>
 
 namespace faker::lorem {

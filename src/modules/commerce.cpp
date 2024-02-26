@@ -1,8 +1,8 @@
 #include "../common/format_helper.h"
+#include "../common/helper.h"
 #include "commerce_data.h"
 #include <faker/commerce.h>
 #include <faker/finance.h>
-#include <faker/helper.h>
 #include <faker/string.h>
 
 namespace faker::commerce {

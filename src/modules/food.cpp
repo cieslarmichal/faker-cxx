@@ -1,6 +1,6 @@
+#include "../common/helper.h"
 #include "food_data.h"
 #include <faker/food.h>
-#include <faker/helper.h>
 
 namespace faker::food {
 

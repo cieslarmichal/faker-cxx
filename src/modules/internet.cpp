@@ -1,9 +1,9 @@
 #include "../common/format_helper.h"
+#include "../common/helper.h"
 #include "../common/string_helper.h"
 #include "internet_data.h"
 #include "string_data.h"
 #include <cassert>
-#include <faker/helper.h>
 #include <faker/internet.h>
 #include <faker/person.h>
 #include <faker/string.h>

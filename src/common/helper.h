@@ -3,9 +3,9 @@
 
 #include <algorithm>
 #include <array>
+#include <faker/compat/span.h>
 #include <faker/datatype.h>
 #include <faker/number.h>
-#include <faker/compat/span.h>
 #include <functional>
 #include <numeric>
 #include <random>
@@ -336,7 +336,8 @@ public:
      */
     static std::string regexpStyleStringParse(const std::string& input);
 
-    static std::string regexpStyleStringParse(const std::string_view& input) {
+    static std::string regexpStyleStringParse(const std::string_view& input)
+    {
         return regexpStyleStringParse(std::string(input));
     }
 

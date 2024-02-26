@@ -1,7 +1,7 @@
+#include "../common/helper.h"
 #include "../common/string_helper.h"
 #include "hacker_data.h"
 #include <faker/hacker.h>
-#include <faker/helper.h>
 
 namespace faker::hacker {
 std::string_view abbreviation() { return Helper::arrayElement(data::abbreviations); }

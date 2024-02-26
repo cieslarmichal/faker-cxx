@@ -1,5 +1,5 @@
+#include "../common/helper.h"
 #include "sport_data.h"
-#include <faker/helper.h>
 #include <faker/sport.h>
 
 namespace faker::sport {

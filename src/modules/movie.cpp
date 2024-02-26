@@ -1,5 +1,5 @@
+#include "../common/helper.h"
 #include "movie_data.h"
-#include <faker/helper.h>
 #include <faker/movie.h>
 
 namespace faker::movie {

@@ -1,5 +1,5 @@
+#include "../common/helper.h"
 #include "phone_data.h"
-#include <faker/helper.h>
 #include <faker/phone.h>
 #include <string>
 #include <unordered_map>

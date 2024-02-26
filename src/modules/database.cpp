@@ -1,6 +1,6 @@
+#include "../common/helper.h"
 #include "database_data.h"
 #include <faker/database.h>
-#include <faker/helper.h>
 #include <faker/string.h>
 
 namespace faker::database {

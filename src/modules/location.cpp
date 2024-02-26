@@ -1,7 +1,7 @@
 #include "../common/format_helper.h"
+#include "../common/helper.h"
 #include "../common/mappers/precision_mapper/precision_mapper.h"
 #include "location_data.h"
-#include <faker/helper.h>
 #include <faker/location.h>
 #include <faker/person.h>
 #include <faker/string.h>

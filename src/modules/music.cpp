@@ -1,5 +1,5 @@
+#include "../common/helper.h"
 #include "music_data.h"
-#include <faker/helper.h>
 #include <faker/music.h>
 
 namespace faker::music {

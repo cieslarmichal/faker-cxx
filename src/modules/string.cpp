@@ -1,6 +1,6 @@
+#include "../common/helper.h"
 #include "string_data.h"
 #include <cassert>
-#include <faker/helper.h>
 #include <faker/number.h>
 #include <faker/string.h>
 #include <random>

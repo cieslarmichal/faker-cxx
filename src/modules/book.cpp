@@ -1,8 +1,8 @@
 #include "../common/format_helper.h"
+#include "../common/helper.h"
 #include "book_data.h"
 #include <faker/book.h>
 #include <faker/date.h>
-#include <faker/helper.h>
 #include <faker/number.h>
 #include <faker/string.h>
 

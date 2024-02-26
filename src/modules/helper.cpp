@@ -1,8 +1,8 @@
+#include "../common/helper.h"
 #include "../common/luhn_check.h"
 #include "../common/string_helper.h"
 #include <algorithm>
 #include <chrono>
-#include <faker/helper.h>
 #include <random>
 #include <regex>
 #include <string>

@@ -1,6 +1,6 @@
+#include "../common/helper.h"
 #include "airline_data.h"
 #include <faker/airline.h>
-#include <faker/helper.h>
 #include <faker/number.h>
 #include <faker/string.h>
 #include <string>

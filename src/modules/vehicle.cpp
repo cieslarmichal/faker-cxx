@@ -1,6 +1,6 @@
 #include "../common/format_helper.h"
+#include "../common/helper.h"
 #include "vehicle_data.h"
-#include <faker/helper.h>
 #include <faker/number.h>
 #include <faker/string.h>
 #include <faker/vehicle.h>
