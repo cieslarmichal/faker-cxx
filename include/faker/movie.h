@@ -21,10 +21,10 @@ std::string_view genre();
  * @returns movie title.
  *
  * @code
- * movie::movieTitle() // "Pulp Fiction"
+ * movie::movie_title() // "Pulp Fiction"
  * @endcode
  */
-std::string_view movieTitle();
+std::string_view movie_title();
 
 /**
  * @brief Returns a random tv show.
@@ -32,10 +32,10 @@ std::string_view movieTitle();
  * @returns Tv show.
  *
  * @code
- * movie::tvShow() // "The Sopranos"
+ * movie::tv_show() // "The Sopranos"
  * @endcode
  */
-std::string_view tvShow();
+std::string_view tv_show();
 
 /**
  * @brief Returns a random movie director name.

@@ -45,10 +45,10 @@ std::string sku(unsigned length = 4);
  * @returns Product adjective.
  *
  * @code
- * commerce::productAdjective() // "Handcrafted"
+ * commerce::product_adjective() // "Handcrafted"
  * @endcode
  */
-std::string_view productAdjective();
+std::string_view product_adjective();
 
 /**
  * @brief Returns a random product material.
@@ -56,10 +56,10 @@ std::string_view productAdjective();
  * @returns Product material.
  *
  * @code
- * commerce::productMaterial() // "Wooden"
+ * commerce::product_material() // "Wooden"
  * @endcode
  */
-std::string_view productMaterial();
+std::string_view product_material();
 
 /**
  * @brief Returns a random product short name.
@@ -67,10 +67,10 @@ std::string_view productMaterial();
  * @returns Product short name.
  *
  * @code
- * commerce::productName() // "Computer"
+ * commerce::product_name() // "Computer"
  * @endcode
  */
-std::string_view productName();
+std::string_view product_name();
 
 /**
  * @brief Returns a random product full name.
@@ -78,10 +78,10 @@ std::string_view productName();
  * @returns Product full name.
  *
  * @code
- * commerce::productFullName() // "Incredible Soft Gloves"
+ * commerce::product_full_name() // "Incredible Soft Gloves"
  * @endcode
  */
-std::string productFullName();
+std::string product_full_name();
 
 /**
  * @brief Returns a random valid ean13 code.
@@ -89,10 +89,10 @@ std::string productFullName();
  * @returns Ean13 code.
  *
  * @code
- * commerce::EAN13() // "1234567890128"
+ * commerce::ean13() // "1234567890128"
  * @endcode
  */
-std::string EAN13();
+std::string ean13();
 
 /**
  * @brief Returns a random valid ean8 code.
@@ -100,10 +100,10 @@ std::string EAN13();
  * @returns Ean8 code.
  *
  * @code
- * commerce::EAN8() // "90311017"
+ * commerce::ean8() // "90311017"
  * @endcode
  */
-std::string EAN8();
+std::string ean8();
 
 /**
  * @brief Returns a random valid isbn13 code.
@@ -111,10 +111,10 @@ std::string EAN8();
  * @returns Isbn13 code.
  *
  * @code
- * commerce::ISBN13() // "9781234567897"
+ * commerce::isbn13() // "9781234567897"
  * @endcode
  */
-std::string ISBN13();
+std::string isbn13();
 
 /**
  * @brief Returns a random valid ISBN10 code.
@@ -122,10 +122,10 @@ std::string ISBN13();
  * @returns Isbn10 code.
  *
  * @code
- * commerce::ISBN10() // "0200716018"
+ * commerce::isbn10() // "0200716018"
  * @endcode
  */
-std::string ISBN10();
+std::string isbn10();
 
 /**
  * @brief Returns a random product ID.
@@ -133,10 +133,10 @@ std::string ISBN10();
  * @returns productId.
  *
  * @code
- * commerce::productId() // "ABCD123456"
+ * commerce::product_id() // "ABCD123456"
  * @endcode
  */
-std::string productId();
+std::string product_id();
 
 /**
  * @brief Returns a random payment type.
@@ -144,10 +144,10 @@ std::string productId();
  * @returns paymentType.
  *
  * @code
- * commerce::paymentType() // "Credit Card"
+ * commerce::payment_type() // "Credit Card"
  * @endcode
  */
-std::string_view paymentType();
+std::string_view payment_type();
 
 /**
  * @brief Returns a random payment provider.
@@ -155,10 +155,10 @@ std::string_view paymentType();
  * @returns paymentProvider.
  *
  * @code
- * commerce::paymentProvider() // "Paypal"
+ * commerce::payment_provider() // "Paypal"
  * @endcode
  */
-std::string_view paymentProvider();
+std::string_view payment_provider();
 
 /**
  * @brief Returns a random product description.
@@ -166,10 +166,10 @@ std::string_view paymentProvider();
  * @returns productDescription.
  *
  * @code
- * commerce::productDescription() // "Elevate your lifestyle with premium quality product."
+ * commerce::product_description() // "Elevate your lifestyle with premium quality product."
  * @endcode
  */
-std::string_view productDescription();
+std::string_view product_description();
 
 /**
  * @brief Returns a random product category.
@@ -177,10 +177,10 @@ std::string_view productDescription();
  * @returns productCategory.
  *
  * @code
- * commerce::productCategory() // "Electronics"
+ * commerce::product_category() // "Electronics"
  * @endcode
  */
-std::string_view productCategory();
+std::string_view product_category();
 
 /**
  * @brief Returns a random product review.
@@ -188,10 +188,10 @@ std::string_view productCategory();
  * @returns productReview.
  *
  * @code
- * commerce::productReview() //  "Unfortunately, it broke shortly after I started using it."
+ * commerce::product_review() //  "Unfortunately, it broke shortly after I started using it."
  * @endcode
  */
-std::string_view productReview();
+std::string_view product_review();
 
 /**
  * @brief Returns a random product rating (0-5).
@@ -199,10 +199,10 @@ std::string_view productReview();
  * @returns productRating.
  *
  * @code
- * commerce::productRating() // 4.1
+ * commerce::product_rating() // 4.1
  * @endcode
  */
-double productRating();
+double product_rating();
 
 /**
  * @brief Returns a random discount type.
@@ -210,10 +210,10 @@ double productRating();
  * @returns discountType.
  *
  * @code
- * commerce::discountType() // "percentage"
+ * commerce::discount_type() // "percentage"
  * @endcode
  */
-std::string_view discountType();
+std::string_view discount_type();
 
 /**
  * @brief Returns random discount code within the specified range of 6 to 12 characters.
@@ -221,10 +221,10 @@ std::string_view discountType();
  * @returns discount code consists of uppercase letters and numbers.
  *
  * @code
- * commerce::discountCode() // "VNM15DEC1"
+ * commerce::discount_code() // "VNM15DEC1"
  * @endcode
  */
-std::string discountCode();
+std::string discount_code();
 
 /**
  * @brief Returns a random discount amount within the specified range of 10 to 1000.
@@ -232,10 +232,10 @@ std::string discountCode();
  * @returns discountAmount.
  *
  * @code
- * commerce::discountAmount() // 57.80
+ * commerce::discount_amount() // 57.80
  * @endcode
  */
-double discountAmount();
+double discount_amount();
 
 /**
  * @brief Returns a random discount percentage within the specified range of 1. to 90.
@@ -243,10 +243,10 @@ double discountAmount();
  * @returns discountPercentage.
  *
  * @code
- * commerce::discountPercentage() // 35.50
+ * commerce::discount_percentage() // 35.50
  * @endcode
  */
-double discountPercentage();
+double discount_percentage();
 }
 
 #endif

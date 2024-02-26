@@ -49,7 +49,7 @@ TEST(BookTest, shouldGenerateIsbn)
 
 TEST(BookTest, shouldGenerateReleaseYear)
 {
-    auto releaseYear = book::releaseYear();
+    auto releaseYear = book::release_year();
 
     ASSERT_TRUE((releaseYear >= 1940) && (releaseYear <= 2024));
 }

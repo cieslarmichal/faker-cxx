@@ -10,13 +10,13 @@
 namespace faker::finance {
 Currency currency() { return Helper::arrayElement(data::currencies); }
 
-std::string_view currencyName() { return Helper::arrayElement(data::currencies).name; }
+std::string_view currency_name() { return Helper::arrayElement(data::currencies).name; }
 
-std::string_view currencyCode() { return Helper::arrayElement(data::currencies).code; }
+std::string_view currency_code() { return Helper::arrayElement(data::currencies).code; }
 
-std::string_view currencySymbol() { return Helper::arrayElement(data::currencies).symbol; }
+std::string_view currency_symbol() { return Helper::arrayElement(data::currencies).symbol; }
 
-std::string_view accountType() { return Helper::arrayElement(data::accountTypes); }
+std::string_view account_type() { return Helper::arrayElement(data::accountTypes); }
 
 std::string amount(double min, double max, Precision precision, const std::string& symbol)
 {
@@ -66,13 +66,13 @@ std::string_view bic(std::optional<BicCountry> country)
     return Helper::arrayElement(data::bankIdentifiersCodesMapping.at(bicCountry));
 }
 
-std::string accountNumber(unsigned int length) { return string::numeric(length, true); }
+std::string account_number(unsigned int length) { return string::numeric(length, true); }
 
 std::string pin(unsigned int length) { return string::numeric(length, true); }
 
-std::string routingNumber() { return string::numeric(9, true); }
+std::string routing_number() { return string::numeric(9, true); }
 
-std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
+std::string credit_card_number(std::optional<CreditCardType> creditCardType)
 {
     static const std::unordered_map<CreditCardType, std::vector<std::string_view>>
         creditCardTypeToNumberFormats {
@@ -102,9 +102,9 @@ std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
     return Helper::replaceCreditCardSymbols(std::string(creditCardFormat));
 }
 
-std::string creditCardCvv() { return string::numeric(3, true); }
+std::string credit_card_cvv() { return string::numeric(3, true); }
 
-std::string bitcoinAddress()
+std::string bitcoin_address()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
@@ -115,7 +115,7 @@ std::string bitcoinAddress()
     return address;
 }
 
-std::string litecoinAddress()
+std::string litecoin_address()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
@@ -126,11 +126,11 @@ std::string litecoinAddress()
     return address;
 }
 
-std::string ethereumAddress() { return string::hexadecimal(40, HexCasing::Lower); }
+std::string ethereum_address() { return string::hexadecimal(40, HexCasing::Lower); }
 
-std::string creditCardExpirationDate()
+std::string credit_card_expiration_date()
 {
-    const auto expirationDate = date::futureDate(3);
+    const auto expirationDate = date::future(3);
     return expirationDate.substr(5, 2) + "/" + expirationDate.substr(2, 2);
 }
 }

@@ -65,10 +65,10 @@ std::string isbn();
  * @returns int year
  *
  * @code
- * book::releaseYear() // 2016
+ * book::release_year() // 2016
  * @endcode
  */
-int releaseYear();
+int release_year();
 
 /**
  * @brief Returns the full name of a translator

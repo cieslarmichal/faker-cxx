@@ -29,13 +29,13 @@ Visibility visibility()
     return { metric, imperial };
 }
 
-WindSpeed windSpeed() { return { number::decimal(0.1, 24.2), number::decimal(0.1, 15.0) }; }
+WindSpeed wind_speed() { return { number::decimal(0.1, 24.2), number::decimal(0.1, 15.0) }; }
 
-int uvIndex() { return number::integer(0, 11); }
+int uv_index() { return number::integer(0, 11); }
 
 int humidity() { return number::integer(0, 100); }
 
-std::string_view weatherDescription() { return Helper::arrayElement(data::weatherDescriptions); }
+std::string_view description() { return Helper::arrayElement(data::weatherDescriptions); }
 
-int cloudCover() { return number::integer(0, 100); }
+int cloud_cover() { return number::integer(0, 100); }
 }

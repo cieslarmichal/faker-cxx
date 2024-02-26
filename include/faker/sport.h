@@ -21,10 +21,10 @@ std::string_view sport();
  * @returns soccer team.
  *
  * @code
- * sport::soccerTeam() // "Manchester United"
+ * sport::soccer_team() // "Manchester United"
  * @endcode
  */
-std::string_view soccerTeam();
+std::string_view soccer_team();
 
 /**
  * @brief Returns a random male athlete.
@@ -32,10 +32,10 @@ std::string_view soccerTeam();
  * @returns male athlete.
  *
  * @code
- * sport::maleAthlete() // "Cristiano Ronaldo"
+ * sport::male_athlete() // "Cristiano Ronaldo"
  * @endcode
  */
-std::string_view maleAthlete();
+std::string_view male_athlete();
 
 /**
  * @brief Returns a random female athlete.
@@ -43,10 +43,10 @@ std::string_view maleAthlete();
  * @returns female athlete.
  *
  * @code
- * sport::femaleAthlete() // "Serena Williams"
+ * sport::female_athlete() // "Serena Williams"
  * @endcode
  */
-std::string_view femaleAthlete();
+std::string_view female_athlete();
 
 /**
  * @brief Returns a random sport Event.
@@ -54,10 +54,10 @@ std::string_view femaleAthlete();
  * @returns sport Event.
  *
  * @code
- * sport::sportEvent() // "Super Bowl"
+ * sport::sport_event() // "Super Bowl"
  * @endcode
  */
-std::string_view sportEvent();
+std::string_view sport_event();
 }
 
 #endif

@@ -3,5 +3,6 @@
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 STYLE=$SCRIPT_DIR/.clang-format
 
+find ../include -type f -a '(' -name '*.cpp' -o -name '*.h' ')' | xargs clang-format --style=file:$STYLE -i
 find ../src -type f -a '(' -name '*.cpp' -o -name '*.h' ')' | xargs clang-format --style=file:$STYLE -i
 find ../tests -type f -a '(' -name '*.cpp' -o -name '*.h' ')' | xargs clang-format --style=file:$STYLE -i

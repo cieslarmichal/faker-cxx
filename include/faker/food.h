@@ -10,10 +10,10 @@ namespace faker::food {
  * @returns Alcoholic beverage.
  *
  * @code
- * food::alcoholicBeverage() // "champain"
+ * food::alcoholic_beverage() // "champain"
  * @endcode
  */
-std::string_view alcoholicBeverage();
+std::string_view alcoholic_beverage();
 
 /**
  * @brief Returns a random grain measurement.
@@ -32,10 +32,10 @@ std::string_view grain();
  * @returns Milk product.
  *
  * @code
- * food::milkProduct() // "mozzarella"
+ * food::milk_product() // "mozzarella"
  * @endcode
  */
-std::string_view milkProduct();
+std::string_view milk_product();
 
 /**
  * @brief Returns a random fruit's name.
@@ -120,10 +120,10 @@ std::string_view seed();
  * @returns Sugar product.
  *
  * @code
- * food::sugarProduct() // "honey harmony"
+ * food::sugar_product() // "honey harmony"
  * @endcode
  */
-std::string_view sugarProduct();
+std::string_view sugar_product();
 
 /**
  * @brief Returns a random non-alcoholic beverage's name.
@@ -131,10 +131,10 @@ std::string_view sugarProduct();
  * @returns Non-alcoholic Beverage.
  *
  * @code
- * food::nonalcoholicBeverage() // "water"
+ * food::non_alcoholic_beverage() // "water"
  * @endcode
  */
-std::string_view nonalcoholicBeverage();
+std::string_view non_alcoholic_beverage();
 
 /**
  * @brief Returns a random dish's name.
@@ -142,10 +142,10 @@ std::string_view nonalcoholicBeverage();
  * @returns Dish.
  *
  * @code
- * food::dishName() // "beef wellington"
+ * food::dish_name() // "beef wellington"
  * @endcode
  */
-std::string_view dishName();
+std::string_view dish_name();
 
 /**
  * @brief Returns a random food categories' name.
@@ -153,10 +153,10 @@ std::string_view dishName();
  * @returns food Category.
  *
  * @code
- * food::foodCategory() // "Dairy"
+ * food::category() // "Dairy"
  * @endcode
  */
-std::string_view foodCategory();
+std::string_view category();
 }
 
 #endif

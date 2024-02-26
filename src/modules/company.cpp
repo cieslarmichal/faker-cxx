@@ -14,19 +14,19 @@ std::string name()
     switch (number::integer(3)) {
     case 0:
         companyName = FormatHelper::format(
-            "{} {}", person::lastName(), Helper::arrayElement(data::companySuffixes));
+            "{} {}", person::last_name(), Helper::arrayElement(data::companySuffixes));
         break;
     case 1:
         companyName = FormatHelper::format(
-            "{} {} {}", person::firstName(), person::lastName(), person::jobArea());
+            "{} {} {}", person::first_name(), person::last_name(), person::job_area());
         break;
     case 2:
         companyName = FormatHelper::format(
-            "{} {} {} Services", person::firstName(), person::lastName(), person::jobArea());
+            "{} {} {} Services", person::first_name(), person::last_name(), person::job_area());
         break;
     case 3:
-        companyName = FormatHelper::format("{} {} {} {}", person::firstName(), person::lastName(),
-            person::jobArea(), Helper::arrayElement(data::companySuffixes));
+        companyName = FormatHelper::format("{} {} {} {}", person::first_name(), person::last_name(),
+            person::job_area(), Helper::arrayElement(data::companySuffixes));
         break;
     }
 
@@ -37,32 +37,32 @@ std::string_view type() { return Helper::arrayElement(data::companyTypes); }
 
 std::string_view industry() { return Helper::arrayElement(data::companyIndustries); }
 
-std::string buzzPhrase()
+std::string buzz_phrase()
 {
-    return FormatHelper::format("{} {} {}", buzzVerb(), buzzAdjective(), buzzNoun());
+    return FormatHelper::format("{} {} {}", buzz_verb(), buzz_adjective(), buzz_noun());
 }
 
-std::string_view buzzAdjective() { return Helper::arrayElement(data::buzzAdjectives); }
+std::string_view buzz_adjective() { return Helper::arrayElement(data::buzzAdjectives); }
 
-std::string_view buzzNoun() { return Helper::arrayElement(data::buzzNouns); }
+std::string_view buzz_noun() { return Helper::arrayElement(data::buzzNouns); }
 
-std::string_view buzzVerb() { return Helper::arrayElement(data::buzzVerbs); }
+std::string_view buzz_verb() { return Helper::arrayElement(data::buzzVerbs); }
 
-std::string catchPhrase()
+std::string catch_phrase()
 {
     return FormatHelper::format(
-        "{} {} {}", catchPhraseAdjective(), catchPhraseDescriptor(), catchPhraseNoun());
+        "{} {} {}", catch_phrase_adjective(), catch_phrase_descriptor(), catch_phrase_noun());
 }
 
-std::string_view catchPhraseAdjective()
+std::string_view catch_phrase_adjective()
 {
     return Helper::arrayElement(data::catchPhraseAdjectives);
 }
 
-std::string_view catchPhraseDescriptor()
+std::string_view catch_phrase_descriptor()
 {
     return Helper::arrayElement(data::catchPhraseDescriptors);
 }
 
-std::string_view catchPhraseNoun() { return Helper::arrayElement(data::catchPhraseNouns); }
+std::string_view catch_phrase_noun() { return Helper::arrayElement(data::catchPhraseNouns); }
 }

@@ -15,7 +15,7 @@ namespace {
     std::string suffixForCountry(Country country, std::optional<Sex> sex);
 }
 
-std::string_view toString(Sex sex, Language language)
+std::string_view to_string(Sex sex, Language language)
 {
     const auto& sexTranslation = data::sexTranslations.find(language);
 
@@ -26,7 +26,7 @@ std::string_view toString(Sex sex, Language language)
     return sexTranslation->second.at(sex);
 }
 
-std::string firstName(Country country, std::optional<Sex> sex)
+std::string first_name(Country country, std::optional<Sex> sex)
 {
     const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
 
@@ -51,7 +51,7 @@ std::string firstName(Country country, std::optional<Sex> sex)
     return Helper::arrayElement<std::string>(firstNames);
 }
 
-std::string lastName(Country country, std::optional<Sex> sex)
+std::string last_name(Country country, std::optional<Sex> sex)
 {
     const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
 
@@ -76,7 +76,7 @@ std::string lastName(Country country, std::optional<Sex> sex)
     return Helper::arrayElement<std::string>(lastNames);
 }
 
-std::string middleName(std::optional<Sex> sex)
+std::string middle_name(std::optional<Sex> sex)
 {
     std::vector<std::string> allMiddleNames;
 
@@ -110,13 +110,13 @@ std::string middleName(std::optional<Sex> sex)
 
     if (allMiddleNames.empty()) {
         throw std::runtime_error { FormatHelper::format(
-            "No middle name fround, sex: {}.", sex ? toString(*sex) : "none") };
+            "No middle name fround, sex: {}.", sex ? to_string(*sex) : "none") };
     }
 
     return Helper::arrayElement<std::string>(allMiddleNames);
 }
 
-std::string fullName(Country country, std::optional<Sex> sex)
+std::string full_name(Country country, std::optional<Sex> sex)
 {
     const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
 
@@ -129,11 +129,11 @@ std::string fullName(Country country, std::optional<Sex> sex)
 
     return FormatHelper::fillTokenValues(nameFormat, [country, sex](auto token) {
         if (token == "firstName") {
-            return firstName(country, sex);
+            return first_name(country, sex);
         } else if (token == "middleName") {
             return middleNameForCountry(country, sex);
         } else if (token == "lastName") {
-            return lastName(country, sex);
+            return last_name(country, sex);
         } else if (token == "prefix") {
             return prefixForCountry(country, sex);
         } else if (token == "suffix") {
@@ -176,7 +176,7 @@ std::string prefix(std::optional<Sex> sex)
 
     if (allPrefixes.empty()) {
         throw std::runtime_error { FormatHelper::format(
-            "No prefixes fround, sex: {}.", sex ? toString(*sex) : "none") };
+            "No prefixes fround, sex: {}.", sex ? to_string(*sex) : "none") };
     }
 
     return Helper::arrayElement<std::string>(allPrefixes);
@@ -230,21 +230,21 @@ std::string_view sex(Language language)
 
     const auto chosenSex = Helper::arrayElement(sexes);
 
-    return toString(chosenSex, language);
+    return to_string(chosenSex, language);
 }
 
 std::string_view gender() { return Helper::arrayElement(data::genders); }
 
-std::string jobTitle()
+std::string job_title()
 {
-    return FormatHelper::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
+    return FormatHelper::format("{} {} {}", job_descriptor(), job_area(), job_type());
 }
 
-std::string_view jobDescriptor() { return Helper::arrayElement(data::jobDescriptors); }
+std::string_view job_descriptor() { return Helper::arrayElement(data::jobDescriptors); }
 
-std::string_view jobArea() { return Helper::arrayElement(data::jobAreas); }
+std::string_view job_area() { return Helper::arrayElement(data::jobAreas); }
 
-std::string_view jobType() { return Helper::arrayElement(data::jobTypes); }
+std::string_view job_type() { return Helper::arrayElement(data::jobTypes); }
 
 std::string_view hobby() { return Helper::arrayElement(data::hobbies); }
 
@@ -277,9 +277,9 @@ std::string ssn(std::optional<SsnCountry> country)
     return ssn;
 }
 
-std::string_view westernZodiac() { return Helper::arrayElement(data::westernZodiacs); }
+std::string_view western_zodiac() { return Helper::arrayElement(data::westernZodiacs); }
 
-std::string_view chineseZodiac() { return Helper::arrayElement(data::chineseZodiacs); }
+std::string_view chinese_zodiac() { return Helper::arrayElement(data::chineseZodiacs); }
 
 namespace {
     std::string middleNameForCountry(Country country, std::optional<Sex> sex)

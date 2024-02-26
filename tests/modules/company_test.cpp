@@ -59,7 +59,7 @@ TEST(CompanyTest, shouldGenerateCompanyIndustry)
 
 TEST(CompanyTest, shouldGenerateBuzzPhrase)
 {
-    auto buzzPhrase = company::buzzPhrase();
+    auto buzzPhrase = company::buzz_phrase();
 
     FAKER_EXPECT_STRING_CONTAINS(buzzPhrase, company::data::buzzVerbs);
     FAKER_EXPECT_STRING_CONTAINS(buzzPhrase, company::data::buzzAdjectives);
@@ -68,28 +68,28 @@ TEST(CompanyTest, shouldGenerateBuzzPhrase)
 
 TEST(CompanyTest, shouldGenerateBuzzVerb)
 {
-    auto generatedBuzzVerb = company::buzzVerb();
+    auto generatedBuzzVerb = company::buzz_verb();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(company::data::buzzVerbs, generatedBuzzVerb);
 }
 
 TEST(CompanyTest, shouldGenerateBuzzAdjective)
 {
-    auto generatedBuzzAdjective = company::buzzAdjective();
+    auto generatedBuzzAdjective = company::buzz_adjective();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(company::data::buzzAdjectives, generatedBuzzAdjective);
 }
 
 TEST(CompanyTest, shouldGenerateBuzzNoun)
 {
-    auto generatedBuzzNoun = company::buzzNoun();
+    auto generatedBuzzNoun = company::buzz_noun();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(company::data::buzzNouns, generatedBuzzNoun);
 }
 
 TEST(CompanyTest, shouldGenerateCatchPhrase)
 {
-    auto catchPhrase = company::catchPhrase();
+    auto catchPhrase = company::catch_phrase();
 
     FAKER_EXPECT_STRING_CONTAINS(catchPhrase, company::data::catchPhraseAdjectives);
     FAKER_EXPECT_STRING_CONTAINS(catchPhrase, company::data::catchPhraseDescriptors);
@@ -98,7 +98,7 @@ TEST(CompanyTest, shouldGenerateCatchPhrase)
 
 TEST(CompanyTest, shouldGenerateCatchPhraseAdjective)
 {
-    auto generatedCatchPhraseAdjective = company::catchPhraseAdjective();
+    auto generatedCatchPhraseAdjective = company::catch_phrase_adjective();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
         company::data::catchPhraseAdjectives, generatedCatchPhraseAdjective);
@@ -106,7 +106,7 @@ TEST(CompanyTest, shouldGenerateCatchPhraseAdjective)
 
 TEST(CompanyTest, shouldGenerateCatchPhraseDescriptor)
 {
-    auto generatedCatchPhraseDescriptor = company::catchPhraseDescriptor();
+    auto generatedCatchPhraseDescriptor = company::catch_phrase_descriptor();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
         company::data::catchPhraseDescriptors, generatedCatchPhraseDescriptor);
@@ -114,7 +114,7 @@ TEST(CompanyTest, shouldGenerateCatchPhraseDescriptor)
 
 TEST(CompanyTest, shouldGenerateCatchPhraseNoun)
 {
-    auto generatedCatchPhraseNoun = company::catchPhraseNoun();
+    auto generatedCatchPhraseNoun = company::catch_phrase_noun();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(company::data::catchPhraseNouns, generatedCatchPhraseNoun);
 }

@@ -305,7 +305,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmail)
     firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
         person::data::englishFemalesFirstNames.end());
 
-    const auto email = internet::exampleEmail();
+    const auto email = internet::example_email();
 
     const auto emailParts = StringHelper::split(email, "@");
 
@@ -328,7 +328,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
 {
     const auto firstName = "Barry";
 
-    const auto email = internet::exampleEmail(firstName);
+    const auto email = internet::example_email(firstName);
 
     const auto emailParts = StringHelper::split(email, "@");
 
@@ -355,7 +355,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 
     const auto lastName = "Wilkinson";
 
-    const auto email = internet::exampleEmail(std::nullopt, lastName);
+    const auto email = internet::example_email(std::nullopt, lastName);
 
     const auto emailParts = StringHelper::split(email, "@");
 
@@ -383,7 +383,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 
     const auto lastName = "Brown";
 
-    const auto email = internet::exampleEmail(firstName, lastName);
+    const auto email = internet::example_email(firstName, lastName);
 
     const auto emailParts = StringHelper::split(email, "@");
 
@@ -528,14 +528,14 @@ TEST_F(InternetTest, shouldGenerateProtocol)
 
 TEST_F(InternetTest, shouldGenerateHttpMethod)
 {
-    const auto generatedHttpMethod = internet::httpMethod();
+    const auto generatedHttpMethod = internet::http_method();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(httpMethodNames, generatedHttpMethod);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpStatusCode)
 {
-    const auto generatedHttpStatusCode = internet::httpStatusCode();
+    const auto generatedHttpStatusCode = internet::http_status_code();
 
     std::vector<unsigned> statusCodes;
     statusCodes.insert(statusCodes.end(), httpStatusInformationalCodes.begin(),
@@ -554,14 +554,14 @@ TEST_F(InternetTest, shouldGenerateHttpStatusCode)
 
 TEST_F(InternetTest, shouldGenerateHttpRequestHeader)
 {
-    const auto generatedHttpRequestHeader = internet::httpRequestHeader();
+    const auto generatedHttpRequestHeader = internet::http_request_header();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::httpRequestHeaders, generatedHttpRequestHeader);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
 {
-    const auto generatedHttpResponseHeader = internet::httpResponseHeader();
+    const auto generatedHttpResponseHeader = internet::http_response_header();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
         internet::data::httpResponseHeaders, generatedHttpResponseHeader);
@@ -569,7 +569,7 @@ TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
 
 TEST_F(InternetTest, shouldGenerateHttpMediaType)
 {
-    const auto generatedHttpMediaType = internet::httpMediaType();
+    const auto generatedHttpMediaType = internet::http_media_type();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::httpMediaTypes, generatedHttpMediaType);
 }
@@ -577,7 +577,7 @@ TEST_F(InternetTest, shouldGenerateHttpMediaType)
 TEST_F(InternetTest, shouldGenerateHttpInformationalSuccessCode)
 {
     const auto generatedHttpStatusCode
-        = internet::httpStatusCode(internet::HttpResponseType::Informational);
+        = internet::http_status_code(internet::HttpResponseType::Informational);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(httpStatusInformationalCodes, generatedHttpStatusCode);
 }
@@ -585,7 +585,7 @@ TEST_F(InternetTest, shouldGenerateHttpInformationalSuccessCode)
 TEST_F(InternetTest, shouldGenerateHttpStatusSuccessCode)
 {
     const auto generatedHttpStatusCode
-        = internet::httpStatusCode(internet::HttpResponseType::Success);
+        = internet::http_status_code(internet::HttpResponseType::Success);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(httpStatusSuccessCodes, generatedHttpStatusCode);
 }
@@ -593,7 +593,7 @@ TEST_F(InternetTest, shouldGenerateHttpStatusSuccessCode)
 TEST_F(InternetTest, shouldGenerateHttpStatusRedirectionCode)
 {
     const auto generatedHttpStatusCode
-        = internet::httpStatusCode(internet::HttpResponseType::Redirection);
+        = internet::http_status_code(internet::HttpResponseType::Redirection);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(httpStatusRedirectionCodes, generatedHttpStatusCode);
 }
@@ -601,7 +601,7 @@ TEST_F(InternetTest, shouldGenerateHttpStatusRedirectionCode)
 TEST_F(InternetTest, shouldGenerateHttpStatusClientErrorCode)
 {
     const auto generatedHttpStatusCode
-        = internet::httpStatusCode(internet::HttpResponseType::ClientError);
+        = internet::http_status_code(internet::HttpResponseType::ClientError);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(httpStatusClientErrorCodes, generatedHttpStatusCode);
 }
@@ -609,7 +609,7 @@ TEST_F(InternetTest, shouldGenerateHttpStatusClientErrorCode)
 TEST_F(InternetTest, shouldGenerateHttpStatusServerErrorCode)
 {
     const auto generatedHttpStatusCode
-        = internet::httpStatusCode(internet::HttpResponseType::ServerError);
+        = internet::http_status_code(internet::HttpResponseType::ServerError);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(httpStatusServerErrorCodes, generatedHttpStatusCode);
 }
@@ -690,21 +690,21 @@ TEST_F(InternetTest, MacDefaultSeparator)
 
 TEST_F(InternetTest, shouldGenerateDomainSuffix)
 {
-    const auto generatedDomainSuffix = internet::domainSuffix();
+    const auto generatedDomainSuffix = internet::domain_suffix();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::domainSuffixes, generatedDomainSuffix);
 }
 
 TEST_F(InternetTest, shouldGenerateDomainWord)
 {
-    const auto generatedDomainWord = internet::domainWord();
+    const auto generatedDomainWord = internet::domain_word();
 
     assertDomainWord(generatedDomainWord);
 }
 
 TEST_F(InternetTest, shouldGenerateDomainName)
 {
-    const auto generatedDomainName = internet::domainName();
+    const auto generatedDomainName = internet::domain_name();
 
     const auto generatedDomainNameParts = StringHelper::split(generatedDomainName, ".");
 

@@ -7,7 +7,8 @@
 
 namespace faker::git {
 struct Author {
-    std::string name, email;
+    std::string name;
+    std::string email;
 };
 
 /**
@@ -29,10 +30,10 @@ std::string branch(unsigned maxIssueNum = 100);
  * @returns Commit date.
  *
  * @code
- * git::commitDate() // "Mon Jan 17 15:05:53 2022 +1100"
+ * git::commit_date() // "Mon Jan 17 15:05:53 2022 +1100"
  * @endcode
  */
-std::string commitDate(unsigned years = 15);
+std::string commit_date(unsigned years = 15);
 
 /**
  * @brief Generates a random commit entry in form of string.
@@ -44,14 +45,14 @@ std::string commitDate(unsigned years = 15);
  * @returns Commit entry.
  *
  * @code
- * git::commitEntry() // "commit 9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca
+ * git::commit_entry() // "commit 9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca
                         Author: Rachel McLaughlin Rachel_McLaughlin@gmail.com
                         Date: Mon Jan 17 15:05:53 2022 +1100
 
                             spawn polyp"
  * @endcode
  */
-std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt,
+std::string commit_entry(std::optional<unsigned> dateYears = std::nullopt,
     std::optional<unsigned> shaLength = std::nullopt, Country country = Country::England);
 
 /**
@@ -60,10 +61,10 @@ std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt,
  * @returns Commit message.
  *
  * @code
- * git::commitMessage() // "spawn polyp"
+ * git::commit_message() // "spawn polyp"
  * @endcode
  */
-std::string commitMessage();
+std::string commit_message();
 
 /**
  * @brief Returns a random SHA hash.
@@ -73,10 +74,10 @@ std::string commitMessage();
  * @returns SHA hash.
  *
  * @code
- * git::commitSha() // "9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca"
+ * git::commit_sha() // "9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca"
  * @endcode
  */
-std::string commitSha(unsigned length = 40);
+std::string commit_sha(unsigned length = 40);
 
 /**
  * @brief Returns a random author name and email.

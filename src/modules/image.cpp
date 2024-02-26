@@ -6,7 +6,8 @@
 
 namespace faker::image {
 
-std::string imageUrl(unsigned int width, unsigned int height, std::optional<ImageCategory> category)
+std::string image_url(
+    unsigned int width, unsigned int height, std::optional<ImageCategory> category)
 {
     std::string_view image_category;
 
@@ -56,7 +57,7 @@ std::string imageUrl(unsigned int width, unsigned int height, std::optional<Imag
     return FormatHelper::format("https://loremflickr.com/{}/{}{}", width, height, image_category);
 }
 
-std::string githubAvatarUrl()
+std::string github_avatar_url()
 {
     return FormatHelper::format(
         "https://avatars.githubusercontent.com/u/{}", number::integer(100000000));

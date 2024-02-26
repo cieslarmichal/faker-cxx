@@ -5,7 +5,7 @@
 
 namespace faker::science {
 
-ChemicalElement chemicalElement() { return Helper::arrayElement(data::chemicalElements); }
+ChemicalElement chemical_element() { return Helper::arrayElement(data::chemicalElements); }
 
 Unit unit()
 {
@@ -24,14 +24,14 @@ Unit unit()
     return Helper::arrayElement(units);
 }
 
-Unit distanceUnit() { return Helper::arrayElement(data::distanceUnits); }
+Unit distance_unit() { return Helper::arrayElement(data::distanceUnits); }
 
-Unit timeUnit() { return Helper::arrayElement(data::timeUnits); }
+Unit time_unit() { return Helper::arrayElement(data::timeUnits); }
 
-Unit massUnit() { return Helper::arrayElement(data::massUnits); }
+Unit mass_unit() { return Helper::arrayElement(data::massUnits); }
 
-Unit tempUnit() { return Helper::arrayElement(data::temperatureUnits); }
+Unit temperature_unit() { return Helper::arrayElement(data::temperatureUnits); }
 
-Unit currentUnit() { return Helper::arrayElement(data::currentUnits); }
+Unit current_unit() { return Helper::arrayElement(data::currentUnits); }
 
 };

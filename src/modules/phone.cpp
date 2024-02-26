@@ -52,7 +52,7 @@ std::string imei() { return Helper::replaceCreditCardSymbols("##-######-######-L
 
 std::string_view platform() { return Helper::arrayElement(data::platforms); }
 
-std::string_view modelName() { return Helper::arrayElement(data::model_names); }
+std::string_view model_name() { return Helper::arrayElement(data::model_names); }
 
 std::string_view manufacturer() { return Helper::arrayElement(data::manufacturers); }
 

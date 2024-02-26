@@ -30,13 +30,13 @@ enum class ImageCategory {
  * @returns Random real image url from external service.
  *
  * @code
- * image::imageUrl() // "https://loremflickr.com/640/480"
- * image::imageUrl(800, 600) // "https://loremflickr.com/800/600"
- * image::imageUrl(800, 600, ImageCategory::Animals) //
+ * image::image_url() // "https://loremflickr.com/640/480"
+ * image::image_url(800, 600) // "https://loremflickr.com/800/600"
+ * image::image_url(800, 600, ImageCategory::Animals) //
  * "https://loremflickr.com/800/600/animals"
  * @endcode
  */
-std::string imageUrl(unsigned width = 640, unsigned height = 480,
+std::string image_url(unsigned width = 640, unsigned height = 480,
     std::optional<ImageCategory> category = std::nullopt);
 
 /**
@@ -45,10 +45,10 @@ std::string imageUrl(unsigned width = 640, unsigned height = 480,
  * @returns Url to github avatar.
  *
  * @code
- * image::githubAvatarUrl() // "https://avatars.githubusercontent.com/u/9716558"
+ * image::github_avatar_url() // "https://avatars.githubusercontent.com/u/9716558"
  * @endcode
  */
-std::string githubAvatarUrl();
+std::string github_avatar_url();
 
 /**
  * @brief Generates a random image dimensions.

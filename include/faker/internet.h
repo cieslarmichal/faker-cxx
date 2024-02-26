@@ -74,10 +74,10 @@ std::string email(std::optional<std::string> firstName = std::nullopt,
  * @returns Email including neither, one or both of the provided names, with example email host.
  *
  * @code
- * internet::exampleEmail() // "Jimenez.Clyde@example.com"
+ * internet::example_email() // "Jimenez.Clyde@example.com"
  * @endcode
  */
-std::string exampleEmail(std::optional<std::string> firstName = std::nullopt,
+std::string example_email(std::optional<std::string> firstName = std::nullopt,
     std::optional<std::string> lastName = std::nullopt);
 
 /**
@@ -118,10 +118,10 @@ std::string_view emoji(std::optional<EmojiType> type = std::nullopt);
  * @returns true if emojiToCheck is found in one of the vectors, false otherwise.
  *
  * @code
- * internet::checkIfEmojiIsValid("👑") // true
+ * internet::is_valid_emoji("👑") // true
  * @endcode
  */
-bool checkIfEmojiIsValid(const std::string& emojiToCheck);
+bool is_valid_emoji(const std::string& emojiToCheck);
 
 /**
  * @brief Returns a random web protocol. Either `http` or `https`.
@@ -140,10 +140,10 @@ std::string_view protocol();
  * @returns Http method name.
  *
  * @code
- * internet::httpMethod() // "POST"
+ * internet::http_method() // "POST"
  * @endcode
  */
-std::string_view httpMethod();
+std::string_view http_method();
 
 /**
  * @brief Returns a random http status code.
@@ -153,11 +153,11 @@ std::string_view httpMethod();
  * @returns Http status code.
  *
  * @code
- * internet::httpStatusCode() // 500
- * internet::httpStatusCode(HttpStatusCodeType::success) // 201
+ * internet::http_status_code() // 500
+ * internet::http_status_code(HttpStatusCodeType::success) // 201
  * @endcode
  */
-unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::nullopt);
+unsigned http_status_code(std::optional<HttpResponseType> responseType = std::nullopt);
 
 /**
  * @brief Generates a random http request header.
@@ -165,10 +165,10 @@ unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::null
  * @returns Http request header.
  *
  * @code
- * internet::httpRequestHeader() // "Authorization"
+ * internet::http_request_header() // "Authorization"
  * @endcode
  */
-std::string_view httpRequestHeader();
+std::string_view http_request_header();
 
 /**
  * @brief Generates a random http response header.
@@ -176,10 +176,10 @@ std::string_view httpRequestHeader();
  * @returns Http response header.
  *
  * @code
- * internet::httpResponseHeader() // "Location"
+ * internet::http_response_header() // "Location"
  * @endcode
  */
-std::string_view httpResponseHeader();
+std::string_view http_response_header();
 
 /**
  * @brief Generates a random http media type.
@@ -187,10 +187,10 @@ std::string_view httpResponseHeader();
  * @returns Http media type.
  *
  * @code
- * internet::httpMediaType() // "application/json"
+ * internet::http_media_type() // "application/json"
  * @endcode
  */
-std::string_view httpMediaType();
+std::string_view http_media_type();
 
 /**
  * @brief Returns a string containing randomized ipv4 address of the given class.
@@ -283,10 +283,10 @@ std::string url(WebProtocol webProtocol = WebProtocol::Https);
  * @return Domain name.
  *
  * @code
- * internet::domainName() // "slow-timer.info"
+ * internet::domain_name() // "slow-timer.info"
  * @endcode
  */
-std::string domainName();
+std::string domain_name();
 
 /**
  * @brief Generates a random domain word.
@@ -294,10 +294,10 @@ std::string domainName();
  * @return Domain word.
  *
  * @code
- * internet::domainWord() // "close-reality"
+ * internet::domain_word() // "close-reality"
  * @endcode
  */
-std::string domainWord();
+std::string domain_word();
 
 /**
  * @brief Generates a random domain suffix.
@@ -305,10 +305,10 @@ std::string domainWord();
  * @return Domain suffix.
  *
  * @code
- * internet::domainSuffix() // "com"
+ * internet::domain_suffix() // "com"
  * @endcode
  */
-std::string_view domainSuffix();
+std::string_view domain_suffix();
 }
 
 #endif

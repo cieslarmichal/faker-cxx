@@ -13,14 +13,14 @@ TEST(MovieTest, shouldGenerateGenre)
 
 TEST(MovieTest, shouldGenerateMovieTitle)
 {
-    auto generatedMovieTitle = movie::movieTitle();
+    auto generatedMovieTitle = movie::movie_title();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(movie::data::movies, generatedMovieTitle);
 }
 
 TEST(MovieTest, shouldGenerateTvShow)
 {
-    auto generatedTvShow = movie::tvShow();
+    auto generatedTvShow = movie::tv_show();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(movie::data::tvShows, generatedTvShow);
 }

@@ -157,7 +157,7 @@ TEST_P(PersonTest, shouldGenerateFirstName)
     auto firstNames = faker::testing::make_vector(
         peopleNames.malesNames.firstNames, peopleNames.femalesNames.firstNames);
 
-    const auto generatedFirstName = person::firstName(country);
+    const auto generatedFirstName = person::first_name(country);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(firstNames, generatedFirstName);
 }
@@ -168,7 +168,7 @@ TEST_P(PersonTest, shouldGenerateMaleFirstName)
     const auto& malesFirstNames
         = person::data::countryToPeopleNamesMapping.at(country).malesNames.firstNames;
 
-    const auto generatedFirstName = person::firstName(country, person::Sex::Male);
+    const auto generatedFirstName = person::first_name(country, person::Sex::Male);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(malesFirstNames, generatedFirstName);
 }
@@ -179,7 +179,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
     const auto& femalesFirstNames
         = person::data::countryToPeopleNamesMapping.at(country).femalesNames.firstNames;
 
-    const auto generatedFirstName = person::firstName(country, person::Sex::Female);
+    const auto generatedFirstName = person::first_name(country, person::Sex::Female);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(femalesFirstNames, generatedFirstName);
 }
@@ -190,7 +190,7 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
     const auto& malesLastNames
         = person::data::countryToPeopleNamesMapping.at(country).malesNames.lastNames;
 
-    const auto generatedLastName = person::lastName(country, person::Sex::Male);
+    const auto generatedLastName = person::last_name(country, person::Sex::Male);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(malesLastNames, generatedLastName);
 }
@@ -201,7 +201,7 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
     const auto& femalesLastNames
         = person::data::countryToPeopleNamesMapping.at(country).femalesNames.lastNames;
 
-    const auto generatedLastName = person::lastName(country, person::Sex::Female);
+    const auto generatedLastName = person::last_name(country, person::Sex::Female);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(femalesLastNames, generatedLastName);
 }
@@ -215,7 +215,7 @@ TEST_P(PersonTest, shouldGenerateFullName)
     auto lastNames = faker::testing::make_vector(
         peopleNames.malesNames.lastNames, peopleNames.femalesNames.lastNames);
 
-    const auto generatedFullName = person::fullName(country);
+    const auto generatedFullName = person::full_name(country);
 
     FAKER_EXPECT_STRING_CONTAINS(generatedFullName, firstNames);
     FAKER_EXPECT_STRING_CONTAINS(generatedFullName, lastNames);
@@ -226,7 +226,7 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
     const auto country = GetParam();
     const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
 
-    const auto generatedFullName = person::fullName(country, person::Sex::Male);
+    const auto generatedFullName = person::full_name(country, person::Sex::Male);
 
     FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.malesNames.firstNames);
     FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.malesNames.lastNames);
@@ -237,7 +237,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
     const auto country = GetParam();
     const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
 
-    const auto generatedFullName = person::fullName(country, person::Sex::Female);
+    const auto generatedFullName = person::full_name(country, person::Sex::Female);
 
     FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.femalesNames.firstNames);
     FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.femalesNames.lastNames);
@@ -312,7 +312,7 @@ INSTANTIATE_TEST_SUITE_P(TestPersonNamesByCountries, PersonTest, ValuesIn(countr
 
 TEST_F(PersonTest, shouldGenerateMiddleName)
 {
-    const auto generatedMiddleName = person::middleName();
+    const auto generatedMiddleName = person::middle_name();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(allMiddleNames, generatedMiddleName);
 }
@@ -361,28 +361,28 @@ TEST_F(PersonTest, shouldGenerateGender)
 
 TEST_F(PersonTest, shouldGenerateJobDescriptor)
 {
-    const auto generatedJobDescriptor = person::jobDescriptor();
+    const auto generatedJobDescriptor = person::job_descriptor();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobDescriptors, generatedJobDescriptor);
 }
 
 TEST_F(PersonTest, shouldGenerateJobArea)
 {
-    const auto generatedJobArea = person::jobArea();
+    const auto generatedJobArea = person::job_area();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobAreas, generatedJobArea);
 }
 
 TEST_F(PersonTest, shouldGenerateJobType)
 {
-    const auto generatedJobType = person::jobType();
+    const auto generatedJobType = person::job_type();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobTypes, generatedJobType);
 }
 
 TEST_F(PersonTest, shouldGenerateJobTitle)
 {
-    const auto generatedJobTitle = person::jobTitle();
+    const auto generatedJobTitle = person::job_title();
 
     const auto jobTitleElements = StringHelper::split(generatedJobTitle, " ");
 
@@ -425,14 +425,14 @@ TEST_F(PersonTest, shouldGenerateNationality)
 
 TEST_F(PersonTest, shouldGenerateWesternZodiacs)
 {
-    auto generatedWesternZodiacs = person::westernZodiac();
+    auto generatedWesternZodiacs = person::western_zodiac();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(person::data::westernZodiacs, generatedWesternZodiacs);
 }
 
 TEST_F(PersonTest, shouldGenerateChineseZodiacs)
 {
-    const auto generatedChineseZodiacs = person::chineseZodiac();
+    const auto generatedChineseZodiacs = person::chinese_zodiac();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(person::data::chineseZodiacs, generatedChineseZodiacs);
 }
@@ -445,7 +445,7 @@ TEST_P(PersonSexSuite, shouldTranslateSexCorrectly)
     const auto sex = GetParam().second;
 
     const auto expectedTranslation = person::data::sexTranslations.at(language).at(sex);
-    const auto actualTranslation = toString(sex, language);
+    const auto actualTranslation = to_string(sex, language);
 
     ASSERT_EQ(expectedTranslation, actualTranslation);
 }
@@ -601,7 +601,7 @@ INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, ValuesIn(lang
         std::string result;
         result += toString(info.param.first);
         result += '_';
-        result += toString(info.param.second);
+        result += to_string(info.param.second);
         return result;
     });
 

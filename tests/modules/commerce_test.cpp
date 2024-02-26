@@ -55,7 +55,7 @@ TEST(CommerceTest, shouldGenerateSkuWithSpecifiedLength)
 
 TEST(CommerceTest, shouldGenerateProductFullName)
 {
-    auto productFullName = commerce::productFullName();
+    auto productFullName = commerce::product_full_name();
 
     auto productFullNameElements = StringHelper::split(productFullName, " ");
 
@@ -70,28 +70,28 @@ TEST(CommerceTest, shouldGenerateProductFullName)
 
 TEST(CommerceTest, shouldGenerateProductAdjective)
 {
-    auto generatedProductAdjective = commerce::productAdjective();
+    auto generatedProductAdjective = commerce::product_adjective();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(commerce::data::productAdjectives, generatedProductAdjective);
 }
 
 TEST(CommerceTest, shouldGenerateProductMaterial)
 {
-    auto generatedProductMaterial = commerce::productMaterial();
+    auto generatedProductMaterial = commerce::product_material();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(commerce::data::productMaterials, generatedProductMaterial);
 }
 
 TEST(CommerceTest, shouldGenerateProductName)
 {
-    auto generatedProductName = commerce::productName();
+    auto generatedProductName = commerce::product_name();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(commerce::data::productNames, generatedProductName);
 }
 
 TEST(CommerceTest, shouldGenerateEan13)
 {
-    auto generatedEan13 = commerce::EAN13();
+    auto generatedEan13 = commerce::ean13();
 
     int sum = 0;
     for (size_t i = 0; i < 13; i++) {
@@ -108,7 +108,7 @@ TEST(CommerceTest, shouldGenerateEan13)
 
 TEST(CommerceTest, shouldGenerateEan8)
 {
-    auto generatedEan8 = commerce::EAN8();
+    auto generatedEan8 = commerce::ean8();
 
     int sum = 0;
     for (size_t i = 0; i < 8; i++) {
@@ -125,7 +125,7 @@ TEST(CommerceTest, shouldGenerateEan8)
 
 TEST(CommerceTest, shouldGenerateIsbn13)
 {
-    auto generatedIsbn13 = commerce::ISBN13();
+    auto generatedIsbn13 = commerce::isbn13();
 
     int sum = 0;
     for (size_t i = 0; i < 13; i++) {
@@ -142,7 +142,7 @@ TEST(CommerceTest, shouldGenerateIsbn13)
 
 TEST(CommerceTest, shouldGenerateIsbn10)
 {
-    auto generatedIsbn10 = commerce::ISBN10();
+    auto generatedIsbn10 = commerce::isbn10();
 
     int sum = 0, weight = 10;
     if (generatedIsbn10[9] == 'X') {
@@ -164,7 +164,7 @@ TEST(CommerceTest, shouldGenerateIsbn10)
 
 TEST(CommerceTest, shouldGenerateProductId)
 {
-    auto generatedProductId = commerce::productId();
+    auto generatedProductId = commerce::product_id();
 
     ASSERT_EQ(generatedProductId.length(), 10);
     ASSERT_TRUE(faker::testing::all_of(generatedProductId, [](auto c) { return std::isalnum(c); }));
@@ -172,21 +172,21 @@ TEST(CommerceTest, shouldGenerateProductId)
 
 TEST(CommerceTest, shouldGeneratePaymentType)
 {
-    auto generatedPaymentType = commerce::paymentType();
+    auto generatedPaymentType = commerce::payment_type();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(commerce::data::paymentTypes, generatedPaymentType);
 }
 
 TEST(CommerceTest, shouldGeneratePaymentProvider)
 {
-    auto generatedPaymentProvider = commerce::paymentProvider();
+    auto generatedPaymentProvider = commerce::payment_provider();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(commerce::data::paymentProviders, generatedPaymentProvider);
 }
 
 TEST(CommerceTest, shouldGenerateProductDescription)
 {
-    auto generatedProductDescription = commerce::productDescription();
+    auto generatedProductDescription = commerce::product_description();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
         commerce::data::productDescriptions, generatedProductDescription);
@@ -194,28 +194,28 @@ TEST(CommerceTest, shouldGenerateProductDescription)
 
 TEST(CommerceTest, shouldGenerateProductCategory)
 {
-    auto generatedProductCategory = commerce::productCategory();
+    auto generatedProductCategory = commerce::product_category();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(commerce::data::productCategoryNames, generatedProductCategory);
 }
 
 TEST(CommerceTest, shouldGenerateProductReview)
 {
-    auto generatedProductReview = commerce::productReview();
+    auto generatedProductReview = commerce::product_review();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(commerce::data::productReviews, generatedProductReview);
 }
 
 TEST(CommerceTest, shouldGenerateProductRating)
 {
-    auto generatedProductRating = commerce::productRating();
+    auto generatedProductRating = commerce::product_rating();
 
     ASSERT_TRUE(0. <= generatedProductRating && generatedProductRating <= 5.);
 }
 
 TEST(CommerceTest, shouldGenerateDiscountType)
 {
-    auto generatedDiscountType = commerce::discountType();
+    auto generatedDiscountType = commerce::discount_type();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(commerce::data::discountTypes, generatedDiscountType);
 }
@@ -223,7 +223,7 @@ TEST(CommerceTest, shouldGenerateDiscountType)
 TEST(CommerceTest, shouldGenerateDiscountCode)
 {
 
-    auto generatedDiscountCode = commerce::discountCode();
+    auto generatedDiscountCode = commerce::discount_code();
 
     ASSERT_TRUE(commerce::data::kMinDiscountCodeLength <= generatedDiscountCode.length()
         && generatedDiscountCode.length() <= commerce::data::kMaxDiscountCodeLength);
@@ -239,7 +239,7 @@ TEST(CommerceTest, shouldGenerateDiscountCode)
 
 TEST(CommerceTest, shouldGenerateDiscountAmount)
 {
-    auto generatedDiscountAmount = commerce::discountAmount();
+    auto generatedDiscountAmount = commerce::discount_amount();
 
     ASSERT_TRUE(commerce::data::kMinDiscountAmountValue <= generatedDiscountAmount
         && generatedDiscountAmount <= commerce::data::kMaxDiscountAmountValue);
@@ -247,7 +247,7 @@ TEST(CommerceTest, shouldGenerateDiscountAmount)
 
 TEST(CommerceTest, shouldGenerateDiscountPercentage)
 {
-    auto generatedDiscountPercentage = commerce::discountPercentage();
+    auto generatedDiscountPercentage = commerce::discount_percentage();
 
     ASSERT_TRUE(commerce::data::kMinDiscountPercentageValue <= generatedDiscountPercentage
         && generatedDiscountPercentage <= commerce::data::kMaxDiscountPercentageValue);

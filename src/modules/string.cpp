@@ -24,7 +24,7 @@ std::string_view hexPrefixToStringMapping(HexPrefix prefix)
     }
 }
 
-bool isValidGuarantee(
+bool is_valid_guarantee(
     GuaranteeMap& guarantee, std::unordered_set<char>& targetCharacters, unsigned int length)
 {
     unsigned int atleastCountSum {};
@@ -174,13 +174,13 @@ std::string sample(GuaranteeMap&& guarantee, unsigned int length)
 {
     auto targetCharacters = data::utf16CharSet;
     // throw if guarantee is invalid
-    if (!isValidGuarantee(guarantee, targetCharacters, length)) {
+    if (!is_valid_guarantee(guarantee, targetCharacters, length)) {
         throw std::invalid_argument { "Invalid guarantee." };
     }
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string fromCharacters(const std::string& characters, unsigned int length)
+std::string from_chars(const std::string& characters, unsigned int length)
 {
     std::string result;
 
@@ -191,14 +191,14 @@ std::string fromCharacters(const std::string& characters, unsigned int length)
     return result;
 }
 
-std::string fromCharacters(GuaranteeMap&& guarantee, const std::string& characters, unsigned length)
+std::string from_chars(GuaranteeMap&& guarantee, const std::string& characters, unsigned length)
 {
     std::unordered_set<char> targetCharacters;
     for (auto character : characters) {
         targetCharacters.insert(character);
     }
     // throw if guarantee is invalid
-    if (!isValidGuarantee(guarantee, targetCharacters, length)) {
+    if (!is_valid_guarantee(guarantee, targetCharacters, length)) {
         throw std::invalid_argument { "Invalid guarantee." };
     }
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
@@ -236,7 +236,7 @@ std::string alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing ca
 {
     auto targetCharacters = data::stringCasingToAlphaCharSetMapping.at(casing);
     // throw if guarantee is invalid
-    if (!isValidGuarantee(guarantee, targetCharacters, length)) {
+    if (!is_valid_guarantee(guarantee, targetCharacters, length)) {
         throw std::invalid_argument { "Invalid guarantee." };
     }
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
@@ -277,7 +277,7 @@ std::string alphanumeric(GuaranteeMap&& guarantee, unsigned length, StringCasing
     auto charSet = data::stringCasingToAlphaCharSetMapping.at(casing);
     targetCharacters.merge(charSet);
     // throw if guarantee is invalid
-    if (!isValidGuarantee(guarantee, targetCharacters, length)) {
+    if (!is_valid_guarantee(guarantee, targetCharacters, length)) {
         throw std::invalid_argument { "Invalid guarantee." };
     }
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
@@ -309,7 +309,7 @@ std::string numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowL
     }
     auto targetCharacters = data::digitSet;
     // throw if guarantee is invalid
-    if (!isValidGuarantee(guarantee, targetCharacters, length)) {
+    if (!is_valid_guarantee(guarantee, targetCharacters, length)) {
         throw std::invalid_argument { "Invalid guarantee." };
     }
     if (allowLeadingZeros)
@@ -362,7 +362,7 @@ std::string hexadecimal(
 
     std::unordered_set<char> targetCharacters = hexCasingToCharSetMapping.at(casing);
     // throw if guarantee is invalid
-    if (!isValidGuarantee(guarantee, targetCharacters, length)) {
+    if (!is_valid_guarantee(guarantee, targetCharacters, length)) {
         throw std::invalid_argument { "Invalid guarantee." };
     }
     std::string result { hexPrefixToStringMapping(prefix) };
@@ -383,7 +383,7 @@ std::string binary(GuaranteeMap&& guarantee, unsigned int length)
     // numbers used by binary representation
     std::unordered_set<char> targetCharacters { '0', '1' };
     // throw if guarantee is invalid
-    if (!isValidGuarantee(guarantee, targetCharacters, length)) {
+    if (!is_valid_guarantee(guarantee, targetCharacters, length)) {
         throw std::invalid_argument { "Invalid guarantee." };
     }
 
@@ -403,7 +403,7 @@ std::string octal(GuaranteeMap&& guarantee, unsigned int length)
     // numbers used by octal representation
     std::unordered_set<char> targetCharacters { '0', '1', '2', '3', '4', '5', '6', '7' };
     // throw if guarantee is invalid
-    if (!isValidGuarantee(guarantee, targetCharacters, length)) {
+    if (!is_valid_guarantee(guarantee, targetCharacters, length)) {
         throw std::invalid_argument { "Invalid guarantee." };
     }
 

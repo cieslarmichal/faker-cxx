@@ -64,10 +64,10 @@ inline bool operator!=(const AirlineStruct& lhs, const AirlineStruct& rhs) { ret
  * @return a random aircraft type
  *
  * @code
- * airline::aircraftType // "narrowbody"
+ * airline::aircraft_type // "narrowbody"
  * @endcode
  */
-std::string_view aircraftType();
+std::string_view aircraft_type();
 
 /**
  * @brief Get a random airplane
@@ -121,11 +121,11 @@ std::string seat(AircraftType aircraftType);
  * @return a random record location
  *
  * @code
- * airline::recordLocator() // "ABCDEF"
- * airline::recordLocator(true) // "ABC123"
+ * airline::record_locator() // "ABCDEF"
+ * airline::record_locator(true) // "ABC123"
  * @endcode
  */
-std::string recordLocator(bool allowNumerics = false);
+std::string record_locator(bool allowNumerics = false);
 
 /**
  * @brief Get a random flight number from given length
@@ -137,12 +137,12 @@ std::string recordLocator(bool allowNumerics = false);
  * @return a random flight number
  *
  * @code
- * airline::flightNumber() // "1234"
- * airline::flightNumber(true) // "0123"
- * airline::flightNumber(false, 3) // "234"
+ * airline::flight_number() // "1234"
+ * airline::flight_number(true) // "0123"
+ * airline::flight_number(false, 3) // "234"
  * @endcode
  */
-std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
+std::string flight_number(bool addLeadingZeros = false, unsigned int length = 4);
 
 /**
  * @brief Get a random flight number from given length
@@ -154,12 +154,12 @@ std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
  * @return a random flight number
  *
  * @code
- * airline::flightNumber() // "1234"
- * airline::flightNumber(true) // "0123"
- * airline::flightNumber(false, {1, 4}) // "234" // "12" // "1234"
+ * airline::flight_number() // "1234"
+ * airline::flight_number(true) // "0123"
+ * airline::flight_number(false, {1, 4}) // "234" // "12" // "1234"
  * @endcode
  */
-std::string flightNumberByRange(bool addLeadingZeros = false, Range length = { 1, 4 });
+std::string flight_number_by_range(bool addLeadingZeros = false, Range length = { 1, 4 });
 }
 
 #endif

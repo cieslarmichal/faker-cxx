@@ -112,9 +112,9 @@ std::string city(AddressCountry country)
     return FormatHelper::fillTokenValues(
         cityFormat, [country, countryAddresses](std::string_view token) {
             if (token == "firstName") {
-                return person::firstName(countryAddressToCountryMapping(country));
+                return person::first_name(countryAddressToCountryMapping(country));
             } else if (token == "lastName") {
-                return person::lastName(countryAddressToCountryMapping(country));
+                return person::last_name(countryAddressToCountryMapping(country));
             } else if (token == "cityName") {
                 return std::string(Helper::arrayElement(countryAddresses.cities));
             } else if (token == "cityPrefix") {
@@ -160,9 +160,9 @@ std::string street(AddressCountry country)
     return FormatHelper::fillTokenValues(
         streetFormat, [country, countryAddresses](std::string_view token) {
             if (token == "firstName") {
-                return person::firstName(countryAddressToCountryMapping(country));
+                return person::first_name(countryAddressToCountryMapping(country));
             } else if (token == "lastName") {
-                return person::lastName(countryAddressToCountryMapping(country));
+                return person::last_name(countryAddressToCountryMapping(country));
             } else if (token == "streetName") {
                 return std::string(Helper::arrayElement(countryAddresses.streetNames));
             } else if (token == "streetPrefix") {

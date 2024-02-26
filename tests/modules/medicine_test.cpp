@@ -13,7 +13,7 @@ TEST(MedicineTest, shouldGenerateMedicalCondition)
 
 TEST(MedicineTest, shouldGenerateMedicalTest)
 {
-    auto generatedMedicalTest = medicine::medicalTest();
+    auto generatedMedicalTest = medicine::medical_test();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(medicine::data::medicalTests, generatedMedicalTest);
 }

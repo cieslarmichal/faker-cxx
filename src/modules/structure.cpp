@@ -39,7 +39,7 @@ std::string moduleFunction(StructureToken token)
     switch (token) {
     // Airline module
     case StructureToken::AirlineAircraftType:
-        return std::string(airline::aircraftType());
+        return std::string(airline::aircraft_type());
     case StructureToken::AirlineAirplaneName:
         return std::string(airline::airplane().name);
     case StructureToken::AirlineAirplaneCode:
@@ -55,9 +55,9 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::AirlineSeat:
         return airline::seat(airline::AircraftType());
     case StructureToken::AirlineRecordLocator:
-        return airline::recordLocator();
+        return airline::record_locator();
     case StructureToken::AirlineFlightNumber:
-        return airline::flightNumber(false, 4);
+        return airline::flight_number(false, 4);
     // Animal module
     case StructureToken::AnimalBear:
         return std::string(animal::bear());
@@ -121,21 +121,21 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::CommerceSku:
         return commerce::sku();
     case StructureToken::CommerceProductAdjective:
-        return std::string(commerce::productAdjective());
+        return std::string(commerce::product_adjective());
     case StructureToken::CommerceProductMaterial:
-        return std::string(commerce::productMaterial());
+        return std::string(commerce::product_material());
     case StructureToken::CommerceProductName:
-        return std::string(commerce::productName());
+        return std::string(commerce::product_name());
     case StructureToken::CommerceProductFullName:
-        return commerce::productFullName();
+        return commerce::product_full_name();
     case StructureToken::CommerceEAN13:
-        return commerce::EAN13();
+        return commerce::ean13();
     case StructureToken::CommerceEAN8:
-        return commerce::EAN8();
+        return commerce::ean8();
     case StructureToken::CommerceISBN13:
-        return commerce::ISBN13();
+        return commerce::isbn13();
     case StructureToken::CommerceISBN10:
-        return commerce::ISBN10();
+        return commerce::isbn10();
     // Company module
     case StructureToken::CompanyName:
         return company::name();
@@ -144,38 +144,38 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::CompanyIndustry:
         return std::string(company::industry());
     case StructureToken::CompanyBuzzPhrase:
-        return company::buzzPhrase();
+        return company::buzz_phrase();
     case StructureToken::CompanyBuzzAdjective:
-        return std::string(company::buzzAdjective());
+        return std::string(company::buzz_adjective());
     case StructureToken::CompanyBuzzNoun:
-        return std::string(company::buzzNoun());
+        return std::string(company::buzz_noun());
     case StructureToken::CompanyBuzzVerb:
-        return std::string(company::buzzVerb());
+        return std::string(company::buzz_verb());
     case StructureToken::CompanyCatchPhrase:
-        return company::catchPhrase();
+        return company::catch_phrase();
     case StructureToken::CompanyCtachPhraseAdjective:
-        return std::string(company::catchPhraseAdjective());
+        return std::string(company::catch_phrase_adjective());
     case StructureToken::CompanyCatchPhraseDescriptor:
-        return std::string(company::catchPhraseDescriptor());
+        return std::string(company::catch_phrase_descriptor());
     case StructureToken::CompanyCatchPhraseNoun:
-        return std::string(company::catchPhraseNoun());
+        return std::string(company::catch_phrase_noun());
     // Computer module
     case StructureToken::ComputerManufacture:
         return std::string(computer::manufacture());
     case StructureToken::ComputerModel:
         return std::string(computer::model());
     case StructureToken::ComputerCPUManufacture:
-        return std::string(computer::cpuManufacture());
+        return std::string(computer::cpu_manufacturer());
     case StructureToken::ComputerCPUType:
-        return std::string(computer::cpuType());
+        return std::string(computer::cpu_type());
     case StructureToken::ComputerCPUModel:
-        return std::string(computer::cpuModel());
+        return std::string(computer::cpu_model());
     case StructureToken::ComputerGPUManufacture:
-        return std::string(computer::gpuManufacture());
+        return std::string(computer::gpu_manufacturer());
     case StructureToken::ComputerGPUType:
-        return std::string(computer::gpuType());
+        return std::string(computer::gpu_type());
     case StructureToken::ComputerGPUModel:
-        return std::string(computer::gpuModel());
+        return std::string(computer::gpu_model());
     // Crypto module
     case StructureToken::CryptoSHA256:
         return crypto::sha256();
@@ -183,56 +183,56 @@ std::string moduleFunction(StructureToken token)
         return crypto::md5();
     // Database module
     case StructureToken::DatabaseColumnName:
-        return std::string(database::columnName());
+        return std::string(database::column_name());
     case StructureToken::DatabaseColumnType:
-        return std::string(database::columnType());
+        return std::string(database::column_type());
     case StructureToken::DatabaseCollation:
         return std::string(database::collation());
     case StructureToken::DatabaseEngine:
         return std::string(database::engine());
     case StructureToken::DatabaseMongoDBObjectId:
-        return database::mongoDbObjectId();
+        return database::mongodb_object_id();
     // Datatype module
     case StructureToken::DatatypeBoolean:
         return std::to_string(datatype::boolean());
     // Date module
     case StructureToken::DatePastDateISO:
-        return date::pastDate();
+        return date::past();
     case StructureToken::DatePastDateTimestamp:
-        return date::pastDate(1, date::DateFormat::Timestamp);
+        return date::past(1, date::DateFormat::Timestamp);
     case StructureToken::DatefutureDateISO:
-        return date::futureDate();
+        return date::future();
     case StructureToken::DatefutureDateTimestamp:
-        return date::futureDate(1, date::DateFormat::Timestamp);
+        return date::future(1, date::DateFormat::Timestamp);
     case StructureToken::DateRecentDateISO:
-        return date::recentDate();
+        return date::recent();
     case StructureToken::DateRecentDateTimestamp:
-        return date::recentDate(3, date::DateFormat::Timestamp);
+        return date::recent(3, date::DateFormat::Timestamp);
     case StructureToken::DateSoonDateISO:
-        return date::soonDate();
+        return date::soon();
     case StructureToken::DateSoonDateTimestamp:
-        return date::soonDate(3, date::DateFormat::Timestamp);
+        return date::soon(3, date::DateFormat::Timestamp);
     case StructureToken::DateBirthdateByAgeISO:
-        return date::birthdateByAge();
+        return date::birthdate_by_age();
     case StructureToken::DateBirthdateByYearTimestamp:
-        return date::birthdateByYear(1920, 2000, date::DateFormat::Timestamp);
+        return date::birthdate_by_year(1920, 2000, date::DateFormat::Timestamp);
     case StructureToken::DateWeekdayName:
-        return std::string(date::weekdayName());
+        return std::string(date::weekday_name());
     case StructureToken::DateWeekdayAbbreviatedName:
-        return std::string(date::weekdayAbbreviatedName());
+        return std::string(date::weekday_abbr_name());
     case StructureToken::DateMontName:
-        return std::string(date::monthName());
+        return std::string(date::month_name());
     case StructureToken::DateMonthAbbreviatedName:
-        return std::string(date::monthAbbreviatedName());
+        return std::string(date::month_abbr_name());
     // Finance module
     case StructureToken::FinanceCurrencyName:
-        return std::string(finance::currencyName());
+        return std::string(finance::currency_name());
     case StructureToken::FinanceCurrencyCode:
-        return std::string(finance::currencyCode());
+        return std::string(finance::currency_code());
     case StructureToken::FinanceCurrencySymbol:
-        return std::string(finance::currencySymbol());
+        return std::string(finance::currency_symbol());
     case StructureToken::FinanceAccountType:
-        return std::string(finance::accountType());
+        return std::string(finance::account_type());
     case StructureToken::FinanceAmount:
         return finance::amount();
     case StructureToken::FinanceIban:
@@ -240,28 +240,28 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::FinanceBic:
         return std::string(finance::bic());
     case StructureToken::FinanceAccountNumber:
-        return finance::accountNumber();
+        return finance::account_number();
     case StructureToken::FinancePin:
         return finance::pin();
     case StructureToken::FinanceRoutingNumber:
-        return finance::routingNumber();
+        return finance::routing_number();
     case StructureToken::FinanceCreditCardNumber:
-        return finance::creditCardNumber();
+        return finance::credit_card_number();
     case StructureToken::FinanceCreditCardCvv:
-        return finance::creditCardCvv();
+        return finance::credit_card_cvv();
     case StructureToken::FinanceBitcoinAddress:
-        return finance::bitcoinAddress();
+        return finance::bitcoin_address();
     case StructureToken::FinanceLitecoinAddress:
-        return finance::litecoinAddress();
+        return finance::litecoin_address();
     case StructureToken::FinanceEthereumAddress:
-        return finance::ethereumAddress();
+        return finance::ethereum_address();
     // Food module
     case StructureToken::FoodAlcoholicBeverage:
-        return std::string(food::alcoholicBeverage());
+        return std::string(food::alcoholic_beverage());
     case StructureToken::FoodGrain:
         return std::string(food::grain());
     case StructureToken::FoodMilkProduct:
-        return std::string(food::milkProduct());
+        return std::string(food::milk_product());
     case StructureToken::FoodFruit:
         return std::string(food::fruit());
     case StructureToken::FoodMeat:
@@ -277,24 +277,24 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::FoodSeed:
         return std::string(food::seed());
     case StructureToken::FoodSugarProduct:
-        return std::string(food::sugarProduct());
+        return std::string(food::sugar_product());
     case StructureToken::FoodNonAlcoholicBeverage:
-        return std::string(food::nonalcoholicBeverage());
+        return std::string(food::non_alcoholic_beverage());
     case StructureToken::FoodDishName:
-        return std::string(food::dishName());
+        return std::string(food::dish_name());
     case StructureToken::FoodFoodCategory:
-        return std::string(food::foodCategory());
+        return std::string(food::category());
     // Git module
     case StructureToken::GitBranch:
         return git::branch();
     case StructureToken::GitCommitDate:
-        return git::commitDate();
+        return git::commit_date();
     case StructureToken::GitCommitEntry:
-        return git::commitEntry();
+        return git::commit_entry();
     case StructureToken::GitCommitMessage:
-        return git::commitMessage();
+        return git::commit_message();
     case StructureToken::GitCommitSha:
-        return git::commitSha();
+        return git::commit_sha();
     // Hacker module
     case StructureToken::HackerAbbreviation:
         return std::string(hacker::abbreviation());
@@ -310,9 +310,9 @@ std::string moduleFunction(StructureToken token)
         return hacker::phrase();
     // Image module
     case StructureToken::ImageImageURL:
-        return image::imageUrl();
+        return image::image_url();
     case StructureToken::ImageGitHubAvatarURL:
-        return image::githubAvatarUrl();
+        return image::github_avatar_url();
     case StructureToken::ImageDimensions:
         return std::string(image::dimensions());
     // Internet module
@@ -321,7 +321,7 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::InternetEmail:
         return internet::email();
     case StructureToken::InternetExampleEmail:
-        return internet::exampleEmail();
+        return internet::example_email();
     case StructureToken::InternetPassword:
         return internet::password();
     case StructureToken::InternetEmoji:
@@ -329,13 +329,13 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::InternetProtocol:
         return std::string(internet::protocol());
     case StructureToken::InternetHttpMethod:
-        return std::string(internet::httpMethod());
+        return std::string(internet::http_method());
     case StructureToken::InternetHttpRequestHeader:
-        return std::string(internet::httpRequestHeader());
+        return std::string(internet::http_request_header());
     case StructureToken::InternetHttpResponseHeader:
-        return std::string(internet::httpResponseHeader());
+        return std::string(internet::http_response_header());
     case StructureToken::InternetHttpMediaType:
-        return std::string(internet::httpMediaType());
+        return std::string(internet::http_media_type());
     case StructureToken::InternetIpv4:
         return internet::ipv4();
     case StructureToken::InternetIpv6:
@@ -345,11 +345,11 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::InternetURL:
         return internet::url();
     case StructureToken::InternetDomainName:
-        return internet::domainName();
+        return internet::domain_name();
     case StructureToken::InternetDomainWord:
-        return internet::domainWord();
+        return internet::domain_word();
     case StructureToken::InternetDomainSuffix:
-        return std::string(internet::domainSuffix());
+        return std::string(internet::domain_suffix());
     // Location module
     case StructureToken::LocationCountry:
         return std::string(location::country_name());
@@ -396,16 +396,16 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::MedicineCondition:
         return std::string(medicine::condition());
     case StructureToken::MedicineMedicalTest:
-        return std::string(medicine::medicalTest());
+        return std::string(medicine::medical_test());
     case StructureToken::MedicineSpecialty:
         return std::string(medicine::specialty());
     // Movie module
     case StructureToken::MovieGenre:
         return std::string(movie::genre());
     case StructureToken::MovieMovieTitle:
-        return std::string(movie::movieTitle());
+        return std::string(movie::movie_title());
     case StructureToken::MovieTvShow:
-        return std::string(movie::tvShow());
+        return std::string(movie::tv_show());
     case StructureToken::MovieDirector:
         return std::string(movie::director());
     case StructureToken::MovieActor:
@@ -418,16 +418,16 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::MusicGenre:
         return std::string(music::genre());
     case StructureToken::MusicSongName:
-        return std::string(music::songName());
+        return std::string(music::song_name());
     // Person module
     case StructureToken::PersonFirstName:
-        return person::firstName();
+        return person::first_name();
     case StructureToken::PersonLastName:
-        return person::lastName();
+        return person::last_name();
     case StructureToken::PersonMiddleName:
-        return person::middleName();
+        return person::middle_name();
     case StructureToken::PersonFullName:
-        return person::fullName();
+        return person::full_name();
     case StructureToken::PersonPrefix:
         return person::prefix();
     case StructureToken::PersonSuffix:
@@ -437,13 +437,13 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::PersonGender:
         return std::string(person::gender());
     case StructureToken::PersonJobTitle:
-        return std::string(person::jobTitle());
+        return std::string(person::job_title());
     case StructureToken::PersonJobDescriptor:
-        return std::string(person::jobDescriptor());
+        return std::string(person::job_descriptor());
     case StructureToken::PersonJobArea:
-        return std::string(person::jobArea());
+        return std::string(person::job_area());
     case StructureToken::PersonJobType:
-        return std::string(person::jobType());
+        return std::string(person::job_type());
     case StructureToken::PersonHoby:
         return std::string(person::hobby());
     case StructureToken::PersonLanguage:
@@ -451,16 +451,16 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::PersonNationality:
         return std::string(std::string(person::nationality()));
     case StructureToken::PersonWesternZodiac:
-        return std::string(person::westernZodiac());
+        return std::string(person::western_zodiac());
     case StructureToken::PersonChineseZodiac:
-        return std::string(person::chineseZodiac());
+        return std::string(person::chinese_zodiac());
     // Phone module
     case StructureToken::PhoneNumber:
         return phone::number();
     case StructureToken::PhonePlatform:
         return std::string(phone::platform());
     case StructureToken::PhoneModelName:
-        return std::string(phone::modelName());
+        return std::string(phone::model_name());
     case StructureToken::PhoneManufacturer:
         return std::string(phone::manufacturer());
     case StructureToken::PhoneIMEI:
@@ -469,47 +469,47 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::SportSport:
         return std::string(sport::sport());
     case StructureToken::SportSoccerTeam:
-        return std::string(sport::soccerTeam());
+        return std::string(sport::soccer_team());
     case StructureToken::SportMaleAthelete:
-        return std::string(sport::maleAthlete());
+        return std::string(sport::male_athlete());
     case StructureToken::SportFemaleAthlete:
-        return std::string(sport::femaleAthlete());
+        return std::string(sport::female_athlete());
     case StructureToken::SportSportEvent:
-        return std::string(sport::sportEvent());
+        return std::string(sport::sport_event());
     // System module
     case StructureToken::SystemFileName:
-        return system::fileName();
+        return system::filename();
     case StructureToken::SystemFileExtension:
-        return system::fileExtension();
+        return system::file_ext();
     case StructureToken::SystemCommonFileName:
-        return system::commonFileName();
+        return system::common_filename();
     case StructureToken::SystemCommonFileExtension:
-        return std::string(system::commonFileExtension());
+        return std::string(system::common_file_ext());
     case StructureToken::SystemMimeType:
-        return std::string(system::mimeType());
+        return std::string(system::mime_type());
     case StructureToken::SystemCommonFileType:
-        return std::string(system::commonFileType());
+        return std::string(system::common_file_type());
     case StructureToken::SystemFileType:
-        return std::string(system::fileType());
+        return std::string(system::file_type());
     case StructureToken::SystemDirectoryPath:
-        return std::string(system::directoryPath());
+        return std::string(system::directory_path());
     case StructureToken::SystemFilePath:
-        return system::filePath();
+        return system::file_path();
     case StructureToken::SystemSemver:
         return system::semver();
     case StructureToken::SystemNetworkInterface:
-        return system::networkInterface();
+        return system::network_interface();
     case StructureToken::SystemCron:
         return system::cron();
     // VideoGame module
     case StructureToken::VideoGameGameTitle:
-        return std::string(video_game::gameTitle());
+        return std::string(video_game::title());
     case StructureToken::VideoGameGenre:
         return std::string(video_game::genre());
     case StructureToken::VideoGamePlatform:
         return std::string(video_game::platform());
     case StructureToken::VideoGameStudioName:
-        return std::string(video_game::studioName());
+        return std::string(video_game::studio_name());
     // Weather module
     case StructureToken::WeatherTemperatureMetric:
         return std::to_string(weather::temperature().metric);
@@ -524,17 +524,17 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::WeatherVisibilityImperial:
         return std::to_string(weather::visibility().imperial);
     case StructureToken::WeatherWindSpeedMetric:
-        return std::to_string(weather::windSpeed().metric);
+        return std::to_string(weather::wind_speed().metric);
     case StructureToken::WeatherWindSpeedImperial:
-        return std::to_string(weather::windSpeed().imperial);
+        return std::to_string(weather::wind_speed().imperial);
     case StructureToken::WeatherUvIndex:
-        return std::to_string(weather::uvIndex());
+        return std::to_string(weather::uv_index());
     case StructureToken::WeatherHumidity:
         return std::to_string(weather::humidity());
     case StructureToken::WeatherWeatherDescription:
-        return std::string(weather::weatherDescription());
+        return std::string(weather::description());
     case StructureToken::WeatherCloudCover:
-        return std::to_string(weather::cloudCover());
+        return std::to_string(weather::cloud_cover());
     // Word module
     case StructureToken::WordSample:
         return std::string(word::sample());

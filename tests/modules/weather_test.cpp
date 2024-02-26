@@ -30,7 +30,7 @@ TEST(WeatherTest, shouldGenerateVisibility)
 
 TEST(WeatherTest, shouldGenerateWindSpeed)
 {
-    auto generatedWindSpeed = weather::windSpeed();
+    auto generatedWindSpeed = weather::wind_speed();
 
     ASSERT_TRUE(generatedWindSpeed.metric >= 0.1 && generatedWindSpeed.metric <= 24.2);
     ASSERT_TRUE(generatedWindSpeed.imperial >= 0.1 && generatedWindSpeed.imperial <= 15.0);
@@ -38,7 +38,7 @@ TEST(WeatherTest, shouldGenerateWindSpeed)
 
 TEST(WeatherTest, shouldGenerateUvIndex)
 {
-    auto generatedUvIndex = weather::uvIndex();
+    auto generatedUvIndex = weather::uv_index();
 
     ASSERT_TRUE(generatedUvIndex >= 0 && generatedUvIndex <= 11);
 }
@@ -52,7 +52,7 @@ TEST(WeatherTest, shouldGenerateHumidity)
 
 TEST(WeatherTest, shouldGenerateWeatherDescription)
 {
-    auto generatedWeatherDescription = weather::weatherDescription();
+    auto generatedWeatherDescription = weather::description();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
         weather::data::weatherDescriptions, generatedWeatherDescription);
@@ -60,7 +60,7 @@ TEST(WeatherTest, shouldGenerateWeatherDescription)
 
 TEST(WeatherTest, shouldGenerateWeatherCloudCover)
 {
-    auto generatedCloudCover = weather::cloudCover();
+    auto generatedCloudCover = weather::cloud_cover();
 
     ASSERT_TRUE(generatedCloudCover >= 0 && generatedCloudCover <= 100);
 }

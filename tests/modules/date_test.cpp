@@ -44,7 +44,7 @@ TEST_F(DateTest, shouldGeneratePastDateISO)
 {
     auto currentDate = std::chrono::system_clock::now();
 
-    auto pastDateISO = date::pastDate();
+    auto pastDateISO = date::past();
 
     auto pastDate = parseISOFormattedStringToTimePoint(pastDateISO);
 
@@ -57,7 +57,7 @@ TEST_F(DateTest, shouldGeneratePastDateTimestamp)
 {
     auto currentDate = std::chrono::system_clock::now();
 
-    auto pastDateTimestamp = date::pastDate(1, date::DateFormat::Timestamp);
+    auto pastDateTimestamp = date::past(1, date::DateFormat::Timestamp);
 
     auto pastDate = std::chrono::system_clock::from_time_t(std::stoi(pastDateTimestamp));
 
@@ -72,7 +72,7 @@ TEST_F(DateTest, shouldGenerateRecentDateISO)
 
     auto recentDays = 5;
 
-    auto recentDateISO = date::recentDate(recentDays);
+    auto recentDateISO = date::recent(recentDays);
 
     auto recentDate = parseISOFormattedStringToTimePoint(recentDateISO);
 
@@ -87,7 +87,7 @@ TEST_F(DateTest, shouldGenerateRecentDateTimestamp)
 
     auto recentDays = 5;
 
-    auto recentDateTimestamp = date::recentDate(recentDays, date::DateFormat::Timestamp);
+    auto recentDateTimestamp = date::recent(recentDays, date::DateFormat::Timestamp);
 
     auto recentDate = std::chrono::system_clock::from_time_t(std::stoi(recentDateTimestamp));
 
@@ -100,7 +100,7 @@ TEST_F(DateTest, shouldGenerateFutureDateISO)
 {
     auto currentDate = std::chrono::system_clock::now();
 
-    auto futureDateISO = date::futureDate();
+    auto futureDateISO = date::future();
 
     auto futureDate = parseISOFormattedStringToTimePoint(futureDateISO);
 
@@ -113,7 +113,7 @@ TEST_F(DateTest, shouldGenerateFutureDateTimestamp)
 {
     auto currentDate = std::chrono::system_clock::now();
 
-    auto futureDateTimestamp = date::futureDate(1, date::DateFormat::Timestamp);
+    auto futureDateTimestamp = date::future(1, date::DateFormat::Timestamp);
 
     auto futureDate = std::chrono::system_clock::from_time_t(std::stoi(futureDateTimestamp));
 
@@ -128,7 +128,7 @@ TEST_F(DateTest, shouldGenerateSoonDateISO)
 
     auto soonDays = 2;
 
-    auto soonDateISO = date::soonDate(soonDays);
+    auto soonDateISO = date::soon(soonDays);
 
     auto soonDate = parseISOFormattedStringToTimePoint(soonDateISO);
 
@@ -143,7 +143,7 @@ TEST_F(DateTest, shouldGenerateSoonDateTimestamp)
 
     auto soonDays = 2;
 
-    auto soonDateTimestamp = date::soonDate(soonDays, date::DateFormat::Timestamp);
+    auto soonDateTimestamp = date::soon(soonDays, date::DateFormat::Timestamp);
 
     auto soonDate = std::chrono::system_clock::from_time_t(std::stoi(soonDateTimestamp));
 
@@ -154,7 +154,7 @@ TEST_F(DateTest, shouldGenerateSoonDateTimestamp)
 
 TEST_F(DateTest, shouldGenerateBirthDateByAgeISO)
 {
-    auto birthdateISO = date::birthdateByAge(5, 15);
+    auto birthdateISO = date::birthdate_by_age(5, 15);
 
     auto birthdate = parseISOFormattedStringToTimePoint(birthdateISO);
 
@@ -170,7 +170,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByAgeISO)
 
 TEST_F(DateTest, shouldGenerateBirthDateByAgeTimestamp)
 {
-    auto birthdateTimestamp = date::birthdateByAge(5, 15, date::DateFormat::Timestamp);
+    auto birthdateTimestamp = date::birthdate_by_age(5, 15, date::DateFormat::Timestamp);
 
     auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
@@ -186,7 +186,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByAgeTimestamp)
 
 TEST_F(DateTest, shouldGenerateBirthDateByExactYearISO)
 {
-    auto birthdateISO = date::birthdateByYear(1996, 1996);
+    auto birthdateISO = date::birthdate_by_year(1996, 1996);
 
     auto birthdate = parseISOFormattedStringToTm(birthdateISO);
 
@@ -195,7 +195,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByExactYearISO)
 
 TEST_F(DateTest, shouldGenerateBirthDateByExactYearTimestamp)
 {
-    auto birthdateTimestamp = date::birthdateByYear(1996, 1996, date::DateFormat::Timestamp);
+    auto birthdateTimestamp = date::birthdate_by_year(1996, 1996, date::DateFormat::Timestamp);
 
     auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
@@ -210,7 +210,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByExactYearTimestamp)
 
 TEST_F(DateTest, shouldGenerateBirthDateByRangeYearISO)
 {
-    auto birthdateISO = date::birthdateByYear(1990, 2000);
+    auto birthdateISO = date::birthdate_by_year(1990, 2000);
 
     auto birthdate = parseISOFormattedStringToTm(birthdateISO);
 
@@ -220,7 +220,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByRangeYearISO)
 
 TEST_F(DateTest, shouldGenerateBirthDateByRangeYearTimestamp)
 {
-    auto birthdateTimestamp = date::birthdateByYear(1990, 2000, date::DateFormat::Timestamp);
+    auto birthdateTimestamp = date::birthdate_by_year(1990, 2000, date::DateFormat::Timestamp);
 
     auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
@@ -236,14 +236,14 @@ TEST_F(DateTest, shouldGenerateBirthDateByRangeYearTimestamp)
 
 TEST_F(DateTest, shouldGenerateWeekdayName)
 {
-    auto generatedWeekdayName = date::weekdayName();
+    auto generatedWeekdayName = date::weekday_name();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(date::data::weekdayNames, generatedWeekdayName);
 }
 
 TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
 {
-    auto generatedWeekdayAbbreviatedName = date::weekdayAbbreviatedName();
+    auto generatedWeekdayAbbreviatedName = date::weekday_abbr_name();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
         date::data::weekdayAbbreviatedNames, generatedWeekdayAbbreviatedName);
@@ -251,14 +251,14 @@ TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
 
 TEST_F(DateTest, shouldGenerateMonthName)
 {
-    auto generatedMonthName = date::monthName();
+    auto generatedMonthName = date::month_name();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(date::data::monthNames, generatedMonthName);
 }
 
 TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
 {
-    auto generatedMonthAbbreviatedName = date::monthAbbreviatedName();
+    auto generatedMonthAbbreviatedName = date::month_abbr_name();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
         date::data::monthAbbreviatedNames, generatedMonthAbbreviatedName);

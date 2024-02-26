@@ -17,13 +17,13 @@ enum class DateFormat {
  * @returns ISO formatted string.
  *
  * @code
- * date::pastDate() // "2023-12-08T19:31:32Z"
- * date::pastDate(5) // "2020-06-16T15:24:09Z"
- * date::pastDate(5, date::DateFormat::ISO) // "2020-06-16T15:24:09Z"
- * date::pastDate(5, date::DateFormat::Timestamp) // "1592321049"
+ * date::past() // "2023-12-08T19:31:32Z"
+ * date::past(5) // "2020-06-16T15:24:09Z"
+ * date::past(5, date::DateFormat::ISO) // "2020-06-16T15:24:09Z"
+ * date::past(5, date::DateFormat::Timestamp) // "1592321049"
  * @endcode
  */
-std::string pastDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
+std::string past(int years = 1, DateFormat dateFormat = DateFormat::ISO);
 
 /**
  * @brief Generates a random date in the future.
@@ -33,13 +33,13 @@ std::string pastDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
  * @returns ISO formatted string.
  *
  * @code
- * date::futureDate() // "2023-09-27T09:47:46Z"
- * date::futureDate(5) // "2024-06-11T19:46:29Z"
- * date::futureDate(5, date::DateFormat::ISO) // "2024-06-11T19:46:29Z"
- * date::futureDate(5, date::DateFormat::Timestamp) // "1718229989"
+ * date::future() // "2023-09-27T09:47:46Z"
+ * date::future(5) // "2024-06-11T19:46:29Z"
+ * date::future(5, date::DateFormat::ISO) // "2024-06-11T19:46:29Z"
+ * date::future(5, date::DateFormat::Timestamp) // "1718229989"
  * @endcode
  */
-std::string futureDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
+std::string future(int years = 1, DateFormat dateFormat = DateFormat::ISO);
 
 /**
  * @brief Generates a random date in the recent past.
@@ -49,13 +49,13 @@ std::string futureDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
  * @returns ISO formatted string.
  *
  * @code
- * date::recentDate() // "2023-07-05T14:12:40Z"
- * date::recentDate(10) // "2023-06-29T18:24:12Z"
- * date::recentDate(10, date::DateFormat::ISO) // "2023-06-29T18:24:12Z"
- * date::recentDate(10, date::DateFormat::Timestamp) // "1718229989"
+ * date::recent() // "2023-07-05T14:12:40Z"
+ * date::recent(10) // "2023-06-29T18:24:12Z"
+ * date::recent(10, date::DateFormat::ISO) // "2023-06-29T18:24:12Z"
+ * date::recent(10, date::DateFormat::Timestamp) // "1718229989"
  * @endcode
  */
-std::string recentDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
+std::string recent(int days = 3, DateFormat dateFormat = DateFormat::ISO);
 
 /**
  * @brief Generates a random date in the soon future.
@@ -65,13 +65,13 @@ std::string recentDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
  * @returns ISO formatted string.
  *
  * @code
- * date::soonDate() // "2023-07-07T18:19:12Z"
- * date::soonDate(10) // "2023-07-15T09:59:11Z"
- * date::soonDate(10, date::DateFormat::ISO) // "2023-07-15T09:59:11Z"
- * date::soonDate(10, date::DateFormat::Timestamp) // "1718229989"
+ * date::soon() // "2023-07-07T18:19:12Z"
+ * date::soon(10) // "2023-07-15T09:59:11Z"
+ * date::soon(10, date::DateFormat::ISO) // "2023-07-15T09:59:11Z"
+ * date::soon(10, date::DateFormat::Timestamp) // "1718229989"
  * @endcode
  */
-std::string soonDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
+std::string soon(int days = 3, DateFormat dateFormat = DateFormat::ISO);
 
 /**
  * @brief Generates a random birthdate by age.
@@ -82,13 +82,13 @@ std::string soonDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
  * @returns ISO formatted string.
  *
  * @code
- * date::birthdateByAge() // "2002-12-07T23:20:12Z"
- * date::birthdateByAge(20, 30) // "1996-11-14T11:27:09Z"
- * date::birthdateByAge(20, 30, date::DateFormat::ISO) // "1996-11-14T11:27:09Z"
- * date::birthdateByAge(20, 30, date::DateFormat::Timestamp) // "1718229989"
+ * date::birthdate_by_age() // "2002-12-07T23:20:12Z"
+ * date::birthdate_by_age(20, 30) // "1996-11-14T11:27:09Z"
+ * date::birthdate_by_age(20, 30, date::DateFormat::ISO) // "1996-11-14T11:27:09Z"
+ * date::birthdate_by_age(20, 30, date::DateFormat::Timestamp) // "1718229989"
  * @endcode
  */
-std::string birthdateByAge(
+std::string birthdate_by_age(
     int minAge = 18, int maxAge = 80, DateFormat dateFormat = DateFormat::ISO);
 
 /**
@@ -100,13 +100,13 @@ std::string birthdateByAge(
  * @returns ISO formatted string.
  *
  * @code
- * date::birthdateByYear() // "1965-02-19T02:19:47Z"
- * date::birthdateByYear(1996, 1996) // "1996-05-19T12:00:23Z"
- * date::birthdateByYear(1996, 1996, date::DateFormat::ISO) // "1996-05-19T12:00:23Z"
- * date::birthdateByYear(1996, 1996, date::DateFormat::Timestamp) // "1718229989"
+ * date::birthdate_by_year() // "1965-02-19T02:19:47Z"
+ * date::birthdate_by_year(1996, 1996) // "1996-05-19T12:00:23Z"
+ * date::birthdate_by_year(1996, 1996, date::DateFormat::ISO) // "1996-05-19T12:00:23Z"
+ * date::birthdate_by_year(1996, 1996, date::DateFormat::Timestamp) // "1718229989"
  * @endcode
  */
-std::string birthdateByYear(
+std::string birthdate_by_year(
     int minYear = 1920, int maxYear = 2000, DateFormat dateFormat = DateFormat::ISO);
 
 /**
@@ -115,10 +115,10 @@ std::string birthdateByYear(
  * @returns Name of the weekday.
  *
  * @code
- * date::weekdayName() // "Monday"
+ * date::weekday_name() // "Monday"
  * @endcode
  */
-std::string_view weekdayName();
+std::string_view weekday_name();
 
 /**
  * @brief Returns an abbreviated name of random day of the week.
@@ -126,10 +126,10 @@ std::string_view weekdayName();
  * @returns Abbreviated name of the weekday.
  *
  * @code
- * date::weekdayAbbreviatedName() // "Mon"
+ * date::weekday_abbr_name() // "Mon"
  * @endcode
  */
-std::string_view weekdayAbbreviatedName();
+std::string_view weekday_abbr_name();
 
 /**
  * @brief Returns a random name of a month.
@@ -137,10 +137,10 @@ std::string_view weekdayAbbreviatedName();
  * @returns Name of the month.
  *
  * @code
- * date::monthName() // "October"
+ * date::month_name() // "October"
  * @endcode
  */
-std::string_view monthName();
+std::string_view month_name();
 
 /**
  * @brief Returns an abbreviated name of random month.
@@ -148,10 +148,10 @@ std::string_view monthName();
  * @returns Abbreviated name of the month.
  *
  * @code
- * date::monthAbbreviatedName() // "Feb"
+ * date::month_abbr_name() // "Feb"
  * @endcode
  */
-std::string_view monthAbbreviatedName();
+std::string_view month_abbr_name();
 }
 
 #endif

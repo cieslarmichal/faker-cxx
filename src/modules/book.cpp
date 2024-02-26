@@ -21,7 +21,7 @@ std::string isbn()
         string::numeric(2), string::numeric(5), string::numeric(1));
 }
 
-int releaseYear() { return number::integer(1940, 2024); }
+int release_year() { return number::integer(1940, 2024); }
 
 std::string_view translator() { return Helper::arrayElement(data::translators); }
 

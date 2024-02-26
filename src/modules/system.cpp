@@ -24,7 +24,7 @@ namespace {
     }
 }
 
-std::string fileName(const FileOptions& options)
+std::string filename(const FileOptions& options)
 {
     std::string baseName = word::words();
     std::string extensionsStr;
@@ -33,7 +33,7 @@ std::string fileName(const FileOptions& options)
         std::vector<std::string> randomExtensions;
         if (options.extensionRange.min == options.extensionRange.max) {
             for (int i = 0; i < options.extensionCount; ++i) {
-                std::string randomExt = fileExtension();
+                std::string randomExt = file_ext();
                 randomExtensions.push_back(randomExt);
             }
             extensionsStr = "." + StringHelper::join(randomExtensions, ".");
@@ -43,7 +43,7 @@ std::string fileName(const FileOptions& options)
                 + rand() % (options.extensionRange.max - options.extensionRange.min + 1);
 
             for (int i = 0; i < numExtensions; ++i) {
-                std::string randomExt = fileExtension();
+                std::string randomExt = file_ext();
                 randomExtensions.push_back(randomExt);
             }
 
@@ -53,7 +53,7 @@ std::string fileName(const FileOptions& options)
     return baseName + extensionsStr;
 }
 
-std::string_view toString(FileType type)
+std::string_view to_string(FileType type)
 {
     switch (type) {
     case FileType::Video:
@@ -71,10 +71,10 @@ std::string_view toString(FileType type)
     }
 }
 
-std::string fileExtension(const std::optional<FileType>& mimeType)
+std::string file_ext(const std::optional<FileType>& mimeType)
 {
     if (mimeType.has_value()) {
-        const auto mimeTypeName = toString(mimeType.value());
+        const auto mimeTypeName = to_string(mimeType.value());
         std::vector<std::string_view> extensions;
         for (const auto& mime : data::mimeTypes) {
             size_t pos = mime.find_first_of('/');
@@ -96,36 +96,36 @@ std::string fileExtension(const std::optional<FileType>& mimeType)
     }
 }
 
-std::string commonFileName(const std::optional<std::string>& ext)
+std::string common_filename(const std::optional<std::string>& ext)
 {
     FileOptions options;
 
     options.extensionCount = 0;
 
-    std::string str = fileName(options);
+    std::string str = filename(options);
 
     str += '.';
 
     if (ext.has_value() && !ext.value().empty()) {
         str += ext.value();
     } else {
-        str += commonFileExtension();
+        str += common_file_ext();
     }
     return str;
 }
 
-std::string_view commonFileExtension()
+std::string_view common_file_ext()
 {
     auto mimeType = Helper::arrayElement(data::commonMimeTypes);
 
     return extension(mimeType);
 }
 
-std::string_view mimeType() { return Helper::arrayElement(data::mimeTypes); }
+std::string_view mime_type() { return Helper::arrayElement(data::mimeTypes); }
 
-std::string_view commonFileType() { return Helper::arrayElement(data::commonFileTypes); }
+std::string_view common_file_type() { return Helper::arrayElement(data::commonFileTypes); }
 
-std::string_view fileType()
+std::string_view file_type()
 {
     std::unordered_set<std::string_view> typeSet;
 
@@ -147,15 +147,15 @@ std::string_view fileType()
     return Helper::arrayElement(types);
 }
 
-std::string_view directoryPath() { return Helper::arrayElement(data::directoryPaths); }
+std::string_view directory_path() { return Helper::arrayElement(data::directoryPaths); }
 
-std::string filePath()
+std::string file_path()
 {
-    auto dirPath = directoryPath();
+    auto dirPath = directory_path();
     std::string result;
-    result.reserve(dirPath.size() + 1 + fileName().size());
+    result.reserve(dirPath.size() + 1 + filename().size());
     result += dirPath;
-    result += fileName();
+    result += filename();
     return result;
 }
 
@@ -167,7 +167,7 @@ std::string semver()
     return FormatHelper::format("{}.{}.{}", major, minor, patch);
 }
 
-std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options)
+std::string network_interface(const std::optional<NetworkInterfaceOptions>& options)
 {
     const auto defaultInterfaceType = Helper::arrayElement(data::commonInterfaceTypes);
     const auto defaultInterfaceSchema = Helper::objectKey(data::commonInterfaceSchemas);

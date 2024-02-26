@@ -43,10 +43,10 @@ std::string_view industry();
  * @returns Buzz phrase.
  *
  * @code
- * company::buzzPhrase() // "cultivate synergistic e-market"
+ * company::buzz_phrase() // "cultivate synergistic e-market"
  * @endcode
  */
-std::string buzzPhrase();
+std::string buzz_phrase();
 
 /**
  * @brief Returns a random buzz adjective.
@@ -54,10 +54,10 @@ std::string buzzPhrase();
  * @returns Buzz adjective.
  *
  * @code
- * company::buzzAdjective() // "one-to-one"
+ * company::buzz_adjective() // "one-to-one"
  * @endcode
  */
-std::string_view buzzAdjective();
+std::string_view buzz_adjective();
 
 /**
  * @brief Returns a random buzz noun.
@@ -65,10 +65,10 @@ std::string_view buzzAdjective();
  * @returns Buzz noun.
  *
  * @code
- * company::buzzNoun() // "paradigms"
+ * company::buzz_noun() // "paradigms"
  * @endcode
  */
-std::string_view buzzNoun();
+std::string_view buzz_noun();
 
 /**
  * @brief Returns a random buzz verb.
@@ -76,10 +76,10 @@ std::string_view buzzNoun();
  * @returns Buzz verb.
  *
  * @code
- * company::buzzVerb() // "empower"
+ * company::buzz_verb() // "empower"
  * @endcode
  */
-std::string_view buzzVerb();
+std::string_view buzz_verb();
 
 /**
  * @brief Returns a random catch phrase.
@@ -87,10 +87,10 @@ std::string_view buzzVerb();
  * @returns Catch phrase.
  *
  * @code
- * company::catchPhrase() // "Upgradable systematic flexibility"
+ * company::catch_phrase() // "Upgradable systematic flexibility"
  * @endcode
  */
-std::string catchPhrase();
+std::string catch_phrase();
 
 /**
  * @brief Returns a random catch phrase adjective.
@@ -98,10 +98,10 @@ std::string catchPhrase();
  * @returns Catch phrase adjective.
  *
  * @code
- * company::catchPhraseAdjective() // "Multi-tiered"
+ * company::catch_phrase_adjective() // "Multi-tiered"
  * @endcode
  */
-std::string_view catchPhraseAdjective();
+std::string_view catch_phrase_adjective();
 
 /**
  * @brief Returns a random catch phrase descriptor.
@@ -109,10 +109,10 @@ std::string_view catchPhraseAdjective();
  * @returns Catch phrase descriptor.
  *
  * @code
- * company::catchPhraseDescriptor() // "composite"
+ * company::catch_phrase_descriptor() // "composite"
  * @endcode
  */
-std::string_view catchPhraseDescriptor();
+std::string_view catch_phrase_descriptor();
 
 /**
  * @brief Returns a random catch phrase noun.
@@ -120,10 +120,10 @@ std::string_view catchPhraseDescriptor();
  * @returns Catch phrase noun.
  *
  * @code
- * company::catchPhraseNoun() // "leverage"
+ * company::catch_phrase_noun() // "leverage"
  * @endcode
  */
-std::string_view catchPhraseNoun();
+std::string_view catch_phrase_noun();
 }
 
 #endif

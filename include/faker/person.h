@@ -48,7 +48,7 @@ enum class Language {
     Estonian
 };
 
-std::string_view toString(Sex sex, Language language = Language::English);
+std::string_view to_string(Sex sex, Language language = Language::English);
 
 enum class SsnCountry {
     Poland,
@@ -70,12 +70,12 @@ enum class SsnCountry {
  * @returns First name starting with a capital letter.
  *
  * @code
- * person::firstName() // "Michael"
- * person::firstName(Country::England, Sex::Female) // "Emma"
- * person::firstName(Country::England, Sex::Male) // "Arthur"
+ * person::first_name() // "Michael"
+ * person::first_name(Country::England, Sex::Female) // "Emma"
+ * person::first_name(Country::England, Sex::Male) // "Arthur"
  * @endcode
  */
-std::string firstName(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
+std::string first_name(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
 
 /**
  * @brief Returns a random last name.
@@ -86,10 +86,10 @@ std::string firstName(Country country = Country::England, std::optional<Sex> sex
  * @returns Last name starting with a capital letter.
  *
  * @code
- * person::lastName() // "Peterson"
+ * person::last_name() // "Peterson"
  * @endcode
  */
-std::string lastName(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
+std::string last_name(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
 
 /**
  * @brief Returns a random middle name.
@@ -99,10 +99,10 @@ std::string lastName(Country country = Country::England, std::optional<Sex> sex 
  * @returns Middle name starting with a capital letter.
  *
  * @code
- * person::middleName() // "Васильевич"
+ * person::middle_name() // "Васильевич"
  * @endcode
  */
-std::string middleName(std::optional<Sex> sex = std::nullopt);
+std::string middle_name(std::optional<Sex> sex = std::nullopt);
 
 /**
  * @brief Returns a random full name.
@@ -113,12 +113,12 @@ std::string middleName(std::optional<Sex> sex = std::nullopt);
  * @returns Full name starting with first name.
  *
  * @code
- * person::fullName() // "Marcia Robinson"
- * person::fullName(Country::England, Sex::Female) // "Jennifer Martin"
- * person::fullName(Country::England, Sex::Male) // "Samuel Walker"
+ * person::full_name() // "Marcia Robinson"
+ * person::full_name(Country::England, Sex::Female) // "Jennifer Martin"
+ * person::full_name(Country::England, Sex::Male) // "Samuel Walker"
  * @endcode
  */
-std::string fullName(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
+std::string full_name(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
 
 /**
  * @brief Returns a random name prefix.
@@ -185,10 +185,10 @@ std::string_view gender();
  * @returns Job title.
  *
  * @code
- * person::jobTitle() // "Global Accounts Engineer"
+ * person::job_title() // "Global Accounts Engineer"
  * @endcode
  */
-std::string jobTitle();
+std::string job_title();
 
 /**
  * @brief Returns a random job descriptor.
@@ -196,10 +196,10 @@ std::string jobTitle();
  * @returns Job descriptor.
  *
  * @code
- * person::jobDescriptor() // "Senior"
+ * person::job_descriptor() // "Senior"
  * @endcode
  */
-std::string_view jobDescriptor();
+std::string_view job_descriptor();
 
 /**
  * @brief Returns a random job area.
@@ -207,10 +207,10 @@ std::string_view jobDescriptor();
  * @returns Job area.
  *
  * @code
- * person::jobArea() // "Software"
+ * person::job_area() // "Software"
  * @endcode
  */
-std::string_view jobArea();
+std::string_view job_area();
 
 /**
  * @brief Returns a random job type.
@@ -218,10 +218,10 @@ std::string_view jobArea();
  * @returns Job type.
  *
  * @code
- * person::jobType() // "Engineer"
+ * person::job_type() // "Engineer"
  * @endcode
  */
-std::string_view jobType();
+std::string_view job_type();
 
 /**
  * @brief Returns a random hobby.
@@ -276,10 +276,10 @@ std::string ssn(std::optional<SsnCountry> country);
  * @returns Western Zodiac
  *
  * @code
- * person::westernZodiac() // "Virgo"
+ * person::western_zodiac() // "Virgo"
  * @endcode
  */
-std::string_view westernZodiac();
+std::string_view western_zodiac();
 
 /**
  * @brief Returns a random Chinese Zodiac
@@ -287,10 +287,10 @@ std::string_view westernZodiac();
  * @returns Chinese Zodiac
  *
  * @code
- * person::chineseZodiac() // "Dragon"
+ * person::chinese_zodiac() // "Dragon"
  * @endcode
  */
-std::string_view chineseZodiac();
+std::string_view chinese_zodiac();
 }
 
 #endif

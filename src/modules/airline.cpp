@@ -6,7 +6,7 @@
 #include <string>
 
 namespace faker::airline {
-std::string_view aircraftType() { return Helper::arrayElement(data::aircraftTypes); }
+std::string_view aircraft_type() { return Helper::arrayElement(data::aircraftTypes); }
 
 Airplane airplane() { return Helper::arrayElement(data::airplanes); }
 
@@ -20,7 +20,7 @@ std::string seat(AircraftType aircraftType)
         + Helper::arrayElement(data::aircraftTypeSeatLetters.at(aircraftType));
 }
 
-std::string recordLocator(bool allowNumerics)
+std::string record_locator(bool allowNumerics)
 {
     if (allowNumerics) {
         return string::alphanumeric(6, string::StringCasing::Upper);
@@ -29,7 +29,7 @@ std::string recordLocator(bool allowNumerics)
     return string::alpha(6, string::StringCasing::Upper);
 }
 
-std::string flightNumber(bool addLeadingZeros, unsigned int length)
+std::string flight_number(bool addLeadingZeros, unsigned int length)
 {
     if (addLeadingZeros) {
         return string::numeric(length, true);
@@ -38,7 +38,7 @@ std::string flightNumber(bool addLeadingZeros, unsigned int length)
     return string::numeric(length, false);
 }
 
-std::string flightNumberByRange(bool addLeadingZeros, Range length)
+std::string flight_number_by_range(bool addLeadingZeros, Range length)
 {
     if (addLeadingZeros) {
         return string::numeric(number::integer(length.min, length.max), true);

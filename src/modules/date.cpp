@@ -45,7 +45,7 @@ namespace {
     const auto numberOfDaysInYear = 365;
 }
 
-std::string futureDate(int years, DateFormat dateFormat)
+std::string future(int years, DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() + std::chrono::hours { 1 };
 
@@ -55,7 +55,7 @@ std::string futureDate(int years, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string pastDate(int years, DateFormat dateFormat)
+std::string past(int years, DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now()
         - std::chrono::hours { numberOfHoursInDay * numberOfDaysInYear * years };
@@ -65,7 +65,7 @@ std::string pastDate(int years, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string soonDate(int days, DateFormat dateFormat)
+std::string soon(int days, DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() + std::chrono::hours { 1 };
 
@@ -74,7 +74,7 @@ std::string soonDate(int days, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string recentDate(int days, DateFormat dateFormat)
+std::string recent(int days, DateFormat dateFormat)
 {
     const auto startDate
         = std::chrono::system_clock::now() - std::chrono::hours { numberOfHoursInDay * days };
@@ -84,7 +84,7 @@ std::string recentDate(int days, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string birthdateByAge(int minAge, int maxAge, DateFormat dateFormat)
+std::string birthdate_by_age(int minAge, int maxAge, DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now()
         - std::chrono::hours { numberOfHoursInDay * numberOfDaysInYear * maxAge };
@@ -95,7 +95,7 @@ std::string birthdateByAge(int minAge, int maxAge, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string birthdateByYear(int minYear, int maxYear, DateFormat dateFormat)
+std::string birthdate_by_year(int minYear, int maxYear, DateFormat dateFormat)
 {
     tm startDateTime {};
     startDateTime.tm_year = minYear - 1900;
@@ -122,18 +122,12 @@ std::string birthdateByYear(int minYear, int maxYear, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string_view weekdayName() { return Helper::arrayElement(data::weekdayNames); }
+std::string_view weekday_name() { return Helper::arrayElement(data::weekdayNames); }
 
-std::string_view weekdayAbbreviatedName()
-{
-    return Helper::arrayElement(data::weekdayAbbreviatedNames);
-}
+std::string_view weekday_abbr_name() { return Helper::arrayElement(data::weekdayAbbreviatedNames); }
 
-std::string_view monthName() { return Helper::arrayElement(data::monthNames); }
+std::string_view month_name() { return Helper::arrayElement(data::monthNames); }
 
-std::string_view monthAbbreviatedName()
-{
-    return Helper::arrayElement(data::monthAbbreviatedNames);
-}
+std::string_view month_abbr_name() { return Helper::arrayElement(data::monthAbbreviatedNames); }
 
 }

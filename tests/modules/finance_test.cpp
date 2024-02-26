@@ -125,7 +125,7 @@ TEST_F(FinanceTest, shouldGenerateCurrency)
 
 TEST_F(FinanceTest, shouldGenerateCurrencyName)
 {
-    const auto generatedCurrencyName = finance::currencyName();
+    const auto generatedCurrencyName = finance::currency_name();
 
     ASSERT_TRUE(faker::testing::any_of(
         finance::data::currencies, [generatedCurrencyName](const finance::Currency& currency) {
@@ -135,7 +135,7 @@ TEST_F(FinanceTest, shouldGenerateCurrencyName)
 
 TEST_F(FinanceTest, shouldGenerateCurrencyCode)
 {
-    const auto generatedCurrencyCode = finance::currencyCode();
+    const auto generatedCurrencyCode = finance::currency_code();
 
     ASSERT_TRUE(faker::testing::any_of(
         finance::data::currencies, [generatedCurrencyCode](const finance::Currency& currency) {
@@ -145,7 +145,7 @@ TEST_F(FinanceTest, shouldGenerateCurrencyCode)
 
 TEST_F(FinanceTest, shouldGenerateCurrencySymbol)
 {
-    const auto generatedCurrencySymbol = finance::currencySymbol();
+    const auto generatedCurrencySymbol = finance::currency_symbol();
 
     ASSERT_TRUE(faker::testing::any_of(
         finance::data::currencies, [generatedCurrencySymbol](const finance::Currency& currency) {
@@ -155,7 +155,7 @@ TEST_F(FinanceTest, shouldGenerateCurrencySymbol)
 
 TEST_F(FinanceTest, shouldGenerateAccountType)
 {
-    const auto generatedAccountType = finance::accountType();
+    const auto generatedAccountType = finance::account_type();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(finance::data::accountTypes, generatedAccountType);
 }
@@ -248,7 +248,7 @@ TEST_F(FinanceTest, shouldGenerateIban)
 
 TEST_F(FinanceTest, shouldGenerateAccountNumber)
 {
-    const auto accountNumber = finance::accountNumber();
+    const auto accountNumber = finance::account_number();
 
     ASSERT_EQ(accountNumber.size(), 8);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(accountNumber));
@@ -258,7 +258,7 @@ TEST_F(FinanceTest, shouldGenerateAccountNumberWithSpecifiedLength)
 {
     const auto accountNumberLength = 26;
 
-    const auto accountNumber = finance::accountNumber(accountNumberLength);
+    const auto accountNumber = finance::account_number(accountNumberLength);
 
     ASSERT_EQ(accountNumber.size(), accountNumberLength);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(accountNumber));
@@ -284,7 +284,7 @@ TEST_F(FinanceTest, shouldGeneratePinNumberWithSpecifiedLength)
 
 TEST_F(FinanceTest, shouldGenerateRoutingNumber)
 {
-    const auto routingNumber = finance::routingNumber();
+    const auto routingNumber = finance::routing_number();
 
     ASSERT_EQ(routingNumber.size(), 9);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(routingNumber));
@@ -292,7 +292,7 @@ TEST_F(FinanceTest, shouldGenerateRoutingNumber)
 
 TEST_F(FinanceTest, shouldGenerateCreditCardNumber)
 {
-    const auto creditCardNumber = finance::creditCardNumber();
+    const auto creditCardNumber = finance::credit_card_number();
 
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
     ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
@@ -301,7 +301,7 @@ TEST_F(FinanceTest, shouldGenerateCreditCardNumber)
 TEST_F(FinanceTest, shouldGenerateAmericanExpressCreditCardNumber)
 {
     const auto creditCardNumber
-        = finance::creditCardNumber(finance::CreditCardType::AmericanExpress);
+        = finance::credit_card_number(finance::CreditCardType::AmericanExpress);
 
     ASSERT_TRUE(faker::testing::starts_with(creditCardNumber, "34")
         || faker::testing::starts_with(creditCardNumber, "37"));
@@ -311,7 +311,7 @@ TEST_F(FinanceTest, shouldGenerateAmericanExpressCreditCardNumber)
 
 TEST_F(FinanceTest, shouldGenerateDiscoverCreditCardNumber)
 {
-    const auto creditCardNumber = finance::creditCardNumber(finance::CreditCardType::Discover);
+    const auto creditCardNumber = finance::credit_card_number(finance::CreditCardType::Discover);
 
     ASSERT_TRUE(faker::testing::starts_with(creditCardNumber, "6011")
         || faker::testing::starts_with(creditCardNumber, "65")
@@ -328,7 +328,7 @@ TEST_F(FinanceTest, shouldGenerateDiscoverCreditCardNumber)
 
 TEST_F(FinanceTest, shouldGenerateMasterCardCreditCardNumber)
 {
-    const auto creditCardNumber = finance::creditCardNumber(finance::CreditCardType::MasterCard);
+    const auto creditCardNumber = finance::credit_card_number(finance::CreditCardType::MasterCard);
 
     ASSERT_TRUE(faker::testing::starts_with(creditCardNumber, "51")
         || faker::testing::starts_with(creditCardNumber, "52")
@@ -342,7 +342,7 @@ TEST_F(FinanceTest, shouldGenerateMasterCardCreditCardNumber)
 
 TEST_F(FinanceTest, shouldGenerateVisaCreditCardNumber)
 {
-    const auto creditCardNumber = finance::creditCardNumber(finance::CreditCardType::Visa);
+    const auto creditCardNumber = finance::credit_card_number(finance::CreditCardType::Visa);
 
     FAKER_EXPECT_STRING_STARTS_WITH(creditCardNumber, "4");
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
@@ -351,7 +351,7 @@ TEST_F(FinanceTest, shouldGenerateVisaCreditCardNumber)
 
 TEST_F(FinanceTest, shouldGenerateCreditCardCvv)
 {
-    const auto creditCardCvv = finance::creditCardCvv();
+    const auto creditCardCvv = finance::credit_card_cvv();
 
     ASSERT_EQ(creditCardCvv.size(), 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(creditCardCvv));
@@ -359,7 +359,7 @@ TEST_F(FinanceTest, shouldGenerateCreditCardCvv)
 
 TEST_F(FinanceTest, shouldGenerateBitcoinAddress)
 {
-    const auto bitcoinAddress = finance::bitcoinAddress();
+    const auto bitcoinAddress = finance::bitcoin_address();
 
     ASSERT_GE(bitcoinAddress.size(), 27);
     ASSERT_LE(bitcoinAddress.size(), 34);
@@ -380,7 +380,7 @@ TEST_F(FinanceTest, shouldGenerateBitcoinAddress)
 
 TEST_F(FinanceTest, shouldGenerateLitecoinAddress)
 {
-    const auto litecoinAddress = finance::litecoinAddress();
+    const auto litecoinAddress = finance::litecoin_address();
 
     ASSERT_GE(litecoinAddress.size(), 27);
     ASSERT_LE(litecoinAddress.size(), 34);
@@ -402,7 +402,7 @@ TEST_F(FinanceTest, shouldGenerateLitecoinAddress)
 
 TEST_F(FinanceTest, shouldGenerateEthereumAddress)
 {
-    const auto ethereumAddress = finance::ethereumAddress();
+    const auto ethereumAddress = finance::ethereum_address();
 
     const auto prefix = ethereumAddress.substr(0, 2);
     const auto hexNumber = ethereumAddress.substr(2);
@@ -416,7 +416,7 @@ TEST_F(FinanceTest, shouldGenerateEthereumAddress)
 
 TEST_F(FinanceTest, shouldGenerateExpirationDate)
 {
-    const auto expirationDate = finance::creditCardExpirationDate();
+    const auto expirationDate = finance::credit_card_expiration_date();
     int tenthPlaceYear = std::stoi(expirationDate.substr(3, 2));
     std::cout << expirationDate << " " << tenthPlaceYear << "\n";
     ASSERT_TRUE(tenthPlaceYear >= 24);

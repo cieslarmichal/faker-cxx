@@ -21,10 +21,10 @@ std::string_view condition();
  * @returns Medical test.
  *
  * @code
- * medicine::medicalTest() // "pulmonary auscultation"
+ * medicine::medical_test() // "pulmonary auscultation"
  * @endcode
  */
-std::string_view medicalTest();
+std::string_view medical_test();
 
 /**
  * @brief Returns a random Medical specialty

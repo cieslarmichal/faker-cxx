@@ -20,7 +20,7 @@ TEST(MusicTest, shouldGenerateGenre)
 
 TEST(MusicTest, shouldGenerateSongName)
 {
-    auto generatedSongName = music::songName();
+    auto generatedSongName = music::song_name();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(music::data::songNames, generatedSongName);
 }

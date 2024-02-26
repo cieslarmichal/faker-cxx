@@ -5,7 +5,8 @@
 
 namespace faker::weather {
 struct Temperature {
-    double metric, imperial;
+    double metric;
+    double imperial;
 };
 
 /**
@@ -62,10 +63,10 @@ struct WindSpeed {
  * @return WindSpeed object with metric and imperial wind speed
  *
  * @code
- * weather::windSpeed(); // WindSpeed.metric = 10.0, WindSpeed.imperial = 6.2
+ * weather::wind_speed(); // WindSpeed.metric = 10.0, WindSpeed.imperial = 6.2
  * @endcode
  */
-WindSpeed windSpeed();
+WindSpeed wind_speed();
 
 /**
  * @brief Generated a random uvIndex
@@ -73,10 +74,10 @@ WindSpeed windSpeed();
  * @return Int A random uvIndex
  *
  * @code
- * weather::uvIndex(); // 10
+ * weather::uv_index(); // 10
  * @endcode
  */
-int uvIndex();
+int uv_index();
 
 /**
  * @brief Generated a random humidity percentage
@@ -98,7 +99,7 @@ int humidity();
  * weather::description(); // "Sunny"
  * @endcode
  */
-std::string_view weatherDescription();
+std::string_view description();
 
 /**
  * @brief Generated a random cloud cover percentage
@@ -106,10 +107,10 @@ std::string_view weatherDescription();
  * @return Int A random cloud cover percentage
  *
  * @code
- * weather::cloudCover(); // 10
+ * weather::cloud_cover(); // 10
  * @endcode
  */
-int cloudCover();
+int cloud_cover();
 }
 
 #endif

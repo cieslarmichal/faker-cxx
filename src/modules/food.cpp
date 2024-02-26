@@ -4,11 +4,11 @@
 
 namespace faker::food {
 
-std::string_view alcoholicBeverage() { return Helper::arrayElement(data::alcoholicBeverages); }
+std::string_view alcoholic_beverage() { return Helper::arrayElement(data::alcoholicBeverages); }
 
-std::string_view dishName() { return Helper::arrayElement(data::dishNames); }
+std::string_view dish_name() { return Helper::arrayElement(data::dishNames); }
 
-std::string_view foodCategory() { return Helper::arrayElement(data::foodCategories); }
+std::string_view category() { return Helper::arrayElement(data::foodCategories); }
 
 std::string_view fruit() { return Helper::arrayElement(data::fruits); }
 
@@ -16,9 +16,9 @@ std::string_view grain() { return Helper::arrayElement(data::grains); }
 
 std::string_view meat() { return Helper::arrayElement(data::meats); }
 
-std::string_view milkProduct() { return Helper::arrayElement(data::milkProducts); }
+std::string_view milk_product() { return Helper::arrayElement(data::milkProducts); }
 
-std::string_view nonalcoholicBeverage()
+std::string_view non_alcoholic_beverage()
 {
     return Helper::arrayElement(data::nonalcoholicBeverages);
 }
@@ -31,7 +31,7 @@ std::string_view seafood() { return Helper::arrayElement(data::seafoods); }
 
 std::string_view seed() { return Helper::arrayElement(data::seeds); }
 
-std::string_view sugarProduct() { return Helper::arrayElement(data::sugarProducts); }
+std::string_view sugar_product() { return Helper::arrayElement(data::sugarProducts); }
 
 std::string_view vegetable() { return Helper::arrayElement(data::vegetables); }
 }

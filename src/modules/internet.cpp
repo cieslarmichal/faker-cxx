@@ -40,8 +40,8 @@ namespace {
 std::string username(std::optional<std::string> firstNameInit,
     std::optional<std::string> lastNameInit, Country country)
 {
-    const auto firstName = firstNameInit ? *firstNameInit : person::firstName(country);
-    const auto lastName = lastNameInit ? *lastNameInit : person::lastName(country);
+    const auto firstName = firstNameInit ? *firstNameInit : person::first_name(country);
+    const auto lastName = lastNameInit ? *lastNameInit : person::last_name(country);
 
     std::string username;
 
@@ -70,7 +70,7 @@ std::string email(std::optional<std::string> firstName, std::optional<std::strin
         emailHost ? *emailHost : Helper::arrayElement(data::emailHosts));
 }
 
-std::string exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
+std::string example_email(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
         Helper::arrayElement(data::emailExampleHosts));
@@ -156,7 +156,7 @@ std::string_view emoji(std::optional<EmojiType> type)
     return Helper::arrayElement(emojis);
 }
 
-bool checkIfEmojiIsValid(const std::string& emojiToCheck)
+bool is_valid_emoji(const std::string& emojiToCheck)
 {
     static std::vector<std::string_view> emojis;
 
@@ -182,9 +182,9 @@ bool checkIfEmojiIsValid(const std::string& emojiToCheck)
 
 std::string_view protocol() { return Helper::arrayElement(webProtocols); }
 
-std::string_view httpMethod() { return Helper::arrayElement(httpMethodNames); }
+std::string_view http_method() { return Helper::arrayElement(httpMethodNames); }
 
-unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
+unsigned http_status_code(std::optional<HttpResponseType> responseType)
 {
     static std::vector<unsigned> statusCodes;
 
@@ -224,11 +224,11 @@ unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
     return Helper::arrayElement(statusCodes);
 }
 
-std::string_view httpRequestHeader() { return Helper::arrayElement(data::httpRequestHeaders); }
+std::string_view http_request_header() { return Helper::arrayElement(data::httpRequestHeaders); }
 
-std::string_view httpResponseHeader() { return Helper::arrayElement(data::httpResponseHeaders); }
+std::string_view http_response_header() { return Helper::arrayElement(data::httpResponseHeaders); }
 
-std::string_view httpMediaType() { return Helper::arrayElement(data::httpMediaTypes); }
+std::string_view http_media_type() { return Helper::arrayElement(data::httpMediaTypes); }
 
 std::string ipv4(IPv4Class ipv4class)
 {
@@ -311,16 +311,16 @@ std::string url(WebProtocol webProtocol)
 {
     const auto protocol = webProtocol == WebProtocol::Https ? "https" : "http";
 
-    return FormatHelper::format("{}://{}", protocol, domainName());
+    return FormatHelper::format("{}://{}", protocol, domain_name());
 }
 
-std::string domainName() { return FormatHelper::format("{}.{}", domainWord(), domainSuffix()); }
+std::string domain_name() { return FormatHelper::format("{}.{}", domain_word(), domain_suffix()); }
 
-std::string domainWord()
+std::string domain_word()
 {
     return StringHelper::toLower(FormatHelper::format("{}-{}", word::adjective(), word::noun()));
 }
 
-std::string_view domainSuffix() { return Helper::arrayElement(data::domainSuffixes); }
+std::string_view domain_suffix() { return Helper::arrayElement(data::domainSuffixes); }
 
 }

@@ -32,10 +32,10 @@ std::string_view genre();
  * @returns Song name.
  *
  * @code
- * music::songName() // "Light My Fire"
+ * music::song_name() // "Light My Fire"
  * @endcode
  */
-std::string_view songName();
+std::string_view song_name();
 }
 
 #endif

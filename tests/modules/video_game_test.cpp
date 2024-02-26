@@ -6,7 +6,7 @@ using namespace faker;
 
 TEST(VideoGameTest, shouldGenerateGameTitle)
 {
-    auto generatedGameTitle = video_game::gameTitle();
+    auto generatedGameTitle = video_game::title();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(video_game::data::videoGameNames, generatedGameTitle);
 }
@@ -27,7 +27,7 @@ TEST(VideoGameTest, shouldGeneratePlatform)
 
 TEST(VideoGameTest, shouldGenerateStudioName)
 {
-    auto generatedStudioName = faker::video_game::studioName();
+    auto generatedStudioName = faker::video_game::studio_name();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(video_game::data::studioNames, generatedStudioName);
 }

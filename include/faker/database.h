@@ -10,10 +10,10 @@ namespace faker::database {
  * @returns database column name.
  *
  * @code
- * database::columnName() // "created_at"
+ * database::column_name() // "created_at"
  * @endcode
  */
-std::string_view columnName();
+std::string_view column_name();
 
 /**
  * @brief Returns a random database column type.
@@ -21,10 +21,10 @@ std::string_view columnName();
  * @returns database column type.
  *
  * @code
- * database::columnType() // "timestamp"
+ * database::column_type() // "timestamp"
  * @endcode
  */
-std::string_view columnType();
+std::string_view column_type();
 
 /**
  * @brief Returns a random database collation.
@@ -54,10 +54,10 @@ std::string_view engine();
  * @returns MongoDB Object Id.
  *
  * @code
- * database::mongoDbObjectId() // "e175cac316a79afdd0ad3afb"
+ * database::mongodb_object_id() // "e175cac316a79afdd0ad3afb"
  * @endcode
  */
-std::string mongoDbObjectId();
+std::string mongodb_object_id();
 }
 
 #endif

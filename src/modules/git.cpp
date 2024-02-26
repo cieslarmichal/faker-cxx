@@ -24,10 +24,10 @@ std::string branch(unsigned maxIssueNum)
     }
 }
 
-std::string commitDate(unsigned years)
+std::string commit_date(unsigned years)
 {
-    std::string date = date::pastDate(int(years));
-    // std::string_view outputDate = date::weekdayAbbreviatedName();
+    std::string date = date::past(int(years));
+    // std::string_view outputDate = date::weekday_abbr_name();
 
     std::vector<std::string> dateSplit = StringHelper::split(date, "-");
     std::string year = dateSplit[0];
@@ -57,40 +57,40 @@ std::string commitDate(unsigned years)
         timeZoneString += "00";
     }
 
-    return FormatHelper::format("{} {} {} {} {} {}", date::weekdayAbbreviatedName(),
+    return FormatHelper::format("{} {} {} {} {} {}", date::weekday_abbr_name(),
         date::data::monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year,
         timeZoneString);
 }
 
-std::string commitEntry(
+std::string commit_entry(
     std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Country country)
 {
     std::string entry = "commit ";
 
     if (shaLength) {
-        entry += commitSha(shaLength.emplace());
+        entry += commit_sha(shaLength.emplace());
     } else {
-        entry += commitSha();
+        entry += commit_sha();
     }
 
-    const auto firstName = person::firstName(country);
-    const auto lastName = person::lastName(country);
+    const auto firstName = person::first_name(country);
+    const auto lastName = person::last_name(country);
 
     entry += "\nAuthor: " + firstName + " " + lastName + " " + internet::email(firstName, lastName)
         + "\nDate: ";
 
     if (dateYears) {
-        entry += commitDate(dateYears.emplace());
+        entry += commit_date(dateYears.emplace());
     } else {
-        entry += commitDate();
+        entry += commit_date();
     }
 
-    entry += "\n\n\t" + commitMessage();
+    entry += "\n\n\t" + commit_message();
 
     return entry;
 }
 
-std::string commitMessage()
+std::string commit_message()
 {
     switch (number::integer(1, 4)) {
     case 1:
@@ -105,15 +105,15 @@ std::string commitMessage()
     }
 }
 
-std::string commitSha(unsigned length)
+std::string commit_sha(unsigned length)
 {
     return faker::string::hexadecimal(length, HexCasing::Lower, HexPrefix::None);
 }
 
 Author author()
 {
-    const std::string firstName = person::firstName();
-    const std::string lastName = person::lastName();
+    const std::string firstName = person::first_name();
+    const std::string lastName = person::last_name();
 
     const std::string name = firstName + " " + lastName;
     const std::string email = internet::email(firstName, lastName);

@@ -60,7 +60,7 @@ bool BioHelper::checkTokenFormat(const std::string& bio)
         if (findBioPart(person::data::bioPart, matches[1])
             && findBioPart(person::data::bioPart, matches[2])
             && findBioPart(person::data::bioPart, matches[3])
-            && internet::checkIfEmojiIsValid(matches[4])) {
+            && internet::is_valid_emoji(matches[4])) {
             return true;
         }
     }
@@ -79,7 +79,7 @@ bool BioHelper::checkTokenFormat(const std::string& bio)
         // value is present in the bio_part vector.
         if (findBioPart(word::data::nouns, matches[1])
             && findBioPart(person::data::bioSupporter, matches[2])
-            && internet::checkIfEmojiIsValid(matches[3])) {
+            && internet::is_valid_emoji(matches[3])) {
             return true;
         }
     }
@@ -100,7 +100,7 @@ bool BioHelper::checkTokenFormat(const std::string& bio)
         if (findBioPart(word::data::nouns, matches[1])
             && findBioPart(person::data::bioSupporter, matches[2])
             && findBioPart(person::data::bioPart, matches[3])
-            && internet::checkIfEmojiIsValid(matches[4])) {
+            && internet::is_valid_emoji(matches[4])) {
             return true;
         }
     }

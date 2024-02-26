@@ -38,15 +38,15 @@ std::string_view manufacture();
 std::string_view model();
 
 /**
- * @brief Returns a random CPU manufacture name.
+ * @brief Returns a random CPU manufacturer name.
  *
- * @returns CPU manufacture name
+ * @returns CPU manufacturer name
  *
  * @code
- * computer::cpuManufacture() // Intel
+ * computer::cpu_manufacturer() // Intel
  * @endcode
  */
-std::string_view cpuManufacture();
+std::string_view cpu_manufacturer();
 
 /**
  * @brief Returns a random CPU type.
@@ -54,10 +54,10 @@ std::string_view cpuManufacture();
  * @returns CPU type
  *
  * @code
- * computer::cpuType() // x86
+ * computer::cpu_type() // x86
  * @endcode
  */
-std::string_view cpuType();
+std::string_view cpu_type();
 
 /**
  * @brief Returns a random CPU model.
@@ -65,10 +65,10 @@ std::string_view cpuType();
  * @returns computer CPU model
  *
  * @code
- * computer::cpuModel() // Core i9-11900k
+ * computer::cpu_model() // Core i9-11900k
  * @endcode
  */
-std::string_view cpuModel();
+std::string_view cpu_model();
 
 /**
  * @brief Returns a random GPU manufacture name.
@@ -76,10 +76,10 @@ std::string_view cpuModel();
  * @returns GPU manufacture name
  *
  * @code
- * computer::gpuManufacture() // NVIDIA
+ * computer::gpu_manufacturer() // NVIDIA
  * @endcode
  */
-std::string_view gpuManufacture();
+std::string_view gpu_manufacturer();
 
 /**
  * @brief Returns a random GPU type.
@@ -87,10 +87,10 @@ std::string_view gpuManufacture();
  * @returns GPU type
  *
  * @code
- * computer::gpuType() // Integrated
+ * computer::gpu_type() // Integrated
  * @endcode
  */
-std::string_view gpuType();
+std::string_view gpu_type();
 
 /**
  * @brief Returns a random GPU model.
@@ -98,10 +98,10 @@ std::string_view gpuType();
  * @returns computer GPU model
  *
  * @code
- * computer::gpuModel() // NVIDIA GeForce RTX 3080
+ * computer::gpu_model() // NVIDIA GeForce RTX 3080
  * @endcode
  */
-std::string_view gpuModel();
+std::string_view gpu_model();
 
 }
 

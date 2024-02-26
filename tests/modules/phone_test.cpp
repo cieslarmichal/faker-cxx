@@ -71,7 +71,7 @@ TEST(PhoneTest, PlatformGeneration)
 
 TEST(PhoneTest, ModelNameGeneration)
 {
-    auto generatedModelName = phone::modelName();
+    auto generatedModelName = phone::model_name();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(phone::data::model_names, generatedModelName);
 }

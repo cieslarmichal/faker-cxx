@@ -10,10 +10,10 @@ namespace faker::video_game {
  * @returns Video game name.
  *
  * @code
- * video_game::gameTitle() // "Rayman Arena"
+ * video_game::title() // "Rayman Arena"
  * @endcode
  */
-std::string_view gameTitle();
+std::string_view title();
 
 /**
  * @brief Returns a random video game genre.
@@ -43,10 +43,10 @@ std::string_view platform();
  * @returns Studio name.
  *
  * @code
- * video_game::studioName() // "Activision Blizzard"
+ * video_game::studio_name() // "Activision Blizzard"
  * @endcode
  */
-std::string_view studioName();
+std::string_view studio_name();
 }
 
 #endif

@@ -7,7 +7,7 @@
 namespace faker::system {
 enum class FileType { Video, Audio, Image, Text, Application };
 
-std::string_view toString(FileType type);
+std::string_view to_string(FileType type);
 
 struct FileOptions {
     int extensionCount = 1;
@@ -36,18 +36,18 @@ struct NetworkInterfaceOptions {
  * @returns Random file name with extension.
  *
  * @code
- * system::fileName() // "injustice.mpeg"
+ * system::filename() // "injustice.mpeg"
  *
  * FileOptions options
  * options.extensionCount = 3
- * system::fileName(options) // "transformation.wav.mpeg.mp4"
+ * system::filename(options) // "transformation.wav.mpeg.mp4"
  *
  * options.extensionRange.min = 1;
  * options.extensionRange.max = 3;
- * system::fileName(options) // "sparkle.png.pdf"
+ * system::filename(options) // "sparkle.png.pdf"
  * @endcode
  */
-std::string fileName(const FileOptions& options = {});
+std::string filename(const FileOptions& options = {});
 
 /**
  * @brief Returns a file extension.
@@ -57,10 +57,10 @@ std::string fileName(const FileOptions& options = {});
  * @returns A file extension.
  *
  * @code
- * system::fileExtension(MimeType::Image) // "png"
+ * system::file_ext(MimeType::Image) // "png"
  * @endcode
  */
-std::string fileExtension(const std::optional<FileType>& mimeType = std::nullopt);
+std::string file_ext(const std::optional<FileType>& mimeType = std::nullopt);
 
 /**
  * Returns a random file name with a given extension or a commonly used extension.
@@ -70,11 +70,11 @@ std::string fileExtension(const std::optional<FileType>& mimeType = std::nullopt
  * @returns A random file name with a given extension or a commonly used extension.
  *
  * @code
- * system::commonFileName() // "dollar.jpg"
- * system::commonFileName("txt") // "global_borders_wyoming.txt"
+ * system::common_filename() // "dollar.jpg"
+ * system::common_filename("txt") // "global_borders_wyoming.txt"
  * @endcode
  */
-std::string commonFileName(const std::optional<std::string>& ext = std::nullopt);
+std::string common_filename(const std::optional<std::string>& ext = std::nullopt);
 
 /**
  * Returns a commonly used file extension.
@@ -82,10 +82,10 @@ std::string commonFileName(const std::optional<std::string>& ext = std::nullopt)
  * @returns A commonly used file extension.
  *
  * @code
- * system::commonFileExtension() // "gif"
+ * system::common_file_ext() // "gif"
  * @endcode
  */
-std::string_view commonFileExtension();
+std::string_view common_file_ext();
 
 /**
  * Returns a mime-type.
@@ -93,10 +93,10 @@ std::string_view commonFileExtension();
  * @returns A mime-type.
  *
  * @code
- * system::mimeType() // "video/vnd.vivo"
+ * system::mime_type() // "video/vnd.vivo"
  * @endcode
  */
-std::string_view mimeType();
+std::string_view mime_type();
 
 /**
  * Returns a commonly used file type.
@@ -104,10 +104,10 @@ std::string_view mimeType();
  * @returns A commonly used file type.
  *
  * @code
- * system::commonFileType() // "audio"
+ * system::common_file_type() // "audio"
  * @endcode
  */
-std::string_view commonFileType();
+std::string_view common_file_type();
 
 /**
  * Returns a commonly used file type.
@@ -115,10 +115,10 @@ std::string_view commonFileType();
  * @returns A commonly used file type.
  *
  * @code
- * system::fileType() // "image"
+ * system::file_type() // "image"
  * @endcode
  */
-std::string_view fileType();
+std::string_view file_type();
 
 /**
  * Returns a directory path.
@@ -126,10 +126,10 @@ std::string_view fileType();
  * @returns A directory path.
  *
  * @code
- * system::directoryPath() // "/etc/mail"
+ * system::directory_path() // "/etc/mail"
  * @endcode
  */
-std::string_view directoryPath();
+std::string_view directory_path();
 
 /**
  * Returns a file path.
@@ -137,10 +137,10 @@ std::string_view directoryPath();
  * @returns A file path.
  *
  * @code
- * system::filePath() // "/usr/local/src/money.dotx"
+ * system::file_path() // "/usr/local/src/money.dotx"
  * @endcode
  */
-std::string filePath();
+std::string file_path();
 
 /**
  * Returns a semantic version.
@@ -165,23 +165,23 @@ std::string semver();
  * @returns A random network interface.
  *
  * @code
- * system::networkInterface() // "enp2s7f8"
+ * system::network_interface() // "enp2s7f8"
  *
  * NetworkInterfaceOptions options;
  * options.interfaceType = "wl";
- * system::networkInterface(options) // "wlsf4d2"
+ * system::network_interface(options) // "wlsf4d2"
  *
  * NetworkInterfaceOptions options;
  * options.interfaceSchema = "mac";
- * system::networkInterface(options) // "enxd17705ed394f"
+ * system::network_interface(options) // "enxd17705ed394f"
  *
  * NetworkInterfaceOptions options;
  * options.interfaceType = "en";
  * options.interfaceSchema = "pci";
- * system::networkInterface(options) // "enp1s9f1d2"
+ * system::network_interface(options) // "enp1s9f1d2"
  * @endcode
  */
-std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options = {});
+std::string network_interface(const std::optional<NetworkInterfaceOptions>& options = {});
 
 /**
  * Returns a random cron expression.

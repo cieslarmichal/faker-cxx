@@ -270,10 +270,10 @@ std::string_view platform();
  * @returns Random phone model.
  *
  * @code
- * phone::modelName() // "Samsung Galaxy S22"
+ * phone::model_name() // "Samsung Galaxy S22"
  * @endcode
  */
-std::string_view modelName();
+std::string_view model_name();
 
 /**
  * @brief Returns a random phone manufacturer.

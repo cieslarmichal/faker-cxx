@@ -12,18 +12,19 @@ std::string price(double min, double max) { return finance::amount(min, max); }
 
 std::string sku(unsigned int length) { return string::numeric(length, false); }
 
-std::string_view productAdjective() { return Helper::arrayElement(data::productAdjectives); }
+std::string_view product_adjective() { return Helper::arrayElement(data::productAdjectives); }
 
-std::string_view productMaterial() { return Helper::arrayElement(data::productMaterials); }
+std::string_view product_material() { return Helper::arrayElement(data::productMaterials); }
 
-std::string_view productName() { return Helper::arrayElement(data::productNames); }
+std::string_view product_name() { return Helper::arrayElement(data::productNames); }
 
-std::string productFullName()
+std::string product_full_name()
 {
-    return FormatHelper::format("{} {} {}", productAdjective(), productMaterial(), productName());
+    return FormatHelper::format(
+        "{} {} {}", product_adjective(), product_material(), product_name());
 }
 
-std::string EAN13()
+std::string ean13()
 {
     std::string ean13 = string::numeric(12, false);
 
@@ -45,7 +46,7 @@ std::string EAN13()
     return ean13 + std::to_string(checkDigit);
 }
 
-std::string EAN8()
+std::string ean8()
 {
     std::string ean8 = string::numeric(7, false);
 
@@ -67,7 +68,7 @@ std::string EAN8()
     return ean8 + std::to_string(checkDigit);
 }
 
-std::string ISBN13()
+std::string isbn13()
 {
     std::string isbn13 = string::numeric(12, true);
 
@@ -89,7 +90,7 @@ std::string ISBN13()
     return isbn13 + std::to_string(checkDigit);
 }
 
-std::string ISBN10()
+std::string isbn10()
 {
     std::string isbn10 = string::numeric(9, true);
 
@@ -112,40 +113,40 @@ std::string ISBN10()
     return isbn10 + std::to_string(checkDigit);
 }
 
-std::string productId() { return string::alphanumeric(10, string::StringCasing::Upper, ""); }
+std::string product_id() { return string::alphanumeric(10, string::StringCasing::Upper, ""); }
 
-std::string_view paymentType() { return Helper::arrayElement(data::paymentTypes); }
+std::string_view payment_type() { return Helper::arrayElement(data::paymentTypes); }
 
-std::string_view paymentProvider() { return Helper::arrayElement(data::paymentProviders); }
+std::string_view payment_provider() { return Helper::arrayElement(data::paymentProviders); }
 
-std::string_view productDescription() { return Helper::arrayElement(data::productDescriptions); }
+std::string_view product_description() { return Helper::arrayElement(data::productDescriptions); }
 
-std::string_view productCategory() { return Helper::arrayElement(data::productCategoryNames); }
+std::string_view product_category() { return Helper::arrayElement(data::productCategoryNames); }
 
-std::string_view productReview() { return Helper::arrayElement(data::productReviews); }
+std::string_view product_review() { return Helper::arrayElement(data::productReviews); }
 
-double productRating()
+double product_rating()
 {
     auto ratingValue = number::decimal(5.);
     return std::ceil(ratingValue * 100) / 100;
 }
 
-std::string_view discountType() { return Helper::arrayElement(data::discountTypes); }
+std::string_view discount_type() { return Helper::arrayElement(data::discountTypes); }
 
-std::string discountCode()
+std::string discount_code()
 {
     auto codeLength = number::integer(data::kMinDiscountCodeLength, data::kMaxDiscountCodeLength);
     return string::alphanumeric(codeLength, string::StringCasing::Upper);
 }
 
-double discountAmount()
+double discount_amount()
 {
     auto amountValue
         = number::decimal(data::kMinDiscountAmountValue, data::kMaxDiscountAmountValue);
     return std::ceil(amountValue * 100) / 100;
 }
 
-double discountPercentage()
+double discount_percentage()
 {
     auto percentageValue
         = number::decimal(data::kMinDiscountPercentageValue, data::kMaxDiscountPercentageValue);

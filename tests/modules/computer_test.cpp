@@ -27,7 +27,7 @@ TEST(ComputerTest, ComputerModelGeneration)
 
 TEST(ComputerTest, ComputerCPUManufactureGeneration)
 {
-    auto generatedCPUManufacture = computer::cpuManufacture();
+    auto generatedCPUManufacture = computer::cpu_manufacturer();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
         computer::data::ComputerCPUManufactures, generatedCPUManufacture);
@@ -35,21 +35,21 @@ TEST(ComputerTest, ComputerCPUManufactureGeneration)
 
 TEST(ComputerTest, ComputerCPUTypeGeneration)
 {
-    auto generatedCPUType = computer::cpuType();
+    auto generatedCPUType = computer::cpu_type();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(computer::data::ComputerCPUTypes, generatedCPUType);
 }
 
 TEST(ComputerTest, ComputerCPUModelGeneration)
 {
-    auto generatedCPUModel = computer::cpuModel();
+    auto generatedCPUModel = computer::cpu_model();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(computer::data::ComputerCPUModels, generatedCPUModel);
 }
 
 TEST(ComputerTest, ComputerGPUManufactureGeneration)
 {
-    auto generatedGPUManufacture = computer::gpuManufacture();
+    auto generatedGPUManufacture = computer::gpu_manufacturer();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
         computer::data::ComputerGPUManufactures, generatedGPUManufacture);
@@ -57,14 +57,14 @@ TEST(ComputerTest, ComputerGPUManufactureGeneration)
 
 TEST(ComputerTest, ComputerGPUTypeGeneration)
 {
-    auto generatedGPUType = computer::gpuType();
+    auto generatedGPUType = computer::gpu_type();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(computer::data::ComputerGPUTypes, generatedGPUType);
 }
 
 TEST(ComputerTest, ComputerGPUModelGeneration)
 {
-    auto generatedGPUModel = computer::gpuModel();
+    auto generatedGPUModel = computer::gpu_model();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(computer::data::ComputerGPUModels, generatedGPUModel);
 }

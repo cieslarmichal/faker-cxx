@@ -80,10 +80,10 @@ Currency currency();
  * @returns Name of the currency.
  *
  * @code
- * finance::currencyName() // "US Dollar"
+ * finance::currency_name() // "US Dollar"
  * @endcode
  */
-std::string_view currencyName();
+std::string_view currency_name();
 
 /**
  * @brief Returns a random currency code.
@@ -91,10 +91,10 @@ std::string_view currencyName();
  * @returns Code of the currency.
  *
  * @code
- * finance::currencyCode() // "USD"
+ * finance::currency_code() // "USD"
  * @endcode
  */
-std::string_view currencyCode();
+std::string_view currency_code();
 
 /**
  * @brief Returns a random currency symbol.
@@ -102,10 +102,10 @@ std::string_view currencyCode();
  * @returns Symbol of the currency.
  *
  * @code
- * finance::currencySymbol() // "$"
+ * finance::currency_symbol() // "$"
  * @endcode
  */
-std::string_view currencySymbol();
+std::string_view currency_symbol();
 
 /**
  * @brief Returns a random account type.
@@ -113,10 +113,10 @@ std::string_view currencySymbol();
  * @returns Account type.
  *
  * @code
- * finance::accountType() // "Savings"
+ * finance::account_type() // "Savings"
  * @endcode
  */
-std::string_view accountType();
+std::string_view account_type();
 
 /**
  * @brief Generates a random amount between the given bounds (inclusive).
@@ -175,11 +175,11 @@ std::string_view bic(std::optional<BicCountry> country = std::nullopt);
  * @returns Account number.
  *
  * @code
- * finance::accountNumber() // "92842238"
- * finance::accountNumber(26) // "55875455514825927518796290"
+ * finance::account_number() // "92842238"
+ * finance::account_number(26) // "55875455514825927518796290"
  * @endcode
  */
-std::string accountNumber(unsigned length = 8);
+std::string account_number(unsigned length = 8);
 
 /**
  * Generates a random PIN number.
@@ -201,10 +201,10 @@ std::string pin(unsigned length = 4);
  * @returns Routing number.
  *
  * @code
- * finance::routingNumber() // "522814402"
+ * finance::routing_number() // "522814402"
  * @endcode
  */
-std::string routingNumber();
+std::string routing_number();
 
 /**
  * Generates a random credit card number.
@@ -214,10 +214,10 @@ std::string routingNumber();
  * @returns Credit card number.
  *
  * @code
- * finance::creditCardNumber() // "4882664999007"
+ * finance::credit_card_number() // "4882664999007"
  * @endcode
  */
-std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std::nullopt);
+std::string credit_card_number(std::optional<CreditCardType> creditCardType = std::nullopt);
 
 /**
  * Generates a random credit card CVV.
@@ -225,10 +225,10 @@ std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std:
  * @returns Credit card CVV.
  *
  * @code
- * finance::creditCardCvv() // "506"
+ * finance::credit_card_cvv() // "506"
  * @endcode
  */
-std::string creditCardCvv();
+std::string credit_card_cvv();
 
 /**
  * Generates a random bitcoin address.
@@ -236,10 +236,10 @@ std::string creditCardCvv();
  * @returns Bitcoin address.
  *
  * @code
- * finance::bitcoinAddress() // "3ySdvCkTLVy7gKD4j6JfSaf5d"
+ * finance::bitcoin_address() // "3ySdvCkTLVy7gKD4j6JfSaf5d"
  * @endcode
  */
-std::string bitcoinAddress();
+std::string bitcoin_address();
 
 /**
  * Generates a random litecoin address.
@@ -247,10 +247,10 @@ std::string bitcoinAddress();
  * @returns Litecoin address.
  *
  * @code
- * finance::litecoinAddress() // "LoQaSTGWBRXkWfyxKbNKuPrAWGELzcW"
+ * finance::litecoin_address() // "LoQaSTGWBRXkWfyxKbNKuPrAWGELzcW"
  * @endcode
  */
-std::string litecoinAddress();
+std::string litecoin_address();
 
 /**
  * Generates a random ethereum address.
@@ -258,10 +258,10 @@ std::string litecoinAddress();
  * @returns Ethereum address.
  *
  * @code
- * finance::ethereumAddress() // "0xf03dfeecbafc5147241cc4c4ca20b3c9dfd04c4a"
+ * finance::ethereum_address() // "0xf03dfeecbafc5147241cc4c4ca20b3c9dfd04c4a"
  * @endcode
  */
-std::string ethereumAddress();
+std::string ethereum_address();
 
 /**
  * Generates a random expiration date.
@@ -269,10 +269,10 @@ std::string ethereumAddress();
  * @returns std::string date.
  *
  * @code
- * finance::creditCardExpirationDate() // "03/26"
+ * finance::credit_card_expiration_date() // "03/26"
  * @endcode
  */
-std::string creditCardExpirationDate();
+std::string credit_card_expiration_date();
 }
 
 #endif

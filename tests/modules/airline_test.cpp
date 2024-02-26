@@ -8,7 +8,7 @@ using namespace faker;
 
 TEST(AirlineTest, shouldGenerateAircraftType)
 {
-    auto generatedAircraftType = airline::aircraftType();
+    auto generatedAircraftType = airline::aircraft_type();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(airline::data::aircraftTypes, generatedAircraftType);
 }
@@ -36,13 +36,13 @@ TEST(AirlineTest, shouldGenerateAirport)
 
 // TEST(AirlineTest, shouldGenerateRecordLocator)
 // {
-//     std::string generatedRecordLocatorWithAlpha = airline::recordLocator(false);
+//     std::string generatedRecordLocatorWithAlpha = airline::record_locator(false);
 
 //     ASSERT_EQ(generatedRecordLocatorWithAlpha.length(), 6);
 //     ASSERT_RANGE_ALL_OF_TRUE(
 //         generatedRecordLocatorWithAlpha, [](const char& c) { return std::isalpha(c); });
 
-//     std::string generatedRecordLocatorWithNumerics = airline::recordLocator(true);
+//     std::string generatedRecordLocatorWithNumerics = airline::record_locator(true);
 
 //     ASSERT_EQ(generatedRecordLocatorWithNumerics.length(), 6);
 //     ASSERT_RANGE_ALL_OF_TRUE(
@@ -120,7 +120,7 @@ TEST(AirlineTest, shouldGenerateAirport)
 
 TEST(AirlineTest, shouldGenerateFlightNumberNoLeadingZeros)
 {
-    auto flightNumber = airline::flightNumber();
+    auto flightNumber = airline::flight_number();
     auto flightNumberInt = std::stoi(flightNumber);
 
     ASSERT_TRUE(flightNumber.length() == 4);
@@ -131,7 +131,7 @@ TEST(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
 {
     bool leadingZero = false;
     while (!leadingZero) {
-        std::string flightNumber = airline::flightNumber(true, 4);
+        std::string flightNumber = airline::flight_number(true, 4);
         if (flightNumber.substr(0, 1) == "0") {
             leadingZero = true;
         }
@@ -142,7 +142,7 @@ TEST(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
 
 TEST(AirlineTest, shouldGenerateFlightNumberByRange)
 {
-    auto flightNumber = airline::flightNumberByRange(false, { 1, 6 });
+    auto flightNumber = airline::flight_number_by_range(false, { 1, 6 });
 
     ASSERT_TRUE(flightNumber.length() <= 6);
 }

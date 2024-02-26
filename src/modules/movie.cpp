@@ -5,9 +5,9 @@
 namespace faker::movie {
 std::string_view genre() { return Helper::arrayElement(data::genres); }
 
-std::string_view movieTitle() { return Helper::arrayElement(data::movies); }
+std::string_view movie_title() { return Helper::arrayElement(data::movies); }
 
-std::string_view tvShow() { return Helper::arrayElement(data::tvShows); }
+std::string_view tv_show() { return Helper::arrayElement(data::tvShows); }
 
 std::string_view director() { return Helper::arrayElement(data::directors); }
 

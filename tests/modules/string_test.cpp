@@ -245,7 +245,7 @@ TEST_F(StringTest, shouldGenerateDefaultStringFromCharaters)
 {
     const std::string characters { "abc" };
 
-    const auto fromCharacters = string::fromCharacters(characters);
+    const auto fromCharacters = string::from_chars(characters);
 
     ASSERT_EQ(fromCharacters.size(), 1);
     ASSERT_TRUE(faker::testing::all_of(fromCharacters, [&characters](char sampleCharacter) {
@@ -257,7 +257,7 @@ TEST_F(StringTest, shouldGenerateStringFromCharaters)
 {
     const std::string characters { "iosjdaijqw" };
 
-    const auto fromCharacters = string::fromCharacters(characters, 6);
+    const auto fromCharacters = string::from_chars(characters, 6);
 
     ASSERT_EQ(fromCharacters.size(), 6);
     ASSERT_TRUE(faker::testing::all_of(fromCharacters, [&characters](char sampleCharacter) {
@@ -275,7 +275,7 @@ TEST_F(StringTest, shouldGenerateStringFromCharatersWithGuarantee1)
     // it is a random function so lets test for 20 random generations
     for (int i = 0; i < runCount; ++i) {
         auto copyGuarantee = guarantee;
-        const auto fromCharacters = string::fromCharacters(std::move(copyGuarantee), characters, 6);
+        const auto fromCharacters = string::from_chars(std::move(copyGuarantee), characters, 6);
 
         ASSERT_EQ(fromCharacters.size(), 6);
         ASSERT_TRUE(faker::testing::all_of(fromCharacters, [&characters](char sampleCharacter) {
@@ -305,7 +305,7 @@ TEST_F(StringTest, shouldGenerateStringFromCharatersWithGuarantee2)
     for (int i = 0; i < runCount; ++i) {
         auto copyGuarantee = guarantee;
         const auto fromCharacters
-            = string::fromCharacters(std::move(copyGuarantee), characters, fromCharactersLength);
+            = string::from_chars(std::move(copyGuarantee), characters, fromCharactersLength);
 
         ASSERT_EQ(fromCharacters.size(), fromCharactersLength);
         ASSERT_TRUE(faker::testing::all_of(fromCharacters, [&characters](char sampleCharacter) {
@@ -336,7 +336,7 @@ TEST_F(StringTest, shouldGenerateStringFromCharatersWithGuarantee3)
     for (int i = 0; i < runCount; ++i) {
         auto copyGuarantee = guarantee;
         const auto fromCharacters
-            = string::fromCharacters(std::move(copyGuarantee), characters, fromCharactersLength);
+            = string::from_chars(std::move(copyGuarantee), characters, fromCharactersLength);
 
         ASSERT_EQ(fromCharacters.size(), fromCharactersLength);
         ASSERT_TRUE(faker::testing::all_of(fromCharacters, [&characters](char sampleCharacter) {
@@ -361,7 +361,7 @@ TEST_F(StringTest, invalidGuaranteeForFromCharacters1)
     // invalid atmost 10 'b'
     string::GuaranteeMap guarantee { { '&', { 10 } }, { '*', { 5 } }, { 'm', { 5 } },
         { 'b', { 1, 10 } } };
-    ASSERT_THROW(string::fromCharacters(std::move(guarantee), characters, fromCharactersLength),
+    ASSERT_THROW(string::from_chars(std::move(guarantee), characters, fromCharactersLength),
         std::invalid_argument);
 }
 
@@ -372,7 +372,7 @@ TEST_F(StringTest, invalidGuaranteeForFromCharacters2)
     // atleast 6 '1'
     // atmost 3 'a' - 5 'b' - 8 '1' // invalid // string size wont exceed 16 which is invalid
     string::GuaranteeMap guarantee { { 'a', { 0, 3 } }, { 'b', { 0, 5 } }, { '1', { 6, 8 } } };
-    ASSERT_THROW(string::fromCharacters(std::move(guarantee), characters, fromCharactersLength),
+    ASSERT_THROW(string::from_chars(std::move(guarantee), characters, fromCharactersLength),
         std::invalid_argument);
 }
 
@@ -382,7 +382,7 @@ TEST_F(StringTest, invalidGuaranteeForFromCharacters3)
     const std::string characters { "67bnmM" };
     // exactly 2 '1' // invalid // '1' not in `characters`
     string::GuaranteeMap guarantee { { '1', { 2, 2 } }, { 'M', { 2, 2 } }, { 'm', { 2, 2 } } };
-    ASSERT_THROW(string::fromCharacters(std::move(guarantee), characters, fromCharactersLength),
+    ASSERT_THROW(string::from_chars(std::move(guarantee), characters, fromCharactersLength),
         std::invalid_argument);
 }
 

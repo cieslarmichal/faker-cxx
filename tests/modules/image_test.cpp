@@ -7,7 +7,7 @@ using namespace faker;
 
 TEST(ImageTest, shouldGenerateImageUrlDefault)
 {
-    auto imageUrl = image::imageUrl();
+    auto imageUrl = image::image_url();
 
     ASSERT_EQ(imageUrl, "https://loremflickr.com/640/480");
 }
@@ -17,7 +17,7 @@ TEST(ImageTest, shouldGenerateImageUrl)
     auto width = 800;
     auto height = 600;
 
-    auto imageUrl = image::imageUrl(width, height);
+    auto imageUrl = image::image_url(width, height);
 
     ASSERT_EQ(imageUrl, "https://loremflickr.com/800/600");
 }
@@ -28,14 +28,14 @@ TEST(ImageTest, shouldGenerateImageUrlCategory)
     auto height = 600;
     const image::ImageCategory category = image::ImageCategory::Fashion;
 
-    auto imageUrl = image::imageUrl(width, height, category);
+    auto imageUrl = image::image_url(width, height, category);
 
     ASSERT_EQ(imageUrl, "https://loremflickr.com/800/600/fashion");
 }
 
 TEST(ImageTest, shouldGenerateGithubAvatarUrl)
 {
-    auto githubAvatarUrl = image::githubAvatarUrl();
+    auto githubAvatarUrl = image::github_avatar_url();
 
     const std::string expectedGithubAvatarPrefix = "https://avatars.githubusercontent.com/u/";
 

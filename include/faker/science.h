@@ -21,11 +21,11 @@ inline bool operator==(const ChemicalElement& lhs, const ChemicalElement& rhs)
  * @returns ChemicalElement
  *
  * @code
- * science::chemicalElement() // Object of ChemicalElement containing info about a random
+ * science::chemical_element() // Object of ChemicalElement containing info about a random
  * element in the periodic table.
  * @endcode
  */
-ChemicalElement chemicalElement();
+ChemicalElement chemical_element();
 
 struct Unit {
     std::string_view name;
@@ -58,11 +58,11 @@ Unit unit();
  * @returns Unit
  *
  * @code
- * science::distanceUnit() // Object of Unit containing info about a random unit of measurement
+ * science::distance_unit() // Object of Unit containing info about a random unit of measurement
  * used to measure distance.
  * @endcode
  */
-Unit distanceUnit();
+Unit distance_unit();
 
 /**
  * @brief Returns a unit of measurement for either time.
@@ -70,11 +70,11 @@ Unit distanceUnit();
  * @returns Unit
  *
  * @code
- * science::timeUnit() // Object of Unit containing info about a random unit of measurement used
+ * science::time_unit() // Object of Unit containing info about a random unit of measurement used
  * to measure time.
  * @endcode
  */
-Unit timeUnit();
+Unit time_unit();
 
 /**
  * @brief Returns a unit of measurement for either mass.
@@ -82,11 +82,11 @@ Unit timeUnit();
  * @returns Unit
  *
  * @code
- * science::massUnit() // Object of Unit containing info about a random unit of measurement used
+ * science::mass_unit() // Object of Unit containing info about a random unit of measurement used
  * to measure mass.
  * @endcode
  */
-Unit massUnit();
+Unit mass_unit();
 
 /**
  * @brief Returns a unit of measurement for either temp.
@@ -94,11 +94,11 @@ Unit massUnit();
  * @returns Unit
  *
  * @code
- * science::tempUnit() // Object of Unit containing info about a random unit of measurement used
- * to measure temp.
+ * science::temperature_unit() // Object of Unit containing info about a random unit of measurement
+ * used to measure temperature.
  * @endcode
  */
-Unit tempUnit();
+Unit temperature_unit();
 
 /**
  * @brief Returns a unit of measurement for either current.
@@ -106,11 +106,11 @@ Unit tempUnit();
  * @returns Unit
  *
  * @code
- * science::currentUnit() // Object of Unit containing info about a random unit of measurement
+ * science::current_unit() // Object of Unit containing info about a random unit of measurement
  * used to measure current.
  * @endcode
  */
-Unit currentUnit();
+Unit current_unit();
 
 }
 

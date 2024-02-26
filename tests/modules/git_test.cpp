@@ -62,7 +62,7 @@ TEST_F(GitTest, branchIssueNumTest)
 TEST_F(GitTest, shouldGenerateCommitDate)
 {
     const std::regex dateRegex("^" + GitTest::DATE_REGEX + "$");
-    ASSERT_TRUE(std::regex_match(git::commitDate(), dateRegex));
+    ASSERT_TRUE(std::regex_match(git::commit_date(), dateRegex));
 }
 
 TEST_F(GitTest, shouldGenerateCommitEntry)
@@ -70,13 +70,13 @@ TEST_F(GitTest, shouldGenerateCommitEntry)
     const std::regex entryRegex("^commit " + GitTest::generateShaRegex()
         + "\nAuthor: [A-Z][a-zA-Z]+ [A-Z][a-zA-Z]+ .+@[0-9a-zA-Z]+\\.[0-9a-zA-Z]+\nDate: "
         + GitTest::DATE_REGEX + "\n\n\t" + GitTest::MESSAGE_REGEX + "$");
-    ASSERT_TRUE(std::regex_match(git::commitEntry(), entryRegex));
+    ASSERT_TRUE(std::regex_match(git::commit_entry(), entryRegex));
 }
 
 TEST_F(GitTest, shouldGenerateCommitMessage)
 {
     const std::regex messageRegex("^" + GitTest::MESSAGE_REGEX + "$");
-    std::string temp = git::commitMessage();
+    std::string temp = git::commit_message();
     ASSERT_TRUE(std::regex_match(temp, messageRegex));
 }
 
@@ -84,7 +84,7 @@ TEST_F(GitTest, shouldGenerateCommitSha)
 {
     unsigned length = 40;
     const std::regex shaRegex("^" + GitTest::generateShaRegex(length) + "$");
-    ASSERT_TRUE(std::regex_match(git::commitSha(length), shaRegex));
+    ASSERT_TRUE(std::regex_match(git::commit_sha(length), shaRegex));
 }
 
 TEST_F(GitTest, shouldGenerateAuthor)

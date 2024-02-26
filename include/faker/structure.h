@@ -345,8 +345,7 @@ std::string json(const std::unordered_map<std::string, StructureToken>& items);
  International Airport
  * @endcode
  */
-std::string csv(
-    const std::unordered_map<std::string, StructureToken>& items, unsigned int rows);
+std::string csv(const std::unordered_map<std::string, StructureToken>& items, unsigned int rows);
 }
 
 #endif
