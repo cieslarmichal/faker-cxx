@@ -92,7 +92,8 @@ public:
 
 TEST_F(InternetTest, shouldGenerateUsername)
 {
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
+        person::data::englishMalesFirstNames.end() };
 
     firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
         person::data::englishFemalesFirstNames.end());
@@ -118,7 +119,8 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFirstNameProvided)
 
 TEST_F(InternetTest, shouldGenerateUsernameWithLastNameProvided)
 {
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
+        person::data::englishMalesFirstNames.end() };
 
     firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
         person::data::englishFemalesFirstNames.end());
@@ -146,7 +148,9 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFullNameProvided)
 
 TEST_F(InternetTest, shouldGenerateInternationalUsernames)
 {
-    std::vector<std::string_view> romanianFirstNames { person::data::romanianMalesFirstNames };
+    std::vector<std::string_view> romanianFirstNames {
+        person::data::romanianMalesFirstNames.begin(), person::data::romanianMalesFirstNames.end()
+    };
 
     romanianFirstNames.insert(romanianFirstNames.end(),
         person::data::romanianFemalesFirstNames.begin(),
@@ -166,7 +170,8 @@ TEST_F(InternetTest, shouldGenerateInternationalUsernames)
 
 TEST_F(InternetTest, shouldGenerateEmail)
 {
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
+        person::data::englishMalesFirstNames.end() };
 
     firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
         person::data::englishFemalesFirstNames.end());
@@ -213,7 +218,8 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 {
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
+        person::data::englishMalesFirstNames.end() };
 
     firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
         person::data::englishFemalesFirstNames.end());
@@ -238,7 +244,8 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 {
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
+        person::data::englishMalesFirstNames.end() };
 
     firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
         person::data::englishFemalesFirstNames.end());
@@ -263,7 +270,8 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 {
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
+        person::data::englishMalesFirstNames.end() };
 
     firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
         person::data::englishFemalesFirstNames.end());
@@ -291,7 +299,8 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 
 TEST_F(InternetTest, shouldGenerateExampleEmail)
 {
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
+        person::data::englishMalesFirstNames.end() };
 
     firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
         person::data::englishFemalesFirstNames.end());
@@ -338,7 +347,8 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 {
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
+        person::data::englishMalesFirstNames.end() };
 
     firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
         person::data::englishFemalesFirstNames.end());
@@ -363,7 +373,8 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 {
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
+        person::data::englishMalesFirstNames.end() };
 
     firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
         person::data::englishFemalesFirstNames.end());

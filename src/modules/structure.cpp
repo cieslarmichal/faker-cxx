@@ -30,6 +30,7 @@
 #include <faker/video_game.h>
 #include <faker/weather.h>
 #include <faker/word.h>
+#include <vector>
 
 namespace faker::structure {
 

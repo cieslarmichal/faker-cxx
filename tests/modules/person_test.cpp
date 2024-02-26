@@ -157,7 +157,7 @@ TEST_P(PersonTest, shouldGenerateFirstName)
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
-    std::vector<std::string_view> firstNames { malesFirstNames };
+    std::vector<std::string_view> firstNames { malesFirstNames.begin(), malesFirstNames.end() };
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
 
     const auto generatedFirstName = person::firstName(country);
@@ -218,8 +218,8 @@ TEST_P(PersonTest, shouldGenerateFullName)
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
-    std::vector<std::string_view> firstNames { malesFirstNames };
-    std::vector<std::string_view> lastNames { malesLastNames };
+    std::vector<std::string_view> firstNames { malesFirstNames.begin(), malesFirstNames.end() };
+    std::vector<std::string_view> lastNames { malesLastNames.begin(), malesLastNames.end() };
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
     lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
 
