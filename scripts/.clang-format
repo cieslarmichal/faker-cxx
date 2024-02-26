@@ -157,7 +157,7 @@ ReferenceAlignment: Pointer
 ReflowComments:  true
 RemoveBracesLLVM: false
 RequiresClausePosition: OwnLine
-SeparateDefinitionBlocks: Leave
+SeparateDefinitionBlocks: Always
 ShortNamespaceLines: 1
 SortIncludes:    CaseSensitive
 SortJavaStaticImport: Before

@@ -11,6 +11,7 @@ std::string_view to_string(FileType type);
 
 struct FileOptions {
     int extensionCount = 1;
+
     struct {
         int min = 1;
         int max = 1;

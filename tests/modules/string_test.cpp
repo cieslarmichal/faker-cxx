@@ -1308,6 +1308,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee1)
         ASSERT_TRUE(count_1 >= 2 && count_1 <= 7);
     }
 }
+
 TEST_F(StringTest, shouldGenerateBinaryWithGuarantee2)
 {
     const auto binaryLength = 10;
@@ -1333,6 +1334,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee2)
         ASSERT_TRUE(count_1 == 2);
     }
 }
+
 TEST_F(StringTest, shouldGenerateBinaryWithGuarantee3)
 {
     const auto binaryLength = 10;

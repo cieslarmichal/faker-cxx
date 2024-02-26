@@ -37,8 +37,11 @@ unsigned long integer(unsigned long min, unsigned long max);
  * @return T a random integer number
  */
 inline int integer(int max) { return integer(0, max); }
+
 inline unsigned integer(unsigned max) { return integer(0U, max); }
+
 inline long integer(long max) { return integer(0L, max); }
+
 inline unsigned long integer(unsigned long max) { return integer(0UL, max); }
 
 /**
@@ -72,6 +75,7 @@ double decimal(double min, double max);
  * @return F, a random decimal number.
  */
 inline float decimal(float max) { return decimal(0.0f, max); }
+
 inline double decimal(double max) { return decimal(0.0, max); }
 
 /**

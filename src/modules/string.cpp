@@ -100,6 +100,7 @@ public:
         : generator_ { T(std::random_device {}()) }
     {
     }
+
     ~RandomGenerator() = default;
 
     RandomGenerator(const RandomGenerator&) = default;
@@ -398,6 +399,7 @@ std::string octal(unsigned int length)
     }
     return "0o" + octalNumber;
 }
+
 std::string octal(GuaranteeMap&& guarantee, unsigned int length)
 {
     // numbers used by octal representation
