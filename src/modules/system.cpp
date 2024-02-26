@@ -92,7 +92,8 @@ std::string file_ext(const std::optional<FileType>& mimeType)
         }
 
         std::vector<std::string> extensions(extensionSet.begin(), extensionSet.end());
-        return Helper::arrayElement<std::string>(extensions);
+
+        return Helper::arrayElement(extensions);
     }
 }
 
@@ -233,12 +234,12 @@ std::string cron(const CronOptions& options)
         years = { std::to_string(number::integer(1970, 2099)), "*" };
     }
 
-    auto minute = Helper::arrayElement<std::string>(minutes);
-    auto hour = Helper::arrayElement<std::string>(hours);
-    auto day = Helper::arrayElement<std::string>(days);
-    auto month = Helper::arrayElement<std::string>(months);
-    auto dayOfWeek = Helper::arrayElement<std::string>(daysOfWeek);
-    auto year = Helper::arrayElement<std::string>(years);
+    auto minute = Helper::arrayElement(minutes);
+    auto hour = Helper::arrayElement(hours);
+    auto day = Helper::arrayElement(days);
+    auto month = Helper::arrayElement(months);
+    auto dayOfWeek = Helper::arrayElement(daysOfWeek);
+    auto year = Helper::arrayElement(years);
 
     std::string standardExpression
         = minute + " " + hour + " " + day + " " + month + " " + dayOfWeek;
@@ -251,6 +252,6 @@ std::string cron(const CronOptions& options)
 
     return (!includeNonStandard || datatype::boolean(0))
         ? standardExpression
-        : Helper::arrayElement<std::string>(nonStandardExpressions);
+        : Helper::arrayElement(nonStandardExpressions);
 }
 }

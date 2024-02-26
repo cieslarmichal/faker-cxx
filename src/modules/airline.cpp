@@ -10,7 +10,7 @@ std::string_view aircraft_type() { return Helper::arrayElement(data::aircraftTyp
 
 Airplane airplane() { return Helper::arrayElement(data::airplanes); }
 
-AirlineStruct airline() { return Helper::arrayElement<AirlineStruct>(data::airlines); }
+AirlineStruct airline() { return Helper::arrayElement(data::airlines); }
 
 Airport airport() { return Helper::arrayElement(data::airports); }
 

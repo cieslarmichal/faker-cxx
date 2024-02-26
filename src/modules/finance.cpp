@@ -93,7 +93,7 @@ std::string credit_card_number(std::optional<CreditCardType> creditCardType)
         CreditCardType::Discover, CreditCardType::MasterCard, CreditCardType::Visa };
 
     const auto creditCardTargetType
-        = creditCardType ? *creditCardType : Helper::arrayElement<CreditCardType>(creditCardTypes);
+        = creditCardType ? *creditCardType : Helper::arrayElement(creditCardTypes);
 
     const auto& creditCardFormats = creditCardTypeToNumberFormats.at(creditCardTargetType);
 
@@ -108,7 +108,7 @@ std::string bitcoin_address()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
-    auto address = Helper::arrayElement<std::string>(std::vector<std::string> { "1", "3" });
+    auto address = Helper::arrayElement(std::vector<std::string> { "1", "3" });
 
     address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
@@ -119,7 +119,7 @@ std::string litecoin_address()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
-    auto address = Helper::arrayElement<std::string>(std::vector<std::string> { "L", "M", "3" });
+    auto address = Helper::arrayElement(std::vector<std::string> { "L", "M", "3" });
 
     address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
