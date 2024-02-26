@@ -4,21 +4,16 @@
 #include <faker/lorem.h>
 #include <modules/lorem_data.h>
 
-using namespace ::testing;
 using namespace faker;
 
-class LoremTest : public Test {
-public:
-};
-
-TEST_F(LoremTest, shouldGenerateWord)
+TEST(LoremTest, shouldGenerateWord)
 {
     const auto generatedWord = lorem::word();
 
-    FAKER_EXPECT_CONTAINS(loremWords, generatedWord);
+    FAKER_EXPECT_CONTAINS(lorem::data::loremWords, generatedWord);
 }
 
-TEST_F(LoremTest, shouldGenerateWords)
+TEST(LoremTest, shouldGenerateWords)
 {
     const auto numberOfWords = 5;
 
@@ -28,14 +23,14 @@ TEST_F(LoremTest, shouldGenerateWords)
 
     ASSERT_EQ(separatedWords.size(), numberOfWords);
     ASSERT_TRUE(faker::testing::all_of(separatedWords, [](const auto& separatedWord) {
-        return faker::testing::any_of(loremWords, [separatedWord](const auto& word) {
+        return faker::testing::any_of(lorem::data::loremWords, [separatedWord](const auto& word) {
             return word
                 == static_cast<char>(std::tolower(separatedWord[0])) + separatedWord.substr(1);
         });
     }));
 }
 
-TEST_F(LoremTest, shouldGenerateSentence)
+TEST(LoremTest, shouldGenerateSentence)
 {
     const auto sentence = lorem::sentence();
 
@@ -47,14 +42,14 @@ TEST_F(LoremTest, shouldGenerateSentence)
     FAKER_EXPECT_ENDS_WITH(sentence, ".");
     ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
     ASSERT_TRUE(faker::testing::all_of(sentenceWords, [](const auto& sentenceWord) {
-        return faker::testing::any_of(loremWords, [sentenceWord](const auto& word) {
+        return faker::testing::any_of(lorem::data::loremWords, [sentenceWord](const auto& word) {
             return word
                 == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1);
         });
     }));
 }
 
-TEST_F(LoremTest, shouldGenerateSentences)
+TEST(LoremTest, shouldGenerateSentences)
 {
     const auto sentences = lorem::sentences();
 
@@ -70,15 +65,17 @@ TEST_F(LoremTest, shouldGenerateSentences)
         ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 
         ASSERT_TRUE(faker::testing::all_of(sentenceWords, [](const auto& sentenceWord) {
-            return faker::testing::any_of(loremWords, [sentenceWord](const auto& word) {
-                return word
-                    == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1);
-            });
+            return faker::testing::any_of(
+                lorem::data::loremWords, [sentenceWord](const auto& word) {
+                    return word
+                        == static_cast<char>(std::tolower(sentenceWord[0]))
+                        + sentenceWord.substr(1);
+                });
         }));
     }
 }
 
-TEST_F(LoremTest, shouldGenerateSlug)
+TEST(LoremTest, shouldGenerateSlug)
 {
     const auto generatedSlug = lorem::slug(3);
 
@@ -86,14 +83,14 @@ TEST_F(LoremTest, shouldGenerateSlug)
 
     ASSERT_EQ(separatedWords.size(), 3);
     ASSERT_TRUE(faker::testing::all_of(separatedWords, [](const auto& separatedWord) {
-        return faker::testing::any_of(loremWords, [separatedWord](const auto& word) {
+        return faker::testing::any_of(lorem::data::loremWords, [separatedWord](const auto& word) {
             return word
                 == static_cast<char>(std::tolower(separatedWord[0])) + separatedWord.substr(1);
         });
     }));
 }
 
-TEST_F(LoremTest, shouldGenerateParagraph)
+TEST(LoremTest, shouldGenerateParagraph)
 {
     const auto paragraph = lorem::paragraph();
 
@@ -109,15 +106,17 @@ TEST_F(LoremTest, shouldGenerateParagraph)
         ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 
         ASSERT_TRUE(faker::testing::all_of(sentenceWords, [](const auto& sentenceWord) {
-            return faker::testing::any_of(loremWords, [sentenceWord](const auto& word) {
-                return word
-                    == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1);
-            });
+            return faker::testing::any_of(
+                lorem::data::loremWords, [sentenceWord](const auto& word) {
+                    return word
+                        == static_cast<char>(std::tolower(sentenceWord[0]))
+                        + sentenceWord.substr(1);
+                });
         }));
     }
 }
 
-TEST_F(LoremTest, shouldGenerateParagraphs)
+TEST(LoremTest, shouldGenerateParagraphs)
 {
     const auto paragraphs = lorem::paragraphs();
 
@@ -136,11 +135,12 @@ TEST_F(LoremTest, shouldGenerateParagraphs)
             ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 
             ASSERT_TRUE(faker::testing::all_of(sentenceWords, [](const auto& sentenceWord) {
-                return faker::testing::any_of(loremWords, [sentenceWord](const auto& word) {
-                    return word
-                        == static_cast<char>(std::tolower(sentenceWord[0]))
-                        + sentenceWord.substr(1);
-                });
+                return faker::testing::any_of(
+                    lorem::data::loremWords, [sentenceWord](const auto& word) {
+                        return word
+                            == static_cast<char>(std::tolower(sentenceWord[0]))
+                            + sentenceWord.substr(1);
+                    });
             }));
         }
     }

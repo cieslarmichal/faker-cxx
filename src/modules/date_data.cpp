@@ -1,6 +1,6 @@
 #include "date_data.h"
 
-namespace faker {
+namespace faker::date::data {
 const std::array<std::string_view, 12> monthNames = {
 
     "January",

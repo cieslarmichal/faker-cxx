@@ -7,7 +7,7 @@
 #include <sstream>
 
 namespace faker::color {
-std::string_view name() { return Helper::arrayElement(colors); }
+std::string_view name() { return Helper::arrayElement(data::colors); }
 
 std::string rgb(bool includeAlpha)
 {

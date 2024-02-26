@@ -8,15 +8,15 @@
 #include <faker/string.h>
 
 namespace faker::finance {
-Currency currency() { return Helper::arrayElement(currencies); }
+Currency currency() { return Helper::arrayElement(data::currencies); }
 
-std::string_view currencyName() { return Helper::arrayElement(currencies).name; }
+std::string_view currencyName() { return Helper::arrayElement(data::currencies).name; }
 
-std::string_view currencyCode() { return Helper::arrayElement(currencies).code; }
+std::string_view currencyCode() { return Helper::arrayElement(data::currencies).code; }
 
-std::string_view currencySymbol() { return Helper::arrayElement(currencies).symbol; }
+std::string_view currencySymbol() { return Helper::arrayElement(data::currencies).symbol; }
 
-std::string_view accountType() { return Helper::arrayElement(accountTypes); }
+std::string_view accountType() { return Helper::arrayElement(data::accountTypes); }
 
 std::string amount(double min, double max, Precision precision, const std::string& symbol)
 {
@@ -38,7 +38,7 @@ std::string iban(std::optional<IbanCountry> country)
     const auto ibanCountry
         = country ? *country : Helper::arrayElement<IbanCountry>(supportedIbanCountries);
 
-    const auto& ibanFormat = ibanFormats.at(ibanCountry);
+    const auto& ibanFormat = data::ibanFormats.at(ibanCountry);
 
     const auto& countryCode = ibanFormat[0];
 
@@ -70,7 +70,7 @@ std::string_view bic(std::optional<BicCountry> country)
     const auto bicCountry
         = country ? *country : Helper::arrayElement<BicCountry>(supportedBicCountries);
 
-    return Helper::arrayElement(bankIdentifiersCodesMapping.at(bicCountry));
+    return Helper::arrayElement(data::bankIdentifiersCodesMapping.at(bicCountry));
 }
 
 std::string accountNumber(unsigned int length) { return string::numeric(length, true); }
@@ -84,14 +84,16 @@ std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
     static const std::unordered_map<CreditCardType, std::vector<std::string_view>>
         creditCardTypeToNumberFormats {
             { CreditCardType::AmericanExpress,
-                { americanExpressCreditCardFormats.begin(),
-                    americanExpressCreditCardFormats.end() } },
+                { data::americanExpressCreditCardFormats.begin(),
+                    data::americanExpressCreditCardFormats.end() } },
             { CreditCardType::Discover,
-                { discoverCreditCardFormats.begin(), discoverCreditCardFormats.end() } },
+                { data::discoverCreditCardFormats.begin(),
+                    data::discoverCreditCardFormats.end() } },
             { CreditCardType::MasterCard,
-                { masterCardCreditCardFormats.begin(), masterCardCreditCardFormats.end() } },
+                { data::masterCardCreditCardFormats.begin(),
+                    data::masterCardCreditCardFormats.end() } },
             { CreditCardType::Visa,
-                { visaCreditCardFormats.begin(), visaCreditCardFormats.end() } },
+                { data::visaCreditCardFormats.begin(), data::visaCreditCardFormats.end() } },
         };
 
     static const std::vector<CreditCardType> creditCardTypes { CreditCardType::AmericanExpress,

@@ -5,7 +5,7 @@
 #include <faker/lorem.h>
 
 namespace faker::lorem {
-std::string_view word() { return Helper::arrayElement(loremWords); }
+std::string_view word() { return Helper::arrayElement(data::loremWords); }
 
 std::string words(unsigned numberOfWords)
 {

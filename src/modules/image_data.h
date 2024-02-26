@@ -4,7 +4,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker {
+namespace faker::image::data {
 extern const std::array<std::string_view, 15> imageTypes;
 }
 

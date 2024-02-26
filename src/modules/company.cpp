@@ -14,7 +14,7 @@ std::string name()
     switch (number::integer(3)) {
     case 0:
         companyName = FormatHelper::format(
-            "{} {}", person::lastName(), Helper::arrayElement(companySuffixes));
+            "{} {}", person::lastName(), Helper::arrayElement(data::companySuffixes));
         break;
     case 1:
         companyName = FormatHelper::format(
@@ -26,27 +26,27 @@ std::string name()
         break;
     case 3:
         companyName = FormatHelper::format("{} {} {} {}", person::firstName(), person::lastName(),
-            person::jobArea(), Helper::arrayElement(companySuffixes));
+            person::jobArea(), Helper::arrayElement(data::companySuffixes));
         break;
     }
 
     return companyName;
 }
 
-std::string_view type() { return Helper::arrayElement(companyTypes); }
+std::string_view type() { return Helper::arrayElement(data::companyTypes); }
 
-std::string_view industry() { return Helper::arrayElement(companyIndustries); }
+std::string_view industry() { return Helper::arrayElement(data::companyIndustries); }
 
 std::string buzzPhrase()
 {
     return FormatHelper::format("{} {} {}", buzzVerb(), buzzAdjective(), buzzNoun());
 }
 
-std::string_view buzzAdjective() { return Helper::arrayElement(buzzAdjectives); }
+std::string_view buzzAdjective() { return Helper::arrayElement(data::buzzAdjectives); }
 
-std::string_view buzzNoun() { return Helper::arrayElement(buzzNouns); }
+std::string_view buzzNoun() { return Helper::arrayElement(data::buzzNouns); }
 
-std::string_view buzzVerb() { return Helper::arrayElement(buzzVerbs); }
+std::string_view buzzVerb() { return Helper::arrayElement(data::buzzVerbs); }
 
 std::string catchPhrase()
 {
@@ -54,9 +54,15 @@ std::string catchPhrase()
         "{} {} {}", catchPhraseAdjective(), catchPhraseDescriptor(), catchPhraseNoun());
 }
 
-std::string_view catchPhraseAdjective() { return Helper::arrayElement(catchPhraseAdjectives); }
+std::string_view catchPhraseAdjective()
+{
+    return Helper::arrayElement(data::catchPhraseAdjectives);
+}
 
-std::string_view catchPhraseDescriptor() { return Helper::arrayElement(catchPhraseDescriptors); }
+std::string_view catchPhraseDescriptor()
+{
+    return Helper::arrayElement(data::catchPhraseDescriptors);
+}
 
-std::string_view catchPhraseNoun() { return Helper::arrayElement(catchPhraseNouns); }
+std::string_view catchPhraseNoun() { return Helper::arrayElement(data::catchPhraseNouns); }
 }

@@ -6,18 +6,18 @@
 #include <string>
 
 namespace faker::airline {
-std::string_view aircraftType() { return Helper::arrayElement(aircraftTypes); }
+std::string_view aircraftType() { return Helper::arrayElement(data::aircraftTypes); }
 
-Airplane airplane() { return Helper::arrayElement(airplanes); }
+Airplane airplane() { return Helper::arrayElement(data::airplanes); }
 
-AirlineStruct airline() { return Helper::arrayElement<faker::AirlineStruct>(airlines); }
+AirlineStruct airline() { return Helper::arrayElement<faker::AirlineStruct>(data::airlines); }
 
-Airport airport() { return Helper::arrayElement(airports); }
+Airport airport() { return Helper::arrayElement(data::airports); }
 
 std::string seat(faker::AircraftType aircraftType)
 {
-    return std::to_string(number::integer(1, aircraftTypeMaxRows.at(aircraftType)))
-        + Helper::arrayElement(aircraftTypeSeatLetters.at(aircraftType));
+    return std::to_string(number::integer(1, data::aircraftTypeMaxRows.at(aircraftType)))
+        + Helper::arrayElement(data::aircraftTypeSeatLetters.at(aircraftType));
 }
 
 std::string recordLocator(bool allowNumerics)

@@ -4,7 +4,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker {
+namespace faker::company::data {
 extern const std::array<std::string_view, 65> buzzAdjectives;
 extern const std::array<std::string_view, 40> buzzNouns;
 extern const std::array<std::string_view, 60> buzzVerbs;

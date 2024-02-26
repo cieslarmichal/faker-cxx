@@ -42,11 +42,11 @@ public:
 
 TEST_F(DateTest, shouldGeneratePastDateISO)
 {
-    const auto currentDate = std::chrono::system_clock::now();
+    auto currentDate = std::chrono::system_clock::now();
 
-    const auto pastDateISO = date::pastDate();
+    auto pastDateISO = date::pastDate();
 
-    const auto pastDate = parseISOFormattedStringToTimePoint(pastDateISO);
+    auto pastDate = parseISOFormattedStringToTimePoint(pastDateISO);
 
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(currentDate - pastDate).count()
         < secondsInYear);
@@ -55,11 +55,11 @@ TEST_F(DateTest, shouldGeneratePastDateISO)
 
 TEST_F(DateTest, shouldGeneratePastDateTimestamp)
 {
-    const auto currentDate = std::chrono::system_clock::now();
+    auto currentDate = std::chrono::system_clock::now();
 
-    const auto pastDateTimestamp = date::pastDate(1, date::DateFormat::Timestamp);
+    auto pastDateTimestamp = date::pastDate(1, date::DateFormat::Timestamp);
 
-    const auto pastDate = std::chrono::system_clock::from_time_t(std::stoi(pastDateTimestamp));
+    auto pastDate = std::chrono::system_clock::from_time_t(std::stoi(pastDateTimestamp));
 
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(currentDate - pastDate).count()
         < secondsInYear);
@@ -68,13 +68,13 @@ TEST_F(DateTest, shouldGeneratePastDateTimestamp)
 
 TEST_F(DateTest, shouldGenerateRecentDateISO)
 {
-    const auto currentDate = std::chrono::system_clock::now();
+    auto currentDate = std::chrono::system_clock::now();
 
-    const auto recentDays = 5;
+    auto recentDays = 5;
 
-    const auto recentDateISO = date::recentDate(recentDays);
+    auto recentDateISO = date::recentDate(recentDays);
 
-    const auto recentDate = parseISOFormattedStringToTimePoint(recentDateISO);
+    auto recentDate = parseISOFormattedStringToTimePoint(recentDateISO);
 
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(currentDate - recentDate).count()
         < secondsInYear);
@@ -83,13 +83,13 @@ TEST_F(DateTest, shouldGenerateRecentDateISO)
 
 TEST_F(DateTest, shouldGenerateRecentDateTimestamp)
 {
-    const auto currentDate = std::chrono::system_clock::now();
+    auto currentDate = std::chrono::system_clock::now();
 
-    const auto recentDays = 5;
+    auto recentDays = 5;
 
-    const auto recentDateTimestamp = date::recentDate(recentDays, date::DateFormat::Timestamp);
+    auto recentDateTimestamp = date::recentDate(recentDays, date::DateFormat::Timestamp);
 
-    const auto recentDate = std::chrono::system_clock::from_time_t(std::stoi(recentDateTimestamp));
+    auto recentDate = std::chrono::system_clock::from_time_t(std::stoi(recentDateTimestamp));
 
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(currentDate - recentDate).count()
         < secondsInYear);
@@ -98,11 +98,11 @@ TEST_F(DateTest, shouldGenerateRecentDateTimestamp)
 
 TEST_F(DateTest, shouldGenerateFutureDateISO)
 {
-    const auto currentDate = std::chrono::system_clock::now();
+    auto currentDate = std::chrono::system_clock::now();
 
-    const auto futureDateISO = date::futureDate();
+    auto futureDateISO = date::futureDate();
 
-    const auto futureDate = parseISOFormattedStringToTimePoint(futureDateISO);
+    auto futureDate = parseISOFormattedStringToTimePoint(futureDateISO);
 
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(futureDate - currentDate).count()
         < secondsInYear);
@@ -111,11 +111,11 @@ TEST_F(DateTest, shouldGenerateFutureDateISO)
 
 TEST_F(DateTest, shouldGenerateFutureDateTimestamp)
 {
-    const auto currentDate = std::chrono::system_clock::now();
+    auto currentDate = std::chrono::system_clock::now();
 
-    const auto futureDateTimestamp = date::futureDate(1, date::DateFormat::Timestamp);
+    auto futureDateTimestamp = date::futureDate(1, date::DateFormat::Timestamp);
 
-    const auto futureDate = std::chrono::system_clock::from_time_t(std::stoi(futureDateTimestamp));
+    auto futureDate = std::chrono::system_clock::from_time_t(std::stoi(futureDateTimestamp));
 
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(futureDate - currentDate).count()
         < secondsInYear);
@@ -124,13 +124,13 @@ TEST_F(DateTest, shouldGenerateFutureDateTimestamp)
 
 TEST_F(DateTest, shouldGenerateSoonDateISO)
 {
-    const auto currentDate = std::chrono::system_clock::now();
+    auto currentDate = std::chrono::system_clock::now();
 
-    const auto soonDays = 2;
+    auto soonDays = 2;
 
-    const auto soonDateISO = date::soonDate(soonDays);
+    auto soonDateISO = date::soonDate(soonDays);
 
-    const auto soonDate = parseISOFormattedStringToTimePoint(soonDateISO);
+    auto soonDate = parseISOFormattedStringToTimePoint(soonDateISO);
 
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(soonDate - currentDate).count()
         < secondsInYear);
@@ -139,13 +139,13 @@ TEST_F(DateTest, shouldGenerateSoonDateISO)
 
 TEST_F(DateTest, shouldGenerateSoonDateTimestamp)
 {
-    const auto currentDate = std::chrono::system_clock::now();
+    auto currentDate = std::chrono::system_clock::now();
 
-    const auto soonDays = 2;
+    auto soonDays = 2;
 
-    const auto soonDateTimestamp = date::soonDate(soonDays, date::DateFormat::Timestamp);
+    auto soonDateTimestamp = date::soonDate(soonDays, date::DateFormat::Timestamp);
 
-    const auto soonDate = std::chrono::system_clock::from_time_t(std::stoi(soonDateTimestamp));
+    auto soonDate = std::chrono::system_clock::from_time_t(std::stoi(soonDateTimestamp));
 
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(soonDate - currentDate).count()
         < secondsInYear);
@@ -154,14 +154,14 @@ TEST_F(DateTest, shouldGenerateSoonDateTimestamp)
 
 TEST_F(DateTest, shouldGenerateBirthDateByAgeISO)
 {
-    const auto birthdateISO = date::birthdateByAge(5, 15);
+    auto birthdateISO = date::birthdateByAge(5, 15);
 
-    const auto birthdate = parseISOFormattedStringToTimePoint(birthdateISO);
+    auto birthdate = parseISOFormattedStringToTimePoint(birthdateISO);
 
-    const auto expectedStartDate = std::chrono::system_clock::now()
+    auto expectedStartDate = std::chrono::system_clock::now()
         - std::chrono::hours { numberOfHoursInDay * numberOfDaysInYear * 15 };
 
-    const auto expectedEndDate = std::chrono::system_clock::now()
+    auto expectedEndDate = std::chrono::system_clock::now()
         - std::chrono::hours { numberOfHoursInDay * numberOfDaysInYear * 5 };
 
     EXPECT_TRUE(birthdate > expectedStartDate);
@@ -170,14 +170,14 @@ TEST_F(DateTest, shouldGenerateBirthDateByAgeISO)
 
 TEST_F(DateTest, shouldGenerateBirthDateByAgeTimestamp)
 {
-    const auto birthdateTimestamp = date::birthdateByAge(5, 15, date::DateFormat::Timestamp);
+    auto birthdateTimestamp = date::birthdateByAge(5, 15, date::DateFormat::Timestamp);
 
-    const auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
+    auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
-    const auto expectedStartDate = std::chrono::system_clock::now()
+    auto expectedStartDate = std::chrono::system_clock::now()
         - std::chrono::hours { numberOfHoursInDay * numberOfDaysInYear * 15 };
 
-    const auto expectedEndDate = std::chrono::system_clock::now()
+    auto expectedEndDate = std::chrono::system_clock::now()
         - std::chrono::hours { numberOfHoursInDay * numberOfDaysInYear * 5 };
 
     EXPECT_TRUE(birthdate > expectedStartDate);
@@ -186,18 +186,18 @@ TEST_F(DateTest, shouldGenerateBirthDateByAgeTimestamp)
 
 TEST_F(DateTest, shouldGenerateBirthDateByExactYearISO)
 {
-    const auto birthdateISO = date::birthdateByYear(1996, 1996);
+    auto birthdateISO = date::birthdateByYear(1996, 1996);
 
-    const auto birthdate = parseISOFormattedStringToTm(birthdateISO);
+    auto birthdate = parseISOFormattedStringToTm(birthdateISO);
 
     EXPECT_EQ(birthdate.tm_year + 1900, 1996);
 }
 
 TEST_F(DateTest, shouldGenerateBirthDateByExactYearTimestamp)
 {
-    const auto birthdateTimestamp = date::birthdateByYear(1996, 1996, date::DateFormat::Timestamp);
+    auto birthdateTimestamp = date::birthdateByYear(1996, 1996, date::DateFormat::Timestamp);
 
-    const auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
+    auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
     // Convert std::chrono::system_clock::time_point to std::time_t
     std::time_t birthdateTimeT = std::chrono::system_clock::to_time_t(birthdate);
@@ -210,9 +210,9 @@ TEST_F(DateTest, shouldGenerateBirthDateByExactYearTimestamp)
 
 TEST_F(DateTest, shouldGenerateBirthDateByRangeYearISO)
 {
-    const auto birthdateISO = date::birthdateByYear(1990, 2000);
+    auto birthdateISO = date::birthdateByYear(1990, 2000);
 
-    const auto birthdate = parseISOFormattedStringToTm(birthdateISO);
+    auto birthdate = parseISOFormattedStringToTm(birthdateISO);
 
     EXPECT_GE(birthdate.tm_year + 1900, 1990);
     EXPECT_LE(birthdate.tm_year + 1900, 2000);
@@ -220,9 +220,9 @@ TEST_F(DateTest, shouldGenerateBirthDateByRangeYearISO)
 
 TEST_F(DateTest, shouldGenerateBirthDateByRangeYearTimestamp)
 {
-    const auto birthdateTimestamp = date::birthdateByYear(1990, 2000, date::DateFormat::Timestamp);
+    auto birthdateTimestamp = date::birthdateByYear(1990, 2000, date::DateFormat::Timestamp);
 
-    const auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
+    auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
     // Convert std::chrono::system_clock::time_point to std::time_t
     std::time_t birthdateTimeT = std::chrono::system_clock::to_time_t(birthdate);
@@ -236,28 +236,28 @@ TEST_F(DateTest, shouldGenerateBirthDateByRangeYearTimestamp)
 
 TEST_F(DateTest, shouldGenerateWeekdayName)
 {
-    const auto generatedWeekdayName = date::weekdayName();
+    auto generatedWeekdayName = date::weekdayName();
 
-    FAKER_EXPECT_CONTAINS(weekdayNames, generatedWeekdayName);
+    FAKER_EXPECT_CONTAINS(date::data::weekdayNames, generatedWeekdayName);
 }
 
 TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
 {
-    const auto generatedWeekdayAbbreviatedName = date::weekdayAbbreviatedName();
+    auto generatedWeekdayAbbreviatedName = date::weekdayAbbreviatedName();
 
-    FAKER_EXPECT_CONTAINS(weekdayAbbreviatedNames, generatedWeekdayAbbreviatedName);
+    FAKER_EXPECT_CONTAINS(date::data::weekdayAbbreviatedNames, generatedWeekdayAbbreviatedName);
 }
 
 TEST_F(DateTest, shouldGenerateMonthName)
 {
-    const auto generatedMonthName = date::monthName();
+    auto generatedMonthName = date::monthName();
 
-    FAKER_EXPECT_CONTAINS(monthNames, generatedMonthName);
+    FAKER_EXPECT_CONTAINS(date::data::monthNames, generatedMonthName);
 }
 
 TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
 {
-    const auto generatedMonthAbbreviatedName = date::monthAbbreviatedName();
+    auto generatedMonthAbbreviatedName = date::monthAbbreviatedName();
 
-    FAKER_EXPECT_CONTAINS(monthAbbreviatedNames, generatedMonthAbbreviatedName);
+    FAKER_EXPECT_CONTAINS(date::data::monthAbbreviatedNames, generatedMonthAbbreviatedName);
 }

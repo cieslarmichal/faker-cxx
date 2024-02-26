@@ -5,33 +5,33 @@
 
 namespace faker::science {
 
-ChemicalElement chemicalElement() { return Helper::arrayElement(chemicalElements); }
+ChemicalElement chemicalElement() { return Helper::arrayElement(data::chemicalElements); }
 
 Unit unit()
 {
     static std::vector<Unit> units;
 
     if (units.empty()) {
-        units.reserve(distanceUnits.size() + massUnits.size() + timeUnits.size()
-            + currentUnits.size() + temperatureUnits.size());
-        units.insert(units.end(), distanceUnits.begin(), distanceUnits.end());
-        units.insert(units.end(), massUnits.begin(), massUnits.end());
-        units.insert(units.end(), timeUnits.begin(), timeUnits.end());
-        units.insert(units.end(), currentUnits.begin(), currentUnits.end());
-        units.insert(units.end(), temperatureUnits.begin(), temperatureUnits.end());
+        units.reserve(data::distanceUnits.size() + data::massUnits.size() + data::timeUnits.size()
+            + data::currentUnits.size() + data::temperatureUnits.size());
+        units.insert(units.end(), data::distanceUnits.begin(), data::distanceUnits.end());
+        units.insert(units.end(), data::massUnits.begin(), data::massUnits.end());
+        units.insert(units.end(), data::timeUnits.begin(), data::timeUnits.end());
+        units.insert(units.end(), data::currentUnits.begin(), data::currentUnits.end());
+        units.insert(units.end(), data::temperatureUnits.begin(), data::temperatureUnits.end());
     }
 
     return Helper::arrayElement(units);
 }
 
-Unit distanceUnit() { return Helper::arrayElement(distanceUnits); }
+Unit distanceUnit() { return Helper::arrayElement(data::distanceUnits); }
 
-Unit timeUnit() { return Helper::arrayElement(timeUnits); }
+Unit timeUnit() { return Helper::arrayElement(data::timeUnits); }
 
-Unit massUnit() { return Helper::arrayElement(massUnits); }
+Unit massUnit() { return Helper::arrayElement(data::massUnits); }
 
-Unit tempUnit() { return Helper::arrayElement(temperatureUnits); }
+Unit tempUnit() { return Helper::arrayElement(data::temperatureUnits); }
 
-Unit currentUnit() { return Helper::arrayElement(currentUnits); }
+Unit currentUnit() { return Helper::arrayElement(data::currentUnits); }
 
 };

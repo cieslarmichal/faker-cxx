@@ -17,7 +17,7 @@ namespace {
 
 std::string firstName(Country country, std::optional<Sex> sex)
 {
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
 
     std::vector<std::string> firstNames;
 
@@ -42,7 +42,7 @@ std::string firstName(Country country, std::optional<Sex> sex)
 
 std::string lastName(Country country, std::optional<Sex> sex)
 {
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
 
     std::vector<std::string> lastNames;
 
@@ -69,7 +69,7 @@ std::string middleName(std::optional<Sex> sex)
 {
     std::vector<std::string> allMiddleNames;
 
-    for (const auto& [_, peopleNames] : countryToPeopleNamesMapping) {
+    for (const auto& [_, peopleNames] : data::countryToPeopleNamesMapping) {
         std::vector<std::string> middleNames;
 
         if (sex == Sex::Male) {
@@ -107,7 +107,7 @@ std::string middleName(std::optional<Sex> sex)
 
 std::string fullName(Country country, std::optional<Sex> sex)
 {
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
 
     std::vector<Helper::WeightedElement<std::string_view>> weightedElements;
     for (const auto& nameFormat : peopleNames.nameFormats) {
@@ -137,7 +137,7 @@ std::string prefix(std::optional<Sex> sex)
 {
     std::vector<std::string> allPrefixes;
 
-    for (const auto& [_, peopleNames] : countryToPeopleNamesMapping) {
+    for (const auto& [_, peopleNames] : data::countryToPeopleNamesMapping) {
         std::vector<std::string> prefixes;
 
         if (sex == Sex::Male) {
@@ -173,13 +173,13 @@ std::string prefix(std::optional<Sex> sex)
 
 std::string bio()
 {
-    const auto randomBioFormat = Helper::arrayElement(bioFormats);
+    const auto randomBioFormat = Helper::arrayElement(data::bioFormats);
 
     return FormatHelper::fillTokenValues(std::string(randomBioFormat), [](std::string_view token) {
         if (token == "bio_part") {
-            return std::string(Helper::arrayElement(bioPart));
+            return std::string(Helper::arrayElement(data::bioPart));
         } else if (token == "bio_supporter") {
-            return std::string(Helper::arrayElement(bioSupporter));
+            return std::string(Helper::arrayElement(data::bioSupporter));
         } else if (token == "noun") {
             return std::string(word::noun());
         } else if (token == "emoji") {
@@ -194,7 +194,7 @@ std::string suffix()
 {
     std::vector<std::string> allSuffixes;
 
-    for (const auto& [_, peopleNames] : countryToPeopleNamesMapping) {
+    for (const auto& [_, peopleNames] : data::countryToPeopleNamesMapping) {
         std::vector<std::string> suffixes;
 
         const auto& malesSuffixes = peopleNames.malesNames.suffixes;
@@ -222,31 +222,31 @@ std::string_view sex(Language language)
     return translateSex(chosenSex, language);
 }
 
-std::string_view gender() { return Helper::arrayElement(genders); }
+std::string_view gender() { return Helper::arrayElement(data::genders); }
 
 std::string jobTitle()
 {
     return FormatHelper::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
 }
 
-std::string_view jobDescriptor() { return Helper::arrayElement(jobDescriptors); }
+std::string_view jobDescriptor() { return Helper::arrayElement(data::jobDescriptors); }
 
-std::string_view jobArea() { return Helper::arrayElement(jobAreas); }
+std::string_view jobArea() { return Helper::arrayElement(data::jobAreas); }
 
-std::string_view jobType() { return Helper::arrayElement(jobTypes); }
+std::string_view jobType() { return Helper::arrayElement(data::jobTypes); }
 
-std::string_view hobby() { return Helper::arrayElement(hobbies); }
+std::string_view hobby() { return Helper::arrayElement(data::hobbies); }
 
-std::string_view language() { return Helper::arrayElement(languages); }
+std::string_view language() { return Helper::arrayElement(data::languages); }
 
-std::string_view nationality() { return Helper::arrayElement(nationalities); }
+std::string_view nationality() { return Helper::arrayElement(data::nationalities); }
 
 std::string ssn(std::optional<SsnCountry> country)
 {
     const auto ssnCountry
         = country ? *country : Helper::arrayElement<SsnCountry>(supportedSsnCountries);
 
-    const auto& ssnFormat = ssnFormats.at(ssnCountry);
+    const auto& ssnFormat = data::ssnFormats.at(ssnCountry);
 
     auto ssnWithoutRegexes = Helper::regexpStyleStringParse(ssnFormat);
 
@@ -267,14 +267,14 @@ std::string ssn(std::optional<SsnCountry> country)
     return ssn;
 }
 
-std::string_view westernZodiac() { return Helper::arrayElement(westernZodiacs); }
+std::string_view westernZodiac() { return Helper::arrayElement(data::westernZodiacs); }
 
-std::string_view chineseZodiac() { return Helper::arrayElement(chineseZodiacs); }
+std::string_view chineseZodiac() { return Helper::arrayElement(data::chineseZodiacs); }
 
 namespace {
     std::string middleNameForCountry(Country country, std::optional<Sex> sex)
     {
-        const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+        const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
 
         std::vector<std::string> middleNames;
 
@@ -301,7 +301,7 @@ namespace {
 
     std::string prefixForCountry(Country country, std::optional<Sex> sex)
     {
-        const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+        const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
 
         std::vector<std::string> prefixes;
 
@@ -326,7 +326,7 @@ namespace {
 
     std::string suffixForCountry(Country country, std::optional<Sex> sex)
     {
-        const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+        const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
 
         std::vector<std::string> suffixes;
 

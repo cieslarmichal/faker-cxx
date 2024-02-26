@@ -4,7 +4,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker::books {
+namespace faker::book::data {
 extern const std::array<std::string_view, 100> authors;
 extern const std::array<std::string_view, 3> bookFormats;
 extern const std::array<std::string_view, 25> genres;

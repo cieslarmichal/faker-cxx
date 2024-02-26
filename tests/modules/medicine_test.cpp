@@ -2,30 +2,25 @@
 #include <faker/medicine.h>
 #include <modules/medicine_data.h>
 
-using namespace ::testing;
 using namespace faker;
 
-class MedicineTest : public Test {
-public:
-};
-
-TEST_F(MedicineTest, shouldGenerateMedicalCondition)
+TEST(MedicineTest, shouldGenerateMedicalCondition)
 {
-    const auto generatedMedicalCondition = medicine::condition();
+    auto generatedMedicalCondition = medicine::condition();
 
-    FAKER_EXPECT_CONTAINS(medicalConditions, generatedMedicalCondition);
+    FAKER_EXPECT_CONTAINS(medicine::data::medicalConditions, generatedMedicalCondition);
 }
 
-TEST_F(MedicineTest, shouldGenerateMedicalTest)
+TEST(MedicineTest, shouldGenerateMedicalTest)
 {
-    const auto generatedMedicalTest = medicine::medicalTest();
+    auto generatedMedicalTest = medicine::medicalTest();
 
-    FAKER_EXPECT_CONTAINS(medicalTests, generatedMedicalTest);
+    FAKER_EXPECT_CONTAINS(medicine::data::medicalTests, generatedMedicalTest);
 }
 
-TEST_F(MedicineTest, shouldGenerateSpecialty)
+TEST(MedicineTest, shouldGenerateSpecialty)
 {
-    const auto generatedSpecialty = medicine::specialty();
+    auto generatedSpecialty = medicine::specialty();
 
-    FAKER_EXPECT_CONTAINS(specialties, generatedSpecialty);
+    FAKER_EXPECT_CONTAINS(medicine::data::specialties, generatedSpecialty);
 }

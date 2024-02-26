@@ -38,13 +38,13 @@ TEST(StructureTest, shouldGenerateJson)
     ASSERT_EQ(key3, "Book title");
     ASSERT_EQ(key4, "Actor name");
 
+    ASSERT_TRUE(faker::testing::any_of(airline::data::airports,
+        [value1](const Airport& airport) { return airport.name == value1; }));
+    FAKER_EXPECT_CONTAINS(animal::data::birds, value2);
     ASSERT_TRUE(faker::testing::any_of(
-        airports, [value1](const faker::Airport& airport) { return airport.name == value1; }));
-    FAKER_EXPECT_CONTAINS(birds, value2);
+        book::data::titles, [value3](const auto& title) { return title == value3; }));
     ASSERT_TRUE(faker::testing::any_of(
-        books::titles, [value3](const auto& title) { return title == value3; }));
-    ASSERT_TRUE(faker::testing::any_of(
-        movie::actors, [value4](const auto& actor) { return actor == value4; }));
+        movie::data::actors, [value4](const auto& actor) { return actor == value4; }));
 }
 
 TEST(StructureTest, shouldGenerateCSV)
@@ -72,14 +72,15 @@ TEST(StructureTest, shouldGenerateCSV)
     ASSERT_TRUE(keys.find("Book title") != keys.end());
 
     while (std::getline(dataStream, line)) {
-        ASSERT_TRUE(faker::testing::any_of(movie::actors,
+        ASSERT_TRUE(faker::testing::any_of(movie::data::actors,
             [&line](const auto& actor) { return line.find(actor) != std::string::npos; }));
-        ASSERT_TRUE(faker::testing::any_of(airports, [&line](const faker::Airport& airport) {
-            return line.find(airport.name) != std::string::npos;
-        }));
-        ASSERT_TRUE(faker::testing::any_of(
-            birds, [&line](const auto& bird) { return line.find(bird) != std::string::npos; }));
-        ASSERT_TRUE(faker::testing::any_of(books::titles,
+        ASSERT_TRUE(
+            faker::testing::any_of(airline::data::airports, [&line](const faker::Airport& airport) {
+                return line.find(airport.name) != std::string::npos;
+            }));
+        ASSERT_TRUE(faker::testing::any_of(animal::data::birds,
+            [&line](const auto& bird) { return line.find(bird) != std::string::npos; }));
+        ASSERT_TRUE(faker::testing::any_of(book::data::titles,
             [&line](const auto& title) { return line.find(title) != std::string::npos; }));
     }
 }

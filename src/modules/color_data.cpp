@@ -1,6 +1,6 @@
 #include "color_data.h"
 
-namespace faker {
+namespace faker::color::data {
 const std::array<std::string_view, 31> colors = {
     "red",
     "green",

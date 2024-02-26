@@ -1,6 +1,6 @@
 #include "commerce_data.h"
 
-namespace faker {
+namespace faker::commerce::data {
 
 const std::array<std::string_view, 22> departments
     = { "Books", "Movies", "Music", "Games", "Electronics", "Computers", "Home", "Garden", "Tools",

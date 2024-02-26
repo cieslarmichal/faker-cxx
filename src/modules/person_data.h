@@ -8,7 +8,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace faker {
+namespace faker::person::data {
 extern const std::array<std::string_view, 41> bioPart;
 extern const std::array<std::string_view, 7> bioSupporter;
 extern const std::array<std::string_view, 8> bioFormats;

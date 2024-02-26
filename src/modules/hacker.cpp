@@ -4,20 +4,19 @@
 #include <faker/helper.h>
 
 namespace faker::hacker {
-std::string_view abbreviation() { return Helper::arrayElement(faker::abbreviations); }
+std::string_view abbreviation() { return Helper::arrayElement(data::abbreviations); }
 
-std::string_view adjective() { return Helper::arrayElement(faker::adjectives); }
+std::string_view adjective() { return Helper::arrayElement(data::adjectives); }
 
-std::string_view noun() { return faker::Helper::arrayElement(faker::nouns); }
+std::string_view noun() { return Helper::arrayElement(data::nouns); }
 
-std::string_view verb() { return faker::Helper::arrayElement(faker::verbs); }
+std::string_view verb() { return Helper::arrayElement(data::verbs); }
 
-std::string_view ingverb() { return faker::Helper::arrayElement(faker::ingverbs); }
+std::string_view ingverb() { return Helper::arrayElement(data::ingverbs); }
 
 std::string phrase()
 {
-    auto splitRandomPhrase
-        = StringHelper::split(std::string(faker::Helper::arrayElement(faker::phrases)));
+    auto splitRandomPhrase = StringHelper::split(std::string(Helper::arrayElement(data::phrases)));
     std::string ret;
 
     for (auto& word : splitRandomPhrase) {

@@ -7,39 +7,39 @@ using namespace faker;
 
 TEST(ImageTest, shouldGenerateImageUrlDefault)
 {
-    const auto imageUrl = image::imageUrl();
+    auto imageUrl = image::imageUrl();
 
     ASSERT_EQ(imageUrl, "https://loremflickr.com/640/480");
 }
 
 TEST(ImageTest, shouldGenerateImageUrl)
 {
-    const auto width = 800;
-    const auto height = 600;
+    auto width = 800;
+    auto height = 600;
 
-    const auto imageUrl = image::imageUrl(width, height);
+    auto imageUrl = image::imageUrl(width, height);
 
     ASSERT_EQ(imageUrl, "https://loremflickr.com/800/600");
 }
 
 TEST(ImageTest, shouldGenerateImageUrlCategory)
 {
-    const auto width = 800;
-    const auto height = 600;
+    auto width = 800;
+    auto height = 600;
     const ImageCategory category = ImageCategory::Fashion;
 
-    const auto imageUrl = image::imageUrl(width, height, category);
+    auto imageUrl = image::imageUrl(width, height, category);
 
     ASSERT_EQ(imageUrl, "https://loremflickr.com/800/600/fashion");
 }
 
 TEST(ImageTest, shouldGenerateGithubAvatarUrl)
 {
-    const auto githubAvatarUrl = image::githubAvatarUrl();
+    auto githubAvatarUrl = image::githubAvatarUrl();
 
     const std::string expectedGithubAvatarPrefix = "https://avatars.githubusercontent.com/u/";
 
-    const auto userNumber = std::stoi(githubAvatarUrl.substr(expectedGithubAvatarPrefix.size()));
+    auto userNumber = std::stoi(githubAvatarUrl.substr(expectedGithubAvatarPrefix.size()));
 
     FAKER_EXPECT_STARTS_WITH(githubAvatarUrl, expectedGithubAvatarPrefix);
     ASSERT_TRUE(userNumber >= 0 && userNumber <= 100000000);
@@ -47,7 +47,7 @@ TEST(ImageTest, shouldGenerateGithubAvatarUrl)
 
 TEST(ImageTest, shouldGenerateDimensions)
 {
-    const auto dimensions = image::dimensions();
+    auto dimensions = image::dimensions();
 
     std::vector<std::string> split_dimensions = StringHelper::split(dimensions, "x");
 
@@ -60,7 +60,7 @@ TEST(ImageTest, shouldGenerateDimensions)
 
 TEST(ImageTest, shouldGenerateType)
 {
-    const auto generatedType = image::type();
+    auto generatedType = image::type();
 
-    FAKER_EXPECT_CONTAINS(imageTypes, generatedType);
+    FAKER_EXPECT_CONTAINS(image::data::imageTypes, generatedType);
 }

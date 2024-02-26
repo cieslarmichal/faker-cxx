@@ -1,53 +1,47 @@
 #include "../test_helpers.h"
-#include <algorithm>
 #include <faker/movie.h>
 #include <modules/movie_data.h>
 
-using namespace ::testing;
 using namespace faker;
 
-class MovieTest : public Test {
-public:
-};
-
-TEST_F(MovieTest, shouldGenerateGenre)
+TEST(MovieTest, shouldGenerateGenre)
 {
-    const auto generatedGenre = movie::genre();
+    auto generatedGenre = movie::genre();
 
-    FAKER_EXPECT_CONTAINS(movie::genres, generatedGenre);
+    FAKER_EXPECT_CONTAINS(movie::data::genres, generatedGenre);
 }
 
-TEST_F(MovieTest, shouldGenerateMovieTitle)
+TEST(MovieTest, shouldGenerateMovieTitle)
 {
-    const auto generatedMovieTitle = movie::movieTitle();
+    auto generatedMovieTitle = movie::movieTitle();
 
-    FAKER_EXPECT_CONTAINS(movie::movies, generatedMovieTitle);
+    FAKER_EXPECT_CONTAINS(movie::data::movies, generatedMovieTitle);
 }
 
-TEST_F(MovieTest, shouldGenerateTvShow)
+TEST(MovieTest, shouldGenerateTvShow)
 {
-    const auto generatedTvShow = movie::tvShow();
+    auto generatedTvShow = movie::tvShow();
 
-    FAKER_EXPECT_CONTAINS(movie::tvShows, generatedTvShow);
+    FAKER_EXPECT_CONTAINS(movie::data::tvShows, generatedTvShow);
 }
 
-TEST_F(MovieTest, shouldGenerateDirector)
+TEST(MovieTest, shouldGenerateDirector)
 {
-    const auto generatedDirector = movie::director();
+    auto generatedDirector = movie::director();
 
-    FAKER_EXPECT_CONTAINS(movie::directors, generatedDirector);
+    FAKER_EXPECT_CONTAINS(movie::data::directors, generatedDirector);
 }
 
-TEST_F(MovieTest, shouldGenerateActor)
+TEST(MovieTest, shouldGenerateActor)
 {
-    const auto generatedActor = movie::actor();
+    auto generatedActor = movie::actor();
 
-    FAKER_EXPECT_CONTAINS(movie::actors, generatedActor);
+    FAKER_EXPECT_CONTAINS(movie::data::actors, generatedActor);
 }
 
-TEST_F(MovieTest, shouldGenerateActress)
+TEST(MovieTest, shouldGenerateActress)
 {
-    const auto generatedActress = movie::actress();
+    auto generatedActress = movie::actress();
 
-    FAKER_EXPECT_CONTAINS(movie::actresses, generatedActress);
+    FAKER_EXPECT_CONTAINS(movie::data::actresses, generatedActress);
 }

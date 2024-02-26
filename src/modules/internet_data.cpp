@@ -1,6 +1,6 @@
 #include "internet_data.h"
 
-namespace faker {
+namespace faker::internet::data {
 const std::array<std::string_view, 6> domainSuffixes
     = { "com", "biz", "info", "name", "net", "org" };
 

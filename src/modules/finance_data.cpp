@@ -1,6 +1,6 @@
 #include "finance_data.h"
 
-namespace faker {
+namespace faker::finance::data {
 const std::array<std::string_view, 8> accountTypes = {
     "Checking",
     "Savings",

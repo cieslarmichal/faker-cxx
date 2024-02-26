@@ -116,15 +116,15 @@ TEST_F(FinanceTest, shouldGenerateCurrency)
 {
     const auto generatedCurrency = finance::currency();
 
-    FAKER_EXPECT_CONTAINS(currencies, generatedCurrency);
+    FAKER_EXPECT_CONTAINS(finance::data::currencies, generatedCurrency);
 }
 
 TEST_F(FinanceTest, shouldGenerateCurrencyName)
 {
     const auto generatedCurrencyName = finance::currencyName();
 
-    ASSERT_TRUE(
-        faker::testing::any_of(currencies, [generatedCurrencyName](const Currency& currency) {
+    ASSERT_TRUE(faker::testing::any_of(
+        finance::data::currencies, [generatedCurrencyName](const Currency& currency) {
             return currency.name == generatedCurrencyName;
         }));
 }
@@ -133,8 +133,8 @@ TEST_F(FinanceTest, shouldGenerateCurrencyCode)
 {
     const auto generatedCurrencyCode = finance::currencyCode();
 
-    ASSERT_TRUE(
-        faker::testing::any_of(currencies, [generatedCurrencyCode](const Currency& currency) {
+    ASSERT_TRUE(faker::testing::any_of(
+        finance::data::currencies, [generatedCurrencyCode](const Currency& currency) {
             return currency.code == generatedCurrencyCode;
         }));
 }
@@ -143,8 +143,8 @@ TEST_F(FinanceTest, shouldGenerateCurrencySymbol)
 {
     const auto generatedCurrencySymbol = finance::currencySymbol();
 
-    ASSERT_TRUE(
-        faker::testing::any_of(currencies, [generatedCurrencySymbol](const Currency& currency) {
+    ASSERT_TRUE(faker::testing::any_of(
+        finance::data::currencies, [generatedCurrencySymbol](const Currency& currency) {
             return currency.symbol == generatedCurrencySymbol;
         }));
 }
@@ -153,7 +153,7 @@ TEST_F(FinanceTest, shouldGenerateAccountType)
 {
     const auto generatedAccountType = finance::accountType();
 
-    FAKER_EXPECT_CONTAINS(accountTypes, generatedAccountType);
+    FAKER_EXPECT_CONTAINS(finance::data::accountTypes, generatedAccountType);
 }
 
 TEST_F(FinanceTest, shouldGenerateAmount)
@@ -424,7 +424,7 @@ TEST_P(FinanceBicTest, CheckBicGenerator)
 
     const auto bic = finance::bic(country);
 
-    const auto& bankIdentifiersCodes = bankIdentifiersCodesMapping.at(country);
+    const auto& bankIdentifiersCodes = finance::data::bankIdentifiersCodesMapping.at(country);
 
     ASSERT_TRUE(faker::testing::contains(bankIdentifiersCodes, bic));
 }

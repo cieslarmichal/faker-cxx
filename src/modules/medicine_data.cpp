@@ -1,6 +1,6 @@
 #include "medicine_data.h"
 
-namespace faker {
+namespace faker::medicine::data {
 const std::array<std::string_view, 59> medicalConditions = {
     "AIDS",
     "Anorexia Nervosa",

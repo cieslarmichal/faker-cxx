@@ -5,111 +5,107 @@
 
 using namespace faker;
 
-class AnimalTest : public ::testing::Test {
-public:
-};
-
-TEST_F(AnimalTest, shouldGenerateBear)
+TEST(AnimalTest, shouldGenerateBear)
 {
-    const auto generatedBear = animal::bear();
+    auto generatedBear = animal::bear();
 
-    FAKER_EXPECT_CONTAINS(bears, generatedBear);
+    FAKER_EXPECT_CONTAINS(animal::data::bears, generatedBear);
 }
 
-TEST_F(AnimalTest, shouldGenerateBird)
+TEST(AnimalTest, shouldGenerateBird)
 {
-    const auto generatedBird = animal::bird();
+    auto generatedBird = animal::bird();
 
-    FAKER_EXPECT_CONTAINS(birds, generatedBird);
+    FAKER_EXPECT_CONTAINS(animal::data::birds, generatedBird);
 }
 
-TEST_F(AnimalTest, shouldGenerateCat)
+TEST(AnimalTest, shouldGenerateCat)
 {
-    const auto generatedCat = animal::cat();
+    auto generatedCat = animal::cat();
 
-    FAKER_EXPECT_CONTAINS(cats, generatedCat);
+    FAKER_EXPECT_CONTAINS(animal::data::cats, generatedCat);
 }
 
-TEST_F(AnimalTest, shouldGenerateCetacean)
+TEST(AnimalTest, shouldGenerateCetacean)
 {
-    const auto generatedCetacean = animal::cetacean();
+    auto generatedCetacean = animal::cetacean();
 
-    FAKER_EXPECT_CONTAINS(cetaceans, generatedCetacean);
+    FAKER_EXPECT_CONTAINS(animal::data::cetaceans, generatedCetacean);
 }
 
-TEST_F(AnimalTest, shouldGenerateCow)
+TEST(AnimalTest, shouldGenerateCow)
 {
-    const auto generatedCow = animal::cow();
+    auto generatedCow = animal::cow();
 
-    FAKER_EXPECT_CONTAINS(cows, generatedCow);
+    FAKER_EXPECT_CONTAINS(animal::data::cows, generatedCow);
 }
 
-TEST_F(AnimalTest, shouldGenerateCrocodilia)
+TEST(AnimalTest, shouldGenerateCrocodilia)
 {
-    const auto generatedCrocodilia = animal::crocodilia();
+    auto generatedCrocodilia = animal::crocodilia();
 
-    FAKER_EXPECT_CONTAINS(crocodilia, generatedCrocodilia);
+    FAKER_EXPECT_CONTAINS(animal::data::crocodilia, generatedCrocodilia);
 }
 
-TEST_F(AnimalTest, shouldGenerateDog)
+TEST(AnimalTest, shouldGenerateDog)
 {
-    const auto generatedDog = animal::dog();
+    auto generatedDog = animal::dog();
 
-    FAKER_EXPECT_CONTAINS(dogs, generatedDog);
+    FAKER_EXPECT_CONTAINS(animal::data::dogs, generatedDog);
 }
 
-TEST_F(AnimalTest, shouldGenerateFish)
+TEST(AnimalTest, shouldGenerateFish)
 {
-    const auto generatedFish = animal::fish();
+    auto generatedFish = animal::fish();
 
-    FAKER_EXPECT_CONTAINS(fishes, generatedFish);
+    FAKER_EXPECT_CONTAINS(animal::data::fishes, generatedFish);
 }
 
-TEST_F(AnimalTest, shouldGenerateHorse)
+TEST(AnimalTest, shouldGenerateHorse)
 {
-    const auto generatedHorse = animal::horse();
+    auto generatedHorse = animal::horse();
 
-    FAKER_EXPECT_CONTAINS(horses, generatedHorse);
+    FAKER_EXPECT_CONTAINS(animal::data::horses, generatedHorse);
 }
 
-TEST_F(AnimalTest, shouldGenerateInsect)
+TEST(AnimalTest, shouldGenerateInsect)
 {
-    const auto generatedInsect = animal::insect();
+    auto generatedInsect = animal::insect();
 
-    FAKER_EXPECT_CONTAINS(insects, generatedInsect);
+    FAKER_EXPECT_CONTAINS(animal::data::insects, generatedInsect);
 }
 
-TEST_F(AnimalTest, shouldGenerateLion)
+TEST(AnimalTest, shouldGenerateLion)
 {
-    const auto generatedLion = animal::lion();
+    auto generatedLion = animal::lion();
 
-    FAKER_EXPECT_CONTAINS(lions, generatedLion);
+    FAKER_EXPECT_CONTAINS(animal::data::lions, generatedLion);
 }
 
-TEST_F(AnimalTest, shouldGenerateRabbit)
+TEST(AnimalTest, shouldGenerateRabbit)
 {
-    const auto generatedRabbit = animal::rabbit();
+    auto generatedRabbit = animal::rabbit();
 
-    FAKER_EXPECT_CONTAINS(rabbits, generatedRabbit);
+    FAKER_EXPECT_CONTAINS(animal::data::rabbits, generatedRabbit);
 }
 
-TEST_F(AnimalTest, shouldGenerateRodent)
+TEST(AnimalTest, shouldGenerateRodent)
 {
-    const auto generatedRodent = animal::rodent();
+    auto generatedRodent = animal::rodent();
 
-    FAKER_EXPECT_CONTAINS(rodents, generatedRodent);
+    FAKER_EXPECT_CONTAINS(animal::data::rodents, generatedRodent);
 }
 
-TEST_F(AnimalTest, shouldGenerateSnake)
+TEST(AnimalTest, shouldGenerateSnake)
 {
-    const auto generatedSnake = animal::snake();
+    auto generatedSnake = animal::snake();
 
-    FAKER_EXPECT_CONTAINS(snakes, generatedSnake);
+    FAKER_EXPECT_CONTAINS(animal::data::snakes, generatedSnake);
 }
 
-TEST_F(AnimalTest, shouldGenerateType)
+TEST(AnimalTest, shouldGenerateType)
 {
-    const auto generatedType = animal::type();
+    auto generatedType = animal::type();
 
-    FAKER_EXPECT_CONTAINS(types, generatedType);
+    FAKER_EXPECT_CONTAINS(animal::data::types, generatedType);
 }

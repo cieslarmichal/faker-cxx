@@ -1,6 +1,6 @@
 #include "lorem_data.h"
 
-namespace faker {
+namespace faker::lorem::data {
 const std::array<std::string_view, 182> loremWords = {
     "alias",
     "consequatur",

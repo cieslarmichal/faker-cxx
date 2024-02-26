@@ -6,17 +6,17 @@
 #include <faker/string.h>
 
 namespace faker::commerce {
-std::string_view department() { return Helper::arrayElement(departments); }
+std::string_view department() { return Helper::arrayElement(data::departments); }
 
 std::string price(double min, double max) { return finance::amount(min, max); }
 
 std::string sku(unsigned int length) { return string::numeric(length, false); }
 
-std::string_view productAdjective() { return Helper::arrayElement(productAdjectives); }
+std::string_view productAdjective() { return Helper::arrayElement(data::productAdjectives); }
 
-std::string_view productMaterial() { return Helper::arrayElement(productMaterials); }
+std::string_view productMaterial() { return Helper::arrayElement(data::productMaterials); }
 
-std::string_view productName() { return Helper::arrayElement(productNames); }
+std::string_view productName() { return Helper::arrayElement(data::productNames); }
 
 std::string productFullName()
 {
@@ -114,40 +114,41 @@ std::string ISBN10()
 
 std::string productId() { return string::alphanumeric(10, StringCasing::Upper, ""); }
 
-std::string_view paymentType() { return Helper::arrayElement(paymentTypes); }
+std::string_view paymentType() { return Helper::arrayElement(data::paymentTypes); }
 
-std::string_view paymentProvider() { return Helper::arrayElement(paymentProviders); }
+std::string_view paymentProvider() { return Helper::arrayElement(data::paymentProviders); }
 
-std::string_view productDescription() { return Helper::arrayElement(productDescriptions); }
+std::string_view productDescription() { return Helper::arrayElement(data::productDescriptions); }
 
-std::string_view productCategory() { return Helper::arrayElement(productCategoryNames); }
+std::string_view productCategory() { return Helper::arrayElement(data::productCategoryNames); }
 
-std::string_view productReview() { return Helper::arrayElement(productReviews); }
+std::string_view productReview() { return Helper::arrayElement(data::productReviews); }
 
 double productRating()
 {
-    const auto ratingValue = number::decimal(5.);
+    auto ratingValue = number::decimal(5.);
     return std::ceil(ratingValue * 100) / 100;
 }
 
-std::string_view discountType() { return Helper::arrayElement(discountTypes); }
+std::string_view discountType() { return Helper::arrayElement(data::discountTypes); }
 
 std::string discountCode()
 {
-    const auto codeLength = number::integer(kMinDiscountCodeLength, kMaxDiscountCodeLength);
+    auto codeLength = number::integer(data::kMinDiscountCodeLength, data::kMaxDiscountCodeLength);
     return string::alphanumeric(codeLength, StringCasing::Upper);
 }
 
 double discountAmount()
 {
-    const auto amountValue = number::decimal(kMinDiscountAmountValue, kMaxDiscountAmountValue);
+    auto amountValue
+        = number::decimal(data::kMinDiscountAmountValue, data::kMaxDiscountAmountValue);
     return std::ceil(amountValue * 100) / 100;
 }
 
 double discountPercentage()
 {
-    const auto percentageValue
-        = number::decimal(kMinDiscountPercentageValue, kMaxDiscountPercentageValue);
+    auto percentageValue
+        = number::decimal(data::kMinDiscountPercentageValue, data::kMaxDiscountPercentageValue);
     return std::ceil(percentageValue * 100) / 100;
 }
 

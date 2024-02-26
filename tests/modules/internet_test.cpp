@@ -92,16 +92,16 @@ public:
 
 TEST_F(InternetTest, shouldGenerateUsername)
 {
-    std::vector<std::string_view> firstNames { englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
 
-    firstNames.insert(
-        firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
+        person::data::englishFemalesFirstNames.end());
 
     const auto username = internet::username();
 
     ASSERT_TRUE(faker::testing::any_of(firstNames,
         [username](auto firstName) { return username.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(faker::testing::any_of(englishLastNames,
+    ASSERT_TRUE(faker::testing::any_of(person::data::englishLastNames,
         [username](auto lastName) { return username.find(lastName) != std::string::npos; }));
 }
 
@@ -112,16 +112,16 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFirstNameProvided)
     const auto username = internet::username(firstName);
 
     ASSERT_TRUE(username.find(firstName) != std::string::npos);
-    ASSERT_TRUE(faker::testing::any_of(englishLastNames,
+    ASSERT_TRUE(faker::testing::any_of(person::data::englishLastNames,
         [username](auto lastName) { return username.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateUsernameWithLastNameProvided)
 {
-    std::vector<std::string_view> firstNames { englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
 
-    firstNames.insert(
-        firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
+        person::data::englishFemalesFirstNames.end());
 
     const auto lastName = "Cieslar";
 
@@ -146,10 +146,11 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFullNameProvided)
 
 TEST_F(InternetTest, shouldGenerateInternationalUsernames)
 {
-    std::vector<std::string_view> romanianFirstNames { romanianMalesFirstNames };
+    std::vector<std::string_view> romanianFirstNames { person::data::romanianMalesFirstNames };
 
-    romanianFirstNames.insert(romanianFirstNames.end(), romanianFemalesFirstNames.begin(),
-        romanianFemalesFirstNames.end());
+    romanianFirstNames.insert(romanianFirstNames.end(),
+        person::data::romanianFemalesFirstNames.begin(),
+        person::data::romanianFemalesFirstNames.end());
 
     const auto username = internet::username(std::nullopt, std::nullopt, Country::Romania);
 
@@ -157,17 +158,18 @@ TEST_F(InternetTest, shouldGenerateInternationalUsernames)
         return username.find(romanianFirstName) != std::string::npos;
     }));
 
-    ASSERT_TRUE(faker::testing::any_of(romanianLastNames, [username](auto romanianLastName) {
-        return username.find(romanianLastName) != std::string::npos;
-    }));
+    ASSERT_TRUE(
+        faker::testing::any_of(person::data::romanianLastNames, [username](auto romanianLastName) {
+            return username.find(romanianLastName) != std::string::npos;
+        }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmail)
 {
-    std::vector<std::string_view> firstNames { englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
 
-    firstNames.insert(
-        firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
+        person::data::englishFemalesFirstNames.end());
 
     const auto email = internet::email();
 
@@ -178,13 +180,14 @@ TEST_F(InternetTest, shouldGenerateEmail)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINS(emailHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINS(internet::data::emailHosts, generatedEmailHost);
     ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedUsername](const auto& firstName) {
         return generatedUsername.find(firstName) != std::string::npos;
     }));
-    ASSERT_TRUE(faker::testing::any_of(englishLastNames, [generatedUsername](const auto& lastName) {
-        return generatedUsername.find(lastName) != std::string::npos;
-    }));
+    ASSERT_TRUE(faker::testing::any_of(
+        person::data::englishLastNames, [generatedUsername](const auto& lastName) {
+            return generatedUsername.find(lastName) != std::string::npos;
+        }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
@@ -200,19 +203,20 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINS(emailHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINS(internet::data::emailHosts, generatedEmailHost);
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(faker::testing::any_of(englishLastNames, [generatedUsername](const auto& lastName) {
-        return generatedUsername.find(lastName) != std::string::npos;
-    }));
+    ASSERT_TRUE(faker::testing::any_of(
+        person::data::englishLastNames, [generatedUsername](const auto& lastName) {
+            return generatedUsername.find(lastName) != std::string::npos;
+        }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 {
-    std::vector<std::string_view> firstNames { englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
 
-    firstNames.insert(
-        firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
+        person::data::englishFemalesFirstNames.end());
 
     const auto lastName = "Howard";
 
@@ -225,7 +229,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINS(emailHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINS(internet::data::emailHosts, generatedEmailHost);
     ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedUsername](auto firstName) {
         return generatedUsername.find(firstName) != std::string::npos;
     }));
@@ -234,10 +238,10 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 {
-    std::vector<std::string_view> firstNames { englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
 
-    firstNames.insert(
-        firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
+        person::data::englishFemalesFirstNames.end());
 
     const auto firstName = "Cindy";
 
@@ -252,17 +256,17 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINS(emailHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINS(internet::data::emailHosts, generatedEmailHost);
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 {
-    std::vector<std::string_view> firstNames { englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
 
-    firstNames.insert(
-        firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
+        person::data::englishFemalesFirstNames.end());
 
     const auto emailHost = "example.com";
 
@@ -279,17 +283,18 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
     ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedUsername](const auto& firstName) {
         return generatedUsername.find(firstName) != std::string::npos;
     }));
-    ASSERT_TRUE(faker::testing::any_of(englishLastNames, [generatedUsername](const auto lastName) {
-        return generatedUsername.find(lastName) != std::string::npos;
-    }));
+    ASSERT_TRUE(faker::testing::any_of(
+        person::data::englishLastNames, [generatedUsername](const auto lastName) {
+            return generatedUsername.find(lastName) != std::string::npos;
+        }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmail)
 {
-    std::vector<std::string_view> firstNames { englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
 
-    firstNames.insert(
-        firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
+        person::data::englishFemalesFirstNames.end());
 
     const auto email = internet::exampleEmail();
 
@@ -300,13 +305,14 @@ TEST_F(InternetTest, shouldGenerateExampleEmail)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINS(emailExampleHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINS(internet::data::emailExampleHosts, generatedEmailHost);
     ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedUsername](auto firstName) {
         return generatedUsername.find(firstName) != std::string::npos;
     }));
-    ASSERT_TRUE(faker::testing::any_of(englishLastNames, [generatedUsername](auto lastName) {
-        return generatedUsername.find(lastName) != std::string::npos;
-    }));
+    ASSERT_TRUE(
+        faker::testing::any_of(person::data::englishLastNames, [generatedUsername](auto lastName) {
+            return generatedUsername.find(lastName) != std::string::npos;
+        }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
@@ -322,19 +328,20 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINS(emailExampleHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINS(internet::data::emailExampleHosts, generatedEmailHost);
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(faker::testing::any_of(englishLastNames, [generatedUsername](auto lastName) {
-        return generatedUsername.find(lastName) != std::string::npos;
-    }));
+    ASSERT_TRUE(
+        faker::testing::any_of(person::data::englishLastNames, [generatedUsername](auto lastName) {
+            return generatedUsername.find(lastName) != std::string::npos;
+        }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 {
-    std::vector<std::string_view> firstNames { englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
 
-    firstNames.insert(
-        firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
+        person::data::englishFemalesFirstNames.end());
 
     const auto lastName = "Wilkinson";
 
@@ -347,7 +354,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINS(emailExampleHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINS(internet::data::emailExampleHosts, generatedEmailHost);
     ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedUsername](auto firstName) {
         return generatedUsername.find(firstName) != std::string::npos;
     }));
@@ -356,10 +363,10 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 {
-    std::vector<std::string_view> firstNames { englishMalesFirstNames };
+    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames };
 
-    firstNames.insert(
-        firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
+        person::data::englishFemalesFirstNames.end());
 
     const auto firstName = "Walter";
 
@@ -374,7 +381,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINS(emailExampleHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINS(internet::data::emailExampleHosts, generatedEmailHost);
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
 }
@@ -407,16 +414,26 @@ TEST_F(InternetTest, shouldGenerateEmoji)
 
     std::vector<std::string_view> emojis;
 
-    emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
-    emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
-    emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
-    emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
-    emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
-    emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
-    emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
-    emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
-    emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
-    emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
+    emojis.insert(
+        emojis.end(), internet::data::smileyEmojis.begin(), internet::data::smileyEmojis.end());
+    emojis.insert(
+        emojis.end(), internet::data::bodyEmojis.begin(), internet::data::bodyEmojis.end());
+    emojis.insert(
+        emojis.end(), internet::data::personEmojis.begin(), internet::data::personEmojis.end());
+    emojis.insert(
+        emojis.end(), internet::data::natureEmojis.begin(), internet::data::natureEmojis.end());
+    emojis.insert(
+        emojis.end(), internet::data::foodEmojis.begin(), internet::data::foodEmojis.end());
+    emojis.insert(
+        emojis.end(), internet::data::travelEmojis.begin(), internet::data::travelEmojis.end());
+    emojis.insert(
+        emojis.end(), internet::data::activityEmojis.begin(), internet::data::activityEmojis.end());
+    emojis.insert(
+        emojis.end(), internet::data::objectEmojis.begin(), internet::data::objectEmojis.end());
+    emojis.insert(
+        emojis.end(), internet::data::symbolEmojis.begin(), internet::data::symbolEmojis.end());
+    emojis.insert(
+        emojis.end(), internet::data::flagEmojis.begin(), internet::data::flagEmojis.end());
 
     FAKER_EXPECT_CONTAINS(emojis, generatedEmoji);
 }
@@ -425,70 +442,70 @@ TEST_F(InternetTest, shouldGenerateSmileyEmoji)
 {
     const auto generatedEmoji = internet::emoji(EmojiType::Smiley);
 
-    FAKER_EXPECT_CONTAINS(smileyEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINS(internet::data::smileyEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateBodyEmoji)
 {
     const auto generatedEmoji = internet::emoji(EmojiType::Body);
 
-    FAKER_EXPECT_CONTAINS(bodyEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINS(internet::data::bodyEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGeneratePersonEmoji)
 {
     const auto generatedEmoji = internet::emoji(EmojiType::Person);
 
-    FAKER_EXPECT_CONTAINS(personEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINS(internet::data::personEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateNatureEmoji)
 {
     const auto generatedEmoji = internet::emoji(EmojiType::Nature);
 
-    FAKER_EXPECT_CONTAINS(natureEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINS(internet::data::natureEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateFoodEmoji)
 {
     const auto generatedEmoji = internet::emoji(EmojiType::Food);
 
-    FAKER_EXPECT_CONTAINS(foodEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINS(internet::data::foodEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateTravelEmoji)
 {
     const auto generatedEmoji = internet::emoji(EmojiType::Travel);
 
-    FAKER_EXPECT_CONTAINS(travelEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINS(internet::data::travelEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateActivityEmoji)
 {
     const auto generatedEmoji = internet::emoji(EmojiType::Activity);
 
-    FAKER_EXPECT_CONTAINS(activityEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINS(internet::data::activityEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateObjectEmoji)
 {
     const auto generatedEmoji = internet::emoji(EmojiType::Object);
 
-    FAKER_EXPECT_CONTAINS(objectEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINS(internet::data::objectEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateSymbolEmoji)
 {
     const auto generatedEmoji = internet::emoji(EmojiType::Symbol);
 
-    FAKER_EXPECT_CONTAINS(symbolEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINS(internet::data::symbolEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateFlagEmoji)
 {
     const auto generatedEmoji = internet::emoji(EmojiType::Flag);
 
-    FAKER_EXPECT_CONTAINS(flagEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINS(internet::data::flagEmojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateProtocol)
@@ -528,21 +545,21 @@ TEST_F(InternetTest, shouldGenerateHttpRequestHeader)
 {
     const auto generatedHttpRequestHeader = internet::httpRequestHeader();
 
-    FAKER_EXPECT_CONTAINS(httpRequestHeaders, generatedHttpRequestHeader);
+    FAKER_EXPECT_CONTAINS(internet::data::httpRequestHeaders, generatedHttpRequestHeader);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
 {
     const auto generatedHttpResponseHeader = internet::httpResponseHeader();
 
-    FAKER_EXPECT_CONTAINS(httpResponseHeaders, generatedHttpResponseHeader);
+    FAKER_EXPECT_CONTAINS(internet::data::httpResponseHeaders, generatedHttpResponseHeader);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpMediaType)
 {
     const auto generatedHttpMediaType = internet::httpMediaType();
 
-    FAKER_EXPECT_CONTAINS(httpMediaTypes, generatedHttpMediaType);
+    FAKER_EXPECT_CONTAINS(internet::data::httpMediaTypes, generatedHttpMediaType);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpInformationalSuccessCode)
@@ -663,7 +680,7 @@ TEST_F(InternetTest, shouldGenerateDomainSuffix)
 {
     const auto generatedDomainSuffix = internet::domainSuffix();
 
-    FAKER_EXPECT_CONTAINS(domainSuffixes, generatedDomainSuffix);
+    FAKER_EXPECT_CONTAINS(internet::data::domainSuffixes, generatedDomainSuffix);
 }
 
 TEST_F(InternetTest, shouldGenerateDomainWord)
@@ -683,7 +700,7 @@ TEST_F(InternetTest, shouldGenerateDomainName)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    FAKER_EXPECT_CONTAINS(domainSuffixes, generatedDomainSuffix);
+    FAKER_EXPECT_CONTAINS(internet::data::domainSuffixes, generatedDomainSuffix);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpsUrl)
@@ -701,7 +718,7 @@ TEST_F(InternetTest, shouldGenerateHttpsUrl)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    FAKER_EXPECT_CONTAINS(domainSuffixes, generatedDomainSuffix);
+    FAKER_EXPECT_CONTAINS(internet::data::domainSuffixes, generatedDomainSuffix);
     ASSERT_EQ(generatedProtocol, "https");
 }
 
@@ -720,7 +737,7 @@ TEST_F(InternetTest, shouldGenerateHttpUrl)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    FAKER_EXPECT_CONTAINS(domainSuffixes, generatedDomainSuffix);
+    FAKER_EXPECT_CONTAINS(internet::data::domainSuffixes, generatedDomainSuffix);
     ASSERT_EQ(generatedProtocol, "http");
 }
 

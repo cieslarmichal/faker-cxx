@@ -4,7 +4,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker {
+namespace faker::commerce::data {
 constexpr unsigned int kMinDiscountCodeLength = 6;
 constexpr unsigned int kMaxDiscountCodeLength = 12;
 constexpr double kMinDiscountAmountValue = 10.;

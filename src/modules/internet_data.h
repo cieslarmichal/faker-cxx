@@ -4,7 +4,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker {
+namespace faker::internet::data {
 extern const std::array<std::string_view, 6> domainSuffixes;
 extern const std::array<std::string_view, 4> emailHosts;
 extern const std::array<std::string_view, 3> emailExampleHosts;

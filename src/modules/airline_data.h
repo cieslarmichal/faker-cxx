@@ -6,7 +6,7 @@
 #include <string_view>
 #include <unordered_map>
 
-namespace faker {
+namespace faker::airline::data {
 extern const std::array<std::string_view, 3> aircraftTypes;
 extern const std::array<AirlineStruct, 125> airlines;
 extern const std::array<Airplane, 155> airplanes;

@@ -58,7 +58,8 @@ std::string commitDate(unsigned years)
     }
 
     return FormatHelper::format("{} {} {} {} {} {}", date::weekdayAbbreviatedName(),
-        monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
+        date::data::monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year,
+        timeZoneString);
 }
 
 std::string commitEntry(

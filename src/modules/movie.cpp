@@ -3,16 +3,16 @@
 #include <faker/movie.h>
 
 namespace faker::movie {
-std::string_view genre() { return Helper::arrayElement(genres); }
+std::string_view genre() { return Helper::arrayElement(data::genres); }
 
-std::string_view movieTitle() { return Helper::arrayElement(movies); }
+std::string_view movieTitle() { return Helper::arrayElement(data::movies); }
 
-std::string_view tvShow() { return Helper::arrayElement(tvShows); }
+std::string_view tvShow() { return Helper::arrayElement(data::tvShows); }
 
-std::string_view director() { return Helper::arrayElement(directors); }
+std::string_view director() { return Helper::arrayElement(data::directors); }
 
-std::string_view actor() { return Helper::arrayElement(actors); }
+std::string_view actor() { return Helper::arrayElement(data::actors); }
 
-std::string_view actress() { return Helper::arrayElement(actresses); }
+std::string_view actress() { return Helper::arrayElement(data::actresses); }
 
 }

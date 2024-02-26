@@ -128,12 +128,18 @@ std::string birthdateByYear(int minYear, int maxYear, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string_view weekdayName() { return Helper::arrayElement(weekdayNames); }
+std::string_view weekdayName() { return Helper::arrayElement(data::weekdayNames); }
 
-std::string_view weekdayAbbreviatedName() { return Helper::arrayElement(weekdayAbbreviatedNames); }
+std::string_view weekdayAbbreviatedName()
+{
+    return Helper::arrayElement(data::weekdayAbbreviatedNames);
+}
 
-std::string_view monthName() { return Helper::arrayElement(monthNames); }
+std::string_view monthName() { return Helper::arrayElement(data::monthNames); }
 
-std::string_view monthAbbreviatedName() { return Helper::arrayElement(monthAbbreviatedNames); }
+std::string_view monthAbbreviatedName()
+{
+    return Helper::arrayElement(data::monthAbbreviatedNames);
+}
 
 }

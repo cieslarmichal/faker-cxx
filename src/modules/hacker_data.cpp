@@ -1,6 +1,6 @@
 #include "hacker_data.h"
 
-namespace faker {
+namespace faker::hacker::data {
 const std::array<std::string_view, 16> abbreviations = {
     "e.g.",
     "i.e.",

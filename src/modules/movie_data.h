@@ -4,7 +4,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker::movie {
+namespace faker::movie::data {
 extern const std::array<std::string_view, 299> actors;
 extern const std::array<std::string_view, 300> actresses;
 extern const std::array<std::string_view, 300> directors;

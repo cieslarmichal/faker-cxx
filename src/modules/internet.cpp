@@ -67,13 +67,13 @@ std::string email(std::optional<std::string> firstName, std::optional<std::strin
     std::optional<std::string> emailHost)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-        emailHost ? *emailHost : Helper::arrayElement(emailHosts));
+        emailHost ? *emailHost : Helper::arrayElement(data::emailHosts));
 }
 
 std::string exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-        Helper::arrayElement(emailExampleHosts));
+        Helper::arrayElement(data::emailExampleHosts));
 }
 
 std::string password(int length, PasswordOptions options)
@@ -110,43 +110,44 @@ std::string_view emoji(std::optional<EmojiType> type)
     static std::vector<std::string_view> emojis;
 
     if (emojis.empty()) {
-        emojis.reserve(emojis.size() + smileyEmojis.size() + bodyEmojis.size() + personEmojis.size()
-            + natureEmojis.size() + foodEmojis.size() + travelEmojis.size() + activityEmojis.size()
-            + objectEmojis.size() + symbolEmojis.size() + flagEmojis.size());
-        emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
-        emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
-        emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
-        emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
-        emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
-        emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
-        emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
-        emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
-        emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
-        emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
+        emojis.reserve(emojis.size() + data::smileyEmojis.size() + data::bodyEmojis.size()
+            + data::personEmojis.size() + data::natureEmojis.size() + data::foodEmojis.size()
+            + data::travelEmojis.size() + data::activityEmojis.size() + data::objectEmojis.size()
+            + data::symbolEmojis.size() + data::flagEmojis.size());
+        emojis.insert(emojis.end(), data::smileyEmojis.begin(), data::smileyEmojis.end());
+        emojis.insert(emojis.end(), data::bodyEmojis.begin(), data::bodyEmojis.end());
+        emojis.insert(emojis.end(), data::personEmojis.begin(), data::personEmojis.end());
+        emojis.insert(emojis.end(), data::natureEmojis.begin(), data::natureEmojis.end());
+        emojis.insert(emojis.end(), data::foodEmojis.begin(), data::foodEmojis.end());
+        emojis.insert(emojis.end(), data::travelEmojis.begin(), data::travelEmojis.end());
+        emojis.insert(emojis.end(), data::activityEmojis.begin(), data::activityEmojis.end());
+        emojis.insert(emojis.end(), data::objectEmojis.begin(), data::objectEmojis.end());
+        emojis.insert(emojis.end(), data::symbolEmojis.begin(), data::symbolEmojis.end());
+        emojis.insert(emojis.end(), data::flagEmojis.begin(), data::flagEmojis.end());
     }
 
     if (type) {
         switch (*type) {
         case EmojiType::Smiley:
-            return Helper::arrayElement(smileyEmojis);
+            return Helper::arrayElement(data::smileyEmojis);
         case EmojiType::Body:
-            return Helper::arrayElement(bodyEmojis);
+            return Helper::arrayElement(data::bodyEmojis);
         case EmojiType::Person:
-            return Helper::arrayElement(personEmojis);
+            return Helper::arrayElement(data::personEmojis);
         case EmojiType::Nature:
-            return Helper::arrayElement(natureEmojis);
+            return Helper::arrayElement(data::natureEmojis);
         case EmojiType::Food:
-            return Helper::arrayElement(foodEmojis);
+            return Helper::arrayElement(data::foodEmojis);
         case EmojiType::Travel:
-            return Helper::arrayElement(travelEmojis);
+            return Helper::arrayElement(data::travelEmojis);
         case EmojiType::Activity:
-            return Helper::arrayElement(activityEmojis);
+            return Helper::arrayElement(data::activityEmojis);
         case EmojiType::Object:
-            return Helper::arrayElement(objectEmojis);
+            return Helper::arrayElement(data::objectEmojis);
         case EmojiType::Symbol:
-            return Helper::arrayElement(symbolEmojis);
+            return Helper::arrayElement(data::symbolEmojis);
         case EmojiType::Flag:
-            return Helper::arrayElement(flagEmojis);
+            return Helper::arrayElement(data::flagEmojis);
         default:
             assert(false && "Invalid emoji type");
         }
@@ -160,19 +161,20 @@ bool checkIfEmojiIsValid(const std::string& emojiToCheck)
     static std::vector<std::string_view> emojis;
 
     if (emojis.empty()) {
-        emojis.reserve(emojis.size() + smileyEmojis.size() + bodyEmojis.size() + personEmojis.size()
-            + natureEmojis.size() + foodEmojis.size() + travelEmojis.size() + activityEmojis.size()
-            + objectEmojis.size() + symbolEmojis.size() + flagEmojis.size());
-        emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
-        emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
-        emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
-        emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
-        emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
-        emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
-        emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
-        emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
-        emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
-        emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
+        emojis.reserve(emojis.size() + data::smileyEmojis.size() + data::bodyEmojis.size()
+            + data::personEmojis.size() + data::natureEmojis.size() + data::foodEmojis.size()
+            + data::travelEmojis.size() + data::activityEmojis.size() + data::objectEmojis.size()
+            + data::symbolEmojis.size() + data::flagEmojis.size());
+        emojis.insert(emojis.end(), data::smileyEmojis.begin(), data::smileyEmojis.end());
+        emojis.insert(emojis.end(), data::bodyEmojis.begin(), data::bodyEmojis.end());
+        emojis.insert(emojis.end(), data::personEmojis.begin(), data::personEmojis.end());
+        emojis.insert(emojis.end(), data::natureEmojis.begin(), data::natureEmojis.end());
+        emojis.insert(emojis.end(), data::foodEmojis.begin(), data::foodEmojis.end());
+        emojis.insert(emojis.end(), data::travelEmojis.begin(), data::travelEmojis.end());
+        emojis.insert(emojis.end(), data::activityEmojis.begin(), data::activityEmojis.end());
+        emojis.insert(emojis.end(), data::objectEmojis.begin(), data::objectEmojis.end());
+        emojis.insert(emojis.end(), data::symbolEmojis.begin(), data::symbolEmojis.end());
+        emojis.insert(emojis.end(), data::flagEmojis.begin(), data::flagEmojis.end());
     }
 
     return std::find(emojis.begin(), emojis.end(), emojiToCheck) != emojis.end();
@@ -222,11 +224,11 @@ unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
     return Helper::arrayElement(statusCodes);
 }
 
-std::string_view httpRequestHeader() { return Helper::arrayElement(httpRequestHeaders); }
+std::string_view httpRequestHeader() { return Helper::arrayElement(data::httpRequestHeaders); }
 
-std::string_view httpResponseHeader() { return Helper::arrayElement(httpResponseHeaders); }
+std::string_view httpResponseHeader() { return Helper::arrayElement(data::httpResponseHeaders); }
 
-std::string_view httpMediaType() { return Helper::arrayElement(httpMediaTypes); }
+std::string_view httpMediaType() { return Helper::arrayElement(data::httpMediaTypes); }
 
 std::string ipv4(IPv4Class ipv4class)
 {
@@ -318,6 +320,6 @@ std::string domainWord()
     return StringHelper::toLower(FormatHelper::format("{}-{}", word::adjective(), word::noun()));
 }
 
-std::string_view domainSuffix() { return Helper::arrayElement(domainSuffixes); }
+std::string_view domainSuffix() { return Helper::arrayElement(data::domainSuffixes); }
 
 }

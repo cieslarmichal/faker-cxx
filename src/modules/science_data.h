@@ -5,7 +5,7 @@
 #include <faker/types/chemical_element.h>
 #include <faker/types/unit.h>
 
-namespace faker {
+namespace faker::science::data {
 extern const std::array<ChemicalElement, 118> chemicalElements;
 extern const std::array<Unit, 8> distanceUnits;
 extern const std::array<Unit, 8> massUnits;

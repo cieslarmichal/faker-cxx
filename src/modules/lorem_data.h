@@ -4,7 +4,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker {
+namespace faker::lorem::data {
 extern const std::array<std::string_view, 182> loremWords;
 }
 

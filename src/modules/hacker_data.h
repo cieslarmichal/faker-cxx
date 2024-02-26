@@ -4,7 +4,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker {
+namespace faker::hacker::data {
 extern const std::array<std::string_view, 16> abbreviations;
 extern const std::array<std::string_view, 16> adjectives;
 extern const std::array<std::string_view, 16> ingverbs;

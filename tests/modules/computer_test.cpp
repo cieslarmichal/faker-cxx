@@ -8,61 +8,61 @@ TEST(ComputerTest, ComputerTypeGeneration)
 {
     auto generatedType = computer::type();
 
-    FAKER_EXPECT_CONTAINS(faker::data::ComputerTypes, generatedType);
+    FAKER_EXPECT_CONTAINS(computer::data::ComputerTypes, generatedType);
 }
 
 TEST(ComputerTest, ComputerManufactureGeneration)
 {
     auto generatedManufacture = computer::manufacture();
 
-    FAKER_EXPECT_CONTAINS(faker::data::ComputerManufactures, generatedManufacture);
+    FAKER_EXPECT_CONTAINS(computer::data::ComputerManufactures, generatedManufacture);
 }
 
 TEST(ComputerTest, ComputerModelGeneration)
 {
     auto generatedModel = computer::model();
 
-    FAKER_EXPECT_CONTAINS(faker::data::ComputerModels, generatedModel);
+    FAKER_EXPECT_CONTAINS(computer::data::ComputerModels, generatedModel);
 }
 
 TEST(ComputerTest, ComputerCPUManufactureGeneration)
 {
     auto generatedCPUManufacture = computer::cpuManufacture();
 
-    FAKER_EXPECT_CONTAINS(faker::data::ComputerCPUManufactures, generatedCPUManufacture);
+    FAKER_EXPECT_CONTAINS(computer::data::ComputerCPUManufactures, generatedCPUManufacture);
 }
 
 TEST(ComputerTest, ComputerCPUTypeGeneration)
 {
     auto generatedCPUType = computer::cpuType();
 
-    FAKER_EXPECT_CONTAINS(faker::data::ComputerCPUTypes, generatedCPUType);
+    FAKER_EXPECT_CONTAINS(computer::data::ComputerCPUTypes, generatedCPUType);
 }
 
 TEST(ComputerTest, ComputerCPUModelGeneration)
 {
     auto generatedCPUModel = computer::cpuModel();
 
-    FAKER_EXPECT_CONTAINS(faker::data::ComputerCPUModels, generatedCPUModel);
+    FAKER_EXPECT_CONTAINS(computer::data::ComputerCPUModels, generatedCPUModel);
 }
 
 TEST(ComputerTest, ComputerGPUManufactureGeneration)
 {
     auto generatedGPUManufacture = computer::gpuManufacture();
 
-    FAKER_EXPECT_CONTAINS(faker::data::ComputerGPUManufactures, generatedGPUManufacture);
+    FAKER_EXPECT_CONTAINS(computer::data::ComputerGPUManufactures, generatedGPUManufacture);
 }
 
 TEST(ComputerTest, ComputerGPUTypeGeneration)
 {
     auto generatedGPUType = computer::gpuType();
 
-    FAKER_EXPECT_CONTAINS(faker::data::ComputerGPUTypes, generatedGPUType);
+    FAKER_EXPECT_CONTAINS(computer::data::ComputerGPUTypes, generatedGPUType);
 }
 
 TEST(ComputerTest, ComputerGPUModelGeneration)
 {
     auto generatedGPUModel = computer::gpuModel();
 
-    FAKER_EXPECT_CONTAINS(faker::data::ComputerGPUModels, generatedGPUModel);
+    FAKER_EXPECT_CONTAINS(computer::data::ComputerGPUModels, generatedGPUModel);
 }

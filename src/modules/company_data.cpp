@@ -1,6 +1,6 @@
 #include "company_data.h"
 
-namespace faker {
+namespace faker::company::data {
 
 const std::array<std::string_view, 65> buzzAdjectives = { "clicks-and-mortar", "value-added",
     "vertical", "proactive", "robust", "revolutionary", "scalable", "leading-edge", "innovative",

@@ -3,9 +3,9 @@
 #include <faker/medicine.h>
 
 namespace faker::medicine {
-std::string_view condition() { return Helper::arrayElement(medicalConditions); }
+std::string_view condition() { return Helper::arrayElement(data::medicalConditions); }
 
-std::string_view medicalTest() { return Helper::arrayElement(medicalTests); }
-std::string_view specialty() { return Helper::arrayElement(specialties); }
+std::string_view medicalTest() { return Helper::arrayElement(data::medicalTests); }
+std::string_view specialty() { return Helper::arrayElement(data::specialties); }
 
 }

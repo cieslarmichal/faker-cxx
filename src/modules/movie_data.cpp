@@ -1,6 +1,6 @@
 #include "movie_data.h"
 
-namespace faker::movie {
+namespace faker::movie::data {
 const std::array<std::string_view, 299> actors = { "Marlon Brando", "Charles Chaplin",
     "Laurence Olivier",
     "Robert De Niro"

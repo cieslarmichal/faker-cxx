@@ -4,7 +4,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker {
+namespace faker::food::data {
 extern const std::array<std::string_view, 47> alcoholicBeverages;
 extern const std::array<std::string_view, 85> dishNames;
 extern const std::array<std::string_view, 11> foodCategories;

@@ -7,35 +7,35 @@ using namespace faker;
 
 TEST(DatabaseTest, shouldGenerateColumnName)
 {
-    const auto generatedColumnName = database::columnName();
+    auto generatedColumnName = database::columnName();
 
-    FAKER_EXPECT_CONTAINS(columnNames, generatedColumnName);
+    FAKER_EXPECT_CONTAINS(database::data::columnNames, generatedColumnName);
 }
 
 TEST(DatabaseTest, shouldGenerateColumnType)
 {
-    const auto generatedColumnType = database::columnType();
+    auto generatedColumnType = database::columnType();
 
-    FAKER_EXPECT_CONTAINS(columnTypes, generatedColumnType);
+    FAKER_EXPECT_CONTAINS(database::data::columnTypes, generatedColumnType);
 }
 
 TEST(DatabaseTest, shouldGenerateEngine)
 {
-    const auto generatedEngine = database::engine();
+    auto generatedEngine = database::engine();
 
-    FAKER_EXPECT_CONTAINS(engines, generatedEngine);
+    FAKER_EXPECT_CONTAINS(database::data::engines, generatedEngine);
 }
 
 TEST(DatabaseTest, shouldGenerateCollation)
 {
-    const auto generatedCollation = database::collation();
+    auto generatedCollation = database::collation();
 
-    FAKER_EXPECT_CONTAINS(collations, generatedCollation);
+    FAKER_EXPECT_CONTAINS(database::data::collations, generatedCollation);
 }
 
 TEST(DatabaseTest, shouldGenerateMongoDbObjectId)
 {
-    const auto mongoDbObjectId = database::mongoDbObjectId();
+    auto mongoDbObjectId = database::mongoDbObjectId();
 
     ASSERT_EQ(mongoDbObjectId.size(), 24);
     ASSERT_TRUE(faker::testing::any_of(mongoDbObjectId, [](char hexNumberCharacter) {

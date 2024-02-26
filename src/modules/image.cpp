@@ -67,5 +67,5 @@ std::string dimensions()
     return FormatHelper::format("{}x{}", number::integer(1, 32720), number::integer(1, 17280));
 }
 
-std::string_view type() { return Helper::arrayElement(imageTypes); }
+std::string_view type() { return Helper::arrayElement(data::imageTypes); }
 }

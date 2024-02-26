@@ -1,7 +1,7 @@
 #include "airline_data.h"
 #include <faker/airline.h>
 
-namespace faker {
+namespace faker::airline::data {
 
 const std::array<std::string_view, 3> aircraftTypes = { "regional", "narrowbody", "widebody" };
 

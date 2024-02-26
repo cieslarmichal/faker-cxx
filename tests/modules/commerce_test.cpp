@@ -11,7 +11,7 @@ TEST(CommerceTest, shouldGenerateCommerceDepartment)
 {
     auto generatedDepartment = commerce::department();
 
-    FAKER_EXPECT_CONTAINS(departments, generatedDepartment);
+    FAKER_EXPECT_CONTAINS(commerce::data::departments, generatedDepartment);
 }
 
 TEST(CommerceTest, shouldGeneratePrice)
@@ -63,30 +63,30 @@ TEST(CommerceTest, shouldGenerateProductFullName)
     auto& generatedProductMaterial = productFullNameElements[1];
     auto& generatedProductName = productFullNameElements[2];
 
-    FAKER_EXPECT_CONTAINS(productAdjectives, generatedProductAdjective);
-    FAKER_EXPECT_CONTAINS(productMaterials, generatedProductMaterial);
-    FAKER_EXPECT_CONTAINS(productNames, generatedProductName);
+    FAKER_EXPECT_CONTAINS(commerce::data::productAdjectives, generatedProductAdjective);
+    FAKER_EXPECT_CONTAINS(commerce::data::productMaterials, generatedProductMaterial);
+    FAKER_EXPECT_CONTAINS(commerce::data::productNames, generatedProductName);
 }
 
 TEST(CommerceTest, shouldGenerateProductAdjective)
 {
     auto generatedProductAdjective = commerce::productAdjective();
 
-    FAKER_EXPECT_CONTAINS(productAdjectives, generatedProductAdjective);
+    FAKER_EXPECT_CONTAINS(commerce::data::productAdjectives, generatedProductAdjective);
 }
 
 TEST(CommerceTest, shouldGenerateProductMaterial)
 {
     auto generatedProductMaterial = commerce::productMaterial();
 
-    FAKER_EXPECT_CONTAINS(productMaterials, generatedProductMaterial);
+    FAKER_EXPECT_CONTAINS(commerce::data::productMaterials, generatedProductMaterial);
 }
 
 TEST(CommerceTest, shouldGenerateProductName)
 {
     auto generatedProductName = commerce::productName();
 
-    FAKER_EXPECT_CONTAINS(productNames, generatedProductName);
+    FAKER_EXPECT_CONTAINS(commerce::data::productNames, generatedProductName);
 }
 
 TEST(CommerceTest, shouldGenerateEan13)
@@ -174,35 +174,35 @@ TEST(CommerceTest, shouldGeneratePaymentType)
 {
     auto generatedPaymentType = commerce::paymentType();
 
-    FAKER_EXPECT_CONTAINS(paymentTypes, generatedPaymentType);
+    FAKER_EXPECT_CONTAINS(commerce::data::paymentTypes, generatedPaymentType);
 }
 
 TEST(CommerceTest, shouldGeneratePaymentProvider)
 {
     auto generatedPaymentProvider = commerce::paymentProvider();
 
-    FAKER_EXPECT_CONTAINS(paymentProviders, generatedPaymentProvider);
+    FAKER_EXPECT_CONTAINS(commerce::data::paymentProviders, generatedPaymentProvider);
 }
 
 TEST(CommerceTest, shouldGenerateProductDescription)
 {
     auto generatedProductDescription = commerce::productDescription();
 
-    FAKER_EXPECT_CONTAINS(productDescriptions, generatedProductDescription);
+    FAKER_EXPECT_CONTAINS(commerce::data::productDescriptions, generatedProductDescription);
 }
 
 TEST(CommerceTest, shouldGenerateProductCategory)
 {
     auto generatedProductCategory = commerce::productCategory();
 
-    FAKER_EXPECT_CONTAINS(productCategoryNames, generatedProductCategory);
+    FAKER_EXPECT_CONTAINS(commerce::data::productCategoryNames, generatedProductCategory);
 }
 
 TEST(CommerceTest, shouldGenerateProductReview)
 {
     auto generatedProductReview = commerce::productReview();
 
-    FAKER_EXPECT_CONTAINS(productReviews, generatedProductReview);
+    FAKER_EXPECT_CONTAINS(commerce::data::productReviews, generatedProductReview);
 }
 
 TEST(CommerceTest, shouldGenerateProductRating)
@@ -216,7 +216,7 @@ TEST(CommerceTest, shouldGenerateDiscountType)
 {
     auto generatedDiscountType = commerce::discountType();
 
-    FAKER_EXPECT_CONTAINS(discountTypes, generatedDiscountType);
+    FAKER_EXPECT_CONTAINS(commerce::data::discountTypes, generatedDiscountType);
 }
 
 TEST(CommerceTest, shouldGenerateDiscountCode)
@@ -224,8 +224,8 @@ TEST(CommerceTest, shouldGenerateDiscountCode)
 
     auto generatedDiscountCode = commerce::discountCode();
 
-    ASSERT_TRUE(kMinDiscountCodeLength <= generatedDiscountCode.length()
-        && generatedDiscountCode.length() <= kMaxDiscountCodeLength);
+    ASSERT_TRUE(commerce::data::kMinDiscountCodeLength <= generatedDiscountCode.length()
+        && generatedDiscountCode.length() <= commerce::data::kMaxDiscountCodeLength);
 
     ASSERT_TRUE(
         faker::testing::all_of(generatedDiscountCode, [](char generatedDiscountCodeCharacter) {
@@ -240,14 +240,14 @@ TEST(CommerceTest, shouldGenerateDiscountAmount)
 {
     auto generatedDiscountAmount = commerce::discountAmount();
 
-    ASSERT_TRUE(kMinDiscountAmountValue <= generatedDiscountAmount
-        && generatedDiscountAmount <= kMaxDiscountAmountValue);
+    ASSERT_TRUE(commerce::data::kMinDiscountAmountValue <= generatedDiscountAmount
+        && generatedDiscountAmount <= commerce::data::kMaxDiscountAmountValue);
 }
 
 TEST(CommerceTest, shouldGenerateDiscountPercentage)
 {
     auto generatedDiscountPercentage = commerce::discountPercentage();
 
-    ASSERT_TRUE(kMinDiscountPercentageValue <= generatedDiscountPercentage
-        && generatedDiscountPercentage <= kMaxDiscountPercentageValue);
+    ASSERT_TRUE(commerce::data::kMinDiscountPercentageValue <= generatedDiscountPercentage
+        && generatedDiscountPercentage <= commerce::data::kMaxDiscountPercentageValue);
 }

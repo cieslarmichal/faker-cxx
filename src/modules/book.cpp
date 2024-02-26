@@ -7,13 +7,13 @@
 #include <faker/string.h>
 
 namespace faker::book {
-std::string_view title() { return Helper::arrayElement(books::titles); }
+std::string_view title() { return Helper::arrayElement(data::titles); }
 
-std::string_view genre() { return Helper::arrayElement(books::genres); }
+std::string_view genre() { return Helper::arrayElement(data::genres); }
 
-std::string_view author() { return Helper::arrayElement(books::authors); }
+std::string_view author() { return Helper::arrayElement(data::authors); }
 
-std::string_view publisher() { return Helper::arrayElement(books::publishers); }
+std::string_view publisher() { return Helper::arrayElement(data::publishers); }
 
 std::string isbn()
 {
@@ -23,11 +23,11 @@ std::string isbn()
 
 int releaseYear() { return number::integer(1940, 2024); }
 
-std::string_view translator() { return Helper::arrayElement(books::translators); }
+std::string_view translator() { return Helper::arrayElement(data::translators); }
 
-std::string_view format() { return Helper::arrayElement(books::bookFormats); }
+std::string_view format() { return Helper::arrayElement(data::bookFormats); }
 
 int page() { return number::integer(50, 999); }
 
-std::string_view series() { return Helper::arrayElement(books::bookSeries); }
+std::string_view series() { return Helper::arrayElement(data::bookSeries); }
 }

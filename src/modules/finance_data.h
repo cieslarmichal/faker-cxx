@@ -9,7 +9,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace faker {
+namespace faker::finance::data {
 extern const std::array<std::string_view, 8> accountTypes;
 extern const std::unordered_map<BicCountry, std::vector<std::string_view>>
     bankIdentifiersCodesMapping;
