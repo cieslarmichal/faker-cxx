@@ -46,7 +46,7 @@ bool is_valid_guarantee(
     return true;
 }
 
-std::string generateAtleastString(const GuaranteeMap& guarantee)
+std::string generate(const GuaranteeMap& guarantee)
 {
     std::string result;
     for (auto& it : guarantee) {
@@ -59,7 +59,7 @@ std::string generateStringWithGuarantee(
     GuaranteeMap& guarantee, std::unordered_set<char>& targetCharacters, unsigned int length)
 {
     std::string output {};
-    output += generateAtleastString(guarantee);
+    output += generate(guarantee);
     // string with least required chars cannot be greater than the total length
     assert(output.size() <= length);
     // we will generate chars for remaining length only

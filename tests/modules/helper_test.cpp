@@ -97,7 +97,7 @@ TEST(HelperTest, SetElement)
 TEST(HelperTest, SetElementEmptyData)
 {
     std::unordered_set<char> chars {};
-    ASSERT_THROW(Helper::setElement<char>(chars), std::invalid_argument);
+    ASSERT_THROW(Helper::setElement(chars), std::invalid_argument);
 }
 
 TEST(HelperTest, ReplaceSymbolWithNumber)

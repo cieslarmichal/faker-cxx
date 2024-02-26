@@ -50,10 +50,10 @@ bool is_valid_guarantee(
  *
  * @code
  * GuaranteeMap guarantee { {'0',{3,10}},{'a',{6,8}} }; // "000aaaaaa"
- * faker::generateAtleastString(guarantee);
+ * faker::generate(guarantee);
  * @endcode
  */
-std::string generateAtleastString(const GuaranteeMap& guarantee);
+std::string generate(const GuaranteeMap& guarantee);
 
 /**
  * @brief Generates an Universally Unique Identifier with version 4.

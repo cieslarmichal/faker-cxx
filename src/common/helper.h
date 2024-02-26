@@ -122,12 +122,12 @@ public:
      * Helper::setElement(chars) // 'd'
      * @endcode
      */
-    template <class T> static T setElement(const std::unordered_set<T>& data)
+    static char setElement(const std::unordered_set<char>& data)
     {
         if (data.empty()) {
             throw std::invalid_argument { "Data is empty." };
         }
-        T item;
+        char item { 0 };
         std::sample(data.begin(), data.end(), &item, 1, pseudoRandomGenerator);
         return item;
     }
