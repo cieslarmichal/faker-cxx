@@ -1,7 +1,7 @@
 #ifndef FAKER_MODULES_LOCATION_DATA_H
 #define FAKER_MODULES_LOCATION_DATA_H
 
-#include "../common/span.h"
+#include <tcb/span.hpp>
 #include <array>
 #include <string_view>
 

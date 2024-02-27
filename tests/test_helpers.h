@@ -3,7 +3,7 @@
 
 #include <algorithm>
 #include <cctype>
-#include <common/span.h>
+#include <tcb/span.hpp>
 #include <gtest/gtest.h>
 #include <string>
 

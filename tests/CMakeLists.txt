@@ -45,6 +45,19 @@ add_executable(
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/weather_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/word_test.cpp
 )
-target_link_libraries(test_faker PRIVATE faker GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
-target_include_directories(test_faker PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/../src)
+target_include_directories(
+    test_faker 
+    PRIVATE
+        ${TCB_SPAN_INCLUDE_DIRS}
+        ${CMAKE_CURRENT_SOURCE_DIR}/../src
+)
+target_link_libraries(
+    test_faker 
+    PRIVATE 
+        faker
+        GTest::gtest 
+        GTest::gtest_main 
+        GTest::gmock 
+        GTest::gmock_main
+)
 add_test(NAME test_faker COMMAND test_faker)

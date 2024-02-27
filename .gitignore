@@ -58,3 +58,5 @@ build-linux-clang
 .cache/
 #vim swap files
 *.sw?
+
+vcpkg_installed/

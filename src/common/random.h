@@ -1,7 +1,7 @@
 #ifndef FAKER_RANDOM_H
 #define FAKER_RANDOM_H
 
-#include "span.h"
+#include <tcb/span.hpp>
 #include <algorithm>
 #include <array>
 #include <random>
