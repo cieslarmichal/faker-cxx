@@ -3,6 +3,7 @@ target_sources(
     PRIVATE
         common/string_helper.cpp
         common/format_helper.cpp
+        common/helper.cpp
         common/luhn_check.cpp
         common/mappers/precision_mapper/precision_mapper.cpp
         common/weather_helper.cpp
@@ -33,7 +34,6 @@ target_sources(
         modules/git.cpp
         modules/hacker.cpp
         modules/hacker_data.cpp
-        modules/helper.cpp
         modules/image.cpp
         modules/image_data.cpp
         modules/internet.cpp
