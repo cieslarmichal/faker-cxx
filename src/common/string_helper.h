@@ -1,6 +1,7 @@
 #ifndef FAKER_COMMON_STRING_HELPER_H
 #define FAKER_COMMON_STRING_HELPER_H
 
+#include <array>
 #include <string>
 #include <vector>
 
@@ -17,6 +18,21 @@ public:
     static std::string toLower(const std::string& data);
     static bool isPunctuation(char c);
     static std::string removePunctuation(const std::string& word);
+
+    template <size_t N> static std::string toHex(const std::array<uint8_t, N>& data)
+    {
+        static std::string_view hexDigits { "0123456789abcdef" };
+
+        std::string result;
+        result.reserve(N * 2);
+
+        for (uint8_t byte : data) {
+            result.push_back(hexDigits[byte >> 4]);
+            result.push_back(hexDigits[byte & 0x0f]);
+        }
+
+        return result;
+    }
 };
 }
 

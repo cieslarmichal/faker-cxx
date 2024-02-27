@@ -76,16 +76,8 @@ double decimal(double min, double max)
 
 std::string hex(std::optional<int> min, std::optional<int> max)
 {
-    int defaultMin = 0;
-    int defaultMax = 15;
-
-    if (min.has_value()) {
-        defaultMin = min.value();
-    }
-
-    if (max.has_value()) {
-        defaultMax = max.value();
-    }
+    int defaultMin = min.value_or(0);
+    int defaultMax = max.value_or(15);
 
     return FormatHelper::format("{:x}", integer(defaultMin, defaultMax));
 }
