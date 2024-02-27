@@ -68,6 +68,7 @@ std::string dimensions();
  *
  * @code
  * image::type() // "png"
+ * @endcode
  */
 std::string_view type();
 }
