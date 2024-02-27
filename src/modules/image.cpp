@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "image_data.h"
 #include <faker/image.h>
@@ -54,18 +54,17 @@ std::string image_url(
         }
     }
 
-    return FormatHelper::format("https://loremflickr.com/{}/{}{}", width, height, image_category);
+    return utils::format("https://loremflickr.com/{}/{}{}", width, height, image_category);
 }
 
 std::string github_avatar_url()
 {
-    return FormatHelper::format(
-        "https://avatars.githubusercontent.com/u/{}", number::integer(100000000));
+    return utils::format("https://avatars.githubusercontent.com/u/{}", number::integer(100000000));
 }
 
 std::string dimensions()
 {
-    return FormatHelper::format("{}x{}", number::integer(1, 32720), number::integer(1, 17280));
+    return utils::format("{}x{}", number::integer(1, 32720), number::integer(1, 17280));
 }
 
 std::string_view type() { return Helper::arrayElement(data::imageTypes); }

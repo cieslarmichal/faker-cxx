@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "color_data.h"
 #include <faker/color.h>
@@ -15,12 +15,12 @@ std::string rgb(bool includeAlpha)
     auto blue = number::integer(255);
 
     if (!includeAlpha) {
-        return FormatHelper::format("rgb({}, {}, {})", red, green, blue);
+        return utils::format("rgb({}, {}, {})", red, green, blue);
     }
 
     auto alpha = number::decimal(1.0);
 
-    return FormatHelper::format("rgba({}, {}, {}, {:.2f})", red, green, blue, alpha);
+    return utils::format("rgba({}, {}, {}, {:.2f})", red, green, blue, alpha);
 }
 
 std::string hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
@@ -35,12 +35,12 @@ std::string hsl(bool includeAlpha)
     const auto lightness = number::integer(100);
 
     if (!includeAlpha) {
-        return FormatHelper::format("hsl({}, {}, {})", hue, saturation, lightness);
+        return utils::format("hsl({}, {}, {})", hue, saturation, lightness);
     }
 
     const auto alpha = number::decimal(1.0);
 
-    return FormatHelper::format("hsla({}, {}, {}, {:.2f})", hue, saturation, lightness, alpha);
+    return utils::format("hsla({}, {}, {}, {:.2f})", hue, saturation, lightness, alpha);
 }
 
 std::string lch(bool includeAlpha)
@@ -50,12 +50,12 @@ std::string lch(bool includeAlpha)
     const auto hue = number::integer(360);
 
     if (!includeAlpha) {
-        return FormatHelper::format("lch({}, {}, {})", luminance, chroma, hue);
+        return utils::format("lch({}, {}, {})", luminance, chroma, hue);
     }
 
     const auto alpha = number::decimal(1.0);
 
-    return FormatHelper::format("lcha({}, {}, {}, {:.2f})", luminance, chroma, hue, alpha);
+    return utils::format("lcha({}, {}, {}, {:.2f})", luminance, chroma, hue, alpha);
 }
 
 std::string cmyk()
@@ -65,7 +65,7 @@ std::string cmyk()
     const auto yellow = number::decimal(1.);
     const auto key = number::decimal(1.);
 
-    return FormatHelper::format("cmyk({:.2f}, {:.2f}, {:.2f}, {:.2f})", cyan, magenta, yellow, key);
+    return utils::format("cmyk({:.2f}, {:.2f}, {:.2f}, {:.2f})", cyan, magenta, yellow, key);
 }
 
 std::string lab()
@@ -74,8 +74,7 @@ std::string lab()
     const auto redGreenValue = number::decimal(-128.0, 128.0);
     const auto blueYellowValue = number::decimal(-128.0, 128.0);
 
-    return FormatHelper::format(
-        "lab({:.2f}, {:.2f}, {:.2f})", lightness, redGreenValue, blueYellowValue);
+    return utils::format("lab({:.2f}, {:.2f}, {:.2f})", lightness, redGreenValue, blueYellowValue);
 }
 
 std::string hsb()
@@ -84,7 +83,7 @@ std::string hsb()
     const auto saturation = number::integer(100);
     const auto brightness = number::integer(100);
 
-    return FormatHelper::format("hsb({}, {}, {})", hue, saturation, brightness);
+    return utils::format("hsb({}, {}, {})", hue, saturation, brightness);
 }
 
 std::string hsv()
@@ -93,7 +92,7 @@ std::string hsv()
     const auto saturation = number::integer(100);
     const auto value = number::integer(100);
 
-    return FormatHelper::format("hsv({}, {}, {})", hue, saturation, value);
+    return utils::format("hsv({}, {}, {})", hue, saturation, value);
 }
 
 std::string yuv()
@@ -102,8 +101,7 @@ std::string yuv()
     const auto chrominanceBlueColor = number::integer(255);
     const auto chrominanceRedColor = number::integer(255);
 
-    return FormatHelper::format(
-        "yuv({}, {}, {})", luminance, chrominanceBlueColor, chrominanceRedColor);
+    return utils::format("yuv({}, {}, {})", luminance, chrominanceBlueColor, chrominanceRedColor);
 }
 
 }

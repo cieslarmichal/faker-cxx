@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "../common/strings.h"
 #include "internet_data.h"
@@ -47,14 +47,14 @@ std::string username(std::optional<std::string> firstNameInit,
 
     switch (number::integer(2)) {
     case 0:
-        username = FormatHelper::format("{}{}{}", firstName, lastName, number::integer(999));
+        username = utils::format("{}{}{}", firstName, lastName, number::integer(999));
         break;
     case 1:
-        username = FormatHelper::format("{}{}{}", firstName,
+        username = utils::format("{}{}{}", firstName,
             Helper::arrayElement<std::string>(std::vector<std::string> { ".", "_", "" }), lastName);
         break;
     case 2:
-        username = FormatHelper::format("{}{}{}{}", firstName,
+        username = utils::format("{}{}{}{}", firstName,
             Helper::arrayElement<std::string>(std::vector<std::string> { ".", "_", "" }), lastName,
             number::integer(99));
         break;
@@ -66,13 +66,13 @@ std::string username(std::optional<std::string> firstNameInit,
 std::string email(std::optional<std::string> firstName, std::optional<std::string> lastName,
     std::optional<std::string> emailHost)
 {
-    return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
+    return utils::format("{}@{}", username(std::move(firstName), std::move(lastName)),
         emailHost ? *emailHost : Helper::arrayElement(data::emailHosts));
 }
 
 std::string example_email(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
-    return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
+    return utils::format("{}@{}", username(std::move(firstName), std::move(lastName)),
         Helper::arrayElement(data::emailExampleHosts));
 }
 
@@ -255,7 +255,7 @@ std::string ipv4(IPv4Class ipv4class)
     }
     }
 
-    return FormatHelper::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
+    return utils::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
 std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
@@ -268,7 +268,7 @@ std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
         sectors[i] |= (baseIpv4Address[i] & generationMask[i]);
     }
 
-    return FormatHelper::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
+    return utils::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
 std::string ipv6()
@@ -311,14 +311,14 @@ std::string url(WebProtocol webProtocol)
 {
     const auto protocol = webProtocol == WebProtocol::Https ? "https" : "http";
 
-    return FormatHelper::format("{}://{}", protocol, domain_name());
+    return utils::format("{}://{}", protocol, domain_name());
 }
 
-std::string domain_name() { return FormatHelper::format("{}.{}", domain_word(), domain_suffix()); }
+std::string domain_name() { return utils::format("{}.{}", domain_word(), domain_suffix()); }
 
 std::string domain_word()
 {
-    return utils::to_lower(FormatHelper::format("{}-{}", word::adjective(), word::noun()));
+    return utils::to_lower(utils::format("{}-{}", word::adjective(), word::noun()));
 }
 
 std::string_view domain_suffix() { return Helper::arrayElement(data::domainSuffixes); }

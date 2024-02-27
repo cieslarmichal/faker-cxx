@@ -1,7 +1,8 @@
 #include "luhn_check.h"
+#include <algorithm>
 
-namespace faker {
-int LuhnCheck::luhnCheckSum(const std::string& inputString)
+namespace faker::utils {
+int luhn_check_sum(const std::string& inputString)
 {
     std::string modifiedStr = inputString;
     modifiedStr.erase(std::remove_if(modifiedStr.begin(), modifiedStr.end(),
@@ -29,11 +30,11 @@ int LuhnCheck::luhnCheckSum(const std::string& inputString)
     return sum % 10;
 }
 
-bool LuhnCheck::luhnCheck(const std::string& inputString) { return luhnCheckSum(inputString) == 0; }
+bool luhn_check(const std::string& inputString) { return luhn_check_sum(inputString) == 0; }
 
-int LuhnCheck::luhnCheckValue(const std::string& inputString)
+int luhn_check_value(const std::string& inputString)
 {
-    int checksum = luhnCheckSum(inputString.substr(0, inputString.length() - 1) + '0');
+    int checksum = luhn_check_sum(inputString.substr(0, inputString.length() - 1) + '0');
 
     return checksum == 0 ? 0 : 10 - checksum;
 }

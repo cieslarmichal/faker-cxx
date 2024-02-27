@@ -1,14 +1,13 @@
 target_sources(
     faker
     PRIVATE
+        common/conversions.cpp
         common/strings.cpp
-        common/format_helper.cpp
+        common/formatter.cpp
         common/helper.cpp
         common/luhn_check.cpp
         common/md5.cpp
-        common/mappers/precision_mapper/precision_mapper.cpp
         common/sha256.cpp
-        common/weather_helper.cpp
         modules/airline.cpp
         modules/airline_data.cpp
         modules/animal.cpp

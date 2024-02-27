@@ -8,13 +8,13 @@ using namespace faker;
 TEST(LuhnCheckTest, BasicTest)
 {
     std::string input = "6453-4876-8626-8995-3771";
-    bool result = LuhnCheck::luhnCheck(input);
+    bool result = utils::luhn_check(input);
     EXPECT_TRUE(result); // Replace true with the expected result for the given input.
 }
 
 TEST(LuhnCheckValueTest, BasicTest)
 {
     std::string input = "6453-4876-8626-8995-377L";
-    int result = LuhnCheck::luhnCheckValue(input);
+    int result = utils::luhn_check_value(input);
     EXPECT_EQ(result, 1); // Replace 1 with the expected result for the given input.
 }

@@ -3,12 +3,12 @@ add_executable(
     ${CMAKE_CURRENT_SOURCE_DIR}/bio_helper_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/bio_helper.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/json_helper.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/conversions_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/common/format_helper_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/common/json_helper_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/common/luhn_check_test.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/common/mappers/precision_mapper/precision_mapper_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/precision_mapper_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/common/strings_test.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/common/weather_helper_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/airline_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/animal_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/book_test.cpp

@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "../common/strings.h"
 #include "system_data.h"
@@ -165,7 +165,7 @@ std::string semver()
     int major = number::integer(9);
     int minor = number::integer(9);
     int patch = number::integer(9);
-    return FormatHelper::format("{}.{}.{}", major, minor, patch);
+    return utils::format("{}.{}.{}", major, minor, patch);
 }
 
 std::string network_interface(const std::optional<NetworkInterfaceOptions>& options)

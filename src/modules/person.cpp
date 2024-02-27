@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "person_data.h"
 #include <faker/internet.h>
@@ -109,7 +109,7 @@ std::string middle_name(std::optional<Sex> sex)
     }
 
     if (allMiddleNames.empty()) {
-        throw std::runtime_error { FormatHelper::format(
+        throw std::runtime_error { utils::format(
             "No middle name fround, sex: {}.", sex ? to_string(*sex) : "none") };
     }
 
@@ -127,7 +127,7 @@ std::string full_name(Country country, std::optional<Sex> sex)
 
     const auto nameFormat = Helper::weightedArrayElement(weightedElements);
 
-    return FormatHelper::fill_token_values(nameFormat, [country, sex](auto token) {
+    return utils::fill_token_values(nameFormat, [country, sex](auto token) {
         if (token == "firstName") {
             return first_name(country, sex);
         } else if (token == "middleName") {
@@ -175,7 +175,7 @@ std::string prefix(std::optional<Sex> sex)
     }
 
     if (allPrefixes.empty()) {
-        throw std::runtime_error { FormatHelper::format(
+        throw std::runtime_error { utils::format(
             "No prefixes fround, sex: {}.", sex ? to_string(*sex) : "none") };
     }
 
@@ -186,7 +186,7 @@ std::string bio()
 {
     const auto randomBioFormat = Helper::arrayElement(data::bioFormats);
 
-    return FormatHelper::fill_token_values(std::string(randomBioFormat), [](std::string_view token) {
+    return utils::fill_token_values(std::string(randomBioFormat), [](std::string_view token) {
         if (token == "bio_part") {
             return std::string(Helper::arrayElement(data::bioPart));
         } else if (token == "bio_supporter") {
@@ -237,7 +237,7 @@ std::string_view gender() { return Helper::arrayElement(data::genders); }
 
 std::string job_title()
 {
-    return FormatHelper::format("{} {} {}", job_descriptor(), job_area(), job_type());
+    return utils::format("{} {} {}", job_descriptor(), job_area(), job_type());
 }
 
 std::string_view job_descriptor() { return Helper::arrayElement(data::jobDescriptors); }

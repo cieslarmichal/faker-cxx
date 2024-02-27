@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "date_data.h"
 #include <chrono>
@@ -21,13 +21,13 @@ namespace {
 
         std::tm utcTime = *std::gmtime(&timePointTimeT);
 
-        return FormatHelper::format("{0:%Y-%m-%d}T{0:%H:%M:%S}Z", utcTime);
+        return utils::format("{0:%Y-%m-%d}T{0:%H:%M:%S}Z", utcTime);
     }
 
     template <typename T> std::string betweenDate(const T& from, const T& to, DateFormat dateFormat)
     {
         if (from > to) {
-            throw std::runtime_error { FormatHelper::format(
+            throw std::runtime_error { utils::format(
                 "Start date is greater than end date. {{from: {}, to: {}}}",
                 serializeTimePoint(from, dateFormat), serializeTimePoint(to, dateFormat)) };
         }

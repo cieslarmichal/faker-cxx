@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "company_data.h"
 #include <faker/company.h>
@@ -13,19 +13,19 @@ std::string name()
 
     switch (number::integer(3)) {
     case 0:
-        companyName = FormatHelper::format(
+        companyName = utils::format(
             "{} {}", person::last_name(), Helper::arrayElement(data::companySuffixes));
         break;
     case 1:
-        companyName = FormatHelper::format(
+        companyName = utils::format(
             "{} {} {}", person::first_name(), person::last_name(), person::job_area());
         break;
     case 2:
-        companyName = FormatHelper::format(
+        companyName = utils::format(
             "{} {} {} Services", person::first_name(), person::last_name(), person::job_area());
         break;
     case 3:
-        companyName = FormatHelper::format("{} {} {} {}", person::first_name(), person::last_name(),
+        companyName = utils::format("{} {} {} {}", person::first_name(), person::last_name(),
             person::job_area(), Helper::arrayElement(data::companySuffixes));
         break;
     }
@@ -39,7 +39,7 @@ std::string_view industry() { return Helper::arrayElement(data::companyIndustrie
 
 std::string buzz_phrase()
 {
-    return FormatHelper::format("{} {} {}", buzz_verb(), buzz_adjective(), buzz_noun());
+    return utils::format("{} {} {}", buzz_verb(), buzz_adjective(), buzz_noun());
 }
 
 std::string_view buzz_adjective() { return Helper::arrayElement(data::buzzAdjectives); }
@@ -50,7 +50,7 @@ std::string_view buzz_verb() { return Helper::arrayElement(data::buzzVerbs); }
 
 std::string catch_phrase()
 {
-    return FormatHelper::format(
+    return utils::format(
         "{} {} {}", catch_phrase_adjective(), catch_phrase_descriptor(), catch_phrase_noun());
 }
 

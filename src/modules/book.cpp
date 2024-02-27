@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "book_data.h"
 #include <faker/book.h>
@@ -17,7 +17,7 @@ std::string_view publisher() { return Helper::arrayElement(data::publishers); }
 
 std::string isbn()
 {
-    return FormatHelper::format("{}-{}-{}-{}-{}", string::numeric(3, false), string::numeric(2),
+    return utils::format("{}-{}-{}-{}-{}", string::numeric(3, false), string::numeric(2),
         string::numeric(2), string::numeric(5), string::numeric(1));
 }
 

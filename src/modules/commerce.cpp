@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "commerce_data.h"
 #include <faker/commerce.h>
@@ -20,8 +20,7 @@ std::string_view product_name() { return Helper::arrayElement(data::productNames
 
 std::string product_full_name()
 {
-    return FormatHelper::format(
-        "{} {} {}", product_adjective(), product_material(), product_name());
+    return utils::format("{} {} {}", product_adjective(), product_material(), product_name());
 }
 
 std::string ean13()

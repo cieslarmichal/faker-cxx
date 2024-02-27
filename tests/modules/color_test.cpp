@@ -1,6 +1,6 @@
 #include "../test_helpers.h"
 #include <charconv>
-#include <common/format_helper.h>
+#include <common/formatter.h>
 #include <common/strings.h>
 #include <faker/color.h>
 #include <modules/color_data.h>

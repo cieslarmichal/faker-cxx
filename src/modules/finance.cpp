@@ -1,6 +1,5 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
-#include "../common/mappers/precision_mapper/precision_mapper.h"
 #include "finance_data.h"
 #include <faker/date.h>
 #include <faker/finance.h>
@@ -23,7 +22,7 @@ std::string amount(double min, double max, Precision precision, const std::strin
     const auto generatedNumber = number::decimal(min, max);
 
     std::string result { symbol };
-    result += FormatHelper::format(PrecisionMapper::mapToFormatString(precision), generatedNumber);
+    result += utils::format(utils::precision_format_str(precision), generatedNumber);
     return result;
 }
 

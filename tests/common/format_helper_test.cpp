@@ -1,14 +1,20 @@
 #include "../test_helpers.h"
-#include <common/errors/token_generator_not_found_error.h>
-#include <common/format_helper.h>
+#include <common/formatter.h>
+#include <stdexcept>
 
 using namespace faker;
+
+namespace faker::errors {
+struct TokenGeneratorNotFoundError : std::runtime_error {
+    using std::runtime_error::runtime_error;
+};
+}
 
 TEST(FormatHelperTest, fillFormatTokensData)
 {
     const auto format = "{hello} {faker}-{cxx} {library}";
 
-    const auto result = FormatHelper::fill_token_values(format, [](std::string_view token) {
+    const auto result = utils::fill_token_values(format, [](std::string_view token) {
         if (token == "hello") {
             return "library";
         } else if (token == "faker") {
@@ -31,7 +37,7 @@ TEST(FormatHelperTest, givenTokensWithNotDefinedGenerator_shouldThrow)
 {
     const auto format = "{hello} {faker}-{cxx} {library}";
 
-    ASSERT_THROW(FormatHelper::fill_token_values(format,
+    ASSERT_THROW(utils::fill_token_values(format,
         [](std::string_view token) {
             if (token == "hello") {
                 return "library";
@@ -40,7 +46,7 @@ TEST(FormatHelperTest, givenTokensWithNotDefinedGenerator_shouldThrow)
             } else if (token == "cxx") {
                 return "faker";
             } else {
-                throw errors::TokenGeneratorNotFoundError { FormatHelper::format(
+                throw errors::TokenGeneratorNotFoundError { utils::format(
                     "Generator not found for token {}.", token) };
             }
         });
@@ -49,7 +55,7 @@ TEST(FormatHelperTest, givenTokensWithNotDefinedGenerator_shouldThrow)
 
 TEST(FormatHelperTest, shouldFormat)
 {
-    EXPECT_EQ(FormatHelper::format("{}", 1), "1");
-    EXPECT_EQ(FormatHelper::format("{} {}", "Hello", "World"), "Hello World");
-    EXPECT_EQ(FormatHelper::format("{0} {1}", "Hello", "World"), "Hello World");
+    EXPECT_EQ(utils::format("{}", 1), "1");
+    EXPECT_EQ(utils::format("{} {}", "Hello", "World"), "Hello World");
+    EXPECT_EQ(utils::format("{0} {1}", "Hello", "World"), "Hello World");
 }

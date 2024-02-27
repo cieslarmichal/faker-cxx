@@ -1,6 +1,5 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
-#include "../common/mappers/precision_mapper/precision_mapper.h"
 #include "location_data.h"
 #include <faker/location.h>
 #include <faker/person.h>
@@ -109,7 +108,7 @@ std::string city(AddressCountry country)
     auto& countryAddresses = countryToCountryAddressesMapping(country);
     auto cityFormat = Helper::arrayElement(countryAddresses.cityFormats);
 
-    return FormatHelper::fill_token_values(
+    return utils::fill_token_values(
         cityFormat, [country, countryAddresses](std::string_view token) {
             if (token == "firstName") {
                 return person::first_name(countryAddressToCountryMapping(country));
@@ -139,7 +138,7 @@ std::string street_address(AddressCountry country)
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
     const auto addressFormat = Helper::arrayElement(countryAddresses.addressFormats);
 
-    return FormatHelper::fill_token_values(addressFormat, [country](std::string_view token) {
+    return utils::fill_token_values(addressFormat, [country](std::string_view token) {
         if (token == "buildingNumber") {
             return building_number(country);
         } else if (token == "street") {
@@ -157,7 +156,7 @@ std::string street(AddressCountry country)
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
     const auto streetFormat = Helper::arrayElement(countryAddresses.streetFormats);
 
-    return FormatHelper::fill_token_values(
+    return utils::fill_token_values(
         streetFormat, [country, countryAddresses](std::string_view token) {
             if (token == "firstName") {
                 return person::first_name(countryAddressToCountryMapping(country));
@@ -201,13 +200,13 @@ std::string secondary_address(AddressCountry country)
 std::string latitude(Precision precision)
 {
     const auto latitude = number::decimal(-90.0, 90.0);
-    return FormatHelper::format(PrecisionMapper::mapToFormatString(precision), latitude);
+    return utils::format(utils::precision_format_str(precision), latitude);
 }
 
 std::string longitude(Precision precision)
 {
     const auto longitude = number::decimal(-180.0, 180.0);
-    return FormatHelper::format(PrecisionMapper::mapToFormatString(precision), longitude);
+    return utils::format(utils::precision_format_str(precision), longitude);
 }
 
 std::string_view direction() { return Helper::arrayElement(data::directions); }

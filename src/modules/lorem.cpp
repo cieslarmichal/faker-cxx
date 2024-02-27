@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "../common/strings.h"
 #include "lorem_data.h"
@@ -27,7 +27,7 @@ std::string sentence(unsigned minNumberOfWords, unsigned maxNumberOfWords)
 
     const auto sentenceWords = words(numberOfWords);
 
-    return FormatHelper::format(
+    return utils::format(
         "{}{}.", static_cast<char>(std::toupper(sentenceWords[0])), sentenceWords.substr(1));
 }
 

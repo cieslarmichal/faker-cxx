@@ -11,7 +11,8 @@ extern const std::string_view hex_digits;
 std::vector<std::string_view> split(std::string_view data, std::string_view sep = " ");
 std::vector<std::string> split(const std::string& data, std::string_view sep = " ");
 
-inline std::vector<std::string_view> split(const char* data, std::string_view sep = " ") {
+inline std::vector<std::string_view> split(const char* data, std::string_view sep = " ")
+{
     return split(std::string_view(data), sep);
 }
 

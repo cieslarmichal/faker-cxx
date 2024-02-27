@@ -295,7 +295,7 @@ TEST_F(FinanceTest, shouldGenerateCreditCardNumber)
     const auto creditCardNumber = finance::credit_card_number();
 
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
-    ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
+    ASSERT_TRUE(utils::luhn_check(creditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateAmericanExpressCreditCardNumber)
@@ -306,7 +306,7 @@ TEST_F(FinanceTest, shouldGenerateAmericanExpressCreditCardNumber)
     ASSERT_TRUE(faker::testing::starts_with(creditCardNumber, "34")
         || faker::testing::starts_with(creditCardNumber, "37"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
-    ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
+    ASSERT_TRUE(utils::luhn_check(creditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateDiscoverCreditCardNumber)
@@ -323,7 +323,7 @@ TEST_F(FinanceTest, shouldGenerateDiscoverCreditCardNumber)
         || faker::testing::starts_with(creditCardNumber, "649")
         || faker::testing::starts_with(creditCardNumber, "6011-62"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
-    ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
+    ASSERT_TRUE(utils::luhn_check(creditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateMasterCardCreditCardNumber)
@@ -337,7 +337,7 @@ TEST_F(FinanceTest, shouldGenerateMasterCardCreditCardNumber)
         || faker::testing::starts_with(creditCardNumber, "55")
         || faker::testing::starts_with(creditCardNumber, "6771-89"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
-    ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
+    ASSERT_TRUE(utils::luhn_check(creditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateVisaCreditCardNumber)
@@ -346,7 +346,7 @@ TEST_F(FinanceTest, shouldGenerateVisaCreditCardNumber)
 
     FAKER_EXPECT_STRING_STARTS_WITH(creditCardNumber, "4");
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(creditCardNumber));
-    ASSERT_TRUE(LuhnCheck::luhnCheck(creditCardNumber));
+    ASSERT_TRUE(utils::luhn_check(creditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateCreditCardCvv)

@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/helper.h"
 #include "vehicle_data.h"
 #include <faker/number.h>
@@ -19,13 +19,13 @@ std::string_view model() { return Helper::arrayElement(data::models); }
 
 std::string_view type() { return Helper::arrayElement(data::vehicle_types); }
 
-std::string vehicle() { return FormatHelper::format("{} {}", manufacturer(), model()); }
+std::string vehicle() { return utils::format("{} {}", manufacturer(), model()); }
 
 std::string vin()
 {
     std::string exclude_characters { "oiqOIQ" };
 
-    return FormatHelper::format("{}{}{}{}",
+    return utils::format("{}{}{}{}",
         string::alphanumeric(10, string::StringCasing::Upper, exclude_characters),
         string::alpha(1, string::StringCasing::Upper, exclude_characters),
         string::alphanumeric(1, string::StringCasing::Upper, exclude_characters),
@@ -34,7 +34,7 @@ std::string vin()
 
 std::string vrm()
 {
-    return FormatHelper::format("{}{}{}", string::alpha(2, string::StringCasing::Upper),
+    return utils::format("{}{}{}", string::alpha(2, string::StringCasing::Upper),
         string::numeric(2, true), string::alpha(3, string::StringCasing::Upper));
 }
 

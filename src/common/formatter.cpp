@@ -1,9 +1,8 @@
-#include "format_helper.h"
-#include "errors/token_generator_not_found_error.h"
+#include "formatter.h"
 
-namespace faker {
+namespace faker::utils {
 
-std::string FormatHelper::fill_token_values(
+std::string fill_token_values(
     std::string_view format, std::function<std::string(std::string_view)> tokenValueGenerator)
 {
     std::string filledFormat;
@@ -26,7 +25,7 @@ std::string FormatHelper::fill_token_values(
     return filledFormat;
 }
 
-std::string FormatHelper::fill_token_values(
+std::string fill_token_values(
     const std::string& format, std::function<std::string(std::string_view)> tokenValueGenerator)
 {
     std::string filledFormat;
@@ -47,6 +46,30 @@ std::string FormatHelper::fill_token_values(
     }
 
     return filledFormat;
+}
+
+std::string_view precision_format_str(Precision precision)
+{
+    switch (precision) {
+    case Precision::ZeroDp:
+        return "{:.0f}";
+    case Precision::OneDp:
+        return "{:.1f}";
+    case Precision::TwoDp:
+        return "{:.2f}";
+    case Precision::ThreeDp:
+        return "{:.3f}";
+    case Precision::FourDp:
+        return "{:.4f}";
+    case Precision::FiveDp:
+        return "{:.5f}";
+    case Precision::SixDp:
+        return "{:.6f}";
+    case Precision::SevenDp:
+        return "{:.7f}";
+    default:
+        throw std::invalid_argument("Invalid precision");
+    }
 }
 
 }

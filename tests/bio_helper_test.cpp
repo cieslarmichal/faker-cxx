@@ -1,5 +1,5 @@
-#include "test_helpers.h"
 #include "bio_helper.h"
+#include "test_helpers.h"
 
 TEST(BioHelperTest, checkFormatToken)
 {

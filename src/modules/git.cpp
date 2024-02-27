@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include "../common/strings.h"
 #include "date_data.h"
 #include <faker/date.h>
@@ -15,12 +15,12 @@ std::string branch(unsigned maxIssueNum)
 {
     switch (number::integer(1, 3)) {
     case 1:
-        return FormatHelper::format("{}-{}", word::verb(), word::noun());
+        return utils::format("{}-{}", word::verb(), word::noun());
     case 2:
-        return FormatHelper::format("{}-{}-{}", word::verb(), word::adjective(), word::noun());
+        return utils::format("{}-{}-{}", word::verb(), word::adjective(), word::noun());
     default:
-        return FormatHelper::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum),
-            word::verb(), word::adjective(), word::noun());
+        return utils::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(),
+            word::adjective(), word::noun());
     }
 }
 
@@ -56,7 +56,7 @@ std::string commit_date(unsigned years)
         timeZoneString += "00";
     }
 
-    return FormatHelper::format("{} {} {} {} {} {}", date::weekday_abbr_name(),
+    return utils::format("{} {} {} {} {} {}", date::weekday_abbr_name(),
         date::data::monthAbbreviatedNames[size_t(utils::to_int(month) - 1)], day, time, year,
         timeZoneString);
 }
@@ -93,13 +93,13 @@ std::string commit_message()
 {
     switch (number::integer(1, 4)) {
     case 1:
-        return FormatHelper::format("{} {}", word::verb(), word::noun());
+        return utils::format("{} {}", word::verb(), word::noun());
     case 2:
-        return FormatHelper::format("{} {} {}", word::verb(), word::adjective(), word::noun());
+        return utils::format("{} {} {}", word::verb(), word::adjective(), word::noun());
     case 3:
-        return FormatHelper::format("{} {} {}", word::verb(), word::noun(), word::adverb());
+        return utils::format("{} {} {}", word::verb(), word::noun(), word::adverb());
     default:
-        return FormatHelper::format(
+        return utils::format(
             "{} {} {} {}", word::verb(), word::adjective(), word::noun(), word::adverb());
     }
 }

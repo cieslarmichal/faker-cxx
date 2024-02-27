@@ -1,4 +1,4 @@
-#include "../common/format_helper.h"
+#include "../common/formatter.h"
 #include <faker/number.h>
 #include <random>
 
@@ -79,7 +79,7 @@ std::string hex(std::optional<int> min, std::optional<int> max)
     int defaultMin = min.value_or(0);
     int defaultMax = max.value_or(15);
 
-    return FormatHelper::format("{:x}", integer(defaultMin, defaultMax));
+    return utils::format("{:x}", integer(defaultMin, defaultMax));
 }
 
 }
