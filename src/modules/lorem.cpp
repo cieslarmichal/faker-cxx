@@ -1,11 +1,12 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "../common/strings.h"
 #include "lorem_data.h"
 #include <faker/lorem.h>
+#include <faker/number.h>
 
 namespace faker::lorem {
-std::string_view word() { return Helper::arrayElement(data::loremWords); }
+std::string_view word() { return random::element(data::loremWords); }
 
 std::string words(unsigned numberOfWords)
 {

@@ -1,22 +1,23 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "commerce_data.h"
 #include <faker/commerce.h>
 #include <faker/finance.h>
+#include <faker/number.h>
 #include <faker/string.h>
 
 namespace faker::commerce {
-std::string_view department() { return Helper::arrayElement(data::departments); }
+std::string_view department() { return random::element(data::departments); }
 
 std::string price(double min, double max) { return finance::amount(min, max); }
 
 std::string sku(unsigned int length) { return string::numeric(length, false); }
 
-std::string_view product_adjective() { return Helper::arrayElement(data::productAdjectives); }
+std::string_view product_adjective() { return random::element(data::productAdjectives); }
 
-std::string_view product_material() { return Helper::arrayElement(data::productMaterials); }
+std::string_view product_material() { return random::element(data::productMaterials); }
 
-std::string_view product_name() { return Helper::arrayElement(data::productNames); }
+std::string_view product_name() { return random::element(data::productNames); }
 
 std::string product_full_name()
 {
@@ -114,15 +115,15 @@ std::string isbn10()
 
 std::string product_id() { return string::alphanumeric(10, string::StringCasing::Upper, ""); }
 
-std::string_view payment_type() { return Helper::arrayElement(data::paymentTypes); }
+std::string_view payment_type() { return random::element(data::paymentTypes); }
 
-std::string_view payment_provider() { return Helper::arrayElement(data::paymentProviders); }
+std::string_view payment_provider() { return random::element(data::paymentProviders); }
 
-std::string_view product_description() { return Helper::arrayElement(data::productDescriptions); }
+std::string_view product_description() { return random::element(data::productDescriptions); }
 
-std::string_view product_category() { return Helper::arrayElement(data::productCategoryNames); }
+std::string_view product_category() { return random::element(data::productCategoryNames); }
 
-std::string_view product_review() { return Helper::arrayElement(data::productReviews); }
+std::string_view product_review() { return random::element(data::productReviews); }
 
 double product_rating()
 {
@@ -130,7 +131,7 @@ double product_rating()
     return std::ceil(ratingValue * 100) / 100;
 }
 
-std::string_view discount_type() { return Helper::arrayElement(data::discountTypes); }
+std::string_view discount_type() { return random::element(data::discountTypes); }
 
 std::string discount_code()
 {

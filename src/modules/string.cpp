@@ -1,4 +1,4 @@
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "string_data.h"
 #include <cassert>
 #include <faker/number.h>
@@ -69,7 +69,7 @@ std::string generateStringWithGuarantee(
         // generate chars till we find a usable char
         while (true) {
             // pick random char from targetCharacters
-            generatedChar = Helper::setElement(targetCharacters);
+            generatedChar = random::element_from_set(targetCharacters);
 
             auto it = guarantee.find(generatedChar);
             // if no constraint on generated char, break out of loop
@@ -90,7 +90,7 @@ std::string generateStringWithGuarantee(
     }
     // shuffle the generated string as the atleast string generated earlier was not generated
     // randomly
-    output = Helper::shuffleString(output);
+    output = random::shuffle_string(output);
     return output;
 }
 
@@ -186,7 +186,7 @@ std::string from_chars(const std::string& characters, unsigned int length)
     std::string result;
 
     for (unsigned i = 0; i < length; i++) {
-        result += Helper::arrayElement(characters);
+        result += random::element(characters);
     }
 
     return result;
@@ -227,7 +227,7 @@ std::string alpha(unsigned length, StringCasing casing, const std::string& exclu
     std::string alpha;
 
     for (unsigned i = 0; i < length; i++) {
-        alpha += Helper::arrayElement(targetCharacters);
+        alpha += random::element(targetCharacters);
     }
 
     return alpha;
@@ -266,7 +266,7 @@ std::string alphanumeric(
     std::string alphanumeric;
 
     for (unsigned i = 0; i < length; i++) {
-        alphanumeric += Helper::arrayElement(targetCharacters);
+        alphanumeric += random::element(targetCharacters);
     }
 
     return alphanumeric;
@@ -290,9 +290,9 @@ std::string numeric(unsigned int length, bool allowLeadingZeros)
 
     for (unsigned i = 0; i < length; i++) {
         if (i == 0 && allowLeadingZeros) {
-            alphanumeric += Helper::arrayElement(data::numericCharacters);
+            alphanumeric += random::element(data::numericCharacters);
         } else {
-            alphanumeric += Helper::arrayElement(data::numericCharactersWithoutZero);
+            alphanumeric += random::element(data::numericCharactersWithoutZero);
         }
     }
 
@@ -338,12 +338,12 @@ std::string hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
     switch (casing) {
     case HexCasing::Lower:
         for (unsigned i = 0; i < length; i++) {
-            hexadecimal += Helper::arrayElement(data::hexLowerCharacters);
+            hexadecimal += random::element(data::hexLowerCharacters);
         }
         break;
     case HexCasing::Upper:
         for (unsigned i = 0; i < length; i++) {
-            hexadecimal += Helper::arrayElement(data::hexUpperCharacters);
+            hexadecimal += random::element(data::hexUpperCharacters);
         }
         break;
     default:

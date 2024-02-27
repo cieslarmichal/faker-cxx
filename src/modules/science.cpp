@@ -1,11 +1,11 @@
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "science_data.h"
 #include <faker/science.h>
 #include <vector>
 
 namespace faker::science {
 
-ChemicalElement chemical_element() { return Helper::arrayElement(data::chemicalElements); }
+ChemicalElement chemical_element() { return random::element(data::chemicalElements); }
 
 Unit unit()
 {
@@ -21,17 +21,17 @@ Unit unit()
         units.insert(units.end(), data::temperatureUnits.begin(), data::temperatureUnits.end());
     }
 
-    return Helper::arrayElement(units);
+    return random::element(units);
 }
 
-Unit distance_unit() { return Helper::arrayElement(data::distanceUnits); }
+Unit distance_unit() { return random::element(data::distanceUnits); }
 
-Unit time_unit() { return Helper::arrayElement(data::timeUnits); }
+Unit time_unit() { return random::element(data::timeUnits); }
 
-Unit mass_unit() { return Helper::arrayElement(data::massUnits); }
+Unit mass_unit() { return random::element(data::massUnits); }
 
-Unit temperature_unit() { return Helper::arrayElement(data::temperatureUnits); }
+Unit temperature_unit() { return random::element(data::temperatureUnits); }
 
-Unit current_unit() { return Helper::arrayElement(data::currentUnits); }
+Unit current_unit() { return random::element(data::currentUnits); }
 
 };

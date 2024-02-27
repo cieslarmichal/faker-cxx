@@ -1,5 +1,5 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "finance_data.h"
 #include <faker/date.h>
 #include <faker/finance.h>
@@ -7,15 +7,15 @@
 #include <faker/string.h>
 
 namespace faker::finance {
-Currency currency() { return Helper::arrayElement(data::currencies); }
+Currency currency() { return random::element(data::currencies); }
 
-std::string_view currency_name() { return Helper::arrayElement(data::currencies).name; }
+std::string_view currency_name() { return random::element(data::currencies).name; }
 
-std::string_view currency_code() { return Helper::arrayElement(data::currencies).code; }
+std::string_view currency_code() { return random::element(data::currencies).code; }
 
-std::string_view currency_symbol() { return Helper::arrayElement(data::currencies).symbol; }
+std::string_view currency_symbol() { return random::element(data::currencies).symbol; }
 
-std::string_view account_type() { return Helper::arrayElement(data::accountTypes); }
+std::string_view account_type() { return random::element(data::accountTypes); }
 
 std::string amount(double min, double max, Precision precision, const std::string& symbol)
 {
@@ -28,8 +28,7 @@ std::string amount(double min, double max, Precision precision, const std::strin
 
 std::string iban(std::optional<IbanCountry> country)
 {
-    const auto ibanCountry
-        = country ? *country : Helper::arrayElement(data::supportedIbanCountries);
+    const auto ibanCountry = country ? *country : random::element(data::supportedIbanCountries);
 
     const auto& ibanFormat = data::ibanFormats.at(ibanCountry);
 
@@ -60,9 +59,9 @@ std::string iban(std::optional<IbanCountry> country)
 
 std::string_view bic(std::optional<BicCountry> country)
 {
-    const auto bicCountry = country ? *country : Helper::arrayElement(data::supportedBicCountries);
+    const auto bicCountry = country ? *country : random::element(data::supportedBicCountries);
 
-    return Helper::arrayElement(data::bankIdentifiersCodesMapping.at(bicCountry));
+    return random::element(data::bankIdentifiersCodesMapping.at(bicCountry));
 }
 
 std::string account_number(unsigned int length) { return string::numeric(length, true); }
@@ -92,13 +91,13 @@ std::string credit_card_number(std::optional<CreditCardType> creditCardType)
         CreditCardType::Discover, CreditCardType::MasterCard, CreditCardType::Visa };
 
     const auto creditCardTargetType
-        = creditCardType ? *creditCardType : Helper::arrayElement(creditCardTypes);
+        = creditCardType ? *creditCardType : random::element(creditCardTypes);
 
     const auto& creditCardFormats = creditCardTypeToNumberFormats.at(creditCardTargetType);
 
-    const auto creditCardFormat = Helper::arrayElement(creditCardFormats);
+    const auto creditCardFormat = random::element(creditCardFormats);
 
-    return Helper::replaceCreditCardSymbols(std::string(creditCardFormat));
+    return random::replace_credit_card_symbols(std::string(creditCardFormat));
 }
 
 std::string credit_card_cvv() { return string::numeric(3, true); }
@@ -107,7 +106,7 @@ std::string bitcoin_address()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
-    auto address = Helper::arrayElement(std::vector<std::string> { "1", "3" });
+    auto address = random::element(std::vector<std::string> { "1", "3" });
 
     address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
@@ -118,7 +117,7 @@ std::string litecoin_address()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
-    auto address = Helper::arrayElement(std::vector<std::string> { "L", "M", "3" });
+    auto address = random::element(std::vector<std::string> { "L", "M", "3" });
 
     address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 

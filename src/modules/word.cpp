@@ -1,7 +1,8 @@
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "../common/strings.h"
 #include "word_data.h"
 #include <faker/word.h>
+#include <unordered_map>
 
 namespace faker::word {
 std::string_view sample(std::optional<unsigned int> length)
@@ -46,11 +47,11 @@ std::string_view sample(std::optional<unsigned int> length)
     if (length) {
         auto it = wordsByLength.find(*length);
         if (it != wordsByLength.end()) {
-            return Helper::arrayElement(it->second);
+            return random::element(it->second);
         }
     }
 
-    return Helper::arrayElement(allWords);
+    return random::element(allWords);
 }
 
 std::string words(unsigned numberOfWords)
@@ -78,11 +79,11 @@ std::string_view adjective(std::optional<unsigned int> length)
     if (length) {
         auto it = wordsByLength.find(*length);
         if (it != wordsByLength.end()) {
-            return Helper::arrayElement(it->second);
+            return random::element(it->second);
         }
     }
 
-    return Helper::arrayElement(data::adjectives);
+    return random::element(data::adjectives);
 }
 
 std::string_view adverb(std::optional<unsigned int> length)
@@ -98,11 +99,11 @@ std::string_view adverb(std::optional<unsigned int> length)
     if (length) {
         auto it = wordsByLength.find(*length);
         if (it != wordsByLength.end()) {
-            return Helper::arrayElement(it->second);
+            return random::element(it->second);
         }
     }
 
-    return Helper::arrayElement(data::adverbs);
+    return random::element(data::adverbs);
 }
 
 std::string_view conjunction(std::optional<unsigned int> length)
@@ -118,11 +119,11 @@ std::string_view conjunction(std::optional<unsigned int> length)
     if (length) {
         auto it = wordsByLength.find(*length);
         if (it != wordsByLength.end()) {
-            return Helper::arrayElement(it->second);
+            return random::element(it->second);
         }
     }
 
-    return Helper::arrayElement(data::conjunctions);
+    return random::element(data::conjunctions);
 }
 
 std::string_view interjection(std::optional<unsigned int> length)
@@ -138,11 +139,11 @@ std::string_view interjection(std::optional<unsigned int> length)
     if (length) {
         auto it = wordsByLength.find(*length);
         if (it != wordsByLength.end()) {
-            return Helper::arrayElement(it->second);
+            return random::element(it->second);
         }
     }
 
-    return Helper::arrayElement(data::interjections);
+    return random::element(data::interjections);
 }
 
 std::string_view noun(std::optional<unsigned int> length)
@@ -158,11 +159,11 @@ std::string_view noun(std::optional<unsigned int> length)
     if (length) {
         auto it = wordsByLength.find(*length);
         if (it != wordsByLength.end()) {
-            return Helper::arrayElement(it->second);
+            return random::element(it->second);
         }
     }
 
-    return Helper::arrayElement(data::nouns);
+    return random::element(data::nouns);
 }
 
 std::string_view preposition(std::optional<unsigned int> length)
@@ -178,11 +179,11 @@ std::string_view preposition(std::optional<unsigned int> length)
     if (length) {
         auto it = wordsByLength.find(*length);
         if (it != wordsByLength.end()) {
-            return Helper::arrayElement(it->second);
+            return random::element(it->second);
         }
     }
 
-    return Helper::arrayElement(data::prepositions);
+    return random::element(data::prepositions);
 }
 
 std::string_view verb(std::optional<unsigned int> length)
@@ -198,10 +199,10 @@ std::string_view verb(std::optional<unsigned int> length)
     if (length) {
         auto it = wordsByLength.find(*length);
         if (it != wordsByLength.end()) {
-            return Helper::arrayElement(it->second);
+            return random::element(it->second);
         }
     }
 
-    return Helper::arrayElement(data::verbs);
+    return random::element(data::verbs);
 }
 }

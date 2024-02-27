@@ -1,7 +1,8 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "person_data.h"
 #include <faker/internet.h>
+#include <faker/number.h>
 #include <faker/person.h>
 #include <faker/string.h>
 #include <faker/word.h>
@@ -48,7 +49,7 @@ std::string first_name(Country country, std::optional<Sex> sex)
         firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
     }
 
-    return Helper::arrayElement<std::string>(firstNames);
+    return random::element<std::string>(firstNames);
 }
 
 std::string last_name(Country country, std::optional<Sex> sex)
@@ -73,7 +74,7 @@ std::string last_name(Country country, std::optional<Sex> sex)
         lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
     }
 
-    return Helper::arrayElement<std::string>(lastNames);
+    return random::element<std::string>(lastNames);
 }
 
 std::string middle_name(std::optional<Sex> sex)
@@ -113,19 +114,19 @@ std::string middle_name(std::optional<Sex> sex)
             "No middle name fround, sex: {}.", sex ? to_string(*sex) : "none") };
     }
 
-    return Helper::arrayElement<std::string>(allMiddleNames);
+    return random::element<std::string>(allMiddleNames);
 }
 
 std::string full_name(Country country, std::optional<Sex> sex)
 {
     const auto& peopleNames = data::countryToPeopleNamesMapping.at(country);
 
-    std::vector<Helper::WeightedElement<std::string_view>> weightedElements;
+    std::vector<random::WeightedElement<std::string_view>> weightedElements;
     for (const auto& nameFormat : peopleNames.nameFormats) {
         weightedElements.push_back({ nameFormat.weight, nameFormat.format });
     }
 
-    const auto nameFormat = Helper::weightedArrayElement(weightedElements);
+    const auto nameFormat = random::weighted_element(weightedElements);
 
     return utils::fill_token_values(nameFormat, [country, sex](auto token) {
         if (token == "firstName") {
@@ -179,18 +180,18 @@ std::string prefix(std::optional<Sex> sex)
             "No prefixes fround, sex: {}.", sex ? to_string(*sex) : "none") };
     }
 
-    return Helper::arrayElement<std::string>(allPrefixes);
+    return random::element<std::string>(allPrefixes);
 }
 
 std::string bio()
 {
-    const auto randomBioFormat = Helper::arrayElement(data::bioFormats);
+    const auto randomBioFormat = random::element(data::bioFormats);
 
     return utils::fill_token_values(std::string(randomBioFormat), [](std::string_view token) {
         if (token == "bio_part") {
-            return std::string(Helper::arrayElement(data::bioPart));
+            return std::string(random::element(data::bioPart));
         } else if (token == "bio_supporter") {
-            return std::string(Helper::arrayElement(data::bioSupporter));
+            return std::string(random::element(data::bioSupporter));
         } else if (token == "noun") {
             return std::string(word::noun());
         } else if (token == "emoji") {
@@ -221,44 +222,44 @@ std::string suffix()
         allSuffixes.insert(allSuffixes.end(), suffixes.begin(), suffixes.end());
     }
 
-    return Helper::arrayElement<std::string>(allSuffixes);
+    return random::element<std::string>(allSuffixes);
 }
 
 std::string_view sex(Language language)
 {
     static const std::array<Sex, 2> sexes { Sex::Male, Sex::Female };
 
-    const auto chosenSex = Helper::arrayElement(sexes);
+    const auto chosenSex = random::element(sexes);
 
     return to_string(chosenSex, language);
 }
 
-std::string_view gender() { return Helper::arrayElement(data::genders); }
+std::string_view gender() { return random::element(data::genders); }
 
 std::string job_title()
 {
     return utils::format("{} {} {}", job_descriptor(), job_area(), job_type());
 }
 
-std::string_view job_descriptor() { return Helper::arrayElement(data::jobDescriptors); }
+std::string_view job_descriptor() { return random::element(data::jobDescriptors); }
 
-std::string_view job_area() { return Helper::arrayElement(data::jobAreas); }
+std::string_view job_area() { return random::element(data::jobAreas); }
 
-std::string_view job_type() { return Helper::arrayElement(data::jobTypes); }
+std::string_view job_type() { return random::element(data::jobTypes); }
 
-std::string_view hobby() { return Helper::arrayElement(data::hobbies); }
+std::string_view hobby() { return random::element(data::hobbies); }
 
-std::string_view language() { return Helper::arrayElement(data::languages); }
+std::string_view language() { return random::element(data::languages); }
 
-std::string_view nationality() { return Helper::arrayElement(data::nationalities); }
+std::string_view nationality() { return random::element(data::nationalities); }
 
 std::string ssn(std::optional<SsnCountry> country)
 {
-    const auto ssnCountry = country ? *country : Helper::arrayElement(data::supportedSsnCountries);
+    const auto ssnCountry = country ? *country : random::element(data::supportedSsnCountries);
 
     const auto& ssnFormat = data::ssnFormats.at(ssnCountry);
 
-    auto ssnWithoutRegexes = Helper::regexpStyleStringParse(ssnFormat);
+    auto ssnWithoutRegexes = random::regexp_style_string_parse(ssnFormat);
 
     std::string ssn;
 
@@ -277,9 +278,9 @@ std::string ssn(std::optional<SsnCountry> country)
     return ssn;
 }
 
-std::string_view western_zodiac() { return Helper::arrayElement(data::westernZodiacs); }
+std::string_view western_zodiac() { return random::element(data::westernZodiacs); }
 
-std::string_view chinese_zodiac() { return Helper::arrayElement(data::chineseZodiacs); }
+std::string_view chinese_zodiac() { return random::element(data::chineseZodiacs); }
 
 namespace {
     std::string middleNameForCountry(Country country, std::optional<Sex> sex)
@@ -306,7 +307,7 @@ namespace {
                 middleNames.end(), femalesMiddleNames.begin(), femalesMiddleNames.end());
         }
 
-        return Helper::arrayElement<std::string>(middleNames);
+        return random::element<std::string>(middleNames);
     }
 
     std::string prefixForCountry(Country country, std::optional<Sex> sex)
@@ -331,7 +332,7 @@ namespace {
             prefixes.insert(prefixes.end(), femalesPrefixes.begin(), femalesPrefixes.end());
         }
 
-        return Helper::arrayElement<std::string>(prefixes);
+        return random::element<std::string>(prefixes);
     }
 
     std::string suffixForCountry(Country country, std::optional<Sex> sex)
@@ -356,7 +357,7 @@ namespace {
             suffixes.insert(suffixes.end(), femalesSuffixes.begin(), femalesSuffixes.end());
         }
 
-        return Helper::arrayElement<std::string>(suffixes);
+        return random::element<std::string>(suffixes);
     }
 }
 }

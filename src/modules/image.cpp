@@ -1,5 +1,5 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "image_data.h"
 #include <faker/image.h>
 #include <faker/number.h>
@@ -67,5 +67,5 @@ std::string dimensions()
     return utils::format("{}x{}", number::integer(1, 32720), number::integer(1, 17280));
 }
 
-std::string_view type() { return Helper::arrayElement(data::imageTypes); }
+std::string_view type() { return random::element(data::imageTypes); }
 }

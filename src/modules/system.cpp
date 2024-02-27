@@ -1,9 +1,11 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "../common/strings.h"
 #include "system_data.h"
 #include <algorithm>
+#include <faker/datatype.h>
 #include <faker/internet.h>
+#include <faker/number.h>
 #include <faker/string.h>
 #include <faker/system.h>
 #include <faker/word.h>
@@ -83,7 +85,7 @@ std::string file_ext(const std::optional<FileType>& mimeType)
                 extensions.push_back(mime.substr(pos + 1));
             }
         }
-        return std::string(Helper::arrayElement(extensions));
+        return std::string(random::element(extensions));
     } else {
         std::unordered_set<std::string_view> extensionSet;
 
@@ -93,7 +95,7 @@ std::string file_ext(const std::optional<FileType>& mimeType)
 
         std::vector<std::string> extensions(extensionSet.begin(), extensionSet.end());
 
-        return Helper::arrayElement(extensions);
+        return random::element(extensions);
     }
 }
 
@@ -117,14 +119,14 @@ std::string common_filename(const std::optional<std::string>& ext)
 
 std::string_view common_file_ext()
 {
-    auto mimeType = Helper::arrayElement(data::commonMimeTypes);
+    auto mimeType = random::element(data::commonMimeTypes);
 
     return extension(mimeType);
 }
 
-std::string_view mime_type() { return Helper::arrayElement(data::mimeTypes); }
+std::string_view mime_type() { return random::element(data::mimeTypes); }
 
-std::string_view common_file_type() { return Helper::arrayElement(data::commonFileTypes); }
+std::string_view common_file_type() { return random::element(data::commonFileTypes); }
 
 std::string_view file_type()
 {
@@ -145,10 +147,10 @@ std::string_view file_type()
 
     std::vector<std::string_view> types(typeSet.begin(), typeSet.end());
 
-    return Helper::arrayElement(types);
+    return random::element(types);
 }
 
-std::string_view directory_path() { return Helper::arrayElement(data::directoryPaths); }
+std::string_view directory_path() { return random::element(data::directoryPaths); }
 
 std::string file_path()
 {
@@ -170,8 +172,8 @@ std::string semver()
 
 std::string network_interface(const std::optional<NetworkInterfaceOptions>& options)
 {
-    const auto defaultInterfaceType = Helper::arrayElement(data::commonInterfaceTypes);
-    const auto defaultInterfaceSchema = Helper::objectKey(data::commonInterfaceSchemas);
+    const auto defaultInterfaceType = random::element(data::commonInterfaceTypes);
+    const auto defaultInterfaceSchema = random::map_key(data::commonInterfaceSchemas);
 
     std::string interfaceType { defaultInterfaceType };
     std::string interfaceSchema { defaultInterfaceSchema };
@@ -193,15 +195,25 @@ std::string network_interface(const std::optional<NetworkInterfaceOptions>& opti
     if (interfaceSchema == "index") {
         suffix = digit();
     } else if (interfaceSchema == "slot") {
-        suffix = Helper::maybe<std::string>([&]() { return "f" + digit(); });
-        suffix += Helper::maybe<std::string>([&]() { return "d" + digit(); });
+        if (random::boolean(0.5)) {
+            suffix = "f" + digit();
+        }
+        if (random::boolean(0.5)) {
+            suffix += "d" + digit();
+        }
     } else if (interfaceSchema == "mac") {
         suffix = internet::mac("");
     } else if (interfaceSchema == "pci") {
-        prefix = Helper::maybe<std::string>([&]() { return "P" + digit(); });
+        if (random::boolean(0.5)) {
+            prefix = "P" + digit();
+        }
         suffix = digit() + "s" + digit();
-        suffix += Helper::maybe<std::string>([&]() { return "f" + digit(); });
-        suffix += Helper::maybe<std::string>([&]() { return "d" + digit(); });
+        if (random::boolean(0.5)) {
+            suffix += "f" + digit();
+        }
+        if (random::boolean(0.5)) {
+            suffix += "d" + digit();
+        }
     }
 
     std::string result;
@@ -234,12 +246,12 @@ std::string cron(const CronOptions& options)
         years = { std::to_string(number::integer(1970, 2099)), "*" };
     }
 
-    auto minute = Helper::arrayElement(minutes);
-    auto hour = Helper::arrayElement(hours);
-    auto day = Helper::arrayElement(days);
-    auto month = Helper::arrayElement(months);
-    auto dayOfWeek = Helper::arrayElement(daysOfWeek);
-    auto year = Helper::arrayElement(years);
+    auto minute = random::element(minutes);
+    auto hour = random::element(hours);
+    auto day = random::element(days);
+    auto month = random::element(months);
+    auto dayOfWeek = random::element(daysOfWeek);
+    auto year = random::element(years);
 
     std::string standardExpression
         = minute + " " + hour + " " + day + " " + month + " " + dayOfWeek;
@@ -250,8 +262,7 @@ std::string cron(const CronOptions& options)
     std::vector<std::string> nonStandardExpressions
         = { "@annually", "@daily", "@hourly", "@monthly", "@reboot", "@weekly", "@yearly" };
 
-    return (!includeNonStandard || datatype::boolean(0))
-        ? standardExpression
-        : Helper::arrayElement(nonStandardExpressions);
+    return (!includeNonStandard || datatype::boolean(0)) ? standardExpression
+                                                         : random::element(nonStandardExpressions);
 }
 }

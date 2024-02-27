@@ -4,9 +4,9 @@ target_sources(
         common/conversions.cpp
         common/strings.cpp
         common/formatter.cpp
-        common/helper.cpp
         common/luhn_check.cpp
         common/md5.cpp
+        common/random.cpp
         common/sha256.cpp
         modules/airline.cpp
         modules/airline_data.cpp

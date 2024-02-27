@@ -1,5 +1,5 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "book_data.h"
 #include <faker/book.h>
 #include <faker/date.h>
@@ -7,13 +7,13 @@
 #include <faker/string.h>
 
 namespace faker::book {
-std::string_view title() { return Helper::arrayElement(data::titles); }
+std::string_view title() { return random::element(data::titles); }
 
-std::string_view genre() { return Helper::arrayElement(data::genres); }
+std::string_view genre() { return random::element(data::genres); }
 
-std::string_view author() { return Helper::arrayElement(data::authors); }
+std::string_view author() { return random::element(data::authors); }
 
-std::string_view publisher() { return Helper::arrayElement(data::publishers); }
+std::string_view publisher() { return random::element(data::publishers); }
 
 std::string isbn()
 {
@@ -23,11 +23,11 @@ std::string isbn()
 
 int release_year() { return number::integer(1940, 2024); }
 
-std::string_view translator() { return Helper::arrayElement(data::translators); }
+std::string_view translator() { return random::element(data::translators); }
 
-std::string_view format() { return Helper::arrayElement(data::bookFormats); }
+std::string_view format() { return random::element(data::bookFormats); }
 
 int page() { return number::integer(50, 999); }
 
-std::string_view series() { return Helper::arrayElement(data::bookSeries); }
+std::string_view series() { return random::element(data::bookSeries); }
 }

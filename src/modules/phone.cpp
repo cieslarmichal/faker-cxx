@@ -1,4 +1,4 @@
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "phone_data.h"
 #include <faker/phone.h>
 #include <string>
@@ -11,12 +11,12 @@ std::string number(std::optional<std::string> format)
     std::string selectedFormat;
 
     if (!format.has_value() || format->empty()) {
-        selectedFormat = Helper::arrayElement(data::number_formats);
+        selectedFormat = random::element(data::number_formats);
     } else {
         selectedFormat = format.value();
     }
 
-    return Helper::replaceSymbolWithNumber(selectedFormat);
+    return random::replace_symbol_with_number(selectedFormat);
 }
 
 std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap()
@@ -45,15 +45,15 @@ std::string number(PhoneNumberCountryFormat format)
         return phoneNumberFormatMap.at(PhoneNumberCountryFormat::Default);
     }
 
-    return Helper::replaceSymbolWithNumber(countryFormat);
+    return random::replace_symbol_with_number(countryFormat);
 }
 
-std::string imei() { return Helper::replaceCreditCardSymbols("##-######-######-L", '#'); }
+std::string imei() { return random::replace_credit_card_symbols("##-######-######-L", '#'); }
 
-std::string_view platform() { return Helper::arrayElement(data::platforms); }
+std::string_view platform() { return random::element(data::platforms); }
 
-std::string_view model_name() { return Helper::arrayElement(data::model_names); }
+std::string_view model_name() { return random::element(data::model_names); }
 
-std::string_view manufacturer() { return Helper::arrayElement(data::manufacturers); }
+std::string_view manufacturer() { return random::element(data::manufacturers); }
 
 }

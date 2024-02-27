@@ -1,5 +1,5 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "vehicle_data.h"
 #include <faker/number.h>
 #include <faker/string.h>
@@ -7,17 +7,17 @@
 
 namespace faker::vehicle {
 
-std::string_view bicycle() { return Helper::arrayElement(data::bicycle_types); }
+std::string_view bicycle() { return random::element(data::bicycle_types); }
 
-std::string_view color() { return Helper::arrayElement(data::vehicle_colors); }
+std::string_view color() { return random::element(data::vehicle_colors); }
 
-std::string_view fuel() { return Helper::arrayElement(data::fuel_types); }
+std::string_view fuel() { return random::element(data::fuel_types); }
 
-std::string_view manufacturer() { return Helper::arrayElement(data::manufacturers); }
+std::string_view manufacturer() { return random::element(data::manufacturers); }
 
-std::string_view model() { return Helper::arrayElement(data::models); }
+std::string_view model() { return random::element(data::models); }
 
-std::string_view type() { return Helper::arrayElement(data::vehicle_types); }
+std::string_view type() { return random::element(data::vehicle_types); }
 
 std::string vehicle() { return utils::format("{} {}", manufacturer(), model()); }
 

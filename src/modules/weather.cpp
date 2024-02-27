@@ -1,5 +1,5 @@
 #include "../common/conversions.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "weather_data.h"
 #include <faker/number.h>
 #include <faker/weather.h>
@@ -35,7 +35,7 @@ int uv_index() { return number::integer(0, 11); }
 
 int humidity() { return number::integer(0, 100); }
 
-std::string_view description() { return Helper::arrayElement(data::weatherDescriptions); }
+std::string_view description() { return random::element(data::weatherDescriptions); }
 
 int cloud_cover() { return number::integer(0, 100); }
 }

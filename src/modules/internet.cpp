@@ -1,10 +1,11 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "../common/strings.h"
 #include "internet_data.h"
 #include "string_data.h"
 #include <cassert>
 #include <faker/internet.h>
+#include <faker/number.h>
 #include <faker/person.h>
 #include <faker/string.h>
 #include <faker/types/country.h>
@@ -51,11 +52,11 @@ std::string username(std::optional<std::string> firstNameInit,
         break;
     case 1:
         username = utils::format("{}{}{}", firstName,
-            Helper::arrayElement<std::string>(std::vector<std::string> { ".", "_", "" }), lastName);
+            random::element<std::string>(std::vector<std::string> { ".", "_", "" }), lastName);
         break;
     case 2:
         username = utils::format("{}{}{}{}", firstName,
-            Helper::arrayElement<std::string>(std::vector<std::string> { ".", "_", "" }), lastName,
+            random::element<std::string>(std::vector<std::string> { ".", "_", "" }), lastName,
             number::integer(99));
         break;
     }
@@ -67,13 +68,13 @@ std::string email(std::optional<std::string> firstName, std::optional<std::strin
     std::optional<std::string> emailHost)
 {
     return utils::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-        emailHost ? *emailHost : Helper::arrayElement(data::emailHosts));
+        emailHost ? *emailHost : random::element(data::emailHosts));
 }
 
 std::string example_email(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
     return utils::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-        Helper::arrayElement(data::emailExampleHosts));
+        random::element(data::emailExampleHosts));
 }
 
 std::string password(int length, PasswordOptions options)
@@ -99,7 +100,7 @@ std::string password(int length, PasswordOptions options)
     std::string password;
 
     for (int i = 0; i < length; ++i) {
-        password += Helper::arrayElement(characters);
+        password += random::element(characters);
     }
 
     return password;
@@ -129,31 +130,31 @@ std::string_view emoji(std::optional<EmojiType> type)
     if (type) {
         switch (*type) {
         case EmojiType::Smiley:
-            return Helper::arrayElement(data::smileyEmojis);
+            return random::element(data::smileyEmojis);
         case EmojiType::Body:
-            return Helper::arrayElement(data::bodyEmojis);
+            return random::element(data::bodyEmojis);
         case EmojiType::Person:
-            return Helper::arrayElement(data::personEmojis);
+            return random::element(data::personEmojis);
         case EmojiType::Nature:
-            return Helper::arrayElement(data::natureEmojis);
+            return random::element(data::natureEmojis);
         case EmojiType::Food:
-            return Helper::arrayElement(data::foodEmojis);
+            return random::element(data::foodEmojis);
         case EmojiType::Travel:
-            return Helper::arrayElement(data::travelEmojis);
+            return random::element(data::travelEmojis);
         case EmojiType::Activity:
-            return Helper::arrayElement(data::activityEmojis);
+            return random::element(data::activityEmojis);
         case EmojiType::Object:
-            return Helper::arrayElement(data::objectEmojis);
+            return random::element(data::objectEmojis);
         case EmojiType::Symbol:
-            return Helper::arrayElement(data::symbolEmojis);
+            return random::element(data::symbolEmojis);
         case EmojiType::Flag:
-            return Helper::arrayElement(data::flagEmojis);
+            return random::element(data::flagEmojis);
         default:
             assert(false && "Invalid emoji type");
         }
     }
 
-    return Helper::arrayElement(emojis);
+    return random::element(emojis);
 }
 
 bool is_valid_emoji(const std::string& emojiToCheck)
@@ -180,9 +181,9 @@ bool is_valid_emoji(const std::string& emojiToCheck)
     return std::find(emojis.begin(), emojis.end(), emojiToCheck) != emojis.end();
 }
 
-std::string_view protocol() { return Helper::arrayElement(webProtocols); }
+std::string_view protocol() { return random::element(webProtocols); }
 
-std::string_view http_method() { return Helper::arrayElement(httpMethodNames); }
+std::string_view http_method() { return random::element(httpMethodNames); }
 
 unsigned http_status_code(std::optional<HttpResponseType> responseType)
 {
@@ -207,28 +208,28 @@ unsigned http_status_code(std::optional<HttpResponseType> responseType)
     if (responseType) {
         switch (*responseType) {
         case HttpResponseType::Informational:
-            return Helper::arrayElement(httpStatusInformationalCodes);
+            return random::element(httpStatusInformationalCodes);
         case HttpResponseType::Success:
-            return Helper::arrayElement(httpStatusSuccessCodes);
+            return random::element(httpStatusSuccessCodes);
         case HttpResponseType::Redirection:
-            return Helper::arrayElement(httpStatusRedirectionCodes);
+            return random::element(httpStatusRedirectionCodes);
         case HttpResponseType::ClientError:
-            return Helper::arrayElement(httpStatusClientErrorCodes);
+            return random::element(httpStatusClientErrorCodes);
         case HttpResponseType::ServerError:
-            return Helper::arrayElement(httpStatusServerErrorCodes);
+            return random::element(httpStatusServerErrorCodes);
         default:
             assert(false && "Invalid http response type");
         }
     }
 
-    return Helper::arrayElement(statusCodes);
+    return random::element(statusCodes);
 }
 
-std::string_view http_request_header() { return Helper::arrayElement(data::httpRequestHeaders); }
+std::string_view http_request_header() { return random::element(data::httpRequestHeaders); }
 
-std::string_view http_response_header() { return Helper::arrayElement(data::httpResponseHeaders); }
+std::string_view http_response_header() { return random::element(data::httpResponseHeaders); }
 
-std::string_view http_media_type() { return Helper::arrayElement(data::httpMediaTypes); }
+std::string_view http_media_type() { return random::element(data::httpMediaTypes); }
 
 std::string ipv4(IPv4Class ipv4class)
 {
@@ -321,6 +322,6 @@ std::string domain_word()
     return utils::to_lower(utils::format("{}-{}", word::adjective(), word::noun()));
 }
 
-std::string_view domain_suffix() { return Helper::arrayElement(data::domainSuffixes); }
+std::string_view domain_suffix() { return random::element(data::domainSuffixes); }
 
 }

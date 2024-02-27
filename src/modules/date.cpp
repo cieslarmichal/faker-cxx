@@ -1,5 +1,5 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "date_data.h"
 #include <chrono>
 #include <ctime>
@@ -122,12 +122,12 @@ std::string birthdate_by_year(int minYear, int maxYear, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string_view weekday_name() { return Helper::arrayElement(data::weekdayNames); }
+std::string_view weekday_name() { return random::element(data::weekdayNames); }
 
-std::string_view weekday_abbr_name() { return Helper::arrayElement(data::weekdayAbbreviatedNames); }
+std::string_view weekday_abbr_name() { return random::element(data::weekdayAbbreviatedNames); }
 
-std::string_view month_name() { return Helper::arrayElement(data::monthNames); }
+std::string_view month_name() { return random::element(data::monthNames); }
 
-std::string_view month_abbr_name() { return Helper::arrayElement(data::monthAbbreviatedNames); }
+std::string_view month_abbr_name() { return random::element(data::monthAbbreviatedNames); }
 
 }

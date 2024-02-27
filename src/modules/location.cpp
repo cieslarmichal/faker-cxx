@@ -1,7 +1,8 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "location_data.h"
 #include <faker/location.h>
+#include <faker/number.h>
 #include <faker/person.h>
 #include <faker/string.h>
 
@@ -84,9 +85,9 @@ namespace {
     }
 }
 
-std::string_view country_name() { return Helper::arrayElement(data::allCountries); }
+std::string_view country_name() { return random::element(data::allCountries); }
 
-std::string_view country_code() { return Helper::arrayElement(data::countryCodes); }
+std::string_view country_code() { return random::element(data::countryCodes); }
 
 std::string_view county(AddressCountry country)
 {
@@ -94,19 +95,19 @@ std::string_view county(AddressCountry country)
     if (countryAddresses.counties.empty()) {
         return "";
     }
-    return Helper::arrayElement(countryAddresses.counties);
+    return random::element(countryAddresses.counties);
 }
 
 std::string_view state(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
-    return Helper::arrayElement(countryAddresses.states);
+    return random::element(countryAddresses.states);
 }
 
 std::string city(AddressCountry country)
 {
     auto& countryAddresses = countryToCountryAddressesMapping(country);
-    auto cityFormat = Helper::arrayElement(countryAddresses.cityFormats);
+    auto cityFormat = random::element(countryAddresses.cityFormats);
 
     return utils::fill_token_values(
         cityFormat, [country, countryAddresses](std::string_view token) {
@@ -115,11 +116,11 @@ std::string city(AddressCountry country)
             } else if (token == "lastName") {
                 return person::last_name(countryAddressToCountryMapping(country));
             } else if (token == "cityName") {
-                return std::string(Helper::arrayElement(countryAddresses.cities));
+                return std::string(random::element(countryAddresses.cities));
             } else if (token == "cityPrefix") {
-                return std::string(Helper::arrayElement(countryAddresses.cityPrefixes));
+                return std::string(random::element(countryAddresses.cityPrefixes));
             } else if (token == "citySuffix") {
-                return std::string(Helper::arrayElement(countryAddresses.citySuffixes));
+                return std::string(random::element(countryAddresses.citySuffixes));
             } else {
                 return std::string();
             }
@@ -130,13 +131,13 @@ std::string zip_code(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
 
-    return Helper::replaceSymbolWithNumber(countryAddresses.zipCodeFormat);
+    return random::replace_symbol_with_number(countryAddresses.zipCodeFormat);
 }
 
 std::string street_address(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
-    const auto addressFormat = Helper::arrayElement(countryAddresses.addressFormats);
+    const auto addressFormat = random::element(countryAddresses.addressFormats);
 
     return utils::fill_token_values(addressFormat, [country](std::string_view token) {
         if (token == "buildingNumber") {
@@ -154,7 +155,7 @@ std::string street_address(AddressCountry country)
 std::string street(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
-    const auto streetFormat = Helper::arrayElement(countryAddresses.streetFormats);
+    const auto streetFormat = random::element(countryAddresses.streetFormats);
 
     return utils::fill_token_values(
         streetFormat, [country, countryAddresses](std::string_view token) {
@@ -163,11 +164,11 @@ std::string street(AddressCountry country)
             } else if (token == "lastName") {
                 return person::last_name(countryAddressToCountryMapping(country));
             } else if (token == "streetName") {
-                return std::string(Helper::arrayElement(countryAddresses.streetNames));
+                return std::string(random::element(countryAddresses.streetNames));
             } else if (token == "streetPrefix") {
-                return std::string(Helper::arrayElement(countryAddresses.streetPrefixes));
+                return std::string(random::element(countryAddresses.streetPrefixes));
             } else if (token == "streetSuffix") {
-                return std::string(Helper::arrayElement(countryAddresses.streetSuffixes));
+                return std::string(random::element(countryAddresses.streetSuffixes));
             } else {
                 return std::string();
             }
@@ -178,9 +179,9 @@ std::string building_number(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
 
-    const auto buildingNumberFormat = Helper::arrayElement(countryAddresses.buildingNumberFormats);
+    const auto buildingNumberFormat = random::element(countryAddresses.buildingNumberFormats);
 
-    return Helper::replaceSymbolWithNumber(buildingNumberFormat);
+    return random::replace_symbol_with_number(buildingNumberFormat);
 }
 
 std::string secondary_address(AddressCountry country)
@@ -191,10 +192,9 @@ std::string secondary_address(AddressCountry country)
         return "";
     }
 
-    const auto secondaryAddressFormat
-        = Helper::arrayElement(countryAddresses.secondaryAddressFormats);
+    const auto secondaryAddressFormat = random::element(countryAddresses.secondaryAddressFormats);
 
-    return Helper::replaceSymbolWithNumber(secondaryAddressFormat);
+    return random::replace_symbol_with_number(secondaryAddressFormat);
 }
 
 std::string latitude(Precision precision)
@@ -209,8 +209,8 @@ std::string longitude(Precision precision)
     return utils::format(utils::precision_format_str(precision), longitude);
 }
 
-std::string_view direction() { return Helper::arrayElement(data::directions); }
+std::string_view direction() { return random::element(data::directions); }
 
-std::string_view time_zone() { return Helper::arrayElement(data::timeZones); }
+std::string_view time_zone() { return random::element(data::timeZones); }
 
 }

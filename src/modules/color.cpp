@@ -1,12 +1,12 @@
 #include "../common/formatter.h"
-#include "../common/helper.h"
+#include "../common/random.h"
 #include "color_data.h"
 #include <faker/color.h>
 #include <faker/number.h>
 #include <faker/string.h>
 
 namespace faker::color {
-std::string_view name() { return Helper::arrayElement(data::colors); }
+std::string_view name() { return random::element(data::colors); }
 
 std::string rgb(bool includeAlpha)
 {

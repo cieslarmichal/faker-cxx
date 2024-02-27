@@ -1,26 +1,11 @@
+#include "../common/random.h"
 #include <cmath>
 #include <faker/datatype.h>
 #include <faker/number.h>
 
 namespace faker::datatype {
-bool boolean() { return number::decimal(0., 1.) > 0.5; }
 
-bool boolean(double probability)
-{
-    if (probability != NAN) {
-        double prob = probability;
+bool boolean() { return random::boolean(0.5f); }
 
-        if (prob <= 0.f) {
-            return false;
-        }
-
-        if (prob >= 1.f) {
-            return true;
-        }
-
-        return number::decimal(0.f, 1.f) < prob;
-    }
-
-    return number::decimal(0.f, 1.f) < 0.5f;
-}
+bool boolean(double prob) { return random::boolean(prob); }
 }
