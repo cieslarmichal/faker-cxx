@@ -1,9 +1,9 @@
 #ifndef FAKER_HELPER_H
 #define FAKER_HELPER_H
 
+#include "span.h"
 #include <algorithm>
 #include <array>
-#include <faker/compat/span.h>
 #include <faker/datatype.h>
 #include <faker/number.h>
 #include <functional>

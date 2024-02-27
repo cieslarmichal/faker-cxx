@@ -2,7 +2,7 @@
 #define FAKER_TEST_HELPERS_H
 
 #include <algorithm>
-#include <faker/compat/span.h>
+#include <common/span.h>
 #include <gtest/gtest.h>
 
 namespace faker::testing {

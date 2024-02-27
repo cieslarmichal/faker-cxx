@@ -1,8 +1,8 @@
 #ifndef FAKER_MODULES_PERSON_DATA_H
 #define FAKER_MODULES_PERSON_DATA_H
 
+#include "../common/span.h"
 #include <array>
-#include <faker/compat/span.h>
 #include <faker/person.h>
 #include <faker/types/country.h>
 #include <string_view>

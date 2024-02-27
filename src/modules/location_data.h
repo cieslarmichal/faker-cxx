@@ -1,8 +1,8 @@
 #ifndef FAKER_MODULES_LOCATION_DATA_H
 #define FAKER_MODULES_LOCATION_DATA_H
 
+#include "../common/span.h"
 #include <array>
-#include <faker/compat/span.h>
 #include <string_view>
 
 namespace faker::location::data {
