@@ -1,5 +1,5 @@
 #include "../test_helpers.h"
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/word.h>
 #include <modules/word_data.h>
 

@@ -1,6 +1,6 @@
 #include "../json_helper.h"
 #include "../test_helpers.h"
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/structure.h>
 #include <modules/airline_data.h>
 #include <modules/animal_data.h>
@@ -64,7 +64,7 @@ TEST(StructureTest, shouldGenerateCSV)
     std::getline(dataStream, line);
 
     auto x = utils::split(line, ",");
-    std::unordered_set<std::string> keys { x.begin(), x.end() };
+    std::unordered_set<std::string_view> keys { x.begin(), x.end() };
 
     ASSERT_TRUE(keys.find("Actor name") != keys.end());
     ASSERT_TRUE(keys.find("Airport name") != keys.end());

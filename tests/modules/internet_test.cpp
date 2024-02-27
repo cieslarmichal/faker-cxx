@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <array>
 #include <charconv>
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/internet.h>
 #include <modules/internet_data.h>
 #include <modules/person_data.h>
@@ -663,14 +663,13 @@ TEST_F(InternetTest, shouldGenerateIpv6)
 
     ASSERT_EQ(generatedIpv6Parts.size(), 8);
 
-    ASSERT_TRUE(faker::testing::all_of(generatedIpv6Parts,
-        [](auto generatedIpv6Part) { return generatedIpv6Part.size() == 4; }));
-    ASSERT_TRUE(
-        faker::testing::all_of(generatedIpv6Parts, [](auto generatedIpv6Part) {
-            return faker::testing::all_of(generatedIpv6Part, [](char hexCharacter) {
-                return string::data::hexLowerCharacters.find(hexCharacter) != std::string::npos;
-            });
-        }));
+    ASSERT_TRUE(faker::testing::all_of(
+        generatedIpv6Parts, [](auto generatedIpv6Part) { return generatedIpv6Part.size() == 4; }));
+    ASSERT_TRUE(faker::testing::all_of(generatedIpv6Parts, [](auto generatedIpv6Part) {
+        return faker::testing::all_of(generatedIpv6Part, [](char hexCharacter) {
+            return string::data::hexLowerCharacters.find(hexCharacter) != std::string::npos;
+        });
+    }));
 }
 
 TEST_F(InternetTest, MacDefaultSeparator)

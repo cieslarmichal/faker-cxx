@@ -1,8 +1,9 @@
-#include "string_helper.h"
+#include "strings.h"
 #include <algorithm>
 #include <cctype>
 #include <charconv>
 #include <cstdlib>
+#include <stdexcept>
 
 namespace faker::utils {
 

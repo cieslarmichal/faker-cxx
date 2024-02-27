@@ -1,7 +1,7 @@
 #include "../test_helpers.h"
 #include <charconv>
 #include <common/format_helper.h>
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/color.h>
 #include <modules/color_data.h>
 #include <modules/string_data.h>
@@ -19,7 +19,8 @@ TEST(ColorTest, shouldGenerateRgbColorWithoutAlpha)
 {
     auto generatedRgbColor = color::rgb();
 
-    auto rgbNumbers = utils::split(generatedRgbColor.substr(4, generatedRgbColor.size() - 1), " ");
+    auto rgbNumbers = utils::split(
+        std::string_view(generatedRgbColor).substr(4, generatedRgbColor.size() - 1), " ");
 
     int red, green, blue;
     std::from_chars(rgbNumbers[0].data(), rgbNumbers[0].data() + rgbNumbers[0].size(), red);
@@ -37,8 +38,8 @@ TEST(ColorTest, shouldGenerateRgbColorWithAlpha)
 {
     auto generatedRgbaColor = color::rgb(true);
 
-    auto rgbaNumbers
-        = utils::split(generatedRgbaColor.substr(5, generatedRgbaColor.size() - 1), " ");
+    auto rgbaNumbers = utils::split(
+        std::string_view(generatedRgbaColor).substr(5, generatedRgbaColor.size() - 1), " ");
 
     int red, green, blue, alpha;
     std::from_chars(rgbaNumbers[0].data(), rgbaNumbers[0].data() + rgbaNumbers[0].size(), red);
@@ -85,8 +86,8 @@ TEST(ColorTest, shouldGenerateHexColorWithAlpha)
 TEST(ColorTest, shouldGenerateHslWithoutAlpha)
 {
     auto generatedHslColor = faker::color::hsl();
-    auto hslValues
-        = faker::utils::split(generatedHslColor.substr(4, generatedHslColor.size() - 1), " ");
+    auto hslValues = faker::utils::split(
+        std::string_view(generatedHslColor).substr(4, generatedHslColor.size() - 1), " ");
 
     int hue, staturation, lightness;
 
@@ -104,8 +105,8 @@ TEST(ColorTest, shouldGenerateHslWithoutAlpha)
 TEST(ColorTest, shouldGenerateHslWithAlpha)
 {
     auto generatedHslaColor = faker::color::hsl(true);
-    auto hslValues
-        = faker::utils::split(generatedHslaColor.substr(5, generatedHslaColor.size() - 1), " ");
+    auto hslValues = faker::utils::split(
+        std::string_view(generatedHslaColor).substr(5, generatedHslaColor.size() - 1), " ");
 
     int hue, staturation, lightness;
 
@@ -127,8 +128,8 @@ TEST(ColorTest, shouldGenerateHslWithAlpha)
 TEST(ColorTest, shouldGenerateLchWithoutAlpha)
 {
     auto generatedLchColor = faker::color::lch();
-    auto lchValues
-        = faker::utils::split(generatedLchColor.substr(4, generatedLchColor.size() - 1), " ");
+    auto lchValues = faker::utils::split(
+        std::string_view(generatedLchColor).substr(4, generatedLchColor.size() - 1), " ");
 
     int luminance, chroma, hue;
 
@@ -146,8 +147,8 @@ TEST(ColorTest, shouldGenerateLchWithoutAlpha)
 TEST(ColorTest, shouldGenerateLchWithAlpha)
 {
     auto generatedLchaColor = faker::color::lch(true);
-    auto lchValues
-        = faker::utils::split(generatedLchaColor.substr(5, generatedLchaColor.size() - 1), " ");
+    auto lchValues = faker::utils::split(
+        std::string_view(generatedLchaColor).substr(5, generatedLchaColor.size() - 1), " ");
 
     int luminance, chroma, hue;
 
@@ -169,7 +170,8 @@ TEST(ColorTest, shouldGenerateLchWithAlpha)
 TEST(ColorTest, shouldGenerateCmykColor)
 {
     auto generatedCmykColor = faker::color::cmyk();
-    auto cmykValues = faker::utils::split(std::string_view(generatedCmykColor).substr(5, generatedCmykColor.size() - 1), " ");
+    auto cmykValues = faker::utils::split(
+        std::string_view(generatedCmykColor).substr(5, generatedCmykColor.size() - 1), " ");
 
     auto offset = cmykValues[0].size();
     auto cyan = std::stod(cmykValues[0].data(), &offset);
@@ -191,8 +193,8 @@ TEST(ColorTest, shouldGenerateCmykColor)
 TEST(ColorTest, shouldGenerateLabColor)
 {
     auto generatedLabColor = faker::color::lab();
-    auto labValues
-        = faker::utils::split(std::string_view(generatedLabColor).substr(4, generatedLabColor.size() - 1), " ");
+    auto labValues = faker::utils::split(
+        std::string_view(generatedLabColor).substr(4, generatedLabColor.size() - 1), " ");
 
     auto offset = labValues[0].size();
     auto lightness = std::stod(labValues[0].data(), &offset);
@@ -211,8 +213,8 @@ TEST(ColorTest, shouldGenerateLabColor)
 TEST(ColorTest, shouldGenerateHsb)
 {
     auto generatedHsbColor = faker::color::hsb();
-    auto hsbValues
-        = faker::utils::split(std::string_view(generatedHsbColor).substr(4, generatedHsbColor.size() - 1), " ");
+    auto hsbValues = faker::utils::split(
+        std::string_view(generatedHsbColor).substr(4, generatedHsbColor.size() - 1), " ");
 
     int hue, staturation, brightness;
 
@@ -230,8 +232,8 @@ TEST(ColorTest, shouldGenerateHsb)
 TEST(ColorTest, shouldGenerateHsv)
 {
     auto generatedHsvColor = faker::color::hsv();
-    auto hsvValues
-        = faker::utils::split(std::string_view(generatedHsvColor).substr(4, generatedHsvColor.size() - 1), " ");
+    auto hsvValues = faker::utils::split(
+        std::string_view(generatedHsvColor).substr(4, generatedHsvColor.size() - 1), " ");
 
     int hue, staturation, brightness;
 
@@ -249,8 +251,8 @@ TEST(ColorTest, shouldGenerateHsv)
 TEST(ColorTest, shouldGenerateYuv)
 {
     auto generatedYuvColor = faker::color::yuv();
-    auto yuvValues
-        = faker::utils::split(std::string_view(generatedYuvColor).substr(4, generatedYuvColor.size() - 1), " ");
+    auto yuvValues = faker::utils::split(
+        std::string_view(generatedYuvColor).substr(4, generatedYuvColor.size() - 1), " ");
 
     int luminance, chrominanceBlueColor, chrominanceRedColor;
 

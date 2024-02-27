@@ -1,6 +1,6 @@
 #include "../common/format_helper.h"
 #include "../common/helper.h"
-#include "../common/string_helper.h"
+#include "../common/strings.h"
 #include "lorem_data.h"
 #include <faker/lorem.h>
 

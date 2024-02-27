@@ -1,5 +1,5 @@
 #include "md5.h"
-#include "string_helper.h"
+#include "strings.h"
 #include <array>
 #include <cstdint>
 

@@ -1,6 +1,6 @@
 #include "../test_helpers.h"
 #include <charconv>
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/commerce.h>
 #include <modules/commerce_data.h>
 #include <modules/string_data.h>

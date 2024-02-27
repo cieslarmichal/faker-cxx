@@ -1,5 +1,5 @@
 #include "../test_helpers.h"
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/image.h>
 #include <modules/image_data.h>
 

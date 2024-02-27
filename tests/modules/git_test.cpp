@@ -1,6 +1,6 @@
 #include "../test_helpers.h"
 #include <algorithm>
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/git.h>
 #include <faker/number.h>
 #include <regex>

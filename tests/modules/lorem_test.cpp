@@ -1,6 +1,6 @@
 #include "../test_helpers.h"
 #include <algorithm>
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/lorem.h>
 #include <modules/lorem_data.h>
 
@@ -25,7 +25,8 @@ TEST(LoremTest, shouldGenerateWords)
     ASSERT_TRUE(faker::testing::all_of(separatedWords, [](auto separatedWord) {
         return faker::testing::any_of(lorem::data::loremWords, [separatedWord](const auto& word) {
             return word
-                == static_cast<char>(std::tolower(separatedWord[0])) + std::string(separatedWord.substr(1));
+                == static_cast<char>(std::tolower(separatedWord[0]))
+                + std::string(separatedWord.substr(1));
         });
     }));
 }
@@ -44,7 +45,8 @@ TEST(LoremTest, shouldGenerateSentence)
     ASSERT_TRUE(faker::testing::all_of(sentenceWords, [](auto sentenceWord) {
         return faker::testing::any_of(lorem::data::loremWords, [sentenceWord](const auto& word) {
             return word
-                == static_cast<char>(std::tolower(sentenceWord[0])) + std::string(sentenceWord.substr(1));
+                == static_cast<char>(std::tolower(sentenceWord[0]))
+                + std::string(sentenceWord.substr(1));
         });
     }));
 }

@@ -1,5 +1,5 @@
 #include "../common/format_helper.h"
-#include "../common/string_helper.h"
+#include "../common/strings.h"
 #include "date_data.h"
 #include <faker/date.h>
 #include <faker/git.h>

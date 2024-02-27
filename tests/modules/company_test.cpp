@@ -1,6 +1,6 @@
 #include "../test_helpers.h"
 #include <common/format_helper.h>
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/company.h>
 #include <modules/company_data.h>
 #include <modules/person_data.h>

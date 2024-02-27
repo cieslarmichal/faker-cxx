@@ -1,5 +1,5 @@
 #include "../common/helper.h"
-#include "../common/string_helper.h"
+#include "../common/strings.h"
 #include "hacker_data.h"
 #include <faker/hacker.h>
 

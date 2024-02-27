@@ -1,6 +1,6 @@
 #include "../test_helpers.h"
 #include <algorithm>
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/location.h>
 #include <modules/location_data.h>
 #include <modules/person_data.h>

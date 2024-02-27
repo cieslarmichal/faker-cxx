@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <charconv>
 #include <common/luhn_check.h>
-#include <common/string_helper.h>
+#include <common/strings.h>
 #include <faker/finance.h>
 #include <gmock/gmock.h>
 #include <modules/finance_data.h>

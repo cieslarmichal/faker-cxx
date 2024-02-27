@@ -1,7 +1,7 @@
 target_sources(
     faker
     PRIVATE
-        common/string_helper.cpp
+        common/strings.cpp
         common/format_helper.cpp
         common/helper.cpp
         common/luhn_check.cpp

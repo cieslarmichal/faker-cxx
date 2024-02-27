@@ -1,5 +1,5 @@
 ﻿#include "../test_helpers.h"
-#include <common/string_helper.h>
+#include <common/strings.h>
 
 using namespace faker;
 

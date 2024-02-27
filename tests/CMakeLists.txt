@@ -6,7 +6,7 @@ add_executable(
     ${CMAKE_CURRENT_SOURCE_DIR}/common/json_helper_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/common/luhn_check_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/common/mappers/precision_mapper/precision_mapper_test.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/common/string_helper_test.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/common/strings_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/common/weather_helper_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/airline_test.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/modules/animal_test.cpp

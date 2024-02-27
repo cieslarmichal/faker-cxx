@@ -1,6 +1,6 @@
 #include "helper.h"
 #include "luhn_check.h"
-#include "string_helper.h"
+#include "strings.h"
 #include <algorithm>
 #include <chrono>
 #include <random>

@@ -1,5 +1,5 @@
 #include "../common/helper.h"
-#include "../common/string_helper.h"
+#include "../common/strings.h"
 #include "word_data.h"
 #include <faker/word.h>
 
