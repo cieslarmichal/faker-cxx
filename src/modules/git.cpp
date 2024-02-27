@@ -27,17 +27,16 @@ std::string branch(unsigned maxIssueNum)
 std::string commit_date(unsigned years)
 {
     std::string date = date::past(int(years));
-    // std::string_view outputDate = date::weekday_abbr_name();
 
-    std::vector<std::string> dateSplit = StringHelper::split(date, "-");
-    std::string year = dateSplit[0];
-    std::string month = dateSplit[1];
-    std::string rest = dateSplit[2];
+    auto dateSplit = utils::split(date, "-");
+    std::string_view year = dateSplit[0];
+    std::string_view month = dateSplit[1];
+    std::string_view rest = dateSplit[2];
 
-    std::vector<std::string> restSplit = StringHelper::split(rest, "T");
-    std::string day = restSplit[0];
+    auto restSplit = utils::split(rest, "T");
+    auto day = restSplit[0];
 
-    std::string time = StringHelper::split(restSplit[1], "Z")[0];
+    auto time = utils::split(restSplit[1], "Z")[0];
 
     int timeZone = number::integer(0, 12);
     std::string timeZoneString;
@@ -58,7 +57,7 @@ std::string commit_date(unsigned years)
     }
 
     return FormatHelper::format("{} {} {} {} {} {}", date::weekday_abbr_name(),
-        date::data::monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year,
+        date::data::monthAbbreviatedNames[size_t(utils::to_int(month) - 1)], day, time, year,
         timeZoneString);
 }
 

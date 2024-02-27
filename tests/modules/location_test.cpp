@@ -85,7 +85,7 @@ const std::unordered_map<location::AddressCountry, std::string> generatedTestNam
 
 class LocationTest : public TestWithParam<location::AddressCountry> {
 public:
-    static bool checkIfZipCode(const std::string& zipCode)
+    static bool checkIfZipCode(std::string_view zipCode)
     {
         const std::string zipCodeCharacters = "0123456789-";
 
@@ -97,7 +97,7 @@ public:
         });
     }
 
-    static bool checkIfAllCharactersAreNumeric(const std::string& data)
+    static bool checkIfAllCharactersAreNumeric(std::string_view data)
     {
         return faker::testing::all_of(data, [](char dataCharacter) {
             return faker::testing::any_of(
@@ -144,7 +144,7 @@ TEST_P(LocationTest, shouldGenerateCity)
     const auto generatedCity = location::city(country);
 
     if (country == faker::location::AddressCountry::Brazil) {
-        const auto generatedCityElements = StringHelper::split(generatedCity, " ");
+        const auto generatedCityElements = utils::split(generatedCity, " ");
 
         const auto& generatedCityPrefix = generatedCityElements[0];
 
@@ -258,7 +258,7 @@ TEST_F(LocationTest, shouldGenerateUsaStreet)
 {
     const auto generatedStreet = location::street();
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = utils::split(generatedStreet, " ");
 
     const auto& generatedFirstOrLastName = generatedStreetElements[0];
     const auto& generatedStreetSuffix = generatedStreetElements[1];
@@ -283,7 +283,7 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
 {
     const auto generatedStreetAddress = location::street_address();
 
-    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+    const auto generatedStreetAddressElements = utils::split(generatedStreetAddress, " ");
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedFirstOrLastName = generatedStreetAddressElements[1];
@@ -314,11 +314,11 @@ TEST_F(LocationTest, shouldGeneratePolandStreet)
 {
     const auto generatedStreet = location::street(location::AddressCountry::Poland);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = utils::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
-    const auto& generatedStreetName = StringHelper::join(
-        { generatedStreetElements.begin() + 1, generatedStreetElements.end() });
+    const auto& generatedStreetName
+        = utils::join({ generatedStreetElements.begin() + 1, generatedStreetElements.end() });
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::polandStreetPrefixes, [&generatedStreetPrefix](auto streetPrefix) {
@@ -346,11 +346,11 @@ TEST_F(LocationTest, shouldGenerateRussiaStreet)
 {
     const auto generatedStreet = location::street(location::AddressCountry::Russia);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = utils::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
-    const auto& generatedStreetSuffix = StringHelper::join(
-        { generatedStreetElements.begin() + 1, generatedStreetElements.end() });
+    const auto& generatedStreetSuffix
+        = utils::join({ generatedStreetElements.begin() + 1, generatedStreetElements.end() });
 
     std::vector<std::string_view> firstNames { person::data::russianMalesFirstNames.begin(),
         person::data::russianMalesFirstNames.end() };
@@ -413,11 +413,11 @@ TEST_F(LocationTest, shouldGenerateFranceStreet)
 {
     const auto generatedStreet = location::street(location::AddressCountry::France);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = utils::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
-    const auto& generatedStreetSuffix = StringHelper::join(
-        { generatedStreetElements.begin() + 1, generatedStreetElements.end() });
+    const auto& generatedStreetSuffix
+        = utils::join({ generatedStreetElements.begin() + 1, generatedStreetElements.end() });
 
     ASSERT_GE(generatedStreetElements.size(), 2);
     ASSERT_TRUE(faker::testing::any_of(
@@ -434,11 +434,11 @@ TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
 {
     const auto generatedStreetAddress = location::street_address(location::AddressCountry::France);
 
-    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+    const auto generatedStreetAddressElements = utils::split(generatedStreetAddress, " ");
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedStreetPrefix = generatedStreetAddressElements[1];
-    const auto& generatedStreetSuffix = StringHelper::join(
+    const auto& generatedStreetSuffix = utils::join(
         { generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end() });
 
     ASSERT_GE(generatedStreetAddressElements.size(), 3);
@@ -470,7 +470,7 @@ TEST_F(LocationTest, shouldGenerateLatitude)
     auto offset = latitude.size();
     const auto latitudeAsFloat = std::stof(latitude, &offset);
 
-    const auto generatedLatitudeParts = StringHelper::split(latitude, ".");
+    const auto generatedLatitudeParts = utils::split(latitude, ".");
 
     ASSERT_EQ(generatedLatitudeParts.size(), 2);
     ASSERT_EQ(generatedLatitudeParts[1].size(), 4);
@@ -485,7 +485,7 @@ TEST_F(LocationTest, shouldGenerateLatitudeWithSpecifiedPrecision)
     auto offset = latitude.size();
     const auto latitudeAsFloat = std::stof(latitude, &offset);
 
-    const auto generatedLatitudeParts = StringHelper::split(latitude, ".");
+    const auto generatedLatitudeParts = utils::split(latitude, ".");
 
     ASSERT_EQ(generatedLatitudeParts.size(), 2);
     ASSERT_EQ(generatedLatitudeParts[1].size(), 3);
@@ -500,7 +500,7 @@ TEST_F(LocationTest, shouldGenerateLongitude)
     auto offset = longitude.size();
     const auto longitudeAsFloat = std::stof(longitude, &offset);
 
-    const auto generatedLongitudeParts = StringHelper::split(longitude, ".");
+    const auto generatedLongitudeParts = utils::split(longitude, ".");
 
     ASSERT_EQ(generatedLongitudeParts.size(), 2);
     ASSERT_EQ(generatedLongitudeParts[1].size(), 4);
@@ -515,7 +515,7 @@ TEST_F(LocationTest, shouldGenerateLongitudeWithSpecifiedPrecision)
     auto offset = longitude.size();
     const auto longitudeAsFloat = std::stof(longitude, &offset);
 
-    const auto generatedLongitudeParts = StringHelper::split(longitude, ".");
+    const auto generatedLongitudeParts = utils::split(longitude, ".");
 
     ASSERT_EQ(generatedLongitudeParts.size(), 2);
     ASSERT_EQ(generatedLongitudeParts[1].size(), 6);
@@ -541,11 +541,11 @@ TEST_F(LocationTest, shouldGenerateUkraineStreet)
 {
     const auto generatedStreet = location::street(location::AddressCountry::Ukraine);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = utils::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
-    const auto& generatedStreetSuffix = StringHelper::join(
-        { generatedStreetElements.begin() + 1, generatedStreetElements.end() });
+    const auto& generatedStreetSuffix
+        = utils::join({ generatedStreetElements.begin() + 1, generatedStreetElements.end() });
 
     FAKER_EXPECT_CONTAINER_CONTAINS(location::data::ukraineStreetPrefixes, generatedStreetPrefix);
 
@@ -610,11 +610,11 @@ TEST_F(LocationTest, shouldGenerateItalyStreet)
 {
     const auto generatedStreet = location::street(location::AddressCountry::Italy);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = utils::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
-    const auto& generatedStreetSuffix = StringHelper::join(
-        { generatedStreetElements.begin() + 1, generatedStreetElements.end() });
+    const auto& generatedStreetSuffix
+        = utils::join({ generatedStreetElements.begin() + 1, generatedStreetElements.end() });
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::italyStreetPrefixes, [&generatedStreetPrefix](auto streetPrefix) {
@@ -726,10 +726,10 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
     const auto generatedStreetAddress
         = location::street_address(location::AddressCountry::Australia);
 
-    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+    const auto generatedStreetAddressElements = utils::split(generatedStreetAddress, " ");
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
-    const auto& generatedStreetSuffix = StringHelper::join(
+    const auto& generatedStreetSuffix = utils::join(
         { generatedStreetAddressElements.begin() + 1, generatedStreetAddressElements.end() });
 
     std::vector<std::string_view> firstNames { person::data::australianMalesFirstNames.begin(),
@@ -761,10 +761,10 @@ TEST_F(LocationTest, shouldGenerateIndiaStreet)
 {
     const auto generatedStreet = location::street(location::AddressCountry::India);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = utils::split(generatedStreet, " ");
 
-    const auto& generatedStreetSuffix = StringHelper::join(
-        { generatedStreetElements.begin() + 1, generatedStreetElements.end() });
+    const auto& generatedStreetSuffix
+        = utils::join({ generatedStreetElements.begin() + 1, generatedStreetElements.end() });
 
     ASSERT_GE(generatedStreetElements.size(), 2);
     ASSERT_TRUE(faker::testing::any_of(
@@ -777,10 +777,10 @@ TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
 {
     const auto generatedStreetAddress = location::street_address(location::AddressCountry::India);
 
-    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+    const auto generatedStreetAddressElements = utils::split(generatedStreetAddress, " ");
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
-    const auto& generatedStreetSuffix = StringHelper::join(
+    const auto& generatedStreetSuffix = utils::join(
         { generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end() });
 
     ASSERT_GE(generatedStreetAddressElements.size(), 3);
@@ -860,7 +860,7 @@ TEST_F(LocationTest, shouldGenerateFinlandStreet)
 {
     const auto generatedStreet = location::street(location::AddressCountry::Finland);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = utils::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix = generatedStreetElements[1];

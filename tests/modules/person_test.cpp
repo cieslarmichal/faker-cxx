@@ -384,7 +384,7 @@ TEST_F(PersonTest, shouldGenerateJobTitle)
 {
     const auto generatedJobTitle = person::job_title();
 
-    const auto jobTitleElements = StringHelper::split(generatedJobTitle, " ");
+    const auto jobTitleElements = utils::split(generatedJobTitle, " ");
 
     const auto& generatedJobDescriptor = jobTitleElements[0];
     const auto& generatedJobArea = jobTitleElements[1];

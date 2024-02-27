@@ -63,7 +63,7 @@ public:
             [](const auto& first, const auto& second) { return first.size() > second.size(); });
     }
 
-    void assertDomainWord(const std::string& domainWord)
+    void assertDomainWord(std::string_view domainWord)
     {
         std::optional<std::string> foundAdjective = std::nullopt;
 
@@ -82,7 +82,7 @@ public:
 
         ASSERT_TRUE(faker::testing::any_of(
             word::data::nouns, [generatedNoun](const std::string_view& noun) {
-                return StringHelper::compareNoCase(generatedNoun, noun);
+                return faker::testing::compare_no_case(generatedNoun, noun);
             }));
     }
 
@@ -178,7 +178,7 @@ TEST_F(InternetTest, shouldGenerateEmail)
 
     const auto email = internet::email();
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = utils::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -201,7 +201,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
 
     const auto email = internet::email(firstName);
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = utils::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -228,7 +228,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 
     const auto email = internet::email(std::nullopt, lastName);
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = utils::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -256,7 +256,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 
     const auto email = internet::email(firstName, lastName);
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = utils::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -280,7 +280,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 
     const auto email = internet::email(std::nullopt, std::nullopt, emailHost);
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = utils::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -307,7 +307,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmail)
 
     const auto email = internet::example_email();
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = utils::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -330,7 +330,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
 
     const auto email = internet::example_email(firstName);
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = utils::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -357,7 +357,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 
     const auto email = internet::example_email(std::nullopt, lastName);
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = utils::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -385,7 +385,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 
     const auto email = internet::example_email(firstName, lastName);
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = utils::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -659,14 +659,14 @@ TEST_F(InternetTest, shouldGenerateIpv6)
 {
     const auto generatedIpv6 = internet::ipv6();
 
-    const auto generatedIpv6Parts = StringHelper::split(generatedIpv6, ":");
+    const auto generatedIpv6Parts = utils::split(generatedIpv6, ":");
 
     ASSERT_EQ(generatedIpv6Parts.size(), 8);
 
     ASSERT_TRUE(faker::testing::all_of(generatedIpv6Parts,
-        [](const std::string& generatedIpv6Part) { return generatedIpv6Part.size() == 4; }));
+        [](auto generatedIpv6Part) { return generatedIpv6Part.size() == 4; }));
     ASSERT_TRUE(
-        faker::testing::all_of(generatedIpv6Parts, [](const std::string& generatedIpv6Part) {
+        faker::testing::all_of(generatedIpv6Parts, [](auto generatedIpv6Part) {
             return faker::testing::all_of(generatedIpv6Part, [](char hexCharacter) {
                 return string::data::hexLowerCharacters.find(hexCharacter) != std::string::npos;
             });
@@ -706,7 +706,7 @@ TEST_F(InternetTest, shouldGenerateDomainName)
 {
     const auto generatedDomainName = internet::domain_name();
 
-    const auto generatedDomainNameParts = StringHelper::split(generatedDomainName, ".");
+    const auto generatedDomainNameParts = utils::split(generatedDomainName, ".");
 
     const auto& generatedDomainWord = generatedDomainNameParts[0];
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
@@ -719,12 +719,12 @@ TEST_F(InternetTest, shouldGenerateHttpsUrl)
 {
     const auto generatedUrl = internet::url();
 
-    const auto generatedUrlParts = StringHelper::split(generatedUrl, "://");
+    const auto generatedUrlParts = utils::split(generatedUrl, "://");
 
     const auto& generatedProtocol = generatedUrlParts[0];
     const auto& generatedDomainName = generatedUrlParts[1];
 
-    const auto generatedDomainNameParts = StringHelper::split(generatedDomainName, ".");
+    const auto generatedDomainNameParts = utils::split(generatedDomainName, ".");
 
     const auto& generatedDomainWord = generatedDomainNameParts[0];
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
@@ -738,12 +738,12 @@ TEST_F(InternetTest, shouldGenerateHttpUrl)
 {
     const auto generatedUrl = internet::url(internet::WebProtocol::Http);
 
-    const auto generatedUrlParts = StringHelper::split(generatedUrl, "://");
+    const auto generatedUrlParts = utils::split(generatedUrl, "://");
 
     const auto& generatedProtocol = generatedUrlParts[0];
     const auto& generatedDomainName = generatedUrlParts[1];
 
-    const auto generatedDomainNameParts = StringHelper::split(generatedDomainName, ".");
+    const auto generatedDomainNameParts = utils::split(generatedDomainName, ".");
 
     const auto& generatedDomainWord = generatedDomainNameParts[0];
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];

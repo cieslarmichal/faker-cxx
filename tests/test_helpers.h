@@ -2,10 +2,24 @@
 #define FAKER_TEST_HELPERS_H
 
 #include <algorithm>
+#include <cctype>
 #include <common/span.h>
 #include <gtest/gtest.h>
+#include <string>
 
 namespace faker::testing {
+
+// strings
+
+inline bool compare_no_case(std::string_view str1, std::string_view str2)
+{
+    if (str1.length() != str2.length()) {
+        return false;
+    }
+
+    return std::equal(str1.begin(), str1.end(), str2.begin(),
+        [](char a, char b) { return std::tolower(a) == std::tolower(b); });
+}
 
 // containers
 

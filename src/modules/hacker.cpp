@@ -16,26 +16,25 @@ std::string_view ingverb() { return Helper::arrayElement(data::ingverbs); }
 
 std::string phrase()
 {
-    auto splitRandomPhrase = StringHelper::split(std::string(Helper::arrayElement(data::phrases)));
-    std::string ret;
+    std::string result;
 
-    for (auto& word : splitRandomPhrase) {
-        word = StringHelper::removePunctuation(word);
-        if (word == "{abbreviation}") {
-            word = abbreviation();
-        } else if (word == "{adjective}") {
-            word = adjective();
-        } else if (word == "{noun}") {
-            word = noun();
-        } else if (word == "{verb}") {
-            word = verb();
-        } else if (word == "{ingverb}") {
-            word = ingverb();
+    for (auto word : utils::split(Helper::arrayElement(data::phrases))) {
+        auto tok = utils::remove_punctuation(word);
+        if (tok == "{abbreviation}") {
+            tok = abbreviation();
+        } else if (tok == "{adjective}") {
+            tok = adjective();
+        } else if (tok == "{noun}") {
+            tok = noun();
+        } else if (tok == "{verb}") {
+            tok = verb();
+        } else if (tok == "{ingverb}") {
+            tok = ingverb();
         }
-
-        ret += word + " ";
+        result += tok;
+        result += ' ';
     }
 
-    return ret;
+    return result;
 }
 }

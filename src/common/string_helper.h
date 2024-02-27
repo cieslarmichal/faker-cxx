@@ -5,35 +5,34 @@
 #include <string>
 #include <vector>
 
-namespace faker {
-class StringHelper {
-public:
-    static bool compareNoCase(const std::string& str1, const std::string_view& str2);
+namespace faker::utils {
+extern const std::string_view hex_digits;
 
-    static std::vector<std::string> split(
-        const std::string& data, const std::string& separator = " ");
-    static std::string join(
-        const std::vector<std::string>& data, const std::string& separator = " ");
-    static std::string repeat(const std::string& data, int repetition);
-    static std::string toLower(const std::string& data);
-    static bool isPunctuation(char c);
-    static std::string removePunctuation(const std::string& word);
+std::vector<std::string_view> split(std::string_view data, std::string_view sep = " ");
 
-    template <size_t N> static std::string toHex(const std::array<uint8_t, N>& data)
-    {
-        static std::string_view hexDigits { "0123456789abcdef" };
+std::string join(const std::vector<std::string>& data, std::string_view sep = " ");
 
-        std::string result;
-        result.reserve(N * 2);
+std::string repeat(const std::string& data, int repetition);
 
-        for (uint8_t byte : data) {
-            result.push_back(hexDigits[byte >> 4]);
-            result.push_back(hexDigits[byte & 0x0f]);
-        }
+std::string to_lower(const std::string& data);
 
-        return result;
+bool is_punctuation(char c);
+std::string remove_punctuation(std::string_view word);
+
+int to_int(std::string_view str);
+
+template <size_t N> static std::string to_hex(const std::array<uint8_t, N>& data)
+{
+    std::string result;
+    result.reserve(N * 2);
+
+    for (uint8_t byte : data) {
+        result.push_back(hex_digits[byte >> 4]);
+        result.push_back(hex_digits[byte & 0x0f]);
     }
-};
+
+    return result;
+}
 }
 
 #endif

@@ -41,7 +41,7 @@ std::string sentences(unsigned minNumberOfSentences, unsigned maxNumberOfSentenc
         sentences.push_back(sentence());
     }
 
-    return StringHelper::join(sentences, " ");
+    return utils::join(sentences, " ");
 }
 
 std::string slug(unsigned int numberOfWords)
@@ -73,7 +73,7 @@ std::string paragraphs(unsigned int minNumberOfParagraphs, unsigned int maxNumbe
         paragraphs.push_back(paragraph());
     }
 
-    return StringHelper::join(paragraphs, "\n");
+    return utils::join(paragraphs, "\n");
 }
 
 }

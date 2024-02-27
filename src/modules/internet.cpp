@@ -318,7 +318,7 @@ std::string domain_name() { return FormatHelper::format("{}.{}", domain_word(), 
 
 std::string domain_word()
 {
-    return StringHelper::toLower(FormatHelper::format("{}-{}", word::adjective(), word::noun()));
+    return utils::to_lower(FormatHelper::format("{}-{}", word::adjective(), word::noun()));
 }
 
 std::string_view domain_suffix() { return Helper::arrayElement(data::domainSuffixes); }

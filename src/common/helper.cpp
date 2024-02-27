@@ -93,7 +93,7 @@ std::string Helper::regexpStyleStringParse(const std::string& input)
 
         int repetitions = number::integer(min, max);
         string = string.substr(0, static_cast<unsigned long>(token.position()))
-            + StringHelper::repeat(token[1], repetitions)
+            + utils::repeat(token[1], repetitions)
             + string.substr(static_cast<unsigned long>(token.position() + token.length()));
     }
 
@@ -101,7 +101,7 @@ std::string Helper::regexpStyleStringParse(const std::string& input)
     while (std::regex_search(string, token, REP_REG)) {
         int repetitions = std::stoi(token[2]);
         string = string.substr(0, static_cast<unsigned long>(token.position()))
-            + StringHelper::repeat(token[1], repetitions)
+            + utils::repeat(token[1], repetitions)
             + string.substr(static_cast<unsigned long>(token.position() + token.length()));
     }
 

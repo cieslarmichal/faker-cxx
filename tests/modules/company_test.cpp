@@ -14,7 +14,7 @@ TEST(CompanyTest, shouldGenerateCompanyName)
 
     auto companyName = company::name();
 
-    auto companyNameElements = StringHelper::split(companyName, " ");
+    auto companyNameElements = utils::split(companyName, " ");
     if (companyNameElements.size() == 2) {
         auto generatedLastName = companyNameElements[0];
         auto generatedCompanySuffix = companyNameElements[1];

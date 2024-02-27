@@ -21,7 +21,7 @@ TEST(CommerceTest, shouldGeneratePrice)
     auto offset = generatedPrice.size();
     auto priceAsFloat = std::stof(generatedPrice.data(), &offset);
 
-    auto generatedPriceElements = StringHelper::split(generatedPrice, ".");
+    auto generatedPriceElements = utils::split(generatedPrice, ".");
 
     ASSERT_EQ(generatedPriceElements.size(), 2);
     ASSERT_EQ(generatedPriceElements[1].size(), 2);
@@ -57,7 +57,7 @@ TEST(CommerceTest, shouldGenerateProductFullName)
 {
     auto productFullName = commerce::product_full_name();
 
-    auto productFullNameElements = StringHelper::split(productFullName, " ");
+    auto productFullNameElements = utils::split(productFullName, " ");
 
     auto& generatedProductAdjective = productFullNameElements[0];
     auto& generatedProductMaterial = productFullNameElements[1];

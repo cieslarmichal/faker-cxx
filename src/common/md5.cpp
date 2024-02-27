@@ -1,7 +1,7 @@
-#include <array>
-#include <cstdint>
 #include "md5.h"
 #include "string_helper.h"
+#include <array>
+#include <cstdint>
 
 namespace faker::utils {
 namespace {
@@ -163,6 +163,6 @@ namespace {
 
 }
 
-std::string md5(std::string_view message) { return StringHelper::toHex(compute(message)); }
+std::string md5(std::string_view message) { return utils::to_hex(compute(message)); }
 
 }

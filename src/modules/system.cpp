@@ -36,7 +36,7 @@ std::string filename(const FileOptions& options)
                 std::string randomExt = file_ext();
                 randomExtensions.push_back(randomExt);
             }
-            extensionsStr = "." + StringHelper::join(randomExtensions, ".");
+            extensionsStr = "." + utils::join(randomExtensions, ".");
         } else {
             int numExtensions;
             numExtensions = options.extensionRange.min
@@ -47,7 +47,7 @@ std::string filename(const FileOptions& options)
                 randomExtensions.push_back(randomExt);
             }
 
-            extensionsStr = "." + StringHelper::join(randomExtensions, ".");
+            extensionsStr = "." + utils::join(randomExtensions, ".");
         }
     }
     return baseName + extensionsStr;

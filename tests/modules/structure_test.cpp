@@ -63,7 +63,7 @@ TEST(StructureTest, shouldGenerateCSV)
 
     std::getline(dataStream, line);
 
-    auto x = StringHelper::split(line, ",");
+    auto x = utils::split(line, ",");
     std::unordered_set<std::string> keys { x.begin(), x.end() };
 
     ASSERT_TRUE(keys.find("Actor name") != keys.end());

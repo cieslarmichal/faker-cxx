@@ -197,7 +197,7 @@ namespace {
         }
     }
 
-    std::string SHA256::toString() { return StringHelper::toHex(digest()); }
+    std::string SHA256::toString() { return utils::to_hex(digest()); }
 
 }
 

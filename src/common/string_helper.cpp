@@ -1,40 +1,30 @@
 #include "string_helper.h"
 #include <algorithm>
 #include <cctype>
+#include <charconv>
+#include <cstdlib>
 
-namespace faker {
+namespace faker::utils {
 
-bool StringHelper::compareNoCase(const std::string& str1, const std::string_view& str2)
+const std::string_view hex_digits { "0123456789abcdef" };
+
+std::vector<std::string_view> split(std::string_view data, std::string_view separator)
 {
-    if (str1.length() != str2.length()) {
-        return false;
+    std::vector<std::string_view> result;
+    size_t start_pos = 0;
+    size_t pos_end;
+
+    while ((pos_end = data.find(separator, start_pos)) != std::string::npos) {
+        result.push_back(data.substr(start_pos, pos_end - start_pos));
+        start_pos = pos_end + separator.size();
     }
 
-    return std::equal(str1.begin(), str1.end(), str2.begin(),
-        [](char a, char b) { return std::tolower(a) == std::tolower(b); });
-}
-
-std::vector<std::string> StringHelper::split(const std::string& data, const std::string& separator)
-{
-    size_t positionStart = 0;
-    size_t positionEnd;
-    size_t separatorLength = separator.length();
-
-    std::string token;
-    std::vector<std::string> result;
-
-    while ((positionEnd = data.find(separator, positionStart)) != std::string::npos) {
-        token = data.substr(positionStart, positionEnd - positionStart);
-        positionStart = positionEnd + separatorLength;
-        result.push_back(token);
-    }
-
-    result.push_back(data.substr(positionStart));
+    result.push_back(data.substr(start_pos));
 
     return result;
 }
 
-std::string StringHelper::join(const std::vector<std::string>& data, const std::string& separator)
+std::string join(const std::vector<std::string>& data, std::string_view separator)
 {
     switch (data.size()) {
     case 0:
@@ -52,7 +42,7 @@ std::string StringHelper::join(const std::vector<std::string>& data, const std::
     }
 }
 
-std::string StringHelper::repeat(const std::string& data, int repetition)
+std::string repeat(const std::string& data, int repetition)
 {
     std::string result;
     result.reserve(data.size() * repetition);
@@ -64,7 +54,7 @@ std::string StringHelper::repeat(const std::string& data, int repetition)
     return result;
 }
 
-std::string StringHelper::toLower(const std::string& data)
+std::string to_lower(const std::string& data)
 {
     std::string lowerData { data };
 
@@ -74,17 +64,28 @@ std::string StringHelper::toLower(const std::string& data)
     return lowerData;
 }
 
-bool StringHelper::isPunctuation(char c)
+bool is_punctuation(char c)
 {
     return (c == '.' || c == ',' || c == '!' || c == '?' || c == ';' || c == ':');
 }
 
-std::string StringHelper::removePunctuation(const std::string& word)
+std::string remove_punctuation(std::string_view word)
 {
     std::string result { word };
 
-    result.erase(std::remove_if(result.begin(), result.end(), isPunctuation), result.end());
+    result.erase(std::remove_if(result.begin(), result.end(), is_punctuation), result.end());
 
     return result;
 }
+
+int to_int(std::string_view str)
+{
+    int result = 0;
+    auto status = std::from_chars(str.data(), str.data() + str.size(), result);
+    if (status.ec != std::errc()) {
+        throw std::invalid_argument("Invalid number");
+    }
+    return result;
+}
+
 }

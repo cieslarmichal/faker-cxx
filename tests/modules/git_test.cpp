@@ -35,21 +35,21 @@ std::string GitTest::generateShaRegex() { return "[0-9a-fA-F]+"; }
 TEST_F(GitTest, shouldGenerateBranch)
 {
     const auto branch = git::branch();
-    const auto branchSplit = faker::StringHelper::split(branch, "-").size();
+    const auto branchSplit = faker::utils::split(branch, "-").size();
 
     ASSERT_TRUE(2 <= branchSplit && branchSplit <= 7);
 }
 
 TEST_F(GitTest, branchIssueNumTest)
 {
-    auto testValue = unsigned(faker::number::integer(2, 100));
-    std::vector<std::string> branch = faker::StringHelper::split(git::branch(testValue), "-");
+    auto testValue = unsigned(number::integer(2, 100));
+    auto branch = utils::split(git::branch(testValue), "-");
     bool numberAtFront = false;
     int number;
     while (!numberAtFront) {
-        branch = faker::StringHelper::split(git::branch(testValue), "-");
+        branch = utils::split(git::branch(testValue), "-");
         try {
-            number = std::stoi(branch[0]);
+            number = utils::to_int(branch[0]);
             numberAtFront = true;
         } catch (...) {
             continue;

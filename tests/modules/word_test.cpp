@@ -197,9 +197,9 @@ TEST_F(WordTest, shouldGenerateWords)
 {
     const auto generatedWords = word::words(5);
 
-    const auto separatedWords = StringHelper::split(generatedWords, " ");
+    const auto separatedWords = utils::split(generatedWords, " ");
 
-    ASSERT_TRUE(faker::testing::all_of(separatedWords, [this](const std::string& separatedWord) {
+    ASSERT_TRUE(faker::testing::all_of(separatedWords, [this](auto separatedWord) {
         return faker::testing::find(allWords, separatedWord) != allWords.end();
     }));
 }

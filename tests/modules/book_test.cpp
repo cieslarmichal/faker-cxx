@@ -37,7 +37,7 @@ TEST(BookTest, shouldGenerateIsbn)
 {
     auto bookIsbn = book::isbn();
 
-    auto isbnNumbersGroups = StringHelper::split(bookIsbn, "-");
+    auto isbnNumbersGroups = utils::split(bookIsbn, "-");
 
     ASSERT_EQ(bookIsbn.size(), 17);
     ASSERT_EQ(isbnNumbersGroups[0].size(), 3);
