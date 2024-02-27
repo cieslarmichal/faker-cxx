@@ -3,7 +3,7 @@
 
 namespace faker {
 
-std::string FormatHelper::fillTokenValues(
+std::string FormatHelper::fill_token_values(
     std::string_view format, std::function<std::string(std::string_view)> tokenValueGenerator)
 {
     std::string filledFormat;
@@ -26,7 +26,7 @@ std::string FormatHelper::fillTokenValues(
     return filledFormat;
 }
 
-std::string FormatHelper::fillTokenValues(
+std::string FormatHelper::fill_token_values(
     const std::string& format, std::function<std::string(std::string_view)> tokenValueGenerator)
 {
     std::string filledFormat;

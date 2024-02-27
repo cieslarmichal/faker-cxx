@@ -49,7 +49,7 @@ TEST(ImageTest, shouldGenerateDimensions)
 {
     auto dimensions = image::dimensions();
 
-    std::vector<std::string_view> split_dimensions = utils::split(dimensions, "x");
+    auto split_dimensions = utils::split(dimensions, "x");
 
     auto width_dimension = utils::to_int(split_dimensions[0]);
     ASSERT_TRUE(width_dimension >= 1 && width_dimension <= 32720);

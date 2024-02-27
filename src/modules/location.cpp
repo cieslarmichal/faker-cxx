@@ -109,7 +109,7 @@ std::string city(AddressCountry country)
     auto& countryAddresses = countryToCountryAddressesMapping(country);
     auto cityFormat = Helper::arrayElement(countryAddresses.cityFormats);
 
-    return FormatHelper::fillTokenValues(
+    return FormatHelper::fill_token_values(
         cityFormat, [country, countryAddresses](std::string_view token) {
             if (token == "firstName") {
                 return person::first_name(countryAddressToCountryMapping(country));
@@ -139,7 +139,7 @@ std::string street_address(AddressCountry country)
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
     const auto addressFormat = Helper::arrayElement(countryAddresses.addressFormats);
 
-    return FormatHelper::fillTokenValues(addressFormat, [country](std::string_view token) {
+    return FormatHelper::fill_token_values(addressFormat, [country](std::string_view token) {
         if (token == "buildingNumber") {
             return building_number(country);
         } else if (token == "street") {
@@ -157,7 +157,7 @@ std::string street(AddressCountry country)
     const auto& countryAddresses = countryToCountryAddressesMapping(country);
     const auto streetFormat = Helper::arrayElement(countryAddresses.streetFormats);
 
-    return FormatHelper::fillTokenValues(
+    return FormatHelper::fill_token_values(
         streetFormat, [country, countryAddresses](std::string_view token) {
             if (token == "firstName") {
                 return person::first_name(countryAddressToCountryMapping(country));

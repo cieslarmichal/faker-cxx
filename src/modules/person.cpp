@@ -127,7 +127,7 @@ std::string full_name(Country country, std::optional<Sex> sex)
 
     const auto nameFormat = Helper::weightedArrayElement(weightedElements);
 
-    return FormatHelper::fillTokenValues(nameFormat, [country, sex](auto token) {
+    return FormatHelper::fill_token_values(nameFormat, [country, sex](auto token) {
         if (token == "firstName") {
             return first_name(country, sex);
         } else if (token == "middleName") {
@@ -186,7 +186,7 @@ std::string bio()
 {
     const auto randomBioFormat = Helper::arrayElement(data::bioFormats);
 
-    return FormatHelper::fillTokenValues(std::string(randomBioFormat), [](std::string_view token) {
+    return FormatHelper::fill_token_values(std::string(randomBioFormat), [](std::string_view token) {
         if (token == "bio_part") {
             return std::string(Helper::arrayElement(data::bioPart));
         } else if (token == "bio_supporter") {

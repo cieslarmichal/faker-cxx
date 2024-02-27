@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/debug/tests/test_faker",
             "args": [
-                "--gtest_filter=ColorTest.shouldGenerateCmykColor"
+                "--gtest_filter=BioHelperTest.checkFormatToken"
             ],
             "cwd": "${workspaceFolder}/build/debug/tests",
             "environment": [],

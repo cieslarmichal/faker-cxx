@@ -68,8 +68,8 @@ bool BioHelper::checkTokenFormat(const std::string& bio)
     if (std::regex_match(bio, matches, fifthRegex)) {
         // In this case the bio is in the format {noun} {bio_supporter} so check that the value is
         // present in the bio_part vector.
-        if (findBioPart(person::data::bioPart, matches[1])
-            && findBioPart(person::data::bioPart, matches[2])) {
+        if (findBioPart(word::data::nouns, matches[1])
+            && findBioPart(person::data::bioSupporter, matches[2])) {
             return true;
         }
     }

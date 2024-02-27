@@ -8,7 +8,7 @@ TEST(FormatHelperTest, fillFormatTokensData)
 {
     const auto format = "{hello} {faker}-{cxx} {library}";
 
-    const auto result = FormatHelper::fillTokenValues(format, [](std::string_view token) {
+    const auto result = FormatHelper::fill_token_values(format, [](std::string_view token) {
         if (token == "hello") {
             return "library";
         } else if (token == "faker") {
@@ -31,7 +31,7 @@ TEST(FormatHelperTest, givenTokensWithNotDefinedGenerator_shouldThrow)
 {
     const auto format = "{hello} {faker}-{cxx} {library}";
 
-    ASSERT_THROW(FormatHelper::fillTokenValues(format,
+    ASSERT_THROW(FormatHelper::fill_token_values(format,
         [](std::string_view token) {
             if (token == "hello") {
                 return "library";

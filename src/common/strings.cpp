@@ -9,15 +9,15 @@ namespace faker::utils {
 
 const std::string_view hex_digits { "0123456789abcdef" };
 
-std::vector<std::string_view> split(std::string_view data, std::string_view separator)
+std::vector<std::string> split(const std::string& data, std::string_view sep)
 {
-    std::vector<std::string_view> result;
+    std::vector<std::string> result;
     size_t start_pos = 0;
     size_t pos_end;
 
-    while ((pos_end = data.find(separator, start_pos)) != std::string::npos) {
+    while ((pos_end = data.find(sep, start_pos)) != std::string::npos) {
         result.push_back(data.substr(start_pos, pos_end - start_pos));
-        start_pos = pos_end + separator.size();
+        start_pos = pos_end + sep.size();
     }
 
     result.push_back(data.substr(start_pos));
@@ -25,7 +25,23 @@ std::vector<std::string_view> split(std::string_view data, std::string_view sepa
     return result;
 }
 
-std::string join(const std::vector<std::string>& data, std::string_view separator)
+std::vector<std::string_view> split(std::string_view data, std::string_view sep)
+{
+    std::vector<std::string_view> result;
+    size_t start_pos = 0;
+    size_t pos_end;
+
+    while ((pos_end = data.find(sep, start_pos)) != std::string::npos) {
+        result.push_back(data.substr(start_pos, pos_end - start_pos));
+        start_pos = pos_end + sep.size();
+    }
+
+    result.push_back(data.substr(start_pos));
+
+    return result;
+}
+
+std::string join(const std::vector<std::string>& data, std::string_view sep)
 {
     switch (data.size()) {
     case 0:
@@ -35,7 +51,7 @@ std::string join(const std::vector<std::string>& data, std::string_view separato
     default: {
         std::string result { data[0] };
         for (auto it = data.begin() + 1; it != data.end(); ++it) {
-            result += separator;
+            result += sep;
             result += *it;
         }
         return result;
