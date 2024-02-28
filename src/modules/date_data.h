@@ -5,10 +5,10 @@
 #include <string_view>
 
 namespace faker::date::data {
-extern const std::array<std::string_view, 12> monthNames;
-extern const std::array<std::string_view, 12> monthAbbreviatedNames;
-extern const std::array<std::string_view, 7> weekdayNames;
-extern const std::array<std::string_view, 7> weekdayAbbreviatedNames;
+extern const std::array<std::string_view, 12> month_names;
+extern const std::array<std::string_view, 12> month_abbr_names;
+extern const std::array<std::string_view, 7> weekday_names;
+extern const std::array<std::string_view, 7> weekday_abbr_names;
 }
 
 #endif

@@ -57,7 +57,7 @@ std::string commit_date(unsigned years)
     }
 
     return utils::format("{} {} {} {} {} {}", date::weekday_abbr_name(),
-        date::data::monthAbbreviatedNames[size_t(utils::to_int(month) - 1)], day, time, year,
+        date::data::month_abbr_names[size_t(utils::to_int(month) - 1)], day, time, year,
         timeZoneString);
 }
 

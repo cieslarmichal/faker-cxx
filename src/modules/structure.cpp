@@ -199,23 +199,23 @@ std::string moduleFunction(StructureToken token)
     case StructureToken::DatePastDateISO:
         return date::past();
     case StructureToken::DatePastDateTimestamp:
-        return date::past(1, date::DateFormat::Timestamp);
+        return date::past(1, date::date_format::timestamp);
     case StructureToken::DatefutureDateISO:
         return date::future();
     case StructureToken::DatefutureDateTimestamp:
-        return date::future(1, date::DateFormat::Timestamp);
+        return date::future(1, date::date_format::timestamp);
     case StructureToken::DateRecentDateISO:
         return date::recent();
     case StructureToken::DateRecentDateTimestamp:
-        return date::recent(3, date::DateFormat::Timestamp);
+        return date::recent(3, date::date_format::timestamp);
     case StructureToken::DateSoonDateISO:
         return date::soon();
     case StructureToken::DateSoonDateTimestamp:
-        return date::soon(3, date::DateFormat::Timestamp);
+        return date::soon(3, date::date_format::timestamp);
     case StructureToken::DateBirthdateByAgeISO:
         return date::birthdate_by_age();
     case StructureToken::DateBirthdateByYearTimestamp:
-        return date::birthdate_by_year(1920, 2000, date::DateFormat::Timestamp);
+        return date::birthdate_by_year(1920, 2000, date::date_format::timestamp);
     case StructureToken::DateWeekdayName:
         return std::string(date::weekday_name());
     case StructureToken::DateWeekdayAbbreviatedName:

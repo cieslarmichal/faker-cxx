@@ -6,7 +6,7 @@
 
 namespace faker::random {
 std::random_device randomDevice;
-std::mt19937 random_engine(randomDevice());
+std::mt19937_64 random_engine(randomDevice());
 
 bool boolean(double prob)
 {
@@ -50,6 +50,22 @@ unsigned long integer(unsigned long min, unsigned long max)
     assert(min <= max && "Minimum value must be smaller than maximum value.");
 
     std::uniform_int_distribution<unsigned long> distribution(min, max);
+    return distribution(random_engine);
+}
+
+long long integer(long long min, long long max)
+{
+    assert(min <= max && "Minimum value must be smaller than maximum value.");
+
+    std::uniform_int_distribution<long long> distribution(min, max);
+    return distribution(random_engine);
+}
+
+unsigned long long integer(unsigned long long min, unsigned long long max)
+{
+    assert(min <= max && "Minimum value must be smaller than maximum value.");
+
+    std::uniform_int_distribution<unsigned long long> distribution(min, max);
     return distribution(random_engine);
 }
 

@@ -74,6 +74,9 @@
         "memory_resource": "cpp",
         "version": "cpp",
         "random": "cpp",
-        "source_location": "cpp"
+        "source_location": "cpp",
+        "chrono": "cpp",
+        "bit": "cpp",
+        "memory": "cpp"
     }
 }

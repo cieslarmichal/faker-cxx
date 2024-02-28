@@ -22,6 +22,8 @@ int integer(int min, int max);
 unsigned integer(unsigned min, unsigned max);
 long integer(long min, long max);
 unsigned long integer(unsigned long min, unsigned long max);
+long long integer(long long min, long long max);
+unsigned long long integer(long long min, unsigned long long max);
 
 /**
  * @brief Generates a random integer between 0 and the given maximum value, bounds included.
@@ -36,13 +38,7 @@ unsigned long integer(unsigned long min, unsigned long max);
  *
  * @return T a random integer number
  */
-inline int integer(int max) { return integer(0, max); }
-
-inline unsigned integer(unsigned max) { return integer(0U, max); }
-
-inline long integer(long max) { return integer(0L, max); }
-
-inline unsigned long integer(unsigned long max) { return integer(0UL, max); }
+template <typename T> inline T integer(T max) { return integer(static_cast<T>(0), max); }
 
 /**
  * @brief Generates a random decimal number in the given range, bounds included.
@@ -74,9 +70,7 @@ double decimal(double min, double max);
  *
  * @return F, a random decimal number.
  */
-inline float decimal(float max) { return decimal(0.0f, max); }
-
-inline double decimal(double max) { return decimal(0.0, max); }
+template <typename T> inline T decimal(T max) { return decimal(static_cast<T>(0), max); }
 
 /**
  * @brief Returns a lowercase hexadecimal number.

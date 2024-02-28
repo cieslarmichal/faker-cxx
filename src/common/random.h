@@ -11,7 +11,7 @@
 #include <vector>
 
 namespace faker::random {
-extern std::mt19937 random_engine;
+extern std::mt19937_64 random_engine;
 
 bool boolean(double probab);
 
@@ -19,6 +19,8 @@ int integer(int min, int max);
 unsigned integer(unsigned min, unsigned max);
 long integer(long min, long max);
 unsigned long integer(unsigned long min, unsigned long max);
+long long integer(long long min, long long max);
+unsigned long long integer(unsigned long long min, unsigned long long max);
 float decimal(float min, float max);
 double decimal(double min, double max);
 
