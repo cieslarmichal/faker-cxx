@@ -2,9 +2,9 @@
 #define FAKER_TYPES_HEX_H
 
 namespace faker {
-enum class HexCasing { Lower, Upper };
+enum class hex_case { lower, upper };
 
-enum class HexPrefix { ZeroX, Hash, None };
+enum class hex_prefix { zero_x, hash, none };
 }
 
 #endif

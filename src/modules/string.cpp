@@ -9,14 +9,14 @@
 
 namespace faker::string {
 
-std::string_view hexPrefixToStringMapping(HexPrefix prefix)
+std::string_view hexPrefixToStringMapping(hex_prefix prefix)
 {
     switch (prefix) {
-    case HexPrefix::ZeroX:
+    case hex_prefix::zero_x:
         return "0x";
-    case HexPrefix::Hash:
+    case hex_prefix::hash:
         return "#";
-    case HexPrefix::None:
+    case hex_prefix::none:
         return "";
     default:
         assert(false && "Invalid hex prefix");
@@ -327,7 +327,7 @@ std::string numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowL
     }
 }
 
-std::string hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
+std::string hexadecimal(unsigned int length, hex_case casing, hex_prefix prefix)
 {
     auto hexadecimalPrefix = hexPrefixToStringMapping(prefix);
 
@@ -336,12 +336,12 @@ std::string hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
     hexadecimal += hexadecimalPrefix;
 
     switch (casing) {
-    case HexCasing::Lower:
+    case hex_case::lower:
         for (unsigned i = 0; i < length; i++) {
             hexadecimal += random::element(data::hexLowerCharacters);
         }
         break;
-    case HexCasing::Upper:
+    case hex_case::upper:
         for (unsigned i = 0; i < length; i++) {
             hexadecimal += random::element(data::hexUpperCharacters);
         }
@@ -354,11 +354,11 @@ std::string hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
 }
 
 std::string hexadecimal(
-    GuaranteeMap&& guarantee, unsigned int length, HexCasing casing, HexPrefix prefix)
+    GuaranteeMap&& guarantee, unsigned int length, hex_case casing, hex_prefix prefix)
 {
-    static const std::unordered_map<HexCasing, std::unordered_set<char>> hexCasingToCharSetMapping {
-        { HexCasing::Lower, data::hexLowerCharSet },
-        { HexCasing::Upper, data::hexUpperCharSet },
+    static const std::unordered_map<hex_case, std::unordered_set<char>> hexCasingToCharSetMapping {
+        { hex_case::lower, data::hexLowerCharSet },
+        { hex_case::upper, data::hexUpperCharSet },
     };
 
     std::unordered_set<char> targetCharacters = hexCasingToCharSetMapping.at(casing);

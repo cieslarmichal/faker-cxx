@@ -33,18 +33,18 @@ std::string rgb(bool include_alpha = false);
 /**
  * @brief Returns a hex color.
  *
- * @param casing Casing of the generated string. Defaults to `HexCasing::Lower`.
- * @param prefix Prefix for the generated string. Defaults to `HexPrefix::ZeroX`.
+ * @param casing Casing of the generated string. Defaults to `hex_case::lower`.
+ * @param prefix Prefix for the generated string. Defaults to `hex_prefix::zero_x`.
  * @param include_alpha Adds an alpha value to the color. Defaults to `false`.
  *
  * @returns Hex color formatted that starts with `0x` or `#`.
  *
  * @code
  * color::hex() // "#e3f380"
- * color::hex(HexCasing::Upper, HexPrefix::ZeroX, true) // "0xE3F3801A"
+ * color::hex(hex_case::upper, hex_prefix::zero_x, true) // "0xE3F3801A"
  * @endcode
  */
-std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash,
+std::string hex(hex_case casing = hex_case::lower, hex_prefix prefix = hex_prefix::hash,
     bool include_alpha = false);
 
 /**

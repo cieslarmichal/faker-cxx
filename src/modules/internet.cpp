@@ -277,10 +277,10 @@ std::string ipv6()
     std::string result;
     result.reserve(39);
 
-    result += string::hexadecimal(4, HexCasing::Lower, HexPrefix::None);
+    result += string::hexadecimal(4, hex_case::lower, hex_prefix::none);
     for (size_t i = 0; i < 7; ++i) {
         result += ':';
-        result += string::hexadecimal(4, HexCasing::Lower, HexPrefix::None);
+        result += string::hexadecimal(4, hex_case::lower, hex_prefix::none);
     }
 
     return result;
