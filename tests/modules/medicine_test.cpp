@@ -8,14 +8,14 @@ TEST(MedicineTest, shouldGenerateMedicalCondition)
 {
     auto generatedMedicalCondition = medicine::condition();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(medicine::data::medicalConditions, generatedMedicalCondition);
+    FAKER_EXPECT_CONTAINER_CONTAINS(medicine::data::medical_conditions, generatedMedicalCondition);
 }
 
 TEST(MedicineTest, shouldGenerateMedicalTest)
 {
     auto generatedMedicalTest = medicine::medical_test();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(medicine::data::medicalTests, generatedMedicalTest);
+    FAKER_EXPECT_CONTAINER_CONTAINS(medicine::data::medical_tests, generatedMedicalTest);
 }
 
 TEST(MedicineTest, shouldGenerateSpecialty)

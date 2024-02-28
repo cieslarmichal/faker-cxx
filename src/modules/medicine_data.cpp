@@ -1,7 +1,7 @@
 #include "medicine_data.h"
 
 namespace faker::medicine::data {
-const std::array<std::string_view, 59> medicalConditions = {
+const std::array<std::string_view, 59> medical_conditions = {
     "AIDS",
     "Anorexia Nervosa",
     "Arthritis, Juvenile Rheumatoid",
@@ -63,7 +63,7 @@ const std::array<std::string_view, 59> medicalConditions = {
     "Ulcers, Stomach or Intestinal",
 };
 
-const std::array<std::string_view, 35> medicalTests = {
+const std::array<std::string_view, 35> medical_tests = {
     "abdominal palpation",
     "cardiac auscultation",
     "HEENT examination",
