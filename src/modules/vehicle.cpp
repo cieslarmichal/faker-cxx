@@ -23,7 +23,7 @@ std::string vehicle() { return utils::format("{} {}", manufacturer(), model()); 
 
 std::string vin()
 {
-    std::string exclude_characters { "oiqOIQ" };
+    static const std::string exclude_characters { "oiqOIQ" };
 
     return utils::format("{}{}{}{}",
         string::alphanumeric(10, string::string_case::upper, exclude_characters),
