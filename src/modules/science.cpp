@@ -7,18 +7,18 @@ namespace faker::science {
 namespace {
     std::vector<unit_info> merge_all_units()
     {
-        std::vector<unit_info> units;
+        std::vector<unit_info> result;
 
-        units.reserve(data::distance_units.size() + data::mass_units.size()
+        result.reserve(data::distance_units.size() + data::mass_units.size()
             + data::time_units.size() + data::current_units.size()
             + data::temperature_units.size());
-        units.insert(units.end(), data::distance_units.begin(), data::distance_units.end());
-        units.insert(units.end(), data::mass_units.begin(), data::mass_units.end());
-        units.insert(units.end(), data::time_units.begin(), data::time_units.end());
-        units.insert(units.end(), data::current_units.begin(), data::current_units.end());
-        units.insert(units.end(), data::temperature_units.begin(), data::temperature_units.end());
+        result.insert(result.end(), data::distance_units.begin(), data::distance_units.end());
+        result.insert(result.end(), data::mass_units.begin(), data::mass_units.end());
+        result.insert(result.end(), data::time_units.begin(), data::time_units.end());
+        result.insert(result.end(), data::current_units.begin(), data::current_units.end());
+        result.insert(result.end(), data::temperature_units.begin(), data::temperature_units.end());
 
-        return units;
+        return result;
     }
 
     const std::vector<unit_info> all_units = merge_all_units();
