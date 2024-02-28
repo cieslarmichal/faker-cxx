@@ -16,18 +16,17 @@ using namespace faker;
 namespace {
 const std::string passwordCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456"
                                        "789~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/";
-const std::vector<std::string> webProtocols { "http", "https" };
-const std::vector<std::string> httpMethodNames { "GET", "POST", "DELETE", "PATCH", "PUT" };
-const std::vector<unsigned> httpStatusInformationalCodes { 100, 101, 102, 103 };
-const std::vector<unsigned> httpStatusSuccessCodes { 200, 201, 202, 203, 204, 205, 206, 207, 208,
+const std::vector<std::string> web_protocols { "http", "https" };
+const std::vector<std::string> http_method_names { "GET", "POST", "DELETE", "PATCH", "PUT" };
+const std::vector<unsigned> http_status_codes_1xx { 100, 101, 102, 103 };
+const std::vector<unsigned> http_status_codes_2xx { 200, 201, 202, 203, 204, 205, 206, 207, 208,
     226 };
-const std::vector<unsigned> httpStatusRedirectionCodes { 300, 301, 302, 303, 304, 305, 306, 307,
-    308 };
-const std::vector<unsigned> httpStatusClientErrorCodes { 400, 401, 402, 403, 404, 405, 406, 407,
-    408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 421, 422, 423, 424, 425, 426, 428, 429,
-    431, 451 };
-const std::vector<unsigned> httpStatusServerErrorCodes { 500, 501, 502, 503, 504, 505, 506, 507,
-    508, 510, 511 };
+const std::vector<unsigned> http_status_codes_3xx { 300, 301, 302, 303, 304, 305, 306, 307, 308 };
+const std::vector<unsigned> http_status_codes_4xx { 400, 401, 402, 403, 404, 405, 406, 407, 408,
+    409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 421, 422, 423, 424, 425, 426, 428, 429, 431,
+    451 };
+const std::vector<unsigned> http_status_codes_5xx { 500, 501, 502, 503, 504, 505, 506, 507, 508,
+    510, 511 };
 constexpr unsigned int classAFirstSection = 10u;
 constexpr unsigned int classBFirstSection = 172u;
 constexpr unsigned int classBSecondSectionLowerBound = 16;
@@ -185,7 +184,7 @@ TEST_F(InternetTest, shouldGenerateEmail)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::emailHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::email_hosts, generatedEmailHost);
     ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedUsername](const auto& firstName) {
         return generatedUsername.find(firstName) != std::string::npos;
     }));
@@ -208,7 +207,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::emailHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::email_hosts, generatedEmailHost);
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(faker::testing::any_of(
         person::data::englishLastNames, [generatedUsername](const auto& lastName) {
@@ -235,7 +234,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::emailHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::email_hosts, generatedEmailHost);
     ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedUsername](auto firstName) {
         return generatedUsername.find(firstName) != std::string::npos;
     }));
@@ -263,7 +262,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::emailHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::email_hosts, generatedEmailHost);
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
 }
@@ -314,7 +313,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmail)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::emailExampleHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::email_example_hosts, generatedEmailHost);
     ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedUsername](auto firstName) {
         return generatedUsername.find(firstName) != std::string::npos;
     }));
@@ -337,7 +336,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::emailExampleHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::email_example_hosts, generatedEmailHost);
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(
         faker::testing::any_of(person::data::englishLastNames, [generatedUsername](auto lastName) {
@@ -364,7 +363,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::emailExampleHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::email_example_hosts, generatedEmailHost);
     ASSERT_TRUE(faker::testing::any_of(firstNames, [generatedUsername](auto firstName) {
         return generatedUsername.find(firstName) != std::string::npos;
     }));
@@ -392,7 +391,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::emailExampleHosts, generatedEmailHost);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::email_example_hosts, generatedEmailHost);
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
 }
@@ -426,111 +425,111 @@ TEST_F(InternetTest, shouldGenerateEmoji)
     std::vector<std::string_view> emojis;
 
     emojis.insert(
-        emojis.end(), internet::data::smileyEmojis.begin(), internet::data::smileyEmojis.end());
+        emojis.end(), internet::data::smiley_emojis.begin(), internet::data::smiley_emojis.end());
     emojis.insert(
-        emojis.end(), internet::data::bodyEmojis.begin(), internet::data::bodyEmojis.end());
+        emojis.end(), internet::data::body_emojis.begin(), internet::data::body_emojis.end());
     emojis.insert(
-        emojis.end(), internet::data::personEmojis.begin(), internet::data::personEmojis.end());
+        emojis.end(), internet::data::person_emojis.begin(), internet::data::person_emojis.end());
     emojis.insert(
-        emojis.end(), internet::data::natureEmojis.begin(), internet::data::natureEmojis.end());
+        emojis.end(), internet::data::nature_emojis.begin(), internet::data::nature_emojis.end());
     emojis.insert(
-        emojis.end(), internet::data::foodEmojis.begin(), internet::data::foodEmojis.end());
+        emojis.end(), internet::data::food_emojis.begin(), internet::data::food_emojis.end());
     emojis.insert(
-        emojis.end(), internet::data::travelEmojis.begin(), internet::data::travelEmojis.end());
+        emojis.end(), internet::data::travel_emojis.begin(), internet::data::travel_emojis.end());
+    emojis.insert(emojis.end(), internet::data::activity_emojis.begin(),
+        internet::data::activity_emojis.end());
     emojis.insert(
-        emojis.end(), internet::data::activityEmojis.begin(), internet::data::activityEmojis.end());
+        emojis.end(), internet::data::object_emojis.begin(), internet::data::object_emojis.end());
     emojis.insert(
-        emojis.end(), internet::data::objectEmojis.begin(), internet::data::objectEmojis.end());
+        emojis.end(), internet::data::symbol_emojis.begin(), internet::data::symbol_emojis.end());
     emojis.insert(
-        emojis.end(), internet::data::symbolEmojis.begin(), internet::data::symbolEmojis.end());
-    emojis.insert(
-        emojis.end(), internet::data::flagEmojis.begin(), internet::data::flagEmojis.end());
+        emojis.end(), internet::data::flag_emojis.begin(), internet::data::flag_emojis.end());
 
     FAKER_EXPECT_CONTAINER_CONTAINS(emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateSmileyEmoji)
 {
-    const auto generatedEmoji = internet::emoji(internet::EmojiType::Smiley);
+    const auto generatedEmoji = internet::emoji(internet::emoji_type::smiley);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::smileyEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::smiley_emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateBodyEmoji)
 {
-    const auto generatedEmoji = internet::emoji(internet::EmojiType::Body);
+    const auto generatedEmoji = internet::emoji(internet::emoji_type::body);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::bodyEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::body_emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGeneratePersonEmoji)
 {
-    const auto generatedEmoji = internet::emoji(internet::EmojiType::Person);
+    const auto generatedEmoji = internet::emoji(internet::emoji_type::person);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::personEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::person_emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateNatureEmoji)
 {
-    const auto generatedEmoji = internet::emoji(internet::EmojiType::Nature);
+    const auto generatedEmoji = internet::emoji(internet::emoji_type::nature);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::natureEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::nature_emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateFoodEmoji)
 {
-    const auto generatedEmoji = internet::emoji(internet::EmojiType::Food);
+    const auto generatedEmoji = internet::emoji(internet::emoji_type::food);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::foodEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::food_emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateTravelEmoji)
 {
-    const auto generatedEmoji = internet::emoji(internet::EmojiType::Travel);
+    const auto generatedEmoji = internet::emoji(internet::emoji_type::travel);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::travelEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::travel_emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateActivityEmoji)
 {
-    const auto generatedEmoji = internet::emoji(internet::EmojiType::Activity);
+    const auto generatedEmoji = internet::emoji(internet::emoji_type::activity);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::activityEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::activity_emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateObjectEmoji)
 {
-    const auto generatedEmoji = internet::emoji(internet::EmojiType::Object);
+    const auto generatedEmoji = internet::emoji(internet::emoji_type::object);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::objectEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::object_emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateSymbolEmoji)
 {
-    const auto generatedEmoji = internet::emoji(internet::EmojiType::Symbol);
+    const auto generatedEmoji = internet::emoji(internet::emoji_type::symbol);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::symbolEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::symbol_emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateFlagEmoji)
 {
-    const auto generatedEmoji = internet::emoji(internet::EmojiType::Flag);
+    const auto generatedEmoji = internet::emoji(internet::emoji_type::flag);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::flagEmojis, generatedEmoji);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::flag_emojis, generatedEmoji);
 }
 
 TEST_F(InternetTest, shouldGenerateProtocol)
 {
     const auto webProtocol = internet::protocol();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(webProtocols, webProtocol);
+    FAKER_EXPECT_CONTAINER_CONTAINS(web_protocols, webProtocol);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpMethod)
 {
     const auto generatedHttpMethod = internet::http_method();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(httpMethodNames, generatedHttpMethod);
+    FAKER_EXPECT_CONTAINER_CONTAINS(http_method_names, generatedHttpMethod);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpStatusCode)
@@ -538,16 +537,16 @@ TEST_F(InternetTest, shouldGenerateHttpStatusCode)
     const auto generatedHttpStatusCode = internet::http_status_code();
 
     std::vector<unsigned> statusCodes;
-    statusCodes.insert(statusCodes.end(), httpStatusInformationalCodes.begin(),
-        httpStatusInformationalCodes.end());
     statusCodes.insert(
-        statusCodes.end(), httpStatusSuccessCodes.begin(), httpStatusSuccessCodes.end());
+        statusCodes.end(), http_status_codes_1xx.begin(), http_status_codes_1xx.end());
     statusCodes.insert(
-        statusCodes.end(), httpStatusRedirectionCodes.begin(), httpStatusRedirectionCodes.end());
+        statusCodes.end(), http_status_codes_2xx.begin(), http_status_codes_2xx.end());
     statusCodes.insert(
-        statusCodes.end(), httpStatusClientErrorCodes.begin(), httpStatusClientErrorCodes.end());
+        statusCodes.end(), http_status_codes_3xx.begin(), http_status_codes_3xx.end());
     statusCodes.insert(
-        statusCodes.end(), httpStatusServerErrorCodes.begin(), httpStatusServerErrorCodes.end());
+        statusCodes.end(), http_status_codes_4xx.begin(), http_status_codes_4xx.end());
+    statusCodes.insert(
+        statusCodes.end(), http_status_codes_5xx.begin(), http_status_codes_5xx.end());
 
     FAKER_EXPECT_CONTAINER_CONTAINS(statusCodes, generatedHttpStatusCode);
 }
@@ -556,7 +555,8 @@ TEST_F(InternetTest, shouldGenerateHttpRequestHeader)
 {
     const auto generatedHttpRequestHeader = internet::http_request_header();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::httpRequestHeaders, generatedHttpRequestHeader);
+    FAKER_EXPECT_CONTAINER_CONTAINS(
+        internet::data::http_request_headers, generatedHttpRequestHeader);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
@@ -564,59 +564,59 @@ TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
     const auto generatedHttpResponseHeader = internet::http_response_header();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
-        internet::data::httpResponseHeaders, generatedHttpResponseHeader);
+        internet::data::http_response_headers, generatedHttpResponseHeader);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpMediaType)
 {
     const auto generatedHttpMediaType = internet::http_media_type();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::httpMediaTypes, generatedHttpMediaType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::http_media_types, generatedHttpMediaType);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpInformationalSuccessCode)
 {
     const auto generatedHttpStatusCode
-        = internet::http_status_code(internet::HttpResponseType::Informational);
+        = internet::http_status_code(internet::http_response_type::informational);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(httpStatusInformationalCodes, generatedHttpStatusCode);
+    FAKER_EXPECT_CONTAINER_CONTAINS(http_status_codes_1xx, generatedHttpStatusCode);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpStatusSuccessCode)
 {
     const auto generatedHttpStatusCode
-        = internet::http_status_code(internet::HttpResponseType::Success);
+        = internet::http_status_code(internet::http_response_type::success);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(httpStatusSuccessCodes, generatedHttpStatusCode);
+    FAKER_EXPECT_CONTAINER_CONTAINS(http_status_codes_2xx, generatedHttpStatusCode);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpStatusRedirectionCode)
 {
     const auto generatedHttpStatusCode
-        = internet::http_status_code(internet::HttpResponseType::Redirection);
+        = internet::http_status_code(internet::http_response_type::redirection);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(httpStatusRedirectionCodes, generatedHttpStatusCode);
+    FAKER_EXPECT_CONTAINER_CONTAINS(http_status_codes_3xx, generatedHttpStatusCode);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpStatusClientErrorCode)
 {
     const auto generatedHttpStatusCode
-        = internet::http_status_code(internet::HttpResponseType::ClientError);
+        = internet::http_status_code(internet::http_response_type::client_error);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(httpStatusClientErrorCodes, generatedHttpStatusCode);
+    FAKER_EXPECT_CONTAINER_CONTAINS(http_status_codes_4xx, generatedHttpStatusCode);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpStatusServerErrorCode)
 {
     const auto generatedHttpStatusCode
-        = internet::http_status_code(internet::HttpResponseType::ServerError);
+        = internet::http_status_code(internet::http_response_type::server_error);
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(httpStatusServerErrorCodes, generatedHttpStatusCode);
+    FAKER_EXPECT_CONTAINER_CONTAINS(http_status_codes_5xx, generatedHttpStatusCode);
 }
 
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassAAddress)
 {
-    const auto generatedIpv4 = internet::ipv4(internet::IPv4Class::A);
+    const auto generatedIpv4 = internet::ipv4(internet::ipv4_class::a);
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
 
     ASSERT_EQ(addressSectors[0], classAFirstSection);
@@ -624,7 +624,7 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassAAddress)
 
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassBAddress)
 {
-    const auto generatedIpv4 = internet::ipv4(internet::IPv4Class::B);
+    const auto generatedIpv4 = internet::ipv4(internet::ipv4_class::b);
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
 
     ASSERT_EQ(addressSectors[0], classBFirstSection);
@@ -634,7 +634,7 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassBAddress)
 
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassCAddress)
 {
-    const auto generatedIpv4 = internet::ipv4(internet::IPv4Class::C);
+    const auto generatedIpv4 = internet::ipv4(internet::ipv4_class::c);
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
 
     ASSERT_EQ(addressSectors[0], classCFirstSection);
@@ -691,7 +691,7 @@ TEST_F(InternetTest, shouldGenerateDomainSuffix)
 {
     const auto generatedDomainSuffix = internet::domain_suffix();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::domainSuffixes, generatedDomainSuffix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::domain_suffixes, generatedDomainSuffix);
 }
 
 TEST_F(InternetTest, shouldGenerateDomainWord)
@@ -711,7 +711,7 @@ TEST_F(InternetTest, shouldGenerateDomainName)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::domainSuffixes, generatedDomainSuffix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::domain_suffixes, generatedDomainSuffix);
 }
 
 TEST_F(InternetTest, shouldGenerateHttpsUrl)
@@ -729,13 +729,13 @@ TEST_F(InternetTest, shouldGenerateHttpsUrl)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::domainSuffixes, generatedDomainSuffix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::domain_suffixes, generatedDomainSuffix);
     ASSERT_EQ(generatedProtocol, "https");
 }
 
 TEST_F(InternetTest, shouldGenerateHttpUrl)
 {
-    const auto generatedUrl = internet::url(internet::WebProtocol::Http);
+    const auto generatedUrl = internet::url(internet::web_protocol::http);
 
     const auto generatedUrlParts = utils::split(generatedUrl, "://");
 
@@ -748,7 +748,7 @@ TEST_F(InternetTest, shouldGenerateHttpUrl)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::domainSuffixes, generatedDomainSuffix);
+    FAKER_EXPECT_CONTAINER_CONTAINS(internet::data::domain_suffixes, generatedDomainSuffix);
     ASSERT_EQ(generatedProtocol, "http");
 }
 
