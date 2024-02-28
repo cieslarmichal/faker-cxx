@@ -22,7 +22,7 @@ TEST(MovieTest, shouldGenerateTvShow)
 {
     auto generatedTvShow = movie::tv_show();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(movie::data::tvShows, generatedTvShow);
+    FAKER_EXPECT_CONTAINER_CONTAINS(movie::data::tv_shows, generatedTvShow);
 }
 
 TEST(MovieTest, shouldGenerateDirector)

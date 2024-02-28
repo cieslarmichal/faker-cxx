@@ -7,7 +7,7 @@ std::string_view genre() { return random::element(data::genres); }
 
 std::string_view movie_title() { return random::element(data::movies); }
 
-std::string_view tv_show() { return random::element(data::tvShows); }
+std::string_view tv_show() { return random::element(data::tv_shows); }
 
 std::string_view director() { return random::element(data::directors); }
 

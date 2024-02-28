@@ -261,7 +261,7 @@ const std::array<std::string_view, 250> movies = { "The Shawshank Redemption", "
     "Tenkû no shiro Rapyuta", "Yeopgijeogin geunyeo", "Mulholland Dr.",
     "The Man Who Shot Liberty Valance" };
 
-const std::array<std::string_view, 122> tvShows = { "Planet Earth II", "Breaking Bad",
+const std::array<std::string_view, 122> tv_shows = { "Planet Earth II", "Breaking Bad",
     "Planet Earth", "Band of Brothers", "Chernobyl", "The Wire", "Blue Planet II",
     "Avatar: The Last Airbender", "Cosmos: A Spacetime Odyssey", "The Sopranos", "Our Planet",
     "Cosmos", "Game of Thrones", "Rick and Morty", "The World at War",
