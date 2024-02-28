@@ -1,12 +1,12 @@
 #ifndef FAKER_RANDOM_H
 #define FAKER_RANDOM_H
 
-#include <tcb/span.hpp>
 #include <algorithm>
 #include <array>
 #include <random>
 #include <stdexcept>
 #include <string>
+#include <tcb/span.hpp>
 #include <unordered_set>
 #include <vector>
 

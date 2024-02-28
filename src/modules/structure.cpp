@@ -39,21 +39,21 @@ std::string moduleFunction(StructureToken token)
     switch (token) {
     // Airline module
     case StructureToken::AirlineAircraftType:
-        return std::string(airline::aircraft_type());
+        return std::string(airline::aircraft_type_name());
     case StructureToken::AirlineAirplaneName:
         return std::string(airline::airplane().name);
     case StructureToken::AirlineAirplaneCode:
-        return std::string(airline::airplane().iataTypeCode);
+        return std::string(airline::airplane().iata_type_code);
     case StructureToken::AirlineAirlineName:
         return std::string(airline::airline().name);
     case StructureToken::AirlineAirlineCode:
-        return std::string(airline::airline().iataCode);
+        return std::string(airline::airline().iata_code);
     case StructureToken::AirlineAirportName:
         return std::string(airline::airport().name);
     case StructureToken::AirlineAirportCode:
-        return std::string(airline::airport().iataCode);
+        return std::string(airline::airport().iata_code);
     case StructureToken::AirlineSeat:
-        return airline::seat(airline::AircraftType());
+        return airline::seat(airline::aircraft_type());
     case StructureToken::AirlineRecordLocator:
         return airline::record_locator();
     case StructureToken::AirlineFlightNumber:

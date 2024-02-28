@@ -6,12 +6,12 @@
 #include <unordered_map>
 
 namespace faker::airline::data {
-extern const std::array<std::string_view, 3> aircraftTypes;
-extern const std::array<AirlineStruct, 125> airlines;
-extern const std::array<Airplane, 155> airplanes;
-extern const std::array<Airport, 119> airports;
-extern const std::unordered_map<AircraftType, int> aircraftTypeMaxRows;
-extern const std::unordered_map<AircraftType, std::string_view> aircraftTypeSeatLetters;
+extern const std::array<std::string_view, 3> aircraft_types;
+extern const std::array<airline_info, 125> airlines;
+extern const std::array<airplane_info, 155> airplanes;
+extern const std::array<airport_info, 119> airports;
+extern const std::unordered_map<aircraft_type, int> aircraft_type_max_rows;
+extern const std::unordered_map<aircraft_type, std::string_view> aircraft_type_seat_letters;
 }
 
 #endif

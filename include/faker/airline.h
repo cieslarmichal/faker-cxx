@@ -4,59 +4,59 @@
 #include <string>
 
 namespace faker::airline {
-enum class AircraftType {
-    Regional,
-    Narrowbody,
-    Widebody,
+/**
+ * @brief Enumeration representing different types of aircraft.
+ */
+enum class aircraft_type {
+    regional,
+    narrow_body,
+    wide_body,
 };
 
-struct Airplane {
+/**
+ * @brief Contains basic information about an airplane.
+ */
+struct airplane_info {
     std::string_view name;
-    std::string_view iataTypeCode;
+    std::string_view iata_type_code;
 };
 
-inline bool operator==(const Airplane& lhs, const Airplane& rhs)
+inline bool operator==(const airplane_info& lhs, const airplane_info& rhs)
 {
-    return lhs.name == rhs.name && lhs.iataTypeCode == rhs.iataTypeCode;
+    return lhs.name == rhs.name && lhs.iata_type_code == rhs.iata_type_code;
 }
 
-inline bool operator!=(const Airplane& lhs, const Airplane& rhs) { return !(lhs == rhs); }
+inline bool operator!=(const airplane_info& lhs, const airplane_info& rhs) { return !(lhs == rhs); }
 
-struct Airport {
+/**
+ * @brief Contains basic information about an airport.
+ */
+struct airport_info {
     std::string_view name;
-    std::string_view iataCode;
+    std::string_view iata_code;
 };
 
-inline bool operator==(const Airport& lhs, const Airport& rhs)
+inline bool operator==(const airport_info& lhs, const airport_info& rhs)
 {
-    return lhs.name == rhs.name && lhs.iataCode == rhs.iataCode;
+    return lhs.name == rhs.name && lhs.iata_code == rhs.iata_code;
 }
 
-inline bool operator!=(const Airport& lhs, const Airport& rhs) { return !(lhs == rhs); }
+inline bool operator!=(const airport_info& lhs, const airport_info& rhs) { return !(lhs == rhs); }
 
-struct Range {
-    unsigned int min;
-    unsigned int max;
-};
-
-inline bool operator==(const Range& lhs, const Range& rhs)
-{
-    return lhs.min == rhs.min && lhs.max == rhs.max;
-}
-
-inline bool operator!=(const Range& lhs, const Range& rhs) { return !(lhs == rhs); }
-
-struct AirlineStruct {
+/**
+ * @brief Contains basic information about an airline.
+ */
+struct airline_info {
     std::string_view name;
-    std::string_view iataCode;
+    std::string_view iata_code;
 };
 
-inline bool operator==(const AirlineStruct& lhs, const AirlineStruct& rhs)
+inline bool operator==(const airline_info& lhs, const airline_info& rhs)
 {
-    return lhs.name == rhs.name && lhs.iataCode == rhs.iataCode;
+    return lhs.name == rhs.name && lhs.iata_code == rhs.iata_code;
 }
 
-inline bool operator!=(const AirlineStruct& lhs, const AirlineStruct& rhs) { return !(lhs == rhs); }
+inline bool operator!=(const airline_info& lhs, const airline_info& rhs) { return !(lhs == rhs); }
 
 /**
  * @brief Get a random aircraft type
@@ -64,10 +64,10 @@ inline bool operator!=(const AirlineStruct& lhs, const AirlineStruct& rhs) { ret
  * @return a random aircraft type
  *
  * @code
- * airline::aircraft_type // "narrowbody"
+ * airline::aircraft_type_name // "narrowbody"
  * @endcode
  */
-std::string_view aircraft_type();
+std::string_view aircraft_type_name();
 
 /**
  * @brief Get a random airplane
@@ -78,7 +78,7 @@ std::string_view aircraft_type();
  * airline::airplane() // {"Boeing 737-800", "738"}
  * @endcode
  */
-Airplane airplane();
+airplane_info airplane();
 
 /**
  * @brief Get a random airline
@@ -89,7 +89,7 @@ Airplane airplane();
  * airline::airline() // {"Air Canada", "AC"}
  * @endcode
  */
-AirlineStruct airline();
+airline_info airline();
 
 /**
  * @brief Get a random airport
@@ -100,20 +100,20 @@ AirlineStruct airline();
  * airline::airport() // {"Toronto Pearson International Airport", "YYZ"}
  * @endcode
  */
-Airport airport();
+airport_info airport();
 
 /**
  * @brief Get a random seat by aircraft type
  *
- * @param aircraftType the aircraft type
+ * @param type the aircraft type
  *
  * @return a random seat
  *
  * @code
- * airline::seat(AircraftType::Narrowbody) // "1A"
+ * airline::seat(aircraft_type::narrow_body) // "1A"
  * @endcode
  */
-std::string seat(AircraftType aircraftType);
+std::string seat(aircraft_type type);
 
 /**
  * @brief Get a random record location
@@ -125,12 +125,12 @@ std::string seat(AircraftType aircraftType);
  * airline::record_locator(true) // "ABC123"
  * @endcode
  */
-std::string record_locator(bool allowNumerics = false);
+std::string record_locator(bool allow_numbers = false);
 
 /**
  * @brief Get a random flight number from given length
  *
- * @param addLeadingZeros whether to add leading zeros
+ * @param add_leading_zeros whether to add leading zeros
  *
  * @param length the length of the flight number
  *
@@ -142,24 +142,26 @@ std::string record_locator(bool allowNumerics = false);
  * airline::flight_number(false, 3) // "234"
  * @endcode
  */
-std::string flight_number(bool addLeadingZeros = false, unsigned int length = 4);
+std::string flight_number(bool add_leading_zeros = false, unsigned length = 4);
 
 /**
  * @brief Get a random flight number from given length
  *
- * @param addLeadingZeros whether to add leading zeros
+ * @param add_leading_zeros whether to add leading zeros
  *
- * @param length the length of the flight number
+ * @param min_length the minimal length of the flight number
+ * @param max_length the maximal length of the flight number
  *
  * @return a random flight number
  *
  * @code
  * airline::flight_number() // "1234"
  * airline::flight_number(true) // "0123"
- * airline::flight_number(false, {1, 4}) // "234" // "12" // "1234"
+ * airline::flight_number(false, 1, 4) // "234" // "12" // "1234"
  * @endcode
  */
-std::string flight_number_by_range(bool addLeadingZeros = false, Range length = { 1, 4 });
+std::string flight_number_by_range(
+    bool add_leading_zeros = false, unsigned min_length = 1, unsigned max_length = 4);
 }
 
 #endif

@@ -3,9 +3,9 @@
 
 namespace faker::airline::data {
 
-const std::array<std::string_view, 3> aircraftTypes = { "regional", "narrowbody", "widebody" };
+const std::array<std::string_view, 3> aircraft_types = { "regional", "narrowbody", "widebody" };
 
-const std::array<AirlineStruct, 125> airlines = { {
+const std::array<airline_info, 125> airlines = { {
     { "Aegean Airlines", "A3" },
     { "Aeroflot", "SU" },
     { "Aerolineas Argentinas", "AR" },
@@ -133,7 +133,7 @@ const std::array<AirlineStruct, 125> airlines = { {
     { "Wizz Air", "W6" },
 } };
 
-const std::array<Airplane, 155> airplanes { {
+const std::array<airplane_info, 155> airplanes { {
     { "Aerospatiale/BAC Concorde", "SSC" },
     { "Airbus A300", "AB3" },
     { "Airbus A310", "310" },
@@ -291,7 +291,7 @@ const std::array<Airplane, 155> airplanes { {
     { "Yakovlev Yak-42", "YK2" },
 } };
 
-const std::array<Airport, 119> airports = { {
+const std::array<airport_info, 119> airports = { {
     { "Adelaide International Airport", "ADL" },
     { "Adolfo Suarez Madrid-Barajas Airport", "MAD" },
     { "Aeroparque Jorge Newbery Airport", "AEP" },
@@ -430,16 +430,16 @@ const std::array<Airport, 119> airports = { {
     { "Zurich Airport", "ZRH" },
 } };
 
-const std::unordered_map<AircraftType, int> aircraftTypeMaxRows = {
-    { AircraftType::Regional, 20 },
-    { AircraftType::Narrowbody, 40 },
-    { AircraftType::Widebody, 60 },
+const std::unordered_map<aircraft_type, int> aircraft_type_max_rows = {
+    { aircraft_type::regional, 20 },
+    { aircraft_type::narrow_body, 40 },
+    { aircraft_type::wide_body, 60 },
 };
 
-const std::unordered_map<AircraftType, std::string_view> aircraftTypeSeatLetters = {
-    { AircraftType::Regional, "ABCD" },
-    { AircraftType::Narrowbody, "ABCDEF" },
-    { AircraftType::Widebody, "ABCDEFGHJK" },
+const std::unordered_map<aircraft_type, std::string_view> aircraft_type_seat_letters = {
+    { aircraft_type::regional, "ABCD" },
+    { aircraft_type::narrow_body, "ABCDEF" },
+    { aircraft_type::wide_body, "ABCDEFGHJK" },
 };
 
 }

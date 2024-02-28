@@ -19,7 +19,7 @@ std::string_view name();
 /**
  * @brief Returns an RGB color.
  *
- * @param includeAlpha Adds an alpha value to the color (RGBA). Defaults to `false`.
+ * @param include_alpha Adds an alpha value to the color (RGBA). Defaults to `false`.
  *
  * @returns RGB color formatted with rgb(X,X,X) or rgba(X,X,X,X).
  *
@@ -28,14 +28,14 @@ std::string_view name();
  * color::rgb(true) // "rgba(220, 28, 79, 0.50)"
  * @endcode
  */
-std::string rgb(bool includeAlpha = false);
+std::string rgb(bool include_alpha = false);
 
 /**
  * @brief Returns a hex color.
  *
  * @param casing Casing of the generated string. Defaults to `HexCasing::Lower`.
  * @param prefix Prefix for the generated string. Defaults to `HexPrefix::ZeroX`.
- * @param includeAlpha Adds an alpha value to the color. Defaults to `false`.
+ * @param include_alpha Adds an alpha value to the color. Defaults to `false`.
  *
  * @returns Hex color formatted that starts with `0x` or `#`.
  *
@@ -45,31 +45,31 @@ std::string rgb(bool includeAlpha = false);
  * @endcode
  */
 std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash,
-    bool includeAlpha = false);
+    bool include_alpha = false);
 
 /**
  * @brief Returns an HSL color.
  *
- * @param includeAlpha Adds an alpha value to the color (HSLA). Defaults to `false`.
+ * @param include_alpha Adds an alpha value to the color (HSLA). Defaults to `false`.
  * @returns HSL color formatted with hsl(X,X,X) or hsla(X,X,X,X).
  * @code
  * color::hsl() // "hsl(0, 20, 100)"
  * color::hsl(true) // "hsla(0, 0, 100, 0.50)"
  * @endcode
  */
-std::string hsl(bool includeAlpha = false);
+std::string hsl(bool include_alpha = false);
 
 /**
  * @brief Returns an LCH color.
  *
- * @param includeAlpha Adds an alpha value to the color (LCHA). Defaults to `false`.
+ * @param include_alpha Adds an alpha value to the color (LCHA). Defaults to `false`.
  * @returns LCH color formatted with lch(X,X,X) or lcha(X,X,X,X).
  * @code
  * color::lch() // "lch(0, 20, 100)"
  * color::lch(true) // "lcha(0, 0, 100, 0.50)"
  * @endcode
  */
-std::string lch(bool includeAlpha = false);
+std::string lch(bool include_alpha = false);
 
 /**
  * @brief Return a CMYK color

@@ -3,9 +3,9 @@
 
 #include <algorithm>
 #include <cctype>
-#include <tcb/span.hpp>
 #include <gtest/gtest.h>
 #include <string>
+#include <tcb/span.hpp>
 
 namespace faker::testing {
 

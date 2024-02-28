@@ -3,47 +3,38 @@
 #include <faker/airline.h>
 #include <faker/number.h>
 #include <faker/string.h>
-#include <string>
 
 namespace faker::airline {
-std::string_view aircraft_type() { return random::element(data::aircraftTypes); }
+std::string_view aircraft_type_name() { return random::element(data::aircraft_types); }
 
-Airplane airplane() { return random::element(data::airplanes); }
+airplane_info airplane() { return random::element(data::airplanes); }
 
-AirlineStruct airline() { return random::element(data::airlines); }
+airline_info airline() { return random::element(data::airlines); }
 
-Airport airport() { return random::element(data::airports); }
+airport_info airport() { return random::element(data::airports); }
 
-std::string seat(AircraftType aircraftType)
+std::string seat(aircraft_type type)
 {
-    return std::to_string(number::integer(1, data::aircraftTypeMaxRows.at(aircraftType)))
-        + random::element(data::aircraftTypeSeatLetters.at(aircraftType));
+    return std::to_string(number::integer(1, data::aircraft_type_max_rows.at(type)))
+        + random::element(data::aircraft_type_seat_letters.at(type));
 }
 
-std::string record_locator(bool allowNumerics)
+std::string record_locator(bool allow_numbers)
 {
-    if (allowNumerics) {
+    if (allow_numbers) {
         return string::alphanumeric(6, string::StringCasing::Upper);
     }
 
     return string::alpha(6, string::StringCasing::Upper);
 }
 
-std::string flight_number(bool addLeadingZeros, unsigned int length)
+std::string flight_number(bool add_leading_zeros, unsigned length)
 {
-    if (addLeadingZeros) {
-        return string::numeric(length, true);
-    }
-
-    return string::numeric(length, false);
+    return string::numeric(length, add_leading_zeros);
 }
 
-std::string flight_number_by_range(bool addLeadingZeros, Range length)
+std::string flight_number_by_range(bool add_leading_zeros, unsigned min_length, unsigned max_length)
 {
-    if (addLeadingZeros) {
-        return string::numeric(number::integer(length.min, length.max), true);
-    }
-
-    return string::numeric(number::integer(length.min, length.max), false);
+    return string::numeric(number::integer(min_length, max_length), add_leading_zeros);
 }
 }

@@ -1,9 +1,9 @@
 #ifndef FAKER_MODULES_LOCATION_DATA_H
 #define FAKER_MODULES_LOCATION_DATA_H
 
-#include <tcb/span.hpp>
 #include <array>
 #include <string_view>
+#include <tcb/span.hpp>
 
 namespace faker::location::data {
 struct CountryAddresses {

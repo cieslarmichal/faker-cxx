@@ -1,11 +1,11 @@
 #ifndef FAKER_MODULES_PERSON_DATA_H
 #define FAKER_MODULES_PERSON_DATA_H
 
-#include <tcb/span.hpp>
 #include <array>
 #include <faker/person.h>
 #include <faker/types/country.h>
 #include <string_view>
+#include <tcb/span.hpp>
 #include <unordered_map>
 #include <vector>
 

@@ -73,6 +73,7 @@
         "span": "cpp",
         "memory_resource": "cpp",
         "version": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "source_location": "cpp"
     }
 }
