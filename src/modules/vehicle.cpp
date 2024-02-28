@@ -26,16 +26,16 @@ std::string vin()
     std::string exclude_characters { "oiqOIQ" };
 
     return utils::format("{}{}{}{}",
-        string::alphanumeric(10, string::StringCasing::Upper, exclude_characters),
-        string::alpha(1, string::StringCasing::Upper, exclude_characters),
-        string::alphanumeric(1, string::StringCasing::Upper, exclude_characters),
+        string::alphanumeric(10, string::string_case::upper, exclude_characters),
+        string::alpha(1, string::string_case::upper, exclude_characters),
+        string::alphanumeric(1, string::string_case::upper, exclude_characters),
         number::integer(10000, 99999));
 }
 
 std::string vrm()
 {
-    return utils::format("{}{}{}", string::alpha(2, string::StringCasing::Upper),
-        string::numeric(2, true), string::alpha(3, string::StringCasing::Upper));
+    return utils::format("{}{}{}", string::alpha(2, string::string_case::upper),
+        string::numeric(2, true), string::alpha(3, string::string_case::upper));
 }
 
 }

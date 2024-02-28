@@ -22,10 +22,10 @@ std::string seat(aircraft_type type)
 std::string record_locator(bool allow_numbers)
 {
     if (allow_numbers) {
-        return string::alphanumeric(6, string::StringCasing::Upper);
+        return string::alphanumeric(6, string::string_case::upper);
     }
 
-    return string::alpha(6, string::StringCasing::Upper);
+    return string::alpha(6, string::string_case::upper);
 }
 
 std::string flight_number(bool add_leading_zeros, unsigned length)

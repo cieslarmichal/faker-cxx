@@ -412,7 +412,7 @@ TEST_F(StringTest, shouldGenerateUpperAlpha)
 {
     const auto alphaLength = 15;
 
-    const auto alpha = string::alpha(alphaLength, string::StringCasing::Upper);
+    const auto alpha = string::alpha(alphaLength, string::string_case::upper);
 
     ASSERT_EQ(alpha.size(), alphaLength);
     ASSERT_TRUE(faker::testing::all_of(alpha, [](char alphaCharacter) {
@@ -425,7 +425,7 @@ TEST_F(StringTest, shouldGenerateLowerAlpha)
 {
     const auto alphaLength = 7;
 
-    const auto alpha = string::alpha(alphaLength, string::StringCasing::Lower);
+    const auto alpha = string::alpha(alphaLength, string::string_case::lower);
 
     ASSERT_EQ(alpha.size(), alphaLength);
     ASSERT_TRUE(faker::testing::all_of(alpha, [](char alphaCharacter) {
@@ -476,7 +476,7 @@ TEST_F(StringTest, shouldGenerateLowerAlphaWithGuarantee)
     for (int i = 0; i < runCount; ++i) {
         auto copyGuarantee = guarantee;
         const auto alpha
-            = string::alpha(std::move(copyGuarantee), alphaLength, string::StringCasing::Lower);
+            = string::alpha(std::move(copyGuarantee), alphaLength, string::string_case::lower);
 
         ASSERT_EQ(alpha.size(), alphaLength);
         ASSERT_TRUE(faker::testing::all_of(alpha, [](char alphaCharacter) {
@@ -507,7 +507,7 @@ TEST_F(StringTest, shouldGenerateUpperAlphaWithGuarantee)
     for (int i = 0; i < runCount; ++i) {
         auto copyGuarantee = guarantee;
         const auto alpha
-            = string::alpha(std::move(copyGuarantee), alphaLength, string::StringCasing::Upper);
+            = string::alpha(std::move(copyGuarantee), alphaLength, string::string_case::upper);
 
         ASSERT_EQ(alpha.size(), alphaLength);
         ASSERT_TRUE(faker::testing::all_of(alpha, [](char alphaCharacter) {
@@ -571,7 +571,7 @@ TEST_F(StringTest, invalidGuaranteeForAlpha2)
         { 'Y', { 0, 1 } },
         { 'Z', { 0, 1 } },
     };
-    ASSERT_THROW(string::alpha(std::move(guarantee), alphaLength, string::StringCasing::Upper),
+    ASSERT_THROW(string::alpha(std::move(guarantee), alphaLength, string::string_case::upper),
         std::invalid_argument);
 }
 
@@ -587,9 +587,9 @@ TEST_F(StringTest, invalidGuaranteeForAlpha4)
 {
     const auto alphaLength = 20;
     // atleast 4 'a' // invalid // Can't have lower case characters when string casing is set to
-    // string::StringCasing::Upper
+    // string::string_case::upper
     string::GuaranteeMap guarantee = { { 'a', { 4, 10 } }, { 'B', { 4, 10 } } };
-    ASSERT_THROW(string::alpha(std::move(guarantee), alphaLength, string::StringCasing::Upper),
+    ASSERT_THROW(string::alpha(std::move(guarantee), alphaLength, string::string_case::upper),
         std::invalid_argument);
 }
 
@@ -597,9 +597,9 @@ TEST_F(StringTest, invalidGuaranteeForAlpha5)
 {
     const auto alphaLength = 20;
     // atleast 4 'B' // invalid // Can't have upper case characters when string casing is set to
-    // string::StringCasing::Lower
+    // string::string_case::lower
     string::GuaranteeMap guarantee = { { 'a', { 4, 10 } }, { 'B', { 4, 10 } } };
-    ASSERT_THROW(string::alpha(std::move(guarantee), alphaLength, string::StringCasing::Lower),
+    ASSERT_THROW(string::alpha(std::move(guarantee), alphaLength, string::string_case::lower),
         std::invalid_argument);
 }
 
@@ -631,7 +631,7 @@ TEST_F(StringTest, shouldGenerateUpperAlphanumeric)
 {
     const auto alphanumericLength = 15;
 
-    const auto alphanumeric = string::alphanumeric(alphanumericLength, string::StringCasing::Upper);
+    const auto alphanumeric = string::alphanumeric(alphanumericLength, string::string_case::upper);
 
     ASSERT_EQ(alphanumeric.size(), alphanumericLength);
     ASSERT_TRUE(faker::testing::all_of(alphanumeric, [](char alphanumericCharacter) {
@@ -646,7 +646,7 @@ TEST_F(StringTest, shouldGenerateLowerAlphanumeric)
 {
     const auto alphanumericLength = 7;
 
-    const auto alphanumeric = string::alphanumeric(alphanumericLength, string::StringCasing::Lower);
+    const auto alphanumeric = string::alphanumeric(alphanumericLength, string::string_case::lower);
 
     ASSERT_EQ(alphanumeric.size(), alphanumericLength);
     ASSERT_TRUE(faker::testing::all_of(alphanumeric, [](char alphanumericCharacter) {
@@ -701,7 +701,7 @@ TEST_F(StringTest, shouldGenerateLowerAlphanumericWithGuarantee)
     for (int i = 0; i < runCount; ++i) {
         auto copyGuarantee = guarantee;
         const auto alphanumeric = string::alphanumeric(
-            std::move(copyGuarantee), alphanumericLength, string::StringCasing::Lower);
+            std::move(copyGuarantee), alphanumericLength, string::string_case::lower);
 
         ASSERT_EQ(alphanumeric.size(), alphanumericLength);
         ASSERT_TRUE(faker::testing::all_of(alphanumeric, [](char alphanumericCharacter) {
@@ -733,7 +733,7 @@ TEST_F(StringTest, shouldGenerateUpperAlphanumericWithGuarantee)
     for (int i = 0; i < runCount; ++i) {
         auto copyGuarantee = guarantee;
         const auto alphanumeric = string::alphanumeric(
-            std::move(copyGuarantee), alphanumericLength, string::StringCasing::Upper);
+            std::move(copyGuarantee), alphanumericLength, string::string_case::upper);
 
         ASSERT_EQ(alphanumeric.size(), alphanumericLength);
         ASSERT_TRUE(faker::testing::all_of(alphanumeric, [](char alphanumericCharacter) {
@@ -811,7 +811,7 @@ TEST_F(StringTest, invalidGuaranteeForAlphanumeric2)
         { '9', { 0, 1 } },
     };
     ASSERT_THROW(
-        string::alphanumeric(std::move(guarantee), alphanumericLength, string::StringCasing::Upper),
+        string::alphanumeric(std::move(guarantee), alphanumericLength, string::string_case::upper),
         std::invalid_argument);
 }
 
@@ -829,10 +829,10 @@ TEST_F(StringTest, invalidGuaranteeForAlphanumeric4)
 {
     const auto alphanumericLength = 20;
     // atleast 4 'a' // invalid // Can't have lower case characters when string casing is set to
-    // string::StringCasing::Upper
+    // string::string_case::upper
     string::GuaranteeMap guarantee = { { 'a', { 4, 10 } }, { 'B', { 4, 10 } }, { '2', { 1 } } };
     ASSERT_THROW(
-        string::alphanumeric(std::move(guarantee), alphanumericLength, string::StringCasing::Upper),
+        string::alphanumeric(std::move(guarantee), alphanumericLength, string::string_case::upper),
         std::invalid_argument);
 }
 
@@ -840,10 +840,10 @@ TEST_F(StringTest, invalidGuaranteeForAlphanumeric5)
 {
     const auto alphanumericLength = 20;
     // atleast 4 'B' // invalid // Can't have upper case characters when string casing is set to
-    // string::StringCasing::Lower
+    // string::string_case::lower
     string::GuaranteeMap guarantee = { { 'a', { 4, 10 } }, { 'B', { 4, 10 } }, { '8', { 8, 10 } } };
     ASSERT_THROW(
-        string::alphanumeric(std::move(guarantee), alphanumericLength, string::StringCasing::Lower),
+        string::alphanumeric(std::move(guarantee), alphanumericLength, string::string_case::lower),
         std::invalid_argument);
 }
 

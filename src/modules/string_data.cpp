@@ -226,10 +226,10 @@ const std::unordered_set<char> utf16CharSet {
     '}',
 };
 
-const std::unordered_map<StringCasing, std::unordered_set<char>> stringCasingToAlphaCharSetMapping {
-    { StringCasing::Lower, lowerCharSet },
-    { StringCasing::Upper, upperCharSet },
-    { StringCasing::Mixed, mixedAlphaCharSet },
+const std::unordered_map<string_case, std::unordered_set<char>> stringCasingToAlphaCharSetMapping {
+    { string_case::lower, lowerCharSet },
+    { string_case::upper, upperCharSet },
+    { string_case::mixed, mixedAlphaCharSet },
 };
 
 }

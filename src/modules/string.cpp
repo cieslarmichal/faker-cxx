@@ -205,13 +205,13 @@ std::string from_chars(GuaranteeMap&& guarantee, const std::string& characters, 
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string alpha(unsigned length, StringCasing casing, const std::string& excludeCharacters)
+std::string alpha(unsigned length, string_case casing, const std::string& excludeCharacters)
 {
-    static const std::unordered_map<StringCasing, std::string_view>
+    static const std::unordered_map<string_case, std::string_view>
         stringCasingToAlphaCharactersMapping {
-            { StringCasing::Lower, data::lowerCharacters },
-            { StringCasing::Upper, data::upperCharacters },
-            { StringCasing::Mixed, data::mixedAlphaCharacters },
+            { string_case::lower, data::lowerCharacters },
+            { string_case::upper, data::upperCharacters },
+            { string_case::mixed, data::mixedAlphaCharacters },
         };
 
     const auto& alphaCharacters = stringCasingToAlphaCharactersMapping.at(casing);
@@ -233,7 +233,7 @@ std::string alpha(unsigned length, StringCasing casing, const std::string& exclu
     return alpha;
 }
 
-std::string alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing casing)
+std::string alpha(GuaranteeMap&& guarantee, unsigned int length, string_case casing)
 {
     auto targetCharacters = data::stringCasingToAlphaCharSetMapping.at(casing);
     // throw if guarantee is invalid
@@ -244,13 +244,13 @@ std::string alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing ca
 }
 
 std::string alphanumeric(
-    unsigned int length, StringCasing casing, const std::string& excludeCharacters)
+    unsigned int length, string_case casing, const std::string& excludeCharacters)
 {
-    static const std::unordered_map<StringCasing, std::string_view>
+    static const std::unordered_map<string_case, std::string_view>
         stringCasingToAlphanumericCharactersMapping {
-            { StringCasing::Lower, data::lowerAlphanumericCharacters },
-            { StringCasing::Upper, data::upperAlphanumericCharacters },
-            { StringCasing::Mixed, data::mixedAlphanumericCharacters },
+            { string_case::lower, data::lowerAlphanumericCharacters },
+            { string_case::upper, data::upperAlphanumericCharacters },
+            { string_case::mixed, data::mixedAlphanumericCharacters },
         };
 
     const auto& alphanumericCharacters = stringCasingToAlphanumericCharactersMapping.at(casing);
@@ -272,7 +272,7 @@ std::string alphanumeric(
     return alphanumeric;
 }
 
-std::string alphanumeric(GuaranteeMap&& guarantee, unsigned length, StringCasing casing)
+std::string alphanumeric(GuaranteeMap&& guarantee, unsigned length, string_case casing)
 {
     auto targetCharacters = data::digitSet;
     auto charSet = data::stringCasingToAlphaCharSetMapping.at(casing);

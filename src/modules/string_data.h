@@ -25,7 +25,7 @@ extern const std::unordered_set<char> hexUpperCharSet;
 extern const std::unordered_set<char> hexLowerCharSet;
 extern const std::unordered_set<char> digitSet;
 extern const std::unordered_set<char> utf16CharSet;
-extern const std::unordered_map<StringCasing, std::unordered_set<char>>
+extern const std::unordered_map<string_case, std::unordered_set<char>>
     stringCasingToAlphaCharSetMapping;
 }
 

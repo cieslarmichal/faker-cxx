@@ -13,11 +13,11 @@ std::string price(double min, double max) { return finance::amount(min, max); }
 
 std::string sku(unsigned int length) { return string::numeric(length, false); }
 
-std::string_view product_adjective() { return random::element(data::productAdjectives); }
+std::string_view product_adjective() { return random::element(data::product_adjectives); }
 
-std::string_view product_material() { return random::element(data::productMaterials); }
+std::string_view product_material() { return random::element(data::product_materials); }
 
-std::string_view product_name() { return random::element(data::productNames); }
+std::string_view product_name() { return random::element(data::product_names); }
 
 std::string product_full_name()
 {
@@ -37,13 +37,13 @@ std::string ean13()
         }
     }
 
-    int checkDigit = sum % 10;
+    int check_digit = sum % 10;
 
-    if (checkDigit != 0) {
-        checkDigit = 10 - checkDigit;
+    if (check_digit != 0) {
+        check_digit = 10 - check_digit;
     }
 
-    return ean13 + std::to_string(checkDigit);
+    return ean13 + std::to_string(check_digit);
 }
 
 std::string ean8()
@@ -59,13 +59,13 @@ std::string ean8()
         }
     }
 
-    int checkDigit = sum % 10;
+    int check_digit = sum % 10;
 
-    if (checkDigit != 0) {
-        checkDigit = 10 - checkDigit;
+    if (check_digit != 0) {
+        check_digit = 10 - check_digit;
     }
 
-    return ean8 + std::to_string(checkDigit);
+    return ean8 + std::to_string(check_digit);
 }
 
 std::string isbn13()
@@ -81,13 +81,13 @@ std::string isbn13()
         }
     }
 
-    int checkDigit = sum % 10;
+    int check_digit = sum % 10;
 
-    if (checkDigit != 0) {
-        checkDigit = 10 - checkDigit;
+    if (check_digit != 0) {
+        check_digit = 10 - check_digit;
     }
 
-    return isbn13 + std::to_string(checkDigit);
+    return isbn13 + std::to_string(check_digit);
 }
 
 std::string isbn10()
@@ -100,57 +100,53 @@ std::string isbn10()
         weight--;
     }
 
-    int checkDigit = sum % 11;
+    int check_digit = sum % 11;
 
-    if (checkDigit != 0) {
-        checkDigit = 11 - checkDigit;
+    if (check_digit != 0) {
+        check_digit = 11 - check_digit;
     }
 
-    if (checkDigit == 10) {
+    if (check_digit == 10) {
         return isbn10 + "X";
     }
 
-    return isbn10 + std::to_string(checkDigit);
+    return isbn10 + std::to_string(check_digit);
 }
 
-std::string product_id() { return string::alphanumeric(10, string::StringCasing::Upper, ""); }
+std::string product_id() { return string::alphanumeric(10, string::string_case::upper, ""); }
 
-std::string_view payment_type() { return random::element(data::paymentTypes); }
+std::string_view payment_type() { return random::element(data::payment_types); }
 
-std::string_view payment_provider() { return random::element(data::paymentProviders); }
+std::string_view payment_provider() { return random::element(data::payment_providers); }
 
-std::string_view product_description() { return random::element(data::productDescriptions); }
+std::string_view product_description() { return random::element(data::product_descriptions); }
 
-std::string_view product_category() { return random::element(data::productCategoryNames); }
+std::string_view product_category() { return random::element(data::product_category_names); }
 
-std::string_view product_review() { return random::element(data::productReviews); }
+std::string_view product_review() { return random::element(data::product_reviews); }
 
-double product_rating()
-{
-    auto ratingValue = number::decimal(5.);
-    return std::ceil(ratingValue * 100) / 100;
-}
+double product_rating() { return std::ceil(number::decimal(5.) * 100) / 100; }
 
-std::string_view discount_type() { return random::element(data::discountTypes); }
+std::string_view discount_type() { return random::element(data::discount_types); }
 
 std::string discount_code()
 {
-    auto codeLength = number::integer(data::kMinDiscountCodeLength, data::kMaxDiscountCodeLength);
-    return string::alphanumeric(codeLength, string::StringCasing::Upper);
+    return string::alphanumeric(
+        number::integer(data::min_discount_code_length, data::max_discount_code_length),
+        string::string_case::upper);
 }
 
 double discount_amount()
 {
-    auto amountValue
-        = number::decimal(data::kMinDiscountAmountValue, data::kMaxDiscountAmountValue);
-    return std::ceil(amountValue * 100) / 100;
+    return std::ceil(number::decimal(data::min_discount_amount, data::max_discount_amount) * 100)
+        / 100;
 }
 
 double discount_percentage()
 {
-    auto percentageValue
-        = number::decimal(data::kMinDiscountPercentageValue, data::kMaxDiscountPercentageValue);
-    return std::ceil(percentageValue * 100) / 100;
+    return std::ceil(
+               number::decimal(data::min_discount_percentage, data::max_discount_percentage) * 100)
+        / 100;
 }
 
 }

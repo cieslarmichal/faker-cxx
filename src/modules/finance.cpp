@@ -45,10 +45,10 @@ std::string iban(std::optional<IbanCountry> country)
 
         if (ibanFormatEntryDataType == 'a') {
             iban += string::alpha(
-                static_cast<unsigned>(ibanFormatEntryDataLength), string::StringCasing::Upper);
+                static_cast<unsigned>(ibanFormatEntryDataLength), string::string_case::upper);
         } else if (ibanFormatEntryDataType == 'c') {
             iban += string::alphanumeric(
-                static_cast<unsigned>(ibanFormatEntryDataLength), string::StringCasing::Upper);
+                static_cast<unsigned>(ibanFormatEntryDataLength), string::string_case::upper);
         } else if (ibanFormatEntryDataType == 'n') {
             iban += string::numeric(static_cast<unsigned>(ibanFormatEntryDataLength));
         }
@@ -108,7 +108,7 @@ std::string bitcoin_address()
 
     auto address = random::element(std::vector<std::string> { "1", "3" });
 
-    address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
+    address += string::alphanumeric(addressLength, string::string_case::mixed, "0OIl");
 
     return address;
 }
@@ -119,7 +119,7 @@ std::string litecoin_address()
 
     auto address = random::element(std::vector<std::string> { "L", "M", "3" });
 
-    address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
+    address += string::alphanumeric(addressLength, string::string_case::mixed, "0OIl");
 
     return address;
 }

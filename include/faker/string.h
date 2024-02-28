@@ -8,7 +8,7 @@
 #include <unordered_set>
 
 namespace faker::string {
-enum class StringCasing { Mixed, Lower, Upper };
+enum class string_case { mixed, lower, upper };
 
 struct CharCount {
     unsigned int atleastCount { (std::numeric_limits<unsigned int>::min)() };
@@ -133,7 +133,7 @@ std::string from_chars(
  * @brief Generates a string consisting of letters in the English alphabet.
  *
  * @param length The number of characters to generate. Defaults to `1`.
- * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
+ * @param casing The casing of the characters. Defaults to `string_case::mixed`.
  * @param excludeCharacters The characters to be excluded from the string to generate. Defaults
  * to ``.
  *
@@ -142,11 +142,11 @@ std::string from_chars(
  *
  * @code
  * string::alpha() // "b"
- * string::alpha(5, StringCasing::Upper) // "DTCIC"
- * string::alpha(4, StringCasing::Lower) // "brpt"
+ * string::alpha(5, string_case::upper) // "DTCIC"
+ * string::alpha(4, string_case::lower) // "brpt"
  * @endcode
  */
-std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
+std::string alpha(unsigned length = 1, string_case casing = string_case::mixed,
     const std::string& excludeCharacters = "");
 
 /**
@@ -154,25 +154,25 @@ std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed
  *
  * @param guarantee A map specifying char count constraints if any
  * @param length The number of characters to generate. Defaults to `1`.
- * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
+ * @param casing The casing of the characters. Defaults to `string_case::mixed`.
  *
  * @returns Alpha string.
  *
  * @code
  * string::alpha({}) // "b"
- * string::alpha({{'A',{2,2}}, 5, StringCasing::Upper) // "DACAC"
- * string::alpha({{'a',{0,0}},{'b',{3,3}},{'c', {0,2}}}, 10, StringCasing::Lower) //
+ * string::alpha({{'A',{2,2}}, 5, string_case::upper) // "DACAC"
+ * string::alpha({{'a',{0,0}},{'b',{3,3}},{'c', {0,2}}}, 10, string_case::lower) //
  * "bicnmmkbbp"
  * @endcode
  */
 std::string alpha(
-    GuaranteeMap&& guarantee, unsigned length = 1, StringCasing casing = StringCasing::Mixed);
+    GuaranteeMap&& guarantee, unsigned length = 1, string_case casing = string_case::mixed);
 
 /**
  * @brief Generates a string consisting of alpha characters and digits.
  *
  * @param length The number of characters to generate. Defaults to `1`.
- * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
+ * @param casing The casing of the characters. Defaults to `string_case::mixed`.
  * @param excludeCharacters The characters to be excluded from alphanumeric characters to
  * generate string from. Defaults to ``.
  *
@@ -180,11 +180,11 @@ std::string alpha(
  *
  * @code
  * string::alphanumeric() // "4"
- * string::alphanumeric(5, StringCasing::Upper) // "3e5V7"
- * string::alphanumeric(4, StringCasing::Lower) // "1nrq"
+ * string::alphanumeric(5, string_case::upper) // "3e5V7"
+ * string::alphanumeric(4, string_case::lower) // "1nrq"
  * @endcode
  */
-std::string alphanumeric(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
+std::string alphanumeric(unsigned length = 1, string_case casing = string_case::mixed,
     const std::string& excludeCharacters = "");
 
 /**
@@ -192,19 +192,19 @@ std::string alphanumeric(unsigned length = 1, StringCasing casing = StringCasing
  *
  * @param guarantee A map specifying char count constraints if any
  * @param length The number of characters to generate. Defaults to `1`.
- * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
+ * @param casing The casing of the characters. Defaults to `string_case::mixed`.
  *
  * @returns Alphanumeric string.
  *
  * @code
  * string::alphanumeric({}) // "4"
- * string::alphanumeric({{'A', {3,6}},{'1', {1,1}}, 5, StringCasing::Upper) // "1EAAA"
- * string::alphanumeric({{'a',{0,2}},{'2',{0,3}},{'z',{3,5}}}, 10, StringCasing::Lower) //
+ * string::alphanumeric({{'A', {3,6}},{'1', {1,1}}, 5, string_case::upper) // "1EAAA"
+ * string::alphanumeric({{'a',{0,2}},{'2',{0,3}},{'z',{3,5}}}, 10, string_case::lower) //
  * "z1naazrqz0"
  * @endcode
  */
 std::string alphanumeric(
-    GuaranteeMap&& guarantee, unsigned length = 1, StringCasing casing = StringCasing::Mixed);
+    GuaranteeMap&& guarantee, unsigned length = 1, string_case casing = string_case::mixed);
 
 /**
  * @brief Generates a given length string of digits.
