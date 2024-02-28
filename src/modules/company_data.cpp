@@ -2,7 +2,7 @@
 
 namespace faker::company::data {
 
-const std::array<std::string_view, 65> buzzAdjectives = { "clicks-and-mortar", "value-added",
+const std::array<std::string_view, 65> buzz_adjectives = { "clicks-and-mortar", "value-added",
     "vertical", "proactive", "robust", "revolutionary", "scalable", "leading-edge", "innovative",
     "intuitive", "strategic", "e-business", "mission-critical", "sticky", "one-to-one", "24/7",
     "end-to-end", "global", "B2B", "B2C", "granular", "frictionless", "virtual", "viral", "dynamic",
@@ -14,7 +14,7 @@ const std::array<std::string_view, 65> buzzAdjectives = { "clicks-and-mortar", "
     "customized", "ubiquitous", "plug-and-play", "collaborative", "compelling", "holistic",
     "rich" };
 
-const std::array<std::string_view, 40> buzzNouns = { "synergies", "paradigms", "markets",
+const std::array<std::string_view, 40> buzz_nouns = { "synergies", "paradigms", "markets",
     "partnerships", "infrastructures", "platforms", "initiatives", "channels", "eyeballs",
     "communities", "ROI", "solutions", "action-items", "portals", "niches", "technologies",
     "content", "supply-chains", "convergence", "relationships", "architectures", "interfaces",
@@ -24,7 +24,7 @@ const std::array<std::string_view, 40> buzzNouns = { "synergies", "paradigms", "
     "blockchains"
     "lifetime value" };
 
-const std::array<std::string_view, 60> buzzVerbs = { "implement", "utilize", "integrate",
+const std::array<std::string_view, 60> buzz_verbs = { "implement", "utilize", "integrate",
     "streamline", "optimize", "evolve", "transform", "embrace", "enable", "orchestrate", "leverage",
     "reinvent", "aggregate", "architect", "enhance", "incentivize", "morph", "empower",
     "envisioneer", "monetize", "harness", "facilitate", "seize", "disintermediate", "synergize",
@@ -34,7 +34,7 @@ const std::array<std::string_view, 60> buzzVerbs = { "implement", "utilize", "in
     "revolutionize", "generate", "exploit", "transition", "e-enable", "iterate", "cultivate",
     "matrix", "productize", "redefine", "recontextualize" };
 
-const std::array<std::string_view, 100> catchPhraseAdjectives = { "Adaptive", "Advanced",
+const std::array<std::string_view, 100> catch_phrase_adjectives = { "Adaptive", "Advanced",
     "Ameliorated", "Assimilated", "Automated", "Balanced", "Business-focused", "Centralized",
     "Cloned", "Compatible", "Configurable", "Cross-group", "Cross-platform", "Customer-focused",
     "Customizable", "Decentralized", "De-engineered", "Devolved", "Digitized", "Distributed",
@@ -52,7 +52,7 @@ const std::array<std::string_view, 100> catchPhraseAdjectives = { "Adaptive", "A
     "Total", "Triple-buffered", "Universal", "Up-sized", "Upgradable", "User-centric",
     "User-friendly", "Versatile", "Virtual", "Visionary", "Vision-oriented" };
 
-const std::array<std::string_view, 101> catchPhraseDescriptors = { "24 hour", "24/7",
+const std::array<std::string_view, 101> catch_phrase_descriptors = { "24 hour", "24/7",
     "3rd generation", "4th generation", "5th generation", "6th generation", "actuating",
     "analyzing", "asymmetric", "asynchronous", "attitude-oriented", "background",
     "bandwidth-monitored", "bi-directional", "bifurcated", "bottom-line", "clear-thinking",
@@ -71,7 +71,7 @@ const std::array<std::string_view, 101> catchPhraseDescriptors = { "24 hour", "2
     "upward-trending", "user-facing", "value-added", "web-enabled", "well-modulated",
     "zero administration", "zero defect", "zero tolerance" };
 
-const std::array<std::string_view, 104> catchPhraseNouns = { "ability", "access", "adapter",
+const std::array<std::string_view, 104> catch_phrase_nouns = { "ability", "access", "adapter",
     "algorithm", "alliance", "analyzer", "application", "approach", "architecture", "archive",
     "artificial intelligence", "array", "attitude", "benchmark", "budgetary management",
     "capability", "capacity", "challenge", "circuit", "collaboration", "complexity", "concept",
@@ -90,11 +90,11 @@ const std::array<std::string_view, 104> catchPhraseNouns = { "ability", "access"
     "system engine", "task-force", "throughput", "time-frame", "toolset", "utilisation", "website",
     "workforce" };
 
-const std::array<std::string_view, 8> companyTypes
+const std::array<std::string_view, 8> company_types
     = { "Public Company", "Educational Institution", "Self-Employed", "Government Agency",
           "Nonprofit", "Sole Proprietorship", "Privately Held", "Partnership" };
 
-const std::array<std::string_view, 147> companyIndustries = { "Defense & Space",
+const std::array<std::string_view, 147> company_industries = { "Defense & Space",
     "Computer Hardware", "Computer Software", "Computer Networking", "Internet", "Semiconductors",
     "Telecommunications", "Law Practice", "Legal Services", "Management Consulting",
     "Biotechnology", "Medical Practice", "Hospital & Health Care", "Pharmaceuticals", "Veterinary",
@@ -132,5 +132,5 @@ const std::array<std::string_view, 147> companyIndustries = { "Defense & Space",
     "Renewables & Environment", "Glass, Ceramics & Concrete", "Packaging and Containers",
     "Industrial Automation", "Government Relations" };
 
-const std::array<std::string_view, 3> companySuffixes = { "Inc", "LLC", "Group" };
+const std::array<std::string_view, 3> company_suffixes = { "Inc", "LLC", "Group" };
 }

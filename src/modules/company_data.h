@@ -5,15 +5,15 @@
 #include <string_view>
 
 namespace faker::company::data {
-extern const std::array<std::string_view, 65> buzzAdjectives;
-extern const std::array<std::string_view, 40> buzzNouns;
-extern const std::array<std::string_view, 60> buzzVerbs;
-extern const std::array<std::string_view, 100> catchPhraseAdjectives;
-extern const std::array<std::string_view, 101> catchPhraseDescriptors;
-extern const std::array<std::string_view, 104> catchPhraseNouns;
-extern const std::array<std::string_view, 8> companyTypes;
-extern const std::array<std::string_view, 147> companyIndustries;
-extern const std::array<std::string_view, 3> companySuffixes;
+extern const std::array<std::string_view, 65> buzz_adjectives;
+extern const std::array<std::string_view, 40> buzz_nouns;
+extern const std::array<std::string_view, 60> buzz_verbs;
+extern const std::array<std::string_view, 100> catch_phrase_adjectives;
+extern const std::array<std::string_view, 101> catch_phrase_descriptors;
+extern const std::array<std::string_view, 104> catch_phrase_nouns;
+extern const std::array<std::string_view, 8> company_types;
+extern const std::array<std::string_view, 147> company_industries;
+extern const std::array<std::string_view, 3> company_suffixes;
 }
 
 #endif
