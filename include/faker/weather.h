@@ -4,7 +4,7 @@
 #include <string>
 
 namespace faker::weather {
-struct Temperature {
+struct temperature_value {
     double metric;
     double imperial;
 };
@@ -12,15 +12,15 @@ struct Temperature {
 /**
  * @brief Generates a random temperature
  *
- * @return Temperature object with metric and imperial temperatures
+ * @return temperature_value object with metric and imperial temperatures
  *
  * @code
- * weather::temperature(); // Temperature.metric = 10, Temperature.imperial = 50
+ * weather::temperature(); // temperature_value.metric = 10, temperature_value.imperial = 50
  * @endcode
  */
-Temperature temperature();
+temperature_value temperature();
 
-struct Pressure {
+struct pressure_value {
     double metric;
     double imperial;
 };
@@ -28,15 +28,15 @@ struct Pressure {
 /**
  * @brief Generated a random pressure
  *
- * @return Pressure object with metric and imperial pressures
+ * @return pressure_value object with metric and imperial pressures
  *
  * @code
- * weather::pressure(); // Pressure.metric = 1000, Pressure.imperial = 14.5
+ * weather::pressure(); // pressure_value.metric = 1000, pressure_value.imperial = 14.5
  * @endcode
  */
-Pressure pressure();
+pressure_value pressure();
 
-struct Visibility {
+struct visibility_value {
     double metric;
     double imperial;
 };
@@ -44,15 +44,15 @@ struct Visibility {
 /**
  * @brief Generated a random visibility
  *
- * @return Visibility object with metric and imperial visibility
+ * @return visibility_value object with metric and imperial visibility
  *
  * @code
- * weather::visibility(); // Visibility.metric = 10.0, Visibility.imperial = 6.2
+ * weather::visibility(); // visibility_value.metric = 10.0, visibility_value.imperial = 6.2
  * @endcode
  */
-Visibility visibility();
+visibility_value visibility();
 
-struct WindSpeed {
+struct wind_speed_value {
     double metric;
     double imperial;
 };
@@ -60,13 +60,13 @@ struct WindSpeed {
 /**
  * @brief Generated a random wind speed
  *
- * @return WindSpeed object with metric and imperial wind speed
+ * @return wind_speed_value object with metric and imperial wind speed
  *
  * @code
- * weather::wind_speed(); // WindSpeed.metric = 10.0, WindSpeed.imperial = 6.2
+ * weather::wind_speed(); // wind_speed_value.metric = 10.0, wind_speed_value.imperial = 6.2
  * @endcode
  */
-WindSpeed wind_speed();
+wind_speed_value wind_speed();
 
 /**
  * @brief Generated a random uvIndex

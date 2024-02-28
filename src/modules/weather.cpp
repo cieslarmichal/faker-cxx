@@ -5,7 +5,7 @@
 #include <faker/weather.h>
 
 namespace faker::weather {
-Temperature temperature()
+temperature_value temperature()
 {
     double metric = number::decimal(10.0, 30.0);
     double imperial = utils::celsius_to_fahrenheit(metric);
@@ -13,7 +13,7 @@ Temperature temperature()
     return { metric, imperial };
 }
 
-Pressure pressure()
+pressure_value pressure()
 {
     double metric = number::decimal(100.0, 102.0);
     double imperial = utils::kpa_to_psi(metric);
@@ -21,7 +21,7 @@ Pressure pressure()
     return { metric, imperial };
 }
 
-Visibility visibility()
+visibility_value visibility()
 {
     double metric = number::decimal(1.0, 10.0);
     double imperial = utils::mile_to_km(metric);
@@ -29,13 +29,13 @@ Visibility visibility()
     return { metric, imperial };
 }
 
-WindSpeed wind_speed() { return { number::decimal(0.1, 24.2), number::decimal(0.1, 15.0) }; }
+wind_speed_value wind_speed() { return { number::decimal(0.1, 24.2), number::decimal(0.1, 15.0) }; }
 
 int uv_index() { return number::integer(0, 11); }
 
 int humidity() { return number::integer(0, 100); }
 
-std::string_view description() { return random::element(data::weatherDescriptions); }
+std::string_view description() { return random::element(data::weather_descriptions); }
 
 int cloud_cover() { return number::integer(0, 100); }
 }

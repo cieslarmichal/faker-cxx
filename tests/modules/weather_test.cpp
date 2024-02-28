@@ -55,7 +55,7 @@ TEST(WeatherTest, shouldGenerateWeatherDescription)
     auto generatedWeatherDescription = weather::description();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
-        weather::data::weatherDescriptions, generatedWeatherDescription);
+        weather::data::weather_descriptions, generatedWeatherDescription);
 }
 
 TEST(WeatherTest, shouldGenerateWeatherCloudCover)

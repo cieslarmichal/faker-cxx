@@ -5,7 +5,7 @@
 #include <string_view>
 
 namespace faker::weather::data {
-extern const std::array<std::string_view, 16> weatherDescriptions;
+extern const std::array<std::string_view, 16> weather_descriptions;
 }
 
 #endif
