@@ -16,15 +16,15 @@ namespace faker::computer {
 std::string_view type();
 
 /**
- * @brief Returns a random computer manufacture name.
+ * @brief Returns a random computer manufacturer name.
  *
- * @returns manufacture name
+ * @returns manufacturer name
  *
  * @code
- * computer::manufacture() // HP
+ * computer::manufacturer() // HP
  * @endcode
  */
-std::string_view manufacture();
+std::string_view manufacturer();
 
 /**
  * @brief Returns a random computer model.
@@ -71,9 +71,9 @@ std::string_view cpu_type();
 std::string_view cpu_model();
 
 /**
- * @brief Returns a random GPU manufacture name.
+ * @brief Returns a random GPU manufacturer name.
  *
- * @returns GPU manufacture name
+ * @returns GPU manufacturer name
  *
  * @code
  * computer::gpu_manufacturer() // NVIDIA

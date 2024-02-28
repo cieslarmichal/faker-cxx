@@ -161,7 +161,7 @@ std::string moduleFunction(StructureToken token)
         return std::string(company::catch_phrase_noun());
     // Computer module
     case StructureToken::ComputerManufacture:
-        return std::string(computer::manufacture());
+        return std::string(computer::manufacturer());
     case StructureToken::ComputerModel:
         return std::string(computer::model());
     case StructureToken::ComputerCPUManufacture:
