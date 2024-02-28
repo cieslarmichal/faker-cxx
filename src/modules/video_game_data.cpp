@@ -1,7 +1,7 @@
 #include "video_game_data.h"
 
 namespace faker::video_game::data {
-const std::array<std::string_view, 3152> videoGameNames = { "1552: Tenka Tairan",
+const std::array<std::string_view, 3152> video_game_names = { "1552: Tenka Tairan",
     "1941: Counter Attack", "1943 Kai", "Addams Family, The", "Advanced V.G.", "Aero Blasters",
     "After Burner II", "Aldynes", "Alien Crush", "Alshark", "Alzadick", "Ane-san", "Aoi Blink",
     "Appare! Gateball", "Astralius", "Asuka 120% Maxima", "The Atlas", "Atomic Robo-Kid Special",
@@ -952,7 +952,7 @@ const std::array<std::string_view, 9> platforms = {
     "Oculus Quest",
 };
 
-const std::array<std::string_view, 392> studioNames = { "0verflow", "1st Playable Productions",
+const std::array<std::string_view, 392> studio_names = { "0verflow", "1st Playable Productions",
     "2K Czech", "989 Studios", "Acclaim Entertainment", "Accolade", "Access Games", "ACE Team",
     "Acheron Design", "Acquire", "Active Gaming Media", "Activision Blizzard", "Adventure Soft",
     "Akella", "Aki Corporation", "Alfa System", "Ancient", "Anino Games", "AQ Interactive",

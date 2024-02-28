@@ -8,7 +8,7 @@ TEST(VideoGameTest, shouldGenerateGameTitle)
 {
     auto generatedGameTitle = video_game::title();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(video_game::data::videoGameNames, generatedGameTitle);
+    FAKER_EXPECT_CONTAINER_CONTAINS(video_game::data::video_game_names, generatedGameTitle);
 }
 
 TEST(VideoGameTest, shouldGenerateGenre)
@@ -29,5 +29,5 @@ TEST(VideoGameTest, shouldGenerateStudioName)
 {
     auto generatedStudioName = faker::video_game::studio_name();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(video_game::data::studioNames, generatedStudioName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(video_game::data::studio_names, generatedStudioName);
 }
