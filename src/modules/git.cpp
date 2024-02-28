@@ -11,7 +11,7 @@
 
 namespace faker::git {
 
-std::string branch(unsigned maxIssueNum)
+std::string branch(unsigned max_issue_number)
 {
     switch (number::integer(1, 3)) {
     case 1:
@@ -19,74 +19,57 @@ std::string branch(unsigned maxIssueNum)
     case 2:
         return utils::format("{}-{}-{}", word::verb(), word::adjective(), word::noun());
     default:
-        return utils::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(),
+        return utils::format("{}-{}-{}-{}", number::integer(1U, max_issue_number), word::verb(),
             word::adjective(), word::noun());
     }
 }
 
-std::string commit_date(unsigned years)
+std::string commit_date(unsigned max_years_ago)
 {
-    std::string date = date::past(int(years));
+    std::string date = date::past(max_years_ago);
 
-    auto dateSplit = utils::split(date, "-");
-    std::string_view year = dateSplit[0];
-    std::string_view month = dateSplit[1];
-    std::string_view rest = dateSplit[2];
+    auto date_parts = utils::split(date, "-");
+    std::string_view year = date_parts[0];
+    std::string_view month = date_parts[1];
+    std::string_view rest = date_parts[2];
 
-    auto restSplit = utils::split(rest, "T");
-    auto day = restSplit[0];
+    auto rest_parts = utils::split(rest, "T");
+    auto day = rest_parts[0];
 
-    auto time = utils::split(restSplit[1], "Z")[0];
+    auto time = utils::split(rest_parts[1], "Z")[0];
 
-    int timeZone = number::integer(0, 12);
-    std::string timeZoneString;
+    int time_zone = number::integer(0, 12);
+    std::string time_zone_string;
     if (number::integer(0, 1)) {
-        timeZoneString += "-";
+        time_zone_string += '-';
     } else {
-        timeZoneString += "+";
+        time_zone_string += '+';
     }
-
-    if (timeZone <= 9) {
-        timeZoneString += "0";
+    if (time_zone <= 9) {
+        time_zone_string += '0';
     }
-
-    timeZoneString += std::to_string(timeZone * 100);
-
-    if (!timeZone) {
-        timeZoneString += "00";
+    time_zone_string += std::to_string(time_zone * 100);
+    if (!time_zone) {
+        time_zone_string += "00";
     }
 
     return utils::format("{} {} {} {} {} {}", date::weekday_abbr_name(),
         date::data::month_abbr_names[size_t(utils::to_int(month) - 1)], day, time, year,
-        timeZoneString);
+        time_zone_string);
 }
 
 std::string commit_entry(
-    std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Country country)
+    std::optional<unsigned> max_years_ago, std::optional<unsigned> sha_length, Country country)
 {
-    std::string entry = "commit ";
+    auto sha = sha_length ? commit_sha(*sha_length) : commit_sha();
+    auto first_name = person::first_name(country);
+    auto last_name = person::last_name(country);
+    auto email = internet::email(first_name, last_name);
+    auto date_str = max_years_ago ? commit_date(*max_years_ago) : commit_date();
+    auto message = commit_message();
 
-    if (shaLength) {
-        entry += commit_sha(shaLength.emplace());
-    } else {
-        entry += commit_sha();
-    }
-
-    const auto firstName = person::first_name(country);
-    const auto lastName = person::last_name(country);
-
-    entry += "\nAuthor: " + firstName + " " + lastName + " " + internet::email(firstName, lastName)
-        + "\nDate: ";
-
-    if (dateYears) {
-        entry += commit_date(dateYears.emplace());
-    } else {
-        entry += commit_date();
-    }
-
-    entry += "\n\n\t" + commit_message();
-
-    return entry;
+    return utils::format("commit {}\nAuthor: {} {} {}\nDate: {}\n\n\t{}", sha, first_name,
+        last_name, email, date_str, message);
 }
 
 std::string commit_message()
@@ -109,13 +92,12 @@ std::string commit_sha(unsigned length)
     return faker::string::hexadecimal(length, hex_case::lower, hex_prefix::none);
 }
 
-Author author()
+author_info author()
 {
-    const std::string firstName = person::first_name();
-    const std::string lastName = person::last_name();
-
-    const std::string name = firstName + " " + lastName;
-    const std::string email = internet::email(firstName, lastName);
+    auto first_name = person::first_name();
+    auto last_name = person::last_name();
+    auto name = first_name + " " + last_name;
+    auto email = internet::email(first_name, last_name);
 
     return { name, email };
 }

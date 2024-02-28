@@ -89,7 +89,7 @@ TEST_F(GitTest, shouldGenerateCommitSha)
 
 TEST_F(GitTest, shouldGenerateAuthor)
 {
-    git::Author generatedAuthor = git::author();
+    git::author_info generatedAuthor = git::author();
     const std::regex nameRegex(NAME_REGEX);
     const std::regex emailRegex(EMAIL_REGEX);
     ASSERT_TRUE(std::regex_match(generatedAuthor.name, nameRegex));

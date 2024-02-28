@@ -6,7 +6,7 @@
 #include <string>
 
 namespace faker::git {
-struct Author {
+struct author_info {
     std::string name;
     std::string email;
 };
@@ -14,34 +14,34 @@ struct Author {
 /**
  * @brief Returns a random branch name.
  *
- * @param maxIssueNum The maximum issue number in branch name. Defaults to `100`.
+ * @param max_issue_number The maximum issue number in branch name. Defaults to `100`.
  * @returns Branch name.
  *
  * @code
  * git::branch() // "capitalize-bus"
  * @endcode
  */
-std::string branch(unsigned maxIssueNum = 100);
+std::string branch(unsigned max_issue_number = 100);
 
 /**
  * @brief Generates a random date in form of string.
  *
- * @param years The range of years the date may be in the past. Defaults to `15`.
+ * @param max_years_ago The range of max_years_ago the date may be in the past. Defaults to `15`.
  * @returns Commit date.
  *
  * @code
  * git::commit_date() // "Mon Jan 17 15:05:53 2022 +1100"
  * @endcode
  */
-std::string commit_date(unsigned years = 15);
+std::string commit_date(unsigned max_years_ago = 15);
 
 /**
  * @brief Generates a random commit entry in form of string.
  *
- * @param dateYears The range of years the date may be in the past. Defaults to `15`.
- * @param shaLength The length of output SHA hash. Defaults to `40`.
- * @param country The country set for name generating. Defaults to `England` (could be random,
- if there was a random language generator).
+ * @param max_years_ago The range of max_years_ago the date may be in the past. Defaults to `15`.
+ * @param sha_length The length of output SHA hash. Defaults to `40`.
+ * @param country The country set for name generating. Defaults to `England` (could be random, if
+ there was a random language generator).
  * @returns Commit entry.
  *
  * @code
@@ -52,8 +52,8 @@ std::string commit_date(unsigned years = 15);
                             spawn polyp"
  * @endcode
  */
-std::string commit_entry(std::optional<unsigned> dateYears = std::nullopt,
-    std::optional<unsigned> shaLength = std::nullopt, Country country = Country::England);
+std::string commit_entry(std::optional<unsigned> max_years_ago = std::nullopt,
+    std::optional<unsigned> sha_length = std::nullopt, Country country = Country::England);
 
 /**
  * @brief Generates a random commit message.
@@ -82,16 +82,14 @@ std::string commit_sha(unsigned length = 40);
 /**
  * @brief Returns a random author name and email.
  *
- * @param
- *
- * @returns Author.
+ * @returns author_info.
  *
  * @code
- * git::author // {Author.name = "Rachel McLaughlin", Author.email =
+ * git::author // {author_info.name = "Rachel McLaughlin", author_info.email =
  * "Rachel_McLaughlin@gmail.com"}
  * @endcode
  */
-Author author();
+author_info author();
 }
 
 #endif
