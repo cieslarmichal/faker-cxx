@@ -22,5 +22,5 @@ TEST(MusicTest, shouldGenerateSongName)
 {
     auto generatedSongName = music::song_name();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(music::data::songNames, generatedSongName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(music::data::song_names, generatedSongName);
 }

@@ -84,7 +84,7 @@ const std::array<std::string_view, 17> genres = {
     "Rap",
 };
 
-const std::array<std::string_view, 971> songNames = { "White Christmas", "Hey Jude",
+const std::array<std::string_view, 971> song_names = { "White Christmas", "Hey Jude",
     "Every Breath You Take", "Mack the Knife", "Rock Around the Clock", "I Want to Hold Your Hand",
     "The Twist", "(Everything I Do) I Do it For You", "Bridge Over Troubled Water",
     "When Doves Cry", "Call Me", "Bette Davis Eyes", "I Will Always Love You", "Over the Rainbow",
