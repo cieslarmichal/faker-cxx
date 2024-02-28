@@ -4,7 +4,7 @@ namespace faker::database::data {
 const std::array<std::string_view, 7> collations = { "utf8_unicode_ci", "utf8_general_ci",
     "utf8_bin", "ascii_bin", "ascii_general_ci", "cp1250_bin", "cp1250_general_ci" };
 
-const std::array<std::string_view, 17> columnNames = {
+const std::array<std::string_view, 17> column_names = {
     "id",
     "title",
     "name",
@@ -24,7 +24,7 @@ const std::array<std::string_view, 17> columnNames = {
     "updated_at",
 };
 
-const std::array<std::string_view, 24> columnTypes = {
+const std::array<std::string_view, 24> column_types = {
     "int",
     "varchar",
     "text",

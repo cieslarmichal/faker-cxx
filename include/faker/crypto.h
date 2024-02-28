@@ -9,7 +9,7 @@ namespace faker::crypto {
  * @brief Returns a random SHA256 hash or hash of provided data.
  *
  * @param data Data to hash. If not provided, random data will be used.
- * 
+ *
  * @returns SHA256 hash string.
  *
  * @code
@@ -22,7 +22,7 @@ std::string sha256(std::optional<std::string> data = std::nullopt);
 
 /**
  * @brief Returns a random MD5 hash or hash of provided data.
- * 
+ *
  * @param data Data to hash. If not provided, random data will be used.
  *
  * @returns MD5 hash string.

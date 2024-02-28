@@ -9,14 +9,14 @@ TEST(DatabaseTest, shouldGenerateColumnName)
 {
     auto generatedColumnName = database::column_name();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(database::data::columnNames, generatedColumnName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(database::data::column_names, generatedColumnName);
 }
 
 TEST(DatabaseTest, shouldGenerateColumnType)
 {
     auto generatedColumnType = database::column_type();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(database::data::columnTypes, generatedColumnType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(database::data::column_types, generatedColumnType);
 }
 
 TEST(DatabaseTest, shouldGenerateEngine)

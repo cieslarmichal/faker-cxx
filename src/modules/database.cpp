@@ -4,9 +4,9 @@
 #include <faker/string.h>
 
 namespace faker::database {
-std::string_view column_name() { return random::element(data::columnNames); }
+std::string_view column_name() { return random::element(data::column_names); }
 
-std::string_view column_type() { return random::element(data::columnTypes); }
+std::string_view column_type() { return random::element(data::column_types); }
 
 std::string_view collation() { return random::element(data::collations); }
 
