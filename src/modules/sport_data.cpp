@@ -1,7 +1,7 @@
 #include "sport_data.h"
 
 namespace faker::sport::data {
-const std::array<std::string_view, 10> femaleAthletes = {
+const std::array<std::string_view, 10> female_athletes = {
     "Serena Williams",
     "Simone Biles",
     "Mia Hamm",
@@ -14,7 +14,7 @@ const std::array<std::string_view, 10> femaleAthletes = {
     "Steffi Graf",
 };
 
-const std::array<std::string_view, 10> maleAthletes = {
+const std::array<std::string_view, 10> male_athletes = {
     "Lionel Messi",
     "Cristiano Ronaldo",
     "LeBron James",
@@ -27,7 +27,7 @@ const std::array<std::string_view, 10> maleAthletes = {
     "Michael Jordan",
 };
 
-const std::array<std::string_view, 10> soccerTeams {
+const std::array<std::string_view, 10> soccer_teams {
     "FC Barcelona",
     "Real Madrid CF",
     "Manchester United FC",
@@ -40,7 +40,7 @@ const std::array<std::string_view, 10> soccerTeams {
     "Chelsea FC",
 };
 
-const std::array<std::string_view, 10> sportEvents = {
+const std::array<std::string_view, 10> sport_events = {
     "World Cup",
     "Olympics",
     "Super Bowl",
@@ -53,7 +53,7 @@ const std::array<std::string_view, 10> sportEvents = {
     "Rugby World Cup",
 };
 
-const std::array<std::string_view, 10> sportNames = {
+const std::array<std::string_view, 10> sport_names = {
     "Soccer",
     "Cricket",
     "Basketball",

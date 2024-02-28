@@ -12,7 +12,8 @@ struct chemical_element_info {
 
 inline bool operator==(const chemical_element_info& lhs, const chemical_element_info& rhs)
 {
-    return lhs.name == rhs.name && lhs.symbol == rhs.symbol && lhs.atomic_number == rhs.atomic_number;
+    return lhs.name == rhs.name && lhs.symbol == rhs.symbol
+        && lhs.atomic_number == rhs.atomic_number;
 }
 
 /**
