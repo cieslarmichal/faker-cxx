@@ -18,7 +18,7 @@ std::string_view word();
 /**
  * @brief Returns a random lorem words.
  *
- * @param numberOfWords The number of words. Defaults to `3`.
+ * @param count The number of words. Defaults to `3`.
  *
  * @returns lorem words.
  *
@@ -26,13 +26,13 @@ std::string_view word();
  * lorem::words() // "qui praesentium pariatur"
  * @endcode
  */
-std::string words(unsigned numberOfWords = 3);
+std::string words(unsigned count = 3);
 
 /**
  * @brief Returns a random lorem sentence.
  *
- * @param minNumberOfWords The minimum number of words to generate. Defaults to `3`.
- * @param maxNumberOfWords The maximum number of words to generate. Defaults to `10`.
+ * @param min_word_count The minimum number of words to generate. Defaults to `3`.
+ * @param max_word_count The maximum number of words to generate. Defaults to `10`.
  *
  * @returns lorem sentence.
  *
@@ -40,13 +40,13 @@ std::string words(unsigned numberOfWords = 3);
  * lorem::sentence() // "Laborum voluptatem officiis est et."
  * @endcode
  */
-std::string sentence(unsigned minNumberOfWords = 3, unsigned maxNumberOfWords = 10);
+std::string sentence(unsigned min_word_count = 3, unsigned max_word_count = 10);
 
 /**
  * @brief Returns a random lorem sentences.
  *
- * @param minNumberOfSentences The minimum number of sentences to generate. Defaults to `2`.
- * @param maxNumberOfSentences The maximum number of sentences to generate. Defaults to `6`.
+ * @param min_count The minimum number of sentences to generate. Defaults to `2`.
+ * @param max_count The maximum number of sentences to generate. Defaults to `6`.
  *
  * @returns lorem sentences separated with spaces.
  *
@@ -55,12 +55,12 @@ std::string sentence(unsigned minNumberOfWords = 3, unsigned maxNumberOfWords = 
  * occaecati maiores."
  * @endcode
  */
-std::string sentences(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
+std::string sentences(unsigned min_count = 2, unsigned max_count = 6);
 
 /**
  * @brief Generates a slugified text consisting of the given number of hyphen separated words.
  *
- * @param numberOfWords The number of words. Defaults to `3`.
+ * @param word_count The number of words. Defaults to `3`.
  *
  * @returns Hyphen separated words.
  *
@@ -68,13 +68,13 @@ std::string sentences(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSen
  * lorem::slug(5) // "delectus-totam-iusto-itaque-placeat"
  * @endcode
  */
-std::string slug(unsigned numberOfWords = 3);
+std::string slug(unsigned word_count = 3);
 
 /**
  * @brief Returns a random lorem paragraph.
  *
- * @param minNumberOfSentences The minimum number of sentences to generate. Defaults to `2`.
- * @param maxNumberOfSentences The maximum number of sentences to generate. Defaults to `6`.
+ * @param min_sentence_count The minimum number of sentences to generate. Defaults to `2`.
+ * @param max_sentence_count The maximum number of sentences to generate. Defaults to `6`.
  *
  * @returns lorem paragraph.
  *
@@ -83,13 +83,13 @@ std::string slug(unsigned numberOfWords = 3);
  * corporis esse."
  * @endcode
  */
-std::string paragraph(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
+std::string paragraph(unsigned min_sentence_count = 2, unsigned max_sentence_count = 6);
 
 /**
  * @brief Returns a random lorem paragraphs.
  *
- * @param minNumberOfParagraphs The minimum number of paragraphs to generate. Defaults to `2`.
- * @param maxNumberOfParagraphs The maximum number of paragraphs to generate. Defaults to `4`.
+ * @param min_count The minimum number of paragraphs to generate. Defaults to `2`.
+ * @param max_count The maximum number of paragraphs to generate. Defaults to `4`.
  *
  * @returns lorem paragraphs separated with newlines.
  *
@@ -101,7 +101,7 @@ std::string paragraph(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSen
  * // Sapiente deleniti et. Ducimus maiores eum. Rem dolorem itaque aliquam."
  * @endcode
  */
-std::string paragraphs(unsigned minNumberOfParagraphs = 2, unsigned maxNumberOfParagraphs = 4);
+std::string paragraphs(unsigned min_count = 2, unsigned max_count = 4);
 }
 
 #endif

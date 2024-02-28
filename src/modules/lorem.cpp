@@ -6,13 +6,13 @@
 #include <faker/number.h>
 
 namespace faker::lorem {
-std::string_view word() { return random::element(data::loremWords); }
+std::string_view word() { return random::element(data::lorem_words); }
 
-std::string words(unsigned numberOfWords)
+std::string words(unsigned count)
 {
     std::string result;
 
-    for (unsigned i = 0; i < numberOfWords; i++) {
+    for (unsigned i = 0; i < count; i++) {
         if (i > 0) {
             result += ' ';
         }
@@ -22,34 +22,34 @@ std::string words(unsigned numberOfWords)
     return result;
 }
 
-std::string sentence(unsigned minNumberOfWords, unsigned maxNumberOfWords)
+std::string sentence(unsigned min_word_count, unsigned max_word_count)
 {
-    const auto numberOfWords = number::integer(minNumberOfWords, maxNumberOfWords);
-
-    const auto sentenceWords = words(numberOfWords);
-
-    return utils::format(
-        "{}{}.", static_cast<char>(std::toupper(sentenceWords[0])), sentenceWords.substr(1));
+    auto result = words(number::integer(min_word_count, max_word_count));
+    result[0] = std::toupper(result[0]);
+    result += '.';
+    return result;
 }
 
-std::string sentences(unsigned minNumberOfSentences, unsigned maxNumberOfSentences)
+std::string sentences(unsigned min_count, unsigned max_count)
 {
-    const auto numberOfSentences = number::integer(minNumberOfSentences, maxNumberOfSentences);
+    auto count = number::integer(min_count, max_count);
+    std::string result;
 
-    std::vector<std::string> sentences;
-
-    for (unsigned i = 0; i < numberOfSentences; i++) {
-        sentences.push_back(sentence());
+    for (unsigned i = 0; i < count; i++) {
+        if (i > 0) {
+            result += ' ';
+        }
+        result += sentence();
     }
 
-    return utils::join(sentences, " ");
+    return result;
 }
 
-std::string slug(unsigned int numberOfWords)
+std::string slug(unsigned word_count)
 {
     std::string result;
 
-    for (unsigned i = 0; i < numberOfWords; i++) {
+    for (unsigned i = 0; i < word_count; i++) {
         if (i > 0) {
             result += '-';
         }
@@ -59,22 +59,24 @@ std::string slug(unsigned int numberOfWords)
     return result;
 }
 
-std::string paragraph(unsigned int minNumberOfSentences, unsigned int maxNumberOfSentences)
+std::string paragraph(unsigned min_sentence_count, unsigned max_sentence_count)
 {
-    return sentences(minNumberOfSentences, maxNumberOfSentences);
+    return sentences(min_sentence_count, max_sentence_count);
 }
 
-std::string paragraphs(unsigned int minNumberOfParagraphs, unsigned int maxNumberOfParagraphs)
+std::string paragraphs(unsigned min_count, unsigned max_count)
 {
-    const auto numberOfParagraphs = number::integer(minNumberOfParagraphs, maxNumberOfParagraphs);
+    auto count = number::integer(min_count, max_count);
+    std::string result;
 
-    std::vector<std::string> paragraphs;
-
-    for (unsigned i = 0; i < numberOfParagraphs; i++) {
-        paragraphs.push_back(paragraph());
+    for (unsigned i = 0; i < count; i++) {
+        if (i > 0) {
+            result += '\n';
+        }
+        result += paragraph();
     }
 
-    return utils::join(paragraphs, "\n");
+    return result;
 }
 
 }
