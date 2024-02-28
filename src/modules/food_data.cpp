@@ -1,7 +1,7 @@
 #include "food_data.h"
 
 namespace faker::food::data {
-const std::array<std::string_view, 47> alcoholicBeverages {
+const std::array<std::string_view, 47> alcoholic_beverages {
     "Beer",
     "Wine",
     "Vodka",
@@ -51,7 +51,7 @@ const std::array<std::string_view, 47> alcoholicBeverages {
     "Black Russian",
 };
 
-const std::array<std::string_view, 85> dishNames = {
+const std::array<std::string_view, 85> dish_names = {
     "Sushi",
     "Paella",
     "Biryani",
@@ -139,7 +139,7 @@ const std::array<std::string_view, 85> dishNames = {
     "Garlic Herb Roasted Potatoes",
 };
 
-const std::array<std::string_view, 11> foodCategories = {
+const std::array<std::string_view, 11> food_categories = {
     "Vegetables",
     "Fruits",
     "Meat",
@@ -252,7 +252,7 @@ const std::array<std::string_view, 21> meats = {
     "Ham",
 };
 
-const std::array<std::string_view, 32> milkProducts = {
+const std::array<std::string_view, 32> milk_products = {
     "Milk",
     "Cheese",
     "Yogurt",
@@ -287,7 +287,7 @@ const std::array<std::string_view, 32> milkProducts = {
     "Neufchâtel",
 };
 
-const std::array<std::string_view, 31> nonalcoholicBeverages = {
+const std::array<std::string_view, 31> nonalcoholic_beverages = {
     "Water",
     "Tea",
     "Coffee",
@@ -421,7 +421,7 @@ const std::array<std::string_view, 29> seeds = {
     "Cotton Seeds",
 };
 
-const std::array<std::string_view, 24> sugarProducts = {
+const std::array<std::string_view, 24> sugar_products = {
     "Granulated Sugar",
     "Brown Sugar",
     "Powdered Sugar",

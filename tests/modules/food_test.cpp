@@ -8,21 +8,21 @@ TEST(FoodTest, shouldGenerateAlcoholicBeverage)
 {
     auto generatedAlcoholicBeverage = food::alcoholic_beverage();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(food::data::alcoholicBeverages, generatedAlcoholicBeverage);
+    FAKER_EXPECT_CONTAINER_CONTAINS(food::data::alcoholic_beverages, generatedAlcoholicBeverage);
 }
 
 TEST(FoodTest, shouldGenerateDishName)
 {
     auto generatedDishName = food::dish_name();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(food::data::dishNames, generatedDishName);
+    FAKER_EXPECT_CONTAINER_CONTAINS(food::data::dish_names, generatedDishName);
 }
 
 TEST(FoodTest, shouldGenerateFoodCategories)
 {
     auto generatedFoodCategory = food::category();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(food::data::foodCategories, generatedFoodCategory);
+    FAKER_EXPECT_CONTAINER_CONTAINS(food::data::food_categories, generatedFoodCategory);
 }
 
 TEST(FoodTest, shouldGenerateFruit)
@@ -43,7 +43,7 @@ TEST(FoodTest, shouldGenerateMilkProduct)
 {
     auto generatedMilkProduct = food::milk_product();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(food::data::milkProducts, generatedMilkProduct);
+    FAKER_EXPECT_CONTAINER_CONTAINS(food::data::milk_products, generatedMilkProduct);
 }
 
 TEST(FoodTest, shouldGenerateNonalcoholicBeverages)
@@ -51,7 +51,7 @@ TEST(FoodTest, shouldGenerateNonalcoholicBeverages)
     auto generatedNonalcoholicBeverages = food::non_alcoholic_beverage();
 
     FAKER_EXPECT_CONTAINER_CONTAINS(
-        food::data::nonalcoholicBeverages, generatedNonalcoholicBeverages);
+        food::data::nonalcoholic_beverages, generatedNonalcoholicBeverages);
 }
 
 TEST(FoodTest, shouldGenerateNut)
@@ -93,7 +93,7 @@ TEST(FoodTest, shouldGenerateSugarProduct)
 {
     auto generatedSugarProduct = food::sugar_product();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(food::data::sugarProducts, generatedSugarProduct);
+    FAKER_EXPECT_CONTAINER_CONTAINS(food::data::sugar_products, generatedSugarProduct);
 }
 
 TEST(FoodTest, shouldGenerateVegetable)
