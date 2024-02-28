@@ -68,7 +68,7 @@ std::string isbn();
  * book::release_year() // 2016
  * @endcode
  */
-int release_year();
+unsigned release_year();
 
 /**
  * @brief Returns the full name of a translator
@@ -101,7 +101,7 @@ std::string_view format();
  * book::page() // 314
  * @endcode
  */
-int page();
+unsigned page();
 
 /*
  * @brief returns a random book series

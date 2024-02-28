@@ -21,13 +21,13 @@ std::string isbn()
         string::numeric(2), string::numeric(5), string::numeric(1));
 }
 
-int release_year() { return number::integer(1940, 2024); }
+unsigned release_year() { return number::integer(1940U, 2024U); }
 
 std::string_view translator() { return random::element(data::translators); }
 
-std::string_view format() { return random::element(data::bookFormats); }
+std::string_view format() { return random::element(data::book_formats); }
 
-int page() { return number::integer(50, 999); }
+unsigned page() { return number::integer(50U, 999U); }
 
-std::string_view series() { return random::element(data::bookSeries); }
+std::string_view series() { return random::element(data::book_series); }
 }

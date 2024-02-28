@@ -30,7 +30,7 @@ const std::array<std::string_view, 100> authors = { "Shakespeare, William", "Smo
     "Hapgood, Isabel Florence", "Chambers, Robert W. (Robert William)", "Marx, Karl",
     "Eliot, T. S. (Thomas Stearns)", "Hardy, Thomas" };
 
-const std::array<std::string_view, 3> bookFormats {
+const std::array<std::string_view, 3> book_formats {
     "Paperback",
     "Hardcover",
     "Kindle",
@@ -109,7 +109,7 @@ const std::array<std::string_view, 263> publishers = { "Academic Press", "Ace Bo
     "Vintage Books at Random House", "Virago Press", "Virgin Publishing", "Voyager Books", "Brill",
     "Allen Ltd", "Zed Books", "Ziff Davis Media", "Zondervan" };
 
-const std::array<std::string_view, 19> bookSeries = {
+const std::array<std::string_view, 19> book_series = {
     "Harry Potter",
     "The Lord of the Rings",
     "Game of Thrones",

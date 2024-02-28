@@ -65,7 +65,7 @@ TEST(BookTest, shouldGenerateFormat)
 {
     auto bookFormat = book::format();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::bookFormats, bookFormat);
+    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::book_formats, bookFormat);
 }
 
 TEST(BookTest, shouldGeneratePage)
@@ -79,5 +79,5 @@ TEST(BookTest, shouldGenerateSeries)
 {
     auto randomSeries = book::series();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::bookSeries, randomSeries);
+    FAKER_EXPECT_CONTAINER_CONTAINS(book::data::book_series, randomSeries);
 }
