@@ -2,7 +2,7 @@
 
 namespace faker::location::data {
 
-const std::array<std::string_view, 246> allCountries = { "Afghanistan", "Aland Islands", "Albania",
+const std::array<std::string_view, 246> all_countries = { "Afghanistan", "Aland Islands", "Albania",
     "Algeria", "American Samoa", "Andorra", "Angola", "Anguilla", "Antarctica",
     "Antigua and Barbuda", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan",
     "Bahamas", "Bahrain", "Bangladesh", "Barbados", "Belarus", "Belgium", "Belize", "Benin",
@@ -44,7 +44,7 @@ const std::array<std::string_view, 246> allCountries = { "Afghanistan", "Aland I
     "Vietnam", "Virgin Islands, British", "Virgin Islands, U.S.", "Wallis and Futuna",
     "Western Sahara", "Yemen", "Zambia", "Zimbabwe" };
 
-const std::array<std::string_view, 249> countryCodes = {
+const std::array<std::string_view, 249> country_codes = {
     "AD",
     "AE",
     "AF",
@@ -299,7 +299,7 @@ const std::array<std::string_view, 249> countryCodes = {
 const std::array<std::string_view, 8> directions
     = { "North", "East", "South", "West", "Northeast", "Northwest", "Southeast", "Southwest" };
 
-const std::array<std::string_view, 418> timeZones = {
+const std::array<std::string_view, 418> time_zones = {
     "Africa/Abidjan",
     "Africa/Accra",
     "Africa/Addis_Ababa",
@@ -722,7 +722,7 @@ const std::array<std::string_view, 418> timeZones = {
 
 // Australia
 
-const std::array<std::string_view, 323> australiaCities = { "Sydney", "Melbourne", "Brisbane",
+const std::array<std::string_view, 323> australia_cities = { "Sydney", "Melbourne", "Brisbane",
     "Perth", "Adelaide", "Gold Coast", "Cranbourne", "Canberra", "Central Coast", "Wollongong",
     "Hobart", "Geelong", "Townsville", "Ipswich", "Newcastle", "Cairns", "Darwin", "Toowoomba",
     "Launceston", "Ballarat", "Bendigo", "Mackay", "Wagga Wagga", "Hervey Bay", "Pakenham",
@@ -770,7 +770,7 @@ const std::array<std::string_view, 323> australiaCities = { "Sydney", "Melbourne
     "Drummond Cove", "Surfside", "Evandale", "Kurrajong Heights", "Seven Mile Beach", "San Remo",
     "Valley Heights", "Greenwell Point", "Innisfail", "Wahgunyah", "Tinonee", "Mollymook" };
 
-const std::array<std::string_view, 8> australiaStates = {
+const std::array<std::string_view, 8> australia_states = {
     "New South Wales",
     "Queensland",
     "Northern Territory",
@@ -781,7 +781,7 @@ const std::array<std::string_view, 8> australiaStates = {
     "Victoria",
 };
 
-const std::array<std::string_view, 37> australiaStreetSuffixes = {
+const std::array<std::string_view, 37> australia_street_suffixes = {
     "Avenue",
     "Boulevard",
     "Circle",
@@ -821,29 +821,29 @@ const std::array<std::string_view, 37> australiaStreetSuffixes = {
     "Way",
 };
 
-const std::string_view australiaZipCodeFormat { "####" };
+const std::string_view australia_zip_code_format { "####" };
 
-const std::array<std::string_view, 1> australiaAddressFormats { "{buildingNumber} {street}" };
+const std::array<std::string_view, 1> australia_address_formats { "{buildingNumber} {street}" };
 
-const std::array<std::string_view, 3> australiaBuildingNumberFormats { "####", "###", "##" };
+const std::array<std::string_view, 3> australia_building_number_formats { "####", "###", "##" };
 
-const std::array<std::string_view, 2> australiaStreetFormats { "{firstName} {streetSuffix}",
+const std::array<std::string_view, 2> australia_street_formats { "{firstName} {streetSuffix}",
     "{lastName} {streetSuffix}" };
 
-const std::array<std::string_view, 1> australiaCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> australia_city_formats { "{cityName}" };
 
-const CountryAddresses australiaAddresses { australiaZipCodeFormat,
-    tcb::make_span(australiaAddressFormats), {}, tcb::make_span(australiaStreetFormats), {}, {},
-    tcb::make_span(australiaStreetSuffixes), tcb::make_span(australiaBuildingNumberFormats),
-    tcb::make_span(australiaCityFormats), {}, tcb::make_span(australiaCities), {},
-    tcb::make_span(australiaStates), {} };
+const country_addresses_info australia_addresses { australia_zip_code_format,
+    tcb::make_span(australia_address_formats), {}, tcb::make_span(australia_street_formats), {}, {},
+    tcb::make_span(australia_street_suffixes), tcb::make_span(australia_building_number_formats),
+    tcb::make_span(australia_city_formats), {}, tcb::make_span(australia_cities), {},
+    tcb::make_span(australia_states), {} };
 
 // Brazil
 
-const std::array<std::string_view, 4> brazilCitySuffixes { "do Descoberto", "de Nossa Senhora",
+const std::array<std::string_view, 4> brazil_city_suffixes { "do Descoberto", "de Nossa Senhora",
     "do Norte", "do Sul" };
 
-const std::array<std::string_view, 27> brazilStates = {
+const std::array<std::string_view, 27> brazil_states = {
     "Acre",
     "Alagoas",
     "Amapá",
@@ -873,7 +873,7 @@ const std::array<std::string_view, 27> brazilStates = {
     "Tocantins",
 };
 
-const std::array<std::string_view, 6> brazilStreetSuffixes {
+const std::array<std::string_view, 6> brazil_street_suffixes {
     "Rua",
     "Avenida",
     "Travessa",
@@ -882,31 +882,31 @@ const std::array<std::string_view, 6> brazilStreetSuffixes {
     "Rodovia",
 };
 
-const std::string_view brazilZipCodeFormat { "#####-###" };
+const std::string_view brazil_zip_code_format { "#####-###" };
 
-const std::array<std::string_view, 2> brazilAddressFormats { "{street} {buildingNumber}",
+const std::array<std::string_view, 2> brazil_address_formats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::array<std::string_view, 5> brazilSecondaryAddressFormats { "Apto. ###", "Sobrado ##",
+const std::array<std::string_view, 5> brazil_secondary_address_formats { "Apto. ###", "Sobrado ##",
     "Casa #", "Lote ##", "Quadra ##" };
 
-const std::array<std::string_view, 3> brazilBuildingNumberFormats { "#####", "####", "###" };
+const std::array<std::string_view, 3> brazil_building_number_formats { "#####", "####", "###" };
 
-const std::array<std::string_view, 2> brazilStreetFormats { "{firstName} {streetSuffix}",
+const std::array<std::string_view, 2> brazil_street_formats { "{firstName} {streetSuffix}",
     "{lastName} {streetSuffix}" };
 
-const std::array<std::string_view, 2> brazilCityFormats { "{firstName} {citySuffix}",
+const std::array<std::string_view, 2> brazil_city_formats { "{firstName} {citySuffix}",
     "{lastName} {citySuffix}" };
 
-const CountryAddresses brazilAddresses { brazilZipCodeFormat, tcb::make_span(brazilAddressFormats),
-    tcb::make_span(brazilSecondaryAddressFormats), tcb::make_span(brazilStreetFormats), {}, {},
-    tcb::make_span(brazilStreetSuffixes), tcb::make_span(brazilBuildingNumberFormats),
-    tcb::make_span(brazilCityFormats), {}, {}, tcb::make_span(brazilCitySuffixes),
-    tcb::make_span(brazilStates), {} };
+const country_addresses_info brazil_addresses { brazil_zip_code_format,
+    tcb::make_span(brazil_address_formats), tcb::make_span(brazil_secondary_address_formats),
+    tcb::make_span(brazil_street_formats), {}, {}, tcb::make_span(brazil_street_suffixes),
+    tcb::make_span(brazil_building_number_formats), tcb::make_span(brazil_city_formats), {}, {},
+    tcb::make_span(brazil_city_suffixes), tcb::make_span(brazil_states), {} };
 
 // Czech Republic
 
-const std::array<std::string_view, 602> czechCities {
+const std::array<std::string_view, 602> czech_cities {
     "Abertamy",
     "Adamov",
     "Andělská Hora",
@@ -1511,7 +1511,7 @@ const std::array<std::string_view, 602> czechCities {
     "Žulová",
 };
 
-const std::array<std::string_view, 14> czechStates = {
+const std::array<std::string_view, 14> czech_states = {
     "Jihočeský kraj",
     "Jihomoravský kraj",
     "Karlovarský kraj",
@@ -1528,7 +1528,7 @@ const std::array<std::string_view, 14> czechStates = {
     "Zlínský kraj",
 };
 
-const std::array<std::string_view, 7526> czechStreetNames {
+const std::array<std::string_view, 7526> czech_street_names {
     "17. Listopadu",
     "28. Pluku",
     "28. Října",
@@ -9057,28 +9057,28 @@ const std::array<std::string_view, 7526> czechStreetNames {
     "Žďárská",
 };
 
-const std::string_view czechZipCodeFormat { "#####" };
+const std::string_view czech_zip_code_format { "#####" };
 
-const std::array<std::string_view, 2> czechAddressFormats { "{street} {buildingNumber}",
+const std::array<std::string_view, 2> czech_address_formats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::array<std::string_view, 2> czechSecondaryAddressFormats { "Apt. ###", "Suite ###" };
+const std::array<std::string_view, 2> czech_secondary_address_formats { "Apt. ###", "Suite ###" };
 
-const std::array<std::string_view, 3> czechBuildingNumberFormats { "#", "##", "###" };
+const std::array<std::string_view, 3> czech_building_number_formats { "#", "##", "###" };
 
-const std::array<std::string_view, 1> czechStreetFormats { "{streetName}" };
+const std::array<std::string_view, 1> czech_street_formats { "{streetName}" };
 
-const std::array<std::string_view, 1> czechCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> czech_city_formats { "{cityName}" };
 
-const CountryAddresses czechAddresses { czechZipCodeFormat, tcb::make_span(czechAddressFormats),
-    tcb::make_span(czechSecondaryAddressFormats), tcb::make_span(czechStreetFormats), {},
-    tcb::make_span(czechStreetNames), {}, tcb::make_span(czechBuildingNumberFormats),
-    tcb::make_span(czechCityFormats), {}, tcb::make_span(czechCities), {},
-    tcb::make_span(czechStates), {} };
+const country_addresses_info czech_addresses { czech_zip_code_format,
+    tcb::make_span(czech_address_formats), tcb::make_span(czech_secondary_address_formats),
+    tcb::make_span(czech_street_formats), {}, tcb::make_span(czech_street_names), {},
+    tcb::make_span(czech_building_number_formats), tcb::make_span(czech_city_formats), {},
+    tcb::make_span(czech_cities), {}, tcb::make_span(czech_states), {} };
 
 // Denmark
 
-const std::array<std::string_view, 221> denmarkCities {
+const std::array<std::string_view, 221> denmark_сities {
     "Albertslund",
     "Arden",
     "Asnæs",
@@ -9302,7 +9302,7 @@ const std::array<std::string_view, 221> denmarkCities {
     "Aarup",
 };
 
-const std::array<std::string_view, 5> denmarkStates = {
+const std::array<std::string_view, 5> denmark_states = {
     "Region Hovedstaden",
     "Region Midtjylland",
     "Region Nordjylland",
@@ -9310,7 +9310,7 @@ const std::array<std::string_view, 5> denmarkStates = {
     "Region Syddanmark",
 };
 
-const std::array<std::string_view, 158> denmarkStreetNames = {
+const std::array<std::string_view, 158> denmark_street_names = {
     "Agervej",
     "Askevej",
     "Bakkedraget",
@@ -9471,29 +9471,29 @@ const std::array<std::string_view, 158> denmarkStreetNames = {
     "Åvænget",
 };
 
-const std::string_view denmarkZipCodeFormat { "####" };
+const std::string_view denmark_zip_code_format { "####" };
 
-const std::array<std::string_view, 2> denmarkAddressFormats { "{street} {buildingNumber}",
+const std::array<std::string_view, 2> denmark_address_formats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::array<std::string_view, 2> denmarkSecondaryAddressFormats { "#. tv", "#. th" };
+const std::array<std::string_view, 2> denmark_secondary_address_formats { "#. tv", "#. th" };
 
-const std::array<std::string_view, 5> denmarkBuildingNumberFormats { "#", "##", "###", "##A",
+const std::array<std::string_view, 5> denmark_building_number_formats { "#", "##", "###", "##A",
     "##B" };
 
-const std::array<std::string_view, 1> denmarkStreetFormats { "{streetName}" };
+const std::array<std::string_view, 1> denmark_street_formats { "{streetName}" };
 
-const std::array<std::string_view, 1> denmarkCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> denmark_city_formats { "{cityName}" };
 
-const CountryAddresses denmarkAddresses { denmarkZipCodeFormat,
-    tcb::make_span(denmarkAddressFormats), tcb::make_span(denmarkSecondaryAddressFormats),
-    tcb::make_span(denmarkStreetFormats), {}, tcb::make_span(denmarkStreetNames), {},
-    tcb::make_span(denmarkBuildingNumberFormats), tcb::make_span(denmarkCityFormats), {},
-    tcb::make_span(denmarkCities), {}, tcb::make_span(denmarkStates), {} };
+const country_addresses_info denmark_addresses { denmark_zip_code_format,
+    tcb::make_span(denmark_address_formats), tcb::make_span(denmark_secondary_address_formats),
+    tcb::make_span(denmark_street_formats), {}, tcb::make_span(denmark_street_names), {},
+    tcb::make_span(denmark_building_number_formats), tcb::make_span(denmark_city_formats), {},
+    tcb::make_span(denmark_сities), {}, tcb::make_span(denmark_states), {} };
 
 // Estonia
 
-const std::array<std::string_view, 5> estoniaCities {
+const std::array<std::string_view, 5> estonia_cities {
     "Tallinn",
     "Tartu",
     "Narva",
@@ -9501,7 +9501,7 @@ const std::array<std::string_view, 5> estoniaCities {
     "Kohtla-Järve",
 };
 
-const std::array<std::string_view, 15> estoniaCounties {
+const std::array<std::string_view, 15> estonia_counties {
     "Harju",
     "Hiiu",
     "Ida-Viru",
@@ -9519,7 +9519,7 @@ const std::array<std::string_view, 15> estoniaCounties {
     "Võru",
 };
 
-const std::array<std::string_view, 31> estoniaStreetNames {
+const std::array<std::string_view, 31> estonia_street_names {
     "Laagna",
     "Punane",
     "Paepargi",
@@ -9553,7 +9553,7 @@ const std::array<std::string_view, 31> estoniaStreetNames {
     "Veski",
 };
 
-const std::array<std::string_view, 7> estoniaStreetSuffixes {
+const std::array<std::string_view, 7> estonia_street_suffixes {
     "Tänav",
     "tn",
     "Tee",
@@ -9563,25 +9563,25 @@ const std::array<std::string_view, 7> estoniaStreetSuffixes {
     "Põik",
 };
 
-const std::string_view estoniaZipCodeFormat { "#####" };
+const std::string_view estonia_zip_code_format { "#####" };
 
-const std::array<std::string_view, 1> estoniaAddressFormats { "{street} {buildingNumber}" };
+const std::array<std::string_view, 1> estonia_address_formats { "{street} {buildingNumber}" };
 
-const std::array<std::string_view, 3> estoniaBuildingNumberFormats { "###", "##", "#" };
+const std::array<std::string_view, 3> estonia_building_number_formats { "###", "##", "#" };
 
-const std::array<std::string_view, 1> estoniaStreetFormats { "{streetName} {streetSuffix}" };
+const std::array<std::string_view, 1> estonia_street_formats { "{streetName} {streetSuffix}" };
 
-const std::array<std::string_view, 1> estoniaCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> estonia_city_formats { "{cityName}" };
 
-const CountryAddresses estoniaAddresses { estoniaZipCodeFormat,
-    tcb::make_span(estoniaAddressFormats), {}, tcb::make_span(estoniaStreetFormats), {},
-    tcb::make_span(estoniaStreetNames), tcb::make_span(estoniaStreetSuffixes),
-    tcb::make_span(estoniaBuildingNumberFormats), tcb::make_span(estoniaCityFormats), {},
-    tcb::make_span(estoniaCities), {}, {}, tcb::make_span(estoniaCounties) };
+const country_addresses_info estonia_addresses { estonia_zip_code_format,
+    tcb::make_span(estonia_address_formats), {}, tcb::make_span(estonia_street_formats), {},
+    tcb::make_span(estonia_street_names), tcb::make_span(estonia_street_suffixes),
+    tcb::make_span(estonia_building_number_formats), tcb::make_span(estonia_city_formats), {},
+    tcb::make_span(estonia_cities), {}, {}, tcb::make_span(estonia_counties) };
 
 // Finland
 
-const std::array<std::string_view, 20> finlandCities {
+const std::array<std::string_view, 20> finland_cities {
     "Espoo",
     "Helsinki",
     "Hyvinkää",
@@ -9604,7 +9604,7 @@ const std::array<std::string_view, 20> finlandCities {
     "Vantaa",
 };
 
-const std::array<std::string_view, 19> finlandStates = {
+const std::array<std::string_view, 19> finland_states = {
     "Ahvenanmaa",
     "Etelä-Karjala",
     "Etelä-Pohjanmaa",
@@ -9626,7 +9626,7 @@ const std::array<std::string_view, 19> finlandStates = {
     "Varsinais-Suomi",
 };
 
-const std::array<std::string_view, 11> finlandStreetSuffixes = {
+const std::array<std::string_view, 11> finland_street_suffixes = {
     "katu",
     "tie",
     "kuja",
@@ -9640,30 +9640,30 @@ const std::array<std::string_view, 11> finlandStreetSuffixes = {
     "väylä",
 };
 
-const std::string_view finlandZipCodeFormat { "#####" };
+const std::string_view finland_zip_code_format { "#####" };
 
-const std::array<std::string_view, 2> finlandAddressFormats { "{street} {buildingNumber}",
+const std::array<std::string_view, 2> finland_address_formats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::array<std::string_view, 9> finlandSecondaryAddressFormats { "A", "B", "C", "A #", "A ##",
-    "B #", "B ##", "C #", "C ##" };
+const std::array<std::string_view, 9> finland_secondary_address_formats { "A", "B", "C", "A #",
+    "A ##", "B #", "B ##", "C #", "C ##" };
 
-const std::array<std::string_view, 3> finlandBuildingNumberFormats { "###", "##", "#" };
+const std::array<std::string_view, 3> finland_building_number_formats { "###", "##", "#" };
 
-const std::array<std::string_view, 2> finlandStreetFormats { "{firstName} {streetSuffix}",
+const std::array<std::string_view, 2> finland_street_formats { "{firstName} {streetSuffix}",
     "{lastName} {streetSuffix}" };
 
-const std::array<std::string_view, 1> finlandCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> finland_city_formats { "{cityName}" };
 
-const CountryAddresses finlandAddresses { finlandZipCodeFormat,
-    tcb::make_span(finlandAddressFormats), tcb::make_span(finlandSecondaryAddressFormats),
-    tcb::make_span(finlandStreetFormats), {}, {}, tcb::make_span(finlandStreetSuffixes),
-    tcb::make_span(finlandBuildingNumberFormats), tcb::make_span(finlandCityFormats), {},
-    tcb::make_span(finlandCities), {}, tcb::make_span(finlandStates), {} };
+const country_addresses_info finland_addresses { finland_zip_code_format,
+    tcb::make_span(finland_address_formats), tcb::make_span(finland_secondary_address_formats),
+    tcb::make_span(finland_street_formats), {}, {}, tcb::make_span(finland_street_suffixes),
+    tcb::make_span(finland_building_number_formats), tcb::make_span(finland_city_formats), {},
+    tcb::make_span(finland_cities), {}, tcb::make_span(finland_states), {} };
 
 // France
 
-const std::array<std::string_view, 1000> franceCities { "Abbeville", "Achères", "Agde", "Agen",
+const std::array<std::string_view, 1000> france_cities { "Abbeville", "Achères", "Agde", "Agen",
     "Aix-en-Provence", "Aix-les-Bains", "Ajaccio", "Albertville", "Albi", "Alençon", "Alès",
     "Alfortville", "Allauch", "Allonnes", "Ambarès-et-Lagrave", "Ambérieu-en-Bugey", "Amboise",
     "Amiens", "Amilly", "Amnéville", "Ancenis-Saint-Géréon", "Andernos-les-Bains", "Andrésy",
@@ -9833,7 +9833,7 @@ const std::array<std::string_view, 1000> franceCities { "Abbeville", "Achères",
     "Voiron", "Voisins-le-Bretonneux", "Wambrechies", "Wasquehal", "Wattignies", "Wattrelos",
     "Wittelsheim", "Wittenheim", "Woippy", "Yerres", "Yutz", "Yvetot", "Yzeure" };
 
-const std::array<std::string_view, 22> franceStates = {
+const std::array<std::string_view, 22> france_states = {
     "Alsace",
     "Aquitaine",
     "Auvergne",
@@ -9858,10 +9858,10 @@ const std::array<std::string_view, 22> franceStates = {
     "Rhône-Alpes",
 };
 
-const std::array<std::string_view, 11> franceStreetPrefixes { "allée", "voie", "rue", "avenue",
+const std::array<std::string_view, 11> france_street_prefixes { "allée", "voie", "rue", "avenue",
     "boulevard", "quai", "passage", "impasse", "place", "chemin", "lotissement" };
 
-const std::array<std::string_view, 66> franceStreetSuffixes { "du Faubourg Saint-Honoré",
+const std::array<std::string_view, 66> france_street_suffixes { "du Faubourg Saint-Honoré",
     "de Montmorency", "de Solférino", "de la Pompe", "de Rivoli", "de Paris",
     "du Faubourg-Saint-Denis", "de la Huchette", "Saint-Honoré", "Pastourelle", "Oberkampf",
     "d'Alésia", "de la Chaussée-d'Antin", "de la Bûcherie", "de Richelieu", "Montorgueil",
@@ -9874,27 +9874,28 @@ const std::array<std::string_view, 66> franceStreetSuffixes { "du Faubourg Saint
     "Laffitte", "Royale", "de la Victoire", "de Vaugirard", "des Rosiers", "Mouffetard", "du Havre",
     "du Bac", "Pierre Charron", "Du Sommerard", "de Provence", "du Dahomey", "Dauphine", "Lepic" };
 
-const std::string_view franceZipCodeFormat { "#####" };
+const std::string_view france_zip_code_format { "#####" };
 
-const std::array<std::string_view, 1> franceAddressFormats { "{buildingNumber} {street}" };
+const std::array<std::string_view, 1> france_address_formats { "{buildingNumber} {street}" };
 
-const std::array<std::string_view, 4> franceBuildingNumberFormats { "####", "###", "##", "#" };
+const std::array<std::string_view, 4> france_building_number_formats { "####", "###", "##", "#" };
 
-const std::array<std::string_view, 2> franceSecondaryAddressFormats { "Apt. ###", "Étage #" };
+const std::array<std::string_view, 2> france_secondary_address_formats { "Apt. ###", "Étage #" };
 
-const std::array<std::string_view, 1> franceStreetFormats { "{streetPrefix} {streetSuffix}" };
+const std::array<std::string_view, 1> france_street_formats { "{streetPrefix} {streetSuffix}" };
 
-const std::array<std::string_view, 1> franceCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> france_city_formats { "{cityName}" };
 
-const CountryAddresses franceAddresses { franceZipCodeFormat, tcb::make_span(franceAddressFormats),
-    tcb::make_span(franceSecondaryAddressFormats), tcb::make_span(franceStreetFormats),
-    tcb::make_span(franceStreetPrefixes), {}, tcb::make_span(franceStreetSuffixes),
-    tcb::make_span(franceBuildingNumberFormats), tcb::make_span(franceCityFormats), {},
-    tcb::make_span(franceCities), {}, tcb::make_span(franceStates), {} };
+const country_addresses_info france_addresses { france_zip_code_format,
+    tcb::make_span(france_address_formats), tcb::make_span(france_secondary_address_formats),
+    tcb::make_span(france_street_formats), tcb::make_span(france_street_prefixes), {},
+    tcb::make_span(france_street_suffixes), tcb::make_span(france_building_number_formats),
+    tcb::make_span(france_city_formats), {}, tcb::make_span(france_cities), {},
+    tcb::make_span(france_states), {} };
 
 // Germany
 
-const std::array<std::string_view, 200> germanyCities {
+const std::array<std::string_view, 200> germany_cities {
     "Aachen",
     "Aalen",
     "Ahlen",
@@ -10097,7 +10098,7 @@ const std::array<std::string_view, 200> germanyCities {
     "Zwickau",
 };
 
-const std::array<std::string_view, 16> germanyStates = {
+const std::array<std::string_view, 16> germany_states = {
     "Baden-Württemberg",
     "Bayern",
     "Berlin",
@@ -10116,7 +10117,7 @@ const std::array<std::string_view, 16> germanyStates = {
     "Thüringen",
 };
 
-const std::array<std::string_view, 1031> germanyStreetNames {
+const std::array<std::string_view, 1031> germany_street_names {
     "Ackerweg",
     "Adalbert-Stifter-Str.",
     "Adalbertstr.",
@@ -11150,29 +11151,30 @@ const std::array<std::string_view, 1031> germanyStreetNames {
     "Zur alten Fabrik",
 };
 
-const std::string_view germanyZipCodeFormat { "#####" };
+const std::string_view germany_zip_code_format { "#####" };
 
-const std::array<std::string_view, 2> germanyAddressFormats { "{street} {buildingNumber}",
+const std::array<std::string_view, 2> germany_address_formats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::array<std::string_view, 3> germanySecondaryAddressFormats { "Apt. ###", "Zimmer ###",
+const std::array<std::string_view, 3> germany_secondary_address_formats { "Apt. ###", "Zimmer ###",
     "# OG" };
 
-const std::array<std::string_view, 6> germanyBuildingNumberFormats { "###", "##", "#", "##a", "##b",
-    "##c" };
+const std::array<std::string_view, 6> germany_building_number_formats { "###", "##", "#", "##a",
+    "##b", "##c" };
 
-const std::array<std::string_view, 1> germanyStreetFormats { "{streetName}" };
+const std::array<std::string_view, 1> germany_street_formats { "{streetName}" };
 
-const std::array<std::string_view, 1> germanyCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> germany_city_formats { "{cityName}" };
 
-const CountryAddresses germanyAddresses { germanyZipCodeFormat,
-    tcb::make_span(germanyAddressFormats), tcb::make_span(germanySecondaryAddressFormats),
-    tcb::make_span(germanyStreetFormats), {}, tcb::make_span(germanyStreetNames), {},
-    tcb::make_span(germanyBuildingNumberFormats), tcb::make_span(germanyCityFormats), {},
-    tcb::make_span(germanyCities), {}, tcb::make_span(germanyStates), {} };
+const country_addresses_info germany_addresses { germany_zip_code_format,
+    tcb::make_span(germany_address_formats), tcb::make_span(germany_secondary_address_formats),
+    tcb::make_span(germany_street_formats), {}, tcb::make_span(germany_street_names), {},
+    tcb::make_span(germany_building_number_formats), tcb::make_span(germany_city_formats), {},
+    tcb::make_span(germany_cities), {}, tcb::make_span(germany_states), {} };
+
 // India
 
-const std::array<std::string_view, 1198> indiaCities {
+const std::array<std::string_view, 1198> india_cities {
     "Achalpur",
     "Achhnera",
     "Adalaj",
@@ -12373,7 +12375,7 @@ const std::array<std::string_view, 1198> indiaCities {
     "Zunheboto",
 };
 
-const std::array<std::string_view, 36> indiaStates = {
+const std::array<std::string_view, 36> india_states = {
     "Andaman and Nicobar Islands",
     "Andra Pradesh",
     "Arunachal Pradesh",
@@ -12412,7 +12414,7 @@ const std::array<std::string_view, 36> indiaStates = {
     "West Bengal",
 };
 
-const std::array<std::string_view, 35> indiaStreetSuffixes = {
+const std::array<std::string_view, 35> india_street_suffixes = {
     "Pur",
     "Puri",
     "Halli",
@@ -12450,28 +12452,28 @@ const std::array<std::string_view, 35> indiaStreetSuffixes = {
     "Theru",
 };
 
-const std::string_view indiaZipCodeFormat { "######" };
+const std::string_view india_zip_code_format { "######" };
 
-const std::array<std::string_view, 1> indiaAddressFormats { "{buildingNumber} {street}" };
+const std::array<std::string_view, 1> india_address_formats { "{buildingNumber} {street}" };
 
-const std::array<std::string_view, 2> indiaSecondaryAddressFormats { "Apt. ###", "Flat ###" };
+const std::array<std::string_view, 2> india_secondary_address_formats { "Apt. ###", "Flat ###" };
 
-const std::array<std::string_view, 3> indiaBuildingNumberFormats { "#####", "####", "###" };
+const std::array<std::string_view, 3> india_building_number_formats { "#####", "####", "###" };
 
-const std::array<std::string_view, 2> indiaStreetFormats { "{firstName} {streetSuffix}",
+const std::array<std::string_view, 2> india_street_formats { "{firstName} {streetSuffix}",
     "{lastName} {streetSuffix}" };
 
-const std::array<std::string_view, 1> indiaCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> india_city_formats { "{cityName}" };
 
-const CountryAddresses indiaAddresses { indiaZipCodeFormat, tcb::make_span(indiaAddressFormats),
-    tcb::make_span(indiaSecondaryAddressFormats), tcb::make_span(indiaStreetFormats), {}, {},
-    tcb::make_span(indiaStreetSuffixes), tcb::make_span(indiaBuildingNumberFormats),
-    tcb::make_span(indiaCityFormats), {}, tcb::make_span(indiaCities), {},
-    tcb::make_span(indiaStates), {} };
+const country_addresses_info india_addresses { india_zip_code_format,
+    tcb::make_span(india_address_formats), tcb::make_span(india_secondary_address_formats),
+    tcb::make_span(india_street_formats), {}, {}, tcb::make_span(india_street_suffixes),
+    tcb::make_span(india_building_number_formats), tcb::make_span(india_city_formats), {},
+    tcb::make_span(india_cities), {}, tcb::make_span(india_states), {} };
 
 // Italy
 
-const std::array<std::string_view, 979> italyCities {
+const std::array<std::string_view, 979> italy_cities {
     "Agliè",
     "Andezeno",
     "Barbania",
@@ -13453,7 +13455,7 @@ const std::array<std::string_view, 979> italyCities {
     "Villaspeciosa",
 };
 
-const std::array<std::string_view, 110> italyStates = {
+const std::array<std::string_view, 110> italy_states = {
     "Agrigento",
     "Alessandria",
     "Ancona",
@@ -13566,7 +13568,7 @@ const std::array<std::string_view, 110> italyStates = {
     "Viterbo",
 };
 
-const std::array<std::string_view, 7> italyStreetPrefixes {
+const std::array<std::string_view, 7> italy_street_prefixes {
     "Piazza",
     "Strada",
     "Via",
@@ -13576,126 +13578,127 @@ const std::array<std::string_view, 7> italyStreetPrefixes {
     "Incrocio",
 };
 
-const std::string_view italyZipCodeFormat { "#####" };
+const std::string_view italy_zip_code_format { "#####" };
 
-const std::array<std::string_view, 2> italyAddressFormats { "{street} {buildingNumber}",
+const std::array<std::string_view, 2> italy_address_formats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::array<std::string_view, 2> italySecondaryAddressFormats { "Appartamento ##", "Piano #" };
+const std::array<std::string_view, 2> italy_secondary_address_formats { "Appartamento ##",
+    "Piano #" };
 
-const std::array<std::string_view, 3> italyBuildingNumberFormats { "###", "##", "#" };
+const std::array<std::string_view, 3> italy_building_number_formats { "###", "##", "#" };
 
-const std::array<std::string_view, 2> italyStreetFormats { "{streetPrefix} {firstName}",
+const std::array<std::string_view, 2> italy_street_formats { "{streetPrefix} {firstName}",
     "{streetPrefix} {lastName}" };
 
-const std::array<std::string_view, 1> italyCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> italy_city_formats { "{cityName}" };
 
-const CountryAddresses italyAddresses { italyZipCodeFormat, tcb::make_span(italyAddressFormats),
-    tcb::make_span(italySecondaryAddressFormats), tcb::make_span(italyStreetFormats),
-    tcb::make_span(italyStreetPrefixes), {}, {}, tcb::make_span(italyBuildingNumberFormats),
-    tcb::make_span(italyCityFormats), {}, tcb::make_span(italyCities), {},
-    tcb::make_span(italyStates), {} };
+const country_addresses_info italy_addresses { italy_zip_code_format,
+    tcb::make_span(italy_address_formats), tcb::make_span(italy_secondary_address_formats),
+    tcb::make_span(italy_street_formats), tcb::make_span(italy_street_prefixes), {}, {},
+    tcb::make_span(italy_building_number_formats), tcb::make_span(italy_city_formats), {},
+    tcb::make_span(italy_cities), {}, tcb::make_span(italy_states), {} };
 
 // Poland
 
-const std::array<std::string_view, 978> polandCities { "Aleksandrów Kujawski", "Aleksandrów Łódzki",
-    "Alwernia", "Andrychów", "Annopol", "Augustów", "Babimost", "Baborów", "Baranów Sandomierski",
-    "Barcin", "Barczewo", "Bardo", "Barlinek", "Bartoszyce", "Barwice", "Bełchatów", "Bełżyce",
-    "Będzin", "Biała", "Biała Piska", "Biała Podlaska", "Biała Rawska", "Białobrzegi", "Białogard",
-    "Biały Bór", "Białystok", "Biecz", "Bielawa", "Bielsk Podlaski", "Bielsko-Biała", "Bieruń",
-    "Bierutów", "Bieżuń", "Biłgoraj", "Biskupiec", "Bisztynek", "Blachownia", "Błaszki", "Błażowa",
-    "Błonie", "Bobolice", "Bobowa", "Bochnia", "Bodzanów", "Bodzentyn", "Bogatynia", "Boguchwała",
-    "Boguszów-Gorce", "Bojanowo", "Bolesławiec", "Bolimów", "Bolków", "Borek Wielkopolski",
-    "Borne Sulinowo", "Braniewo", "Brańsk", "Brodnica", "Brok", "Brusy", "Brwinów", "Brzeg",
-    "Brzeg Dolny", "Brzesko", "Brzeszcze", "Brześć Kujawski", "Brzeziny", "Brzostek", "Brzozów",
-    "Budzyń", "Buk", "Bukowno", "Busko-Zdrój", "Bychawa", "Byczyna", "Bydgoszcz",
-    "Bystrzyca Kłodzka", "Bytom", "Bytom Odrzański", "Bytów", "Cedynia", "Cegłów", "Chełm",
-    "Chełmek", "Chełmno", "Chełmża", "Chęciny", "Chmielnik", "Chocianów", "Chociwel", "Chocz",
-    "Chodecz", "Chodzież", "Chojna", "Chojnice", "Chojnów", "Choroszcz", "Chorzele", "Chorzów",
-    "Choszczno", "Chrzanów", "Ciechanowiec", "Ciechanów", "Ciechocinek", "Cieszanów", "Cieszyn",
-    "Ciężkowice", "Cybinka", "Czaplinek", "Czarna Białostocka", "Czarna Woda", "Czarne", "Czarnków",
-    "Czarny Dunajec", "Czchów", "Czechowice-Dziedzice", "Czeladź", "Czempiń", "Czerniejewo",
-    "Czersk", "Czerwieńsk", "Czerwionka-Leszczyny", "Czerwińsk nad Wisłą", "Częstochowa", "Człopa",
-    "Człuchów", "Czyżew", "Daleszyce", "Darłowo", "Dąbie", "Dąbrowa Białostocka",
-    "Dąbrowa Górnicza", "Dąbrowa Tarnowska", "Dąbrowice", "Debrzno", "Dębica", "Dęblin", "Dębno",
-    "Dobczyce", "Dobiegniew", "Dobra", "Dobra", "Dobre Miasto", "Dobrodzień", "Dobrzany",
-    "Dobrzyca", "Dobrzyń nad Wisłą", "Dolsk", "Drawno", "Drawsko Pomorskie", "Drezdenko", "Drobin",
-    "Drohiczyn", "Drzewica", "Dubiecko", "Dukla", "Duszniki-Zdrój", "Dynów", "Działdowo",
-    "Działoszyce", "Działoszyn", "Dzierzgoń", "Dzierżoniów", "Dziwnów", "Elbląg", "Ełk", "Frampol",
-    "Frombork", "Garwolin", "Gąbin", "Gdańsk", "Gdynia", "Giżycko", "Glinojeck", "Gliwice",
-    "Głogów", "Głogów Małopolski", "Głogówek", "Głowno", "Głubczyce", "Głuchołazy", "Głuszyca",
-    "Gniew", "Gniewkowo", "Gniezno", "Gogolin", "Golczewo", "Goleniów", "Golina", "Golub-Dobrzyń",
-    "Gołańcz", "Gołdap", "Goniądz", "Goraj", "Gorlice", "Gorzów Śląski", "Gorzów Wielkopolski",
-    "Gostynin", "Gostyń", "Gościno", "Gozdnica", "Góra", "Góra Kalwaria", "Górowo Iławeckie",
-    "Górzno", "Grabów nad Prosną", "Grajewo", "Grodków", "Grodzisk Mazowiecki",
-    "Grodzisk Wielkopolski", "Grójec", "Grudziądz", "Grybów", "Gryfice", "Gryfino", "Gryfów Śląski",
-    "Gubin", "Hajnówka", "Halinów", "Hel", "Hrubieszów", "Iława", "Iłowa", "Iłża", "Imielin",
-    "Inowrocław", "Ińsko", "Iwaniska", "Iwonicz-Zdrój", "Izbica", "Izbica Kujawska", "Jadów",
-    "Jastrzębie-Zdrój", "Jabłonowo Pomorskie", "Janikowo", "Janowiec Wielkopolski",
-    "Janów Lubelski", "Jaraczewo", "Jarocin", "Jarosław", "Jasień", "Jasło", "Jastarnia",
-    "Jastrowie", "Jastrząb", "Jawor", "Jaworzno", "Jaworzyna Śląska", "Jedlicze", "Jedlina-Zdrój",
-    "Jedlnia-Letnisko", "Jedwabne", "Jelcz-Laskowice", "Jelenia Góra", "Jeziorany", "Jeżów",
-    "Jędrzejów", "Jordanów", "Józefów", "Józefów", "Józefów nad Wisłą", "Jutrosin", "Kaczory",
-    "Kalety", "Kalisz", "Kalisz Pomorski", "Kalwaria Zebrzydowska", "Kałuszyn",
-    "Kamieniec Ząbkowicki", "Kamienna Góra", "Kamień Krajeński", "Kamień Pomorski", "Kamieńsk",
-    "Kamionka", "Kańczuga", "Karczew", "Kargowa", "Karlino", "Karpacz", "Kartuzy", "Katowice",
-    "Kazimierz Dolny", "Kazimierza Wielka", "Kąty Wrocławskie", "Kcynia", "Kędzierzyn-Koźle",
-    "Kępice", "Kępno", "Kętrzyn", "Kęty", "Kielce", "Kietrz", "Kisielice", "Kleczew", "Kleszczele",
-    "Klimontów", "Kluczbork", "Kłecko", "Kłobuck", "Kłodawa", "Kłodzko", "Knurów", "Knyszyn",
-    "Kobylin", "Kobyłka", "Kock", "Kolbuszowa", "Kolno", "Kolonowskie", "Koluszki", "Kołaczyce",
-    "Koło", "Kołobrzeg", "Koniecpol", "Konin", "Konstancin-Jeziorna", "Konstantynów Łódzki",
-    "Końskie", "Koprzywnica", "Korfantów", "Koronowo", "Korsze", "Kosów Lacki", "Kostrzyn",
-    "Kostrzyn nad Odrą", "Koszalin", "Koszyce", "Kościan", "Kościerzyna", "Kowal",
-    "Kowalewo Pomorskie", "Kowary", "Koziegłowy", "Kozienice", "Koźmin Wielkopolski", "Koźminek",
-    "Kożuchów", "Kórnik", "Krajenka", "Kraków", "Krapkowice", "Krasnobród", "Krasnystaw", "Kraśnik",
-    "Krobia", "Krosno", "Krosno Odrzańskie", "Krośniewice", "Krotoszyn", "Kruszwica",
-    "Krynica Morska", "Krynica-Zdrój", "Krynki", "Krzanowice", "Krzepice", "Krzeszowice", "Krzywiń",
-    "Krzyż Wielkopolski", "Książ Wielki", "Książ Wielkopolski", "Kudowa-Zdrój", "Kunów", "Kutno",
-    "Kuźnia Raciborska", "Kwidzyn", "Latowicz", "Lądek-Zdrój", "Legionowo", "Legnica", "Lesko",
-    "Leszno", "Leśna", "Leśnica", "Lewin Brzeski", "Leżajsk", "Lębork", "Lędziny", "Libiąż",
-    "Lidzbark", "Lidzbark Warmiński", "Limanowa", "Lipiany", "Lipno", "Lipsk", "Lipsko", "Lubaczów",
-    "Lubań", "Lubartów", "Lubawa", "Lubawka", "Lubień Kujawski", "Lubin", "Lublin", "Lubliniec",
-    "Lubniewice", "Lubomierz", "Luboń", "Lubowidz", "Lubraniec", "Lubsko", "Lubycza Królewska",
-    "Lutomiersk", "Lututów", "Lwówek", "Lwówek Śląski", "Łabiszyn", "Łagów", "Łańcut", "Łapy",
-    "Łasin", "Łask", "Łaskarzew", "Łaszczów", "Łaziska Górne", "Łazy", "Łeba", "Łęczna", "Łęczyca",
-    "Łęknica", "Łobez", "Łobżenica", "Łochów", "Łomianki", "Łomża", "Łopuszno", "Łosice", "Łowicz",
-    "Łódź", "Łuków", "Maków Mazowiecki", "Maków Podhalański", "Malbork", "Małogoszcz", "Małomice",
-    "Margonin", "Marki", "Maszewo", "Miasteczko Krajeńskie", "Miasteczko Śląskie", "Miastko",
-    "Michałowo", "Miechów", "Miejska Górka", "Mielec", "Mielno", "Mieroszów", "Mieszkowice",
-    "Międzybórz", "Międzychód", "Międzylesie", "Międzyrzec Podlaski", "Międzyrzecz", "Międzyzdroje",
-    "Miękinia", "Mikołajki", "Mikołów", "Mikstat", "Milanówek", "Milicz", "Miłakowo", "Miłomłyn",
-    "Miłosław", "Mińsk Mazowiecki", "Mirosławiec", "Mirsk", "Mława", "Młynary", "Modliborzyce",
-    "Mogielnica", "Mogilno", "Mońki", "Morawica", "Morąg", "Mordy", "Moryń", "Mosina", "Mrągowo",
-    "Mrocza", "Mrozy", "Mszana Dolna", "Mszczonów", "Murowana Goślina", "Muszyna", "Mysłowice",
-    "Myszków", "Myszyniec", "Myślenice", "Myślibórz", "Nakło nad Notecią", "Nałęczów", "Namysłów",
-    "Narol", "Nasielsk", "Nekla", "Nidzica", "Niemcza", "Niemodlin", "Niepołomice", "Nieszawa",
-    "Nisko", "Nowa Dęba", "Nowa Ruda", "Nowa Sarzyna", "Nowa Słupia", "Nowa Sól", "Nowe",
-    "Nowe Brzesko", "Nowe Miasteczko", "Nowe Miasto", "Nowe Miasto Lubawskie",
-    "Nowe Miasto nad Pilicą", "Nowe Skalmierzyce", "Nowe Warpno", "Nowogard", "Nowogrodziec",
-    "Nowogród", "Nowogród Bobrzański", "Nowy Dwór Gdański", "Nowy Dwór Mazowiecki", "Nowy Korczyn",
-    "Nowy Sącz", "Nowy Staw", "Nowy Targ", "Nowy Tomyśl", "Nowy Wiśnicz", "Nysa", "Oborniki",
-    "Oborniki Śląskie", "Obrzycko", "Odolanów", "Ogrodzieniec", "Okonek", "Olecko", "Olesno",
-    "Oleszyce", "Oleśnica", "Oleśnica", "Olkusz", "Olsztyn", "Olsztyn", "Olsztynek", "Olszyna",
-    "Oława", "Opalenica", "Opatowiec", "Opatów", "Opatówek", "Opoczno", "Opole", "Opole Lubelskie",
-    "Orneta", "Orzesze", "Orzysz", "Osieczna", "Osiek", "Ostrołęka", "Ostroróg",
-    "Ostrowiec Świętokrzyski", "Ostróda", "Ostrów Lubelski", "Ostrów Mazowiecka",
-    "Ostrów Wielkopolski", "Ostrzeszów", "Ośno Lubuskie", "Oświęcim", "Otmuchów", "Otwock", "Otyń",
-    "Ozimek", "Ozorków", "Ożarów", "Ożarów Mazowiecki", "Pabianice", "Pacanów", "Paczków",
-    "Pajęczno", "Pakość", "Parczew", "Pasłęk", "Pasym", "Pelplin", "Pełczyce", "Piaseczno",
-    "Piaski", "Piastów", "Piątek", "Piechowice", "Piekary Śląskie", "Piekoszów", "Pieniężno",
-    "Pieńsk", "Pierzchnica", "Pieszyce", "Pilawa", "Pilica", "Pilzno", "Piła", "Piława Górna",
-    "Pińczów", "Pionki", "Piotrków Kujawski", "Piotrków Trybunalski", "Pisz", "Piwniczna-Zdrój",
-    "Pleszew", "Płock", "Płońsk", "Płoty", "Pniewy", "Pobiedziska", "Poddębice", "Podkowa Leśna",
-    "Pogorzela", "Polanica-Zdrój", "Polanów", "Police", "Polkowice", "Połaniec", "Połczyn-Zdrój",
-    "Poniatowa", "Poniec", "Poręba", "Poznań", "Prabuty", "Praszka", "Prochowice", "Proszowice",
-    "Prószków", "Pruchnik", "Prudnik", "Prusice", "Pruszcz", "Pruszcz Gdański", "Pruszków",
-    "Przasnysz", "Przecław", "Przedbórz", "Przedecz", "Przemków", "Przemyśl", "Przeworsk",
-    "Przysucha", "Pszczyna", "Pszów", "Puck", "Puławy", "Pułtusk", "Puszczykowo", "Pyrzyce",
-    "Pyskowice", "Pyzdry", "Rabka-Zdrój", "Raciąż", "Racibórz", "Radków", "Radlin", "Radłów",
-    "Radom", "Radomsko", "Radomyśl Wielki", "Radoszyce", "Radymno", "Radziejów", "Radzionków",
-    "Radzymin", "Radzyń Chełmiński", "Radzyń Podlaski", "Rajgród", "Rakoniewice", "Raszków",
-    "Rawa Mazowiecka", "Rawicz", "Recz", "Reda", "Rejowiec", "Rejowiec Fabryczny", "Resko",
-    "Reszel", "Rogoźno", "Ropczyce", "Rozprza", "Różan", "Ruciane-Nida", "Ruda Śląska",
+const std::array<std::string_view, 978> poland_cities { "Aleksandrów Kujawski",
+    "Aleksandrów Łódzki", "Alwernia", "Andrychów", "Annopol", "Augustów", "Babimost", "Baborów",
+    "Baranów Sandomierski", "Barcin", "Barczewo", "Bardo", "Barlinek", "Bartoszyce", "Barwice",
+    "Bełchatów", "Bełżyce", "Będzin", "Biała", "Biała Piska", "Biała Podlaska", "Biała Rawska",
+    "Białobrzegi", "Białogard", "Biały Bór", "Białystok", "Biecz", "Bielawa", "Bielsk Podlaski",
+    "Bielsko-Biała", "Bieruń", "Bierutów", "Bieżuń", "Biłgoraj", "Biskupiec", "Bisztynek",
+    "Blachownia", "Błaszki", "Błażowa", "Błonie", "Bobolice", "Bobowa", "Bochnia", "Bodzanów",
+    "Bodzentyn", "Bogatynia", "Boguchwała", "Boguszów-Gorce", "Bojanowo", "Bolesławiec", "Bolimów",
+    "Bolków", "Borek Wielkopolski", "Borne Sulinowo", "Braniewo", "Brańsk", "Brodnica", "Brok",
+    "Brusy", "Brwinów", "Brzeg", "Brzeg Dolny", "Brzesko", "Brzeszcze", "Brześć Kujawski",
+    "Brzeziny", "Brzostek", "Brzozów", "Budzyń", "Buk", "Bukowno", "Busko-Zdrój", "Bychawa",
+    "Byczyna", "Bydgoszcz", "Bystrzyca Kłodzka", "Bytom", "Bytom Odrzański", "Bytów", "Cedynia",
+    "Cegłów", "Chełm", "Chełmek", "Chełmno", "Chełmża", "Chęciny", "Chmielnik", "Chocianów",
+    "Chociwel", "Chocz", "Chodecz", "Chodzież", "Chojna", "Chojnice", "Chojnów", "Choroszcz",
+    "Chorzele", "Chorzów", "Choszczno", "Chrzanów", "Ciechanowiec", "Ciechanów", "Ciechocinek",
+    "Cieszanów", "Cieszyn", "Ciężkowice", "Cybinka", "Czaplinek", "Czarna Białostocka",
+    "Czarna Woda", "Czarne", "Czarnków", "Czarny Dunajec", "Czchów", "Czechowice-Dziedzice",
+    "Czeladź", "Czempiń", "Czerniejewo", "Czersk", "Czerwieńsk", "Czerwionka-Leszczyny",
+    "Czerwińsk nad Wisłą", "Częstochowa", "Człopa", "Człuchów", "Czyżew", "Daleszyce", "Darłowo",
+    "Dąbie", "Dąbrowa Białostocka", "Dąbrowa Górnicza", "Dąbrowa Tarnowska", "Dąbrowice", "Debrzno",
+    "Dębica", "Dęblin", "Dębno", "Dobczyce", "Dobiegniew", "Dobra", "Dobra", "Dobre Miasto",
+    "Dobrodzień", "Dobrzany", "Dobrzyca", "Dobrzyń nad Wisłą", "Dolsk", "Drawno",
+    "Drawsko Pomorskie", "Drezdenko", "Drobin", "Drohiczyn", "Drzewica", "Dubiecko", "Dukla",
+    "Duszniki-Zdrój", "Dynów", "Działdowo", "Działoszyce", "Działoszyn", "Dzierzgoń", "Dzierżoniów",
+    "Dziwnów", "Elbląg", "Ełk", "Frampol", "Frombork", "Garwolin", "Gąbin", "Gdańsk", "Gdynia",
+    "Giżycko", "Glinojeck", "Gliwice", "Głogów", "Głogów Małopolski", "Głogówek", "Głowno",
+    "Głubczyce", "Głuchołazy", "Głuszyca", "Gniew", "Gniewkowo", "Gniezno", "Gogolin", "Golczewo",
+    "Goleniów", "Golina", "Golub-Dobrzyń", "Gołańcz", "Gołdap", "Goniądz", "Goraj", "Gorlice",
+    "Gorzów Śląski", "Gorzów Wielkopolski", "Gostynin", "Gostyń", "Gościno", "Gozdnica", "Góra",
+    "Góra Kalwaria", "Górowo Iławeckie", "Górzno", "Grabów nad Prosną", "Grajewo", "Grodków",
+    "Grodzisk Mazowiecki", "Grodzisk Wielkopolski", "Grójec", "Grudziądz", "Grybów", "Gryfice",
+    "Gryfino", "Gryfów Śląski", "Gubin", "Hajnówka", "Halinów", "Hel", "Hrubieszów", "Iława",
+    "Iłowa", "Iłża", "Imielin", "Inowrocław", "Ińsko", "Iwaniska", "Iwonicz-Zdrój", "Izbica",
+    "Izbica Kujawska", "Jadów", "Jastrzębie-Zdrój", "Jabłonowo Pomorskie", "Janikowo",
+    "Janowiec Wielkopolski", "Janów Lubelski", "Jaraczewo", "Jarocin", "Jarosław", "Jasień",
+    "Jasło", "Jastarnia", "Jastrowie", "Jastrząb", "Jawor", "Jaworzno", "Jaworzyna Śląska",
+    "Jedlicze", "Jedlina-Zdrój", "Jedlnia-Letnisko", "Jedwabne", "Jelcz-Laskowice", "Jelenia Góra",
+    "Jeziorany", "Jeżów", "Jędrzejów", "Jordanów", "Józefów", "Józefów", "Józefów nad Wisłą",
+    "Jutrosin", "Kaczory", "Kalety", "Kalisz", "Kalisz Pomorski", "Kalwaria Zebrzydowska",
+    "Kałuszyn", "Kamieniec Ząbkowicki", "Kamienna Góra", "Kamień Krajeński", "Kamień Pomorski",
+    "Kamieńsk", "Kamionka", "Kańczuga", "Karczew", "Kargowa", "Karlino", "Karpacz", "Kartuzy",
+    "Katowice", "Kazimierz Dolny", "Kazimierza Wielka", "Kąty Wrocławskie", "Kcynia",
+    "Kędzierzyn-Koźle", "Kępice", "Kępno", "Kętrzyn", "Kęty", "Kielce", "Kietrz", "Kisielice",
+    "Kleczew", "Kleszczele", "Klimontów", "Kluczbork", "Kłecko", "Kłobuck", "Kłodawa", "Kłodzko",
+    "Knurów", "Knyszyn", "Kobylin", "Kobyłka", "Kock", "Kolbuszowa", "Kolno", "Kolonowskie",
+    "Koluszki", "Kołaczyce", "Koło", "Kołobrzeg", "Koniecpol", "Konin", "Konstancin-Jeziorna",
+    "Konstantynów Łódzki", "Końskie", "Koprzywnica", "Korfantów", "Koronowo", "Korsze",
+    "Kosów Lacki", "Kostrzyn", "Kostrzyn nad Odrą", "Koszalin", "Koszyce", "Kościan", "Kościerzyna",
+    "Kowal", "Kowalewo Pomorskie", "Kowary", "Koziegłowy", "Kozienice", "Koźmin Wielkopolski",
+    "Koźminek", "Kożuchów", "Kórnik", "Krajenka", "Kraków", "Krapkowice", "Krasnobród",
+    "Krasnystaw", "Kraśnik", "Krobia", "Krosno", "Krosno Odrzańskie", "Krośniewice", "Krotoszyn",
+    "Kruszwica", "Krynica Morska", "Krynica-Zdrój", "Krynki", "Krzanowice", "Krzepice",
+    "Krzeszowice", "Krzywiń", "Krzyż Wielkopolski", "Książ Wielki", "Książ Wielkopolski",
+    "Kudowa-Zdrój", "Kunów", "Kutno", "Kuźnia Raciborska", "Kwidzyn", "Latowicz", "Lądek-Zdrój",
+    "Legionowo", "Legnica", "Lesko", "Leszno", "Leśna", "Leśnica", "Lewin Brzeski", "Leżajsk",
+    "Lębork", "Lędziny", "Libiąż", "Lidzbark", "Lidzbark Warmiński", "Limanowa", "Lipiany", "Lipno",
+    "Lipsk", "Lipsko", "Lubaczów", "Lubań", "Lubartów", "Lubawa", "Lubawka", "Lubień Kujawski",
+    "Lubin", "Lublin", "Lubliniec", "Lubniewice", "Lubomierz", "Luboń", "Lubowidz", "Lubraniec",
+    "Lubsko", "Lubycza Królewska", "Lutomiersk", "Lututów", "Lwówek", "Lwówek Śląski", "Łabiszyn",
+    "Łagów", "Łańcut", "Łapy", "Łasin", "Łask", "Łaskarzew", "Łaszczów", "Łaziska Górne", "Łazy",
+    "Łeba", "Łęczna", "Łęczyca", "Łęknica", "Łobez", "Łobżenica", "Łochów", "Łomianki", "Łomża",
+    "Łopuszno", "Łosice", "Łowicz", "Łódź", "Łuków", "Maków Mazowiecki", "Maków Podhalański",
+    "Malbork", "Małogoszcz", "Małomice", "Margonin", "Marki", "Maszewo", "Miasteczko Krajeńskie",
+    "Miasteczko Śląskie", "Miastko", "Michałowo", "Miechów", "Miejska Górka", "Mielec", "Mielno",
+    "Mieroszów", "Mieszkowice", "Międzybórz", "Międzychód", "Międzylesie", "Międzyrzec Podlaski",
+    "Międzyrzecz", "Międzyzdroje", "Miękinia", "Mikołajki", "Mikołów", "Mikstat", "Milanówek",
+    "Milicz", "Miłakowo", "Miłomłyn", "Miłosław", "Mińsk Mazowiecki", "Mirosławiec", "Mirsk",
+    "Mława", "Młynary", "Modliborzyce", "Mogielnica", "Mogilno", "Mońki", "Morawica", "Morąg",
+    "Mordy", "Moryń", "Mosina", "Mrągowo", "Mrocza", "Mrozy", "Mszana Dolna", "Mszczonów",
+    "Murowana Goślina", "Muszyna", "Mysłowice", "Myszków", "Myszyniec", "Myślenice", "Myślibórz",
+    "Nakło nad Notecią", "Nałęczów", "Namysłów", "Narol", "Nasielsk", "Nekla", "Nidzica", "Niemcza",
+    "Niemodlin", "Niepołomice", "Nieszawa", "Nisko", "Nowa Dęba", "Nowa Ruda", "Nowa Sarzyna",
+    "Nowa Słupia", "Nowa Sól", "Nowe", "Nowe Brzesko", "Nowe Miasteczko", "Nowe Miasto",
+    "Nowe Miasto Lubawskie", "Nowe Miasto nad Pilicą", "Nowe Skalmierzyce", "Nowe Warpno",
+    "Nowogard", "Nowogrodziec", "Nowogród", "Nowogród Bobrzański", "Nowy Dwór Gdański",
+    "Nowy Dwór Mazowiecki", "Nowy Korczyn", "Nowy Sącz", "Nowy Staw", "Nowy Targ", "Nowy Tomyśl",
+    "Nowy Wiśnicz", "Nysa", "Oborniki", "Oborniki Śląskie", "Obrzycko", "Odolanów", "Ogrodzieniec",
+    "Okonek", "Olecko", "Olesno", "Oleszyce", "Oleśnica", "Oleśnica", "Olkusz", "Olsztyn",
+    "Olsztyn", "Olsztynek", "Olszyna", "Oława", "Opalenica", "Opatowiec", "Opatów", "Opatówek",
+    "Opoczno", "Opole", "Opole Lubelskie", "Orneta", "Orzesze", "Orzysz", "Osieczna", "Osiek",
+    "Ostrołęka", "Ostroróg", "Ostrowiec Świętokrzyski", "Ostróda", "Ostrów Lubelski",
+    "Ostrów Mazowiecka", "Ostrów Wielkopolski", "Ostrzeszów", "Ośno Lubuskie", "Oświęcim",
+    "Otmuchów", "Otwock", "Otyń", "Ozimek", "Ozorków", "Ożarów", "Ożarów Mazowiecki", "Pabianice",
+    "Pacanów", "Paczków", "Pajęczno", "Pakość", "Parczew", "Pasłęk", "Pasym", "Pelplin", "Pełczyce",
+    "Piaseczno", "Piaski", "Piastów", "Piątek", "Piechowice", "Piekary Śląskie", "Piekoszów",
+    "Pieniężno", "Pieńsk", "Pierzchnica", "Pieszyce", "Pilawa", "Pilica", "Pilzno", "Piła",
+    "Piława Górna", "Pińczów", "Pionki", "Piotrków Kujawski", "Piotrków Trybunalski", "Pisz",
+    "Piwniczna-Zdrój", "Pleszew", "Płock", "Płońsk", "Płoty", "Pniewy", "Pobiedziska", "Poddębice",
+    "Podkowa Leśna", "Pogorzela", "Polanica-Zdrój", "Polanów", "Police", "Polkowice", "Połaniec",
+    "Połczyn-Zdrój", "Poniatowa", "Poniec", "Poręba", "Poznań", "Prabuty", "Praszka", "Prochowice",
+    "Proszowice", "Prószków", "Pruchnik", "Prudnik", "Prusice", "Pruszcz", "Pruszcz Gdański",
+    "Pruszków", "Przasnysz", "Przecław", "Przedbórz", "Przedecz", "Przemków", "Przemyśl",
+    "Przeworsk", "Przysucha", "Pszczyna", "Pszów", "Puck", "Puławy", "Pułtusk", "Puszczykowo",
+    "Pyrzyce", "Pyskowice", "Pyzdry", "Rabka-Zdrój", "Raciąż", "Racibórz", "Radków", "Radlin",
+    "Radłów", "Radom", "Radomsko", "Radomyśl Wielki", "Radoszyce", "Radymno", "Radziejów",
+    "Radzionków", "Radzymin", "Radzyń Chełmiński", "Radzyń Podlaski", "Rajgród", "Rakoniewice",
+    "Raszków", "Rawa Mazowiecka", "Rawicz", "Recz", "Reda", "Rejowiec", "Rejowiec Fabryczny",
+    "Resko", "Reszel", "Rogoźno", "Ropczyce", "Rozprza", "Różan", "Ruciane-Nida", "Ruda Śląska",
     "Rudnik nad Sanem", "Rumia", "Rybnik", "Rychwał", "Rydułtowy", "Rydzyna", "Ryglice", "Ryki",
     "Rymanów", "Ryn", "Rypin", "Rzepin", "Rzeszów", "Rzgów", "Sandomierz", "Sanniki", "Sanok",
     "Sejny", "Serock", "Sędziszów", "Sędziszów Małopolski", "Sępopol", "Sępólno Krajeńskie",
@@ -13738,7 +13741,7 @@ const std::array<std::string_view, 978> polandCities { "Aleksandrów Kujawski", 
     "Żarów", "Żary", "Żelechów", "Żerków", "Żmigród", "Żnin", "Żory", "Żukowo", "Żuromin",
     "Żychlin", "Żyrardów", "Żywiec" };
 
-const std::array<std::string_view, 16> polandStates = {
+const std::array<std::string_view, 16> poland_states = {
     "dolnośląskie",
     "kujawsko-pomorskie",
     "lubelskie",
@@ -13757,7 +13760,7 @@ const std::array<std::string_view, 16> polandStates = {
     "zachodniopomorskie",
 };
 
-const std::array<std::string_view, 5355> polandStreetNames { "Stanisława Kunickiego",
+const std::array<std::string_view, 5355> poland_street_names { "Stanisława Kunickiego",
     "gen. Mikołaja Bołtucia", "Fort Chrzanów", "Eugeniusza Szwankowskiego", "Cokołowa",
     "Cieplarniana", "Borowej Góry", "Babimojska", "Artemidy", "Apollina", "Antoniego Kocjana",
     "Dźwigowa", "gen. Tadeusza Kutrzeby", "gen. Stanisława Maczka", "Fort Bema", "Człuchowska",
@@ -14711,31 +14714,33 @@ const std::array<std::string_view, 5355> polandStreetNames { "Stanisława Kunick
     "Aleja Wojska Polskiego", "Witolda Lutosławskiego", "Teodora Toeplitza", "Skotnicka",
     "Adama Mickiewicz" };
 
-const std::array<std::string_view, 6> polandStreetPrefixes { "ulica", "aleja", "osiedle", "plac",
+const std::array<std::string_view, 6> poland_street_prefixes { "ulica", "aleja", "osiedle", "plac",
     "park", "skwer" };
 
-const std::string_view polandZipCodeFormat { "##-###" };
+const std::string_view poland_zip_code_format { "##-###" };
 
-const std::array<std::string_view, 3> polandAddressFormats { "{street} {buildingNumber}",
+const std::array<std::string_view, 3> poland_address_formats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}", "{street} {buildingNumber}/{buildingNumber}" };
 
-const std::array<std::string_view, 3> polandSecondaryAddressFormats { "m. ###", "m. ##", "m. #" };
+const std::array<std::string_view, 3> poland_secondary_address_formats { "m. ###", "m. ##",
+    "m. #" };
 
-const std::array<std::string_view, 3> polandBuildingNumberFormats { "#", "##", "###" };
+const std::array<std::string_view, 3> poland_building_number_formats { "#", "##", "###" };
 
-const std::array<std::string_view, 1> polandStreetFormats { "{streetPrefix} {streetName}" };
+const std::array<std::string_view, 1> poland_street_formats { "{streetPrefix} {streetName}" };
 
-const std::array<std::string_view, 1> polandCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> poland_city_formats { "{cityName}" };
 
-const CountryAddresses polandAddresses { polandZipCodeFormat, tcb::make_span(polandAddressFormats),
-    tcb::make_span(polandSecondaryAddressFormats), tcb::make_span(polandStreetFormats),
-    tcb::make_span(polandStreetPrefixes), tcb::make_span(polandStreetNames), {},
-    tcb::make_span(polandBuildingNumberFormats), tcb::make_span(polandCityFormats), {},
-    tcb::make_span(polandCities), {}, tcb::make_span(polandStates), {} };
+const country_addresses_info poland_addresses { poland_zip_code_format,
+    tcb::make_span(poland_address_formats), tcb::make_span(poland_secondary_address_formats),
+    tcb::make_span(poland_street_formats), tcb::make_span(poland_street_prefixes),
+    tcb::make_span(poland_street_names), {}, tcb::make_span(poland_building_number_formats),
+    tcb::make_span(poland_city_formats), {}, tcb::make_span(poland_cities), {},
+    tcb::make_span(poland_states), {} };
 
 // Russia
 
-const std::array<std::string_view, 322> russiaCities { "Абакан", "Азов", "Александров", "Алексин",
+const std::array<std::string_view, 322> russia_cities { "Абакан", "Азов", "Александров", "Алексин",
     "Альметьевск", "Анапа", "Ангарск", "Анжеро-Судженск", "Апатиты", "Арзамас", "Армавир",
     "Арсеньев", "Артем", "Архангельск", "Асбест", "Астрахань", "Ачинск", "Балаково", "Балахна",
     "Балашиха", "Балашов", "Барнаул", "Батайск", "Белгород", "Белебей", "Белово", "Белогорск",
@@ -14780,7 +14785,7 @@ const std::array<std::string_view, 322> russiaCities { "Абакан", "Азов
     "Чистополь", "Чита", "Шадринск", "Шали", "Шахты", "Шуя", "Щекино", "Щелково", "Электросталь",
     "Элиста", "Энгельс", "Южно-Сахалинск", "Юрга", "Якутск", "Ялта", "Ярославль" };
 
-const std::array<std::string_view, 84> russiaStates = {
+const std::array<std::string_view, 84> russia_states = {
     "Алтайский край",
     "Амурская область",
     "Архангельская область",
@@ -14867,7 +14872,7 @@ const std::array<std::string_view, 84> russiaStates = {
     "Ярославская область",
 };
 
-const std::array<std::string_view, 297> russiaStreetNames { "Советская", "Молодежная",
+const std::array<std::string_view, 297> russia_street_names { "Советская", "Молодежная",
     "Центральная", "Школьная", "Новая", "Садовая", "Лесная", "Набережная", "Октябрьская", "Зеленая",
     "Комсомольская", "Заречная", "Первомайская", "Полевая", "Луговая", "Пионерская", "Юбилейная",
     "Северная", "Пролетарская", "Степная", "Южная", "Колхозная", "Рабочая", "Солнечная",
@@ -14914,32 +14919,33 @@ const std::array<std::string_view, 297> russiaStreetNames { "Советская"
     "Дальневосточная", "Балтийская", "Февральская", "Лунная", "Высотная", "Рязанская",
     "Малиновая" };
 
-const std::array<std::string_view, 12> russiaStreetPrefixes { "улица", "аллея", "бульвар", "линия",
-    "набережная", "тракт", "тупик", "шоссе", "переулок", "проспект", "мост", "авеню" };
+const std::array<std::string_view, 12> russia_street_prefixes { "улица", "аллея", "бульвар",
+    "линия", "набережная", "тракт", "тупик", "шоссе", "переулок", "проспект", "мост", "авеню" };
 
-const std::string_view russiaZipCodeFormat { "######" };
+const std::string_view russia_zip_code_format { "######" };
 
-const std::array<std::string_view, 2> russiaAddressFormats { "{street} {buildingNumber}",
+const std::array<std::string_view, 2> russia_address_formats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::array<std::string_view, 3> russiaSecondaryAddressFormats { "кв. ###", "кв. ##",
+const std::array<std::string_view, 3> russia_secondary_address_formats { "кв. ###", "кв. ##",
     "кв. #" };
 
-const std::array<std::string_view, 3> russiaBuildingNumberFormats { "#", "##", "###" };
+const std::array<std::string_view, 3> russia_building_number_formats { "#", "##", "###" };
 
-const std::array<std::string_view, 3> russiaStreetFormats { "{streetPrefix} {firstName}",
+const std::array<std::string_view, 3> russia_street_formats { "{streetPrefix} {firstName}",
     "{streetPrefix} {lastName}", "{streetPrefix} {streetName}" };
 
-const std::array<std::string_view, 1> russiaCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> russia_city_formats { "{cityName}" };
 
-const CountryAddresses russiaAddresses { russiaZipCodeFormat, tcb::make_span(russiaAddressFormats),
-    tcb::make_span(russiaSecondaryAddressFormats), tcb::make_span(russiaStreetFormats),
-    tcb::make_span(russiaStreetPrefixes), tcb::make_span(russiaStreetNames), {},
-    tcb::make_span(russiaBuildingNumberFormats), tcb::make_span(russiaCityFormats), {},
-    tcb::make_span(russiaCities), {}, tcb::make_span(russiaStates), {} };
+const country_addresses_info russia_addresses { russia_zip_code_format,
+    tcb::make_span(russia_address_formats), tcb::make_span(russia_secondary_address_formats),
+    tcb::make_span(russia_street_formats), tcb::make_span(russia_street_prefixes),
+    tcb::make_span(russia_street_names), {}, tcb::make_span(russia_building_number_formats),
+    tcb::make_span(russia_city_formats), {}, tcb::make_span(russia_cities), {},
+    tcb::make_span(russia_states), {} };
 // Spain
 
-const std::array<std::string_view, 130> spainCities {
+const std::array<std::string_view, 130> spain_cities {
     "Parla",
     "Telde",
     "Baracaldo",
@@ -15072,7 +15078,7 @@ const std::array<std::string_view, 130> spainCities {
     "Aýna",
 };
 
-const std::array<std::string_view, 50> spainCounties {
+const std::array<std::string_view, 50> spain_counties {
     "Álava",
     "Albacete",
     "Alicante",
@@ -15125,7 +15131,7 @@ const std::array<std::string_view, 50> spainCounties {
     "Zaragoza",
 };
 
-const std::array<std::string_view, 17> spainStates = {
+const std::array<std::string_view, 17> spain_states = {
     "Andalucía",
     "Aragón",
     "Principado de Asturias",
@@ -15145,7 +15151,7 @@ const std::array<std::string_view, 17> spainStates = {
     "Región de Murcia",
 };
 
-const std::array<std::string_view, 70> spainStreetSuffixes {
+const std::array<std::string_view, 70> spain_street_suffixes {
     "Aldea",
     "Apartamento",
     "Arrabal",
@@ -15218,28 +15224,29 @@ const std::array<std::string_view, 70> spainStreetSuffixes {
     "Vía Pública",
 };
 
-const std::string_view spainZipCodeFormat { "#####" };
+const std::string_view spain_zip_code_format { "#####" };
 
-const std::array<std::string_view, 2> spainAddressFormats { "{street} {buildingNumber}",
+const std::array<std::string_view, 2> spain_address_formats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
-const std::array<std::string_view, 2> spainSecondaryAddressFormats { "Esc. ###", "Puerta ###" };
+const std::array<std::string_view, 2> spain_secondary_address_formats { "Esc. ###", "Puerta ###" };
 
-const std::array<std::string_view, 3> spainBuildingNumberFormats { "s/n.", "#", "##" };
+const std::array<std::string_view, 3> spain_building_number_formats { "s/n.", "#", "##" };
 
-const std::array<std::string_view, 2> spainStreetFormats { "{streetSuffix} {firstName}",
+const std::array<std::string_view, 2> spain_street_formats { "{streetSuffix} {firstName}",
     "{streetSuffix} {firstName} {lastName}" };
 
-const std::array<std::string_view, 1> spainCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> spain_city_formats { "{cityName}" };
 
-const CountryAddresses spainAddresses { spainZipCodeFormat, tcb::make_span(spainAddressFormats),
-    tcb::make_span(spainSecondaryAddressFormats), tcb::make_span(spainStreetFormats), {}, {},
-    tcb::make_span(spainStreetSuffixes), tcb::make_span(spainBuildingNumberFormats),
-    tcb::make_span(spainCityFormats), {}, tcb::make_span(spainCities), {},
-    tcb::make_span(spainStates), tcb::make_span(spainCounties) };
+const country_addresses_info spain_addresses { spain_zip_code_format,
+    tcb::make_span(spain_address_formats), tcb::make_span(spain_secondary_address_formats),
+    tcb::make_span(spain_street_formats), {}, {}, tcb::make_span(spain_street_suffixes),
+    tcb::make_span(spain_building_number_formats), tcb::make_span(spain_city_formats), {},
+    tcb::make_span(spain_cities), {}, tcb::make_span(spain_states),
+    tcb::make_span(spain_counties) };
 
 // Ukraine
 
-const std::array<std::string_view, 480> ukraineCities {
+const std::array<std::string_view, 480> ukraine_cities {
     "Авдіївка",
     "Аджи-Мушкай",
     "Алмазна",
@@ -15722,7 +15729,7 @@ const std::array<std::string_view, 480> ukraineCities {
     "Яремче",
 };
 
-const std::array<std::string_view, 27> ukraineStates = {
+const std::array<std::string_view, 27> ukraine_states = {
     "АР Крим",
     "Вінницька область",
     "Волинська область",
@@ -15752,7 +15759,7 @@ const std::array<std::string_view, 27> ukraineStates = {
     "Севастополь",
 };
 
-const std::array<std::string_view, 61> ukraineStreetNames {
+const std::array<std::string_view, 61> ukraine_street_names {
     "Хрещатик",
     "Бессарабська",
     "Саксаганського",
@@ -15816,34 +15823,34 @@ const std::array<std::string_view, 61> ukraineStreetNames {
     "Васильківський",
 };
 
-const std::array<std::string_view, 10> ukraineStreetPrefixes { "вулиця", "аллея", "бульвар",
+const std::array<std::string_view, 10> ukraine_street_prefixes { "вулиця", "аллея", "бульвар",
     "лінія", "набережна", "шоссе", "перевулок", "проспект", "міст", "авеню" };
 
-const std::string_view ukraineZipCodeFormat { "#####" };
+const std::string_view ukraine_zip_code_format { "#####" };
 
-const std::array<std::string_view, 2> ukraineAddressFormats { "{street} {buildingNumber}",
+const std::array<std::string_view, 2> ukraine_address_formats { "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}" };
 
-const std::array<std::string_view, 3> ukraineSecondaryAddressFormats { "кв. ###", "кв. ##",
+const std::array<std::string_view, 3> ukraine_secondary_address_formats { "кв. ###", "кв. ##",
     "кв. #" };
 
-const std::array<std::string_view, 3> ukraineBuildingNumberFormats { "#", "##", "###" };
+const std::array<std::string_view, 3> ukraine_building_number_formats { "#", "##", "###" };
 
-const std::array<std::string_view, 3> ukraineStreetFormats { "{streetPrefix} {firstName}",
+const std::array<std::string_view, 3> ukraine_street_formats { "{streetPrefix} {firstName}",
     "{streetPrefix} {lastName}", "{streetPrefix} {streetName}" };
 
-const std::array<std::string_view, 1> ukraineCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> ukraine_city_formats { "{cityName}" };
 
-const CountryAddresses ukraineAddresses { ukraineZipCodeFormat,
-    tcb::make_span(ukraineAddressFormats), tcb::make_span(ukraineSecondaryAddressFormats),
-    tcb::make_span(ukraineStreetFormats), tcb::make_span(ukraineStreetPrefixes),
-    tcb::make_span(ukraineStreetNames), {}, tcb::make_span(ukraineBuildingNumberFormats),
-    tcb::make_span(ukraineCityFormats), {}, tcb::make_span(ukraineCities), {},
-    tcb::make_span(ukraineStates), {} };
+const country_addresses_info ukraine_addresses { ukraine_zip_code_format,
+    tcb::make_span(ukraine_address_formats), tcb::make_span(ukraine_secondary_address_formats),
+    tcb::make_span(ukraine_street_formats), tcb::make_span(ukraine_street_prefixes),
+    tcb::make_span(ukraine_street_names), {}, tcb::make_span(ukraine_building_number_formats),
+    tcb::make_span(ukraine_city_formats), {}, tcb::make_span(ukraine_cities), {},
+    tcb::make_span(ukraine_states), {} };
 
 // USA
 
-const std::array<std::string_view, 923> usaCities = { "Abilene", "Akron", "Alafaya", "Alameda",
+const std::array<std::string_view, 923> usa_cities = { "Abilene", "Akron", "Alafaya", "Alameda",
     "Albany", "Albuquerque", "Alexandria", "Alhambra", "Aliso Viejo", "Allen", "Allentown", "Aloha",
     "Alpharetta", "Altadena", "Altamonte Springs", "Altoona", "Amarillo", "Ames", "Anaheim",
     "Anchorage", "Anderson", "Ankeny", "Ann Arbor", "Annandale", "Antelope", "Antioch", "Apex",
@@ -15979,7 +15986,7 @@ const std::array<std::string_view, 923> usaCities = { "Abilene", "Akron", "Alafa
     "Woodland", "Worcester", "Wylie", "Wyoming", "Yakima", "Yonkers", "Yorba Linda", "York",
     "Youngstown", "Yuba City", "Yucaipa", "Yuma" };
 
-const std::array<std::string_view, 36> usaCounties {
+const std::array<std::string_view, 36> usa_counties {
     "Adams County",
     "Calhoun County",
     "Carroll County",
@@ -16018,7 +16025,7 @@ const std::array<std::string_view, 36> usaCounties {
     "Wayne County",
 };
 
-const std::array<std::string_view, 50> usaStates = { "Alabama", "Alaska", "Arizona", "Arkansas",
+const std::array<std::string_view, 50> usa_states = { "Alabama", "Alaska", "Arizona", "Arkansas",
     "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho",
     "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland",
     "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska",
@@ -16027,45 +16034,46 @@ const std::array<std::string_view, 50> usaStates = { "Alabama", "Alaska", "Arizo
     "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington",
     "West Virginia", "Wisconsin", "Wyoming" };
 
-const std::array<std::string_view, 195> usaStreetSuffixes = { "Alley", "Avenue", "Branch", "Bridge",
-    "Brook", "Brooks", "Burg", "Burgs", "Bypass", "Camp", "Canyon", "Cape", "Causeway", "Center",
-    "Centers", "Circle", "Circles", "Cliff", "Cliffs", "Club", "Common", "Corner", "Corners",
-    "Course", "Court", "Courts", "Cove", "Coves", "Creek", "Crescent", "Crest", "Crossing",
-    "Crossroad", "Curve", "Dale", "Dam", "Divide", "Drive", "Drives", "Estate", "Estates",
-    "Expressway", "Extension", "Extensions", "Fall", "Falls", "Ferry", "Field", "Fields", "Flat",
-    "Flats", "Ford", "Fords", "Forest", "Forge", "Forges", "Fork", "Forks", "Fort", "Freeway",
-    "Garden", "Gardens", "Gateway", "Glen", "Glens", "Green", "Greens", "Grove", "Groves", "Harbor",
-    "Harbors", "Haven", "Heights", "Highway", "Hill", "Hills", "Hollow", "Inlet", "Island",
-    "Islands", "Isle", "Junction", "Junctions", "Key", "Keys", "Knoll", "Knolls", "Lake", "Lakes",
-    "Land", "Landing", "Lane", "Light", "Lights", "Loaf", "Lock", "Locks", "Lodge", "Loop", "Mall",
-    "Manor", "Manors", "Meadow", "Meadows", "Mews", "Mill", "Mills", "Mission", "Motorway", "Mount",
-    "Mountain", "Mountains", "Neck", "Orchard", "Oval", "Overpass", "Park", "Parks", "Parkway",
-    "Parkways", "Pass", "Passage", "Path", "Pike", "Pine", "Pines", "Place", "Plain", "Plains",
-    "Plaza", "Point", "Points", "Port", "Ports", "Prairie", "Radial", "Ramp", "Ranch", "Rapid",
-    "Rapids", "Rest", "Ridge", "Ridges", "River", "Road", "Roads", "Route", "Row", "Rue", "Run",
-    "Shoal", "Shoals", "Shore", "Shores", "Skyway", "Spring", "Springs", "Spur", "Spurs", "Square",
-    "Squares", "Station", "Stravenue", "Stream", "Street", "Streets", "Summit", "Terrace",
-    "Throughway", "Trace", "Track", "Trafficway", "Trail", "Tunnel", "Turnpike", "Underpass",
-    "Union", "Unions", "Valley", "Valleys", "Via", "Viaduct", "View", "Views", "Village",
-    "Villages", "Ville", "Vista", "Walk", "Walks", "Wall", "Way", "Ways", "Well", "Wells" };
+const std::array<std::string_view, 195> usa_street_suffixes = { "Alley", "Avenue", "Branch",
+    "Bridge", "Brook", "Brooks", "Burg", "Burgs", "Bypass", "Camp", "Canyon", "Cape", "Causeway",
+    "Center", "Centers", "Circle", "Circles", "Cliff", "Cliffs", "Club", "Common", "Corner",
+    "Corners", "Course", "Court", "Courts", "Cove", "Coves", "Creek", "Crescent", "Crest",
+    "Crossing", "Crossroad", "Curve", "Dale", "Dam", "Divide", "Drive", "Drives", "Estate",
+    "Estates", "Expressway", "Extension", "Extensions", "Fall", "Falls", "Ferry", "Field", "Fields",
+    "Flat", "Flats", "Ford", "Fords", "Forest", "Forge", "Forges", "Fork", "Forks", "Fort",
+    "Freeway", "Garden", "Gardens", "Gateway", "Glen", "Glens", "Green", "Greens", "Grove",
+    "Groves", "Harbor", "Harbors", "Haven", "Heights", "Highway", "Hill", "Hills", "Hollow",
+    "Inlet", "Island", "Islands", "Isle", "Junction", "Junctions", "Key", "Keys", "Knoll", "Knolls",
+    "Lake", "Lakes", "Land", "Landing", "Lane", "Light", "Lights", "Loaf", "Lock", "Locks", "Lodge",
+    "Loop", "Mall", "Manor", "Manors", "Meadow", "Meadows", "Mews", "Mill", "Mills", "Mission",
+    "Motorway", "Mount", "Mountain", "Mountains", "Neck", "Orchard", "Oval", "Overpass", "Park",
+    "Parks", "Parkway", "Parkways", "Pass", "Passage", "Path", "Pike", "Pine", "Pines", "Place",
+    "Plain", "Plains", "Plaza", "Point", "Points", "Port", "Ports", "Prairie", "Radial", "Ramp",
+    "Ranch", "Rapid", "Rapids", "Rest", "Ridge", "Ridges", "River", "Road", "Roads", "Route", "Row",
+    "Rue", "Run", "Shoal", "Shoals", "Shore", "Shores", "Skyway", "Spring", "Springs", "Spur",
+    "Spurs", "Square", "Squares", "Station", "Stravenue", "Stream", "Street", "Streets", "Summit",
+    "Terrace", "Throughway", "Trace", "Track", "Trafficway", "Trail", "Tunnel", "Turnpike",
+    "Underpass", "Union", "Unions", "Valley", "Valleys", "Via", "Viaduct", "View", "Views",
+    "Village", "Villages", "Ville", "Vista", "Walk", "Walks", "Wall", "Way", "Ways", "Well",
+    "Wells" };
 
-const std::string_view usaZipCodeFormat { "#####" };
+const std::string_view usa_zip_code_format { "#####" };
 
-const std::array<std::string_view, 1> usaAddressFormats { "{buildingNumber} {street}" };
+const std::array<std::string_view, 1> usa_address_formats { "{buildingNumber} {street}" };
 
-const std::array<std::string_view, 2> usaSecondaryAddressFormats { "Apt. ###", "Suite ###" };
+const std::array<std::string_view, 2> usa_secondary_address_formats { "Apt. ###", "Suite ###" };
 
-const std::array<std::string_view, 3> usaBuildingNumberFormats { "#####", "####", "###" };
+const std::array<std::string_view, 3> usa_building_number_formats { "#####", "####", "###" };
 
-const std::array<std::string_view, 2> usaStreetFormats { "{firstName} {streetSuffix}",
+const std::array<std::string_view, 2> usa_street_formats { "{firstName} {streetSuffix}",
     "{lastName} {streetSuffix}" };
 
-const std::array<std::string_view, 1> usaCityFormats { "{cityName}" };
+const std::array<std::string_view, 1> usa_city_formats { "{cityName}" };
 
-const CountryAddresses usaAddresses { usaZipCodeFormat, tcb::make_span(usaAddressFormats),
-    tcb::make_span(usaSecondaryAddressFormats), tcb::make_span(usaStreetFormats), {}, {},
-    tcb::make_span(usaStreetSuffixes), tcb::make_span(usaBuildingNumberFormats),
-    tcb::make_span(usaCityFormats), {}, tcb::make_span(usaCities), {}, tcb::make_span(usaStates),
-    {} };
+const country_addresses_info usa_addresses { usa_zip_code_format,
+    tcb::make_span(usa_address_formats), tcb::make_span(usa_secondary_address_formats),
+    tcb::make_span(usa_street_formats), {}, {}, tcb::make_span(usa_street_suffixes),
+    tcb::make_span(usa_building_number_formats), tcb::make_span(usa_city_formats), {},
+    tcb::make_span(usa_cities), {}, tcb::make_span(usa_states), {} };
 
 }

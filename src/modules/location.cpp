@@ -8,76 +8,76 @@
 
 namespace faker::location {
 namespace {
-    const data::CountryAddresses& countryToCountryAddressesMapping(AddressCountry country)
+    const data::country_addresses_info& get_country_addresses(address_country country)
     {
         switch (country) {
-        case AddressCountry::Usa:
-            return data::usaAddresses;
-        case AddressCountry::Poland:
-            return data::polandAddresses;
-        case AddressCountry::Russia:
-            return data::russiaAddresses;
-        case AddressCountry::France:
-            return data::franceAddresses;
-        case AddressCountry::Ukraine:
-            return data::ukraineAddresses;
-        case AddressCountry::Italy:
-            return data::italyAddresses;
-        case AddressCountry::Germany:
-            return data::germanyAddresses;
-        case AddressCountry::Czech:
-            return data::czechAddresses;
-        case AddressCountry::Australia:
-            return data::australiaAddresses;
-        case AddressCountry::India:
-            return data::indiaAddresses;
-        case AddressCountry::Denmark:
-            return data::denmarkAddresses;
-        case AddressCountry::Spain:
-            return data::spainAddresses;
-        case AddressCountry::Brazil:
-            return data::brazilAddresses;
-        case AddressCountry::Finland:
-            return data::finlandAddresses;
-        case AddressCountry::Estonia:
-            return data::estoniaAddresses;
+        case address_country::usa:
+            return data::usa_addresses;
+        case address_country::poland:
+            return data::poland_addresses;
+        case address_country::russia:
+            return data::russia_addresses;
+        case address_country::france:
+            return data::france_addresses;
+        case address_country::ukraine:
+            return data::ukraine_addresses;
+        case address_country::italy:
+            return data::italy_addresses;
+        case address_country::germany:
+            return data::germany_addresses;
+        case address_country::czechia:
+            return data::czech_addresses;
+        case address_country::australia:
+            return data::australia_addresses;
+        case address_country::india:
+            return data::india_addresses;
+        case address_country::denmark:
+            return data::denmark_addresses;
+        case address_country::spain:
+            return data::spain_addresses;
+        case address_country::brazil:
+            return data::brazil_addresses;
+        case address_country::finland:
+            return data::finland_addresses;
+        case address_country::estonia:
+            return data::estonia_addresses;
         default:
             throw std::invalid_argument("Invalid country");
         }
     }
 
-    Country countryAddressToCountryMapping(AddressCountry country)
+    Country get_country(address_country country)
     {
         switch (country) {
-        case AddressCountry::Usa:
+        case address_country::usa:
             return Country::Usa;
-        case AddressCountry::Poland:
+        case address_country::poland:
             return Country::Poland;
-        case AddressCountry::Russia:
+        case address_country::russia:
             return Country::Russia;
-        case AddressCountry::France:
+        case address_country::france:
             return Country::France;
-        case AddressCountry::Ukraine:
+        case address_country::ukraine:
             return Country::Ukraine;
-        case AddressCountry::Italy:
+        case address_country::italy:
             return Country::Italy;
-        case AddressCountry::Germany:
+        case address_country::germany:
             return Country::Germany;
-        case AddressCountry::Czech:
+        case address_country::czechia:
             return Country::Czech;
-        case AddressCountry::Australia:
+        case address_country::australia:
             return Country::Australia;
-        case AddressCountry::India:
+        case address_country::india:
             return Country::India;
-        case AddressCountry::Denmark:
+        case address_country::denmark:
             return Country::Denmark;
-        case AddressCountry::Spain:
+        case address_country::spain:
             return Country::Spain;
-        case AddressCountry::Brazil:
+        case address_country::brazil:
             return Country::Brazil;
-        case AddressCountry::Finland:
+        case address_country::finland:
             return Country::Finland;
-        case AddressCountry::Estonia:
+        case address_country::estonia:
             return Country::Estonia;
         default:
             throw std::invalid_argument("Invalid country");
@@ -85,61 +85,55 @@ namespace {
     }
 }
 
-std::string_view country_name() { return random::element(data::allCountries); }
+std::string_view country_name() { return random::element(data::all_countries); }
 
-std::string_view country_code() { return random::element(data::countryCodes); }
+std::string_view country_code() { return random::element(data::country_codes); }
 
-std::string_view county(AddressCountry country)
+std::string_view county(address_country country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping(country);
-    if (countryAddresses.counties.empty()) {
-        return "";
-    }
-    return random::element(countryAddresses.counties);
+    auto& addresses = get_country_addresses(country);
+    return addresses.counties.empty() ? "" : random::element(addresses.counties);
 }
 
-std::string_view state(AddressCountry country)
+std::string_view state(address_country country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping(country);
-    return random::element(countryAddresses.states);
+    return random::element(get_country_addresses(country).states);
 }
 
-std::string city(AddressCountry country)
+std::string city(address_country country)
 {
-    auto& countryAddresses = countryToCountryAddressesMapping(country);
-    auto cityFormat = random::element(countryAddresses.cityFormats);
+    auto& addresses = get_country_addresses(country);
+    auto city_format = random::element(addresses.city_formats);
 
-    return utils::fill_token_values(
-        cityFormat, [country, countryAddresses](std::string_view token) {
-            if (token == "firstName") {
-                return person::first_name(countryAddressToCountryMapping(country));
-            } else if (token == "lastName") {
-                return person::last_name(countryAddressToCountryMapping(country));
-            } else if (token == "cityName") {
-                return std::string(random::element(countryAddresses.cities));
-            } else if (token == "cityPrefix") {
-                return std::string(random::element(countryAddresses.cityPrefixes));
-            } else if (token == "citySuffix") {
-                return std::string(random::element(countryAddresses.citySuffixes));
-            } else {
-                return std::string();
-            }
-        });
+    return utils::fill_token_values(city_format, [country, &addresses](std::string_view token) {
+        if (token == "firstName") {
+            return person::first_name(get_country(country));
+        } else if (token == "lastName") {
+            return person::last_name(get_country(country));
+        } else if (token == "cityName") {
+            return std::string(random::element(addresses.cities));
+        } else if (token == "cityPrefix") {
+            return std::string(random::element(addresses.city_prefixes));
+        } else if (token == "citySuffix") {
+            return std::string(random::element(addresses.city_suffixes));
+        } else {
+            return std::string();
+        }
+    });
 }
 
-std::string zip_code(AddressCountry country)
+std::string zip_code(address_country country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping(country);
-
-    return random::replace_symbol_with_number(countryAddresses.zipCodeFormat);
+    auto& addresses = get_country_addresses(country);
+    return random::replace_symbol_with_number(addresses.zip_code_format);
 }
 
-std::string street_address(AddressCountry country)
+std::string street_address(address_country country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping(country);
-    const auto addressFormat = random::element(countryAddresses.addressFormats);
+    auto& addresses = get_country_addresses(country);
+    auto address_format = random::element(addresses.address_formats);
 
-    return utils::fill_token_values(addressFormat, [country](std::string_view token) {
+    return utils::fill_token_values(address_format, [country](std::string_view token) {
         if (token == "buildingNumber") {
             return building_number(country);
         } else if (token == "street") {
@@ -152,65 +146,59 @@ std::string street_address(AddressCountry country)
     });
 }
 
-std::string street(AddressCountry country)
+std::string street(address_country country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping(country);
-    const auto streetFormat = random::element(countryAddresses.streetFormats);
+    auto& addresses = get_country_addresses(country);
+    auto street_format = random::element(addresses.street_formats);
 
-    return utils::fill_token_values(
-        streetFormat, [country, countryAddresses](std::string_view token) {
-            if (token == "firstName") {
-                return person::first_name(countryAddressToCountryMapping(country));
-            } else if (token == "lastName") {
-                return person::last_name(countryAddressToCountryMapping(country));
-            } else if (token == "streetName") {
-                return std::string(random::element(countryAddresses.streetNames));
-            } else if (token == "streetPrefix") {
-                return std::string(random::element(countryAddresses.streetPrefixes));
-            } else if (token == "streetSuffix") {
-                return std::string(random::element(countryAddresses.streetSuffixes));
-            } else {
-                return std::string();
-            }
-        });
+    return utils::fill_token_values(street_format, [country, &addresses](std::string_view token) {
+        if (token == "firstName") {
+            return person::first_name(get_country(country));
+        } else if (token == "lastName") {
+            return person::last_name(get_country(country));
+        } else if (token == "streetName") {
+            return std::string(random::element(addresses.street_names));
+        } else if (token == "streetPrefix") {
+            return std::string(random::element(addresses.street_prefixes));
+        } else if (token == "streetSuffix") {
+            return std::string(random::element(addresses.street_suffixes));
+        } else {
+            return std::string();
+        }
+    });
 }
 
-std::string building_number(AddressCountry country)
+std::string building_number(address_country country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping(country);
-
-    const auto buildingNumberFormat = random::element(countryAddresses.buildingNumberFormats);
-
-    return random::replace_symbol_with_number(buildingNumberFormat);
+    auto& addresses = get_country_addresses(country);
+    auto building_number_format = random::element(addresses.building_number_formats);
+    return random::replace_symbol_with_number(building_number_format);
 }
 
-std::string secondary_address(AddressCountry country)
+std::string secondary_address(address_country country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping(country);
+    auto& addresses = get_country_addresses(country);
+    auto secondary_address_format = addresses.secondary_address_formats.empty()
+        ? ""
+        : random::element(addresses.secondary_address_formats);
 
-    if (countryAddresses.secondaryAddressFormats.empty()) {
-        return "";
-    }
-
-    const auto secondaryAddressFormat = random::element(countryAddresses.secondaryAddressFormats);
-
-    return random::replace_symbol_with_number(secondaryAddressFormat);
+    return random::replace_symbol_with_number(secondary_address_format);
 }
 
 std::string latitude(precision prec)
 {
-    const auto latitude = number::decimal(-90.0, 90.0);
+    auto latitude = number::decimal(-90.0, 90.0);
     return utils::format(utils::precision_format_str(prec), latitude);
 }
 
 std::string longitude(precision prec)
 {
-    const auto longitude = number::decimal(-180.0, 180.0);
+    auto longitude = number::decimal(-180.0, 180.0);
     return utils::format(utils::precision_format_str(prec), longitude);
 }
 
 std::string_view direction() { return random::element(data::directions); }
 
-std::string_view time_zone() { return random::element(data::timeZones); }
+std::string_view time_zone() { return random::element(data::time_zones); }
 
 }

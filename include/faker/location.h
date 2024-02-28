@@ -5,23 +5,23 @@
 #include <string>
 
 namespace faker::location {
-// TODO: remove when AddressCountry enum values will be same as Country values
-enum class AddressCountry {
-    Usa,
-    Poland,
-    France,
-    Russia,
-    Ukraine,
-    Italy,
-    Germany,
-    Czech,
-    Australia,
-    India,
-    Denmark,
-    Spain,
-    Brazil,
-    Finland,
-    Estonia
+// TODO: remove when address_country enum values will be same as Country values
+enum class address_country {
+    usa,
+    poland,
+    france,
+    russia,
+    ukraine,
+    italy,
+    germany,
+    czechia,
+    australia,
+    india,
+    denmark,
+    spain,
+    brazil,
+    finland,
+    estonia
 };
 
 /**
@@ -57,7 +57,7 @@ std::string_view country_code();
  * location::state() // "Arizona"
  * @endcode
  */
-std::string_view state(AddressCountry country = AddressCountry::Usa);
+std::string_view state(address_country country = address_country::usa);
 
 /**
  * @brief Returns a random county for a given country.
@@ -70,7 +70,7 @@ std::string_view state(AddressCountry country = AddressCountry::Usa);
  * location::county() // "Adams County"
  * @endcode
  */
-std::string_view county(AddressCountry country = AddressCountry::Usa);
+std::string_view county(address_country country = address_country::usa);
 
 /**
  * @brief Returns a random city for given country.
@@ -83,7 +83,7 @@ std::string_view county(AddressCountry country = AddressCountry::Usa);
  * location::city() // "Boston"
  * @endcode
  */
-std::string city(AddressCountry country = AddressCountry::Usa);
+std::string city(address_country country = address_country::usa);
 
 /**
  * @brief Returns a random zip code for given country.
@@ -97,7 +97,7 @@ std::string city(AddressCountry country = AddressCountry::Usa);
  * location::zip_code(Country::Poland) // "31-881"
  * @endcode
  */
-std::string zip_code(AddressCountry country = AddressCountry::Usa);
+std::string zip_code(address_country country = address_country::usa);
 
 /**
  * @brief Returns a random street address for given country.
@@ -110,7 +110,7 @@ std::string zip_code(AddressCountry country = AddressCountry::Usa);
  * location::street_address() // "34830 Erdman Hollow"
  * @endcode
  */
-std::string street_address(AddressCountry country = AddressCountry::Usa);
+std::string street_address(address_country country = address_country::usa);
 
 /**
  * @brief Returns a random street for given country.
@@ -123,7 +123,7 @@ std::string street_address(AddressCountry country = AddressCountry::Usa);
  * location::street() // "Schroeder Isle"
  * @endcode
  */
-std::string street(AddressCountry country = AddressCountry::Usa);
+std::string street(address_country country = address_country::usa);
 
 /**
  * @brief Returns a random building number for given country.
@@ -136,7 +136,7 @@ std::string street(AddressCountry country = AddressCountry::Usa);
  * location::building_number() // "505"
  * @endcode
  */
-std::string building_number(AddressCountry country = AddressCountry::Usa);
+std::string building_number(address_country country = address_country::usa);
 
 /**
  * @brief Returns a random secondary address number for given country.
@@ -150,7 +150,7 @@ std::string building_number(AddressCountry country = AddressCountry::Usa);
  * location::secondary_address() // "Apt. 861"
  * @endcode
  */
-std::string secondary_address(AddressCountry country = AddressCountry::Usa);
+std::string secondary_address(address_country country = address_country::usa);
 
 /**
  * @brief Generates a random latitude.
