@@ -8,20 +8,20 @@ TEST(ScienceTest, shouldGenerateChemElement)
 {
     auto generatedChemElement = science::chemical_element();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::chemicalElements, generatedChemElement);
+    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::chemical_elements, generatedChemElement);
 }
 
 TEST(ScienceTest, shouldGenerateAnyUnit)
 {
-    std::vector<science::Unit> units;
+    std::vector<science::unit_info> units;
     units.insert(
-        units.end(), science::data::distanceUnits.begin(), science::data::distanceUnits.end());
-    units.insert(units.end(), science::data::massUnits.begin(), science::data::massUnits.end());
-    units.insert(units.end(), science::data::timeUnits.begin(), science::data::timeUnits.end());
+        units.end(), science::data::distance_units.begin(), science::data::distance_units.end());
+    units.insert(units.end(), science::data::mass_units.begin(), science::data::mass_units.end());
+    units.insert(units.end(), science::data::time_units.begin(), science::data::time_units.end());
     units.insert(
-        units.end(), science::data::currentUnits.begin(), science::data::currentUnits.end());
-    units.insert(units.end(), science::data::temperatureUnits.begin(),
-        science::data::temperatureUnits.end());
+        units.end(), science::data::current_units.begin(), science::data::current_units.end());
+    units.insert(units.end(), science::data::temperature_units.begin(),
+        science::data::temperature_units.end());
 
     auto generatedAnyUnit = science::unit();
 
@@ -32,33 +32,33 @@ TEST(ScienceTest, shouldGenerateDistanceUnit)
 {
     auto generatedDistanceUnit = science::distance_unit();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::distanceUnits, generatedDistanceUnit);
+    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::distance_units, generatedDistanceUnit);
 }
 
 TEST(ScienceTest, shouldGenerateMassUnit)
 {
     auto generatedMassUnit = science::mass_unit();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::massUnits, generatedMassUnit);
+    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::mass_units, generatedMassUnit);
 }
 
 TEST(ScienceTest, shouldGenerateTimeUnit)
 {
     auto generatedTimeUnit = science::time_unit();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::timeUnits, generatedTimeUnit);
+    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::time_units, generatedTimeUnit);
 }
 
 TEST(ScienceTest, shouldGenerateTempUnit)
 {
     auto generatedTempUnit = science::temperature_unit();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::temperatureUnits, generatedTempUnit);
+    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::temperature_units, generatedTempUnit);
 }
 
 TEST(ScienceTest, shouldGenerateCurrentUnit)
 {
     auto generatedCurrentUnit = science::current_unit();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::currentUnits, generatedCurrentUnit);
+    FAKER_EXPECT_CONTAINER_CONTAINS(science::data::current_units, generatedCurrentUnit);
 }

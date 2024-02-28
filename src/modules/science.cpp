@@ -4,34 +4,38 @@
 #include <vector>
 
 namespace faker::science {
+namespace {
+    std::vector<unit_info> merge_all_units()
+    {
+        std::vector<unit_info> units;
 
-ChemicalElement chemical_element() { return random::element(data::chemicalElements); }
+        units.reserve(data::distance_units.size() + data::mass_units.size()
+            + data::time_units.size() + data::current_units.size()
+            + data::temperature_units.size());
+        units.insert(units.end(), data::distance_units.begin(), data::distance_units.end());
+        units.insert(units.end(), data::mass_units.begin(), data::mass_units.end());
+        units.insert(units.end(), data::time_units.begin(), data::time_units.end());
+        units.insert(units.end(), data::current_units.begin(), data::current_units.end());
+        units.insert(units.end(), data::temperature_units.begin(), data::temperature_units.end());
 
-Unit unit()
-{
-    static std::vector<Unit> units;
-
-    if (units.empty()) {
-        units.reserve(data::distanceUnits.size() + data::massUnits.size() + data::timeUnits.size()
-            + data::currentUnits.size() + data::temperatureUnits.size());
-        units.insert(units.end(), data::distanceUnits.begin(), data::distanceUnits.end());
-        units.insert(units.end(), data::massUnits.begin(), data::massUnits.end());
-        units.insert(units.end(), data::timeUnits.begin(), data::timeUnits.end());
-        units.insert(units.end(), data::currentUnits.begin(), data::currentUnits.end());
-        units.insert(units.end(), data::temperatureUnits.begin(), data::temperatureUnits.end());
+        return units;
     }
 
-    return random::element(units);
+    const std::vector<unit_info> all_units = merge_all_units();
 }
 
-Unit distance_unit() { return random::element(data::distanceUnits); }
+chemical_element_info chemical_element() { return random::element(data::chemical_elements); }
 
-Unit time_unit() { return random::element(data::timeUnits); }
+unit_info unit() { return random::element(all_units); }
 
-Unit mass_unit() { return random::element(data::massUnits); }
+unit_info distance_unit() { return random::element(data::distance_units); }
 
-Unit temperature_unit() { return random::element(data::temperatureUnits); }
+unit_info time_unit() { return random::element(data::time_units); }
 
-Unit current_unit() { return random::element(data::currentUnits); }
+unit_info mass_unit() { return random::element(data::mass_units); }
+
+unit_info temperature_unit() { return random::element(data::temperature_units); }
+
+unit_info current_unit() { return random::element(data::current_units); }
 
 };

@@ -4,15 +4,15 @@
 #include <string_view>
 
 namespace faker::science {
-struct ChemicalElement {
+struct chemical_element_info {
     std::string_view name;
     std::string_view symbol;
-    int atomicNumber;
+    unsigned atomic_number;
 };
 
-inline bool operator==(const ChemicalElement& lhs, const ChemicalElement& rhs)
+inline bool operator==(const chemical_element_info& lhs, const chemical_element_info& rhs)
 {
-    return lhs.name == rhs.name && lhs.symbol == rhs.symbol && lhs.atomicNumber == rhs.atomicNumber;
+    return lhs.name == rhs.name && lhs.symbol == rhs.symbol && lhs.atomic_number == rhs.atomic_number;
 }
 
 /**
@@ -25,21 +25,21 @@ inline bool operator==(const ChemicalElement& lhs, const ChemicalElement& rhs)
  * element in the periodic table.
  * @endcode
  */
-ChemicalElement chemical_element();
+chemical_element_info chemical_element();
 
-struct Unit {
+struct unit_info {
     std::string_view name;
     std::string_view symbol;
-    std::string_view usedToMeasure;
+    std::string_view used_to_measure;
 };
 
-inline bool operator==(const Unit& lhs, const Unit& rhs)
+inline bool operator==(const unit_info& lhs, const unit_info& rhs)
 {
     return lhs.name == rhs.name && lhs.symbol == rhs.symbol
-        && lhs.usedToMeasure == rhs.usedToMeasure;
+        && lhs.used_to_measure == rhs.used_to_measure;
 }
 
-inline bool operator!=(const Unit& lhs, const Unit& rhs) { return !(lhs == rhs); }
+inline bool operator!=(const unit_info& lhs, const unit_info& rhs) { return !(lhs == rhs); }
 
 /**
  * @brief Returns a unit of measurement for either distance, mass, time, temp, current.
@@ -47,10 +47,10 @@ inline bool operator!=(const Unit& lhs, const Unit& rhs) { return !(lhs == rhs);
  * @returns Unit
  *
  * @code
- * science::unit() // Object of Unit containing info about a random unit of measurement.
+ * science::unit() // Object of unit_info containing info about a random unit of measurement.
  * @endcode
  */
-Unit unit();
+unit_info unit();
 
 /**
  * @brief Returns a unit of measurement for either distance.
@@ -62,7 +62,7 @@ Unit unit();
  * used to measure distance.
  * @endcode
  */
-Unit distance_unit();
+unit_info distance_unit();
 
 /**
  * @brief Returns a unit of measurement for either time.
@@ -74,7 +74,7 @@ Unit distance_unit();
  * to measure time.
  * @endcode
  */
-Unit time_unit();
+unit_info time_unit();
 
 /**
  * @brief Returns a unit of measurement for either mass.
@@ -86,7 +86,7 @@ Unit time_unit();
  * to measure mass.
  * @endcode
  */
-Unit mass_unit();
+unit_info mass_unit();
 
 /**
  * @brief Returns a unit of measurement for either temp.
@@ -98,7 +98,7 @@ Unit mass_unit();
  * used to measure temperature.
  * @endcode
  */
-Unit temperature_unit();
+unit_info temperature_unit();
 
 /**
  * @brief Returns a unit of measurement for either current.
@@ -110,7 +110,7 @@ Unit temperature_unit();
  * used to measure current.
  * @endcode
  */
-Unit current_unit();
+unit_info current_unit();
 
 }
 

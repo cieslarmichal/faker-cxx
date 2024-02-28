@@ -1,7 +1,7 @@
 #include "science_data.h"
 
 namespace faker::science::data {
-const std::array<ChemicalElement, 118> chemicalElements = { { { "Hydrogen", "H", 1 },
+const std::array<chemical_element_info, 118> chemical_elements = { { { "Hydrogen", "H", 1 },
     { "Helium", "He", 2 }, { "Lithium", "Li", 3 }, { "Beryllium", "Be", 4 }, { "Boron", "B", 5 },
     { "Carbon", "C", 6 }, { "Nitrogen", "N", 7 }, { "Oxygen", "O", 8 }, { "Fluorine", "F", 9 },
     { "Neon", "Ne", 10 }, { "Sodium", "Na", 11 }, { "Magnesium", "Mg", 12 },
@@ -41,7 +41,7 @@ const std::array<ChemicalElement, 118> chemicalElements = { { { "Hydrogen", "H",
     { "Flerovium", "Fl", 114 }, { "Moscovium", "Mc", 115 }, { "Livermorium", "Lv", 116 },
     { "Tennessine", "Ts", 117 }, { "Oganesson", "Og", 118 } } };
 
-const std::array<Unit, 8> distanceUnits = { {
+const std::array<unit_info, 8> distance_units = { {
     { "Millimeter", "mm", "Length" },
     { "Centimeter", "cm", "Length" },
     { "Meter", "m", "Length" },
@@ -52,7 +52,7 @@ const std::array<Unit, 8> distanceUnits = { {
     { "Mile", "mi", "Length" },
 } };
 
-const std::array<Unit, 8> massUnits = { {
+const std::array<unit_info, 8> mass_units = { {
     { "Gram", "g", "Mass" },
     { "Kilogram", "kg", "Mass" },
     { "Milligram", "mg", "Mass" },
@@ -63,7 +63,7 @@ const std::array<Unit, 8> massUnits = { {
     { "Slug", "sl", "Mass" },
 } };
 
-const std::array<Unit, 7> timeUnits = { {
+const std::array<unit_info, 7> time_units = { {
     { "Second", "s", "Time" },
     { "Minute", "min", "Time" },
     { "Hour", "hr", "Time" },
@@ -73,13 +73,13 @@ const std::array<Unit, 7> timeUnits = { {
     { "Year", "yr", "Time" },
 } };
 
-const std::array<Unit, 3> currentUnits = { {
+const std::array<unit_info, 3> current_units = { {
     { "Ampere", "A", "Electric Current" },
     { "Milliampere", "mA", "Electric Current" },
     { "Microampere", "μA", "Electric Current" },
 } };
 
-const std::array<Unit, 3> temperatureUnits = { {
+const std::array<unit_info, 3> temperature_units = { {
     { "Celcius", "°C", "Temperature" },
     { "Fahrenheit", "°F", "Temperature" },
     { "Kelvin", "K", "Temperature" },
