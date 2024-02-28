@@ -105,4 +105,14 @@ int to_int(std::string_view str)
     return result;
 }
 
+unsigned to_uint(std::string_view str)
+{
+    unsigned result = 0;
+    auto status = std::from_chars(str.data(), str.data() + str.size(), result);
+    if (status.ec != std::errc()) {
+        throw std::invalid_argument("Invalid number");
+    }
+    return result;
+}
+
 }

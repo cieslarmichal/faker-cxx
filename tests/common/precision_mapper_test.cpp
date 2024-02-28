@@ -5,12 +5,12 @@ using namespace faker;
 
 TEST(PrecisionMapperTest, precision_format_str)
 {
-    EXPECT_NE(utils::precision_format_str(Precision::ZeroDp), "");
-    EXPECT_NE(utils::precision_format_str(Precision::OneDp), "");
-    EXPECT_NE(utils::precision_format_str(Precision::TwoDp), "");
-    EXPECT_NE(utils::precision_format_str(Precision::ThreeDp), "");
-    EXPECT_NE(utils::precision_format_str(Precision::FourDp), "");
-    EXPECT_NE(utils::precision_format_str(Precision::FiveDp), "");
-    EXPECT_NE(utils::precision_format_str(Precision::SixDp), "");
-    EXPECT_NE(utils::precision_format_str(Precision::SevenDp), "");
+    EXPECT_NE(utils::precision_format_str(precision::zero_dp), "");
+    EXPECT_NE(utils::precision_format_str(precision::one_dp), "");
+    EXPECT_NE(utils::precision_format_str(precision::two_dp), "");
+    EXPECT_NE(utils::precision_format_str(precision::three_dp), "");
+    EXPECT_NE(utils::precision_format_str(precision::four_dp), "");
+    EXPECT_NE(utils::precision_format_str(precision::five_dp), "");
+    EXPECT_NE(utils::precision_format_str(precision::six_dp), "");
+    EXPECT_NE(utils::precision_format_str(precision::seven_dp), "");
 }

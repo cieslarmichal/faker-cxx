@@ -26,6 +26,7 @@ bool is_punctuation(char c);
 std::string remove_punctuation(std::string_view word);
 
 int to_int(std::string_view str);
+unsigned to_uint(std::string_view str);
 
 template <size_t N> static std::string to_hex(const std::array<uint8_t, N>& data)
 {

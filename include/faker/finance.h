@@ -7,72 +7,72 @@
 #include <string>
 
 namespace faker::finance {
-enum class IbanCountry {
-    Austria,
-    Belgium,
-    Bulgaria,
-    Croatia,
-    Cyprus,
-    Czechia,
-    Denmark,
-    Estonia,
-    Finland,
-    France,
-    Germany,
-    Greece,
-    Hungary,
-    Ireland,
-    Italy,
-    Latvia,
-    Lithuania,
-    Luxembourg,
-    Malta,
-    Netherlands,
-    Poland,
-    Portugal,
-    Romania,
-    Slovakia,
-    Slovenia,
-    Spain,
-    Sweden
+enum class iban_country {
+    austria,
+    belgium,
+    bulgaria,
+    croatia,
+    cyprus,
+    czechia,
+    denmark,
+    estonia,
+    finland,
+    france,
+    germany,
+    greece,
+    hungary,
+    ireland,
+    italy,
+    latvia,
+    lithuania,
+    luxembourg,
+    malta,
+    netherlands,
+    poland,
+    portugal,
+    romania,
+    slovakia,
+    slovenia,
+    spain,
+    sweden
 };
 
-struct Currency {
+struct currency_info {
     std::string_view name;
     std::string_view code;
     std::string_view symbol;
 };
 
-inline bool operator==(const Currency& lhs, const Currency& rhs)
+inline bool operator==(const currency_info& lhs, const currency_info& rhs)
 {
     return lhs.name == rhs.name && lhs.code == rhs.code && lhs.symbol == rhs.symbol;
 }
 
-enum class BicCountry {
-    Poland,
-    United_States,
-    United_Kingdom,
-    Germany,
-    Romania,
-    France,
-    Italy,
-    Spain,
-    Netherlands,
-    India,
+enum class bic_country {
+    poland,
+    usa,
+    england,
+    germany,
+    romania,
+    france,
+    india,
+    italy,
+    netherlands,
+    spain,
 };
 
-enum class CreditCardType { AmericanExpress, Discover, MasterCard, Visa };
+enum class credit_card_type { american_express, discover, mastercard, visa };
 
 /**
  * @brief Returns a random currency.
  *
- * @returns Currency.
+ * @returns currency_info.
  *
  * @code
  * finance::currency() // "{"US Dollar","USD","$"}"
  * @endcode
  */
-Currency currency();
+currency_info currency();
 
 /**
  * @brief Returns a random currency name.
@@ -123,8 +123,8 @@ std::string_view account_type();
 
  * @param min The lower bound for the amount. Defaults to `0`.
  * @param max The upper bound for the amount. Defaults to `1000`.
- * @param precision The number of decimal points of precision for the amount. Defaults to
- `Precision::TwoDp`.
+ * @param prec The number of decimal points of prec for the amount. Defaults to
+ `precision::two_dp`.
  * @param symbol The symbol used to prefix the amount. Defaults to `""`.
  *
  * @returns Amount of money as string.
@@ -132,11 +132,11 @@ std::string_view account_type();
  * @code
  * finance::amount() // "720.18"
  * finance::amount(5, 10) // "4.22"
- * finance::amount(5, 10, Precision::ZeroDp) // "4"
- * finance::amount(5, 10, Precision::TwoDp, "$") // "$5.85"
+ * finance::amount(5, 10, precision::zero_dp) // "4"
+ * finance::amount(5, 10, precision::two_dp, "$") // "$5.85"
  * @endcode
  */
-std::string amount(double min = 0, double max = 1000, Precision precision = Precision::TwoDp,
+std::string amount(double min = 0, double max = 1000, precision prec = precision::two_dp,
     const std::string& symbol = "");
 
 /**
@@ -148,10 +148,10 @@ std::string amount(double min = 0, double max = 1000, Precision precision = Prec
  * @returns IBAN.
  *
  * @code
- * finance::iban(IbanCountry::Poland) // "PL61109010140000071219812874"
+ * finance::iban(iban_country::poland) // "PL61109010140000071219812874"
  * @endcode
  */
-std::string iban(std::optional<IbanCountry> country = std::nullopt);
+std::string iban(std::optional<iban_country> country = std::nullopt);
 
 /**
  * Generates a random bic.
@@ -162,10 +162,10 @@ std::string iban(std::optional<IbanCountry> country = std::nullopt);
  * @returns BIC.
  *
  * @code
- * finance::bic(BicCountry::Poland) // "BREXPLPWMUL"
+ * finance::bic(bic_country::poland) // "BREXPLPWMUL"
  * @endcode
  */
-std::string_view bic(std::optional<BicCountry> country = std::nullopt);
+std::string_view bic(std::optional<bic_country> country = std::nullopt);
 
 /**
  * Generates a random account number.
@@ -209,7 +209,7 @@ std::string routing_number();
 /**
  * Generates a random credit card number.
  *
- * @param creditCardType The type of the credit card.
+ * @param cc_type The type of the credit card.
  *
  * @returns Credit card number.
  *
@@ -217,7 +217,7 @@ std::string routing_number();
  * finance::credit_card_number() // "4882664999007"
  * @endcode
  */
-std::string credit_card_number(std::optional<CreditCardType> creditCardType = std::nullopt);
+std::string credit_card_number(std::optional<credit_card_type> cc_type = std::nullopt);
 
 /**
  * Generates a random credit card CVV.

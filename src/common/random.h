@@ -249,7 +249,7 @@ std::string replace_symbol_with_number(const std::string_view& str, const char& 
  * @endcode
  */
 std::string replace_credit_card_symbols(
-    const std::string& inputString = "6453-####-####-####-###L", char symbol = '#');
+    std::string_view inputString = "6453-####-####-####-###L", char symbol = '#');
 
 /**
  * @brief Returns the replaced regex-like expression in the string with matching values.

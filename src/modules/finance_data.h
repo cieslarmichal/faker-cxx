@@ -8,17 +8,17 @@
 #include <vector>
 
 namespace faker::finance::data {
-extern const std::array<BicCountry, 10> supportedBicCountries;
-extern const std::array<IbanCountry, 27> supportedIbanCountries;
-extern const std::array<std::string_view, 8> accountTypes;
-extern const std::unordered_map<BicCountry, std::vector<std::string_view>>
-    bankIdentifiersCodesMapping;
-extern const std::array<std::string_view, 2> americanExpressCreditCardFormats;
-extern const std::array<std::string_view, 6> discoverCreditCardFormats;
-extern const std::array<std::string_view, 2> masterCardCreditCardFormats;
-extern const std::array<std::string_view, 2> visaCreditCardFormats;
-extern const std::array<Currency, 154> currencies;
-extern const std::unordered_map<IbanCountry, std::vector<std::string_view>> ibanFormats;
+extern const std::array<bic_country, 10> bic_countries;
+extern const std::array<iban_country, 27> iban_countries;
+extern const std::array<std::string_view, 8> account_types;
+extern const std::unordered_map<bic_country, std::vector<std::string_view>> bic_countries_codes;
+extern const std::array<credit_card_type, 4> credit_card_types;
+extern const std::array<std::string_view, 2> american_express_cc_formats;
+extern const std::array<std::string_view, 6> discover_cc_formats;
+extern const std::array<std::string_view, 2> mastercard_cc_formats;
+extern const std::array<std::string_view, 2> visa_cc_formats;
+extern const std::array<currency_info, 154> currencies;
+extern const std::unordered_map<iban_country, std::vector<std::string_view>> iban_formats;
 }
 
 #endif

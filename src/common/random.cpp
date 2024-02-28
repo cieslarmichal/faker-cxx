@@ -137,7 +137,7 @@ std::string replace_symbol_with_number(const std::string_view& str, const char& 
     return result;
 }
 
-std::string replace_credit_card_symbols(const std::string& inputString, char symbol)
+std::string replace_credit_card_symbols(std::string_view inputString, char symbol)
 {
     // Replace regex-like expressions in the given string with matching values.
     std::string modifiedString = regexp_style_string_parse(inputString);

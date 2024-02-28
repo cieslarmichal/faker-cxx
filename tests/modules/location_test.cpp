@@ -480,7 +480,7 @@ TEST_F(LocationTest, shouldGenerateLatitude)
 
 TEST_F(LocationTest, shouldGenerateLatitudeWithSpecifiedPrecision)
 {
-    const auto latitude = location::latitude(Precision::ThreeDp);
+    const auto latitude = location::latitude(precision::three_dp);
 
     auto offset = latitude.size();
     const auto latitudeAsFloat = std::stof(latitude, &offset);
@@ -510,7 +510,7 @@ TEST_F(LocationTest, shouldGenerateLongitude)
 
 TEST_F(LocationTest, shouldGenerateLongitudeWithSpecifiedPrecision)
 {
-    const auto longitude = location::longitude(Precision::SixDp);
+    const auto longitude = location::longitude(precision::six_dp);
 
     auto offset = longitude.size();
     const auto longitudeAsFloat = std::stof(longitude, &offset);

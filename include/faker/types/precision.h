@@ -2,7 +2,7 @@
 #define FAKER_TYPES_PRECISION_H
 
 namespace faker {
-enum class Precision { ZeroDp, OneDp, TwoDp, ThreeDp, FourDp, FiveDp, SixDp, SevenDp };
+enum class precision { zero_dp, one_dp, two_dp, three_dp, four_dp, five_dp, six_dp, seven_dp };
 }
 
 #endif

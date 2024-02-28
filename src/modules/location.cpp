@@ -197,16 +197,16 @@ std::string secondary_address(AddressCountry country)
     return random::replace_symbol_with_number(secondaryAddressFormat);
 }
 
-std::string latitude(Precision precision)
+std::string latitude(precision prec)
 {
     const auto latitude = number::decimal(-90.0, 90.0);
-    return utils::format(utils::precision_format_str(precision), latitude);
+    return utils::format(utils::precision_format_str(prec), latitude);
 }
 
-std::string longitude(Precision precision)
+std::string longitude(precision prec)
 {
     const auto longitude = number::decimal(-180.0, 180.0);
-    return utils::format(utils::precision_format_str(precision), longitude);
+    return utils::format(utils::precision_format_str(prec), longitude);
 }
 
 std::string_view direction() { return random::element(data::directions); }
