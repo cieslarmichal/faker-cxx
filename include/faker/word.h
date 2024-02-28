@@ -23,7 +23,7 @@ std::string_view sample(std::optional<unsigned> length = std::nullopt);
 /**
  * @brief Returns a string containing a number of space separated random words.
  *
- * @param numberOfWords The number of words to generate.
+ * @param count The number of words to generate.
  *
  * @returns Random words separated with spaces.
  *
@@ -32,7 +32,7 @@ std::string_view sample(std::optional<unsigned> length = std::nullopt);
  * word::words(5) // "before hourly patiently dribble equal"
  * @endcode
  */
-std::string words(unsigned numberOfWords = 1);
+std::string words(unsigned count = 1);
 
 /**
  * @brief Returns a random adjective.

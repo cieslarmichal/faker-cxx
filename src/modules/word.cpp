@@ -5,59 +5,80 @@
 #include <unordered_map>
 
 namespace faker::word {
-std::string_view sample(std::optional<unsigned int> length)
-{
-    static std::vector<std::string_view> allWords;
-    static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
+namespace {
 
-    if (wordsByLength.empty()) {
-        allWords.reserve(data::adjectives.size() + data::adverbs.size() + data::conjunctions.size()
+    template <size_t N>
+    std::unordered_map<unsigned, std::vector<std::string_view>> group_by_length(
+        const std::array<std::string_view, N>& arr)
+    {
+        std::unordered_map<unsigned, std::vector<std::string_view>> result;
+
+        for (auto word : arr) {
+            result[word.size()].push_back(word);
+        }
+
+        return result;
+    }
+
+}
+
+std::string_view sample(std::optional<unsigned> length)
+{
+    static std::vector<std::string_view> all_words;
+    static std::unordered_map<unsigned, std::vector<std::string_view>> words_by_length;
+
+    // TODO Instead of this, use 2-step algorithm:
+    // 1. determine category (weighted, weights are based on the number of words in each category)
+    // 2. pick a word from the category
+    if (words_by_length.empty()) {
+        all_words.reserve(data::adjectives.size() + data::adverbs.size() + data::conjunctions.size()
             + data::interjections.size() + data::nouns.size() + data::prepositions.size()
             + data::verbs.size());
+
         for (const auto& word : data::adjectives) {
-            allWords.push_back(word);
-            wordsByLength[word.size()].push_back(word);
+            all_words.push_back(word);
+            words_by_length[word.size()].push_back(word);
         }
         for (const auto& word : data::adverbs) {
-            allWords.push_back(word);
-            wordsByLength[word.size()].push_back(word);
+            all_words.push_back(word);
+            words_by_length[word.size()].push_back(word);
         }
         for (const auto& word : data::conjunctions) {
-            allWords.push_back(word);
-            wordsByLength[word.size()].push_back(word);
+            all_words.push_back(word);
+            words_by_length[word.size()].push_back(word);
         }
         for (const auto& word : data::interjections) {
-            allWords.push_back(word);
-            wordsByLength[word.size()].push_back(word);
+            all_words.push_back(word);
+            words_by_length[word.size()].push_back(word);
         }
         for (const auto& word : data::nouns) {
-            allWords.push_back(word);
-            wordsByLength[word.size()].push_back(word);
+            all_words.push_back(word);
+            words_by_length[word.size()].push_back(word);
         }
         for (const auto& word : data::prepositions) {
-            allWords.push_back(word);
-            wordsByLength[word.size()].push_back(word);
+            all_words.push_back(word);
+            words_by_length[word.size()].push_back(word);
         }
         for (const auto& word : data::verbs) {
-            allWords.push_back(word);
-            wordsByLength[word.size()].push_back(word);
+            all_words.push_back(word);
+            words_by_length[word.size()].push_back(word);
         }
     }
 
     if (length) {
-        auto it = wordsByLength.find(*length);
-        if (it != wordsByLength.end()) {
+        auto it = words_by_length.find(*length);
+        if (it != words_by_length.end()) {
             return random::element(it->second);
         }
     }
 
-    return random::element(allWords);
+    return random::element(all_words);
 }
 
-std::string words(unsigned numberOfWords)
+std::string words(unsigned count)
 {
     std::string result;
-    for (unsigned i = 0; i < numberOfWords; i++) {
+    for (unsigned i = 0; i < count; i++) {
         if (i > 0) {
             result += ' ';
         }
@@ -66,39 +87,26 @@ std::string words(unsigned numberOfWords)
     return result;
 }
 
-std::string_view adjective(std::optional<unsigned int> length)
+std::string_view adjective(std::optional<unsigned> length)
 {
-    static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
-
-    if (wordsByLength.empty()) {
-        for (const auto& word : data::adjectives) {
-            wordsByLength[word.size()].push_back(word);
-        }
-    }
+    static const auto words_by_length = group_by_length(data::adjectives);
 
     if (length) {
-        auto it = wordsByLength.find(*length);
-        if (it != wordsByLength.end()) {
+        auto it = words_by_length.find(*length);
+        if (it != words_by_length.end()) {
             return random::element(it->second);
         }
     }
-
     return random::element(data::adjectives);
 }
 
-std::string_view adverb(std::optional<unsigned int> length)
+std::string_view adverb(std::optional<unsigned> length)
 {
-    static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
-
-    if (wordsByLength.empty()) {
-        for (const auto& word : data::adverbs) {
-            wordsByLength[word.size()].push_back(word);
-        }
-    }
+    static const auto words_by_length = group_by_length(data::adverbs);
 
     if (length) {
-        auto it = wordsByLength.find(*length);
-        if (it != wordsByLength.end()) {
+        auto it = words_by_length.find(*length);
+        if (it != words_by_length.end()) {
             return random::element(it->second);
         }
     }
@@ -106,19 +114,13 @@ std::string_view adverb(std::optional<unsigned int> length)
     return random::element(data::adverbs);
 }
 
-std::string_view conjunction(std::optional<unsigned int> length)
+std::string_view conjunction(std::optional<unsigned> length)
 {
-    static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
-
-    if (wordsByLength.empty()) {
-        for (const auto& word : data::conjunctions) {
-            wordsByLength[word.size()].push_back(word);
-        }
-    }
+static const auto words_by_length = group_by_length(data::conjunctions);
 
     if (length) {
-        auto it = wordsByLength.find(*length);
-        if (it != wordsByLength.end()) {
+        auto it = words_by_length.find(*length);
+        if (it != words_by_length.end()) {
             return random::element(it->second);
         }
     }
@@ -126,19 +128,13 @@ std::string_view conjunction(std::optional<unsigned int> length)
     return random::element(data::conjunctions);
 }
 
-std::string_view interjection(std::optional<unsigned int> length)
+std::string_view interjection(std::optional<unsigned> length)
 {
-    static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
-
-    if (wordsByLength.empty()) {
-        for (const auto& word : data::interjections) {
-            wordsByLength[word.size()].push_back(word);
-        }
-    }
+    static const auto words_by_length = group_by_length(data::interjections);
 
     if (length) {
-        auto it = wordsByLength.find(*length);
-        if (it != wordsByLength.end()) {
+        auto it = words_by_length.find(*length);
+        if (it != words_by_length.end()) {
             return random::element(it->second);
         }
     }
@@ -146,19 +142,13 @@ std::string_view interjection(std::optional<unsigned int> length)
     return random::element(data::interjections);
 }
 
-std::string_view noun(std::optional<unsigned int> length)
+std::string_view noun(std::optional<unsigned> length)
 {
-    static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
-
-    if (wordsByLength.empty()) {
-        for (const auto& word : data::nouns) {
-            wordsByLength[word.size()].push_back(word);
-        }
-    }
+    static const auto words_by_length = group_by_length(data::nouns);
 
     if (length) {
-        auto it = wordsByLength.find(*length);
-        if (it != wordsByLength.end()) {
+        auto it = words_by_length.find(*length);
+        if (it != words_by_length.end()) {
             return random::element(it->second);
         }
     }
@@ -166,19 +156,13 @@ std::string_view noun(std::optional<unsigned int> length)
     return random::element(data::nouns);
 }
 
-std::string_view preposition(std::optional<unsigned int> length)
+std::string_view preposition(std::optional<unsigned> length)
 {
-    static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
-
-    if (wordsByLength.empty()) {
-        for (const auto& word : data::prepositions) {
-            wordsByLength[word.size()].push_back(word);
-        }
-    }
+    static const auto words_by_length = group_by_length(data::prepositions);
 
     if (length) {
-        auto it = wordsByLength.find(*length);
-        if (it != wordsByLength.end()) {
+        auto it = words_by_length.find(*length);
+        if (it != words_by_length.end()) {
             return random::element(it->second);
         }
     }
@@ -186,19 +170,13 @@ std::string_view preposition(std::optional<unsigned int> length)
     return random::element(data::prepositions);
 }
 
-std::string_view verb(std::optional<unsigned int> length)
+std::string_view verb(std::optional<unsigned> length)
 {
-    static std::unordered_map<unsigned int, std::vector<std::string_view>> wordsByLength;
-
-    if (wordsByLength.empty()) {
-        for (const auto& word : data::verbs) {
-            wordsByLength[word.size()].push_back(word);
-        }
-    }
+    static const auto words_by_length = group_by_length(data::verbs);
 
     if (length) {
-        auto it = wordsByLength.find(*length);
-        if (it != wordsByLength.end()) {
+        auto it = words_by_length.find(*length);
+        if (it != words_by_length.end()) {
             return random::element(it->second);
         }
     }
