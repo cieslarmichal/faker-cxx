@@ -5,19 +5,19 @@
 #include <string>
 
 namespace faker::image {
-enum class ImageCategory {
-    Animals,
-    Business,
-    Cats,
-    City,
-    Food,
-    Nightlife,
-    Fashion,
-    People,
-    Nature,
-    Sports,
-    Technics,
-    Transport
+enum class image_category {
+    animals,
+    business,
+    cats,
+    city,
+    food,
+    nightlife,
+    fashion,
+    people,
+    nature,
+    sports,
+    technics,
+    transport
 };
 
 /**
@@ -32,12 +32,12 @@ enum class ImageCategory {
  * @code
  * image::image_url() // "https://loremflickr.com/640/480"
  * image::image_url(800, 600) // "https://loremflickr.com/800/600"
- * image::image_url(800, 600, ImageCategory::Animals) //
+ * image::image_url(800, 600, image_category::animals) //
  * "https://loremflickr.com/800/600/animals"
  * @endcode
  */
 std::string image_url(unsigned width = 640, unsigned height = 480,
-    std::optional<ImageCategory> category = std::nullopt);
+    std::optional<image_category> category = std::nullopt);
 
 /**
  * @brief Generates a random avatar from GitHub.

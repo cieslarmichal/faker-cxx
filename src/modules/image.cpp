@@ -7,46 +7,46 @@
 namespace faker::image {
 
 std::string image_url(
-    unsigned int width, unsigned int height, std::optional<ImageCategory> category)
+    unsigned int width, unsigned int height, std::optional<image_category> category)
 {
     std::string_view image_category;
 
     if (category.has_value()) {
         switch (*category) {
-        case ImageCategory::Animals:
+        case image_category::animals:
             image_category = "/animals";
             break;
-        case ImageCategory::Business:
+        case image_category::business:
             image_category = "/business";
             break;
-        case ImageCategory::Cats:
+        case image_category::cats:
             image_category = "/cats";
             break;
-        case ImageCategory::City:
+        case image_category::city:
             image_category = "/city";
             break;
-        case ImageCategory::Food:
+        case image_category::food:
             image_category = "/food";
             break;
-        case ImageCategory::Nightlife:
+        case image_category::nightlife:
             image_category = "/nightlife";
             break;
-        case ImageCategory::Fashion:
+        case image_category::fashion:
             image_category = "/fashion";
             break;
-        case ImageCategory::People:
+        case image_category::people:
             image_category = "/people";
             break;
-        case ImageCategory::Nature:
+        case image_category::nature:
             image_category = "/nature";
             break;
-        case ImageCategory::Sports:
+        case image_category::sports:
             image_category = "/sports";
             break;
-        case ImageCategory::Technics:
+        case image_category::technics:
             image_category = "/technics";
             break;
-        case ImageCategory::Transport:
+        case image_category::transport:
             image_category = "/transport";
             break;
         default:
@@ -67,5 +67,5 @@ std::string dimensions()
     return utils::format("{}x{}", number::integer(1, 32720), number::integer(1, 17280));
 }
 
-std::string_view type() { return random::element(data::imageTypes); }
+std::string_view type() { return random::element(data::image_types); }
 }

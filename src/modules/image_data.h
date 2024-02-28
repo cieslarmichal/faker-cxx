@@ -5,7 +5,7 @@
 #include <string_view>
 
 namespace faker::image::data {
-extern const std::array<std::string_view, 15> imageTypes;
+extern const std::array<std::string_view, 15> image_types;
 }
 
 #endif

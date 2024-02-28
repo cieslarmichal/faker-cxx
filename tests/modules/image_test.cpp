@@ -26,7 +26,7 @@ TEST(ImageTest, shouldGenerateImageUrlCategory)
 {
     auto width = 800;
     auto height = 600;
-    const image::ImageCategory category = image::ImageCategory::Fashion;
+    const image::image_category category = image::image_category::fashion;
 
     auto imageUrl = image::image_url(width, height, category);
 
@@ -62,5 +62,5 @@ TEST(ImageTest, shouldGenerateType)
 {
     auto generatedType = image::type();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(image::data::imageTypes, generatedType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(image::data::image_types, generatedType);
 }
