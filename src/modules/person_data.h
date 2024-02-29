@@ -43,13 +43,13 @@ struct PeopleNames {
     NameFormats nameFormats;
 };
 
-extern const std::unordered_map<SsnCountry, std::string_view> ssnFormats;
+extern const std::unordered_map<ssn_country, std::string_view> ssnFormats;
 extern const std::array<std::string_view, 12> westernZodiacs;
 extern const std::array<std::string_view, 11> chineseZodiacs;
 extern const std::unordered_map<Language, std::unordered_map<Sex, std::string_view>>
     sexTranslations;
-extern const std::array<SsnCountry, 8> supportedSsnCountries;
-extern const std::unordered_map<SsnCountry, unsigned> ssnLengths;
+extern const std::array<ssn_country, 8> supportedSsnCountries;
+extern const std::unordered_map<ssn_country, unsigned> ssnLengths;
 
 // Albania
 

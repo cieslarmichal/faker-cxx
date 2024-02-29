@@ -7,8 +7,8 @@
 
 namespace faker::person {
 enum class Sex {
-    Male,
-    Female,
+    male,
+    female,
 };
 
 enum class Language {
@@ -48,17 +48,17 @@ enum class Language {
     Estonian
 };
 
-std::string_view to_string(Sex sex, Language language = Language::English);
+std::string_view to_string(Sex sex, Language lang = Language::English);
 
-enum class SsnCountry {
-    Poland,
-    UnitedStates,
-    UnitedKingdom,
-    Germany,
-    France,
-    Italy,
-    Spain,
-    India,
+enum class ssn_country {
+    poland,
+    usa,
+    england,
+    germany,
+    france,
+    italy,
+    spain,
+    india,
 };
 
 /**
@@ -71,8 +71,8 @@ enum class SsnCountry {
  *
  * @code
  * person::first_name() // "Michael"
- * person::first_name(Country::England, Sex::Female) // "Emma"
- * person::first_name(Country::England, Sex::Male) // "Arthur"
+ * person::first_name(Country::England, Sex::female) // "Emma"
+ * person::first_name(Country::England, Sex::male) // "Arthur"
  * @endcode
  */
 std::string first_name(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
@@ -114,8 +114,8 @@ std::string middle_name(std::optional<Sex> sex = std::nullopt);
  *
  * @code
  * person::full_name() // "Marcia Robinson"
- * person::full_name(Country::England, Sex::Female) // "Jennifer Martin"
- * person::full_name(Country::England, Sex::Male) // "Samuel Walker"
+ * person::full_name(Country::England, Sex::female) // "Jennifer Martin"
+ * person::full_name(Country::England, Sex::male) // "Samuel Walker"
  * @endcode
  */
 std::string full_name(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
@@ -129,8 +129,8 @@ std::string full_name(Country country = Country::England, std::optional<Sex> sex
  *
  * @code
  * person::prefix() // "Miss"
- * person::prefix(Sex::Female) // "Ms."
- * person::prefix(Sex::Male) // "Mr."
+ * person::prefix(Sex::female) // "Ms."
+ * person::prefix(Sex::male) // "Mr."
  * @endcode
  */
 std::string prefix(std::optional<Sex> sex = std::nullopt);
@@ -163,10 +163,10 @@ std::string bio();
  * @returns Sex.
  *
  * @code
- * person::sex() // "Male"
+ * person::sex() // "male"
  * @endcode
  */
-std::string_view sex(Language language = Language::English);
+std::string_view sex(Language lang = Language::English);
 
 /**
  * @brief Returns a random gender.
@@ -240,7 +240,7 @@ std::string_view hobby();
  * @returns Language.
  *
  * @code
- * person::language() // "Polish"
+ * person::lang() // "Polish"
  * @endcode
  */
 std::string_view language();
@@ -265,10 +265,10 @@ std::string_view nationality();
  *
  * @code
  * person::ssn() // "437-12-6854"
- * person::ssn(SsnCountry::Polish) // "95111901567"
+ * person::ssn(ssn_country::Polish) // "95111901567"
  * @endcode
  */
-std::string ssn(std::optional<SsnCountry> country);
+std::string ssn(std::optional<ssn_country> country);
 
 /**
  * @brief Returns a random Western Zodiac
