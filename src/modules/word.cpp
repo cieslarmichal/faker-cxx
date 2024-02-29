@@ -116,7 +116,7 @@ std::string_view adverb(std::optional<unsigned> length)
 
 std::string_view conjunction(std::optional<unsigned> length)
 {
-static const auto words_by_length = group_by_length(data::conjunctions);
+    static const auto words_by_length = group_by_length(data::conjunctions);
 
     if (length) {
         auto it = words_by_length.find(*length);
