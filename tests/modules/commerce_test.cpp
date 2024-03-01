@@ -35,7 +35,7 @@ TEST(CommerceTest, shouldGenerateSku)
 
     ASSERT_EQ(sku.size(), 4);
     ASSERT_TRUE(faker::testing::all_of(sku, [](char skuCharacter) {
-        return faker::testing::any_of(string::data::numericCharacters,
+        return faker::testing::any_of(string::data::digits,
             [skuCharacter](auto numericCharacter) { return skuCharacter == numericCharacter; });
     }));
 }
@@ -48,7 +48,7 @@ TEST(CommerceTest, shouldGenerateSkuWithSpecifiedLength)
 
     ASSERT_EQ(sku.size(), skuLength);
     ASSERT_TRUE(faker::testing::all_of(sku, [](char skuCharacter) {
-        return faker::testing::any_of(string::data::numericCharacters,
+        return faker::testing::any_of(string::data::digits,
             [skuCharacter](char numericCharacter) { return skuCharacter == numericCharacter; });
     }));
 }
@@ -231,7 +231,7 @@ TEST(CommerceTest, shouldGenerateDiscountCode)
 
     ASSERT_TRUE(
         faker::testing::all_of(generatedDiscountCode, [](char generatedDiscountCodeCharacter) {
-            return faker::testing::any_of(string::data::upperAlphanumericCharacters,
+            return faker::testing::any_of(string::data::ascii_upper_alphanum,
                 [generatedDiscountCodeCharacter](char upperAlphanumericCharacter) {
                     return upperAlphanumericCharacter == generatedDiscountCodeCharacter;
                 });

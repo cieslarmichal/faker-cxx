@@ -65,13 +65,13 @@ TEST(ColorTest, shouldGenerateHexColorWithoutAlpha)
     ASSERT_EQ(hexadecimal.size(), 7);
     ASSERT_EQ(prefix, "#");
     ASSERT_TRUE(faker::testing::any_of(hexNumber, [hexNumber](char hexNumberCharacter) {
-        return string::data::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos;
+        return string::data::hex_lower_digits.find(hexNumberCharacter) != std::string::npos;
     }));
 }
 
 TEST(ColorTest, shouldGenerateHexColorWithAlpha)
 {
-    auto hexadecimal = color::hex(hex_case::upper, hex_prefix::zero_x, true);
+    auto hexadecimal = color::hex(hex_case_t::upper, hex_prefix_t::zero_x, true);
 
     auto prefix = hexadecimal.substr(0, 2);
     auto hexNumber = hexadecimal.substr(2);
@@ -79,7 +79,7 @@ TEST(ColorTest, shouldGenerateHexColorWithAlpha)
     ASSERT_EQ(hexadecimal.size(), 10);
     ASSERT_EQ(prefix, "0x");
     ASSERT_TRUE(faker::testing::any_of(hexNumber, [hexNumber](char hexNumberCharacter) {
-        return string::data::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos;
+        return string::data::hex_upper_digits.find(hexNumberCharacter) != std::string::npos;
     }));
 }
 

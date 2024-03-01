@@ -124,7 +124,7 @@ std::string_view account_type();
  * @param min The lower bound for the amount. Defaults to `0`.
  * @param max The upper bound for the amount. Defaults to `1000`.
  * @param prec The number of decimal points of prec for the amount. Defaults to
- `precision::two_dp`.
+ `precision_t::two_dp`.
  * @param symbol The symbol used to prefix the amount. Defaults to `""`.
  *
  * @returns Amount of money as string.
@@ -132,11 +132,11 @@ std::string_view account_type();
  * @code
  * finance::amount() // "720.18"
  * finance::amount(5, 10) // "4.22"
- * finance::amount(5, 10, precision::zero_dp) // "4"
- * finance::amount(5, 10, precision::two_dp, "$") // "$5.85"
+ * finance::amount(5, 10, precision_t::zero_dp) // "4"
+ * finance::amount(5, 10, precision_t::two_dp, "$") // "$5.85"
  * @endcode
  */
-std::string amount(double min = 0, double max = 1000, precision prec = precision::two_dp,
+std::string amount(double min = 0, double max = 1000, precision_t prec = precision_t::two_dp,
     const std::string& symbol = "");
 
 /**

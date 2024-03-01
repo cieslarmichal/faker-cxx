@@ -48,24 +48,24 @@ std::string fill_token_values(
     return filledFormat;
 }
 
-std::string_view precision_format_str(precision prec)
+std::string_view precision_format_str(precision_t prec)
 {
     switch (prec) {
-    case precision::zero_dp:
+    case precision_t::zero_dp:
         return "{:.0f}";
-    case precision::one_dp:
+    case precision_t::one_dp:
         return "{:.1f}";
-    case precision::two_dp:
+    case precision_t::two_dp:
         return "{:.2f}";
-    case precision::three_dp:
+    case precision_t::three_dp:
         return "{:.3f}";
-    case precision::four_dp:
+    case precision_t::four_dp:
         return "{:.4f}";
-    case precision::five_dp:
+    case precision_t::five_dp:
         return "{:.5f}";
-    case precision::six_dp:
+    case precision_t::six_dp:
         return "{:.6f}";
-    case precision::seven_dp:
+    case precision_t::seven_dp:
         return "{:.7f}";
     default:
         throw std::invalid_argument("Invalid precision");

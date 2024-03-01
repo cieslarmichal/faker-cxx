@@ -23,7 +23,7 @@ std::string rgb(bool include_alpha)
     return utils::format("rgba({}, {}, {}, {:.2f})", red, green, blue, alpha);
 }
 
-std::string hex(hex_case casing, hex_prefix prefix, bool include_alpha)
+std::string hex(hex_case_t casing, hex_prefix_t prefix, bool include_alpha)
 {
     return string::hexadecimal(include_alpha ? 8 : 6, casing, prefix);
 }

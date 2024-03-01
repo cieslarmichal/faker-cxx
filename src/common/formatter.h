@@ -44,7 +44,7 @@ inline std::string fill_token_values(
 std::string fill_token_values(
     const std::string& format, std::function<std::string(std::string_view)> tokenValueGenerator);
 
-std::string_view precision_format_str(precision prec);
+std::string_view precision_format_str(precision_t prec);
 
 }
 

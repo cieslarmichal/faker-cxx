@@ -5,37 +5,20 @@
 #include <unordered_map>
 
 namespace faker::phone {
-namespace {
-    std::unordered_map<PhoneNumberCountryFormat, std::string_view> make_phone_number_format_map()
-    {
-        std::unordered_map<PhoneNumberCountryFormat, std::string_view> result;
-        // TODO this is brittle, because it depends on the assumption that order of elements in
-        // PhoneNumberCountryFormat is the same as the one in data::number_formats
-        for (auto i = static_cast<unsigned long>(PhoneNumberCountryFormat::Default);
-             i <= static_cast<unsigned long>(PhoneNumberCountryFormat::Zimbabwe); i++) {
-            result[static_cast<PhoneNumberCountryFormat>(i)] = data::number_formats[i];
-        }
-        return result;
-    }
-
-    const std::unordered_map<PhoneNumberCountryFormat, std::string_view> phone_number_format_map
-        = make_phone_number_format_map();
-}
 
 std::string number(std::optional<std::string> format)
 {
-    auto final_format
-        = format.has_value() ? *format : std::string(random::element(data::number_formats));
-    return random::replace_symbol_with_number(final_format);
+    return random::replace_symbol_with_number(
+        format.has_value() ? *format : random::element(data::number_formats).second);
 }
 
-std::string number(PhoneNumberCountryFormat format)
+std::string number(phone_number_format_t format)
 {
-    std::string result { phone_number_format_map.at(
-        phone_number_format_map.find(format) != phone_number_format_map.end()
-            ? format
-            : PhoneNumberCountryFormat::Default) };
-    return random::replace_symbol_with_number(result);
+    auto final_format = data::number_formats.at(static_cast<size_t>(format));
+    if (final_format.first != format) {
+        throw std::runtime_error("Invalid phone number format");
+    }
+    return random::replace_symbol_with_number(final_format.second);
 }
 
 std::string imei() { return random::replace_credit_card_symbols("##-######-######-L", '#'); }

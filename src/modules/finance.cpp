@@ -18,7 +18,7 @@ std::string_view currency_symbol() { return random::element(data::currencies).sy
 
 std::string_view account_type() { return random::element(data::account_types); }
 
-std::string amount(double min, double max, precision prec, const std::string& symbol)
+std::string amount(double min, double max, precision_t prec, const std::string& symbol)
 {
     std::string result { symbol };
     result += utils::format(utils::precision_format_str(prec), number::decimal(min, max));
@@ -103,7 +103,7 @@ std::string litecoin_address()
     return result;
 }
 
-std::string ethereum_address() { return string::hexadecimal(40, hex_case::lower); }
+std::string ethereum_address() { return string::hexadecimal(40, hex_case_t::lower); }
 
 std::string credit_card_expiration_date()
 {

@@ -101,7 +101,7 @@ public:
     {
         return faker::testing::all_of(data, [](char dataCharacter) {
             return faker::testing::any_of(
-                string::data::numericCharacters, [dataCharacter](char numericCharacter) {
+                string::data::digits, [dataCharacter](char numericCharacter) {
                     return numericCharacter == dataCharacter;
                 });
         });
@@ -109,7 +109,7 @@ public:
 
     static bool checkIfCharacterIsNumeric(char character)
     {
-        return faker::testing::contains(string::data::numericCharacters, character);
+        return faker::testing::contains(string::data::digits, character);
     }
 };
 
@@ -148,13 +148,13 @@ TEST_P(LocationTest, shouldGenerateCity)
 
         const auto& generatedCityPrefix = generatedCityElements[0];
 
-        std::vector<std::string_view> firstNames { person::data::brazilianMalesFirstNames.begin(),
-            person::data::brazilianMalesFirstNames.end() };
-        firstNames.insert(firstNames.end(), person::data::brazilianFemalesFirstNames.begin(),
-            person::data::brazilianFemalesFirstNames.end());
+        std::vector<std::string_view> firstNames { person::data::brazilian_male_first_names.begin(),
+            person::data::brazilian_male_first_names.end() };
+        firstNames.insert(firstNames.end(), person::data::brazilian_female_first_names.begin(),
+            person::data::brazilian_female_first_names.end());
 
-        std::vector<std::string_view> lastNames { person::data::brazilianLastNames.begin(),
-            person::data::brazilianLastNames.end() };
+        std::vector<std::string_view> lastNames { person::data::brazilian_last_names.begin(),
+            person::data::brazilian_last_names.end() };
 
         ASSERT_TRUE(faker::testing::any_of(firstNames,
                         [&generatedCityPrefix](auto firstName) {
@@ -263,17 +263,17 @@ TEST_F(LocationTest, shouldGenerateUsaStreet)
     const auto& generatedFirstOrLastName = generatedStreetElements[0];
     const auto& generatedStreetSuffix = generatedStreetElements[1];
 
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
-        person::data::englishMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
-        person::data::englishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::english_male_first_names.begin(),
+        person::data::english_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::english_female_first_names.begin(),
+        person::data::english_female_first_names.end());
 
     ASSERT_EQ(generatedStreetElements.size(), 2);
     ASSERT_TRUE(faker::testing::any_of(firstNames,
                     [&generatedFirstOrLastName](
                         auto firstName) { return firstName == generatedFirstOrLastName; })
         || faker::testing::any_of(
-            person::data::englishLastNames, [&generatedFirstOrLastName](auto lastName) {
+            person::data::english_last_names, [&generatedFirstOrLastName](auto lastName) {
                 return lastName == generatedFirstOrLastName;
             }));
     FAKER_EXPECT_CONTAINER_CONTAINS(location::data::usa_street_suffixes, generatedStreetSuffix);
@@ -289,10 +289,10 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
     const auto& generatedFirstOrLastName = generatedStreetAddressElements[1];
     const auto& generatedStreetSuffix = generatedStreetAddressElements[2];
 
-    std::vector<std::string_view> firstNames { person::data::englishMalesFirstNames.begin(),
-        person::data::englishMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::englishFemalesFirstNames.begin(),
-        person::data::englishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::english_male_first_names.begin(),
+        person::data::english_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::english_female_first_names.begin(),
+        person::data::english_female_first_names.end());
 
     ASSERT_EQ(generatedStreetAddressElements.size(), 3);
     ASSERT_TRUE(generatedBuildingNumber.size() >= 3 && generatedBuildingNumber.size() <= 5);
@@ -301,7 +301,7 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
                     [&generatedFirstOrLastName](
                         auto firstName) { return firstName == generatedFirstOrLastName; })
         || faker::testing::any_of(
-            person::data::englishLastNames, [&generatedFirstOrLastName](auto lastName) {
+            person::data::english_last_names, [&generatedFirstOrLastName](auto lastName) {
                 return lastName == generatedFirstOrLastName;
             }));
     ASSERT_TRUE(faker::testing::any_of(
@@ -352,15 +352,15 @@ TEST_F(LocationTest, shouldGenerateRussiaStreet)
     const auto& generatedStreetSuffix
         = utils::join({ generatedStreetElements.begin() + 1, generatedStreetElements.end() });
 
-    std::vector<std::string_view> firstNames { person::data::russianMalesFirstNames.begin(),
-        person::data::russianMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::russianFemalesFirstNames.begin(),
-        person::data::russianFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::russian_male_first_names.begin(),
+        person::data::russian_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::russian_female_first_names.begin(),
+        person::data::russian_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::russianMalesLastNames.begin(),
-        person::data::russianMalesLastNames.end() };
-    firstNames.insert(firstNames.end(), person::data::russianFemalesLastNames.begin(),
-        person::data::russianFemalesLastNames.end());
+    std::vector<std::string_view> lastNames { person::data::russian_male_last_names.begin(),
+        person::data::russian_male_last_names.end() };
+    firstNames.insert(firstNames.end(), person::data::russian_female_last_names.begin(),
+        person::data::russian_female_last_names.end());
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::russia_street_prefixes, [&generatedStreetPrefix](auto streetPrefix) {
@@ -381,15 +381,15 @@ TEST_F(LocationTest, shouldGenerateRussiaStreetAddress)
 {
     const auto generatedStreetAddress = location::street_address(location::address_country::russia);
 
-    std::vector<std::string_view> firstNames { person::data::russianMalesFirstNames.begin(),
-        person::data::russianMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::russianFemalesFirstNames.begin(),
-        person::data::russianFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::russian_male_first_names.begin(),
+        person::data::russian_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::russian_female_first_names.begin(),
+        person::data::russian_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::russianMalesLastNames.begin(),
-        person::data::russianMalesLastNames.end() };
-    lastNames.insert(lastNames.end(), person::data::russianFemalesLastNames.begin(),
-        person::data::russianFemalesLastNames.end());
+    std::vector<std::string_view> lastNames { person::data::russian_male_last_names.begin(),
+        person::data::russian_male_last_names.end() };
+    lastNames.insert(lastNames.end(), person::data::russian_female_last_names.begin(),
+        person::data::russian_female_last_names.end());
 
     ASSERT_TRUE(faker::testing::any_of(
         location::data::russia_street_prefixes, [&generatedStreetAddress](auto prefix) {
@@ -480,7 +480,7 @@ TEST_F(LocationTest, shouldGenerateLatitude)
 
 TEST_F(LocationTest, shouldGenerateLatitudeWithSpecifiedPrecision)
 {
-    const auto latitude = location::latitude(precision::three_dp);
+    const auto latitude = location::latitude(precision_t::three_dp);
 
     auto offset = latitude.size();
     const auto latitudeAsFloat = std::stof(latitude, &offset);
@@ -510,7 +510,7 @@ TEST_F(LocationTest, shouldGenerateLongitude)
 
 TEST_F(LocationTest, shouldGenerateLongitudeWithSpecifiedPrecision)
 {
-    const auto longitude = location::longitude(precision::six_dp);
+    const auto longitude = location::longitude(precision_t::six_dp);
 
     auto offset = longitude.size();
     const auto longitudeAsFloat = std::stof(longitude, &offset);
@@ -549,15 +549,15 @@ TEST_F(LocationTest, shouldGenerateUkraineStreet)
 
     FAKER_EXPECT_CONTAINER_CONTAINS(location::data::ukraine_street_prefixes, generatedStreetPrefix);
 
-    std::vector<std::string_view> firstNames { person::data::ukrainianMalesFirstNames.begin(),
-        person::data::ukrainianMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::ukrainianFemalesFirstNames.begin(),
-        person::data::ukrainianFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::ukrainian_male_first_names.begin(),
+        person::data::ukrainian_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::ukrainian_female_first_names.begin(),
+        person::data::ukrainian_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::ukrainianMalesLastNames.begin(),
-        person::data::ukrainianMalesLastNames.end() };
-    lastNames.insert(lastNames.end(), person::data::ukrainianFemalesLastNames.begin(),
-        person::data::ukrainianFemalesLastNames.end());
+    std::vector<std::string_view> lastNames { person::data::ukrainian_males_last_names.begin(),
+        person::data::ukrainian_males_last_names.end() };
+    lastNames.insert(lastNames.end(), person::data::ukrainian_female_last_names.begin(),
+        person::data::ukrainian_female_last_names.end());
 
     ASSERT_TRUE(faker::testing::any_of(firstNames,
                     [&generatedStreetSuffix](auto firstName) {
@@ -583,15 +583,15 @@ TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
             return generatedStreetAddress.find(prefix) != std::string::npos;
         }));
 
-    std::vector<std::string_view> firstNames { person::data::ukrainianMalesFirstNames.begin(),
-        person::data::ukrainianMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::ukrainianFemalesFirstNames.begin(),
-        person::data::ukrainianFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::ukrainian_male_first_names.begin(),
+        person::data::ukrainian_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::ukrainian_female_first_names.begin(),
+        person::data::ukrainian_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::ukrainianMalesLastNames.begin(),
-        person::data::ukrainianMalesLastNames.end() };
-    lastNames.insert(lastNames.end(), person::data::ukrainianFemalesLastNames.begin(),
-        person::data::ukrainianFemalesLastNames.end());
+    std::vector<std::string_view> lastNames { person::data::ukrainian_males_last_names.begin(),
+        person::data::ukrainian_males_last_names.end() };
+    lastNames.insert(lastNames.end(), person::data::ukrainian_female_last_names.begin(),
+        person::data::ukrainian_female_last_names.end());
 
     ASSERT_TRUE(faker::testing::any_of(firstNames,
                     [&generatedStreetAddress](auto firstName) {
@@ -622,13 +622,13 @@ TEST_F(LocationTest, shouldGenerateItalyStreet)
             return streetPrefix == generatedStreetPrefix;
         }));
 
-    std::vector<std::string_view> firstNames { person::data::italianMalesFirstNames.begin(),
-        person::data::italianMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::italianFemalesFirstNames.begin(),
-        person::data::italianFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::italian_male_first_names.begin(),
+        person::data::italian_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::italian_female_first_names.begin(),
+        person::data::italian_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::italianLastNames.begin(),
-        person::data::italianLastNames.end() };
+    std::vector<std::string_view> lastNames { person::data::italian_last_names.begin(),
+        person::data::italian_last_names.end() };
 
     ASSERT_TRUE(faker::testing::any_of(firstNames, [&generatedStreetSuffix](auto firstName) {
         return generatedStreetSuffix.find(firstName) != std::string::npos;
@@ -646,13 +646,13 @@ TEST_F(LocationTest, shouldGenerateItalyStreetAddress)
             return generatedStreetAddress.find(prefix) != std::string::npos;
         }));
 
-    std::vector<std::string_view> firstNames { person::data::italianMalesFirstNames.begin(),
-        person::data::italianMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::italianFemalesFirstNames.begin(),
-        person::data::italianFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::italian_male_first_names.begin(),
+        person::data::italian_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::italian_female_first_names.begin(),
+        person::data::italian_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::italianLastNames.begin(),
-        person::data::italianLastNames.end() };
+    std::vector<std::string_view> lastNames { person::data::italian_last_names.begin(),
+        person::data::italian_last_names.end() };
 
     ASSERT_TRUE(faker::testing::any_of(firstNames, [&generatedStreetAddress](auto firstName) {
         return generatedStreetAddress.find(firstName) != std::string::npos;
@@ -702,13 +702,13 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreet)
 {
     const auto generatedStreet = location::street(location::address_country::australia);
 
-    std::vector<std::string_view> firstNames { person::data::australianMalesFirstNames.begin(),
-        person::data::australianMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::australianFemalesFirstNames.begin(),
-        person::data::australianFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::australian_male_first_names.begin(),
+        person::data::australian_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::australian_female_first_names.begin(),
+        person::data::australian_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::australianLastNames.begin(),
-        person::data::australianLastNames.end() };
+    std::vector<std::string_view> lastNames { person::data::australian_last_names.begin(),
+        person::data::australian_last_names.end() };
 
     ASSERT_TRUE((faker::testing::any_of(firstNames,
                      [&generatedStreet](auto firstName) {
@@ -735,13 +735,13 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
     const auto& generatedStreetSuffix = utils::join(
         { generatedStreetAddressElements.begin() + 1, generatedStreetAddressElements.end() });
 
-    std::vector<std::string_view> firstNames { person::data::australianMalesFirstNames.begin(),
-        person::data::australianMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::australianFemalesFirstNames.begin(),
-        person::data::australianFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::australian_male_first_names.begin(),
+        person::data::australian_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::australian_female_first_names.begin(),
+        person::data::australian_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::australianLastNames.begin(),
-        person::data::australianLastNames.end() };
+    std::vector<std::string_view> lastNames { person::data::australian_last_names.begin(),
+        person::data::australian_last_names.end() };
 
     ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 4);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
@@ -814,13 +814,13 @@ TEST_F(LocationTest, shouldGenerateSpainStreet)
 {
     const auto generatedStreet = location::street(location::address_country::spain);
 
-    std::vector<std::string_view> firstNames { person::data::spanishMalesFirstNames.begin(),
-        person::data::spanishMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::spanishFemalesFirstNames.begin(),
-        person::data::spanishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::spanish_male_first_names.begin(),
+        person::data::spanish_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::spanish_female_first_names.begin(),
+        person::data::spanish_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::spanishLastNames.begin(),
-        person::data::spanishLastNames.end() };
+    std::vector<std::string_view> lastNames { person::data::spanish_last_names.begin(),
+        person::data::spanish_last_names.end() };
 
     ASSERT_TRUE((faker::testing::any_of(firstNames,
                      [&generatedStreet](auto firstName) {
@@ -845,13 +845,13 @@ TEST_F(LocationTest, shouldGenerateSpainStreetAddress)
             return generatedStreetAddress.find(suffix) != std::string::npos;
         }));
 
-    std::vector<std::string_view> firstNames { person::data::spanishMalesFirstNames.begin(),
-        person::data::spanishMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::spanishFemalesFirstNames.begin(),
-        person::data::spanishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::spanish_male_first_names.begin(),
+        person::data::spanish_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::spanish_female_first_names.begin(),
+        person::data::spanish_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::spanishLastNames.begin(),
-        person::data::spanishLastNames.end() };
+    std::vector<std::string_view> lastNames { person::data::spanish_last_names.begin(),
+        person::data::spanish_last_names.end() };
 
     ASSERT_TRUE(faker::testing::any_of(firstNames, [&generatedStreetAddress](auto firstName) {
         return generatedStreetAddress.find(firstName) != std::string::npos;
@@ -869,13 +869,13 @@ TEST_F(LocationTest, shouldGenerateFinlandStreet)
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix = generatedStreetElements[1];
 
-    std::vector<std::string_view> firstNames { person::data::finnishMalesFirstNames.begin(),
-        person::data::finnishMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::finnishFemalesFirstNames.begin(),
-        person::data::finnishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::finnish_male_first_names.begin(),
+        person::data::finnish_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::finnish_female_first_names.begin(),
+        person::data::finnish_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::finnishLastNames.begin(),
-        person::data::finnishLastNames.end() };
+    std::vector<std::string_view> lastNames { person::data::finnish_last_names.begin(),
+        person::data::finnish_last_names.end() };
 
     ASSERT_GE(generatedStreetElements.size(), 2);
 
@@ -898,13 +898,13 @@ TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
             return generatedStreetAddress.find(suffix) != std::string::npos;
         }));
 
-    std::vector<std::string_view> firstNames { person::data::finnishMalesFirstNames.begin(),
-        person::data::finnishMalesFirstNames.end() };
-    firstNames.insert(firstNames.end(), person::data::finnishFemalesFirstNames.begin(),
-        person::data::finnishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames { person::data::finnish_male_first_names.begin(),
+        person::data::finnish_male_first_names.end() };
+    firstNames.insert(firstNames.end(), person::data::finnish_female_first_names.begin(),
+        person::data::finnish_female_first_names.end());
 
-    std::vector<std::string_view> lastNames { person::data::finnishLastNames.begin(),
-        person::data::finnishLastNames.end() };
+    std::vector<std::string_view> lastNames { person::data::finnish_last_names.begin(),
+        person::data::finnish_last_names.end() };
 
     ASSERT_TRUE(faker::testing::any_of(firstNames, [&generatedStreetAddress](auto firstName) {
         return generatedStreetAddress.find(firstName) != std::string::npos;

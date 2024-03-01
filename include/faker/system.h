@@ -5,28 +5,17 @@
 #include <string>
 
 namespace faker::system {
-enum class FileType { Video, Audio, Image, Text, Application };
+enum class file_type_t { video, audio, image, text, application };
 
-std::string_view to_string(FileType type);
+std::string_view to_string(file_type_t type);
 
-struct FileOptions {
-    int extensionCount = 1;
+struct file_options_t {
+    unsigned extension_count = 1;
 
     struct {
-        int min = 1;
-        int max = 1;
-    } extensionRange;
-};
-
-struct CronOptions {
-    bool includeYear = false;
-    bool includeNonStandard = false;
-};
-
-// TODO: change to enums
-struct NetworkInterfaceOptions {
-    std::optional<std::string> interfaceType;
-    std::optional<std::string> interfaceSchema;
+        unsigned min = 1;
+        unsigned max = 1;
+    } extension_range;
 };
 
 /**
@@ -39,29 +28,29 @@ struct NetworkInterfaceOptions {
  * @code
  * system::filename() // "injustice.mpeg"
  *
- * FileOptions options
- * options.extensionCount = 3
+ * file_options_t options
+ * options.extension_count = 3
  * system::filename(options) // "transformation.wav.mpeg.mp4"
  *
- * options.extensionRange.min = 1;
- * options.extensionRange.max = 3;
+ * options.extension_range.min = 1;
+ * options.extension_range.max = 3;
  * system::filename(options) // "sparkle.png.pdf"
  * @endcode
  */
-std::string filename(const FileOptions& options = {});
+std::string filename(const file_options_t& options = {});
 
 /**
  * @brief Returns a file extension.
  *
- * @param mimeType value of MimeType enum.
+ * @param mime_type value of MimeType enum.
  *
  * @returns A file extension.
  *
  * @code
- * system::file_ext(MimeType::Image) // "png"
+ * system::file_ext(MimeType::image) // "png"
  * @endcode
  */
-std::string file_ext(const std::optional<FileType>& mimeType = std::nullopt);
+std::string_view file_ext(const std::optional<file_type_t>& mime_type = std::nullopt);
 
 /**
  * Returns a random file name with a given extension or a commonly used extension.
@@ -154,6 +143,12 @@ std::string file_path();
  */
 std::string semver();
 
+// TODO: change to enums
+struct NetworkInterfaceOptions {
+    std::optional<std::string> interfaceType;
+    std::optional<std::string> interfaceSchema;
+};
+
 /**
  * Returns a random network interface.
  *
@@ -184,13 +179,19 @@ std::string semver();
  */
 std::string network_interface(const std::optional<NetworkInterfaceOptions>& options = {});
 
+enum cron_options_t {
+    default_options = 0x00,
+    include_year = 0x01,
+    include_non_standard = 0x02,
+};
+
 /**
  * Returns a random cron expression.
  *
- * @param options The options to use. Defaults to an empty options structure @see CronOptions.h.
- * @param options.includeYear Whether to include a year in the generated expression. Defaults to
+ * @param options The options to use. Defaults to an empty options structure @see cron_options_t.h.
+ * @param options.include_year Whether to include a year in the generated expression. Defaults to
  * `false`.
- * @param options.includeNonStandard Whether to include a @yearly, @monthly, @daily, etc text
+ * @param options.include_non_standard Whether to include a @yearly, @monthly, @daily, etc text
  * labels in the generated expression. Defaults to `false`.
  *
  * @returns A random cron expression.
@@ -198,24 +199,25 @@ std::string network_interface(const std::optional<NetworkInterfaceOptions>& opti
  * @code
  * system.cron() // "22 * ? * ?"
  *
- * CronOptions options
- * options.includeYear = true
+ * cron_options_t options
+ * options.include_year = true
  * std::string cronExpr = system::cron(options) // "16 14 * 11 2 2038"
  *
- * CronOptions options
- * options.includeYear = false
+ * cron_options_t options
+ * options.include_year = false
  * std::string cronExpr = system::cron(options) // "16 14 * 11 2"
  *
- * CronOptions options
- * options.includeNonStandard = false
+ * cron_options_t options
+ * options.include_non_standard = false
  * std::string cronExpr = system::cron(options) // 34 2 ? 8 *
  *
- * CronOptions options
- * options.includeNonStandard = true
+ * cron_options_t options
+ * options.include_non_standard = true
  * std::string cronExpr = system::cron(options) // "@reboot"
  * @endcode
  */
-std::string cron(const CronOptions& options = {});
+std::string cron(cron_options_t options = cron_options_t::default_options);
+
 }
 
 #endif

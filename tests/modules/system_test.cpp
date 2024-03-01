@@ -7,49 +7,47 @@
 
 using namespace faker;
 
-const std::regex validCronPattern(
-    R"((\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)( (\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)){4,5})");
-
-bool isValidCronExpression(const std::string& cronExpr)
+bool is_valid_cron_expr(const std::string& value)
 {
-    return std::regex_match(cronExpr, validCronPattern);
+    const std::regex re_cron_expr(
+        R"((\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)( (\*|[0-9]+|\?|\b(JAN|FEB|MAR|APR|MAY|JUN|JUL|AUG|SEP|OCT|NOV|DEC)\b|\b(SUN|MON|TUE|WED|THU|FRI|SAT)\b)){4,5})");
+
+    return std::regex_match(value, re_cron_expr);
 }
 
 TEST(SystemTest, FileNameTestWithExtensionCount)
 {
-    system::FileOptions options;
-    options.extensionCount = 3;
+    system::file_options_t options;
+    options.extension_count = 3;
 
-    std::string expectedFileName = system::filename(options);
+    auto filename1 = system::filename(options);
+    EXPECT_FALSE(filename1.empty());
 
-    EXPECT_FALSE(expectedFileName.empty());
+    system::file_options_t options2;
+    options2.extension_range.min = 1;
+    options2.extension_range.max = 3;
 
-    system::FileOptions options2;
-    options2.extensionRange.min = 1;
-    options2.extensionRange.max = 3;
-
-    std::string expectedFileName2 = system::filename(options2);
-
-    EXPECT_FALSE(expectedFileName2.empty());
+    auto filename2 = system::filename(options2);
+    EXPECT_FALSE(filename2.empty());
 }
 
 TEST(SystemTest, FileExtTestWithMimeType)
 {
-    std::string exampleFileExtension = system::file_ext();
+    auto ext = system::file_ext();
 
-    EXPECT_FALSE(exampleFileExtension.empty());
+    EXPECT_FALSE(ext.empty());
 }
 
 TEST(SystemTest, FileExtTestWithMimeTypeEnum)
 {
-    auto image = system::FileType::Image;
-    auto audio = system::FileType::Audio;
-    auto video = system::FileType::Video;
-    auto text = system::FileType::Text;
-    auto application = system::FileType::Application;
+    auto image = system::file_type_t::image;
+    auto audio = system::file_type_t::audio;
+    auto video = system::file_type_t::video;
+    auto text = system::file_type_t::text;
+    auto application = system::file_type_t::application;
 
     std::vector<std::string_view> imageExtensions;
-    for (const auto& mimeType : system::data::mimeTypes) {
+    for (const auto& mimeType : system::data::mime_types) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == to_string(image)) {
@@ -57,7 +55,7 @@ TEST(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> audioExtensions;
-    for (const auto& mimeType : system::data::mimeTypes) {
+    for (const auto& mimeType : system::data::mime_types) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == to_string(audio)) {
@@ -65,7 +63,7 @@ TEST(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> videoExtensions;
-    for (const auto& mimeType : system::data::mimeTypes) {
+    for (const auto& mimeType : system::data::mime_types) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == to_string(video)) {
@@ -73,7 +71,7 @@ TEST(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> textExtensions;
-    for (const auto& mimeType : system::data::mimeTypes) {
+    for (const auto& mimeType : system::data::mime_types) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == to_string(text)) {
@@ -81,7 +79,7 @@ TEST(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
     std::vector<std::string_view> applicationExtensions;
-    for (const auto& mimeType : system::data::mimeTypes) {
+    for (const auto& mimeType : system::data::mime_types) {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
         if (ext == to_string(application)) {
@@ -118,20 +116,20 @@ TEST(SystemTest, MimeTypeTest)
 {
     auto mimeTypeResult = system::mime_type();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(system::data::mimeTypes, mimeTypeResult);
+    FAKER_EXPECT_CONTAINER_CONTAINS(system::data::mime_types, mimeTypeResult);
 }
 
 TEST(SystemTest, CommonFileTypeTest)
 {
     auto commonFileTypeResult = system::common_file_type();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(system::data::commonFileTypes, commonFileTypeResult);
+    FAKER_EXPECT_CONTAINER_CONTAINS(system::data::common_file_types, commonFileTypeResult);
 }
 
 TEST(SystemTest, FileTypeTest)
 {
     std::unordered_set<std::string_view> typeSet;
-    for (const auto& entry : system::data::mimeTypes) {
+    for (const auto& entry : system::data::mime_types) {
         const auto& m = entry;
         size_t pos = m.find('/');
         if (pos != std::string::npos) {
@@ -185,39 +183,34 @@ TEST(SystemTest, NetworkInterfaceMethodTest)
 
 TEST(SystemTest, ValidCronExpression)
 {
-    auto cronExpr = system::cron();
+    auto expr = system::cron();
 
-    EXPECT_TRUE(isValidCronExpression(cronExpr));
+    EXPECT_TRUE(is_valid_cron_expr(expr));
 }
 
 TEST(SystemTest, IncludeYearOption)
 {
-    system::CronOptions options;
-    options.includeYear = true;
-    auto cronExpr = system::cron(options);
+    auto expr = system::cron(system::cron_options_t::include_year);
 
-    EXPECT_TRUE(isValidCronExpression(cronExpr));
+    EXPECT_TRUE(is_valid_cron_expr(expr));
 
-    int yearValue = -1;
+    auto last_sep_pos = expr.find_last_of(' ');
+    ASSERT_NE(last_sep_pos, std::string::npos);
 
-    if (std::smatch match;
-        std::regex_search(cronExpr, match, std::regex(R"(\b(19[7-9][0-9]|20[0-9]{2})\b)"))) {
-        yearValue = std::stoi(match.str());
+    auto year_part_str = expr.substr(last_sep_pos + 1);
+
+    if (year_part_str != "*") {
+        auto year = std::stoi(year_part_str);
+        EXPECT_GE(year, 1970);
+        EXPECT_LE(year, 2099);
     }
-    EXPECT_GE(yearValue, 1970);
-    EXPECT_LE(yearValue, 2099);
 }
 
 TEST(SystemTest, IncludeNonStandardOption)
 {
-    system::CronOptions options;
-    options.includeNonStandard = true;
+    auto expr = system::cron(system::cron_options_t::include_non_standard);
 
-    auto cronExpr = system::cron(options);
-
-    std::vector<std::string> nonStandardExpressions
-        = { "@annually", "@daily", "@hourly", "@monthly", "@reboot", "@weekly", "@yearly" };
-    bool isNonStandard
-        = faker::testing::find(nonStandardExpressions, cronExpr) != nonStandardExpressions.end();
-    EXPECT_TRUE(isNonStandard || isValidCronExpression(cronExpr));
+    auto is_non_standard = faker::testing::find(system::data::non_standard_cron_expressions, expr)
+        != system::data::non_standard_cron_expressions.end();
+    EXPECT_TRUE(is_non_standard || is_valid_cron_expr(expr));
 }

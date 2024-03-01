@@ -96,6 +96,17 @@ size_t container_index(size_t size)
     return distribution(random_engine);
 }
 
+size_t weighted_container_index(const std::vector<unsigned>& weights)
+{
+    if (weights.empty()) {
+        throw std::invalid_argument("Weights are empty.");
+    }
+
+    std::discrete_distribution<size_t> distribution(weights.begin(), weights.end());
+
+    return distribution(random_engine);
+}
+
 std::string shuffle_string(std::string data)
 {
     std::shuffle(data.begin(), data.end(), random_engine);

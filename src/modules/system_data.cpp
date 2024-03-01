@@ -1,15 +1,18 @@
 #include "system_data.h"
 
 namespace faker::system::data {
-const std::array<std::string_view, 3> commonInterfaceTypes = { "en", "wl", "ww" };
+const std::array<std::string_view, 3> common_interface_types = { "en", "wl", "ww" };
 
-const std::unordered_map<std::string_view, std::string_view> commonInterfaceSchemas
+const std::unordered_map<std::string_view, std::string_view> common_interface_schemas
     = { { "index", "o" }, { "slot", "s" }, { "mac", "x" }, { "pci", "p" } };
 
-const std::array<std::string_view, 7> cronDayOfWeek
+const std::array<std::string_view, 7> non_standard_cron_expressions
+    = { "@annually", "@daily", "@hourly", "@monthly", "@reboot", "@weekly", "@yearly" };
+
+const std::array<std::string_view, 7> cron_day_of_week
     = { "SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT" };
 
-const std::array<std::string_view, 50> directoryPaths = { "/etc/mail", "/var/log", "/usr/bin",
+const std::array<std::string_view, 50> directory_paths = { "/etc/mail", "/var/log", "/usr/bin",
     "/tmp", "/usr/local/lib", "/var/www/html", "/opt/app", "/home/user/documents",
     "/usr/share/fonts", "/var/cache/apt", "/etc/nginx", "/usr/local/bin", "/var/tmp", "/opt/data",
     "/home/user/pictures", "/usr/local/include", "/var/www/cgi-bin", "/etc/ssh", "/usr/local/share",
@@ -20,7 +23,7 @@ const std::array<std::string_view, 50> directoryPaths = { "/etc/mail", "/var/log
     "/var/lock", "/opt/scripts", "/home/user/public_html", "/usr/local/etc", "/var/www/logs",
     "/etc/httpd", "/usr/local/share/man", "/var/log/apache2", "/opt/files", "/home/user/backups" };
 
-const std::array<std::string_view, 64> mimeTypes = { "application/atom+xml",
+const std::array<std::string_view, 64> mime_types = { "application/atom+xml",
     "application/font-woff", "application/gzip", "application/java-archive",
     "application/javascript", "application/json", "application/ld+json", "application/msword",
     "application/octet-stream", "application/ogg", "application/pdf", "application/rdf+xml",
@@ -40,7 +43,7 @@ const std::array<std::string_view, 64> mimeTypes = { "application/atom+xml",
     "video/ogg", "video/webm", "video/x-msvideo", "video/x-flv" };
 
 // Only contains non obvious extensions.
-const std::unordered_map<std::string_view, std::string_view> mimeTypesExtensions {
+const std::unordered_map<std::string_view, std::string_view> mime_types_extensions {
     { "application/atom+xml", "xml" }, { "application/font-woff", "woff" },
     { "application/gzip", "gz" }, { "application/java-archive", "jar" },
     { "application/javascript", "js" }, { "application/ld+json", "jsonld" },
@@ -63,10 +66,10 @@ const std::unordered_map<std::string_view, std::string_view> mimeTypesExtensions
     { "video/ogg", "ogv" }, { "video/x-msvideo", "avi" }
 };
 
-const std::array<std::string_view, 9> commonMimeTypes = { "application/pdf", "audio/mpeg",
+const std::array<std::string_view, 9> common_mime_types = { "application/pdf", "audio/mpeg",
     "audio/wav", "image/png", "image/jpeg", "image/gif", "video/mp4", "video/mpeg", "text/html" };
 
-const std::array<std::string_view, 5> commonFileTypes
+const std::array<std::string_view, 5> common_file_types
     = { "video", "audio", "image", "text", "application" };
 
 }

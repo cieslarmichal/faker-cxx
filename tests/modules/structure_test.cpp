@@ -13,12 +13,17 @@ using namespace faker;
 
 TEST(StructureTest, shouldGenerateJson)
 {
-    std::unordered_map<std::string, structure::StructureToken> testTokens;
-    testTokens.emplace("Airport name", structure::StructureToken::AirlineAirportName);
-    testTokens.emplace("Bird name", structure::StructureToken::AnimalBird);
-    testTokens.emplace("Book title", structure::StructureToken::BookTitle);
-    testTokens.emplace("Actor name", structure::StructureToken::MovieActor);
-    const auto generatedJson = structure::json(testTokens);
+    std::vector<structure::structure_token_spec> specs;
+    specs.push_back(structure::structure_token_spec {
+        "Airport name", structure::structure_token_t::airline_airport_name });
+    specs.push_back(
+        structure::structure_token_spec { "Bird name", structure::structure_token_t::animal_bird });
+    specs.push_back(
+        structure::structure_token_spec { "Book title", structure::structure_token_t::book_title });
+    specs.push_back(structure::structure_token_spec {
+        "Actor name", structure::structure_token_t::movie_actor });
+
+    const auto generatedJson = structure::json(specs);
 
     const auto parsedJson = JsonHelper::simpleJsonParser(generatedJson);
 
@@ -49,29 +54,34 @@ TEST(StructureTest, shouldGenerateJson)
 
 TEST(StructureTest, shouldGenerateCSV)
 {
-    std::unordered_map<std::string, structure::StructureToken> testTokens;
-    const unsigned int noRows = 2;
-    testTokens.emplace("Airport name", structure::StructureToken::AirlineAirportName);
-    testTokens.emplace("Bird name", structure::StructureToken::AnimalBird);
-    testTokens.emplace("Book title", structure::StructureToken::BookTitle);
-    testTokens.emplace("Actor name", structure::StructureToken::MovieActor);
+    std::vector<structure::structure_token_spec> specs;
+    specs.push_back(structure::structure_token_spec {
+        "Airport name", structure::structure_token_t::airline_airport_name });
+    specs.push_back(
+        structure::structure_token_spec { "Bird name", structure::structure_token_t::animal_bird });
+    specs.push_back(
+        structure::structure_token_spec { "Book title", structure::structure_token_t::book_title });
+    specs.push_back(structure::structure_token_spec {
+        "Actor name", structure::structure_token_t::movie_actor });
 
-    const auto generatedCSV = structure::csv(testTokens, noRows);
+    const unsigned int row_count = 2;
+    const auto generated_csv = structure::csv(specs, row_count);
 
-    std::istringstream dataStream(generatedCSV);
+    std::istringstream stream(generated_csv);
     std::string line;
 
-    std::getline(dataStream, line);
+    std::getline(stream, line);
 
-    auto x = utils::split(line, ",");
-    std::unordered_set<std::string_view> keys { x.begin(), x.end() };
+    auto line_parts = utils::split(line, ",");
+    std::unordered_set<std::string_view> keys { line_parts.begin(), line_parts.end() };
 
     ASSERT_TRUE(keys.find("Actor name") != keys.end());
     ASSERT_TRUE(keys.find("Airport name") != keys.end());
     ASSERT_TRUE(keys.find("Bird name") != keys.end());
     ASSERT_TRUE(keys.find("Book title") != keys.end());
 
-    while (std::getline(dataStream, line)) {
+    unsigned lines_read = 0;
+    while (std::getline(stream, line)) {
         ASSERT_TRUE(faker::testing::any_of(movie::data::actors,
             [&line](const auto& actor) { return line.find(actor) != std::string::npos; }));
         ASSERT_TRUE(faker::testing::any_of(airline::data::airports,
@@ -80,5 +90,8 @@ TEST(StructureTest, shouldGenerateCSV)
             [&line](const auto& bird) { return line.find(bird) != std::string::npos; }));
         ASSERT_TRUE(faker::testing::any_of(book::data::titles,
             [&line](const auto& title) { return line.find(title) != std::string::npos; }));
+        ++lines_read;
     }
+
+    ASSERT_EQ(lines_read, row_count);
 }

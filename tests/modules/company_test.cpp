@@ -10,7 +10,7 @@ using namespace faker;
 TEST(CompanyTest, shouldGenerateCompanyName)
 {
     auto expectedFirstNames = faker::testing::make_vector(
-        person::data::englishMalesFirstNames, person::data::englishFemalesFirstNames);
+        person::data::english_male_first_names, person::data::english_female_first_names);
 
     auto companyName = company::name();
 
@@ -19,7 +19,7 @@ TEST(CompanyTest, shouldGenerateCompanyName)
         auto generatedLastName = companyNameElements[0];
         auto generatedCompanySuffix = companyNameElements[1];
 
-        FAKER_EXPECT_CONTAINER_CONTAINS(person::data::englishLastNames, generatedLastName);
+        FAKER_EXPECT_CONTAINER_CONTAINS(person::data::english_last_names, generatedLastName);
         FAKER_EXPECT_CONTAINER_CONTAINS(company::data::company_suffixes, generatedCompanySuffix);
     } else if (companyNameElements.size() == 3) {
         auto generatedFirstName = companyNameElements[0];
@@ -27,8 +27,8 @@ TEST(CompanyTest, shouldGenerateCompanyName)
         auto generatedJobArea = companyNameElements[2];
 
         FAKER_EXPECT_CONTAINER_CONTAINS(expectedFirstNames, generatedFirstName);
-        FAKER_EXPECT_CONTAINER_CONTAINS(person::data::englishLastNames, generatedLastName);
-        FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobAreas, generatedJobArea);
+        FAKER_EXPECT_CONTAINER_CONTAINS(person::data::english_last_names, generatedLastName);
+        FAKER_EXPECT_CONTAINER_CONTAINS(person::data::job_areas, generatedJobArea);
     } else if (companyNameElements.size() == 4) {
         auto generatedFirstName = companyNameElements[0];
         auto generatedLastName = companyNameElements[1];
@@ -36,8 +36,8 @@ TEST(CompanyTest, shouldGenerateCompanyName)
         auto lastElement = companyNameElements[3];
 
         FAKER_EXPECT_CONTAINER_CONTAINS(expectedFirstNames, generatedFirstName);
-        FAKER_EXPECT_CONTAINER_CONTAINS(person::data::englishLastNames, generatedLastName);
-        FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobAreas, generatedJobArea);
+        FAKER_EXPECT_CONTAINER_CONTAINS(person::data::english_last_names, generatedLastName);
+        FAKER_EXPECT_CONTAINER_CONTAINS(person::data::job_areas, generatedJobArea);
         ASSERT_TRUE(lastElement == "Services"
             || faker::testing::contains(company::data::company_suffixes, lastElement));
     }

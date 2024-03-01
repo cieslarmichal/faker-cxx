@@ -14,6 +14,6 @@ std::string_view engine() { return random::element(data::engines); }
 
 std::string mongodb_object_id()
 {
-    return string::hexadecimal(24, hex_case::lower, hex_prefix::none);
+    return string::hexadecimal(24, hex_case_t::lower, hex_prefix_t::none);
 }
 }

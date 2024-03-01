@@ -4,63 +4,37 @@
 #include <faker/types/hex.h>
 #include <limits>
 #include <string>
-#include <unordered_map>
-#include <unordered_set>
+#include <vector>
 
 namespace faker::string {
+
 enum class string_case { mixed, lower, upper };
 
-struct CharCount {
-    unsigned int atleastCount { (std::numeric_limits<unsigned int>::min)() };
-    unsigned int atmostCount { (std::numeric_limits<unsigned int>::max)() };
+struct Spec {
+    char c;
+    unsigned min_count { std::numeric_limits<unsigned>::min() };
+    unsigned max_count { std::numeric_limits<unsigned>::max() };
 };
 
-/*
- * A std::map where user can specify the count required for specific chars
- */
-using GuaranteeMap = std::unordered_map<char, CharCount>;
-
 /**
- * @brief Checks if the given guarantee map is valid for given targetCharacters and length.
- *
- * @returns a bool.
- *
- * @param guarantee A std::map that maps the count range of specific characters required
- * @param targetCharacters A std::string consisting of all chars available for that string
- * generating function
- * @param length The number of characters to generate.
- *
- * @code
- * GuaranteeMap guarantee = {{'0',{5,10}},{'1',{6,10}}};
- * std::string targetCharacters = "01";
- * unsigned int length = 10;
- * faker::is_valid_guarantee(guarantee,targetCharacters,length) // false
- * @endcode
- */
-bool is_valid_guarantee(
-    GuaranteeMap& guarantee, std::unordered_set<char>& targetCharacters, unsigned int length);
-
-/*
- * @brief Generates the least required string for a given guarantee map
+ * @brief Generates the least required string for a given specs map
  *
  * @returns least required std::string
  *
- * @param guarantee A std::unordered_map<char,CharCount> which stores the guarantee specified by the
+ * @param specs A std::unordered_map<char,CharCount> which stores the specs specified by the
  * user
  *
  * @code
- * GuaranteeMap guarantee { {'0',{3,10}},{'a',{6,8}} }; // "000aaaaaa"
- * faker::generate(guarantee);
+ * std::vector<Spec> specs { {'0',{3,10}},{'a',{6,8}} }; // "000aaaaaa"
+ * faker::generate(specs);
  * @endcode
  */
-std::string generate(const GuaranteeMap& guarantee);
+std::string generate(const std::vector<Spec>& specs);
 
 /**
  * @brief Generates an Universally Unique Identifier with version 4.
  *
  * @returns UUIDv4.
- *
- * @param gen A random number generator (type RandomGenerator)
  *
  * @code
  * string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
@@ -85,7 +59,7 @@ std::string sample(unsigned length = 10);
 /**
  * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
  *
- * @param guarantee A map specifying char count constraints if any
+ * @param specs A map specifying char count constraints if any
  * @param length The number of characters to generate. Defaults to `10`.
  *
  * @returns Sample string.
@@ -95,12 +69,12 @@ std::string sample(unsigned length = 10);
  * string::sample({{'|' ,{2,2}},{'^',{0,0}},{':',{1,8}}}, 8) // "|6Bye8:|"
  * @endcode
  */
-std::string sample(GuaranteeMap&& guarantee, unsigned length = 10);
+std::string sample(const std::vector<Spec>& specs, unsigned length = 10);
 
 /**
  * @brief Generates a string consisting of given characters.
  *
- * @param characters The characters to generate string with.
+ * @param allowed_chars The characters to generate string with.
  * @param length The number of characters to generate. Defaults to `1`.
  *
  * @returns string from characters.
@@ -110,13 +84,13 @@ std::string sample(GuaranteeMap&& guarantee, unsigned length = 10);
  * string::from_chars("qwerty", 5) // "qrwqt"
  * @endcode
  */
-std::string from_chars(const std::string& characters, unsigned length = 1);
+std::string from_chars(const std::string& allowed_chars, unsigned length = 1);
 
 /**
  * @brief Generates a string consisting of given characters.
  *
- * @param guarantee A map specifying char count constraints if any
- * @param characters The characters to generate string with.
+ * @param specs A map specifying char count constraints if any
+ * @param allowed_chars The characters to generate string with.
  * @param length The number of characters to generate. Defaults to `1`.
  *
  * @returns string from characters.
@@ -127,14 +101,14 @@ std::string from_chars(const std::string& characters, unsigned length = 1);
  * @endcode
  */
 std::string from_chars(
-    GuaranteeMap&& guarantee, const std::string& characters, unsigned length = 1);
+    const std::vector<Spec>& specs, const std::string& allowed_chars, unsigned length = 1);
 
 /**
  * @brief Generates a string consisting of letters in the English alphabet.
  *
  * @param length The number of characters to generate. Defaults to `1`.
  * @param casing The casing of the characters. Defaults to `string_case::mixed`.
- * @param excludeCharacters The characters to be excluded from the string to generate. Defaults
+ * @param excluded_chars The characters to be excluded from the string to generate. Defaults
  * to ``.
  *
  *
@@ -147,12 +121,12 @@ std::string from_chars(
  * @endcode
  */
 std::string alpha(unsigned length = 1, string_case casing = string_case::mixed,
-    const std::string& excludeCharacters = "");
+    const std::string& excluded_chars = "");
 
 /**
  * @brief Generates a string consisting of letters in the English alphabet.
  *
- * @param guarantee A map specifying char count constraints if any
+ * @param specs A map specifying char count constraints if any
  * @param length The number of characters to generate. Defaults to `1`.
  * @param casing The casing of the characters. Defaults to `string_case::mixed`.
  *
@@ -166,14 +140,14 @@ std::string alpha(unsigned length = 1, string_case casing = string_case::mixed,
  * @endcode
  */
 std::string alpha(
-    GuaranteeMap&& guarantee, unsigned length = 1, string_case casing = string_case::mixed);
+    const std::vector<Spec>& specs, unsigned length = 1, string_case casing = string_case::mixed);
 
 /**
  * @brief Generates a string consisting of alpha characters and digits.
  *
  * @param length The number of characters to generate. Defaults to `1`.
  * @param casing The casing of the characters. Defaults to `string_case::mixed`.
- * @param excludeCharacters The characters to be excluded from alphanumeric characters to
+ * @param excluded_chars The characters to be excluded from alphanumeric characters to
  * generate string from. Defaults to ``.
  *
  * @returns Alphanumeric string.
@@ -185,12 +159,12 @@ std::string alpha(
  * @endcode
  */
 std::string alphanumeric(unsigned length = 1, string_case casing = string_case::mixed,
-    const std::string& excludeCharacters = "");
+    const std::string& excluded_chars = "");
 
 /**
  * @brief Generates a string consisting of alpha characters and digits.
  *
- * @param guarantee A map specifying char count constraints if any
+ * @param specs A map specifying char count constraints if any
  * @param length The number of characters to generate. Defaults to `1`.
  * @param casing The casing of the characters. Defaults to `string_case::mixed`.
  *
@@ -204,13 +178,13 @@ std::string alphanumeric(unsigned length = 1, string_case casing = string_case::
  * @endcode
  */
 std::string alphanumeric(
-    GuaranteeMap&& guarantee, unsigned length = 1, string_case casing = string_case::mixed);
+    const std::vector<Spec>& specs, unsigned length = 1, string_case casing = string_case::mixed);
 
 /**
  * @brief Generates a given length string of digits.
  *
  * @param length The number of digits to generate. Defaults to `1`.
- * @param allowLeadingZeros Whether leading zeros are allowed or not. Defaults to `true`.
+ * @param allow_leading_zeroes Whether leading zeros are allowed or not. Defaults to `true`.
  *
  * @returns Numeric string.
  *
@@ -220,14 +194,14 @@ std::string alphanumeric(
  * string::numeric(6, false) // "254429"
  * @endcode
  */
-std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
+std::string numeric(unsigned length = 1, bool allow_leading_zeroes = true);
 
 /**
  * @brief Generates a given length string of digits.
  *
- * @param guarantee A map specifying char count constraints if any
+ * @param specs A map specifying char count constraints if any
  * @param length The number of digits to generate. Defaults to `1`.
- * @param allowLeadingZeros Whether leading zeros are allowed or not. Defaults to `true`.
+ * @param allow_leading_zeroes Whether leading zeros are allowed or not. Defaults to `true`.
  *
  * @returns Numeric string.
  *
@@ -237,7 +211,8 @@ std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
  * string::numeric({'0',{0,0}}, {'4',{1,1}}, 6, false) // "854829"
  * @endcode
  */
-std::string numeric(GuaranteeMap&& guarantee, unsigned length = 1, bool allowLeadingZeros = true);
+std::string numeric(
+    const std::vector<Spec>& specs, unsigned length = 1, bool allow_leading_zeroes = true);
 
 /**
  * @brief Generates a hexadecimal string.
@@ -251,19 +226,19 @@ std::string numeric(GuaranteeMap&& guarantee, unsigned length = 1, bool allowLea
  * @code
  * string::hexadecimal() // "0xb"
  * string::hexadecimal(10) // "0xae13d044cb"
- * string::hexadecimal(6, hex_case::upper, hex_prefix::hash) // "#E3F380"
- * string::hexadecimal(6, hex_case::lower, hex_prefix::none) // "e3f380"
+ * string::hexadecimal(6, hex_case_t::upper, hex_prefix_t::hash) // "#E3F380"
+ * string::hexadecimal(6, hex_case_t::lower, hex_prefix_t::none) // "e3f380"
  * @endcode
  */
-std::string hexadecimal(
-    unsigned length = 1, hex_case casing = hex_case::lower, hex_prefix prefix = hex_prefix::zero_x);
+std::string hexadecimal(unsigned length = 1, hex_case_t casing = hex_case_t::lower,
+    hex_prefix_t prefix = hex_prefix_t::zero_x);
 
 /**
  * @brief Generates a hexadecimal string.
  *
- * @param guarantee A map specifying char count constraints if any
+ * @param specs A map specifying char count constraints if any
  * @param length The number of digits to generate. Defaults to `1`.
- * @param casing Casing of the generated string. Defaults to `hex_case::lower`.
+ * @param casing Casing of the generated string. Defaults to `hex_case_t::lower`.
  * @param prefix Prefix for the generated string. Defaults to `0x`.
  *
  * @returns Hexadecimal string.
@@ -271,13 +246,13 @@ std::string hexadecimal(
  * @code
  * string::hexadecimal({}) // "0xb"
  * string::hexadecimal({'a',{2,2}}, 10) // "0xae13d04acb"
- * string::hexadecimal({'F', {2,4}}, 6, hex_case::upper, hex_prefix::hash) // "#E3FFF0"
- * string::hexadecimal({'1', {1,4}, {'2', {1, 4}, {'c', {1,1}}, 6, hex_case::lower,
- * hex_prefix::none) // "121a1c"
+ * string::hexadecimal({'F', {2,4}}, 6, hex_case_t::upper, hex_prefix_t::hash) // "#E3FFF0"
+ * string::hexadecimal({'1', {1,4}, {'2', {1, 4}, {'c', {1,1}}, 6, hex_case_t::lower,
+ * hex_prefix_t::none) // "121a1c"
  * @endcode
  */
-std::string hexadecimal(GuaranteeMap&& guarantee, unsigned length = 1,
-    hex_case casing = hex_case::lower, hex_prefix prefix = hex_prefix::zero_x);
+std::string hexadecimal(const std::vector<Spec>& specs, unsigned length = 1,
+    hex_case_t casing = hex_case_t::lower, hex_prefix_t prefix = hex_prefix_t::zero_x);
 
 /**
  * @brief Generates a binary string.
@@ -295,7 +270,7 @@ std::string binary(unsigned length = 1);
 /**
  * @brief Generates a binary string.
  *
- * @param guarantee A map specifying char count constraints if any
+ * @param specs A map specifying char count constraints if any
  * @param length The number of digits to generate. Defaults to `1`.
  *
  * @returns Binary string.
@@ -304,7 +279,7 @@ std::string binary(unsigned length = 1);
  * string::binary({'1',{7,8}}, 8) // "0b11110111"
  * @endcode
  */
-std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
+std::string binary(const std::vector<Spec>& specs, unsigned length = 1);
 
 /**
  * @brief Generates an octal string.
@@ -322,7 +297,7 @@ std::string octal(unsigned length = 1);
 /**
  * @brief Generates an octal string.
  *
- * @param guarantee A map specifying char count constraints if any
+ * @param specs A map specifying char count constraints if any
  * @param length The number of digits to generate. Defaults to `1`.
  *
  * @returns Octal string.
@@ -331,7 +306,7 @@ std::string octal(unsigned length = 1);
  * string::octal({'4',{4,5}}, 8) // "0o42444041"
  * @endcode
  */
-std::string octal(GuaranteeMap&& guarantee, unsigned length = 1);
+std::string octal(const std::vector<Spec>& specs, unsigned length = 1);
 }
 
 #endif

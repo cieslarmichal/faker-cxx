@@ -10,7 +10,7 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/debug/tests/test_faker",
             "args": [
-                "--gtest_filter=BioHelperTest.checkFormatToken"
+                "--gtest_filter=StringTest.shouldGenerateBinaryWithGuarantee2"
             ],
             "cwd": "${workspaceFolder}/build/debug/tests",
             "environment": [],

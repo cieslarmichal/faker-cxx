@@ -1,7 +1,7 @@
 #include "person_data.h"
 
 namespace faker::person::data {
-const std::array<std::string_view, 41> bioPart = {
+const std::array<std::string_view, 41> bio_parts = {
     "Activist",
     "Artist",
     "Author",
@@ -45,10 +45,10 @@ const std::array<std::string_view, 41> bioPart = {
     "Writer",
 };
 
-const std::array<std::string_view, 7> bioSupporter
+const std::array<std::string_view, 7> bio_supporters
     = { "Advocate", "Devotee", "Enthusiast", "Fan", "Junkie", "Lover", "Supporter" };
 
-const std::array<std::string_view, 8> bioFormats = { "{bio_part}", "{bio_part}, {bio_part}",
+const std::array<std::string_view, 8> bio_formats = { "{bio_part}", "{bio_part}, {bio_part}",
     "{bio_part}, {bio_part}, {bio_part}", "{bio_part}, {bio_part}, {bio_part}, {emoji}",
     "{noun} {bio_supporter}", "{noun} {bio_supporter} {emoji}",
     "{noun} {bio_supporter}, {bio_part}", "{noun} {bio_supporter}, {bio_part} {emoji}" };
@@ -180,7 +180,7 @@ const std::array<std::string_view, 44> hobbies = {
     "Metal detecting",
 };
 
-const std::array<std::string_view, 25> jobDescriptors = {
+const std::array<std::string_view, 25> job_descriptors = {
     "Lead",
     "Senior",
     "Direct",
@@ -204,14 +204,14 @@ const std::array<std::string_view, 25> jobDescriptors = {
     "Principal",
 };
 
-const std::array<std::string_view, 38> jobAreas = { "Solutions", "Program", "Brand", "Security",
+const std::array<std::string_view, 38> job_areas = { "Solutions", "Program", "Brand", "Security",
     "Research", "Marketing", "Directives", "Implementation", "Integration", "Functionality",
     "Response", "Paradigm", "Tactics", "Identity", "Markets", "Group", "Division", "Applications",
     "Optimization", "Operations", "Infrastructure", "Intranet", "Communications", "Web", "Branding",
     "Quality", "Assurance", "Mobility", "Accounts", "Data", "Creative", "Configuration",
     "Accountability", "Interactions", "Factors", "Usability", "Metrics", "Software" };
 
-const std::array<std::string_view, 25> jobTypes = {
+const std::array<std::string_view, 25> job_types = {
     "Supervisor",
     "Associate",
     "Executive",
@@ -308,24 +308,24 @@ const std::array<std::string_view, 62> nationalities = { {
     "Guatemalan",
 } };
 
-const std::unordered_map<ssn_country, std::string_view> ssnFormats {
-    { ssn_country::poland, "##[0-1][0-2][0-2]######" },
-    { ssn_country::usa, "###-##-####" },
+const std::unordered_map<ssn_country_t, std::string_view> ssn_formats {
+    { ssn_country_t::poland, "##[0-1][0-2][0-2]######" },
+    { ssn_country_t::usa, "###-##-####" },
     // TODO: handle letters
-    { ssn_country::england, "LL ## ## ## L" },
+    { ssn_country_t::england, "LL ## ## ## L" },
     // TODO: handle conditional values like if year starts with 2 then second number must be 0-3
-    { ssn_country::germany, "####[0-2]#[0-1][0-2][1-2][5-9]##" },
-    { ssn_country::france, "## [0-1][0-2] [0-2]# ### ### ##" },
+    { ssn_country_t::germany, "####[0-2]#[0-1][0-2][1-2][5-9]##" },
+    { ssn_country_t::france, "## [0-1][0-2] [0-2]# ### ### ##" },
     // TODO: add alfa-numeric support
-    { ssn_country::italy, "FFFF FFFF FFFF FFFF" },
-    { ssn_country::spain, "X########L" },
-    { ssn_country::india, "LLLLL####L" },
+    { ssn_country_t::italy, "FFFF FFFF FFFF FFFF" },
+    { ssn_country_t::spain, "X########L" },
+    { ssn_country_t::india, "LLLLL####L" },
 };
 
-const std::array<std::string_view, 12> westernZodiacs = { "Aries", "Taurus", "Gemini", "Cancer",
+const std::array<std::string_view, 12> western_zodiacs = { "Aries", "Taurus", "Gemini", "Cancer",
     "Leo", "Virgo", "Libra", "Scorpio", "Sagittarius", "Capricorn", "Aquarius", "Pisces" };
 
-const std::array<std::string_view, 11> chineseZodiacs = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon",
+const std::array<std::string_view, 11> chinese_zodiacs = { "Rat", "Ox", "Tiger", "Rabbit", "Dragon",
     "Snake"
     "Horse",
     "Sheep",
@@ -333,67 +333,67 @@ const std::array<std::string_view, 11> chineseZodiacs = { "Rat", "Ox", "Tiger", 
     "Rooster",
     "Dog", "Pig" };
 
-const std::unordered_map<Language, std::unordered_map<Sex, std::string_view>> sexTranslations
-    = { { Language::English, { { Sex::male, "Male" }, { Sex::female, "Female" } } },
-          { Language::Polish, { { Sex::male, "Mężczyzna" }, { Sex::female, "Kobieta" } } },
-          { Language::Italian, { { Sex::male, "Maschio" }, { Sex::female, "Femmina" } } },
-          { Language::French, { { Sex::male, "Homme" }, { Sex::female, "Femme" } } },
-          { Language::German, { { Sex::male, "Mann" }, { Sex::female, "Frau" } } },
-          { Language::Russian, { { Sex::male, "Мужчина" }, { Sex::female, "Женщина" } } },
-          { Language::Romanian, { { Sex::male, "Bărbat" }, { Sex::female, "Femeie" } } },
-          { Language::Hindi, { { Sex::male, "पुरुष" }, { Sex::female, "महिला" } } },
-          { Language::Finnish, { { Sex::male, "Mies" }, { Sex::female, "Nainen" } } },
-          { Language::Nepali, { { Sex::male, "पुरुष" }, { Sex::female, "महिला" } } },
-          { Language::Spanish, { { Sex::male, "Hombre" }, { Sex::female, "Mujer" } } },
-          { Language::Turkish, { { Sex::male, "Erkek" }, { Sex::female, "Kadın" } } },
-          { Language::Czech, { { Sex::male, "Muž" }, { Sex::female, "Žena" } } },
-          { Language::Slovak, { { Sex::male, "Muž" }, { Sex::female, "Žena" } } },
-          { Language::Ukrainian, { { Sex::male, "Чоловік" }, { Sex::female, "Жінка" } } },
-          { Language::Danish, { { Sex::male, "Mand" }, { Sex::female, "Kvinde" } } },
-          { Language::Swedish, { { Sex::male, "Man" }, { Sex::female, "Kvinna" } } },
-          { Language::Portuguese, { { Sex::male, "Homem" }, { Sex::female, "Mulher" } } },
-          { Language::Norwegian, { { Sex::male, "Mann" }, { Sex::female, "Kvinne" } } },
-          { Language::Japanese, { { Sex::male, "男性" }, { Sex::female, "女性" } } },
-          { Language::Hungarian, { { Sex::male, "Férfi" }, { Sex::female, "Nő" } } },
-          { Language::Croatian, { { Sex::male, "Muškarac" }, { Sex::female, "Žena" } } },
-          { Language::Greek, { { Sex::male, "Άνδρας" }, { Sex::female, "Γυναίκα" } } },
-          { Language::Slovene, { { Sex::male, "Moški" }, { Sex::female, "Ženska" } } },
-          { Language::Dutch, { { Sex::male, "Man" }, { Sex::female, "Vrouw" } } },
-          { Language::Mandarin, { { Sex::male, "男" }, { Sex::female, "女" } } },
-          { Language::Korean, { { Sex::male, "남자" }, { Sex::female, "여자" } } },
-          { Language::Serbian, { { Sex::male, "Мушкарац" }, { Sex::female, "Жена" } } },
-          { Language::Macedonian, { { Sex::male, "Маж" }, { Sex::female, "Жена" } } },
-          { Language::Albanian, { { Sex::male, "Mashkull" }, { Sex::female, "Femër" } } },
-          { Language::Latvian, { { Sex::male, "Vīrietis" }, { Sex::female, "Sieviete" } } },
-          { Language::Belarusian, { { Sex::male, "Мужчына" }, { Sex::female, "Жанчына" } } },
-          { Language::Estonian, { { Sex::male, "Mees" }, { Sex::female, "Naine" } } },
-          { Language::Irish, { { Sex::male, "fireannach" }, { Sex::female, "baineann" } } } };
+const std::unordered_map<language_t, std::unordered_map<sex_t, std::string_view>> sex_translations
+    = { { language_t::english, { { sex_t::male, "Male" }, { sex_t::female, "Female" } } },
+          { language_t::polish, { { sex_t::male, "Mężczyzna" }, { sex_t::female, "Kobieta" } } },
+          { language_t::italian, { { sex_t::male, "Maschio" }, { sex_t::female, "Femmina" } } },
+          { language_t::french, { { sex_t::male, "Homme" }, { sex_t::female, "Femme" } } },
+          { language_t::german, { { sex_t::male, "Mann" }, { sex_t::female, "Frau" } } },
+          { language_t::russian, { { sex_t::male, "Мужчина" }, { sex_t::female, "Женщина" } } },
+          { language_t::romanian, { { sex_t::male, "Bărbat" }, { sex_t::female, "Femeie" } } },
+          { language_t::hindi, { { sex_t::male, "पुरुष" }, { sex_t::female, "महिला" } } },
+          { language_t::finnish, { { sex_t::male, "Mies" }, { sex_t::female, "Nainen" } } },
+          { language_t::nepali, { { sex_t::male, "पुरुष" }, { sex_t::female, "महिला" } } },
+          { language_t::spanish, { { sex_t::male, "Hombre" }, { sex_t::female, "Mujer" } } },
+          { language_t::turkish, { { sex_t::male, "Erkek" }, { sex_t::female, "Kadın" } } },
+          { language_t::czech, { { sex_t::male, "Muž" }, { sex_t::female, "Žena" } } },
+          { language_t::slovak, { { sex_t::male, "Muž" }, { sex_t::female, "Žena" } } },
+          { language_t::ukrainian, { { sex_t::male, "Чоловік" }, { sex_t::female, "Жінка" } } },
+          { language_t::danish, { { sex_t::male, "Mand" }, { sex_t::female, "Kvinde" } } },
+          { language_t::swedish, { { sex_t::male, "Man" }, { sex_t::female, "Kvinna" } } },
+          { language_t::portuguese, { { sex_t::male, "Homem" }, { sex_t::female, "Mulher" } } },
+          { language_t::norwegian, { { sex_t::male, "Mann" }, { sex_t::female, "Kvinne" } } },
+          { language_t::japanese, { { sex_t::male, "男性" }, { sex_t::female, "女性" } } },
+          { language_t::hungarian, { { sex_t::male, "Férfi" }, { sex_t::female, "Nő" } } },
+          { language_t::croatian, { { sex_t::male, "Muškarac" }, { sex_t::female, "Žena" } } },
+          { language_t::greek, { { sex_t::male, "Άνδρας" }, { sex_t::female, "Γυναίκα" } } },
+          { language_t::slovene, { { sex_t::male, "Moški" }, { sex_t::female, "Ženska" } } },
+          { language_t::dutch, { { sex_t::male, "Man" }, { sex_t::female, "Vrouw" } } },
+          { language_t::mandarin, { { sex_t::male, "男" }, { sex_t::female, "女" } } },
+          { language_t::korean, { { sex_t::male, "남자" }, { sex_t::female, "여자" } } },
+          { language_t::serbian, { { sex_t::male, "Мушкарац" }, { sex_t::female, "Жена" } } },
+          { language_t::macedonian, { { sex_t::male, "Маж" }, { sex_t::female, "Жена" } } },
+          { language_t::albanian, { { sex_t::male, "Mashkull" }, { sex_t::female, "Femër" } } },
+          { language_t::latvian, { { sex_t::male, "Vīrietis" }, { sex_t::female, "Sieviete" } } },
+          { language_t::belarusian, { { sex_t::male, "Мужчына" }, { sex_t::female, "Жанчына" } } },
+          { language_t::estonian, { { sex_t::male, "Mees" }, { sex_t::female, "Naine" } } },
+          { language_t::irish, { { sex_t::male, "fireannach" }, { sex_t::female, "baineann" } } } };
 
-const std::array<ssn_country, 8> supportedSsnCountries {
-    ssn_country::poland,
-    ssn_country::usa,
-    ssn_country::england,
-    ssn_country::germany,
-    ssn_country::france,
-    ssn_country::italy,
-    ssn_country::spain,
-    ssn_country::india,
+const std::array<ssn_country_t, 8> supported_ssn_countries {
+    ssn_country_t::poland,
+    ssn_country_t::usa,
+    ssn_country_t::england,
+    ssn_country_t::germany,
+    ssn_country_t::france,
+    ssn_country_t::italy,
+    ssn_country_t::spain,
+    ssn_country_t::india,
 };
 
-const std::unordered_map<ssn_country, unsigned> ssnLengths {
-    { ssn_country::poland, 11 },
-    { ssn_country::usa, 11 },
-    { ssn_country::england, 13 },
-    { ssn_country::germany, 12 },
-    { ssn_country::france, 19 },
-    { ssn_country::italy, 19 },
-    { ssn_country::spain, 10 },
-    { ssn_country::india, 10 },
+const std::unordered_map<ssn_country_t, unsigned> ssn_lengths {
+    { ssn_country_t::poland, 11 },
+    { ssn_country_t::usa, 11 },
+    { ssn_country_t::england, 13 },
+    { ssn_country_t::germany, 12 },
+    { ssn_country_t::france, 19 },
+    { ssn_country_t::italy, 19 },
+    { ssn_country_t::spain, 10 },
+    { ssn_country_t::india, 10 },
 };
 
 // Albania
 
-const std::array<std::string_view, 157> albanianMalesFirstNames = { "Adriatik", "Afrim", "Agim",
+const std::array<std::string_view, 157> albanian_male_first_names = { "Adriatik", "Afrim", "Agim",
     "Agron", "Alban", "Altin", "Andi", "Artion", "Asim", "Arbnor", "Arber", "Ardian", "Ardit",
     "Armend", "Arlind", "Astrit", "Avni", "Bamir", "Bardh", "Bardhyl", "Bashkim", "Besart", "Besim",
     "Besmir", "Besnik", "Niko", "Bekim", "Betim", "Bledar", "Bledian", "Blendi", "Blerim", "Bujar",
@@ -411,7 +411,7 @@ const std::array<std::string_view, 157> albanianMalesFirstNames = { "Adriatik", 
     "Shpend", "Shkumbin", "Taulant", "Tomor", "Trim", "Urim", "Valdet", "Valmir", "Vedat",
     "Xhevdet", "Xhevahir", "Zef", "Vath", "Vidan", "Vullnet", "Ylber", "Zamir" };
 
-const std::array<std::string_view, 141> albanianFemalesFirstNames = {
+const std::array<std::string_view, 141> albanian_female_first_names = {
     "Adelina",
     "Aferdita",
     "Agnesa",
@@ -555,7 +555,7 @@ const std::array<std::string_view, 141> albanianFemalesFirstNames = {
     "Zana",
 };
 
-const std::array<std::string_view, 140> albanianLastNames = { "Agolli", "Ahmeti", "Aliaj", "Aliu",
+const std::array<std::string_view, 140> albanian_last_names = { "Agolli", "Ahmeti", "Aliaj", "Aliu",
     "Arifi", "Avdullahu", "Bajrami", "Balaj", "Basha", "Begolli", "Berisha", "Bilalli", "Brahimi",
     "Bytyqi", "Cakuli", "Cela", "Cenaj", "Dedvukaj", "Dervishi", "Domgjonaj", "Dreshaj", "Driza",
     "Duka", "Duraku", "Dushku", "Elezi", "Fazliu", "Ferizi", "Gashi", "Gega", "Gjinaj", "Gjokaj",
@@ -572,14 +572,16 @@ const std::array<std::string_view, 140> albanianLastNames = { "Agolli", "Ahmeti"
     "Xhufi", "Ylli", "Zeka", "Zeqiri", "Zhubi", "Zogaj", "Zogu", "Zeka", "Zefi", "Zeka", "Zekaj",
     "Zhubi", "Zhuta", "Ziu", "Zogiani" };
 
-const NameFormats albanianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats albanian_person_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames albanianPeopleNames { { albanianMalesFirstNames, {}, albanianLastNames, {}, {} },
-    { albanianFemalesFirstNames, {}, albanianLastNames, {}, {} }, albanianPersonNameFormats };
+const PeopleNames albanian_people_names {
+    { albanian_male_first_names, {}, albanian_last_names, {}, {} },
+    { albanian_female_first_names, {}, albanian_last_names, {}, {} }, albanian_person_name_formats
+};
 
 // Argentina
 
-const std::array<std::string_view, 350> argentinianMalesFirstNames = {
+const std::array<std::string_view, 350> argentinian_male_first_names = {
     "Jose",
     "Carlos",
     "Jorge",
@@ -932,7 +934,7 @@ const std::array<std::string_view, 350> argentinianMalesFirstNames = {
     "Ladislao",
 };
 
-const std::array<std::string_view, 350> argentinianFemalesFirstNames = {
+const std::array<std::string_view, 350> argentinian_female_first_names = {
     "Maria",
     "Juan",
     "Ana",
@@ -1285,7 +1287,7 @@ const std::array<std::string_view, 350> argentinianFemalesFirstNames = {
     "Feliciana",
 };
 
-const std::array<std::string_view, 348> argentinianLastNames = {
+const std::array<std::string_view, 348> argentinian_last_names = {
     "Gonzalez",
     "Rodriguez",
     "Gomez",
@@ -1636,16 +1638,16 @@ const std::array<std::string_view, 348> argentinianLastNames = {
     "Balmaceda",
 };
 
-const NameFormats argentinianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats argentinian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames argentinianPeopleNames {
-    { argentinianMalesFirstNames, {}, argentinianLastNames, {}, {} },
-    { argentinianFemalesFirstNames, {}, argentinianLastNames, {}, {} }, argentinianPersonNameFormats
+const PeopleNames argentinian_people_names {
+    { argentinian_male_first_names, {}, argentinian_last_names, {}, {} },
+    { argentinian_female_first_names, {}, argentinian_last_names, {}, {} }, argentinian_name_formats
 };
 
 // Australia
 
-const std::array<std::string_view, 100> australianMalesFirstNames = {
+const std::array<std::string_view, 100> australian_male_first_names = {
     "William",
     "Jack",
     "Oliver",
@@ -1748,7 +1750,7 @@ const std::array<std::string_view, 100> australianMalesFirstNames = {
     "Joel",
 };
 
-const std::array<std::string_view, 100> australianFemalesFirstNames = {
+const std::array<std::string_view, 100> australian_female_first_names = {
     "Isabella",
     "Ruby",
     "Chloe",
@@ -1851,7 +1853,7 @@ const std::array<std::string_view, 100> australianFemalesFirstNames = {
     "Kiara",
 };
 
-const std::array<std::string_view, 286> australianLastNames = {
+const std::array<std::string_view, 286> australian_last_names = {
     "Smith",
     "Jones",
     "Williams",
@@ -2140,15 +2142,15 @@ const std::array<std::string_view, 286> australianLastNames = {
     "Wolf",
 };
 
-const NameFormats australianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats australian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames australianPeopleNames { { australianMalesFirstNames, {}, australianLastNames, {},
-                                              {} },
-    { australianFemalesFirstNames, {}, australianLastNames, {}, {} }, australianPersonNameFormats };
+const PeopleNames australian_people_names { { australian_male_first_names, {},
+                                                australian_last_names, {}, {} },
+    { australian_female_first_names, {}, australian_last_names, {}, {} }, australian_name_formats };
 
 // Austria
 
-const std::array<std::string_view, 572> austrianMalesFirstNames = {
+const std::array<std::string_view, 572> austrian_male_first_names = {
     "Aaron",
     "Abdul",
     "Abdullah",
@@ -2723,7 +2725,7 @@ const std::array<std::string_view, 572> austrianMalesFirstNames = {
     "Ömer",
 };
 
-const std::array<std::string_view, 573> austrianFemalesFirstNames = {
+const std::array<std::string_view, 573> austrian_female_first_names = {
     "Aaliyah",
     "Abby",
     "Abigail",
@@ -3299,7 +3301,7 @@ const std::array<std::string_view, 573> austrianFemalesFirstNames = {
     "Zoé",
 };
 
-const std::array<std::string_view, 1688> austrianLastNames = {
+const std::array<std::string_view, 1688> austrian_last_names = {
     "Abel",
     "Abicht",
     "Abraham",
@@ -4990,21 +4992,21 @@ const std::array<std::string_view, 1688> austrianLastNames = {
     "Überacker",
 };
 
-const std::array<std::string_view, 3> austrianMalesPrefixes { "Herr", "Dr.", "Prof. Dr." };
+const std::array<std::string_view, 3> austrian_male_prefixes { "Herr", "Dr.", "Prof. Dr." };
 
-const std::array<std::string_view, 3> austrianFemalesPrefixes { "Frau", "Dr.", "Prof. Dr." };
+const std::array<std::string_view, 3> austrian_female_prefixes { "Frau", "Dr.", "Prof. Dr." };
 
-const NameFormats austrianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats austrian_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 5 } } };
 
-const PeopleNames austrianPeopleNames { { austrianMalesFirstNames, {}, austrianLastNames,
-                                            austrianMalesPrefixes, {} },
-    { austrianFemalesFirstNames, {}, austrianLastNames, austrianFemalesPrefixes, {} },
-    austrianPersonNameFormats };
+const PeopleNames austrian_people_names { { austrian_male_first_names, {}, austrian_last_names,
+                                              austrian_male_prefixes, {} },
+    { austrian_female_first_names, {}, austrian_last_names, austrian_female_prefixes, {} },
+    austrian_name_formats };
 
 // Azerbaijan
 
-const std::array<std::string_view, 35> azerbaijaniMalesFirstNames = {
+const std::array<std::string_view, 35> azerbaijani_male_first_names = {
     "Anar",
     "Amid",
     "Afəl",
@@ -5042,7 +5044,7 @@ const std::array<std::string_view, 35> azerbaijaniMalesFirstNames = {
     "Nadir",
 };
 
-const std::array<std::string_view, 73> azerbaijaniFemalesFirstNames = {
+const std::array<std::string_view, 73> azerbaijani_female_first_names = {
     "Anna",
     "Adeliya",
     "Afaq",
@@ -5118,7 +5120,7 @@ const std::array<std::string_view, 73> azerbaijaniFemalesFirstNames = {
     "Ülkər",
 };
 
-const std::array<std::string_view, 10> azerbaijaniMalesLastNames = {
+const std::array<std::string_view, 10> azerbaijani_male_last_names = {
     "Əhmədov",
     "Ələkbərov",
     "Əliyev",
@@ -5131,7 +5133,7 @@ const std::array<std::string_view, 10> azerbaijaniMalesLastNames = {
     "Rəhimov",
 };
 
-const std::array<std::string_view, 10> azerbaijaniFemalesLastNames = {
+const std::array<std::string_view, 10> azerbaijani_female_last_names = {
     "Qasımova",
     "Əfəndiyeva",
     "Soltanova",
@@ -5144,19 +5146,19 @@ const std::array<std::string_view, 10> azerbaijaniFemalesLastNames = {
     "Vəsiyeva",
 };
 
-const NameFormats azerbaijaniPersonNameFormats { {
+const NameFormats azerbaijani_name_formats { {
     { "{lastName} {firstName}", 1 },
     { "{firstName} {lastName}", 1 },
 } };
 
-const PeopleNames azerbaijaniPeopleNames { { azerbaijaniMalesFirstNames, {},
-                                               azerbaijaniMalesLastNames, {}, {} },
-    { azerbaijaniFemalesFirstNames, {}, azerbaijaniFemalesLastNames, {}, {} },
-    azerbaijaniPersonNameFormats };
+const PeopleNames azerbaijani_people_names { { azerbaijani_male_first_names, {},
+                                                 azerbaijani_male_last_names, {}, {} },
+    { azerbaijani_female_first_names, {}, azerbaijani_female_last_names, {}, {} },
+    azerbaijani_name_formats };
 
 // Belarus
 
-const std::array<std::string_view, 350> belarusianMalesFirstNames = {
+const std::array<std::string_view, 350> belarusian_male_first_names = {
     "Sergey",
     "Andrey",
     "Aleksandr",
@@ -5509,7 +5511,7 @@ const std::array<std::string_view, 350> belarusianMalesFirstNames = {
     "Wladimir",
 };
 
-const std::array<std::string_view, 350> belarusianFemalesFirstNames = {
+const std::array<std::string_view, 350> belarusian_female_first_names = {
     "Olga",
     "Tatyana",
     "Ekaterina",
@@ -5862,7 +5864,7 @@ const std::array<std::string_view, 350> belarusianFemalesFirstNames = {
     "Nelly",
 };
 
-const std::array<std::string_view, 261> belarusianMalesLastNames = {
+const std::array<std::string_view, 261> belarusian_male_last_names = {
     "Ivanov",
     "Novik",
     "Zhuk",
@@ -6126,7 +6128,7 @@ const std::array<std::string_view, 261> belarusianMalesLastNames = {
     "Korolyov",
 };
 
-const std::array<std::string_view, 89> belarusianFemalesLastNames = {
+const std::array<std::string_view, 89> belarusian_female_last_names = {
     "Ivanova",
     "Novikova",
     "Kotova",
@@ -6218,16 +6220,16 @@ const std::array<std::string_view, 89> belarusianFemalesLastNames = {
     "Litvinova",
 };
 
-const NameFormats belarusianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats belarusian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames belarusianPeopleNames { { belarusianMalesFirstNames, {}, belarusianMalesLastNames,
-                                              {}, {} },
-    { belarusianFemalesFirstNames, {}, belarusianFemalesLastNames, {}, {} },
-    belarusianPersonNameFormats };
+const PeopleNames belarusian_people_names { { belarusian_male_first_names, {},
+                                                belarusian_male_last_names, {}, {} },
+    { belarusian_female_first_names, {}, belarusian_female_last_names, {}, {} },
+    belarusian_name_formats };
 
 // Belgium
 
-const std::array<std::string_view, 100> belgianMalesFirstNames = {
+const std::array<std::string_view, 100> belgian_male_first_names = {
     "Lucas",
     "Liam",
     "Louis",
@@ -6330,7 +6332,7 @@ const std::array<std::string_view, 100> belgianMalesFirstNames = {
     "Kasper",
 };
 
-const std::array<std::string_view, 99> belgianFemalesFirstNames = {
+const std::array<std::string_view, 99> belgian_female_first_names = {
     "Emma",
     "Louise",
     "Marie",
@@ -6432,7 +6434,7 @@ const std::array<std::string_view, 99> belgianFemalesFirstNames = {
     "Chloe",
 };
 
-const std::array<std::string_view, 32> belgianLastNames = {
+const std::array<std::string_view, 32> belgian_last_names = {
     "Claes",
     "Claeys",
     "Declerck",
@@ -6467,24 +6469,24 @@ const std::array<std::string_view, 32> belgianLastNames = {
     "Wouters",
 };
 
-const std::array<std::string_view, 2> belgianSuffixes { "MBA", "Phd." };
+const std::array<std::string_view, 2> belgian_suffixes { "MBA", "Phd." };
 
-const std::array<std::string_view, 4> belgianPrefixes { "Dr.", "Ir.", "Ing.", "Prof." };
+const std::array<std::string_view, 4> belgian_prefixes { "Dr.", "Ir.", "Ing.", "Prof." };
 
-const NameFormats belgianPersonNameFormats { {
+const NameFormats belgian_name_formats { {
     { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName} {suffix}", 1 },
 } };
 
-const PeopleNames belgianPeopleNames { { belgianMalesFirstNames, {}, belgianLastNames,
-                                           belgianPrefixes, belgianSuffixes },
-    { belgianFemalesFirstNames, {}, belgianLastNames, belgianPrefixes, belgianSuffixes },
-    belgianPersonNameFormats };
+const PeopleNames belgian_people_names { { belgian_male_first_names, {}, belgian_last_names,
+                                             belgian_prefixes, belgian_suffixes },
+    { belgian_female_first_names, {}, belgian_last_names, belgian_prefixes, belgian_suffixes },
+    belgian_name_formats };
 
 // Bosnia
 
-const std::array<std::string_view, 100> bosnianMalesFirstNames = { "Adin", "Alem", "Amar",
+const std::array<std::string_view, 100> bosnian_male_first_names = { "Adin", "Alem", "Amar",
     "Benjamin", "Dino", "Edin", "Elvir", "Emir", "Faruk", "Haris", "Ibrahim", "Jasmin", "Kenan",
     "Lejla", "Mehmed", "Nedim", "Osman", "Safet", "Tarik", "Vedad", "Zlatan", "Emin", "Nikola",
     "Eldar", "Senad", "D?enan", "Aldin", "Emir", "Davor", "Adnan", "Emir", "Amar", "Alen", "Nihad",
@@ -6496,7 +6498,7 @@ const std::array<std::string_view, 100> bosnianMalesFirstNames = { "Adin", "Alem
     "Maida", "Enisa", "Lina", "Amina", "Adna", "Lejla", "Ajla", "Zerina", "Mirnesa", "Ayla", "Adna",
     "Dijana", "Hana", "Amila" };
 
-const std::array<std::string_view, 100> bosnianFemalesFirstNames = { "Adin", "Alem", "Amar",
+const std::array<std::string_view, 100> bosnian_female_first_names = { "Adin", "Alem", "Amar",
     "Benjamin", "Dino", "Edin", "Elvir", "Emir", "Faruk", "Haris", "Ibrahim", "Jasmin", "Kenan",
     "Lejla", "Mehmed", "Nedim", "Osman", "Safet", "Tarik", "Vedad", "Zlatan", "Emin", "Nikola",
     "Eldar", "Senad", "D?enan", "Aldin", "Emir", "Davor", "Adnan", "Emir", "Amar", "Alen", "Nihad",
@@ -6508,7 +6510,7 @@ const std::array<std::string_view, 100> bosnianFemalesFirstNames = { "Adin", "Al
     "Maida", "Enisa", "Lina", "Amina", "Adna", "Lejla", "Ajla", "Zerina", "Mirnesa", "Ayla", "Adna",
     "Dijana", "Hana", "Amila" };
 
-const std::array<std::string_view, 128> bosnianLastNames = { "Hodzi", "Mujagic", "Hadzi",
+const std::array<std::string_view, 128> bosnian_last_names = { "Hodzi", "Mujagic", "Hadzi",
     "Ahmetovic", "Ali", "Delic", "Osmanagic", "Hrnjici", "Omeragic", "Suljic", "Kovacevic", "Brkic",
     "Kurtic", "Mehic", "Zukic", "Hasic", "Zimic", "Salihovic", "Dedic", "Kolic", "Dzafi", "Salkic",
     "Omerhodzi", "Alagic", "Sijercic", "Suljagic", "Dautovic", "Habibovic", "Cauzevic",
@@ -6525,14 +6527,15 @@ const std::array<std::string_view, 128> bosnianLastNames = { "Hodzi", "Mujagic",
     "Kapetanovic", "Osman", "Ibrahimagic", "Hadibegic", "Becirovic", "Jusic", "Brkic", "Cozic",
     "Musi", "Cehic", "Selimovic", "Cehic", "Muminovic", "Hodzi" };
 
-const NameFormats bosnianPersonNameFormats { { "{lastName} {firstName}", 1 } };
+const NameFormats bosnian_name_formats { { "{lastName} {firstName}", 1 } };
 
-const PeopleNames bosnianPeopleNames { { bosnianMalesFirstNames, {}, bosnianLastNames, {}, {} },
-    { bosnianFemalesFirstNames, {}, bosnianLastNames, {}, {} }, bosnianPersonNameFormats };
+const PeopleNames bosnian_people_names { { bosnian_male_first_names, {}, bosnian_last_names, {},
+                                             {} },
+    { bosnian_female_first_names, {}, bosnian_last_names, {}, {} }, bosnian_name_formats };
 
 // Brazil
 
-const std::array<std::string_view, 88> brazilianMalesFirstNames = { "Alessandro", "Alexandre",
+const std::array<std::string_view, 88> brazilian_male_first_names = { "Alessandro", "Alexandre",
     "Anthony", "Antônio", "Arthur", "Benjamin", "Benício", "Bernardo", "Breno", "Bryan", "Caio",
     "Calebe", "Carlos", "Cauã", "César", "Daniel", "Danilo", "Davi", "Davi Lucca", "Deneval",
     "Eduardo", "Elísio", "Emanuel", "Enzo", "Enzo Gabriel", "Fabiano", "Fabrício", "Feliciano",
@@ -6544,7 +6547,7 @@ const std::array<std::string_view, 88> brazilianMalesFirstNames = { "Alessandro"
     "Roberto", "Salvador", "Samuel", "Silas", "Sirineu", "Tertuliano", "Théo", "Vicente", "Vitor",
     "Víctor", "Warley", "Washington", "Yago", "Yango", "Yuri", "Ígor" };
 
-const std::array<std::string_view, 80> brazilianFemalesFirstNames = { "Alessandra", "Alice",
+const std::array<std::string_view, 80> brazilian_female_first_names = { "Alessandra", "Alice",
     "Aline", "Alícia", "Ana Clara", "Ana Júlia", "Ana Laura", "Ana Luiza", "Antonella", "Beatriz",
     "Bruna", "Carla", "Cecília", "Clara", "Célia", "Dalila", "Eduarda", "Elisa", "Eloá",
     "Emanuelly", "Esther", "Fabrícia", "Felícia", "Giovanna", "Helena", "Heloísa", "Isabel",
@@ -6556,28 +6559,28 @@ const std::array<std::string_view, 80> brazilianFemalesFirstNames = { "Alessandr
     "Rafaela", "Rebeca", "Roberta", "Sara", "Sarah", "Sophia", "Suélen", "Sílvia", "Talita",
     "Valentina", "Vitória", "Yasmin" };
 
-const std::array<std::string_view, 21> brazilianLastNames = { "Silva", "Souza", "Carvalho",
+const std::array<std::string_view, 21> brazilian_last_names = { "Silva", "Souza", "Carvalho",
     "Santos", "Reis", "Xavier", "Franco", "Braga", "Macedo", "Batista", "Barros", "Moraes", "Costa",
     "Pereira", "Melo", "Saraiva", "Nogueira", "Oliveira", "Martins", "Moreira", "Albuquerque" };
 
-const std::array<std::string_view, 3> brazilianSuffixes { "Jr.", "Neto", "Filho" };
+const std::array<std::string_view, 3> brazilian_suffixes { "Jr.", "Neto", "Filho" };
 
-const std::array<std::string_view, 2> brazilianMalesPrefixes { "Sr.", "Dr." };
+const std::array<std::string_view, 2> brazilian_male_prefixes { "Sr.", "Dr." };
 
-const std::array<std::string_view, 3> brazilianFemalesPrefixes { "Sra.", "Srta.", "Dra." };
+const std::array<std::string_view, 3> brazilian_female_prefixes { "Sra.", "Srta.", "Dra." };
 
-const NameFormats brazilianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats brazilian_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 }, { "{firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames brazilianPeopleNames { { brazilianMalesFirstNames, {}, brazilianLastNames,
-                                             brazilianMalesPrefixes, brazilianSuffixes },
-    { brazilianFemalesFirstNames, {}, brazilianLastNames, brazilianFemalesPrefixes,
-        brazilianSuffixes },
-    brazilianPersonNameFormats };
+const PeopleNames brazilian_people_names { { brazilian_male_first_names, {}, brazilian_last_names,
+                                               brazilian_male_prefixes, brazilian_suffixes },
+    { brazilian_female_first_names, {}, brazilian_last_names, brazilian_female_prefixes,
+        brazilian_suffixes },
+    brazilian_name_formats };
 
 // Bulgaria
 
-const std::array<std::string_view, 30> bulgarianMalesFirstNames = {
+const std::array<std::string_view, 30> bulgarian_male_first_names = {
     "Aleksandar",
     "Angel",
     "Anton",
@@ -6610,7 +6613,7 @@ const std::array<std::string_view, 30> bulgarianMalesFirstNames = {
     "Zahari",
 };
 
-const std::array<std::string_view, 32> bulgarianFemalesFirstNames = {
+const std::array<std::string_view, 32> bulgarian_female_first_names = {
     "Aleksandra",
     "Anastasiya",
     "Anna",
@@ -6645,7 +6648,7 @@ const std::array<std::string_view, 32> bulgarianFemalesFirstNames = {
     "Zoya",
 };
 
-const std::array<std::string_view, 25> bulgarianLastNames = {
+const std::array<std::string_view, 25> bulgarian_last_names = {
     "Angelov",
     "Atanasov",
     "Bozhilov",
@@ -6673,27 +6676,27 @@ const std::array<std::string_view, 25> bulgarianLastNames = {
     "Zahariev",
 };
 
-const std::array<std::string_view, 2> bulgarianSuffixes { "мл.", "ст." };
+const std::array<std::string_view, 2> bulgarian_suffixes { "мл.", "ст." };
 
-const std::array<std::string_view, 3> bulgarianMalesPrefixes { "Г-н", "Д-р", "Проф." };
+const std::array<std::string_view, 3> bulgarian_male_prefixes { "Г-н", "Д-р", "Проф." };
 
-const std::array<std::string_view, 4> bulgarianFemalesPrefixes { "Г-жа", "Г-ца", "Д-р", "Проф." };
+const std::array<std::string_view, 4> bulgarian_female_prefixes { "Г-жа", "Г-ца", "Д-р", "Проф." };
 
-const NameFormats bulgarianPersonNameFormats { {
+const NameFormats bulgarian_name_formats { {
     { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName} {suffix}", 1 },
 } };
 
-const PeopleNames bulgarianPeopleNames { { bulgarianMalesFirstNames, {}, bulgarianLastNames,
-                                             bulgarianMalesPrefixes, bulgarianSuffixes },
-    { bulgarianFemalesFirstNames, {}, bulgarianLastNames, bulgarianFemalesPrefixes,
-        bulgarianSuffixes },
-    bulgarianPersonNameFormats };
+const PeopleNames bulgarian_people_names { { bulgarian_male_first_names, {}, bulgarian_last_names,
+                                               bulgarian_male_prefixes, bulgarian_suffixes },
+    { bulgarian_female_first_names, {}, bulgarian_last_names, bulgarian_female_prefixes,
+        bulgarian_suffixes },
+    bulgarian_name_formats };
 
 // Canada
 
-const std::array<std::string_view, 350> canadianMalesFirstNames = {
+const std::array<std::string_view, 350> canadian_male_first_names = {
     "John",
     "David",
     "Robert",
@@ -7046,7 +7049,7 @@ const std::array<std::string_view, 350> canadianMalesFirstNames = {
     "Norbert",
 };
 
-const std::array<std::string_view, 350> canadianFemalesFirstNames = {
+const std::array<std::string_view, 350> canadian_female_first_names = {
     "Mary",
     "Linda",
     "Karen",
@@ -7399,7 +7402,7 @@ const std::array<std::string_view, 350> canadianFemalesFirstNames = {
     "Katrina",
 };
 
-const std::array<std::string_view, 346> canadianLastNames = {
+const std::array<std::string_view, 346> canadian_last_names = {
     "Smith",
     "Brown",
     "Tremblay",
@@ -7748,14 +7751,15 @@ const std::array<std::string_view, 346> canadianLastNames = {
     "Deschenes",
 };
 
-const NameFormats canadianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats canadian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames canadianPeopleNames { { canadianMalesFirstNames, {}, canadianLastNames, {}, {} },
-    { canadianFemalesFirstNames, {}, canadianLastNames, {}, {} }, canadianPersonNameFormats };
+const PeopleNames canadian_people_names { { canadian_male_first_names, {}, canadian_last_names, {},
+                                              {} },
+    { canadian_female_first_names, {}, canadian_last_names, {}, {} }, canadian_name_formats };
 
 // China
 
-const std::array<std::string_view, 1000> chineseLastNames = {
+const std::array<std::string_view, 1000> chinese_last_names = {
     "赵",
     "钱",
     "孙",
@@ -8758,7 +8762,7 @@ const std::array<std::string_view, 1000> chineseLastNames = {
     "碧鲁",
 };
 
-const std::array<std::string_view, 78> chineseMalesFirstNames = {
+const std::array<std::string_view, 78> chinese_male_first_names = {
     "建华",
     "建国",
     "建军",
@@ -8839,7 +8843,7 @@ const std::array<std::string_view, 78> chineseMalesFirstNames = {
     "呈轩",
 };
 
-const std::array<std::string_view, 85> chineseFemalesFirstNames = {
+const std::array<std::string_view, 85> chinese_female_first_names = {
     "秀英",
     "秀兰",
     "秀珍",
@@ -8927,14 +8931,15 @@ const std::array<std::string_view, 85> chineseFemalesFirstNames = {
     "榕融",
 };
 
-const NameFormats chinesePersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats chinese_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames chinesePeopleNames { { chineseMalesFirstNames, {}, chineseLastNames, {}, {} },
-    { chineseFemalesFirstNames, {}, chineseLastNames, {}, {} }, chinesePersonNameFormats };
+const PeopleNames chinese_people_names { { chinese_male_first_names, {}, chinese_last_names, {},
+                                             {} },
+    { chinese_female_first_names, {}, chinese_last_names, {}, {} }, chinese_name_formats };
 
 // Croatia
 
-const std::array<std::string_view, 171> croatianMalesFirstNames = { "Adi", "Ado", "Andel",
+const std::array<std::string_view, 171> croatian_male_first_names = { "Adi", "Ado", "Andel",
     "Andelin", "Andelko", "Andelo", "Andi", "Andras", "Andrej", "Andrija", "Andro", "Anko", "Ante",
     "Antek", "Antonin", "Antonio", "Antun", "Bela", "Belimir", "Berti", "Boris", "Borko", "Borna",
     "Božidar", "Branimir", "Bruno", "Časlav", "Dado", "Damil", "Damir", "Danijel", "Dario", "Darko",
@@ -8954,7 +8959,7 @@ const std::array<std::string_view, 171> croatianMalesFirstNames = { "Adi", "Ado"
     "Vjenceslav", "Vladek", "Vladislav", "Vlado", "Vlatko", "Zdenko", "Zdravko", "Željko", "Zoltan",
     "Zrinislav", "Zrinko", "Zvonimir" };
 
-const std::array<std::string_view, 238> croatianFemalesFirstNames = { "Ada", "Adina", "Adriana",
+const std::array<std::string_view, 238> croatian_female_first_names = { "Ada", "Adina", "Adriana",
     "Adrijana", "Agata", "Alemka", "Alenka", "Alisa", "Alka", "Alma", "Amalija", "Ana", "Ančica",
     "Anamarija", "Anastazija", "Anci", "Anči", "Ancica", "Anda", "Anđela", "Anđelika", "Anđelina",
     "Andi", "Andrea", "Andreja", "Andrina", "Anesa", "Aneta", "Ani", "Anica", "Anja", "Anka",
@@ -8981,7 +8986,7 @@ const std::array<std::string_view, 238> croatianFemalesFirstNames = { "Ada", "Ad
     "Valentina", "Valerija", "Vedrana", "Velimira", "Veronika", "Vesna", "Vladimira", "Zdenka",
     "Zdeslava", "Zlata" };
 
-const std::array<std::string_view, 11617> croatianLastNames = { "Abadžić", "Abadžija", "Abazi",
+const std::array<std::string_view, 11617> croatian_last_names = { "Abadžić", "Abadžija", "Abazi",
     "Abdulahi", "Abdulić", "Abdurahmanović", "Abebe", "Abel", "Abfal", "Abičić", "Abičić-Tomac",
     "Abjanić", "Abjanović", "Abrahamski", "Abramić", "Abramović", "Abrecht", "Abrić", "Abrišin",
     "Abrlić", "Abu El Saoud", "Ackermann", "Ač", "Ačai", "Ačaji", "Ačanski", "Ačić", "Ačimović",
@@ -10498,23 +10503,24 @@ const std::array<std::string_view, 11617> croatianLastNames = { "Abadžić", "Ab
     "Župan Perasić", "Župančić", "Županić", "Županović", "Župarić", "Žurga", "Žuro Tijardović",
     "Žuvela", "Žuža", "Žužak", "Žužanić", "ŽužanićKlapan", "Žvab" };
 
-const std::array<std::string_view, 2> croatianSuffixes { "dipl.oecc", "dipl.ing" };
+const std::array<std::string_view, 2> croatian_suffixes { "dipl.oecc", "dipl.ing" };
 
-const std::array<std::string_view, 2> croatianMalesPrefixes { "g.", "dr." };
+const std::array<std::string_view, 2> croatian_male_prefixes { "g.", "dr." };
 
-const std::array<std::string_view, 3> croatianFemalesPrefixes { "gđa.", "gđa", "dr." };
+const std::array<std::string_view, 3> croatian_female_prefixes { "gđa.", "gđa", "dr." };
 
-const NameFormats croatianPersonNameFormats { { { "{firstName} {lastName}", 8 },
+const NameFormats croatian_name_formats { { { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 }, { "{firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames croatianPeopleNames { { croatianMalesFirstNames, {}, croatianLastNames,
-                                            croatianMalesPrefixes, croatianSuffixes },
-    { croatianFemalesFirstNames, {}, croatianLastNames, croatianFemalesPrefixes, croatianSuffixes },
-    croatianPersonNameFormats };
+const PeopleNames croatian_people_names { { croatian_male_first_names, {}, croatian_last_names,
+                                              croatian_male_prefixes, croatian_suffixes },
+    { croatian_female_first_names, {}, croatian_last_names, croatian_female_prefixes,
+        croatian_suffixes },
+    croatian_name_formats };
 
 // Czechia
 
-const std::array<std::string_view, 795> czechMalesFirstNames = { "Abadon", "Abdon", "Ábel",
+const std::array<std::string_view, 795> czech_male_first_names = { "Abadon", "Abdon", "Ábel",
     "Abelard", "Abraham", "Abrahám", "Absolon", "Absolón", "Adalbert", "Adam", "Adin", "Adolf",
     "Adrian", "Adrián", "Agaton", "Achil", "Achiles", "Alan", "Alban", "Albert", "Albín",
     "Albrecht", "Aldo", "Alen", "Aleš", "Alexandr", "Alexej", "Alfons", "Alfréd", "Alois", "Alojz",
@@ -10605,7 +10611,7 @@ const std::array<std::string_view, 795> czechMalesFirstNames = { "Abadon", "Abdo
     "Zoltán", "Zoran", "Zoroslav", "Zosim", "Zvonimír", "Žarko", "Ždan", "Želibor", "Želimír",
     "Želislav", "Želmír", "Žitomír", "Žitoslav", "Živan" };
 
-const std::array<std::string_view, 785> czechFemalesFirstNames = { "Abigail", "Ada", "Adalberta",
+const std::array<std::string_view, 785> czech_female_first_names = { "Abigail", "Ada", "Adalberta",
     "Adéla", "Adelaida", "Adina", "Adolfa", "Adolfína", "Adriana", "Adriána", "Adriena", "Afra",
     "Agáta", "Aglaja", "Aida", "Alana", "Albena", "Alberta", "Albertina", "Albertýna", "Albína",
     "Alena", "Aleška", "Alexandra", "Alfréda", "Alice", "Alida", "Alina", "Alma", "Aloisie",
@@ -10698,7 +10704,7 @@ const std::array<std::string_view, 785> czechFemalesFirstNames = { "Abigail", "A
     "Zoja", "Zora", "Zoroslava", "Zuzana", "Zvonimíra", "Žakelina", "Žakelína", "Žaneta", "Ždana",
     "Želimíra", "Želislava", "Želmíra", "Žitomíra", "Žitoslava", "Živa", "Živana", "Žofie" };
 
-const std::array<std::string_view, 999> czechMalesLastNames = { "Adam", "Adamec", "Adámek",
+const std::array<std::string_view, 999> czech_male_last_names = { "Adam", "Adamec", "Adámek",
     "Albrecht", "Ambrož", "Anděl", "Andrle", "Antoš", "Bajer", "Baláž", "Balcar", "Balog", "Baloun",
     "Barák", "Baran", "Bareš", "Bárta", "Barták", "Bartoň", "Bartoš", "Bartošek", "Bartůněk",
     "Bašta", "Bauer", "Bayer", "Bažant", "Bečka", "Bečvář", "Bednář", "Bednařík", "Bělohlávek",
@@ -10808,9 +10814,9 @@ const std::array<std::string_view, 999> czechMalesLastNames = { "Adam", "Adamec"
     "Zezula", "Žídek", "Žiga", "Zíka", "Zikmund", "Zima", "Žižka", "Zlámal", "Zoubek", "Zouhar",
     "Žůrek", "Zvěřina" };
 
-const std::array<std::string_view, 991> czechFemalesLastNames = { "Adamová", "Adamcová", "Adámková",
-    "Albrechtová", "Ambrožová", "Andělová", "Andrlová", "Antošová", "Bajerová", "Balážová",
-    "Balcarová", "Balogová", "Balounová", "Baráková", "Baranová", "Barešová", "Bártová",
+const std::array<std::string_view, 991> czech_female_last_names = { "Adamová", "Adamcová",
+    "Adámková", "Albrechtová", "Ambrožová", "Andělová", "Andrlová", "Antošová", "Bajerová",
+    "Balážová", "Balcarová", "Balogová", "Balounová", "Baráková", "Baranová", "Barešová", "Bártová",
     "Bartáková", "Bartoňová", "Bartošová", "Bartošková", "Bartůňková", "Baštová", "Bauerová",
     "Bayerová", "Bažantová", "Bečková", "Bečvářová", "Bednářová", "Bednaříková", "Bělohlávková",
     "Bendová", "Benešová", "Beranová", "Beránková", "Bergrová", "Berková", "Berkyová", "Bernardová",
@@ -10943,21 +10949,21 @@ const std::array<std::string_view, 991> czechFemalesLastNames = { "Adamová", "A
     "Žídková", "Žigová", "Zíková", "Zikmundová", "Zimová", "Žižková", "Zlámalová", "Zoubková",
     "Zouharová", "Žůrková", "Zvěřinová" };
 
-const std::array<std::string_view, 4> czechPrefixes { "Ing.", "Mgr.", "JUDr.", "MUDr." };
+const std::array<std::string_view, 4> czech_prefixes { "Ing.", "Mgr.", "JUDr.", "MUDr." };
 
-const std::array<std::string_view, 1> czechSuffixes { "Phd." };
+const std::array<std::string_view, 1> czech_suffixes { "Phd." };
 
-const NameFormats czechPersonNameFormats { { { "{firstName} {lastName}", 8 },
+const NameFormats czech_name_formats { { { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 }, { "{firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames czechPeopleNames { { czechMalesFirstNames, {}, czechMalesLastNames, czechPrefixes,
-                                         czechSuffixes },
-    { czechFemalesFirstNames, {}, czechFemalesLastNames, czechPrefixes, czechSuffixes },
-    czechPersonNameFormats };
+const PeopleNames czech_people_names { { czech_male_first_names, {}, czech_male_last_names,
+                                           czech_prefixes, czech_suffixes },
+    { czech_female_first_names, {}, czech_female_last_names, czech_prefixes, czech_suffixes },
+    czech_name_formats };
 
 // Denmark
 
-const std::array<std::string_view, 118> danishMalesFirstNames = { "Adam", "Adrian", "Ahmad",
+const std::array<std::string_view, 118> danish_male_first_names = { "Adam", "Adrian", "Ahmad",
     "Aksel", "Albert", "Alexander", "Alfred", "Ali", "Anders", "Andreas", "Anton", "Arthur",
     "Arunthavanathan", "August", "Benjamin", "Bjørn", "Brian", "Carl", "Christian", "Christopher",
     "Claus", "Daniel", "David", "Elias", "Elliot", "Emil", "Erik", "Esben", "Felix", "Frank",
@@ -10971,7 +10977,7 @@ const std::array<std::string_view, 118> danishMalesFirstNames = { "Adam", "Adria
     "Søren", "Theo", "Thomas", "Tim", "Tobias", "Troels", "Uffe", "Ulrik", "Vagn", "Valdemar",
     "Victor", "Viggo", "Viktor", "Vilhelm", "Villy", "Vincent", "William" };
 
-const std::array<std::string_view, 109> danishFemalesFirstNames = { "Agnes", "Alberte",
+const std::array<std::string_view, 109> danish_female_first_names = { "Agnes", "Alberte",
     "Alexandrea", "Alice", "Alma", "Amanda", "Anita", "Anna", "Anne", "Annette", "Astrid", "Bente",
     "Betina", "Birgitte", "Britt", "Camilla", "Caroline", "Cecilie", "Charlotte", "Christina",
     "Clara", "Ditte-Marie", "Dorit", "Dorthe", "Ea", "Elisabeth", "Elise", "Ella",
@@ -10985,40 +10991,42 @@ const std::array<std::string_view, 109> danishFemalesFirstNames = { "Agnes", "Al
     "Sofie", "Stine", "Susanne", "Therese", "Tina", "Tine", "Trine", "Vibeke", "Viktoria", "Yasmin",
     "Zara" };
 
-const std::array<std::string_view, 106> danishLastNames = { "Abbas", "Abdi", "Andersen", "Andresen",
-    "Bak", "Bang", "Bech", "Beckmann", "Berg", "Bertelsen", "Bisgaard", "Bjerregaard", "Blom",
-    "Bonde", "Brandt", "Brix", "Bruun", "Buch", "Buhl", "Bundgaard", "Carlsen", "Christensen",
-    "Christiansen", "Clausen", "Dahl", "Dalgaard", "Dam", "Damm", "Davidsen", "Dupont", "Esbensen",
-    "Fischer", "Foged", "Frandsen", "Frederiksen", "Gade", "Garcia", "Gregersen", "Hald", "Hansen",
-    "Haugaard", "Hedegaard", "Henriksen", "Hermansen", "Hjort", "Hjorth", "Holm", "Iversen",
-    "Jakobsen", "Jensen", "Jeppesen", "Jespersen", "Johannessen", "Johannsen", "Johansen", "Juhl",
-    "Justesen", "Jørgensen", "Karlsen", "Khan", "Kjeldsen", "Kjær", "Klausen", "Knudsen",
-    "Kristensen", "Krogh", "Larsen", "Lauridsen", "Laursen", "Lorentzen", "Lund", "Madsen",
-    "Magnussen", "Marcussen", "Mortensen", "Munch", "Munk", "Møller", "Nguyen", "Nielsen", "Nissen",
-    "Nygaard", "Olsen", "Pallesen", "Pedersen", "Petersen", "Pham", "Poulsen", "Rasmussen", "Ravn",
-    "Richter", "Schmidt", "Schrøder", "Simonsen", "Skov", "Steffensen", "Storm", "Svendsen",
-    "Svensson", "Sørensen", "Thomsen", "Toft", "Vestergaard", "Villadsen", "Vinther", "Winther" };
+const std::array<std::string_view, 106> danish_last_names = { "Abbas", "Abdi", "Andersen",
+    "Andresen", "Bak", "Bang", "Bech", "Beckmann", "Berg", "Bertelsen", "Bisgaard", "Bjerregaard",
+    "Blom", "Bonde", "Brandt", "Brix", "Bruun", "Buch", "Buhl", "Bundgaard", "Carlsen",
+    "Christensen", "Christiansen", "Clausen", "Dahl", "Dalgaard", "Dam", "Damm", "Davidsen",
+    "Dupont", "Esbensen", "Fischer", "Foged", "Frandsen", "Frederiksen", "Gade", "Garcia",
+    "Gregersen", "Hald", "Hansen", "Haugaard", "Hedegaard", "Henriksen", "Hermansen", "Hjort",
+    "Hjorth", "Holm", "Iversen", "Jakobsen", "Jensen", "Jeppesen", "Jespersen", "Johannessen",
+    "Johannsen", "Johansen", "Juhl", "Justesen", "Jørgensen", "Karlsen", "Khan", "Kjeldsen", "Kjær",
+    "Klausen", "Knudsen", "Kristensen", "Krogh", "Larsen", "Lauridsen", "Laursen", "Lorentzen",
+    "Lund", "Madsen", "Magnussen", "Marcussen", "Mortensen", "Munch", "Munk", "Møller", "Nguyen",
+    "Nielsen", "Nissen", "Nygaard", "Olsen", "Pallesen", "Pedersen", "Petersen", "Pham", "Poulsen",
+    "Rasmussen", "Ravn", "Richter", "Schmidt", "Schrøder", "Simonsen", "Skov", "Steffensen",
+    "Storm", "Svendsen", "Svensson", "Sørensen", "Thomsen", "Toft", "Vestergaard", "Villadsen",
+    "Vinther", "Winther" };
 
-const std::array<std::string_view, 30> danishMiddleNames = { "Birk", "Bjerg", "Bjerre", "Bundgaard",
-    "Dahl", "Dal", "Dam", "Feldt", "Frost", "Grøn", "Hald", "Hjorth", "Holm", "Husum", "Jul",
-    "Kjær", "Klit", "Koch", "Krog", "Linde", "Lund", "Mose", "Mølgaard", "Nord", "Præst", "Rosen",
-    "Skov", "Smed", "Vestergaard", "Østergaard" };
+const std::array<std::string_view, 30> danish_middle_names = { "Birk", "Bjerg", "Bjerre",
+    "Bundgaard", "Dahl", "Dal", "Dam", "Feldt", "Frost", "Grøn", "Hald", "Hjorth", "Holm", "Husum",
+    "Jul", "Kjær", "Klit", "Koch", "Krog", "Linde", "Lund", "Mose", "Mølgaard", "Nord", "Præst",
+    "Rosen", "Skov", "Smed", "Vestergaard", "Østergaard" };
 
-const std::array<std::string_view, 1> danishMalesPrefixes { "hr." };
+const std::array<std::string_view, 1> danish_male_prefixes { "hr." };
 
-const std::array<std::string_view, 1> danishFemalesPrefixes { "fr." };
+const std::array<std::string_view, 1> danish_female_prefixes { "fr." };
 
-const NameFormats danishPersonNameFormats { { { "{firstName} {lastName}", 1 },
+const NameFormats danish_name_formats { { { "{firstName} {lastName}", 1 },
     { "{firstName} {middleName} {lastName}", 1 } } };
 
-const PeopleNames danishPeopleNames { { danishMalesFirstNames, danishMiddleNames, danishLastNames,
-                                          danishMalesPrefixes, {} },
-    { danishFemalesFirstNames, danishMiddleNames, danishLastNames, danishFemalesPrefixes, {} },
-    danishPersonNameFormats };
+const PeopleNames danish_people_names { { danish_male_first_names, danish_middle_names,
+                                            danish_last_names, danish_male_prefixes, {} },
+    { danish_female_first_names, danish_middle_names, danish_last_names, danish_female_prefixes,
+        {} },
+    danish_name_formats };
 
 // Dutch
 
-const std::array<std::string_view, 587> dutchMalesFirstNames = {
+const std::array<std::string_view, 587> dutch_male_first_names = {
     "Tymon",
     "Steven",
     "Semih",
@@ -11608,7 +11616,7 @@ const std::array<std::string_view, 587> dutchMalesFirstNames = {
     "Noah",
 };
 
-const std::array<std::string_view, 514> dutchFemalesFirstNames = {
+const std::array<std::string_view, 514> dutch_female_first_names = {
     "Yarah",
     "Vere",
     "Siënna",
@@ -12125,7 +12133,7 @@ const std::array<std::string_view, 514> dutchFemalesFirstNames = {
     "Emma",
 };
 
-const std::array<std::string_view, 131> dutchLastNames = {
+const std::array<std::string_view, 131> dutch_last_names = {
     "Aalbers",
     "Bakker",
     "Bijl",
@@ -12259,28 +12267,28 @@ const std::array<std::string_view, 131> dutchLastNames = {
     "Zuiderveld",
 };
 
-const std::array<std::string_view, 2> dutchSuffixes { "Jr.", "Sr." };
+const std::array<std::string_view, 2> dutch_suffixes { "Jr.", "Sr." };
 
-const std::array<std::string_view, 7> dutchMalesPrefixes { "Dhr.", "Bsc", "Msc", "Prof.", "Ir.",
+const std::array<std::string_view, 7> dutch_male_prefixes { "Dhr.", "Bsc", "Msc", "Prof.", "Ir.",
     "Drs.", "Dr." };
 
-const std::array<std::string_view, 7> dutchFemalesPrefixes { "Mevr.", "Bsc", "Msc", "Prof.", "Ir.",
+const std::array<std::string_view, 7> dutch_female_prefixes { "Mevr.", "Bsc", "Msc", "Prof.", "Ir.",
     "Drs.", "Dr." };
 
-const NameFormats dutchPersonNameFormats { {
+const NameFormats dutch_name_formats { {
     { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName} {suffix}", 1 },
 } };
 
-const PeopleNames dutchPeopleNames { { dutchMalesFirstNames, {}, dutchLastNames, dutchMalesPrefixes,
-                                         dutchSuffixes },
-    { dutchFemalesFirstNames, {}, dutchLastNames, dutchFemalesPrefixes, dutchSuffixes },
-    dutchPersonNameFormats };
+const PeopleNames dutch_people_names { { dutch_male_first_names, {}, dutch_last_names,
+                                           dutch_male_prefixes, dutch_suffixes },
+    { dutch_female_first_names, {}, dutch_last_names, dutch_female_prefixes, dutch_suffixes },
+    dutch_name_formats };
 
 // England
 
-const std::array<std::string_view, 500> englishMalesFirstNames = {
+const std::array<std::string_view, 500> english_male_first_names = {
     "James",
     "John",
     "Robert",
@@ -12783,7 +12791,7 @@ const std::array<std::string_view, 500> englishMalesFirstNames = {
     "Edmond",
 };
 
-const std::array<std::string_view, 500> englishFemalesFirstNames = {
+const std::array<std::string_view, 500> english_female_first_names = {
     "Mary",
     "Patricia",
     "Linda",
@@ -13286,7 +13294,7 @@ const std::array<std::string_view, 500> englishFemalesFirstNames = {
     "Kristie",
 };
 
-const std::array<std::string_view, 463> englishLastNames = {
+const std::array<std::string_view, 463> english_last_names = {
     "Abbott",
     "Abernathy",
     "Abshire",
@@ -13752,25 +13760,26 @@ const std::array<std::string_view, 463> englishLastNames = {
     "Zulauf",
 };
 
-const std::array<std::string_view, 11> englishSuffixes { "Jr.", "Sr.", "I", "II", "III", "IV", "V",
+const std::array<std::string_view, 11> english_suffixes { "Jr.", "Sr.", "I", "II", "III", "IV", "V",
     "MD", "DDS", "PhD", "DVM" };
 
-const std::array<std::string_view, 2> englishMalesPrefixes { "Mr.", "Dr." };
+const std::array<std::string_view, 2> english_male_prefixes { "Mr.", "Dr." };
 
-const std::array<std::string_view, 4> englishFemalesPrefixes { "Mrs.", "Ms.", "Miss", "Dr." };
+const std::array<std::string_view, 4> english_female_prefixes { "Mrs.", "Ms.", "Miss", "Dr." };
 
-const NameFormats englishPersonNameFormats { { { "{firstName} {lastName}", 49 },
+const NameFormats english_name_formats { { { "{firstName} {lastName}", 49 },
     { "{prefix} {firstName} {lastName}", 7 }, { "{firstName} {lastName} {suffix}", 7 },
     { "{prefix} {firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames englishPeopleNames { { englishMalesFirstNames, {}, englishLastNames,
-                                           englishMalesPrefixes, englishSuffixes },
-    { englishFemalesFirstNames, {}, englishLastNames, englishFemalesPrefixes, englishSuffixes },
-    englishPersonNameFormats };
+const PeopleNames english_people_names { { english_male_first_names, {}, english_last_names,
+                                             english_male_prefixes, english_suffixes },
+    { english_female_first_names, {}, english_last_names, english_female_prefixes,
+        english_suffixes },
+    english_name_formats };
 
 // Estonia
 
-const std::array<std::string_view, 350> estonianMalesFirstNames = {
+const std::array<std::string_view, 350> estonian_male_first_names = {
     "Aleksandr",
     "Andres",
     "Sergei",
@@ -14123,7 +14132,7 @@ const std::array<std::string_view, 350> estonianMalesFirstNames = {
     "Gary",
 };
 
-const std::array<std::string_view, 350> estonianFemalesFirstNames = {
+const std::array<std::string_view, 350> estonian_female_first_names = {
     "Olga",
     "Irina",
     "Jelena",
@@ -14476,7 +14485,7 @@ const std::array<std::string_view, 350> estonianFemalesFirstNames = {
     "Amanda",
 };
 
-const std::array<std::string_view, 350> estonianLastNames = {
+const std::array<std::string_view, 350> estonian_last_names = {
     "Tamm",
     "Saar",
     "Sepp",
@@ -14829,14 +14838,15 @@ const std::array<std::string_view, 350> estonianLastNames = {
     "Kirt",
 };
 
-const NameFormats estonianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats estonian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames estonianPeopleNames { { estonianMalesFirstNames, {}, estonianLastNames, {}, {} },
-    { estonianFemalesFirstNames, {}, estonianLastNames, {}, {} }, estonianPersonNameFormats };
+const PeopleNames estonian_people_names { { estonian_male_first_names, {}, estonian_last_names, {},
+                                              {} },
+    { estonian_female_first_names, {}, estonian_last_names, {}, {} }, estonian_name_formats };
 
 // Finland
 
-const std::array<std::string_view, 45> finnishMalesFirstNames = {
+const std::array<std::string_view, 45> finnish_male_first_names = {
     "Leo",
     "Elias",
     "Eino",
@@ -14884,7 +14894,7 @@ const std::array<std::string_view, 45> finnishMalesFirstNames = {
     "Visa",
 };
 
-const std::array<std::string_view, 46> finnishFemalesFirstNames = {
+const std::array<std::string_view, 46> finnish_female_first_names = {
     "Aino",
     "Eevi",
     "Emma",
@@ -14933,7 +14943,7 @@ const std::array<std::string_view, 46> finnishFemalesFirstNames = {
     "Kaneli",
 };
 
-const std::array<std::string_view, 46> finnishLastNames = {
+const std::array<std::string_view, 46> finnish_last_names = {
     "Mäkinen",
     "Virtanen",
     "Nieminen",
@@ -14982,14 +14992,15 @@ const std::array<std::string_view, 46> finnishLastNames = {
     "Heikkilä",
 };
 
-const NameFormats finnishPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats finnish_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames finnishPeopleNames { { finnishMalesFirstNames, {}, finnishLastNames, {}, {} },
-    { finnishFemalesFirstNames, {}, finnishLastNames, {}, {} }, finnishPersonNameFormats };
+const PeopleNames finnish_people_names { { finnish_male_first_names, {}, finnish_last_names, {},
+                                             {} },
+    { finnish_female_first_names, {}, finnish_last_names, {}, {} }, finnish_name_formats };
 
 // France
 
-const std::array<std::string_view, 496> frenchMalesFirstNames = {
+const std::array<std::string_view, 496> french_male_first_names = {
     "Aaron",
     "Abdon",
     "Abel",
@@ -15488,7 +15499,7 @@ const std::array<std::string_view, 496> frenchMalesFirstNames = {
     "Zéphirin",
 };
 
-const std::array<std::string_view, 451> frenchFemalesFirstNames = {
+const std::array<std::string_view, 451> french_female_first_names = {
     "Abdonie",
     "Abeline",
     "Abigaelle",
@@ -15942,7 +15953,7 @@ const std::array<std::string_view, 451> frenchFemalesFirstNames = {
     "Zoéva",
 };
 
-const std::array<std::string_view, 150> frenchLastNames = {
+const std::array<std::string_view, 150> french_last_names = {
     "Martin",
     "Bernard",
     "Dubois",
@@ -16095,21 +16106,21 @@ const std::array<std::string_view, 150> frenchLastNames = {
     "Cousin",
 };
 
-const std::array<std::string_view, 3> frenchMalesPrefixes { "M", "Dr", "Prof" };
+const std::array<std::string_view, 3> french_male_prefixes { "M", "Dr", "Prof" };
 
-const std::array<std::string_view, 4> frenchFemalesPrefixes { "Mme", "Mlle", "Dr", "Prof" };
+const std::array<std::string_view, 4> french_female_prefixes { "Mme", "Mlle", "Dr", "Prof" };
 
-const NameFormats frenchPersonNameFormats { { { "{prefix} {firstName} {lastName}", 2 },
+const NameFormats french_name_formats { { { "{prefix} {firstName} {lastName}", 2 },
     { "{firstName} {lastName}", 8 } } };
 
-const PeopleNames frenchPeopleNames { { frenchMalesFirstNames, {}, frenchLastNames,
-                                          frenchMalesPrefixes, {} },
-    { frenchFemalesFirstNames, {}, frenchLastNames, frenchFemalesPrefixes, {} },
-    frenchPersonNameFormats };
+const PeopleNames french_people_names { { french_male_first_names, {}, french_last_names,
+                                            french_male_prefixes, {} },
+    { french_female_first_names, {}, french_last_names, french_female_prefixes, {} },
+    french_name_formats };
 
 // Germany
 
-const std::array<std::string_view, 572> germanMalesFirstNames = { "Aaron", "Abdul", "Abdullah",
+const std::array<std::string_view, 572> german_male_first_names = { "Aaron", "Abdul", "Abdullah",
     "Adam", "Adrian", "Adriano", "Ahmad", "Ahmed", "Ahmet", "Alan", "Albert", "Alessandro",
     "Alessio", "Alex", "Alexander", "Alfred", "Ali", "Amar", "Amir", "Amon", "Andre", "Andreas",
     "Andrew", "Angelo", "Ansgar", "Anthony", "Anton", "Antonio", "Arda", "Arian", "Armin", "Arne",
@@ -16169,7 +16180,7 @@ const std::array<std::string_view, 572> germanMalesFirstNames = { "Aaron", "Abdu
     "Willy", "Xaver", "Yannic", "Yannick", "Yannik", "Yannis", "Yasin", "Youssef", "Yunus", "Yusuf",
     "Yven", "Yves", "Ömer" };
 
-const std::array<std::string_view, 583> germanFemalesFirstNames = { "Aaliyah", "Abby", "Abigail",
+const std::array<std::string_view, 583> german_female_first_names = { "Aaliyah", "Abby", "Abigail",
     "Ada", "Adelina", "Adriana", "Aileen", "Aimee", "Alana", "Alea", "Alena", "Alessa", "Alessia",
     "Alexa", "Alexandra", "Alexia", "Alexis", "Aleyna", "Alia", "Alica", "Alice", "Alicia", "Alina",
     "Alisa", "Alisha", "Alissa", "Aliya", "Aliyah", "Allegra", "Alma", "Alyssa", "Amalia", "Amanda",
@@ -16232,7 +16243,7 @@ const std::array<std::string_view, 583> germanFemalesFirstNames = { "Aaliyah", "
     "Yara", "Yaren", "Yasmin", "Ylvi", "Ylvie", "Yvonne", "Zara", "Zehra", "Zeynep", "Zoe", "Zoey",
     "Zoé" };
 
-const std::array<std::string_view, 1688> germanLastNames = { "Abel", "Abicht", "Abraham",
+const std::array<std::string_view, 1688> german_last_names = { "Abel", "Abicht", "Abraham",
     "Abramovic", "Abt", "Achilles", "Achkinadze", "Ackermann", "Adam", "Adams", "Ade", "Agostini",
     "Ahlke", "Ahrenberg", "Ahrens", "Aigner", "Albert", "Albrecht", "Alexa", "Alexander",
     "Alizadeh", "Allgeyer", "Amann", "Amberg", "Anding", "Anggreny", "Apitz", "Arendt", "Arens",
@@ -16432,21 +16443,21 @@ const std::array<std::string_view, 1688> germanLastNames = { "Abel", "Abicht", "
     "Zintl", "Zipp", "Zipse", "Zschunke", "Zuber", "Zwiener", "Zümsande", "Östringer",
     "Überacker" };
 
-const std::array<std::string_view, 3> germanMalesPrefixes { "Herr", "Dr.", "Prof. Dr." };
+const std::array<std::string_view, 3> german_male_prefixes { "Herr", "Dr.", "Prof. Dr." };
 
-const std::array<std::string_view, 3> germanFemalesPrefixes { "Frau", "Dr.", "Prof. Dr." };
+const std::array<std::string_view, 3> german_female_prefixes { "Frau", "Dr.", "Prof. Dr." };
 
-const NameFormats germanPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats german_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 8 } } };
 
-const PeopleNames germanPeopleNames { { germanMalesFirstNames, {}, germanLastNames,
-                                          germanMalesPrefixes, {} },
-    { germanFemalesFirstNames, {}, germanLastNames, germanFemalesPrefixes, {} },
-    germanPersonNameFormats };
+const PeopleNames german_people_names { { german_male_first_names, {}, german_last_names,
+                                            german_male_prefixes, {} },
+    { german_female_first_names, {}, german_last_names, german_female_prefixes, {} },
+    german_name_formats };
 
 // Ghana
 
-const std::array<std::string_view, 132> ghanaianMalesFirstNames = {
+const std::array<std::string_view, 132> ghanaian_male_first_names = {
     "Aaron",
     "Abeiku",
     "Adam",
@@ -16581,7 +16592,7 @@ const std::array<std::string_view, 132> ghanaianMalesFirstNames = {
     "Yaw",
 };
 
-const std::array<std::string_view, 132> ghanaianFemalesFirstNames = {
+const std::array<std::string_view, 132> ghanaian_female_first_names = {
     "Aba",
     "Abena",
     "Abigail",
@@ -16716,7 +16727,7 @@ const std::array<std::string_view, 132> ghanaianFemalesFirstNames = {
     "Yvonne",
 };
 
-const std::array<std::string_view, 120> ghanaianLastNames = {
+const std::array<std::string_view, 120> ghanaian_last_names = {
     "Acheampong",
     "Adadevoh",
     "Adomah",
@@ -16839,14 +16850,15 @@ const std::array<std::string_view, 120> ghanaianLastNames = {
     "Yirenkyi",
 };
 
-const NameFormats ghanaianPersonNameFormats { { { "{firstName} {lastName}" }, 1 } };
+const NameFormats ghanaian_name_formats { { { "{firstName} {lastName}" }, 1 } };
 
-const PeopleNames ghanaianPeopleNames { { ghanaianMalesFirstNames, {}, ghanaianLastNames, {}, {} },
-    { ghanaianFemalesFirstNames, {}, ghanaianLastNames, {}, {} }, ghanaianPersonNameFormats };
+const PeopleNames ghanaian_people_names { { ghanaian_male_first_names, {}, ghanaian_last_names, {},
+                                              {} },
+    { ghanaian_female_first_names, {}, ghanaian_last_names, {}, {} }, ghanaian_name_formats };
 
 // Greece
 
-const std::array<std::string_view, 350> greekMalesFirstNames = {
+const std::array<std::string_view, 350> greek_male_first_names = {
     "Georgios",
     "Dimitrios",
     "Ioannis",
@@ -17199,7 +17211,7 @@ const std::array<std::string_view, 350> greekMalesFirstNames = {
     "Faik",
 };
 
-const std::array<std::string_view, 350> greekFemalesFirstNames = {
+const std::array<std::string_view, 350> greek_female_first_names = {
     "Maria",
     "Eleni",
     "Aikaterini",
@@ -17552,7 +17564,7 @@ const std::array<std::string_view, 350> greekFemalesFirstNames = {
     "Rina",
 };
 
-const std::array<std::string_view, 350> greekLastNames = {
+const std::array<std::string_view, 350> greek_last_names = {
     "Papadopoulos",
     "Papadopoulou",
     "Papageorgiou",
@@ -17905,14 +17917,14 @@ const std::array<std::string_view, 350> greekLastNames = {
     "Stavridis",
 };
 
-const NameFormats greekPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats greek_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames greekPeopleNames { { greekMalesFirstNames, {}, greekLastNames, {}, {} },
-    { greekFemalesFirstNames, {}, greekLastNames, {}, {} }, greekPersonNameFormats };
+const PeopleNames greek_people_names { { greek_male_first_names, {}, greek_last_names, {}, {} },
+    { greek_female_first_names, {}, greek_last_names, {}, {} }, greek_name_formats };
 
 // Hungary
 
-const std::array<std::string_view, 100> hungarianMalesFirstNames = { "Bence", "Máté", "Dominik",
+const std::array<std::string_view, 100> hungarian_male_first_names = { "Bence", "Máté", "Dominik",
     "Levente", "Noel", "Dániel", "Zalán", "Marcell", "Olivér", "Ádám", "Milán", "Dávid", "Botond",
     "Benett", "Áron", "Zsombor", "Balázs", "Márk", "Péter", "Kristóf", "Zétény", "Nimród", "László",
     "Benedek", "Tamás", "Gergő", "Patrik", "Zente", "Bálint", "András", "Zoltán", "Attila",
@@ -17925,7 +17937,7 @@ const std::array<std::string_view, 100> hungarianMalesFirstNames = { "Bence", "M
     "Dorián", "Denisz", "Sámuel", "Noé", "Csanád", "Lajos", "Kolos", "Alexander", "Laurent",
     "Mirkó", "György", "Nátán", "Iván" };
 
-const std::array<std::string_view, 100> hungarianFemalesFirstNames = { "Hanna", "Anna", "Zoé",
+const std::array<std::string_view, 100> hungarian_female_first_names = { "Hanna", "Anna", "Zoé",
     "Léna", "Luca", "Emma", "Zsófia", "Boglárka", "Lili", "Mira", "Lilien", "Nóra", "Laura", "Lara",
     "Maja", "Fanni", "Jázmin", "Izabella", "Olívia", "Sára", "Gréta", "Alíz", "Adél", "Lilla",
     "Liza", "Flóra", "Dorka", "Zselyke", "Dóra", "Csenge", "Janka", "Liliána", "Viktória", "Szofia",
@@ -17937,7 +17949,7 @@ const std::array<std::string_view, 100> hungarianFemalesFirstNames = { "Hanna", 
     "Borbála", "Emese", "Bíborka", "Barbara", "Letícia", "Lujza", "Zita", "Kincső", "Nina", "Vanda",
     "Veronika", "Zara", "Lana", "Lora", "Kiara", "Lívia", "Rozina", "Zejnep", "Virág" };
 
-const std::array<std::string_view, 100> hungarianLastNames = { "Nagy", "Kovács", "Tóth", "Szabó",
+const std::array<std::string_view, 100> hungarian_last_names = { "Nagy", "Kovács", "Tóth", "Szabó",
     "Horváth", "Varga", "Kiss", "Molnár", "Németh", "Farkas", "Balogh", "Papp", "Takács", "Juhász",
     "Lakatos", "Mészáros", "Oláh", "Simon", "Rácz", "Fekete", "Szilágyi", "Török", "Fehér",
     "Balázs", "Gál", "Kis", "Szűcs", "Kocsis", "Orsós", "Pintér", "Fodor", "Szalai", "Sipos",
@@ -17949,19 +17961,19 @@ const std::array<std::string_view, 100> hungarianLastNames = { "Nagy", "Kovács"
     "Barna", "Novák", "Soós", "Tamás", "Nemes", "Pataki", "Balla", "Faragó", "Kerekes", "Borbély",
     "Barta", "Péter", "Szekeres", "Csonka", "Mezei", "Márton", "Sárközi" };
 
-const std::array<std::string_view, 2> hungarianPrefixes { "Dr.", "Prof." };
+const std::array<std::string_view, 2> hungarian_prefixes { "Dr.", "Prof." };
 
-const NameFormats hungarianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats hungarian_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
 
-const PeopleNames hungarianPeopleNames { { hungarianMalesFirstNames, {}, hungarianLastNames,
-                                             hungarianPrefixes, {} },
-    { hungarianFemalesFirstNames, {}, hungarianLastNames, hungarianPrefixes, {} },
-    hungarianPersonNameFormats };
+const PeopleNames hungarian_people_names { { hungarian_male_first_names, {}, hungarian_last_names,
+                                               hungarian_prefixes, {} },
+    { hungarian_female_first_names, {}, hungarian_last_names, hungarian_prefixes, {} },
+    hungarian_name_formats };
 
 // Iceland
 
-const std::array<std::string_view, 157> icelandicMalesFirstNames = { "Gunnar", "Einar", "Ragnar",
+const std::array<std::string_view, 157> icelandic_male_first_names = { "Gunnar", "Einar", "Ragnar",
     "Karl", "Aron", "Benedikt", "Jon", "Jakob", "Steinar", "Ari", "Viktor", "Axel", "Alexander",
     "Anton", "Hannes", "Hermann", "Emil", "Jens", "Hans", "Geir", "Daniel", "David", "Magnus",
     "Adam", "Stefan", "Robert", "John", "Piotr", "Elmar", "Georg", "Albert", "Johann", "Krzysztof",
@@ -17980,7 +17992,7 @@ const std::array<std::string_view, 157> icelandicMalesFirstNames = { "Gunnar", "
     "Kevin", "Samuel", "Hugo", "Patryk", "Ashok", "Adrian", "Julio", "Bent", "Ikechukwu", "Cesar",
     "Jerzy", "Fritz", "Haruna", "Jonathan" };
 
-const std::array<std::string_view, 141> icelandicFemalesFirstNames = {
+const std::array<std::string_view, 141> icelandic_female_first_names = {
     "Anna",
     "Helga",
     "Inga",
@@ -18124,7 +18136,7 @@ const std::array<std::string_view, 141> icelandicFemalesFirstNames = {
     "Jessica",
 };
 
-const std::array<std::string_view, 140> icelandicLastNames = { "Jónsdóttir", "Jónsson",
+const std::array<std::string_view, 140> icelandic_last_names = { "Jónsdóttir", "Jónsson",
     "Sigurðardóttir", "Guðmundsdóttir", "Guðmundsson", "Sigurðsson", "Gunnarsdóttir", "Gunnarsson",
     "ólafsson", "ólafsdóttir", "Magnúsdóttir", "Magnússon", "Einarsson", "Einarsdóttir",
     "Kristjánsdóttir", "Kristjánsson", "Björnsdóttir", "Stefánsson", "Jóhannsson", "Jóhannsdóttir",
@@ -18150,15 +18162,16 @@ const std::array<std::string_view, 140> icelandicLastNames = { "Jónsdóttir", "
     "Guðlaugsson", "Grétarsson", "Snorradóttir", "Aðalsteinsson", "Lárusson", "Tryggvadóttir",
     "Tómasson", "Jakobsdóttir" };
 
-const NameFormats icelandicPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats icelandic_person_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames icelandicPeopleNames { { icelandicMalesFirstNames, {}, icelandicLastNames, {},
-                                             {} },
-    { icelandicFemalesFirstNames, {}, icelandicLastNames, {}, {} }, icelandicPersonNameFormats };
+const PeopleNames icelandic_people_names { { icelandic_male_first_names, {}, icelandic_last_names,
+                                               {}, {} },
+    { icelandic_female_first_names, {}, icelandic_last_names, {}, {} },
+    icelandic_person_name_formats };
 
 // India
 
-const std::array<std::string_view, 351> indianMalesFirstNames = {
+const std::array<std::string_view, 351> indian_male_first_names = {
     "Aadi",
     "Aadil",
     "Aahan",
@@ -18512,7 +18525,7 @@ const std::array<std::string_view, 351> indianMalesFirstNames = {
     "Zayyan",
 };
 
-const std::array<std::string_view, 228> indianFemalesFirstNames = { "Aadrika", "Aadya", "Aakriti",
+const std::array<std::string_view, 228> indian_female_first_names = { "Aadrika", "Aadya", "Aakriti",
     "Aanya", "Aanyaya", "Aaradhya", "Aarohi", "Aashi", "Aashika", "Adhithi", "Aditi", "Aisha",
     "Akshara", "Alia", "Amaira", "Amara", "Ananya", "Anika", "Anisha", "Anushka", "Anvi", "Anwaya",
     "Aria", "Arunima", "Avani", "Avishi", "Avni", "Banita", "Bhavana", "Bhavisha", "Bhavna",
@@ -18539,7 +18552,7 @@ const std::array<std::string_view, 228> indianFemalesFirstNames = { "Aadrika", "
     "Yashi", "Yashika", "Yashvi", "Yukta", "Yukthi", "Zaina", "Zaira", "Zara", "Zarika", "Zarna",
     "Zoya" };
 
-const std::array<std::string_view, 184> indianLastNames = { "Acharya", "Agarwal", "Aggarwal",
+const std::array<std::string_view, 184> indian_last_names = { "Acharya", "Agarwal", "Aggarwal",
     "Ahluwalia", "Ahuja", "Amin", "Anand", "Arora", "Arvind", "Babu", "Bajaj", "Bajwa", "Banerjee",
     "Bansal", "Batra", "Bhagat", "Bhardwaj", "Bhargava", "Bhasin", "Bhat", "Bhatia", "Bhatnagar",
     "Bhatt", "Bhattacharya", "Biswas", "Bose", "Chabra", "Chadha", "Chakrabarti", "Chakrabarty",
@@ -18561,14 +18574,14 @@ const std::array<std::string_view, 184> indianLastNames = { "Acharya", "Agarwal"
     "Varghese", "Varma", "Verma", "Vij", "Vora", "Vyas", "Wadhwa", "Wagh", "Waghmare", "Wagle",
     "Walia", "Xavier", "Yadav", "Zakaria", "Zaveri" };
 
-const NameFormats indianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats indian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames indianPeopleNames { { indianMalesFirstNames, {}, indianLastNames, {}, {} },
-    { indianFemalesFirstNames, {}, indianLastNames, {}, {} }, indianPersonNameFormats };
+const PeopleNames indian_people_names { { indian_male_first_names, {}, indian_last_names, {}, {} },
+    { indian_female_first_names, {}, indian_last_names, {}, {} }, indian_name_formats };
 
 // Ireland
 
-const std::array<std::string_view, 350> irishMalesFirstNames = {
+const std::array<std::string_view, 350> irish_male_first_names = {
     "John",
     "Michael",
     "Patrick",
@@ -18921,7 +18934,7 @@ const std::array<std::string_view, 350> irishMalesFirstNames = {
     "Jorge",
 };
 
-const std::array<std::string_view, 350> irishFemalesFirstNames = {
+const std::array<std::string_view, 350> irish_female_first_names = {
     "Mary",
     "Margaret",
     "Ann",
@@ -19274,7 +19287,7 @@ const std::array<std::string_view, 350> irishFemalesFirstNames = {
     "Cynthia",
 };
 
-const std::array<std::string_view, 350> irishLastNames = {
+const std::array<std::string_view, 350> irish_last_names = {
     "Murphy",
     "Kelly",
     "Byrne",
@@ -19627,55 +19640,55 @@ const std::array<std::string_view, 350> irishLastNames = {
     "O'farrell",
 };
 
-const std::array<std::string_view, 11> irishSuffixes { "Jr.", "Sr.", "I", "II", "III", "IV", "V",
+const std::array<std::string_view, 11> irish_suffixes { "Jr.", "Sr.", "I", "II", "III", "IV", "V",
     "MD", "DDS", "PhD", "DVM" };
 
-const std::array<std::string_view, 2> irishMalesPrefixes { "Mr.", "Dr." };
+const std::array<std::string_view, 2> irish_male_prefixes { "Mr.", "Dr." };
 
-const std::array<std::string_view, 4> irishFemalesPrefixes { "Mrs.", "Ms.", "Miss", "Dr." };
+const std::array<std::string_view, 4> irish_female_prefixes { "Mrs.", "Ms.", "Miss", "Dr." };
 
 // TODO: add handling lastName-lastName
 
-const NameFormats irishPersonNameFormats { { { "{firstName} {lastName}", 49 },
+const NameFormats irish_name_formats { { { "{firstName} {lastName}", 49 },
     { "{prefix} {firstName} {lastName}", 7 }, { "{firstName} {lastName} {suffix}", 7 },
     { "{prefix} {firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames irishPeopleNames { { irishMalesFirstNames, {}, irishLastNames, irishMalesPrefixes,
-                                         irishSuffixes },
-    { irishFemalesFirstNames, {}, irishLastNames, irishFemalesPrefixes, irishSuffixes },
-    irishPersonNameFormats };
+const PeopleNames irish_people_names { { irish_male_first_names, {}, irish_last_names,
+                                           irish_male_prefixes, irish_suffixes },
+    { irish_female_first_names, {}, irish_last_names, irish_female_prefixes, irish_suffixes },
+    irish_name_formats };
 
 // Israel
 
-const std::array<std::string_view, 297> israelisMalesFirstNames = { "דוד", "לביא", "אריאל", "יוסף",
-    "נועם", "אורי", "רפאל", "ארי", "משה", "יהודה", "אברהם", "איתן", "דניאל", "ישראל", "איתי",
-    "שמואל", "אליה", "יהונתן", "יצחק", "שמעון", "יעקב", "מיכאל", "עומר", "יונתן", "אהרון", "חיים",
-    "אימרי", "אדם", "שלמה", "איתמר", "עידו", "יאיר", "ינאי", "מאיר", "ישי", "מרדכי", "הראל", "בניה",
-    "ניתאי", "בנימין", "אליהו", "מנחם", "ליאם", "בארי", "אלון", "עילאי", "עמית", "בן", "נתן", "אור",
-    "נתנאל", "ריף", "אביב", "גיא", "נהוראי", "מאור", "ריי", "רום", "ליאו", "נוה", "יובל", "הלל",
-    "עומרי", "שחר", "אלרואי", "רוי", "נריה", "נדב", "דור", "צבי", "מלאכי", "רועי", "עידן", "ראם",
-    "אביתר", "נבו", "תום", "אלחנן", "אוריאל", "מעיין", "אריה", "שלום", "גבריאל", "אליאב", "עוז",
-    "אליעזר", "שילה", "ארבל", "ירדן", "לני", "יואב", "נחמן", "גפן", "ליאור", "יהושע", "אביאל", "דן",
-    "לוי", "אמיתי", "יהב", "עמנואל", "זיו", "אייל", "אלעזר", "מתן", "ידידיה", "פנחס", "יהלי",
-    "אופק", "אופיר", "אבישי", "בר", "דביר", "יחיאל", "עברי", "אוריה", "שקד", "לירוי", "שי", "רני",
-    "ים", "נפתלי", "יגל", "פלג", "אסף", "ינון", "אדיר", "רון", "שליו", "אושר", "כפיר", "אשר",
-    "ברוך", "רותם", "שניאור", "אפרים", "גל", "דין", "טום", "רואי", "תומר", "אוראל", "נטע", "אלמוג",
-    "עתי", "ראובן", "יותם", "שמחה", "זוהר", "טומי", "שון", "רז", "עופרי", "יחזקאל", "יהל", "ירין",
-    "יואל", "צור", "סהר", "ליאב", "דב", "עקיבא", "טל", "זאב", "גלעד", "ברי", "גבע", "איליי",
-    "אלישע", "הדר", "אילון", "ניב", "אדר", "קורן", "עילי", "ליעד", "הילל", "אליאור", "אחיה", "סיני",
-    "אושרי", "קאי", "אמרי", "אלימלך", "בועז", "יוחנן", "כרמל", "אלרועי", "יאן", "שאול", "אסיף",
-    "שלו", "ליאל", "ברק", "עדן", "ארז", "עדיאל", "דרור", "ניל", "ישעיה", "עופר", "יפתח", "נחום",
-    "אראל", "כרמי", "טוהר", "פאר", "מרום", "דורי", "ארד", "לאו", "רעי", "אלעד", "עמיחי", "מאורי",
-    "נגב", "גור", "אביחי", "ליאון", "עובדיה", "עדי", "אורן", "ריו", "און", "שוהם", "אלרוי", "טוביה",
-    "בניהו", "עזרא", "גיל", "אלאור", "נח", "דולב", "אפק", "אביעד", "אלנתן", "יאר", "אילן", "דילן",
-    "סאן", "נאור", "ניצן", "מבשר", "אליעד", "קדם", "תבור", "לאון", "אליאל", "אלקנה", "ריין", "נורי",
-    "יונה", "אלכסנדר", "מתניה", "מייקל", "איתיאל", "אלרום", "בצלאל", "יוחאי", "יקותיאל", "מיאל",
-    "סול", "דורון", "אבינועם", "אוהד", "חגי", "יששכר", "שיר", "ענבר", "אביגדור", "יוגב", "ניסים",
-    "שגיא", "ניר", "נרי", "מתנאל", "אייר", "מנור", "לידור", "אביאור", "ישעיהו", "עזריאל", "עמוס",
-    "תבל", "חנוך", "להב", "צורי", "נחמיה", "שמשון", "כרם", "אלי", "הוד", "יער", "אפיק", "שגב",
-    "אלישיב", "אמיר" };
+const std::array<std::string_view, 297> israelis_male_first_names = { "דוד", "לביא", "אריאל",
+    "יוסף", "נועם", "אורי", "רפאל", "ארי", "משה", "יהודה", "אברהם", "איתן", "דניאל", "ישראל",
+    "איתי", "שמואל", "אליה", "יהונתן", "יצחק", "שמעון", "יעקב", "מיכאל", "עומר", "יונתן", "אהרון",
+    "חיים", "אימרי", "אדם", "שלמה", "איתמר", "עידו", "יאיר", "ינאי", "מאיר", "ישי", "מרדכי", "הראל",
+    "בניה", "ניתאי", "בנימין", "אליהו", "מנחם", "ליאם", "בארי", "אלון", "עילאי", "עמית", "בן",
+    "נתן", "אור", "נתנאל", "ריף", "אביב", "גיא", "נהוראי", "מאור", "ריי", "רום", "ליאו", "נוה",
+    "יובל", "הלל", "עומרי", "שחר", "אלרואי", "רוי", "נריה", "נדב", "דור", "צבי", "מלאכי", "רועי",
+    "עידן", "ראם", "אביתר", "נבו", "תום", "אלחנן", "אוריאל", "מעיין", "אריה", "שלום", "גבריאל",
+    "אליאב", "עוז", "אליעזר", "שילה", "ארבל", "ירדן", "לני", "יואב", "נחמן", "גפן", "ליאור",
+    "יהושע", "אביאל", "דן", "לוי", "אמיתי", "יהב", "עמנואל", "זיו", "אייל", "אלעזר", "מתן",
+    "ידידיה", "פנחס", "יהלי", "אופק", "אופיר", "אבישי", "בר", "דביר", "יחיאל", "עברי", "אוריה",
+    "שקד", "לירוי", "שי", "רני", "ים", "נפתלי", "יגל", "פלג", "אסף", "ינון", "אדיר", "רון", "שליו",
+    "אושר", "כפיר", "אשר", "ברוך", "רותם", "שניאור", "אפרים", "גל", "דין", "טום", "רואי", "תומר",
+    "אוראל", "נטע", "אלמוג", "עתי", "ראובן", "יותם", "שמחה", "זוהר", "טומי", "שון", "רז", "עופרי",
+    "יחזקאל", "יהל", "ירין", "יואל", "צור", "סהר", "ליאב", "דב", "עקיבא", "טל", "זאב", "גלעד",
+    "ברי", "גבע", "איליי", "אלישע", "הדר", "אילון", "ניב", "אדר", "קורן", "עילי", "ליעד", "הילל",
+    "אליאור", "אחיה", "סיני", "אושרי", "קאי", "אמרי", "אלימלך", "בועז", "יוחנן", "כרמל", "אלרועי",
+    "יאן", "שאול", "אסיף", "שלו", "ליאל", "ברק", "עדן", "ארז", "עדיאל", "דרור", "ניל", "ישעיה",
+    "עופר", "יפתח", "נחום", "אראל", "כרמי", "טוהר", "פאר", "מרום", "דורי", "ארד", "לאו", "רעי",
+    "אלעד", "עמיחי", "מאורי", "נגב", "גור", "אביחי", "ליאון", "עובדיה", "עדי", "אורן", "ריו", "און",
+    "שוהם", "אלרוי", "טוביה", "בניהו", "עזרא", "גיל", "אלאור", "נח", "דולב", "אפק", "אביעד",
+    "אלנתן", "יאר", "אילן", "דילן", "סאן", "נאור", "ניצן", "מבשר", "אליעד", "קדם", "תבור", "לאון",
+    "אליאל", "אלקנה", "ריין", "נורי", "יונה", "אלכסנדר", "מתניה", "מייקל", "איתיאל", "אלרום",
+    "בצלאל", "יוחאי", "יקותיאל", "מיאל", "סול", "דורון", "אבינועם", "אוהד", "חגי", "יששכר", "שיר",
+    "ענבר", "אביגדור", "יוגב", "ניסים", "שגיא", "ניר", "נרי", "מתנאל", "אייר", "מנור", "לידור",
+    "אביאור", "ישעיהו", "עזריאל", "עמוס", "תבל", "חנוך", "להב", "צורי", "נחמיה", "שמשון", "כרם",
+    "אלי", "הוד", "יער", "אפיק", "שגב", "אלישיב", "אמיר" };
 
-const std::array<std::string_view, 297> israelisFemalesFirstNames = { "תמר", "מאיה", "אביגיל",
+const std::array<std::string_view, 297> israelis_female_first_names = { "תמר", "מאיה", "אביגיל",
     "נועה", "שרה", "איילה", "אדל", "יעל", "שירה", "אסתר", "חנה", "אלה", "מרים", "רחל", "רבקה",
     "ליה", "חיה", "טליה", "רוני", "רומי", "מיכל", "נויה", "אריאל", "רות", "ליבי", "עלמה", "הלל",
     "אמה", "גפן", "גאיה", "נעמי", "הודיה", "עומר", "נגה", "אגם", "יובל", "שי-לי", "אפרת", "לאה",
@@ -19703,41 +19716,43 @@ const std::array<std::string_view, 297> israelisFemalesFirstNames = { "תמר", 
     "פריידא", "קדם", "בל", "אליאנה", "קמה", "רום", "פאר", "לי", "מטר", "סימא", "עליזה", "ריי",
     "אוליביה", "אשירה", "הענא" };
 
-const std::array<std::string_view, 270> israelisLastNames = { "כהן", "לוי", "מזרחי", "פרץ", "ביטון",
-    "דהן", "אברהם", "פרידמן", "אזולאי", "מלכה", "כץ", "דוד", "אוחיון", "חדד", "עמר", "גבאי", "יוסף",
-    "בן דוד", "אדרי", "קליין", "חן", "טל", "לוין", "שפירא", "חזן", "מחאמיד", "זועבי", "לוין",
-    "מנשה", "אוחנה", "סועאד", "גולן", "סגל", "אשכנזי", "יצחק", "בר", "יעקב", "מור", "שלום", "אליהו",
-    "דיין", "סויסה", "לביא", "אלבז", "שמש", "אטיאס", "בכר", "נחום", "שטרן", "שרעבי", "אלון",
-    "רוזנברג", "ממן", "בן חמו", "מימון", "שחר", "וקנין", "ששון", "עובדיה", "אסולין", "שורץ", "מאיר",
-    "וייס", "גרינברג", "חסן", "אמסלם", "גולדשטיין", "ברוך", "טאהא", "עזרא", "יפרח", "פלדמן",
-    "רובין", "הראל", "סלאמה", "סבג", "קדוש", "מנסור", "עמאש", "חיים", "שחאדה", "רז", "קורן",
-    "גולדברג", "צור", "חסון", "אברמוב", "שרון", "רבינוביץ", "סופר", "חלבי", "ישראל", "דדון",
-    "יצחקי", "שוורץ", "ישראלי", "דניאל", "נעים", "אהרוני", "לב", "עיסא", "רחמים", "הרוש", "נאסר",
-    "שושן", "ברק", "יחזקאל", "דוידוב", "יאסין", "מילר", "אורן", "עודה", "קפלן", "סלימאן", "בנימין",
-    "נגר", "חיון", "גרוס", "רוזן", "גל", "הרשקוביץ", "סולומון", "אסרף", "מלול", "אבו כף", "סלע",
-    "שטרית", "אבראהים", "ברקוביץ", "יהודה", "פלד", "צרפתי", "הייב", "בן שושן", "זידאן", "זוהר",
-    "שלו", "עלי", "זיו", "עמאר", "גאנם", "גוטמן", "אהרון", "גנאים", "מויאל", "מרעי", "אבו ליל",
-    "אלפסי", "אליאס", "אדלר", "פרנקל", "גאבר", "פלג", "פישר", "ברגר", "ראובן", "מסרי", "שכטר",
-    "צדוק", "ויצמן", "הלוי", "אביטן", "אהרון", "לוגסי", "נסים", "רוזנפלד", "מועלם", "שוויקי",
-    "ליפשיץ", "דרעי", "עטיה", "תורגמן", "עואד", "שוקרון", "שקד", "דגן", "שמעוני", "דיאב", "רוט",
-    "ליברמן", "יעקובוב", "ליבוביץ", "סעיד", "מנחם", "בן חיים", "חורי", "פולק", "ברכה", "עאסלה",
-    "פוקס", "חדאד", "גולדמן", "שמואלי", "שגב", "אברהמי", "מוסא", "תורג'מן", "פרי", "הררי", "אילוז",
-    "סרחאן", "מנשה", "אוזן", "מרדכי", "קוגן", "יונס", "צברי", "עומר", "קרן", "שדה", "ח'לאילה",
-    "שאול", "אביטל", "שני", "סלומון", "קאסם", "אלימלך", "שטיין", "עבדאללה", "שיטרית", "דרור",
-    "מלמד", "יונה", "כחלון", "חביב", "טויטו", "חביבאללה", "סבן", "חמו", "פנחס", "בן עמי", "סעדי",
-    "בוזגלו", "דנינו", "פז", "חמדאן", "בן סימון", "רוזנטל", "בן משה", "סעד", "גדיר", "יוסופוב",
-    "בוסקילה", "בדארנה", "ארביב", "אמארה", "דביר", "אבו אל היג'א", "אביב", "עליאן", "שלמה", "פורת",
-    "פריד", "גוטליב", "חיימוב", "קאופמן", "רביבו", "אשר", "אבו סאלח", "מרקוביץ", "אביטבול",
-    "אברמוביץ", "יעקבי", "שניידר", "אבו רמילה", "אלקיים", "רגב", "נחמני", "זהבי", "פינטו" };
+const std::array<std::string_view, 270> israelis_last_names = { "כהן", "לוי", "מזרחי", "פרץ",
+    "ביטון", "דהן", "אברהם", "פרידמן", "אזולאי", "מלכה", "כץ", "דוד", "אוחיון", "חדד", "עמר",
+    "גבאי", "יוסף", "בן דוד", "אדרי", "קליין", "חן", "טל", "לוין", "שפירא", "חזן", "מחאמיד",
+    "זועבי", "לוין", "מנשה", "אוחנה", "סועאד", "גולן", "סגל", "אשכנזי", "יצחק", "בר", "יעקב", "מור",
+    "שלום", "אליהו", "דיין", "סויסה", "לביא", "אלבז", "שמש", "אטיאס", "בכר", "נחום", "שטרן",
+    "שרעבי", "אלון", "רוזנברג", "ממן", "בן חמו", "מימון", "שחר", "וקנין", "ששון", "עובדיה",
+    "אסולין", "שורץ", "מאיר", "וייס", "גרינברג", "חסן", "אמסלם", "גולדשטיין", "ברוך", "טאהא",
+    "עזרא", "יפרח", "פלדמן", "רובין", "הראל", "סלאמה", "סבג", "קדוש", "מנסור", "עמאש", "חיים",
+    "שחאדה", "רז", "קורן", "גולדברג", "צור", "חסון", "אברמוב", "שרון", "רבינוביץ", "סופר", "חלבי",
+    "ישראל", "דדון", "יצחקי", "שוורץ", "ישראלי", "דניאל", "נעים", "אהרוני", "לב", "עיסא", "רחמים",
+    "הרוש", "נאסר", "שושן", "ברק", "יחזקאל", "דוידוב", "יאסין", "מילר", "אורן", "עודה", "קפלן",
+    "סלימאן", "בנימין", "נגר", "חיון", "גרוס", "רוזן", "גל", "הרשקוביץ", "סולומון", "אסרף", "מלול",
+    "אבו כף", "סלע", "שטרית", "אבראהים", "ברקוביץ", "יהודה", "פלד", "צרפתי", "הייב", "בן שושן",
+    "זידאן", "זוהר", "שלו", "עלי", "זיו", "עמאר", "גאנם", "גוטמן", "אהרון", "גנאים", "מויאל",
+    "מרעי", "אבו ליל", "אלפסי", "אליאס", "אדלר", "פרנקל", "גאבר", "פלג", "פישר", "ברגר", "ראובן",
+    "מסרי", "שכטר", "צדוק", "ויצמן", "הלוי", "אביטן", "אהרון", "לוגסי", "נסים", "רוזנפלד", "מועלם",
+    "שוויקי", "ליפשיץ", "דרעי", "עטיה", "תורגמן", "עואד", "שוקרון", "שקד", "דגן", "שמעוני", "דיאב",
+    "רוט", "ליברמן", "יעקובוב", "ליבוביץ", "סעיד", "מנחם", "בן חיים", "חורי", "פולק", "ברכה",
+    "עאסלה", "פוקס", "חדאד", "גולדמן", "שמואלי", "שגב", "אברהמי", "מוסא", "תורג'מן", "פרי", "הררי",
+    "אילוז", "סרחאן", "מנשה", "אוזן", "מרדכי", "קוגן", "יונס", "צברי", "עומר", "קרן", "שדה",
+    "ח'לאילה", "שאול", "אביטל", "שני", "סלומון", "קאסם", "אלימלך", "שטיין", "עבדאללה", "שיטרית",
+    "דרור", "מלמד", "יונה", "כחלון", "חביב", "טויטו", "חביבאללה", "סבן", "חמו", "פנחס", "בן עמי",
+    "סעדי", "בוזגלו", "דנינו", "פז", "חמדאן", "בן סימון", "רוזנטל", "בן משה", "סעד", "גדיר",
+    "יוסופוב", "בוסקילה", "בדארנה", "ארביב", "אמארה", "דביר", "אבו אל היג'א", "אביב", "עליאן",
+    "שלמה", "פורת", "פריד", "גוטליב", "חיימוב", "קאופמן", "רביבו", "אשר", "אבו סאלח", "מרקוביץ",
+    "אביטבול", "אברמוביץ", "יעקבי", "שניידר", "אבו רמילה", "אלקיים", "רגב", "נחמני", "זהבי",
+    "פינטו" };
 
-const NameFormats israelisPersonNameFormats { { "{lastName} {firstName}", 1 } };
+const NameFormats israelis_name_formats { { "{lastName} {firstName}", 1 } };
 
-const PeopleNames israeliPeopleNames { { israelisMalesFirstNames, {}, israelisLastNames, {}, {} },
-    { israelisFemalesFirstNames, {}, israelisLastNames, {}, {} }, israelisPersonNameFormats };
+const PeopleNames israeli_people_names { { israelis_male_first_names, {}, israelis_last_names, {},
+                                             {} },
+    { israelis_female_first_names, {}, israelis_last_names, {}, {} }, israelis_name_formats };
 
 // Italy
 
-const std::array<std::string_view, 1083> italianMalesFirstNames = { "Abaco", "Abbondanzio",
+const std::array<std::string_view, 1083> italian_male_first_names = { "Abaco", "Abbondanzio",
     "Abbondio", "Abdone", "Abelardo", "Abele", "Abenzio", "Abibo", "Abramio", "Abramo", "Acacio",
     "Acario", "Accursio", "Achille", "Acilio", "Aciscolo", "Acrisio", "Adalardo", "Adalberto",
     "Adalfredo", "Adalgiso", "Adalrico", "Adamo", "Addo", "Adelardo", "Adelberto", "Adelchi",
@@ -19870,11 +19885,11 @@ const std::array<std::string_view, 1083> italianMalesFirstNames = { "Abaco", "Ab
     "Zabedeo", "Zaccaria", "Zaccheo", "Zanobi", "Zefiro", "Zena", "Zenaide", "Zenebio", "Zeno",
     "Zenobio", "Zenone", "Zetico", "Zoilo", "Zosimo" };
 
-const std::array<std::string_view, 617> italianFemalesFirstNames = { "Abbondanza", "Acilia", "Ada",
-    "Adalberta", "Adalgisa", "Addolorata", "Adelaide", "Adelasia", "Adele", "Adelina", "Adina",
-    "Adria", "Adriana", "Agape", "Agata", "Agnese", "Agostina", "Aida", "Alba", "Alberta", "Albina",
-    "Alcina", "Alda", "Alessandra", "Alessia", "Alfonsa", "Alfreda", "Alice", "Alida", "Alina",
-    "Allegra", "Alma", "Altea", "Amalia", "Amanda", "Amata", "Ambra", "Amelia", "Amina",
+const std::array<std::string_view, 617> italian_female_first_names = { "Abbondanza", "Acilia",
+    "Ada", "Adalberta", "Adalgisa", "Addolorata", "Adelaide", "Adelasia", "Adele", "Adelina",
+    "Adina", "Adria", "Adriana", "Agape", "Agata", "Agnese", "Agostina", "Aida", "Alba", "Alberta",
+    "Albina", "Alcina", "Alda", "Alessandra", "Alessia", "Alfonsa", "Alfreda", "Alice", "Alida",
+    "Alina", "Allegra", "Alma", "Altea", "Amalia", "Amanda", "Amata", "Ambra", "Amelia", "Amina",
     "Anastasia", "Anatolia", "Ancilla", "Andromeda", "Angela", "Angelica", "Anita", "Anna",
     "Annabella", "Annagrazia", "Annamaria", "Annunziata", "Antea", "Antigone", "Antonella",
     "Antonia", "Apollina", "Apollonia", "Appia", "Arabella", "Argelia", "Arianna", "Armida",
@@ -19944,7 +19959,7 @@ const std::array<std::string_view, 617> italianFemalesFirstNames = { "Abbondanza
     "Viviana", "Wanda", "Zabina", "Zaira", "Zama", "Zanita", "Zarina", "Zelinda", "Zenobia", "Zita",
     "Zoe", "Zosima" };
 
-const std::array<std::string_view, 2170> italianLastNames = { "Abate", "Abbate", "Abbondanza",
+const std::array<std::string_view, 2170> italian_last_names = { "Abate", "Abbate", "Abbondanza",
     "Abbrescia", "Accardi", "Accardo", "Accurso", "Aceto", "Acquadro", "Acquaviva", "Acquistapace",
     "Adami", "Adamo", "Addari", "Addis", "Adragna", "Affinito", "Agnello", "Agostinelli",
     "Agostini", "Agresta", "Aiello", "Alaimo", "Albanese", "Albano", "Alberti", "Alcamo",
@@ -20209,19 +20224,19 @@ const std::array<std::string_view, 2170> italianLastNames = { "Abate", "Abbate",
     "Zappacosta", "Zappalà", "Zappia", "Zedda", "Zeni", "Zennaro", "Zingaretti", "Zito", "Zollo",
     "Zordan", "Zotti", "Zucca", "Zuliani", "Zullo", "Zumbo", "Zunino" };
 
-const std::array<std::string_view, 4> italianPrefixes { "Sig.", "Dott.", "Dr.", "Ing." };
+const std::array<std::string_view, 4> italian_prefixes { "Sig.", "Dott.", "Dr.", "Ing." };
 
-const NameFormats italianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats italian_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
 
-const PeopleNames italianPeopleNames { { italianMalesFirstNames, {}, italianLastNames,
-                                           italianPrefixes, {} },
-    { italianFemalesFirstNames, {}, italianLastNames, italianPrefixes, {} },
-    italianPersonNameFormats };
+const PeopleNames italian_people_names { { italian_male_first_names, {}, italian_last_names,
+                                             italian_prefixes, {} },
+    { italian_female_first_names, {}, italian_last_names, italian_prefixes, {} },
+    italian_name_formats };
 
 // Japan
 
-const std::array<std::string_view, 135> japaneseMaleFirstNames {
+const std::array<std::string_view, 135> japanese_male_first_names {
     "正一",
     "正二",
     "正三",
@@ -20358,7 +20373,7 @@ const std::array<std::string_view, 135> japaneseMaleFirstNames {
     "悠希",
     "歩夢",
 };
-const std::array<std::string_view, 145> japaneseFemaleFirstNames {
+const std::array<std::string_view, 145> japanese_female_first_names {
     "千代子",
     "静子",
     "文子",
@@ -20506,7 +20521,7 @@ const std::array<std::string_view, 145> japaneseFemaleFirstNames {
     "美結",
 };
 
-const std::array<std::string_view, 20> japaneseLastNames {
+const std::array<std::string_view, 20> japanese_last_names {
     "佐藤",
     "鈴木",
     "高橋",
@@ -20529,13 +20544,14 @@ const std::array<std::string_view, 20> japaneseLastNames {
     "清水",
 };
 
-const NameFormats japanesePeopleNameFormats { { "{lastName} {firstName}", 1 } };
-const PeopleNames japanesePeopleNames { { japaneseMaleFirstNames, {}, japaneseLastNames, {}, {} },
-    { japaneseFemaleFirstNames, {}, japaneseLastNames, {}, {} }, japanesePeopleNameFormats };
+const NameFormats japanese_name_formats { { "{lastName} {firstName}", 1 } };
+const PeopleNames japanese_people_names { { japanese_male_first_names, {}, japanese_last_names, {},
+                                              {} },
+    { japanese_female_first_names, {}, japanese_last_names, {}, {} }, japanese_name_formats };
 
 // Kazakhstan
 
-const std::array<std::string_view, 200> kazakhMalesFirstNames = { "Абай", "Абдолла", "Абдулла",
+const std::array<std::string_view, 200> kazakh_male_first_names = { "Абай", "Абдолла", "Абдулла",
     "Абдуллаһ", "Абдінасір", "Абылай", "Азамат", "Азиз", "Айбек", "Айберген", "Айболат", "Айдос",
     "Айнабек", "Айсұлтан", "Айтқали", "Ақжан", "Ақжол", "Аққу", "Алдаберген", "Алдияр", "Алпан",
     "Алпысбай", "Алтай", "Алтынбай", "Алтынбек", "Амангелді", "Амандос", "Аманжол", "Амантай",
@@ -20561,7 +20577,7 @@ const std::array<std::string_view, 200> kazakhMalesFirstNames = { "Абай", "�
     "Қаныш", "Қаржаубай", "Қасым", "Қасымбек", "Қатшыбек", "Қияқбай", "Қойшыбек", "Қуан", "Қуаныш",
     "Қуат", "Құбыш", "Құдайберген", "Құдыс" };
 
-const std::array<std::string_view, 121> kazakhFemalesFirstNames = { "Ағила", "Ажар", "Ажаргүл",
+const std::array<std::string_view, 121> kazakh_female_first_names = { "Ағила", "Ажар", "Ажаргүл",
     "Аида", "Айгүл", "Айдай", "Айжан", "Айжүрек", "Айнұр", "Айша", "Ақбота", "Ақгүл", "Ақерке",
     "Ақжан", "Ақкүміс", "Аққу", "Алмагүл", "Алтынай", "Анаргүл", "Ардақ", "Аруай", "Аружан",
     "Аяжан", "Аяужан", "Әдила", "Әдина", "Әлима", "Әлия", "Әсел", "Әсемай", "Әсемгүл", "Базаргүл",
@@ -20577,24 +20593,26 @@ const std::array<std::string_view, 121> kazakhFemalesFirstNames = { "Ағила"
     "Хадиша", "Халида", "Шарапат", "Шахзада", "Шаһизада", "Шәмшия", "Шәрбану", "Шолпан", "Ырысты",
     "Іңкәр" };
 
-const std::array<std::string_view, 21> kazakhMalesLastNames = { "Асылмұратов", "Әбдірахманов",
+const std::array<std::string_view, 21> kazakh_male_last_names = { "Асылмұратов", "Әбдірахманов",
     "Әлімқұлов", "Етекбаев", "Жүнісов", "Жүсіп", "Иманқұлов", "Исламқұлов", "Қуатбаев", "Құлов",
     "Мәженов", "Назарбаев", "Рүстемов", "Сәтбаев", "Сұлтанбеков", "Сүгірбаев", "Сүлейменов",
     "Тоқаев", "Торайғыров", "Тұяқбаев", "Ысмайылов" };
 
-const std::array<std::string_view, 18> kazakhFemalesLastNames
+const std::array<std::string_view, 18> kazakh_female_last_names
     = { "Әбдірахманова", "Әлімқұлова", "Етекбаева", "Жүнісова", "Иманқұлова", "Исламқұлова",
           "Қуатбаева", "Құлова", "Мәженова", "Назарбаева", "Рүстемова", "Сұлтанбекова",
           "Сүгірбаева", "Сүлейменова", "Тоқаева", "Тұяқбаева", "Ысмайылова", "Асылмұратова" };
 
-const NameFormats kazakhPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats kazakh_person_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames kazakhPeopleNames { { kazakhMalesFirstNames, {}, kazakhMalesLastNames, {}, {} },
-    { kazakhFemalesFirstNames, {}, kazakhFemalesLastNames, {}, {} }, kazakhPersonNameFormats };
+const PeopleNames kazakh_people_names {
+    { kazakh_male_first_names, {}, kazakh_male_last_names, {}, {} },
+    { kazakh_female_first_names, {}, kazakh_female_last_names, {}, {} }, kazakh_person_name_formats
+};
 
 // Korea
 
-const std::array<std::string_view, 2963> koreanFirstNames = {
+const std::array<std::string_view, 2963> korean_male_first_names = {
     "서연",
     "민서",
     "서현",
@@ -23560,7 +23578,7 @@ const std::array<std::string_view, 2963> koreanFirstNames = {
     "슬희",
 };
 
-const std::array<std::string_view, 112> koreanLastNames = {
+const std::array<std::string_view, 112> korean_last_names = {
     "김",
     "이",
     "박",
@@ -23675,14 +23693,14 @@ const std::array<std::string_view, 112> koreanLastNames = {
     "당",
 };
 
-const NameFormats koreanPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats korean_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames koreanPeopleNames { { koreanFirstNames, {}, koreanLastNames, {}, {} },
-    { koreanFirstNames, {}, koreanLastNames, {}, {} }, koreanPersonNameFormats };
+const PeopleNames korean_people_names { { korean_male_first_names, {}, korean_last_names, {}, {} },
+    { korean_male_first_names, {}, korean_last_names, {}, {} }, korean_name_formats };
 
 // Latvia
 
-const std::array<std::string_view, 91> latvianMalesFirstNames = {
+const std::array<std::string_view, 91> latvian_male_first_names = {
     "Ainārs",
     "Alfrēds",
     "Aloīzs",
@@ -23776,7 +23794,7 @@ const std::array<std::string_view, 91> latvianMalesFirstNames = {
     "Žanis",
 };
 
-const std::array<std::string_view, 105> latvianFemalesFirstNames = {
+const std::array<std::string_view, 105> latvian_female_first_names = {
     "Aīda",
     "Akvelīna",
     "Albertīne",
@@ -23884,7 +23902,7 @@ const std::array<std::string_view, 105> latvianFemalesFirstNames = {
     "Žubīte",
 };
 
-const std::array<std::string_view, 206> latvianMalesLastNames = {
+const std::array<std::string_view, 206> latvian_male_last_names = {
     "Aigars",
     "Alksnis",
     "Andersons",
@@ -24093,7 +24111,7 @@ const std::array<std::string_view, 206> latvianMalesLastNames = {
     "Sosārs",
 };
 
-const std::array<std::string_view, 207> latvianFemalesLastNames = {
+const std::array<std::string_view, 207> latvian_female_last_names = {
     "Aigare",
     "Alksne",
     "Andersone",
@@ -24303,21 +24321,22 @@ const std::array<std::string_view, 207> latvianFemalesLastNames = {
     "Meškūne",
 };
 
-const std::array<std::string_view, 2> latvianSuffixes { "k-dze", "kundze" };
+const std::array<std::string_view, 2> latvian_suffixes { "k-dze", "kundze" };
 
-const std::array<std::string_view, 3> latvianPrefixes { "Prof.", "Dr.", "Biedrs" };
+const std::array<std::string_view, 3> latvian_prefixes { "Prof.", "Dr.", "Biedrs" };
 
-const NameFormats latvianPersonNameFormats { { { "{firstName} {lastName}", 8 },
+const NameFormats latvian_name_formats { { { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 }, { "{firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames latvianPeopleNames { { latvianMalesFirstNames, {}, latvianMalesLastNames,
-                                           latvianPrefixes, latvianSuffixes },
-    { latvianFemalesFirstNames, {}, latvianFemalesLastNames, latvianPrefixes, latvianSuffixes },
-    latvianPersonNameFormats };
+const PeopleNames latvian_people_names { { latvian_male_first_names, {}, latvian_male_last_names,
+                                             latvian_prefixes, latvian_suffixes },
+    { latvian_female_first_names, {}, latvian_female_last_names, latvian_prefixes,
+        latvian_suffixes },
+    latvian_name_formats };
 
 // Lebanon
 
-const std::array<std::string_view, 700> lebaneseMalesFirstNames = { "Mohamed", "Ali", "Ahmed",
+const std::array<std::string_view, 700> lebanese_male_first_names = { "Mohamed", "Ali", "Ahmed",
     "Hassan", "Hussein", "Abdel", "George", "Elias", "Yousef", "Joseph", "Mahmoud", "Ibrahim",
     "Khaled", "Antoine", "Fadi", "Mostafa", "Michel", "Jan", "Rabie", "Samir", "Waleed", "Abbas",
     "Omar", "Nabil", "Khalil", "Bilal", "Emad", "Ghassan", "Jamal", "Ziad", "Samih", "Bassam",
@@ -24389,7 +24408,7 @@ const std::array<std::string_view, 700> lebaneseMalesFirstNames = { "Mohamed", "
     "Shah", "Mathieu", "Rubin", "Karmel", "Clemens", "Oliver", "Erik", "Bakr", "Mikael", "Shamil",
     "Nael", "Nassar", "Jonathan", "Akbar", "Jalil", "Mumtaz", "Haj", "Armin", "Fatih", "Taj" };
 
-const std::array<std::string_view, 350> lebaneseFemalesFirstNames = { "Fatima", "Zainab", "Mary",
+const std::array<std::string_view, 350> lebanese_female_first_names = { "Fatima", "Zainab", "Mary",
     "Mariam", "Laila", "Mona", "Elly", "Amal", "Nada", "Hoda", "Samira", "Rita", "Khadija", "Rima",
     "Nadia", "Souad", "Iman", "Lina", "Rania", "Sarah", "Rana", "Wafa", "Hanan", "Ghada", "Hala",
     "Zahra", "Samar", "Siham", "Wissam", "Nawal", "Jihad", "Fadia", "Nasreen", "Nour", "Jamila",
@@ -24427,7 +24446,7 @@ const std::array<std::string_view, 350> lebaneseFemalesFirstNames = { "Fatima", 
     "Hawa", "Eliza", "Theresa", "Eliana", "Salima", "Monica", "Sima", "Nargis", "Brigitte",
     "Kamila", "Samiha", "Daniella", "Dolly" };
 
-const std::array<std::string_view, 350> lebaneseLastNames = { "El din", "Allah", "El khoury",
+const std::array<std::string_view, 350> lebanese_last_names = { "El din", "Allah", "El khoury",
     "Khalil", "Saad", "El hajj", "Ali", "Ibrahim", "El masry", "Hassan", "Haidar", "Hamoud",
     "Saleh", "Ahmed", "Suleiman", "Mousa", "Younis", "Yousef", "Karam", "Eisaa", "Mansour",
     "Farhat", "Aboud", "Haddad", "Harb", "Deeb", "Hussein", "Ayoub", "Eid", "Saliba", "Hanna",
@@ -24468,14 +24487,15 @@ const std::array<std::string_view, 350> lebaneseLastNames = { "El din", "Allah",
     "Latif", "El banna", "Qablan", "Dia", "Qadour", "Salibi", "Badawi", "Al hamwi", "Al saleh",
     "Baalbaki", "Heikal" };
 
-const NameFormats lebanesePersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats lebanese_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames lebanesePeopleNames { { lebaneseMalesFirstNames, {}, lebaneseLastNames, {}, {} },
-    { lebaneseFemalesFirstNames, {}, lebaneseLastNames, {}, {} }, lebanesePersonNameFormats };
+const PeopleNames lebanese_people_names { { lebanese_male_first_names, {}, lebanese_last_names, {},
+                                              {} },
+    { lebanese_female_first_names, {}, lebanese_last_names, {}, {} }, lebanese_name_formats };
 
 // Lithuania
 
-const std::array<std::string_view, 350> lithuanianMalesFirstNames = {
+const std::array<std::string_view, 350> lithuanian_male_first_names = {
     "Jonas",
     "Vytautas",
     "Antanas",
@@ -24828,7 +24848,7 @@ const std::array<std::string_view, 350> lithuanianMalesFirstNames = {
     "Aleksandar",
 };
 
-const std::array<std::string_view, 350> lithuanianFemalesFirstNames = {
+const std::array<std::string_view, 350> lithuanian_female_first_names = {
     "Ona",
     "Irena",
     "Janina",
@@ -25181,7 +25201,7 @@ const std::array<std::string_view, 350> lithuanianFemalesFirstNames = {
     "Natalya",
 };
 
-const std::array<std::string_view, 350> lithuanianLastNames = {
+const std::array<std::string_view, 350> lithuanian_last_names = {
     "Petrauskas",
     "Jankauskas",
     "Kazlauskas",
@@ -25534,15 +25554,15 @@ const std::array<std::string_view, 350> lithuanianLastNames = {
     "Kalenda",
 };
 
-const NameFormats lithuanianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats lithuanian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames lithuanianPeopleNames { { lithuanianMalesFirstNames, {}, lithuanianLastNames, {},
-                                              {} },
-    { lithuanianFemalesFirstNames, {}, lithuanianLastNames, {}, {} }, lithuanianPersonNameFormats };
+const PeopleNames lithuanian_people_names { { lithuanian_male_first_names, {},
+                                                lithuanian_last_names, {}, {} },
+    { lithuanian_female_first_names, {}, lithuanian_last_names, {}, {} }, lithuanian_name_formats };
 
 // Macedonia
 
-const std::array<std::string_view, 283> macedonianMalesFirstNames = {
+const std::array<std::string_view, 283> macedonian_male_first_names = {
     "Александар",
     "Алексо",
     "Ангел",
@@ -25828,7 +25848,7 @@ const std::array<std::string_view, 283> macedonianMalesFirstNames = {
     "Шишман",
 };
 
-const std::array<std::string_view, 232> macedonianFemalesFirstNames = {
+const std::array<std::string_view, 232> macedonian_female_first_names = {
     "Ава",
     "Александра",
     "Ана",
@@ -26063,7 +26083,7 @@ const std::array<std::string_view, 232> macedonianFemalesFirstNames = {
     "Цветанка",
 };
 
-const std::array<std::string_view, 493> macedonianMalesLastNames = {
+const std::array<std::string_view, 493> macedonian_male_last_names = {
     "Абаџиев",
     "Аврамов",
     "Аврамовски",
@@ -26559,7 +26579,7 @@ const std::array<std::string_view, 493> macedonianMalesLastNames = {
     "Шулинчевски",
 };
 
-const std::array<std::string_view, 495> macedonianFemalesLastNames = {
+const std::array<std::string_view, 495> macedonian_female_last_names = {
     "Абаџиева",
     "Абова",
     "Аврамова",
@@ -27057,21 +27077,23 @@ const std::array<std::string_view, 495> macedonianFemalesLastNames = {
     "Шулинчевска",
 };
 
-const std::array<std::string_view, 3> macedonianMalesPrefixes { "г-дин", "д-р", "м-р" };
+const std::array<std::string_view, 3> macedonian_male_prefixes { "г-дин", "д-р", "м-р" };
 
-const std::array<std::string_view, 4> macedonianFemalesPrefixes { "г-ѓа", "г-ца", "д-р", "м-р" };
+const std::array<std::string_view, 4> macedonian_female_prefixes { "г-ѓа", "г-ца", "д-р", "м-р" };
 
-const NameFormats macedonianPersonNameFormats { { { "{firstName} {lastName}", 10 },
+const NameFormats macedonian_name_formats { { { "{firstName} {lastName}", 10 },
     { "{prefix} {firstName} {lastName}", 1 } } };
 
-const PeopleNames macedonianPeopleNames { { macedonianMalesFirstNames, {}, macedonianMalesLastNames,
-                                              macedonianMalesPrefixes, {} },
-    { macedonianFemalesFirstNames, {}, macedonianFemalesLastNames, macedonianFemalesPrefixes, {} },
-    macedonianPersonNameFormats };
+const PeopleNames macedonian_people_names {
+    { macedonian_male_first_names, {}, macedonian_male_last_names, macedonian_male_prefixes, {} },
+    { macedonian_female_first_names, {}, macedonian_female_last_names, macedonian_female_prefixes,
+        {} },
+    macedonian_name_formats
+};
 
 // Maldives
 
-const std::array<std::string_view, 14> maldiviansMalesFirstNames = {
+const std::array<std::string_view, 14> maldivians_male_first_names = {
     "އާދަމް",
     "އިބްރާހީމް",
     "އިލްޔާސް",
@@ -27088,13 +27110,13 @@ const std::array<std::string_view, 14> maldiviansMalesFirstNames = {
     "ޔޫސުފް",
 };
 
-const std::array<std::string_view, 49> maldiviansFemalesFirstNames = { "ރަމްލާ", "ހިންދު", "ޙަފްޞާ", "ޚަދީޖާ",
+const std::array<std::string_view, 49> maldivians_female_first_names = { "ރަމްލާ", "ހިންދު", "ޙަފްޞާ", "ޚަދީޖާ",
     "ޒައިނަބު", "ޞަފިއްޔާ", "ޢާއިޝާ", "މައިމޫނާ", "ޖުވައިރިއްޔާ", "ސައުދާ", "މާރިޔާ", "ރުޤައްޔާ", "ފާޠިމާ", "އުއްމުކުލްޘޫމޮ", "ޙައްވާ", "ސާރާ",
     "ހާޖަރު", "މަރްޔަމޮ", "ޒުލައިޚާ", "އާސިޔާ", "ބަލްޤީސް", "އާމިނަތު", "އަސްމާއު", "އުމާމާ", "ބަރްކާ", "ޖަމީލާ", "ޙަސްނާއު", "ޙަލީމާ", "ޚަވްލާ",
     "ޚައިރާ", "ރުމައިޞާއު", "ރުފައިދާ", "ރަޤީޤާ", "ސަޢާދު", "ސަލްމާ", "ސުލައިމް", "ސުމައްޔާ", "ޝަހީދާ", "ޝިފާ", "ޢާތިކާ", "ޤައިލާ", "ލަޔާލީ",
     "ކުލްޘޫމް", "މުސްލިމާ", "ނަސީބާ", "ނަފީސާ", "ނަވާރު", "ހާނީ", "ހުނައިދާ" };
 
-const std::array<std::string_view, 112> maldiviansMalesLastNames = {
+const std::array<std::string_view, 112> maldivians_male_last_names = {
     "އަކްޙަލް",
     "އަޘްހަރު",
     "ބުރްހާން",
@@ -27209,7 +27231,7 @@ const std::array<std::string_view, 112> maldiviansMalesLastNames = {
     "ޔަގްޡާން",
 };
 
-const std::array<std::string_view, 248> maldiviansFemalesLastNames = {
+const std::array<std::string_view, 248> maldivians_female_last_names = {
     "އިބާ",
     "އަޘްމާރު",
     "އަޘީލާ",
@@ -27460,20 +27482,22 @@ const std::array<std::string_view, 248> maldiviansFemalesLastNames = {
     "ޔަޝްމް",
 };
 
-const std::array<std::string_view, 4> maldiviansMalesPrefixes = { "އަމީރު", "އަމީރާ", "ބަނޑޭރި", "ބޮޑު" };
+const std::array<std::string_view, 4> maldivians_male_prefixes = { "އަމީރު", "އަމީރާ", "ބަނޑޭރި", "ބޮޑު" };
 
-const std::array<std::string_view, 4> maldiviansFemalesPrefixes = { "އަމީރު", "އަމީރާ", "ބަނޑޭރި", "ބޮޑު" };
+const std::array<std::string_view, 4> maldivians_female_prefixes = { "އަމީރު", "އަމީރާ", "ބަނޑޭރި", "ބޮޑު" };
 
-const NameFormats maldiviansPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats maldivians_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames maldiviansPeopleNames { { maldiviansMalesFirstNames, {}, maldiviansMalesLastNames,
-                                              maldiviansMalesPrefixes, {} },
-    { maldiviansFemalesFirstNames, {}, maldiviansFemalesLastNames, maldiviansFemalesPrefixes, {} },
-    maldiviansPersonNameFormats };
+const PeopleNames maldivians_people_names {
+    { maldivians_male_first_names, {}, maldivians_male_last_names, maldivians_male_prefixes, {} },
+    { maldivians_female_first_names, {}, maldivians_female_last_names, maldivians_female_prefixes,
+        {} },
+    maldivians_name_formats
+};
 
 // Malta
 
-const std::array<std::string_view, 100> malteseMalesFirstNames = {
+const std::array<std::string_view, 100> maltese_male_first_names = {
     "Joseph",
     "John",
     "Mark",
@@ -27576,7 +27600,7 @@ const std::array<std::string_view, 100> malteseMalesFirstNames = {
     "Clive",
 };
 
-const std::array<std::string_view, 100> malteseFemalesFirstNames = {
+const std::array<std::string_view, 100> maltese_female_first_names = {
     "Maria",
     "Anna",
     "Mary",
@@ -27679,7 +27703,7 @@ const std::array<std::string_view, 100> malteseFemalesFirstNames = {
     "Susan",
 };
 
-const std::array<std::string_view, 100> malteseLastNames = {
+const std::array<std::string_view, 100> maltese_last_names = {
     "Borg",
     "Vella",
     "Camilleri",
@@ -27782,14 +27806,15 @@ const std::array<std::string_view, 100> malteseLastNames = {
     "Theuma",
 };
 
-const NameFormats maltesePersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats maltese_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames maltesePeopleNames { { malteseMalesFirstNames, {}, malteseLastNames, {}, {} },
-    { malteseFemalesFirstNames, {}, malteseLastNames, {}, {} }, maltesePersonNameFormats };
+const PeopleNames maltese_people_names { { maltese_male_first_names, {}, maltese_last_names, {},
+                                             {} },
+    { maltese_female_first_names, {}, maltese_last_names, {}, {} }, maltese_name_formats };
 
 // Mexico
 
-const std::array<std::string_view, 139> mexicanMalesFirstNames = {
+const std::array<std::string_view, 139> mexican_male_first_names = {
     "Aarón",
     "Abraham",
     "Adán",
@@ -27931,7 +27956,7 @@ const std::array<std::string_view, 139> mexicanMalesFirstNames = {
     "Victor Manuel",
 };
 
-const std::array<std::string_view, 161> mexicanFemalesFirstNames = {
+const std::array<std::string_view, 161> mexican_female_first_names = {
     "Abigail",
     "Abril",
     "Adela",
@@ -28095,7 +28120,7 @@ const std::array<std::string_view, 161> mexicanFemalesFirstNames = {
     "Zoe",
 };
 
-const std::array<std::string_view, 687> mexicanLastNames = {
+const std::array<std::string_view, 687> mexican_last_names = {
     "Abeyta",
     "Abrego",
     "Abreu",
@@ -28785,7 +28810,7 @@ const std::array<std::string_view, 687> mexicanLastNames = {
     "Zúñiga",
 };
 
-const std::array<std::string_view, 15> mexicanSuffixes {
+const std::array<std::string_view, 15> mexican_suffixes {
     "Jr.",
     "Sr.",
     "I",
@@ -28803,21 +28828,22 @@ const std::array<std::string_view, 15> mexicanSuffixes {
     "Mtro.",
 };
 
-const std::array<std::string_view, 1> mexicanMalesPrefixes { "Sr." };
+const std::array<std::string_view, 1> mexican_male_prefixes { "Sr." };
 
-const std::array<std::string_view, 2> mexicanFemalesPrefixes { "Sra.", "Sta." };
+const std::array<std::string_view, 2> mexican_female_prefixes { "Sra.", "Sta." };
 
-const NameFormats mexicanPersonNameFormats { { { "{firstName} {lastName}", 8 },
+const NameFormats mexican_name_formats { { { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 }, { "{firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames mexicanPeopleNames { { mexicanMalesFirstNames, {}, mexicanLastNames,
-                                           mexicanMalesPrefixes, mexicanSuffixes },
-    { mexicanFemalesFirstNames, {}, mexicanLastNames, mexicanFemalesPrefixes, mexicanSuffixes },
-    mexicanPersonNameFormats };
+const PeopleNames mexican_people_names { { mexican_male_first_names, {}, mexican_last_names,
+                                             mexican_male_prefixes, mexican_suffixes },
+    { mexican_female_first_names, {}, mexican_last_names, mexican_female_prefixes,
+        mexican_suffixes },
+    mexican_name_formats };
 
 // Moldova
 
-const std::array<std::string_view, 350> moldovanMalesFirstNames = {
+const std::array<std::string_view, 350> moldovan_male_first_names = {
     "Ion",
     "Vasile",
     "Mihail",
@@ -29170,7 +29196,7 @@ const std::array<std::string_view, 350> moldovanMalesFirstNames = {
     "Akim",
 };
 
-const std::array<std::string_view, 350> moldovanFemalesFirstNames = {
+const std::array<std::string_view, 350> moldovan_female_first_names = {
     "Maria",
     "Elena",
     "Valentina",
@@ -29523,7 +29549,7 @@ const std::array<std::string_view, 350> moldovanFemalesFirstNames = {
     "Simona",
 };
 
-const std::array<std::string_view, 350> moldovanLastNames = {
+const std::array<std::string_view, 350> moldovan_last_names = {
     "Rusu",
     "Ceban",
     "Ciobanu",
@@ -29876,14 +29902,15 @@ const std::array<std::string_view, 350> moldovanLastNames = {
     "Rotar",
 };
 
-const NameFormats moldovanPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats moldovan_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames moldovanPeopleNames { { moldovanMalesFirstNames, {}, moldovanLastNames, {}, {} },
-    { moldovanFemalesFirstNames, {}, moldovanLastNames, {}, {} }, moldovanPersonNameFormats };
+const PeopleNames moldovan_people_names { { moldovan_male_first_names, {}, moldovan_last_names, {},
+                                              {} },
+    { moldovan_female_first_names, {}, moldovan_last_names, {}, {} }, moldovan_name_formats };
 
 // Monaco
 
-const std::array<std::string_view, 201> monacanMalesFirstNames = {
+const std::array<std::string_view, 201> monacan_male_first_names = {
     "Philippe",
     "David",
     "Robert",
@@ -30087,7 +30114,7 @@ const std::array<std::string_view, 201> monacanMalesFirstNames = {
     "Sandro",
 };
 
-const std::array<std::string_view, 350> monacanFemalesFirstNames = {
+const std::array<std::string_view, 350> monacan_female_first_names = {
     "Jean",
     "Andrea",
     "Maria",
@@ -30440,7 +30467,7 @@ const std::array<std::string_view, 350> monacanFemalesFirstNames = {
     "Lise",
 };
 
-const std::array<std::string_view, 326> monacanLastNames = {
+const std::array<std::string_view, 326> monacan_last_names = {
     "Rossi",
     "Lorenzi",
     "Pastor",
@@ -30769,14 +30796,15 @@ const std::array<std::string_view, 326> monacanLastNames = {
     "Olivieri",
 };
 
-const NameFormats monacanPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats monacan_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames monacanPeopleNames { { monacanMalesFirstNames, {}, monacanLastNames, {}, {} },
-    { monacanFemalesFirstNames, {}, monacanLastNames, {}, {} }, monacanPersonNameFormats };
+const PeopleNames monacan_people_names { { monacan_male_first_names, {}, monacan_last_names, {},
+                                             {} },
+    { monacan_female_first_names, {}, monacan_last_names, {}, {} }, monacan_name_formats };
 
 // Nepal
 
-const std::array<std::string_view, 104> nepaleseMalesFirstNames = { "Sijan", "Prabesh", "Niwang",
+const std::array<std::string_view, 104> nepalese_male_first_names = { "Sijan", "Prabesh", "Niwang",
     "Nabin", "Sanjok", "Bibek", "Sujal", "Sagar", "Mukunda", "Arun", "Nirdesh", "Rabin", "Ramesh",
     "Manoj", "Bimal", "Anil", "Bipin", "Gopal", "Sunil", "Bikash", "Sujan", "Sudeep", "Nikhil",
     "Nishant", "Kiran", "Pramod", "Saroj", "Rajesh", "Dilip", "Sandesh", "Krishna", "Hari",
@@ -30789,7 +30817,7 @@ const std::array<std::string_view, 104> nepaleseMalesFirstNames = { "Sijan", "Pr
     "Sabin", "Manohar", "Anuj", "Aryan", "Yogendra", "Nischal", "Samir", "Sanjay", "Bijay", "Rohit",
     "Rajat", "Biraj", "Kiran", "Pravin", "Pramod" };
 
-const std::array<std::string_view, 99> nepaleseFemalesFirstNames = { "Sita", "Gita", "Shristi",
+const std::array<std::string_view, 99> nepalese_female_first_names = { "Sita", "Gita", "Shristi",
     "Anita", "Priya", "Sabina", "Nisha", "Saraswati", "Asha", "Binita", "Deepa", "Kamala", "Laxmi",
     "Rina", "Bishnu", "Meera", "Sushma", "Pooja", "Rajani", "Sunita", "Nirmala", "Rita", "Sumitra",
     "Usha", "Manisha", "Rekha", "Sarita", "Kusum", "Puja", "Sanjana", "Smriti", "Pratima", "Sabita",
@@ -30802,7 +30830,7 @@ const std::array<std::string_view, 99> nepaleseFemalesFirstNames = { "Sita", "Gi
     "Swastika", "Priyanka", "Sharmila", "Manju", "Sudha", "Laxmi", "Sunita", "Tulsi", "Usha",
     "Saraswati", "Rachana" };
 
-const std::array<std::string_view, 64> nepaleseLastNames = { "Adhikari", "Bhattarai", "Gurung",
+const std::array<std::string_view, 64> nepalese_last_names = { "Adhikari", "Bhattarai", "Gurung",
     "Tamang", "Magar", "Shrestha", "Rai", "Limbu", "Poudel", "Joshi", "Karki", "Shah", "Thapa",
     "Rana", "Regmi", "Acharya", "Basnet", "Shrestha", "Lama", "Khadka", "Maharjan", "Panta",
     "Sherpa", "Lohani", "Giri", "Gupta", "Mishra", "Chhetri", "Magar", "Parajuli", "Dhakal",
@@ -30811,28 +30839,30 @@ const std::array<std::string_view, 64> nepaleseLastNames = { "Adhikari", "Bhatta
     "Rokaya", "Chaudhary", "Pathak", "Pandey", "Baniya", "Devkota", "Dangol", "Koirala", "Mishra",
     "Oli", "Sherchan", "Rajbanshi", "Bhandari", "Niroula", "Nepal", "Nepali" };
 
-const NameFormats nepalesePersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats nepalese_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames nepalesePeopleNames { { nepaleseMalesFirstNames, {}, nepaleseLastNames, {}, {} },
-    { nepaleseFemalesFirstNames, {}, nepaleseLastNames, {}, {} }, nepalesePersonNameFormats };
+const PeopleNames nepalese_people_names { { nepalese_male_first_names, {}, nepalese_last_names, {},
+                                              {} },
+    { nepalese_female_first_names, {}, nepalese_last_names, {}, {} }, nepalese_name_formats };
 
 // Norway
 
-const std::array<std::string_view, 50> norwegianMalesFirstNames = { "Markus", "Mathias", "Kristian",
-    "Jonas", "Andreas", "Alexander", "Martin", "Sander", "Daniel", "Magnus", "Henrik", "Tobias",
-    "Kristoffer", "Emil", "Adrian", "Sebastian", "Marius", "Elias", "Fredrik", "Thomas", "Sondre",
-    "Benjamin", "Jakob", "Oliver", "Lucas", "Oskar", "Nikolai", "Filip", "Mats", "William", "Erik",
-    "Simen", "Ole", "Eirik", "Isak", "Kasper", "Noah", "Lars", "Joakim", "Johannes", "Håkon",
-    "Sindre", "Jørgen", "Herman", "Anders", "Jonathan", "Even", "Theodor", "Mikkel", "Aksel" };
+const std::array<std::string_view, 50> norwegian_male_first_names
+    = { "Markus", "Mathias", "Kristian", "Jonas", "Andreas", "Alexander", "Martin", "Sander",
+          "Daniel", "Magnus", "Henrik", "Tobias", "Kristoffer", "Emil", "Adrian", "Sebastian",
+          "Marius", "Elias", "Fredrik", "Thomas", "Sondre", "Benjamin", "Jakob", "Oliver", "Lucas",
+          "Oskar", "Nikolai", "Filip", "Mats", "William", "Erik", "Simen", "Ole", "Eirik", "Isak",
+          "Kasper", "Noah", "Lars", "Joakim", "Johannes", "Håkon", "Sindre", "Jørgen", "Herman",
+          "Anders", "Jonathan", "Even", "Theodor", "Mikkel", "Aksel" };
 
-const std::array<std::string_view, 50> norwegianFemalesFirstNames = { "Emma", "Sara", "Thea", "Ida",
-    "Julie", "Nora", "Emilie", "Ingrid", "Hanna", "Maria", "Sofie", "Anna", "Malin", "Amalie",
-    "Vilde", "Frida", "Andrea", "Tuva", "Victoria", "Mia", "Karoline", "Mathilde", "Martine",
-    "Linnea", "Marte", "Hedda", "Marie", "Helene", "Silje", "Leah", "Maja", "Elise", "Oda",
-    "Kristine", "Aurora", "Kaja", "Camilla", "Mari", "Maren", "Mina", "Selma", "Jenny", "Celine",
-    "Eline", "Sunniva", "Natalie", "Tiril", "Synne", "Sandra", "Madeleine" };
+const std::array<std::string_view, 50> norwegian_female_first_names = { "Emma", "Sara", "Thea",
+    "Ida", "Julie", "Nora", "Emilie", "Ingrid", "Hanna", "Maria", "Sofie", "Anna", "Malin",
+    "Amalie", "Vilde", "Frida", "Andrea", "Tuva", "Victoria", "Mia", "Karoline", "Mathilde",
+    "Martine", "Linnea", "Marte", "Hedda", "Marie", "Helene", "Silje", "Leah", "Maja", "Elise",
+    "Oda", "Kristine", "Aurora", "Kaja", "Camilla", "Mari", "Maren", "Mina", "Selma", "Jenny",
+    "Celine", "Eline", "Sunniva", "Natalie", "Tiril", "Synne", "Sandra", "Madeleine" };
 
-const std::array<std::string_view, 100> norwegianLastNames = { "Johansen", "Hansen", "Andersen",
+const std::array<std::string_view, 100> norwegian_last_names = { "Johansen", "Hansen", "Andersen",
     "Kristiansen", "Larsen", "Olsen", "Solberg", "Andresen", "Pedersen", "Nilsen", "Berg",
     "Halvorsen", "Karlsen", "Svendsen", "Jensen", "Haugen", "Martinsen", "Eriksen", "Sørensen",
     "Johnsen", "Myhrer", "Johannessen", "Nielsen", "Hagen", "Pettersen", "Bakke", "Skuterud",
@@ -30846,22 +30876,23 @@ const std::array<std::string_view, 100> norwegianLastNames = { "Johansen", "Hans
     "Lunde", "Kleven", "Huseby", "Bjørnstad", "Ryan", "Rasmussen", "Nygård", "Nordskaug", "Nordby",
     "Mathisen", "Hopland", "Gran", "Finstad", "Edvardsen" };
 
-const std::array<std::string_view, 7> norwegianSuffixes { "Jr.", "Sr.", "I", "II", "III", "IV",
+const std::array<std::string_view, 7> norwegian_suffixes { "Jr.", "Sr.", "I", "II", "III", "IV",
     "V" };
 
-const std::array<std::string_view, 2> norwegianPrefixes { "Dr.", "Prof." };
+const std::array<std::string_view, 2> norwegian_prefixes { "Dr.", "Prof." };
 
-const NameFormats norwegianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats norwegian_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 }, { "{firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames norwegianPeopleNames { { norwegianMalesFirstNames, {}, norwegianLastNames,
-                                             norwegianPrefixes, norwegianSuffixes },
-    { norwegianFemalesFirstNames, {}, norwegianLastNames, norwegianPrefixes, norwegianSuffixes },
-    norwegianPersonNameFormats };
+const PeopleNames norwegian_people_names { { norwegian_male_first_names, {}, norwegian_last_names,
+                                               norwegian_prefixes, norwegian_suffixes },
+    { norwegian_female_first_names, {}, norwegian_last_names, norwegian_prefixes,
+        norwegian_suffixes },
+    norwegian_name_formats };
 
 // Palestine
 
-const std::array<std::string_view, 299> palestinianMalesFirstNames = {
+const std::array<std::string_view, 299> palestinian_male_first_names = {
     "Mohamed",
     "Ahmed",
     "Abdel",
@@ -31163,7 +31194,7 @@ const std::array<std::string_view, 299> palestinianMalesFirstNames = {
     "Talha",
 };
 
-const std::array<std::string_view, 350> palestinianFemalesFirstNames = {
+const std::array<std::string_view, 350> palestinian_female_first_names = {
     "Fatima",
     "Mariam",
     "Iman",
@@ -31516,7 +31547,7 @@ const std::array<std::string_view, 350> palestinianFemalesFirstNames = {
     "Yana",
 };
 
-const std::array<std::string_view, 305> palestinianLastNames = {
+const std::array<std::string_view, 305> palestinian_last_names = {
     "Awad",
     "Al najjar",
     "El masry",
@@ -31824,16 +31855,16 @@ const std::array<std::string_view, 305> palestinianLastNames = {
     "Ghazal",
 };
 
-const NameFormats palestinianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats palestinian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames palestinianPeopleNames {
-    { palestinianMalesFirstNames, {}, palestinianLastNames, {}, {} },
-    { palestinianFemalesFirstNames, {}, palestinianLastNames, {}, {} }, palestinianPersonNameFormats
+const PeopleNames palestinian_people_names {
+    { palestinian_male_first_names, {}, palestinian_last_names, {}, {} },
+    { palestinian_female_first_names, {}, palestinian_last_names, {}, {} }, palestinian_name_formats
 };
 
 // Persian
 
-const std::array<std::string_view, 61> persianMalesFirstNames = { "آرمان", "بهروز", "کیان",
+const std::array<std::string_view, 61> persian_male_first_names = { "آرمان", "بهروز", "کیان",
     "فریدون", "سپهر", "میلاد", "آرشام", "پوریا", "بهراد", "سیاوش", "احسان", "شایان", "شهریار",
     "آرتین", "امیدوار", "پارسا", "کاوه", "پیام", "آرین", "مانی", "نیما", "فرهاد", "کسری", "کیوان",
     "رهام", "فرشاد", "آرمین", "فرزاد", "ساماندار", "امینوار", "امیرعلی", "رضوان", "حسینیان", "ناصر",
@@ -31841,7 +31872,7 @@ const std::array<std::string_view, 61> persianMalesFirstNames = { "آرمان", 
     "سجاد", "محمد", "یوسف", "محمدعلی", "حسین", "رحمان", "رضا", "کاظم", "مهران", "نادر", "مهدیار",
     "پرهام", "پیروز", "میثم", "احمد", "مصطفی" };
 
-const std::array<std::string_view, 65> persianFemalesFirstNames = { "آتنا", "پریسا", "نازنین",
+const std::array<std::string_view, 65> persian_female_first_names = { "آتنا", "پریسا", "نازنین",
     "شیرین", "الناز", "سارا", "زهرا", "ریحانه", "بهار", "آیدا", "نیکا", "مهسا", "نگین", "یاسمن",
     "آرزو", "لاله", "روژین", "ترانه", "پرنیا", "مریم", "پگاه", "سلما", "ملیسا", "نسترن", "مینا",
     "پرشین", "مهتا", "لیلا", "مهرانگیز", "زینب", "آزیتا", "پرستو", "رها", "شهناز", "سوگند",
@@ -31849,7 +31880,7 @@ const std::array<std::string_view, 65> persianFemalesFirstNames = { "آتنا", 
     "آناهیتا", "سحر", "ناهید", "آتوسا", "بهناز", "راحله", "شبنم", "فریبا", "نرگس", "رها", "سهیلا",
     "شیدا", "محیا", "زهره", "زیبا", "رقیه", "مهتاب", "الهه", "ریما", "مهدیس" };
 
-const std::array<std::string_view, 111> persianLastNames = { "خانی", "رحمانی", "احمدی", "زاده",
+const std::array<std::string_view, 111> persian_last_names = { "خانی", "رحمانی", "احمدی", "زاده",
     "نژاد", "صفری", "جعفری", "محمدی", "اکبری", "میرزایی", "فرهادی", "رستمی", "نوری", "جلالی",
     "حسینی", "رسولی", "موسوی", "یوسفی", "مقدم", "پورمحمد", "بهرامی", "قربانی", "فیاض", "فرجی",
     "بخشی", "بهشتی", "سلطانی", "قاسمی", "جوادی", "جهانگیری", "نصیری", "عبداللهی", "علیزاده", "مجد",
@@ -31863,22 +31894,22 @@ const std::array<std::string_view, 111> persianLastNames = { "خانی", "رحم
     "فرج‌اللهی", "زنجانی", "مهدی‌زاده", "فرجامی", "قنبرزاده", "رهنما",
     "خسروجاه", "تهرانی", "اسدی", "معتمدی", "حسینی‌نژاد", "نظری" };
 
-const std::array<std::string_view, 3> persianMalesPrefixes { "آقا", "دکتر", "استاد" };
+const std::array<std::string_view, 3> persian_male_prefixes { "آقا", "دکتر", "استاد" };
 
-const std::array<std::string_view, 3> persianFemalesPrefixes { "خانم", "دکتر", "استاد" };
+const std::array<std::string_view, 3> persian_female_prefixes { "خانم", "دکتر", "استاد" };
 
-const NameFormats persianPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats persian_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
 
 // Convert UTF16 to UTF8 for Persian characters then use the data.
-const PeopleNames persianPeopleNames { { persianMalesFirstNames, {}, persianLastNames,
-                                           persianMalesPrefixes, {} },
-    { persianFemalesFirstNames, {}, persianLastNames, persianFemalesPrefixes, {} },
-    persianPersonNameFormats };
+const PeopleNames persian_people_names { { persian_male_first_names, {}, persian_last_names,
+                                             persian_male_prefixes, {} },
+    { persian_female_first_names, {}, persian_last_names, persian_female_prefixes, {} },
+    persian_name_formats };
 
 // Poland
 
-const std::array<std::string_view, 230> polishMalesFirstNames = { "Aaron", "Abraham", "Adam",
+const std::array<std::string_view, 230> polish_male_first_names = { "Aaron", "Abraham", "Adam",
     "Adrian", "Atanazy", "Agaton", "Alan", "Albert", "Aleksander", "Aleksy", "Alfred", "Alwar",
     "Ambroży", "Anatol", "Andrzej", "Antoni", "Apollinary", "Apollo", "Arkady", "Arkadiusz",
     "Archibald", "Arystarch", "Arnold", "Arseniusz", "Artur", "August", "Baldwin", "Bazyli",
@@ -31907,7 +31938,7 @@ const std::array<std::string_view, 230> polishMalesFirstNames = { "Aaron", "Abra
     "Włodzimierz", "Władysław", "Błażej", "Walter", "Walgierz", "Wacław", "Wilfryd", "Wilhelm",
     "Ksawery", "Ksenofont", "Zachariasz", "Zachary" };
 
-const std::array<std::string_view, 163> polishFemalesFirstNames = { "Ada", "Adelajda", "Agata",
+const std::array<std::string_view, 163> polish_female_first_names = { "Ada", "Adelajda", "Agata",
     "Agnieszka", "Agrypina", "Aida", "Aleksandra", "Alicja", "Alina", "Amanda", "Anastazja",
     "Angela", "Andżelika", "Angelina", "Anna", "Hanna", "Antonina", "Ariadna", "Aurora", "Barbara",
     "Beatrycze", "Berta", "Brygida", "Kamila", "Karolina", "Kornelia", "Katarzyna", "Cecylia",
@@ -31928,7 +31959,7 @@ const std::array<std::string_view, 163> polishFemalesFirstNames = { "Ada", "Adel
     "Waleria", "Wanesa", "Wiara", "Weronika", "Wiktoria", "Wirginia", "Bibiana", "Bibianna",
     "Wanda", "Wilhelmina", "Ksawera", "Ksenia", "Zoe" };
 
-const std::array<std::string_view, 712> polishLastNames = { "Adamczak", "Adamczyk", "Adamek",
+const std::array<std::string_view, 712> polish_last_names = { "Adamczak", "Adamczyk", "Adamek",
     "Adamiak", "Adamiec", "Adamowicz", "Adamski", "Adamus", "Aleksandrowicz", "Andrzejczak",
     "Andrzejewski", "Antczak", "Augustyn", "Augustyniak", "Bagiński", "Balcerzak", "Banach",
     "Banasiak", "Banasik", "Banaś", "Baran", "Baranowski", "Barański", "Bartczak", "Bartkowiak",
@@ -32021,33 +32052,33 @@ const std::array<std::string_view, 712> polishLastNames = { "Adamczak", "Adamczy
     "Ślusarczyk", "Świderski", "Świerczyński", "Świątek", "Żak", "Żebrowski", "Żmuda", "Żuk",
     "Żukowski", "Żurawski", "Żurek", "Żyła" };
 
-const std::array<std::string_view, 1> polishMalesPrefixes { "Pan" };
+const std::array<std::string_view, 1> polish_male_prefixes { "Pan" };
 
-const std::array<std::string_view, 1> polishFemalesPrefixes { "Pani" };
+const std::array<std::string_view, 1> polish_female_prefixes { "Pani" };
 
-const NameFormats polishPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats polish_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
 
-const PeopleNames polishPeopleNames { { polishMalesFirstNames, {}, polishLastNames,
-                                          polishMalesPrefixes, {} },
-    { polishFemalesFirstNames, {}, polishLastNames, polishFemalesPrefixes, {} },
-    polishPersonNameFormats };
+const PeopleNames polish_people_names { { polish_male_first_names, {}, polish_last_names,
+                                            polish_male_prefixes, {} },
+    { polish_female_first_names, {}, polish_last_names, polish_female_prefixes, {} },
+    polish_name_formats };
 
 // Portugal
 
-const std::array<std::string_view, 95> portugueseMalesFirstNames = { "Afonso", "Alexandre", "André",
-    "Ângelo", "António", "Artur", "Benjamim", "Bernardo", "Bruno", "Carlos", "César", "Cristiano",
-    "Daniel", "David", "Dinis", "Diogo", "Duarte", "Edgar", "Eduardo", "Elias", "Emanuel", "Fábio",
-    "Feliciano", "Fernando", "Filipe", "Francisco", "Frederico", "Gabriel", "Gaspar", "Gil",
-    "Gonçalo", "Guilherme", "Gustavo", "Hélio", "Henrique", "Hugo", "Igor", "Ígor", "Isac", "Ivan",
-    "Ivo", "Jaime", "João", "Joaquim", "Jorge", "José", "Josué", "Júlio", "Leandro", "Leonardo",
-    "Lourenço", "Lucas", "Luís", "Manel", "Manuel", "Marcelo", "Marco", "Marcos", "Mário", "Martim",
-    "Mateus", "Matias", "Mauro", "Micael", "Miguel", "Moisés", "Norberto", "Nuno", "Paulo", "Pedro",
-    "Rafael", "Raul", "Renato", "Ricardo", "Roberto", "Rodrigo", "Romeu", "Rúben", "Rui",
-    "Salvador", "Samuel", "Sandro", "Santiago", "Sebastião", "Sérgio", "Simão", "Tiago", "Tomás",
-    "Tomé", "Valentim", "Valter", "Vasco", "Vicente", "Vítor", "Xavier" };
+const std::array<std::string_view, 95> portuguese_male_first_names = { "Afonso", "Alexandre",
+    "André", "Ângelo", "António", "Artur", "Benjamim", "Bernardo", "Bruno", "Carlos", "César",
+    "Cristiano", "Daniel", "David", "Dinis", "Diogo", "Duarte", "Edgar", "Eduardo", "Elias",
+    "Emanuel", "Fábio", "Feliciano", "Fernando", "Filipe", "Francisco", "Frederico", "Gabriel",
+    "Gaspar", "Gil", "Gonçalo", "Guilherme", "Gustavo", "Hélio", "Henrique", "Hugo", "Igor", "Ígor",
+    "Isac", "Ivan", "Ivo", "Jaime", "João", "Joaquim", "Jorge", "José", "Josué", "Júlio", "Leandro",
+    "Leonardo", "Lourenço", "Lucas", "Luís", "Manel", "Manuel", "Marcelo", "Marco", "Marcos",
+    "Mário", "Martim", "Mateus", "Matias", "Mauro", "Micael", "Miguel", "Moisés", "Norberto",
+    "Nuno", "Paulo", "Pedro", "Rafael", "Raul", "Renato", "Ricardo", "Roberto", "Rodrigo", "Romeu",
+    "Rúben", "Rui", "Salvador", "Samuel", "Sandro", "Santiago", "Sebastião", "Sérgio", "Simão",
+    "Tiago", "Tomás", "Tomé", "Valentim", "Valter", "Vasco", "Vicente", "Vítor", "Xavier" };
 
-const std::array<std::string_view, 93> portugueseFemalesFirstNames = { "Adriana", "Alexandra",
+const std::array<std::string_view, 93> portuguese_female_first_names = { "Adriana", "Alexandra",
     "Alice", "Amélia", "Ana", "Ariana", "Áurea", "Aurora", "Bárbara", "Beatriz", "Benedita",
     "Bruna", "Caetana", "Camila", "Carla", "Carlota", "Carminho", "Carmo", "Carolina", "Catarina",
     "Cecília", "Célia", "Clara", "Constança", "Daniela", "Débora", "Diana", "Eduarda", "Elisa",
@@ -32059,7 +32090,7 @@ const std::array<std::string_view, 93> portugueseFemalesFirstNames = { "Adriana"
     "Paula", "Pilar", "Rafaela", "Raquel", "Rita", "Rosa", "Safira", "Sara", "Sílvia", "Sofia",
     "Soraia", "Tatiana", "Teresa", "Valentina", "Vânia", "Vera", "Vitória" };
 
-const std::array<std::string_view, 101> portugueseLastNames = { "Abreu", "Albuquerque", "Almeida",
+const std::array<std::string_view, 101> portuguese_last_names = { "Abreu", "Albuquerque", "Almeida",
     "Alves", "Amaral", "Amorim", "Andrade", "Anjos", "Antunes", "Araújo", "Assunção", "Azevedo",
     "Baptista", "Barbosa", "Barros", "Batista", "Borges", "Braga", "Branco", "Brito", "Campos",
     "Cardoso", "Carneiro", "Carvalho", "Castro", "Coelho", "Correia", "Costa", "Cruz", "Cunha",
@@ -32072,21 +32103,23 @@ const std::array<std::string_view, 101> portugueseLastNames = { "Abreu", "Albuqu
     "Ribeiro", "Rocha", "Rodrigues", "Santos", "Saraiva", "Silva", "Simões", "Soares", "Sousa",
     "Sá", "Tavares", "Teixeira", "Torres", "Valente", "Vaz", "Vicente", "Vieira" };
 
-const std::array<std::string_view, 4> portugueseMalesPrefixes { "Sr.", "Dr.", "Prof.", "Eng." };
+const std::array<std::string_view, 4> portuguese_male_prefixes { "Sr.", "Dr.", "Prof.", "Eng." };
 
-const std::array<std::string_view, 4> portugueseFemalesPrefixes { "Sra.", "Dra.", "Prof.", "Eng." };
+const std::array<std::string_view, 4> portuguese_female_prefixes { "Sra.", "Dra.", "Prof.",
+    "Eng." };
 
-const NameFormats portuguesePersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats portuguese_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
 
-const PeopleNames portuguesePeopleNames { { portugueseMalesFirstNames, {}, portugueseLastNames,
-                                              portugueseMalesPrefixes, {} },
-    { portugueseFemalesFirstNames, {}, portugueseLastNames, portugueseFemalesPrefixes, {} },
-    portuguesePersonNameFormats };
+const PeopleNames portuguese_people_names {
+    { portuguese_male_first_names, {}, portuguese_last_names, portuguese_male_prefixes, {} },
+    { portuguese_female_first_names, {}, portuguese_last_names, portuguese_female_prefixes, {} },
+    portuguese_name_formats
+};
 
 // Romania
 
-const std::array<std::string_view, 65> romanianMalesFirstNames = {
+const std::array<std::string_view, 65> romanian_male_first_names = {
     "Ion",
     "Mihai",
     "Andrei",
@@ -32154,7 +32187,7 @@ const std::array<std::string_view, 65> romanianMalesFirstNames = {
     "Tiberiu",
 };
 
-const std::array<std::string_view, 63> romanianFemalesFirstNames = {
+const std::array<std::string_view, 63> romanian_female_first_names = {
     "Maria",
     "Ioana",
     "Elena",
@@ -32220,7 +32253,7 @@ const std::array<std::string_view, 63> romanianFemalesFirstNames = {
     "Oana",
 };
 
-const std::array<std::string_view, 101> romanianLastNames = {
+const std::array<std::string_view, 101> romanian_last_names = {
     "Popescu",
     "Ionescu",
     "Popa",
@@ -32324,24 +32357,25 @@ const std::array<std::string_view, 101> romanianLastNames = {
     "Chiriac",
 };
 
-const std::array<std::string_view, 2> romanianSuffixes { "Jr.", "Sr." };
+const std::array<std::string_view, 2> romanian_suffixes { "Jr.", "Sr." };
 
-const std::array<std::string_view, 2> romanianMalesPrefixes { "Dl", "Dra" };
+const std::array<std::string_view, 2> romanian_male_prefixes { "Dl", "Dra" };
 
-const std::array<std::string_view, 2> romanianFemalesPrefixes { "Dna", "Dra" };
+const std::array<std::string_view, 2> romanian_female_refixes { "Dna", "Dra" };
 
-const NameFormats romanianPersonNameFormats { { { "{firstName} {lastName}", 49 },
+const NameFormats romanian_name_formats { { { "{firstName} {lastName}", 49 },
     { "{lastName} {firstName}", 7 }, { "{prefix} {firstName} {lastName}", 7 },
     { "{firstName} {lastName} {suffix}", 7 }, { "{prefix} {firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames romanianPeopleNames { { romanianMalesFirstNames, {}, romanianLastNames,
-                                            romanianMalesPrefixes, romanianSuffixes },
-    { romanianFemalesFirstNames, {}, romanianLastNames, romanianFemalesPrefixes, romanianSuffixes },
-    romanianPersonNameFormats };
+const PeopleNames romanian_people_names { { romanian_male_first_names, {}, romanian_last_names,
+                                              romanian_male_prefixes, romanian_suffixes },
+    { romanian_female_first_names, {}, romanian_last_names, romanian_female_refixes,
+        romanian_suffixes },
+    romanian_name_formats };
 
 // Russia
 
-const std::array<std::string_view, 200> russianMalesFirstNames = { "Авдей", "Авксентий", "Агапит",
+const std::array<std::string_view, 200> russian_male_first_names = { "Авдей", "Авксентий", "Агапит",
     "Агафон", "Акакий", "Акиндин", "Александр", "Алексей", "Альберт", "Анатолий", "Андрей",
     "Аникий", "Аникита", "Антон", "Антонин", "Анфим", "Аристарх", "Аркадий", "Арсений", "Артём",
     "Артемий", "Артур", "Архипп", "Афанасий", "Богдан", "Борис", "Вавила", "Вадим", "Валентин",
@@ -32366,7 +32400,7 @@ const std::array<std::string_view, 200> russianMalesFirstNames = { "Авдей",
     "Феоктист", "Филат", "Филимон", "Филипп", "Фирс", "Фока", "Фома", "Фотий", "Фрол", "Харитон",
     "Хрисанф", "Христофор" };
 
-const std::array<std::string_view, 110> russianFemalesFirstNames = { "Агафья", "Аглая", "Агния",
+const std::array<std::string_view, 110> russian_female_first_names = { "Агафья", "Аглая", "Агния",
     "Агриппина", "Аза", "Акулина", "Алевтина", "Александра", "Алина", "Алиса", "Алла", "Анастасия",
     "Ангелина", "Анжела", "Анжелика", "Анна", "Антонина", "Анфиса", "Валентина", "Валерия",
     "Варвара", "Василиса", "Вера", "Вероника", "Виктория", "Владимира", "Галина", "Глафира",
@@ -32381,7 +32415,7 @@ const std::array<std::string_view, 110> russianFemalesFirstNames = { "Агафь
     "Ульяна", "Урсула", "Фаина", "Феврония", "Фёкла", "Феодора", "Целестина", "Элеонора", "Юлия",
     "Яна", "Ярослава" };
 
-const std::array<std::string_view, 568> russianMalesLastNames = { "Авдеев", "Агапов", "Агафонов",
+const std::array<std::string_view, 568> russian_male_last_names = { "Авдеев", "Агапов", "Агафонов",
     "Агеев", "Акимов", "Аксёнов", "Александров", "Алексеев", "Алёхин", "Алешин", "Алёшин",
     "Ананьев", "Андреев", "Андрианов", "Аникин", "Анисимов", "Анохин", "Антипов", "Антонов",
     "Артамонов", "Артёмов", "Архипов", "Астафьев", "Астахов", "Афанасьев", "Бабушкин", "Баженов",
@@ -32452,7 +32486,7 @@ const std::array<std::string_view, 568> russianMalesLastNames = { "Авдеев"
     "Шестаков", "Шилов", "Широков", "Ширяев", "Шишкин", "Шмелёв", "Шубин", "Шувалов", "Шульгин",
     "Щеглов", "Щербаков", "Щукин", "Юдин", "Яковлев", "Яшин" };
 
-const std::array<std::string_view, 562> russianFemalesLastNames = { "Авдеева", "Агапова",
+const std::array<std::string_view, 562> russian_female_last_names = { "Авдеева", "Агапова",
     "Агафонова", "Агеева", "Акимова", "Аксёнова", "Александрова", "Алексеева", "Алёхина", "Алешина",
     "Алёшина", "Ананьева", "Андреева", "Андрианова", "Аникина", "Анисимова", "Анохина", "Антипова",
     "Антонова", "Артамонова", "Артёмова", "Архипова", "Астафьева", "Астахова", "Афанасьева",
@@ -32528,7 +32562,7 @@ const std::array<std::string_view, 562> russianFemalesLastNames = { "Авдее�
     "Шестакова", "Шилова", "Широкова", "Ширяева", "Шишкина", "Шмелёва", "Шубина", "Шувалова",
     "Шульгина", "Щеглова", "Щербакова", "Щукина", "Юдина", "Яковлева", "Яшина" };
 
-const std::array<std::string_view, 132> russianMalesMiddleNames = { "Ааронович", "Абрамович",
+const std::array<std::string_view, 132> russian_male_middle_names = { "Ааронович", "Абрамович",
     "Августович", "Авдеевич", "Аверьянович", "Адамович", "Адрианович", "Аксёнович", "Александрович",
     "Алексеевич", "Анатольевич", "Андреевич", "Анисимович", "Антипович", "Антонович", "Ануфриевич",
     "Арсенович", "Арсеньевич", "Артёмович", "Артемьевич", "Артурович", "Архипович", "Афанасьевич",
@@ -32550,7 +32584,7 @@ const std::array<std::string_view, 132> russianMalesMiddleNames = { "Аарон�
     "Харлампьевич", "Чеславович", "Эдгардович", "Эдгарович", "Эдуардович", "Юлианович", "Юльевич",
     "Яковлевич", "Якубович", "Ярославович" };
 
-const std::array<std::string_view, 79> russianFemalesMiddleNames = { "Александровна", "Андреевна",
+const std::array<std::string_view, 79> russian_female_middle_names = { "Александровна", "Андреевна",
     "Архиповна", "Алексеевна", "Антоновна", "Аскольдовна", "Альбертовна", "Аркадьевна",
     "Афанасьевна", "Анатольевна", "Артемовна", "Богдановна", "Болеславовна", "Борисовна",
     "Вадимовна", "Васильевна", "Владимировна", "Валентиновна", "Вениаминовна", "Владиславовна",
@@ -32564,18 +32598,18 @@ const std::array<std::string_view, 79> russianFemalesMiddleNames = { "Алекс
     "Тарасовна", "Тимофеевна", "Тимуровна", "Федоровна", "Феликсовна", "Филипповна", "Харитоновна",
     "Эдуардовна", "Эльдаровна", "Юльевна", "Юрьевна", "Яковлевна" };
 
-const NameFormats russianPersonNameFormats { { { "{firstName} {lastName}", 1 },
+const NameFormats russian_name_formats { { { "{firstName} {lastName}", 1 },
     { "{lastName} {firstName}", 1 }, { "{lastName} {middleName} {firstName}", 1 },
     { "{lastName} {firstName} {middleName}", 1 } } };
 
-const PeopleNames russianPeopleNames { { russianMalesFirstNames, russianMalesMiddleNames,
-                                           russianMalesLastNames, {}, {} },
-    { russianFemalesFirstNames, russianFemalesMiddleNames, russianFemalesLastNames, {}, {} },
-    russianPersonNameFormats };
+const PeopleNames russian_people_names { { russian_male_first_names, russian_male_middle_names,
+                                             russian_male_last_names, {}, {} },
+    { russian_female_first_names, russian_female_middle_names, russian_female_last_names, {}, {} },
+    russian_name_formats };
 
 // Serbia
 
-const std::array<std::string_view, 200> serbianMalesFirstNames = {
+const std::array<std::string_view, 200> serbian_male_first_names = {
     "Adam",
     "Aleksa",
     "Aleksandar",
@@ -32778,7 +32812,7 @@ const std::array<std::string_view, 200> serbianMalesFirstNames = {
     "Đurađ",
 };
 
-const std::array<std::string_view, 200> serbianFemalesFirstNames = {
+const std::array<std::string_view, 200> serbian_female_first_names = {
     "Adrijana",
     "Aleksandra",
     "Ana",
@@ -32981,7 +33015,7 @@ const std::array<std::string_view, 200> serbianFemalesFirstNames = {
     "Željka",
 };
 
-const std::array<std::string_view, 999> serbianLastNames = {
+const std::array<std::string_view, 999> serbian_last_names = {
     "Abadžija",
     "Abadžić",
     "Abazović",
@@ -33983,28 +34017,29 @@ const std::array<std::string_view, 999> serbianLastNames = {
     "Živanac",
 };
 
-const NameFormats serbianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats serbian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames serbianPeopleNames { { serbianMalesFirstNames, {}, serbianLastNames, {}, {} },
-    { serbianFemalesFirstNames, {}, serbianLastNames, {}, {} }, serbianPersonNameFormats };
+const PeopleNames serbian_people_names { { serbian_male_first_names, {}, serbian_last_names, {},
+                                             {} },
+    { serbian_female_first_names, {}, serbian_last_names, {}, {} }, serbian_name_formats };
 
 // Slovakia
 
-const std::array<std::string_view, 192> slovakMalesFirstNames = { "Drahoslav", "Severín", "Alexej",
-    "Ernest", "Rastislav", "Radovan", "Dobroslav", "Dalibor", "Vincent", "Miloš", "Timotej",
-    "Gejza", "Bohuš", "Alfonz", "Gašpar", "Emil", "Erik", "Blažej", "Zdenko", "Dezider", "Arpád",
-    "Valentín", "Pravoslav", "Jaromír", "Roman", "Matej", "Frederik", "Viktor", "Alexander",
-    "Radomír", "Albín", "Bohumil", "Kazimír", "Fridrich", "Radoslav", "Tomáš", "Alan", "Branislav",
-    "Bruno", "Gregor", "Vlastimil", "Boleslav", "Eduard", "Jozef", "Víťazoslav", "Blahoslav",
-    "Beňadik", "Adrián", "Gabriel", "Marián", "Emanuel", "Miroslav", "Benjamín", "Hugo", "Richard",
-    "Izidor", "Zoltán", "Albert", "Igor", "Július", "Aleš", "Fedor", "Rudolf", "Valér", "Marcel",
-    "Ervín", "Slavomír", "Vojtech", "Juraj", "Marek", "Jaroslav", "Žigmund", "Florián", "Roland",
-    "Pankrác", "Servác", "Bonifác", "Svetozár", "Bernard", "Júlia", "Urban", "Dušan", "Viliam",
-    "Ferdinand", "Norbert", "Róbert", "Medard", "Zlatko", "Anton", "Vasil", "Vít", "Adolf",
-    "Vratislav", "Alfréd", "Alojz", "Ján", "Tadeáš", "Ladislav", "Peter", "Pavol", "Miloslav",
-    "Prokop", "Cyril", "Metod", "Patrik", "Oliver", "Ivan", "Kamil", "Henrich", "Drahomír",
-    "Bohuslav", "Iľja", "Daniel", "Vladimír", "Jakub", "Krištof", "Ignác", "Gustáv", "Jerguš",
-    "Dominik", "Oskar", "Vavrinec", "Ľubomír", "Mojmír", "Leonard", "Tichomír", "Filip",
+const std::array<std::string_view, 192> slovak_male_first_names = { "Drahoslav", "Severín",
+    "Alexej", "Ernest", "Rastislav", "Radovan", "Dobroslav", "Dalibor", "Vincent", "Miloš",
+    "Timotej", "Gejza", "Bohuš", "Alfonz", "Gašpar", "Emil", "Erik", "Blažej", "Zdenko", "Dezider",
+    "Arpád", "Valentín", "Pravoslav", "Jaromír", "Roman", "Matej", "Frederik", "Viktor",
+    "Alexander", "Radomír", "Albín", "Bohumil", "Kazimír", "Fridrich", "Radoslav", "Tomáš", "Alan",
+    "Branislav", "Bruno", "Gregor", "Vlastimil", "Boleslav", "Eduard", "Jozef", "Víťazoslav",
+    "Blahoslav", "Beňadik", "Adrián", "Gabriel", "Marián", "Emanuel", "Miroslav", "Benjamín",
+    "Hugo", "Richard", "Izidor", "Zoltán", "Albert", "Igor", "Július", "Aleš", "Fedor", "Rudolf",
+    "Valér", "Marcel", "Ervín", "Slavomír", "Vojtech", "Juraj", "Marek", "Jaroslav", "Žigmund",
+    "Florián", "Roland", "Pankrác", "Servác", "Bonifác", "Svetozár", "Bernard", "Júlia", "Urban",
+    "Dušan", "Viliam", "Ferdinand", "Norbert", "Róbert", "Medard", "Zlatko", "Anton", "Vasil",
+    "Vít", "Adolf", "Vratislav", "Alfréd", "Alojz", "Ján", "Tadeáš", "Ladislav", "Peter", "Pavol",
+    "Miloslav", "Prokop", "Cyril", "Metod", "Patrik", "Oliver", "Ivan", "Kamil", "Henrich",
+    "Drahomír", "Bohuslav", "Iľja", "Daniel", "Vladimír", "Jakub", "Krištof", "Ignác", "Gustáv",
+    "Jerguš", "Dominik", "Oskar", "Vavrinec", "Ľubomír", "Mojmír", "Leonard", "Tichomír", "Filip",
     "Bartolomej", "Ľudovít", "Samuel", "Augustín", "Belo", "Oleg", "Bystrík", "Ctibor", "Ľudomil",
     "Konštantín", "Ľuboslav", "Matúš", "Móric", "Ľuboš", "Ľubor", "Vladislav", "Cyprián", "Václav",
     "Michal", "Jarolím", "Arnold", "Levoslav", "František", "Dionýz", "Maximilián", "Koloman",
@@ -34014,7 +34049,7 @@ const std::array<std::string_view, 192> slovakMalesFirstNames = { "Drahoslav", "
     "Andrej", "Edmund", "Oldrich", "Oto", "Mikuláš", "Ambróz", "Radúz", "Bohdan", "Adam", "Štefan",
     "Dávid", "Silvester" };
 
-const std::array<std::string_view, 200> slovakFemalesFirstNames = { "Alexandra", "Karina",
+const std::array<std::string_view, 200> slovak_female_first_names = { "Alexandra", "Karina",
     "Daniela", "Andrea", "Antónia", "Bohuslava", "Dáša", "Malvína", "Kristína", "Nataša", "Bohdana",
     "Drahomíra", "Sára", "Zora", "Tamara", "Ema", "Tatiana", "Erika", "Veronika", "Agáta", "Dorota",
     "Vanda", "Zoja", "Gabriela", "Perla", "Ida", "Liana", "Miloslava", "Vlasta", "Lívia",
@@ -34039,8 +34074,8 @@ const std::array<std::string_view, 200> slovakFemalesFirstNames = { "Alexandra",
     "Albína", "Kornélia", "Sláva", "Slávka", "Judita", "Dagmara", "Adela", "Nadežda", "Eva",
     "Filoména", "Ivana", "Milada" };
 
-const std::array<std::string_view, 257> slovakMalesLastNames = { "Antal", "Babka", "Bahna", "Bahno",
-    "Baláž", "Baran", "Baranka", "Bartovič", "Bartoš", "Bača", "Bernolák", "Beňo", "Bicek",
+const std::array<std::string_view, 257> slovak_male_last_names = { "Antal", "Babka", "Bahna",
+    "Bahno", "Baláž", "Baran", "Baranka", "Bartovič", "Bartoš", "Bača", "Bernolák", "Beňo", "Bicek",
     "Bielik", "Blaho", "Bondra", "Bosák", "Boška", "Brezina", "Bukovský", "Chalupka", "Chudík",
     "Cibula", "Cibulka", "Cibuľa", "Cyprich", "Cíger", "Danko", "Daňko", "Daňo", "Debnár", "Dej",
     "Dekýš", "Doležal", "Dočolomanský", "Droppa", "Dubovský", "Dudek", "Dula", "Dulla", "Dusík",
@@ -34069,58 +34104,58 @@ const std::array<std::string_view, 257> slovakMalesLastNames = { "Antal", "Babka
     "Čobrda", "Ďaďo", "Ďurica", "Ďuriš", "Šidlo", "Šimonovič", "Škriniar", "Škultéty", "Šmajda",
     "Šoltés", "Šoltýs", "Štefan", "Štefanka", "Šulc", "Šurka", "Švehla", "Šťastný" };
 
-const std::array<std::string_view, 251> slovakFemalesLastNames = { "Antalová", "Babková", "Bahnová",
-    "Balážová", "Baranová", "Baranková", "Bartovičová", "Bartošová", "Bačová", "Bernoláková",
-    "Beňová", "Biceková", "Bieliková", "Blahová", "Bondrová", "Bosáková", "Bošková", "Brezinová",
-    "Bukovská", "Chalupková", "Chudíková", "Cibulová", "Cibulková", "Cyprichová", "Cígerová",
-    "Danková", "Daňková", "Daňová", "Debnárová", "Dejová", "Dekýšová", "Doležalová", "Dočolomanská",
-    "Droppová", "Dubovská", "Dudeková", "Dulová", "Dullová", "Dusíková", "Dvončová", "Dzurjaninová",
-    "Dávidová", "Fabianová", "Fabiánová", "Fajnorová", "Farkašovská", "Ficová", "Filcová",
-    "Filipová", "Finková", "Ftoreková", "Gašparová", "Gašparovičová", "Gocníková", "Gregorová",
-    "Gregušová", "Grznárová", "Habláková", "Habšudová", "Haldová", "Halušková", "Haláková",
-    "Hanková", "Hanzalová", "Haščáková", "Heretiková", "Hečková", "Hlaváčeková", "Hlinková",
-    "Holubová", "Holubyová", "Hossová", "Hozová", "Hrašková", "Hricová", "Hrmová", "Hrušovská",
-    "Hubová", "Ihnačáková", "Janečeková", "Janošková", "Jantošovičová", "Janíková", "Jančeková",
-    "Jedľovská", "Jendeková", "Jonatová", "Jurinová", "Jurkovičová", "Juríková", "Jánošíková",
-    "Kafendová", "Kaliská", "Karulová", "Kenížová", "Klapková", "Kmeťová", "Kolesárová",
-    "Kollárová", "Kolniková", "Kolníková", "Kolárová", "Korecová", "Kostkaová", "Kostrecová",
-    "Kováčová", "Kováčiková", "Kozová", "Kočišová", "Krajíčeková", "Krajčová", "Krajčovičová",
-    "Krajčírová", "Králiková", "Krúpová", "Kubíková", "Kyseľová", "Kállayová", "Labudová",
-    "Lepšíková", "Liptáková", "Lisická", "Lubinová", "Lukáčová", "Luptáková", "Líšková", "Madejová",
-    "Majeská", "Malachovská", "Malíšeková", "Mamojková", "Marcinková", "Mariánová", "Masaryková",
-    "Maslová", "Matiašková", "Medveďová", "Melcerová", "Mečiarová", "Michalíková", "Mihaliková",
-    "Mihálová", "Miháliková", "Miklošková", "Mikulíková", "Mikušová", "Mikúšová", "Milotová",
-    "Mináčová", "Mišíková", "Mojžišová", "Mokrošová", "Morová", "Moravčíková", "Mydlová", "Nemcová",
-    "Nováková", "Obšutová", "Ondrušová", "Otčenášová", "Pauková", "Pavlikovská", "Pavúková",
-    "Pašeková", "Pašková", "Pelikánová", "Petrovická", "Petrušková", "Pešková", "Plchová",
-    "Plekanecová", "Podhradská", "Podkonická", "Poliaková", "Pupáková", "Raková", "Repiská",
-    "Romančíková", "Rusová", "Ružičková", "Rybníčeková", "Rybárová", "Rybáriková", "Samsonová",
-    "Sedliaková", "Senková", "Sklenková", "Skokanová", "Skutecká", "Slašťanová", "Slobodová",
-    "Slobodníková", "Slotová", "Slováková", "Smreková", "Stodolová", "Straková", "Strnisková",
-    "Svrbíková", "Sámelová", "Sýkorová", "Tatarová", "Tatarková", "Tatárová", "Tatárkaová",
-    "Thomková", "Tomečeková", "Tomková", "Trubenová", "Turčoková", "Uramová", "Urblíková",
-    "Vajcíková", "Vajdová", "Valachová", "Valachovičová", "Valentová", "Valušková", "Vaneková",
-    "Veselová", "Vicenová", "Višňovská", "Vlachová", "Vojteková", "Vydarená", "Zajacová", "Zimová",
-    "Zimková", "Záborská", "Zúbriková", "Čapkovičová", "Čaplovičová", "Čarnogurská", "Čierná",
-    "Čobrdová", "Ďaďová", "Ďuricová", "Ďurišová", "Šidlová", "Šimonovičová", "Škriniarová",
-    "Škultétyová", "Šmajdová", "Šoltésová", "Šoltýsová", "Štefanová", "Štefanková", "Šulcová",
-    "Šurková", "Švehlová", "Šťastná" };
+const std::array<std::string_view, 251> slovak_females_last_names = { "Antalová", "Babková",
+    "Bahnová", "Balážová", "Baranová", "Baranková", "Bartovičová", "Bartošová", "Bačová",
+    "Bernoláková", "Beňová", "Biceková", "Bieliková", "Blahová", "Bondrová", "Bosáková", "Bošková",
+    "Brezinová", "Bukovská", "Chalupková", "Chudíková", "Cibulová", "Cibulková", "Cyprichová",
+    "Cígerová", "Danková", "Daňková", "Daňová", "Debnárová", "Dejová", "Dekýšová", "Doležalová",
+    "Dočolomanská", "Droppová", "Dubovská", "Dudeková", "Dulová", "Dullová", "Dusíková", "Dvončová",
+    "Dzurjaninová", "Dávidová", "Fabianová", "Fabiánová", "Fajnorová", "Farkašovská", "Ficová",
+    "Filcová", "Filipová", "Finková", "Ftoreková", "Gašparová", "Gašparovičová", "Gocníková",
+    "Gregorová", "Gregušová", "Grznárová", "Habláková", "Habšudová", "Haldová", "Halušková",
+    "Haláková", "Hanková", "Hanzalová", "Haščáková", "Heretiková", "Hečková", "Hlaváčeková",
+    "Hlinková", "Holubová", "Holubyová", "Hossová", "Hozová", "Hrašková", "Hricová", "Hrmová",
+    "Hrušovská", "Hubová", "Ihnačáková", "Janečeková", "Janošková", "Jantošovičová", "Janíková",
+    "Jančeková", "Jedľovská", "Jendeková", "Jonatová", "Jurinová", "Jurkovičová", "Juríková",
+    "Jánošíková", "Kafendová", "Kaliská", "Karulová", "Kenížová", "Klapková", "Kmeťová",
+    "Kolesárová", "Kollárová", "Kolniková", "Kolníková", "Kolárová", "Korecová", "Kostkaová",
+    "Kostrecová", "Kováčová", "Kováčiková", "Kozová", "Kočišová", "Krajíčeková", "Krajčová",
+    "Krajčovičová", "Krajčírová", "Králiková", "Krúpová", "Kubíková", "Kyseľová", "Kállayová",
+    "Labudová", "Lepšíková", "Liptáková", "Lisická", "Lubinová", "Lukáčová", "Luptáková", "Líšková",
+    "Madejová", "Majeská", "Malachovská", "Malíšeková", "Mamojková", "Marcinková", "Mariánová",
+    "Masaryková", "Maslová", "Matiašková", "Medveďová", "Melcerová", "Mečiarová", "Michalíková",
+    "Mihaliková", "Mihálová", "Miháliková", "Miklošková", "Mikulíková", "Mikušová", "Mikúšová",
+    "Milotová", "Mináčová", "Mišíková", "Mojžišová", "Mokrošová", "Morová", "Moravčíková",
+    "Mydlová", "Nemcová", "Nováková", "Obšutová", "Ondrušová", "Otčenášová", "Pauková",
+    "Pavlikovská", "Pavúková", "Pašeková", "Pašková", "Pelikánová", "Petrovická", "Petrušková",
+    "Pešková", "Plchová", "Plekanecová", "Podhradská", "Podkonická", "Poliaková", "Pupáková",
+    "Raková", "Repiská", "Romančíková", "Rusová", "Ružičková", "Rybníčeková", "Rybárová",
+    "Rybáriková", "Samsonová", "Sedliaková", "Senková", "Sklenková", "Skokanová", "Skutecká",
+    "Slašťanová", "Slobodová", "Slobodníková", "Slotová", "Slováková", "Smreková", "Stodolová",
+    "Straková", "Strnisková", "Svrbíková", "Sámelová", "Sýkorová", "Tatarová", "Tatarková",
+    "Tatárová", "Tatárkaová", "Thomková", "Tomečeková", "Tomková", "Trubenová", "Turčoková",
+    "Uramová", "Urblíková", "Vajcíková", "Vajdová", "Valachová", "Valachovičová", "Valentová",
+    "Valušková", "Vaneková", "Veselová", "Vicenová", "Višňovská", "Vlachová", "Vojteková",
+    "Vydarená", "Zajacová", "Zimová", "Zimková", "Záborská", "Zúbriková", "Čapkovičová",
+    "Čaplovičová", "Čarnogurská", "Čierná", "Čobrdová", "Ďaďová", "Ďuricová", "Ďurišová", "Šidlová",
+    "Šimonovičová", "Škriniarová", "Škultétyová", "Šmajdová", "Šoltésová", "Šoltýsová", "Štefanová",
+    "Štefanková", "Šulcová", "Šurková", "Švehlová", "Šťastná" };
 
-const std::array<std::string_view, 1> slovakSuffixes { "Phd." };
+const std::array<std::string_view, 1> slovak_suffixes { "Phd." };
 
-const std::array<std::string_view, 4> slovakPrefixes { "Ing.", "Mgr.", "JUDr.", "MUDr." };
+const std::array<std::string_view, 4> slovak_prefixes { "Ing.", "Mgr.", "JUDr.", "MUDr." };
 
-const NameFormats slovakPersonNameFormats { { { "{firstName} {lastName}", 8 },
+const NameFormats slovak_name_formats { { { "{firstName} {lastName}", 8 },
     { "{prefix} {firstName} {lastName}", 1 }, { "{firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames slovakPeopleNames { { slovakMalesFirstNames, {}, slovakMalesLastNames,
-                                          slovakPrefixes, slovakSuffixes },
-    { slovakFemalesFirstNames, {}, slovakFemalesLastNames, slovakPrefixes, slovakSuffixes },
-    slovakPersonNameFormats };
+const PeopleNames slovak_people_names { { slovak_male_first_names, {}, slovak_male_last_names,
+                                            slovak_prefixes, slovak_suffixes },
+    { slovak_female_first_names, {}, slovak_females_last_names, slovak_prefixes, slovak_suffixes },
+    slovak_name_formats };
 
 // Slovenia
 
-const std::array<std::string_view, 350> slovenianMalesFirstNames {
+const std::array<std::string_view, 350> slovenian_male_first_names {
     "Franc",
     "Marko",
     "Ivan",
@@ -34473,7 +34508,7 @@ const std::array<std::string_view, 350> slovenianMalesFirstNames {
     "Engelbert",
 };
 
-const std::array<std::string_view, 350> slovenianFemalesFirstNames {
+const std::array<std::string_view, 350> slovenian_female_first_names {
     "Marija",
     "Ana",
     "Maja",
@@ -34826,7 +34861,7 @@ const std::array<std::string_view, 350> slovenianFemalesFirstNames {
     "Arian",
 };
 
-const std::array<std::string_view, 350> slovenianLastNames {
+const std::array<std::string_view, 350> slovenian_last_names {
     "Novak",
     "Horvat",
     "Krajnc",
@@ -35179,15 +35214,15 @@ const std::array<std::string_view, 350> slovenianLastNames {
     "Križan",
 };
 
-const NameFormats slovenianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats slovenian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames slovenianPeopleNames { { slovenianMalesFirstNames, {}, slovenianLastNames, {},
-                                             {} },
-    { slovenianFemalesFirstNames, {}, slovenianLastNames, {}, {} }, slovenianPersonNameFormats };
+const PeopleNames slovenian_people_names { { slovenian_male_first_names, {}, slovenian_last_names,
+                                               {}, {} },
+    { slovenian_female_first_names, {}, slovenian_last_names, {}, {} }, slovenian_name_formats };
 
 // South Africa
 
-const std::array<std::string_view, 113> southAfricanMalesFirstNames {
+const std::array<std::string_view, 113> south_african_male_first_names {
     "Johan",
     "Robert",
     "Michael",
@@ -35303,7 +35338,7 @@ const std::array<std::string_view, 113> southAfricanMalesFirstNames {
     "Stephaans",
 };
 
-const std::array<std::string_view, 107> southAfricanFemalesFirstNames {
+const std::array<std::string_view, 107> south_african_female_first_names {
     "Susan",
     "Monica",
     "Linda",
@@ -35413,7 +35448,7 @@ const std::array<std::string_view, 107> southAfricanFemalesFirstNames {
     "Kristie",
 };
 
-const std::array<std::string_view, 162> southAfricanLastNames {
+const std::array<std::string_view, 162> south_african_last_names {
     "van de Merwe",
     "Schoeman",
     "Barnard",
@@ -35578,16 +35613,16 @@ const std::array<std::string_view, 162> southAfricanLastNames {
     "Carstens",
 };
 
-const NameFormats southAfricanPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats south_african_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames southAfricanPeopleNames { { southAfricanMalesFirstNames, {},
-                                                southAfricanLastNames, {}, {} },
-    { southAfricanFemalesFirstNames, {}, southAfricanLastNames, {}, {} },
-    southAfricanPersonNameFormats };
+const PeopleNames south_african_people_names { { south_african_male_first_names, {},
+                                                   south_african_last_names, {}, {} },
+    { south_african_female_first_names, {}, south_african_last_names, {}, {} },
+    south_african_name_formats };
 
 // Spain
 
-const std::array<std::string_view, 113> spanishMalesFirstNames = {
+const std::array<std::string_view, 113> spanish_male_first_names = {
     "Agapetus",
     "Aimon",
     "Ángel",
@@ -35703,7 +35738,7 @@ const std::array<std::string_view, 113> spanishMalesFirstNames = {
     "Zenon ",
 };
 
-const std::array<std::string_view, 147> spanishFemalesFirstNames = {
+const std::array<std::string_view, 147> spanish_female_first_names = {
     "Adalia",
     "Aidia",
     "Alva",
@@ -35853,28 +35888,28 @@ const std::array<std::string_view, 147> spanishFemalesFirstNames = {
     "Zurine ",
 };
 
-const std::array<std::string_view, 625> spanishLastNames = { "Abeyta", "Abrego", "Abreu", "Acevedo",
-    "Acosta", "Acuña", "Adame", "Adorno", "Agosto", "Aguayo", "Aguilar", "Aguilera", "Aguirre",
-    "Alanis", "Alaníz", "Alarcón", "Alba", "Alcalá", "Alcántar", "Alcaraz", "Alejandro", "Alemán",
-    "Alfaro", "Alicea", "Almanza", "Almaráz", "Almonte", "Alonso", "Alonzo", "Altamirano", "Alva",
-    "Alvarado", "Álvarez", "Amador", "Amaya", "Anaya", "Anguiano", "Angulo", "Aparicio", "Apodaca",
-    "Aponte", "Aragón", "Araña", "Aranda", "Arce", "Archuleta", "Arellano", "Arenas", "Arevalo",
-    "Argüello", "Arias", "Armas", "Armendáriz", "Armenta", "Armijo", "Arredondo", "Arreola",
-    "Arriaga", "Arroyo", "Arteaga", "Atencio", "Ávalos", "Ávila", "Avilés", "Ayala", "Baca",
-    "Badillo", "Báez", "Baeza", "Bahena", "Balderas", "Ballesteros", "Banda", "Bañuelos", "Barajas",
-    "Barela", "Barragán", "Barraza", "Barrera", "Barreto", "Barrientos", "Barrios", "Batista",
-    "Becerra", "Beltrán", "Benavides", "Benavídez", "Benítez", "Bermúdez", "Bernal", "Berríos",
-    "Betancourt", "Blanco", "Bonilla", "Borrego", "Botello", "Bravo", "Briones", "Briseño", "Brito",
-    "Bueno", "Burgos", "Bustamante", "Bustos", "Caballero", "Cabán", "Cabrera", "Cadena", "Caldera",
-    "Calderón", "Calvillo", "Camacho", "Camarillo", "Campos", "Canales", "Candelaria", "Cano",
-    "Cantú", "Caraballo", "Carbajal", "Cárdenas", "Cardona", "Carmona", "Carranza", "Carrasco",
-    "Carrasquillo", "Carreón", "Carrera", "Carrero", "Carrillo", "Carrión", "Carvajal", "Casanova",
-    "Casares", "Casarez", "Casas", "Casillas", "Castañeda", "Castellanos", "Castillo", "Castro",
-    "Cavazos", "Cazares", "Ceballos", "Cedillo", "Ceja", "Centeno", "Cepeda", "Cerda", "Cervantes",
-    "Cervántez", "Chacón", "Chapa", "Chavarría", "Chávez", "Cintrón", "Cisneros", "Collado",
-    "Collazo", "Colón", "Colunga", "Concepción", "Contreras", "Cordero", "Córdova", "Cornejo",
-    "Corona", "Coronado", "Corral", "Corrales", "Correa", "Cortés", "Cortéz", "Cotto",
-    "Covarrubias", "Crespo", "Cruz", "Cuellar", "Curiel", "Dávila", "de Anda", "de Jesús",
+const std::array<std::string_view, 625> spanish_last_names = { "Abeyta", "Abrego", "Abreu",
+    "Acevedo", "Acosta", "Acuña", "Adame", "Adorno", "Agosto", "Aguayo", "Aguilar", "Aguilera",
+    "Aguirre", "Alanis", "Alaníz", "Alarcón", "Alba", "Alcalá", "Alcántar", "Alcaraz", "Alejandro",
+    "Alemán", "Alfaro", "Alicea", "Almanza", "Almaráz", "Almonte", "Alonso", "Alonzo", "Altamirano",
+    "Alva", "Alvarado", "Álvarez", "Amador", "Amaya", "Anaya", "Anguiano", "Angulo", "Aparicio",
+    "Apodaca", "Aponte", "Aragón", "Araña", "Aranda", "Arce", "Archuleta", "Arellano", "Arenas",
+    "Arevalo", "Argüello", "Arias", "Armas", "Armendáriz", "Armenta", "Armijo", "Arredondo",
+    "Arreola", "Arriaga", "Arroyo", "Arteaga", "Atencio", "Ávalos", "Ávila", "Avilés", "Ayala",
+    "Baca", "Badillo", "Báez", "Baeza", "Bahena", "Balderas", "Ballesteros", "Banda", "Bañuelos",
+    "Barajas", "Barela", "Barragán", "Barraza", "Barrera", "Barreto", "Barrientos", "Barrios",
+    "Batista", "Becerra", "Beltrán", "Benavides", "Benavídez", "Benítez", "Bermúdez", "Bernal",
+    "Berríos", "Betancourt", "Blanco", "Bonilla", "Borrego", "Botello", "Bravo", "Briones",
+    "Briseño", "Brito", "Bueno", "Burgos", "Bustamante", "Bustos", "Caballero", "Cabán", "Cabrera",
+    "Cadena", "Caldera", "Calderón", "Calvillo", "Camacho", "Camarillo", "Campos", "Canales",
+    "Candelaria", "Cano", "Cantú", "Caraballo", "Carbajal", "Cárdenas", "Cardona", "Carmona",
+    "Carranza", "Carrasco", "Carrasquillo", "Carreón", "Carrera", "Carrero", "Carrillo", "Carrión",
+    "Carvajal", "Casanova", "Casares", "Casarez", "Casas", "Casillas", "Castañeda", "Castellanos",
+    "Castillo", "Castro", "Cavazos", "Cazares", "Ceballos", "Cedillo", "Ceja", "Centeno", "Cepeda",
+    "Cerda", "Cervantes", "Cervántez", "Chacón", "Chapa", "Chavarría", "Chávez", "Cintrón",
+    "Cisneros", "Collado", "Collazo", "Colón", "Colunga", "Concepción", "Contreras", "Cordero",
+    "Córdova", "Cornejo", "Corona", "Coronado", "Corral", "Corrales", "Correa", "Cortés", "Cortéz",
+    "Cotto", "Covarrubias", "Crespo", "Cruz", "Cuellar", "Curiel", "Dávila", "de Anda", "de Jesús",
     "Delacrúz", "Delafuente", "Delagarza", "Delao", "Delapaz", "Delarosa", "Delatorre", "Deleón",
     "Delgadillo", "Delgado", "Delrío", "Delvalle", "Díaz", "Domínguez", "Duarte", "Dueñas", "Durán",
     "Echevarría", "Elizondo", "Enríquez", "Escalante", "Escamilla", "Escobar", "Escobedo",
@@ -35927,21 +35962,21 @@ const std::array<std::string_view, 625> spanishLastNames = { "Abeyta", "Abrego",
     "Villaseñor", "Villegas", "Yáñez", "Ybarra", "Zambrano", "Zamora", "Zamudio", "Zapata",
     "Zaragoza", "Zarate", "Zavala", "Zayas", "Zelaya", "Zepeda", "Zúñiga" };
 
-const std::array<std::string_view, 1> spanishMalesPrefixes { "Sr." };
+const std::array<std::string_view, 1> spanish_male_prefixes { "Sr." };
 
-const std::array<std::string_view, 2> spanishFemalesPrefixes { "Sra.", "Sta." };
+const std::array<std::string_view, 2> spanish_female_prefixes { "Sra.", "Sta." };
 
-const NameFormats spanishPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats spanish_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
 
-const PeopleNames spanishPeopleNames { { spanishMalesFirstNames, {}, spanishLastNames,
-                                           spanishMalesPrefixes, {} },
-    { spanishFemalesFirstNames, {}, spanishLastNames, spanishFemalesPrefixes, {} },
-    spanishPersonNameFormats };
+const PeopleNames spanish_people_names { { spanish_male_first_names, {}, spanish_last_names,
+                                             spanish_male_prefixes, {} },
+    { spanish_female_first_names, {}, spanish_last_names, spanish_female_prefixes, {} },
+    spanish_name_formats };
 
 // Sweden
 
-const std::array<std::string_view, 100> swedishMalesFirstNames = { "Lars", "Mikael", "Anders",
+const std::array<std::string_view, 100> swedish_male_first_names = { "Lars", "Mikael", "Anders",
     "Johan", "Erik", "Per", "Peter", "Karl", "Thomas", "Jan", "Daniel", "Fredrik", "Andreas",
     "Hans", "Stefan", "Mohamed", "Mats", "Marcus", "Mattias", "Magnus", "Jonas", "Oskar",
     "Alexander", "Niklas", "Bengt", "Martin", "Bo", "Nils", "Viktor", "Patrik", "Björn", "David",
@@ -35953,7 +35988,7 @@ const std::array<std::string_view, 100> swedishMalesFirstNames = { "Lars", "Mika
     "Gunnar", "Dennis", "Josef", "Johnny", "Olle", "Liam", "Leo", "Olof", "Pontus", "Åke", "Kurt",
     "Kevin", "Samuel", "Edvin", "Gabriel", "Torbjörn", "Arvid", "Felix" };
 
-const std::array<std::string_view, 100> swedishFemalesFirstNames = { "Anna", "Eva", "Maria",
+const std::array<std::string_view, 100> swedish_female_first_names = { "Anna", "Eva", "Maria",
     "Karin", "Sara", "Kristina", "Lena", "Emma", "Kerstin", "Marie", "Malin", "Ingrid", "Jenny",
     "Hanna", "Linda", "Annika", "Susanne", "Elin", "Monica", "Birgitta", "Sofia", "Johanna",
     "Inger", "Carina", "Elisabeth", "Julia", "Ulla", "Katarina", "Linnéa", "Emelie", "Ida",
@@ -35966,7 +36001,7 @@ const std::array<std::string_view, 100> swedishFemalesFirstNames = { "Anna", "Ev
     "Ann-Marie", "Sonja", "Britt-Marie", "Pernilla", "Lovisa", "Charlotte", "Linn", "Gunnel",
     "Nina", "Mikaela", "Karolina", "Lisbeth" };
 
-const std::array<std::string_view, 100> swedishLastNames = { "Andersson", "Johansson", "Karlsson",
+const std::array<std::string_view, 100> swedish_last_names = { "Andersson", "Johansson", "Karlsson",
     "Nilsson", "Eriksson", "Larsson", "Olsson", "Persson", "Svensson", "Gustafsson", "Pettersson",
     "Jonsson", "Jansson", "Hansson", "Bengtsson", "Jönsson", "Lindberg", "Jakobsson", "Magnusson",
     "Olofsson", "Lindström", "Lindqvist", "Lindgren", "Berg", "Axelsson", "Bergström", "Lundberg",
@@ -35981,19 +36016,19 @@ const std::array<std::string_view, 100> swedishLastNames = { "Andersson", "Johan
     "Öberg", "Andreasson", "Strömberg", "Månsson", "Hansen", "Åkesson", "Dahl", "Lindholm",
     "Norberg", "Holmqvist" };
 
-const std::array<std::string_view, 3> swedishPrefixes { "Dr.", "Prof.", "PhD." };
+const std::array<std::string_view, 3> swedish_prefixes { "Dr.", "Prof.", "PhD." };
 
-const NameFormats swedishPersonNameFormats { { { "{firstName} {lastName}", 10 },
+const NameFormats swedish_name_formats { { { "{firstName} {lastName}", 10 },
     { "{prefix} {firstName} {lastName}", 1 } } };
 
-const PeopleNames swedishPeopleNames { { swedishMalesFirstNames, {}, swedishLastNames,
-                                           swedishPrefixes, {} },
-    { swedishFemalesFirstNames, {}, swedishLastNames, swedishPrefixes, {} },
-    swedishPersonNameFormats };
+const PeopleNames swedish_people_names { { swedish_male_first_names, {}, swedish_last_names,
+                                             swedish_prefixes, {} },
+    { swedish_female_first_names, {}, swedish_last_names, swedish_prefixes, {} },
+    swedish_name_formats };
 
 // Switzerland
 
-const std::array<std::string_view, 179> swissMalesFirstNames = {
+const std::array<std::string_view, 179> swiss_male_first_names = {
     "Alfons",
     "Alfred",
     "Alois",
@@ -36175,7 +36210,7 @@ const std::array<std::string_view, 179> swissMalesFirstNames = {
     "Yves",
 };
 
-const std::array<std::string_view, 138> swissFemalesFirstNames = {
+const std::array<std::string_view, 138> swiss_female_first_names = {
     "Alice",
     "Andrea",
     "Angela",
@@ -36316,7 +36351,7 @@ const std::array<std::string_view, 138> swissFemalesFirstNames = {
     "Yvonne",
 };
 
-const std::array<std::string_view, 209> swissLastNames = {
+const std::array<std::string_view, 209> swiss_last_names = {
     "Ackermann",
     "Aebi",
     "Albrecht",
@@ -36528,21 +36563,21 @@ const std::array<std::string_view, 209> swissLastNames = {
     "Zürcher",
 };
 
-const std::array<std::string_view, 3> swissMalesPrefixes { "Herr", "Dr.", "Prof. Dr." };
+const std::array<std::string_view, 3> swiss_male_prefixes { "Herr", "Dr.", "Prof. Dr." };
 
-const std::array<std::string_view, 3> swissFemalesPrefixes { "Frau", "Dr.", "Prof. Dr." };
+const std::array<std::string_view, 3> swiss_female_prefixes { "Frau", "Dr.", "Prof. Dr." };
 
-const NameFormats swissPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats swiss_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 9 } } };
 
-const PeopleNames swissPeopleNames {
-    { swissMalesFirstNames, {}, swissLastNames, swissMalesPrefixes, {} },
-    { swissFemalesFirstNames, {}, swissLastNames, swissFemalesPrefixes, {} }, swissPersonNameFormats
-};
+const PeopleNames swiss_people_names { { swiss_male_first_names, {}, swiss_last_names,
+                                           swiss_male_prefixes, {} },
+    { swiss_female_first_names, {}, swiss_last_names, swiss_female_prefixes, {} },
+    swiss_name_formats };
 
 // Syria
 
-const std::array<std::string_view, 350> syrianMalesFirstNames = { "Mohamed", "Ahmed", "Abdel",
+const std::array<std::string_view, 350> syrian_male_first_names = { "Mohamed", "Ahmed", "Abdel",
     "Hassan", "Ali", "Saleh", "Mahmoud", "Abou", "Ibrahim", "Hussein", "Khaled", "Fayez", "Sheikh",
     "Mostafa", "Abdo", "Anwar", "Hilal", "Yousef", "Ghazi", "Omar", "Hama", "Kamel", "Zuhair",
     "Khalil", "Suleiman", "Zaher", "Ismail", "Adnan", "Zain", "Yasser", "Ammar", "Farhan", "Nabil",
@@ -36579,7 +36614,7 @@ const std::array<std::string_view, 350> syrianMalesFirstNames = { "Mohamed", "Ah
     "Walid", "Antonius", "Nizam", "Aslan", "John", "Aday", "Faraz", "Rasheed", "Akash", "Ibo",
     "Wassim", "Muad", "Salih", "Mikael", "Husam" };
 
-const std::array<std::string_view, 350> syrianFemalesFirstNames = { "Nour", "Fatima", "Dara",
+const std::array<std::string_view, 350> syrian_female_first_names = { "Nour", "Fatima", "Dara",
     "Mariam", "Darya", "Amara", "Mari", "Jihad", "Hikmat", "Sabah", "Hanan", "Nihad", "Khadija",
     "Rana", "Mona", "Zainab", "Alaa", "Heba", "Hala", "Rama", "Hoda", "Nasreen", "Wissam", "Sarah",
     "Manal", "Reda", "Rasha", "Iman", "Zahra", "Nada", "Jamila", "Wafa", "Najah", "Samira", "Aya",
@@ -36616,7 +36651,7 @@ const std::array<std::string_view, 350> syrianFemalesFirstNames = { "Nour", "Fat
     "Amelia", "Caroline", "Nirmin", "Zina", "Suzan", "May", "Majida", "Yana", "Mouna", "Jocelyn",
     "Moumna", "Eman", "Rabha", "Thania" };
 
-const std::array<std::string_view, 350> syrianLastNames = { "Khaled", "Mohamed", "Al numan",
+const std::array<std::string_view, 350> syrian_last_names = { "Khaled", "Mohamed", "Al numan",
     "Ahmed", "Ali", "Hussein", "Hassan", "Ibrahim", "Mahmoud", "Samaan", "Alzuhur", "Saleh",
     "Alththania", "Allah", "Mostafa", "Suleiman", "Yousef", "Aldaman", "Khalil", "Khalaf", "El din",
     "Ismail", "Eisaa", "Hamoud", "Abdel", "Saeed", "Mousa", "Omar", "Jassim", "Sheikh", "Awad",
@@ -36657,72 +36692,72 @@ const std::array<std::string_view, 350> syrianLastNames = { "Khaled", "Mohamed",
     "Habash", "Maahed", "Madameh", "Gerges", "Oly", "Abdelkader", "Al awad", "Al safa", "Sayah",
     "Trama" };
 
-const NameFormats syrianPersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats syrian_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames syrianPeopleNames { { syrianMalesFirstNames, {}, syrianLastNames, {}, {} },
-    { syrianFemalesFirstNames, {}, syrianLastNames, {}, {} }, syrianPersonNameFormats };
+const PeopleNames syrian_people_names { { syrian_male_first_names, {}, syrian_last_names, {}, {} },
+    { syrian_female_first_names, {}, syrian_last_names, {}, {} }, syrian_name_formats };
 
 // Turkey
 
-const std::array<std::string_view, 44> turkishMalesFirstNames = { "Ahmet", "Mehmet", "Mustafa",
+const std::array<std::string_view, 44> turkish_male_first_names = { "Ahmet", "Mehmet", "Mustafa",
     "Ali", "Emre", "Burak", "Can", "Cem", "Eren", "Onur", "Kaan", "Serkan", "Hakan", "Yusuf",
     "Okan", "Barış", "Tolga", "Kerem", "Deniz", "Oğuz", "Umut", "Gökhan", "İsmail", "Metin",
     "Orhan", "İlker", "Levent", "Selim", "Berk", "Uğur", "Murat", "Tarık", "Cihan", "Fatih",
     "Furkan", "Yiğit", "Tarkan", "Volkan", "Mert", "Alp", "Taylan", "Burhan", "Ege", "Koray" };
 
-const std::array<std::string_view, 43> turkishFemalesFirstNames = { "Ayşe", "Fatma", "Zeynep",
+const std::array<std::string_view, 43> turkish_female_first_names = { "Ayşe", "Fatma", "Zeynep",
     "Emine", "Merve", "Elif", "Melis", "Esra", "İrem", "Ebru", "Selma", "Leyla", "Selin", "Gamze",
     "Gizem", "Ceren", "Deniz", "Aslı", "Nazlı", "Pınar", "İlayda", "Dilara", "Büşra", "Rabia",
     "Yasemin", "Gül", "Nur", "Melek", "Sude", "Şeyma", "Beren", "Eylül", "İpek", "Hande", "Cansu",
     "Özge", "Hilal", "Bilge", "Serra", "İlknur", "Cemre", "Tuğba", "Yelda" };
 
-const std::array<std::string_view, 52> turkishLastNames = { "Yılmaz", "Demir", "Kaya", "Çelik",
+const std::array<std::string_view, 52> turkish_last_names = { "Yılmaz", "Demir", "Kaya", "Çelik",
     "Yıldız", "Türk", "Güneş", "Ergin", "Arslan", "Doğan", "Kurt", "Şahin", "Güler", "Çetin",
     "Aydın", "Yalçın", "Kaplan", "Aksoy", "Taş", "Koç", "Erdoğan", "Yılmazer", "Bulut", "Acar",
     "Uçar", "Kılıç", "Karahan", "Tekin", "Soydan", "Çalışkan", "Öztürk", "Yalın", "Kara", "Özkan",
     "Akın", "Aktaş", "Büyükcengiz", "Okan", "Şimşek", "Keskin", "Kayabaş", "Kayabaşı", "Atalay",
     "Ünal", "Demirci", "Yaman", "Gündoğdu", "Çevik", "Durmaz", "Aslan", "Güzel", "Kahraman" };
 
-const std::array<std::string_view, 3> turkishMalesPrefixes { "Bay", "Dr.", "Prof. Dr." };
+const std::array<std::string_view, 3> turkish_male_prefixes { "Bay", "Dr.", "Prof. Dr." };
 
-const std::array<std::string_view, 3> turkishFemalesPrefixes { "Bayan", "Dr.", "Prof. Dr." };
+const std::array<std::string_view, 3> turkish_female_prefixes { "Bayan", "Dr.", "Prof. Dr." };
 
-const NameFormats turkishPersonNameFormats { { { "{prefix} {firstName} {lastName}", 1 },
+const NameFormats turkish_person_name_formats { { { "{prefix} {firstName} {lastName}", 1 },
     { "{firstName} {lastName}", 8 } } };
 
-const PeopleNames turkishPeopleNames { { turkishMalesFirstNames, {}, turkishLastNames,
-                                           turkishMalesPrefixes, {} },
-    { turkishFemalesFirstNames, {}, turkishLastNames, turkishFemalesPrefixes, {} },
-    turkishPersonNameFormats };
+const PeopleNames turkish_people_names { { turkish_male_first_names, {}, turkish_last_names,
+                                             turkish_male_prefixes, {} },
+    { turkish_female_first_names, {}, turkish_last_names, turkish_female_prefixes, {} },
+    turkish_person_name_formats };
 
 // Ukraine
 
-const std::array<std::string_view, 195> ukrainianMalesFirstNames = { "Августин", "Аврелій", "Адам",
-    "Адріян", "Азарій", "Алевтин", "Альберт", "Анастас", "Анастасій", "Анатолій", "Андрій", "Антін",
-    "Антон", "Антоній", "Аркадій", "Арсен", "Арсеній", "Артем", "Архип", "Аскольд", "Афанасій",
-    "Біломир", "Білослав", "Богдан", "Божемир", "Божен", "Болеслав", "Боримир", "Боримисл", "Борис",
-    "Борислав", "Братимир", "Братислав", "Братомил", "Братослав", "Брячислав", "Будимир", "Буйтур",
-    "Буревіст", "В’ячеслав", "Вадим", "Валентин", "Валерій", "Василь", "Велемир", "Віктор",
-    "Віталій", "Влад", "Владислав", "Володимир", "Володислав", "Всевлад", "Всеволод", "Всеслав",
-    "Гаврило", "Гарнослав", "Геннадій", "Георгій", "Герасим", "Гліб", "Гнат", "Гордій", "Горимир",
-    "Горислав", "Градимир", "Григорій", "Далемир", "Данило", "Дарій", "Даромир", "Денис", "Дмитро",
-    "Добромир", "Добромисл", "Доброслав", "Євген", "Єремій", "Захар", "Захарій", "Зборислав",
-    "Звенигор", "Звенимир", "Звенислав", "Земислав", "Зеновій", "Зиновій", "Злат", "Златомир",
-    "Зоремир", "Зореслав", "Зорян", "Іван", "Ігор", "Ізяслав", "Ілля", "Кий", "Корнелій",
-    "Корнилій", "Корнило", "Корній", "Костянтин", "Кузьма", "Лаврентій", "Лаврін", "Лад",
-    "Ладислав", "Ладо", "Ладомир", "Левко", "Листвич", "Лук’ян", "Любодар", "Любозар", "Любомир",
-    "Макар", "Максим", "Мар’ян", "Маркіян", "Марко", "Матвій", "Мечислав", "Микита", "Микола",
-    "Мирон", "Мирослав", "Михайло", "Мстислав", "Мусій", "Назар", "Назарій", "Натан", "Немир",
-    "Нестор", "Олег", "Олександр", "Олексій", "Олелько", "Олесь", "Омелян", "Орест", "Орхип",
-    "Остап", "Охрім", "Павло", "Панас", "Пантелеймон", "Петро", "Пилип", "Подолян", "Потап",
-    "Радим", "Радимир", "Ратибор", "Ратимир", "Родіон", "Родослав", "Роксолан", "Роман",
+const std::array<std::string_view, 195> ukrainian_male_first_names = { "Августин", "Аврелій",
+    "Адам", "Адріян", "Азарій", "Алевтин", "Альберт", "Анастас", "Анастасій", "Анатолій", "Андрій",
+    "Антін", "Антон", "Антоній", "Аркадій", "Арсен", "Арсеній", "Артем", "Архип", "Аскольд",
+    "Афанасій", "Біломир", "Білослав", "Богдан", "Божемир", "Божен", "Болеслав", "Боримир",
+    "Боримисл", "Борис", "Борислав", "Братимир", "Братислав", "Братомил", "Братослав", "Брячислав",
+    "Будимир", "Буйтур", "Буревіст", "В’ячеслав", "Вадим", "Валентин", "Валерій", "Василь",
+    "Велемир", "Віктор", "Віталій", "Влад", "Владислав", "Володимир", "Володислав", "Всевлад",
+    "Всеволод", "Всеслав", "Гаврило", "Гарнослав", "Геннадій", "Георгій", "Герасим", "Гліб", "Гнат",
+    "Гордій", "Горимир", "Горислав", "Градимир", "Григорій", "Далемир", "Данило", "Дарій",
+    "Даромир", "Денис", "Дмитро", "Добромир", "Добромисл", "Доброслав", "Євген", "Єремій", "Захар",
+    "Захарій", "Зборислав", "Звенигор", "Звенимир", "Звенислав", "Земислав", "Зеновій", "Зиновій",
+    "Злат", "Златомир", "Зоремир", "Зореслав", "Зорян", "Іван", "Ігор", "Ізяслав", "Ілля", "Кий",
+    "Корнелій", "Корнилій", "Корнило", "Корній", "Костянтин", "Кузьма", "Лаврентій", "Лаврін",
+    "Лад", "Ладислав", "Ладо", "Ладомир", "Левко", "Листвич", "Лук’ян", "Любодар", "Любозар",
+    "Любомир", "Макар", "Максим", "Мар’ян", "Маркіян", "Марко", "Матвій", "Мечислав", "Микита",
+    "Микола", "Мирон", "Мирослав", "Михайло", "Мстислав", "Мусій", "Назар", "Назарій", "Натан",
+    "Немир", "Нестор", "Олег", "Олександр", "Олексій", "Олелько", "Олесь", "Омелян", "Орест",
+    "Орхип", "Остап", "Охрім", "Павло", "Панас", "Пантелеймон", "Петро", "Пилип", "Подолян",
+    "Потап", "Радим", "Радимир", "Ратибор", "Ратимир", "Родіон", "Родослав", "Роксолан", "Роман",
     "Ростислав", "Руслан", "Святополк", "Святослав", "Семибор", "Сергій", "Синьоок", "Славолюб",
     "Славомир", "Славута", "Сніжан", "Сологуб", "Станіслав", "Степан", "Стефаній", "Стожар",
     "Тарас", "Тиміш", "Тимофій", "Тихон", "Тур", "Устим", "Хвалимир", "Хорив", "Чорнота",
     "Щастислав", "Щек", "Юліан", "Юрій", "Юхим", "Ян", "Ярема", "Яровид", "Яромил", "Яромир",
     "Ярополк", "Ярослав" };
 
-const std::array<std::string_view, 192> ukrainianFemalesFirstNames = { "Аврелія", "Аврора",
+const std::array<std::string_view, 192> ukrainian_female_first_names = { "Аврелія", "Аврора",
     "Агапія", "Агата", "Агафія", "Агнеса", "Агнія", "Агрипина", "Ада", "Аделаїда", "Аделіна",
     "Адріана", "Азалія", "Алевтина", "Аліна", "Алла", "Альбіна", "Альвіна", "Анастасія", "Анатолія",
     "Ангеліна", "Анжела", "Анна", "Антонида", "Антоніна", "Антонія", "Анфіса", "Аполлінарія",
@@ -36747,7 +36782,7 @@ const std::array<std::string_view, 192> ukrainianFemalesFirstNames = { "Авре
     "Феодосія", "Харитина", "Христина", "Христя", "Юліанна", "Юлія", "Юстина", "Юхима", "Юхимія",
     "Яна", "Ярина", "Ярослава" };
 
-const std::array<std::string_view, 239> ukrainianMalesLastNames = { "Андрухович", "Бабух",
+const std::array<std::string_view, 239> ukrainian_males_last_names = { "Андрухович", "Бабух",
     "Балабан", "Балабух", "Балакун", "Балицький", "Бамбула", "Бандера", "Барановський", "Бачей",
     "Башук", "Бердник", "Білич", "Бондаренко", "Борецький", "Боровський", "Борочко", "Боярчук",
     "Брицький", "Бурмило", "Бутько", "Василин", "Василишин", "Васильківський", "Вергун", "Вередун",
@@ -36779,7 +36814,7 @@ const std::array<std::string_view, 239> ukrainianMalesLastNames = { "Андру�
     "Юхно", "Ющик", "Ющук", "Яворівський", "Яловий", "Ялюк", "Янюк", "Ярмак", "Яцишин", "Яцьків",
     "Ящук" };
 
-const std::array<std::string_view, 230> ukrainianFemalesLastNames = { "Андрухович", "Бабух",
+const std::array<std::string_view, 230> ukrainian_female_last_names = { "Андрухович", "Бабух",
     "Балабан", "Балабуха", "Балакун", "Балицька", "Бамбула", "Бандера", "Барановська", "Бачей",
     "Башук", "Бердник", "Білич", "Бондаренко", "Борецька", "Боровська", "Борочко", "Боярчук",
     "Брицька", "Бурмило", "Бутько", "Василишина", "Васильківська", "Вергун", "Вередун", "Верещук",
@@ -36809,7 +36844,7 @@ const std::array<std::string_view, 230> ukrainianFemalesLastNames = { "Андр�
     "Шумило", "Шупик", "Шухевич", "Щербак", "Юрчишина", "Юхно", "Ющик", "Ющук", "Яворівська",
     "Ялова", "Ялюк", "Янюк", "Ярмак", "Яцишина", "Яцьків", "Ящук" };
 
-const std::array<std::string_view, 116> ukrainianMalesMiddleNames = { "Адамович", "Азарович",
+const std::array<std::string_view, 116> ukrainian_male_middle_names = { "Адамович", "Азарович",
     "Алевтинович", "Альбертович", "Анастасович", "Анатолійович", "Андрійович", "Антонович",
     "Аркадійович", "Арсенійович", "Арсенович", "Артемович", "Архипович", "Аскольдович",
     "Афанасійович", "Білославович", "Богданович", "Божемирович", "Боженович", "Болеславович",
@@ -36830,7 +36865,7 @@ const std::array<std::string_view, 116> ukrainianMalesMiddleNames = { "Адам�
     "Станіславович", "Степанович", "Стефанович", "Тарасович", "Тимофійович", "Тихонович",
     "Устимович", "Юрійович", "Юхимович", "Ярославович" };
 
-const std::array<std::string_view, 116> ukrainianFemalesMiddleNames = { "Адамівна", "Азарівна",
+const std::array<std::string_view, 116> ukrainian_female_middle_names = { "Адамівна", "Азарівна",
     "Алевтинівна", "Альбертівна", "Анастасівна", "Анатоліївна", "Андріївна", "Антонівна",
     "Аркадіївна", "Арсенівна", "Арсеніївна", "Артемівна", "Архипівна", "Аскольдівна", "Афанасіївна",
     "Білославівна", "Богданівна", "Божемирівна", "Боженівна", "Болеславівна", "Боримирівна",
@@ -36851,37 +36886,40 @@ const std::array<std::string_view, 116> ukrainianFemalesMiddleNames = { "Ада�
     "Станіславівна", "Степанівна", "Стефаніївна", "Тарасівна", "Тимофіївна", "Тихонівна",
     "Устимівна", "Юріївна", "Юхимівна", "Ярославівна" };
 
-const std::array<std::string_view, 1> ukrainianMalesPrefixes { "Пан" };
+const std::array<std::string_view, 1> ukrainian_male_prefixes { "Пан" };
 
-const std::array<std::string_view, 1> ukrainianFemalesPrefixes { "Пані" };
+const std::array<std::string_view, 1> ukrainian_female_prefixes { "Пані" };
 
-const NameFormats ukrainianPersonNameFormats { {
+const NameFormats ukrainian_name_formats { {
     { "{firstName} {lastName}", 1 },
     { "{lastName} {firstName}", 1 },
     { "{firstName} {middleName} {lastName}", 1 },
     { "{lastName} {middleName} {firstName}", 1 },
 } };
 
-const PeopleNames ukrainianPeopleNames { { ukrainianMalesFirstNames, ukrainianMalesMiddleNames,
-                                             ukrainianMalesLastNames, ukrainianMalesPrefixes, {} },
-    { ukrainianFemalesFirstNames, ukrainianFemalesMiddleNames, ukrainianFemalesLastNames,
-        ukrainianFemalesPrefixes, {} },
-    ukrainianPersonNameFormats };
+const PeopleNames ukrainian_people_names {
+    { ukrainian_male_first_names, ukrainian_male_middle_names, ukrainian_males_last_names,
+        ukrainian_male_prefixes, {} },
+    { ukrainian_female_first_names, ukrainian_female_middle_names, ukrainian_female_last_names,
+        ukrainian_female_prefixes, {} },
+    ukrainian_name_formats
+};
 
 // USA
 
-const NameFormats usaPersonNameFormats { { { "{firstName} {lastName}", 49 },
+const NameFormats usa_name_formats { { { "{firstName} {lastName}", 49 },
     { "{firstName} {lastName}-{lastName}", 7 }, { "{prefix} {firstName} {lastName}", 7 },
     { "{firstName} {lastName} {suffix}", 7 }, { "{prefix} {firstName} {lastName} {suffix}", 1 } } };
 
-const PeopleNames usaPeopleNames { { englishMalesFirstNames, {}, englishLastNames,
-                                       englishMalesPrefixes, englishSuffixes },
-    { englishFemalesFirstNames, {}, englishLastNames, englishFemalesPrefixes, englishSuffixes },
-    usaPersonNameFormats };
+const PeopleNames usa_people_names { { english_male_first_names, {}, english_last_names,
+                                         english_male_prefixes, english_suffixes },
+    { english_female_first_names, {}, english_last_names, english_female_prefixes,
+        english_suffixes },
+    usa_name_formats };
 
 // Vietnam
 
-const std::array<std::string_view, 1224> vietnameseMalesFirstNames = {
+const std::array<std::string_view, 1224> vietnamese_male_first_names = {
     "An Cơ",
     "An Khang",
     "Ân Lai",
@@ -38108,7 +38146,7 @@ const std::array<std::string_view, 1224> vietnameseMalesFirstNames = {
     "Yên Sơn",
 };
 
-const std::array<std::string_view, 1300> vietnameseFemalesFirstNames = {
+const std::array<std::string_view, 1300> vietnamese_female_first_names = {
     "An Bình",
     "An Di",
     "An Hạ",
@@ -39411,7 +39449,7 @@ const std::array<std::string_view, 1300> vietnameseFemalesFirstNames = {
     "Ngọc Trâm",
 };
 
-const std::array<std::string_view, 27> vietnameseLastNames = {
+const std::array<std::string_view, 27> vietnamese_last_names = {
     "Phạm",
     "Nguyễn",
     "Trần",
@@ -39441,76 +39479,76 @@ const std::array<std::string_view, 27> vietnameseLastNames = {
     "Huỳnh",
 };
 
-const NameFormats vietnamesePersonNameFormats { { "{firstName} {lastName}", 1 } };
+const NameFormats vietnamese_name_formats { { "{firstName} {lastName}", 1 } };
 
-const PeopleNames vietnamesePeopleNames { { vietnameseMalesFirstNames, {}, vietnameseLastNames, {},
-                                              {} },
-    { vietnameseFemalesFirstNames, {}, vietnameseLastNames, {}, {} }, vietnamesePersonNameFormats };
+const PeopleNames vietnamese_people_names { { vietnamese_male_first_names, {},
+                                                vietnamese_last_names, {}, {} },
+    { vietnamese_female_first_names, {}, vietnamese_last_names, {}, {} }, vietnamese_name_formats };
 
 // Mapping
 
-const std::unordered_map<Country, PeopleNames> countryToPeopleNamesMapping {
-    { Country::England, englishPeopleNames },
-    { Country::France, frenchPeopleNames },
-    { Country::Germany, germanPeopleNames },
-    { Country::Italy, italianPeopleNames },
-    { Country::Poland, polishPeopleNames },
-    { Country::Russia, russianPeopleNames },
-    { Country::Romania, romanianPeopleNames },
-    { Country::India, indianPeopleNames },
-    { Country::Finland, finnishPeopleNames },
-    { Country::Nepal, nepalesePeopleNames },
-    { Country::Spain, spanishPeopleNames },
-    { Country::Turkey, turkishPeopleNames },
-    { Country::Czech, czechPeopleNames },
-    { Country::Slovakia, slovakPeopleNames },
-    { Country::Ukraine, ukrainianPeopleNames },
-    { Country::Denmark, danishPeopleNames },
-    { Country::Sweden, swedishPeopleNames },
-    { Country::Usa, usaPeopleNames },
-    { Country::Brazil, brazilianPeopleNames },
-    { Country::Norway, norwegianPeopleNames },
-    { Country::Japan, japanesePeopleNames },
-    { Country::Portugal, portuguesePeopleNames },
-    { Country::Hungary, hungarianPeopleNames },
-    { Country::Croatia, croatianPeopleNames },
-    { Country::Greece, greekPeopleNames },
-    { Country::Slovenia, slovenianPeopleNames },
-    { Country::Austria, austrianPeopleNames },
-    { Country::Switzerland, swissPeopleNames },
-    { Country::Belgium, belgianPeopleNames },
-    { Country::Netherlands, dutchPeopleNames },
-    { Country::China, chinesePeopleNames },
-    { Country::Korea, koreanPeopleNames },
-    { Country::Canada, canadianPeopleNames },
-    { Country::Mexico, mexicanPeopleNames },
-    { Country::Argentina, argentinianPeopleNames },
-    { Country::Australia, australianPeopleNames },
-    { Country::Serbia, serbianPeopleNames },
-    { Country::Macedonia, macedonianPeopleNames },
-    { Country::Latvia, latvianPeopleNames },
-    { Country::Ireland, irishPeopleNames },
-    { Country::Belarus, belarusianPeopleNames },
-    { Country::Estonia, estonianPeopleNames },
-    { Country::Albania, albanianPeopleNames },
-    { Country::Iran, persianPeopleNames },
-    { Country::Bulgaria, bulgarianPeopleNames },
-    { Country::Moldova, moldovanPeopleNames },
-    { Country::Lithuania, lithuanianPeopleNames },
-    { Country::Iceland, icelandicPeopleNames },
-    { Country::Palestine, palestinianPeopleNames },
-    { Country::Israel, israeliPeopleNames },
-    { Country::Vietnam, vietnamesePeopleNames },
-    { Country::Monaco, monacanPeopleNames },
-    { Country::Bosnia, bosnianPeopleNames },
-    { Country::Lebanon, lebanesePeopleNames },
-    { Country::Syria, syrianPeopleNames },
-    { Country::Malta, maltesePeopleNames },
-    { Country::SouthAfrica, southAfricanPeopleNames },
-    { Country::Azerbaijan, azerbaijaniPeopleNames },
-    { Country::Ghana, ghanaianPeopleNames },
-    { Country::Kazakhstan, kazakhPeopleNames },
-    { Country::Maldives, maldiviansPeopleNames },
+const std::unordered_map<country_t, PeopleNames> people_names {
+    { country_t::england, english_people_names },
+    { country_t::france, french_people_names },
+    { country_t::germany, german_people_names },
+    { country_t::italy, italian_people_names },
+    { country_t::poland, polish_people_names },
+    { country_t::russia, russian_people_names },
+    { country_t::romania, romanian_people_names },
+    { country_t::india, indian_people_names },
+    { country_t::finland, finnish_people_names },
+    { country_t::nepal, nepalese_people_names },
+    { country_t::spain, spanish_people_names },
+    { country_t::turkey, turkish_people_names },
+    { country_t::czech, czech_people_names },
+    { country_t::slovakia, slovak_people_names },
+    { country_t::ukraine, ukrainian_people_names },
+    { country_t::denmark, danish_people_names },
+    { country_t::sweden, swedish_people_names },
+    { country_t::usa, usa_people_names },
+    { country_t::brazil, brazilian_people_names },
+    { country_t::norway, norwegian_people_names },
+    { country_t::japan, japanese_people_names },
+    { country_t::portugal, portuguese_people_names },
+    { country_t::hungary, hungarian_people_names },
+    { country_t::croatia, croatian_people_names },
+    { country_t::greece, greek_people_names },
+    { country_t::slovenia, slovenian_people_names },
+    { country_t::austria, austrian_people_names },
+    { country_t::switzerland, swiss_people_names },
+    { country_t::belgium, belgian_people_names },
+    { country_t::netherlands, dutch_people_names },
+    { country_t::china, chinese_people_names },
+    { country_t::korea, korean_people_names },
+    { country_t::canada, canadian_people_names },
+    { country_t::mexico, mexican_people_names },
+    { country_t::argentina, argentinian_people_names },
+    { country_t::australia, australian_people_names },
+    { country_t::serbia, serbian_people_names },
+    { country_t::macedonia, macedonian_people_names },
+    { country_t::latvia, latvian_people_names },
+    { country_t::ireland, irish_people_names },
+    { country_t::belarus, belarusian_people_names },
+    { country_t::estonia, estonian_people_names },
+    { country_t::albania, albanian_people_names },
+    { country_t::iran, persian_people_names },
+    { country_t::bulgaria, bulgarian_people_names },
+    { country_t::moldova, moldovan_people_names },
+    { country_t::lithuania, lithuanian_people_names },
+    { country_t::iceland, icelandic_people_names },
+    { country_t::palestine, palestinian_people_names },
+    { country_t::israel, israeli_people_names },
+    { country_t::vietnam, vietnamese_people_names },
+    { country_t::monaco, monacan_people_names },
+    { country_t::bosnia, bosnian_people_names },
+    { country_t::lebanon, lebanese_people_names },
+    { country_t::syria, syrian_people_names },
+    { country_t::malta, maltese_people_names },
+    { country_t::south_africa, south_african_people_names },
+    { country_t::azerbaijan, azerbaijani_people_names },
+    { country_t::ghana, ghanaian_people_names },
+    { country_t::kazakhstan, kazakh_people_names },
+    { country_t::maldives, maldivians_people_names },
 };
 
 }

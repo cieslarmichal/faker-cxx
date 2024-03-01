@@ -26,6 +26,8 @@ double decimal(double min, double max);
 
 size_t container_index(size_t size);
 
+size_t weighted_container_index(const std::vector<unsigned>& weights);
+
 template <typename T, size_t N> inline T element(const tcb::span<T, N>& data)
 {
     return data[container_index(data.size())];
@@ -123,14 +125,14 @@ template <class T> inline T weighted_element(const std::vector<WeightedElement<T
         throw std::invalid_argument { "Data is empty." };
     }
 
-    const auto sumOfWeights = std::accumulate(data.begin(), data.end(), 0u,
+    auto weights_sum = std::accumulate(data.begin(), data.end(), 0u,
         [](unsigned sum, const WeightedElement<T>& element) { return sum + element.weight; });
 
-    if (sumOfWeights == 0u) {
+    if (weights_sum == 0u) {
         throw std::invalid_argument { "Sum of weights is zero." };
     }
 
-    const auto targetWeightValue = integer(1U, sumOfWeights);
+    const auto targetWeightValue = integer(1U, weights_sum);
     unsigned currentSum = 0;
     size_t currentIdx = 0;
 

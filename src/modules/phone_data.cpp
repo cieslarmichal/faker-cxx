@@ -18,236 +18,235 @@ const std::array<std::string_view, 15> model_names
 const std::array<std::string_view, 9> manufacturers
     = { "Samsung", "Apple", "Google", "OnePlus", "Xiaomi", "Huawei", "Oppo", "Sony", "Motorola" };
 
-const std::array<std::string_view, 230> number_formats = {
-    "!##-###-###", // Default
-    "+93 (###) ###-####", // Afghanistan
-    "+358 (###) ###-####", // Aland Islands
-    "+355 (###) ###-####", // Albania
-    "+213 (###) ###-####", // Algeria
-    "+1 (###) ###-####", // American Samoa
-    "+376 (###) ###-####", // Andorra
-    "+244 (###) ###-####", // Angola
-    "+1 (###) ###-####", // Anguilla
-    "+1 (###) ###-####", // Antigua and Barbuda
-    "+54 (###) ###-####", // Argentina
-    "+374 (###) ###-####", // Armenia
-    "+297 (###) ###-####", // Aruba
-    "+61 (#) #### ####", // Australia
-    "+43 (###) #######", // Austria
-    "+994 (###) ###-###", // Azerbaijan
-    "+1 (###) ###-####", // Bahamas
-    "+973 (###) #### ####", // Bahrain
-    "+880 (###) ###-####", // Bangladesh
-    "+1 (###) ###-####", // Barbados
-    "+375 (###) ###-##-##", // Belarus
-    "+32 (###) ## ## ##", // Belgium
-    "+501 (###) ####", // Belize
-    "+229 (##) ##-####", // Benin
-    "+1 (###) ###-####", // Bermuda
-    "+975 (###) ####", // Bhutan
-    "+591 (#) ###-####", // Bolivia
-    "+387 (##) ###-###", // Bosnia and Herzegovina
-    "+267 (##) ###-###", // Botswana
-    "+55 (##) #####-####", // Brazil
-    "+673 (###) ####", // Brunei Darussalam
-    "+359 (#) ###-###", // Bulgaria
-    "+226 (##) ##-####", // Burkina Faso
-    "+257 (##) ##-####", // Burundi
-    "+855 (##) ###-###", // Cambodia
-    "+237 (#) ## ## ## ##", // Cameroon
-    "+1 (###) ###-####", // Canada
-    "+238 (###) ##-##", // Cape Verde
-    "+1 (###) ###-####", // Cayman Islands
-    "+236 (##) ##-####", // Central African Republic
-    "+235 (##) ##-##-##", // Chad
-    "+56 (#) #### ####", // Chile
-    "+86 (###) #### ####", // China
-    "+57 (###) ###-####", // Colombia
-    "+269 (##) ##-##", // Comoros
-    "+242 (###) ###-####", // Congo
-    "+682 (###) ####", // Cook Islands
-    "+506 (###) ####-####", // Costa Rica
-    "+385 (##) ###-###", // Croatia
-    "+53 (#) ###-####", // Cuba
-    "+599 (###) ####", // Curacao
-    "+357 (##) ######", // Cyprus
-    "+420 (###) ### ###", // Czechia
-    "+243 (###) ###-###", // Democratic Republic of the Congo
-    "+45 (##) ## ## ##", // Denmark
-    "+253 (##) ##-##-##", // Djibouti
-    "+1 (###) ###-####", // Dominica
-    "+1 (###) ###-####", // Dominican Republic
-    "+593 (#) ###-####", // Ecuador
-    "+20 (##) #### ####", // Egypt
-    "+503 (####) ####", // El Salvador
-    "+240 (##) ###-####", // Equatorial Guinea
-    "+291 (##) ###-###", // Eritrea
-    "+372 (##) ###-####", // Estonia
-    "+268 (##) ###-###", // Eswatini
-    "+251 (###) ###-####", // Ethiopia
-    "+298 (###) ###", // Faroe Islands
-    "+679 (#) ###-####", // Fiji
-    "+358 (##) #### ###", // Finland
-    "+33 (#) ## ## ## ##", // France
-    "+594 (####) ####", // French Guiana
-    "+689 (##) ##-##-##", // French Polynesia
-    "+241 (#) ## ## ##", // Gabon
-    "+220 (###) ####", // Gambia
-    "+995 (###) #### ##", // Georgia
-    "+49 (###) #######", // Germany
-    "+233 (#) ###-####", // Ghana
-    "+350 (###) #####", // Gibraltar
-    "+30 (###) ###-####", // Greece
-    "+299 (##) ##-##-##", // Greenland
-    "+1 (###) ###-####", // Grenada
-    "+590 (###) ##-##-##", // Guadeloupe
-    "+1 (###) ###-####", // Guam
-    "+502 (#) #### ####", // Guatemala
-    "+44 (###) #### ###", // Guernsey
-    "+224 (#) ###-####", // Guinea
-    "+245 (##) ##-##-##", // Guinea-Bissau
-    "+592 (###) ####", // Guyana
-    "+509 (#) ####-####", // Haiti
-    "+379 (###) ########", // Holy See (Vatican City State)
-    "+504 (####) ####", // Honduras
-    "+852 (####) ####", // Hong Kong
-    "+36 (##) ###-###", // Hungary
-    "+354 (###) ####", // Iceland
-    "+91 (###) ###-####", // India
-    "+62 (###) ###-####", // Indonesia
-    "+98 (###) ###-####", // Iran
-    "+964 (###) ###-####", // Iraq
-    "+353 (#) ###-####", // Ireland
-    "+44 (###) #### ###", // Isle of Man
-    "+972 (##) ###-####", // Israel
-    "+39 (###) ###-####", // Italy
-    "+1 (###) ###-####", // Jamaica
-    "+81 (#) ###-####", // Japan
-    "+44 (###) #### ###", // Jersey
-    "+962 (#) #### ####", // Jordan
-    "+82 (##) #### ####", // Republic of Korea
-    "+965 (###) #####", // Kuwait
-    "+996 (###) ###-###", // Kyrgyz Republic
-    "+371 (###) ###-###", // Latvia
-    "+961 (#) ###-###", // Lebanon
-    "+266 (###) ####", // Lesotho
-    "+231 (##) ###-####", // Liberia
-    "+218 (##) ###-###", // Libyan Arab Jamahiriya
-    "+423 (###) ###-####", // Liechtenstein
-    "+370 (###) #####", // Lithuania
-    "+352 (#) ###-###", // Luxembourg
-    "+853 (####) ####", // Macao
-    "+261 (##) ##-###-##", // Madagascar
-    "+265 (##) ###-####", // Malawi
-    "+60 (##) ###-####", // Malaysia
-    "+960 (###) ####", // Maldives
-    "+223 (##) ##-##-##", // Mali
-    "+356 (###) ####", // Malta
-    "+692 (###) ####", // Marshall Islands
-    "+596 (###) ##-##-##", // Martinique
-    "+222 (##) ##-####", // Mauritania
-    "+230 (###) ####", // Mauritius
-    "+262 (##) ##-##-##", // Mayotte
-    "+52 (###) ###-####", // Mexico
-    "+691 (###) ####", // Micronesia
-    "+373 (##) ###-###", // Moldova
-    "+377 (##) ## ## ##", // Monaco
-    "+976 (#) ##-####", // Mongolia
-    "+382 (##) ###-###", // Montenegro
-    "+1 (###) ###-####", // Montserrat
-    "+212 (##) ##-######", // Morocco
-    "+258 (##) ###-####", // Mozambique
-    "+95 (##) ###-####", // Myanmar
-    "+264 (##) ###-####", // Namibia
-    "+674 (###) ####", // Nauru
-    "+977 (###) ###-####", // Nepal
-    "+31 (#) ### ####", // Netherlands
-    "+687 (##) ##-##-##", // New Caledonia
-    "+64 (##) ###-####", // New Zealand
-    "+505 (###) ####", // Nicaragua
-    "+227 (##) ##-##-##", // Niger
-    "+234 (###) ###-####", // Nigeria
-    "+683 (###) ####", // Niue
-    "+389 (##) ###-###", // North Macedonia
-    "+1 (###) ###-####", // Northern Mariana Islands
-    "+47 (##) ##-##-##", // Norway
-    "+968 (###) #### ####", // Oman
-    "+92 (###) #######", // Pakistan
-    "+680 (###) ####", // Palau
-    "+970 (###) ###-####", // Palestine
-    "+507 (###) ###-####", // Panama
-    "+675 (###) ####", // Papua New Guinea
-    "+595 (###) ###-###", // Paraguay
-    "+51 (#) ###-####", // Peru
-    "+63 (###) ###-####", // Philippines
-    "+48 (##) ###-##-##", // Poland
-    "+351 (###) ###-###", // Portugal
-    "+1 (###) ###-####", // Puerto Rico
-    "+974 (###) #### ####", // Qatar
-    "+262 (##) ##-##-##", // Reunion
-    "+40 (###) ###-####", // Romania
-    "+7 (###) ###-##-##", // Russian Federation
-    "+250 (###) ###-###", // Rwanda
-    "+590 (###) ##-##-##", // Saint Barthelemy
-    "+290 (###) ####", // Saint Helena
-    "+1 (###) ###-####", // Saint Kitts and Nevis
-    "+1 (###) ###-####", // Saint Lucia
-    "+590 (###) ##-##-##", // Saint Martin
-    "+508 (###) ####", // Saint Pierre and Miquelon
-    "+1 (###) ###-####", // Saint Vincent and the Grenadines
-    "+685 (###) ####", // Samoa
-    "+378 (###) ######", // San Marino
-    "+239 (###) ####", // Sao Tome and Principe
-    "+966 (###) ###-####", // Saudi Arabia
-    "+221 (###) ###-####", // Senegal
-    "+381 (##) ###-####", // Serbia
-    "+248 (#) ###-###", // Seychelles
-    "+232 (##) ###-###", // Sierra Leone
-    "+65 (####) ####", // Singapore
-    "+1 (###) ###-####", // Sint Maarten
-    "+421 (###) ###-###", // Slovakia
-    "+386 (##) ###-###", // Slovenia
-    "+677 (###) ####", // Solomon Islands
-    "+252 (#) ###-####", // Somalia
-    "+27 (##) ###-####", // South Africa
-    "+211 (##) ###-####", // South Sudan
-    "+34 (###) ###-###", // Spain
-    "+94 (###) ###-####", // Sri Lanka
-    "+249 (###) ###-####", // Sudan
-    "+597 (###) ####", // Suriname
-    "+47 (##) ##-##-##", // Svalbard & Jan Mayen Islands
-    "+46 (###) ### ## ##", // Sweden
-    "+41 (##) ### ## ##", // Switzerland
-    "+963 (##) ###-####", // Syrian Arab Republic
-    "+886 (#) ####-###", // Taiwan
-    "+992 (###) ###-###", // Tajikistan
-    "+255 (##) ###-####", // Tanzania
-    "+66 (#) ###-####", // Thailand
-    "+670 (###) ####", // Timor-Leste
-    "+228 (##) ##-##-##", // Togo
-    "+676 (##) ####", // Tonga
-    "+1 (###) ###-####", // Trinidad and Tobago
-    "+216 (##) ###-###", // Tunisia
-    "+90 (###) ###-####", // Turkey
-    "+993 (#) ###-####", // Turkmenistan
-    "+1 (###) ###-####", // Turks and Caicos Islands
-    "+688 (###) ####", // Tuvalu
-    "+256 (###) ###-###", // Uganda
-    "+380 (##) ###-###", // Ukraine
-    "+971 (###) ###-####", // United Arab Emirates
-    "+44 (###) #### ###", // United Kingdom
-    "+1 (###) ###-####", // United States of America
-    "+598 (#) #### ####", // Uruguay
-    "+998 (##) ###-####", // Uzbekistan
-    "+678 (###) ####", // Vanuatu
-    "+58 (###) ###-####", // Venezuela
-    "+84 (###) ###-####", // Vietnam
-    "+1 (###) ###-####", // Virgin Islands, British
-    "+1 (###) ###-####", // Virgin Islands, U.S.
-    "+681 (##) ##-##-##", // Wallis and Futuna
-    "+212 (###) ####", // Western Sahara
-    "+967 (###) ###-####", // Yemen
-    "+260 (###) ###-####", // Zambia
-    "+263 (###) ####" // Zimbabwe
-};
+const std::array<std::pair<phone_number_format_t, std::string_view>, 230> number_formats
+    = { { { phone_number_format_t::default_format, "!##-###-###" },
+        { phone_number_format_t::afghanistan, "+93 (###) ###-####" },
+        { phone_number_format_t::aland_islands, "+358 (###) ###-####" },
+        { phone_number_format_t::albania, "+355 (###) ###-####" },
+        { phone_number_format_t::algeria, "+213 (###) ###-####" },
+        { phone_number_format_t::american_samoa, "+1 (###) ###-####" },
+        { phone_number_format_t::andorra, "+376 (###) ###-####" },
+        { phone_number_format_t::angola, "+244 (###) ###-####" },
+        { phone_number_format_t::anguilla, "+1 (###) ###-####" },
+        { phone_number_format_t::antigua_and_barbuda, "+1 (###) ###-####" },
+        { phone_number_format_t::argentina, "+54 (###) ###-####" },
+        { phone_number_format_t::armenia, "+374 (###) ###-####" },
+        { phone_number_format_t::aruba, "+297 (###) ###-####" },
+        { phone_number_format_t::australia, "+61 (#) #### ####" },
+        { phone_number_format_t::austria, "+43 (###) #######" },
+        { phone_number_format_t::azerbaijan, "+994 (###) ###-###" },
+        { phone_number_format_t::bahamas, "+1 (###) ###-####" },
+        { phone_number_format_t::bahrain, "+973 (###) #### ####" },
+        { phone_number_format_t::bangladesh, "+880 (###) ###-####" },
+        { phone_number_format_t::barbados, "+1 (###) ###-####" },
+        { phone_number_format_t::belarus, "+375 (###) ###-##-##" },
+        { phone_number_format_t::belgium, "+32 (###) ## ## ##" },
+        { phone_number_format_t::belize, "+501 (###) ####" },
+        { phone_number_format_t::benin, "+229 (##) ##-####" },
+        { phone_number_format_t::bermuda, "+1 (###) ###-####" },
+        { phone_number_format_t::bhutan, "+975 (###) ####" },
+        { phone_number_format_t::bolivia, "+591 (#) ###-####" },
+        { phone_number_format_t::Bosnia_and_herzegovina, "+387 (##) ###-###" },
+        { phone_number_format_t::botswana, "+267 (##) ###-###" },
+        { phone_number_format_t::brazil, "+55 (##) #####-####" },
+        { phone_number_format_t::brunei_darussalam, "+673 (###) ####" },
+        { phone_number_format_t::bulgaria, "+359 (#) ###-###" },
+        { phone_number_format_t::burkina_faso, "+226 (##) ##-####" },
+        { phone_number_format_t::burundi, "+257 (##) ##-####" },
+        { phone_number_format_t::cambodia, "+855 (##) ###-###" },
+        { phone_number_format_t::cameroon, "+237 (#) ## ## ## ##" },
+        { phone_number_format_t::canada, "+1 (###) ###-####" },
+        { phone_number_format_t::cape_verde, "+238 (###) ##-##" },
+        { phone_number_format_t::cayman_islands, "+1 (###) ###-####" },
+        { phone_number_format_t::central_african_republic, "+236 (##) ##-####" },
+        { phone_number_format_t::chad, "+235 (##) ##-##-##" },
+        { phone_number_format_t::chile, "+56 (#) #### ####" },
+        { phone_number_format_t::china, "+86 (###) #### ####" },
+        { phone_number_format_t::colombia, "+57 (###) ###-####" },
+        { phone_number_format_t::comoros, "+269 (##) ##-##" },
+        { phone_number_format_t::congo, "+242 (###) ###-####" },
+        { phone_number_format_t::cook_islands, "+682 (###) ####" },
+        { phone_number_format_t::costa_rica, "+506 (###) ####-####" },
+        { phone_number_format_t::croatia, "+385 (##) ###-###" },
+        { phone_number_format_t::cuba, "+53 (#) ###-####" },
+        { phone_number_format_t::curacao, "+599 (###) ####" },
+        { phone_number_format_t::cyprus, "+357 (##) ######" },
+        { phone_number_format_t::czechia, "+420 (###) ### ###" },
+        { phone_number_format_t::democratic_republic_of_congo, "+243 (###) ###-###" },
+        { phone_number_format_t::denmark, "+45 (##) ## ## ##" },
+        { phone_number_format_t::djibouti, "+253 (##) ##-##-##" },
+        { phone_number_format_t::dominica, "+1 (###) ###-####" },
+        { phone_number_format_t::dominican_republic, "+1 (###) ###-####" },
+        { phone_number_format_t::ecuador, "+593 (#) ###-####" },
+        { phone_number_format_t::egypt, "+20 (##) #### ####" },
+        { phone_number_format_t::el_salvador, "+503 (####) ####" },
+        { phone_number_format_t::equatorial_guinea, "+240 (##) ###-####" },
+        { phone_number_format_t::eritrea, "+291 (##) ###-###" },
+        { phone_number_format_t::estonia, "+372 (##) ###-####" },
+        { phone_number_format_t::eswatini, "+268 (##) ###-###" },
+        { phone_number_format_t::ethiopia, "+251 (###) ###-####" },
+        { phone_number_format_t::faroe_islands, "+298 (###) ###" },
+        { phone_number_format_t::fiji, "+679 (#) ###-####" },
+        { phone_number_format_t::finland, "+358 (##) #### ###" },
+        { phone_number_format_t::france, "+33 (#) ## ## ## ##" },
+        { phone_number_format_t::french_guiana, "+594 (####) ####" },
+        { phone_number_format_t::french_polynesia, "+689 (##) ##-##-##" },
+        { phone_number_format_t::gabon, "+241 (#) ## ## ##" },
+        { phone_number_format_t::gambia, "+220 (###) ####" },
+        { phone_number_format_t::georgia, "+995 (###) #### ##" },
+        { phone_number_format_t::germany, "+49 (###) #######" },
+        { phone_number_format_t::ghana, "+233 (#) ###-####" },
+        { phone_number_format_t::gibraltar, "+350 (###) #####" },
+        { phone_number_format_t::greece, "+30 (###) ###-####" },
+        { phone_number_format_t::greenland, "+299 (##) ##-##-##" },
+        { phone_number_format_t::grenada, "+1 (###) ###-####" },
+        { phone_number_format_t::guadeloupe, "+590 (###) ##-##-##" },
+        { phone_number_format_t::guam, "+1 (###) ###-####" },
+        { phone_number_format_t::guatemala, "+502 (#) #### ####" },
+        { phone_number_format_t::guernsey, "+44 (###) #### ###" },
+        { phone_number_format_t::guinea, "+224 (#) ###-####" },
+        { phone_number_format_t::guinea_bissau, "+245 (##) ##-##-##" },
+        { phone_number_format_t::guyana, "+592 (###) ####" },
+        { phone_number_format_t::haiti, "+509 (#) ####-####" },
+        { phone_number_format_t::holy_see_vatican_city_state, "+379 (###) ########" },
+        { phone_number_format_t::honduras, "+504 (####) ####" },
+        { phone_number_format_t::hong_kong, "+852 (####) ####" },
+        { phone_number_format_t::hungary, "+36 (##) ###-###" },
+        { phone_number_format_t::iceland, "+354 (###) ####" },
+        { phone_number_format_t::india, "+91 (###) ###-####" },
+        { phone_number_format_t::indonesia, "+62 (###) ###-####" },
+        { phone_number_format_t::iran, "+98 (###) ###-####" },
+        { phone_number_format_t::iraq, "+964 (###) ###-####" },
+        { phone_number_format_t::ireland, "+353 (#) ###-####" },
+        { phone_number_format_t::isle_of_man, "+44 (###) #### ###" },
+        { phone_number_format_t::israel, "+972 (##) ###-####" },
+        { phone_number_format_t::italy, "+39 (###) ###-####" },
+        { phone_number_format_t::jamaica, "+1 (###) ###-####" },
+        { phone_number_format_t::japan, "+81 (#) ###-####" },
+        { phone_number_format_t::jersey, "+44 (###) #### ###" },
+        { phone_number_format_t::jordan, "+962 (#) #### ####" },
+        { phone_number_format_t::republic_of_korea, "+82 (##) #### ####" },
+        { phone_number_format_t::kuwait, "+965 (###) #####" },
+        { phone_number_format_t::kyrgyz_republic, "+996 (###) ###-###" },
+        { phone_number_format_t::latvia, "+371 (###) ###-###" },
+        { phone_number_format_t::lebanon, "+961 (#) ###-###" },
+        { phone_number_format_t::lesotho, "+266 (###) ####" },
+        { phone_number_format_t::liberia, "+231 (##) ###-####" },
+        { phone_number_format_t::libyan_arab_jamahiriya, "+218 (##) ###-###" },
+        { phone_number_format_t::liechtenstein, "+423 (###) ###-####" },
+        { phone_number_format_t::lithuania, "+370 (###) #####" },
+        { phone_number_format_t::luxembourg, "+352 (#) ###-###" },
+        { phone_number_format_t::macao, "+853 (####) ####" },
+        { phone_number_format_t::madagascar, "+261 (##) ##-###-##" },
+        { phone_number_format_t::malawi, "+265 (##) ###-####" },
+        { phone_number_format_t::malaysia, "+60 (##) ###-####" },
+        { phone_number_format_t::maldives, "+960 (###) ####" },
+        { phone_number_format_t::mali, "+223 (##) ##-##-##" },
+        { phone_number_format_t::malta, "+356 (###) ####" },
+        { phone_number_format_t::marshall_islands, "+692 (###) ####" },
+        { phone_number_format_t::martinique, "+596 (###) ##-##-##" },
+        { phone_number_format_t::mauritania, "+222 (##) ##-####" },
+        { phone_number_format_t::mauritius, "+230 (###) ####" },
+        { phone_number_format_t::mayotte, "+262 (##) ##-##-##" },
+        { phone_number_format_t::mexico, "+52 (###) ###-####" },
+        { phone_number_format_t::micronesia, "+691 (###) ####" },
+        { phone_number_format_t::moldova, "+373 (##) ###-###" },
+        { phone_number_format_t::monaco, "+377 (##) ## ## ##" },
+        { phone_number_format_t::mongolia, "+976 (#) ##-####" },
+        { phone_number_format_t::montenegro, "+382 (##) ###-###" },
+        { phone_number_format_t::montserrat, "+1 (###) ###-####" },
+        { phone_number_format_t::morocco, "+212 (##) ##-######" },
+        { phone_number_format_t::mozambique, "+258 (##) ###-####" },
+        { phone_number_format_t::myanmar, "+95 (##) ###-####" },
+        { phone_number_format_t::namibia, "+264 (##) ###-####" },
+        { phone_number_format_t::nauru, "+674 (###) ####" },
+        { phone_number_format_t::nepal, "+977 (###) ###-####" },
+        { phone_number_format_t::netherlands, "+31 (#) ### ####" },
+        { phone_number_format_t::new_caledonia, "+687 (##) ##-##-##" },
+        { phone_number_format_t::new_zealand, "+64 (##) ###-####" },
+        { phone_number_format_t::nicaragua, "+505 (###) ####" },
+        { phone_number_format_t::niger, "+227 (##) ##-##-##" },
+        { phone_number_format_t::nigeria, "+234 (###) ###-####" },
+        { phone_number_format_t::niue, "+683 (###) ####" },
+        { phone_number_format_t::north_macedonia, "+389 (##) ###-###" },
+        { phone_number_format_t::northern_mariana_islands, "+1 (###) ###-####" },
+        { phone_number_format_t::norway, "+47 (##) ##-##-##" },
+        { phone_number_format_t::oman, "+968 (###) #### ####" },
+        { phone_number_format_t::pakistan, "+92 (###) #######" },
+        { phone_number_format_t::palau, "+680 (###) ####" },
+        { phone_number_format_t::palestine, "+970 (###) ###-####" },
+        { phone_number_format_t::panama, "+507 (###) ###-####" },
+        { phone_number_format_t::papua_new_guinea, "+675 (###) ####" },
+        { phone_number_format_t::paraguay, "+595 (###) ###-###" },
+        { phone_number_format_t::peru, "+51 (#) ###-####" },
+        { phone_number_format_t::philippines, "+63 (###) ###-####" },
+        { phone_number_format_t::poland, "+48 (##) ###-##-##" },
+        { phone_number_format_t::portugal, "+351 (###) ###-###" },
+        { phone_number_format_t::puerto_rico, "+1 (###) ###-####" },
+        { phone_number_format_t::qatar, "+974 (###) #### ####" },
+        { phone_number_format_t::reunion, "+262 (##) ##-##-##" },
+        { phone_number_format_t::romania, "+40 (###) ###-####" },
+        { phone_number_format_t::russian_federation, "+7 (###) ###-##-##" },
+        { phone_number_format_t::rwanda, "+250 (###) ###-###" },
+        { phone_number_format_t::saint_barthelemy, "+590 (###) ##-##-##" },
+        { phone_number_format_t::saint_helena, "+290 (###) ####" },
+        { phone_number_format_t::saint_kitts_and_nevis, "+1 (###) ###-####" },
+        { phone_number_format_t::saint_lucia, "+1 (###) ###-####" },
+        { phone_number_format_t::saint_martin, "+590 (###) ##-##-##" },
+        { phone_number_format_t::saint_pierre_and_miquelon, "+508 (###) ####" },
+        { phone_number_format_t::saint_vincent_and_grenadines, "+1 (###) ###-####" },
+        { phone_number_format_t::samoa, "+685 (###) ####" },
+        { phone_number_format_t::san_marino, "+378 (###) ######" },
+        { phone_number_format_t::sao_tome_and_principe, "+239 (###) ####" },
+        { phone_number_format_t::saudi_arabia, "+966 (###) ###-####" },
+        { phone_number_format_t::senegal, "+221 (###) ###-####" },
+        { phone_number_format_t::serbia, "+381 (##) ###-####" },
+        { phone_number_format_t::seychelles, "+248 (#) ###-###" },
+        { phone_number_format_t::sierra_leone, "+232 (##) ###-###" },
+        { phone_number_format_t::singapore, "+65 (####) ####" },
+        { phone_number_format_t::saint_maarten, "+1 (###) ###-####" },
+        { phone_number_format_t::slovakia, "+421 (###) ###-###" },
+        { phone_number_format_t::slovenia, "+386 (##) ###-###" },
+        { phone_number_format_t::solomon_islands, "+677 (###) ####" },
+        { phone_number_format_t::somalia, "+252 (#) ###-####" },
+        { phone_number_format_t::south_africa, "+27 (##) ###-####" },
+        { phone_number_format_t::south_sudan, "+211 (##) ###-####" },
+        { phone_number_format_t::spain, "+34 (###) ###-###" },
+        { phone_number_format_t::sri_lanka, "+94 (###) ###-####" },
+        { phone_number_format_t::sudan, "+249 (###) ###-####" },
+        { phone_number_format_t::suriname, "+597 (###) ####" },
+        { phone_number_format_t::svalbard_and_jan_mayen_islands, "+47 (##) ##-##-##" },
+        { phone_number_format_t::sweden, "+46 (###) ### ## ##" },
+        { phone_number_format_t::switzerland, "+41 (##) ### ## ##" },
+        { phone_number_format_t::syrian_arab_republic, "+963 (##) ###-####" },
+        { phone_number_format_t::taiwan, "+886 (#) ####-###" },
+        { phone_number_format_t::tajikistan, "+992 (###) ###-###" },
+        { phone_number_format_t::tanzania, "+255 (##) ###-####" },
+        { phone_number_format_t::thailand, "+66 (#) ###-####" },
+        { phone_number_format_t::timor_leste, "+670 (###) ####" },
+        { phone_number_format_t::togo, "+228 (##) ##-##-##" },
+        { phone_number_format_t::tonga, "+676 (##) ####" },
+        { phone_number_format_t::trinidad_and_tobago, "+1 (###) ###-####" },
+        { phone_number_format_t::tunisia, "+216 (##) ###-###" },
+        { phone_number_format_t::turkey, "+90 (###) ###-####" },
+        { phone_number_format_t::turkmenistan, "+993 (#) ###-####" },
+        { phone_number_format_t::turks_and_caicos_islands, "+1 (###) ###-####" },
+        { phone_number_format_t::tuvalu, "+688 (###) ####" },
+        { phone_number_format_t::uganda, "+256 (###) ###-###" },
+        { phone_number_format_t::ukraine, "+380 (##) ###-###" },
+        { phone_number_format_t::united_arab_emirates, "+971 (###) ###-####" },
+        { phone_number_format_t::england, "+44 (###) #### ###" },
+        { phone_number_format_t::usa, "+1 (###) ###-####" },
+        { phone_number_format_t::uruguay, "+598 (#) #### ####" },
+        { phone_number_format_t::uzbekistan, "+998 (##) ###-####" },
+        { phone_number_format_t::vanuatu, "+678 (###) ####" },
+        { phone_number_format_t::venezuela, "+58 (###) ###-####" },
+        { phone_number_format_t::vietnam, "+84 (###) ###-####" },
+        { phone_number_format_t::virgin_islands_british, "+1 (###) ###-####" },
+        { phone_number_format_t::virgin_islands_us, "+1 (###) ###-####" },
+        { phone_number_format_t::wallis_and_futuna, "+681 (##) ##-##-##" },
+        { phone_number_format_t::western_sahara, "+212 (###) ####" },
+        { phone_number_format_t::yemen, "+967 (###) ###-####" },
+        { phone_number_format_t::zambia, "+260 (###) ###-####" },
+        { phone_number_format_t::zimbabwe, "+263 (###) ####" } } };
 }

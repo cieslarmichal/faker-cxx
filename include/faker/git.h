@@ -40,7 +40,7 @@ std::string commit_date(unsigned max_years_ago = 15);
  *
  * @param max_years_ago The range of max_years_ago the date may be in the past. Defaults to `15`.
  * @param sha_length The length of output SHA hash. Defaults to `40`.
- * @param country The country set for name generating. Defaults to `England` (could be random, if
+ * @param country The country set for name generating. Defaults to `england` (could be random, if
  there was a random language generator).
  * @returns Commit entry.
  *
@@ -53,7 +53,7 @@ std::string commit_date(unsigned max_years_ago = 15);
  * @endcode
  */
 std::string commit_entry(std::optional<unsigned> max_years_ago = std::nullopt,
-    std::optional<unsigned> sha_length = std::nullopt, Country country = Country::England);
+    std::optional<unsigned> sha_length = std::nullopt, country_t country = country_t::england);
 
 /**
  * @brief Generates a random commit message.

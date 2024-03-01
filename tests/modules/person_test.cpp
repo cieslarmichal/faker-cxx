@@ -12,72 +12,72 @@ using namespace faker;
 namespace {
 const std::vector<std::string> sexes { "Male", "Female" };
 
-const std::unordered_map<Country, std::string> generatedTestName {
-    { Country::England, "shouldGenerateEnglishName" },
-    { Country::France, "shouldGenerateFrenchName" },
-    { Country::Germany, "shouldGenerateGermanName" },
-    { Country::Italy, "shouldGenerateItalianName" },
-    { Country::Poland, "shouldGeneratePolishName" },
-    { Country::Russia, "shouldGenerateRussianName" },
-    { Country::Romania, "shouldGenerateRomanianName" },
-    { Country::India, "shouldGenerateIndianName" },
-    { Country::Finland, "shouldGenerateFinnishName" },
-    { Country::Nepal, "shouldGenerateNepaleseName" },
-    { Country::Spain, "shouldGenerateSpanishName" },
-    { Country::Turkey, "shouldGenerateTurkishName" },
-    { Country::Czech, "shouldGenerateCzechName" },
-    { Country::Slovakia, "shouldGenerateSlovakName" },
-    { Country::Ukraine, "shouldGenerateUkrainianName" },
-    { Country::Denmark, "shouldGenerateDanishName" },
-    { Country::Sweden, "shouldGenerateSwedishName" },
-    { Country::Usa, "shouldGenerateAmericanName" },
-    { Country::Brazil, "shouldGenerateBrazilianName" },
-    { Country::Norway, "shouldGenerateNorwegianName" },
-    { Country::Japan, "shouldGenerateJapaneseName" },
-    { Country::Portugal, "shouldGeneratePortugueseName" },
-    { Country::Hungary, "shouldGenerateHungarianName" },
-    { Country::Croatia, "shouldGenerateCroatianName" },
-    { Country::Greece, "shouldGenerateGreekName" },
-    { Country::Slovenia, "shouldGenerateSlovenianName" },
-    { Country::Austria, "shouldGenerateAustrianName" },
-    { Country::Switzerland, "shouldGenerateSwissName" },
-    { Country::Belgium, "shouldGenerateBelgianName" },
-    { Country::Netherlands, "shouldGenerateDutchName" },
-    { Country::China, "shouldGenerateChineseName" },
-    { Country::Korea, "shouldGenerateKoreanName" },
-    { Country::Canada, "shouldGenerateCanadianName" },
-    { Country::Mexico, "shouldGenerateMexicanName" },
-    { Country::Argentina, "shouldGenerateArgentinianName" },
-    { Country::Australia, "shouldGenerateAustralianName" },
-    { Country::Serbia, "shouldGenerateSerbianName" },
-    { Country::Macedonia, "shouldGenerateMacedonianName" },
-    { Country::Latvia, "shouldGenerateLatvianName" },
-    { Country::Ireland, "shouldGenerateIrishName" },
-    { Country::Belarus, "shouldGenerateBelarusianName" },
-    { Country::Estonia, "shouldGenerateEstonianName" },
-    { Country::Albania, "shouldGenerateAlbanianName" },
-    { Country::Iran, "shouldGeneratePersianName" },
-    { Country::Bulgaria, "shouldGenerateBulgarianName" },
-    { Country::Moldova, "shouldGenerateMoldovanName" },
-    { Country::Lithuania, "shouldGenerateLithuanianName" },
-    { Country::Iceland, "shouldGenerateIcelandicName" },
-    { Country::Palestine, "shouldGeneratePalestinianName" },
-    { Country::Israel, "shouldGenerateIsraeliName" },
-    { Country::Vietnam, "shouldGenerateVietnameseName" },
-    { Country::Monaco, "shouldGenerateMonacanName" },
-    { Country::Bosnia, "shouldGenerateBosnianNames" },
-    { Country::Lebanon, "shouldGenerateLebaneseName" },
-    { Country::Syria, "shouldGenerateSyrianName" },
-    { Country::Malta, "shouldGenerateMalteseName" },
-    { Country::SouthAfrica, "shouldGenerateSouthAfricanName" },
-    { Country::Azerbaijan, "shouldGenerateAzerbaijaniName" },
-    { Country::Ghana, "shouldGenerateGhanaianName" },
-    { Country::Kazakhstan, "shouldGenerateKazakhName" },
-    { Country::Maldives, "shouldGenerateMaldivianName" },
+const std::unordered_map<country_t, std::string> generatedTestName {
+    { country_t::england, "shouldGenerateEnglishName" },
+    { country_t::france, "shouldGenerateFrenchName" },
+    { country_t::germany, "shouldGenerateGermanName" },
+    { country_t::italy, "shouldGenerateItalianName" },
+    { country_t::poland, "shouldGeneratePolishName" },
+    { country_t::russia, "shouldGenerateRussianName" },
+    { country_t::romania, "shouldGenerateRomanianName" },
+    { country_t::india, "shouldGenerateIndianName" },
+    { country_t::finland, "shouldGenerateFinnishName" },
+    { country_t::nepal, "shouldGenerateNepaleseName" },
+    { country_t::spain, "shouldGenerateSpanishName" },
+    { country_t::turkey, "shouldGenerateTurkishName" },
+    { country_t::czech, "shouldGenerateCzechName" },
+    { country_t::slovakia, "shouldGenerateSlovakName" },
+    { country_t::ukraine, "shouldGenerateUkrainianName" },
+    { country_t::denmark, "shouldGenerateDanishName" },
+    { country_t::sweden, "shouldGenerateSwedishName" },
+    { country_t::usa, "shouldGenerateAmericanName" },
+    { country_t::brazil, "shouldGenerateBrazilianName" },
+    { country_t::norway, "shouldGenerateNorwegianName" },
+    { country_t::japan, "shouldGenerateJapaneseName" },
+    { country_t::portugal, "shouldGeneratePortugueseName" },
+    { country_t::hungary, "shouldGenerateHungarianName" },
+    { country_t::croatia, "shouldGenerateCroatianName" },
+    { country_t::greece, "shouldGenerateGreekName" },
+    { country_t::slovenia, "shouldGenerateSlovenianName" },
+    { country_t::austria, "shouldGenerateAustrianName" },
+    { country_t::switzerland, "shouldGenerateSwissName" },
+    { country_t::belgium, "shouldGenerateBelgianName" },
+    { country_t::netherlands, "shouldGenerateDutchName" },
+    { country_t::china, "shouldGenerateChineseName" },
+    { country_t::korea, "shouldGenerateKoreanName" },
+    { country_t::canada, "shouldGenerateCanadianName" },
+    { country_t::mexico, "shouldGenerateMexicanName" },
+    { country_t::argentina, "shouldGenerateArgentinianName" },
+    { country_t::australia, "shouldGenerateAustralianName" },
+    { country_t::serbia, "shouldGenerateSerbianName" },
+    { country_t::macedonia, "shouldGenerateMacedonianName" },
+    { country_t::latvia, "shouldGenerateLatvianName" },
+    { country_t::ireland, "shouldGenerateIrishName" },
+    { country_t::belarus, "shouldGenerateBelarusianName" },
+    { country_t::estonia, "shouldGenerateEstonianName" },
+    { country_t::albania, "shouldGenerateAlbanianName" },
+    { country_t::iran, "shouldGeneratePersianName" },
+    { country_t::bulgaria, "shouldGenerateBulgarianName" },
+    { country_t::moldova, "shouldGenerateMoldovanName" },
+    { country_t::lithuania, "shouldGenerateLithuanianName" },
+    { country_t::iceland, "shouldGenerateIcelandicName" },
+    { country_t::palestine, "shouldGeneratePalestinianName" },
+    { country_t::israel, "shouldGenerateIsraeliName" },
+    { country_t::vietnam, "shouldGenerateVietnameseName" },
+    { country_t::monaco, "shouldGenerateMonacanName" },
+    { country_t::bosnia, "shouldGenerateBosnianNames" },
+    { country_t::lebanon, "shouldGenerateLebaneseName" },
+    { country_t::syria, "shouldGenerateSyrianName" },
+    { country_t::malta, "shouldGenerateMalteseName" },
+    { country_t::south_africa, "shouldGenerateSouthAfricanName" },
+    { country_t::azerbaijan, "shouldGenerateAzerbaijaniName" },
+    { country_t::ghana, "shouldGenerateGhanaianName" },
+    { country_t::kazakhstan, "shouldGenerateKazakhName" },
+    { country_t::maldives, "shouldGenerateMaldivianName" },
 };
 }
 
-class PersonTest : public TestWithParam<Country> {
+class PersonTest : public TestWithParam<country_t> {
 public:
     PersonTest()
     {
@@ -90,52 +90,53 @@ public:
 
     void initializePrefixes()
     {
-        for (const auto& [_, peopleNames] : person::data::countryToPeopleNamesMapping) {
-            malesPrefixes.insert(malesPrefixes.end(), peopleNames.malesNames.prefixes.begin(),
-                peopleNames.malesNames.prefixes.end());
+        for (const auto& [_, peopleNames] : person::data::people_names) {
+            malesPrefixes.insert(malesPrefixes.end(), peopleNames.males_names.prefixes.begin(),
+                peopleNames.males_names.prefixes.end());
 
-            femalesPrefixes.insert(femalesPrefixes.end(), peopleNames.femalesNames.prefixes.begin(),
-                peopleNames.femalesNames.prefixes.end());
+            femalesPrefixes.insert(femalesPrefixes.end(), peopleNames.female_names.prefixes.begin(),
+                peopleNames.female_names.prefixes.end());
 
-            allPrefixes.insert(allPrefixes.end(), peopleNames.malesNames.prefixes.begin(),
-                peopleNames.malesNames.prefixes.end());
-            allPrefixes.insert(allPrefixes.end(), peopleNames.femalesNames.prefixes.begin(),
-                peopleNames.femalesNames.prefixes.end());
+            allPrefixes.insert(allPrefixes.end(), peopleNames.males_names.prefixes.begin(),
+                peopleNames.males_names.prefixes.end());
+            allPrefixes.insert(allPrefixes.end(), peopleNames.female_names.prefixes.begin(),
+                peopleNames.female_names.prefixes.end());
         }
     }
 
     void initializeSuffixes()
     {
-        for (const auto& [_, peopleNames] : person::data::countryToPeopleNamesMapping) {
-            malesSuffixes.insert(malesSuffixes.end(), peopleNames.malesNames.suffixes.begin(),
-                peopleNames.malesNames.suffixes.end());
+        for (const auto& [_, peopleNames] : person::data::people_names) {
+            malesSuffixes.insert(malesSuffixes.end(), peopleNames.males_names.suffixes.begin(),
+                peopleNames.males_names.suffixes.end());
 
-            femalesSuffixes.insert(femalesSuffixes.end(), peopleNames.femalesNames.suffixes.begin(),
-                peopleNames.femalesNames.suffixes.end());
+            femalesSuffixes.insert(femalesSuffixes.end(), peopleNames.female_names.suffixes.begin(),
+                peopleNames.female_names.suffixes.end());
 
-            allSuffixes.insert(allSuffixes.end(), peopleNames.malesNames.suffixes.begin(),
-                peopleNames.malesNames.suffixes.end());
-            allSuffixes.insert(allSuffixes.end(), peopleNames.femalesNames.suffixes.begin(),
-                peopleNames.femalesNames.suffixes.end());
+            allSuffixes.insert(allSuffixes.end(), peopleNames.males_names.suffixes.begin(),
+                peopleNames.males_names.suffixes.end());
+            allSuffixes.insert(allSuffixes.end(), peopleNames.female_names.suffixes.begin(),
+                peopleNames.female_names.suffixes.end());
         }
     }
 
     void initializeMiddleNames()
     {
-        for (const auto& [_, peopleNames] : person::data::countryToPeopleNamesMapping) {
+        for (const auto& [_, peopleNames] : person::data::people_names) {
             malesMiddleNames.insert(malesMiddleNames.end(),
-                peopleNames.malesNames.middleNames.begin(),
-                peopleNames.malesNames.middleNames.end());
+                peopleNames.males_names.middle_names.begin(),
+                peopleNames.males_names.middle_names.end());
 
             femalesMiddleNames.insert(femalesMiddleNames.end(),
-                peopleNames.femalesNames.middleNames.begin(),
-                peopleNames.femalesNames.middleNames.end());
+                peopleNames.female_names.middle_names.begin(),
+                peopleNames.female_names.middle_names.end());
 
-            allMiddleNames.insert(allMiddleNames.end(), peopleNames.malesNames.middleNames.begin(),
-                peopleNames.malesNames.middleNames.end());
             allMiddleNames.insert(allMiddleNames.end(),
-                peopleNames.femalesNames.middleNames.begin(),
-                peopleNames.femalesNames.middleNames.end());
+                peopleNames.males_names.middle_names.begin(),
+                peopleNames.males_names.middle_names.end());
+            allMiddleNames.insert(allMiddleNames.end(),
+                peopleNames.female_names.middle_names.begin(),
+                peopleNames.female_names.middle_names.end());
         }
     }
 
@@ -153,9 +154,9 @@ public:
 TEST_P(PersonTest, shouldGenerateFirstName)
 {
     const auto country = GetParam();
-    const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = person::data::people_names.at(country);
     auto firstNames = faker::testing::make_vector(
-        peopleNames.malesNames.firstNames, peopleNames.femalesNames.firstNames);
+        peopleNames.males_names.first_names, peopleNames.female_names.first_names);
 
     const auto generatedFirstName = person::first_name(country);
 
@@ -165,10 +166,9 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 TEST_P(PersonTest, shouldGenerateMaleFirstName)
 {
     const auto country = GetParam();
-    const auto& malesFirstNames
-        = person::data::countryToPeopleNamesMapping.at(country).malesNames.firstNames;
+    const auto& malesFirstNames = person::data::people_names.at(country).males_names.first_names;
 
-    const auto generatedFirstName = person::first_name(country, person::Sex::male);
+    const auto generatedFirstName = person::first_name(country, person::sex_t::male);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(malesFirstNames, generatedFirstName);
 }
@@ -176,10 +176,9 @@ TEST_P(PersonTest, shouldGenerateMaleFirstName)
 TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 {
     const auto country = GetParam();
-    const auto& femalesFirstNames
-        = person::data::countryToPeopleNamesMapping.at(country).femalesNames.firstNames;
+    const auto& femalesFirstNames = person::data::people_names.at(country).female_names.first_names;
 
-    const auto generatedFirstName = person::first_name(country, person::Sex::female);
+    const auto generatedFirstName = person::first_name(country, person::sex_t::female);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(femalesFirstNames, generatedFirstName);
 }
@@ -187,10 +186,9 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 TEST_P(PersonTest, shouldGenerateLastNameMale)
 {
     const auto country = GetParam();
-    const auto& malesLastNames
-        = person::data::countryToPeopleNamesMapping.at(country).malesNames.lastNames;
+    const auto& malesLastNames = person::data::people_names.at(country).males_names.last_names;
 
-    const auto generatedLastName = person::last_name(country, person::Sex::male);
+    const auto generatedLastName = person::last_name(country, person::sex_t::male);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(malesLastNames, generatedLastName);
 }
@@ -198,10 +196,9 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
 TEST_P(PersonTest, shouldGenerateLastNameFemale)
 {
     const auto country = GetParam();
-    const auto& femalesLastNames
-        = person::data::countryToPeopleNamesMapping.at(country).femalesNames.lastNames;
+    const auto& femalesLastNames = person::data::people_names.at(country).female_names.last_names;
 
-    const auto generatedLastName = person::last_name(country, person::Sex::female);
+    const auto generatedLastName = person::last_name(country, person::sex_t::female);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(femalesLastNames, generatedLastName);
 }
@@ -209,11 +206,11 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
 TEST_P(PersonTest, shouldGenerateFullName)
 {
     const auto country = GetParam();
-    const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = person::data::people_names.at(country);
     auto firstNames = faker::testing::make_vector(
-        peopleNames.malesNames.firstNames, peopleNames.femalesNames.firstNames);
+        peopleNames.males_names.first_names, peopleNames.female_names.first_names);
     auto lastNames = faker::testing::make_vector(
-        peopleNames.malesNames.lastNames, peopleNames.femalesNames.lastNames);
+        peopleNames.males_names.last_names, peopleNames.female_names.last_names);
 
     const auto generatedFullName = person::full_name(country);
 
@@ -224,91 +221,91 @@ TEST_P(PersonTest, shouldGenerateFullName)
 TEST_P(PersonTest, shouldGenerateMaleFullName)
 {
     const auto country = GetParam();
-    const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = person::data::people_names.at(country);
 
-    const auto generatedFullName = person::full_name(country, person::Sex::male);
+    const auto generatedFullName = person::full_name(country, person::sex_t::male);
 
-    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.malesNames.firstNames);
-    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.malesNames.lastNames);
+    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.males_names.first_names);
+    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.males_names.last_names);
 }
 
 TEST_P(PersonTest, shouldGenerateFemaleFullName)
 {
     const auto country = GetParam();
-    const auto& peopleNames = person::data::countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = person::data::people_names.at(country);
 
-    const auto generatedFullName = person::full_name(country, person::Sex::female);
+    const auto generatedFullName = person::full_name(country, person::sex_t::female);
 
-    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.femalesNames.firstNames);
-    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.femalesNames.lastNames);
+    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.female_names.first_names);
+    FAKER_EXPECT_STRING_CONTAINS(generatedFullName, peopleNames.female_names.last_names);
 }
 
-const std::array<Country, 61> countries {
-    Country::Usa,
-    Country::England,
-    Country::Poland,
-    Country::Italy,
-    Country::France,
-    Country::Germany,
-    Country::Russia,
-    Country::Romania,
-    Country::India,
-    Country::Finland,
-    Country::Nepal,
-    Country::Spain,
-    Country::Turkey,
-    Country::Czech,
-    Country::Slovakia,
-    Country::Ukraine,
-    Country::Denmark,
-    Country::Sweden,
-    Country::Brazil,
-    Country::Norway,
-    Country::Japan,
-    Country::Portugal,
-    Country::Hungary,
-    Country::Croatia,
-    Country::Greece,
-    Country::Slovenia,
-    Country::Austria,
-    Country::Switzerland,
-    Country::Belgium,
-    Country::Netherlands,
-    Country::China,
-    Country::Korea,
-    Country::Canada,
-    Country::Mexico,
-    Country::Argentina,
-    Country::Australia,
-    Country::Serbia,
-    Country::Macedonia,
-    Country::Albania,
-    Country::Latvia,
-    Country::Ireland,
-    Country::Belarus,
-    Country::Estonia,
-    Country::Iran,
-    Country::Bulgaria,
-    Country::Moldova,
-    Country::Lithuania,
-    Country::Iceland,
-    Country::Palestine,
-    Country::Israel,
-    Country::Vietnam,
-    Country::Monaco,
-    Country::Bosnia,
-    Country::Lebanon,
-    Country::Syria,
-    Country::Malta,
-    Country::SouthAfrica,
-    Country::Azerbaijan,
-    Country::Ghana,
-    Country::Kazakhstan,
-    Country::Maldives,
+const std::array<country_t, 61> countries {
+    country_t::usa,
+    country_t::england,
+    country_t::poland,
+    country_t::italy,
+    country_t::france,
+    country_t::germany,
+    country_t::russia,
+    country_t::romania,
+    country_t::india,
+    country_t::finland,
+    country_t::nepal,
+    country_t::spain,
+    country_t::turkey,
+    country_t::czech,
+    country_t::slovakia,
+    country_t::ukraine,
+    country_t::denmark,
+    country_t::sweden,
+    country_t::brazil,
+    country_t::norway,
+    country_t::japan,
+    country_t::portugal,
+    country_t::hungary,
+    country_t::croatia,
+    country_t::greece,
+    country_t::slovenia,
+    country_t::austria,
+    country_t::switzerland,
+    country_t::belgium,
+    country_t::netherlands,
+    country_t::china,
+    country_t::korea,
+    country_t::canada,
+    country_t::mexico,
+    country_t::argentina,
+    country_t::australia,
+    country_t::serbia,
+    country_t::macedonia,
+    country_t::albania,
+    country_t::latvia,
+    country_t::ireland,
+    country_t::belarus,
+    country_t::estonia,
+    country_t::iran,
+    country_t::bulgaria,
+    country_t::moldova,
+    country_t::lithuania,
+    country_t::iceland,
+    country_t::palestine,
+    country_t::israel,
+    country_t::vietnam,
+    country_t::monaco,
+    country_t::bosnia,
+    country_t::lebanon,
+    country_t::syria,
+    country_t::malta,
+    country_t::south_africa,
+    country_t::azerbaijan,
+    country_t::ghana,
+    country_t::kazakhstan,
+    country_t::maldives,
 };
 
 INSTANTIATE_TEST_SUITE_P(TestPersonNamesByCountries, PersonTest, ValuesIn(countries),
-    [](const TestParamInfo<Country>& info) { return generatedTestName.at(info.param); });
+    [](const TestParamInfo<country_t>& info) { return generatedTestName.at(info.param); });
 
 TEST_F(PersonTest, shouldGenerateMiddleName)
 {
@@ -326,14 +323,14 @@ TEST_F(PersonTest, shouldGeneratePrefix)
 
 TEST_F(PersonTest, shouldGenerateMalePrefix)
 {
-    const auto generatedPrefix = person::prefix(person::Sex::male);
+    const auto generatedPrefix = person::prefix(person::sex_t::male);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(malesPrefixes, generatedPrefix);
 }
 
 TEST_F(PersonTest, shouldGenerateFemalePrefix)
 {
-    const auto generatedPrefix = person::prefix(person::Sex::female);
+    const auto generatedPrefix = person::prefix(person::sex_t::female);
 
     FAKER_EXPECT_CONTAINER_CONTAINS(femalesPrefixes, generatedPrefix);
 }
@@ -363,21 +360,21 @@ TEST_F(PersonTest, shouldGenerateJobDescriptor)
 {
     const auto generatedJobDescriptor = person::job_descriptor();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobDescriptors, generatedJobDescriptor);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::job_descriptors, generatedJobDescriptor);
 }
 
 TEST_F(PersonTest, shouldGenerateJobArea)
 {
     const auto generatedJobArea = person::job_area();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobAreas, generatedJobArea);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::job_areas, generatedJobArea);
 }
 
 TEST_F(PersonTest, shouldGenerateJobType)
 {
     const auto generatedJobType = person::job_type();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobTypes, generatedJobType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::job_types, generatedJobType);
 }
 
 TEST_F(PersonTest, shouldGenerateJobTitle)
@@ -390,9 +387,9 @@ TEST_F(PersonTest, shouldGenerateJobTitle)
     const auto& generatedJobArea = jobTitleElements[1];
     const auto& generatedJobType = jobTitleElements[2];
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobDescriptors, generatedJobDescriptor);
-    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobAreas, generatedJobArea);
-    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::jobTypes, generatedJobType);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::job_descriptors, generatedJobDescriptor);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::job_areas, generatedJobArea);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::job_types, generatedJobType);
 }
 
 TEST_F(PersonTest, shouldGenerateHobby)
@@ -427,169 +424,169 @@ TEST_F(PersonTest, shouldGenerateWesternZodiacs)
 {
     auto generatedWesternZodiacs = person::western_zodiac();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::westernZodiacs, generatedWesternZodiacs);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::western_zodiacs, generatedWesternZodiacs);
 }
 
 TEST_F(PersonTest, shouldGenerateChineseZodiacs)
 {
     const auto generatedChineseZodiacs = person::chinese_zodiac();
 
-    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::chineseZodiacs, generatedChineseZodiacs);
+    FAKER_EXPECT_CONTAINER_CONTAINS(person::data::chinese_zodiacs, generatedChineseZodiacs);
 }
 
-class PersonSexSuite : public TestWithParam<std::pair<person::Language, person::Sex>> { };
+class PersonSexSuite : public TestWithParam<std::pair<person::language_t, person::sex_t>> { };
 
 TEST_P(PersonSexSuite, shouldTranslateSexCorrectly)
 {
     const auto language = GetParam().first;
     const auto sex = GetParam().second;
 
-    const auto expectedTranslation = person::data::sexTranslations.at(language).at(sex);
+    const auto expectedTranslation = person::data::sex_translations.at(language).at(sex);
     const auto actualTranslation = to_string(sex, language);
 
     ASSERT_EQ(expectedTranslation, actualTranslation);
 }
 
-std::vector<std::pair<person::Language, person::Sex>> languageSexPairs
-    = { { person::Language::English, person::Sex::male },
-          { person::Language::English, person::Sex::female },
-          { person::Language::Polish, person::Sex::male },
-          { person::Language::Polish, person::Sex::female },
-          { person::Language::Italian, person::Sex::male },
-          { person::Language::Italian, person::Sex::female },
-          { person::Language::French, person::Sex::male },
-          { person::Language::French, person::Sex::female },
-          { person::Language::German, person::Sex::male },
-          { person::Language::German, person::Sex::female },
-          { person::Language::Russian, person::Sex::male },
-          { person::Language::Russian, person::Sex::female },
-          { person::Language::Romanian, person::Sex::male },
-          { person::Language::Romanian, person::Sex::female },
-          { person::Language::Hindi, person::Sex::male },
-          { person::Language::Hindi, person::Sex::female },
-          { person::Language::Finnish, person::Sex::male },
-          { person::Language::Finnish, person::Sex::female },
-          { person::Language::Nepali, person::Sex::male },
-          { person::Language::Nepali, person::Sex::female },
-          { person::Language::Spanish, person::Sex::male },
-          { person::Language::Spanish, person::Sex::female },
-          { person::Language::Turkish, person::Sex::male },
-          { person::Language::Turkish, person::Sex::female },
-          { person::Language::Czech, person::Sex::male },
-          { person::Language::Czech, person::Sex::female },
-          { person::Language::Slovak, person::Sex::male },
-          { person::Language::Slovak, person::Sex::female },
-          { person::Language::Ukrainian, person::Sex::male },
-          { person::Language::Ukrainian, person::Sex::female },
-          { person::Language::Danish, person::Sex::male },
-          { person::Language::Danish, person::Sex::female },
-          { person::Language::Swedish, person::Sex::male },
-          { person::Language::Swedish, person::Sex::female },
-          { person::Language::Portuguese, person::Sex::male },
-          { person::Language::Portuguese, person::Sex::female },
-          { person::Language::Norwegian, person::Sex::male },
-          { person::Language::Norwegian, person::Sex::female },
-          { person::Language::Japanese, person::Sex::male },
-          { person::Language::Japanese, person::Sex::female },
-          { person::Language::Hungarian, person::Sex::male },
-          { person::Language::Hungarian, person::Sex::female },
-          { person::Language::Croatian, person::Sex::male },
-          { person::Language::Croatian, person::Sex::female },
-          { person::Language::Greek, person::Sex::male },
-          { person::Language::Greek, person::Sex::female },
-          { person::Language::Slovene, person::Sex::male },
-          { person::Language::Slovene, person::Sex::female },
-          { person::Language::Dutch, person::Sex::male },
-          { person::Language::Dutch, person::Sex::female },
-          { person::Language::Mandarin, person::Sex::male },
-          { person::Language::Mandarin, person::Sex::female },
-          { person::Language::Korean, person::Sex::male },
-          { person::Language::Korean, person::Sex::female },
-          { person::Language::Serbian, person::Sex::male },
-          { person::Language::Serbian, person::Sex::female },
-          { person::Language::Macedonian, person::Sex::male },
-          { person::Language::Macedonian, person::Sex::female },
-          { person::Language::Albanian, person::Sex::male },
-          { person::Language::Albanian, person::Sex::female },
-          { person::Language::Latvian, person::Sex::male },
-          { person::Language::Latvian, person::Sex::female },
-          { person::Language::Irish, person::Sex::male },
-          { person::Language::Irish, person::Sex::female },
-          { person::Language::Belarusian, person::Sex::male },
-          { person::Language::Belarusian, person::Sex::female },
-          { person::Language::Estonian, person::Sex::male },
-          { person::Language::Estonian, person::Sex::female } };
+std::vector<std::pair<person::language_t, person::sex_t>> languageSexPairs
+    = { { person::language_t::english, person::sex_t::male },
+          { person::language_t::english, person::sex_t::female },
+          { person::language_t::polish, person::sex_t::male },
+          { person::language_t::polish, person::sex_t::female },
+          { person::language_t::italian, person::sex_t::male },
+          { person::language_t::italian, person::sex_t::female },
+          { person::language_t::french, person::sex_t::male },
+          { person::language_t::french, person::sex_t::female },
+          { person::language_t::german, person::sex_t::male },
+          { person::language_t::german, person::sex_t::female },
+          { person::language_t::russian, person::sex_t::male },
+          { person::language_t::russian, person::sex_t::female },
+          { person::language_t::romanian, person::sex_t::male },
+          { person::language_t::romanian, person::sex_t::female },
+          { person::language_t::hindi, person::sex_t::male },
+          { person::language_t::hindi, person::sex_t::female },
+          { person::language_t::finnish, person::sex_t::male },
+          { person::language_t::finnish, person::sex_t::female },
+          { person::language_t::nepali, person::sex_t::male },
+          { person::language_t::nepali, person::sex_t::female },
+          { person::language_t::spanish, person::sex_t::male },
+          { person::language_t::spanish, person::sex_t::female },
+          { person::language_t::turkish, person::sex_t::male },
+          { person::language_t::turkish, person::sex_t::female },
+          { person::language_t::czech, person::sex_t::male },
+          { person::language_t::czech, person::sex_t::female },
+          { person::language_t::slovak, person::sex_t::male },
+          { person::language_t::slovak, person::sex_t::female },
+          { person::language_t::ukrainian, person::sex_t::male },
+          { person::language_t::ukrainian, person::sex_t::female },
+          { person::language_t::danish, person::sex_t::male },
+          { person::language_t::danish, person::sex_t::female },
+          { person::language_t::swedish, person::sex_t::male },
+          { person::language_t::swedish, person::sex_t::female },
+          { person::language_t::portuguese, person::sex_t::male },
+          { person::language_t::portuguese, person::sex_t::female },
+          { person::language_t::norwegian, person::sex_t::male },
+          { person::language_t::norwegian, person::sex_t::female },
+          { person::language_t::japanese, person::sex_t::male },
+          { person::language_t::japanese, person::sex_t::female },
+          { person::language_t::hungarian, person::sex_t::male },
+          { person::language_t::hungarian, person::sex_t::female },
+          { person::language_t::croatian, person::sex_t::male },
+          { person::language_t::croatian, person::sex_t::female },
+          { person::language_t::greek, person::sex_t::male },
+          { person::language_t::greek, person::sex_t::female },
+          { person::language_t::slovene, person::sex_t::male },
+          { person::language_t::slovene, person::sex_t::female },
+          { person::language_t::dutch, person::sex_t::male },
+          { person::language_t::dutch, person::sex_t::female },
+          { person::language_t::mandarin, person::sex_t::male },
+          { person::language_t::mandarin, person::sex_t::female },
+          { person::language_t::korean, person::sex_t::male },
+          { person::language_t::korean, person::sex_t::female },
+          { person::language_t::serbian, person::sex_t::male },
+          { person::language_t::serbian, person::sex_t::female },
+          { person::language_t::macedonian, person::sex_t::male },
+          { person::language_t::macedonian, person::sex_t::female },
+          { person::language_t::albanian, person::sex_t::male },
+          { person::language_t::albanian, person::sex_t::female },
+          { person::language_t::latvian, person::sex_t::male },
+          { person::language_t::latvian, person::sex_t::female },
+          { person::language_t::irish, person::sex_t::male },
+          { person::language_t::irish, person::sex_t::female },
+          { person::language_t::belarusian, person::sex_t::male },
+          { person::language_t::belarusian, person::sex_t::female },
+          { person::language_t::estonian, person::sex_t::male },
+          { person::language_t::estonian, person::sex_t::female } };
 
-std::string_view toString(person::Language language)
+std::string_view toString(person::language_t language)
 {
     switch (language) {
-    case person::Language::English:
+    case person::language_t::english:
         return "English";
-    case person::Language::Polish:
+    case person::language_t::polish:
         return "Polish";
-    case person::Language::Italian:
+    case person::language_t::italian:
         return "Italian";
-    case person::Language::French:
+    case person::language_t::french:
         return "French";
-    case person::Language::German:
+    case person::language_t::german:
         return "German";
-    case person::Language::Russian:
+    case person::language_t::russian:
         return "Russian";
-    case person::Language::Romanian:
+    case person::language_t::romanian:
         return "Romanian";
-    case person::Language::Hindi:
+    case person::language_t::hindi:
         return "Hindi";
-    case person::Language::Finnish:
+    case person::language_t::finnish:
         return "Finnish";
-    case person::Language::Nepali:
+    case person::language_t::nepali:
         return "Nepali";
-    case person::Language::Spanish:
+    case person::language_t::spanish:
         return "Spanish";
-    case person::Language::Turkish:
+    case person::language_t::turkish:
         return "Turkish";
-    case person::Language::Czech:
+    case person::language_t::czech:
         return "Czech";
-    case person::Language::Slovak:
+    case person::language_t::slovak:
         return "Slovak";
-    case person::Language::Ukrainian:
+    case person::language_t::ukrainian:
         return "Ukrainian";
-    case person::Language::Danish:
+    case person::language_t::danish:
         return "Danish";
-    case person::Language::Swedish:
+    case person::language_t::swedish:
         return "Swedish";
-    case person::Language::Portuguese:
+    case person::language_t::portuguese:
         return "Portuguese";
-    case person::Language::Norwegian:
+    case person::language_t::norwegian:
         return "Norwegian";
-    case person::Language::Japanese:
+    case person::language_t::japanese:
         return "Japanese";
-    case person::Language::Hungarian:
+    case person::language_t::hungarian:
         return "Hungarian";
-    case person::Language::Croatian:
+    case person::language_t::croatian:
         return "Croatian";
-    case person::Language::Greek:
+    case person::language_t::greek:
         return "Greek";
-    case person::Language::Slovene:
+    case person::language_t::slovene:
         return "Slovene";
-    case person::Language::Dutch:
+    case person::language_t::dutch:
         return "Dutch";
-    case person::Language::Mandarin:
+    case person::language_t::mandarin:
         return "Mandarin";
-    case person::Language::Korean:
+    case person::language_t::korean:
         return "Korean";
-    case person::Language::Serbian:
+    case person::language_t::serbian:
         return "Serbian";
-    case person::Language::Macedonian:
+    case person::language_t::macedonian:
         return "Macedonian";
-    case person::Language::Albanian:
+    case person::language_t::albanian:
         return "Albanian";
-    case person::Language::Latvian:
+    case person::language_t::latvian:
         return "Latvian";
-    case person::Language::Irish:
+    case person::language_t::irish:
         return "Irish";
-    case person::Language::Belarusian:
+    case person::language_t::belarusian:
         return "Belarusian";
-    case person::Language::Estonian:
+    case person::language_t::estonian:
         return "Estonian";
     default:
         throw std::invalid_argument("Invalid language");
@@ -605,7 +602,7 @@ INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, ValuesIn(lang
         return result;
     });
 
-class PersonSsnSuite : public TestWithParam<person::ssn_country> { };
+class PersonSsnSuite : public TestWithParam<person::ssn_country_t> { };
 
 // TODO: add more precise tests
 TEST_P(PersonSsnSuite, shouldGenerateSsn)
@@ -614,29 +611,29 @@ TEST_P(PersonSsnSuite, shouldGenerateSsn)
 
     const auto ssn = person::ssn(country);
 
-    const auto expectedSsnLength = person::data::ssnLengths.at(country);
+    const auto expectedSsnLength = person::data::ssn_lengths.at(country);
 
     ASSERT_EQ(ssn.size(), expectedSsnLength);
 }
 
-std::string_view toString(person::ssn_country country)
+std::string_view toString(person::ssn_country_t country)
 {
     switch (country) {
-    case person::ssn_country::usa:
+    case person::ssn_country_t::usa:
         return "UnitedStates";
-    case person::ssn_country::england:
+    case person::ssn_country_t::england:
         return "UnitedKingdom";
-    case person::ssn_country::poland:
+    case person::ssn_country_t::poland:
         return "Poland";
-    case person::ssn_country::italy:
+    case person::ssn_country_t::italy:
         return "Italy";
-    case person::ssn_country::france:
+    case person::ssn_country_t::france:
         return "France";
-    case person::ssn_country::germany:
+    case person::ssn_country_t::germany:
         return "Germany";
-    case person::ssn_country::india:
+    case person::ssn_country_t::india:
         return "India";
-    case person::ssn_country::spain:
+    case person::ssn_country_t::spain:
         return "Spain";
     default:
         throw std::invalid_argument("Invalid country");
@@ -644,7 +641,7 @@ std::string_view toString(person::ssn_country country)
 }
 
 INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite,
-    ValuesIn(person::data::supportedSsnCountries),
+    ValuesIn(person::data::supported_ssn_countries),
     [](const TestParamInfo<PersonSsnSuite::ParamType>& info) {
         std::string result("shouldGenerate");
         result += toString(info.param);

@@ -9,6 +9,7 @@
 #include <modules/string_data.h>
 #include <ranges>
 #include <regex>
+#include <unordered_set>
 
 using namespace ::testing;
 using namespace faker;
@@ -100,7 +101,7 @@ public:
     {
         return faker::testing::all_of(data, [](char dataCharacter) {
             return faker::testing::any_of(
-                string::data::numericCharacters, [dataCharacter](char numericCharacter) {
+                string::data::digits, [dataCharacter](char numericCharacter) {
                     return numericCharacter == dataCharacter;
                 });
         });
@@ -211,7 +212,7 @@ TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 {
     const auto min = 150;
     const auto max = 450;
-    const auto precision = precision::four_dp;
+    const auto precision = precision_t::four_dp;
     const std::string currencySymbol = "$";
 
     const auto generatedAmount = finance::amount(150, 450, precision, currencySymbol);
@@ -412,7 +413,7 @@ TEST_F(FinanceTest, shouldGenerateEthereumAddress)
     ASSERT_EQ(ethereumAddress.size(), 42);
     ASSERT_EQ(prefix, "0x");
     ASSERT_TRUE(faker::testing::any_of(hexNumber, [hexNumber](char hexNumberCharacter) {
-        return string::data::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos;
+        return string::data::hex_lower_digits.find(hexNumberCharacter) != std::string::npos;
     }));
 }
 

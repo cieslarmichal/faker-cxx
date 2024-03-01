@@ -10,14 +10,14 @@
 #include <vector>
 
 namespace faker::person::data {
-extern const std::array<std::string_view, 41> bioPart;
-extern const std::array<std::string_view, 7> bioSupporter;
-extern const std::array<std::string_view, 8> bioFormats;
+extern const std::array<std::string_view, 41> bio_parts;
+extern const std::array<std::string_view, 7> bio_supporters;
+extern const std::array<std::string_view, 8> bio_formats;
 extern const std::array<std::string_view, 76> genders;
 extern const std::array<std::string_view, 44> hobbies;
-extern const std::array<std::string_view, 25> jobDescriptors;
-extern const std::array<std::string_view, 38> jobAreas;
-extern const std::array<std::string_view, 25> jobTypes;
+extern const std::array<std::string_view, 25> job_descriptors;
+extern const std::array<std::string_view, 38> job_areas;
+extern const std::array<std::string_view, 25> job_types;
 extern const std::array<std::string_view, 18> languages;
 
 struct NameFormat {
@@ -30,593 +30,593 @@ using NameFormats = std::vector<NameFormat>;
 extern const std::array<std::string_view, 62> nationalities;
 
 struct PersonNames {
-    tcb::span<const std::string_view> firstNames;
-    tcb::span<const std::string_view> middleNames;
-    tcb::span<const std::string_view> lastNames;
+    tcb::span<const std::string_view> first_names;
+    tcb::span<const std::string_view> middle_names;
+    tcb::span<const std::string_view> last_names;
     tcb::span<const std::string_view> prefixes;
     tcb::span<const std::string_view> suffixes;
 };
 
 struct PeopleNames {
-    PersonNames malesNames;
-    PersonNames femalesNames;
-    NameFormats nameFormats;
+    PersonNames males_names;
+    PersonNames female_names;
+    NameFormats name_formats;
 };
 
-extern const std::unordered_map<ssn_country, std::string_view> ssnFormats;
-extern const std::array<std::string_view, 12> westernZodiacs;
-extern const std::array<std::string_view, 11> chineseZodiacs;
-extern const std::unordered_map<Language, std::unordered_map<Sex, std::string_view>>
-    sexTranslations;
-extern const std::array<ssn_country, 8> supportedSsnCountries;
-extern const std::unordered_map<ssn_country, unsigned> ssnLengths;
+extern const std::unordered_map<ssn_country_t, std::string_view> ssn_formats;
+extern const std::array<std::string_view, 12> western_zodiacs;
+extern const std::array<std::string_view, 11> chinese_zodiacs;
+extern const std::unordered_map<language_t, std::unordered_map<sex_t, std::string_view>>
+    sex_translations;
+extern const std::array<ssn_country_t, 8> supported_ssn_countries;
+extern const std::unordered_map<ssn_country_t, unsigned> ssn_lengths;
 
 // Albania
 
-extern const std::array<std::string_view, 157> albanianMalesFirstNames;
-extern const std::array<std::string_view, 141> albanianFemalesFirstNames;
-extern const std::array<std::string_view, 140> albanianLastNames;
-extern const NameFormats albanianPersonNameFormats;
-extern const PeopleNames albanianPeopleNames;
+extern const std::array<std::string_view, 157> albanian_male_first_names;
+extern const std::array<std::string_view, 141> albanian_female_first_names;
+extern const std::array<std::string_view, 140> albanian_last_names;
+extern const NameFormats albanian_person_name_formats;
+extern const PeopleNames albanian_people_names;
 
 // Argentina
 
-extern const std::array<std::string_view, 350> argentinianMalesFirstNames;
-extern const std::array<std::string_view, 350> argentinianFemalesFirstNames;
-extern const std::array<std::string_view, 348> argentinianLastNames;
-extern const NameFormats argentinianPersonNameFormats;
-extern const PeopleNames argentinianPeopleNames;
+extern const std::array<std::string_view, 350> argentinian_male_first_names;
+extern const std::array<std::string_view, 350> argentinian_female_first_names;
+extern const std::array<std::string_view, 348> argentinian_last_names;
+extern const NameFormats argentinian_name_formats;
+extern const PeopleNames argentinian_people_names;
 
 // Australia
 
-extern const std::array<std::string_view, 100> australianMalesFirstNames;
-extern const std::array<std::string_view, 100> australianFemalesFirstNames;
-extern const std::array<std::string_view, 286> australianLastNames;
-extern const NameFormats australianPersonNameFormats;
-extern const PeopleNames australianPeopleNames;
+extern const std::array<std::string_view, 100> australian_male_first_names;
+extern const std::array<std::string_view, 100> australian_female_first_names;
+extern const std::array<std::string_view, 286> australian_last_names;
+extern const NameFormats australian_name_formats;
+extern const PeopleNames australian_people_names;
 
 // Austria
 
-extern const std::array<std::string_view, 572> austrianMalesFirstNames;
-extern const std::array<std::string_view, 573> austrianFemalesFirstNames;
-extern const std::array<std::string_view, 1688> austrianLastNames;
-extern const std::array<std::string_view, 3> austrianMalesPrefixes;
-extern const std::array<std::string_view, 3> austrianFemalesPrefixes;
-extern const NameFormats austrianPersonNameFormats;
-extern const PeopleNames austrianPeopleNames;
+extern const std::array<std::string_view, 572> austrian_male_first_names;
+extern const std::array<std::string_view, 573> austrian_female_first_names;
+extern const std::array<std::string_view, 1688> austrian_last_names;
+extern const std::array<std::string_view, 3> austrian_male_prefixes;
+extern const std::array<std::string_view, 3> austrian_female_prefixes;
+extern const NameFormats austrian_name_formats;
+extern const PeopleNames austrian_people_names;
 
 // Azerbaijan
 
-extern const std::array<std::string_view, 35> azerbaijaniMalesFirstNames;
-extern const std::array<std::string_view, 73> azerbaijaniFemalesFirstNames;
-extern const std::array<std::string_view, 10> azerbaijaniMalesLastNames;
-extern const std::array<std::string_view, 10> azerbaijaniFemalesLastNames;
-extern const NameFormats azerbaijaniPersonNameFormats;
-extern const PeopleNames azerbaijaniPeopleNames;
+extern const std::array<std::string_view, 35> azerbaijani_male_first_names;
+extern const std::array<std::string_view, 73> azerbaijani_female_first_names;
+extern const std::array<std::string_view, 10> azerbaijani_male_last_names;
+extern const std::array<std::string_view, 10> azerbaijani_female_last_names;
+extern const NameFormats azerbaijani_name_formats;
+extern const PeopleNames azerbaijani_people_names;
 
 // Belarus
 
-extern const std::array<std::string_view, 350> belarusianMalesFirstNames;
-extern const std::array<std::string_view, 350> belarusianFemalesFirstNames;
-extern const std::array<std::string_view, 261> belarusianMalesLastNames;
-extern const std::array<std::string_view, 89> belarusianFemalesLastNames;
-extern const NameFormats belarusianPersonNameFormats;
-extern const PeopleNames belarusianPeopleNames;
+extern const std::array<std::string_view, 350> belarusian_male_first_names;
+extern const std::array<std::string_view, 350> belarusian_female_first_names;
+extern const std::array<std::string_view, 261> belarusian_male_last_names;
+extern const std::array<std::string_view, 89> belarusian_female_last_names;
+extern const NameFormats belarusian_name_formats;
+extern const PeopleNames belarusian_people_names;
 
 // Belgium
 
-extern const std::array<std::string_view, 100> belgianMalesFirstNames;
-extern const std::array<std::string_view, 99> belgianFemalesFirstNames;
-extern const std::array<std::string_view, 32> belgianLastNames;
-extern const std::array<std::string_view, 2> belgianSuffixes;
-extern const std::array<std::string_view, 4> belgianPrefixes;
-extern const NameFormats belgianPersonNameFormats;
-extern const PeopleNames belgianPeopleNames;
+extern const std::array<std::string_view, 100> belgian_male_first_names;
+extern const std::array<std::string_view, 99> belgian_female_first_names;
+extern const std::array<std::string_view, 32> belgian_last_names;
+extern const std::array<std::string_view, 2> belgian_suffixes;
+extern const std::array<std::string_view, 4> belgian_prefixes;
+extern const NameFormats belgian_name_formats;
+extern const PeopleNames belgian_people_names;
 
 // Bosnia
 
-extern const std::array<std::string_view, 100> bosnianMalesFirstNames;
-extern const std::array<std::string_view, 100> bosnianFemalesFirstNames;
-extern const std::array<std::string_view, 128> bosnianLastNames;
-extern const NameFormats bosnianPersonNameFormats;
-extern const PeopleNames bosnianPeopleNames;
+extern const std::array<std::string_view, 100> bosnian_male_first_names;
+extern const std::array<std::string_view, 100> bosnian_female_first_names;
+extern const std::array<std::string_view, 128> bosnian_last_names;
+extern const NameFormats bosnian_name_formats;
+extern const PeopleNames bosnian_people_names;
 
 // Brazil
 
-extern const std::array<std::string_view, 88> brazilianMalesFirstNames;
-extern const std::array<std::string_view, 80> brazilianFemalesFirstNames;
-extern const std::array<std::string_view, 21> brazilianLastNames;
-extern const std::array<std::string_view, 3> brazilianSuffixes;
-extern const std::array<std::string_view, 2> brazilianMalesPrefixes;
-extern const std::array<std::string_view, 3> brazilianFemalesPrefixes;
-extern const NameFormats brazilianPersonNameFormats;
-extern const PeopleNames brazilianPeopleNames;
+extern const std::array<std::string_view, 88> brazilian_male_first_names;
+extern const std::array<std::string_view, 80> brazilian_female_first_names;
+extern const std::array<std::string_view, 21> brazilian_last_names;
+extern const std::array<std::string_view, 3> brazilian_suffixes;
+extern const std::array<std::string_view, 2> brazilian_male_prefixes;
+extern const std::array<std::string_view, 3> brazilian_female_prefixes;
+extern const NameFormats brazilian_name_formats;
+extern const PeopleNames brazilian_people_names;
 
 // Bulgaria
 
-extern const std::array<std::string_view, 30> bulgarianMalesFirstNames;
-extern const std::array<std::string_view, 32> bulgarianFemalesFirstNames;
-extern const std::array<std::string_view, 25> bulgarianLastNames;
-extern const std::array<std::string_view, 2> bulgarianSuffixes;
-extern const std::array<std::string_view, 3> bulgarianMalesPrefixes;
-extern const std::array<std::string_view, 4> bulgarianFemalesPrefixes;
-extern const NameFormats bulgarianPersonNameFormats;
-extern const PeopleNames bulgarianPeopleNames;
+extern const std::array<std::string_view, 30> bulgarian_male_first_names;
+extern const std::array<std::string_view, 32> bulgarian_female_first_names;
+extern const std::array<std::string_view, 25> bulgarian_last_names;
+extern const std::array<std::string_view, 2> bulgarian_suffixes;
+extern const std::array<std::string_view, 3> bulgarian_male_prefixes;
+extern const std::array<std::string_view, 4> bulgarian_female_prefixes;
+extern const NameFormats bulgarian_name_formats;
+extern const PeopleNames bulgarian_people_names;
 
 // Canada
 
-extern const std::array<std::string_view, 350> canadianMalesFirstNames;
-extern const std::array<std::string_view, 350> canadianFemalesFirstNames;
-extern const std::array<std::string_view, 346> canadianLastNames;
-extern const NameFormats canadianPersonNameFormats;
-extern const PeopleNames canadianPeopleNames;
+extern const std::array<std::string_view, 350> canadian_male_first_names;
+extern const std::array<std::string_view, 350> canadian_female_first_names;
+extern const std::array<std::string_view, 346> canadian_last_names;
+extern const NameFormats canadian_name_formats;
+extern const PeopleNames canadian_people_names;
 
 // China
 
-extern const std::array<std::string_view, 1000> chineseLastNames;
-extern const std::array<std::string_view, 78> chineseMalesFirstNames;
-extern const std::array<std::string_view, 85> chineseFemalesFirstNames;
-extern const NameFormats chinesePersonNameFormats;
-extern const PeopleNames chinesePeopleNames;
+extern const std::array<std::string_view, 1000> chinese_last_names;
+extern const std::array<std::string_view, 78> chinese_male_first_names;
+extern const std::array<std::string_view, 85> chinese_female_first_names;
+extern const NameFormats chinese_name_formats;
+extern const PeopleNames chinese_people_names;
 
 // Croatia
 
-extern const std::array<std::string_view, 171> croatianMalesFirstNames;
-extern const std::array<std::string_view, 238> croatianFemalesFirstNames;
-extern const std::array<std::string_view, 11617> croatianLastNames;
-extern const std::array<std::string_view, 2> croatianSuffixes;
-extern const std::array<std::string_view, 2> croatianMalesPrefixes;
-extern const std::array<std::string_view, 3> croatianFemalesPrefixes;
-extern const NameFormats croatianPersonNameFormats;
-extern const PeopleNames croatianPeopleNames;
+extern const std::array<std::string_view, 171> croatian_male_first_names;
+extern const std::array<std::string_view, 238> croatian_female_first_names;
+extern const std::array<std::string_view, 11617> croatian_last_names;
+extern const std::array<std::string_view, 2> croatian_suffixes;
+extern const std::array<std::string_view, 2> croatian_male_prefixes;
+extern const std::array<std::string_view, 3> croatian_female_prefixes;
+extern const NameFormats croatian_name_formats;
+extern const PeopleNames croatian_people_names;
 
 // Czechia
 
-extern const std::array<std::string_view, 795> czechMalesFirstNames;
-extern const std::array<std::string_view, 785> czechFemalesFirstNames;
-extern const std::array<std::string_view, 999> czechMalesLastNames;
-extern const std::array<std::string_view, 991> czechFemalesLastNames;
-extern const std::array<std::string_view, 4> czechPrefixes;
-extern const std::array<std::string_view, 1> czechSuffixes;
-extern const NameFormats czechPersonNameFormats;
-extern const PeopleNames czechPeopleNames;
+extern const std::array<std::string_view, 795> czech_male_first_names;
+extern const std::array<std::string_view, 785> czech_female_first_names;
+extern const std::array<std::string_view, 999> czech_male_last_names;
+extern const std::array<std::string_view, 991> czech_female_last_names;
+extern const std::array<std::string_view, 4> czech_prefixes;
+extern const std::array<std::string_view, 1> czech_suffixes;
+extern const NameFormats czech_name_formats;
+extern const PeopleNames czech_people_names;
 
 // Denmark
 
-extern const std::array<std::string_view, 118> danishMalesFirstNames;
-extern const std::array<std::string_view, 109> danishFemalesFirstNames;
-extern const std::array<std::string_view, 106> danishLastNames;
-extern const std::array<std::string_view, 30> danishMiddleNames;
-extern const std::array<std::string_view, 1> danishMalesPrefixes;
-extern const std::array<std::string_view, 1> danishFemalesPrefixes;
-extern const NameFormats danishPersonNameFormats;
-extern const PeopleNames danishPeopleNames;
+extern const std::array<std::string_view, 118> danish_male_first_names;
+extern const std::array<std::string_view, 109> danish_female_first_names;
+extern const std::array<std::string_view, 106> danish_last_names;
+extern const std::array<std::string_view, 30> danish_middle_names;
+extern const std::array<std::string_view, 1> danish_male_prefixes;
+extern const std::array<std::string_view, 1> danish_female_prefixes;
+extern const NameFormats danish_name_formats;
+extern const PeopleNames danish_people_names;
 
 // Dutch
 
-extern const std::array<std::string_view, 587> dutchMalesFirstNames;
-extern const std::array<std::string_view, 514> dutchFemalesFirstNames;
-extern const std::array<std::string_view, 131> dutchLastNames;
-extern const std::array<std::string_view, 2> dutchSuffixes;
-extern const std::array<std::string_view, 7> dutchMalesPrefixes;
-extern const std::array<std::string_view, 7> dutchFemalesPrefixes;
-extern const NameFormats dutchPersonNameFormats;
-extern const PeopleNames dutchPeopleNames;
+extern const std::array<std::string_view, 587> dutch_male_first_names;
+extern const std::array<std::string_view, 514> dutch_female_first_names;
+extern const std::array<std::string_view, 131> dutch_last_names;
+extern const std::array<std::string_view, 2> dutch_suffixes;
+extern const std::array<std::string_view, 7> dutch_male_prefixes;
+extern const std::array<std::string_view, 7> dutch_female_prefixes;
+extern const NameFormats dutch_name_formats;
+extern const PeopleNames dutch_people_names;
 
 // England
 
-extern const std::array<std::string_view, 500> englishMalesFirstNames;
-extern const std::array<std::string_view, 500> englishFemalesFirstNames;
-extern const std::array<std::string_view, 463> englishLastNames;
-extern const std::array<std::string_view, 11> englishSuffixes;
-extern const std::array<std::string_view, 2> englishMalesPrefixes;
-extern const std::array<std::string_view, 4> englishFemalesPrefixes;
-extern const NameFormats englishPersonNameFormats;
-extern const PeopleNames englishPeopleNames;
+extern const std::array<std::string_view, 500> english_male_first_names;
+extern const std::array<std::string_view, 500> english_female_first_names;
+extern const std::array<std::string_view, 463> english_last_names;
+extern const std::array<std::string_view, 11> english_suffixes;
+extern const std::array<std::string_view, 2> english_male_prefixes;
+extern const std::array<std::string_view, 4> english_female_prefixes;
+extern const NameFormats english_name_formats;
+extern const PeopleNames english_people_names;
 
 // Estonia
 
-extern const std::array<std::string_view, 350> estonianMalesFirstNames;
-extern const std::array<std::string_view, 350> estonianFemalesFirstNames;
-extern const std::array<std::string_view, 350> estonianLastNames;
-extern const NameFormats estonianPersonNameFormats;
-extern const PeopleNames estonianPeopleNames;
+extern const std::array<std::string_view, 350> estonian_male_first_names;
+extern const std::array<std::string_view, 350> estonian_female_first_names;
+extern const std::array<std::string_view, 350> estonian_last_names;
+extern const NameFormats estonian_name_formats;
+extern const PeopleNames estonian_people_names;
 
 // Finland
 
-extern const std::array<std::string_view, 45> finnishMalesFirstNames;
-extern const std::array<std::string_view, 46> finnishFemalesFirstNames;
-extern const std::array<std::string_view, 46> finnishLastNames;
-extern const NameFormats finnishPersonNameFormats;
-extern const PeopleNames finnishPeopleNames;
+extern const std::array<std::string_view, 45> finnish_male_first_names;
+extern const std::array<std::string_view, 46> finnish_female_first_names;
+extern const std::array<std::string_view, 46> finnish_last_names;
+extern const NameFormats finnish_name_formats;
+extern const PeopleNames finnish_people_names;
 
 // France
 
-extern const std::array<std::string_view, 496> frenchMalesFirstNames;
-extern const std::array<std::string_view, 451> frenchFemalesFirstNames;
-extern const std::array<std::string_view, 150> frenchLastNames;
-extern const std::array<std::string_view, 3> frenchMalesPrefixes;
-extern const std::array<std::string_view, 4> frenchFemalesPrefixes;
-extern const NameFormats frenchPersonNameFormats;
-extern const PeopleNames frenchPeopleNames;
+extern const std::array<std::string_view, 496> french_male_first_names;
+extern const std::array<std::string_view, 451> french_female_first_names;
+extern const std::array<std::string_view, 150> french_last_names;
+extern const std::array<std::string_view, 3> french_male_prefixes;
+extern const std::array<std::string_view, 4> french_female_prefixes;
+extern const NameFormats french_name_formats;
+extern const PeopleNames french_people_names;
 
 // Germany
 
-extern const std::array<std::string_view, 572> germanMalesFirstNames;
-extern const std::array<std::string_view, 583> germanFemalesFirstNames;
-extern const std::array<std::string_view, 1688> germanLastNames;
-extern const std::array<std::string_view, 3> germanMalesPrefixes;
-extern const std::array<std::string_view, 3> germanFemalesPrefixes;
-extern const NameFormats germanPersonNameFormats;
-extern const PeopleNames germanPeopleNames;
+extern const std::array<std::string_view, 572> german_male_first_names;
+extern const std::array<std::string_view, 583> german_female_first_names;
+extern const std::array<std::string_view, 1688> german_last_names;
+extern const std::array<std::string_view, 3> german_male_prefixes;
+extern const std::array<std::string_view, 3> german_female_prefixes;
+extern const NameFormats german_name_formats;
+extern const PeopleNames german_people_names;
 
 // Ghana
 
-extern const std::array<std::string_view, 132> ghanaianMalesFirstNames;
-extern const std::array<std::string_view, 132> ghanaianFemalesFirstNames;
-extern const std::array<std::string_view, 120> ghanaianLastNames;
-extern const NameFormats ghanaianPersonNameFormats;
-extern const PeopleNames ghanaianPeopleNames;
+extern const std::array<std::string_view, 132> ghanaian_male_first_names;
+extern const std::array<std::string_view, 132> ghanaian_female_first_names;
+extern const std::array<std::string_view, 120> ghanaian_last_names;
+extern const NameFormats ghanaian_name_formats;
+extern const PeopleNames ghanaian_people_names;
 
 // Greece
 
-extern const std::array<std::string_view, 350> greekMalesFirstNames;
-extern const std::array<std::string_view, 350> greekFemalesFirstNames;
-extern const std::array<std::string_view, 350> greekLastNames;
-extern const NameFormats greekPersonNameFormats;
-extern const PeopleNames greekPeopleNames;
+extern const std::array<std::string_view, 350> greek_male_first_names;
+extern const std::array<std::string_view, 350> greek_female_first_names;
+extern const std::array<std::string_view, 350> greek_last_names;
+extern const NameFormats greek_name_formats;
+extern const PeopleNames greek_people_names;
 
 // Hungary
 
-extern const std::array<std::string_view, 100> hungarianMalesFirstNames;
-extern const std::array<std::string_view, 100> hungarianFemalesFirstNames;
-extern const std::array<std::string_view, 100> hungarianLastNames;
-extern const std::array<std::string_view, 2> hungarianPrefixes;
-extern const NameFormats hungarianPersonNameFormats;
-extern const PeopleNames hungarianPeopleNames;
+extern const std::array<std::string_view, 100> hungarian_male_first_names;
+extern const std::array<std::string_view, 100> hungarian_female_first_names;
+extern const std::array<std::string_view, 100> hungarian_last_names;
+extern const std::array<std::string_view, 2> hungarian_prefixes;
+extern const NameFormats hungarian_name_formats;
+extern const PeopleNames hungarian_people_names;
 
 // Iceland
 
-extern const std::array<std::string_view, 157> icelandicMalesFirstNames;
-extern const std::array<std::string_view, 141> icelandicFemalesFirstNames;
-extern const std::array<std::string_view, 140> icelandicLastNames;
-extern const NameFormats icelandicPersonNameFormats;
-extern const PeopleNames icelandicPeopleNames;
+extern const std::array<std::string_view, 157> icelandic_male_first_names;
+extern const std::array<std::string_view, 141> icelandic_female_first_names;
+extern const std::array<std::string_view, 140> icelandic_last_names;
+extern const NameFormats icelandic_person_name_formats;
+extern const PeopleNames icelandic_people_names;
 
 // India
 
-extern const std::array<std::string_view, 351> indianMalesFirstNames;
-extern const std::array<std::string_view, 228> indianFemalesFirstNames;
-extern const std::array<std::string_view, 184> indianLastNames;
-extern const NameFormats indianPersonNameFormats;
-extern const PeopleNames indianPeopleNames;
+extern const std::array<std::string_view, 351> indian_male_first_names;
+extern const std::array<std::string_view, 228> indian_female_first_names;
+extern const std::array<std::string_view, 184> indian_last_names;
+extern const NameFormats indian_name_formats;
+extern const PeopleNames indian_people_names;
 
 // Ireland
 
-extern const std::array<std::string_view, 350> irishMalesFirstNames;
-extern const std::array<std::string_view, 350> irishFemalesFirstNames;
-extern const std::array<std::string_view, 350> irishLastNames;
-extern const std::array<std::string_view, 11> irishSuffixes;
-extern const std::array<std::string_view, 2> irishMalesPrefixes;
-extern const std::array<std::string_view, 4> irishFemalesPrefixes;
+extern const std::array<std::string_view, 350> irish_male_first_names;
+extern const std::array<std::string_view, 350> irish_female_first_names;
+extern const std::array<std::string_view, 350> irish_last_names;
+extern const std::array<std::string_view, 11> irish_suffixes;
+extern const std::array<std::string_view, 2> irish_male_prefixes;
+extern const std::array<std::string_view, 4> irish_female_prefixes;
 // TODO: add handling lastName-lastName
-extern const NameFormats irishPersonNameFormats;
-extern const PeopleNames irishPeopleNames;
+extern const NameFormats irish_name_formats;
+extern const PeopleNames irish_people_names;
 
 // Israel
 
-extern const std::array<std::string_view, 297> israelisMalesFirstNames;
-extern const std::array<std::string_view, 297> israelisFemalesFirstNames;
-extern const std::array<std::string_view, 270> israelisLastNames;
-extern const NameFormats israelisPersonNameFormats;
-extern const PeopleNames israeliPeopleNames;
+extern const std::array<std::string_view, 297> israelis_male_first_names;
+extern const std::array<std::string_view, 297> israelis_female_first_names;
+extern const std::array<std::string_view, 270> israelis_last_names;
+extern const NameFormats israelis_name_formats;
+extern const PeopleNames israeli_people_names;
 
 // Italy
 
-extern const std::array<std::string_view, 1083> italianMalesFirstNames;
-extern const std::array<std::string_view, 617> italianFemalesFirstNames;
-extern const std::array<std::string_view, 2170> italianLastNames;
-extern const std::array<std::string_view, 4> italianPrefixes;
-extern const NameFormats italianPersonNameFormats;
-extern const PeopleNames italianPeopleNames;
+extern const std::array<std::string_view, 1083> italian_male_first_names;
+extern const std::array<std::string_view, 617> italian_female_first_names;
+extern const std::array<std::string_view, 2170> italian_last_names;
+extern const std::array<std::string_view, 4> italian_prefixes;
+extern const NameFormats italian_name_formats;
+extern const PeopleNames italian_people_names;
 
 // Japan
 
-extern const std::array<std::string_view, 135> japaneseMaleFirstNames;
-extern const std::array<std::string_view, 145> japaneseFemaleFirstNames;
-extern const std::array<std::string_view, 20> japaneseLastNames;
-extern const NameFormats japanesePeopleNameFormats;
-extern const PeopleNames japanesePeopleNames;
+extern const std::array<std::string_view, 135> japanese_male_first_names;
+extern const std::array<std::string_view, 145> japanese_female_first_names;
+extern const std::array<std::string_view, 20> japanese_last_names;
+extern const NameFormats japanese_name_formats;
+extern const PeopleNames japanese_people_names;
 
 // Kazakhstan
 
-extern const std::array<std::string_view, 200> kazakhMalesFirstNames;
-extern const std::array<std::string_view, 121> kazakhFemalesFirstNames;
-extern const std::array<std::string_view, 21> kazakhMalesLastNames;
-extern const std::array<std::string_view, 18> kazakhFemalesLastNames;
-extern const NameFormats kazakhPersonNameFormats;
-extern const PeopleNames kazakhPeopleNames;
+extern const std::array<std::string_view, 200> kazakh_male_first_names;
+extern const std::array<std::string_view, 121> kazakh_female_first_names;
+extern const std::array<std::string_view, 21> kazakh_male_last_names;
+extern const std::array<std::string_view, 18> kazakh_female_last_names;
+extern const NameFormats kazakh_person_name_formats;
+extern const PeopleNames kazakh_people_names;
 
 // Korea
 
-extern const std::array<std::string_view, 2963> koreanFirstNames;
-extern const std::array<std::string_view, 112> koreanLastNames;
-extern const NameFormats koreanPersonNameFormats;
-extern const PeopleNames koreanPeopleNames;
+extern const std::array<std::string_view, 2963> korean_male_first_names;
+extern const std::array<std::string_view, 112> korean_last_names;
+extern const NameFormats korean_name_formats;
+extern const PeopleNames korean_people_names;
 
 // Latvia
 
-extern const std::array<std::string_view, 91> latvianMalesFirstNames;
-extern const std::array<std::string_view, 105> latvianFemalesFirstNames;
-extern const std::array<std::string_view, 206> latvianMalesLastNames;
-extern const std::array<std::string_view, 207> latvianFemalesLastNames;
-extern const std::array<std::string_view, 2> latvianSuffixes;
-extern const std::array<std::string_view, 3> latvianPrefixes;
-extern const NameFormats latvianPersonNameFormats;
-extern const PeopleNames latvianPeopleNames;
+extern const std::array<std::string_view, 91> latvian_male_first_names;
+extern const std::array<std::string_view, 105> latvian_female_first_names;
+extern const std::array<std::string_view, 206> latvian_male_last_names;
+extern const std::array<std::string_view, 207> latvian_female_last_names;
+extern const std::array<std::string_view, 2> latvian_suffixes;
+extern const std::array<std::string_view, 3> latvian_prefixes;
+extern const NameFormats latvian_name_formats;
+extern const PeopleNames latvian_people_names;
 
 // Lebanon
 
-extern const std::array<std::string_view, 700> lebaneseMalesFirstNames;
-extern const std::array<std::string_view, 350> lebaneseFemalesFirstNames;
-extern const std::array<std::string_view, 350> lebaneseLastNames;
-extern const NameFormats lebanesePersonNameFormats;
-extern const PeopleNames lebanesePeopleNames;
+extern const std::array<std::string_view, 700> lebanese_male_first_names;
+extern const std::array<std::string_view, 350> lebanese_female_first_names;
+extern const std::array<std::string_view, 350> lebanese_last_names;
+extern const NameFormats lebanese_name_formats;
+extern const PeopleNames lebanese_people_names;
 
 // Lithuania
 
-extern const std::array<std::string_view, 350> lithuanianMalesFirstNames;
-extern const std::array<std::string_view, 350> lithuanianFemalesFirstNames;
-extern const std::array<std::string_view, 350> lithuanianLastNames;
-extern const NameFormats lithuanianPersonNameFormats;
-extern const PeopleNames lithuanianPeopleNames;
+extern const std::array<std::string_view, 350> lithuanian_male_first_names;
+extern const std::array<std::string_view, 350> lithuanian_female_first_names;
+extern const std::array<std::string_view, 350> lithuanian_last_names;
+extern const NameFormats lithuanian_name_formats;
+extern const PeopleNames lithuanian_people_names;
 
 // Macedonia
 
-extern const std::array<std::string_view, 283> macedonianMalesFirstNames;
-extern const std::array<std::string_view, 232> macedonianFemalesFirstNames;
-extern const std::array<std::string_view, 493> macedonianMalesLastNames;
-extern const std::array<std::string_view, 495> macedonianFemalesLastNames;
-extern const std::array<std::string_view, 3> macedonianMalesPrefixes;
-extern const std::array<std::string_view, 4> macedonianFemalesPrefixes;
-extern const NameFormats macedonianPersonNameFormats;
-extern const PeopleNames macedonianPeopleNames;
+extern const std::array<std::string_view, 283> macedonian_male_first_names;
+extern const std::array<std::string_view, 232> macedonian_female_first_names;
+extern const std::array<std::string_view, 493> macedonian_male_last_names;
+extern const std::array<std::string_view, 495> macedonian_female_last_names;
+extern const std::array<std::string_view, 3> macedonian_male_prefixes;
+extern const std::array<std::string_view, 4> macedonian_female_prefixes;
+extern const NameFormats macedonian_name_formats;
+extern const PeopleNames macedonian_people_names;
 
 // Maldives
 
-extern const std::array<std::string_view, 14> maldiviansMalesFirstNames;
-extern const std::array<std::string_view, 49> maldiviansFemalesFirstNames;
-extern const std::array<std::string_view, 112> maldiviansMalesLastNames;
-extern const std::array<std::string_view, 248> maldiviansFemalesLastNames;
-extern const std::array<std::string_view, 4> maldiviansMalesPrefixes;
-extern const std::array<std::string_view, 4> maldiviansFemalesPrefixes;
-extern const NameFormats maldiviansPersonNameFormats;
-extern const PeopleNames maldiviansPeopleNames;
+extern const std::array<std::string_view, 14> maldivians_male_first_names;
+extern const std::array<std::string_view, 49> maldivians_female_first_names;
+extern const std::array<std::string_view, 112> maldivians_male_last_names;
+extern const std::array<std::string_view, 248> maldivians_female_last_names;
+extern const std::array<std::string_view, 4> maldivians_male_prefixes;
+extern const std::array<std::string_view, 4> maldivians_female_prefixes;
+extern const NameFormats maldivians_name_formats;
+extern const PeopleNames maldivians_people_names;
 
 // Malta
 
-extern const std::array<std::string_view, 100> malteseMalesFirstNames;
-extern const std::array<std::string_view, 100> malteseFemalesFirstNames;
-extern const std::array<std::string_view, 100> malteseLastNames;
-extern const NameFormats maltesePersonNameFormats;
-extern const PeopleNames maltesePeopleNames;
+extern const std::array<std::string_view, 100> maltese_male_first_names;
+extern const std::array<std::string_view, 100> maltese_female_first_names;
+extern const std::array<std::string_view, 100> maltese_last_names;
+extern const NameFormats maltese_name_formats;
+extern const PeopleNames maltese_people_names;
 
 // Mexico
 
-extern const std::array<std::string_view, 139> mexicanMalesFirstNames;
-extern const std::array<std::string_view, 161> mexicanFemalesFirstNames;
-extern const std::array<std::string_view, 687> mexicanLastNames;
-extern const std::array<std::string_view, 15> mexicanSuffixes;
-extern const std::array<std::string_view, 1> mexicanMalesPrefixes;
-extern const std::array<std::string_view, 2> mexicanFemalesPrefixes;
-extern const NameFormats mexicanPersonNameFormats;
-extern const PeopleNames mexicanPeopleNames;
+extern const std::array<std::string_view, 139> mexican_male_first_names;
+extern const std::array<std::string_view, 161> mexican_female_first_names;
+extern const std::array<std::string_view, 687> mexican_last_names;
+extern const std::array<std::string_view, 15> mexican_suffixes;
+extern const std::array<std::string_view, 1> mexican_male_prefixes;
+extern const std::array<std::string_view, 2> mexican_female_prefixes;
+extern const NameFormats mexican_name_formats;
+extern const PeopleNames mexican_people_names;
 
 // Moldova
 
-extern const std::array<std::string_view, 350> moldovanMalesFirstNames;
-extern const std::array<std::string_view, 350> moldovanFemalesFirstNames;
-extern const std::array<std::string_view, 350> moldovanLastNames;
-extern const NameFormats moldovanPersonNameFormats;
-extern const PeopleNames moldovanPeopleNames;
+extern const std::array<std::string_view, 350> moldovan_male_first_names;
+extern const std::array<std::string_view, 350> moldovan_female_first_names;
+extern const std::array<std::string_view, 350> moldovan_last_names;
+extern const NameFormats moldovan_name_formats;
+extern const PeopleNames moldovan_people_names;
 
 // Monaco
 
-extern const std::array<std::string_view, 201> monacanMalesFirstNames;
-extern const std::array<std::string_view, 350> monacanFemalesFirstNames;
-extern const std::array<std::string_view, 326> monacanLastNames;
-extern const NameFormats monacanPersonNameFormats;
-extern const PeopleNames monacanPeopleNames;
+extern const std::array<std::string_view, 201> monacan_male_first_names;
+extern const std::array<std::string_view, 350> monacan_female_first_names;
+extern const std::array<std::string_view, 326> monacan_last_names;
+extern const NameFormats monacan_name_formats;
+extern const PeopleNames monacan_people_names;
 
 // Nepal
 
-extern const std::array<std::string_view, 104> nepaleseMalesFirstNames;
-extern const std::array<std::string_view, 99> nepaleseFemalesFirstNames;
-extern const std::array<std::string_view, 64> nepaleseLastNames;
-extern const NameFormats nepalesePersonNameFormats;
-extern const PeopleNames nepalesePeopleNames;
+extern const std::array<std::string_view, 104> nepalese_male_first_names;
+extern const std::array<std::string_view, 99> nepalese_female_first_names;
+extern const std::array<std::string_view, 64> nepalese_last_names;
+extern const NameFormats nepalese_name_formats;
+extern const PeopleNames nepalese_people_names;
 
 // Norway
 
-extern const std::array<std::string_view, 50> norwegianMalesFirstNames;
-extern const std::array<std::string_view, 50> norwegianFemalesFirstNames;
-extern const std::array<std::string_view, 100> norwegianLastNames;
-extern const std::array<std::string_view, 7> norwegianSuffixes;
-extern const std::array<std::string_view, 2> norwegianPrefixes;
-extern const NameFormats norwegianPersonNameFormats;
-extern const PeopleNames norwegianPeopleNames;
+extern const std::array<std::string_view, 50> norwegian_male_first_names;
+extern const std::array<std::string_view, 50> norwegian_female_first_names;
+extern const std::array<std::string_view, 100> norwegian_last_names;
+extern const std::array<std::string_view, 7> norwegian_suffixes;
+extern const std::array<std::string_view, 2> norwegian_prefixes;
+extern const NameFormats norwegian_name_formats;
+extern const PeopleNames norwegian_people_names;
 
 // Palestine
 
-extern const std::array<std::string_view, 299> palestinianMalesFirstNames;
-extern const std::array<std::string_view, 350> palestinianFemalesFirstNames;
-extern const std::array<std::string_view, 305> palestinianLastNames;
-extern const NameFormats palestinianPersonNameFormats;
-extern const PeopleNames palestinianPeopleNames;
+extern const std::array<std::string_view, 299> palestinian_male_first_names;
+extern const std::array<std::string_view, 350> palestinian_female_first_names;
+extern const std::array<std::string_view, 305> palestinian_last_names;
+extern const NameFormats palestinian_name_formats;
+extern const PeopleNames palestinian_people_names;
 
 // Persian
 
-extern const std::array<std::string_view, 61> persianMalesFirstNames;
-extern const std::array<std::string_view, 65> persianFemalesFirstNames;
-extern const std::array<std::string_view, 111> persianLastNames;
-extern const std::array<std::string_view, 3> persianMalesPrefixes;
-extern const std::array<std::string_view, 3> persianFemalesPrefixes;
-extern const NameFormats persianPersonNameFormats;
-extern const PeopleNames persianPeopleNames;
+extern const std::array<std::string_view, 61> persian_male_first_names;
+extern const std::array<std::string_view, 65> persian_female_first_names;
+extern const std::array<std::string_view, 111> persian_last_names;
+extern const std::array<std::string_view, 3> persian_male_prefixes;
+extern const std::array<std::string_view, 3> persian_female_prefixes;
+extern const NameFormats persian_name_formats;
+extern const PeopleNames persian_people_names;
 
 // Poland
 
-extern const std::array<std::string_view, 230> polishMalesFirstNames;
-extern const std::array<std::string_view, 163> polishFemalesFirstNames;
-extern const std::array<std::string_view, 712> polishLastNames;
-extern const std::array<std::string_view, 1> polishMalesPrefixes;
-extern const std::array<std::string_view, 1> polishFemalesPrefixes;
-extern const NameFormats polishPersonNameFormats;
-extern const PeopleNames polishPeopleNames;
+extern const std::array<std::string_view, 230> polish_male_first_names;
+extern const std::array<std::string_view, 163> polish_female_first_names;
+extern const std::array<std::string_view, 712> polish_last_names;
+extern const std::array<std::string_view, 1> polish_male_prefixes;
+extern const std::array<std::string_view, 1> polish_female_prefixes;
+extern const NameFormats polish_name_formats;
+extern const PeopleNames polish_people_names;
 
 // Portugal
 
-extern const std::array<std::string_view, 95> portugueseMalesFirstNames;
-extern const std::array<std::string_view, 93> portugueseFemalesFirstNames;
-extern const std::array<std::string_view, 101> portugueseLastNames;
-extern const std::array<std::string_view, 4> portugueseMalesPrefixes;
-extern const std::array<std::string_view, 4> portugueseFemalesPrefixes;
-extern const NameFormats portuguesePersonNameFormats;
-extern const PeopleNames portuguesePeopleNames;
+extern const std::array<std::string_view, 95> portuguese_male_first_names;
+extern const std::array<std::string_view, 93> portuguese_female_first_names;
+extern const std::array<std::string_view, 101> portuguese_last_names;
+extern const std::array<std::string_view, 4> portuguese_male_prefixes;
+extern const std::array<std::string_view, 4> portuguese_female_prefixes;
+extern const NameFormats portuguese_name_formats;
+extern const PeopleNames portuguese_people_names;
 
 // Romania
 
-extern const std::array<std::string_view, 65> romanianMalesFirstNames;
-extern const std::array<std::string_view, 63> romanianFemalesFirstNames;
-extern const std::array<std::string_view, 101> romanianLastNames;
-extern const std::array<std::string_view, 2> romanianSuffixes;
-extern const std::array<std::string_view, 2> romanianMalesPrefixes;
-extern const std::array<std::string_view, 2> romanianFemalesPrefixes;
-extern const NameFormats romanianPersonNameFormats;
-extern const PeopleNames romanianPeopleNames;
+extern const std::array<std::string_view, 65> romanian_male_first_names;
+extern const std::array<std::string_view, 63> romanian_female_first_names;
+extern const std::array<std::string_view, 101> romanian_last_names;
+extern const std::array<std::string_view, 2> romanian_suffixes;
+extern const std::array<std::string_view, 2> romanian_male_prefixes;
+extern const std::array<std::string_view, 2> romanian_female_refixes;
+extern const NameFormats romanian_name_formats;
+extern const PeopleNames romanian_people_names;
 
 // Russia
 
-extern const std::array<std::string_view, 200> russianMalesFirstNames;
-extern const std::array<std::string_view, 110> russianFemalesFirstNames;
-extern const std::array<std::string_view, 568> russianMalesLastNames;
-extern const std::array<std::string_view, 562> russianFemalesLastNames;
-extern const std::array<std::string_view, 132> russianMalesMiddleNames;
-extern const std::array<std::string_view, 79> russianFemalesMiddleNames;
-extern const NameFormats russianPersonNameFormats;
-extern const PeopleNames russianPeopleNames;
+extern const std::array<std::string_view, 200> russian_male_first_names;
+extern const std::array<std::string_view, 110> russian_female_first_names;
+extern const std::array<std::string_view, 568> russian_male_last_names;
+extern const std::array<std::string_view, 562> russian_female_last_names;
+extern const std::array<std::string_view, 132> russian_male_middle_names;
+extern const std::array<std::string_view, 79> russian_female_middle_names;
+extern const NameFormats russian_name_formats;
+extern const PeopleNames russian_people_names;
 
 // Serbia
 
-extern const std::array<std::string_view, 200> serbianMalesFirstNames;
-extern const std::array<std::string_view, 200> serbianFemalesFirstNames;
-extern const std::array<std::string_view, 999> serbianLastNames;
-extern const NameFormats serbianPersonNameFormats;
-extern const PeopleNames serbianPeopleNames;
+extern const std::array<std::string_view, 200> serbian_male_first_names;
+extern const std::array<std::string_view, 200> serbian_female_first_names;
+extern const std::array<std::string_view, 999> serbian_last_names;
+extern const NameFormats serbian_name_formats;
+extern const PeopleNames serbian_people_names;
 
 // Slovakia
 
-extern const std::array<std::string_view, 192> slovakMalesFirstNames;
-extern const std::array<std::string_view, 200> slovakFemalesFirstNames;
-extern const std::array<std::string_view, 257> slovakMalesLastNames;
-extern const std::array<std::string_view, 251> slovakFemalesLastNames;
-extern const std::array<std::string_view, 1> slovakSuffixes;
-extern const std::array<std::string_view, 4> slovakPrefixes;
-extern const NameFormats slovakPersonNameFormats;
-extern const PeopleNames slovakPeopleNames;
+extern const std::array<std::string_view, 192> slovak_male_first_names;
+extern const std::array<std::string_view, 200> slovak_female_first_names;
+extern const std::array<std::string_view, 257> slovak_male_last_names;
+extern const std::array<std::string_view, 251> slovak_females_last_names;
+extern const std::array<std::string_view, 1> slovak_suffixes;
+extern const std::array<std::string_view, 4> slovak_prefixes;
+extern const NameFormats slovak_name_formats;
+extern const PeopleNames slovak_people_names;
 
 // Slovenia
 
-extern const std::array<std::string_view, 350> slovenianMalesFirstNames;
-extern const std::array<std::string_view, 350> slovenianFemalesFirstNames;
-extern const std::array<std::string_view, 350> slovenianLastNames;
-extern const NameFormats slovenianPersonNameFormats;
-extern const PeopleNames slovenianPeopleNames;
+extern const std::array<std::string_view, 350> slovenian_male_first_names;
+extern const std::array<std::string_view, 350> slovenian_female_first_names;
+extern const std::array<std::string_view, 350> slovenian_last_names;
+extern const NameFormats slovenian_name_formats;
+extern const PeopleNames slovenian_people_names;
 
 // South Africa
 
-extern const std::array<std::string_view, 113> southAfricanMalesFirstNames;
-extern const std::array<std::string_view, 107> southAfricanFemalesFirstNames;
-extern const std::array<std::string_view, 162> southAfricanLastNames;
-extern const NameFormats southAfricanPersonNameFormats;
-extern const PeopleNames southAfricanPeopleNames;
+extern const std::array<std::string_view, 113> south_african_male_first_names;
+extern const std::array<std::string_view, 107> south_african_female_first_names;
+extern const std::array<std::string_view, 162> south_african_last_names;
+extern const NameFormats south_african_name_formats;
+extern const PeopleNames south_african_people_names;
 
 // Spain
 
-extern const std::array<std::string_view, 113> spanishMalesFirstNames;
-extern const std::array<std::string_view, 147> spanishFemalesFirstNames;
-extern const std::array<std::string_view, 625> spanishLastNames;
-extern const std::array<std::string_view, 1> spanishMalesPrefixes;
-extern const std::array<std::string_view, 2> spanishFemalesPrefixes;
-extern const NameFormats spanishPersonNameFormats;
-extern const PeopleNames spanishPeopleNames;
+extern const std::array<std::string_view, 113> spanish_male_first_names;
+extern const std::array<std::string_view, 147> spanish_female_first_names;
+extern const std::array<std::string_view, 625> spanish_last_names;
+extern const std::array<std::string_view, 1> spanish_male_prefixes;
+extern const std::array<std::string_view, 2> spanish_female_prefixes;
+extern const NameFormats spanish_name_formats;
+extern const PeopleNames spanish_people_names;
 
 // Sweden
 
-extern const std::array<std::string_view, 100> swedishMalesFirstNames;
-extern const std::array<std::string_view, 100> swedishFemalesFirstNames;
-extern const std::array<std::string_view, 100> swedishLastNames;
-extern const std::array<std::string_view, 3> swedishPrefixes;
-extern const NameFormats swedishPersonNameFormats;
-extern const PeopleNames swedishPeopleNames;
+extern const std::array<std::string_view, 100> swedish_male_first_names;
+extern const std::array<std::string_view, 100> swedish_female_first_names;
+extern const std::array<std::string_view, 100> swedish_last_names;
+extern const std::array<std::string_view, 3> swedish_prefixes;
+extern const NameFormats swedish_name_formats;
+extern const PeopleNames swedish_people_names;
 
 // Switzerland
 
-extern const std::array<std::string_view, 179> swissMalesFirstNames;
-extern const std::array<std::string_view, 138> swissFemalesFirstNames;
-extern const std::array<std::string_view, 209> swissLastNames;
-extern const std::array<std::string_view, 3> swissMalesPrefixes;
-extern const std::array<std::string_view, 3> swissFemalesPrefixes;
-extern const NameFormats swissPersonNameFormats;
-extern const PeopleNames swissPeopleNames;
+extern const std::array<std::string_view, 179> swiss_male_first_names;
+extern const std::array<std::string_view, 138> swiss_female_first_names;
+extern const std::array<std::string_view, 209> swiss_last_names;
+extern const std::array<std::string_view, 3> swiss_male_prefixes;
+extern const std::array<std::string_view, 3> swiss_female_prefixes;
+extern const NameFormats swiss_name_formats;
+extern const PeopleNames swiss_people_names;
 
 // Syria
 
-extern const std::array<std::string_view, 350> syrianMalesFirstNames;
-extern const std::array<std::string_view, 350> syrianFemalesFirstNames;
-extern const std::array<std::string_view, 350> syrianLastNames;
-extern const NameFormats syrianPersonNameFormats;
-extern const PeopleNames syrianPeopleNames;
+extern const std::array<std::string_view, 350> syrian_male_first_names;
+extern const std::array<std::string_view, 350> syrian_female_first_names;
+extern const std::array<std::string_view, 350> syrian_last_names;
+extern const NameFormats syrian_name_formats;
+extern const PeopleNames syrian_people_names;
 
 // Turkey
 
-extern const std::array<std::string_view, 44> turkishMalesFirstNames;
-extern const std::array<std::string_view, 43> turkishFemalesFirstNames;
-extern const std::array<std::string_view, 52> turkishLastNames;
-extern const std::array<std::string_view, 3> turkishMalesPrefixes;
-extern const std::array<std::string_view, 3> turkishFemalesPrefixes;
-extern const NameFormats turkishPersonNameFormats;
-extern const PeopleNames turkishPeopleNames;
+extern const std::array<std::string_view, 44> turkish_male_first_names;
+extern const std::array<std::string_view, 43> turkish_female_first_names;
+extern const std::array<std::string_view, 52> turkish_last_names;
+extern const std::array<std::string_view, 3> turkish_male_prefixes;
+extern const std::array<std::string_view, 3> turkish_female_prefixes;
+extern const NameFormats turkish_person_name_formats;
+extern const PeopleNames turkish_people_names;
 
 // Ukraine
 
-extern const std::array<std::string_view, 195> ukrainianMalesFirstNames;
-extern const std::array<std::string_view, 192> ukrainianFemalesFirstNames;
-extern const std::array<std::string_view, 239> ukrainianMalesLastNames;
-extern const std::array<std::string_view, 230> ukrainianFemalesLastNames;
-extern const std::array<std::string_view, 116> ukrainianMalesMiddleNames;
-extern const std::array<std::string_view, 116> ukrainianFemalesMiddleNames;
-extern const std::array<std::string_view, 1> ukrainianMalesPrefixes;
-extern const std::array<std::string_view, 1> ukrainianFemalesPrefixes;
-extern const NameFormats ukrainianPersonNameFormats;
-extern const PeopleNames ukrainianPeopleNames;
+extern const std::array<std::string_view, 195> ukrainian_male_first_names;
+extern const std::array<std::string_view, 192> ukrainian_female_first_names;
+extern const std::array<std::string_view, 239> ukrainian_males_last_names;
+extern const std::array<std::string_view, 230> ukrainian_female_last_names;
+extern const std::array<std::string_view, 116> ukrainian_male_middle_names;
+extern const std::array<std::string_view, 116> ukrainian_female_middle_names;
+extern const std::array<std::string_view, 1> ukrainian_male_prefixes;
+extern const std::array<std::string_view, 1> ukrainian_female_prefixes;
+extern const NameFormats ukrainian_name_formats;
+extern const PeopleNames ukrainian_people_names;
 
 // USA
 
-extern const NameFormats usaPersonNameFormats;
-extern const PeopleNames usaPeopleNames;
+extern const NameFormats usa_name_formats;
+extern const PeopleNames usa_people_names;
 
 // Vietnam
 
-extern const std::array<std::string_view, 1224> vietnameseMalesFirstNames;
-extern const std::array<std::string_view, 1300> vietnameseFemalesFirstNames;
-extern const std::array<std::string_view, 27> vietnameseLastNames;
-extern const NameFormats vietnamesePersonNameFormats;
-extern const PeopleNames vietnamesePeopleNames;
+extern const std::array<std::string_view, 1224> vietnamese_male_first_names;
+extern const std::array<std::string_view, 1300> vietnamese_female_first_names;
+extern const std::array<std::string_view, 27> vietnamese_last_names;
+extern const NameFormats vietnamese_name_formats;
+extern const PeopleNames vietnamese_people_names;
 
 // Mapping
 
-extern const std::unordered_map<Country, PeopleNames> countryToPeopleNamesMapping;
+extern const std::unordered_map<country_t, PeopleNames> people_names;
 
 }
 

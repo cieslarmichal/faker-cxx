@@ -84,7 +84,7 @@ namespace {
 }
 
 std::string username(
-    std::optional<std::string> first_name, std::optional<std::string> last_name, Country country)
+    std::optional<std::string> first_name, std::optional<std::string> last_name, country_t country)
 {
     static const std::array<std::string_view, 3> name_separators;
 
@@ -131,16 +131,16 @@ std::string password(unsigned length, password_options options)
     // TODO move this logic to the string module. There should be a generator
     // accepting these options.
     if (options & password_options::upper_letters) {
-        allowed_chars += string::data::upperCharacters;
+        allowed_chars += string::data::ascii_upper_letters;
     }
     if (options & password_options::lower_letters) {
-        allowed_chars += string::data::lowerCharacters;
+        allowed_chars += string::data::ascii_lower_letters;
     }
     if (options & password_options::numbers) {
-        allowed_chars += string::data::numericCharacters;
+        allowed_chars += string::data::digits;
     }
     if (options & password_options::symbols) {
-        allowed_chars += string::data::symbolCharacters;
+        allowed_chars += string::data::symbols;
     }
 
     std::string result;
@@ -266,10 +266,10 @@ std::string ipv6()
     std::string result;
     result.reserve(39);
 
-    result += string::hexadecimal(4, hex_case::lower, hex_prefix::none);
+    result += string::hexadecimal(4, hex_case_t::lower, hex_prefix_t::none);
     for (size_t i = 0; i < 7; ++i) {
         result += ':';
-        result += string::hexadecimal(4, hex_case::lower, hex_prefix::none);
+        result += string::hexadecimal(4, hex_case_t::lower, hex_prefix_t::none);
     }
 
     return result;

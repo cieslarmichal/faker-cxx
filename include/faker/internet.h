@@ -42,7 +42,7 @@ enum class ipv4_class { a, b, c };
  * @endcode
  */
 std::string username(std::optional<std::string> first_name = std::nullopt,
-    std::optional<std::string> last_name = std::nullopt, Country country = Country::Usa);
+    std::optional<std::string> last_name = std::nullopt, country_t country = country_t::usa);
 
 /**
  * @brief Generates an email address using the given person's name as base.

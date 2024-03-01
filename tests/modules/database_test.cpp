@@ -39,6 +39,6 @@ TEST(DatabaseTest, shouldGenerateMongoDbObjectId)
 
     ASSERT_EQ(mongoDbObjectId.size(), 24);
     ASSERT_TRUE(faker::testing::any_of(mongoDbObjectId, [](char hexNumberCharacter) {
-        return string::data::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos;
+        return string::data::hex_lower_digits.find(hexNumberCharacter) != std::string::npos;
     }));
 }
