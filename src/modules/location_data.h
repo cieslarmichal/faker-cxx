@@ -1,26 +1,26 @@
 #ifndef FAKER_MODULES_LOCATION_DATA_H
 #define FAKER_MODULES_LOCATION_DATA_H
 
+#include "../common/span.h"
 #include <array>
 #include <string_view>
-#include <tcb/span.hpp>
 
 namespace faker::location::data {
 struct country_addresses_info {
     std::string_view zip_code_format;
-    tcb::span<const std::string_view> address_formats;
-    tcb::span<const std::string_view> secondary_address_formats;
-    tcb::span<const std::string_view> street_formats;
-    tcb::span<const std::string_view> street_prefixes;
-    tcb::span<const std::string_view> street_names;
-    tcb::span<const std::string_view> street_suffixes;
-    tcb::span<const std::string_view> building_number_formats;
-    tcb::span<const std::string_view> city_formats;
-    tcb::span<const std::string_view> city_prefixes;
-    tcb::span<const std::string_view> cities;
-    tcb::span<const std::string_view> city_suffixes;
-    tcb::span<const std::string_view> states;
-    tcb::span<const std::string_view> counties;
+    utils::span<const std::string_view> address_formats;
+    utils::span<const std::string_view> secondary_address_formats;
+    utils::span<const std::string_view> street_formats;
+    utils::span<const std::string_view> street_prefixes;
+    utils::span<const std::string_view> street_names;
+    utils::span<const std::string_view> street_suffixes;
+    utils::span<const std::string_view> building_number_formats;
+    utils::span<const std::string_view> city_formats;
+    utils::span<const std::string_view> city_prefixes;
+    utils::span<const std::string_view> cities;
+    utils::span<const std::string_view> city_suffixes;
+    utils::span<const std::string_view> states;
+    utils::span<const std::string_view> counties;
 };
 
 extern const std::array<std::string_view, 246> all_countries;

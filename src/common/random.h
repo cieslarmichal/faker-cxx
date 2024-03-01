@@ -1,12 +1,12 @@
 #ifndef FAKER_RANDOM_H
 #define FAKER_RANDOM_H
 
+#include "span.h"
 #include <algorithm>
 #include <array>
 #include <random>
 #include <stdexcept>
 #include <string>
-#include <tcb/span.hpp>
 #include <unordered_set>
 #include <vector>
 
@@ -28,7 +28,7 @@ size_t container_index(size_t size);
 
 size_t weighted_container_index(const std::vector<unsigned>& weights);
 
-template <typename T, size_t N> inline T element(const tcb::span<T, N>& data)
+template <typename T> inline T element(const utils::span<T>& data)
 {
     return data[container_index(data.size())];
 }

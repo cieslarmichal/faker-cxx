@@ -188,13 +188,13 @@ std::string secondary_address(address_country country)
 std::string latitude(precision_t prec)
 {
     auto latitude = number::decimal(-90.0, 90.0);
-    return utils::format(utils::precision_format_str(prec), latitude);
+    return utils::precision_format(prec, latitude);
 }
 
 std::string longitude(precision_t prec)
 {
     auto longitude = number::decimal(-180.0, 180.0);
-    return utils::format(utils::precision_format_str(prec), longitude);
+    return utils::precision_format(prec, longitude);
 }
 
 std::string_view direction() { return random::element(data::directions); }

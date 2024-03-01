@@ -21,7 +21,7 @@ std::string_view account_type() { return random::element(data::account_types); }
 std::string amount(double min, double max, precision_t prec, const std::string& symbol)
 {
     std::string result { symbol };
-    result += utils::format(utils::precision_format_str(prec), number::decimal(min, max));
+    result += utils::precision_format(prec, number::decimal(min, max));
     return result;
 }
 

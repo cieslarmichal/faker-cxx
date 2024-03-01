@@ -3,9 +3,9 @@
 
 #include <algorithm>
 #include <cctype>
+#include <common/span.h>
 #include <gtest/gtest.h>
 #include <string>
-#include <tcb/span.hpp>
 
 namespace faker::testing {
 
@@ -53,7 +53,7 @@ inline std::vector<std::string_view> make_vector(
 }
 
 inline std::vector<std::string_view> make_vector(
-    const tcb::span<const std::string_view>& a, const tcb::span<const std::string_view>& b)
+    const utils::span<const std::string_view>& a, const utils::span<const std::string_view>& b)
 {
     std::vector<std::string_view> result;
     result.reserve(a.size() + b.size());

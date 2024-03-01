@@ -5,13 +5,6 @@
 #include <functional>
 #include <string>
 
-#if defined(__APPLE__) || defined(__MINGW32__)                                                     \
-    || (defined(__GNUC__) && (__GNUC__ < 12) && !defined(__clang__))
-#undef USE_STD_FORMAT
-#else
-#define USE_STD_FORMAT 1
-#endif
-
 #ifdef USE_STD_FORMAT
 #include <format>
 #else
@@ -44,7 +37,7 @@ inline std::string fill_token_values(
 std::string fill_token_values(
     const std::string& format, std::function<std::string(std::string_view)> tokenValueGenerator);
 
-std::string_view precision_format_str(precision_t prec);
+std::string precision_format(precision_t prec, double value);
 
 }
 

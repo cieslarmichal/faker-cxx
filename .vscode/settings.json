@@ -78,6 +78,7 @@
         "chrono": "cpp",
         "bit": "cpp",
         "memory": "cpp",
-        "cassert": "cpp"
+        "cassert": "cpp",
+        "format": "cpp"
     }
 }

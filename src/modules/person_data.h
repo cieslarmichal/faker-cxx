@@ -1,11 +1,11 @@
 #ifndef FAKER_MODULES_PERSON_DATA_H
 #define FAKER_MODULES_PERSON_DATA_H
 
+#include "../common/span.h"
 #include <array>
 #include <faker/person.h>
 #include <faker/types/country.h>
 #include <string_view>
-#include <tcb/span.hpp>
 #include <unordered_map>
 #include <vector>
 
@@ -30,11 +30,11 @@ using NameFormats = std::vector<NameFormat>;
 extern const std::array<std::string_view, 62> nationalities;
 
 struct PersonNames {
-    tcb::span<const std::string_view> first_names;
-    tcb::span<const std::string_view> middle_names;
-    tcb::span<const std::string_view> last_names;
-    tcb::span<const std::string_view> prefixes;
-    tcb::span<const std::string_view> suffixes;
+    utils::span<const std::string_view> first_names;
+    utils::span<const std::string_view> middle_names;
+    utils::span<const std::string_view> last_names;
+    utils::span<const std::string_view> prefixes;
+    utils::span<const std::string_view> suffixes;
 };
 
 struct PeopleNames {

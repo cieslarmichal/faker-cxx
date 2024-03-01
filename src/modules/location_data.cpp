@@ -833,10 +833,9 @@ const std::array<std::string_view, 2> australia_street_formats { "{firstName} {s
 const std::array<std::string_view, 1> australia_city_formats { "{cityName}" };
 
 const country_addresses_info australia_addresses { australia_zip_code_format,
-    tcb::make_span(australia_address_formats), {}, tcb::make_span(australia_street_formats), {}, {},
-    tcb::make_span(australia_street_suffixes), tcb::make_span(australia_building_number_formats),
-    tcb::make_span(australia_city_formats), {}, tcb::make_span(australia_cities), {},
-    tcb::make_span(australia_states), {} };
+    (australia_address_formats), {}, (australia_street_formats), {}, {},
+    (australia_street_suffixes), (australia_building_number_formats), (australia_city_formats), {},
+    (australia_cities), {}, (australia_states), {} };
 
 // Brazil
 
@@ -898,11 +897,10 @@ const std::array<std::string_view, 2> brazil_street_formats { "{firstName} {stre
 const std::array<std::string_view, 2> brazil_city_formats { "{firstName} {citySuffix}",
     "{lastName} {citySuffix}" };
 
-const country_addresses_info brazil_addresses { brazil_zip_code_format,
-    tcb::make_span(brazil_address_formats), tcb::make_span(brazil_secondary_address_formats),
-    tcb::make_span(brazil_street_formats), {}, {}, tcb::make_span(brazil_street_suffixes),
-    tcb::make_span(brazil_building_number_formats), tcb::make_span(brazil_city_formats), {}, {},
-    tcb::make_span(brazil_city_suffixes), tcb::make_span(brazil_states), {} };
+const country_addresses_info brazil_addresses { brazil_zip_code_format, (brazil_address_formats),
+    (brazil_secondary_address_formats), (brazil_street_formats), {}, {}, (brazil_street_suffixes),
+    (brazil_building_number_formats), (brazil_city_formats), {}, {}, (brazil_city_suffixes),
+    (brazil_states), {} };
 
 // Czech Republic
 
@@ -9070,11 +9068,10 @@ const std::array<std::string_view, 1> czech_street_formats { "{streetName}" };
 
 const std::array<std::string_view, 1> czech_city_formats { "{cityName}" };
 
-const country_addresses_info czech_addresses { czech_zip_code_format,
-    tcb::make_span(czech_address_formats), tcb::make_span(czech_secondary_address_formats),
-    tcb::make_span(czech_street_formats), {}, tcb::make_span(czech_street_names), {},
-    tcb::make_span(czech_building_number_formats), tcb::make_span(czech_city_formats), {},
-    tcb::make_span(czech_cities), {}, tcb::make_span(czech_states), {} };
+const country_addresses_info czech_addresses { czech_zip_code_format, (czech_address_formats),
+    (czech_secondary_address_formats), (czech_street_formats), {}, (czech_street_names), {},
+    (czech_building_number_formats), (czech_city_formats), {}, (czech_cities), {}, (czech_states),
+    {} };
 
 // Denmark
 
@@ -9485,11 +9482,10 @@ const std::array<std::string_view, 1> denmark_street_formats { "{streetName}" };
 
 const std::array<std::string_view, 1> denmark_city_formats { "{cityName}" };
 
-const country_addresses_info denmark_addresses { denmark_zip_code_format,
-    tcb::make_span(denmark_address_formats), tcb::make_span(denmark_secondary_address_formats),
-    tcb::make_span(denmark_street_formats), {}, tcb::make_span(denmark_street_names), {},
-    tcb::make_span(denmark_building_number_formats), tcb::make_span(denmark_city_formats), {},
-    tcb::make_span(denmark_сities), {}, tcb::make_span(denmark_states), {} };
+const country_addresses_info denmark_addresses { denmark_zip_code_format, (denmark_address_formats),
+    (denmark_secondary_address_formats), (denmark_street_formats), {}, (denmark_street_names), {},
+    (denmark_building_number_formats), (denmark_city_formats), {}, (denmark_сities), {},
+    (denmark_states), {} };
 
 // Estonia
 
@@ -9573,11 +9569,10 @@ const std::array<std::string_view, 1> estonia_street_formats { "{streetName} {st
 
 const std::array<std::string_view, 1> estonia_city_formats { "{cityName}" };
 
-const country_addresses_info estonia_addresses { estonia_zip_code_format,
-    tcb::make_span(estonia_address_formats), {}, tcb::make_span(estonia_street_formats), {},
-    tcb::make_span(estonia_street_names), tcb::make_span(estonia_street_suffixes),
-    tcb::make_span(estonia_building_number_formats), tcb::make_span(estonia_city_formats), {},
-    tcb::make_span(estonia_cities), {}, {}, tcb::make_span(estonia_counties) };
+const country_addresses_info estonia_addresses { estonia_zip_code_format, (estonia_address_formats),
+    {}, (estonia_street_formats), {}, (estonia_street_names), (estonia_street_suffixes),
+    (estonia_building_number_formats), (estonia_city_formats), {}, (estonia_cities), {}, {},
+    (estonia_counties) };
 
 // Finland
 
@@ -9655,11 +9650,10 @@ const std::array<std::string_view, 2> finland_street_formats { "{firstName} {str
 
 const std::array<std::string_view, 1> finland_city_formats { "{cityName}" };
 
-const country_addresses_info finland_addresses { finland_zip_code_format,
-    tcb::make_span(finland_address_formats), tcb::make_span(finland_secondary_address_formats),
-    tcb::make_span(finland_street_formats), {}, {}, tcb::make_span(finland_street_suffixes),
-    tcb::make_span(finland_building_number_formats), tcb::make_span(finland_city_formats), {},
-    tcb::make_span(finland_cities), {}, tcb::make_span(finland_states), {} };
+const country_addresses_info finland_addresses { finland_zip_code_format, (finland_address_formats),
+    (finland_secondary_address_formats), (finland_street_formats), {}, {},
+    (finland_street_suffixes), (finland_building_number_formats), (finland_city_formats), {},
+    (finland_cities), {}, (finland_states), {} };
 
 // France
 
@@ -9886,12 +9880,10 @@ const std::array<std::string_view, 1> france_street_formats { "{streetPrefix} {s
 
 const std::array<std::string_view, 1> france_city_formats { "{cityName}" };
 
-const country_addresses_info france_addresses { france_zip_code_format,
-    tcb::make_span(france_address_formats), tcb::make_span(france_secondary_address_formats),
-    tcb::make_span(france_street_formats), tcb::make_span(france_street_prefixes), {},
-    tcb::make_span(france_street_suffixes), tcb::make_span(france_building_number_formats),
-    tcb::make_span(france_city_formats), {}, tcb::make_span(france_cities), {},
-    tcb::make_span(france_states), {} };
+const country_addresses_info france_addresses { france_zip_code_format, (france_address_formats),
+    (france_secondary_address_formats), (france_street_formats), (france_street_prefixes), {},
+    (france_street_suffixes), (france_building_number_formats), (france_city_formats), {},
+    (france_cities), {}, (france_states), {} };
 
 // Germany
 
@@ -11166,11 +11158,10 @@ const std::array<std::string_view, 1> germany_street_formats { "{streetName}" };
 
 const std::array<std::string_view, 1> germany_city_formats { "{cityName}" };
 
-const country_addresses_info germany_addresses { germany_zip_code_format,
-    tcb::make_span(germany_address_formats), tcb::make_span(germany_secondary_address_formats),
-    tcb::make_span(germany_street_formats), {}, tcb::make_span(germany_street_names), {},
-    tcb::make_span(germany_building_number_formats), tcb::make_span(germany_city_formats), {},
-    tcb::make_span(germany_cities), {}, tcb::make_span(germany_states), {} };
+const country_addresses_info germany_addresses { germany_zip_code_format, (germany_address_formats),
+    (germany_secondary_address_formats), (germany_street_formats), {}, (germany_street_names), {},
+    (germany_building_number_formats), (germany_city_formats), {}, (germany_cities), {},
+    (germany_states), {} };
 
 // India
 
@@ -12465,11 +12456,10 @@ const std::array<std::string_view, 2> india_street_formats { "{firstName} {stree
 
 const std::array<std::string_view, 1> india_city_formats { "{cityName}" };
 
-const country_addresses_info india_addresses { india_zip_code_format,
-    tcb::make_span(india_address_formats), tcb::make_span(india_secondary_address_formats),
-    tcb::make_span(india_street_formats), {}, {}, tcb::make_span(india_street_suffixes),
-    tcb::make_span(india_building_number_formats), tcb::make_span(india_city_formats), {},
-    tcb::make_span(india_cities), {}, tcb::make_span(india_states), {} };
+const country_addresses_info india_addresses { india_zip_code_format, (india_address_formats),
+    (india_secondary_address_formats), (india_street_formats), {}, {}, (india_street_suffixes),
+    (india_building_number_formats), (india_city_formats), {}, (india_cities), {}, (india_states),
+    {} };
 
 // Italy
 
@@ -13593,11 +13583,10 @@ const std::array<std::string_view, 2> italy_street_formats { "{streetPrefix} {fi
 
 const std::array<std::string_view, 1> italy_city_formats { "{cityName}" };
 
-const country_addresses_info italy_addresses { italy_zip_code_format,
-    tcb::make_span(italy_address_formats), tcb::make_span(italy_secondary_address_formats),
-    tcb::make_span(italy_street_formats), tcb::make_span(italy_street_prefixes), {}, {},
-    tcb::make_span(italy_building_number_formats), tcb::make_span(italy_city_formats), {},
-    tcb::make_span(italy_cities), {}, tcb::make_span(italy_states), {} };
+const country_addresses_info italy_addresses { italy_zip_code_format, (italy_address_formats),
+    (italy_secondary_address_formats), (italy_street_formats), (italy_street_prefixes), {}, {},
+    (italy_building_number_formats), (italy_city_formats), {}, (italy_cities), {}, (italy_states),
+    {} };
 
 // Poland
 
@@ -14731,12 +14720,10 @@ const std::array<std::string_view, 1> poland_street_formats { "{streetPrefix} {s
 
 const std::array<std::string_view, 1> poland_city_formats { "{cityName}" };
 
-const country_addresses_info poland_addresses { poland_zip_code_format,
-    tcb::make_span(poland_address_formats), tcb::make_span(poland_secondary_address_formats),
-    tcb::make_span(poland_street_formats), tcb::make_span(poland_street_prefixes),
-    tcb::make_span(poland_street_names), {}, tcb::make_span(poland_building_number_formats),
-    tcb::make_span(poland_city_formats), {}, tcb::make_span(poland_cities), {},
-    tcb::make_span(poland_states), {} };
+const country_addresses_info poland_addresses { poland_zip_code_format, (poland_address_formats),
+    (poland_secondary_address_formats), (poland_street_formats), (poland_street_prefixes),
+    (poland_street_names), {}, (poland_building_number_formats), (poland_city_formats), {},
+    (poland_cities), {}, (poland_states), {} };
 
 // Russia
 
@@ -14937,12 +14924,10 @@ const std::array<std::string_view, 3> russia_street_formats { "{streetPrefix} {f
 
 const std::array<std::string_view, 1> russia_city_formats { "{cityName}" };
 
-const country_addresses_info russia_addresses { russia_zip_code_format,
-    tcb::make_span(russia_address_formats), tcb::make_span(russia_secondary_address_formats),
-    tcb::make_span(russia_street_formats), tcb::make_span(russia_street_prefixes),
-    tcb::make_span(russia_street_names), {}, tcb::make_span(russia_building_number_formats),
-    tcb::make_span(russia_city_formats), {}, tcb::make_span(russia_cities), {},
-    tcb::make_span(russia_states), {} };
+const country_addresses_info russia_addresses { russia_zip_code_format, (russia_address_formats),
+    (russia_secondary_address_formats), (russia_street_formats), (russia_street_prefixes),
+    (russia_street_names), {}, (russia_building_number_formats), (russia_city_formats), {},
+    (russia_cities), {}, (russia_states), {} };
 // Spain
 
 const std::array<std::string_view, 130> spain_cities {
@@ -15237,12 +15222,10 @@ const std::array<std::string_view, 2> spain_street_formats { "{streetSuffix} {fi
 
 const std::array<std::string_view, 1> spain_city_formats { "{cityName}" };
 
-const country_addresses_info spain_addresses { spain_zip_code_format,
-    tcb::make_span(spain_address_formats), tcb::make_span(spain_secondary_address_formats),
-    tcb::make_span(spain_street_formats), {}, {}, tcb::make_span(spain_street_suffixes),
-    tcb::make_span(spain_building_number_formats), tcb::make_span(spain_city_formats), {},
-    tcb::make_span(spain_cities), {}, tcb::make_span(spain_states),
-    tcb::make_span(spain_counties) };
+const country_addresses_info spain_addresses { spain_zip_code_format, (spain_address_formats),
+    (spain_secondary_address_formats), (spain_street_formats), {}, {}, (spain_street_suffixes),
+    (spain_building_number_formats), (spain_city_formats), {}, (spain_cities), {}, (spain_states),
+    (spain_counties) };
 
 // Ukraine
 
@@ -15841,12 +15824,10 @@ const std::array<std::string_view, 3> ukraine_street_formats { "{streetPrefix} {
 
 const std::array<std::string_view, 1> ukraine_city_formats { "{cityName}" };
 
-const country_addresses_info ukraine_addresses { ukraine_zip_code_format,
-    tcb::make_span(ukraine_address_formats), tcb::make_span(ukraine_secondary_address_formats),
-    tcb::make_span(ukraine_street_formats), tcb::make_span(ukraine_street_prefixes),
-    tcb::make_span(ukraine_street_names), {}, tcb::make_span(ukraine_building_number_formats),
-    tcb::make_span(ukraine_city_formats), {}, tcb::make_span(ukraine_cities), {},
-    tcb::make_span(ukraine_states), {} };
+const country_addresses_info ukraine_addresses { ukraine_zip_code_format, (ukraine_address_formats),
+    (ukraine_secondary_address_formats), (ukraine_street_formats), (ukraine_street_prefixes),
+    (ukraine_street_names), {}, (ukraine_building_number_formats), (ukraine_city_formats), {},
+    (ukraine_cities), {}, (ukraine_states), {} };
 
 // USA
 
@@ -16070,10 +16051,8 @@ const std::array<std::string_view, 2> usa_street_formats { "{firstName} {streetS
 
 const std::array<std::string_view, 1> usa_city_formats { "{cityName}" };
 
-const country_addresses_info usa_addresses { usa_zip_code_format,
-    tcb::make_span(usa_address_formats), tcb::make_span(usa_secondary_address_formats),
-    tcb::make_span(usa_street_formats), {}, {}, tcb::make_span(usa_street_suffixes),
-    tcb::make_span(usa_building_number_formats), tcb::make_span(usa_city_formats), {},
-    tcb::make_span(usa_cities), {}, tcb::make_span(usa_states), {} };
+const country_addresses_info usa_addresses { usa_zip_code_format, (usa_address_formats),
+    (usa_secondary_address_formats), (usa_street_formats), {}, {}, (usa_street_suffixes),
+    (usa_building_number_formats), (usa_city_formats), {}, (usa_cities), {}, (usa_states), {} };
 
 }
