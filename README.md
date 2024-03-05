@@ -19,8 +19,7 @@ The goal of Faker C++ is to provide a library similar to [Faker.js](https://gith
 ## Usage and Documentation
 
 To properly use Faker C++ you must first consume the Faker library (see Consuming Library with CMake).
-Once that is done, you need to include the proper header files depending on the module you wish to generate data from. The module header file names can be found by looking in the directory `include/faker-cxx`. A list of the functions, their descriptions, and how to use them can be found in [docs](https://cieslarmichal.github.io/faker-cxx).
-Make sure to include the proper header file that corresponds to the data and subsequent functions you are trying to generate.
+Once that is done, you need to include the proper header files depending on the module you wish to generate data from. The module header file names can be found in [docs](https://cieslarmichal.github.io/faker-cxx).
 
 Below is an example of how to use Faker C++ in your code.
 
@@ -49,7 +48,6 @@ int main()
     return 0;
 }
 ```
-This example generates basic personal information including id, email, password, city, and street address. Users can tailor their data generation by exploring other modules and functions within the library.
 
 ## 💎 Modules
 
@@ -132,6 +130,6 @@ If you have any confusion please refer to the respective guides.
 
 We would love it if you contributed to Faker C++! 🚀
 
-Whether you are interested in fixing bugs, implementing new features, or improving documentation, your input is welcome and valuable. Before contributing, please review our [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide for guidelines on coding standards, making changes, and creating Pull Requests (PRs). Your engagement helps maintain the project's vitality and ensures Faker C++ remains a useful tool for the C++ community.
+Before contributing please review our [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide. 
 
-Additionally, we encourage you to join our [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors, where you can engage in discussions, seek assistance, and collaborate with fellow developers. Your contributions play a crucial role in the development and furthering of Faker C++. We look forward to your involvement and appreciate your commitment to the project's growth!
+Additionally, we encourage you to join our [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
