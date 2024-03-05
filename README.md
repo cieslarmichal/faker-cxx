@@ -14,11 +14,11 @@
 
 ## 🎯 Goal
 
-The goal of Faker C++ is to provide a library similar to [Faker.js](https://github.com/faker-js/faker) for C++ community. Faker C++ is a powerful library designed to streamline the creation of realistic and customizable fake data for testing and development purposes within C++ applications. The use of this library will provide a quick and user-friendly experience for developers, offering a wide variety of modules that cover everything from generating random names and addresses to crafting realistic financial and internet related data.
+The goal of Faker C++ is to provide a library similar to [Faker.js](https://github.com/faker-js/faker) for C++ community. Faker C++ helps with the creation of realistic and customizable fake data for testing and development purposes within C++ applications.
 
 ## Usage and Documentation
 
-To properly use Faker C++ you must first assimilate the Faker library (see Consuming Library with CMake).
+To properly use Faker C++ you must first consume the Faker library (see Consuming Library with CMake).
 Once that is done, you need to include the proper header files depending on the module you wish to generate data from. The module header file names can be found by looking in the directory `include/faker-cxx`. A list of the functions, their descriptions, and how to use them can be found in [docs](https://cieslarmichal.github.io/faker-cxx).
 Make sure to include the proper header file that corresponds to the data and subsequent functions you are trying to generate.
 
