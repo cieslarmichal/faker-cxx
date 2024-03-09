@@ -38,6 +38,7 @@
 #include "data/india/IndiaAddresses.h"
 #include "data/italy/ItalyAddresses.h"
 #include "data/poland/PolandAddresses.h"
+#include "data/romania/RomaniaAddresses.h"
 #include "data/russia/RussiaAddresses.h"
 #include "data/spain/SpainAddresses.h"
 #include "data/TimeZones.h"
@@ -65,6 +66,7 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Brazil, brazilAddresses},
     {AddressCountry::Finland, finlandAddresses},
     {AddressCountry::Estonia, estoniaAddresses},
+    {AddressCountry::Romania, romaniaAddresses},
 };
 
 const std::map<AddressCountry, std::string> generatedTestName{
@@ -83,6 +85,7 @@ const std::map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Brazil, "shouldGenerateBrazilAddress"},
     {AddressCountry::Finland, "shouldGenerateFinlandAddress"},
     {AddressCountry::Estonia, "shouldGenerateEstoniaAddress"},
+    {AddressCountry::Romania, "shouldGenerateRomaniaAddress"},
 };
 }
 
