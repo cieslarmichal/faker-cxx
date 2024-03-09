@@ -2,11 +2,12 @@
 
 #include "../CountryAddresses.h"
 #include "EstoniaCities.h"
-#include "EstoniaCounties.h"
+#include "EstoniaStates.h"
 #include "EstoniaStreetNames.h"
 #include "EstoniaStreetSuffixes.h"
 
-namespace faker {
+namespace faker
+{
 
 const std::string estoniaZipCodeFormat{"#####"};
 
@@ -30,6 +31,7 @@ const CountryAddresses estoniaAddresses{estoniaZipCodeFormat,
                                         {},
                                         estoniaCities,
                                         {},
-                                        {},
-                                        estoniaCounties};
+                                        estoniaStates,
+                                        {}};
+
 }
