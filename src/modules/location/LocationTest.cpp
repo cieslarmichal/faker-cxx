@@ -144,10 +144,6 @@ TEST_P(LocationTest, shouldGenerateState)
 
     const auto generatedState = Location::state(country);
 
-    for (const auto& i : countryAddresses.states)
-    {
-        std::cout << i << std::endl;
-    }
     ASSERT_TRUE(std::ranges::any_of(countryAddresses.states,
                                     [&generatedState](const std::string& state) { return state == generatedState; }));
 }
