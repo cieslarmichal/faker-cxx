@@ -16,6 +16,7 @@
 #include "data/germany/GermanyAddresses.h"
 #include "data/india/IndiaAddresses.h"
 #include "data/italy/ItalyAddresses.h"
+#include "data/latvia/LatviaAddresses.h"
 #include "data/poland/PolandAddresses.h"
 #include "data/romania/RomaniaAddresses.h"
 #include "data/russia/RussiaAddresses.h"
@@ -47,7 +48,8 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Brazil, brazilAddresses},
     {AddressCountry::Finland, finlandAddresses},
     {AddressCountry::Estonia, estoniaAddresses},
-    {AddressCountry::Romania, romaniaAddresses}};
+    {AddressCountry::Romania, romaniaAddresses},
+    {AddressCountry::Latvia, latviaAddresses}};
 
 const std::map<AddressCountry, Country> countryAddressToCountryMapping{{AddressCountry::Usa, Country::Usa},
                                                                        {AddressCountry::Poland, Country::Poland},
@@ -64,7 +66,9 @@ const std::map<AddressCountry, Country> countryAddressToCountryMapping{{AddressC
                                                                        {AddressCountry::Brazil, Country::Brazil},
                                                                        {AddressCountry::Finland, Country::Finland},
                                                                        {AddressCountry::Estonia, Country::Estonia},
-                                                                       {AddressCountry::Romania, Country::Romania}};
+                                                                       {AddressCountry::Romania, Country::Romania},
+                                                                       {AddressCountry::Latvia, Country::Latvia},
+                                                                       };
 }
 
 std::string Location::country()

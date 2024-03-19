@@ -37,6 +37,7 @@
 #include "data/germany/GermanyAddresses.h"
 #include "data/india/IndiaAddresses.h"
 #include "data/italy/ItalyAddresses.h"
+#include "data/latvia/LatviaAddresses.h"
 #include "data/poland/PolandAddresses.h"
 #include "data/romania/RomaniaAddresses.h"
 #include "data/russia/RussiaAddresses.h"
@@ -67,6 +68,7 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Finland, finlandAddresses},
     {AddressCountry::Estonia, estoniaAddresses},
     {AddressCountry::Romania, romaniaAddresses},
+    {AddressCountry::Latvia, latviaAddresses},
 };
 
 const std::map<AddressCountry, std::string> generatedTestName{
@@ -86,6 +88,7 @@ const std::map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Finland, "shouldGenerateFinlandAddress"},
     {AddressCountry::Estonia, "shouldGenerateEstoniaAddress"},
     {AddressCountry::Romania, "shouldGenerateRomaniaAddress"},
+    {AddressCountry::Latvia, "shouldGenerateLatviaAddress"},
 };
 }
 
@@ -190,7 +193,17 @@ TEST_P(LocationTest, shouldGenerateZipCode)
     const auto generatedZipCode = Location::zipCode(country);
 
     ASSERT_EQ(generatedZipCode.size(), countryAddresses.zipCodeFormat.size());
-    ASSERT_TRUE(checkIfZipCode(generatedZipCode));
+
+    if (country == AddressCountry::Latvia)
+    {
+        // Latvian ZIP codes have mandatory "LV" prefix (https://en.wikipedia.org/wiki/Postal_codes_in_Latvia)
+        ASSERT_TRUE(generatedZipCode.starts_with("LV"));
+        ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedZipCode.substr(2, 4)));
+    }
+    else
+    {
+        ASSERT_TRUE(checkIfZipCode(generatedZipCode));
+    }
 }
 
 TEST_P(LocationTest, shouldGenerateBuildingNumber)
@@ -827,4 +840,22 @@ TEST_F(LocationTest, shouldGenerateEstoniaStreetAddress)
 
     ASSERT_TRUE(std::ranges::any_of(estoniaStreetNames, [&generatedStreetAddress](const std::string& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateLatviaStreet)
+{
+    const auto generatedStreet = Location::street(AddressCountry::Latvia);
+    ASSERT_TRUE(std::ranges::any_of(latviaStreetNames, [&generatedStreet](const std::string& streetName)
+                                    { return generatedStreet.find(streetName) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(latviaStreetSuffixes, [&generatedStreet](const std::string& streetName)
+                                    { return generatedStreet.find(streetName) == std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateLatviaStreetAddress)
+{
+    const auto generatedAddress = Location::streetAddress(AddressCountry::Latvia);
+    ASSERT_TRUE(std::ranges::any_of(latviaStreetNames, [&generatedAddress](const std::string& streetName)
+                                    { return generatedAddress.find(streetName) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(digitSet, [&generatedAddress](const char& digit)
+                                    { return generatedAddress.back() == digit; }));
 }
