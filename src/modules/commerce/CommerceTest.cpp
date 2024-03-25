@@ -204,7 +204,7 @@ TEST_F(CommerceTest, shouldGenerateIsbn10)
 
 TEST_F(CommerceTest, shouldGenerateProductId)
 {
-    const auto generatedProductId = Commerce::productId();  
+    const auto generatedProductId = Commerce::productId();
 
     ASSERT_EQ(generatedProductId.length(), 10);
     ASSERT_TRUE(std::ranges::all_of(generatedProductId, [](const char& c) { return std::isalnum(c); }));
@@ -230,7 +230,8 @@ TEST_F(CommerceTest, shouldGenerateProductDescription)
 {
     const auto generatedProductDescription = Commerce::productDescription();
 
-    ASSERT_TRUE(std::ranges::any_of(productDescriptions, [generatedProductDescription](const std::string& productDescription)
+    ASSERT_TRUE(std::ranges::any_of(productDescriptions,
+                                    [generatedProductDescription](const std::string& productDescription)
                                     { return productDescription == generatedProductDescription; }));
 }
 
@@ -269,8 +270,9 @@ TEST_F(CommerceTest, shouldGenerateDiscountCode)
 {
 
     const auto generatedDiscountCode = Commerce::discountCode();
-   
-    ASSERT_TRUE(kMinDiscountCodeLength <= generatedDiscountCode.length() && generatedDiscountCode.length() <= kMaxDiscountCodeLength);
+
+    ASSERT_TRUE(kMinDiscountCodeLength <= generatedDiscountCode.length() &&
+                generatedDiscountCode.length() <= kMaxDiscountCodeLength);
 
     ASSERT_TRUE(std::ranges::all_of(generatedDiscountCode,
                                     [](char generatedDiscountCodeCharacter)
@@ -286,13 +288,14 @@ TEST_F(CommerceTest, shouldGenerateDiscountAmount)
 {
     const auto generatedDiscountAmount = Commerce::discountAmount();
 
-    ASSERT_TRUE(kMinDiscountAmountValue <= generatedDiscountAmount && generatedDiscountAmount <= kMaxDiscountAmountValue);
+    ASSERT_TRUE(kMinDiscountAmountValue <= generatedDiscountAmount &&
+                generatedDiscountAmount <= kMaxDiscountAmountValue);
 }
 
 TEST_F(CommerceTest, shouldGenerateDiscountPercentage)
 {
     const auto generatedDiscountPercentage = Commerce::discountPercentage();
 
-    ASSERT_TRUE(kMinDiscountPercentageValue <= generatedDiscountPercentage && generatedDiscountPercentage <= kMaxDiscountPercentageValue);
+    ASSERT_TRUE(kMinDiscountPercentageValue <= generatedDiscountPercentage &&
+                generatedDiscountPercentage <= kMaxDiscountPercentageValue);
 }
-

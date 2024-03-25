@@ -10,7 +10,7 @@ namespace faker
 const NameFormats vietnamesePersonNameFormats{{"{firstName} {lastName}", 1}};
 
 const PeopleNames vietnamesePeopleNames{{vietnameseMalesFirstNames, {}, vietnameseLastNames, {}, {}},
-                                     {vietnameseFemalesFirstNames, {}, vietnameseLastNames, {}, {}},
-                                     vietnamesePersonNameFormats};
+                                        {vietnameseFemalesFirstNames, {}, vietnameseLastNames, {}, {}},
+                                        vietnamesePersonNameFormats};
 
 }

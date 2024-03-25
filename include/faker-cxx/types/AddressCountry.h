@@ -33,8 +33,7 @@ const std::vector<AddressCountry> addressCountries{
     AddressCountry::Ukraine, AddressCountry::Italy,   AddressCountry::Germany,   AddressCountry::Czech,
     AddressCountry::India,   AddressCountry::Denmark, AddressCountry::Australia, AddressCountry::Spain,
     AddressCountry::Brazil,  AddressCountry::Finland, AddressCountry::Estonia,   AddressCountry::Romania,
-    AddressCountry::Latvia
-};
+    AddressCountry::Latvia};
 
 inline std::string toString(AddressCountry country)
 {

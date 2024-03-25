@@ -5,14 +5,8 @@
 
 namespace faker
 {
-const std::vector<std::string> estoniaStreetSuffixes {
-    	"Tänav",
-        "tn",
-        "Tee",
-        "Allee",
-        "Plats",
-        "Käik",
-        "Põik",
+const std::vector<std::string> estoniaStreetSuffixes{
+    "Tänav", "tn", "Tee", "Allee", "Plats", "Käik", "Põik",
 };
 
 }

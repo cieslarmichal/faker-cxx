@@ -1,7 +1,7 @@
 #include "faker-cxx/Image.h"
 
-#include <string>
 #include <algorithm>
+#include <string>
 
 #include "gtest/gtest.h"
 
@@ -73,6 +73,6 @@ TEST_F(ImageTest, shouldGenerateType)
 {
     const auto generatedType = Image::type();
 
-    ASSERT_TRUE(std::ranges::any_of(imageTypes, [generatedType](const std::string& type) 
-                                    { return type == generatedType; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(imageTypes, [generatedType](const std::string& type) { return type == generatedType; }));
 }

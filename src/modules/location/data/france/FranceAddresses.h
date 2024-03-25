@@ -2,9 +2,9 @@
 
 #include "../CountryAddresses.h"
 #include "FranceCities.h"
+#include "FranceStates.h"
 #include "FranceStreetPrefixes.h"
 #include "FranceStreetSuffixes.h"
-#include "FranceStates.h"
 
 namespace faker
 {
@@ -20,18 +20,18 @@ const std::vector<std::string> franceStreetFormats{"{streetPrefix} {streetSuffix
 
 const std::vector<std::string> franceCityFormats{"{cityName}"};
 
-const CountryAddresses franceAddresses{ franceZipCodeFormat,
-                                        franceAddressFormats,
-                                        franceSecondaryAddressFormats,
-                                        franceStreetFormats,
-                                        franceStreetPrefixes,
-                                        {},
-                                        franceStreetSuffixes,
-                                        franceBuildingNumberFormats,
-                                        franceCityFormats,
-                                        {},
-                                        franceCities,
-                                        {},
-                                        franceStates,
-                                        {}};
+const CountryAddresses franceAddresses{franceZipCodeFormat,
+                                       franceAddressFormats,
+                                       franceSecondaryAddressFormats,
+                                       franceStreetFormats,
+                                       franceStreetPrefixes,
+                                       {},
+                                       franceStreetSuffixes,
+                                       franceBuildingNumberFormats,
+                                       franceCityFormats,
+                                       {},
+                                       franceCities,
+                                       {},
+                                       franceStates,
+                                       {}};
 }

@@ -47,6 +47,5 @@ const std::vector<std::string> latviaStates{"Aizkraukles novads",
                                             "Liepājas valstspilsēta",
                                             "Rēzeknes valstspilsēta",
                                             "Ventspils valstspilsēta",
-                                            "Jelgavas valstspilsēta"
-                                            };
+                                            "Jelgavas valstspilsēta"};
 }

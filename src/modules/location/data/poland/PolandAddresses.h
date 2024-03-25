@@ -2,9 +2,9 @@
 
 #include "../CountryAddresses.h"
 #include "PolandCities.h"
+#include "PolandStates.h"
 #include "PolandStreetNames.h"
 #include "PolandStreetPrefixes.h"
-#include "PolandStates.h"
 
 namespace faker
 {
@@ -22,18 +22,18 @@ const std::vector<std::string> polandStreetFormats{"{streetPrefix} {streetName}"
 
 const std::vector<std::string> polandCityFormats{"{cityName}"};
 
-const CountryAddresses polandAddresses{ polandZipCodeFormat,
-                                        polandAddressFormats,
-                                        polandSecondaryAddressFormats,
-                                        polandStreetFormats,
-                                        polandStreetPrefixes,
-                                        polandStreetNames,
-                                        {},
-                                        polandBuildingNumberFormats,
-                                        polandCityFormats,
-                                        {},
-                                        polandCities,
-                                        {},
-                                        polandStates,
-                                        {}};
+const CountryAddresses polandAddresses{polandZipCodeFormat,
+                                       polandAddressFormats,
+                                       polandSecondaryAddressFormats,
+                                       polandStreetFormats,
+                                       polandStreetPrefixes,
+                                       polandStreetNames,
+                                       {},
+                                       polandBuildingNumberFormats,
+                                       polandCityFormats,
+                                       {},
+                                       polandCities,
+                                       {},
+                                       polandStates,
+                                       {}};
 }

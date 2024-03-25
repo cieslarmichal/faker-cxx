@@ -59,16 +59,17 @@ TEST_F(HelperTest, WeightedArrayElement)
                                     { return result == element.value; }));
 }
 
-TEST_F(HelperTest, WeightedArrayZeroSum) {
+TEST_F(HelperTest, WeightedArrayZeroSum)
+{
     std::vector<Helper::WeightedElement<std::string>> data{{0, "hello"}, {0, "world"}};
     ASSERT_THROW(Helper::weightedArrayElement(data), std::invalid_argument);
 }
 
-TEST_F(HelperTest, WeightedArrayEmptyData) {
+TEST_F(HelperTest, WeightedArrayEmptyData)
+{
     std::vector<Helper::WeightedElement<std::string>> data{};
     ASSERT_THROW(Helper::weightedArrayElement(data), std::invalid_argument);
 }
-
 
 TEST_F(HelperTest, ShuffleString)
 {

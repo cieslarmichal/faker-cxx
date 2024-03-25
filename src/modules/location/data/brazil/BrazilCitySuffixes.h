@@ -5,7 +5,5 @@
 
 namespace faker
 {
-const std::vector<std::string> brazilCitySuffixes{
-  "do Descoberto", "de Nossa Senhora", "do Norte", "do Sul"
-};
+const std::vector<std::string> brazilCitySuffixes{"do Descoberto", "de Nossa Senhora", "do Norte", "do Sul"};
 }

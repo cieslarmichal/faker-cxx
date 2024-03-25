@@ -158,8 +158,9 @@ TEST_F(InternetTest, shouldGenerateInternationalUsernames)
 {
     std::vector<std::string> romanianFirstNames{romanianMalesFirstNames};
 
-    romanianFirstNames.insert(romanianFirstNames.end(), romanianFemalesFirstNames.begin(), romanianFemalesFirstNames.end());
-  
+    romanianFirstNames.insert(romanianFirstNames.end(), romanianFemalesFirstNames.begin(),
+                              romanianFemalesFirstNames.end());
+
     const auto username = Internet::username(std::nullopt, std::nullopt, Country::Romania);
 
     ASSERT_TRUE(std::ranges::any_of(romanianFirstNames, [username](const std::string& romanianFirstName)
