@@ -1,4 +1,5 @@
 #include "faker-cxx/Internet.h"
+#include "faker-cxx/Number.h"
 
 #include <algorithm>
 #include <array>
@@ -744,4 +745,31 @@ TEST_F(InternetTest, shouldGeneratePort)
 
     ASSERT_GE(generatedPort, 0);
     ASSERT_LE(generatedPort, 65535);
+}
+
+TEST_F(InternetTest, shouldGenerateAnonymousUsername)
+{
+    for (int i = 0; i < 100; i++)
+    {
+        const auto maxLength = Number::integer<unsigned>(6, 20);
+        const auto generatedUsername = Internet::anonymousUsername(maxLength);
+
+        ASSERT_EQ(generatedUsername.length(), maxLength);
+    }
+}
+
+TEST_F(InternetTest, shouldGenerateAnonymousUsernameWithMinLength)
+{
+    const auto maxLength = 5;
+    const auto generatedUsername = Internet::anonymousUsername(maxLength);
+
+    ASSERT_EQ(generatedUsername.length(), 6);
+}
+
+TEST_F(InternetTest, shouldGenerateAnonymousUsernameWithMaxLength)
+{
+    const auto maxLength = 21;
+    const auto generatedUsername = Internet::anonymousUsername(maxLength);
+
+    ASSERT_EQ(generatedUsername.length(), 20);
 }

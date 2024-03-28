@@ -321,5 +321,18 @@ public:
      * @endcode
      */
     static std::string domainSuffix();
+
+    /**
+     * @brief Generates a random username.
+     *
+     * @param maxLength maxLength of the generated username.
+     *
+     * @return Username.
+     *
+     * @code
+     * Internet::anonymousUsername() // "profusebrother", "richad", "powerfuldifferential"
+     * @endcode
+     */
+    static std::string anonymousUsername(unsigned maxLength);
 };
 }

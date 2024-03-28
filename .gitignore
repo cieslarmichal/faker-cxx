@@ -58,3 +58,7 @@ build-linux-clang
 .cache/
 #vim swap files
 *.sw?
+
+#kdevelop temp files
+*.kdev4
+.kdev4
