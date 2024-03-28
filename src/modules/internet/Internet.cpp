@@ -334,25 +334,26 @@ std::string Internet::anonymousUsername(unsigned maxLength)
     unsigned nounLength = maxLength - adjectiveLength;
     std::stringstream usernameBuilder;
 
-    while (true)
-    {
-        std::string adjective = Word::adjective(adjectiveLength);
-        if (adjectiveLength == adjective.length())
-        {
-            usernameBuilder << adjective;
-            break;
-        }
-    }
-
-    while (true)
-    {
-        std::string noun = Word::noun(nounLength);
-        if (nounLength == noun.length())
-        {
-            usernameBuilder << noun;
-            break;
-        }
-    }
+    usernameBuilder << Word::adjective(adjectiveLength) << Word::noun(nounLength);
+    // while (true)
+    // {
+    //     std::string adjective = Word::adjective(adjectiveLength);
+    //     if (adjectiveLength == adjective.length())
+    //     {
+    //         usernameBuilder << adjective;
+    //         break;
+    //     }
+    // }
+    //
+    // while (true)
+    // {
+    //     std::string noun = Word::noun(nounLength);
+    //     if (nounLength == noun.length())
+    //     {
+    //         usernameBuilder << noun;
+    //         break;
+    //     }
+    // }
 
     return usernameBuilder.str();
 }
