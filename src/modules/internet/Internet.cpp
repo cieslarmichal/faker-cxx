@@ -320,4 +320,23 @@ std::string Internet::domainSuffix()
     return Helper::arrayElement<std::string>(domainSuffixes);
 }
 
+std::string Internet::anonymousUsername(unsigned maxLength)
+{
+    unsigned defaultMin = 6;
+    unsigned defaultMax = 20;
+
+    if (maxLength < defaultMin)
+        maxLength = defaultMin;
+    else if (maxLength > defaultMax)
+        maxLength = defaultMax;
+
+    unsigned adjectiveLength = Number::integer<unsigned>(3, 1 + maxLength/2);
+    unsigned nounLength = maxLength - adjectiveLength;
+    std::stringstream usernameBuilder;
+
+    usernameBuilder << Word::adjective(adjectiveLength) << Word::noun(nounLength);
+
+    return usernameBuilder.str();
+}
+
 }
