@@ -24,8 +24,6 @@ Making Changes
 Submitting Changes
 ------------------
 
-- Format code with ``clang-format src/**/*.cpp src/**/*.h include/**/*.h -i -style=file``
-- Format cmake files with ``cmake-format CMakeLists.txt cmake/*.cmake -i``
 - Push your changes to the branch in your fork of the repository.
 - Submit a pull request to the repository.
 
