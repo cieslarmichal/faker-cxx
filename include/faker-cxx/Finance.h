@@ -231,5 +231,16 @@ public:
      * @endcode
      */
     static std::string creditCardExpirationDate();
+
+    /**
+     * Generates a random credit card type.
+     *
+     * @returns std::string creditCardType.
+     *
+     * @code
+     * Finance::creditCardType() // "Visa"
+     * @endcode
+     */
+    static std::string creditCardType();
 };
 }
