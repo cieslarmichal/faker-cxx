@@ -12,6 +12,7 @@
 #include "../string/data/Characters.h"
 #include "data/AccountTypes.h"
 #include "data/BankIndentifiersCodes.h"
+#include "data/CreditCardTypeNames.h"
 #include "data/Currencies.h"
 #include "gmock/gmock.h"
 
@@ -392,6 +393,12 @@ TEST_F(FinanceTest, shouldGenerateExpirationDate)
     int tenthPlaceYear = std::stoi(expirationDate.substr(3, 2));
     std::cout << expirationDate << " " << tenthPlaceYear << "\n";
     ASSERT_TRUE(tenthPlaceYear >= 24);
+}
+
+TEST_F(FinanceTest, shouldGenerateRandomCreditCardTypeName)
+{
+    const auto creditCardTypeName = Finance::creditCardType();
+    ASSERT_TRUE(std::find(faker::creditCardTypeNames.begin(), faker::creditCardTypeNames.end(), creditCardTypeName) != faker::creditCardTypeNames.end());
 }
 
 class FinanceBicTest : public TestWithParam<BicCountry>

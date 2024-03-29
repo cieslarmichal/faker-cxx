@@ -5,6 +5,7 @@
 #include "data/AccountTypes.h"
 #include "data/BankIndentifiersCodes.h"
 #include "data/CreditCardsFormats.h"
+#include "data/CreditCardTypeNames.h"
 #include "data/Currencies.h"
 #include "data/IbanFormats.h"
 #include "faker-cxx/Date.h"
@@ -172,4 +173,10 @@ std::string Finance::creditCardExpirationDate()
     const auto expirationDate = Date::futureDate(3);
     return expirationDate.substr(5, 2) + "/" + expirationDate.substr(2, 2);
 }
+
+std::string Finance::creditCardType()
+{
+    return Helper::arrayElement<std::string>(creditCardTypeNames);
+}
+
 }
