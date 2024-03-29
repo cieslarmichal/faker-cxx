@@ -250,5 +250,38 @@ public:
      * @endcode
      */
     static double discountPercentage();
+
+    /**
+     * @brief Returns a random order number.
+     *
+     * @returns orderNumber.
+     *
+     * @code
+     * Commerce::orderNumber() // 0123456
+     * @endcode
+     */
+    static std::string orderNumber();
+
+    /**
+     * @brief Returns a random order status.
+     *
+     * @returns orderStatus.
+     *
+     * @code
+     * Commerce::orderStatus() // "shipped"
+     * @endcode
+     */
+    static std::string orderStatus();
+
+    /**
+     * @brief Returns a random shipping carrier.
+     *
+     * @returns shipping carrier
+     *
+     * @code
+     * Commerce::shippingMethod() // "FedEx"
+     * @endcode
+     */
+    static std::string shippingCarrier();
 };
 }
