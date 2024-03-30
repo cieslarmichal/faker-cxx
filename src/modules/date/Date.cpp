@@ -7,6 +7,7 @@
 #include "../../common/FormatHelper.h"
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
+#include "data/TimeZones.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 
@@ -148,6 +149,54 @@ std::string Date::monthName()
 std::string Date::monthAbbreviatedName()
 {
     return Helper::arrayElement<std::string>(monthAbbreviatedNames);
+}
+
+unsigned int Date::year()
+{
+    unsigned minYear = 1;
+    unsigned maxYear = 9999;
+
+    return Number::integer<unsigned>(minYear, maxYear);
+}
+
+unsigned int Date::month()
+{
+    return Number::integer<unsigned>(1, 12);
+}
+
+unsigned int Date::hour()
+{
+    return Number::integer<unsigned>(0, 23);
+}
+
+unsigned int Date::minute()
+{
+    return Number::integer<unsigned>(0, 59);
+}
+
+unsigned int Date::second()
+{
+    return Number::integer<unsigned>(0, 59);
+}
+
+std::string Date::time()
+{
+    return FormatHelper::format("{}:{}", Date::hour(), Date::minute());
+}
+
+unsigned int Date::dayOfMonth()
+{
+    return Number::integer<unsigned>(1, 31);
+}
+
+unsigned Date::dayOfWeek()
+{
+    return Number::integer<unsigned>(1, 7);
+}
+
+std::string Date::timezone()
+{
+    return Helper::arrayElement<std::string>(faker::timezonesAbbreviatedNames);
 }
 
 }

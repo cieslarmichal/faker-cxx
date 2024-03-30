@@ -5,8 +5,10 @@
 
 #include "gtest/gtest.h"
 
+#include "../../common/StringHelper.h"
 #include "data/MonthNames.h"
 #include "data/WeekdayNames.h"
+#include "data/TimeZones.h"
 
 #ifdef _WIN32
 #define timegm _mkgmtime
@@ -262,4 +264,86 @@ TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
     ASSERT_TRUE(std::ranges::any_of(monthAbbreviatedNames,
                                     [generatedMonthAbbreviatedName](const std::string& monthAbbreviatedName)
                                     { return monthAbbreviatedName == generatedMonthAbbreviatedName; }));
+}
+
+TEST_F(DateTest, shouldGenerateRandomYear)
+{
+    const auto generatedYear = Date::year();
+
+    ASSERT_LE(generatedYear, 9999u);
+    ASSERT_GE(generatedYear, 1u);
+}
+
+TEST_F(DateTest, shouldGenerateRandomMonth)
+{
+    const auto genereatedMonth = Date::month();
+
+    ASSERT_LE(genereatedMonth, 12u);
+    ASSERT_GE(genereatedMonth, 1u);
+}
+
+TEST_F(DateTest, shouldGenerateRandomHour)
+{
+    const auto generatedHour = Date::hour();
+
+    ASSERT_LE(generatedHour, 23u);
+    ASSERT_GE(generatedHour, 0u);
+}
+
+TEST_F(DateTest, shouldGenerateRandomMinute)
+{
+    const auto generatedMinute = Date::minute();
+
+    ASSERT_LE(generatedMinute, 59u);
+    ASSERT_GE(generatedMinute, 0u);
+}
+
+TEST_F(DateTest, shouldGenerateRandomSecond)
+{
+    const auto generatedSecond = Date::minute();
+
+    ASSERT_LE(generatedSecond, 59u);
+    ASSERT_GE(generatedSecond, 0u);
+}
+
+TEST_F(DateTest, shouldGenerateRandomDayOfMonth)
+{
+    const auto generatedDayOfMonth = Date::dayOfMonth();
+
+    ASSERT_LE(generatedDayOfMonth, 31u);
+    ASSERT_GE(generatedDayOfMonth, 1u);
+}
+
+TEST_F(DateTest, shouldGenerateRandomDayOfWeek)
+{
+    const auto generatedDayOfWeek = Date::dayOfWeek();
+
+    ASSERT_LE(generatedDayOfWeek, 7u);
+    ASSERT_GE(generatedDayOfWeek, 1u);
+}
+
+TEST_F(DateTest, shouldGenerateRandomTimezone)
+{
+    const auto generatedTimeZone = Date::timezone();
+
+    ASSERT_TRUE(std::ranges::any_of(timezonesAbbreviatedNames,
+                                    [generatedTimeZone](const std::string& timezoneName)
+                                    { return timezoneName == generatedTimeZone; }));
+}
+
+TEST_F(DateTest, shouldGenerateRandomTime)
+{
+    const auto generatedTime = Date::time();
+    const auto generatedTimeParts = StringHelper::split(generatedTime, ":");
+
+    ASSERT_EQ(generatedTimeParts.size(), 2);
+
+    const auto& hour = atoi(generatedTimeParts[0].c_str());
+    const auto& minute = atoi(generatedTimeParts[1].c_str());
+
+    ASSERT_LE(hour, 23);
+    ASSERT_GE(hour, 0);
+
+    ASSERT_LE(minute, 59);
+    ASSERT_GE(minute, 0);
 }
