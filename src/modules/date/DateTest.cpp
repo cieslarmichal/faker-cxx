@@ -270,8 +270,8 @@ TEST_F(DateTest, shouldGenerateRandomYear)
 {
     const auto generatedYear = Date::year();
 
-    ASSERT_LE(generatedYear, 9999u);
-    ASSERT_GE(generatedYear, 1u);
+    ASSERT_LE(generatedYear, 2050u);
+    ASSERT_GE(generatedYear, 1950u);
 }
 
 TEST_F(DateTest, shouldGenerateRandomMonth)

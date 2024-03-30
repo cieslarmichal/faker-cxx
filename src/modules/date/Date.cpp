@@ -153,8 +153,8 @@ std::string Date::monthAbbreviatedName()
 
 unsigned int Date::year()
 {
-    unsigned minYear = 1;
-    unsigned maxYear = 9999;
+    unsigned minYear = 1950;
+    unsigned maxYear = 2050;
 
     return Number::integer<unsigned>(minYear, maxYear);
 }
