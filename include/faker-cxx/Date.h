@@ -154,5 +154,105 @@ public:
      * @endcode
      */
     static std::string monthAbbreviatedName();
+
+    /**
+     * @brief Returns random year.
+     *
+     * @returns A random year
+     *
+     * @code
+     * Date::year() // 2000
+     * @endcode
+     */
+    static unsigned year();
+
+    /**
+     * @brief Returns random month.
+     *
+     * @returns A random month
+     *
+     * @code
+     * Date::month() // 9
+     * @endcode
+     */
+    static unsigned month();
+
+    /**
+     * @brief Returns random hour.
+     *
+     * @returns A random month
+     *
+     * @code
+     * Date::hour() // 21
+     * @endcode
+     */
+    static unsigned hour();
+
+    /**
+     * @brief Returns random minute.
+     *
+     * @returns A random minute
+     *
+     * @code
+     * Date::minute() // 40
+     * @endcode
+     */
+    static unsigned minute();
+
+    /**
+     * @brief Returns random second.
+     *
+     * @returns A random second
+     *
+     * @code
+     * Date::second() // 40
+     * @endcode
+     */
+    static unsigned second();
+
+    /**
+     * @brief Returns random time string.
+     *
+     * @returns A random time string
+     *
+     * @code
+     * Date::time() // 21:40
+     * @endcode
+     */
+    static std::string time();
+
+    /**
+     * @brief Returns random day of month.
+     *
+     * @returns A random day of month
+     *
+     * @code
+     * Date::dayOfMonth() // 15
+     * @endcode
+     */
+    static unsigned dayOfMonth();
+
+    /**
+     * @brief Returns random day of week.
+     *
+     * @returns A random day of week
+     *
+     * @code
+     * Date::dayOfWeek() // 5
+     * @endcode
+     */
+    static unsigned dayOfWeek();
+
+    /**
+     * @brief Returns random timezone.
+     *
+     * @returns A random timezone
+     *
+     * @code
+     * Date::timezone() // PT
+     * @endcode
+     */
+    static std::string timezone();
+
 };
 }
