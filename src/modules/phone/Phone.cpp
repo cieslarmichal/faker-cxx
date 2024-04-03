@@ -2,6 +2,7 @@
 
 #include <string>
 
+#include "data/AreaCodes.h"
 #include "data/PhoneData.h"
 #include "data/PhoneNumbers.h"
 #include "faker-cxx/Helper.h"
@@ -72,5 +73,10 @@ std::map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMa
     }
 
     return formatMap;
+}
+
+std::string Phone::areaCode()
+{
+    return Helper::arrayElement(faker::data::areaCodes);
 }
 }

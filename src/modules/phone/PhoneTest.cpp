@@ -6,8 +6,9 @@
 
 #include "gtest/gtest.h"
 
+#include "data/AreaCodes.h"
 #include "data/PhoneData.h"
-#include "data/PhoneNumbers.h"
+
 using namespace ::testing;
 using namespace faker;
 
@@ -91,4 +92,11 @@ TEST_F(PhoneTest, ManufacturerGeneration)
     ASSERT_TRUE(std::ranges::any_of(faker::data::PhoneManufacturers.begin(), faker::data::PhoneManufacturers.end(),
                                     [generatedManufacturer](const std::string& manufacturer)
                                     { return manufacturer == generatedManufacturer; }));
+}
+
+TEST_F(PhoneTest, AreaCodeGeneration)
+{
+    std::string areaCode = Phone::areaCode();
+    ASSERT_TRUE(std::ranges::any_of(faker::data::areaCodes.begin(), faker::data::areaCodes.end(),
+                                    [areaCode](const std::string& code) { return code == areaCode; }));
 }
