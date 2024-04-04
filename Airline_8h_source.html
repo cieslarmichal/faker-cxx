@@ -1,15 +1,15 @@
-  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faker C++</title>
+<title>Faker C++: include/faker-cxx/Airline.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -21,16 +21,15 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr style="height: 56px;">
-  <td id="projectlogo"><a href="https://cieslarmichal.github.io/faker-cxx"><img height=50 alt="Logo" src="logo.png"/></a></td>
-  <td id="projectalign" style="padding-left: 0.5em;">
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
    <div id="projectname">Faker C++
    </div>
   </td>
@@ -106,35 +105,34 @@ $(function(){initNavTree('Airline_8h_source.html',''); initResizable(); });
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;./types/AirlineTypes.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>faker</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
-<div class="foldopen" id="foldopen00010" data-start="{" data-end="};">
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html">   10</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Airline.html">Airline</a></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#ade2dbd4c0dce99bdd62d61f2fcbd4079">   22</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Airline.html#ade2dbd4c0dce99bdd62d61f2fcbd4079">aircraftType</a>();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a8c576b9ebb5489d73fb6cb92a7031626">   33</a></span>    <span class="keyword">static</span> Airplane <a class="code hl_function" href="classfaker_1_1Airline.html#a8c576b9ebb5489d73fb6cb92a7031626">airplane</a>();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#aa7ffabb129a76cde6df87f99db672654">   44</a></span>    <span class="keyword">static</span> AirlineStruct <a class="code hl_function" href="classfaker_1_1Airline.html#aa7ffabb129a76cde6df87f99db672654">airline</a>();</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a708d6b9e29aa9508bb83b483ae2ae99a">   55</a></span>    <span class="keyword">static</span> Airport <a class="code hl_function" href="classfaker_1_1Airline.html#a708d6b9e29aa9508bb83b483ae2ae99a">airport</a>();</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a29cc194d81071ea79a8de609598045bc">   68</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Airline.html#a29cc194d81071ea79a8de609598045bc">seat</a>(AircraftType <a class="code hl_function" href="classfaker_1_1Airline.html#ade2dbd4c0dce99bdd62d61f2fcbd4079">aircraftType</a>);</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span> </div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a0b03033a9aa68a25a4f298302590b922">   80</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Airline.html#a0b03033a9aa68a25a4f298302590b922">recordLocator</a>(<span class="keywordtype">bool</span> allowNumerics = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a0d95bc40e3ce2c5624be7efb096c5ece">   97</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Airline.html#a0d95bc40e3ce2c5624be7efb096c5ece">flightNumber</a>(<span class="keywordtype">bool</span> addLeadingZeros = <span class="keyword">false</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length = 4);</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a7526b0e51dee317cfe41d2620251bcfa">  114</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Airline.html#a7526b0e51dee317cfe41d2620251bcfa">flightNumberByRange</a>(<span class="keywordtype">bool</span> addLeadingZeros = <span class="keyword">false</span>, Range length = {1, 4});</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>};</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;./types/AirlineTypes.h&quot;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Airline.html">Airline</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#ade2dbd4c0dce99bdd62d61f2fcbd4079">   21</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Airline.html#ade2dbd4c0dce99bdd62d61f2fcbd4079">aircraftType</a>();</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a8c576b9ebb5489d73fb6cb92a7031626">   32</a></span>    <span class="keyword">static</span> Airplane <a class="code hl_function" href="classfaker_1_1Airline.html#a8c576b9ebb5489d73fb6cb92a7031626">airplane</a>();</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#aa7ffabb129a76cde6df87f99db672654">   43</a></span>    <span class="keyword">static</span> AirlineStruct <a class="code hl_function" href="classfaker_1_1Airline.html#aa7ffabb129a76cde6df87f99db672654">airline</a>();</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a708d6b9e29aa9508bb83b483ae2ae99a">   54</a></span>    <span class="keyword">static</span> Airport <a class="code hl_function" href="classfaker_1_1Airline.html#a708d6b9e29aa9508bb83b483ae2ae99a">airport</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a29cc194d81071ea79a8de609598045bc">   67</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Airline.html#a29cc194d81071ea79a8de609598045bc">seat</a>(AircraftType <a class="code hl_function" href="classfaker_1_1Airline.html#ade2dbd4c0dce99bdd62d61f2fcbd4079">aircraftType</a>);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a0b03033a9aa68a25a4f298302590b922">   79</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Airline.html#a0b03033a9aa68a25a4f298302590b922">recordLocator</a>(<span class="keywordtype">bool</span> allowNumerics = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a0d95bc40e3ce2c5624be7efb096c5ece">   96</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Airline.html#a0d95bc40e3ce2c5624be7efb096c5ece">flightNumber</a>(<span class="keywordtype">bool</span> addLeadingZeros = <span class="keyword">false</span>, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length = 4);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="classfaker_1_1Airline.html#a7526b0e51dee317cfe41d2620251bcfa">  113</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Airline.html#a7526b0e51dee317cfe41d2620251bcfa">flightNumberByRange</a>(<span class="keywordtype">bool</span> addLeadingZeros = <span class="keyword">false</span>, Range length = {1, 4});</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>};</div>
 </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>}</div>
-<div class="ttc" id="aclassfaker_1_1Airline_html"><div class="ttname"><a href="classfaker_1_1Airline.html">faker::Airline</a></div><div class="ttdef"><b>Definition</b> Airline.h:11</div></div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>}</div>
+<div class="ttc" id="aclassfaker_1_1Airline_html"><div class="ttname"><a href="classfaker_1_1Airline.html">faker::Airline</a></div><div class="ttdef"><b>Definition</b> Airline.h:10</div></div>
 <div class="ttc" id="aclassfaker_1_1Airline_html_a0b03033a9aa68a25a4f298302590b922"><div class="ttname"><a href="classfaker_1_1Airline.html#a0b03033a9aa68a25a4f298302590b922">faker::Airline::recordLocator</a></div><div class="ttdeci">static std::string recordLocator(bool allowNumerics=false)</div><div class="ttdoc">Get a random record location.</div></div>
 <div class="ttc" id="aclassfaker_1_1Airline_html_a0d95bc40e3ce2c5624be7efb096c5ece"><div class="ttname"><a href="classfaker_1_1Airline.html#a0d95bc40e3ce2c5624be7efb096c5ece">faker::Airline::flightNumber</a></div><div class="ttdeci">static std::string flightNumber(bool addLeadingZeros=false, unsigned int length=4)</div><div class="ttdoc">Get a random flight number from given length.</div></div>
 <div class="ttc" id="aclassfaker_1_1Airline_html_a29cc194d81071ea79a8de609598045bc"><div class="ttname"><a href="classfaker_1_1Airline.html#a29cc194d81071ea79a8de609598045bc">faker::Airline::seat</a></div><div class="ttdeci">static std::string seat(AircraftType aircraftType)</div><div class="ttdoc">Get a random seat by aircraft type.</div></div>

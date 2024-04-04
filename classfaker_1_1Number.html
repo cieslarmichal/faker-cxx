@@ -1,15 +1,15 @@
-  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.10.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>Faker C++</title>
+<title>Faker C++: faker::Number Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
 <link href="navtree.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="resize.js"></script>
 <script type="text/javascript" src="navtreedata.js"></script>
@@ -21,16 +21,15 @@
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 <link href="doxygen-awesome.css" rel="stylesheet" type="text/css"/>
 <link href="doxygen-awesome-sidebar-only.css" rel="stylesheet" type="text/css"/>
-<link href="main.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div id="top"><!-- do not remove this div, it is closed by doxygen! -->
 <div id="titlearea">
 <table cellspacing="0" cellpadding="0">
  <tbody>
- <tr style="height: 56px;">
-  <td id="projectlogo"><a href="https://cieslarmichal.github.io/faker-cxx"><img height=50 alt="Logo" src="logo.png"/></a></td>
-  <td id="projectalign" style="padding-left: 0.5em;">
+ <tr id="projectrow">
+  <td id="projectlogo"><img alt="Logo" src="logo.png"/></td>
+  <td id="projectalign">
    <div id="projectname">Faker C++
    </div>
   </td>
@@ -120,9 +119,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a9a9186f41b3b8a3e34452ca0f23f0f96"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="#a1af485acb65ed7312f13f4cb56f1a7c4">static</a> <a class="el" href="#a1af485acb65ed7312f13f4cb56f1a7c4">F</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a9a9186f41b3b8a3e34452ca0f23f0f96">decimal</a> (<a class="el" href="#a1af485acb65ed7312f13f4cb56f1a7c4">F</a> max)</td></tr>
 <tr class="memdesc:a9a9186f41b3b8a3e34452ca0f23f0f96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random decimal number between 0 and the given maximum value, bounds included.  <br /></td></tr>
 <tr class="separator:a9a9186f41b3b8a3e34452ca0f23f0f96"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af958bfc1ada6c2470edfb13e93e24e11" id="r_af958bfc1ada6c2470edfb13e93e24e11"><td class="memItemLeft" align="right" valign="top"><a class="el" href="#a1af485acb65ed7312f13f4cb56f1a7c4">static</a> std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af958bfc1ada6c2470edfb13e93e24e11">hex</a> (std::optional&lt; <a class="el" href="#a1af485acb65ed7312f13f4cb56f1a7c4">int</a> &gt; min=std::nullopt, std::optional&lt; <a class="el" href="#a1af485acb65ed7312f13f4cb56f1a7c4">int</a> &gt; max=std::nullopt)</td></tr>
-<tr class="memdesc:af958bfc1ada6c2470edfb13e93e24e11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a lowercase hexadecimal number.  <br /></td></tr>
-<tr class="separator:af958bfc1ada6c2470edfb13e93e24e11"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Member Function Documentation</h2>
 <a id="a9a9186f41b3b8a3e34452ca0f23f0f96" name="a9a9186f41b3b8a3e34452ca0f23f0f96"></a>
@@ -225,49 +221,6 @@ template&lt;std::floating_point F&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>F a random decimal number. </dd></dl>
 
-</div>
-</div>
-<a id="af958bfc1ada6c2470edfb13e93e24e11" name="af958bfc1ada6c2470edfb13e93e24e11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af958bfc1ada6c2470edfb13e93e24e11">&#9670;&#160;</a></span>hex()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="#a1af485acb65ed7312f13f4cb56f1a7c4">static</a> std::string faker::Number::hex </td>
-          <td>(</td>
-          <td class="paramtype">std::optional&lt; <a class="el" href="#a1af485acb65ed7312f13f4cb56f1a7c4">int</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>min</em><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span>, </span></td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::optional&lt; <a class="el" href="#a1af485acb65ed7312f13f4cb56f1a7c4">int</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>max</em><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span></span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a lowercase hexadecimal number. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">min</td><td>Optional parameter for lower bound of generated number. </td></tr>
-    <tr><td class="paramname">max</td><td>Optional parameter for upper bound of generated number.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A lowercase hexadecimal number.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#af958bfc1ada6c2470edfb13e93e24e11">Number::hex</a>() <span class="comment">// &quot;b&quot;</span></div>
-<div class="line"><a class="code hl_class" href="classfaker_1_1Number.html">Number</a>::<a class="code hl_function" href="#af958bfc1ada6c2470edfb13e93e24e11">hex</a>(0, 255) <span class="comment">// &quot;9d&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Number_html"><div class="ttname"><a href="classfaker_1_1Number.html">faker::Number</a></div><div class="ttdef"><b>Definition</b> Number.h:16</div></div>
-<div class="ttc" id="aclassfaker_1_1Number_html_af958bfc1ada6c2470edfb13e93e24e11"><div class="ttname"><a href="#af958bfc1ada6c2470edfb13e93e24e11">faker::Number::hex</a></div><div class="ttdeci">static std::string hex(std::optional&lt; int &gt; min=std::nullopt, std::optional&lt; int &gt; max=std::nullopt)</div><div class="ttdoc">Returns a lowercase hexadecimal number.</div></div>
-</div><!-- fragment --> 
 </div>
 </div>
 <a id="a54b28a308f74a60108602918f39785fc" name="a54b28a308f74a60108602918f39785fc"></a>

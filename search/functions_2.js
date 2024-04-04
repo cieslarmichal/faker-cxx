@@ -36,7 +36,7 @@ var searchData=
   ['creditcardexpirationdate_33',['creditCardExpirationDate',['../classfaker_1_1Finance.html#a3a4c0d2a4ccd15f60f519148fcc631f8',1,'faker::Finance']]],
   ['creditcardnumber_34',['creditCardNumber',['../classfaker_1_1Finance.html#ac0aa71a72d411fb89c5ba623db469bd4',1,'faker::Finance']]],
   ['creditcardtype_35',['creditCardType',['../classfaker_1_1Finance.html#aaa4c761ae2e9dac617272b444e439d49',1,'faker::Finance']]],
-  ['crocodilia_36',['crocodilia',['../classfaker_1_1Animal.html#a4be5f2e822a7f3aa5d3bb3132bca7738',1,'faker::Animal']]],
+  ['crocodile_36',['crocodile',['../classfaker_1_1Animal.html#ad31ad7ea16b5fb7b067b6e3f15a0d1ff',1,'faker::Animal']]],
   ['cron_37',['cron',['../classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c',1,'faker::System']]],
   ['csv_38',['csv',['../classfaker_1_1Structure.html#af53a81d02be66dc2d27a671621cead41',1,'faker::Structure']]],
   ['currency_39',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
