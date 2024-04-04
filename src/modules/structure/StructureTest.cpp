@@ -5,7 +5,6 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/JsonHelper.h"
 #include "../../common/StringHelper.h"
 #include "../airline/data/Airports.h"
 #include "../animal/data/Birds.h"
@@ -18,6 +17,30 @@ using namespace ::testing;
 class StructureTest : public Test
 {
 public:
+    static std::map<std::string, std::string> parseJson(const std::string& json)
+    {
+        std::map<std::string, std::string> result;
+        std::istringstream stream(json);
+        std::string key, value, temp;
+        char ch;
+
+        while (stream >> ch && ch != '}')
+        {
+            if (ch == '"')
+            {
+
+                std::getline(stream, key, '"');
+                std::getline(stream, temp, ':');
+
+                stream >> ch;
+                std::getline(stream, value, '"');
+
+                result[key] = value;
+            }
+        }
+
+        return result;
+    }
 };
 
 TEST_F(StructureTest, shouldGenerateJson)
@@ -29,7 +52,7 @@ TEST_F(StructureTest, shouldGenerateJson)
     testTokens.emplace("Actor name", StructureToken::MovieActor);
     const auto generatedJson = Structure::json(testTokens);
 
-    const auto parsedJson = JsonHelper::simpleJsonParser(generatedJson);
+    const auto parsedJson = parseJson(generatedJson);
 
     const auto key1 = parsedJson.find("Airport name")->first;
     const auto key2 = parsedJson.find("Bird name")->first;
@@ -41,7 +64,7 @@ TEST_F(StructureTest, shouldGenerateJson)
     const auto value3 = parsedJson.find("Book title")->second;
     const auto value4 = parsedJson.find("Actor name")->second;
 
-    // there is no point for this but it's better to be there
+    // there is no point for this, but it's better to be there
     ASSERT_EQ(key1, "Airport name");
     ASSERT_EQ(key2, "Bird name");
     ASSERT_EQ(key3, "Book title");
