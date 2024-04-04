@@ -10,7 +10,8 @@ namespace faker
 {
 const NameFormats maldiviansPersonNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames maldiviansPeopleNames{{maldiviansMalesFirstNames, {}, maldiviansMalesLastNames, maldiviansMalesPrefixes, {}},
-                                      {maldiviansFemalesFirstNames, {}, maldiviansFemalesLastNames, maldiviansFemalesPrefixes, {}},
-                                      maldiviansPersonNameFormats};
+const PeopleNames maldiviansPeopleNames{
+    {maldiviansMalesFirstNames, {}, maldiviansMalesLastNames, maldiviansMalesPrefixes, {}},
+    {maldiviansFemalesFirstNames, {}, maldiviansFemalesLastNames, maldiviansFemalesPrefixes, {}},
+    maldiviansPersonNameFormats};
 }

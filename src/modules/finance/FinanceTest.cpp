@@ -398,7 +398,8 @@ TEST_F(FinanceTest, shouldGenerateExpirationDate)
 TEST_F(FinanceTest, shouldGenerateRandomCreditCardTypeName)
 {
     const auto creditCardTypeName = Finance::creditCardType();
-    ASSERT_TRUE(std::find(faker::creditCardTypeNames.begin(), faker::creditCardTypeNames.end(), creditCardTypeName) != faker::creditCardTypeNames.end());
+    ASSERT_TRUE(std::find(faker::creditCardTypeNames.begin(), faker::creditCardTypeNames.end(), creditCardTypeName) !=
+                faker::creditCardTypeNames.end());
 }
 
 class FinanceBicTest : public TestWithParam<BicCountry>

@@ -1165,6 +1165,23 @@ TEST_F(StringTest, invalidGuaranteeForHexadecimal5)
     ASSERT_THROW(String::hexadecimal(std::move(guarantee), hexadecimalLength), std::invalid_argument);
 }
 
+TEST_F(StringTest, shouldGenerateHexNumber)
+{
+    auto result = String::hexadecimal(100, 255);
+    ASSERT_EQ(result.size(), 2);
+    ASSERT_TRUE(std::isxdigit(result[0]));
+    ASSERT_TRUE(std::isxdigit(result[1]));
+
+    result = String::hexadecimal(10, 15);
+    ASSERT_EQ(result.size(), 1);
+    ASSERT_TRUE(std::isxdigit(result[0]));
+
+    result = String::hexadecimal(30, 40);
+    ASSERT_EQ(result.size(), 2);
+    ASSERT_TRUE(std::isxdigit(result[0]));
+    ASSERT_TRUE(std::isxdigit(result[1]));
+}
+
 TEST_F(StringTest, shouldGenerateBinary)
 {
     const auto binaryLength = 8;

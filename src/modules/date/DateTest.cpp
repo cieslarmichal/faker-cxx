@@ -7,8 +7,8 @@
 
 #include "../../common/StringHelper.h"
 #include "data/MonthNames.h"
-#include "data/WeekdayNames.h"
 #include "data/TimeZones.h"
+#include "data/WeekdayNames.h"
 
 #ifdef _WIN32
 #define timegm _mkgmtime
@@ -326,8 +326,7 @@ TEST_F(DateTest, shouldGenerateRandomTimezone)
 {
     const auto generatedTimeZone = Date::timezone();
 
-    ASSERT_TRUE(std::ranges::any_of(timezonesAbbreviatedNames,
-                                    [generatedTimeZone](const std::string& timezoneName)
+    ASSERT_TRUE(std::ranges::any_of(timezonesAbbreviatedNames, [generatedTimeZone](const std::string& timezoneName)
                                     { return timezoneName == generatedTimeZone; }));
 }
 

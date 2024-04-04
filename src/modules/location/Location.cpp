@@ -51,24 +51,25 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Romania, romaniaAddresses},
     {AddressCountry::Latvia, latviaAddresses}};
 
-const std::map<AddressCountry, Country> countryAddressToCountryMapping{{AddressCountry::Usa, Country::Usa},
-                                                                       {AddressCountry::Poland, Country::Poland},
-                                                                       {AddressCountry::Russia, Country::Russia},
-                                                                       {AddressCountry::France, Country::France},
-                                                                       {AddressCountry::Ukraine, Country::Ukraine},
-                                                                       {AddressCountry::Italy, Country::Italy},
-                                                                       {AddressCountry::Germany, Country::Germany},
-                                                                       {AddressCountry::Czech, Country::Czech},
-                                                                       {AddressCountry::Australia, Country::Australia},
-                                                                       {AddressCountry::India, Country::India},
-                                                                       {AddressCountry::Denmark, Country::Denmark},
-                                                                       {AddressCountry::Spain, Country::Spain},
-                                                                       {AddressCountry::Brazil, Country::Brazil},
-                                                                       {AddressCountry::Finland, Country::Finland},
-                                                                       {AddressCountry::Estonia, Country::Estonia},
-                                                                       {AddressCountry::Romania, Country::Romania},
-                                                                       {AddressCountry::Latvia, Country::Latvia},
-                                                                       };
+const std::map<AddressCountry, Country> countryAddressToCountryMapping{
+    {AddressCountry::Usa, Country::Usa},
+    {AddressCountry::Poland, Country::Poland},
+    {AddressCountry::Russia, Country::Russia},
+    {AddressCountry::France, Country::France},
+    {AddressCountry::Ukraine, Country::Ukraine},
+    {AddressCountry::Italy, Country::Italy},
+    {AddressCountry::Germany, Country::Germany},
+    {AddressCountry::Czech, Country::Czech},
+    {AddressCountry::Australia, Country::Australia},
+    {AddressCountry::India, Country::India},
+    {AddressCountry::Denmark, Country::Denmark},
+    {AddressCountry::Spain, Country::Spain},
+    {AddressCountry::Brazil, Country::Brazil},
+    {AddressCountry::Finland, Country::Finland},
+    {AddressCountry::Estonia, Country::Estonia},
+    {AddressCountry::Romania, Country::Romania},
+    {AddressCountry::Latvia, Country::Latvia},
+};
 }
 
 std::string Location::country()

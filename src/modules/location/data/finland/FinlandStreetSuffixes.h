@@ -6,16 +6,6 @@
 namespace faker
 {
 const std::vector<std::string> finlandStreetSuffixes = {
-  "katu",
-  "tie",
-  "kuja",
-  "polku",
-  "kaari",
-  "linja",
-  "raitti",
-  "rinne",
-  "penger",
-  "ranta",
-  "väylä",
+    "katu", "tie", "kuja", "polku", "kaari", "linja", "raitti", "rinne", "penger", "ranta", "väylä",
 };
 }

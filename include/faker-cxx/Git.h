@@ -12,7 +12,8 @@ class Git
 public:
     struct Author
     {
-        std::string name, email;
+        std::string name;
+        std::string email;
     };
 
     /**

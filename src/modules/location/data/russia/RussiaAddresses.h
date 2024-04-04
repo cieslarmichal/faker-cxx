@@ -2,9 +2,9 @@
 
 #include "../CountryAddresses.h"
 #include "RussiaCities.h"
+#include "RussiaStates.h"
 #include "RussiaStreetNames.h"
 #include "RussiaStreetPrefixes.h"
-#include "RussiaStates.h"
 
 namespace faker
 {
@@ -22,18 +22,18 @@ const std::vector<std::string> russiaStreetFormats{"{streetPrefix} {firstName}",
 
 const std::vector<std::string> russiaCityFormats{"{cityName}"};
 
-const CountryAddresses russiaAddresses{ russiaZipCodeFormat,
-                                        russiaAddressFormats,
-                                        russiaSecondaryAddressFormats,
-                                        russiaStreetFormats,
-                                        russiaStreetPrefixes,
-                                        russiaStreetNames,
-                                        {},
-                                        russiaBuildingNumberFormats,
-                                        russiaCityFormats,
-                                        {},
-                                        russiaCities,
-                                        {},
-                                        russiaStates,
-                                        {}};
+const CountryAddresses russiaAddresses{russiaZipCodeFormat,
+                                       russiaAddressFormats,
+                                       russiaSecondaryAddressFormats,
+                                       russiaStreetFormats,
+                                       russiaStreetPrefixes,
+                                       russiaStreetNames,
+                                       {},
+                                       russiaBuildingNumberFormats,
+                                       russiaCityFormats,
+                                       {},
+                                       russiaCities,
+                                       {},
+                                       russiaStates,
+                                       {}};
 }

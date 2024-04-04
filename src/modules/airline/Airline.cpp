@@ -1,7 +1,5 @@
 #include "faker-cxx/Airline.h"
 
-#include <string>
-
 #include "data/AircraftTypes.h"
 #include "data/Airlines.h"
 #include "data/Airplanes.h"
@@ -69,4 +67,3 @@ std::string Airline::flightNumberByRange(bool addLeadingZeros, faker::Range leng
     return String::numeric(Number::integer(length.min, length.max), false);
 }
 }
-

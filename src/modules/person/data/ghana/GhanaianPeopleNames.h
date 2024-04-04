@@ -10,7 +10,7 @@ namespace faker
 const NameFormats ghanaianPersonNameFormats{{{"{firstName} {lastName}"}, 1}};
 
 const PeopleNames ghanaianPeopleNames{{ghanaianMalesFirstNames, {}, ghanaianLastNames, {}, {}},
-                                    {ghanaianFemalesFirstNames, {}, ghanaianLastNames, {}, {}},
-                                    ghanaianPersonNameFormats};
+                                      {ghanaianFemalesFirstNames, {}, ghanaianLastNames, {}, {}},
+                                      ghanaianPersonNameFormats};
 
 }

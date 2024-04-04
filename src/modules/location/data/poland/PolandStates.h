@@ -6,21 +6,8 @@
 namespace faker
 {
 const std::vector<std::string> polandStates = {
-    "dolnośląskie",
-    "kujawsko-pomorskie",
-    "lubelskie",
-    "lubuskie",
-    "łódzkie",
-    "małopolskie",
-    "mazowieckie",
-    "opolskie",
-    "podkarpackie",
-    "podlaskie",
-    "pomorskie",
-    "śląskie",
-    "świętokrzyskie",
-    "warmińsko-mazurskie",
-    "wielkopolskie",
-    "zachodniopomorskie",
+    "dolnośląskie",  "kujawsko-pomorskie", "lubelskie", "lubuskie",  "łódzkie", "małopolskie",    "mazowieckie",
+    "opolskie",      "podkarpackie",       "podlaskie", "pomorskie", "śląskie", "świętokrzyskie", "warmińsko-mazurskie",
+    "wielkopolskie", "zachodniopomorskie",
 };
 }

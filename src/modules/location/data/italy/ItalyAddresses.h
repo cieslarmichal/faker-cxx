@@ -2,15 +2,15 @@
 
 #include "../CountryAddresses.h"
 #include "ItalyCities.h"
-#include "ItalyStreetPrefixes.h"
 #include "ItalyStates.h"
+#include "ItalyStreetPrefixes.h"
 
 namespace faker
 {
 const std::string italyZipCodeFormat{"#####"};
 
 const std::vector<std::string> italyAddressFormats{"{street} {buildingNumber}",
-                                                    "{street} {buildingNumber} {secondaryAddress}"};
+                                                   "{street} {buildingNumber} {secondaryAddress}"};
 
 const std::vector<std::string> italySecondaryAddressFormats{"Appartamento ##", "Piano #"};
 

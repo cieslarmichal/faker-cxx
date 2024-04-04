@@ -1,5 +1,4 @@
 #include "faker-cxx/Internet.h"
-#include "faker-cxx/Number.h"
 
 #include <algorithm>
 #include <array>
@@ -22,6 +21,7 @@
 #include "data/HttpMediaType.h"
 #include "data/HttpRequestHeaders.h"
 #include "data/HttpResponseHeaders.h"
+#include "faker-cxx/Number.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -159,8 +159,9 @@ TEST_F(InternetTest, shouldGenerateInternationalUsernames)
 {
     std::vector<std::string> romanianFirstNames{romanianMalesFirstNames};
 
-    romanianFirstNames.insert(romanianFirstNames.end(), romanianFemalesFirstNames.begin(), romanianFemalesFirstNames.end());
-  
+    romanianFirstNames.insert(romanianFirstNames.end(), romanianFemalesFirstNames.begin(),
+                              romanianFemalesFirstNames.end());
+
     const auto username = Internet::username(std::nullopt, std::nullopt, Country::Romania);
 
     ASSERT_TRUE(std::ranges::any_of(romanianFirstNames, [username](const std::string& romanianFirstName)

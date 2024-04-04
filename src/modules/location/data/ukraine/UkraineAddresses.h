@@ -2,9 +2,9 @@
 
 #include "../CountryAddresses.h"
 #include "UkraineCities.h"
+#include "UkraineStates.h"
 #include "UkraineStreetNames.h"
 #include "UkraineStreetPrefixes.h"
-#include "UkraineStates.h"
 
 namespace faker
 {

@@ -181,4 +181,3 @@ TEST_F(AirlineTest, shouldGenerateFlightNumberByRange)
     std::string flightNumber = Airline::flightNumberByRange(false, {1, 6});
     ASSERT_TRUE(flightNumber.length() <= 6);
 }
-

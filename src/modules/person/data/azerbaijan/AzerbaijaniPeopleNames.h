@@ -12,9 +12,8 @@ const NameFormats azerbaijaniPersonNameFormats{{
     {"{firstName} {lastName}", 1},
 }};
 
-const PeopleNames azerbaijaniPeopleNames{
-    {azerbaijaniMalesFirstNames, {}, azerbaijaniMalesLastNames, {}, {}},
-    {azerbaijaniFemalesFirstNames, {}, azerbaijaniFemalesLastNames, {}, {}},
-    azerbaijaniPersonNameFormats};
+const PeopleNames azerbaijaniPeopleNames{{azerbaijaniMalesFirstNames, {}, azerbaijaniMalesLastNames, {}, {}},
+                                         {azerbaijaniFemalesFirstNames, {}, azerbaijaniFemalesLastNames, {}, {}},
+                                         azerbaijaniPersonNameFormats};
 
 }

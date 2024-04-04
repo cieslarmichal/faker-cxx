@@ -2,17 +2,18 @@
 
 #include <string>
 
-#include "../../common/WeatherHelper.h"
 #include "data/WeatherDescription.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 
 namespace faker
 {
+
 Weather::Temperature Weather::temperature()
 {
     double metric = Number::decimal(10.0, 30.0);
-    double imperial = WeatherHelper::celsiusToFahrenheit(metric);
+
+    double imperial = (metric * 9.0 / 5.0) + 32;
 
     return {metric, imperial};
 }
@@ -20,7 +21,8 @@ Weather::Temperature Weather::temperature()
 Weather::Pressure Weather::pressure()
 {
     double metric = Number::decimal(100.0, 102.0);
-    double imperial = WeatherHelper::kPaToPsi(metric);
+
+    double imperial = metric * 0.14503773773375;
 
     return {metric, imperial};
 }
@@ -28,7 +30,8 @@ Weather::Pressure Weather::pressure()
 Weather::Visibility Weather::visibility()
 {
     double metric = Number::decimal(1.0, 10.0);
-    double imperial = WeatherHelper::milesToKilometers(metric);
+
+    double imperial = metric * 1.609344;
 
     return {metric, imperial};
 }
