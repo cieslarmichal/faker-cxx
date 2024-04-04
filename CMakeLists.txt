@@ -52,7 +52,6 @@ set(FAKER_SOURCES
     src/modules/videoGame/VideoGame.cpp
     src/modules/medicine/Medicine.cpp
     src/modules/weather/Weather.cpp
-    src/common/WeatherHelper.cpp
     src/modules/airline/Airline.cpp
     src/modules/image/Image.cpp
     src/modules/crypto/Crypto.cpp
@@ -95,7 +94,6 @@ set(FAKER_UT_SOURCES
     src/modules/videoGame/VideoGameTest.cpp
     src/modules/medicine/MedicineTest.cpp
     src/modules/weather/WeatherTest.cpp
-    src/common/WeatherHelperTest.cpp
     src/modules/airline/AirlineTest.cpp
     src/modules/image/ImageTest.cpp
     src/modules/crypto/CryptoTest.cpp
