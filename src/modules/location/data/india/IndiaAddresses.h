@@ -2,10 +2,11 @@
 
 #include "../CountryAddresses.h"
 #include "IndiaCities.h"
-#include "IndiaStreetSuffixes.h"
 #include "IndiaStates.h"
+#include "IndiaStreetSuffixes.h"
 
-namespace faker {
+namespace faker
+{
 const std::string indiaZipCodeFormat{"######"};
 
 const std::vector<std::string> indiaAddressFormats{"{buildingNumber} {street}"};
@@ -18,18 +19,18 @@ const std::vector<std::string> indiaStreetFormats{"{firstName} {streetSuffix}", 
 
 const std::vector<std::string> indiaCityFormats{"{cityName}"};
 
-const CountryAddresses indiaAddresses{  indiaZipCodeFormat,
-                                        indiaAddressFormats,
-                                        indiaSecondaryAddressFormats,
-                                        indiaStreetFormats,
-                                        {},
-                                        {},
-                                        indiaStreetSuffixes,
-                                        indiaBuildingNumberFormats,
-                                        indiaCityFormats,
-                                        {},
-                                        indiaCities,
-                                        {},
-                                        indiaStates,
-                                        {}};
+const CountryAddresses indiaAddresses{indiaZipCodeFormat,
+                                      indiaAddressFormats,
+                                      indiaSecondaryAddressFormats,
+                                      indiaStreetFormats,
+                                      {},
+                                      {},
+                                      indiaStreetSuffixes,
+                                      indiaBuildingNumberFormats,
+                                      indiaCityFormats,
+                                      {},
+                                      indiaCities,
+                                      {},
+                                      indiaStates,
+                                      {}};
 }

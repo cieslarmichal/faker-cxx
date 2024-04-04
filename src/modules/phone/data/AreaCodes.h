@@ -27,4 +27,3 @@ const std::vector<std::string> areaCodes = {
 };
 }
 }
-

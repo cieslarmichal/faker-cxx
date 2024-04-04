@@ -2,15 +2,15 @@
 
 #include "../CountryAddresses.h"
 #include "GermanyCities.h"
-#include "GermanyStreetNames.h"
 #include "GermanyStates.h"
+#include "GermanyStreetNames.h"
 
 namespace faker
 {
 const std::string germanyZipCodeFormat{"#####"};
 
 const std::vector<std::string> germanyAddressFormats{"{street} {buildingNumber}",
-                                                    "{street} {buildingNumber} {secondaryAddress}"};
+                                                     "{street} {buildingNumber} {secondaryAddress}"};
 
 const std::vector<std::string> germanySecondaryAddressFormats{"Apt. ###", "Zimmer ###", "# OG"};
 

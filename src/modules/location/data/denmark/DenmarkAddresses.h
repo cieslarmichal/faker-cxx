@@ -5,11 +5,13 @@
 #include "DenmarkStates.h"
 #include "DenmarkStreetNames.h"
 
-namespace faker {
+namespace faker
+{
 
 const std::string denmarkZipCodeFormat{"####"};
 
-const std::vector<std::string> denmarkAddressFormats{"{street} {buildingNumber}", "{street} {buildingNumber} {secondaryAddress}"};
+const std::vector<std::string> denmarkAddressFormats{"{street} {buildingNumber}",
+                                                     "{street} {buildingNumber} {secondaryAddress}"};
 
 const std::vector<std::string> denmarkSecondaryAddressFormats{"#. tv", "#. th"};
 

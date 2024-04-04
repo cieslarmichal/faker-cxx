@@ -10,6 +10,6 @@ namespace faker
 const NameFormats lithuanianPersonNameFormats{{"{firstName} {lastName}", 1}};
 
 const PeopleNames lithuanianPeopleNames{{lithuanianMalesFirstNames, {}, lithuanianLastNames, {}, {}},
-                                      {lithuanianFemalesFirstNames, {}, lithuanianLastNames, {}, {}},
-                                      lithuanianPersonNameFormats};
+                                        {lithuanianFemalesFirstNames, {}, lithuanianLastNames, {}, {}},
+                                        lithuanianPersonNameFormats};
 }

@@ -2,8 +2,8 @@
 
 #include "../CountryAddresses.h"
 #include "UsaCities.h"
-#include "UsaStreetSuffixes.h"
 #include "UsaStates.h"
+#include "UsaStreetSuffixes.h"
 
 namespace faker
 {

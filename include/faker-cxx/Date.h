@@ -253,6 +253,5 @@ public:
      * @endcode
      */
     static std::string timezone();
-
 };
 }

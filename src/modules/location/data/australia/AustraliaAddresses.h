@@ -1,9 +1,9 @@
 #pragma once
 
 #include "../CountryAddresses.h"
+#include "AustraliaCities.h"
 #include "AustraliaStates.h"
 #include "AustraliaStreetSuffixes.h"
-#include "AustraliaCities.h"
 
 namespace faker
 {

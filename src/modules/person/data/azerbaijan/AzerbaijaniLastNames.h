@@ -6,28 +6,11 @@
 namespace faker
 {
 const std::vector<std::string> azerbaijaniMalesLastNames = {
-    "Əhmədov",
-    "Ələkbərov",
-    "Əliyev",
-    "Vəliyev",
-    "Soltanov",
-    "Quliyev",
-    "Məmmədov",
-    "Xəlilov",
-    "Nəzərov",
-    "Rəhimov",
+    "Əhmədov", "Ələkbərov", "Əliyev", "Vəliyev", "Soltanov", "Quliyev", "Məmmədov", "Xəlilov", "Nəzərov", "Rəhimov",
 };
 
 const std::vector<std::string> azerbaijaniFemalesLastNames = {
-    "Qasımova",
-    "Əfəndiyeva",
-    "Soltanova",
-    "Abdullayeva",
-    "Rəşidova",
-    "Ələkbərova",
-    "Əliyeva",
-    "Tahirova",
-    "Seyidova",
-    "Vəsiyeva",
+    "Qasımova",   "Əfəndiyeva", "Soltanova", "Abdullayeva", "Rəşidova",
+    "Ələkbərova", "Əliyeva",    "Tahirova",  "Seyidova",    "Vəsiyeva",
 };
 }

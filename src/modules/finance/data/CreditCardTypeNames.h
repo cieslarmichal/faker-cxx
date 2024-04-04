@@ -6,6 +6,6 @@
 namespace faker
 {
 
-const std::vector<std::string> creditCardTypeNames = { "Visa", "AmericanExpress", "MasterCard", "Discover" };
+const std::vector<std::string> creditCardTypeNames = {"Visa", "AmericanExpress", "MasterCard", "Discover"};
 
 }

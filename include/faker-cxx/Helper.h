@@ -136,7 +136,8 @@ public:
         unsigned currentSum = 0;
         size_t currentIdx = 0;
 
-        while (currentIdx < data.size()) {
+        while (currentIdx < data.size())
+        {
             currentSum += data[currentIdx].weight;
             if (currentSum >= targetWeightValue)
                 break;

@@ -19,7 +19,7 @@ std::mt19937 Helper::pseudoRandomGenerator(Helper::randomDevice());
 std::string Helper::shuffleString(std::string data)
 {
     std::shuffle(data.begin(), data.end(), pseudoRandomGenerator);
-    
+
     return data;
 }
 

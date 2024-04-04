@@ -2,16 +2,15 @@
 
 #include "../CountryAddresses.h"
 #include "CzechCities.h"
-#include "CzechStreetNames.h"
 #include "CzechStates.h"
-
+#include "CzechStreetNames.h"
 
 namespace faker
 {
 const std::string czechZipCodeFormat{"#####"};
 
 const std::vector<std::string> czechAddressFormats{"{street} {buildingNumber}",
-                                                     "{street} {buildingNumber} {secondaryAddress}"};
+                                                   "{street} {buildingNumber} {secondaryAddress}"};
 
 const std::vector<std::string> czechSecondaryAddressFormats{"Apt. ###", "Suite ###"};
 
