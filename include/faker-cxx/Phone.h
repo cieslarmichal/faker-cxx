@@ -83,6 +83,17 @@ public:
      */
     static std::string imei();
 
+    /**
+     * @brief returns a random country area code
+     *
+     * @returns Random country area code
+     *
+     * @code
+     * Phone::areaCode() // "+1"
+     * @endcode
+     */
+    static std::string areaCode();
+
 private:
     static std::map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap();
     static std::map<PhoneNumberCountryFormat, std::string> phoneNumberFormatMap;
