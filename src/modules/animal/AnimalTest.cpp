@@ -66,7 +66,7 @@ TEST_F(AnimalTest, shouldGenerateCow)
 
 TEST_F(AnimalTest, shouldGenerateCrocodilia)
 {
-    const auto generatedCrocodilia = Animal::crocodilia();
+    const auto generatedCrocodilia = Animal::crocodile();
 
     ASSERT_TRUE(std::ranges::any_of(faker::crocodilia, [generatedCrocodilia](const std::string& crocodilia)
                                     { return crocodilia == generatedCrocodilia; }));

@@ -285,12 +285,14 @@ std::string Internet::mac(const std::string& sep)
 
     for (int i = 0; i < 12; i++)
     {
-        mac += Number::hex();
+        mac += String::hexadecimal(0, 15);
+
         if (i % 2 == 1 && i != 11)
         {
             mac += currentSep;
         }
     }
+
     return mac;
 }
 
@@ -331,8 +333,10 @@ std::string Internet::anonymousUsername(unsigned maxLength)
     else if (maxLength > defaultMax)
         maxLength = defaultMax;
 
-    unsigned adjectiveLength = Number::integer<unsigned>(3, 1 + maxLength / 2);
-    unsigned nounLength = maxLength - adjectiveLength;
+    const std::integral auto adjectiveLength = Number::integer<unsigned>(3, 1 + maxLength / 2);
+
+    const auto nounLength = maxLength - adjectiveLength;
+    
     std::stringstream usernameBuilder;
 
     usernameBuilder << Word::adjective(adjectiveLength) << Word::noun(nounLength);

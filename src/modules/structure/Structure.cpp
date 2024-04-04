@@ -52,7 +52,7 @@ const std::map<faker::StructureToken, std::function<std::string()>> moduleFuncti
     {faker::StructureToken::AnimalCat, []() { return faker::Animal::cat(); }},
     {faker::StructureToken::AnimalCetacean, []() { return faker::Animal::cetacean(); }},
     {faker::StructureToken::AnimalCow, []() { return faker::Animal::cow(); }},
-    {faker::StructureToken::AnimalCrocodilia, []() { return faker::Animal::crocodilia(); }},
+    {faker::StructureToken::AnimalCrocodilia, []() { return faker::Animal::crocodile(); }},
     {faker::StructureToken::AnimalDog, []() { return faker::Animal::dog(); }},
     {faker::StructureToken::AnimalFish, []() { return faker::Animal::fish(); }},
     {faker::StructureToken::AnimalHorse, []() { return faker::Animal::horse(); }},

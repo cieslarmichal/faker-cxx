@@ -95,7 +95,7 @@ public:
      */
     static std::string format();
 
-    /*
+    /**
      * @brief returns a random page number (50-999)
      *
      * @returns int page number
@@ -106,7 +106,7 @@ public:
      */
     static int page();
 
-    /*
+    /**
      * @brief returns a random book series
      *
      * @returns std::string book series

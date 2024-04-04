@@ -54,8 +54,8 @@ bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
         // if a char in guarantee is not in char set, it is an invalid guarantee
         if (targetCharacters.find(it.first) == targetCharacters.end())
             return false;
-        atleastCountSum += it.second.atleastCount;
-        atmostCountSum += it.second.atmostCount;
+        atleastCountSum += it.second.atLeastCount;
+        atmostCountSum += it.second.atMostCount;
     }
     // if atleastCount sums up greater than total length of string, it is an invalid guarantee
     // if all chars in targetCharacters are mapped in guarantee, we need to check for validity of atmostCount
@@ -65,12 +65,12 @@ bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
     return true;
 }
 
-std::string generateAtleastString(const GuaranteeMap& guarantee)
+std::string generateAtLeastString(const GuaranteeMap& guarantee)
 {
     std::string result;
     for (auto& it : guarantee)
     {
-        result += std::string(it.second.atleastCount, it.first);
+        result += std::string(it.second.atLeastCount, it.first);
     }
     return result;
 }
@@ -79,7 +79,7 @@ std::string String::generateStringWithGuarantee(GuaranteeMap& guarantee, std::se
                                                 unsigned int length)
 {
     std::string output{};
-    output += generateAtleastString(guarantee);
+    output += generateAtLeastString(guarantee);
     // string with least required chars cannot be greater than the total length
     assert(output.size() <= length);
     // we will generate chars for remaining length only
@@ -97,11 +97,11 @@ std::string String::generateStringWithGuarantee(GuaranteeMap& guarantee, std::se
             // if no constraint on generated char, break out of loop
             if (it == guarantee.end())
                 break;
-            auto remainingUses = it->second.atmostCount - it->second.atleastCount;
+            auto remainingUses = it->second.atMostCount - it->second.atLeastCount;
             if (remainingUses > 0)
             {
                 // decrement no of possible uses as we will use it right now
-                --it->second.atmostCount;
+                --it->second.atMostCount;
                 break;
             }
             // remove this char from targetCharacters as it is no longer valid and regenerate char
@@ -264,7 +264,7 @@ std::string String::numeric(GuaranteeMap&& guarantee, const unsigned length, boo
     if (!allowLeadingZeros)
     {
         auto it = guarantee.find('0');
-        if (it != guarantee.end() && it->second.atleastCount > length - 1)
+        if (it != guarantee.end() && it->second.atLeastCount > length - 1)
         {
             throw std::invalid_argument{"Invalid guarantee."};
         }
@@ -277,7 +277,7 @@ std::string String::numeric(GuaranteeMap&& guarantee, const unsigned length, boo
     }
     if (allowLeadingZeros)
         return generateStringWithGuarantee(guarantee, targetCharacters, length);
-    // if leading zero not allowed, pick first digit a non zero
+    // if leading zero not allowed, pick first digit a non-zero
     else
     {
         auto firstChar = std::to_string(Number::integer(1, 9));
@@ -285,7 +285,7 @@ std::string String::numeric(GuaranteeMap&& guarantee, const unsigned length, boo
         if (it != guarantee.end())
         {
             // decrement possible number of uses as we just used it as first char
-            --it->second.atmostCount;
+            --it->second.atMostCount;
         }
         return firstChar + generateStringWithGuarantee(guarantee, targetCharacters, length - 1);
     }
@@ -305,6 +305,28 @@ std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix
     }
 
     return hexadecimal;
+}
+
+std::string String::hexadecimal(std::optional<int> min, std::optional<int> max)
+{
+    int defaultMin = 0;
+    int defaultMax = 15;
+
+    if (min.has_value())
+    {
+        defaultMin = min.value();
+    }
+
+    if (max.has_value())
+    {
+        defaultMax = max.value();
+    }
+
+    std::stringstream stream;
+
+    stream << std::hex << Number::integer(defaultMin, defaultMax);
+
+    return stream.str();
 }
 
 std::string String::hexadecimal(GuaranteeMap&& guarantee, unsigned int length, HexCasing casing, HexPrefix prefix)
@@ -351,6 +373,7 @@ std::string String::octal(unsigned int length)
     }
     return "0o" + octalNumber;
 }
+
 std::string String::octal(GuaranteeMap&& guarantee, unsigned int length)
 {
     // numbers used by octal representation

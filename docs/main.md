@@ -23,7 +23,7 @@
           <li><a href="https://cieslarmichal.github.io/faker-cxx/classfaker_1_1Animal.html#ae37313d74286a52fb6f1de8212166355" class="text-style">cat</a></li>
           <li><a href="https://cieslarmichal.github.io/faker-cxx/classfaker_1_1Animal.html#a4222f2d97027e1113dde04f680f9f260" class="text-style">cetacean</a></li>
           <li><a href="https://cieslarmichal.github.io/faker-cxx/classfaker_1_1Animal.html#a019aa2791ad5a1b79702a69b3cc2f573" class="text-style">cow</a></li>
-          <li><a href="https://cieslarmichal.github.io/faker-cxx/classfaker_1_1Animal.html#a4be5f2e822a7f3aa5d3bb3132bca7738" class="text-style">crocodilia</a></li>
+          <li><a href="https://cieslarmichal.github.io/faker-cxx/classfaker_1_1Animal.html#a4be5f2e822a7f3aa5d3bb3132bca7738" class="text-style">crocodile</a></li>
           <li><a href="https://cieslarmichal.github.io/faker-cxx/classfaker_1_1Animal.html#a542d239f0a60a877407a147ef45c1dd4" class="text-style">dog</a></li>
           <li><a href="https://cieslarmichal.github.io/faker-cxx/classfaker_1_1Animal.html#a4dab9869c9f5a83781ec5cfb4e8d1caf" class="text-style">fish</a></li>
           <li><a href="https://cieslarmichal.github.io/faker-cxx/classfaker_1_1Animal.html#a3f86d0fc7c4d2544935603a2e8753b81" class="text-style">horse</a></li>

@@ -1,5 +1,7 @@
 #include "faker-cxx/Image.h"
 
+#include <map>
+
 #include "../../common/FormatHelper.h"
 #include "data/Type.h"
 #include "faker-cxx/Helper.h"

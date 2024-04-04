@@ -44,7 +44,7 @@ std::string Animal::cow()
     return Helper::arrayElement<std::string>(cows);
 }
 
-std::string Animal::crocodilia()
+std::string Animal::crocodile()
 {
     return Helper::arrayElement<std::string>(faker::crocodilia);
 }

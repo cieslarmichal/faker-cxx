@@ -1,14 +1,8 @@
 #pragma once
 
-#include <algorithm>
 #include <concepts>
-#include <optional>
 #include <random>
-#include <sstream>
 #include <stdexcept>
-#include <string>
-#include <type_traits>
-#include <utility>
 
 namespace faker
 {
@@ -101,24 +95,7 @@ public:
         return decimal<F>(static_cast<F>(0.), max);
     }
 
-    /**
-     * @brief Returns a lowercase hexadecimal number.
-     *
-     * @param min Optional parameter for lower bound of generated number.
-     * @param max Optional parameter for upper bound of generated number.
-     *
-     * @return A lowercase hexadecimal number.
-     *
-     * @code
-     * Number::hex() // "b"
-     * Number::hex(0, 255) // "9d"
-     * @endcode
-     */
-    static std::string hex(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
-
 private:
-    static std::string convertToHex(int number);
-
     static std::random_device randomDevice;
     static std::mt19937 pseudoRandomGenerator;
 };

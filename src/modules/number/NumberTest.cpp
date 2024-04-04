@@ -1,7 +1,5 @@
 #include "faker-cxx/Number.h"
 
-#include <algorithm>
-
 #include "gtest/gtest.h"
 
 using namespace ::testing;
@@ -58,25 +56,4 @@ TEST_F(NumberTest, givenRangeWithSameNumberSection_shouldGenerateThisNumberForDe
     const std::floating_point auto actualRandomNumber = Number::decimal<float>(2.f, 2.f);
 
     ASSERT_EQ(actualRandomNumber, 2.f);
-}
-
-TEST_F(NumberTest, shouldGenerateHexNumber)
-{
-    auto result = Number::hex();
-    ASSERT_EQ(result.size(), 1);
-    ASSERT_TRUE(std::isxdigit(result[0]));
-
-    result = Number::hex(100, 255);
-    ASSERT_EQ(result.size(), 2);
-    ASSERT_TRUE(std::isxdigit(result[0]));
-    ASSERT_TRUE(std::isxdigit(result[1]));
-
-    result = Number::hex(10, 15);
-    ASSERT_EQ(result.size(), 1);
-    ASSERT_TRUE(std::isxdigit(result[0]));
-
-    result = Number::hex(30, 40);
-    ASSERT_EQ(result.size(), 2);
-    ASSERT_TRUE(std::isxdigit(result[0]));
-    ASSERT_TRUE(std::isxdigit(result[1]));
 }

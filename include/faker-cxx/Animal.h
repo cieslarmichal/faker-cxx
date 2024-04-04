@@ -68,10 +68,10 @@ public:
      * @returns Species of crocodilia.
      *
      * @code
-     * Animal::crocodilia() // "Dwarf Crocodile"
+     * Animal::crocodile() // "Dwarf Crocodile"
      * @endcode
      */
-    static std::string crocodilia();
+    static std::string crocodile();
 
     /**
      * @brief Returns a random species of dog.

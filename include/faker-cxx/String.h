@@ -1,8 +1,8 @@
 #pragma once
 
-#include <iostream>
 #include <limits>
 #include <map>
+#include <optional>
 #include <random>
 #include <set>
 #include <sstream>
@@ -22,11 +22,11 @@ enum class StringCasing
 
 struct CharCount
 {
-    unsigned int atleastCount{(std::numeric_limits<unsigned int>::min)()};
-    unsigned int atmostCount{(std::numeric_limits<unsigned int>::max)()};
+    unsigned int atLeastCount{(std::numeric_limits<unsigned int>::min)()};
+    unsigned int atMostCount{(std::numeric_limits<unsigned int>::max)()};
 };
 
-/*
+/**
  * A std::map where user can specify the count required for specific chars
  */
 using GuaranteeMap = std::map<char, CharCount>;
@@ -49,7 +49,7 @@ using GuaranteeMap = std::map<char, CharCount>;
  */
 bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length);
 
-/*
+/**
  * @brief Generates the least required string for a given guarantee map
  *
  * @returns least required std::string
@@ -58,10 +58,10 @@ bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
  *
  * @code
  * GuaranteeMap guarantee { {'0',{3,10}},{'a',{6,8}} }; // "000aaaaaa"
- * faker::generateAtleastString(guarantee);
+ * faker::generateAtLeastString(guarantee);
  * @endcode
  */
-std::string generateAtleastString(const GuaranteeMap& guarantee);
+std::string generateAtLeastString(const GuaranteeMap& guarantee);
 
 class String
 {
@@ -121,7 +121,7 @@ public:
         for (int i = 0; i < 12; i++)
         {
             ss << gen(dist);
-        };
+        }
 
         return ss.str();
     }
@@ -310,6 +310,21 @@ public:
      */
     static std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
                                    HexPrefix prefix = HexPrefix::ZeroX);
+
+    /**
+     * @brief Returns a lowercase hexadecimal number.
+     *
+     * @param min Optional parameter for lower bound of generated number.
+     * @param max Optional parameter for upper bound of generated number.
+     *
+     * @return A lowercase hexadecimal number.
+     *
+     * @code
+     * String::hexadecimal() // "b"
+     * String::hexadecimal(0, 255) // "9d"
+     * @endcode
+     */
+    static std::string hexadecimal(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
 
     /**
      * @brief Generates a hexadecimal string.
