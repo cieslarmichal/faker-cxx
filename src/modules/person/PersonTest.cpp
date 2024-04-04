@@ -1,10 +1,11 @@
 #include "faker-cxx/Person.h"
 
 #include <algorithm>
+#include <regex>
 
 #include "gtest/gtest.h"
 
-#include "../../common/BioHelper.h"
+#include "../word/data/Nouns.h"
 #include "data/albania/AlbanianPeopleNames.h"
 #include "data/argentina/ArgentinianPeopleNames.h"
 #include "data/australia/AustralianPeopleNames.h"
@@ -12,7 +13,9 @@
 #include "data/azerbaijan/AzerbaijaniPeopleNames.h"
 #include "data/belarus/BelarusianPeopleNames.h"
 #include "data/belgium/BelgianPeopleNames.h"
+#include "data/Bio.h"
 #include "data/bosnia/BosnianPeopleNames.h"
+#include "data/brazil/BrazilianPeopleNames.h"
 #include "data/bulgaria/BulgarianPeopleNames.h"
 #include "data/canada/CanadianPeopleNames.h"
 #include "data/china/ChinesePeopleNames.h"
@@ -44,6 +47,7 @@
 #include "data/lebanon/LebanesePeopleNames.h"
 #include "data/lithuania/LithuanianPeopleNames.h"
 #include "data/macedonia/MacedonianPeopleNames.h"
+#include "data/maldives/MaldiviansPeopleNames.h"
 #include "data/malta/MaltesePeopleNames.h"
 #include "data/mexico/MexicanPeopleNames.h"
 #include "data/moldova/MoldovanPeopleNames.h"
@@ -53,6 +57,7 @@
 #include "data/netherlands/DutchPeopleNames.h"
 #include "data/norway/NorwegianPeopleNames.h"
 #include "data/palestine/PalestinianPeopleNames.h"
+#include "data/PeopleNames.h"
 #include "data/poland/PolishPeopleNames.h"
 #include "data/portugal/PortuguesePeopleNames.h"
 #include "data/romania/RomanianPeopleNames.h"
@@ -66,13 +71,11 @@
 #include "data/switzerland/SwissPeopleNames.h"
 #include "data/syria/SyrianPeopleNames.h"
 #include "data/turkey/TurkishPeopleNames.h"
-#include "data/maldives/MaldiviansPeopleNames.h"
 #include "data/ukraine/UkrainianPeopleNames.h"
+#include "data/usa/UsaPeopleNames.h"
 #include "data/vietnam/VietnamesePeopleNames.h"
 #include "data/ZodiacSigns.h"
-#include "src/modules/person/data/brazil/BrazilianPeopleNames.h"
-#include "src/modules/person/data/PeopleNames.h"
-#include "src/modules/person/data/usa/UsaPeopleNames.h"
+#include "faker-cxx/Internet.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -209,6 +212,8 @@ const std::map<Country, std::string> generatedTestName{
     {Country::Maldives, "shouldGenerateMaldivianName"},
 };
 }
+
+bool checkTokenFormat(const std::string& bio);
 
 class PersonTest : public TestWithParam<Country>
 {
@@ -533,7 +538,7 @@ TEST_F(PersonTest, shouldGenerateBio)
 {
     const auto generatedBio = Person::bio();
 
-    ASSERT_TRUE(BioHelper::checkTokenFormat(generatedBio));
+    ASSERT_TRUE(checkTokenFormat(generatedBio));
 }
 
 TEST_F(PersonTest, shouldGenerateLanguage)
@@ -640,3 +645,96 @@ TEST_P(PersonSsnSuite, shouldGenerateSsn)
 INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite, testing::ValuesIn(supportedSsnCountries),
                          [](const testing::TestParamInfo<PersonSsnSuite::ParamType>& info)
                          { return "shouldGenerate" + toString(info.param) + "Ssn"; });
+
+bool checkTokenFormat(const std::string& bio)
+{
+    const std::regex firstRegex{R"(^(\w+\s?\w+)$)"};
+    const std::regex secondRegex{R"(^(\w+\s?\w+), (\w+\s?\w+)$)"};
+    const std::regex thirdRegex{R"(^(\w+\s?\w+), (\w+\s?\w+), (\w+\s?\w+)$)"};
+    const std::regex fourthRegex{R"(^(\w+\s?\w+), (\w+\s?\w+), (\w+\s?\w+), (\S+)$)"};
+    const std::regex fifthRegex{R"(^(\w+\-?\w+) (\w+)$)"};
+    const std::regex sixthRegex{R"(^(\w+\-?\w+) (\w+) (\S+)$)"};
+    const std::regex seventhRegex{R"(^(\w+\-?\w+) (\w+), (\w+\s?\w+)$)"};
+    const std::regex eigthRegex{R"(^(\w+\-?\w+) (\w+), (\w+\s?\w+) (\S+)$)"};
+
+    std::smatch matches;
+    //
+    if (std::regex_match(bio, matches, firstRegex))
+    {
+        // In this case the bio is in the format {bio_part} so check that the value is present in the bio_part vector.
+        if (std::find(bioPart.begin(), bioPart.end(), matches[0]) != bioPart.end())
+            return true;
+    }
+
+    if (std::regex_match(bio, matches, secondRegex))
+    {
+        // In this case the bio is in the format {bio_part}, {bio_part} so check that the value is present in the
+        // bio_part vector.
+        if (std::find(bioPart.begin(), bioPart.end(), matches[1]) != bioPart.end() &&
+            std::find(bioPart.begin(), bioPart.end(), matches[2]) != bioPart.end())
+            return true;
+    }
+
+    if (std::regex_match(bio, matches, thirdRegex))
+    {
+        // In this case the bio is in the format {bio_part}, {bio_part}, {bio_part} so check that the value is present
+        // in the bio_part vector.
+        if (std::find(bioPart.begin(), bioPart.end(), matches[1]) != bioPart.end() &&
+            std::find(bioPart.begin(), bioPart.end(), matches[2]) != bioPart.end() &&
+            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end())
+            return true;
+    }
+
+    if (std::regex_match(bio, matches, fourthRegex))
+    {
+        // In this case the bio is in the format {bio_part}, {bio_part}, {bio_part}, {emoji} so check that the value is
+        // present in the bio_part vector.
+        if (std::find(bioPart.begin(), bioPart.end(), matches[1]) != bioPart.end() &&
+            std::find(bioPart.begin(), bioPart.end(), matches[2]) != bioPart.end() &&
+            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() &&
+            Internet::checkIfEmojiIsValid(matches[4]))
+            return true;
+    }
+
+    if (std::regex_match(bio, matches, fifthRegex))
+    {
+        // In this case the bio is in the format {noun} {bio_supporter} so check that the value is present
+        // in the bio_part vector.
+        if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
+            std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end())
+            return true;
+    }
+
+    if (std::regex_match(bio, matches, sixthRegex))
+    {
+        // In this case the bio is in the format {noun} {bio_supporter} {emoji} so check that the value is present
+        // in the bio_part vector.
+        if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
+            std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
+            Internet::checkIfEmojiIsValid(matches[3]))
+            return true;
+    }
+
+    if (std::regex_match(bio, matches, seventhRegex))
+    {
+        // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} so check that the value is present
+        // in the bio_part vector.
+        if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
+            std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
+            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end())
+            return true;
+    }
+
+    if (std::regex_match(bio, matches, eigthRegex))
+    {
+        // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} {emoji} so check that the value is
+        // present in the bio_part vector.
+        if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
+            std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
+            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() &&
+            Internet::checkIfEmojiIsValid(matches[4]))
+            return true;
+    }
+
+    return false;
+}
