@@ -3,6 +3,7 @@
 #include <chrono>
 #include <ctime>
 #include <iomanip>
+#include <sstream>
 
 #include "../../common/FormatHelper.h"
 #include "data/MonthNames.h"
