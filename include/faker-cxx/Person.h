@@ -4,6 +4,7 @@
 #include <string>
 
 #include "faker-cxx/types/Country.h"
+#include "faker-cxx/types/PassportType.h"
 #include "faker-cxx/types/Sex.h"
 #include "faker-cxx/types/SsnCountry.h"
 
@@ -242,5 +243,16 @@ public:
      * @endcode
      */
     static std::string chineseZodiac();
+
+    /**
+     * @brief Returns a random passport number from a given country
+     *
+     * @returns Passport
+     *
+     * @code
+     * Person::passport(PassportCountry::Romania) // "12345678"
+     * @endcode
+     */
+    static std::string passport(PassportCountry country = PassportCountry::Usa);
 };
 }
