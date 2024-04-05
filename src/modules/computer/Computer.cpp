@@ -7,7 +7,6 @@
 
 namespace faker
 {
-
 std::string Computer::type()
 {
     return Helper::arrayElement(data::ComputerTypes);

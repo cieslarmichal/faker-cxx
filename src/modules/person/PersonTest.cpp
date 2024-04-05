@@ -631,7 +631,6 @@ class PersonSsnSuite : public TestWithParam<SsnCountry>
 {
 };
 
-// TODO: add more precise tests
 TEST_P(PersonSsnSuite, shouldGenerateSsn)
 {
     const auto country = GetParam();

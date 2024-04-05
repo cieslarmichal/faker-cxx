@@ -1,6 +1,7 @@
 #include "faker-cxx/Location.h"
 
 #include <map>
+#include <sstream>
 
 #include "../../common/FormatHelper.h"
 #include "../../common/mappers/precisionMapper/PrecisionMapper.h"
@@ -26,7 +27,6 @@
 #include "data/usa/UsaAddresses.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
-#include "faker-cxx/String.h"
 
 namespace faker
 {
@@ -85,16 +85,19 @@ std::string Location::countryCode()
 std::string Location::county(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+
     if (countryAddresses.counties.empty())
     {
         return "";
     }
+
     return Helper::arrayElement<std::string>(countryAddresses.counties);
 }
 
 std::string Location::state(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+
     return Helper::arrayElement<std::string>(countryAddresses.states);
 }
 

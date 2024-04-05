@@ -3,22 +3,12 @@
 #include <optional>
 #include <string>
 
-#include "types/BicCountry.h"
 #include "types/Country.h"
 #include "types/Currency.h"
-#include "types/IbanCountry.h"
 #include "types/Precision.h"
 
 namespace faker
 {
-enum class CreditCardType
-{
-    AmericanExpress,
-    Discover,
-    MasterCard,
-    Visa
-};
-
 class Finance
 {
 public:
@@ -97,6 +87,37 @@ public:
     static std::string amount(double min = 0, double max = 1000, Precision precision = Precision::TwoDp,
                               const std::string& symbol = "");
 
+    enum class IbanCountry
+    {
+        Austria,
+        Belgium,
+        Bulgaria,
+        Croatia,
+        Cyprus,
+        Czechia,
+        Denmark,
+        Estonia,
+        Finland,
+        France,
+        Germany,
+        Greece,
+        Hungary,
+        Ireland,
+        Italy,
+        Latvia,
+        Lithuania,
+        Luxembourg,
+        Malta,
+        Netherlands,
+        Poland,
+        Portugal,
+        Romania,
+        Slovakia,
+        Slovenia,
+        Spain,
+        Sweden
+    };
+
     /**
      * Generates a random iban.
      *
@@ -110,6 +131,20 @@ public:
      * @endcode
      */
     static std::string iban(std::optional<IbanCountry> country = std::nullopt);
+
+    enum class BicCountry
+    {
+        Poland,
+        UnitedStates,
+        UnitedKingdom,
+        Germany,
+        Romania,
+        France,
+        Italy,
+        Spain,
+        Netherlands,
+        India,
+    };
 
     /**
      * Generates a random bic.
@@ -163,6 +198,14 @@ public:
      * @endcode
      */
     static std::string routingNumber();
+
+    enum class CreditCardType
+    {
+        AmericanExpress,
+        Discover,
+        MasterCard,
+        Visa
+    };
 
     /**
      * Generates a random credit card number.

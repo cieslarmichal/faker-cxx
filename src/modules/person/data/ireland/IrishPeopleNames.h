@@ -9,8 +9,6 @@
 
 namespace faker
 {
-// TODO: add handling lastName-lastName
-
 const NameFormats irishPersonNameFormats{{{"{firstName} {lastName}", 49},
                                           {"{prefix} {firstName} {lastName}", 7},
                                           {"{firstName} {lastName} {suffix}", 7},

@@ -16,22 +16,22 @@ std::string Airline::aircraftType()
     return Helper::arrayElement<std::string>(aircraftTypes);
 }
 
-faker::Airplane Airline::airplane()
+Airline::Airplane Airline::airplane()
 {
-    return Helper::arrayElement<faker::Airplane>(airplanes);
+    return Helper::arrayElement<Airplane>(airplanes);
 }
 
-faker::AirlineStruct Airline::airline()
+Airline::AirlineInfo Airline::airline()
 {
-    return Helper::arrayElement<faker::AirlineStruct>(airlines);
+    return Helper::arrayElement<Airline::AirlineInfo>(airlines);
 }
 
-faker::Airport Airline::airport()
+Airline::Airport Airline::airport()
 {
-    return Helper::arrayElement<faker::Airport>(airports);
+    return Helper::arrayElement<Airline::Airport>(airports);
 }
 
-std::string Airline::seat(faker::AircraftType aircraftType)
+std::string Airline::seat(Airline::AircraftType aircraftType)
 {
     return std::to_string(Number::integer(1, aircraftTypeMaxRows.at(aircraftType))) +
            Helper::arrayElement<char>(aircraftTypeSeatLetters.at(aircraftType));
@@ -57,7 +57,7 @@ std::string Airline::flightNumber(bool addLeadingZeros, unsigned int length)
     return String::numeric(length, false);
 }
 
-std::string Airline::flightNumberByRange(bool addLeadingZeros, faker::Range length)
+std::string Airline::flightNumberByRange(bool addLeadingZeros, Airline::Range length)
 {
     if (addLeadingZeros)
     {

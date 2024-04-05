@@ -12,10 +12,9 @@
 #include "data/Suffixes.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
+
 namespace faker
 {
-// TODO: add internalization
-
 std::string Company::name()
 {
     std::string companyName;

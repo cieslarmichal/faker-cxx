@@ -1,7 +1,6 @@
 #include "faker-cxx/Phone.h"
 
 #include <algorithm>
-#include <string>
 #include <vector>
 
 #include "gtest/gtest.h"

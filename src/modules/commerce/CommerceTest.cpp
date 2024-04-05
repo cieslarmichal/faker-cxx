@@ -1,7 +1,6 @@
 #include "faker-cxx/Commerce.h"
 
 #include <algorithm>
-#include <charconv>
 
 #include "gtest/gtest.h"
 
@@ -30,7 +29,7 @@ TEST_F(CommerceTest, shouldGeneratePrice)
     const auto generatedPrice = Commerce::price(100, 10000);
 
     auto offset = generatedPrice.size();
-    const auto priceAsFloat = std::stof(generatedPrice.data(), &offset);
+    const auto priceAsFloat = std::stof(generatedPrice, &offset);
 
     const auto generatedPriceElements = StringHelper::split(generatedPrice, ".");
 

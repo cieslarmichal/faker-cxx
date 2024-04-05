@@ -3,12 +3,9 @@
 #include <algorithm>
 #include <regex>
 #include <stdexcept>
-#include <unordered_map>
 #include <vector>
 
 #include "gtest/gtest.h"
-
-#include "faker-cxx/String.h"
 
 using namespace faker;
 using namespace ::testing;
@@ -62,12 +59,14 @@ TEST_F(HelperTest, WeightedArrayElement)
 TEST_F(HelperTest, WeightedArrayZeroSum)
 {
     std::vector<Helper::WeightedElement<std::string>> data{{0, "hello"}, {0, "world"}};
+
     ASSERT_THROW(Helper::weightedArrayElement(data), std::invalid_argument);
 }
 
 TEST_F(HelperTest, WeightedArrayEmptyData)
 {
     std::vector<Helper::WeightedElement<std::string>> data{};
+
     ASSERT_THROW(Helper::weightedArrayElement(data), std::invalid_argument);
 }
 
@@ -103,6 +102,7 @@ TEST_F(HelperTest, SetElement)
 TEST_F(HelperTest, SetElementEmptyData)
 {
     std::set<char> chars{};
+
     ASSERT_THROW(Helper::setElement<char>(chars), std::invalid_argument);
 }
 
@@ -111,7 +111,6 @@ TEST_F(HelperTest, ReplaceSymbolWithNumber)
     std::string input = "123#456!";
     std::string result = Helper::replaceSymbolWithNumber(input);
 
-    // The result should contain digits instead of '#' and '!'
     ASSERT_TRUE(std::ranges::all_of(result, ::isdigit));
 }
 
@@ -125,7 +124,6 @@ TEST_F(HelperTest, RegexpStyleStringParse)
 
 TEST_F(HelperTest, ReplaceCreditCardSymbols)
 {
-    // Test with the default format "6453-####-####-####-###L"
     std::string result_default = Helper::replaceCreditCardSymbols();
     ASSERT_EQ(result_default.size(), 24);
     ASSERT_EQ(result_default[4], '-');
@@ -133,14 +131,11 @@ TEST_F(HelperTest, ReplaceCreditCardSymbols)
     ASSERT_EQ(result_default[14], '-');
     ASSERT_EQ(result_default[19], '-');
 
-    // Test with a custom format "1234-[4-9]-##!!-L"
     std::string format_custom = "1234-[4-9]-##!!-L";
     std::string result_custom = Helper::replaceCreditCardSymbols(format_custom);
     std::regex custom_format_regex("1234-[4-9]-\\d{2}[2-9]{2}-\\d");
     ASSERT_TRUE(std::regex_match(result_custom, custom_format_regex));
 
-    // Manually verify the custom format result, as the output is random
-    // e.g., "1234-9-5298-2"
     ASSERT_EQ(result_custom.substr(0, 5), "1234-");
     ASSERT_EQ(result_custom.substr(6, 1), "-");
     ASSERT_TRUE(result_custom[5] >= '4' && result_custom[5] <= '9');
@@ -190,7 +185,6 @@ TEST_F(HelperTest, MaybeDouble)
     auto result = Helper::maybe<double>([]() { return 3.14; }, highProbability);
     EXPECT_EQ(result, 3.14);
 
-    // Test with low probability to ensure callback is not invoked
     double lowProbability = 0;
     result = Helper::maybe<double>([]() { return 3.14; }, lowProbability);
     EXPECT_EQ(result, 0.0);

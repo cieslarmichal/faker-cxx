@@ -1,13 +1,19 @@
 #pragma once
 
-#include "types/ChemicalElement.h"
-#include "types/Unit.h"
+#include <string>
 
 namespace faker
 {
 class Science
 {
 public:
+    struct ChemicalElement
+    {
+        std::string name;
+        std::string symbol;
+        int atomicNumber;
+    };
+
     /**
      * @brief Returns a random chemical element from the periodic table.
      *
@@ -19,6 +25,13 @@ public:
      * @endcode
      */
     static ChemicalElement chemicalElement();
+
+    struct Unit
+    {
+        std::string name;
+        std::string symbol;
+        std::string usedToMeasure;
+    };
 
     /**
      * @brief Returns a unit of measurement for either distance, mass, time, temp, current.

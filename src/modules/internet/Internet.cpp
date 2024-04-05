@@ -2,7 +2,6 @@
 
 #include <array>
 #include <map>
-#include <utility>
 
 #include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
@@ -47,11 +46,12 @@ constexpr unsigned int ipv4ClassBFirstSector = 172;
 constexpr unsigned int ipv4ClassBSecondSectorLowerBound = 16u;
 constexpr unsigned int ipv4ClassBSecondSectorUpperBound = 31u;
 constexpr unsigned int ipv4SectorUpperBound = 255u;
-const std::map<EmojiType, std::vector<std::string>> emojiTypeToEmojisMapping{
-    {EmojiType::Smiley, smileyEmojis},     {EmojiType::Body, bodyEmojis},     {EmojiType::Person, personEmojis},
-    {EmojiType::Nature, natureEmojis},     {EmojiType::Food, foodEmojis},     {EmojiType::Travel, travelEmojis},
-    {EmojiType::Activity, activityEmojis}, {EmojiType::Object, objectEmojis}, {EmojiType::Symbol, symbolEmojis},
-    {EmojiType::Flag, flagEmojis},
+const std::map<Internet::EmojiType, std::vector<std::string>> emojiTypeToEmojisMapping{
+    {Internet::EmojiType::Smiley, smileyEmojis},     {Internet::EmojiType::Body, bodyEmojis},
+    {Internet::EmojiType::Person, personEmojis},     {Internet::EmojiType::Nature, natureEmojis},
+    {Internet::EmojiType::Food, foodEmojis},         {Internet::EmojiType::Travel, travelEmojis},
+    {Internet::EmojiType::Activity, activityEmojis}, {Internet::EmojiType::Object, objectEmojis},
+    {Internet::EmojiType::Symbol, symbolEmojis},     {Internet::EmojiType::Flag, flagEmojis},
 };
 }
 
@@ -129,7 +129,7 @@ std::string Internet::password(int length, PasswordOptions options)
     return password;
 }
 
-std::string Internet::emoji(std::optional<EmojiType> type)
+std::string Internet::emoji(std::optional<Internet::EmojiType> type)
 {
     if (type)
     {
@@ -336,7 +336,7 @@ std::string Internet::anonymousUsername(unsigned maxLength)
     const std::integral auto adjectiveLength = Number::integer<unsigned>(3, 1 + maxLength / 2);
 
     const auto nounLength = maxLength - adjectiveLength;
-    
+
     std::stringstream usernameBuilder;
 
     usernameBuilder << Word::adjective(adjectiveLength) << Word::noun(nounLength);

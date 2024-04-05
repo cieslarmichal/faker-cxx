@@ -5,7 +5,6 @@
 #include <string>
 
 #include "types/Country.h"
-#include "types/EmojiType.h"
 
 namespace faker
 {
@@ -110,6 +109,20 @@ public:
      * @endcode
      */
     static std::string password(int length = 15, PasswordOptions options = {});
+
+    enum class EmojiType
+    {
+        Smiley,
+        Body,
+        Person,
+        Nature,
+        Food,
+        Travel,
+        Activity,
+        Object,
+        Symbol,
+        Flag
+    };
 
     /**
      * @brief Returns a random emoji.

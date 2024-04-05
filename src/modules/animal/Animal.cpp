@@ -5,7 +5,7 @@
 #include "data/Cats.h"
 #include "data/Cetaceans.h"
 #include "data/Cows.h"
-#include "data/Crocodilia.h"
+#include "data/Crocodiles.h"
 #include "data/Dogs.h"
 #include "data/Fishes.h"
 #include "data/Horses.h"
@@ -46,7 +46,7 @@ std::string Animal::cow()
 
 std::string Animal::crocodile()
 {
-    return Helper::arrayElement<std::string>(faker::crocodilia);
+    return Helper::arrayElement<std::string>(faker::crocodiles);
 }
 
 std::string Animal::dog()

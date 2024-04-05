@@ -11,13 +11,13 @@ namespace faker
 {
 namespace
 {
-std::map<faker::ImageCategory, std::string> imageCategoryToLoremFlickrStringMapping = {
-    {faker::ImageCategory::Animals, "animals"},   {faker::ImageCategory::Business, "business"},
-    {faker::ImageCategory::Cats, "cats"},         {faker::ImageCategory::City, "city"},
-    {faker::ImageCategory::Food, "food"},         {faker::ImageCategory::Nightlife, "nightlife"},
-    {faker::ImageCategory::Fashion, "fashion"},   {faker::ImageCategory::People, "people"},
-    {faker::ImageCategory::Nature, "nature"},     {faker::ImageCategory::Sports, "sports"},
-    {faker::ImageCategory::Technics, "technics"}, {faker::ImageCategory::Transport, "transport"},
+std::map<Image::ImageCategory, std::string> imageCategoryToLoremFlickrStringMapping = {
+    {Image::ImageCategory::Animals, "animals"},   {Image::ImageCategory::Business, "business"},
+    {Image::ImageCategory::Cats, "cats"},         {Image::ImageCategory::City, "city"},
+    {Image::ImageCategory::Food, "food"},         {Image::ImageCategory::Nightlife, "nightlife"},
+    {Image::ImageCategory::Fashion, "fashion"},   {Image::ImageCategory::People, "people"},
+    {Image::ImageCategory::Nature, "nature"},     {Image::ImageCategory::Sports, "sports"},
+    {Image::ImageCategory::Technics, "technics"}, {Image::ImageCategory::Transport, "transport"},
 };
 }
 

@@ -197,10 +197,8 @@ TEST_F(DateTest, shouldGenerateBirthDateByExactYearTimestamp)
 
     const auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
-    // Convert std::chrono::system_clock::time_point to std::time_t
     std::time_t birthdateTimeT = std::chrono::system_clock::to_time_t(birthdate);
 
-    // Convert std::time_t to std::tm
     std::tm birthdateStruct = *std::localtime(&birthdateTimeT);
 
     EXPECT_EQ(birthdateStruct.tm_year + 1900, 1996);
@@ -222,10 +220,8 @@ TEST_F(DateTest, shouldGenerateBirthDateByRangeYearTimestamp)
 
     const auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
-    // Convert std::chrono::system_clock::time_point to std::time_t
     std::time_t birthdateTimeT = std::chrono::system_clock::to_time_t(birthdate);
 
-    // Convert std::time_t to std::tm
     std::tm birthdateStruct = *std::localtime(&birthdateTimeT);
 
     EXPECT_GE(birthdateStruct.tm_year + 1900, 1990);

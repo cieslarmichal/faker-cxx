@@ -2,8 +2,6 @@
 
 #include <string>
 
-#include "./types/AirlineTypes.h"
-
 namespace faker
 {
 class Airline
@@ -20,6 +18,12 @@ public:
      */
     static std::string aircraftType();
 
+    struct Airplane
+    {
+        std::string name;
+        std::string iataTypeCode;
+    };
+
     /**
      * @brief Get a random airplane
      *
@@ -31,6 +35,12 @@ public:
      */
     static Airplane airplane();
 
+    struct AirlineInfo
+    {
+        std::string name;
+        std::string iataCode;
+    };
+
     /**
      * @brief Get a random airline
      *
@@ -40,7 +50,13 @@ public:
      * Airline::airline() // {"Air Canada", "AC"}
      * @endcode
      */
-    static AirlineStruct airline();
+    static AirlineInfo airline();
+
+    struct Airport
+    {
+        std::string name;
+        std::string iataCode;
+    };
 
     /**
      * @brief Get a random airport
@@ -52,6 +68,13 @@ public:
      * @endcode
      */
     static Airport airport();
+
+    enum class AircraftType
+    {
+        Regional,
+        Narrowbody,
+        Widebody,
+    };
 
     /**
      * @brief Get a random seat by aircraft type
@@ -94,6 +117,12 @@ public:
      * @endcode
      */
     static std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
+
+    struct Range
+    {
+        unsigned int min;
+        unsigned int max;
+    };
 
     /**
      * @brief Get a random flight number from given length

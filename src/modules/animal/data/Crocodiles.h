@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> crocodilia = {"Alligator mississippiensis",
+const std::vector<std::string> crocodiles = {"Alligator mississippiensis",
                                              "Chinese Alligator",
                                              "Black Caiman",
                                              "Broad-snouted Caiman",
