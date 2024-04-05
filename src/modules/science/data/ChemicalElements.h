@@ -2,11 +2,11 @@
 
 #include <vector>
 
-#include "faker-cxx/types/ChemicalElement.h"
+#include "faker-cxx/Science.h"
 
 namespace faker
 {
-const std::vector<ChemicalElement> chemicalElements = {
+const std::vector<Science::ChemicalElement> chemicalElements = {
     {"Hydrogen", "H", 1},       {"Helium", "He", 2},         {"Lithium", "Li", 3},       {"Beryllium", "Be", 4},
     {"Boron", "B", 5},          {"Carbon", "C", 6},          {"Nitrogen", "N", 7},       {"Oxygen", "O", 8},
     {"Fluorine", "F", 9},       {"Neon", "Ne", 10},          {"Sodium", "Na", 11},       {"Magnesium", "Mg", 12},

@@ -8,46 +8,45 @@
 
 namespace faker
 {
-
-ChemicalElement Science::chemicalElement()
+Science::ChemicalElement Science::chemicalElement()
 {
-    return Helper::arrayElement<ChemicalElement>(chemicalElements);
+    return Helper::arrayElement<Science::ChemicalElement>(chemicalElements);
 }
 
-Unit Science::unit()
+Science::Unit Science::unit()
 {
-    std::vector<faker::Unit> units = distanceUnits;
+    std::vector<faker::Science::Unit> units = distanceUnits;
     units.insert(units.end(), massUnits.begin(), massUnits.end());
     units.insert(units.end(), timeUnits.begin(), timeUnits.end());
     units.insert(units.end(), currentUnits.begin(), currentUnits.end());
     units.insert(units.end(), temperatureUnits.begin(), temperatureUnits.end());
 
-    return Helper::arrayElement<Unit>(units);
+    return Helper::arrayElement<Science::Unit>(units);
 }
 
-Unit Science::distanceUnit()
+Science::Unit Science::distanceUnit()
 {
-    return Helper::arrayElement<Unit>(distanceUnits);
+    return Helper::arrayElement<Science::Unit>(distanceUnits);
 }
 
-Unit Science::timeUnit()
+Science::Unit Science::timeUnit()
 {
-    return Helper::arrayElement<Unit>(timeUnits);
+    return Helper::arrayElement<Science::Unit>(timeUnits);
 }
 
-Unit Science::massUnit()
+Science::Unit Science::massUnit()
 {
-    return Helper::arrayElement<Unit>(massUnits);
+    return Helper::arrayElement<Science::Unit>(massUnits);
 }
 
-Unit Science::tempUnit()
+Science::Unit Science::tempUnit()
 {
-    return Helper::arrayElement<Unit>(temperatureUnits);
+    return Helper::arrayElement<Science::Unit>(temperatureUnits);
 }
 
-Unit Science::currentUnit()
+Science::Unit Science::currentUnit()
 {
-    return Helper::arrayElement<Unit>(currentUnits);
+    return Helper::arrayElement<Science::Unit>(currentUnits);
 }
 
-};
+}

@@ -1,9 +1,7 @@
 #include "faker-cxx/Internet.h"
 
 #include <algorithm>
-#include <array>
 #include <charconv>
-#include <optional>
 
 #include "gtest/gtest.h"
 
@@ -48,7 +46,7 @@ constexpr unsigned int classCSecondSection = 168u;
 
 std::array<unsigned int, 4> deconstructIpv4String(const std::string& ipv4)
 {
-    std::array<unsigned int, 4> result;
+    std::array<unsigned int, 4> result{};
 
     std::istringstream ss(ipv4);
 
@@ -422,7 +420,7 @@ TEST_F(InternetTest, shouldGenerateEmoji)
 
 TEST_F(InternetTest, shouldGenerateSmileyEmoji)
 {
-    const auto generatedEmoji = Internet::emoji(EmojiType::Smiley);
+    const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Smiley);
 
     ASSERT_TRUE(std::ranges::any_of(smileyEmojis,
                                     [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
@@ -430,7 +428,7 @@ TEST_F(InternetTest, shouldGenerateSmileyEmoji)
 
 TEST_F(InternetTest, shouldGenerateBodyEmoji)
 {
-    const auto generatedEmoji = Internet::emoji(EmojiType::Body);
+    const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Body);
 
     ASSERT_TRUE(std::ranges::any_of(bodyEmojis,
                                     [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
@@ -438,7 +436,7 @@ TEST_F(InternetTest, shouldGenerateBodyEmoji)
 
 TEST_F(InternetTest, shouldGeneratePersonEmoji)
 {
-    const auto generatedEmoji = Internet::emoji(EmojiType::Person);
+    const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Person);
 
     ASSERT_TRUE(std::ranges::any_of(personEmojis,
                                     [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
@@ -446,7 +444,7 @@ TEST_F(InternetTest, shouldGeneratePersonEmoji)
 
 TEST_F(InternetTest, shouldGenerateNatureEmoji)
 {
-    const auto generatedEmoji = Internet::emoji(EmojiType::Nature);
+    const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Nature);
 
     ASSERT_TRUE(std::ranges::any_of(natureEmojis,
                                     [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
@@ -454,7 +452,7 @@ TEST_F(InternetTest, shouldGenerateNatureEmoji)
 
 TEST_F(InternetTest, shouldGenerateFoodEmoji)
 {
-    const auto generatedEmoji = Internet::emoji(EmojiType::Food);
+    const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Food);
 
     ASSERT_TRUE(std::ranges::any_of(foodEmojis,
                                     [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
@@ -462,7 +460,7 @@ TEST_F(InternetTest, shouldGenerateFoodEmoji)
 
 TEST_F(InternetTest, shouldGenerateTravelEmoji)
 {
-    const auto generatedEmoji = Internet::emoji(EmojiType::Travel);
+    const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Travel);
 
     ASSERT_TRUE(std::ranges::any_of(travelEmojis,
                                     [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
@@ -470,7 +468,7 @@ TEST_F(InternetTest, shouldGenerateTravelEmoji)
 
 TEST_F(InternetTest, shouldGenerateActivityEmoji)
 {
-    const auto generatedEmoji = Internet::emoji(EmojiType::Activity);
+    const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Activity);
 
     ASSERT_TRUE(std::ranges::any_of(activityEmojis,
                                     [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
@@ -478,7 +476,7 @@ TEST_F(InternetTest, shouldGenerateActivityEmoji)
 
 TEST_F(InternetTest, shouldGenerateObjectEmoji)
 {
-    const auto generatedEmoji = Internet::emoji(EmojiType::Object);
+    const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Object);
 
     ASSERT_TRUE(std::ranges::any_of(objectEmojis,
                                     [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
@@ -486,7 +484,7 @@ TEST_F(InternetTest, shouldGenerateObjectEmoji)
 
 TEST_F(InternetTest, shouldGenerateSymbolEmoji)
 {
-    const auto generatedEmoji = Internet::emoji(EmojiType::Symbol);
+    const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Symbol);
 
     ASSERT_TRUE(std::ranges::any_of(symbolEmojis,
                                     [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
@@ -494,7 +492,7 @@ TEST_F(InternetTest, shouldGenerateSymbolEmoji)
 
 TEST_F(InternetTest, shouldGenerateFlagEmoji)
 {
-    const auto generatedEmoji = Internet::emoji(EmojiType::Flag);
+    const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Flag);
 
     ASSERT_TRUE(std::ranges::any_of(flagEmojis,
                                     [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
@@ -752,7 +750,7 @@ TEST_F(InternetTest, shouldGenerateAnonymousUsername)
 {
     for (int i = 0; i < 100; i++)
     {
-        const auto maxLength = Number::integer<unsigned>(6, 20);
+        const std::integral auto maxLength = Number::integer<unsigned>(6, 20);
         const auto generatedUsername = Internet::anonymousUsername(maxLength);
 
         ASSERT_EQ(generatedUsername.length(), maxLength);

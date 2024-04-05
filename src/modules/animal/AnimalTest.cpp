@@ -9,7 +9,7 @@
 #include "data/Cats.h"
 #include "data/Cetaceans.h"
 #include "data/Cows.h"
-#include "data/Crocodilia.h"
+#include "data/Crocodiles.h"
 #include "data/Dogs.h"
 #include "data/Fishes.h"
 #include "data/Horses.h"
@@ -64,12 +64,12 @@ TEST_F(AnimalTest, shouldGenerateCow)
     ASSERT_TRUE(std::ranges::any_of(cows, [generatedCow](const std::string& cow) { return cow == generatedCow; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateCrocodilia)
+TEST_F(AnimalTest, shouldGenerateCrocodile)
 {
-    const auto generatedCrocodilia = Animal::crocodile();
+    const auto generatedCrocodile = Animal::crocodile();
 
-    ASSERT_TRUE(std::ranges::any_of(faker::crocodilia, [generatedCrocodilia](const std::string& crocodilia)
-                                    { return crocodilia == generatedCrocodilia; }));
+    ASSERT_TRUE(std::ranges::any_of(crocodiles, [generatedCrocodile](const std::string& crocodile)
+                                    { return crocodile == generatedCrocodile; }));
 }
 
 TEST_F(AnimalTest, shouldGenerateDog)

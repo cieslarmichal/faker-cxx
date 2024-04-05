@@ -1,7 +1,5 @@
 #include "faker-cxx/Phone.h"
 
-#include <string>
-
 #include "data/AreaCodes.h"
 #include "data/PhoneData.h"
 #include "data/PhoneNumbers.h"

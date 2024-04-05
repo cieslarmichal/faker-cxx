@@ -129,6 +129,8 @@ std::string System::mimeType()
 {
     std::vector<std::string> mimeTypeKeys;
 
+    mimeTypeKeys.reserve(mimeTypes.size());
+
     for (const auto& entry : mimeTypes)
     {
         mimeTypeKeys.push_back(entry);

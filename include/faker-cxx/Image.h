@@ -3,13 +3,27 @@
 #include <optional>
 #include <string>
 
-#include "types/ImageCategory.h"
-
 namespace faker
 {
 class Image
 {
 public:
+    enum class ImageCategory
+    {
+        Animals,
+        Business,
+        Cats,
+        City,
+        Food,
+        Nightlife,
+        Fashion,
+        People,
+        Nature,
+        Sports,
+        Technics,
+        Transport
+    };
+    
     /**
      * @brief Generates a real image url with `https://loremflickr.com/`.
      *

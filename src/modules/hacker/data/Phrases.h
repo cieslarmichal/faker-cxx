@@ -12,8 +12,6 @@
 
 namespace faker
 {
-// use fmt::format() to format each phrase w/ random word
-
 const std::vector<std::string> phrases = {
     "If we {verb} the {noun}, we can get to the {abbreviation} {noun} through the {adjective} {abbreviation} {noun}!",
     "We need to {verb} the {adjective} {abbreviation} {noun}!",

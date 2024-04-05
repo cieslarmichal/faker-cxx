@@ -24,10 +24,10 @@ public:
     static std::string toString(const std::array<uint8_t, 32>& digest);
 
 private:
-    uint8_t m_data[64];
+    uint8_t m_data[64]{};
     uint32_t m_blocklen;
     uint64_t m_bitlen;
-    uint32_t m_state[8]; // A, B, C, D, E, F, G, H
+    uint32_t m_state[8]{}; // A, B, C, D, E, F, G, H
 
     static constexpr std::array<uint32_t, 64> K = {
         0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
@@ -291,7 +291,6 @@ void SHA256::update(const uint8_t* data, size_t length)
         {
             transform();
 
-            // End of the block
             m_bitlen += 512;
             m_blocklen = 0;
         }
@@ -408,16 +407,7 @@ void SHA256::pad()
         memset(m_data, 0, 56);
     }
 
-    // Append to the padding the total message's length in bits and transform.
     m_bitlen += m_blocklen * 8;
-    // m_data[63] = m_bitlen;
-    // m_data[62] = m_bitlen >> 8;
-    // m_data[61] = m_bitlen >> 16;
-    // m_data[60] = m_bitlen >> 24;
-    // m_data[59] = m_bitlen >> 32;
-    // m_data[58] = m_bitlen >> 40;
-    // m_data[57] = m_bitlen >> 48;
-    // m_data[56] = m_bitlen >> 56;
     m_data[63] = static_cast<uint8_t>(m_bitlen);
     m_data[62] = static_cast<uint8_t>(m_bitlen >> 8);
     m_data[61] = static_cast<uint8_t>(m_bitlen >> 16);

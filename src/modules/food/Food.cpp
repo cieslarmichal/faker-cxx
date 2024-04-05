@@ -18,7 +18,6 @@
 
 namespace faker
 {
-
 std::string Food::alcoholicBeverage()
 {
     return Helper::arrayElement<std::string>(alcoholicBeverages);

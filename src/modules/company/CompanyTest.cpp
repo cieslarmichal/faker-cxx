@@ -4,7 +4,6 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
 #include "../person/data/england/EnglishFirstNames.h"
 #include "../person/data/england/EnglishLastNames.h"

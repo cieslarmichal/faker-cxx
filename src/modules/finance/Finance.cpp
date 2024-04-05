@@ -17,15 +17,34 @@ namespace faker
 {
 namespace
 {
-const std::map<CreditCardType, std::vector<std::string>> creditCardTypeToNumberFormats{
-    {CreditCardType::AmericanExpress, americanExpressCreditCardFormats},
-    {CreditCardType::Discover, discoverCreditCardFormats},
-    {CreditCardType::MasterCard, masterCardCreditCardFormats},
-    {CreditCardType::Visa, visaCreditCardFormats},
+const std::vector<Finance::BicCountry> supportedBicCountries{
+    Finance::BicCountry::Poland,  Finance::BicCountry::UnitedStates, Finance::BicCountry::UnitedKingdom,
+    Finance::BicCountry::Germany, Finance::BicCountry::Romania,      Finance::BicCountry::France,
+    Finance::BicCountry::Italy,   Finance::BicCountry::Spain,        Finance::BicCountry::Netherlands,
+    Finance::BicCountry::India};
+
+const std::vector<Finance::IbanCountry> supportedIbanCountries{
+    Finance::IbanCountry::Austria,  Finance::IbanCountry::Belgium,     Finance::IbanCountry::Bulgaria,
+    Finance::IbanCountry::Croatia,  Finance::IbanCountry::Cyprus,      Finance::IbanCountry::Czechia,
+    Finance::IbanCountry::Denmark,  Finance::IbanCountry::Estonia,     Finance::IbanCountry::Finland,
+    Finance::IbanCountry::France,   Finance::IbanCountry::Germany,     Finance::IbanCountry::Greece,
+    Finance::IbanCountry::Hungary,  Finance::IbanCountry::Ireland,     Finance::IbanCountry::Italy,
+    Finance::IbanCountry::Latvia,   Finance::IbanCountry::Lithuania,   Finance::IbanCountry::Luxembourg,
+    Finance::IbanCountry::Malta,    Finance::IbanCountry::Netherlands, Finance::IbanCountry::Poland,
+    Finance::IbanCountry::Portugal, Finance::IbanCountry::Romania,     Finance::IbanCountry::Slovakia,
+    Finance::IbanCountry::Slovenia, Finance::IbanCountry::Spain,       Finance::IbanCountry::Sweden,
 };
 
-const std::vector<CreditCardType> creditCardTypes{CreditCardType::AmericanExpress, CreditCardType::Discover,
-                                                  CreditCardType::MasterCard, CreditCardType::Visa};
+const std::map<Finance::CreditCardType, std::vector<std::string>> creditCardTypeToNumberFormats{
+    {Finance::CreditCardType::AmericanExpress, americanExpressCreditCardFormats},
+    {Finance::CreditCardType::Discover, discoverCreditCardFormats},
+    {Finance::CreditCardType::MasterCard, masterCardCreditCardFormats},
+    {Finance::CreditCardType::Visa, visaCreditCardFormats},
+};
+
+const std::vector<Finance::CreditCardType> creditCardTypes{
+    Finance::CreditCardType::AmericanExpress, Finance::CreditCardType::Discover, Finance::CreditCardType::MasterCard,
+    Finance::CreditCardType::Visa};
 }
 
 Currency Finance::currency()
@@ -68,9 +87,9 @@ std::string Finance::amount(double min, double max, Precision precision, const s
     return FormatHelper::format("{}{}", symbol, ss.str());
 }
 
-std::string Finance::iban(std::optional<IbanCountry> country)
+std::string Finance::iban(std::optional<Finance::IbanCountry> country)
 {
-    const auto ibanCountry = country ? *country : Helper::arrayElement<IbanCountry>(supportedIbanCountries);
+    const auto ibanCountry = country ? *country : Helper::arrayElement<Finance::IbanCountry>(supportedIbanCountries);
 
     const auto& ibanFormat = ibanFormats.at(ibanCountry);
 
@@ -102,9 +121,9 @@ std::string Finance::iban(std::optional<IbanCountry> country)
     return iban;
 }
 
-std::string Finance::bic(std::optional<BicCountry> country)
+std::string Finance::bic(std::optional<Finance::BicCountry> country)
 {
-    const auto bicCountry = country ? *country : Helper::arrayElement<BicCountry>(supportedBicCountries);
+    const auto bicCountry = country ? *country : Helper::arrayElement<Finance::BicCountry>(supportedBicCountries);
 
     return Helper::arrayElement<std::string>(bankIdentifiersCodesMapping.at(bicCountry));
 }
@@ -124,10 +143,10 @@ std::string Finance::routingNumber()
     return String::numeric(9, true);
 }
 
-std::string Finance::creditCardNumber(std::optional<CreditCardType> creditCardType)
+std::string Finance::creditCardNumber(std::optional<Finance::CreditCardType> creditCardType)
 {
     const auto creditCardTargetType =
-        creditCardType ? *creditCardType : Helper::arrayElement<CreditCardType>(creditCardTypes);
+        creditCardType ? *creditCardType : Helper::arrayElement<Finance::CreditCardType>(creditCardTypes);
 
     const auto& creditCardFormats = creditCardTypeToNumberFormats.at(creditCardTargetType);
 

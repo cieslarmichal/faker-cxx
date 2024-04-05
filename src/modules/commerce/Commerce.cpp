@@ -182,7 +182,7 @@ std::string Commerce::productReview()
 
 double Commerce::productRating()
 {
-    const auto ratingValue = Number::decimal<double>(5.);
+    const std::floating_point auto ratingValue = Number::decimal<double>(5.);
     return std::ceil(ratingValue * 100) / 100;
 }
 
@@ -193,19 +193,21 @@ std::string Commerce::discountType()
 
 std::string Commerce::discountCode()
 {
-    const auto codeLength = Number::integer<unsigned int>(kMinDiscountCodeLength, kMaxDiscountCodeLength);
+    const std::integral auto codeLength = Number::integer<unsigned int>(kMinDiscountCodeLength, kMaxDiscountCodeLength);
     return String::alphanumeric(codeLength, StringCasing::Upper);
 }
 
 double Commerce::discountAmount()
 {
-    const auto amountValue = Number::decimal<double>(kMinDiscountAmountValue, kMaxDiscountAmountValue);
+    const std::floating_point auto amountValue =
+        Number::decimal<double>(kMinDiscountAmountValue, kMaxDiscountAmountValue);
     return std::ceil(amountValue * 100) / 100;
 }
 
 double Commerce::discountPercentage()
 {
-    const auto percentageValue = Number::decimal<double>(kMinDiscountPercentageValue, kMaxDiscountPercentageValue);
+    const std::floating_point auto percentageValue =
+        Number::decimal<double>(kMinDiscountPercentageValue, kMaxDiscountPercentageValue);
     return std::ceil(percentageValue * 100) / 100;
 }
 

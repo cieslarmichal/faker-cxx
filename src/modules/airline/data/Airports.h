@@ -7,7 +7,7 @@
 
 namespace faker
 {
-const std::vector<faker::Airport> airports = {
+const std::vector<Airline::Airport> airports = {
     {.name = "Adelaide International Airport", .iataCode = "ADL"},
     {.name = "Adolfo Suarez Madrid-Barajas Airport", .iataCode = "MAD"},
     {.name = "Aeroparque Jorge Newbery Airport", .iataCode = "AEP"},

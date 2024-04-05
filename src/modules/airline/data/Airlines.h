@@ -7,7 +7,7 @@
 
 namespace faker
 {
-const std::vector<faker::AirlineStruct> airlines{
+const std::vector<Airline::AirlineInfo> airlines{
     {.name = "Aegean Airlines", .iataCode = "A3"},
     {.name = "Aeroflot", .iataCode = "SU"},
     {.name = "Aerolineas Argentinas", .iataCode = "AR"},

@@ -2,11 +2,31 @@
 
 #include <string>
 
-#include "faker-cxx/types/AddressCountry.h"
 #include "types/Precision.h"
 
 namespace faker
 {
+enum class AddressCountry
+{
+    Usa,
+    Poland,
+    France,
+    Russia,
+    Ukraine,
+    Italy,
+    Germany,
+    Czech,
+    Australia,
+    India,
+    Denmark,
+    Spain,
+    Brazil,
+    Finland,
+    Estonia,
+    Romania,
+    Latvia
+};
+
 class Location
 {
 public:

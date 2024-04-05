@@ -1,7 +1,6 @@
 #include "faker-cxx/Git.h"
 
 #include <algorithm>
-#include <iostream>
 #include <regex>
 #include <string>
 

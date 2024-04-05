@@ -63,7 +63,6 @@ TEST_F(HackerTest, shouldGeneratePhrase)
     bool hasAdjective, hasNoun, hasVerb, hasAbbreviation;
     hasAdjective = hasNoun = hasVerb = hasAbbreviation = false;
 
-    // Check for adjectives
     for (const std::string& adj : adjectives)
     {
         if (generatedPhrase.find(adj) != std::string::npos)
@@ -73,7 +72,6 @@ TEST_F(HackerTest, shouldGeneratePhrase)
         }
     }
 
-    // Check for nouns
     for (const std::string& noun : nouns)
     {
         if (generatedPhrase.find(noun) != std::string::npos)
@@ -83,7 +81,6 @@ TEST_F(HackerTest, shouldGeneratePhrase)
         }
     }
 
-    // Check for verbs
     for (const std::string& verb : verbs)
     {
         if (generatedPhrase.find(verb) != std::string::npos)
@@ -93,7 +90,6 @@ TEST_F(HackerTest, shouldGeneratePhrase)
         }
     }
 
-    // Check for abbreviations
     for (const std::string& abbreviation : abbreviations)
     {
         if (generatedPhrase.find(abbreviation) != std::string::npos)

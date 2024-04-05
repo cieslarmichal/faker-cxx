@@ -11,8 +11,6 @@
 #include "../person/data/brazil/BrazilianLastNames.h"
 #include "../person/data/england/EnglishFirstNames.h"
 #include "../person/data/england/EnglishLastNames.h"
-#include "../person/data/estonia/EstonianFirstNames.h"
-#include "../person/data/estonia/EstonianLastNames.h"
 #include "../person/data/finland/FinnishFirstNames.h"
 #include "../person/data/finland/FinnishLastNames.h"
 #include "../person/data/italy/ItalianFirstNames.h"
@@ -51,6 +49,13 @@ using namespace faker;
 
 namespace
 {
+const std::vector<AddressCountry> addressCountries{
+    AddressCountry::Usa,     AddressCountry::Poland,  AddressCountry::France,    AddressCountry::Russia,
+    AddressCountry::Ukraine, AddressCountry::Italy,   AddressCountry::Germany,   AddressCountry::Czech,
+    AddressCountry::India,   AddressCountry::Denmark, AddressCountry::Australia, AddressCountry::Spain,
+    AddressCountry::Brazil,  AddressCountry::Finland, AddressCountry::Estonia,   AddressCountry::Romania,
+    AddressCountry::Latvia};
+
 const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
     {AddressCountry::Usa, usaAddresses},
     {AddressCountry::Poland, polandAddresses},

@@ -64,14 +64,13 @@ TEST_F(StructureTest, shouldGenerateJson)
     const auto value3 = parsedJson.find("Book title")->second;
     const auto value4 = parsedJson.find("Actor name")->second;
 
-    // there is no point for this, but it's better to be there
     ASSERT_EQ(key1, "Airport name");
     ASSERT_EQ(key2, "Bird name");
     ASSERT_EQ(key3, "Book title");
     ASSERT_EQ(key4, "Actor name");
 
     ASSERT_TRUE(
-        std::ranges::any_of(airports, [value1](const faker::Airport& airport) { return airport.name == value1; }));
+        std::ranges::any_of(airports, [value1](const Airline::Airport& airport) { return airport.name == value1; }));
     ASSERT_TRUE(std::ranges::any_of(birds, [value2](const std::string& bird) { return bird == value2; }));
     ASSERT_TRUE(std::ranges::any_of(titles, [value3](const std::string& title) { return title == value3; }));
     ASSERT_TRUE(std::ranges::any_of(actors, [value4](const std::string& actor) { return actor == value4; }));
@@ -103,7 +102,7 @@ TEST_F(StructureTest, shouldGenerateCSV)
     {
         ASSERT_TRUE(std::ranges::any_of(actors, [&line](const std::string& actor)
                                         { return line.find(actor) != std::string::npos; }));
-        ASSERT_TRUE(std::ranges::any_of(airports, [&line](const faker::Airport& airport)
+        ASSERT_TRUE(std::ranges::any_of(airports, [&line](const Airline::Airport& airport)
                                         { return line.find(airport.name) != std::string::npos; }));
         ASSERT_TRUE(std::ranges::any_of(birds, [&line](const std::string& bird)
                                         { return line.find(bird) != std::string::npos; }));
