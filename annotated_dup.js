@@ -1,7 +1,7 @@
 var annotated_dup =
 [
     [ "faker", null, [
-      [ "Airline", "classfaker_1_1Airline.html", null ],
+      [ "Airline", "classfaker_1_1Airline.html", "classfaker_1_1Airline" ],
       [ "Animal", "classfaker_1_1Animal.html", null ],
       [ "Book", "classfaker_1_1Book.html", null ],
       [ "CharCount", "structfaker_1_1CharCount.html", null ],
@@ -31,7 +31,7 @@ var annotated_dup =
       [ "PasswordOptions", "structfaker_1_1PasswordOptions.html", null ],
       [ "Person", "classfaker_1_1Person.html", null ],
       [ "Phone", "classfaker_1_1Phone.html", null ],
-      [ "Science", "classfaker_1_1Science.html", null ],
+      [ "Science", "classfaker_1_1Science.html", "classfaker_1_1Science" ],
       [ "Sport", "classfaker_1_1Sport.html", null ],
       [ "String", "classfaker_1_1String.html", null ],
       [ "Structure", "classfaker_1_1Structure.html", null ],
