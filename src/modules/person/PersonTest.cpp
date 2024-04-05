@@ -647,88 +647,72 @@ INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite, testing::ValuesIn(suppor
                          [](const testing::TestParamInfo<PersonSsnSuite::ParamType>& info)
                          { return "shouldGenerate" + toString(info.param) + "Ssn"; });
 
-class PersonPassportSuite : public TestWithParam<PassportCountry>
+class PersonPassportTest : public Test
 {
+public:
 };
 
-TEST_P(PersonPassportSuite, shouldGeneratePassport)
+TEST_F(PersonPassportTest, shouldGenerateUsaPassport)
 {
-    const auto country = GetParam();
+    const auto passportNumber = Person::passport(PassportCountry::Usa);
 
-    const auto passportNumber = Person::passport(country);
-    std::cout << "Passport number: " << passportNumber << std::endl;
-    switch (country)
-    {
-    case (PassportCountry::Usa):
-        ASSERT_EQ(passportNumber.size(), 9);
-        ASSERT_TRUE(std::isalpha(passportNumber[0]));
-        ASSERT_TRUE(std::isalpha(passportNumber[1]));
-        ASSERT_TRUE(std::isdigit(passportNumber[2]));
-        ASSERT_TRUE(std::isdigit(passportNumber[3]));
-        ASSERT_TRUE(std::isdigit(passportNumber[4]));
-        ASSERT_TRUE(std::isdigit(passportNumber[5]));
-        ASSERT_TRUE(std::isdigit(passportNumber[6]));
-        ASSERT_TRUE(std::isdigit(passportNumber[7]));
-        ASSERT_TRUE(std::isdigit(passportNumber[8]));
-        break;
-
-    case (PassportCountry::Poland):
-        ASSERT_EQ(passportNumber.size(), 9);
-        ASSERT_TRUE(std::isalpha(passportNumber[0]));
-        ASSERT_TRUE(std::isalpha(passportNumber[1]));
-        ASSERT_TRUE(std::isdigit(passportNumber[2]));
-        ASSERT_TRUE(std::isdigit(passportNumber[3]));
-        ASSERT_TRUE(std::isdigit(passportNumber[4]));
-        ASSERT_TRUE(std::isdigit(passportNumber[5]));
-        ASSERT_TRUE(std::isdigit(passportNumber[6]));
-        ASSERT_TRUE(std::isdigit(passportNumber[7]));
-        ASSERT_TRUE(std::isdigit(passportNumber[8]));
-        break;
-
-    case (PassportCountry::France):
-        ASSERT_EQ(passportNumber.size(), 9);
-        ASSERT_TRUE(std::isdigit(passportNumber[0]));
-        ASSERT_TRUE(std::isdigit(passportNumber[1]));
-        ASSERT_TRUE(std::isalpha(passportNumber[2]));
-        ASSERT_TRUE(std::isalpha(passportNumber[3]));
-        ASSERT_TRUE(std::isdigit(passportNumber[4]));
-        ASSERT_TRUE(std::isdigit(passportNumber[5]));
-        ASSERT_TRUE(std::isdigit(passportNumber[6]));
-        ASSERT_TRUE(std::isdigit(passportNumber[7]));
-        ASSERT_TRUE(std::isdigit(passportNumber[8]));
-        break;
-
-    case (PassportCountry::Romania):
-        ASSERT_EQ(passportNumber.size(), 8);
-        ASSERT_TRUE(std::isdigit(passportNumber[0]));
-        ASSERT_TRUE(std::isdigit(passportNumber[1]));
-        ASSERT_TRUE(std::isdigit(passportNumber[2]));
-        ASSERT_TRUE(std::isdigit(passportNumber[3]));
-        ASSERT_TRUE(std::isdigit(passportNumber[4]));
-        ASSERT_TRUE(std::isdigit(passportNumber[5]));
-        ASSERT_TRUE(std::isdigit(passportNumber[6]));
-        ASSERT_TRUE(std::isdigit(passportNumber[7]));
-        break;
-    }
-}
-
-const std::vector<PassportCountry> supportedPassportCountries = {
-    PassportCountry::Usa,
-    PassportCountry::Poland,
-    PassportCountry::France,
-    PassportCountry::Romania,
+    ASSERT_EQ(passportNumber.size(), 9);
+    ASSERT_TRUE(std::isalpha(passportNumber[0]));
+    ASSERT_TRUE(std::isalpha(passportNumber[1]));
+    ASSERT_TRUE(std::isdigit(passportNumber[2]));
+    ASSERT_TRUE(std::isdigit(passportNumber[3]));
+    ASSERT_TRUE(std::isdigit(passportNumber[4]));
+    ASSERT_TRUE(std::isdigit(passportNumber[5]));
+    ASSERT_TRUE(std::isdigit(passportNumber[6]));
+    ASSERT_TRUE(std::isdigit(passportNumber[7]));
+    ASSERT_TRUE(std::isdigit(passportNumber[8]));
 };
 
-const std::map<PassportCountry, std::string> generatedPassportTestNames{
-    {PassportCountry::Usa, "shouldGenerateUsaPassport"},
-    {PassportCountry::Poland, "shouldGeneratePolandPassport"},
-    {PassportCountry::France, "shouldGenerateFrancePassport"},
-    {PassportCountry::Romania, "shouldGenerateRomaniaPassport"},
+TEST_F(PersonPassportTest, shouldGeneratePolandPassport)
+{
+    const auto passportNumber = Person::passport(PassportCountry::Poland);
+
+    ASSERT_EQ(passportNumber.size(), 9);
+    ASSERT_TRUE(std::isalpha(passportNumber[0]));
+    ASSERT_TRUE(std::isalpha(passportNumber[1]));
+    ASSERT_TRUE(std::isdigit(passportNumber[2]));
+    ASSERT_TRUE(std::isdigit(passportNumber[3]));
+    ASSERT_TRUE(std::isdigit(passportNumber[4]));
+    ASSERT_TRUE(std::isdigit(passportNumber[5]));
+    ASSERT_TRUE(std::isdigit(passportNumber[6]));
+    ASSERT_TRUE(std::isdigit(passportNumber[7]));
+    ASSERT_TRUE(std::isdigit(passportNumber[8]));
 };
 
-INSTANTIATE_TEST_SUITE_P(PersonPassportSuite, PersonPassportSuite, testing::ValuesIn(supportedPassportCountries),
-                   [](const TestParamInfo<PassportCountry>& info)
-                   { return generatedPassportTestNames.at(info.param); });
+TEST_F(PersonPassportTest, shouldGenerateFrenchPassport)
+{
+    const auto passportNumber = Person::passport(PassportCountry::France);
+
+    ASSERT_EQ(passportNumber.size(), 9);
+    ASSERT_TRUE(std::isdigit(passportNumber[0]));
+    ASSERT_TRUE(std::isdigit(passportNumber[1]));
+    ASSERT_TRUE(std::isalpha(passportNumber[2]));
+    ASSERT_TRUE(std::isalpha(passportNumber[3]));
+    ASSERT_TRUE(std::isdigit(passportNumber[4]));
+    ASSERT_TRUE(std::isdigit(passportNumber[5]));
+    ASSERT_TRUE(std::isdigit(passportNumber[6]));
+    ASSERT_TRUE(std::isdigit(passportNumber[7]));
+    ASSERT_TRUE(std::isdigit(passportNumber[8]));
+};
+
+TEST_F(PersonPassportTest, shouldGenerateRomanianPassport)
+{
+    const auto passportNumber = Person::passport(PassportCountry::Romania);
+    ASSERT_EQ(passportNumber.size(), 8);
+    ASSERT_TRUE(std::isdigit(passportNumber[0]));
+    ASSERT_TRUE(std::isdigit(passportNumber[1]));
+    ASSERT_TRUE(std::isdigit(passportNumber[2]));
+    ASSERT_TRUE(std::isdigit(passportNumber[3]));
+    ASSERT_TRUE(std::isdigit(passportNumber[4]));
+    ASSERT_TRUE(std::isdigit(passportNumber[5]));
+    ASSERT_TRUE(std::isdigit(passportNumber[6]));
+    ASSERT_TRUE(std::isdigit(passportNumber[7]));
+};
 
 bool checkTokenFormat(const std::string& bio)
 {

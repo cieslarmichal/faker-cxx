@@ -250,7 +250,7 @@ public:
      * @returns Passport
      *
      * @code
-     * Person::passport(Passport::Romania) // "12345678"
+     * Person::passport(PassportCountry::Romania) // "12345678"
      * @endcode
      */
     static std::string passport(PassportCountry country = PassportCountry::Usa);
