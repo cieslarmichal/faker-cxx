@@ -77,6 +77,7 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/String.h"
+#include "faker-cxx/types/PassportType.h"
 #include "faker-cxx/Word.h"
 
 namespace faker
@@ -453,6 +454,27 @@ std::string Person::westernZodiac()
 std::string Person::chineseZodiac()
 {
     return Helper::arrayElement<std::string>(chineseZodiacs);
+}
+
+std::string Person::passport(PassportCountry country)
+{
+    std::string passportFormat = passportFormats.at(country);
+    std::string passportNumber;
+
+    for (const char& c : passportFormat)
+    {
+        if (c == 'A')
+        {
+            passportNumber += String::alpha(1, StringCasing::Upper);
+        }
+
+        else if (c == '0')
+        {
+            passportNumber += String::numeric(1);
+        }
+    }
+
+    return passportNumber;
 }
 
 namespace
