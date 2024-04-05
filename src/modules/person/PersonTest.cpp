@@ -76,6 +76,7 @@
 #include "data/vietnam/VietnamesePeopleNames.h"
 #include "data/ZodiacSigns.h"
 #include "faker-cxx/Internet.h"
+#include "faker-cxx/types/PassportType.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -646,6 +647,89 @@ INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite, testing::ValuesIn(suppor
                          [](const testing::TestParamInfo<PersonSsnSuite::ParamType>& info)
                          { return "shouldGenerate" + toString(info.param) + "Ssn"; });
 
+class PersonPassportSuite : public TestWithParam<PassportCountry>
+{
+};
+
+TEST_P(PersonPassportSuite, shouldGeneratePassport)
+{
+    const auto country = GetParam();
+
+    const auto passportNumber = Person::passport(country);
+    std::cout << "Passport number: " << passportNumber << std::endl;
+    switch (country)
+    {
+    case (PassportCountry::Usa):
+        ASSERT_EQ(passportNumber.size(), 9);
+        ASSERT_TRUE(std::isalpha(passportNumber[0]));
+        ASSERT_TRUE(std::isalpha(passportNumber[1]));
+        ASSERT_TRUE(std::isdigit(passportNumber[2]));
+        ASSERT_TRUE(std::isdigit(passportNumber[3]));
+        ASSERT_TRUE(std::isdigit(passportNumber[4]));
+        ASSERT_TRUE(std::isdigit(passportNumber[5]));
+        ASSERT_TRUE(std::isdigit(passportNumber[6]));
+        ASSERT_TRUE(std::isdigit(passportNumber[7]));
+        ASSERT_TRUE(std::isdigit(passportNumber[8]));
+        break;
+
+    case (PassportCountry::Poland):
+        ASSERT_EQ(passportNumber.size(), 9);
+        ASSERT_TRUE(std::isalpha(passportNumber[0]));
+        ASSERT_TRUE(std::isalpha(passportNumber[1]));
+        ASSERT_TRUE(std::isdigit(passportNumber[2]));
+        ASSERT_TRUE(std::isdigit(passportNumber[3]));
+        ASSERT_TRUE(std::isdigit(passportNumber[4]));
+        ASSERT_TRUE(std::isdigit(passportNumber[5]));
+        ASSERT_TRUE(std::isdigit(passportNumber[6]));
+        ASSERT_TRUE(std::isdigit(passportNumber[7]));
+        ASSERT_TRUE(std::isdigit(passportNumber[8]));
+        break;
+
+    case (PassportCountry::France):
+        ASSERT_EQ(passportNumber.size(), 9);
+        ASSERT_TRUE(std::isdigit(passportNumber[0]));
+        ASSERT_TRUE(std::isdigit(passportNumber[1]));
+        ASSERT_TRUE(std::isalpha(passportNumber[2]));
+        ASSERT_TRUE(std::isalpha(passportNumber[3]));
+        ASSERT_TRUE(std::isdigit(passportNumber[4]));
+        ASSERT_TRUE(std::isdigit(passportNumber[5]));
+        ASSERT_TRUE(std::isdigit(passportNumber[6]));
+        ASSERT_TRUE(std::isdigit(passportNumber[7]));
+        ASSERT_TRUE(std::isdigit(passportNumber[8]));
+        break;
+
+    case (PassportCountry::Romania):
+        ASSERT_EQ(passportNumber.size(), 8);
+        ASSERT_TRUE(std::isdigit(passportNumber[0]));
+        ASSERT_TRUE(std::isdigit(passportNumber[1]));
+        ASSERT_TRUE(std::isdigit(passportNumber[2]));
+        ASSERT_TRUE(std::isdigit(passportNumber[3]));
+        ASSERT_TRUE(std::isdigit(passportNumber[4]));
+        ASSERT_TRUE(std::isdigit(passportNumber[5]));
+        ASSERT_TRUE(std::isdigit(passportNumber[6]));
+        ASSERT_TRUE(std::isdigit(passportNumber[7]));
+        break;
+    }
+}
+
+const std::vector<PassportCountry> supportedPassportCountries = {
+    PassportCountry::Usa,
+    PassportCountry::Poland,
+    PassportCountry::France,
+    PassportCountry::Romania,
+};
+
+const std::map<PassportCountry, std::string> generatedPassportTestNames{
+    {PassportCountry::Usa, "shouldGenerateUsaPassport"},
+    {PassportCountry::Poland, "shouldGeneratePolandPassport"},
+    {PassportCountry::France, "shouldGenerateFrancePassport"},
+    {PassportCountry::Romania, "shouldGenerateRomaniaPassport"},
+};
+
+INSTANTIATE_TEST_SUITE_P(PersonPassportSuite, PersonPassportSuite, testing::ValuesIn(supportedPassportCountries),
+                   [](const TestParamInfo<PassportCountry>& info)
+                   { return generatedPassportTestNames.at(info.param); });
+
 bool checkTokenFormat(const std::string& bio)
 {
     const std::regex firstRegex{R"(^(\w+\s?\w+)$)"};
@@ -661,7 +745,8 @@ bool checkTokenFormat(const std::string& bio)
     //
     if (std::regex_match(bio, matches, firstRegex))
     {
-        // In this case the bio is in the format {bio_part} so check that the value is present in the bio_part vector.
+        // In this case the bio is in the format {bio_part} so check that the value is present in the bio_part
+        // vector.
         if (std::find(bioPart.begin(), bioPart.end(), matches[0]) != bioPart.end())
             return true;
     }
@@ -677,8 +762,8 @@ bool checkTokenFormat(const std::string& bio)
 
     if (std::regex_match(bio, matches, thirdRegex))
     {
-        // In this case the bio is in the format {bio_part}, {bio_part}, {bio_part} so check that the value is present
-        // in the bio_part vector.
+        // In this case the bio is in the format {bio_part}, {bio_part}, {bio_part} so check that the value is
+        // present in the bio_part vector.
         if (std::find(bioPart.begin(), bioPart.end(), matches[1]) != bioPart.end() &&
             std::find(bioPart.begin(), bioPart.end(), matches[2]) != bioPart.end() &&
             std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end())
@@ -687,8 +772,8 @@ bool checkTokenFormat(const std::string& bio)
 
     if (std::regex_match(bio, matches, fourthRegex))
     {
-        // In this case the bio is in the format {bio_part}, {bio_part}, {bio_part}, {emoji} so check that the value is
-        // present in the bio_part vector.
+        // In this case the bio is in the format {bio_part}, {bio_part}, {bio_part}, {emoji} so check that the value
+        // is present in the bio_part vector.
         if (std::find(bioPart.begin(), bioPart.end(), matches[1]) != bioPart.end() &&
             std::find(bioPart.begin(), bioPart.end(), matches[2]) != bioPart.end() &&
             std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() &&
@@ -717,8 +802,8 @@ bool checkTokenFormat(const std::string& bio)
 
     if (std::regex_match(bio, matches, seventhRegex))
     {
-        // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} so check that the value is present
-        // in the bio_part vector.
+        // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} so check that the value is
+        // present in the bio_part vector.
         if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
             std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
             std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end())
@@ -727,8 +812,8 @@ bool checkTokenFormat(const std::string& bio)
 
     if (std::regex_match(bio, matches, eigthRegex))
     {
-        // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} {emoji} so check that the value is
-        // present in the bio_part vector.
+        // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} {emoji} so check that the value
+        // is present in the bio_part vector.
         if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
             std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
             std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() &&
