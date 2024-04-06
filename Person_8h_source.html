@@ -107,80 +107,146 @@ $(function(){initNavTree('Person_8h_source.html',''); initResizable(); });
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;faker-cxx/types/Country.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;faker-cxx/types/PassportType.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;faker-cxx/types/Sex.h&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;faker-cxx/types/SsnCountry.h&quot;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">namespace </span>faker</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Person.html">Person</a></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a42b7088a6b7f9e646ced57ddbef18160">   30</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a42b7088a6b7f9e646ced57ddbef18160">firstName</a>(Country country = Country::England, std::optional&lt;Sex&gt; <a class="code hl_function" href="classfaker_1_1Person.html#af8f8da8f2cbe05dce89e79f5308cf3e6">sex</a> = std::nullopt);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ab106f862f388f93520672af36a26f26d">   44</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ab106f862f388f93520672af36a26f26d">lastName</a>(Country country = Country::England, std::optional&lt;Sex&gt; <a class="code hl_function" href="classfaker_1_1Person.html#af8f8da8f2cbe05dce89e79f5308cf3e6">sex</a> = std::nullopt);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#aa5fb15571b1b2de297275e7939d166fc">   57</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#aa5fb15571b1b2de297275e7939d166fc">middleName</a>(std::optional&lt;Sex&gt; <a class="code hl_function" href="classfaker_1_1Person.html#af8f8da8f2cbe05dce89e79f5308cf3e6">sex</a> = std::nullopt);</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#acd3900ad7d5fe8d32068649c34eeb59a">   73</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#acd3900ad7d5fe8d32068649c34eeb59a">fullName</a>(Country country = Country::England, std::optional&lt;Sex&gt; <a class="code hl_function" href="classfaker_1_1Person.html#af8f8da8f2cbe05dce89e79f5308cf3e6">sex</a> = std::nullopt);</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a1d4e8274664980f45ec8b474519623da">   88</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a1d4e8274664980f45ec8b474519623da">prefix</a>(std::optional&lt;Sex&gt; <a class="code hl_function" href="classfaker_1_1Person.html#af8f8da8f2cbe05dce89e79f5308cf3e6">sex</a> = std::nullopt);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a386646bcc4139d378d890bb38f661196">   99</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a386646bcc4139d378d890bb38f661196">suffix</a>();</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ad3090b7ffa93ddce052eedda2c19d1f9">  110</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ad3090b7ffa93ddce052eedda2c19d1f9">bio</a>();</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span> </div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#af8f8da8f2cbe05dce89e79f5308cf3e6">  121</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#af8f8da8f2cbe05dce89e79f5308cf3e6">sex</a>(Language <a class="code hl_function" href="classfaker_1_1Person.html#af414b9dd8565995f4afc0e2850dde42c">language</a> = Language::English);</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ade55cc28e754c76d5763c01a9ba2f8b4">  132</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ade55cc28e754c76d5763c01a9ba2f8b4">gender</a>();</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ad9a483f0c91fd2e31b35872aa2d669bc">  143</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ad9a483f0c91fd2e31b35872aa2d669bc">jobTitle</a>();</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ab0e3138fe0416b97219b0815d3de5e29">  154</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ab0e3138fe0416b97219b0815d3de5e29">jobDescriptor</a>();</div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a13c338bc22ec318a716cccc262f2a058">  165</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a13c338bc22ec318a716cccc262f2a058">jobArea</a>();</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span> </div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a52c0cc839ae71e5df637137becdad8ef">  176</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a52c0cc839ae71e5df637137becdad8ef">jobType</a>();</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a499b411db884a8b154b370009bd3b3c2">  187</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a499b411db884a8b154b370009bd3b3c2">hobby</a>();</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span> </div>
-<div class="line"><a id="l00198" name="l00198"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#af414b9dd8565995f4afc0e2850dde42c">  198</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#af414b9dd8565995f4afc0e2850dde42c">language</a>();</div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno">  199</span> </div>
-<div class="line"><a id="l00209" name="l00209"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a13c40a4e8dfb2738288ea0c1d01c2076">  209</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a13c40a4e8dfb2738288ea0c1d01c2076">nationality</a>();</div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span> </div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#afc94f5f344ab51e0f34860b8ec872893">  223</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#afc94f5f344ab51e0f34860b8ec872893">ssn</a>(std::optional&lt;SsnCountry&gt; country);</div>
-<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ab3c42fd36e28a42ab8c0c73181d1135a">  234</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ab3c42fd36e28a42ab8c0c73181d1135a">westernZodiac</a>();</div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span> </div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ac3c84e7dcb1c55d4750e91d8994129d2">  245</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ac3c84e7dcb1c55d4750e91d8994129d2">chineseZodiac</a>();</div>
-<div class="line"><a id="l00246" name="l00246"></a><span class="lineno">  246</span> </div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a61578fff1f58a760df1ec970053d8b05">  256</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a61578fff1f58a760df1ec970053d8b05">passport</a>(PassportCountry country = PassportCountry::Usa);</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>};</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;types/Country.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">enum class</span> PassportCountry;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">enum class</span> Sex;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">enum class</span> SsnCountry;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">enum class</span> Language;</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
+<div class="foldopen" id="foldopen00015" data-start="{" data-end="};">
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html">   15</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Person.html">Person</a></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>{</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ae07693d3a9a0ec364d88844deb84469a">   32</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ae07693d3a9a0ec364d88844deb84469a">firstName</a>(std::optional&lt;Country&gt; country = std::nullopt, std::optional&lt;Sex&gt; <a class="code hl_function" href="classfaker_1_1Person.html#a37ea215bfa7ee73f27ab80a9f7ed211f">sex</a> = std::nullopt);</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a129ad8c7670e9ad773408d134961189f">   46</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a129ad8c7670e9ad773408d134961189f">lastName</a>(std::optional&lt;Country&gt; country = std::nullopt, std::optional&lt;Sex&gt; <a class="code hl_function" href="classfaker_1_1Person.html#a37ea215bfa7ee73f27ab80a9f7ed211f">sex</a> = std::nullopt);</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#aa5fb15571b1b2de297275e7939d166fc">   59</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#aa5fb15571b1b2de297275e7939d166fc">middleName</a>(std::optional&lt;Sex&gt; <a class="code hl_function" href="classfaker_1_1Person.html#a37ea215bfa7ee73f27ab80a9f7ed211f">sex</a> = std::nullopt);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a4a3a11d354383caa8bcede4914dff6a1">   75</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a4a3a11d354383caa8bcede4914dff6a1">fullName</a>(std::optional&lt;Country&gt; country = std::nullopt, std::optional&lt;Sex&gt; <a class="code hl_function" href="classfaker_1_1Person.html#a37ea215bfa7ee73f27ab80a9f7ed211f">sex</a> = std::nullopt);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a1d4e8274664980f45ec8b474519623da">   90</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a1d4e8274664980f45ec8b474519623da">prefix</a>(std::optional&lt;Sex&gt; <a class="code hl_function" href="classfaker_1_1Person.html#a37ea215bfa7ee73f27ab80a9f7ed211f">sex</a> = std::nullopt);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a386646bcc4139d378d890bb38f661196">  101</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a386646bcc4139d378d890bb38f661196">suffix</a>();</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ad3090b7ffa93ddce052eedda2c19d1f9">  112</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ad3090b7ffa93ddce052eedda2c19d1f9">bio</a>();</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a37ea215bfa7ee73f27ab80a9f7ed211f">  123</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a37ea215bfa7ee73f27ab80a9f7ed211f">sex</a>(std::optional&lt;Language&gt; <a class="code hl_function" href="classfaker_1_1Person.html#af414b9dd8565995f4afc0e2850dde42c">language</a> = std::nullopt);</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ade55cc28e754c76d5763c01a9ba2f8b4">  134</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ade55cc28e754c76d5763c01a9ba2f8b4">gender</a>();</div>
+<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ad9a483f0c91fd2e31b35872aa2d669bc">  145</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ad9a483f0c91fd2e31b35872aa2d669bc">jobTitle</a>();</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ab0e3138fe0416b97219b0815d3de5e29">  156</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ab0e3138fe0416b97219b0815d3de5e29">jobDescriptor</a>();</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a13c338bc22ec318a716cccc262f2a058">  167</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a13c338bc22ec318a716cccc262f2a058">jobArea</a>();</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a52c0cc839ae71e5df637137becdad8ef">  178</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a52c0cc839ae71e5df637137becdad8ef">jobType</a>();</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a499b411db884a8b154b370009bd3b3c2">  189</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a499b411db884a8b154b370009bd3b3c2">hobby</a>();</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#af414b9dd8565995f4afc0e2850dde42c">  200</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#af414b9dd8565995f4afc0e2850dde42c">language</a>();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a13c40a4e8dfb2738288ea0c1d01c2076">  211</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a13c40a4e8dfb2738288ea0c1d01c2076">nationality</a>();</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a689015ad4f87627f468ecbb93a59617c">  225</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a689015ad4f87627f468ecbb93a59617c">ssn</a>(std::optional&lt;SsnCountry&gt; country = std::nullopt);</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ab3c42fd36e28a42ab8c0c73181d1135a">  236</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ab3c42fd36e28a42ab8c0c73181d1135a">westernZodiac</a>();</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00247" name="l00247"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#ac3c84e7dcb1c55d4750e91d8994129d2">  247</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#ac3c84e7dcb1c55d4750e91d8994129d2">chineseZodiac</a>();</div>
+<div class="line"><a id="l00248" name="l00248"></a><span class="lineno">  248</span> </div>
+<div class="line"><a id="l00258" name="l00258"></a><span class="lineno"><a class="line" href="classfaker_1_1Person.html#a31d271dc8524dbf7ccb1b119c605bd48">  258</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Person.html#a31d271dc8524dbf7ccb1b119c605bd48">passport</a>(std::optional&lt;PassportCountry&gt; country = std::nullopt);</div>
+<div class="line"><a id="l00259" name="l00259"></a><span class="lineno">  259</span>};</div>
 </div>
-<div class="line"><a id="l00258" name="l00258"></a><span class="lineno">  258</span>}</div>
-<div class="ttc" id="aclassfaker_1_1Person_html"><div class="ttname"><a href="classfaker_1_1Person.html">faker::Person</a></div><div class="ttdef"><b>Definition</b> Person.h:14</div></div>
+<div class="line"><a id="l00260" name="l00260"></a><span class="lineno">  260</span> </div>
+<div class="line"><a id="l00261" name="l00261"></a><span class="lineno">  261</span><span class="keyword">enum class</span> PassportCountry</div>
+<div class="line"><a id="l00262" name="l00262"></a><span class="lineno">  262</span>{</div>
+<div class="line"><a id="l00263" name="l00263"></a><span class="lineno">  263</span>    Usa,</div>
+<div class="line"><a id="l00264" name="l00264"></a><span class="lineno">  264</span>    Poland,</div>
+<div class="line"><a id="l00265" name="l00265"></a><span class="lineno">  265</span>    France,</div>
+<div class="line"><a id="l00266" name="l00266"></a><span class="lineno">  266</span>    Romania,</div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span>};</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00269" name="l00269"></a><span class="lineno">  269</span><span class="keyword">enum class</span> Sex</div>
+<div class="line"><a id="l00270" name="l00270"></a><span class="lineno">  270</span>{</div>
+<div class="line"><a id="l00271" name="l00271"></a><span class="lineno">  271</span>    Male,</div>
+<div class="line"><a id="l00272" name="l00272"></a><span class="lineno">  272</span>    Female,</div>
+<div class="line"><a id="l00273" name="l00273"></a><span class="lineno">  273</span>};</div>
+<div class="line"><a id="l00274" name="l00274"></a><span class="lineno">  274</span> </div>
+<div class="line"><a id="l00275" name="l00275"></a><span class="lineno">  275</span><span class="keyword">enum class</span> SsnCountry</div>
+<div class="line"><a id="l00276" name="l00276"></a><span class="lineno">  276</span>{</div>
+<div class="line"><a id="l00277" name="l00277"></a><span class="lineno">  277</span>    Poland,</div>
+<div class="line"><a id="l00278" name="l00278"></a><span class="lineno">  278</span>    UnitedStates,</div>
+<div class="line"><a id="l00279" name="l00279"></a><span class="lineno">  279</span>    UnitedKingdom,</div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span>    Germany,</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span>    France,</div>
+<div class="line"><a id="l00282" name="l00282"></a><span class="lineno">  282</span>    Italy,</div>
+<div class="line"><a id="l00283" name="l00283"></a><span class="lineno">  283</span>    Spain,</div>
+<div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    India,</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>};</div>
+<div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span> </div>
+<div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span><span class="keyword">enum class</span> Language</div>
+<div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>{</div>
+<div class="line"><a id="l00289" name="l00289"></a><span class="lineno">  289</span>    English,</div>
+<div class="line"><a id="l00290" name="l00290"></a><span class="lineno">  290</span>    Polish,</div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span>    French,</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span>    German,</div>
+<div class="line"><a id="l00293" name="l00293"></a><span class="lineno">  293</span>    Italian,</div>
+<div class="line"><a id="l00294" name="l00294"></a><span class="lineno">  294</span>    Russian,</div>
+<div class="line"><a id="l00295" name="l00295"></a><span class="lineno">  295</span>    Romanian,</div>
+<div class="line"><a id="l00296" name="l00296"></a><span class="lineno">  296</span>    Hindi,</div>
+<div class="line"><a id="l00297" name="l00297"></a><span class="lineno">  297</span>    Finnish,</div>
+<div class="line"><a id="l00298" name="l00298"></a><span class="lineno">  298</span>    Nepali,</div>
+<div class="line"><a id="l00299" name="l00299"></a><span class="lineno">  299</span>    Spanish,</div>
+<div class="line"><a id="l00300" name="l00300"></a><span class="lineno">  300</span>    Turkish,</div>
+<div class="line"><a id="l00301" name="l00301"></a><span class="lineno">  301</span>    Czech,</div>
+<div class="line"><a id="l00302" name="l00302"></a><span class="lineno">  302</span>    Slovak,</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    Ukrainian,</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span>    Danish,</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    Swedish,</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>    Portuguese,</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>    Norwegian,</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>    Japanese,</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    Hungarian,</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    Croatian,</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span>    Greek,</div>
+<div class="line"><a id="l00312" name="l00312"></a><span class="lineno">  312</span>    Slovene,</div>
+<div class="line"><a id="l00313" name="l00313"></a><span class="lineno">  313</span>    Dutch,</div>
+<div class="line"><a id="l00314" name="l00314"></a><span class="lineno">  314</span>    Mandarin,</div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span>    Korean,</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span>    Serbian,</div>
+<div class="line"><a id="l00317" name="l00317"></a><span class="lineno">  317</span>    Macedonian,</div>
+<div class="line"><a id="l00318" name="l00318"></a><span class="lineno">  318</span>    Albanian,</div>
+<div class="line"><a id="l00319" name="l00319"></a><span class="lineno">  319</span>    Latvian,</div>
+<div class="line"><a id="l00320" name="l00320"></a><span class="lineno">  320</span>    Irish,</div>
+<div class="line"><a id="l00321" name="l00321"></a><span class="lineno">  321</span>    Belarusian,</div>
+<div class="line"><a id="l00322" name="l00322"></a><span class="lineno">  322</span>    Estonian</div>
+<div class="line"><a id="l00323" name="l00323"></a><span class="lineno">  323</span>};</div>
+<div class="line"><a id="l00324" name="l00324"></a><span class="lineno">  324</span>}</div>
+<div class="ttc" id="aclassfaker_1_1Person_html"><div class="ttname"><a href="classfaker_1_1Person.html">faker::Person</a></div><div class="ttdef"><b>Definition</b> Person.h:16</div></div>
+<div class="ttc" id="aclassfaker_1_1Person_html_a129ad8c7670e9ad773408d134961189f"><div class="ttname"><a href="classfaker_1_1Person.html#a129ad8c7670e9ad773408d134961189f">faker::Person::lastName</a></div><div class="ttdeci">static std::string lastName(std::optional&lt; Country &gt; country=std::nullopt, std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random last name.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_a13c338bc22ec318a716cccc262f2a058"><div class="ttname"><a href="classfaker_1_1Person.html#a13c338bc22ec318a716cccc262f2a058">faker::Person::jobArea</a></div><div class="ttdeci">static std::string jobArea()</div><div class="ttdoc">Returns a random job area.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_a13c40a4e8dfb2738288ea0c1d01c2076"><div class="ttname"><a href="classfaker_1_1Person.html#a13c40a4e8dfb2738288ea0c1d01c2076">faker::Person::nationality</a></div><div class="ttdeci">static std::string nationality()</div><div class="ttdoc">Returns a random nationality.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_a1d4e8274664980f45ec8b474519623da"><div class="ttname"><a href="classfaker_1_1Person.html#a1d4e8274664980f45ec8b474519623da">faker::Person::prefix</a></div><div class="ttdeci">static std::string prefix(std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random name prefix.</div></div>
+<div class="ttc" id="aclassfaker_1_1Person_html_a31d271dc8524dbf7ccb1b119c605bd48"><div class="ttname"><a href="classfaker_1_1Person.html#a31d271dc8524dbf7ccb1b119c605bd48">faker::Person::passport</a></div><div class="ttdeci">static std::string passport(std::optional&lt; PassportCountry &gt; country=std::nullopt)</div><div class="ttdoc">Returns a random passport number from a given country.</div></div>
+<div class="ttc" id="aclassfaker_1_1Person_html_a37ea215bfa7ee73f27ab80a9f7ed211f"><div class="ttname"><a href="classfaker_1_1Person.html#a37ea215bfa7ee73f27ab80a9f7ed211f">faker::Person::sex</a></div><div class="ttdeci">static std::string sex(std::optional&lt; Language &gt; language=std::nullopt)</div><div class="ttdoc">Returns a sex.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_a386646bcc4139d378d890bb38f661196"><div class="ttname"><a href="classfaker_1_1Person.html#a386646bcc4139d378d890bb38f661196">faker::Person::suffix</a></div><div class="ttdeci">static std::string suffix()</div><div class="ttdoc">Returns a random name suffix.</div></div>
-<div class="ttc" id="aclassfaker_1_1Person_html_a42b7088a6b7f9e646ced57ddbef18160"><div class="ttname"><a href="classfaker_1_1Person.html#a42b7088a6b7f9e646ced57ddbef18160">faker::Person::firstName</a></div><div class="ttdeci">static std::string firstName(Country country=Country::England, std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random first name.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_a499b411db884a8b154b370009bd3b3c2"><div class="ttname"><a href="classfaker_1_1Person.html#a499b411db884a8b154b370009bd3b3c2">faker::Person::hobby</a></div><div class="ttdeci">static std::string hobby()</div><div class="ttdoc">Returns a random hobby.</div></div>
+<div class="ttc" id="aclassfaker_1_1Person_html_a4a3a11d354383caa8bcede4914dff6a1"><div class="ttname"><a href="classfaker_1_1Person.html#a4a3a11d354383caa8bcede4914dff6a1">faker::Person::fullName</a></div><div class="ttdeci">static std::string fullName(std::optional&lt; Country &gt; country=std::nullopt, std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random full name.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_a52c0cc839ae71e5df637137becdad8ef"><div class="ttname"><a href="classfaker_1_1Person.html#a52c0cc839ae71e5df637137becdad8ef">faker::Person::jobType</a></div><div class="ttdeci">static std::string jobType()</div><div class="ttdoc">Returns a random job type.</div></div>
-<div class="ttc" id="aclassfaker_1_1Person_html_a61578fff1f58a760df1ec970053d8b05"><div class="ttname"><a href="classfaker_1_1Person.html#a61578fff1f58a760df1ec970053d8b05">faker::Person::passport</a></div><div class="ttdeci">static std::string passport(PassportCountry country=PassportCountry::Usa)</div><div class="ttdoc">Returns a random passport number from a given country.</div></div>
+<div class="ttc" id="aclassfaker_1_1Person_html_a689015ad4f87627f468ecbb93a59617c"><div class="ttname"><a href="classfaker_1_1Person.html#a689015ad4f87627f468ecbb93a59617c">faker::Person::ssn</a></div><div class="ttdeci">static std::string ssn(std::optional&lt; SsnCountry &gt; country=std::nullopt)</div><div class="ttdoc">Returns a random SSN.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_aa5fb15571b1b2de297275e7939d166fc"><div class="ttname"><a href="classfaker_1_1Person.html#aa5fb15571b1b2de297275e7939d166fc">faker::Person::middleName</a></div><div class="ttdeci">static std::string middleName(std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random middle name.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_ab0e3138fe0416b97219b0815d3de5e29"><div class="ttname"><a href="classfaker_1_1Person.html#ab0e3138fe0416b97219b0815d3de5e29">faker::Person::jobDescriptor</a></div><div class="ttdeci">static std::string jobDescriptor()</div><div class="ttdoc">Returns a random job descriptor.</div></div>
-<div class="ttc" id="aclassfaker_1_1Person_html_ab106f862f388f93520672af36a26f26d"><div class="ttname"><a href="classfaker_1_1Person.html#ab106f862f388f93520672af36a26f26d">faker::Person::lastName</a></div><div class="ttdeci">static std::string lastName(Country country=Country::England, std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random last name.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_ab3c42fd36e28a42ab8c0c73181d1135a"><div class="ttname"><a href="classfaker_1_1Person.html#ab3c42fd36e28a42ab8c0c73181d1135a">faker::Person::westernZodiac</a></div><div class="ttdeci">static std::string westernZodiac()</div><div class="ttdoc">Returns a random Western Zodiac.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_ac3c84e7dcb1c55d4750e91d8994129d2"><div class="ttname"><a href="classfaker_1_1Person.html#ac3c84e7dcb1c55d4750e91d8994129d2">faker::Person::chineseZodiac</a></div><div class="ttdeci">static std::string chineseZodiac()</div><div class="ttdoc">Returns a random Chinese Zodiac.</div></div>
-<div class="ttc" id="aclassfaker_1_1Person_html_acd3900ad7d5fe8d32068649c34eeb59a"><div class="ttname"><a href="classfaker_1_1Person.html#acd3900ad7d5fe8d32068649c34eeb59a">faker::Person::fullName</a></div><div class="ttdeci">static std::string fullName(Country country=Country::England, std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random full name.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_ad3090b7ffa93ddce052eedda2c19d1f9"><div class="ttname"><a href="classfaker_1_1Person.html#ad3090b7ffa93ddce052eedda2c19d1f9">faker::Person::bio</a></div><div class="ttdeci">static std::string bio()</div><div class="ttdoc">Returns a random bio.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_ad9a483f0c91fd2e31b35872aa2d669bc"><div class="ttname"><a href="classfaker_1_1Person.html#ad9a483f0c91fd2e31b35872aa2d669bc">faker::Person::jobTitle</a></div><div class="ttdeci">static std::string jobTitle()</div><div class="ttdoc">Returns a random job title.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_ade55cc28e754c76d5763c01a9ba2f8b4"><div class="ttname"><a href="classfaker_1_1Person.html#ade55cc28e754c76d5763c01a9ba2f8b4">faker::Person::gender</a></div><div class="ttdeci">static std::string gender()</div><div class="ttdoc">Returns a random gender.</div></div>
+<div class="ttc" id="aclassfaker_1_1Person_html_ae07693d3a9a0ec364d88844deb84469a"><div class="ttname"><a href="classfaker_1_1Person.html#ae07693d3a9a0ec364d88844deb84469a">faker::Person::firstName</a></div><div class="ttdeci">static std::string firstName(std::optional&lt; Country &gt; country=std::nullopt, std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random first name.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_af414b9dd8565995f4afc0e2850dde42c"><div class="ttname"><a href="classfaker_1_1Person.html#af414b9dd8565995f4afc0e2850dde42c">faker::Person::language</a></div><div class="ttdeci">static std::string language()</div><div class="ttdoc">Returns a random language.</div></div>
-<div class="ttc" id="aclassfaker_1_1Person_html_af8f8da8f2cbe05dce89e79f5308cf3e6"><div class="ttname"><a href="classfaker_1_1Person.html#af8f8da8f2cbe05dce89e79f5308cf3e6">faker::Person::sex</a></div><div class="ttdeci">static std::string sex(Language language=Language::English)</div><div class="ttdoc">Returns a sex.</div></div>
-<div class="ttc" id="aclassfaker_1_1Person_html_afc94f5f344ab51e0f34860b8ec872893"><div class="ttname"><a href="classfaker_1_1Person.html#afc94f5f344ab51e0f34860b8ec872893">faker::Person::ssn</a></div><div class="ttdeci">static std::string ssn(std::optional&lt; SsnCountry &gt; country)</div><div class="ttdoc">Returns a random SSN.</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

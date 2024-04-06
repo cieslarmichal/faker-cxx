@@ -47,9 +47,10 @@ var searchData=
   ['cronoptions_44',['CronOptions',['../structfaker_1_1CronOptions.html',1,'faker']]],
   ['crypto_45',['Crypto',['../classfaker_1_1Crypto.html',1,'faker']]],
   ['csv_46',['csv',['../classfaker_1_1Structure.html#af53a81d02be66dc2d27a671621cead41',1,'faker::Structure']]],
-  ['currency_47',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
-  ['currencycode_48',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]],
-  ['currencyname_49',['currencyName',['../classfaker_1_1Finance.html#aea30c16fd3757eec52025100bc553136',1,'faker::Finance']]],
-  ['currencysymbol_50',['currencySymbol',['../classfaker_1_1Finance.html#a61a9d4a689fc4efafed30c47980ce9e3',1,'faker::Finance']]],
-  ['currentunit_51',['currentUnit',['../classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50',1,'faker::Science']]]
+  ['currency_47',['Currency',['../structfaker_1_1Currency.html',1,'faker']]],
+  ['currency_48',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
+  ['currencycode_49',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]],
+  ['currencyname_50',['currencyName',['../classfaker_1_1Finance.html#aea30c16fd3757eec52025100bc553136',1,'faker::Finance']]],
+  ['currencysymbol_51',['currencySymbol',['../classfaker_1_1Finance.html#a61a9d4a689fc4efafed30c47980ce9e3',1,'faker::Finance']]],
+  ['currentunit_52',['currentUnit',['../classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50',1,'faker::Science']]]
 ];
