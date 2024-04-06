@@ -1,8 +1,7 @@
 #pragma once
 
 #include <optional>
-
-#include "types/FileType.h"
+#include <string>
 
 namespace faker
 {
@@ -16,13 +15,21 @@ struct FileOptions
     } extensionRange;
 };
 
+enum class FileType
+{
+    Video,
+    Audio,
+    Image,
+    Text,
+    Application
+};
+
 struct CronOptions
 {
     bool includeYear = false;
     bool includeNonStandard = false;
 };
 
-// TODO: change to enums
 struct NetworkInterfaceOptions
 {
     std::optional<std::string> interfaceType;

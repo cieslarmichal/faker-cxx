@@ -120,6 +120,12 @@ public:
                                                                   { return creditCardCharacter == dataCharacter; });
                                    });
     }
+
+    static bool checkIfCurrenciesAreEqual(const Currency& currency1, const Currency& currency2)
+    {
+        return currency1.name == currency2.name && currency1.code == currency2.code &&
+               currency1.symbol == currency2.symbol;
+    }
 };
 
 TEST_F(FinanceTest, shouldGenerateCurrency)
@@ -127,7 +133,7 @@ TEST_F(FinanceTest, shouldGenerateCurrency)
     const auto generatedCurrency = Finance::currency();
 
     ASSERT_TRUE(std::ranges::any_of(currencies, [generatedCurrency](const Currency& currency)
-                                    { return currency == generatedCurrency; }));
+                                    { return checkIfCurrenciesAreEqual(currency, generatedCurrency); }));
 }
 
 TEST_F(FinanceTest, shouldGenerateCurrencyName)

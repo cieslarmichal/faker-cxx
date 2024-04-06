@@ -2,9 +2,8 @@
 
 #include <map>
 #include <string>
-#include <vector>
 
-#include "faker-cxx/types/SsnCountry.h"
+#include "faker-cxx/Person.h"
 
 namespace faker
 {

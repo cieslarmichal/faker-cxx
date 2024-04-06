@@ -3,13 +3,15 @@
 #include <optional>
 #include <string>
 
-#include "faker-cxx/types/Country.h"
-#include "faker-cxx/types/PassportType.h"
-#include "faker-cxx/types/Sex.h"
-#include "faker-cxx/types/SsnCountry.h"
+#include "types/Country.h"
 
 namespace faker
 {
+enum class PassportCountry;
+enum class Sex;
+enum class SsnCountry;
+enum class Language;
+
 class Person
 {
 public:
@@ -27,7 +29,7 @@ public:
      * Person::firstName(Country::England, Sex::Male) // "Arthur"
      * @endcode
      */
-    static std::string firstName(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
+    static std::string firstName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random last name.
@@ -41,7 +43,7 @@ public:
      * Person::lastName() // "Peterson"
      * @endcode
      */
-    static std::string lastName(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
+    static std::string lastName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random middle name.
@@ -70,7 +72,7 @@ public:
      * Person::fullName(Country::England, Sex::Male) // "Samuel Walker"
      * @endcode
      */
-    static std::string fullName(Country country = Country::England, std::optional<Sex> sex = std::nullopt);
+    static std::string fullName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random name prefix.
@@ -118,7 +120,7 @@ public:
      * Person::sex() // "Male"
      * @endcode
      */
-    static std::string sex(Language language = Language::English);
+    static std::string sex(std::optional<Language> language = std::nullopt);
 
     /**
      * @brief Returns a random gender.
@@ -220,7 +222,7 @@ public:
      * Person::ssn(SsnCountry::Polish) // "95111901567"
      * @endcode
      */
-    static std::string ssn(std::optional<SsnCountry> country);
+    static std::string ssn(std::optional<SsnCountry> country = std::nullopt);
 
     /**
      * @brief Returns a random Western Zodiac
@@ -253,6 +255,70 @@ public:
      * Person::passport(PassportCountry::Romania) // "12345678"
      * @endcode
      */
-    static std::string passport(PassportCountry country = PassportCountry::Usa);
+    static std::string passport(std::optional<PassportCountry> country = std::nullopt);
+};
+
+enum class PassportCountry
+{
+    Usa,
+    Poland,
+    France,
+    Romania,
+};
+
+enum class Sex
+{
+    Male,
+    Female,
+};
+
+enum class SsnCountry
+{
+    Poland,
+    UnitedStates,
+    UnitedKingdom,
+    Germany,
+    France,
+    Italy,
+    Spain,
+    India,
+};
+
+enum class Language
+{
+    English,
+    Polish,
+    French,
+    German,
+    Italian,
+    Russian,
+    Romanian,
+    Hindi,
+    Finnish,
+    Nepali,
+    Spanish,
+    Turkish,
+    Czech,
+    Slovak,
+    Ukrainian,
+    Danish,
+    Swedish,
+    Portuguese,
+    Norwegian,
+    Japanese,
+    Hungarian,
+    Croatian,
+    Greek,
+    Slovene,
+    Dutch,
+    Mandarin,
+    Korean,
+    Serbian,
+    Macedonian,
+    Albanian,
+    Latvian,
+    Irish,
+    Belarusian,
+    Estonian
 };
 }

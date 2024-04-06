@@ -4,11 +4,17 @@
 #include <string>
 
 #include "types/Country.h"
-#include "types/Currency.h"
 #include "types/Precision.h"
 
 namespace faker
 {
+struct Currency
+{
+    std::string name;
+    std::string code;
+    std::string symbol;
+};
+
 class Finance
 {
 public:

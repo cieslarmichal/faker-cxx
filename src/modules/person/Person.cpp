@@ -77,13 +77,72 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/String.h"
-#include "faker-cxx/types/PassportType.h"
 #include "faker-cxx/Word.h"
 
 namespace faker
 {
 namespace
 {
+const std::vector<SsnCountry> supportedSsnCountries{
+    SsnCountry::Poland, SsnCountry::UnitedStates, SsnCountry::UnitedKingdom, SsnCountry::Germany,
+    SsnCountry::France, SsnCountry::Italy,        SsnCountry::Spain,         SsnCountry::India,
+};
+
+const std::map<Language, std::map<Sex, std::string>> sexTranslations = {
+    {Language::English, {{Sex::Male, "Male"}, {Sex::Female, "Female"}}},
+    {Language::Polish, {{Sex::Male, "Mężczyzna"}, {Sex::Female, "Kobieta"}}},
+    {Language::Italian, {{Sex::Male, "Maschio"}, {Sex::Female, "Femmina"}}},
+    {Language::French, {{Sex::Male, "Homme"}, {Sex::Female, "Femme"}}},
+    {Language::German, {{Sex::Male, "Mann"}, {Sex::Female, "Frau"}}},
+    {Language::Russian, {{Sex::Male, "Мужчина"}, {Sex::Female, "Женщина"}}},
+    {Language::Romanian, {{Sex::Male, "Bărbat"}, {Sex::Female, "Femeie"}}},
+    {Language::Hindi, {{Sex::Male, "पुरुष"}, {Sex::Female, "महिला"}}},
+    {Language::Finnish, {{Sex::Male, "Mies"}, {Sex::Female, "Nainen"}}},
+    {Language::Nepali, {{Sex::Male, "पुरुष"}, {Sex::Female, "महिला"}}},
+    {Language::Spanish, {{Sex::Male, "Hombre"}, {Sex::Female, "Mujer"}}},
+    {Language::Turkish, {{Sex::Male, "Erkek"}, {Sex::Female, "Kadın"}}},
+    {Language::Czech, {{Sex::Male, "Muž"}, {Sex::Female, "Žena"}}},
+    {Language::Slovak, {{Sex::Male, "Muž"}, {Sex::Female, "Žena"}}},
+    {Language::Ukrainian, {{Sex::Male, "Чоловік"}, {Sex::Female, "Жінка"}}},
+    {Language::Danish, {{Sex::Male, "Mand"}, {Sex::Female, "Kvinde"}}},
+    {Language::Swedish, {{Sex::Male, "Man"}, {Sex::Female, "Kvinna"}}},
+    {Language::Portuguese, {{Sex::Male, "Homem"}, {Sex::Female, "Mulher"}}},
+    {Language::Norwegian, {{Sex::Male, "Mann"}, {Sex::Female, "Kvinne"}}},
+    {Language::Japanese, {{Sex::Male, "男性"}, {Sex::Female, "女性"}}},
+    {Language::Hungarian, {{Sex::Male, "Férfi"}, {Sex::Female, "Nő"}}},
+    {Language::Croatian, {{Sex::Male, "Muškarac"}, {Sex::Female, "Žena"}}},
+    {Language::Greek, {{Sex::Male, "Άνδρας"}, {Sex::Female, "Γυναίκα"}}},
+    {Language::Slovene, {{Sex::Male, "Moški"}, {Sex::Female, "Ženska"}}},
+    {Language::Dutch, {{Sex::Male, "Man"}, {Sex::Female, "Vrouw"}}},
+    {Language::Mandarin, {{Sex::Male, "男"}, {Sex::Female, "女"}}},
+    {Language::Korean, {{Sex::Male, "남자"}, {Sex::Female, "여자"}}},
+    {Language::Serbian, {{Sex::Male, "Мушкарац"}, {Sex::Female, "Жена"}}},
+    {Language::Macedonian, {{Sex::Male, "Маж"}, {Sex::Female, "Жена"}}},
+    {Language::Albanian, {{Sex::Male, "Mashkull"}, {Sex::Female, "Femër"}}},
+    {Language::Latvian, {{Sex::Male, "Vīrietis"}, {Sex::Female, "Sieviete"}}},
+    {Language::Belarusian, {{Sex::Male, "Мужчына"}, {Sex::Female, "Жанчына"}}},
+    {Language::Estonian, {{Sex::Male, "Mees"}, {Sex::Female, "Naine"}}},
+    {Language::Irish, {{Sex::Male, "fireannach"}, {Sex::Female, "baineann"}}}};
+
+std::string translateSex(Sex sex, Language language = Language::English)
+{
+    const auto sexTranslation = sexTranslations.find(language);
+
+    if (sexTranslation == sexTranslations.end())
+    {
+        throw std::runtime_error{"Sex not found."};
+    }
+
+    return sexTranslation->second.at(sex);
+}
+
+const std::map<PassportCountry, std::string> passportFormats{
+    {PassportCountry::Usa, "AA0000000"},
+    {PassportCountry::Poland, "AA0000000"},
+    {PassportCountry::France, "00AA00000"},
+    {PassportCountry::Romania, "00000000"},
+};
+
 const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::England, englishPeopleNames},
     {Country::France, frenchPeopleNames},
@@ -153,8 +212,10 @@ std::string prefixForCountry(Country country, std::optional<Sex> sex);
 std::string suffixForCountry(Country country, std::optional<Sex> sex);
 }
 
-std::string Person::firstName(Country country, std::optional<Sex> sex)
+std::string Person::firstName(std::optional<Country> countryOpt, std::optional<Sex> sex)
 {
+    const auto country = countryOpt ? *countryOpt : Country::England;
+
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     std::vector<std::string> firstNames;
@@ -183,8 +244,10 @@ std::string Person::firstName(Country country, std::optional<Sex> sex)
     return Helper::arrayElement<std::string>(firstNames);
 }
 
-std::string Person::lastName(Country country, std::optional<Sex> sex)
+std::string Person::lastName(std::optional<Country> countryOpt, std::optional<Sex> sex)
 {
+    const auto country = countryOpt ? *countryOpt : Country::England;
+
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     std::vector<std::string> lastNames;
@@ -252,14 +315,16 @@ std::string Person::middleName(std::optional<Sex> sex)
     if (allMiddleNames.empty())
     {
         throw std::runtime_error{
-            FormatHelper::format("No middle name fround, sex: {}.", sex ? toString(*sex) : "none")};
+            FormatHelper::format("No middle name fround, sex: {}.", sex ? translateSex(*sex) : "none")};
     }
 
     return Helper::arrayElement<std::string>(allMiddleNames);
 }
 
-std::string Person::fullName(Country country, std::optional<Sex> sex)
+std::string Person::fullName(std::optional<Country> countryOpt, std::optional<Sex> sex)
 {
+    const auto country = countryOpt ? *countryOpt : Country::England;
+
     const auto& peopleNames = countryToPeopleNamesMapping.at(country);
 
     std::vector<Helper::WeightedElement<std::string>> weightedElements;
@@ -319,7 +384,8 @@ std::string Person::prefix(std::optional<Sex> sex)
 
     if (allPrefixes.empty())
     {
-        throw std::runtime_error{FormatHelper::format("No prefixes fround, sex: {}.", sex ? toString(*sex) : "none")};
+        throw std::runtime_error{
+            FormatHelper::format("No prefixes fround, sex: {}.", sex ? translateSex(*sex) : "none")};
     }
 
     return Helper::arrayElement<std::string>(allPrefixes);
@@ -362,13 +428,15 @@ std::string Person::suffix()
     return Helper::arrayElement<std::string>(allSuffixes);
 }
 
-std::string Person::sex(Language language)
+std::string Person::sex(std::optional<Language> languageOpt)
 {
     const std::vector<std::string> sexes{"Male", "Female"};
 
     const auto chosenSex = Helper::arrayElement<std::string>(sexes);
 
     const auto sexEnum = chosenSex == "Male" ? Sex::Male : Sex::Female;
+
+    const auto language = languageOpt ? *languageOpt : Language::English;
 
     return translateSex(sexEnum, language);
 }
@@ -456,9 +524,12 @@ std::string Person::chineseZodiac()
     return Helper::arrayElement<std::string>(chineseZodiacs);
 }
 
-std::string Person::passport(PassportCountry country)
+std::string Person::passport(std::optional<PassportCountry> countryOpt)
 {
-    std::string passportFormat = passportFormats.at(country);
+    const auto country = countryOpt ? *countryOpt : PassportCountry::Usa;
+
+    const auto& passportFormat = passportFormats.at(country);
+
     std::string passportNumber;
 
     for (const char& c : passportFormat)
@@ -568,5 +639,6 @@ std::string suffixForCountry(Country country, std::optional<Sex> sex)
 
     return Helper::arrayElement<std::string>(suffixes);
 }
+
 }
 }

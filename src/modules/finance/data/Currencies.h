@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-#include "faker-cxx/types/Currency.h"
+#include "faker-cxx/Finance.h"
 
 namespace faker
 {

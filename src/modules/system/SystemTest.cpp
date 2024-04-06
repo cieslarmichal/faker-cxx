@@ -10,6 +10,12 @@
 using namespace ::testing;
 using namespace faker;
 
+const std::map<FileType, std::string> fileTypeToStringMapping{{FileType::Video, "video"},
+                                                              {FileType::Audio, "audio"},
+                                                              {FileType::Image, "image"},
+                                                              {FileType::Text, "text"},
+                                                              {FileType::Application, "application"}};
+
 class SystemTest : public Test
 {
 };
@@ -56,55 +62,64 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
     auto application = FileType::Application;
 
     std::vector<std::string> imageExtensions;
+
     for (const auto& mimeType : mimeTypes)
     {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
-        if (ext == toString(image))
+        if (ext == fileTypeToStringMapping.at(image))
         {
             imageExtensions.push_back(mimeType.substr(pos + 1));
         }
     }
+
     std::vector<std::string> audioExtensions;
+
     for (const auto& mimeType : mimeTypes)
     {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
-        if (ext == toString(audio))
+        if (ext == fileTypeToStringMapping.at(audio))
         {
             audioExtensions.push_back(mimeType.substr(pos + 1));
         }
     }
+
     std::vector<std::string> videoExtensions;
+
     for (const auto& mimeType : mimeTypes)
     {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
-        if (ext == toString(video))
+        if (ext == fileTypeToStringMapping.at(video))
         {
             videoExtensions.push_back(mimeType.substr(pos + 1));
         }
     }
     std::vector<std::string> textExtensions;
+
     for (const auto& mimeType : mimeTypes)
     {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
-        if (ext == toString(text))
+        if (ext == fileTypeToStringMapping.at(text))
         {
             textExtensions.push_back(mimeType.substr(pos + 1));
         }
     }
+
     std::vector<std::string> applicationExtensions;
+
     for (const auto& mimeType : mimeTypes)
     {
         size_t pos = mimeType.find_first_of('/');
         const auto ext = mimeType.substr(0, pos);
-        if (ext == toString(application))
+        if (ext == fileTypeToStringMapping.at(application))
         {
             applicationExtensions.push_back(mimeType.substr(pos + 1));
         }
     }
+
     auto imageExt = System::fileExtension(image);
     auto audioExt = System::fileExtension(audio);
     auto videoExt = System::fileExtension(video);
