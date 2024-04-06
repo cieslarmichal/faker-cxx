@@ -1,5 +1,7 @@
 #pragma once
 
+#include <map>
+
 #include "faker-cxx/types/Precision.h"
 
 namespace faker

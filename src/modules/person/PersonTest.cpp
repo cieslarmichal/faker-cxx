@@ -76,14 +76,70 @@
 #include "data/vietnam/VietnamesePeopleNames.h"
 #include "data/ZodiacSigns.h"
 #include "faker-cxx/Internet.h"
-#include "faker-cxx/types/PassportType.h"
 
 using namespace ::testing;
 using namespace faker;
 
 namespace
 {
+const std::vector<SsnCountry> supportedSsnCountries{
+    SsnCountry::Poland, SsnCountry::UnitedStates, SsnCountry::UnitedKingdom, SsnCountry::Germany,
+    SsnCountry::France, SsnCountry::Italy,        SsnCountry::Spain,         SsnCountry::India,
+};
+
 const std::vector<std::string> sexes{"Male", "Female"};
+
+const std::map<Language, std::map<Sex, std::string>> sexTranslations = {
+    {Language::English, {{Sex::Male, "Male"}, {Sex::Female, "Female"}}},
+    {Language::Polish, {{Sex::Male, "Mężczyzna"}, {Sex::Female, "Kobieta"}}},
+    {Language::Italian, {{Sex::Male, "Maschio"}, {Sex::Female, "Femmina"}}},
+    {Language::French, {{Sex::Male, "Homme"}, {Sex::Female, "Femme"}}},
+    {Language::German, {{Sex::Male, "Mann"}, {Sex::Female, "Frau"}}},
+    {Language::Russian, {{Sex::Male, "Мужчина"}, {Sex::Female, "Женщина"}}},
+    {Language::Romanian, {{Sex::Male, "Bărbat"}, {Sex::Female, "Femeie"}}},
+    {Language::Hindi, {{Sex::Male, "पुरुष"}, {Sex::Female, "महिला"}}},
+    {Language::Finnish, {{Sex::Male, "Mies"}, {Sex::Female, "Nainen"}}},
+    {Language::Nepali, {{Sex::Male, "पुरुष"}, {Sex::Female, "महिला"}}},
+    {Language::Spanish, {{Sex::Male, "Hombre"}, {Sex::Female, "Mujer"}}},
+    {Language::Turkish, {{Sex::Male, "Erkek"}, {Sex::Female, "Kadın"}}},
+    {Language::Czech, {{Sex::Male, "Muž"}, {Sex::Female, "Žena"}}},
+    {Language::Slovak, {{Sex::Male, "Muž"}, {Sex::Female, "Žena"}}},
+    {Language::Ukrainian, {{Sex::Male, "Чоловік"}, {Sex::Female, "Жінка"}}},
+    {Language::Danish, {{Sex::Male, "Mand"}, {Sex::Female, "Kvinde"}}},
+    {Language::Swedish, {{Sex::Male, "Man"}, {Sex::Female, "Kvinna"}}},
+    {Language::Portuguese, {{Sex::Male, "Homem"}, {Sex::Female, "Mulher"}}},
+    {Language::Norwegian, {{Sex::Male, "Mann"}, {Sex::Female, "Kvinne"}}},
+    {Language::Japanese, {{Sex::Male, "男性"}, {Sex::Female, "女性"}}},
+    {Language::Hungarian, {{Sex::Male, "Férfi"}, {Sex::Female, "Nő"}}},
+    {Language::Croatian, {{Sex::Male, "Muškarac"}, {Sex::Female, "Žena"}}},
+    {Language::Greek, {{Sex::Male, "Άνδρας"}, {Sex::Female, "Γυναίκα"}}},
+    {Language::Slovene, {{Sex::Male, "Moški"}, {Sex::Female, "Ženska"}}},
+    {Language::Dutch, {{Sex::Male, "Man"}, {Sex::Female, "Vrouw"}}},
+    {Language::Mandarin, {{Sex::Male, "男"}, {Sex::Female, "女"}}},
+    {Language::Korean, {{Sex::Male, "남자"}, {Sex::Female, "여자"}}},
+    {Language::Serbian, {{Sex::Male, "Мушкарац"}, {Sex::Female, "Жена"}}},
+    {Language::Macedonian, {{Sex::Male, "Маж"}, {Sex::Female, "Жена"}}},
+    {Language::Albanian, {{Sex::Male, "Mashkull"}, {Sex::Female, "Femër"}}},
+    {Language::Latvian, {{Sex::Male, "Vīrietis"}, {Sex::Female, "Sieviete"}}},
+    {Language::Belarusian, {{Sex::Male, "Мужчына"}, {Sex::Female, "Жанчына"}}},
+    {Language::Estonian, {{Sex::Male, "Mees"}, {Sex::Female, "Naine"}}},
+    {Language::Irish, {{Sex::Male, "fireannach"}, {Sex::Female, "baineann"}}}};
+
+const std::vector<Country> countries{
+    Country::Usa,       Country::England,     Country::Poland,      Country::Italy,     Country::France,
+    Country::Germany,   Country::Russia,      Country::Romania,     Country::India,     Country::Finland,
+    Country::Nepal,     Country::Spain,       Country::Turkey,      Country::Czech,     Country::Slovakia,
+    Country::Ukraine,   Country::Denmark,     Country::Sweden,      Country::Brazil,    Country::Norway,
+    Country::Japan,     Country::Portugal,    Country::Hungary,     Country::Croatia,   Country::Greece,
+    Country::Slovenia,  Country::Austria,     Country::Switzerland, Country::Belgium,   Country::Netherlands,
+    Country::China,     Country::Korea,       Country::Canada,      Country::Mexico,    Country::Argentina,
+    Country::Australia, Country::Serbia,      Country::Macedonia,   Country::Albania,   Country::Latvia,
+    Country::Ireland,   Country::Belarus,     Country::Estonia,     Country::Iran,      Country::Bulgaria,
+    Country::Moldova,   Country::Lithuania,   Country::Iceland,     Country::Palestine, Country::Israel,
+    Country::Vietnam,   Country::Monaco,      Country::Bosnia,      Country::Lebanon,   Country::Syria,
+    Country::Malta,     Country::SouthAfrica, Country::Azerbaijan,  Country::Ghana,     Country::Kazakhstan,
+    Country::Maldives,
+};
 
 const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::England, englishPeopleNames},
@@ -212,6 +268,19 @@ const std::map<Country, std::string> generatedTestName{
     {Country::Kazakhstan, "shouldGenerateKazakhName"},
     {Country::Maldives, "shouldGenerateMaldivianName"},
 };
+
+}
+
+std::string translateSex(Sex sex, Language language = Language::English)
+{
+    const auto sexTranslation = sexTranslations.find(language);
+
+    if (sexTranslation == sexTranslations.end())
+    {
+        throw std::runtime_error{"Sex not found."};
+    }
+
+    return sexTranslation->second.at(sex);
 }
 
 bool checkTokenFormat(const std::string& bio);
@@ -614,6 +683,30 @@ std::vector<std::pair<Language, Sex>> languageSexPairs = {
     {Language::Irish, Sex::Female},      {Language::Belarusian, Sex::Male},  {Language::Belarusian, Sex::Female},
     {Language::Estonian, Sex::Male},     {Language::Estonian, Sex::Female}};
 
+std::string toString(Sex sex, Language language = Language::English)
+{
+    return translateSex(sex, language);
+}
+
+std::string toString(Language language)
+{
+    static const std::map<Language, std::string> languageToStringMapping{
+        {Language::English, "English"},     {Language::Polish, "Polish"},         {Language::Italian, "Italian"},
+        {Language::French, "French"},       {Language::German, "German"},         {Language::Russian, "Russian"},
+        {Language::Romanian, "Romanian"},   {Language::Hindi, "Hindi"},           {Language::Finnish, "Finnish"},
+        {Language::Nepali, "Nepali"},       {Language::Spanish, "Spanish"},       {Language::Turkish, "Turkish"},
+        {Language::Czech, "Czech"},         {Language::Slovak, "Slovak"},         {Language::Ukrainian, "Ukrainian"},
+        {Language::Danish, "Danish"},       {Language::Swedish, "Swedish"},       {Language::Portuguese, "Portuguese"},
+        {Language::Norwegian, "Norwegian"}, {Language::Japanese, "Japanese"},     {Language::Hungarian, "Hungarian"},
+        {Language::Croatian, "Croatian"},   {Language::Greek, "Greek"},           {Language::Slovene, "Slovene"},
+        {Language::Dutch, "Dutch"},         {Language::Mandarin, "Mandarin"},     {Language::Korean, "Korean"},
+        {Language::Serbian, "Serbian"},     {Language::Macedonian, "Macedonian"}, {Language::Albanian, "Albanian"},
+        {Language::Latvian, "Latvian"},     {Language::Irish, "Irish"},           {Language::Belarusian, "Belarusian"},
+        {Language::Estonian, "Estonian"}};
+
+    return languageToStringMapping.at(language);
+}
+
 INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, testing::ValuesIn(languageSexPairs),
                          [](const testing::TestParamInfo<PersonSexSuite::ParamType>& info)
                          {
@@ -642,6 +735,22 @@ TEST_P(PersonSsnSuite, shouldGenerateSsn)
     ASSERT_EQ(ssn.size(), expectedSsnLength);
 }
 
+std::string toString(SsnCountry country)
+{
+    std::map<SsnCountry, std::string> countryToStringMapping{
+        {SsnCountry::UnitedStates, "UnitedStates"},
+        {SsnCountry::UnitedKingdom, "UnitedKingdom"},
+        {SsnCountry::Poland, "Poland"},
+        {SsnCountry::Italy, "Italy"},
+        {SsnCountry::France, "France"},
+        {SsnCountry::Germany, "Germany"},
+        {SsnCountry::India, "India"},
+        {SsnCountry::Spain, "Spain"},
+    };
+
+    return countryToStringMapping.at(country);
+}
+
 INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite, testing::ValuesIn(supportedSsnCountries),
                          [](const testing::TestParamInfo<PersonSsnSuite::ParamType>& info)
                          { return "shouldGenerate" + toString(info.param) + "Ssn"; });
@@ -665,7 +774,7 @@ TEST_F(PersonPassportTest, shouldGenerateUsaPassport)
     ASSERT_TRUE(std::isdigit(passportNumber[6]));
     ASSERT_TRUE(std::isdigit(passportNumber[7]));
     ASSERT_TRUE(std::isdigit(passportNumber[8]));
-};
+}
 
 TEST_F(PersonPassportTest, shouldGeneratePolandPassport)
 {
@@ -681,7 +790,7 @@ TEST_F(PersonPassportTest, shouldGeneratePolandPassport)
     ASSERT_TRUE(std::isdigit(passportNumber[6]));
     ASSERT_TRUE(std::isdigit(passportNumber[7]));
     ASSERT_TRUE(std::isdigit(passportNumber[8]));
-};
+}
 
 TEST_F(PersonPassportTest, shouldGenerateFrenchPassport)
 {
@@ -697,7 +806,7 @@ TEST_F(PersonPassportTest, shouldGenerateFrenchPassport)
     ASSERT_TRUE(std::isdigit(passportNumber[6]));
     ASSERT_TRUE(std::isdigit(passportNumber[7]));
     ASSERT_TRUE(std::isdigit(passportNumber[8]));
-};
+}
 
 TEST_F(PersonPassportTest, shouldGenerateRomanianPassport)
 {
@@ -711,7 +820,7 @@ TEST_F(PersonPassportTest, shouldGenerateRomanianPassport)
     ASSERT_TRUE(std::isdigit(passportNumber[5]));
     ASSERT_TRUE(std::isdigit(passportNumber[6]));
     ASSERT_TRUE(std::isdigit(passportNumber[7]));
-};
+}
 
 bool checkTokenFormat(const std::string& bio)
 {
@@ -722,7 +831,7 @@ bool checkTokenFormat(const std::string& bio)
     const std::regex fifthRegex{R"(^(\w+\-?\w+) (\w+)$)"};
     const std::regex sixthRegex{R"(^(\w+\-?\w+) (\w+) (\S+)$)"};
     const std::regex seventhRegex{R"(^(\w+\-?\w+) (\w+), (\w+\s?\w+)$)"};
-    const std::regex eigthRegex{R"(^(\w+\-?\w+) (\w+), (\w+\s?\w+) (\S+)$)"};
+    const std::regex eightRegex{R"(^(\w+\-?\w+) (\w+), (\w+\s?\w+) (\S+)$)"};
 
     std::smatch matches;
     //
@@ -793,7 +902,7 @@ bool checkTokenFormat(const std::string& bio)
             return true;
     }
 
-    if (std::regex_match(bio, matches, eigthRegex))
+    if (std::regex_match(bio, matches, eightRegex))
     {
         // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} {emoji} so check that the value
         // is present in the bio_part vector.

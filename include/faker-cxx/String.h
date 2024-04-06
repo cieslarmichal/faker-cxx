@@ -8,8 +8,8 @@
 #include <sstream>
 #include <string>
 
+#include "RandomGenerator.h"
 #include "types/Hex.h"
-#include "types/RandomGenerator.h"
 
 namespace faker
 {

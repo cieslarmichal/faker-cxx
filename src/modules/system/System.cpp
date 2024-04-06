@@ -19,6 +19,12 @@ namespace faker
 {
 namespace
 {
+const std::map<FileType, std::string> fileTypeToStringMapping{{FileType::Video, "video"},
+                                                              {FileType::Audio, "audio"},
+                                                              {FileType::Image, "image"},
+                                                              {FileType::Text, "text"},
+                                                              {FileType::Application, "application"}};
+
 std::string extension(const std::string& mimeType)
 {
     const auto it = mimeTypesExtensions.find(mimeType);
@@ -73,8 +79,10 @@ std::string System::fileExtension(const std::optional<FileType>& mimeType)
 {
     if (mimeType.has_value())
     {
-        const auto mimeTypeName = toString(mimeType.value());
+        const auto& mimeTypeName = fileTypeToStringMapping.at(mimeType.value());
+
         std::vector<std::string> extensions;
+
         for (const auto& mime : mimeTypes)
         {
             size_t pos = mime.find_first_of('/');
@@ -84,6 +92,7 @@ std::string System::fileExtension(const std::optional<FileType>& mimeType)
                 extensions.push_back(mime.substr(pos + 1));
             }
         }
+
         return Helper::arrayElement<std::string>(extensions);
     }
     else
@@ -96,6 +105,7 @@ std::string System::fileExtension(const std::optional<FileType>& mimeType)
         }
 
         std::vector<std::string> extensions(extensionSet.begin(), extensionSet.end());
+
         return Helper::arrayElement<std::string>(extensions);
     }
 }
