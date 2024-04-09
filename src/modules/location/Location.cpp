@@ -18,6 +18,7 @@
 #include "data/india/IndiaAddresses.h"
 #include "data/italy/ItalyAddresses.h"
 #include "data/latvia/LatviaAddresses.h"
+#include "data/nepal/NepalAddresses.h"
 #include "data/poland/PolandAddresses.h"
 #include "data/romania/RomaniaAddresses.h"
 #include "data/russia/RussiaAddresses.h"
@@ -49,7 +50,8 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Finland, finlandAddresses},
     {AddressCountry::Estonia, estoniaAddresses},
     {AddressCountry::Romania, romaniaAddresses},
-    {AddressCountry::Latvia, latviaAddresses}};
+    {AddressCountry::Latvia, latviaAddresses},
+    {AddressCountry::Nepal, nepalAddresses},};
 
 const std::map<AddressCountry, Country> countryAddressToCountryMapping{
     {AddressCountry::Usa, Country::Usa},
@@ -69,6 +71,7 @@ const std::map<AddressCountry, Country> countryAddressToCountryMapping{
     {AddressCountry::Estonia, Country::Estonia},
     {AddressCountry::Romania, Country::Romania},
     {AddressCountry::Latvia, Country::Latvia},
+    {AddressCountry::Nepal, Country::Nepal},
 };
 }
 
