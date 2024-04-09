@@ -24,7 +24,8 @@ enum class AddressCountry
     Finland,
     Estonia,
     Romania,
-    Latvia
+    Latvia,
+    Nepal
 };
 
 class Location
