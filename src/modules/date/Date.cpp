@@ -182,7 +182,7 @@ unsigned int Date::second()
 
 std::string Date::time()
 {
-    return FormatHelper::format("{}:{}", Date::hour(), Date::minute());
+    return FormatHelper::format("{:02}:{:02}", Date::hour(), Date::minute());
 }
 
 unsigned int Date::dayOfMonth()

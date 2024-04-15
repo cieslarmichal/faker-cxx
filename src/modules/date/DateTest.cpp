@@ -333,6 +333,9 @@ TEST_F(DateTest, shouldGenerateRandomTime)
 
     ASSERT_EQ(generatedTimeParts.size(), 2);
 
+    ASSERT_EQ(generatedTimeParts[0].length(), 2);
+    ASSERT_EQ(generatedTimeParts[1].length(), 2);
+
     const auto& hour = atoi(generatedTimeParts[0].c_str());
     const auto& minute = atoi(generatedTimeParts[1].c_str());
 
