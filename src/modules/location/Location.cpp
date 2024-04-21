@@ -7,6 +7,7 @@
 #include "../../common/mappers/precisionMapper/PrecisionMapper.h"
 #include "data/australia/AustraliaAddresses.h"
 #include "data/brazil/BrazilAddresses.h"
+#include "data/belgium/BelgiumAddresses.h"
 #include "data/Countries.h"
 #include "data/czech/CzechAddresses.h"
 #include "data/denmark/DenmarkAddresses.h"
@@ -51,7 +52,9 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Estonia, estoniaAddresses},
     {AddressCountry::Romania, romaniaAddresses},
     {AddressCountry::Latvia, latviaAddresses},
-    {AddressCountry::Nepal, nepalAddresses},};
+    {AddressCountry::Nepal, nepalAddresses},
+    {AddressCountry::Belgium, belgiumAddresses},
+    };
 
 const std::map<AddressCountry, Country> countryAddressToCountryMapping{
     {AddressCountry::Usa, Country::Usa},
@@ -72,6 +75,7 @@ const std::map<AddressCountry, Country> countryAddressToCountryMapping{
     {AddressCountry::Romania, Country::Romania},
     {AddressCountry::Latvia, Country::Latvia},
     {AddressCountry::Nepal, Country::Nepal},
+    {AddressCountry::Belgium, Country::Belgium},
 };
 }
 
