@@ -6,9 +6,9 @@
 
 #include "../string/data/Characters.h"
 #include "data/Collations.h"
-#include "data/ColumnNames.h"
-#include "data/ColumnTypes.h"
+#include "data/ColumnData.h"
 #include "data/Engines.h"
+#include "data/Tables.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -57,4 +57,25 @@ TEST_F(DatabaseTest, shouldGenerateMongoDbObjectId)
     ASSERT_EQ(mongoDbObjectId.size(), 24);
     ASSERT_TRUE(std::ranges::any_of(mongoDbObjectId, [](char hexNumberCharacter)
                                     { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+}
+
+TEST_F(DatabaseTest, shouldGenerateTable)
+{
+    const auto generatedTable = Database::table();
+
+    ASSERT_TRUE(std::ranges::any_of(tables, [generatedTable](const std::string& table)
+                                    { return generatedTable == table; }));
+}
+
+TEST_F(DatabaseTest, shouldMapToCorrectType)
+{
+    const auto columnName = Database::columnName();
+
+    const auto it = faker::columnNameTypeMap.find(columnName);
+    ASSERT_NE(faker::columnNameTypeMap.end(), it);
+
+    const auto columnType = (*it).second;
+
+    ASSERT_TRUE(std::ranges::any_of(columnTypes, [columnType](const std::string& type)
+                                { return columnType == type; }));
 }

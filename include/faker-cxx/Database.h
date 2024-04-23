@@ -4,6 +4,15 @@
 
 namespace faker
 {
+enum class SqlCommandType
+{
+    DDL,
+    DQL,
+    DML,
+    DCL,
+    TCL,
+};
+
 class Database
 {
 public:
@@ -61,5 +70,30 @@ public:
      * @endcode
      */
     static std::string mongoDbObjectId();
+
+    /**
+     * @brief Returns a table.
+     *
+     * @returns Table name.
+     *
+     * @code
+     * Database::table() // "users"
+     * @endcode
+     */
+    static std::string table();
+
+    /**
+     * @brief Returns a specified sqlCommand based on the commandType parameter.
+     *
+     * @param commandType SqlCommandType parameter to specify the SqlCommandType for generation.
+     * 
+     * @returns SqlCommand string leveraging the columns specified in `ColumnNames.h`.
+     *
+     * @code
+     * Database::sqlCommand() // "SELECT [id], [name], [status] FROM [users];"
+     * Database::sqlCommand(SqlCommandType::DML) // INSERT into users (id, name, email) VALUES ('id', 'name', 'email@gmail.com');
+     * @endcode
+     */
+    static std::string sqlCommand(SqlCommandType commandType = SqlCommandType::DQL);
 };
 }

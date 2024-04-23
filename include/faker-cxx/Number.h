@@ -116,6 +116,36 @@ public:
      */
     static std::string hex(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
 
+    /**
+     * @brief Returns a list (count) of 0 based indices between [0, max)
+     * 
+     * @param max Max index
+     * @param count Number of indices requested
+     * 
+     * @return A sorted vector of indices [0, max)
+     * 
+     * @code
+     * Number::indices(5, 2) // {2, 4}
+     * Number::indices(5, 5) // {0, 1, 2, 3, 4}
+    */
+    static std::vector<unsigned long> indices(unsigned long max, unsigned long count)
+    {
+        std::vector<unsigned long> indices;
+        std::vector<unsigned long> allIndices;
+        
+        for (unsigned long i = 0; i < max; i++) allIndices.push_back(i);
+
+        for (unsigned long i = 0; i < count; i++) {
+            unsigned long index = static_cast<unsigned long>(Number::integer(0, static_cast<int>(allIndices.size())));
+            indices.push_back(index);
+            const auto& iter = std::find(allIndices.begin(), allIndices.end(), allIndices[index]);
+            if (iter != allIndices.end())
+                allIndices.erase(iter);
+        }
+
+        return indices;
+    }
+
 private:
     static std::string convertToHex(int number);
 

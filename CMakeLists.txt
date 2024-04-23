@@ -44,6 +44,9 @@ set(FAKER_SOURCES
     src/common/LuhnCheck.cpp
     src/common/mappers/precisionMapper/PrecisionMapper.cpp
     src/modules/system/System.cpp
+    src/modules/database/generators/ColumnTypeValueProvider.cpp
+    src/modules/database/generators/DmlGenerator.cpp
+    src/modules/database/generators/DqlGenerator.cpp
     src/modules/database/Database.cpp
     src/modules/music/Music.cpp
     src/modules/movie/Movie.cpp
