@@ -14,8 +14,7 @@ const std::vector<std::string> belgiumAddressFormats{"{buildingNumber} {street}"
 
 const std::vector<std::string> belgiumSecondaryAddressFormats{"Apt. ###", "Étage #"};
 
-const std::vector<std::string> belgiumBuildingNumberFormats{ "#", "##", "###", "# bis", "## bis",
-  "### bis", "###a", "###b", "###c", "###/2",};
+const std::vector<std::string> belgiumBuildingNumberFormats{ "#", "##", "###", "###a", "###b", "###c", "###/2",};
 
 const std::vector<std::string> belgiumStreetFormats{"{streetPrefix} {streetSuffix}"};
 
