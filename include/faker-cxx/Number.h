@@ -102,21 +102,6 @@ public:
     }
 
     /**
-     * @brief Returns a lowercase hexadecimal number.
-     *
-     * @param min Optional parameter for lower bound of generated number.
-     * @param max Optional parameter for upper bound of generated number.
-     *
-     * @return A lowercase hexadecimal number.
-     *
-     * @code
-     * Number::hex() // "b"
-     * Number::hex(0, 255) // "9d"
-     * @endcode
-     */
-    static std::string hex(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
-
-    /**
      * @brief Returns a list (count) of 0 based indices between [0, max)
      * 
      * @param max Max index
@@ -147,8 +132,6 @@ public:
     }
 
 private:
-    static std::string convertToHex(int number);
-
     static std::random_device randomDevice;
     static std::mt19937 pseudoRandomGenerator;
 };
