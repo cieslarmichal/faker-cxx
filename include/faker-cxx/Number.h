@@ -136,8 +136,8 @@ public:
         for (unsigned long i = 0; i < max; i++) allIndices.push_back(i);
 
         for (unsigned long i = 0; i < count; i++) {
-            unsigned long index = static_cast<unsigned long>(Number::integer(0, static_cast<int>(allIndices.size())));
-            indices.push_back(index);
+            unsigned long index = static_cast<unsigned long>(Number::integer(0, static_cast<int>(allIndices.size() - 1)));
+            indices.push_back(allIndices[index]);
             const auto& iter = std::find(allIndices.begin(), allIndices.end(), allIndices[index]);
             if (iter != allIndices.end())
                 allIndices.erase(iter);

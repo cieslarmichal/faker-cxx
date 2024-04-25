@@ -3,7 +3,6 @@
 
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
-#include "fmt/format.h"
 
 #include <iostream>
 #include <vector>
@@ -21,7 +20,7 @@ std::string DqlGenerator::generate()
     std::string dqlStatement = "SELECT ";
     for (unsigned long i = 0; i < columns.size(); i++)
     {
-        dqlStatement += "[" + columns[i] + "]";
+        dqlStatement += FormatHelper::format("[{}]", columns[i]);
         if (i < columns.size() - 1)
         {
             dqlStatement += ", ";

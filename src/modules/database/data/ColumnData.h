@@ -8,8 +8,8 @@ namespace faker
 {
 
 const std::vector<std::string> columnNames = {
-    "id",    "title",    "name",     "email",   "username", "first_name", "last_name",  "phone",      "token",
-    "group", "category", "password", "comment", "avatar",   "status",     "created_at", "updated_at",
+    "id",    "title",    "name",     "email",   "username", "first_name", "last_name",      "phone",      "token",
+    "group", "category", "password", "comment", "avatar",   "status",     "date_of_birth",  "created_at", "updated_at",
 };
 
 const std::vector<std::string> columnTypes = {
@@ -34,8 +34,9 @@ const std::map<std::string, std::string> columnNameTypeMap = {
     { "comment", "varchar" },
     { "avatar", "blob" },
     { "status", "boolean" },
+    { "date_of_birth", "date" },
     { "created_at", "datetime" },
-    { "uploaded_at", "datetime" },
+    { "updated_at", "datetime" },
 };
 
 enum class DataGeneratorType {
@@ -51,9 +52,10 @@ enum class DataGeneratorType {
     AlphaNumeric = 9u,
     Crypto = 10u,
     Sentence = 11u,
-    Image = 12u,
+    Avatar = 12u,
     Boolean = 13u,
-    DateTime = 14u
+    DateTime = 14u,
+    DateOfBirth = 15u
 };
 
 const std::map<std::string, faker::DataGeneratorType> columnTypeGeneratorMap = {
@@ -70,10 +72,11 @@ const std::map<std::string, faker::DataGeneratorType> columnTypeGeneratorMap = {
     { "category", DataGeneratorType::AlphaNumeric },
     { "password", DataGeneratorType::Crypto },
     { "comment", DataGeneratorType::Sentence },
-    { "avatar", DataGeneratorType::Image },
+    { "avatar", DataGeneratorType::Avatar },
     { "status", DataGeneratorType::Boolean },
+    { "date_of_birth", DataGeneratorType::DateOfBirth },
     { "created_at", DataGeneratorType::DateTime },
-    { "uploaded_at", DataGeneratorType::DateTime },
+    { "updated_at", DataGeneratorType::DateTime },
 };
 
 };

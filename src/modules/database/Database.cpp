@@ -7,6 +7,7 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/String.h"
 #include "generators/DqlGenerator.h"
+#include "generators/DmlGenerator.h"
 
 namespace faker
 {
@@ -42,15 +43,28 @@ std::string Database::table()
 
 std::string Database::sqlCommand(SqlCommandType commandType)
 {
+    std::string command;
     switch (commandType)
     {
         case SqlCommandType::DCL:
+            break;
         case SqlCommandType::DDL:
-        case SqlCommandType::DML:
+            break;
         case SqlCommandType::TCL:
+            break;
+        case SqlCommandType::DML:
+        {
+            DmlGenerator dmlGenerator;
+            command = dmlGenerator.generate();
+        }
+        break;
         case SqlCommandType::DQL:
-            DqlGenerator generator;
-            return generator.generate();
+        {
+            DqlGenerator dqlGenerator;
+            command = dqlGenerator.generate();
+        }
+        break;
     }
+    return command;
 }
 }
