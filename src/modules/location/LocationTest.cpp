@@ -41,6 +41,7 @@
 #include "data/poland/PolandAddresses.h"
 #include "data/romania/RomaniaAddresses.h"
 #include "data/russia/RussiaAddresses.h"
+#include "data/serbia/SerbiaAddresses.h"
 #include "data/spain/SpainAddresses.h"
 #include "data/TimeZones.h"
 #include "data/ukraine/UkraineAddresses.h"
@@ -56,7 +57,7 @@ const std::vector<AddressCountry> addressCountries{
     AddressCountry::Ukraine, AddressCountry::Italy,   AddressCountry::Germany,   AddressCountry::Czech,
     AddressCountry::India,   AddressCountry::Denmark, AddressCountry::Australia, AddressCountry::Spain,
     AddressCountry::Brazil,  AddressCountry::Finland, AddressCountry::Estonia,   AddressCountry::Romania,
-    AddressCountry::Latvia};
+    AddressCountry::Latvia, AddressCountry::Serbia };
 
 const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
     {AddressCountry::Usa, usaAddresses},
@@ -78,6 +79,7 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Latvia, latviaAddresses},
     {AddressCountry::Nepal, nepalAddresses},
     {AddressCountry::Belgium, belgiumAddresses},
+    {AddressCountry::Serbia, serbiaAddresses},
 };
 
 const std::map<AddressCountry, std::string> generatedTestName{
@@ -100,6 +102,7 @@ const std::map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Latvia, "shouldGenerateLatviaAddress"},
     {AddressCountry::Nepal, "shouldGenerateNepalAddress"},
     {AddressCountry::Belgium, "shouldGenerateBelgiumAddress"},
+    {AddressCountry::Serbia, "shouldGenerateSerbiaAddress"},
 };
 }
 
@@ -936,4 +939,20 @@ TEST_F(LocationTest, shouldGenerateBelgiumStreetAddress)
                                     { return streetPrefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(belgiumStreetSuffixes, [&generatedStreetSuffix](const std::string& streetSuffix)
                                     { return streetSuffix == generatedStreetSuffix; }));
+}
+
+TEST_F(LocationTest, shouldGenerateSerbiaStreet)
+{
+    const auto generatedStreet = Location::street(AddressCountry::Serbia);
+
+    ASSERT_TRUE(std::ranges::any_of(serbiaStreetNames, [&generatedStreet](const std::string& streetName)
+                                    { return streetName == generatedStreet; }));
+}
+
+TEST_F(LocationTest, shouldGenerateSerbiaStreetAddress)
+{
+    const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Serbia);
+
+    ASSERT_TRUE(std::ranges::any_of(serbiaStreetNames, [&generatedStreetAddress](const std::string& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }

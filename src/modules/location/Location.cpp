@@ -23,6 +23,7 @@
 #include "data/poland/PolandAddresses.h"
 #include "data/romania/RomaniaAddresses.h"
 #include "data/russia/RussiaAddresses.h"
+#include "data/serbia/SerbiaAddresses.h"
 #include "data/spain/SpainAddresses.h"
 #include "data/TimeZones.h"
 #include "data/ukraine/UkraineAddresses.h"
@@ -54,7 +55,8 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Latvia, latviaAddresses},
     {AddressCountry::Nepal, nepalAddresses},
     {AddressCountry::Belgium, belgiumAddresses},
-    };
+    {AddressCountry::Serbia, serbiaAddresses},
+};
 
 const std::map<AddressCountry, Country> countryAddressToCountryMapping{
     {AddressCountry::Usa, Country::Usa},
@@ -76,6 +78,7 @@ const std::map<AddressCountry, Country> countryAddressToCountryMapping{
     {AddressCountry::Latvia, Country::Latvia},
     {AddressCountry::Nepal, Country::Nepal},
     {AddressCountry::Belgium, Country::Belgium},
+    {AddressCountry::Serbia, Country::Serbia},
 };
 }
 
