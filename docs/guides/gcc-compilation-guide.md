@@ -18,7 +18,7 @@ mkdir build && cd build
 ### 3. Setup CMake
 
 ```bash
-cmake .. -GNinja -DCMAKE_CXX_COMPILER=g++
+cmake .. -GNinja -DCMAKE_CXX_COMPILER=g++-13
 ```
 
 ### 4. Build
@@ -36,4 +36,4 @@ cmake --build .
 ### Additional information
 
 If you can't install g++ 13 on your system, you can use
-prepared [Dockerfile](../../Dockerfile.gcc13).
+prepared [Dockerfile](../../Dockerfile).

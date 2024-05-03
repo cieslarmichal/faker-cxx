@@ -2,7 +2,7 @@
 	"name": "Existing Dockerfile",
 	"build": {
 		"context": "..",
-		"dockerfile": "../Dockerfile.gcc13"
+		"dockerfile": "../Dockerfile"
 	},
 	"customizations": {
 		"vscode": {
