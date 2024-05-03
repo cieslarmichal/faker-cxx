@@ -18,7 +18,7 @@ mkdir build && cd build
 ### 3. Setup CMake
 
 ```bash
-cmake .. -GNinja -DCMAKE_CXX_COMPILER=g++
+cmake .. -GNinja -DCMAKE_CXX_COMPILER=g++-13
 ```
 
 ### 4. Build
