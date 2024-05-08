@@ -27,7 +27,7 @@ jobs:
         run: |
           cmake -B ${{github.workspace}}/build \
             -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
-            -DCMAKE_CXX_COMPILER=/usr/local/opt/llvm@16/bin/clang++
+            -DCMAKE_CXX_COMPILER=clang++
 
       - name: Build
         run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
