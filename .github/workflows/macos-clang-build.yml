@@ -11,11 +11,11 @@ env:
 
 jobs:
   build:
-    runs-on: macos-latest
+    runs-on: macos-14
 
     steps:
       - name: Install clang
-        run: brew install llvm@16 && echo 'export PATH="/usr/local/opt/llvm@16/bin:$PATH"' >> /Users/runner/.bash_profile && source /Users/runner/.bash_profile && which clang++
+        run: brew install llvm@16 && echo 'export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"' >> /Users/runner/.bash_profile && source /Users/runner/.bash_profile && which clang++
         
       - name: Checkout
         uses: actions/checkout@v3
