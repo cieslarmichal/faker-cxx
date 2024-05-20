@@ -722,11 +722,8 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
 TEST_F(LocationTest, shouldGenerateArgentinaStreet)
 {
     const auto generatedStreet = Location::street(AddressCountry::Argentina);
-    std::cout << "Generated Street: " << generatedStreet << std::endl << std::flush;
-
     std::vector<std::string> firstNames{argentinianMalesFirstNames};
     firstNames.insert(firstNames.end(), argentinianFemalesFirstNames.begin(), argentinianFemalesFirstNames.end());
-
     std::vector<std::string> lastNames{argentinianLastNames};
 
     ASSERT_TRUE(std::ranges::any_of(argentinaStreetPrefixes, [&generatedStreet](const std::string& streetPrefix)
@@ -740,11 +737,7 @@ TEST_F(LocationTest, shouldGenerateArgentinaStreet)
 TEST_F(LocationTest, shouldGenerateArgentinaStreetAddress)
 {
     const auto generatedStreetAddress = Location::streetAddress(AddressCountry::Argentina);
-
-    std::cout << "Generated Street Address: " << generatedStreetAddress << std::endl << std::flush;
-
     const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
-
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedStreetPrefix =
         StringHelper::join({generatedStreetAddressElements.begin() + 1, generatedStreetAddressElements.end()});
