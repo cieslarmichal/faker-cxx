@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> australiaCities = { 
+const std::vector<std::string> argentinaCities = { 
   "Buenos Aires",
   "Córdoba",
   "Rosario",
@@ -374,6 +374,6 @@ const std::vector<std::string> australiaCities = {
   "Esquina",
   "San Carlos de Bolívar",
   "Aimogasta"
-}
+};
 
 }

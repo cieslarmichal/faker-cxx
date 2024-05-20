@@ -5,6 +5,7 @@
 
 #include "../../common/FormatHelper.h"
 #include "../../common/mappers/precisionMapper/PrecisionMapper.h"
+#include "data/argentina/ArgentinaAddresses.h"
 #include "data/australia/AustraliaAddresses.h"
 #include "data/brazil/BrazilAddresses.h"
 #include "data/belgium/BelgiumAddresses.h"
@@ -36,6 +37,7 @@ namespace faker
 namespace
 {
 const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
+    {AddressCountry::Argentina, argentinaAddresses},
     {AddressCountry::Usa, usaAddresses},
     {AddressCountry::Poland, polandAddresses},
     {AddressCountry::Russia, russiaAddresses},
@@ -59,6 +61,7 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
 };
 
 const std::map<AddressCountry, Country> countryAddressToCountryMapping{
+    {AddressCountry::Argentina, Country::Argentina},
     {AddressCountry::Usa, Country::Usa},
     {AddressCountry::Poland, Country::Poland},
     {AddressCountry::Russia, Country::Russia},

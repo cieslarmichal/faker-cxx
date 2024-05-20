@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::vector<std::string> argentinaStreetSuffixes{
+const std::vector<std::string> argentinaStreetPrefixes{
     "Calle", "Avenida", "Ruta", "Autopista", "Rotonda",
 };
 }
