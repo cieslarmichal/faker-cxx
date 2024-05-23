@@ -41,14 +41,18 @@ jobs:
       - name: Install libraries dependencies
         run: |
           CC=gcc-13 CXX=g++-13 conan profile detect && \
-          conan install -r conancenter --requires=fmt/10.2.1 --requires=gtest/1.14.0 -g CMakeToolchain -g CMakeDeps --build=missing -of conan
+          conan install -r conancenter -s compiler.cppstd=20 \
+            --requires=fmt/10.2.1 --requires=gtest/1.14.0 \
+            -g CMakeToolchain -g CMakeDeps \
+            --build=missing -of conan \
+            -c tools.build:compiler_executables='{"c": "gcc-13", "cxx": "g++-13"}'
       - name: CMake build
         run: |
           cmake -B build -S . -G Ninja \
             -DUSE_SYSTEM_DEPENDENCIES=ON \
             -DCMAKE_VERBOSE_MAKEFILE=ON \
             -DCMAKE_BUILD_TYPE=Release \
-            -DCMAKE_CXX_COMPILER=g++-13
+            -DCMAKE_CXX_COMPILER=g++-13 \
             -DCMAKE_C_COMPILER=gcc-13 \
             -DCMAKE_TOOLCHAIN_FILE=conan/conan_toolchain.cmake && \
           cmake --build build
