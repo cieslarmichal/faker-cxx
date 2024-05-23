@@ -12,7 +12,7 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
 
     steps:
       - name: Checkout
@@ -22,15 +22,8 @@ jobs:
 
       - name: Install apt-get dependencies
         run: |
-          sudo add-apt-repository ppa:trebelnik-stefina/launchpad-getkeys \
-           && sudo apt-get update \
-           && sudo apt-get install launchpad-getkeys \
-           && sudo sudo apt-get update \
-           && sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' \
-           && sudo launchpad-getkeys \
-           && sudo apt-get update -y \
-           && sudo apt-get install -y lld-16 ninja-build build-essential libstdc++-13-dev \
-             clang-16 clang-tools-16 llvm-16 lcov
+          sudo -qq apt update \
+           && sudo apt-get install -y ninja-build llvm-cov-16
 
       - name: Initialize submodules
         run: git submodule update --init --recursive
