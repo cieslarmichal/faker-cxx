@@ -15,14 +15,6 @@ if (NOT USE_SYSTEM_DEPENDENCIES)
         HAS_STD_FORMAT)
 endif()
 
-if (MSVC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive- /bigobj")
-else ()
-    set(CMAKE_CXX_FLAGS
-        "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror"
-    )
-endif ()
-
 set(LIBRARY_NAME faker-cxx)
 
 set(FAKER_SOURCES
@@ -117,6 +109,11 @@ target_include_directories(
     $<INSTALL_INTERFACE:include>)
 
 target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
+if (MSVC)
+    target_compile_options(${LIBRARY_NAME} PRIVATE /permissive- /bigobj)
+else ()
+    target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror)
+endif ()
 
 install(TARGETS ${LIBRARY_NAME}
     EXPORT ${LIBRARY_NAME}-targets
