@@ -3,14 +3,16 @@ cmake_minimum_required(VERSION 3.22)
 set(PROJECT_NAME faker-cxx)
 project(${PROJECT_NAME} CXX)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED YES)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
+include(CheckCXXSourceCompiles)
+set(CMAKE_REQUIRED_FLAGS -std=c++20)
+check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }" HAS_STD_FORMAT)
 
 option(BUILD_FAKER_TESTS DEFAULT ON)
 
 if (MSVC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20 /permissive- /bigobj")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive- /bigobj")
 else ()
     set(CMAKE_CXX_FLAGS
         "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror"
@@ -110,6 +112,8 @@ target_include_directories(
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
 
+target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
+
 install(TARGETS ${LIBRARY_NAME}
     EXPORT ${LIBRARY_NAME}-targets
     ARCHIVE DESTINATION lib
@@ -127,9 +131,9 @@ install(EXPORT ${LIBRARY_NAME}-targets
     FILE ${LIBRARY_NAME}-config.cmake
     DESTINATION lib/cmake/${LIBRARY_NAME})
 
-if (APPLE OR (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION
-    VERSION_LESS 12))
-
+if (HAS_STD_FORMAT)
+    target_compile_definitions(${LIBRARY_NAME} PRIVATE HAS_STD_FORMAT)
+else ()
     add_subdirectory(externals/fmt)
     set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
     target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
@@ -156,19 +160,18 @@ if (BUILD_FAKER_TESTS)
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
         faker-cxx)
 
-    if (APPLE OR (CMAKE_CXX_COMPILER_ID STREQUAL "GNU"
-        AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 12))
-
+    if (HAS_STD_FORMAT)
+        target_include_directories(
+            ${LIBRARY_NAME}-UT
+            PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
+            ${CMAKE_CURRENT_LIST_DIR})
+        target_compile_definitions(${LIBRARY_NAME}-UT PRIVATE HAS_STD_FORMAT)
+    else ()
         target_link_libraries(${LIBRARY_NAME}-UT PRIVATE fmt)
         target_include_directories(
             ${LIBRARY_NAME}-UT
             PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}
             ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
-    else ()
-        target_include_directories(
-            ${LIBRARY_NAME}-UT
-            PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
-            ${CMAKE_CURRENT_LIST_DIR})
     endif ()
 
     add_test(
