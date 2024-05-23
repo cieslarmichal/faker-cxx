@@ -22,8 +22,8 @@ jobs:
 
       - name: Install apt-get dependencies
         run: |
-          sudo -qq apt update \
-           && sudo apt-get install -y ninja-build llvm-cov-16
+          sudo apt -qq update \
+           && sudo apt install -y --no-install-recommends --no-install-suggests ninja-build llvm-cov-16
 
       - name: Initialize submodules
         run: git submodule update --init --recursive
