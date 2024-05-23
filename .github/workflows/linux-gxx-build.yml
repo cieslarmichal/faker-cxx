@@ -25,3 +25,28 @@ jobs:
 
       - name: Run docker container
         run: docker run test
+
+  external_dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install tools dependencies
+        run: |
+          sudo apt -qq update && \
+          sudo apt -qq install -y g++-13 ninja-build \
+          pip install conan
+      - name: Install libraries dependencies
+        run: |
+          CC=gcc-13 CXX=g++-13 conan profile detect && \
+          conan install -r conancenter --requires=fmt/10.2.1 --requires=gtest/1.14.0 -g CMakeToolchain -g CMakeDeps --build=missing -of conan
+      - name: CMake build
+        run: |
+          cmake -B build -S . -G Ninja \
+            -DUSE_SYSTEM_DEPENDENCIES=ON \
+            -DCMAKE_VERBOSE_MAKEFILE=ON \
+            -DCMAKE_BUILD_TYPE=Release \
+            -DCMAKE_CXX_COMPILER=g++-13
+            -DCMAKE_C_COMPILER=gcc-13 \
+            -DCMAKE_TOOLCHAIN_FILE=conan/conan_toolchain.cmake && \
+          cmake --build build
