@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-#if defined(__APPLE__) ||  (defined(__GNUC__) && (__GNUC__ < 12) && !defined(__clang__))
+#if !defined(HAS_STD_FORMAT)
 #include <fmt/format.h>
 #else
 #include <format>
@@ -16,7 +16,7 @@ namespace faker
 class FormatHelper
 {
 public:
-#if defined(__APPLE__) || (defined(__GNUC__) && (__GNUC__ < 12) && !defined(__clang__))
+#if !defined(HAS_STD_FORMAT)
     template <typename... Args>
     static std::string format(fmt::format_string<Args...> fmt, Args&&... args)
     {

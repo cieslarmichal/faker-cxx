@@ -5,10 +5,13 @@ project(${PROJECT_NAME} CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+include(CheckIncludeFileCXX)
+CHECK_INCLUDE_FILE_CXX("format" HAS_STD_FORMAT)
+
 option(BUILD_FAKER_TESTS DEFAULT ON)
 
 if (MSVC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /std:c++20 /permissive- /bigobj")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive- /bigobj")
 else ()
     set(CMAKE_CXX_FLAGS
         "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror"
@@ -127,9 +130,9 @@ install(EXPORT ${LIBRARY_NAME}-targets
     FILE ${LIBRARY_NAME}-config.cmake
     DESTINATION lib/cmake/${LIBRARY_NAME})
 
-if (APPLE OR (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION
-    VERSION_LESS 12))
-
+if (HAS_STD_FORMAT)
+    target_compile_definitions(${LIBRARY_NAME} PRIVATE HAS_STD_FORMAT)
+else ()
     add_subdirectory(externals/fmt)
     set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
     target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
@@ -159,7 +162,7 @@ if (BUILD_FAKER_TESTS)
     if (APPLE OR (CMAKE_CXX_COMPILER_ID STREQUAL "GNU"
         AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 12))
 
-        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE fmt)
+        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE $<$<NOT:$<BOOL:${HAS_STD_FORMAT}>>:fmt>)
         target_include_directories(
             ${LIBRARY_NAME}-UT
             PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}
