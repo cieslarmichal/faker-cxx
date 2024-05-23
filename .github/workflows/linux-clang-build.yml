@@ -23,16 +23,16 @@ jobs:
       - name: Install apt-get dependencies
         run: |
           sudo apt -qq update \
-           && sudo apt install -y --no-install-recommends --no-install-suggests ninja-build llvm-cov-16
+           && sudo apt install -y --no-install-recommends --no-install-suggests ninja-build
 
       - name: Initialize submodules
         run: git submodule update --init --recursive
 
       - name: Configure CMake
         run: |
-          cmake -B ${{github.workspace}}/build \
+          cmake -S ${{github.workspace}} -B ${{github.workspace}}/build \
             -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
-            -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16 \
+            -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
             -DCODE_COVERAGE:BOOL=ON \
             -GNinja
 
@@ -43,7 +43,7 @@ jobs:
         working-directory: ${{github.workspace}}/build
         run: |
           ninja faker-ccov-all \
-          && llvm-cov-16 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt
+          && llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt
 
       - name: Codecov
         uses: codecov/codecov-action@v3.1.4
