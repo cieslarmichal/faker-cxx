@@ -159,19 +159,18 @@ if (BUILD_FAKER_TESTS)
     target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
         faker-cxx)
 
-    if (APPLE OR (CMAKE_CXX_COMPILER_ID STREQUAL "GNU"
-        AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 12))
-
-        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE $<$<NOT:$<BOOL:${HAS_STD_FORMAT}>>:fmt>)
-        target_include_directories(
-            ${LIBRARY_NAME}-UT
-            PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}
-            ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
-    else ()
+    if (HAS_STD_FORMAT)
         target_include_directories(
             ${LIBRARY_NAME}-UT
             PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
             ${CMAKE_CURRENT_LIST_DIR})
+        target_compile_definitions(${LIBRARY_NAME}-UT PRIVATE HAS_STD_FORMAT)
+    else ()
+        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE fmt)
+        target_include_directories(
+            ${LIBRARY_NAME}-UT
+            PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}
+            ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
     endif ()
 
     add_test(
