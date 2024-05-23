@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 3.22)
 set(PROJECT_NAME faker-cxx)
 project(${PROJECT_NAME} CXX)
 
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED YES)
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 option(BUILD_FAKER_TESTS DEFAULT ON)
@@ -109,6 +107,8 @@ target_include_directories(
     ${LIBRARY_NAME} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
+
+target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
 
 install(TARGETS ${LIBRARY_NAME}
     EXPORT ${LIBRARY_NAME}-targets
