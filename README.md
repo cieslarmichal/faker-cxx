@@ -124,7 +124,7 @@ If you have any confusion please refer to the respective guides.
 ## Dependencies
 
 - GTest (set `BUILD_FAKER_CXX_TESTS=OFF` CMake flag to disable this dependency)
-- fmt (only for Apple Clang++ compiler)
+- fmt (only for compilers that don't support std::format)
 
 ## ✨ Contributing
 
