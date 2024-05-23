@@ -7,10 +7,12 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 include(CheckCXXSourceCompiles)
 set(CMAKE_REQUIRED_FLAGS -std=c++20)
-check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }" HAS_STD_FORMAT)
+check_cxx_source_compiles(
+    "#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }"
+    HAS_STD_FORMAT)
 
 option(BUILD_FAKER_TESTS DEFAULT ON)
-option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" DEFAULT OFF)
+option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
 
 if (MSVC)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive- /bigobj")
@@ -155,9 +157,8 @@ if (BUILD_FAKER_TESTS)
     add_executable(${LIBRARY_NAME}-UT ${FAKER_UT_SOURCES})
     if (USE_SYSTEM_DEPENDENCIES)
         find_package(GTest REQUIRED)
-        find_package(GMock REQUIRED)
-        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE GTest::GTest
-            GTest::Main GMock::GMock GMock::Main faker-cxx)
+        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE GTest::gtest
+            GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
     else ()
         add_subdirectory(externals/googletest)
 
@@ -177,7 +178,8 @@ if (BUILD_FAKER_TESTS)
             ${CMAKE_CURRENT_LIST_DIR})
         target_compile_definitions(${LIBRARY_NAME}-UT PRIVATE HAS_STD_FORMAT)
     else ()
-        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE $<TARGET_EXISTS:fmt::fmt>:$<TARGET_NAME:fmt::fmt>,fmt)
+        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE
+            $<IF:$<TARGET_EXISTS:fmt::fmt>,fmt::fmt,fmt>)
         target_include_directories(
             ${LIBRARY_NAME}-UT
             PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}

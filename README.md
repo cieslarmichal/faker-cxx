@@ -97,11 +97,11 @@ int main()
 
     ```cmake
     set(BUILD_FAKER_TESTS OFF)
-    
+
     add_subdirectory(externals/faker-cxx)
-    
+
     add_executable(main Main.cpp)
-    
+
     target_link_libraries(main faker-cxx)
     ```
 
@@ -126,10 +126,12 @@ If you have any confusion please refer to the respective guides.
 - GTest (set `BUILD_FAKER_CXX_TESTS=OFF` CMake flag to disable this dependency)
 - fmt (only for compilers that don't support std::format)
 
+In order to use external dependencies installed in your system, you can set the `USE_SYSTEM_DEPENDENCIES` CMake flag to `ON`.
+
 ## ✨ Contributing
 
 We would love it if you contributed to Faker C++! 🚀
 
-Before contributing please review our [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide. 
+Before contributing please review our [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.
 
 Additionally, we encourage you to join our [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
