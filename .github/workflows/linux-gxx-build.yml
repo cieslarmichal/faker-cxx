@@ -28,15 +28,12 @@ jobs:
         run: docker run test
 
   external_dependencies:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Install tools dependencies
-        run: |
-          sudo apt -qq update && \
-          sudo apt -qq install -y g++-13 ninja-build \
-          pip install conan
+        run: pip install conan ninja
       - name: Install libraries dependencies
         run: |
           CC=gcc-13 CXX=g++-13 conan profile detect && \
