@@ -11,7 +11,7 @@ option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
 if (NOT USE_SYSTEM_DEPENDENCIES)
     set(CMAKE_REQUIRED_FLAGS -std=c++20)
     include(CheckCXXSourceCompiles)
-    check_cxx_source_compiles("#include <format>\nint main(){ return 0; }"
+    check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }"
         HAS_STD_FORMAT)
 endif()
 
@@ -153,6 +153,10 @@ if (BUILD_FAKER_TESTS)
     add_code_coverage_all_targets()
 
     add_executable(${LIBRARY_NAME}-UT ${FAKER_UT_SOURCES})
+    if (MSVC)
+        target_compile_options(${LIBRARY_NAME}-UT PRIVATE /permissive- /bigobj)
+    endif()
+
     if (USE_SYSTEM_DEPENDENCIES)
         find_package(GTest REQUIRED)
         target_link_libraries(${LIBRARY_NAME}-UT PRIVATE GTest::gtest
