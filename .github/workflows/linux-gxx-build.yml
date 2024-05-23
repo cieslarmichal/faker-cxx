@@ -55,4 +55,4 @@ jobs:
             -DCMAKE_CXX_COMPILER=g++-13 \
             -DCMAKE_C_COMPILER=gcc-13 \
             -DCMAKE_TOOLCHAIN_FILE=conan/conan_toolchain.cmake && \
-          cmake --build build --parallel 1
+          cmake --build build
