@@ -5,8 +5,9 @@ project(${PROJECT_NAME} CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-include(CheckIncludeFileCXX)
-CHECK_INCLUDE_FILE_CXX("format" HAS_STD_FORMAT)
+include(CheckCXXSourceCompiles)
+set(CMAKE_REQUIRED_FLAGS -std=c++20)
+check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }" HAS_STD_FORMAT)
 
 option(BUILD_FAKER_TESTS DEFAULT ON)
 
