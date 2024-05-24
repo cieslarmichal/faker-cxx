@@ -5,7 +5,6 @@ project(${PROJECT_NAME} CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-option(BUILD_FAKER_TESTS DEFAULT ON)
 option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
 
 if (NOT USE_SYSTEM_DEPENDENCIES)
@@ -59,48 +58,6 @@ set(FAKER_SOURCES
     src/modules/structure/Structure.cpp
 )
 
-set(FAKER_UT_SOURCES
-    src/modules/animal/AnimalTest.cpp
-    src/modules/book/BookTest.cpp
-    src/modules/color/ColorTest.cpp
-    src/modules/commerce/CommerceTest.cpp
-    src/modules/company/CompanyTest.cpp
-    src/modules/datatype/DatatypeTest.cpp
-    src/modules/date/DateTest.cpp
-    src/modules/finance/FinanceTest.cpp
-    src/modules/food/FoodTest.cpp
-    src/modules/internet/InternetTest.cpp
-    src/modules/location/LocationTest.cpp
-    src/modules/lorem/LoremTest.cpp
-    src/modules/number/NumberTest.cpp
-    src/modules/person/PersonTest.cpp
-    src/modules/string/StringTest.cpp
-    src/modules/word/WordTest.cpp
-    src/common/StringHelperTest.cpp
-    src/modules/phone/PhoneTest.cpp
-    src/modules/helper/HelperTest.cpp
-    src/common/LuhnCheckTest.cpp
-    src/common/FormatHelperTest.cpp
-    src/common/mappers/precisionMapper/PrecisionMapperTest.cpp
-    src/modules/system/SystemTest.cpp
-    src/modules/database/DatabaseTest.cpp
-    src/modules/music/MusicTest.cpp
-    src/modules/movie/MovieTest.cpp
-    src/modules/git/GitTest.cpp
-    src/modules/hacker/HackerTest.cpp
-    src/modules/sport/SportTest.cpp
-    src/modules/videoGame/VideoGameTest.cpp
-    src/modules/medicine/MedicineTest.cpp
-    src/modules/weather/WeatherTest.cpp
-    src/modules/airline/AirlineTest.cpp
-    src/modules/image/ImageTest.cpp
-    src/modules/crypto/CryptoTest.cpp
-    src/modules/computer/ComputerTest.cpp
-    src/modules/vehicle/VehicleTest.cpp
-    src/modules/science/ScienceTest.cpp
-    src/modules/structure/StructureTest.cpp
-)
-
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
 
 target_include_directories(
@@ -115,6 +72,7 @@ else ()
     target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wformat)
 endif ()
 
+include(GNUInstallDirs)
 install(TARGETS ${LIBRARY_NAME}
     EXPORT ${LIBRARY_NAME}-targets
     ARCHIVE DESTINATION lib
@@ -143,55 +101,6 @@ else ()
     target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
 endif ()
 
-if (BUILD_FAKER_TESTS)
-    enable_testing()
-
-    set(target_code_coverage_ALL 1)
-
-    include("cmake/cmake-coverage.cmake")
-
-    add_code_coverage_all_targets()
-
-    add_executable(${LIBRARY_NAME}-UT ${FAKER_UT_SOURCES})
-    if (MSVC)
-        target_compile_options(${LIBRARY_NAME}-UT PRIVATE /permissive- /bigobj)
-    endif()
-
-    if (USE_SYSTEM_DEPENDENCIES)
-        find_package(GTest REQUIRED)
-        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE GTest::gtest
-            GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
-    else ()
-        add_subdirectory(externals/googletest)
-
-        set(GTEST_INCLUDE_DIR
-            "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
-        set(GMOCK_INCLUDE_DIR
-            "${CMAKE_SOURCE_DIR}/externals/googletest/googlemock/include")
-
-        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
-            faker-cxx)
-    endif ()
-
-    if (HAS_STD_FORMAT)
-        target_include_directories(
-            ${LIBRARY_NAME}-UT
-            PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
-            ${CMAKE_CURRENT_LIST_DIR})
-        target_compile_definitions(${LIBRARY_NAME}-UT PRIVATE HAS_STD_FORMAT)
-    else ()
-        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE
-            $<IF:$<TARGET_EXISTS:fmt::fmt>,fmt::fmt,fmt>)
-        target_include_directories(
-            ${LIBRARY_NAME}-UT
-            PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}
-            ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
-    endif ()
-
-    add_test(
-        NAME ${LIBRARY_NAME}-UT
-        COMMAND ${LIBRARY_NAME}-UT
-        WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
-
-    target_code_coverage(${LIBRARY_NAME}-UT ALL)
+if (BUILD_TESTING)
+    add_subdirectory(tests)
 endif ()

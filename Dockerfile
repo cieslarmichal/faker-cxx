@@ -5,6 +5,7 @@ RUN apt install -y cmake ninja-build g++-13 libstdc++-13-dev
 
 COPY include/ faker-cxx/include/
 COPY src/ faker-cxx/src/
+COPY tests/ faker-cxx/tests/
 COPY externals/ faker-cxx/externals/
 COPY cmake/ faker-cxx/cmake/
 COPY CMakeLists.txt faker-cxx/CMakeLists.txt
