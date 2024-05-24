@@ -4,11 +4,11 @@
 #include <sstream>
 
 #include "../../common/FormatHelper.h"
-#include "../../common/mappers/precisionMapper/PrecisionMapper.h"
+#include "../../common/PrecisionMapper.h"
 #include "data/argentina/ArgentinaAddresses.h"
 #include "data/australia/AustraliaAddresses.h"
-#include "data/brazil/BrazilAddresses.h"
 #include "data/belgium/BelgiumAddresses.h"
+#include "data/brazil/BrazilAddresses.h"
 #include "data/Countries.h"
 #include "data/czech/CzechAddresses.h"
 #include "data/denmark/DenmarkAddresses.h"
@@ -37,50 +37,30 @@ namespace faker
 namespace
 {
 const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
-    {AddressCountry::Argentina, argentinaAddresses},
-    {AddressCountry::Usa, usaAddresses},
-    {AddressCountry::Poland, polandAddresses},
-    {AddressCountry::Russia, russiaAddresses},
-    {AddressCountry::France, franceAddresses},
-    {AddressCountry::Ukraine, ukraineAddresses},
-    {AddressCountry::Italy, italyAddresses},
-    {AddressCountry::Germany, germanyAddresses},
-    {AddressCountry::Czech, czechAddresses},
-    {AddressCountry::Australia, australiaAddresses},
-    {AddressCountry::India, indiaAddresses},
-    {AddressCountry::Denmark, denmarkAddresses},
-    {AddressCountry::Spain, spainAddresses},
-    {AddressCountry::Brazil, brazilAddresses},
-    {AddressCountry::Finland, finlandAddresses},
-    {AddressCountry::Estonia, estoniaAddresses},
-    {AddressCountry::Romania, romaniaAddresses},
-    {AddressCountry::Latvia, latviaAddresses},
-    {AddressCountry::Nepal, nepalAddresses},
-    {AddressCountry::Belgium, belgiumAddresses},
+    {AddressCountry::Argentina, argentinaAddresses}, {AddressCountry::Usa, usaAddresses},
+    {AddressCountry::Poland, polandAddresses},       {AddressCountry::Russia, russiaAddresses},
+    {AddressCountry::France, franceAddresses},       {AddressCountry::Ukraine, ukraineAddresses},
+    {AddressCountry::Italy, italyAddresses},         {AddressCountry::Germany, germanyAddresses},
+    {AddressCountry::Czech, czechAddresses},         {AddressCountry::Australia, australiaAddresses},
+    {AddressCountry::India, indiaAddresses},         {AddressCountry::Denmark, denmarkAddresses},
+    {AddressCountry::Spain, spainAddresses},         {AddressCountry::Brazil, brazilAddresses},
+    {AddressCountry::Finland, finlandAddresses},     {AddressCountry::Estonia, estoniaAddresses},
+    {AddressCountry::Romania, romaniaAddresses},     {AddressCountry::Latvia, latviaAddresses},
+    {AddressCountry::Nepal, nepalAddresses},         {AddressCountry::Belgium, belgiumAddresses},
     {AddressCountry::Serbia, serbiaAddresses},
 };
 
 const std::map<AddressCountry, Country> countryAddressToCountryMapping{
-    {AddressCountry::Argentina, Country::Argentina},
-    {AddressCountry::Usa, Country::Usa},
-    {AddressCountry::Poland, Country::Poland},
-    {AddressCountry::Russia, Country::Russia},
-    {AddressCountry::France, Country::France},
-    {AddressCountry::Ukraine, Country::Ukraine},
-    {AddressCountry::Italy, Country::Italy},
-    {AddressCountry::Germany, Country::Germany},
-    {AddressCountry::Czech, Country::Czech},
-    {AddressCountry::Australia, Country::Australia},
-    {AddressCountry::India, Country::India},
-    {AddressCountry::Denmark, Country::Denmark},
-    {AddressCountry::Spain, Country::Spain},
-    {AddressCountry::Brazil, Country::Brazil},
-    {AddressCountry::Finland, Country::Finland},
-    {AddressCountry::Estonia, Country::Estonia},
-    {AddressCountry::Romania, Country::Romania},
-    {AddressCountry::Latvia, Country::Latvia},
-    {AddressCountry::Nepal, Country::Nepal},
-    {AddressCountry::Belgium, Country::Belgium},
+    {AddressCountry::Argentina, Country::Argentina}, {AddressCountry::Usa, Country::Usa},
+    {AddressCountry::Poland, Country::Poland},       {AddressCountry::Russia, Country::Russia},
+    {AddressCountry::France, Country::France},       {AddressCountry::Ukraine, Country::Ukraine},
+    {AddressCountry::Italy, Country::Italy},         {AddressCountry::Germany, Country::Germany},
+    {AddressCountry::Czech, Country::Czech},         {AddressCountry::Australia, Country::Australia},
+    {AddressCountry::India, Country::India},         {AddressCountry::Denmark, Country::Denmark},
+    {AddressCountry::Spain, Country::Spain},         {AddressCountry::Brazil, Country::Brazil},
+    {AddressCountry::Finland, Country::Finland},     {AddressCountry::Estonia, Country::Estonia},
+    {AddressCountry::Romania, Country::Romania},     {AddressCountry::Latvia, Country::Latvia},
+    {AddressCountry::Nepal, Country::Nepal},         {AddressCountry::Belgium, Country::Belgium},
     {AddressCountry::Serbia, Country::Serbia},
 };
 }

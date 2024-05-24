@@ -13,7 +13,7 @@ add_code_coverage_all_targets()
 set(FAKER_UT_SOURCES
     common/FormatHelperTest.cpp
     common/LuhnCheckTest.cpp
-    common/mappers/precisionMapper/PrecisionMapperTest.cpp
+    common/PrecisionMapperTest.cpp
     common/StringHelperTest.cpp
     modules/airline/AirlineTest.cpp
     modules/animal/AnimalTest.cpp

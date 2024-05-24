@@ -17,44 +17,46 @@ endif ()
 set(LIBRARY_NAME faker-cxx)
 
 set(FAKER_SOURCES
+    src/modules/airline/Airline.cpp
+    src/modules/airline/AirlineData.cpp
     src/modules/animal/Animal.cpp
     src/modules/book/Book.cpp
     src/modules/color/Color.cpp
     src/modules/commerce/Commerce.cpp
     src/modules/company/Company.cpp
+    src/modules/computer/Computer.cpp
+    src/modules/crypto/Crypto.cpp
+    src/modules/database/Database.cpp
     src/modules/datatype/Datatype.cpp
     src/modules/date/Date.cpp
     src/modules/finance/Finance.cpp
     src/modules/food/Food.cpp
+    src/modules/git/Git.cpp
+    src/modules/hacker/Hacker.cpp
     src/modules/helper/Helper.cpp
+    src/modules/image/Image.cpp
     src/modules/internet/Internet.cpp
     src/modules/location/Location.cpp
     src/modules/lorem/Lorem.cpp
+    src/modules/medicine/Medicine.cpp
+    src/modules/movie/Movie.cpp
+    src/modules/music/Music.cpp
     src/modules/number/Number.cpp
     src/modules/person/Person.cpp
-    src/modules/string/String.cpp
-    src/modules/word/Word.cpp
     src/modules/phone/Phone.cpp
-    src/common/StringHelper.cpp
+    src/modules/science/Science.cpp
+    src/modules/sport/Sport.cpp
+    src/modules/string/String.cpp
+    src/modules/system/System.cpp
+    src/modules/vehicle/Vehicle.cpp
+    src/modules/videoGame/VideoGame.cpp
+    src/modules/weather/Weather.cpp
+    src/modules/word/Word.cpp
+
     src/common/FormatHelper.cpp
     src/common/LuhnCheck.cpp
-    src/common/mappers/precisionMapper/PrecisionMapper.cpp
-    src/modules/system/System.cpp
-    src/modules/database/Database.cpp
-    src/modules/music/Music.cpp
-    src/modules/movie/Movie.cpp
-    src/modules/git/Git.cpp
-    src/modules/hacker/Hacker.cpp
-    src/modules/sport/Sport.cpp
-    src/modules/videoGame/VideoGame.cpp
-    src/modules/medicine/Medicine.cpp
-    src/modules/weather/Weather.cpp
-    src/modules/airline/Airline.cpp
-    src/modules/image/Image.cpp
-    src/modules/crypto/Crypto.cpp
-    src/modules/computer/Computer.cpp
-    src/modules/vehicle/Vehicle.cpp
-    src/modules/science/Science.cpp
+    src/common/StringHelper.cpp
+    src/common/PrecisionMapper.cpp
 )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})

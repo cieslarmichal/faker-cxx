@@ -1,34 +1,30 @@
 #include "faker-cxx/Airline.h"
 
-#include "data/AircraftTypes.h"
-#include "data/Airlines.h"
-#include "data/Airplanes.h"
-#include "data/Airports.h"
-#include "data/Seat.h"
+#include "AirlineData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
 
 namespace faker
 {
-std::string Airline::aircraftType()
+std::string_view Airline::aircraftType()
 {
-    return Helper::arrayElement<std::string>(aircraftTypes);
+    return Helper::arrayElement(aircraftTypes);
 }
 
 Airline::Airplane Airline::airplane()
 {
-    return Helper::arrayElement<Airplane>(airplanes);
+    return Helper::arrayElement(airplanes);
 }
 
 Airline::AirlineInfo Airline::airline()
 {
-    return Helper::arrayElement<Airline::AirlineInfo>(airlines);
+    return Helper::arrayElement(airlines);
 }
 
 Airline::Airport Airline::airport()
 {
-    return Helper::arrayElement<Airline::Airport>(airports);
+    return Helper::arrayElement(airports);
 }
 
 std::string Airline::seat(Airline::AircraftType aircraftType)

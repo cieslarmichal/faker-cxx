@@ -42,6 +42,19 @@ public:
         return data[index];
     }
 
+    template <typename T, std::size_t N>
+    static T arrayElement(const std::array<T, N>& data)
+    {
+        if (data.empty())
+        {
+            throw std::invalid_argument{"Data is empty."};
+        }
+
+        const auto index = Number::integer<size_t>(data.size() - 1);
+
+        return data[index];
+    }
+
     /**
      * @brief Get a random element from a vector.
      *
@@ -89,6 +102,7 @@ public:
         {
             throw std::invalid_argument{"Data is empty."};
         }
+
         T item;
         std::sample(data.begin(), data.end(), &item, 1, pseudoRandomGenerator);
         return item;
