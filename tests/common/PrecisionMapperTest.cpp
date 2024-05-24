@@ -1,4 +1,4 @@
-#include "common/mappers/precisionMapper/PrecisionMapper.h"
+#include "common/PrecisionMapper.h"
 
 #include "gtest/gtest.h"
 

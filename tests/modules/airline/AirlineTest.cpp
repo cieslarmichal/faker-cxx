@@ -1,20 +1,14 @@
 #include "faker-cxx/Airline.h"
 
 #include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
-#include "airline/data/AircraftTypes.h"
-#include "airline/data/Airlines.h"
-#include "airline/data/Airplanes.h"
-#include "airline/data/Airports.h"
-#include "airline/data/Seat.h"
+#include "airline/AirlineData.h"
 
 using namespace ::testing;
 using namespace faker;
 
-// TODO: add flight number tests
 class AirlineTest : public Test
 {
 public:
@@ -22,15 +16,15 @@ public:
 
 TEST_F(AirlineTest, shouldGenerateAircraftType)
 {
-    std::string generatedAircraftType = Airline::aircraftType();
+    const auto generatedAircraftType = Airline::aircraftType();
 
-    ASSERT_TRUE(std::ranges::any_of(aircraftTypes, [generatedAircraftType](const std::string& aircraftType)
+    ASSERT_TRUE(std::ranges::any_of(aircraftTypes, [generatedAircraftType](const std::string_view& aircraftType)
                                     { return aircraftType == generatedAircraftType; }));
 }
 
 TEST_F(AirlineTest, shouldGenerateAirline)
 {
-    Airline::AirlineInfo generatedAirline = Airline::airline();
+    const auto generatedAirline = Airline::airline();
 
     ASSERT_TRUE(std::ranges::any_of(
         airlines, [generatedAirline](const Airline::AirlineInfo& airline)
@@ -39,7 +33,7 @@ TEST_F(AirlineTest, shouldGenerateAirline)
 
 TEST_F(AirlineTest, shouldGenerateAirplane)
 {
-    Airline::Airplane generatedAirplane = Airline::airplane();
+    const auto generatedAirplane = Airline::airplane();
 
     ASSERT_TRUE(std::ranges::any_of(airplanes,
                                     [generatedAirplane](const Airline::Airplane& airplane) {
@@ -50,7 +44,7 @@ TEST_F(AirlineTest, shouldGenerateAirplane)
 
 TEST_F(AirlineTest, shouldGenerateAirport)
 {
-    Airline::Airport generatedAirport = Airline::airport();
+    const auto generatedAirport = Airline::airport();
 
     ASSERT_TRUE(std::ranges::any_of(
         airports, [generatedAirport](const Airline::Airport& airport)
@@ -59,12 +53,12 @@ TEST_F(AirlineTest, shouldGenerateAirport)
 
 TEST_F(AirlineTest, shouldGenerateRecordLocator)
 {
-    std::string generatedRecordLocatorWithAlpha = Airline::recordLocator(false);
+    const auto generatedRecordLocatorWithAlpha = Airline::recordLocator(false);
 
     ASSERT_EQ(generatedRecordLocatorWithAlpha.length(), 6);
     ASSERT_TRUE(std::ranges::all_of(generatedRecordLocatorWithAlpha, [](const char& c) { return std::isalpha(c); }));
 
-    std::string generatedRecordLocatorWithNumerics = Airline::recordLocator(true);
+    const auto generatedRecordLocatorWithNumerics = Airline::recordLocator(true);
 
     ASSERT_EQ(generatedRecordLocatorWithNumerics.length(), 6);
     ASSERT_TRUE(std::ranges::all_of(generatedRecordLocatorWithNumerics, [](const char& c) { return std::isalnum(c); }));
@@ -72,7 +66,7 @@ TEST_F(AirlineTest, shouldGenerateRecordLocator)
 
 TEST_F(AirlineTest, shouldGenerateSeatNumberRegional)
 {
-    std::string generatedSeatNumber = Airline::seat(Airline::AircraftType::Regional);
+    const auto generatedSeatNumber = Airline::seat(Airline::AircraftType::Regional);
 
     ASSERT_TRUE(generatedSeatNumber.length() == 2 || generatedSeatNumber.length() == 3);
 
@@ -80,6 +74,7 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberRegional)
     int max = aircraftTypeMaxRows.at(Airline::AircraftType::Regional);
 
     bool inRange = false;
+
     for (int i = max; i >= min; --i)
     {
         std::string numberStr = std::to_string(i);
@@ -98,7 +93,7 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberRegional)
 
 TEST_F(AirlineTest, shouldGenerateSeatNumberNarrowbody)
 {
-    std::string generatedSeatNumber = Airline::seat(Airline::AircraftType::Narrowbody);
+    const auto generatedSeatNumber = Airline::seat(Airline::AircraftType::Narrowbody);
 
     ASSERT_TRUE(generatedSeatNumber.length() == 2 || generatedSeatNumber.length() == 3);
 
@@ -106,12 +101,15 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberNarrowbody)
     int max = aircraftTypeMaxRows.at(Airline::AircraftType::Narrowbody);
 
     bool inRange = false;
+
     for (int i = max; i >= min; --i)
     {
-        std::string numberStr = std::to_string(i);
+        const auto numberStr = std::to_string(i);
+
         if (generatedSeatNumber.find(numberStr) != std::string::npos)
         {
             inRange = true;
+
             break;
         }
     }
@@ -124,7 +122,7 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberNarrowbody)
 
 TEST_F(AirlineTest, shouldGenerateSeatNumberWidebody)
 {
-    std::string generatedSeatNumber = Airline::seat(Airline::AircraftType::Widebody);
+    const auto generatedSeatNumber = Airline::seat(Airline::AircraftType::Widebody);
 
     ASSERT_TRUE(generatedSeatNumber.length() == 2 || generatedSeatNumber.length() == 3);
 
@@ -132,12 +130,15 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberWidebody)
     int max = aircraftTypeMaxRows.at(Airline::AircraftType::Widebody);
 
     bool inRange = false;
+
     for (int i = max; i >= min; --i)
     {
-        std::string numberStr = std::to_string(i);
+        const auto numberStr = std::to_string(i);
+
         if (generatedSeatNumber.find(numberStr) != std::string::npos)
         {
             inRange = true;
+
             break;
         }
     }
@@ -150,8 +151,8 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberWidebody)
 
 TEST_F(AirlineTest, shouldGenerateFlightNumberNoLeadingZeros)
 {
-    std::string flightNumber = Airline::flightNumber();
-    int flightNumberInt = std::stoi(flightNumber);
+    const auto flightNumber = Airline::flightNumber();
+    const auto flightNumberInt = std::stoi(flightNumber);
 
     ASSERT_TRUE(flightNumber.length() == 4);
 
@@ -163,7 +164,8 @@ TEST_F(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
     bool leadingZero = false;
     while (!leadingZero)
     {
-        std::string flightNumber = Airline::flightNumber(true, 4);
+        const auto flightNumber = Airline::flightNumber(true, 4);
+
         if (flightNumber.substr(0, 1) == "0")
         {
             leadingZero = true;
@@ -175,6 +177,7 @@ TEST_F(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
 
 TEST_F(AirlineTest, shouldGenerateFlightNumberByRange)
 {
-    std::string flightNumber = Airline::flightNumberByRange(false, {1, 6});
+    const auto flightNumber = Airline::flightNumberByRange(false, {1, 6});
+    
     ASSERT_TRUE(flightNumber.length() <= 6);
 }
