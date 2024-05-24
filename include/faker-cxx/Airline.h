@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,12 +16,12 @@ public:
      * Airline::aircraftType // "narrowbody"
      * @endcode
      */
-    static std::string aircraftType();
+    static std::string_view aircraftType();
 
     struct Airplane
     {
-        std::string name;
-        std::string iataTypeCode;
+        std::string_view name;
+        std::string_view iataTypeCode;
     };
 
     /**
@@ -37,8 +37,8 @@ public:
 
     struct AirlineInfo
     {
-        std::string name;
-        std::string iataCode;
+        std::string_view name;
+        std::string_view iataCode;
     };
 
     /**
@@ -54,8 +54,8 @@ public:
 
     struct Airport
     {
-        std::string name;
-        std::string iataCode;
+        std::string_view name;
+        std::string_view iataCode;
     };
 
     /**

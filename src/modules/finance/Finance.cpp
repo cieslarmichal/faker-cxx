@@ -1,7 +1,7 @@
 #include "faker-cxx/Finance.h"
 
 #include "../../common/FormatHelper.h"
-#include "../../common/mappers/precisionMapper/PrecisionMapper.h"
+#include "../../common/PrecisionMapper.h"
 #include "data/AccountTypes.h"
 #include "data/BankIndentifiersCodes.h"
 #include "data/CreditCardsFormats.h"

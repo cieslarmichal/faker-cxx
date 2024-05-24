@@ -2,8 +2,6 @@
 
 #include "gtest/gtest.h"
 
-#include "common/errors/TokenGeneratorNotFoundError.h"
-
 using namespace ::testing;
 using namespace faker;
 
@@ -36,7 +34,7 @@ TEST_F(FormatHelperTest, givenTokensWithNotDefinedGenerator_shouldThrow)
     const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
         {"hello", []() { return "library"; }}, {"faker", []() { return "cxx"; }}, {"cxx", []() { return "faker"; }}};
 
-    ASSERT_THROW(FormatHelper::fillTokenValues(format, dataGeneratorsMapping), errors::TokenGeneratorNotFoundError);
+    ASSERT_THROW(FormatHelper::fillTokenValues(format, dataGeneratorsMapping), std::runtime_error);
 }
 
 TEST_F(FormatHelperTest, shouldFormat)
