@@ -7,7 +7,7 @@ var searchData=
   ['actress_4',['actress',['../classfaker_1_1Movie.html#a57c8665fa0f4408f8e66f34f6b78bc3c',1,'faker::Movie']]],
   ['adjective_5',['adjective',['../classfaker_1_1Hacker.html#a8bd7a735aed1b222d7ac33e6b52963c1',1,'faker::Hacker::adjective()'],['../classfaker_1_1Word.html#adf766094d0a9e1f4d3cba35309e1f02d',1,'faker::Word::adjective(std::optional&lt; unsigned &gt; length=std::nullopt)']]],
   ['adverb_6',['adverb',['../classfaker_1_1Word.html#aa12d7a51f586e3ca6f8d9a009bf02ffe',1,'faker::Word']]],
-  ['aircrafttype_7',['aircraftType',['../classfaker_1_1Airline.html#ade2dbd4c0dce99bdd62d61f2fcbd4079',1,'faker::Airline']]],
+  ['aircrafttype_7',['aircraftType',['../classfaker_1_1Airline.html#a02b5ac981c56f1975d095bd149df259e',1,'faker::Airline']]],
   ['airline_8',['Airline',['../classfaker_1_1Airline.html',1,'faker']]],
   ['airline_9',['airline',['../classfaker_1_1Airline.html#a0cfc37e5f8aad410291987288b83eba5',1,'faker::Airline']]],
   ['airlineinfo_10',['AirlineInfo',['../structfaker_1_1Airline_1_1AirlineInfo.html',1,'faker::Airline']]],
