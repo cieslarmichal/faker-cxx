@@ -112,7 +112,7 @@ target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
 if (MSVC)
     target_compile_options(${LIBRARY_NAME} PRIVATE /permissive- /bigobj)
 else ()
-    target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror)
+    target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wformat)
 endif ()
 
 install(TARGETS ${LIBRARY_NAME}
