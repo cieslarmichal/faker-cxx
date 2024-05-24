@@ -5,19 +5,15 @@ project(${PROJECT_NAME} CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-include(CheckCXXSourceCompiles)
-set(CMAKE_REQUIRED_FLAGS -std=c++20)
-check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }" HAS_STD_FORMAT)
-
 option(BUILD_FAKER_TESTS DEFAULT ON)
+option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
 
-if (MSVC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive- /bigobj")
-else ()
-    set(CMAKE_CXX_FLAGS
-        "${CMAKE_CXX_FLAGS} -Wall -Wextra -Wpedantic -Wconversion -Wformat -Werror"
-    )
-endif ()
+if (NOT USE_SYSTEM_DEPENDENCIES)
+    set(CMAKE_REQUIRED_FLAGS -std=c++20)
+    include(CheckCXXSourceCompiles)
+    check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }"
+        HAS_STD_FORMAT)
+endif()
 
 set(LIBRARY_NAME faker-cxx)
 
@@ -113,6 +109,11 @@ target_include_directories(
     $<INSTALL_INTERFACE:include>)
 
 target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
+if (MSVC)
+    target_compile_options(${LIBRARY_NAME} PRIVATE /permissive- /bigobj)
+else ()
+    target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wformat)
+endif ()
 
 install(TARGETS ${LIBRARY_NAME}
     EXPORT ${LIBRARY_NAME}-targets
@@ -131,8 +132,11 @@ install(EXPORT ${LIBRARY_NAME}-targets
     FILE ${LIBRARY_NAME}-config.cmake
     DESTINATION lib/cmake/${LIBRARY_NAME})
 
-if (HAS_STD_FORMAT)
+if (HAS_STD_FORMAT AND NOT USE_SYSTEM_DEPENDENCIES)
     target_compile_definitions(${LIBRARY_NAME} PRIVATE HAS_STD_FORMAT)
+elseif(USE_SYSTEM_DEPENDENCIES)
+    find_package(fmt REQUIRED)
+    target_link_libraries(${LIBRARY_NAME} PRIVATE fmt::fmt)
 else ()
     add_subdirectory(externals/fmt)
     set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
@@ -140,13 +144,6 @@ else ()
 endif ()
 
 if (BUILD_FAKER_TESTS)
-    add_subdirectory(externals/googletest)
-
-    set(GTEST_INCLUDE_DIR
-        "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
-    set(GMOCK_INCLUDE_DIR
-        "${CMAKE_SOURCE_DIR}/externals/googletest/googlemock/include")
-
     enable_testing()
 
     set(target_code_coverage_ALL 1)
@@ -156,9 +153,25 @@ if (BUILD_FAKER_TESTS)
     add_code_coverage_all_targets()
 
     add_executable(${LIBRARY_NAME}-UT ${FAKER_UT_SOURCES})
+    if (MSVC)
+        target_compile_options(${LIBRARY_NAME}-UT PRIVATE /permissive- /bigobj)
+    endif()
 
-    target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
-        faker-cxx)
+    if (USE_SYSTEM_DEPENDENCIES)
+        find_package(GTest REQUIRED)
+        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE GTest::gtest
+            GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
+    else ()
+        add_subdirectory(externals/googletest)
+
+        set(GTEST_INCLUDE_DIR
+            "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
+        set(GMOCK_INCLUDE_DIR
+            "${CMAKE_SOURCE_DIR}/externals/googletest/googlemock/include")
+
+        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE gtest_main gmock_main
+            faker-cxx)
+    endif ()
 
     if (HAS_STD_FORMAT)
         target_include_directories(
@@ -167,7 +180,8 @@ if (BUILD_FAKER_TESTS)
             ${CMAKE_CURRENT_LIST_DIR})
         target_compile_definitions(${LIBRARY_NAME}-UT PRIVATE HAS_STD_FORMAT)
     else ()
-        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE fmt)
+        target_link_libraries(${LIBRARY_NAME}-UT PRIVATE
+            $<IF:$<TARGET_EXISTS:fmt::fmt>,fmt::fmt,fmt>)
         target_include_directories(
             ${LIBRARY_NAME}-UT
             PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}
