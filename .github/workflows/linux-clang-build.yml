@@ -39,9 +39,13 @@ jobs:
             -GNinja
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
+        run: cmake --build ${{github.workspace}}/build
 
       - name: Test
+        working-directory: ${{github.workspace}}/build/tests
+        run: ctest --output-on-failure
+
+      - name: Generate code coverage
         working-directory: ${{github.workspace}}/build
         run: |
           ninja faker-ccov-all \
