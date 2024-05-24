@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Movie::genre() // "Drama"
      * @endcode
      */
-    static std::string genre();
+    static std::string_view genre();
 
     /**
      * @brief Returns a random movie title.
@@ -27,7 +27,7 @@ public:
      * Movie::movieTitle() // "Pulp Fiction"
      * @endcode
      */
-    static std::string movieTitle();
+    static std::string_view movieTitle();
 
     /**
      * @brief Returns a random tv show.
@@ -38,7 +38,7 @@ public:
      * Movie::tvShow() // "The Sopranos"
      * @endcode
      */
-    static std::string tvShow();
+    static std::string_view tvShow();
 
     /**
      * @brief Returns a random movie director name.
@@ -49,7 +49,7 @@ public:
      * Movie::director() // "Quentin Tarantino"
      * @endcode
      */
-    static std::string director();
+    static std::string_view director();
 
     /**
      * @brief Returns a random actor name.
@@ -60,7 +60,7 @@ public:
      * Movie::actor() // "John Travolta"
      * @endcode
      */
-    static std::string actor();
+    static std::string_view actor();
 
     /**
      * @brief Returns a random actress name.
@@ -71,6 +71,6 @@ public:
      * Movie::actress() // "Scarlett Johansson"
      * @endcode
      */
-    static std::string actress();
+    static std::string_view actress();
 };
 }
