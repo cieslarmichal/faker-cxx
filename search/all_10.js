@@ -19,7 +19,7 @@ var searchData=
   ['shufflestring_16',['shuffleString',['../classfaker_1_1Helper.html#aac9274ace8624b68896fd049064bcfa3',1,'faker::Helper']]],
   ['sku_17',['sku',['../classfaker_1_1Commerce.html#af427c184726e56858e7730b0255d2f99',1,'faker::Commerce']]],
   ['slug_18',['slug',['../classfaker_1_1Lorem.html#a05591c4bbec3ec177e51020805414548',1,'faker::Lorem']]],
-  ['snake_19',['snake',['../classfaker_1_1Animal.html#a8cd0fa7f6ec8e1b7cf0b6edcfc47f4b1',1,'faker::Animal']]],
+  ['snake_19',['snake',['../classfaker_1_1Animal.html#a10f88af91955c99dccdb529f095a9bb5',1,'faker::Animal']]],
   ['soccerteam_20',['soccerTeam',['../classfaker_1_1Sport.html#a97e02344486aa08439383f0c094fb1ef',1,'faker::Sport']]],
   ['songname_21',['songName',['../classfaker_1_1Music.html#a08ab507712947fbbbb924963b83e2844',1,'faker::Music']]],
   ['soondate_22',['soonDate',['../classfaker_1_1Date.html#af7321b4172983b6d2fc64bcd65338ac5',1,'faker::Date']]],

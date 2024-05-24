@@ -9,5 +9,5 @@ var searchData=
   ['title_6',['title',['../classfaker_1_1Book.html#a74078db73d26c2b148c16992d4045348',1,'faker::Book']]],
   ['translator_7',['translator',['../classfaker_1_1Book.html#a86a7f15715b3ae731cb58dacdbf015c1',1,'faker::Book']]],
   ['tvshow_8',['tvShow',['../classfaker_1_1Movie.html#acde4548b33deccaefede4ef937e7877b',1,'faker::Movie']]],
-  ['type_9',['type',['../classfaker_1_1Animal.html#ac3a7143378d697aee5a7fb31937ee2dc',1,'faker::Animal::type()'],['../classfaker_1_1Company.html#aaf9b201d720d7bc14cedb88285356ef0',1,'faker::Company::type()'],['../classfaker_1_1Computer.html#a459bc4e17d37a2a8b9344b0793596b2b',1,'faker::Computer::type()'],['../classfaker_1_1Vehicle.html#a81f5a11a11b157994dd7e559889db10a',1,'faker::Vehicle::type()']]]
+  ['type_9',['type',['../classfaker_1_1Animal.html#a0be4c8a6942f740034daf2d1dc0a75a8',1,'faker::Animal::type()'],['../classfaker_1_1Company.html#aaf9b201d720d7bc14cedb88285356ef0',1,'faker::Company::type()'],['../classfaker_1_1Computer.html#a459bc4e17d37a2a8b9344b0793596b2b',1,'faker::Computer::type()'],['../classfaker_1_1Vehicle.html#a81f5a11a11b157994dd7e559889db10a',1,'faker::Vehicle::type()']]]
 ];

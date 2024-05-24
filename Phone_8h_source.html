@@ -104,9 +104,9 @@ $(function(){initNavTree('Phone_8h_source.html',''); initResizable(true); });
 <div class="contents">
 <div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;map&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;unordered_map&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
@@ -131,8 +131,8 @@ $(function(){initNavTree('Phone_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classfaker_1_1Phone.html#a650c9300da547601455e4f62f7ce980b">   95</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Phone.html#a650c9300da547601455e4f62f7ce980b">areaCode</a>();</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">static</span> std::map&lt;PhoneNumberCountryFormat, std::string&gt; createPhoneNumberFormatMap();</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">static</span> std::map&lt;PhoneNumberCountryFormat, std::string&gt; phoneNumberFormatMap;</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    <span class="keyword">static</span> std::unordered_map&lt;PhoneNumberCountryFormat, std::string&gt; createPhoneNumberFormatMap();</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <span class="keyword">static</span> std::unordered_map&lt;PhoneNumberCountryFormat, std::string&gt; phoneNumberFormatMap;</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>};</div>
 </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
