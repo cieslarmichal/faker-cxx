@@ -4,14 +4,8 @@
 
 #include "gtest/gtest.h"
 
+#include "book/BookData.h"
 #include "common/StringHelper.h"
-#include "book/data/Authors.h"
-#include "book/data/BookFormat.h"
-#include "book/data/Genres.h"
-#include "book/data/Publishers.h"
-#include "book/data/Series.h"
-#include "book/data/Titles.h"
-#include "book/data/Translators.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -25,28 +19,29 @@ TEST_F(BookTest, shouldGenerateTitle)
 {
     const auto bookTitle = Book::title();
 
-    ASSERT_TRUE(std::ranges::any_of(titles, [bookTitle](const std::string& title) { return title == bookTitle; }));
+    ASSERT_TRUE(std::ranges::any_of(titles, [bookTitle](const std::string_view& title) { return title == bookTitle; }));
 }
 
 TEST_F(BookTest, shouldGenerateGenre)
 {
     const auto bookGenre = Book::genre();
 
-    ASSERT_TRUE(std::ranges::any_of(genres, [bookGenre](const std::string& genre) { return genre == bookGenre; }));
+    ASSERT_TRUE(std::ranges::any_of(genres, [bookGenre](const std::string_view& genre) { return genre == bookGenre; }));
 }
 
 TEST_F(BookTest, shouldGenerateAuthor)
 {
     const auto bookAuthor = Book::author();
 
-    ASSERT_TRUE(std::ranges::any_of(authors, [bookAuthor](const std::string& author) { return author == bookAuthor; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(authors, [bookAuthor](const std::string_view& author) { return author == bookAuthor; }));
 }
 
 TEST_F(BookTest, shouldGeneratePublisher)
 {
     const auto bookPublisher = Book::publisher();
 
-    ASSERT_TRUE(std::ranges::any_of(publishers, [bookPublisher](const std::string& publisher)
+    ASSERT_TRUE(std::ranges::any_of(publishers, [bookPublisher](const std::string_view& publisher)
                                     { return publisher == bookPublisher; }));
 }
 
@@ -64,18 +59,11 @@ TEST_F(BookTest, shouldGenerateIsbn)
     ASSERT_EQ(isbnNumbersGroups[4].size(), 1);
 }
 
-TEST_F(BookTest, shouldGenerateReleaseYear)
-{
-    const auto releaseYear = Book::releaseYear();
-
-    ASSERT_TRUE((releaseYear >= 1940) && (releaseYear <= 2024));
-}
-
 TEST_F(BookTest, shouldGenerateTranslator)
 {
     const auto bookTranslator = Book::translator();
 
-    ASSERT_TRUE(std::ranges::any_of(translators, [bookTranslator](const std::string& translator)
+    ASSERT_TRUE(std::ranges::any_of(translators, [bookTranslator](const std::string_view& translator)
                                     { return translator == bookTranslator; }));
 }
 
@@ -83,21 +71,14 @@ TEST_F(BookTest, shouldGenerateFormat)
 {
     const auto bookFormat = Book::format();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(bookFormats, [bookFormat](const std::string& format) { return format == bookFormat; }));
-}
-
-TEST_F(BookTest, shouldGeneratePage)
-{
-    const auto bookPage = Book::page();
-
-    ASSERT_TRUE(bookPage >= 50 && bookPage <= 999);
+    ASSERT_TRUE(std::ranges::any_of(bookFormats,
+                                    [bookFormat](const std::string_view& format) { return format == bookFormat; }));
 }
 
 TEST_F(BookTest, shouldGenerateSeries)
 {
     const auto randomSeries = Book::series();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(bookSeries, [randomSeries](const std::string& series) { return series == randomSeries; }));
+    ASSERT_TRUE(std::ranges::any_of(bookSeries,
+                                    [randomSeries](const std::string_view& series) { return series == randomSeries; }));
 }

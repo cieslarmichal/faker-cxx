@@ -1,38 +1,31 @@
 #include "faker-cxx/Book.h"
 
 #include "../../common/FormatHelper.h"
-#include "data/Authors.h"
-#include "data/BookFormat.h"
-#include "data/Genres.h"
-#include "data/Publishers.h"
-#include "data/Series.h"
-#include "data/Titles.h"
-#include "data/Translators.h"
-#include "faker-cxx/Date.h"
+#include "BookData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
 
 namespace faker
 {
-std::string Book::title()
+std::string_view Book::title()
 {
-    return Helper::arrayElement<std::string>(titles);
+    return Helper::arrayElement(titles);
 }
 
-std::string Book::genre()
+std::string_view Book::genre()
 {
-    return Helper::arrayElement<std::string>(genres);
+    return Helper::arrayElement(genres);
 }
 
-std::string Book::author()
+std::string_view Book::author()
 {
-    return Helper::arrayElement<std::string>(authors);
+    return Helper::arrayElement(authors);
 }
 
-std::string Book::publisher()
+std::string_view Book::publisher()
 {
-    return Helper::arrayElement<std::string>(publishers);
+    return Helper::arrayElement(publishers);
 }
 
 std::string Book::isbn()
@@ -41,28 +34,18 @@ std::string Book::isbn()
                                 String::numeric(5), String::numeric(1));
 }
 
-int Book::releaseYear()
+std::string_view Book::translator()
 {
-    return Number::integer(1940, 2024);
+    return Helper::arrayElement(translators);
 }
 
-std::string Book::translator()
+std::string_view Book::format()
 {
-    return Helper::arrayElement<std::string>(translators);
+    return Helper::arrayElement(bookFormats);
 }
 
-std::string Book::format()
+std::string_view Book::series()
 {
-    return Helper::arrayElement<std::string>(bookFormats);
-}
-
-int Book::page()
-{
-    return Number::integer(50, 999);
-}
-
-std::string Book::series()
-{
-    return Helper::arrayElement<std::string>(bookSeries);
+    return Helper::arrayElement(bookSeries);
 }
 }
