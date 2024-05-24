@@ -10,7 +10,7 @@ var searchData=
   ['semver_7',['semver',['../classfaker_1_1System.html#a82ad2488c2ca7571bbb7c8a6a2324bc8',1,'faker::System']]],
   ['sentence_8',['sentence',['../classfaker_1_1Lorem.html#ace402bfeedb5be11d011a38c5708daa5',1,'faker::Lorem']]],
   ['sentences_9',['sentences',['../classfaker_1_1Lorem.html#a642a0a6fe7293f968b01a46b8202224a',1,'faker::Lorem']]],
-  ['series_10',['series',['../classfaker_1_1Book.html#ab6858f45180146fdad53fddd78e25163',1,'faker::Book']]],
+  ['series_10',['series',['../classfaker_1_1Book.html#a481beefd5877f853ac5b06ca4e1d3085',1,'faker::Book']]],
   ['setelement_11',['setElement',['../classfaker_1_1Helper.html#afa9ce3f39af7cdaf537be7de5496e848',1,'faker::Helper']]],
   ['sex_12',['sex',['../classfaker_1_1Person.html#a37ea215bfa7ee73f27ab80a9f7ed211f',1,'faker::Person']]],
   ['sha256_13',['sha256',['../classfaker_1_1Crypto.html#ac0279633961b7060cb0fad3342844b8b',1,'faker::Crypto']]],

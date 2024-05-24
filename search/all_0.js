@@ -25,5 +25,5 @@ var searchData=
   ['arrayelement_22',['arrayElement',['../classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b',1,'faker::Helper::arrayElement(std::span&lt; const T &gt; data)'],['../classfaker_1_1Helper.html#ac7c79f7dbcb604b8c1c64e67d01ca1ad',1,'faker::Helper::arrayElement(const std::vector&lt; T &gt; &amp;data)']]],
   ['artist_23',['artist',['../classfaker_1_1Music.html#a2576c6c8c092ee5eec85aebf3e6a7702',1,'faker::Music']]],
   ['author_24',['Author',['../structfaker_1_1Git_1_1Author.html',1,'faker::Git']]],
-  ['author_25',['author',['../classfaker_1_1Book.html#a81eeda6350d328c56043bff85342e4d4',1,'faker::Book::author()'],['../classfaker_1_1Git.html#a8955eed4cbf57eb8e372aea0c6d342d1',1,'faker::Git::author()']]]
+  ['author_25',['author',['../classfaker_1_1Book.html#ae5cb6cc2e517816da37999b6cd8586c2',1,'faker::Book::author()'],['../classfaker_1_1Git.html#a8955eed4cbf57eb8e372aea0c6d342d1',1,'faker::Git::author()']]]
 ];
