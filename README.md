@@ -14,12 +14,15 @@
 
 ## 🎯 Goal
 
-The goal of Faker C++ is to provide a library similar to [Faker.js](https://github.com/faker-js/faker) for C++ community. Faker C++ helps with the creation of realistic and customizable fake data for testing and development purposes within C++ applications.
+The goal of Faker C++ is to provide a library similar to [Faker.js](https://github.com/faker-js/faker) for C++
+community. Faker C++ helps with the creation of realistic and customizable fake data for testing and development
+purposes within C++ applications.
 
 ## Usage and Documentation
 
 To properly use Faker C++ you must first consume the Faker library (see Consuming Library with CMake).
-Once that is done, you need to include the proper header files depending on the module you wish to generate data from. The module header file names can be found in [docs](https://cieslarmichal.github.io/faker-cxx).
+Once that is done, you need to include the proper header files depending on the module you wish to generate data from.
+The module header file names can be found in [docs](https://cieslarmichal.github.io/faker-cxx).
 
 Below is an example of how to use Faker C++ in your code.
 
@@ -42,7 +45,7 @@ int main()
     std::cout << id << std::endl;               // 58018063-ce5a-4fa7-adfd-327eb2e2d9a5
     std::cout << email << std::endl;            // Lois_Hauck@hotmail.com
     std::cout << password << std::endl;         // @cWLwgM#Knalxeb
-    std::cout << city << std::endl;             // Sayreville
+    std::cout << city << std::endl;             // Sayre ville
     std::cout << streetAddress << std::endl;    // 1716 Harriet Alley
 
     return 0;
@@ -56,8 +59,9 @@ int main()
 - 📖 Book - book title, genre, author, publisher, ISBN
 - 🎨 Color - color names, rgb, hex, hcl
 - 🛒 Commerce - commerce department, product name, sku, price
-- 🏢 Company - company name, type, industry, catch phrase, buzz phrase
+- 🏢 Company - company name, type, industry, catchphrase, buzz phrase
 - 🖥️ Computer - type, manufacturer, model, CPU info, GPU info
+- 🔐 Crypto - sha256, md5
 - 💾 Database - column names, column types, database engines
 - ℹ️ Datatype - booleans
 - 📅 Date - past, future dates
@@ -74,11 +78,12 @@ int main()
 - 🎥 Movie - actors, actresses, genres, movie titles
 - 🎶 Music - artists, song names, genres
 - 🔢 Number - random integers, floating point numbers
-- 🧑 Person - first, last names, job titles, hobby, genders, sex, nationalitiy, language
+- 🧑 Person - first, last names, job titles, hobby, genders, sex, nationality, language
 - 📞 Phone - phone number, IMEI
 - ⚽ Sport - sport names, athletes, events
 - 🔢 String - uuids, alphanumeric, numeric, hexadecimal
 - 💻 System - file paths, file extensions, file names, directories, semantic version
+- 🚗 Vehicle - vehicle types, makes, models, fuel types, license plates
 - 🎮 Video game - title, genre, platform, studio
 - 🌤️ Weather - temperature, pressure, humidity, weather description
 - 💬 Word - sample words, nouns, verbs
@@ -126,12 +131,14 @@ If you have any confusion please refer to the respective guides.
 - GTest (set `BUILD_FAKER_CXX_TESTS=OFF` CMake flag to disable this dependency)
 - fmt (only for compilers that don't support std::format)
 
-In order to use external dependencies installed in your system, you can set the `USE_SYSTEM_DEPENDENCIES` CMake flag to `ON`.
+In order to use external dependencies installed in your system, you can set the `USE_SYSTEM_DEPENDENCIES` CMake flag
+to `ON`.
 
 ## ✨ Contributing
 
 We would love it if you contributed to Faker C++! 🚀
 
-Before contributing please review our [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.
+Before contributing please review
+our [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.
 
 Additionally, we encourage you to join our [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
