@@ -5,31 +5,12 @@
 #include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
-#include "person/data/argentina/ArgentinianFirstNames.h"
-#include "person/data/argentina/ArgentinianLastNames.h"
-#include "person/data/australia/AustralianFirstNames.h"
-#include "person/data/australia/AustralianLastNames.h"
-#include "person/data/brazil/BrazilianFirstNames.h"
-#include "person/data/brazil/BrazilianLastNames.h"
-#include "person/data/england/EnglishFirstNames.h"
-#include "person/data/england/EnglishLastNames.h"
-#include "person/data/finland/FinnishFirstNames.h"
-#include "person/data/finland/FinnishLastNames.h"
-#include "person/data/italy/ItalianFirstNames.h"
-#include "person/data/italy/ItalianLastNames.h"
-#include "person/data/russia/RussianFirstNames.h"
-#include "person/data/russia/RussianLastNames.h"
-#include "person/data/spain/SpanishFirstNames.h"
-#include "person/data/spain/SpanishLastNames.h"
-#include "person/data/ukraine/UkrainianFirstNames.h"
-#include "person/data/ukraine/UkrainianLastNames.h"
-#include "string/data/Characters.h"
 #include "location/data/argentina/ArgentinaAddresses.h"
 #include "location/data/australia/AustraliaAddresses.h"
+#include "location/data/belgium/BelgiumAddresses.h"
 #include "location/data/brazil/BrazilAddresses.h"
 #include "location/data/Countries.h"
 #include "location/data/CountryAddresses.h"
-#include "location/data/belgium/BelgiumAddresses.h"
 #include "location/data/czech/CzechAddresses.h"
 #include "location/data/denmark/DenmarkAddresses.h"
 #include "location/data/Directions.h"
@@ -49,6 +30,25 @@
 #include "location/data/TimeZones.h"
 #include "location/data/ukraine/UkraineAddresses.h"
 #include "location/data/usa/UsaAddresses.h"
+#include "person/data/argentina/ArgentinianFirstNames.h"
+#include "person/data/argentina/ArgentinianLastNames.h"
+#include "person/data/australia/AustralianFirstNames.h"
+#include "person/data/australia/AustralianLastNames.h"
+#include "person/data/brazil/BrazilianFirstNames.h"
+#include "person/data/brazil/BrazilianLastNames.h"
+#include "person/data/england/EnglishFirstNames.h"
+#include "person/data/england/EnglishLastNames.h"
+#include "person/data/finland/FinnishFirstNames.h"
+#include "person/data/finland/FinnishLastNames.h"
+#include "person/data/italy/ItalianFirstNames.h"
+#include "person/data/italy/ItalianLastNames.h"
+#include "person/data/russia/RussianFirstNames.h"
+#include "person/data/russia/RussianLastNames.h"
+#include "person/data/spain/SpanishFirstNames.h"
+#include "person/data/spain/SpanishLastNames.h"
+#include "person/data/ukraine/UkrainianFirstNames.h"
+#include "person/data/ukraine/UkrainianLastNames.h"
+#include "string/data/Characters.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -60,9 +60,9 @@ const std::vector<AddressCountry> addressCountries{
     AddressCountry::Ukraine, AddressCountry::Italy,   AddressCountry::Germany,   AddressCountry::Czech,
     AddressCountry::India,   AddressCountry::Denmark, AddressCountry::Australia, AddressCountry::Spain,
     AddressCountry::Brazil,  AddressCountry::Finland, AddressCountry::Estonia,   AddressCountry::Romania,
-    AddressCountry::Latvia, AddressCountry::Serbia, AddressCountry::Argentina };
+    AddressCountry::Latvia,  AddressCountry::Serbia,  AddressCountry::Argentina};
 
-const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
+const std::unordered_map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
     {AddressCountry::Usa, usaAddresses},
     {AddressCountry::Poland, polandAddresses},
     {AddressCountry::Russia, russiaAddresses},
@@ -83,10 +83,9 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Nepal, nepalAddresses},
     {AddressCountry::Belgium, belgiumAddresses},
     {AddressCountry::Serbia, serbiaAddresses},
-    {AddressCountry::Argentina, argentinaAddresses}
-};
+    {AddressCountry::Argentina, argentinaAddresses}};
 
-const std::map<AddressCountry, std::string> generatedTestName{
+const std::unordered_map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Usa, "shouldGenerateAmericanAddress"},
     {AddressCountry::France, "shouldGenerateFrenchAddress"},
     {AddressCountry::Poland, "shouldGeneratePolishAddress"},
@@ -107,8 +106,7 @@ const std::map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Nepal, "shouldGenerateNepalAddress"},
     {AddressCountry::Belgium, "shouldGenerateBelgiumAddress"},
     {AddressCountry::Serbia, "shouldGenerateSerbiaAddress"},
-    {AddressCountry::Argentina, "shouldGenerateArgentinaAddress"}
-};
+    {AddressCountry::Argentina, "shouldGenerateArgentinaAddress"}};
 }
 
 class LocationTest : public TestWithParam<AddressCountry>
@@ -757,8 +755,6 @@ TEST_F(LocationTest, shouldGenerateArgentinaStreetAddress)
                  std::ranges::any_of(lastNames, [&generatedStreetPrefix](const std::string& lastName)
                                      { return generatedStreetPrefix.find(lastName) != std::string::npos; })));
 }
-
-
 
 TEST_F(LocationTest, shouldGenerateIndiaStreet)
 {

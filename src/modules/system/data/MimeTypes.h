@@ -1,7 +1,7 @@
 #pragma once
 
-#include <map>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 namespace faker
@@ -72,7 +72,7 @@ const std::vector<std::string> mimeTypes = {"application/atom+xml",
                                             "video/x-flv"};
 
 // Only contains non obvious extensions.
-const std::map<std::string, std::string> mimeTypesExtensions{
+const std::unordered_map<std::string, std::string> mimeTypesExtensions{
     {"application/atom+xml", "xml"},
     {"application/font-woff", "woff"},
     {"application/gzip", "gz"},

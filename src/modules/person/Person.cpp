@@ -1,8 +1,8 @@
 #include "faker-cxx/Person.h"
 
-#include <map>
 #include <regex>
 #include <set>
+#include <unordered_map>
 
 #include "../../common/FormatHelper.h"
 #include "data/albania/AlbanianPeopleNames.h"
@@ -89,7 +89,7 @@ const std::vector<SsnCountry> supportedSsnCountries{
     SsnCountry::France, SsnCountry::Italy,        SsnCountry::Spain,         SsnCountry::India,
 };
 
-const std::map<Language, std::map<Sex, std::string>> sexTranslations = {
+const std::unordered_map<Language, std::unordered_map<Sex, std::string>> sexTranslations = {
     {Language::English, {{Sex::Male, "Male"}, {Sex::Female, "Female"}}},
     {Language::Polish, {{Sex::Male, "Mężczyzna"}, {Sex::Female, "Kobieta"}}},
     {Language::Italian, {{Sex::Male, "Maschio"}, {Sex::Female, "Femmina"}}},
@@ -137,14 +137,14 @@ std::string translateSex(Sex sex, Language language = Language::English)
     return sexTranslation->second.at(sex);
 }
 
-const std::map<PassportCountry, std::string> passportFormats{
+const std::unordered_map<PassportCountry, std::string> passportFormats{
     {PassportCountry::Usa, "AA0000000"},
     {PassportCountry::Poland, "AA0000000"},
     {PassportCountry::France, "00AA00000"},
     {PassportCountry::Romania, "00000000"},
 };
 
-const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
+const std::unordered_map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::England, englishPeopleNames},
     {Country::France, frenchPeopleNames},
     {Country::Germany, germanPeopleNames},
@@ -206,7 +206,7 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Ghana, ghanaianPeopleNames},
     {Country::Kazakhstan, kazakhPeopleNames},
     {Country::Maldives, maldiviansPeopleNames},
-    {Country::Liechtenstein,liechtensteinerPeopleNames},
+    {Country::Liechtenstein, liechtensteinerPeopleNames},
 };
 
 std::string middleNameForCountry(Country country, std::optional<Sex> sex);
@@ -338,7 +338,7 @@ std::string Person::fullName(std::optional<Country> countryOpt, std::optional<Se
 
     const auto nameFormat = Helper::weightedArrayElement<std::string>(weightedElements);
 
-    const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
+    const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"firstName", [&country, &sex]() { return firstName(country, sex); }},
         {"middleName", [&country, &sex]() { return middleNameForCountry(country, sex); }},
         {"lastName", [&country, &sex]() { return lastName(country, sex); }},
@@ -397,7 +397,7 @@ std::string Person::bio()
 {
     const auto randomBioFormat = Helper::arrayElement<std::string>(bioFormats);
 
-    const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
+    const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"bio_part", []() { return Helper::arrayElement(bioPart); }},
         {"bio_supporter", []() { return Helper::arrayElement(bioSupporter); }},
         {"noun", []() { return Word::noun(); }},

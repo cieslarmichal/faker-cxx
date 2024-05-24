@@ -19,11 +19,11 @@ namespace faker
 {
 namespace
 {
-const std::map<FileType, std::string> fileTypeToStringMapping{{FileType::Video, "video"},
-                                                              {FileType::Audio, "audio"},
-                                                              {FileType::Image, "image"},
-                                                              {FileType::Text, "text"},
-                                                              {FileType::Application, "application"}};
+const std::unordered_map<FileType, std::string> fileTypeToStringMapping{{FileType::Video, "video"},
+                                                                        {FileType::Audio, "audio"},
+                                                                        {FileType::Image, "image"},
+                                                                        {FileType::Text, "text"},
+                                                                        {FileType::Application, "application"}};
 
 std::string extension(const std::string& mimeType)
 {

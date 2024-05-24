@@ -7,7 +7,8 @@
 
 namespace faker
 {
-std::map<PhoneNumberCountryFormat, std::string> Phone::phoneNumberFormatMap = Phone::createPhoneNumberFormatMap();
+std::unordered_map<PhoneNumberCountryFormat, std::string> Phone::phoneNumberFormatMap =
+    Phone::createPhoneNumberFormatMap();
 
 std::string Phone::number(std::optional<std::string> format)
 {
@@ -57,9 +58,9 @@ std::string Phone::manufacturer()
     return Helper::arrayElement(faker::data::PhoneManufacturers);
 }
 
-std::map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMap()
+std::unordered_map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMap()
 {
-    std::map<PhoneNumberCountryFormat, std::string> formatMap;
+    std::unordered_map<PhoneNumberCountryFormat, std::string> formatMap;
 
     // Loop through all the PhoneNumberCountryFormat enum values
     for (auto i = static_cast<unsigned long>(PhoneNumberCountryFormat::Default);

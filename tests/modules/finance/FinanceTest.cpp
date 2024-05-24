@@ -9,12 +9,12 @@
 
 #include "common/LuhnCheck.h"
 #include "common/StringHelper.h"
-#include "string/data/Characters.h"
 #include "finance/data/AccountTypes.h"
 #include "finance/data/BankIndentifiersCodes.h"
 #include "finance/data/CreditCardTypeNames.h"
 #include "finance/data/Currencies.h"
 #include "gmock/gmock.h"
+#include "string/data/Characters.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -22,7 +22,7 @@ using namespace faker;
 namespace
 {
 const std::string creditCardCharacters = "0123456789-";
-const std::map<Finance::IbanCountry, std::string> expectedRegex{
+const std::unordered_map<Finance::IbanCountry, std::string> expectedRegex{
     {Finance::IbanCountry::Austria, "^(AT)([0-9]{2})([0-9]{5})([0-9]{11})$"},
     {Finance::IbanCountry::Belgium, "^(BE)([0-9]{2})([0-9]{3})([0-9]{7})([0-9]{2})$"},
     {Finance::IbanCountry::Bulgaria, "^(BG)([0-9]{2})([A-Z]{4})([0-9]{4})([0-9]{2})([a-zA-Z0-9]{8})$"},
@@ -52,7 +52,7 @@ const std::map<Finance::IbanCountry, std::string> expectedRegex{
     {Finance::IbanCountry::Sweden, "^(SE)([0-9]{2})([0-9]{3})([0-9]{17})$"},
 };
 
-const std::map<Finance::IbanCountry, std::string> generatedTestName{
+const std::unordered_map<Finance::IbanCountry, std::string> generatedTestName{
     {Finance::IbanCountry::Austria, "shouldGenerateAustriaIban"},
     {Finance::IbanCountry::Belgium, "shouldGenerateBelgiumIban"},
     {Finance::IbanCountry::Bulgaria, "shouldGenerateBulgariaIban"},
@@ -82,7 +82,7 @@ const std::map<Finance::IbanCountry, std::string> generatedTestName{
     {Finance::IbanCountry::Sweden, "shouldGenerateSwedenIban"},
 };
 
-const std::map<Finance::BicCountry, std::string> generatedBicTestName{
+const std::unordered_map<Finance::BicCountry, std::string> generatedBicTestName{
     {Finance::BicCountry::Poland, "shouldGeneratePolandBic"},
     {Finance::BicCountry::UnitedStates, "shouldGenerateUnitedStatesBic"},
     {Finance::BicCountry::UnitedKingdom, "shouldGenerateUnitedKingdomBic"},

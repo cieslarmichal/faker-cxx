@@ -1,8 +1,8 @@
 #pragma once
 
-#include <map>
 #include <optional>
 #include <string>
+#include <unordered_map>
 
 namespace faker
 {
@@ -95,8 +95,8 @@ public:
     static std::string areaCode();
 
 private:
-    static std::map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap();
-    static std::map<PhoneNumberCountryFormat, std::string> phoneNumberFormatMap;
+    static std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap();
+    static std::unordered_map<PhoneNumberCountryFormat, std::string> phoneNumberFormatMap;
 };
 
 enum class PhoneNumberCountryFormat

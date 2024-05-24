@@ -1,13 +1,13 @@
 #pragma once
 
-#include <map>
 #include <string>
+#include <unordered_map>
 
 #include "faker-cxx/Person.h"
 
 namespace faker
 {
-const std::map<SsnCountry, std::string> ssnFormats{
+const std::unordered_map<SsnCountry, std::string> ssnFormats{
     {SsnCountry::Poland, "##[0-1][0-2][0-2]######"},
     {SsnCountry::UnitedStates, "###-##-####"},
     {SsnCountry::UnitedKingdom, "LL ## ## ## L"},

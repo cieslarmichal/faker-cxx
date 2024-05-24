@@ -1,7 +1,7 @@
 #pragma once
 
-#include <map>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 #include "faker-cxx/Finance.h"
@@ -10,7 +10,7 @@ namespace faker
 {
 // Iban format structure from https://bank.codes/iban/structure/
 // Note: a - alphabets (letters only), c - characters (letters & numbers), n - numbers (numbers only)
-const std::map<Finance::IbanCountry, std::vector<std::string>> ibanFormats{
+const std::unordered_map<Finance::IbanCountry, std::vector<std::string>> ibanFormats{
     {Finance::IbanCountry::Austria, {"AT", "2n", "5n", "11n"}},
     {Finance::IbanCountry::Belgium, {"BE", "2n", "3n", "7n", "2n"}},
     {Finance::IbanCountry::Bulgaria, {"BG", "2n", "4a", "4n", "2n", "8c"}},

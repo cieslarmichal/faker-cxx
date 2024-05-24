@@ -1,96 +1,82 @@
 #include "faker-cxx/Animal.h"
 
-#include "data/Bears.h"
-#include "data/Birds.h"
-#include "data/Cats.h"
-#include "data/Cetaceans.h"
-#include "data/Cows.h"
-#include "data/Crocodiles.h"
-#include "data/Dogs.h"
-#include "data/Fishes.h"
-#include "data/Horses.h"
-#include "data/Insects.h"
-#include "data/Lions.h"
-#include "data/Rabbits.h"
-#include "data/Rodents.h"
-#include "data/Snakes.h"
-#include "data/Types.h"
+#include "AnimalData.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
 {
-std::string Animal::bear()
+std::string_view Animal::bear()
 {
-    return Helper::arrayElement<std::string>(bears);
+    return Helper::arrayElement(bears);
 }
 
-std::string Animal::bird()
+std::string_view Animal::bird()
 {
-    return Helper::arrayElement<std::string>(birds);
+    return Helper::arrayElement(birds);
 }
 
-std::string Animal::cat()
+std::string_view Animal::cat()
 {
-    return Helper::arrayElement<std::string>(cats);
+    return Helper::arrayElement(cats);
 }
 
-std::string Animal::cetacean()
+std::string_view Animal::cetacean()
 {
-    return Helper::arrayElement<std::string>(cetaceans);
+    return Helper::arrayElement(cetaceans);
 }
 
-std::string Animal::cow()
+std::string_view Animal::cow()
 {
-    return Helper::arrayElement<std::string>(cows);
+    return Helper::arrayElement(cows);
 }
 
-std::string Animal::crocodile()
+std::string_view Animal::crocodile()
 {
-    return Helper::arrayElement<std::string>(faker::crocodiles);
+    return Helper::arrayElement(faker::crocodiles);
 }
 
-std::string Animal::dog()
+std::string_view Animal::dog()
 {
-    return Helper::arrayElement<std::string>(dogs);
+    return Helper::arrayElement(dogs);
 }
 
-std::string Animal::fish()
+std::string_view Animal::fish()
 {
-    return Helper::arrayElement<std::string>(fishes);
+    return Helper::arrayElement(fishes);
 }
 
-std::string Animal::horse()
+std::string_view Animal::horse()
 {
-    return Helper::arrayElement<std::string>(horses);
+    return Helper::arrayElement(horses);
 }
 
-std::string Animal::insect()
+std::string_view Animal::insect()
 {
-    return Helper::arrayElement<std::string>(insects);
+    return Helper::arrayElement(insects);
 }
 
-std::string Animal::lion()
+std::string_view Animal::lion()
 {
-    return Helper::arrayElement<std::string>(lions);
+    return Helper::arrayElement(lions);
 }
 
-std::string Animal::rabbit()
+std::string_view Animal::rabbit()
 {
-    return Helper::arrayElement<std::string>(rabbits);
+    return Helper::arrayElement(rabbits);
 }
 
-std::string Animal::rodent()
+std::string_view Animal::rodent()
 {
-    return Helper::arrayElement<std::string>(rodents);
+    return Helper::arrayElement(rodents);
 }
 
-std::string Animal::snake()
+std::string_view Animal::snake()
 {
-    return Helper::arrayElement<std::string>(snakes);
+    return Helper::arrayElement(snakes);
 }
 
-std::string Animal::type()
+std::string_view Animal::type()
 {
-    return Helper::arrayElement<std::string>(types);
+    return Helper::arrayElement(types);
 }
 }

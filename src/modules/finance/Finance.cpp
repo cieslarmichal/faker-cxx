@@ -35,7 +35,7 @@ const std::vector<Finance::IbanCountry> supportedIbanCountries{
     Finance::IbanCountry::Slovenia, Finance::IbanCountry::Spain,       Finance::IbanCountry::Sweden,
 };
 
-const std::map<Finance::CreditCardType, std::vector<std::string>> creditCardTypeToNumberFormats{
+const std::unordered_map<Finance::CreditCardType, std::vector<std::string>> creditCardTypeToNumberFormats{
     {Finance::CreditCardType::AmericanExpress, americanExpressCreditCardFormats},
     {Finance::CreditCardType::Discover, discoverCreditCardFormats},
     {Finance::CreditCardType::MasterCard, masterCardCreditCardFormats},
