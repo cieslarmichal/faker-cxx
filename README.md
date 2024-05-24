@@ -101,7 +101,7 @@ int main()
 2. Link with library:
 
     ```cmake
-    set(BUILD_FAKER_TESTS OFF)
+    set(BUILD_TESTING OFF)
 
     add_subdirectory(externals/faker-cxx)
 
@@ -128,7 +128,7 @@ If you have any confusion please refer to the respective guides.
 
 ## Dependencies
 
-- GTest (set `BUILD_FAKER_CXX_TESTS=OFF` CMake flag to disable this dependency)
+- GTest (set `BUILD_TESTING=OFF` CMake flag to disable this dependency)
 - fmt (only for compilers that don't support std::format)
 
 In order to use external dependencies installed in your system, you can set the `USE_SYSTEM_DEPENDENCIES` CMake flag
