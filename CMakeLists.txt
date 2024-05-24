@@ -12,7 +12,7 @@ if (NOT USE_SYSTEM_DEPENDENCIES)
     include(CheckCXXSourceCompiles)
     check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }"
         HAS_STD_FORMAT)
-endif()
+endif ()
 
 set(LIBRARY_NAME faker-cxx)
 
@@ -55,7 +55,6 @@ set(FAKER_SOURCES
     src/modules/computer/Computer.cpp
     src/modules/vehicle/Vehicle.cpp
     src/modules/science/Science.cpp
-    src/modules/structure/Structure.cpp
 )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
@@ -92,7 +91,7 @@ install(EXPORT ${LIBRARY_NAME}-targets
 
 if (HAS_STD_FORMAT AND NOT USE_SYSTEM_DEPENDENCIES)
     target_compile_definitions(${LIBRARY_NAME} PRIVATE HAS_STD_FORMAT)
-elseif(USE_SYSTEM_DEPENDENCIES)
+elseif (USE_SYSTEM_DEPENDENCIES)
     find_package(fmt REQUIRED)
     target_link_libraries(${LIBRARY_NAME} PRIVATE fmt::fmt)
 else ()

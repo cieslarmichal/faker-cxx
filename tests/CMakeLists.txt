@@ -44,7 +44,6 @@ set(FAKER_UT_SOURCES
     modules/science/ScienceTest.cpp
     modules/sport/SportTest.cpp
     modules/string/StringTest.cpp
-    modules/structure/StructureTest.cpp
     modules/system/SystemTest.cpp
     modules/vehicle/VehicleTest.cpp
     modules/videoGame/VideoGameTest.cpp
@@ -55,7 +54,7 @@ set(FAKER_UT_SOURCES
 add_executable(${PROJECT_NAME} ${FAKER_UT_SOURCES})
 if (MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /permissive- /bigobj)
-endif()
+endif ()
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/src/common
@@ -68,7 +67,7 @@ if (USE_SYSTEM_DEPENDENCIES)
         GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
 else ()
     add_subdirectory("${CMAKE_SOURCE_DIR}/externals/googletest"
-                     "${CMAKE_BINARY_DIR}/googletest")
+        "${CMAKE_BINARY_DIR}/googletest")
 
     set(GTEST_INCLUDE_DIR
         "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
