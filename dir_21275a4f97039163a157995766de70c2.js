@@ -30,7 +30,6 @@ var dir_21275a4f97039163a157995766de70c2 =
     [ "Science.h", "Science_8h_source.html", null ],
     [ "Sport.h", "Sport_8h_source.html", null ],
     [ "String.h", "String_8h_source.html", null ],
-    [ "Structure.h", "Structure_8h_source.html", null ],
     [ "System.h", "System_8h_source.html", null ],
     [ "Vehicle.h", "Vehicle_8h_source.html", null ],
     [ "VideoGame.h", "VideoGame_8h_source.html", null ],

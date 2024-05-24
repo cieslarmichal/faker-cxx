@@ -38,10 +38,9 @@ var searchData=
   ['creditcardtype_35',['creditCardType',['../classfaker_1_1Finance.html#aaa4c761ae2e9dac617272b444e439d49',1,'faker::Finance']]],
   ['crocodile_36',['crocodile',['../classfaker_1_1Animal.html#ad31ad7ea16b5fb7b067b6e3f15a0d1ff',1,'faker::Animal']]],
   ['cron_37',['cron',['../classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c',1,'faker::System']]],
-  ['csv_38',['csv',['../classfaker_1_1Structure.html#af53a81d02be66dc2d27a671621cead41',1,'faker::Structure']]],
-  ['currency_39',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
-  ['currencycode_40',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]],
-  ['currencyname_41',['currencyName',['../classfaker_1_1Finance.html#aea30c16fd3757eec52025100bc553136',1,'faker::Finance']]],
-  ['currencysymbol_42',['currencySymbol',['../classfaker_1_1Finance.html#a61a9d4a689fc4efafed30c47980ce9e3',1,'faker::Finance']]],
-  ['currentunit_43',['currentUnit',['../classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50',1,'faker::Science']]]
+  ['currency_38',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
+  ['currencycode_39',['currencyCode',['../classfaker_1_1Finance.html#aae7be3b5df8091e8a9d25d88fe41ecab',1,'faker::Finance']]],
+  ['currencyname_40',['currencyName',['../classfaker_1_1Finance.html#aea30c16fd3757eec52025100bc553136',1,'faker::Finance']]],
+  ['currencysymbol_41',['currencySymbol',['../classfaker_1_1Finance.html#a61a9d4a689fc4efafed30c47980ce9e3',1,'faker::Finance']]],
+  ['currentunit_42',['currentUnit',['../classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50',1,'faker::Science']]]
 ];
