@@ -4,8 +4,8 @@
 
 #include "gtest/gtest.h"
 
-#include "data/ChemicalElements.h"
-#include "data/Units.h"
+#include "science/data/ChemicalElements.h"
+#include "science/data/Units.h"
 
 using namespace ::testing;
 using namespace faker;

@@ -6,12 +6,12 @@
 
 #include "gtest/gtest.h"
 
-#include "data/Bicycle.h"
-#include "data/Color.h"
-#include "data/Fuel.h"
-#include "data/Manufacturer.h"
-#include "data/Model.h"
-#include "data/Type.h"
+#include "vehicle/data/Bicycle.h"
+#include "vehicle/data/Color.h"
+#include "vehicle/data/Fuel.h"
+#include "vehicle/data/Manufacturer.h"
+#include "vehicle/data/Model.h"
+#include "vehicle/data/Type.h"
 
 using namespace ::testing;
 using namespace faker;

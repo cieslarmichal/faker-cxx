@@ -5,11 +5,11 @@
 
 #include "gtest/gtest.h"
 
-#include "data/FemaleAthletes.h"
-#include "data/MaleAthletes.h"
-#include "data/SoccerTeams.h"
-#include "data/SportEvents.h"
-#include "data/SportNames.h"
+#include "sport/data/FemaleAthletes.h"
+#include "sport/data/MaleAthletes.h"
+#include "sport/data/SoccerTeams.h"
+#include "sport/data/SportEvents.h"
+#include "sport/data/SportNames.h"
 
 using namespace ::testing;
 using namespace faker;

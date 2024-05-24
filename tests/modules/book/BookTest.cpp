@@ -4,14 +4,14 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
-#include "data/Authors.h"
-#include "data/BookFormat.h"
-#include "data/Genres.h"
-#include "data/Publishers.h"
-#include "data/Series.h"
-#include "data/Titles.h"
-#include "data/Translators.h"
+#include "common/StringHelper.h"
+#include "book/data/Authors.h"
+#include "book/data/BookFormat.h"
+#include "book/data/Genres.h"
+#include "book/data/Publishers.h"
+#include "book/data/Series.h"
+#include "book/data/Titles.h"
+#include "book/data/Translators.h"
 
 using namespace ::testing;
 using namespace faker;

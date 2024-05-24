@@ -7,13 +7,13 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/LuhnCheck.h"
-#include "../../common/StringHelper.h"
-#include "../string/data/Characters.h"
-#include "data/AccountTypes.h"
-#include "data/BankIndentifiersCodes.h"
-#include "data/CreditCardTypeNames.h"
-#include "data/Currencies.h"
+#include "common/LuhnCheck.h"
+#include "common/StringHelper.h"
+#include "string/data/Characters.h"
+#include "finance/data/AccountTypes.h"
+#include "finance/data/BankIndentifiersCodes.h"
+#include "finance/data/CreditCardTypeNames.h"
+#include "finance/data/Currencies.h"
 #include "gmock/gmock.h"
 
 using namespace ::testing;

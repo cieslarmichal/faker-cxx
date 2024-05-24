@@ -72,6 +72,7 @@ else ()
     target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wformat)
 endif ()
 
+include(GNUInstallDirs)
 install(TARGETS ${LIBRARY_NAME}
     EXPORT ${LIBRARY_NAME}-targets
     ARCHIVE DESTINATION lib

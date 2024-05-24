@@ -5,11 +5,11 @@
 
 #include "gtest/gtest.h"
 
-#include "data/AircraftTypes.h"
-#include "data/Airlines.h"
-#include "data/Airplanes.h"
-#include "data/Airports.h"
-#include "data/Seat.h"
+#include "airline/data/AircraftTypes.h"
+#include "airline/data/Airlines.h"
+#include "airline/data/Airplanes.h"
+#include "airline/data/Airports.h"
+#include "airline/data/Seat.h"
 
 using namespace ::testing;
 using namespace faker;

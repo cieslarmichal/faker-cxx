@@ -5,11 +5,11 @@
 
 #include "gtest/gtest.h"
 
-#include "data/Abbreviations.h"
-#include "data/Adjectives.h"
-#include "data/Ingverbs.h"
-#include "data/Nouns.h"
-#include "data/Verbs.h"
+#include "hacker/data/Abbreviations.h"
+#include "hacker/data/Adjectives.h"
+#include "hacker/data/Ingverbs.h"
+#include "hacker/data/Nouns.h"
+#include "hacker/data/Verbs.h"
 
 using namespace ::testing;
 using namespace faker;

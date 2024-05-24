@@ -4,11 +4,11 @@
 
 #include "gtest/gtest.h"
 
-#include "../string/data/Characters.h"
-#include "data/Collations.h"
-#include "data/ColumnNames.h"
-#include "data/ColumnTypes.h"
-#include "data/Engines.h"
+#include "string/data/Characters.h"
+#include "database/data/Collations.h"
+#include "database/data/ColumnNames.h"
+#include "database/data/ColumnTypes.h"
+#include "database/data/Engines.h"
 
 using namespace ::testing;
 using namespace faker;

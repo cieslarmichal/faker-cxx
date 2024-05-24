@@ -4,19 +4,19 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
-#include "../person/data/england/EnglishFirstNames.h"
-#include "../person/data/england/EnglishLastNames.h"
-#include "../person/data/JobTitles.h"
-#include "data/BuzzAdjectives.h"
-#include "data/BuzzNouns.h"
-#include "data/BuzzVerbs.h"
-#include "data/CatchPhraseAdjectives.h"
-#include "data/CatchPhraseDescriptors.h"
-#include "data/CatchPhraseNouns.h"
-#include "data/CompanyTypes.h"
-#include "data/Industries.h"
-#include "data/Suffixes.h"
+#include "common/StringHelper.h"
+#include "person/data/england/EnglishFirstNames.h"
+#include "person/data/england/EnglishLastNames.h"
+#include "person/data/JobTitles.h"
+#include "company/data/BuzzAdjectives.h"
+#include "company/data/BuzzNouns.h"
+#include "company/data/BuzzVerbs.h"
+#include "company/data/CatchPhraseAdjectives.h"
+#include "company/data/CatchPhraseDescriptors.h"
+#include "company/data/CatchPhraseNouns.h"
+#include "company/data/CompanyTypes.h"
+#include "company/data/Industries.h"
+#include "company/data/Suffixes.h"
 
 using namespace ::testing;
 using namespace faker;

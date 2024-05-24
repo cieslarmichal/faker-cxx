@@ -33,7 +33,9 @@ jobs:
         run: |
           cmake -B ${{github.workspace}}/build \
             -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+            -DCMAKE_C_COMPILER=gcc-12 \
             -DCMAKE_CXX_COMPILER=g++-12 \
+            -DBUILD_TESTING:BOOL=ON \
             -GNinja
 
       - name: Build

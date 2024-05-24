@@ -5,10 +5,10 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
-#include "data/MonthNames.h"
-#include "data/TimeZones.h"
-#include "data/WeekdayNames.h"
+#include "common/StringHelper.h"
+#include "date/data/MonthNames.h"
+#include "date/data/TimeZones.h"
+#include "date/data/WeekdayNames.h"
 
 #ifdef _WIN32
 #define timegm _mkgmtime

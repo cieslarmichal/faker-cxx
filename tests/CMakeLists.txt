@@ -11,58 +11,64 @@ include("${CMAKE_SOURCE_DIR}/cmake/cmake-coverage.cmake")
 add_code_coverage_all_targets()
 
 set(FAKER_UT_SOURCES
-    src/modules/animal/AnimalTest.cpp
-    src/modules/book/BookTest.cpp
-    src/modules/color/ColorTest.cpp
-    src/modules/commerce/CommerceTest.cpp
-    src/modules/company/CompanyTest.cpp
-    src/modules/datatype/DatatypeTest.cpp
-    src/modules/date/DateTest.cpp
-    src/modules/finance/FinanceTest.cpp
-    src/modules/food/FoodTest.cpp
-    src/modules/internet/InternetTest.cpp
-    src/modules/location/LocationTest.cpp
-    src/modules/lorem/LoremTest.cpp
-    src/modules/number/NumberTest.cpp
-    src/modules/person/PersonTest.cpp
-    src/modules/string/StringTest.cpp
-    src/modules/word/WordTest.cpp
-    src/common/StringHelperTest.cpp
-    src/modules/phone/PhoneTest.cpp
-    src/modules/helper/HelperTest.cpp
-    src/common/LuhnCheckTest.cpp
-    src/common/FormatHelperTest.cpp
-    src/common/mappers/precisionMapper/PrecisionMapperTest.cpp
-    src/modules/system/SystemTest.cpp
-    src/modules/database/DatabaseTest.cpp
-    src/modules/music/MusicTest.cpp
-    src/modules/movie/MovieTest.cpp
-    src/modules/git/GitTest.cpp
-    src/modules/hacker/HackerTest.cpp
-    src/modules/sport/SportTest.cpp
-    src/modules/videoGame/VideoGameTest.cpp
-    src/modules/medicine/MedicineTest.cpp
-    src/modules/weather/WeatherTest.cpp
-    src/modules/airline/AirlineTest.cpp
-    src/modules/image/ImageTest.cpp
-    src/modules/crypto/CryptoTest.cpp
-    src/modules/computer/ComputerTest.cpp
-    src/modules/vehicle/VehicleTest.cpp
-    src/modules/science/ScienceTest.cpp
-    src/modules/structure/StructureTest.cpp
+    common/FormatHelperTest.cpp
+    common/LuhnCheckTest.cpp
+    common/mappers/precisionMapper/PrecisionMapperTest.cpp
+    common/StringHelperTest.cpp
+    modules/airline/AirlineTest.cpp
+    modules/animal/AnimalTest.cpp
+    modules/book/BookTest.cpp
+    modules/color/ColorTest.cpp
+    modules/commerce/CommerceTest.cpp
+    modules/company/CompanyTest.cpp
+    modules/computer/ComputerTest.cpp
+    modules/crypto/CryptoTest.cpp
+    modules/database/DatabaseTest.cpp
+    modules/datatype/DatatypeTest.cpp
+    modules/date/DateTest.cpp
+    modules/finance/FinanceTest.cpp
+    modules/food/FoodTest.cpp
+    modules/git/GitTest.cpp
+    modules/hacker/HackerTest.cpp
+    modules/helper/HelperTest.cpp
+    modules/image/ImageTest.cpp
+    modules/internet/InternetTest.cpp
+    modules/location/LocationTest.cpp
+    modules/lorem/LoremTest.cpp
+    modules/medicine/MedicineTest.cpp
+    modules/movie/MovieTest.cpp
+    modules/music/MusicTest.cpp
+    modules/number/NumberTest.cpp
+    modules/person/PersonTest.cpp
+    modules/phone/PhoneTest.cpp
+    modules/science/ScienceTest.cpp
+    modules/sport/SportTest.cpp
+    modules/string/StringTest.cpp
+    modules/structure/StructureTest.cpp
+    modules/system/SystemTest.cpp
+    modules/vehicle/VehicleTest.cpp
+    modules/videoGame/VideoGameTest.cpp
+    modules/weather/WeatherTest.cpp
+    modules/word/WordTest.cpp
 )
 
 add_executable(${PROJECT_NAME} ${FAKER_UT_SOURCES})
 if (MSVC)
     target_compile_options(${PROJECT_NAME} PRIVATE /permissive- /bigobj)
 endif()
+target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_SOURCE_DIR}/src/common
+    ${CMAKE_SOURCE_DIR}/src/modules
+)
 
 if (USE_SYSTEM_DEPENDENCIES)
     find_package(GTest REQUIRED)
     target_link_libraries(${PROJECT_NAME} PRIVATE GTest::gtest
         GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
 else ()
-    add_subdirectory(externals/googletest)
+    add_subdirectory("${CMAKE_SOURCE_DIR}/externals/googletest"
+                     "${CMAKE_BINARY_DIR}/googletest")
 
     set(GTEST_INCLUDE_DIR
         "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")

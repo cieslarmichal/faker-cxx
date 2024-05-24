@@ -5,8 +5,8 @@
 
 #include "gtest/gtest.h"
 
-#include "data/AreaCodes.h"
-#include "data/PhoneData.h"
+#include "phone/data/AreaCodes.h"
+#include "phone/data/PhoneData.h"
 
 using namespace ::testing;
 using namespace faker;

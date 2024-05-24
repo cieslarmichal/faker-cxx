@@ -4,12 +4,12 @@
 
 #include "gtest/gtest.h"
 
-#include "data/Actors.h"
-#include "data/Actresses.h"
-#include "data/Directors.h"
-#include "data/Genres.h"
-#include "data/Movies.h"
-#include "data/TvShows.h"
+#include "movie/data/Actors.h"
+#include "movie/data/Actresses.h"
+#include "movie/data/Directors.h"
+#include "movie/data/Genres.h"
+#include "movie/data/Movies.h"
+#include "movie/data/TvShows.h"
 
 using namespace ::testing;
 using namespace faker;

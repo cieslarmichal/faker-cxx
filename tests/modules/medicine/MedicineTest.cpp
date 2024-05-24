@@ -3,9 +3,9 @@
 #include <faker-cxx/Medicine.h>
 #include <gtest/gtest.h>
 
-#include "data/conditon.h"
-#include "data/medicaltests.h"
-#include "data/specialty.h"
+#include "medicine/data/conditon.h"
+#include "medicine/data/medicaltests.h"
+#include "medicine/data/specialty.h"
 
 using namespace ::testing;
 using namespace faker;

@@ -2,7 +2,7 @@
 
 #include "gtest/gtest.h"
 
-#include "src/common/errors/TokenGeneratorNotFoundError.h"
+#include "common/errors/TokenGeneratorNotFoundError.h"
 
 using namespace ::testing;
 using namespace faker;

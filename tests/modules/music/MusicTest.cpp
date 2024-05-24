@@ -4,9 +4,9 @@
 
 #include "gtest/gtest.h"
 
-#include "data/Artists.h"
-#include "data/Genres.h"
-#include "data/SongNames.h"
+#include "music/data/Artists.h"
+#include "music/data/Genres.h"
+#include "music/data/SongNames.h"
 
 using namespace ::testing;
 using namespace faker;

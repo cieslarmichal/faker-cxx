@@ -5,8 +5,8 @@
 
 #include "gtest/gtest.h"
 
-#include "../src/common/StringHelper.h"
-#include "data/Type.h"
+#include "common/StringHelper.h"
+#include "image/data/Type.h"
 
 using namespace ::testing;
 using namespace faker;

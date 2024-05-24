@@ -6,7 +6,7 @@
 
 #include "gtest/gtest.h"
 
-#include "data/ComputerData.h"
+#include "computer/data/ComputerData.h"
 
 using namespace ::testing;
 using namespace faker;

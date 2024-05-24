@@ -5,9 +5,9 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
-#include "../string/data/Characters.h"
-#include "data/Colors.h"
+#include "common/StringHelper.h"
+#include "string/data/Characters.h"
+#include "color/data/Colors.h"
 
 using namespace ::testing;
 using namespace faker;

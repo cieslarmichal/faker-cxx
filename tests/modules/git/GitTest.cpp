@@ -6,7 +6,7 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
+#include "common/StringHelper.h"
 #include "faker-cxx/Number.h"
 
 using namespace ::testing;

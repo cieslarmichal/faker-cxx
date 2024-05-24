@@ -35,6 +35,7 @@ jobs:
             -DCMAKE_C_COMPILER=/usr/bin/clang-18 \
             -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
             -DCODE_COVERAGE:BOOL=ON \
+            -DBUILD_TESTING:BOOL=ON \
             -GNinja
 
       - name: Build

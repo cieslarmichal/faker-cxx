@@ -4,14 +4,14 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
-#include "data/Adjectives.h"
-#include "data/Adverbs.h"
-#include "data/Conjunctions.h"
-#include "data/Interjections.h"
-#include "data/Nouns.h"
-#include "data/Prepositions.h"
-#include "data/Verbs.h"
+#include "common/StringHelper.h"
+#include "word/data/Adjectives.h"
+#include "word/data/Adverbs.h"
+#include "word/data/Conjunctions.h"
+#include "word/data/Interjections.h"
+#include "word/data/Nouns.h"
+#include "word/data/Prepositions.h"
+#include "word/data/Verbs.h"
 
 using namespace ::testing;
 using namespace faker;

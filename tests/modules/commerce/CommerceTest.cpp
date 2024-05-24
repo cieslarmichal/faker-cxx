@@ -4,9 +4,9 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
-#include "../string/data/Characters.h"
-#include "data/Commerce.h"
+#include "common/StringHelper.h"
+#include "string/data/Characters.h"
+#include "commerce/data/Commerce.h"
 
 using namespace ::testing;
 using namespace faker;

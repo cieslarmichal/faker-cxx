@@ -4,8 +4,8 @@
 
 #include "gtest/gtest.h"
 
-#include "../../common/StringHelper.h"
-#include "data/LoremWords.h"
+#include "common/StringHelper.h"
+#include "lorem/data/LoremWords.h"
 
 using namespace ::testing;
 using namespace faker;

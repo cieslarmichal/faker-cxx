@@ -5,7 +5,7 @@
 
 #include "gtest/gtest.h"
 
-#include "data/WeatherDescription.h"
+#include "weather/data/WeatherDescription.h"
 
 using namespace ::testing;
 using namespace faker;

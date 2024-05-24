@@ -4,10 +4,10 @@
 
 #include "gtest/gtest.h"
 
-#include "data/GameTitles.h"
-#include "data/Genres.h"
-#include "data/Platforms.h"
-#include "data/StudioNames.h"
+#include "videogame/data/GameTitles.h"
+#include "videogame/data/Genres.h"
+#include "videogame/data/Platforms.h"
+#include "videogame/data/StudioNames.h"
 
 using namespace ::testing;
 using namespace faker;
