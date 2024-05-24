@@ -20,6 +20,7 @@ set(FAKER_SOURCES
     src/modules/airline/Airline.cpp
     src/modules/airline/AirlineData.cpp
     src/modules/animal/Animal.cpp
+    src/modules/animal/AnimalData.cpp
     src/modules/book/Book.cpp
     src/modules/color/Color.cpp
     src/modules/commerce/Commerce.cpp

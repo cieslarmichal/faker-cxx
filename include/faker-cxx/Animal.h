@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Animal::bear() // "Polar bear"
      * @endcode
      */
-    static std::string bear();
+    static std::string_view bear();
 
     /**
      * @brief Returns a random species of bird.
@@ -27,7 +27,7 @@ public:
      * Animal::bird() // "Black-bellied Whistling-Duck"
      * @endcode
      */
-    static std::string bird();
+    static std::string_view bird();
 
     /**
      * @brief Returns a random species of cat.
@@ -38,7 +38,7 @@ public:
      * Animal::cat() // "Chartreux"
      * @endcode
      */
-    static std::string cat();
+    static std::string_view cat();
 
     /**
      * @brief Returns a random species of cetacean.
@@ -49,7 +49,7 @@ public:
      * Animal::cetacean() // "Blue Whale"
      * @endcode
      */
-    static std::string cetacean();
+    static std::string_view cetacean();
 
     /**
      * @brief Returns a random species of cow.
@@ -60,7 +60,7 @@ public:
      * Animal::cow() // "American Angus"
      * @endcode
      */
-    static std::string cow();
+    static std::string_view cow();
 
     /**
      * @brief Returns a random species of crocodilia.
@@ -71,7 +71,7 @@ public:
      * Animal::crocodile() // "Dwarf Crocodile"
      * @endcode
      */
-    static std::string crocodile();
+    static std::string_view crocodile();
 
     /**
      * @brief Returns a random species of dog.
@@ -82,7 +82,7 @@ public:
      * Animal::dog() // "Shiba Inu"
      * @endcode
      */
-    static std::string dog();
+    static std::string_view dog();
 
     /**
      * @brief Returns a random species of fish.
@@ -93,7 +93,7 @@ public:
      * Animal::fish() // "Silver carp"
      * @endcode
      */
-    static std::string fish();
+    static std::string_view fish();
 
     /**
      * @brief Returns a random species of horse.
@@ -104,7 +104,7 @@ public:
      * Animal::horse() // "Fjord Horse"
      * @endcode
      */
-    static std::string horse();
+    static std::string_view horse();
 
     /**
      * @brief Returns a random species of insect.
@@ -115,7 +115,7 @@ public:
      * Animal::insect() // "Bee"
      * @endcode
      */
-    static std::string insect();
+    static std::string_view insect();
 
     /**
      * @brief Returns a random species of lion.
@@ -126,7 +126,7 @@ public:
      * Animal::lion() // "West African Lion"
      * @endcode
      */
-    static std::string lion();
+    static std::string_view lion();
 
     /**
      * @brief Returns a random species of rabbit.
@@ -137,7 +137,7 @@ public:
      * Animal::rabbit() // "Californian"
      * @endcode
      */
-    static std::string rabbit();
+    static std::string_view rabbit();
 
     /**
      * @brief Returns a random species of rodent.
@@ -148,7 +148,7 @@ public:
      * Animal::rodent() // "Chinchilla"
      * @endcode
      */
-    static std::string rodent();
+    static std::string_view rodent();
 
     /**
      * @brief Returns a random species of snake.
@@ -159,7 +159,7 @@ public:
      * Animal::snake() // "Boa constrictor"
      * @endcode
      */
-    static std::string snake();
+    static std::string_view snake();
 
     /**
      * @brief Returns a random type of animal.
@@ -170,6 +170,6 @@ public:
      * Animal::type() // "dog"
      * @endcode
      */
-    static std::string type();
+    static std::string_view type();
 };
 }
