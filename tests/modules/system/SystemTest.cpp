@@ -10,11 +10,11 @@
 using namespace ::testing;
 using namespace faker;
 
-const std::map<FileType, std::string> fileTypeToStringMapping{{FileType::Video, "video"},
-                                                              {FileType::Audio, "audio"},
-                                                              {FileType::Image, "image"},
-                                                              {FileType::Text, "text"},
-                                                              {FileType::Application, "application"}};
+const std::unordered_map<FileType, std::string> fileTypeToStringMapping{{FileType::Video, "video"},
+                                                                        {FileType::Audio, "audio"},
+                                                                        {FileType::Image, "image"},
+                                                                        {FileType::Text, "text"},
+                                                                        {FileType::Application, "application"}};
 
 class SystemTest : public Test
 {

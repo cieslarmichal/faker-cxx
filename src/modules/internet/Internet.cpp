@@ -1,7 +1,7 @@
 #include "faker-cxx/Internet.h"
 
 #include <array>
-#include <map>
+#include <unordered_map>
 
 #include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
@@ -31,7 +31,7 @@ const std::vector<unsigned> httpStatusClientErrorCodes{400, 401, 402, 403, 404, 
                                                        410, 411, 412, 413, 414, 415, 416, 417, 418, 421,
                                                        422, 423, 424, 425, 426, 428, 429, 431, 451};
 const std::vector<unsigned> httpStatusServerErrorCodes{500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511};
-const std::map<HttpResponseType, std::vector<unsigned>> httpResponseTypeToCodesMapping{
+const std::unordered_map<HttpResponseType, std::vector<unsigned>> httpResponseTypeToCodesMapping{
     {HttpResponseType::Informational, httpStatusInformationalCodes},
     {HttpResponseType::Success, httpStatusSuccessCodes},
     {HttpResponseType::Redirection, httpStatusRedirectionCodes},
@@ -46,7 +46,7 @@ constexpr unsigned int ipv4ClassBFirstSector = 172;
 constexpr unsigned int ipv4ClassBSecondSectorLowerBound = 16u;
 constexpr unsigned int ipv4ClassBSecondSectorUpperBound = 31u;
 constexpr unsigned int ipv4SectorUpperBound = 255u;
-const std::map<Internet::EmojiType, std::vector<std::string>> emojiTypeToEmojisMapping{
+const std::unordered_map<Internet::EmojiType, std::vector<std::string>> emojiTypeToEmojisMapping{
     {Internet::EmojiType::Smiley, smileyEmojis},     {Internet::EmojiType::Body, bodyEmojis},
     {Internet::EmojiType::Person, personEmojis},     {Internet::EmojiType::Nature, natureEmojis},
     {Internet::EmojiType::Food, foodEmojis},         {Internet::EmojiType::Travel, travelEmojis},

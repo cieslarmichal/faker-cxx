@@ -5,8 +5,9 @@
 namespace faker
 {
 
-std::string FormatHelper::fillTokenValues(const std::string& format,
-                                          std::map<std::string, std::function<std::string()>> tokenValueGenerators)
+std::string
+FormatHelper::fillTokenValues(const std::string& format,
+                              std::unordered_map<std::string, std::function<std::string()>> tokenValueGenerators)
 {
     std::string filledFormat;
 

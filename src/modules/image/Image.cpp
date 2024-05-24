@@ -1,6 +1,6 @@
 #include "faker-cxx/Image.h"
 
-#include <map>
+#include <unordered_map>
 
 #include "../../common/FormatHelper.h"
 #include "data/Type.h"
@@ -11,7 +11,7 @@ namespace faker
 {
 namespace
 {
-std::map<Image::ImageCategory, std::string> imageCategoryToLoremFlickrStringMapping = {
+std::unordered_map<Image::ImageCategory, std::string> imageCategoryToLoremFlickrStringMapping = {
     {Image::ImageCategory::Animals, "animals"},   {Image::ImageCategory::Business, "business"},
     {Image::ImageCategory::Cats, "cats"},         {Image::ImageCategory::City, "city"},
     {Image::ImageCategory::Food, "food"},         {Image::ImageCategory::Nightlife, "nightlife"},

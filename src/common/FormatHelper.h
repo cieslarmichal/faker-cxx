@@ -1,8 +1,8 @@
 #pragma once
 
 #include <functional>
-#include <map>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 #if !defined(HAS_STD_FORMAT)
@@ -30,7 +30,8 @@ public:
     }
 #endif
 
-    static std::string fillTokenValues(const std::string& format,
-                                       std::map<std::string, std::function<std::string()>> tokenValueGenerators);
+    static std::string
+    fillTokenValues(const std::string& format,
+                    std::unordered_map<std::string, std::function<std::string()>> tokenValueGenerators);
 };
 }

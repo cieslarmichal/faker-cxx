@@ -5,7 +5,7 @@
 
 #include "gtest/gtest.h"
 
-#include "word/data/Nouns.h"
+#include "faker-cxx/Internet.h"
 #include "person/data/albania/AlbanianPeopleNames.h"
 #include "person/data/argentina/ArgentinianPeopleNames.h"
 #include "person/data/australia/AustralianPeopleNames.h"
@@ -76,7 +76,7 @@
 #include "person/data/usa/UsaPeopleNames.h"
 #include "person/data/vietnam/VietnamesePeopleNames.h"
 #include "person/data/ZodiacSigns.h"
-#include "faker-cxx/Internet.h"
+#include "word/data/Nouns.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -90,7 +90,7 @@ const std::vector<SsnCountry> supportedSsnCountries{
 
 const std::vector<std::string> sexes{"Male", "Female"};
 
-const std::map<Language, std::map<Sex, std::string>> sexTranslations = {
+const std::unordered_map<Language, std::unordered_map<Sex, std::string>> sexTranslations = {
     {Language::English, {{Sex::Male, "Male"}, {Sex::Female, "Female"}}},
     {Language::Polish, {{Sex::Male, "Mężczyzna"}, {Sex::Female, "Kobieta"}}},
     {Language::Italian, {{Sex::Male, "Maschio"}, {Sex::Female, "Femmina"}}},
@@ -127,22 +127,22 @@ const std::map<Language, std::map<Sex, std::string>> sexTranslations = {
     {Language::Irish, {{Sex::Male, "fireannach"}, {Sex::Female, "baineann"}}}};
 
 const std::vector<Country> countries{
-    Country::Usa,       Country::England,     Country::Poland,      Country::Italy,     Country::France,
-    Country::Germany,   Country::Russia,      Country::Romania,     Country::India,     Country::Finland,
-    Country::Nepal,     Country::Spain,       Country::Turkey,      Country::Czech,     Country::Slovakia,
-    Country::Ukraine,   Country::Denmark,     Country::Sweden,      Country::Brazil,    Country::Norway,
-    Country::Japan,     Country::Portugal,    Country::Hungary,     Country::Croatia,   Country::Greece,
-    Country::Slovenia,  Country::Austria,     Country::Switzerland, Country::Belgium,   Country::Netherlands,
-    Country::China,     Country::Korea,       Country::Canada,      Country::Mexico,    Country::Argentina,
-    Country::Australia, Country::Serbia,      Country::Macedonia,   Country::Albania,   Country::Latvia,
-    Country::Ireland,   Country::Belarus,     Country::Estonia,     Country::Iran,      Country::Bulgaria,
-    Country::Moldova,   Country::Lithuania,   Country::Iceland,     Country::Palestine, Country::Israel,
-    Country::Vietnam,   Country::Monaco,      Country::Bosnia,      Country::Lebanon,   Country::Syria,
-    Country::Malta,     Country::SouthAfrica, Country::Azerbaijan,  Country::Ghana,     Country::Kazakhstan,
+    Country::Usa,       Country::England,       Country::Poland,      Country::Italy,     Country::France,
+    Country::Germany,   Country::Russia,        Country::Romania,     Country::India,     Country::Finland,
+    Country::Nepal,     Country::Spain,         Country::Turkey,      Country::Czech,     Country::Slovakia,
+    Country::Ukraine,   Country::Denmark,       Country::Sweden,      Country::Brazil,    Country::Norway,
+    Country::Japan,     Country::Portugal,      Country::Hungary,     Country::Croatia,   Country::Greece,
+    Country::Slovenia,  Country::Austria,       Country::Switzerland, Country::Belgium,   Country::Netherlands,
+    Country::China,     Country::Korea,         Country::Canada,      Country::Mexico,    Country::Argentina,
+    Country::Australia, Country::Serbia,        Country::Macedonia,   Country::Albania,   Country::Latvia,
+    Country::Ireland,   Country::Belarus,       Country::Estonia,     Country::Iran,      Country::Bulgaria,
+    Country::Moldova,   Country::Lithuania,     Country::Iceland,     Country::Palestine, Country::Israel,
+    Country::Vietnam,   Country::Monaco,        Country::Bosnia,      Country::Lebanon,   Country::Syria,
+    Country::Malta,     Country::SouthAfrica,   Country::Azerbaijan,  Country::Ghana,     Country::Kazakhstan,
     Country::Maldives,  Country::Liechtenstein,
 };
 
-const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
+const std::unordered_map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::England, englishPeopleNames},
     {Country::France, frenchPeopleNames},
     {Country::Germany, germanPeopleNames},
@@ -204,10 +204,10 @@ const std::map<Country, PeopleNames> countryToPeopleNamesMapping{
     {Country::Ghana, ghanaianPeopleNames},
     {Country::Kazakhstan, kazakhPeopleNames},
     {Country::Maldives, maldiviansPeopleNames},
-    {Country::Liechtenstein,liechtensteinerPeopleNames},
+    {Country::Liechtenstein, liechtensteinerPeopleNames},
 };
 
-const std::map<Country, std::string> generatedTestName{
+const std::unordered_map<Country, std::string> generatedTestName{
     {Country::England, "shouldGenerateEnglishName"},
     {Country::France, "shouldGenerateFrenchName"},
     {Country::Germany, "shouldGenerateGermanName"},
@@ -693,7 +693,7 @@ std::string toString(Sex sex, Language language = Language::English)
 
 std::string toString(Language language)
 {
-    static const std::map<Language, std::string> languageToStringMapping{
+    static const std::unordered_map<Language, std::string> languageToStringMapping{
         {Language::English, "English"},     {Language::Polish, "Polish"},         {Language::Italian, "Italian"},
         {Language::French, "French"},       {Language::German, "German"},         {Language::Russian, "Russian"},
         {Language::Romanian, "Romanian"},   {Language::Hindi, "Hindi"},           {Language::Finnish, "Finnish"},
@@ -717,7 +717,7 @@ INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, testing::Valu
                              return toString(param.first) + "_" + toString(param.second);
                          });
 
-const std::map<SsnCountry, unsigned> ssnLengths{
+const std::unordered_map<SsnCountry, unsigned> ssnLengths{
     {SsnCountry::Poland, 11},  {SsnCountry::UnitedStates, 11}, {SsnCountry::UnitedKingdom, 13},
     {SsnCountry::Germany, 12}, {SsnCountry::France, 19},       {SsnCountry::Italy, 19},
     {SsnCountry::Spain, 10},   {SsnCountry::India, 10},
@@ -740,7 +740,7 @@ TEST_P(PersonSsnSuite, shouldGenerateSsn)
 
 std::string toString(SsnCountry country)
 {
-    std::map<SsnCountry, std::string> countryToStringMapping{
+    std::unordered_map<SsnCountry, std::string> countryToStringMapping{
         {SsnCountry::UnitedStates, "UnitedStates"},
         {SsnCountry::UnitedKingdom, "UnitedKingdom"},
         {SsnCountry::Poland, "Poland"},

@@ -1,14 +1,14 @@
 #pragma once
 
-#include <map>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 #include "faker-cxx/Finance.h"
 
 namespace faker
 {
-const std::map<Finance::BicCountry, std::vector<std::string>> bankIdentifiersCodesMapping = {
+const std::unordered_map<Finance::BicCountry, std::vector<std::string>> bankIdentifiersCodesMapping = {
     {Finance::BicCountry::Poland,
      {"BPKOPLPW", "PKOPPLPW", "BREXPLPWMUL", "BNPAPLP", "POLUPLPR", "BIGBPLPW", "WBKPPLPP", "CITIPLPX", "INGBPLPW",
       "DEUTPLPK", "DEUTPLP"}},

@@ -1,7 +1,7 @@
 #include "faker-cxx/Location.h"
 
-#include <map>
 #include <sstream>
+#include <unordered_map>
 
 #include "../../common/FormatHelper.h"
 #include "../../common/PrecisionMapper.h"
@@ -36,7 +36,7 @@ namespace faker
 {
 namespace
 {
-const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
+const std::unordered_map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
     {AddressCountry::Argentina, argentinaAddresses}, {AddressCountry::Usa, usaAddresses},
     {AddressCountry::Poland, polandAddresses},       {AddressCountry::Russia, russiaAddresses},
     {AddressCountry::France, franceAddresses},       {AddressCountry::Ukraine, ukraineAddresses},
@@ -50,7 +50,7 @@ const std::map<AddressCountry, CountryAddresses> countryToCountryAddressesMappin
     {AddressCountry::Serbia, serbiaAddresses},
 };
 
-const std::map<AddressCountry, Country> countryAddressToCountryMapping{
+const std::unordered_map<AddressCountry, Country> countryAddressToCountryMapping{
     {AddressCountry::Argentina, Country::Argentina}, {AddressCountry::Usa, Country::Usa},
     {AddressCountry::Poland, Country::Poland},       {AddressCountry::Russia, Country::Russia},
     {AddressCountry::France, Country::France},       {AddressCountry::Ukraine, Country::Ukraine},
@@ -100,7 +100,7 @@ std::string Location::city(AddressCountry country)
 
     const auto cityFormat = Helper::arrayElement<std::string>(countryAddresses.cityFormats);
 
-    const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
+    const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"firstName", [&country]() { return Person::firstName(countryAddressToCountryMapping.at(country)); }},
         {"lastName", [&country]() { return Person::lastName(countryAddressToCountryMapping.at(country)); }},
         {"cityName", [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.cities); }},
@@ -123,7 +123,7 @@ std::string Location::streetAddress(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
+    const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"buildingNumber", [&country]() { return buildingNumber(country); }},
         {"street", [&country]() { return street(country); }},
         {"secondaryAddress", [&country]() { return secondaryAddress(country); }}};
@@ -139,7 +139,7 @@ std::string Location::street(AddressCountry country)
 
     const auto streetFormat = Helper::arrayElement<std::string>(countryAddresses.streetFormats);
 
-    const auto dataGeneratorsMapping = std::map<std::string, std::function<std::string()>>{
+    const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"firstName", [&country]() { return Person::firstName(countryAddressToCountryMapping.at(country)); }},
         {"lastName", [&country]() { return Person::lastName(countryAddressToCountryMapping.at(country)); }},
         {"streetName",

@@ -1,9 +1,9 @@
 #include "faker-cxx/String.h"
 
 #include <cassert>
-#include <map>
 #include <stdexcept>
 #include <string>
+#include <unordered_map>
 
 #include "data/Characters.h"
 #include "faker-cxx/Helper.h"
@@ -13,33 +13,33 @@ namespace faker
 {
 namespace
 {
-const std::map<StringCasing, std::string> stringCasingToAlphaCharactersMapping{
+const std::unordered_map<StringCasing, std::string> stringCasingToAlphaCharactersMapping{
     {StringCasing::Lower, lowerCharacters},
     {StringCasing::Upper, upperCharacters},
     {StringCasing::Mixed, mixedAlphaCharacters},
 };
-const std::map<StringCasing, std::string> stringCasingToAlphanumericCharactersMapping{
+const std::unordered_map<StringCasing, std::string> stringCasingToAlphanumericCharactersMapping{
     {StringCasing::Lower, lowerAlphanumericCharacters},
     {StringCasing::Upper, upperAlphanumericCharacters},
     {StringCasing::Mixed, mixedAlphanumericCharacters},
 };
-const std::map<HexCasing, std::string> hexCasingToCharactersMapping{
+const std::unordered_map<HexCasing, std::string> hexCasingToCharactersMapping{
     {HexCasing::Lower, hexLowerCharacters},
     {HexCasing::Upper, hexUpperCharacters},
 };
-const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
+const std::unordered_map<HexPrefix, std::string> hexPrefixToStringMapping{
     {HexPrefix::ZeroX, "0x"},
     {HexPrefix::Hash, "#"},
     {HexPrefix::None, ""},
 };
 
-const std::map<StringCasing, std::set<char>> stringCasingToAlphaCharSetMapping{
+const std::unordered_map<StringCasing, std::set<char>> stringCasingToAlphaCharSetMapping{
     {StringCasing::Lower, lowerCharSet},
     {StringCasing::Upper, upperCharSet},
     {StringCasing::Mixed, mixedAlphaCharSet},
 };
 
-const std::map<HexCasing, std::set<char>> hexCasingToCharSetMapping{
+const std::unordered_map<HexCasing, std::set<char>> hexCasingToCharSetMapping{
     {HexCasing::Lower, hexLowerCharSet},
     {HexCasing::Upper, hexUpperCharSet},
 };
