@@ -40,6 +40,7 @@ set(FAKER_SOURCES
     src/modules/lorem/Lorem.cpp
     src/modules/medicine/Medicine.cpp
     src/modules/movie/Movie.cpp
+    src/modules/movie/MovieData.cpp
     src/modules/music/Music.cpp
     src/modules/number/Number.cpp
     src/modules/person/Person.cpp
@@ -52,7 +53,6 @@ set(FAKER_SOURCES
     src/modules/videoGame/VideoGame.cpp
     src/modules/weather/Weather.cpp
     src/modules/word/Word.cpp
-
     src/common/FormatHelper.cpp
     src/common/LuhnCheck.cpp
     src/common/StringHelper.cpp
