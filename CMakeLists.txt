@@ -22,6 +22,7 @@ set(FAKER_SOURCES
     src/modules/animal/Animal.cpp
     src/modules/animal/AnimalData.cpp
     src/modules/book/Book.cpp
+    src/modules/book/BookData.cpp
     src/modules/color/Color.cpp
     src/modules/commerce/Commerce.cpp
     src/modules/company/Company.cpp

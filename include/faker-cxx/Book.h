@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Book::title() // "Romeo and Juliet"
      * @endcode
      */
-    static std::string title();
+    static std::string_view title();
 
     /**
      * @brief Returns a random book genre.
@@ -27,7 +27,7 @@ public:
      * Book::genre() // "Fantasy"
      * @endcode
      */
-    static std::string genre();
+    static std::string_view genre();
 
     /**
      * @brief Returns a random book author.
@@ -38,7 +38,7 @@ public:
      * Book::author() // "Shakespeare, William"
      * @endcode
      */
-    static std::string author();
+    static std::string_view author();
 
     /**
      * @brief Returns a random book publisher.
@@ -49,7 +49,7 @@ public:
      * Book::publisher() // "Addison-Wesley"
      * @endcode
      */
-    static std::string publisher();
+    static std::string_view publisher();
 
     /**
      * @brief Returns a random book ISBN.
@@ -63,26 +63,15 @@ public:
     static std::string isbn();
 
     /**
-     * @brief Returns a random release year
-     *
-     * @returns int year
-     *
-     * @code
-     * Book::releaseYear() // 2016
-     * @endcode
-     */
-    static int releaseYear();
-
-    /**
      * @brief Returns the full name of a translator
      *
-     * @returns std::string full name
+     * @returns std::string_view full name
      *
      * @code
      * Book::translator() // "Eric Floyd"
      * @endcode
      */
-    static std::string translator();
+    static std::string_view translator();
 
     /**
      * @brief Returns format of book
@@ -93,28 +82,17 @@ public:
      * Book::format() // BookFormat::paperback
      * @endcode
      */
-    static std::string format();
-
-    /**
-     * @brief returns a random page number (50-999)
-     *
-     * @returns int page number
-     *
-     * @code
-     * Book::page() // 314
-     * @endcode
-     */
-    static int page();
+    static std::string_view format();
 
     /**
      * @brief returns a random book series
      *
-     * @returns std::string book series
+     * @returns std::string_view book series
      *
      * @code
      * Book::series() // "Harry Potter"
      * @endcode
      */
-    static std::string series();
+    static std::string_view series();
 };
 }
