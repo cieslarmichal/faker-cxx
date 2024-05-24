@@ -1,43 +1,38 @@
 #include "faker-cxx/Movie.h"
 
-#include "data/Actors.h"
-#include "data/Actresses.h"
-#include "data/Directors.h"
-#include "data/Genres.h"
-#include "data/Movies.h"
-#include "data/TvShows.h"
+#include "MovieData.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
 {
-std::string Movie::genre()
+std::string_view Movie::genre()
 {
-    return Helper::arrayElement<std::string>(genres);
+    return Helper::arrayElement(genres);
 }
 
-std::string Movie::movieTitle()
+std::string_view Movie::movieTitle()
 {
-    return Helper::arrayElement<std::string>(movies);
+    return Helper::arrayElement(movies);
 }
 
-std::string Movie::tvShow()
+std::string_view Movie::tvShow()
 {
-    return Helper::arrayElement<std::string>(tvShows);
+    return Helper::arrayElement(tvShows);
 }
 
-std::string Movie::director()
+std::string_view Movie::director()
 {
-    return Helper::arrayElement<std::string>(directors);
+    return Helper::arrayElement(directors);
 }
 
-std::string Movie::actor()
+std::string_view Movie::actor()
 {
-    return Helper::arrayElement<std::string>(actors);
+    return Helper::arrayElement(actors);
 }
 
-std::string Movie::actress()
+std::string_view Movie::actress()
 {
-    return Helper::arrayElement<std::string>(actresses);
+    return Helper::arrayElement(actresses);
 }
 
 }
