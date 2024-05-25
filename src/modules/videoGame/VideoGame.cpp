@@ -1,28 +1,28 @@
-#include <string_view>
-
 #include "faker-cxx/VideoGame.h"
 
 #include "VideoGameData.h"
+#include "faker-cxx/Helper.h"
+
 
 namespace faker
 {
 std::string_view VideoGame::gameTitle()
 {
-    return Helper::arrayElement<std::string_view>(videoGameNames);
+    return Helper::arrayElement(videoGameNames);
 }
 
 std::string_view VideoGame::genre()
 {
-    return Helper::arrayElement<std::string_view>(genres);
+    return Helper::arrayElement(genres);
 }
 
 std::string_view VideoGame::platform()
 {
-    return Helper::arrayElement<std::string_view>(platforms);
+    return Helper::arrayElement(platforms);
 }
 
 std::string_view VideoGame::studioName()
 {
-    return Helper::arrayElement<std::string_view>(studioNames);
+    return Helper::arrayElement(studioNames);
 }
 }
