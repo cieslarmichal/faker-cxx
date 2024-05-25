@@ -3159,7 +3159,7 @@ const std::array<std::string_view, 3152> videoGameNames = {
     "Æon Flux"
 };
 
-const std::array<std::string_view, 28> genres = {
+const std::array<std::string_view, 28> videoGameGenres = {
     "Action",
     "Adventure",
     "Battle royale",
