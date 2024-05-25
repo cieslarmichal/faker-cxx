@@ -52,6 +52,7 @@ set(FAKER_SOURCES
     src/modules/string/String.cpp
     src/modules/system/System.cpp
     src/modules/vehicle/Vehicle.cpp
+    src/modules/vehicle/VehicleData.cpp
     src/modules/videoGame/VideoGame.cpp
     src/modules/videoGame/VideoGameData.cpp
     src/modules/weather/Weather.cpp
@@ -68,6 +69,11 @@ target_include_directories(
     ${LIBRARY_NAME} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
+
+target_include_directories(
+    ${LIBRARY_NAME} PRIVATE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+)
 
 target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
 if (MSVC)

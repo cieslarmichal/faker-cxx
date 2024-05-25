@@ -1,12 +1,7 @@
 #include "faker-cxx/Vehicle.h"
 
-#include "../../common/FormatHelper.h"
-#include "data/Bicycle.h"
-#include "data/Color.h"
-#include "data/Fuel.h"
-#include "data/Manufacturer.h"
-#include "data/Model.h"
-#include "data/Type.h"
+#include "common/FormatHelper.h"
+#include "VehicleData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
@@ -14,34 +9,34 @@
 namespace faker
 {
 
-std::string Vehicle::bicycle()
+std::string_view Vehicle::bicycle()
 {
-    return Helper::arrayElement(bicycle_types);
+    return Helper::arrayElement(vehicle::bicycle_types);
 }
 
-std::string Vehicle::color()
+std::string_view Vehicle::color()
 {
-    return Helper::arrayElement(vehicle_colors);
+    return Helper::arrayElement(vehicle::vehicle_colors);
 }
 
-std::string Vehicle::fuel()
+std::string_view Vehicle::fuel()
 {
-    return Helper::arrayElement(fuel_types);
+    return Helper::arrayElement(vehicle::fuel_types);
 }
 
-std::string Vehicle::manufacturer()
+std::string_view Vehicle::manufacturer()
 {
-    return Helper::arrayElement(manufacturers);
+    return Helper::arrayElement(vehicle::manufacturers);
 }
 
-std::string Vehicle::model()
+std::string_view Vehicle::model()
 {
-    return Helper::arrayElement(models);
+    return Helper::arrayElement(vehicle::models);
 }
 
-std::string Vehicle::type()
+std::string_view Vehicle::type()
 {
-    return Helper::arrayElement(vehicle_types);
+    return Helper::arrayElement(vehicle::vehicle_types);
 }
 
 std::string Vehicle::vehicle()

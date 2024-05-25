@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Vehicle::bicycle() // "Electric bike"
      * @endcode
      */
-    static std::string bicycle();
+    static std::string_view bicycle();
 
     /**
      * @brief Returns a random vehicle color.
@@ -27,7 +27,7 @@ public:
      * Vehicle::color() // "Silver"
      * @endcode
      */
-    static std::string color();
+    static std::string_view color();
 
     /**
      * @brief Returns a random vehicle fuel.
@@ -38,7 +38,7 @@ public:
      * Vehicle::fuel() // "Diesel"
      * @endcode
      */
-    static std::string fuel();
+    static std::string_view fuel();
 
     /**
      * @brief Returns a random vehicle(car) manufacturer.
@@ -49,7 +49,7 @@ public:
      * Vehicle::manufacturer() // "Ferrari"
      * @endcode
      */
-    static std::string manufacturer();
+    static std::string_view manufacturer();
 
     /**
      * @brief Returns a random vehicle(car) model.
@@ -60,7 +60,7 @@ public:
      * Vehicle::model() // "Fiesta"
      * @endcode
      */
-    static std::string model();
+    static std::string_view model();
 
     /**
      * @brief Returns a random vehicle type.
@@ -71,7 +71,7 @@ public:
      * Vehicle::type() // "Van"
      * @endcode
      */
-    static std::string type();
+    static std::string_view type();
 
     /**
      * @brief Returns a random vehicle(car).
