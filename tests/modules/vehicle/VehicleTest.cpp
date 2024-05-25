@@ -11,6 +11,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace faker::vehicle;
 
 class VehicleTest : public Test
 {
