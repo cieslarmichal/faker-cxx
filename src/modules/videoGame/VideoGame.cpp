@@ -13,7 +13,7 @@ std::string_view VideoGame::gameTitle()
 
 std::string_view VideoGame::genre()
 {
-    return Helper::arrayElement(videoGame::genres);
+    return Helper::arrayElement(videoGame::videoGameGenres);
 }
 
 std::string_view VideoGame::platform()

@@ -26,7 +26,7 @@ TEST_F(BookTest, shouldGenerateGenre)
 {
     const auto bookGenre = Book::genre();
 
-    ASSERT_TRUE(std::ranges::any_of(genres, [bookGenre](const std::string_view& genre) { return genre == bookGenre; }));
+    ASSERT_TRUE(std::ranges::any_of(bookGenres, [bookGenre](const std::string_view& genre) { return genre == bookGenre; }));
 }
 
 TEST_F(BookTest, shouldGenerateAuthor)
