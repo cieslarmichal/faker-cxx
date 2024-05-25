@@ -82,7 +82,7 @@ public:
      * Vehicle::vehicle() // "BMW Explorer"
      * @endcode
      */
-    static std::string_view vehicle();
+    static std::string vehicle();
 
     /**
      * @brief Returns a vehicle identification number (VIN).
@@ -93,7 +93,7 @@ public:
      * Vehicle::vin() // "YV1MH682762184654"
      * @endcode
      */
-    static std::string_view vin();
+    static std::string vin();
 
     /**
      * @brief Returns a vehicle registration number (Vehicle Registration Mark - VRM).
@@ -104,6 +104,6 @@ public:
      * Vehicle::vrm() // "MF56UPA"
      * @endcode
      */
-    static std::string_view vrm();
+    static std::string vrm();
 };
 }

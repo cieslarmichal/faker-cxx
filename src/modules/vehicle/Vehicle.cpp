@@ -39,12 +39,12 @@ std::string_view Vehicle::type()
     return Helper::arrayElement(vehicle_types);
 }
 
-std::string_view Vehicle::vehicle()
+std::string Vehicle::vehicle()
 {
     return FormatHelper::format("{} {}", manufacturer(), model());
 }
 
-std::string_view Vehicle::vin()
+std::string Vehicle::vin()
 {
     std::string exclude_characters{"oiqOIQ"};
 
@@ -54,7 +54,7 @@ std::string_view Vehicle::vin()
                                 Number::integer(10000, 99999));
 }
 
-std::string_view Vehicle::vrm()
+std::string Vehicle::vrm()
 {
     return FormatHelper::format("{}{}{}", String::alpha(2, StringCasing::Upper), String::numeric(2, true),
                                 String::alpha(3, StringCasing::Upper));
