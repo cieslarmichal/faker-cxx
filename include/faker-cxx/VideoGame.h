@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * VideoGame::gameTitle() // "Rayman Arena"
      * @endcode
      */
-    static std::string gameTitle();
+    static std::string_view gameTitle();
 
     /**
      * @brief Returns a random video game genre.
@@ -27,7 +27,7 @@ public:
      * VideoGame::genre() // "Platformer"
      * @endcode
      */
-    static std::string genre();
+    static std::string_view genre();
 
     /**
      * @brief Returns a random video game platform.
@@ -38,7 +38,7 @@ public:
      * VideoGame::platform() // "Playstation 5"
      * @endcode
      */
-    static std::string platform();
+    static std::string_view platform();
 
     /**
      * @brief Returns a random video game studio name.
@@ -49,6 +49,6 @@ public:
      * VideoGame::studioName() // "Activision Blizzard"
      * @endcode
      */
-    static std::string studioName();
+    static std::string_view studioName();
 };
 }

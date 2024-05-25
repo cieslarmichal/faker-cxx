@@ -1,30 +1,28 @@
 #include "faker-cxx/VideoGame.h"
 
-#include "data/GameTitles.h"
-#include "data/Genres.h"
-#include "data/Platforms.h"
-#include "data/StudioNames.h"
+#include "VideoGameData.h"
 #include "faker-cxx/Helper.h"
+
 
 namespace faker
 {
-std::string VideoGame::gameTitle()
+std::string_view VideoGame::gameTitle()
 {
-    return Helper::arrayElement<std::string>(videoGameNames);
+    return Helper::arrayElement(videoGame::videoGameNames);
 }
 
-std::string VideoGame::genre()
+std::string_view VideoGame::genre()
 {
-    return Helper::arrayElement<std::string>(videoGameGenres);
+    return Helper::arrayElement(videoGame::videoGameGenres);
 }
 
-std::string VideoGame::platform()
+std::string_view VideoGame::platform()
 {
-    return Helper::arrayElement<std::string>(platforms);
+    return Helper::arrayElement(videoGame::platforms);
 }
 
-std::string VideoGame::studioName()
+std::string_view VideoGame::studioName()
 {
-    return Helper::arrayElement<std::string>(studioNames);
+    return Helper::arrayElement(videoGame::studioNames);
 }
 }
