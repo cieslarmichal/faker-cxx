@@ -1,8 +1,7 @@
 #pragma once
 
 #include <array>
-
-#include "faker-cxx/Vehicle.h"
+#include <string_view>
 
 namespace faker
 {
