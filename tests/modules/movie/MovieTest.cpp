@@ -19,7 +19,7 @@ TEST_F(MovieTest, shouldGenerateGenre)
     const auto generatedGenre = Movie::genre();
 
     ASSERT_TRUE(
-        std::ranges::any_of(genres, [generatedGenre](const std::string_view& genre) { return generatedGenre == genre; }));
+        std::ranges::any_of(movieGenres, [generatedGenre](const std::string_view& genre) { return generatedGenre == genre; }));
 }
 
 TEST_F(MovieTest, shouldGenerateMovieTitle)
