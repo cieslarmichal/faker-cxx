@@ -1,12 +1,7 @@
 #include "faker-cxx/Vehicle.h"
 
-#include "../../common/FormatHelper.h"
-#include "data/Bicycle.h"
-#include "data/Color.h"
-#include "data/Fuel.h"
-#include "data/Manufacturer.h"
-#include "data/Model.h"
-#include "data/Type.h"
+#include "common/FormatHelper.h"
+#include "VehicleData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
@@ -14,42 +9,42 @@
 namespace faker
 {
 
-std::string Vehicle::bicycle()
+std::string_view Vehicle::bicycle()
 {
     return Helper::arrayElement(bicycle_types);
 }
 
-std::string Vehicle::color()
+std::string_view Vehicle::color()
 {
     return Helper::arrayElement(vehicle_colors);
 }
 
-std::string Vehicle::fuel()
+std::string_view Vehicle::fuel()
 {
     return Helper::arrayElement(fuel_types);
 }
 
-std::string Vehicle::manufacturer()
+std::string_view Vehicle::manufacturer()
 {
     return Helper::arrayElement(manufacturers);
 }
 
-std::string Vehicle::model()
+std::string_view Vehicle::model()
 {
     return Helper::arrayElement(models);
 }
 
-std::string Vehicle::type()
+std::string_view Vehicle::type()
 {
     return Helper::arrayElement(vehicle_types);
 }
 
-std::string Vehicle::vehicle()
+std::string_view Vehicle::vehicle()
 {
     return FormatHelper::format("{} {}", manufacturer(), model());
 }
 
-std::string Vehicle::vin()
+std::string_view Vehicle::vin()
 {
     std::string exclude_characters{"oiqOIQ"};
 
@@ -59,7 +54,7 @@ std::string Vehicle::vin()
                                 Number::integer(10000, 99999));
 }
 
-std::string Vehicle::vrm()
+std::string_view Vehicle::vrm()
 {
     return FormatHelper::format("{}{}{}", String::alpha(2, StringCasing::Upper), String::numeric(2, true),
                                 String::alpha(3, StringCasing::Upper));
