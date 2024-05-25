@@ -2,6 +2,8 @@
 
 namespace faker
 {
+namespace vehicle
+{
 const std::array<std::string_view, 10> bicycle_types = {
     "BMX bike",
     "Cargo bike",
@@ -110,4 +112,5 @@ const std::array<std::string_view, 10> vehicle_types = {
     "Truck",
     "Van"
 };
+}
 }
