@@ -69,6 +69,11 @@ target_include_directories(
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
 
+target_include_directories(
+    ${LIBRARY_NAME} PRIVATE
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
+)
+
 target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
 if (MSVC)
     target_compile_options(${LIBRARY_NAME} PRIVATE /permissive- /bigobj)
