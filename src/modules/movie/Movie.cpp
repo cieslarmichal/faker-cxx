@@ -7,7 +7,7 @@ namespace faker
 {
 std::string_view Movie::genre()
 {
-    return Helper::arrayElement(movieGenres);
+    return Helper::arrayElement(genres);
 }
 
 std::string_view Movie::movieTitle()

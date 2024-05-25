@@ -15,7 +15,7 @@ std::string_view Book::title()
 
 std::string_view Book::genre()
 {
-    return Helper::arrayElement(bookGenres);
+    return Helper::arrayElement(genres);
 }
 
 std::string_view Book::author()

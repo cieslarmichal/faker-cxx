@@ -14,7 +14,7 @@ std::string Music::artist()
 
 std::string Music::genre()
 {
-    return Helper::arrayElement<std::string>(musicGenres);
+    return Helper::arrayElement<std::string>(genres);
 }
 
 std::string Music::songName()

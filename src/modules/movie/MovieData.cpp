@@ -910,7 +910,7 @@ const std::array<std::string_view, 300> directors = {
     "Éric Rohmer"
 };
 
-const std::array<std::string_view, 9> movieGenres = {
+const std::array<std::string_view, 9> genres = {
     "Action",
     "Comedy",
     "Drama",
