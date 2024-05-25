@@ -2,6 +2,8 @@
 
 namespace faker
 {
+namespace videoGame
+{
 const std::array<std::string_view, 3152> videoGameNames = {
     "#killallzombies",
     ".hack//G.U. Last Recode",
@@ -3595,4 +3597,5 @@ const std::array<std::string_view, 392> studioNames = {
     "n-Space"
 };
 
+}
 }
