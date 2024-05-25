@@ -16,7 +16,7 @@ var searchData=
   ['format_13',['format',['../classfaker_1_1Book.html#af514e5832c1acf497e1d6c0b89301174',1,'faker::Book']]],
   ['fromcharacters_14',['fromCharacters',['../classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331',1,'faker::String::fromCharacters(const std::string &amp;characters, unsigned length=1)'],['../classfaker_1_1String.html#a3dca95bfceba12c0c151f0564627bd0c',1,'faker::String::fromCharacters(GuaranteeMap &amp;&amp;guarantee, const std::string &amp;characters, unsigned length=1)']]],
   ['fruit_15',['fruit',['../classfaker_1_1Food.html#ad0177582320bbef7af5a2f56a0e6b721',1,'faker::Food']]],
-  ['fuel_16',['fuel',['../classfaker_1_1Vehicle.html#a68c39250de735aaa42273f96a5505045',1,'faker::Vehicle']]],
+  ['fuel_16',['fuel',['../classfaker_1_1Vehicle.html#a992779ff9e9d6bb9c9517a2cb33192cf',1,'faker::Vehicle']]],
   ['fullname_17',['fullName',['../classfaker_1_1Person.html#a4a3a11d354383caa8bcede4914dff6a1',1,'faker::Person']]],
   ['futuredate_18',['futureDate',['../classfaker_1_1Date.html#abe6d9df85045d492d63f79e11e0ca08c',1,'faker::Date']]]
 ];

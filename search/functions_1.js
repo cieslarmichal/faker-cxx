@@ -2,7 +2,7 @@ var searchData=
 [
   ['bear_0',['bear',['../classfaker_1_1Animal.html#a407581bb2530c72210fd2d57da95ed88',1,'faker::Animal']]],
   ['bic_1',['bic',['../classfaker_1_1Finance.html#a8f9a4ef2b0d11ab1cebce870b6c2182c',1,'faker::Finance']]],
-  ['bicycle_2',['bicycle',['../classfaker_1_1Vehicle.html#a1cc1a37eefa4f2e38e07134956abc61a',1,'faker::Vehicle']]],
+  ['bicycle_2',['bicycle',['../classfaker_1_1Vehicle.html#aabdd51aeee7ee4c667ca53e7e01358a2',1,'faker::Vehicle']]],
   ['binary_3',['binary',['../classfaker_1_1String.html#a1a4443dd71fb781206122c53c81896bd',1,'faker::String::binary(unsigned length=1)'],['../classfaker_1_1String.html#a30919e90c1c1b1633474bc5afaaf0450',1,'faker::String::binary(GuaranteeMap &amp;&amp;guarantee, unsigned length=1)']]],
   ['bio_4',['bio',['../classfaker_1_1Person.html#ad3090b7ffa93ddce052eedda2c19d1f9',1,'faker::Person']]],
   ['bird_5',['bird',['../classfaker_1_1Animal.html#a5e5239795abc966737c7ddac78d9e4c1',1,'faker::Animal']]],

@@ -13,7 +13,7 @@ var searchData=
   ['cloudcover_10',['cloudCover',['../classfaker_1_1Weather.html#a7d0451aec845d0f8e1bd2e9989d818d0',1,'faker::Weather']]],
   ['cmyk_11',['cmyk',['../classfaker_1_1Color.html#ab47da1db6d86a41571bfb39a079e45ad',1,'faker::Color']]],
   ['collation_12',['collation',['../classfaker_1_1Database.html#aed7e54cfd58e1e738ab314c4560da93d',1,'faker::Database']]],
-  ['color_13',['color',['../classfaker_1_1Vehicle.html#a56e785dc7e34dbb5961db76a86f4a25a',1,'faker::Vehicle']]],
+  ['color_13',['color',['../classfaker_1_1Vehicle.html#ad2d759a0f50cffc28618c309c05c5f3d',1,'faker::Vehicle']]],
   ['columnname_14',['columnName',['../classfaker_1_1Database.html#abcf37794c994f4eb7ddffe84f5be7f2b',1,'faker::Database']]],
   ['columntype_15',['columnType',['../classfaker_1_1Database.html#afceac6312025f6524a77d5baa242997b',1,'faker::Database']]],
   ['commitdate_16',['commitDate',['../classfaker_1_1Git.html#ab0404e11d51cd0d3a8a0b6037d3e7fb5',1,'faker::Git']]],
