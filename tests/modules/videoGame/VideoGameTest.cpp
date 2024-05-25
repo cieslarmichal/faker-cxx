@@ -8,6 +8,8 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace faker::videoGame;
+
 
 class VideoGameTest : public Test
 {
