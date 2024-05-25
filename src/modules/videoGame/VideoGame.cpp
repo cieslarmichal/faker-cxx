@@ -15,7 +15,7 @@ std::string VideoGame::gameTitle()
 
 std::string VideoGame::genre()
 {
-    return Helper::arrayElement<std::string>(genres);
+    return Helper::arrayElement<std::string>(videoGameGenres);
 }
 
 std::string VideoGame::platform()

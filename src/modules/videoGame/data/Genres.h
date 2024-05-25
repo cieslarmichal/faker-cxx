@@ -5,7 +5,8 @@
 
 namespace faker
 {
-const std::vector<std::string> genres = {"Action",
+const std::vector<std::string> videoGameGenres = {
+                                         "Action",
                                          "Adventure",
                                          "Battle royale",
                                          "Dating sim",
