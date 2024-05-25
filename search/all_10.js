@@ -32,7 +32,7 @@ var searchData=
   ['street_29',['street',['../classfaker_1_1Location.html#ab7b136a671e83f17a5eb2cae4f43b67e',1,'faker::Location']]],
   ['streetaddress_30',['streetAddress',['../classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5',1,'faker::Location']]],
   ['string_31',['String',['../classfaker_1_1String.html',1,'faker']]],
-  ['studioname_32',['studioName',['../classfaker_1_1VideoGame.html#a31fb6dddb984b9ff4b1b82f27033a217',1,'faker::VideoGame']]],
+  ['studioname_32',['studioName',['../classfaker_1_1VideoGame.html#afd842eaf01b55e9c93f864809ae233fc',1,'faker::VideoGame']]],
   ['suffix_33',['suffix',['../classfaker_1_1Person.html#a386646bcc4139d378d890bb38f661196',1,'faker::Person']]],
   ['sugarproduct_34',['sugarProduct',['../classfaker_1_1Food.html#a7ff3f3f3aa1ab6d71d863d31fe267a07',1,'faker::Food']]],
   ['system_35',['System',['../classfaker_1_1System.html',1,'faker']]]
