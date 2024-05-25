@@ -53,6 +53,7 @@ set(FAKER_SOURCES
     src/modules/system/System.cpp
     src/modules/vehicle/Vehicle.cpp
     src/modules/videoGame/VideoGame.cpp
+    src/modules/videoGame/VideoGameData.cpp
     src/modules/weather/Weather.cpp
     src/modules/word/Word.cpp
     src/common/FormatHelper.cpp
