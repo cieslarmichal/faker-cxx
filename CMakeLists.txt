@@ -52,6 +52,7 @@ set(FAKER_SOURCES
     src/modules/string/String.cpp
     src/modules/system/System.cpp
     src/modules/vehicle/Vehicle.cpp
+    src/modules/vehicle/VehicleData.cpp
     src/modules/videoGame/VideoGame.cpp
     src/modules/weather/Weather.cpp
     src/modules/word/Word.cpp
