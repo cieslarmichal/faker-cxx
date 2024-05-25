@@ -8,8 +8,6 @@
 
 using namespace ::testing;
 using namespace faker;
-using namespace faker::videoGame;
-
 
 class VideoGameTest : public Test
 {
@@ -20,7 +18,7 @@ TEST_F(VideoGameTest, shouldGenerateGameTitle)
 {
     const auto generatedGameTitle = VideoGame::gameTitle();
 
-    ASSERT_TRUE(std::ranges::any_of(videoGameNames, [generatedGameTitle](const std::string_view& gameTitle)
+    ASSERT_TRUE(std::ranges::any_of(videoGame::videoGameNames, [generatedGameTitle](const std::string_view& gameTitle)
                                     { return generatedGameTitle == gameTitle; }));
 }
 
@@ -28,7 +26,7 @@ TEST_F(VideoGameTest, shouldGenerateGenre)
 {
     const auto generatedGenre = VideoGame::genre();
 
-    ASSERT_TRUE(std::ranges::any_of(genres, [generatedGenre](const std::string_view& genre)
+    ASSERT_TRUE(std::ranges::any_of(videoGame::genres, [generatedGenre](const std::string_view& genre)
                                     { return generatedGenre == genre; }));
 }
 
@@ -36,7 +34,7 @@ TEST_F(VideoGameTest, shouldGeneratePlatform)
 {
     const auto generatedPlatform = VideoGame::platform();
 
-    ASSERT_TRUE(std::ranges::any_of(platforms, [generatedPlatform](const std::string_view& platform)
+    ASSERT_TRUE(std::ranges::any_of(videoGame::platforms, [generatedPlatform](const std::string_view& platform)
                                     { return generatedPlatform == platform; }));
 }
 
@@ -44,6 +42,6 @@ TEST_F(VideoGameTest, shouldGenerateStudioName)
 {
     const auto generatedStudioName = VideoGame::studioName();
 
-    ASSERT_TRUE(std::ranges::any_of(studioNames, [generatedStudioName](const std::string_view& studioName)
+    ASSERT_TRUE(std::ranges::any_of(videoGame::studioNames, [generatedStudioName](const std::string_view& studioName)
                                     { return generatedStudioName == studioName; }));
 }
