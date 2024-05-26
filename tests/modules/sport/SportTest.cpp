@@ -19,7 +19,7 @@ TEST_F(SportTest, shouldGenerateSport)
 {
     const auto generatedSport = Sport::sport();
 
-    ASSERT_TRUE(std::ranges::any_of(sport::femaleAthletes,
+    ASSERT_TRUE(std::ranges::any_of(sport::sportNames,
                                     [generatedSport](const std::string_view& sport) { return sport == generatedSport; }));
 }
 
