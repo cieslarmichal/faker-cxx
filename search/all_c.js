@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['name_0',['name',['../classfaker_1_1Color.html#a75edc9ff2a0cef9b02c998d123d18821',1,'faker::Color::name()'],['../classfaker_1_1Company.html#a2bdc843b50fd6a12217706ccc1f265ea',1,'faker::Company::name()']]],
+  ['name_0',['name',['../classfaker_1_1Color.html#a618c87721d699e776cc0fad0e56667df',1,'faker::Color::name()'],['../classfaker_1_1Company.html#a2bdc843b50fd6a12217706ccc1f265ea',1,'faker::Company::name()']]],
   ['nationality_1',['nationality',['../classfaker_1_1Person.html#a13c40a4e8dfb2738288ea0c1d01c2076',1,'faker::Person']]],
   ['networkinterface_2',['networkInterface',['../classfaker_1_1System.html#a04c56b9fa4fd0279417b1e0f3e6174fc',1,'faker::System']]],
   ['networkinterfaceoptions_3',['NetworkInterfaceOptions',['../structfaker_1_1NetworkInterfaceOptions.html',1,'faker']]],
