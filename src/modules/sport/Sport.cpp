@@ -2,37 +2,33 @@
 
 #include <string_view>
 
-#include "data/FemaleAthletes.h"
-#include "data/MaleAthletes.h"
-#include "data/SoccerTeams.h"
-#include "data/SportEvents.h"
-#include "data/SportNames.h"
+#include "SportData.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
 {
 std::string_view Sport::sport()
 {
-    return Helper::arrayElement(sportNames);
+    return Helper::arrayElement(sport::sportNames);
 }
 
 std::string_view Sport::soccerTeam()
 {
-    return Helper::arrayElement(soccerTeams);
+    return Helper::arrayElement(sport::soccerTeams);
 }
 
 std::string_view Sport::maleAthlete()
 {
-    return Helper::arrayElement(maleAthletes);
+    return Helper::arrayElement(sport::maleAthletes);
 }
 
 std::string_view Sport::femaleAthlete()
 {
-    return Helper::arrayElement(femaleAthletes);
+    return Helper::arrayElement(sport::femaleAthletes);
 }
 
 std::string_view Sport::sportEvent()
 {
-    return Helper::arrayElement(sportEvents);
+    return Helper::arrayElement(sport::sportEvents);
 }
 }

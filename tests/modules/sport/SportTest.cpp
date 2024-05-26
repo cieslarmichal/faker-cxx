@@ -1,15 +1,11 @@
 #include "faker-cxx/Sport.h"
 
 #include <algorithm>
-#include <string>
+#include <string_view>
 
 #include "gtest/gtest.h"
 
-#include "sport/data/FemaleAthletes.h"
-#include "sport/data/MaleAthletes.h"
-#include "sport/data/SoccerTeams.h"
-#include "sport/data/SportEvents.h"
-#include "sport/data/SportNames.h"
+#include "sport/SportData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -21,40 +17,40 @@ public:
 
 TEST_F(SportTest, shouldGenerateSport)
 {
-    std::string generatedSport = Sport::sport();
+    const auto generatedSport = Sport::sport();
 
-    ASSERT_TRUE(std::ranges::any_of(sportNames,
-                                    [generatedSport](const std::string& sport) { return sport == generatedSport; }));
+    ASSERT_TRUE(std::ranges::any_of(sport::femaleAthletes,
+                                    [generatedSport](const std::string_view& sport) { return sport == generatedSport; }));
 }
 
 TEST_F(SportTest, shouldGenerateSoccerTeam)
 {
-    std::string generatedSoccerTeam = Sport::soccerTeam();
+    const auto generatedSoccerTeam = Sport::soccerTeam();
 
-    ASSERT_TRUE(std::ranges::any_of(soccerTeams, [generatedSoccerTeam](const std::string& soccerTeam)
+    ASSERT_TRUE(std::ranges::any_of(sport::soccerTeams, [generatedSoccerTeam](const std::string_view& soccerTeam)
                                     { return soccerTeam == generatedSoccerTeam; }));
 }
 
 TEST_F(SportTest, shouldGenerateSportEvent)
 {
-    std::string generatedSportEvent = Sport::sportEvent();
+    const auto generatedSportEvent = Sport::sportEvent();
 
-    ASSERT_TRUE(std::ranges::any_of(sportEvents, [generatedSportEvent](const std::string& sportEvent)
+    ASSERT_TRUE(std::ranges::any_of(sport::sportEvents, [generatedSportEvent](const std::string_view& sportEvent)
                                     { return sportEvent == generatedSportEvent; }));
 }
 
 TEST_F(SportTest, shouldGenerateMaleAthlete)
 {
-    std::string generatedMaleAthlete = Sport::maleAthlete();
+    const auto generatedMaleAthlete = Sport::maleAthlete();
 
-    ASSERT_TRUE(std::ranges::any_of(maleAthletes, [generatedMaleAthlete](const std::string& maleAthlete)
+    ASSERT_TRUE(std::ranges::any_of(sport::maleAthletes, [generatedMaleAthlete](const std::string_view& maleAthlete)
                                     { return maleAthlete == generatedMaleAthlete; }));
 }
 
 TEST_F(SportTest, shouldGenerateFemaleAthlete)
 {
-    std::string generatedFemaleAthlete = Sport::femaleAthlete();
+    const auto generatedFemaleAthlete = Sport::femaleAthlete();
 
-    ASSERT_TRUE(std::ranges::any_of(femaleAthletes, [generatedFemaleAthlete](const std::string& femaleAthlete)
+    ASSERT_TRUE(std::ranges::any_of(sport::femaleAthletes, [generatedFemaleAthlete](const std::string_view& femaleAthlete)
                                     { return femaleAthlete == generatedFemaleAthlete; }));
 }
