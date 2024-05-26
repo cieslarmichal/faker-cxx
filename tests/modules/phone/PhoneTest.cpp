@@ -2,11 +2,12 @@
 
 #include <algorithm>
 #include <vector>
+#include <string>
+#include <string_view>
 
 #include "gtest/gtest.h"
 
-#include "phone/data/AreaCodes.h"
-#include "phone/data/PhoneData.h"
+#include "phone/PhoneData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -23,15 +24,15 @@ protected:
 
 TEST_F(PhoneTest, NumberWithNoFormat)
 {
-    std::string phoneNumber = Phone::number();
+    const auto phoneNumber = Phone::number();
 
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 }
 
 TEST_F(PhoneTest, NumberWithFormat)
 {
-    std::string format = "501-###-###";
-    std::string phoneNumber = Phone::number(format);
+    auto format = "501-###-###";
+    auto phoneNumber = Phone::number(format);
     ASSERT_NE(phoneNumber, format);
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 
@@ -53,7 +54,7 @@ TEST_F(PhoneTest, NumberWithFormat)
 
 TEST_F(PhoneTest, IMEIGeneration)
 {
-    std::string imei = Phone::imei();
+    auto imei = Phone::imei();
 
     imei.erase(std::remove(imei.begin(), imei.end(), '-'), imei.end());
 
@@ -63,7 +64,7 @@ TEST_F(PhoneTest, IMEIGeneration)
 
 TEST_F(PhoneTest, NumberFormatTest)
 {
-    std::string phoneNumber = Phone::number(PhoneNumberCountryFormat::Zimbabwe);
+    const auto phoneNumber = Phone::number(PhoneNumberCountryFormat::Zimbabwe);
 
     EXPECT_FALSE(phoneNumber.empty());
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
@@ -71,31 +72,31 @@ TEST_F(PhoneTest, NumberFormatTest)
 
 TEST_F(PhoneTest, PlatformGeneration)
 {
-    std::string generatedPlatform = Phone::platform();
-    ASSERT_TRUE(std::ranges::any_of(faker::data::PhonePlatforms.begin(), faker::data::PhonePlatforms.end(),
-                                    [generatedPlatform](const std::string& platform)
+    const auto generatedPlatform = Phone::platform();
+    ASSERT_TRUE(std::ranges::any_of(phone::PhonePlatforms.begin(), phone::PhonePlatforms.end(),
+                                    [generatedPlatform](const std::string_view& platform)
                                     { return platform == generatedPlatform; }));
 }
 
 TEST_F(PhoneTest, ModelNameGeneration)
 {
-    std::string generatedModelName = Phone::modelName();
-    ASSERT_TRUE(std::ranges::any_of(faker::data::PhoneModelNames.begin(), faker::data::PhoneModelNames.end(),
-                                    [generatedModelName](const std::string& modelName)
+    const auto generatedModelName = Phone::modelName();
+    ASSERT_TRUE(std::ranges::any_of(phone::PhoneModelNames.begin(), phone::PhoneModelNames.end(),
+                                    [generatedModelName](const std::string_view& modelName)
                                     { return modelName == generatedModelName; }));
 }
 
 TEST_F(PhoneTest, ManufacturerGeneration)
 {
-    std::string generatedManufacturer = Phone::manufacturer();
-    ASSERT_TRUE(std::ranges::any_of(faker::data::PhoneManufacturers.begin(), faker::data::PhoneManufacturers.end(),
-                                    [generatedManufacturer](const std::string& manufacturer)
+    const auto generatedManufacturer = Phone::manufacturer();
+    ASSERT_TRUE(std::ranges::any_of(phone::PhoneManufacturers.begin(), phone::PhoneManufacturers.end(),
+                                    [generatedManufacturer](const std::string_view& manufacturer)
                                     { return manufacturer == generatedManufacturer; }));
 }
 
 TEST_F(PhoneTest, AreaCodeGeneration)
 {
-    std::string areaCode = Phone::areaCode();
-    ASSERT_TRUE(std::ranges::any_of(faker::data::areaCodes.begin(), faker::data::areaCodes.end(),
-                                    [areaCode](const std::string& code) { return code == areaCode; }));
+    const auto areaCode = Phone::areaCode();
+    ASSERT_TRUE(std::ranges::any_of(phone::areaCodes.begin(), phone::areaCodes.end(),
+                                    [areaCode](const std::string_view& code) { return code == areaCode; }));
 }
