@@ -23,7 +23,7 @@ var searchData=
   ['soccerteam_20',['soccerTeam',['../classfaker_1_1Sport.html#a97e02344486aa08439383f0c094fb1ef',1,'faker::Sport']]],
   ['songname_21',['songName',['../classfaker_1_1Music.html#a08ab507712947fbbbb924963b83e2844',1,'faker::Music']]],
   ['soondate_22',['soonDate',['../classfaker_1_1Date.html#af7321b4172983b6d2fc64bcd65338ac5',1,'faker::Date']]],
-  ['specialty_23',['specialty',['../classfaker_1_1Medicine.html#afca1a4e80264720088d0a9fb5d82a846',1,'faker::Medicine']]],
+  ['specialty_23',['specialty',['../classfaker_1_1Medicine.html#adf4204a140d90499fb48d586b4ea0bb8',1,'faker::Medicine']]],
   ['sport_24',['Sport',['../classfaker_1_1Sport.html',1,'faker']]],
   ['sport_25',['sport',['../classfaker_1_1Sport.html#a01a8afd92aaf5f2fab77bfff89ab7f4f',1,'faker::Sport']]],
   ['sportevent_26',['sportEvent',['../classfaker_1_1Sport.html#a514a07460ab175e9c738c4754bfd4df5',1,'faker::Sport']]],

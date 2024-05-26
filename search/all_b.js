@@ -8,7 +8,7 @@ var searchData=
   ['maybe_5',['maybe',['../classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3',1,'faker::Helper']]],
   ['md5_6',['md5',['../classfaker_1_1Crypto.html#acdeebe5672ff27e52973c778d1181294',1,'faker::Crypto']]],
   ['meat_7',['meat',['../classfaker_1_1Food.html#abfc4ace56957a0e1dd232b759388a8b0',1,'faker::Food']]],
-  ['medicaltest_8',['medicalTest',['../classfaker_1_1Medicine.html#a1a5bbe11b45bff1438638ac262249fc3',1,'faker::Medicine']]],
+  ['medicaltest_8',['medicalTest',['../classfaker_1_1Medicine.html#ade3ae68f806db7a90051cb2de9424475',1,'faker::Medicine']]],
   ['medicine_9',['Medicine',['../classfaker_1_1Medicine.html',1,'faker']]],
   ['middlename_10',['middleName',['../classfaker_1_1Person.html#aa5fb15571b1b2de297275e7939d166fc',1,'faker::Person']]],
   ['milkproduct_11',['milkProduct',['../classfaker_1_1Food.html#aa57fc25f8c8e0c708b1c84beef2413ba',1,'faker::Food']]],
