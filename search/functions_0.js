@@ -16,7 +16,7 @@ var searchData=
   ['alphanumeric_13',['alphanumeric',['../classfaker_1_1String.html#a5de8e6ed5846465ac4197356eee53398',1,'faker::String::alphanumeric(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)'],['../classfaker_1_1String.html#a6fc84f399dd85bb008b1bf56d3b569d7',1,'faker::String::alphanumeric(GuaranteeMap &amp;&amp;guarantee, unsigned length=1, StringCasing casing=StringCasing::Mixed)']]],
   ['amount_14',['amount',['../classfaker_1_1Finance.html#af5ef8556903d06d1fdbedf48275dc688',1,'faker::Finance']]],
   ['anonymoususername_15',['anonymousUsername',['../classfaker_1_1Internet.html#a495813778b7e50dc6d957986b68255e2',1,'faker::Internet']]],
-  ['areacode_16',['areaCode',['../classfaker_1_1Phone.html#a650c9300da547601455e4f62f7ce980b',1,'faker::Phone']]],
+  ['areacode_16',['areaCode',['../classfaker_1_1Phone.html#a388f10abe9436b9376c746eb522a8d08',1,'faker::Phone']]],
   ['arrayelement_17',['arrayElement',['../classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b',1,'faker::Helper::arrayElement(std::span&lt; const T &gt; data)'],['../classfaker_1_1Helper.html#ac7c79f7dbcb604b8c1c64e67d01ca1ad',1,'faker::Helper::arrayElement(const std::vector&lt; T &gt; &amp;data)']]],
   ['artist_18',['artist',['../classfaker_1_1Music.html#accfebfbbc5f2ac3d5119aa8ac90cd408',1,'faker::Music']]],
   ['author_19',['author',['../classfaker_1_1Book.html#ae5cb6cc2e517816da37999b6cd8586c2',1,'faker::Book::author()'],['../classfaker_1_1Git.html#a8955eed4cbf57eb8e372aea0c6d342d1',1,'faker::Git::author()']]]
