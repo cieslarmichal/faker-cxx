@@ -1,8 +1,6 @@
 #include "faker-cxx/Phone.h"
 
-#include "data/AreaCodes.h"
-#include "data/PhoneData.h"
-#include "data/PhoneNumbers.h"
+#include "PhoneData.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
@@ -16,7 +14,7 @@ std::string Phone::number(std::optional<std::string> format)
 
     if (!format.has_value() || format->empty())
     {
-        selectedFormat = Helper::arrayElement<std::string>(phoneNumbers);
+        selectedFormat = Helper::arrayElement(phone::phoneNumbers);
     }
     else
     {
@@ -43,19 +41,19 @@ std::string Phone::imei()
     return Helper::replaceCreditCardSymbols("##-######-######-L", '#');
 }
 
-std::string Phone::platform()
+std::string_view Phone::platform()
 {
-    return Helper::arrayElement(faker::data::PhonePlatforms);
+    return Helper::arrayElement(phone::PhonePlatforms);
 }
 
-std::string Phone::modelName()
+std::string_view Phone::modelName()
 {
-    return Helper::arrayElement(faker::data::PhoneModelNames);
+    return Helper::arrayElement(phone::PhoneModelNames);
 }
 
-std::string Phone::manufacturer()
+std::string_view Phone::manufacturer()
 {
-    return Helper::arrayElement(faker::data::PhoneManufacturers);
+    return Helper::arrayElement(phone::PhoneManufacturers);
 }
 
 std::unordered_map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMap()
@@ -68,14 +66,14 @@ std::unordered_map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumb
     {
         auto formatEnum = static_cast<PhoneNumberCountryFormat>(i);
 
-        formatMap[formatEnum] = phoneNumbers[i];
+        formatMap[formatEnum] = phone::phoneNumbers[i];
     }
 
     return formatMap;
 }
 
-std::string Phone::areaCode()
+std::string_view Phone::areaCode()
 {
-    return Helper::arrayElement(faker::data::areaCodes);
+    return Helper::arrayElement(phone::areaCodes);
 }
 }

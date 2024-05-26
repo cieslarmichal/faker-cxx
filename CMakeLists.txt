@@ -49,6 +49,7 @@ set(FAKER_SOURCES
     src/modules/number/Number.cpp
     src/modules/person/Person.cpp
     src/modules/phone/Phone.cpp
+    src/modules/phone/PhoneData.cpp
     src/modules/science/Science.cpp
     src/modules/sport/Sport.cpp
     src/modules/string/String.cpp
