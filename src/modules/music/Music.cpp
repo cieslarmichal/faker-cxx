@@ -7,18 +7,18 @@
 
 namespace faker
 {
-std::string Music::artist()
+std::string_view Music::artist()
 {
-    return Helper::arrayElement<std::string>(artists);
+    return Helper::arrayElement(artists);
 }
 
-std::string Music::genre()
+std::string_view Music::genre()
 {
-    return Helper::arrayElement<std::string>(musicGenres);
+    return Helper::arrayElement(musicGenres);
 }
 
-std::string Music::songName()
+std::string_view Music::songName()
 {
-    return Helper::arrayElement<std::string>(songNames);
+    return Helper::arrayElement(songNames);
 }
 }
