@@ -1,9 +1,7 @@
-#pragma once
-
 #include "MedicineData.h"
 
 namespace faker::medicine {
-const std::array<std::string_view, 59> condition = {
+const std::array<std::string_view, 59> medicalConditions = {
     "AIDS",
     "Anorexia Nervosa",
     "Arthritis, Juvenile Rheumatoid",

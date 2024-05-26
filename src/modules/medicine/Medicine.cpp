@@ -1,6 +1,6 @@
 #include "faker-cxx/Medicine.h"
 
-#include "data/MedicineData.h"
+#include "MedicineData.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
