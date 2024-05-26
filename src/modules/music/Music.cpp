@@ -1,24 +1,22 @@
 #include "faker-cxx/Music.h"
 
-#include "data/Artists.h"
-#include "data/Genres.h"
-#include "data/SongNames.h"
+#include "MusicData.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
 {
-std::string Music::artist()
+std::string_view Music::artist()
 {
-    return Helper::arrayElement<std::string>(artists);
+    return Helper::arrayElement(music::artists);
 }
 
-std::string Music::genre()
+std::string_view Music::genre()
 {
-    return Helper::arrayElement<std::string>(musicGenres);
+    return Helper::arrayElement(music::musicGenres);
 }
 
-std::string Music::songName()
+std::string_view Music::songName()
 {
-    return Helper::arrayElement<std::string>(songNames);
+    return Helper::arrayElement(music::songNames);
 }
 }

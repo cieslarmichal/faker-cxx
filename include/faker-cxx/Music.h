@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Music::artist() // "Nirvana"
      * @endcode
      */
-    static std::string artist();
+    static std::string_view artist();
 
     /**
      * @brief Returns a random music genre.
@@ -27,7 +27,7 @@ public:
      * Music::genre() // "Rock"
      * @endcode
      */
-    static std::string genre();
+    static std::string_view genre();
 
     /**
      * @brief Returns a random song name.
@@ -38,6 +38,6 @@ public:
      * Music::songName() // "Light My Fire"
      * @endcode
      */
-    static std::string songName();
+    static std::string_view songName();
 };
 }
