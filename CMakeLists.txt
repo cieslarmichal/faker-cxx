@@ -28,6 +28,7 @@ set(FAKER_SOURCES
     src/modules/commerce/Commerce.cpp
     src/modules/commerce/CommerceData.cpp
     src/modules/company/Company.cpp
+    src/modules/company/CompanyData.cpp
     src/modules/computer/Computer.cpp
     src/modules/crypto/Crypto.cpp
     src/modules/database/Database.cpp

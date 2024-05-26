@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -27,7 +27,7 @@ public:
      * Company::type() // "Nonprofit"
      * @endcode
      */
-    static std::string type();
+    static std::string_view type();
 
     /**
      * @brief Returns a random company industry.
@@ -38,7 +38,7 @@ public:
      * Company::industry() // "Biotechnology"
      * @endcode
      */
-    static std::string industry();
+    static std::string_view industry();
 
     /**
      * @brief Returns a random buzz phrase.
@@ -60,7 +60,7 @@ public:
      * Company::buzzAdjective() // "one-to-one"
      * @endcode
      */
-    static std::string buzzAdjective();
+    static std::string_view buzzAdjective();
 
     /**
      * @brief Returns a random buzz noun.
@@ -71,7 +71,7 @@ public:
      * Company::buzzNoun() // "paradigms"
      * @endcode
      */
-    static std::string buzzNoun();
+    static std::string_view buzzNoun();
 
     /**
      * @brief Returns a random buzz verb.
@@ -82,7 +82,7 @@ public:
      * Company::buzzVerb() // "empower"
      * @endcode
      */
-    static std::string buzzVerb();
+    static std::string_view buzzVerb();
 
     /**
      * @brief Returns a random catch phrase.
@@ -104,7 +104,7 @@ public:
      * Company::catchPhraseAdjective() // "Multi-tiered"
      * @endcode
      */
-    static std::string catchPhraseAdjective();
+    static std::string_view catchPhraseAdjective();
 
     /**
      * @brief Returns a random catch phrase descriptor.
@@ -115,7 +115,7 @@ public:
      * Company::catchPhraseDescriptor() // "composite"
      * @endcode
      */
-    static std::string catchPhraseDescriptor();
+    static std::string_view catchPhraseDescriptor();
 
     /**
      * @brief Returns a random catch phrase noun.
@@ -126,6 +126,6 @@ public:
      * Company::catchPhraseNoun() // "leverage"
      * @endcode
      */
-    static std::string catchPhraseNoun();
+    static std::string_view catchPhraseNoun();
 };
 }

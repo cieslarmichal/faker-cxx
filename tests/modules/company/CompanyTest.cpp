@@ -5,18 +5,10 @@
 #include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
+#include "company/CompanyData.h"
 #include "person/data/england/EnglishFirstNames.h"
 #include "person/data/england/EnglishLastNames.h"
 #include "person/data/JobTitles.h"
-#include "company/data/BuzzAdjectives.h"
-#include "company/data/BuzzNouns.h"
-#include "company/data/BuzzVerbs.h"
-#include "company/data/CatchPhraseAdjectives.h"
-#include "company/data/CatchPhraseDescriptors.h"
-#include "company/data/CatchPhraseNouns.h"
-#include "company/data/CompanyTypes.h"
-#include "company/data/Industries.h"
-#include "company/data/Suffixes.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -44,7 +36,7 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
 
         ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedLastName](const std::string& lastName)
                                         { return lastName == generatedLastName; }));
-        ASSERT_TRUE(std::ranges::any_of(companySuffixes, [generatedCompanySuffix](const std::string& companySuffix)
+        ASSERT_TRUE(std::ranges::any_of(companySuffixes, [generatedCompanySuffix](const std::string_view& companySuffix)
                                         { return companySuffix == generatedCompanySuffix; }));
     }
     else if (companyNameElements.size() == 3)
@@ -74,7 +66,7 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
         ASSERT_TRUE(std::ranges::any_of(jobAreas, [generatedJobArea](const std::string& jobArea)
                                         { return jobArea == generatedJobArea; }));
         ASSERT_TRUE(lastElement == "Services" ||
-                    std::ranges::any_of(companySuffixes, [lastElement](const std::string& companySuffix)
+                    std::ranges::any_of(companySuffixes, [lastElement](const std::string_view& companySuffix)
                                         { return companySuffix == lastElement; }));
     }
 }
@@ -83,7 +75,7 @@ TEST_F(CompanyTest, shouldGenerateCompanyType)
 {
     const auto generatedCompanyType = Company::type();
 
-    ASSERT_TRUE(std::ranges::any_of(companyTypes, [generatedCompanyType](const std::string& companyType)
+    ASSERT_TRUE(std::ranges::any_of(companyTypes, [generatedCompanyType](const std::string_view& companyType)
                                     { return companyType == generatedCompanyType; }));
 }
 
@@ -91,7 +83,8 @@ TEST_F(CompanyTest, shouldGenerateCompanyIndustry)
 {
     const auto generatedCompanyIndustry = Company::industry();
 
-    ASSERT_TRUE(std::ranges::any_of(companyIndustries, [generatedCompanyIndustry](const std::string& companyIndustry)
+    ASSERT_TRUE(std::ranges::any_of(companyIndustries,
+                                    [generatedCompanyIndustry](const std::string_view& companyIndustry)
                                     { return companyIndustry == generatedCompanyIndustry; }));
 }
 
@@ -99,11 +92,11 @@ TEST_F(CompanyTest, shouldGenerateBuzzPhrase)
 {
     const auto buzzPhrase = Company::buzzPhrase();
 
-    ASSERT_TRUE(std::ranges::any_of(buzzVerbs, [buzzPhrase](const std::string& buzzVerb)
+    ASSERT_TRUE(std::ranges::any_of(buzzVerbs, [buzzPhrase](const std::string_view& buzzVerb)
                                     { return buzzPhrase.find(buzzVerb) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(buzzAdjectives, [buzzPhrase](const std::string& buzzAdjective)
+    ASSERT_TRUE(std::ranges::any_of(buzzAdjectives, [buzzPhrase](const std::string_view& buzzAdjective)
                                     { return buzzPhrase.find(buzzAdjective) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(buzzNouns, [buzzPhrase](const std::string& buzzNoun)
+    ASSERT_TRUE(std::ranges::any_of(buzzNouns, [buzzPhrase](const std::string_view& buzzNoun)
                                     { return buzzPhrase.find(buzzNoun) != std::string::npos; }));
 }
 
@@ -111,7 +104,7 @@ TEST_F(CompanyTest, shouldGenerateBuzzVerb)
 {
     const auto generatedBuzzVerb = Company::buzzVerb();
 
-    ASSERT_TRUE(std::ranges::any_of(buzzVerbs, [generatedBuzzVerb](const std::string& buzzVerb)
+    ASSERT_TRUE(std::ranges::any_of(buzzVerbs, [generatedBuzzVerb](const std::string_view& buzzVerb)
                                     { return buzzVerb == generatedBuzzVerb; }));
 }
 
@@ -119,7 +112,7 @@ TEST_F(CompanyTest, shouldGenerateBuzzAdjective)
 {
     const auto generatedBuzzAdjective = Company::buzzAdjective();
 
-    ASSERT_TRUE(std::ranges::any_of(buzzAdjectives, [generatedBuzzAdjective](const std::string& buzzAdjective)
+    ASSERT_TRUE(std::ranges::any_of(buzzAdjectives, [generatedBuzzAdjective](const std::string_view& buzzAdjective)
                                     { return buzzAdjective == generatedBuzzAdjective; }));
 }
 
@@ -127,7 +120,7 @@ TEST_F(CompanyTest, shouldGenerateBuzzNoun)
 {
     const auto generatedBuzzNoun = Company::buzzNoun();
 
-    ASSERT_TRUE(std::ranges::any_of(buzzNouns, [generatedBuzzNoun](const std::string& buzzNoun)
+    ASSERT_TRUE(std::ranges::any_of(buzzNouns, [generatedBuzzNoun](const std::string_view& buzzNoun)
                                     { return buzzNoun == generatedBuzzNoun; }));
 }
 
@@ -135,11 +128,11 @@ TEST_F(CompanyTest, shouldGenerateCatchPhrase)
 {
     const auto catchPhrase = Company::catchPhrase();
 
-    ASSERT_TRUE(std::ranges::any_of(catchPhraseAdjectives, [catchPhrase](const std::string& catchPhraseAdjective)
+    ASSERT_TRUE(std::ranges::any_of(catchPhraseAdjectives, [catchPhrase](const std::string_view& catchPhraseAdjective)
                                     { return catchPhrase.find(catchPhraseAdjective) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(catchPhraseDescriptors, [catchPhrase](const std::string& catchPhraseDescriptor)
+    ASSERT_TRUE(std::ranges::any_of(catchPhraseDescriptors, [catchPhrase](const std::string_view& catchPhraseDescriptor)
                                     { return catchPhrase.find(catchPhraseDescriptor) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(catchPhraseNouns, [catchPhrase](const std::string& catchPhraseNoun)
+    ASSERT_TRUE(std::ranges::any_of(catchPhraseNouns, [catchPhrase](const std::string_view& catchPhraseNoun)
                                     { return catchPhrase.find(catchPhraseNoun) != std::string::npos; }));
 }
 
@@ -148,7 +141,7 @@ TEST_F(CompanyTest, shouldGenerateCatchPhraseAdjective)
     const auto generatedCatchPhraseAdjective = Company::catchPhraseAdjective();
 
     ASSERT_TRUE(std::ranges::any_of(catchPhraseAdjectives,
-                                    [generatedCatchPhraseAdjective](const std::string& catchPhraseAdjective)
+                                    [generatedCatchPhraseAdjective](const std::string_view& catchPhraseAdjective)
                                     { return catchPhraseAdjective == generatedCatchPhraseAdjective; }));
 }
 
@@ -157,7 +150,7 @@ TEST_F(CompanyTest, shouldGenerateCatchPhraseDescriptor)
     const auto generatedCatchPhraseDescriptor = Company::catchPhraseDescriptor();
 
     ASSERT_TRUE(std::ranges::any_of(catchPhraseDescriptors,
-                                    [generatedCatchPhraseDescriptor](const std::string& catchPhraseDescriptor)
+                                    [generatedCatchPhraseDescriptor](const std::string_view& catchPhraseDescriptor)
                                     { return catchPhraseDescriptor == generatedCatchPhraseDescriptor; }));
 }
 
@@ -165,6 +158,7 @@ TEST_F(CompanyTest, shouldGenerateCatchPhraseNoun)
 {
     const auto generatedCatchPhraseNoun = Company::catchPhraseNoun();
 
-    ASSERT_TRUE(std::ranges::any_of(catchPhraseNouns, [generatedCatchPhraseNoun](const std::string& catchPhraseNoun)
+    ASSERT_TRUE(std::ranges::any_of(catchPhraseNouns,
+                                    [generatedCatchPhraseNoun](const std::string_view& catchPhraseNoun)
                                     { return catchPhraseNoun == generatedCatchPhraseNoun; }));
 }
