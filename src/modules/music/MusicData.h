@@ -5,6 +5,6 @@
 
 namespace faker::music {
 extern const std::array<std::string_view, 298> artists;
-extern const std::array<std::string_view, ?> musicGenres;
-extern const std::array<std::string_view, ?> songNames;
+extern const std::array<std::string_view, 17> musicGenres;
+extern const std::array<std::string_view, 971> songNames;
 }
