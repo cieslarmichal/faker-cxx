@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Commerce::department() // "Books"
      * @endcode
      */
-    static std::string department();
+    static std::string_view department();
 
     /**
      * @brief Generates a random price between the given bounds (inclusive).
@@ -51,7 +51,7 @@ public:
      * Commerce::productAdjective() // "Handcrafted"
      * @endcode
      */
-    static std::string productAdjective();
+    static std::string_view productAdjective();
 
     /**
      * @brief Returns a random product material.
@@ -62,7 +62,7 @@ public:
      * Commerce::productMaterial() // "Wooden"
      * @endcode
      */
-    static std::string productMaterial();
+    static std::string_view productMaterial();
 
     /**
      * @brief Returns a random product short name.
@@ -73,7 +73,7 @@ public:
      * Commerce::productName() // "Computer"
      * @endcode
      */
-    static std::string productName();
+    static std::string_view productName();
 
     /**
      * @brief Returns a random product full name.
@@ -150,7 +150,7 @@ public:
      * Commerce::paymentType() // "Credit Card"
      * @endcode
      */
-    static std::string paymentType();
+    static std::string_view paymentType();
 
     /**
      * @brief Returns a random payment provider.
@@ -161,7 +161,7 @@ public:
      * Commerce::paymentProvider() // "Paypal"
      * @endcode
      */
-    static std::string paymentProvider();
+    static std::string_view paymentProvider();
 
     /**
      * @brief Returns a random product description.
@@ -172,7 +172,7 @@ public:
      * Commerce::productDescription() // "Elevate your lifestyle with premium quality product."
      * @endcode
      */
-    static std::string productDescription();
+    static std::string_view productDescription();
 
     /**
      * @brief Returns a random product category.
@@ -183,7 +183,7 @@ public:
      * Commerce::productCategory() // "Electronics"
      * @endcode
      */
-    static std::string productCategory();
+    static std::string_view productCategory();
 
     /**
      * @brief Returns a random product review.
@@ -194,7 +194,7 @@ public:
      * Commerce::productReview() //  "Unfortunately, it broke shortly after I started using it."
      * @endcode
      */
-    static std::string productReview();
+    static std::string_view productReview();
 
     /**
      * @brief Returns a random product rating (0-5).
@@ -216,7 +216,7 @@ public:
      * Commerce::discountType() // "percentage"
      * @endcode
      */
-    static std::string discountType();
+    static std::string_view discountType();
 
     /**
      * @brief Returns random discount code within the specified range of 6 to 12 characters.
@@ -271,7 +271,7 @@ public:
      * Commerce::orderStatus() // "shipped"
      * @endcode
      */
-    static std::string orderStatus();
+    static std::string_view orderStatus();
 
     /**
      * @brief Returns a random shipping carrier.
@@ -282,6 +282,6 @@ public:
      * Commerce::shippingMethod() // "FedEx"
      * @endcode
      */
-    static std::string shippingCarrier();
+    static std::string_view shippingCarrier();
 };
 }
