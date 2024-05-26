@@ -1,24 +1,22 @@
 #include "faker-cxx/Medicine.h"
 
-#include "data/conditon.h"
-#include "data/medicaltests.h"
-#include "data/specialty.h"
+#include "MedicineData.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
 {
-std::string Medicine::condition()
+std::string_view Medicine::condition()
 {
-    return Helper::arrayElement<std::string>(medicalConditions);
+    return Helper::arrayElement(medicine::medicalConditions);
 }
 
-std::string Medicine::medicalTest()
+std::string_view Medicine::medicalTest()
 {
-    return Helper::arrayElement<std::string>(medicalTests);
+    return Helper::arrayElement(medicine::medicalTests);
 }
-std::string Medicine::specialty()
+std::string_view Medicine::specialty()
 {
-    return Helper::arrayElement<std::string>(specialties);
+    return Helper::arrayElement(medicine::specialties);
 }
 
 }

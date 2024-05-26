@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -17,7 +17,7 @@ public:
      * Medicine::condition() // "AIDS"
      * @endcode
      */
-    static std::string condition();
+    static std::string_view condition();
 
     /**
      * @brief Returns a random medical test
@@ -28,7 +28,7 @@ public:
      * Medicine::medicalTest() // "pulmonary auscultation"
      * @endcode
      */
-    static std::string medicalTest();
+    static std::string_view medicalTest();
 
     /**
      * @brief Returns a random Medical specialty
@@ -40,6 +40,6 @@ public:
      * @endcode
      */
 
-    static std::string specialty();
+    static std::string_view specialty();
 };
 }
