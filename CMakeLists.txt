@@ -24,6 +24,7 @@ set(FAKER_SOURCES
     src/modules/book/Book.cpp
     src/modules/book/BookData.cpp
     src/modules/color/Color.cpp
+    src/modules/color/ColorData.cpp
     src/modules/commerce/Commerce.cpp
     src/modules/company/Company.cpp
     src/modules/computer/Computer.cpp
