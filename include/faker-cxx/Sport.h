@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Sport::sport() // "football"
      * @endcode
      */
-    static std::string sport();
+    static std::string_view sport();
 
     /**
      * @brief Returns a random soccer team.
@@ -27,7 +27,7 @@ public:
      * Sport::soccerTeam() // "Manchester United"
      * @endcode
      */
-    static std::string soccerTeam();
+    static std::string_view soccerTeam();
 
     /**
      * @brief Returns a random male athlete.
@@ -38,7 +38,7 @@ public:
      * Sport::maleAthlete() // "Cristiano Ronaldo"
      * @endcode
      */
-    static std::string maleAthlete();
+    static std::string_view maleAthlete();
 
     /**
      * @brief Returns a random female athlete.
@@ -49,7 +49,7 @@ public:
      * Sport::femaleAthlete() // "Serena Williams"
      * @endcode
      */
-    static std::string femaleAthlete();
+    static std::string_view femaleAthlete();
 
     /**
      * @brief Returns a random Sport Event.
@@ -60,6 +60,6 @@ public:
      * Sport::sportEvent() // "Super Bowl"
      * @endcode
      */
-    static std::string sportEvent();
+    static std::string_view sportEvent();
 };
 }
