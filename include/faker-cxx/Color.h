@@ -18,7 +18,7 @@ public:
      * Color::name() // "Blue"
      * @endcode
      */
-    static std::string name();
+    static std::string_view name();
 
     /**
      * @brief Returns an RGB color.

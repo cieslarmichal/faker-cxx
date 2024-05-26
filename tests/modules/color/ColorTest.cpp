@@ -5,9 +5,9 @@
 
 #include "gtest/gtest.h"
 
+#include "color/ColorData.h"
 #include "common/StringHelper.h"
 #include "string/data/Characters.h"
-#include "color/data/Colors.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -21,7 +21,7 @@ TEST_F(ColorTest, shouldGenerateColorName)
 {
     const auto generatedColorName = Color::name();
 
-    ASSERT_TRUE(std::ranges::any_of(colors, [generatedColorName](const std::string& colorName)
+    ASSERT_TRUE(std::ranges::any_of(colors, [generatedColorName](const std::string_view& colorName)
                                     { return colorName == generatedColorName; }));
 }
 
