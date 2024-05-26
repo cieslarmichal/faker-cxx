@@ -1,7 +1,7 @@
 var searchData=
 [
   ['mac_0',['mac',['../classfaker_1_1Internet.html#af690ede0de3494404572b73f127bd09a',1,'faker::Internet']]],
-  ['maleathlete_1',['maleAthlete',['../classfaker_1_1Sport.html#a96c2cc5e759420250e9b09520420fc2e',1,'faker::Sport']]],
+  ['maleathlete_1',['maleAthlete',['../classfaker_1_1Sport.html#afa60f1298ad62af0861ba559457bb0e8',1,'faker::Sport']]],
   ['manufacture_2',['manufacture',['../classfaker_1_1Computer.html#aef38b353083a3aef241f5ede34dd51a7',1,'faker::Computer']]],
   ['manufacturer_3',['manufacturer',['../classfaker_1_1Phone.html#ab35d1d0eb72f48fa1467c6a2f503b763',1,'faker::Phone::manufacturer()'],['../classfaker_1_1Vehicle.html#a14d31ed8274fe3f69366e04ced49203d',1,'faker::Vehicle::manufacturer()']]],
   ['massunit_4',['massUnit',['../classfaker_1_1Science.html#a11c2fe7aa766dcb44275eeb8fdc01896',1,'faker::Science']]],
