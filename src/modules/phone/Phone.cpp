@@ -16,7 +16,7 @@ std::string Phone::number(std::optional<std::string> format)
 
     if (!format.has_value() || format->empty())
     {
-        selectedFormat = Helper::arrayElement<std::string>(phoneNumbers);
+        selectedFormat = Helper::arrayElement(phoneNumbers);
     }
     else
     {
@@ -43,17 +43,17 @@ std::string Phone::imei()
     return Helper::replaceCreditCardSymbols("##-######-######-L", '#');
 }
 
-std::string Phone::platform()
+std::string_view Phone::platform()
 {
     return Helper::arrayElement(faker::data::PhonePlatforms);
 }
 
-std::string Phone::modelName()
+std::string_view Phone::modelName()
 {
     return Helper::arrayElement(faker::data::PhoneModelNames);
 }
 
-std::string Phone::manufacturer()
+std::string_view Phone::manufacturer()
 {
     return Helper::arrayElement(faker::data::PhoneManufacturers);
 }
@@ -74,7 +74,7 @@ std::unordered_map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumb
     return formatMap;
 }
 
-std::string Phone::areaCode()
+std::string_view Phone::areaCode()
 {
     return Helper::arrayElement(faker::data::areaCodes);
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <optional>
+#include <string_view>
 #include <string>
 #include <unordered_map>
 
@@ -35,7 +36,7 @@ public:
      * Phone::platform() // "iOS"
      * @endcode
      */
-    static std::string platform();
+    static std::string_view platform();
 
     /**
      * @brief Returns a random phone model.
@@ -46,7 +47,7 @@ public:
      * Phone::modelName() // "Samsung Galaxy S22"
      * @endcode
      */
-    static std::string modelName();
+    static std::string_view modelName();
 
     /**
      * @brief Returns a random phone manufacturer.
@@ -57,7 +58,7 @@ public:
      * Phone::manufacturer() // "Sony"
      * @endcode
      */
-    static std::string manufacturer();
+    static std::string_view manufacturer();
 
     /**
      * @brief Returns a random phone number based on country phone number template.
@@ -92,7 +93,7 @@ public:
      * Phone::areaCode() // "+1"
      * @endcode
      */
-    static std::string areaCode();
+    static std::string_view areaCode();
 
 private:
     static std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap();
