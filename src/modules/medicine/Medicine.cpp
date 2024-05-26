@@ -7,18 +7,18 @@
 
 namespace faker
 {
-std::string Medicine::condition()
+std::string_view Medicine::condition()
 {
-    return Helper::arrayElement<std::string>(medicalConditions);
+    return Helper::arrayElement(medicalConditions);
 }
 
-std::string Medicine::medicalTest()
+std::string_view Medicine::medicalTest()
 {
-    return Helper::arrayElement<std::string>(medicalTests);
+    return Helper::arrayElement(medicalTests);
 }
-std::string Medicine::specialty()
+std::string_view Medicine::specialty()
 {
-    return Helper::arrayElement<std::string>(specialties);
+    return Helper::arrayElement(specialties);
 }
 
 }
