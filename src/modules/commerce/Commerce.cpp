@@ -1,16 +1,16 @@
 #include "faker-cxx/Commerce.h"
 
 #include "../../common/FormatHelper.h"
-#include "data/Commerce.h"
+#include "CommerceData.h"
 #include "faker-cxx/Finance.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/String.h"
 
 namespace faker
 {
-std::string Commerce::department()
+std::string_view Commerce::department()
 {
-    return Helper::arrayElement<std::string>(departments);
+    return Helper::arrayElement(departments);
 }
 
 std::string Commerce::price(double min, double max)
@@ -23,19 +23,19 @@ std::string Commerce::sku(unsigned int length)
     return String::numeric(length, false);
 }
 
-std::string Commerce::productAdjective()
+std::string_view Commerce::productAdjective()
 {
-    return Helper::arrayElement<std::string>(productAdjectives);
+    return Helper::arrayElement(productAdjectives);
 }
 
-std::string Commerce::productMaterial()
+std::string_view Commerce::productMaterial()
 {
-    return Helper::arrayElement<std::string>(productMaterials);
+    return Helper::arrayElement(productMaterials);
 }
 
-std::string Commerce::productName()
+std::string_view Commerce::productName()
 {
-    return Helper::arrayElement<std::string>(productNames);
+    return Helper::arrayElement(productNames);
 }
 
 std::string Commerce::productFullName()
@@ -45,9 +45,10 @@ std::string Commerce::productFullName()
 
 std::string Commerce::EAN13()
 {
-    std::string ean13 = String::numeric(12, false);
+    const auto ean13 = String::numeric(12, false);
 
     int sum = 0;
+
     for (size_t i = 0; i < 12; i++)
     {
         if (i % 2 == 0)
@@ -72,9 +73,10 @@ std::string Commerce::EAN13()
 
 std::string Commerce::EAN8()
 {
-    std::string ean8 = String::numeric(7, false);
+    const auto ean8 = String::numeric(7, false);
 
     int sum = 0;
+
     for (size_t i = 0; i < 7; i++)
     {
         if (i % 2 == 0)
@@ -99,9 +101,10 @@ std::string Commerce::EAN8()
 
 std::string Commerce::ISBN13()
 {
-    std::string isbn13 = String::numeric(12, true);
+    const auto isbn13 = String::numeric(12, true);
 
     int sum = 0;
+
     for (size_t i = 0; i < 12; i++)
     {
         if (i % 2 == 0)
@@ -126,9 +129,10 @@ std::string Commerce::ISBN13()
 
 std::string Commerce::ISBN10()
 {
-    std::string isbn10 = String::numeric(9, true);
+    const auto isbn10 = String::numeric(9, true);
 
     int sum = 0, weight = 10;
+
     for (size_t i = 0; i < 9; i++)
     {
         sum += (isbn10[i] - '0') * weight;
@@ -155,29 +159,29 @@ std::string Commerce::productId()
     return String::alphanumeric(10, StringCasing::Upper, "");
 }
 
-std::string Commerce::paymentType()
+std::string_view Commerce::paymentType()
 {
-    return Helper::arrayElement<std::string>(paymentTypes);
+    return Helper::arrayElement(paymentTypes);
 }
 
-std::string Commerce::paymentProvider()
+std::string_view Commerce::paymentProvider()
 {
-    return Helper::arrayElement<std::string>(paymentProviders);
+    return Helper::arrayElement(paymentProviders);
 }
 
-std::string Commerce::productDescription()
+std::string_view Commerce::productDescription()
 {
-    return Helper::arrayElement<std::string>(productDescriptions);
+    return Helper::arrayElement(productDescriptions);
 }
 
-std::string Commerce::productCategory()
+std::string_view Commerce::productCategory()
 {
-    return Helper::arrayElement<std::string>(productCategoryNames);
+    return Helper::arrayElement(productCategoryNames);
 }
 
-std::string Commerce::productReview()
+std::string_view Commerce::productReview()
 {
-    return Helper::arrayElement<std::string>(productReviews);
+    return Helper::arrayElement(productReviews);
 }
 
 double Commerce::productRating()
@@ -186,28 +190,30 @@ double Commerce::productRating()
     return std::ceil(ratingValue * 100) / 100;
 }
 
-std::string Commerce::discountType()
+std::string_view Commerce::discountType()
 {
-    return Helper::arrayElement<std::string>(discountTypes);
+    return Helper::arrayElement(discountTypes);
 }
 
 std::string Commerce::discountCode()
 {
-    const std::integral auto codeLength = Number::integer<unsigned int>(kMinDiscountCodeLength, kMaxDiscountCodeLength);
+    const std::integral auto codeLength = Number::integer<unsigned int>(minDiscountCodeLength, maxDiscountCodeLength);
+
     return String::alphanumeric(codeLength, StringCasing::Upper);
 }
 
 double Commerce::discountAmount()
 {
-    const std::floating_point auto amountValue =
-        Number::decimal<double>(kMinDiscountAmountValue, kMaxDiscountAmountValue);
+    const std::floating_point auto amountValue = Number::decimal<double>(minDiscountAmount, maxDiscountAmount);
+
     return std::ceil(amountValue * 100) / 100;
 }
 
 double Commerce::discountPercentage()
 {
     const std::floating_point auto percentageValue =
-        Number::decimal<double>(kMinDiscountPercentageValue, kMaxDiscountPercentageValue);
+        Number::decimal<double>(minDiscountPercentage, maxDiscountPercentage);
+
     return std::ceil(percentageValue * 100) / 100;
 }
 
@@ -216,14 +222,14 @@ std::string Commerce::orderNumber()
     return String::numeric(7, true);
 }
 
-std::string Commerce::orderStatus()
+std::string_view Commerce::orderStatus()
 {
-    return Helper::arrayElement<std::string>(orderStatuses);
+    return Helper::arrayElement(orderStatuses);
 }
 
-std::string Commerce::shippingCarrier()
+std::string_view Commerce::shippingCarrier()
 {
-    return Helper::arrayElement<std::string>(shippingCarriers);
+    return Helper::arrayElement(shippingCarriers);
 }
 
 }

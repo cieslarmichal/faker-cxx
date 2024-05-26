@@ -26,6 +26,7 @@ set(FAKER_SOURCES
     src/modules/color/Color.cpp
     src/modules/color/ColorData.cpp
     src/modules/commerce/Commerce.cpp
+    src/modules/commerce/CommerceData.cpp
     src/modules/company/Company.cpp
     src/modules/computer/Computer.cpp
     src/modules/crypto/Crypto.cpp

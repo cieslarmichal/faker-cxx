@@ -4,9 +4,9 @@
 
 #include "gtest/gtest.h"
 
+#include "commerce/CommerceData.h"
 #include "common/StringHelper.h"
 #include "string/data/Characters.h"
-#include "commerce/data/Commerce.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -20,7 +20,7 @@ TEST_F(CommerceTest, shouldGenerateCommerceDepartment)
 {
     const auto generatedDepartment = Commerce::department();
 
-    ASSERT_TRUE(std::ranges::any_of(departments, [generatedDepartment](const std::string& department)
+    ASSERT_TRUE(std::ranges::any_of(departments, [generatedDepartment](const std::string_view& department)
                                     { return department == generatedDepartment; }));
 }
 
@@ -79,11 +79,11 @@ TEST_F(CommerceTest, shouldGenerateProductFullName)
     const auto& generatedProductMaterial = productFullNameElements[1];
     const auto& generatedProductName = productFullNameElements[2];
 
-    ASSERT_TRUE(std::ranges::any_of(productAdjectives, [generatedProductAdjective](const std::string& adjective)
+    ASSERT_TRUE(std::ranges::any_of(productAdjectives, [generatedProductAdjective](const std::string_view& adjective)
                                     { return adjective == generatedProductAdjective; }));
-    ASSERT_TRUE(std::ranges::any_of(productMaterials, [generatedProductMaterial](const std::string& material)
+    ASSERT_TRUE(std::ranges::any_of(productMaterials, [generatedProductMaterial](const std::string_view& material)
                                     { return material == generatedProductMaterial; }));
-    ASSERT_TRUE(std::ranges::any_of(productNames, [generatedProductName](const std::string& productName)
+    ASSERT_TRUE(std::ranges::any_of(productNames, [generatedProductName](const std::string_view& productName)
                                     { return productName == generatedProductName; }));
 }
 
@@ -91,7 +91,7 @@ TEST_F(CommerceTest, shouldGenerateProductAdjective)
 {
     const auto generatedProductAdjective = Commerce::productAdjective();
 
-    ASSERT_TRUE(std::ranges::any_of(productAdjectives, [generatedProductAdjective](const std::string& adjective)
+    ASSERT_TRUE(std::ranges::any_of(productAdjectives, [generatedProductAdjective](const std::string_view& adjective)
                                     { return adjective == generatedProductAdjective; }));
 }
 
@@ -99,7 +99,7 @@ TEST_F(CommerceTest, shouldGenerateProductMaterial)
 {
     const auto generatedProductMaterial = Commerce::productMaterial();
 
-    ASSERT_TRUE(std::ranges::any_of(productMaterials, [generatedProductMaterial](const std::string& material)
+    ASSERT_TRUE(std::ranges::any_of(productMaterials, [generatedProductMaterial](const std::string_view& material)
                                     { return material == generatedProductMaterial; }));
 }
 
@@ -107,7 +107,7 @@ TEST_F(CommerceTest, shouldGenerateProductName)
 {
     const auto generatedProductName = Commerce::productName();
 
-    ASSERT_TRUE(std::ranges::any_of(productNames, [generatedProductName](const std::string& productName)
+    ASSERT_TRUE(std::ranges::any_of(productNames, [generatedProductName](const std::string_view& productName)
                                     { return productName == generatedProductName; }));
 }
 
@@ -213,7 +213,7 @@ TEST_F(CommerceTest, shouldGeneratePaymentType)
 {
     const auto generatedPaymentType = Commerce::paymentType();
 
-    ASSERT_TRUE(std::ranges::any_of(paymentTypes, [generatedPaymentType](const std::string& paymentType)
+    ASSERT_TRUE(std::ranges::any_of(paymentTypes, [generatedPaymentType](const std::string_view& paymentType)
                                     { return paymentType == generatedPaymentType; }));
 }
 
@@ -221,7 +221,8 @@ TEST_F(CommerceTest, shouldGeneratePaymentProvider)
 {
     const auto generatedPaymentProvider = Commerce::paymentProvider();
 
-    ASSERT_TRUE(std::ranges::any_of(paymentProviders, [generatedPaymentProvider](const std::string& paymentProvider)
+    ASSERT_TRUE(std::ranges::any_of(paymentProviders,
+                                    [generatedPaymentProvider](const std::string_view& paymentProvider)
                                     { return paymentProvider == generatedPaymentProvider; }));
 }
 
@@ -230,7 +231,7 @@ TEST_F(CommerceTest, shouldGenerateProductDescription)
     const auto generatedProductDescription = Commerce::productDescription();
 
     ASSERT_TRUE(std::ranges::any_of(productDescriptions,
-                                    [generatedProductDescription](const std::string& productDescription)
+                                    [generatedProductDescription](const std::string_view& productDescription)
                                     { return productDescription == generatedProductDescription; }));
 }
 
@@ -238,7 +239,8 @@ TEST_F(CommerceTest, shouldGenerateProductCategory)
 {
     const auto generatedProductCategory = Commerce::productCategory();
 
-    ASSERT_TRUE(std::ranges::any_of(productCategoryNames, [generatedProductCategory](const std::string& productCategory)
+    ASSERT_TRUE(std::ranges::any_of(productCategoryNames,
+                                    [generatedProductCategory](const std::string_view& productCategory)
                                     { return productCategory == generatedProductCategory; }));
 }
 
@@ -246,7 +248,7 @@ TEST_F(CommerceTest, shouldGenerateProductReview)
 {
     const auto generatedProductReview = Commerce::productReview();
 
-    ASSERT_TRUE(std::ranges::any_of(productReviews, [generatedProductReview](const std::string& productReview)
+    ASSERT_TRUE(std::ranges::any_of(productReviews, [generatedProductReview](const std::string_view& productReview)
                                     { return productReview == generatedProductReview; }));
 }
 
@@ -261,7 +263,7 @@ TEST_F(CommerceTest, shouldGenerateDiscountType)
 {
     const auto generatedDiscountType = Commerce::discountType();
 
-    ASSERT_TRUE(std::ranges::any_of(discountTypes, [generatedDiscountType](const std::string& discountType)
+    ASSERT_TRUE(std::ranges::any_of(discountTypes, [generatedDiscountType](const std::string_view& discountType)
                                     { return discountType == generatedDiscountType; }));
 }
 
@@ -270,8 +272,8 @@ TEST_F(CommerceTest, shouldGenerateDiscountCode)
 
     const auto generatedDiscountCode = Commerce::discountCode();
 
-    ASSERT_TRUE(kMinDiscountCodeLength <= generatedDiscountCode.length() &&
-                generatedDiscountCode.length() <= kMaxDiscountCodeLength);
+    ASSERT_TRUE(minDiscountCodeLength <= generatedDiscountCode.length() &&
+                generatedDiscountCode.length() <= maxDiscountCodeLength);
 
     ASSERT_TRUE(std::ranges::all_of(generatedDiscountCode,
                                     [](char generatedDiscountCodeCharacter)
@@ -287,16 +289,15 @@ TEST_F(CommerceTest, shouldGenerateDiscountAmount)
 {
     const auto generatedDiscountAmount = Commerce::discountAmount();
 
-    ASSERT_TRUE(kMinDiscountAmountValue <= generatedDiscountAmount &&
-                generatedDiscountAmount <= kMaxDiscountAmountValue);
+    ASSERT_TRUE(minDiscountAmount <= generatedDiscountAmount && generatedDiscountAmount <= maxDiscountAmount);
 }
 
 TEST_F(CommerceTest, shouldGenerateDiscountPercentage)
 {
     const auto generatedDiscountPercentage = Commerce::discountPercentage();
 
-    ASSERT_TRUE(kMinDiscountPercentageValue <= generatedDiscountPercentage &&
-                generatedDiscountPercentage <= kMaxDiscountPercentageValue);
+    ASSERT_TRUE(minDiscountPercentage <= generatedDiscountPercentage &&
+                generatedDiscountPercentage <= maxDiscountPercentage);
 }
 
 TEST_F(CommerceTest, shouldGenerateOrderNumber)
@@ -309,13 +310,16 @@ TEST_F(CommerceTest, shouldGenerateOrderNumber)
 TEST_F(CommerceTest, shouldGenerateOrderStatus)
 {
     const auto generatedOrderStatus = Commerce::orderStatus();
-    ASSERT_TRUE(std::ranges::any_of(orderStatuses, [generatedOrderStatus](const std::string& orderStatus)
+    
+    ASSERT_TRUE(std::ranges::any_of(orderStatuses, [generatedOrderStatus](const std::string_view& orderStatus)
                                     { return orderStatus == generatedOrderStatus; }));
 }
 
 TEST_F(CommerceTest, shouldGenerateShippingCarrier)
 {
     const auto generatedShippingCarrier = Commerce::shippingCarrier();
-    ASSERT_TRUE(std::ranges::any_of(shippingCarriers, [generatedShippingCarrier](const std::string& shippingCarrier)
+
+    ASSERT_TRUE(std::ranges::any_of(shippingCarriers,
+                                    [generatedShippingCarrier](const std::string_view& shippingCarrier)
                                     { return shippingCarrier == generatedShippingCarrier; }));
 }
