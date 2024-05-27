@@ -134,6 +134,24 @@ If you have any confusion please refer to the respective guides.
 In order to use external dependencies installed in your system, you can set the `USE_SYSTEM_DEPENDENCIES` CMake flag
 to `ON`.
 
+## Building the library with [Conan](https://conan.io/)
+
+The library can be built using Conan package manager to solve external dependencies.
+To build the library with Conan, follow the steps below:
+
+1. Install required dependencies:
+
+    ```bash
+    conan install conanfile.txt --build=missing
+    ```
+
+2. Build the library:
+
+    ```bash
+    cmake --preset=conan-release -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON
+    cmake --build --preset=conan-release
+    ```
+
 ## ✨ Contributing
 
 We would love it if you contributed to Faker C++! 🚀
