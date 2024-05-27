@@ -1,0 +1,12 @@
+[requires]
+fmt/10.2.1
+
+[test_requires]
+gtest/1.14.0
+
+[generators]
+CMakeDeps
+CMakeToolchain
+
+[layout]
+cmake_layout

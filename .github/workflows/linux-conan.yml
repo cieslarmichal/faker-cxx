@@ -1,0 +1,41 @@
+name: Build using external dependencies with Conan
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'conan-build'
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  conan:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Configure python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install conan and ninja
+        run: pip install conan ninja
+      - name: Configure Conan profile
+        run: |
+          CC=gcc-13 CXX=g++-13 conan profile detect
+      - name: Install dependencies
+        run: conan install -r conancenter -s compiler.cppstd=20 conanfile.txt
+      - name: CMake configure
+        run: |
+          cmake -G Ninja \
+            -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
+            -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+            -DCMAKE_CXX_COMPILER=g++-13 \
+            -DCMAKE_C_COMPILER=gcc-13 \
+            -DBUILD_TESTING:BOOL=ON \
+            --preset=conan-release
+      - name: CMake Build
+        run: cmake --build --preset=conan-release
+      - name: Run unit tests
+        working-directory: ${{github.workspace}}/build/Release/tests
+        run: ctest --print-output-on-failure
