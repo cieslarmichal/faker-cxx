@@ -1,4 +1,4 @@
-name: Build using external dependencies with Conan
+name: conan
 
 on:
   push:
