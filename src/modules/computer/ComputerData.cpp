@@ -1,19 +1,14 @@
-#pragma once
-#include <string>
-#include <vector>
+#include "ComputerData.h"
 
 namespace faker
 {
-namespace data
-{
-const std::vector<std::string> ComputerTypes = {"Desktop", "Laptop", "Mainframe", "Supercomputer"};
+const std::array<std::string_view, 4> computerTypes = {"Desktop", "Laptop", "Mainframe", "Supercomputer"};
 
-const std::vector<std::string> ComputerManufactures = {
+const std::array<std::string_view, 20> computerManufacturers = {
     "Apple", "Dell",    "HP",      "Lenovo", "Acer",      "Asus", "Microsoft", "Samsung", "Toshiba",   "Sony",
     "MSI",   "Gateway", "Fujitsu", "HCL",    "Panasonic", "LG",   "IBM",       "Compaq",  "Alienware", "Razer"};
 
-// todo - it is possible to link the models to brands in the future.
-const std::vector<std::string> ComputerModels = {
+const std::array<std::string_view, 45> computerModels = {
     "MacBook Air", "MacBook Pro",   "iMac",         "Mac mini",  "Inspiron",       "XPS",         "Alienware",
     "Latitude",    "Precision",     "Spectre",      "Envy",      "Pavilion",       "EliteBook",   "ThinkPad",
     "Yoga",        "Legion",        "IdeaPad",      "Aspire",    "Predator",       "TravelMate",  "Swift",
@@ -22,26 +17,24 @@ const std::vector<std::string> ComputerModels = {
     "GL Series",   "ThinkCentre",   "ThinkStation", "Presario",  "Area-51",        "m15",         "Aurora",
     "Blade",       "Blade Stealth", "NUC"};
 
-const std::vector<std::string> ComputerCPUManufactures = {"Intel", "AMD", "ARM", "IBM", "Apple"};
+const std::array<std::string_view, 5> cpuManufacturers = {"Intel", "AMD", "ARM", "IBM", "Apple"};
 
-const std::vector<std::string> ComputerCPUTypes = {
+const std::array<std::string_view, 12> cpuTypes = {
     "Dual-Core", "Quad-Core", "Hexa-Core", "Octa-Core", "Deca-Core", "Heterogeneous System Architecture",
     "ARM",       "x86",       "64-bit",    "32-bit",    "RISC",      "CISC"};
 
-const std::vector<std::string> ComputerCPUModels = {
+const std::array<std::string_view, 26> cpuModels = {
     "Core i9-11900K", "Core i7-11700K", "Core i5-11600K", "Core i3-10100",  "Xeon E-2278G", "Pentium Gold G6400",
     "Ryzen 9 5950X",  "Ryzen 7 5800X",  "Ryzen 5 5600X",  "Ryzen 3 3300X",  "EPYC 7763",    "Athlon 3000G",
     "Apple M1",       "Apple M1 Max",   "Apple M1 Ultra", "Apple M2",       "Apple M2 Pro", "Apple M2 Max",
     "Apple M3 Ultra", "Apple M3 Pro",   "Apple M3 Max",   "Apple M3 Ultra", "IBM POWER9",   "ARM Cortex-A78",
     "ARM Cortex-A76", "ARM Cortex-A55"};
 
-const std::vector<std::string> ComputerGPUManufactures = {
-    "NVIDIA", "AMD", "Intel", "ARM", "Qualcomm",
-};
+const std::array<std::string_view, 5> gpuManufacturers = {"NVIDIA", "AMD", "Intel", "ARM", "Qualcomm"};
 
-const std::vector<std::string> ComputerGPUTypes = {"Integrated", "Discrete"};
+const std::array<std::string_view, 2> gpuTypes = {"Integrated", "Discrete"};
 
-const std::vector<std::string> ComputerGPUModels = {"NVIDIA GeForce RTX 3090",
+const std::array<std::string_view, 23> gpuModels = {"NVIDIA GeForce RTX 3090",
                                                     "NVIDIA GeForce RTX 3080",
                                                     "NVIDIA GeForce RTX 3070",
                                                     "NVIDIA GeForce GTX 1660 Ti",
@@ -65,7 +58,4 @@ const std::vector<std::string> ComputerGPUModels = {"NVIDIA GeForce RTX 3090",
                                                     "Trident Blade3D",
                                                     "ATI Radeon 9800 Pro"};
 
-// todo - add more component names
-
-}
 }

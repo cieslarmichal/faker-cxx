@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Computer::type() // Laptop
      * @endcode
      */
-    static std::string type();
+    static std::string_view type();
 
     /**
      * @brief Returns a random computer manufacture name.
@@ -27,7 +27,7 @@ public:
      * Computer::manufacture() // HP
      * @endcode
      */
-    static std::string manufacture();
+    static std::string_view manufacture();
 
     /**
      * @brief Returns a random computer model.
@@ -38,7 +38,7 @@ public:
      * Computer::model() // MacBook Air
      * @endcode
      */
-    static std::string model();
+    static std::string_view model();
 
     /**
      * @brief Returns a random CPU manufacture name.
@@ -49,7 +49,7 @@ public:
      * Computer::cpuManufacture() // Intel
      * @endcode
      */
-    static std::string cpuManufacture();
+    static std::string_view cpuManufacture();
 
     /**
      * @brief Returns a random CPU type.
@@ -60,7 +60,7 @@ public:
      * Computer::cpuType() // x86
      * @endcode
      */
-    static std::string cpuType();
+    static std::string_view cpuType();
 
     /**
      * @brief Returns a random CPU model.
@@ -71,7 +71,7 @@ public:
      * Computer::cpuModel() // Core i9-11900k
      * @endcode
      */
-    static std::string cpuModel();
+    static std::string_view cpuModel();
 
     /**
      * @brief Returns a random GPU manufacture name.
@@ -82,7 +82,7 @@ public:
      * Computer::gpuManufacture() // NVIDIA
      * @endcode
      */
-    static std::string gpuManufacture();
+    static std::string_view gpuManufacture();
 
     /**
      * @brief Returns a random GPU type.
@@ -93,7 +93,7 @@ public:
      * Computer::gpuType() // Integrated
      * @endcode
      */
-    static std::string gpuType();
+    static std::string_view gpuType();
 
     /**
      * @brief Returns a random GPU model.
@@ -104,7 +104,7 @@ public:
      * Computer::gpuModel() // NVIDIA GeForce RTX 3080
      * @endcode
      */
-    static std::string gpuModel();
+    static std::string_view gpuModel();
 };
 
 }
