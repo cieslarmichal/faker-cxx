@@ -27,7 +27,7 @@ jobs:
         run: |
           conan profile detect
       - name: Install dependencies
-        run: conan install -r conancenter -s compiler.cppstd=20 conanfile.txt
+        run: conan install conanfile.txt -r conancenter -s compiler.cppstd=20 --build=missing
       - name: CMake configure
         run: |
           cmake -G Ninja \
