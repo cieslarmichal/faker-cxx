@@ -6,7 +6,7 @@ var searchData=
   ['time_3',['time',['../classfaker_1_1Date.html#a085c4ef17837fa59fd6582f5f21f288e',1,'faker::Date']]],
   ['timeunit_4',['timeUnit',['../classfaker_1_1Science.html#a326517a93a08ce089df339e11a96e40d',1,'faker::Science']]],
   ['timezone_5',['timeZone',['../classfaker_1_1Location.html#a90d40c1120e2719bb3a04e66a7c59e0c',1,'faker::Location']]],
-  ['timezone_6',['timezone',['../classfaker_1_1Date.html#a2f49ec1c925d9f04f5fcf55c4866e58c',1,'faker::Date']]],
+  ['timezone_6',['timezone',['../classfaker_1_1Date.html#ab42aa188d27cf6b19223d7a400eccb87',1,'faker::Date']]],
   ['title_7',['title',['../classfaker_1_1Book.html#aa3356a7e1834385f95e31bca8af754ac',1,'faker::Book']]],
   ['translator_8',['translator',['../classfaker_1_1Book.html#a4608c5670078804769828029119573ae',1,'faker::Book']]],
   ['tvshow_9',['tvShow',['../classfaker_1_1Movie.html#acde4548b33deccaefede4ef937e7877b',1,'faker::Movie']]],
