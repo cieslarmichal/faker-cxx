@@ -7,21 +7,33 @@ on:
   workflow_dispatch:
   pull_request:
 
-env:
-  BUILD_TYPE: Debug
-
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    name: ci-ubuntu-24.04-gcc-${{ matrix.gcc_version }}
+    runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        gcc_version:
+          - 12
+          - 13
     steps:
       - name: Checkout
         uses: actions/checkout@v3
         with:
           submodules: recursive
 
-      - name: Build docker image
-        run: docker build -t test .
+      - name: Install Ninja
+        uses: seanmiddleditch/gha-setup-ninja@master
 
-      - name: Run docker container
-        run: docker run test
+      - name: Configure CMake
+        run: |
+          cmake -S . --preset=unixlike-gcc-debug \
+            -DCMAKE_C_COMPILER=gcc-${{ matrix.gcc_version }} \
+            -DCMAKE_CXX_COMPILER=g++-${{ matrix.gcc_version }} \
+            -DBUILD_TESTING:BOOL=ON
+
+      - name: Build
+        run: cmake --build --preset=unixlike-gcc-debug
+
+      - name: Test
+        run: ctest --preset=unixlike-gcc-debug

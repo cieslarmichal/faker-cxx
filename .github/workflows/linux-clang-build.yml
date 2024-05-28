@@ -7,9 +7,6 @@ on:
   workflow_dispatch:
   pull_request:
 
-env:
-  BUILD_TYPE: Debug
-
 jobs:
   build:
     runs-on: ubuntu-24.04
@@ -20,33 +17,25 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install apt-get dependencies
-        run: |
-          sudo apt -qq update \
-           && sudo apt install -y --no-install-recommends --no-install-suggests ninja-build
-
-      - name: Initialize submodules
-        run: git submodule update --init --recursive
+      - name: Install Ninja
+        uses: seanmiddleditch/gha-setup-ninja@master
 
       - name: Configure CMake
         run: |
-          cmake -S ${{github.workspace}} -B ${{github.workspace}}/build \
-            -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} \
+          cmake -S ${{github.workspace}} --preset=unixlike-clang-debug \
             -DCMAKE_C_COMPILER=/usr/bin/clang-18 \
             -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
             -DCODE_COVERAGE:BOOL=ON \
-            -DBUILD_TESTING:BOOL=ON \
-            -GNinja
+            -DBUILD_TESTING:BOOL=ON
 
       - name: Build
-        run: cmake --build ${{github.workspace}}/build
+        run: cmake --build --preset=unixlike-clang-debug
 
       - name: Test
-        working-directory: ${{github.workspace}}/build/tests
-        run: ctest --output-on-failure
+        run: ctest --preset=unixlike-clang-debug
 
       - name: Generate code coverage
-        working-directory: ${{github.workspace}}/build
+        working-directory: ${{github.workspace}}/build/unixlike-clang-debug
         run: |
           ninja faker-ccov-all \
           && llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt
