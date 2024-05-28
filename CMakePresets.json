@@ -52,26 +52,24 @@
         },
         {
             "name": "windows-msvc-debug",
-            "displayName": "msvc Debug (User Mode)",
+            "displayName": "msvc Debug ",
             "description": "Target Windows with the msvc compiler, debug build type",
             "inherits": "conf-windows-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe",
-                "CMAKE_BUILD_TYPE": "Debug",
-                "ENABLE_DEVELOPER_MODE": "OFF"
+                "CMAKE_BUILD_TYPE": "Debug"
             }
         },
         {
             "name": "windows-msvc-release",
-            "displayName": "msvc Release (User Mode)",
+            "displayName": "msvc Release",
             "description": "Target Windows with the msvc compiler, release build type",
             "inherits": "conf-windows-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe",
-                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
-                "ENABLE_DEVELOPER_MODE": "OFF"
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
             }
         },
         {
@@ -153,7 +151,7 @@
         {
             "name": "windows-msvc-debug",
             "displayName": "Library Debug Build",
-            "configurePreset": "windows-msvc-release",
+            "configurePreset": "windows-msvc-debug",
             "configuration": "Debug"
         }
       ],
