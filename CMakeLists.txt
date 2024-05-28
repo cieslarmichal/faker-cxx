@@ -40,6 +40,7 @@ set(FAKER_SOURCES
     src/modules/computer/ComputerData.cpp
     src/modules/crypto/Crypto.cpp
     src/modules/database/Database.cpp
+    src/modules/database/DatabaseData.cpp
     src/modules/datatype/Datatype.cpp
     src/modules/date/Date.cpp
     src/modules/finance/Finance.cpp
