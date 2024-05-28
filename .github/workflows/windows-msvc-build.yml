@@ -20,7 +20,7 @@ jobs:
       - name: Install Ninja
         uses: seanmiddleditch/gha-setup-ninja@master
 
-      - name: Configure cl.exe in PATH]
+      - name: Configure cl.exe in PATH
         uses: ilammy/msvc-dev-cmd@v1
 
       - name: Configure CMake
