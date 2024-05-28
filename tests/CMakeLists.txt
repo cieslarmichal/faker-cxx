@@ -2,13 +2,6 @@ cmake_minimum_required(VERSION 3.22)
 project(${CMAKE_PROJECT_NAME}-UT CXX)
 
 include(CTest)
-enable_testing()
-
-set(target_code_coverage_ALL 1)
-
-include("${CMAKE_SOURCE_DIR}/cmake/cmake-coverage.cmake")
-
-add_code_coverage_all_targets()
 
 set(FAKER_UT_SOURCES
     common/FormatHelperTest.cpp
