@@ -22,7 +22,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=windows-msvc-debug -DBUILD_TESTING:BOOL=ON
+          cmake -S . --preset=windows-msvc-debug -DBUILD_TESTING:BOOL=ON -DMSVC_TOOLSET_VERSION=143
 
       - name: Build
         run: cmake --build --preset=windows-msvc-debug

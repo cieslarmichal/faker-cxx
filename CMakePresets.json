@@ -56,8 +56,8 @@
             "description": "Target Windows with the msvc compiler, debug build type",
             "inherits": "conf-windows-common",
             "cacheVariables": {
-                "CMAKE_C_COMPILER": "cl",
-                "CMAKE_CXX_COMPILER": "cl",
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe",
                 "CMAKE_BUILD_TYPE": "Debug",
                 "ENABLE_DEVELOPER_MODE": "OFF"
             }
@@ -68,8 +68,8 @@
             "description": "Target Windows with the msvc compiler, release build type",
             "inherits": "conf-windows-common",
             "cacheVariables": {
-                "CMAKE_C_COMPILER": "cl",
-                "CMAKE_CXX_COMPILER": "cl",
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe",
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo",
                 "ENABLE_DEVELOPER_MODE": "OFF"
             }
