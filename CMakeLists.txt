@@ -15,6 +15,7 @@ if (NOT USE_SYSTEM_DEPENDENCIES)
 endif ()
 
 if (BUILD_TESTING)
+    enable_testing()
     set(target_code_coverage_ALL 1)
     include("cmake/cmake-coverage.cmake")
     add_code_coverage_all_targets()
