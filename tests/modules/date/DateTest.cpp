@@ -6,9 +6,7 @@
 #include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
-#include "date/data/MonthNames.h"
-#include "date/data/TimeZones.h"
-#include "date/data/WeekdayNames.h"
+#include "date/DateData.h"
 
 #ifdef _WIN32
 #define timegm _mkgmtime
@@ -232,7 +230,7 @@ TEST_F(DateTest, shouldGenerateWeekdayName)
 {
     const auto generatedWeekdayName = Date::weekdayName();
 
-    ASSERT_TRUE(std::ranges::any_of(weekdayNames, [generatedWeekdayName](const std::string& weekdayName)
+    ASSERT_TRUE(std::ranges::any_of(weekdayNames, [generatedWeekdayName](const std::string_view& weekdayName)
                                     { return weekdayName == generatedWeekdayName; }));
 }
 
@@ -241,7 +239,7 @@ TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
     const auto generatedWeekdayAbbreviatedName = Date::weekdayAbbreviatedName();
 
     ASSERT_TRUE(std::ranges::any_of(weekdayAbbreviatedNames,
-                                    [generatedWeekdayAbbreviatedName](const std::string& weekdayAbbreviatedName)
+                                    [generatedWeekdayAbbreviatedName](const std::string_view& weekdayAbbreviatedName)
                                     { return weekdayAbbreviatedName == generatedWeekdayAbbreviatedName; }));
 }
 
@@ -249,7 +247,7 @@ TEST_F(DateTest, shouldGenerateMonthName)
 {
     const auto generatedMonthName = Date::monthName();
 
-    ASSERT_TRUE(std::ranges::any_of(monthNames, [generatedMonthName](const std::string& monthName)
+    ASSERT_TRUE(std::ranges::any_of(monthNames, [generatedMonthName](const std::string_view& monthName)
                                     { return monthName == generatedMonthName; }));
 }
 
@@ -258,7 +256,7 @@ TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
     const auto generatedMonthAbbreviatedName = Date::monthAbbreviatedName();
 
     ASSERT_TRUE(std::ranges::any_of(monthAbbreviatedNames,
-                                    [generatedMonthAbbreviatedName](const std::string& monthAbbreviatedName)
+                                    [generatedMonthAbbreviatedName](const std::string_view& monthAbbreviatedName)
                                     { return monthAbbreviatedName == generatedMonthAbbreviatedName; }));
 }
 
@@ -322,7 +320,7 @@ TEST_F(DateTest, shouldGenerateRandomTimezone)
 {
     const auto generatedTimeZone = Date::timezone();
 
-    ASSERT_TRUE(std::ranges::any_of(timezonesAbbreviatedNames, [generatedTimeZone](const std::string& timezoneName)
+    ASSERT_TRUE(std::ranges::any_of(timezonesAbbreviatedNames, [generatedTimeZone](const std::string_view& timezoneName)
                                     { return timezoneName == generatedTimeZone; }));
 }
 

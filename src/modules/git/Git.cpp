@@ -1,10 +1,8 @@
 #include "faker-cxx/Git.h"
 
-#include <string>
-
 #include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
-#include "../date/data/MonthNames.h"
+#include "../date/DateData.h"
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/Number.h"
@@ -31,21 +29,24 @@ std::string Git::branch(unsigned maxIssueNum)
 
 std::string Git::commitDate(unsigned years)
 {
-    std::string date = Date::pastDate(int(years));
-    std::string outputDate = Date::weekdayAbbreviatedName();
+    const auto date = Date::pastDate(int(years));
 
-    std::vector<std::string> dateSplit = StringHelper::split(date, "-");
-    std::string year = dateSplit[0];
-    std::string month = dateSplit[1];
-    std::string rest = dateSplit[2];
+    const auto dateSplit = StringHelper::split(date, "-");
 
-    std::vector<std::string> restSplit = StringHelper::split(rest, "T");
-    std::string day = restSplit[0];
+    const auto& year = dateSplit[0];
+    const auto& month = dateSplit[1];
+    const auto& rest = dateSplit[2];
 
-    std::string time = StringHelper::split(restSplit[1], "Z")[0];
+    const auto restSplit = StringHelper::split(rest, "T");
+
+    const auto& day = restSplit[0];
+
+    const auto time = StringHelper::split(restSplit[1], "Z")[0];
 
     int timeZone = Number::integer(0, 12);
+
     std::string timeZoneString;
+
     if (Number::integer(0, 1))
     {
         timeZoneString += "-";
