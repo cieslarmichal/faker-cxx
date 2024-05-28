@@ -22,7 +22,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=windows-msvc-debug -DBUILD_TESTING:BOOL=ON -DMSVC_TOOLSET_VERSION=143
+          cmake -S . -G "Visual Studio 17 2022" --preset=windows-msvc-debug -DBUILD_TESTING:BOOL=ON
 
       - name: Build
         run: cmake --build --preset=windows-msvc-debug
