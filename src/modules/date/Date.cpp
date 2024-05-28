@@ -6,9 +6,7 @@
 #include <sstream>
 
 #include "../../common/FormatHelper.h"
-#include "data/MonthNames.h"
-#include "data/TimeZones.h"
-#include "data/WeekdayNames.h"
+#include "DateData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 
@@ -132,24 +130,24 @@ std::string Date::birthdateByYear(int minYear, int maxYear, Date::DateFormat dat
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::weekdayName()
+std::string_view Date::weekdayName()
 {
-    return Helper::arrayElement<std::string>(weekdayNames);
+    return Helper::arrayElement(weekdayNames);
 }
 
-std::string Date::weekdayAbbreviatedName()
+std::string_view Date::weekdayAbbreviatedName()
 {
-    return Helper::arrayElement<std::string>(weekdayAbbreviatedNames);
+    return Helper::arrayElement(weekdayAbbreviatedNames);
 }
 
-std::string Date::monthName()
+std::string_view Date::monthName()
 {
-    return Helper::arrayElement<std::string>(monthNames);
+    return Helper::arrayElement(monthNames);
 }
 
-std::string Date::monthAbbreviatedName()
+std::string_view Date::monthAbbreviatedName()
 {
-    return Helper::arrayElement<std::string>(monthAbbreviatedNames);
+    return Helper::arrayElement(monthAbbreviatedNames);
 }
 
 unsigned int Date::year()
@@ -195,9 +193,9 @@ unsigned Date::dayOfWeek()
     return Number::integer<unsigned>(1, 7);
 }
 
-std::string Date::timezone()
+std::string_view Date::timezone()
 {
-    return Helper::arrayElement<std::string>(faker::timezonesAbbreviatedNames);
+    return Helper::arrayElement(timezonesAbbreviatedNames);
 }
 
 }

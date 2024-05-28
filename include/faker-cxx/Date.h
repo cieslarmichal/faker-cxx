@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -120,7 +120,7 @@ public:
      * Date::weekdayName() // "Monday"
      * @endcode
      */
-    static std::string weekdayName();
+    static std::string_view weekdayName();
 
     /**
      * @brief Returns an abbreviated name of random day of the week.
@@ -131,7 +131,7 @@ public:
      * Date::weekdayAbbreviatedName() // "Mon"
      * @endcode
      */
-    static std::string weekdayAbbreviatedName();
+    static std::string_view weekdayAbbreviatedName();
 
     /**
      * @brief Returns a random name of a month.
@@ -142,7 +142,7 @@ public:
      * Date::monthName() // "October"
      * @endcode
      */
-    static std::string monthName();
+    static std::string_view monthName();
 
     /**
      * @brief Returns an abbreviated name of random month.
@@ -153,7 +153,7 @@ public:
      * Date::monthAbbreviatedName() // "Feb"
      * @endcode
      */
-    static std::string monthAbbreviatedName();
+    static std::string_view monthAbbreviatedName();
 
     /**
      * @brief Returns random year.
@@ -252,6 +252,6 @@ public:
      * Date::timezone() // PT
      * @endcode
      */
-    static std::string timezone();
+    static std::string_view timezone();
 };
 }

@@ -43,6 +43,7 @@ set(FAKER_SOURCES
     src/modules/database/DatabaseData.cpp
     src/modules/datatype/Datatype.cpp
     src/modules/date/Date.cpp
+    src/modules/date/DateData.cpp
     src/modules/finance/Finance.cpp
     src/modules/food/Food.cpp
     src/modules/git/Git.cpp
