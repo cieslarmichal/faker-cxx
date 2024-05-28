@@ -14,6 +14,12 @@ if (NOT USE_SYSTEM_DEPENDENCIES)
         HAS_STD_FORMAT)
 endif ()
 
+if (BUILD_TESTING)
+    set(target_code_coverage_ALL 1)
+    include("cmake/cmake-coverage.cmake")
+    add_code_coverage_all_targets()
+endif ()
+
 set(LIBRARY_NAME faker-cxx)
 
 set(FAKER_SOURCES
