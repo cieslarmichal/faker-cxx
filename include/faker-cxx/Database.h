@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Database::columnName() // "created_at"
      * @endcode
      */
-    static std::string columnName();
+    static std::string_view columnName();
 
     /**
      * @brief Returns a random database column type.
@@ -27,7 +27,7 @@ public:
      * Database::columnType() // "timestamp"
      * @endcode
      */
-    static std::string columnType();
+    static std::string_view columnType();
 
     /**
      * @brief Returns a random database collation.
@@ -38,7 +38,7 @@ public:
      * Database::collation() // "utf8_unicode_ci"
      * @endcode
      */
-    static std::string collation();
+    static std::string_view collation();
 
     /**
      * @brief Returns a random database engine.
@@ -49,7 +49,7 @@ public:
      * Database::engine() // "ARCHIVE"
      * @endcode
      */
-    static std::string engine();
+    static std::string_view engine();
 
     /**
      * @brief Returns a MongoDB Object Id.

@@ -1,32 +1,29 @@
 #include "faker-cxx/Database.h"
 
-#include "data/Collations.h"
-#include "data/ColumnNames.h"
-#include "data/ColumnTypes.h"
-#include "data/Engines.h"
+#include "DatabaseData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/String.h"
 
 namespace faker
 {
-std::string Database::columnName()
+std::string_view Database::columnName()
 {
-    return Helper::arrayElement<std::string>(columnNames);
+    return Helper::arrayElement(columnNames);
 }
 
-std::string Database::columnType()
+std::string_view Database::columnType()
 {
-    return Helper::arrayElement<std::string>(columnTypes);
+    return Helper::arrayElement(columnTypes);
 }
 
-std::string Database::collation()
+std::string_view Database::collation()
 {
-    return Helper::arrayElement<std::string>(collations);
+    return Helper::arrayElement(collations);
 }
 
-std::string Database::engine()
+std::string_view Database::engine()
 {
-    return Helper::arrayElement<std::string>(engines);
+    return Helper::arrayElement(engines);
 }
 
 std::string Database::mongoDbObjectId()
