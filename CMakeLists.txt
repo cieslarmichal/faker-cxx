@@ -14,6 +14,10 @@ if (NOT USE_SYSTEM_DEPENDENCIES)
         HAS_STD_FORMAT)
 endif ()
 
+if (BUILD_TESTING)
+    add_subdirectory(tests)
+endif ()
+
 set(LIBRARY_NAME faker-cxx)
 
 set(FAKER_SOURCES
@@ -119,6 +123,3 @@ else ()
     target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
 endif ()
 
-if (BUILD_TESTING)
-    add_subdirectory(tests)
-endif ()
