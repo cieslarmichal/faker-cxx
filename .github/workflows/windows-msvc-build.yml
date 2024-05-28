@@ -20,9 +20,12 @@ jobs:
       - name: Install Ninja
         uses: seanmiddleditch/gha-setup-ninja@master
 
+      - name: Configure cl.exe in PATH]
+        uses: ilammy/msvc-dev-cmd@v1
+
       - name: Configure CMake
         run: |
-          cmake -S . -G "Visual Studio 17 2022" --preset=windows-msvc-debug -DBUILD_TESTING:BOOL=ON
+          cmake -S . --preset=windows-msvc-debug -DBUILD_TESTING:BOOL=ON
 
       - name: Build
         run: cmake --build --preset=windows-msvc-debug
