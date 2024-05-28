@@ -27,7 +27,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=unixlike-gcc-release \
+          cmake -S . --preset=unixlike-gcc-debug \
             -DCMAKE_C_COMPILER=gcc-${{ matrix.gcc_version }} \
             -DCMAKE_CXX_COMPILER=g++-${{ matrix.gcc_version }} \
             -DBUILD_TESTING:BOOL=ON

@@ -22,10 +22,10 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=windows-msvc-release -DBUILD_TESTING:BOOL=ON
+          cmake -S . --preset=windows-msvc-debug -DBUILD_TESTING:BOOL=ON
 
       - name: Build
-        run: cmake --build --preset=windows-msvc-release
+        run: cmake --build --preset=windows-msvc-debug
 
       - name: Test
-        run: ctest --preset=windows-msvc-release
+        run: ctest --preset=windows-msvc-debug

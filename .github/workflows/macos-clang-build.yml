@@ -26,7 +26,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=unixlike-clang-release \
+          cmake -S . --preset=unixlike-clang-debug \
             -DBUILD_TESTING:BOOL=ON \
             -DCMAKE_CXX_COMPILER=clang++
 
