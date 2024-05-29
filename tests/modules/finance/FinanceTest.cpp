@@ -9,10 +9,7 @@
 
 #include "common/LuhnCheck.h"
 #include "common/StringHelper.h"
-#include "finance/data/AccountTypes.h"
-#include "finance/data/BankIndentifiersCodes.h"
-#include "finance/data/CreditCardTypeNames.h"
-#include "finance/data/Currencies.h"
+#include "finance/FinanceData.h"
 #include "gmock/gmock.h"
 #include "string/data/Characters.h"
 
@@ -164,7 +161,7 @@ TEST_F(FinanceTest, shouldGenerateAccountType)
 {
     const auto generatedAccountType = Finance::accountType();
 
-    ASSERT_TRUE(std::ranges::any_of(accountTypes, [generatedAccountType](const std::string& accountType)
+    ASSERT_TRUE(std::ranges::any_of(accountTypes, [generatedAccountType](const std::string_view& accountType)
                                     { return accountType == generatedAccountType; }));
 }
 
@@ -404,8 +401,8 @@ TEST_F(FinanceTest, shouldGenerateExpirationDate)
 TEST_F(FinanceTest, shouldGenerateRandomCreditCardTypeName)
 {
     const auto creditCardTypeName = Finance::creditCardType();
-    ASSERT_TRUE(std::find(faker::creditCardTypeNames.begin(), faker::creditCardTypeNames.end(), creditCardTypeName) !=
-                faker::creditCardTypeNames.end());
+
+    ASSERT_TRUE(std::find(creditCardNames.begin(), creditCardNames.end(), creditCardTypeName) != creditCardNames.end());
 }
 
 class FinanceBicTest : public TestWithParam<Finance::BicCountry>
@@ -418,9 +415,9 @@ TEST_P(FinanceBicTest, CheckBicGenerator)
 
     const auto bic = Finance::bic(country);
 
-    const auto& bankIdentifiersCodes = bankIdentifiersCodesMapping.at(country);
+    const auto& bankIdentifiersCodes = bicCountriesCodes.at(country);
 
-    ASSERT_TRUE(std::ranges::any_of(bankIdentifiersCodes, [bic](const std::string& bankIdentifierCode)
+    ASSERT_TRUE(std::ranges::any_of(bankIdentifiersCodes, [bic](const std::string_view& bankIdentifierCode)
                                     { return bic == bankIdentifierCode; }));
 }
 

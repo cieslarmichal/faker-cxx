@@ -45,6 +45,7 @@ set(FAKER_SOURCES
     src/modules/date/Date.cpp
     src/modules/date/DateData.cpp
     src/modules/finance/Finance.cpp
+    src/modules/finance/FinanceData.cpp
     src/modules/food/Food.cpp
     src/modules/git/Git.cpp
     src/modules/hacker/Hacker.cpp
