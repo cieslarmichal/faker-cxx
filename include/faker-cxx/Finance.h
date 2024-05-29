@@ -2,6 +2,7 @@
 
 #include <optional>
 #include <string>
+#include <string_view>
 
 #include "types/Country.h"
 #include "types/Precision.h"
@@ -10,9 +11,9 @@ namespace faker
 {
 struct Currency
 {
-    std::string name;
-    std::string code;
-    std::string symbol;
+    std::string_view name;
+    std::string_view code;
+    std::string_view symbol;
 };
 
 class Finance
@@ -38,7 +39,7 @@ public:
      * Finance::currencyName() // "US Dollar"
      * @endcode
      */
-    static std::string currencyName();
+    static std::string_view currencyName();
 
     /**
      * @brief Returns a random currency code.
@@ -49,7 +50,7 @@ public:
      * Finance::currencyCode() // "USD"
      * @endcode
      */
-    static std::string currencyCode();
+    static std::string_view currencyCode();
 
     /**
      * @brief Returns a random currency symbol.
@@ -60,7 +61,7 @@ public:
      * Finance::currencySymbol() // "$"
      * @endcode
      */
-    static std::string currencySymbol();
+    static std::string_view currencySymbol();
 
     /**
      * @brief Returns a random account type.
@@ -71,7 +72,7 @@ public:
      * Finance::accountType() // "Savings"
      * @endcode
      */
-    static std::string accountType();
+    static std::string_view accountType();
 
     /**
      * @brief Generates a random amount between the given bounds (inclusive).
@@ -164,7 +165,7 @@ public:
      * Finance::bic(BicCountry::Poland) // "BREXPLPWMUL"
      * @endcode
      */
-    static std::string bic(std::optional<BicCountry> country = std::nullopt);
+    static std::string_view bic(std::optional<BicCountry> country = std::nullopt);
 
     /**
      * Generates a random account number.
@@ -290,6 +291,6 @@ public:
      * Finance::creditCardType() // "Visa"
      * @endcode
      */
-    static std::string creditCardType();
+    static std::string_view creditCardType();
 };
 }
