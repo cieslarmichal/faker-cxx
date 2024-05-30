@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    name: ci-ubuntu-24.04-clang-18
     runs-on: ubuntu-24.04
 
     steps:

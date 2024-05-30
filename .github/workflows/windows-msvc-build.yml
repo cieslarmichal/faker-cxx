@@ -9,6 +9,7 @@ on:
 
 jobs:
   build:
+    name: ci-windows-msvc-19
     runs-on: windows-latest
 
     steps:

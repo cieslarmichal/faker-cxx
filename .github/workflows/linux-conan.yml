@@ -13,6 +13,7 @@ env:
 
 jobs:
   conan:
+    name: ci-ubuntu-24.04-gcc13-conan
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
