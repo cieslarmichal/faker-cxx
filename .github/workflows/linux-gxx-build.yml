@@ -33,7 +33,7 @@ jobs:
             -DBUILD_TESTING:BOOL=ON
 
       - name: Build
-        run: cmake --build --preset=unixlike-gcc-debug
+        run: cmake --build --preset=unixlike-gcc-debug --parallel 1
 
       - name: Test
         run: ctest --preset=unixlike-gcc-debug
