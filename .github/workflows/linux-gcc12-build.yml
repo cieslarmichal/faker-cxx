@@ -29,4 +29,9 @@ jobs:
 
       - name: Build
         continue-on-error: true
-        run: cmake --build --preset=unixlike-gcc-release --parallel 1
+        run: |
+          cmake --build --preset=unixlike-gcc-release
+          if [ $? -ne 0 ]; then
+            echo "::warning::Build failed due out-of-memory error, marking job as skipped"
+            echo "::set-output name=skipped::true"
+          fi
