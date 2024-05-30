@@ -11,8 +11,7 @@
 #include "person/data/romania/RomanianFirstNames.h"
 #include "person/data/romania/RomanianLastNames.h"
 #include "string/data/Characters.h"
-#include "word/data/Adjectives.h"
-#include "word/data/Nouns.h"
+#include "word/wordData.h"
 #include "internet/data/DomainSuffixes.h"
 #include "internet/data/EmailHosts.h"
 #include "internet/data/Emojis.h"
@@ -23,6 +22,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace Words;
 
 namespace
 {
@@ -66,13 +66,24 @@ std::array<unsigned int, 4> deconstructIpv4String(const std::string& ipv4)
 }
 }
 
-class InternetTest : public Test
+class InternetTest : public testing::Test
 {
 public:
+    std::vector<std::string_view> adjectives = {"quick", "brown", "fox", "jumps", "over", "lazy", "dog"};
+    std::vector<std::string> nouns = {"tree", "car", "house", "dog", "cat"};
+
+    std::vector<std::string> sortedAdjectivesDescendingBySize;
+
     InternetTest()
     {
+        // Copy adjectives to a vector of std::string
+        sortedAdjectivesDescendingBySize.resize(adjectives.size());
+        std::transform(adjectives.begin(), adjectives.end(), sortedAdjectivesDescendingBySize.begin(),
+                       [](const std::string_view& sv) { return std::string(sv); });
+
+        // Sort adjectives in descending order by size
         std::sort(sortedAdjectivesDescendingBySize.begin(), sortedAdjectivesDescendingBySize.end(),
-                  [](const std::string& first, const std::string& second) { return first.size() > second.size(); });
+                  [](const std::string& a, const std::string& b) { return a.size() > b.size(); });
     }
 
     void assertDomainWord(const std::string& domainWord)
@@ -88,7 +99,7 @@ public:
             }
         }
 
-        ASSERT_TRUE(foundAdjective);
+        ASSERT_TRUE(foundAdjective.has_value());
 
         ASSERT_EQ(domainWord[foundAdjective->size()], '-');
 
@@ -97,8 +108,6 @@ public:
         ASSERT_TRUE(std::ranges::any_of(nouns, [generatedNoun](const std::string& noun)
                                         { return generatedNoun == StringHelper::toLower(noun); }));
     }
-
-    std::vector<std::string> sortedAdjectivesDescendingBySize{adjectives};
 };
 
 TEST_F(InternetTest, shouldGenerateUsername)

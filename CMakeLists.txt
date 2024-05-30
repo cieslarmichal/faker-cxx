@@ -76,6 +76,7 @@ set(FAKER_SOURCES
     src/modules/videoGame/VideoGameData.cpp
     src/modules/weather/Weather.cpp
     src/modules/word/Word.cpp
+    src/modules/word/wordData.cpp
     src/common/FormatHelper.cpp
     src/common/LuhnCheck.cpp
     src/common/StringHelper.cpp
