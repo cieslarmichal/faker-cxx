@@ -42,7 +42,7 @@ std::string extension(const std::string& mimeType)
 
 std::string System::fileName(const FileOptions& options)
 {
-    std::string baseName = Word::words();
+    std::string baseName = std::string(Word::words()); // Konwersja std::string_view na std::string
     std::string extensionsStr;
 
     if (options.extensionCount > 0)
@@ -74,6 +74,7 @@ std::string System::fileName(const FileOptions& options)
     }
     return baseName + extensionsStr;
 }
+
 
 std::string System::fileExtension(const std::optional<FileType>& mimeType)
 {

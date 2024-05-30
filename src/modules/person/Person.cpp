@@ -400,7 +400,7 @@ std::string Person::bio()
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"bio_part", []() { return Helper::arrayElement(bioPart); }},
         {"bio_supporter", []() { return Helper::arrayElement(bioSupporter); }},
-        {"noun", []() { return Word::noun(); }},
+        {"noun", []() { return std::string(Word::noun()); }},
         {"emoji", []() { return Internet::emoji(); }}};
 
     return FormatHelper::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
