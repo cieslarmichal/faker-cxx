@@ -137,7 +137,7 @@ public:
      * Internet::emoji(EmojiType::Food) // "🍕"
      * @endcode
      */
-    static std::string emoji(std::optional<EmojiType> type = std::nullopt);
+    static std::string_view emoji(std::optional<EmojiType> type = std::nullopt);
 
     /**
      * @brief Verify that a given emoji is valid.
@@ -334,7 +334,7 @@ public:
      * Internet::domainSuffix() // "com"
      * @endcode
      */
-    static std::string domainSuffix();
+    static std::string_view domainSuffix();
 
     /**
      * @brief Generates a random username.

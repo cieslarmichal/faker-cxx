@@ -1,6 +1,7 @@
 #include "faker-cxx/Internet.h"
 
 #include <algorithm>
+#include <string_view>
 #include <charconv>
 
 #include "gtest/gtest.h"
@@ -13,12 +14,7 @@
 #include "string/data/Characters.h"
 #include "word/data/Adjectives.h"
 #include "word/data/Nouns.h"
-#include "internet/data/DomainSuffixes.h"
-#include "internet/data/EmailHosts.h"
-#include "internet/data/Emojis.h"
-#include "internet/data/HttpMediaType.h"
-#include "internet/data/HttpRequestHeaders.h"
-#include "internet/data/HttpResponseHeaders.h"
+#include "internet/InternetData.h"
 #include "faker-cxx/Number.h"
 
 using namespace ::testing;
@@ -184,7 +180,7 @@ TEST_F(InternetTest, shouldGenerateEmail)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internet::emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
@@ -205,7 +201,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internet::emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string& lastName)
@@ -229,7 +225,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internet::emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
@@ -255,7 +251,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internet::emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
@@ -300,7 +296,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmail)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internet::emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
@@ -321,7 +317,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internet::emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string& lastName)
@@ -345,7 +341,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internet::emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
@@ -371,7 +367,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internet::emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
@@ -399,103 +395,107 @@ TEST_F(InternetTest, shouldGeneratePasswordWithSpecifiedLength)
 
 TEST_F(InternetTest, shouldGenerateEmoji)
 {
+    using namespace faker::internet;
     const auto generatedEmoji = Internet::emoji();
 
-    std::vector<std::string> emojis;
+    std::vector<std::string_view> emojis;
+    emojis.reserve(smileyEmojis.size() + bodyEmojis.size() + personEmojis.size() + natureEmojis.size() +
+                   foodEmojis.size() + travelEmojis.size() + activityEmojis.size() + objectEmojis.size() +
+                   symbolEmojis.size() + flagEmojis.size());
 
-    emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
-    emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
-    emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
-    emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
-    emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
-    emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
-    emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
-    emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
-    emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
-    emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
+    emojis.insert(emojis.end(), internet::smileyEmojis.begin(), internet::smileyEmojis.end());
+    emojis.insert(emojis.end(), internet::bodyEmojis.begin(), internet::bodyEmojis.end());
+    emojis.insert(emojis.end(), internet::personEmojis.begin(), internet::personEmojis.end());
+    emojis.insert(emojis.end(), internet::natureEmojis.begin(), internet::natureEmojis.end());
+    emojis.insert(emojis.end(), internet::foodEmojis.begin(), internet::foodEmojis.end());
+    emojis.insert(emojis.end(), internet::travelEmojis.begin(), internet::travelEmojis.end());
+    emojis.insert(emojis.end(), internet::activityEmojis.begin(), internet::activityEmojis.end());
+    emojis.insert(emojis.end(), internet::objectEmojis.begin(), internet::objectEmojis.end());
+    emojis.insert(emojis.end(), internet::symbolEmojis.begin(), internet::symbolEmojis.end());
+    emojis.insert(emojis.end(), internet::flagEmojis.begin(), internet::flagEmojis.end());
 
     ASSERT_TRUE(
-        std::ranges::any_of(emojis, [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+        std::ranges::any_of(emojis, [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateSmileyEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Smiley);
 
-    ASSERT_TRUE(std::ranges::any_of(smileyEmojis,
-                                    [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(internet::smileyEmojis,
+                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateBodyEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Body);
 
-    ASSERT_TRUE(std::ranges::any_of(bodyEmojis,
-                                    [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(internet::bodyEmojis,
+                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGeneratePersonEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Person);
 
-    ASSERT_TRUE(std::ranges::any_of(personEmojis,
-                                    [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(internet::personEmojis,
+                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateNatureEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Nature);
 
-    ASSERT_TRUE(std::ranges::any_of(natureEmojis,
-                                    [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(internet::natureEmojis,
+                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateFoodEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Food);
 
-    ASSERT_TRUE(std::ranges::any_of(foodEmojis,
-                                    [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(internet::foodEmojis,
+                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateTravelEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Travel);
 
-    ASSERT_TRUE(std::ranges::any_of(travelEmojis,
-                                    [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(internet::travelEmojis,
+                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateActivityEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Activity);
 
-    ASSERT_TRUE(std::ranges::any_of(activityEmojis,
-                                    [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(internet::activityEmojis,
+                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateObjectEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Object);
 
-    ASSERT_TRUE(std::ranges::any_of(objectEmojis,
-                                    [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(internet::objectEmojis,
+                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateSymbolEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Symbol);
 
-    ASSERT_TRUE(std::ranges::any_of(symbolEmojis,
-                                    [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(internet::symbolEmojis,
+                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateFlagEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Flag);
 
-    ASSERT_TRUE(std::ranges::any_of(flagEmojis,
-                                    [generatedEmoji](const std::string& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(internet::flagEmojis,
+                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateProtocol)
@@ -533,7 +533,7 @@ TEST_F(InternetTest, shouldGenerateHttpRequestHeader)
 {
     const auto generatedHttpRequestHeader = Internet::httpRequestHeader();
 
-    ASSERT_TRUE(std::ranges::any_of(httpRequestHeaders, [generatedHttpRequestHeader](const std::string& httpHeader)
+    ASSERT_TRUE(std::ranges::any_of(internet::httpRequestHeaders, [generatedHttpRequestHeader](const std::string_view& httpHeader)
                                     { return generatedHttpRequestHeader == httpHeader; }));
 }
 
@@ -541,7 +541,7 @@ TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
 {
     const auto generatedHttpResponseHeader = Internet::httpResponseHeader();
 
-    ASSERT_TRUE(std::ranges::any_of(httpResponseHeaders, [generatedHttpResponseHeader](const std::string& httpHeader)
+    ASSERT_TRUE(std::ranges::any_of(internet::httpResponseHeaders, [generatedHttpResponseHeader](const std::string_view& httpHeader)
                                     { return generatedHttpResponseHeader == httpHeader; }));
 }
 
@@ -549,7 +549,7 @@ TEST_F(InternetTest, shouldGenerateHttpMediaType)
 {
     const auto generatedHttpMediaType = Internet::httpMediaType();
 
-    ASSERT_TRUE(std::ranges::any_of(httpMediaTypes, [generatedHttpMediaType](const std::string& httpMediaType)
+    ASSERT_TRUE(std::ranges::any_of(internet::httpMediaTypes, [generatedHttpMediaType](const std::string_view& httpMediaType)
                                     { return generatedHttpMediaType == httpMediaType; }));
 }
 
@@ -673,7 +673,7 @@ TEST_F(InternetTest, shouldGenerateDomainSuffix)
 {
     const auto generatedDomainSuffix = Internet::domainSuffix();
 
-    ASSERT_TRUE(std::ranges::any_of(domainSuffixes, [generatedDomainSuffix](const std::string& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(internet::domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
 }
 
@@ -694,7 +694,7 @@ TEST_F(InternetTest, shouldGenerateDomainName)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    ASSERT_TRUE(std::ranges::any_of(domainSuffixes, [generatedDomainSuffix](const std::string& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(internet::domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
 }
 
@@ -713,7 +713,7 @@ TEST_F(InternetTest, shouldGenerateHttpsUrl)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    ASSERT_TRUE(std::ranges::any_of(domainSuffixes, [generatedDomainSuffix](const std::string& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(internet::domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
     ASSERT_EQ(generatedProtocol, "https");
 }
@@ -733,7 +733,7 @@ TEST_F(InternetTest, shouldGenerateHttpUrl)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    ASSERT_TRUE(std::ranges::any_of(domainSuffixes, [generatedDomainSuffix](const std::string& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(internet::domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
     ASSERT_EQ(generatedProtocol, "http");
 }

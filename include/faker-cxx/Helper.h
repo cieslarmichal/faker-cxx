@@ -259,6 +259,28 @@ public:
     }
 
     /**
+     * @brief Returns a vector equivalent to the given array.
+     *
+     * @tparam T The type of the array.
+     * @tparam N The size of the array.
+     *
+     * @param arr The array to convert.
+     *
+     * @return The same array as a vector.
+     *
+     * @code
+     * Helper::toVector(std::array<int, 3>{1, 2, 3}) // {1, 2, 3}
+     * @endcode
+     */
+    template<typename T, std::size_t N>
+        static std::vector<T> toVector(const std::array<T, N>& arr) {
+        std::vector<T> vec;
+        vec.reserve(N);
+        vec.insert(vec.end(), arr.begin(), arr.end());
+        return vec;
+    }
+
+    /**
      * @brief Returns the given string parsed symbol by symbol and replaced the placeholders with digits ("0" - "9").
      * "!" will be replaced by digits >=2 ("2" - "9").
      *

@@ -53,6 +53,7 @@ set(FAKER_SOURCES
     src/modules/helper/Helper.cpp
     src/modules/image/Image.cpp
     src/modules/internet/Internet.cpp
+    src/modules/internet/InternetData.cpp
     src/modules/location/Location.cpp
     src/modules/lorem/Lorem.cpp
     src/modules/medicine/Medicine.cpp
