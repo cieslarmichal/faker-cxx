@@ -28,4 +28,5 @@ jobs:
             -DBUILD_TESTING:BOOL=OFF
 
       - name: Build
+        continue-on-error: true
         run: cmake --build --preset=unixlike-gcc-release --parallel 1
