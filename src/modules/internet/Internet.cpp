@@ -57,6 +57,27 @@ const std::unordered_map<Internet::EmojiType, std::vector<std::string_view>> emo
 };
 }
 
+std::vector<std::string_view> getAllEmojis()
+{
+    using namespace faker::internet;
+    std::vector<std::string_view> emojis;
+    emojis.reserve(smileyEmojis.size() + bodyEmojis.size() + personEmojis.size() + natureEmojis.size() +
+                   foodEmojis.size() + travelEmojis.size() + activityEmojis.size() + objectEmojis.size() +
+                   symbolEmojis.size() + flagEmojis.size());
+
+    emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
+    emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
+    emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
+    emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
+    emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
+    emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
+    emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
+    emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
+    emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
+    emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
+    return emojis;
+}
+
 std::string Internet::username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit,
                                Country country)
 {
@@ -136,44 +157,19 @@ std::string_view Internet::emoji(std::optional<Internet::EmojiType> type)
     using namespace faker::internet;
     if (type)
     {
-        const auto& emojis = emojiTypeToEmojisMapping.at(*type);
+        const auto& emojisMapped = emojiTypeToEmojisMapping.at(*type);
 
-        return Helper::arrayElement(emojis);
+        return Helper::arrayElement(emojisMapped);
     }
 
-    std::vector<std::string_view> emojis;
-    emojis.reserve(smileyEmojis.size() + bodyEmojis.size() + personEmojis.size() + natureEmojis.size() +
-                   foodEmojis.size() + travelEmojis.size() + activityEmojis.size() + objectEmojis.size() +
-                   symbolEmojis.size() + flagEmojis.size());
-
-    emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
-    emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
-    emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
-    emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
-    emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
-    emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
-    emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
-    emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
-    emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
-    emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
-
+    const auto emojis = getAllEmojis();
     return Helper::arrayElement(emojis);
 }
 
-bool Internet::checkIfEmojiIsValid(const std::string& emojiToCheck)
+bool Internet::checkIfEmojiIsValid(const std::string_view& emojiToCheck)
 {
-    for (const auto& emojis : {internet::smileyEmojis, internet::bodyEmojis, internet::personEmojis,
-                               internet::natureEmojis, internet::foodEmojis, internet::travelEmojis,
-                               internet::activityEmojis, internet::objectEmojis, internet::symbolEmojis,
-                               internet::flagEmojis})
-    {
-        if (std::find(emojis.begin(), emojis.end(), emojiToCheck) != emojis.end())
-        {
-            return true;
-        }
-    }
-
-    return false;
+    const auto emojis = getAllEmojis();
+    return std::find(emojis.begin(), emojis.end(), emojiToCheck) != emojis.end();
 }
 
 std::string_view Internet::protocol()

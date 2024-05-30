@@ -150,7 +150,7 @@ public:
      * Internet::checkIfEmojiIsValid("👑") // true
      * @endcode
      */
-    static bool checkIfEmojiIsValid(const std::string& emojiToCheck);
+    static bool checkIfEmojiIsValid(const std::string_view& emojiToCheck);
 
     /**
      * @brief Returns a random web protocol. Either `http` or `https`.
