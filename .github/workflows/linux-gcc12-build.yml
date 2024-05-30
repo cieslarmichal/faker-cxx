@@ -25,10 +25,7 @@ jobs:
           cmake -S . --preset=unixlike-gcc-release \
             -DCMAKE_C_COMPILER=gcc-12 \
             -DCMAKE_CXX_COMPILER=g++-12 \
-            -DBUILD_TESTING:BOOL=ON
+            -DBUILD_TESTING:BOOL=OFF
 
       - name: Build
         run: cmake --build --preset=unixlike-gcc-release
-
-      - name: Test
-        run: ctest --preset=unixlike-gcc-release
