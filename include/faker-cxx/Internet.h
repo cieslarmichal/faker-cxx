@@ -3,6 +3,7 @@
 #include <array>
 #include <optional>
 #include <string>
+#include <string_view>
 
 #include "types/Country.h"
 
@@ -108,7 +109,7 @@ public:
      * Internet::password(25) // "xv8vDu*wM!Rg0$zd0kH%8p!WY"
      * @endcode
      */
-    static std::string password(int length = 15, PasswordOptions options = {});
+    static std::string password(int length = 15, const PasswordOptions& options = {});
 
     enum class EmojiType
     {
@@ -160,7 +161,7 @@ public:
      * Internet::protocol() // "https"
      * @endcode
      */
-    static std::string protocol();
+    static std::string_view protocol();
 
     /**
      * @brief Generates a random http method name.
@@ -171,7 +172,7 @@ public:
      * Internet::httpMethod() // "POST"
      * @endcode
      */
-    static std::string httpMethod();
+    static std::string_view httpMethod();
 
     /**
      * @brief Returns a random http status code.
@@ -196,7 +197,7 @@ public:
      * Internet::httpRequestHeader() // "Authorization"
      * @endcode
      */
-    static std::string httpRequestHeader();
+    static std::string_view httpRequestHeader();
 
     /**
      * @brief Generates a random http response header.
@@ -207,7 +208,7 @@ public:
      * Internet::httpResponseHeader() // "Location"
      * @endcode
      */
-    static std::string httpResponseHeader();
+    static std::string_view httpResponseHeader();
 
     /**
      * @brief Generates a random http media type.
@@ -218,7 +219,7 @@ public:
      * Internet::httpMediaType() // "application/json"
      * @endcode
      */
-    static std::string httpMediaType();
+    static std::string_view httpMediaType();
 
     /**
      * @brief Returns a string containing randomized ipv4 address of the given class.
@@ -232,7 +233,7 @@ public:
      * Internet::ipv4(IPv4Class::classA) // "10.0.0.1"
      * @endcode
      */
-    static std::string ipv4(IPv4Class ipv4class = IPv4Class::C);
+    static std::string ipv4(const IPv4Class& ipv4class = IPv4Class::C);
 
     /**
      * @brief Returns a string containing randomized ipv4 address based on given base address and mask.
@@ -300,7 +301,7 @@ public:
      * Internet::url() // "https://slow-timer.info"
      * @endcode
      */
-    static std::string url(WebProtocol webProtocol = WebProtocol::Https);
+    static std::string url(const WebProtocol& webProtocol = WebProtocol::Https);
 
     /**
      * @brief Generates a random domain name.
