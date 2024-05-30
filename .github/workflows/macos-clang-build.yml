@@ -10,7 +10,8 @@ on:
 
 jobs:
   build:
-    runs-on: macos-14-clang-15.0
+    runs-on: macos-14
+    name: ci-macos-14-apple-clang-15
 
     steps:
       - name: Install clang
