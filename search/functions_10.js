@@ -1,11 +1,11 @@
 var searchData=
 [
   ['sample_0',['sample',['../classfaker_1_1String.html#acf3e6aafee07f5f1331dd627ce736a41',1,'faker::String::sample(unsigned length=10)'],['../classfaker_1_1String.html#a8067d353710df2a9b326ea679e1efc02',1,'faker::String::sample(GuaranteeMap &amp;&amp;guarantee, unsigned length=10)'],['../classfaker_1_1Word.html#a2c10f438e9949dd8fcb76a187094d886',1,'faker::Word::sample()']]],
-  ['seafood_1',['seafood',['../classfaker_1_1Food.html#ab6e5dc110952d3c6329acd39b84af3ab',1,'faker::Food']]],
+  ['seafood_1',['seafood',['../classfaker_1_1Food.html#a5de9f73e5b57ce55c9068ea8ed518979',1,'faker::Food']]],
   ['seat_2',['seat',['../classfaker_1_1Airline.html#a29cc194d81071ea79a8de609598045bc',1,'faker::Airline']]],
   ['second_3',['second',['../classfaker_1_1Date.html#aabe38b1e0f4c2b81dc580b80e17f3148',1,'faker::Date']]],
   ['secondaryaddress_4',['secondaryAddress',['../classfaker_1_1Location.html#a7232d39949dca851236acb15a464684e',1,'faker::Location']]],
-  ['seed_5',['seed',['../classfaker_1_1Food.html#ac2cf7ea08ec06f9877301d8d0e6d9f93',1,'faker::Food']]],
+  ['seed_5',['seed',['../classfaker_1_1Food.html#a0f423d381690f704ed8dc873ba1f55be',1,'faker::Food']]],
   ['semver_6',['semver',['../classfaker_1_1System.html#a82ad2488c2ca7571bbb7c8a6a2324bc8',1,'faker::System']]],
   ['sentence_7',['sentence',['../classfaker_1_1Lorem.html#ace402bfeedb5be11d011a38c5708daa5',1,'faker::Lorem']]],
   ['sentences_8',['sentences',['../classfaker_1_1Lorem.html#a642a0a6fe7293f968b01a46b8202224a',1,'faker::Lorem']]],
@@ -31,5 +31,5 @@ var searchData=
   ['streetaddress_28',['streetAddress',['../classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5',1,'faker::Location']]],
   ['studioname_29',['studioName',['../classfaker_1_1VideoGame.html#afd842eaf01b55e9c93f864809ae233fc',1,'faker::VideoGame']]],
   ['suffix_30',['suffix',['../classfaker_1_1Person.html#a386646bcc4139d378d890bb38f661196',1,'faker::Person']]],
-  ['sugarproduct_31',['sugarProduct',['../classfaker_1_1Food.html#a7ff3f3f3aa1ab6d71d863d31fe267a07',1,'faker::Food']]]
+  ['sugarproduct_31',['sugarProduct',['../classfaker_1_1Food.html#ab4c284b39e36c8ebd29dcc8c285d2dbc',1,'faker::Food']]]
 ];
