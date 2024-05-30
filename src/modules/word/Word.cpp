@@ -1,195 +1,134 @@
 #include "faker-cxx/Word.h"
 
-#include "../../common/StringHelper.h"
-#include "data/Adjectives.h"
-#include "data/Adverbs.h"
-#include "data/Conjunctions.h"
-#include "data/Interjections.h"
-#include "data/Nouns.h"
-#include "data/Prepositions.h"
-#include "data/Verbs.h"
 #include "faker-cxx/Helper.h"
 
-namespace faker
-{
-std::string Word::sample(std::optional<unsigned int> length)
-{
-    std::vector<std::string> allWords{adjectives};
+#include "wordData.h"
 
-    allWords.insert(allWords.end(), adverbs.begin(), adverbs.end());
-    allWords.insert(allWords.end(), conjunctions.begin(), conjunctions.end());
-    allWords.insert(allWords.end(), interjections.begin(), interjections.end());
-    allWords.insert(allWords.end(), nouns.begin(), nouns.end());
-    allWords.insert(allWords.end(), prepositions.begin(), prepositions.end());
-    allWords.insert(allWords.end(), verbs.begin(), verbs.end());
+namespace faker {
+    std::string words(unsigned numberOfWords = 1) {
+        std::vector<std::string> allWords;
 
-    if (!length)
-    {
-        return Helper::arrayElement<std::string>(allWords);
+        allWords.insert(allWords.end(), Words::adjectives.begin(), Words::adjectives.end());
+        allWords.insert(allWords.end(), Words::adverbs.begin(), Words::adverbs.end());
+        allWords.insert(allWords.end(), Words::conjunctions.begin(), Words::conjunctions.end());
+        allWords.insert(allWords.end(), Words::interjections.begin(), Words::interjections.end());
+        allWords.insert(allWords.end(), Words::nouns.begin(), Words::nouns.end());
+        allWords.insert(allWords.end(), Words::prepositions.begin(), Words::prepositions.end());
+        allWords.insert(allWords.end(), Words::verbs.begin(), Words::verbs.end());
+
+        const auto shuffledWords = Helper::shuffle(allWords);
+
+        std::vector<std::string> words;
+        for (unsigned i = 0; i < numberOfWords; i++) {
+            words.push_back(shuffledWords[i]);
+        }
+
+        return Helper::arrayElement(words);
     }
 
-    const auto shuffledWords = Helper::shuffle(allWords);
+    std::string adjective(std::optional<unsigned> length = std::nullopt) {
+        if (!length) {
+            return Helper::arrayElement<std::string>(Words::adjectives);
+        }
 
-    for (const auto& word : shuffledWords)
-    {
-        if (word.size() == length)
-        {
-            return word;
+        auto shuffledAdjectives = Words::adjectives;
+        std::shuffle(shuffledAdjectives.begin(), shuffledAdjectives.end(), std::default_random_engine());
+
+        for (const auto& adjective : shuffledAdjectives) {
+            if (adjective.size() == length.value()) {
+                return std::string(adjective);  // cast to std::string
+            }
         }
     }
 
-    return Helper::arrayElement<std::string>(shuffledWords);
-}
+    std::string adverb(std::optional<unsigned> length = std::nullopt) {
+        if (!length) {
+            return Helper::arrayElement<std::string>(Words::adverbs);
+        }
 
-std::string Word::words(unsigned numberOfWords)
-{
-    std::vector<std::string> words;
+        auto shuffledAdverbs = Words::adverbs;
+        std::shuffle(shuffledAdverbs.begin(), shuffledAdverbs.end(), std::default_random_engine());
 
-    for (unsigned i = 0; i < numberOfWords; i++)
-    {
-        words.push_back(sample());
-    }
-
-    return StringHelper::join(words, " ");
-}
-
-std::string Word::adjective(std::optional<unsigned int> length)
-{
-    if (!length)
-    {
-        return Helper::arrayElement<std::string>(adjectives);
-    }
-
-    const auto shuffledAdjectives = Helper::shuffle(adjectives);
-
-    for (const auto& adjective : shuffledAdjectives)
-    {
-        if (adjective.size() == length)
-        {
-            return adjective;
+        for (const auto& adverb : shuffledAdverbs) {
+            if (adverb.size() == length.value()) {
+                std::string(adverb);  // cast to std::string
+            }
         }
     }
 
-    return Helper::arrayElement<std::string>(shuffledAdjectives);
-}
+    std::string conjunction(std::optional<unsigned> length = std::nullopt) {
+        if (!length) {
+            return Helper::arrayElement<std::string>(Words::conjunctions);
+        }
 
-std::string Word::adverb(std::optional<unsigned int> length)
-{
-    if (!length)
-    {
-        return Helper::arrayElement<std::string>(adverbs);
-    }
+        auto shuffledConjunctions = Words::conjunctions;
+        std::shuffle(shuffledConjunctions.begin(), shuffledConjunctions.end(), std::default_random_engine());
 
-    const auto shuffledAdverbs = Helper::shuffle(adverbs);
-
-    for (const auto& adverb : shuffledAdverbs)
-    {
-        if (adverb.size() == length)
-        {
-            return adverb;
+        for (const auto& conjunction : shuffledConjunctions) {
+            if (conjunction.size() == length.value()) {
+                return std::string(conjunction);  // cast to std::string
+            }
         }
     }
 
-    return Helper::arrayElement<std::string>(shuffledAdverbs);
-}
+    std::string interjection(std::optional<unsigned> length = std::nullopt) {
+        if (!length) {
+            return Helper::arrayElement<std::string>(Words::interjections);
+        }
 
-std::string Word::conjunction(std::optional<unsigned int> length)
-{
-    if (!length)
-    {
-        return Helper::arrayElement<std::string>(conjunctions);
-    }
+        auto shuffledInterjections = Words::interjections;
+        std::shuffle(shuffledInterjections.begin(), shuffledInterjections.end(), std::default_random_engine());
 
-    const auto shuffledConjunctions = Helper::shuffle(conjunctions);
-
-    for (const auto& conjunction : shuffledConjunctions)
-    {
-        if (conjunction.size() == length)
-        {
-            return conjunction;
+        for (const auto& interjection : shuffledInterjections) {
+            if (interjection.size() == length.value()) {
+                return std::string(interjection);  // cast to std::string
+            }
         }
     }
 
-    return Helper::arrayElement<std::string>(shuffledConjunctions);
-}
+    std::string noun(std::optional<unsigned> length = std::nullopt) {
+        if (!length) {
+            return Helper::arrayElement<std::string>(Words::nouns);
+        }
 
-std::string Word::interjection(std::optional<unsigned int> length)
-{
-    if (!length)
-    {
-        return Helper::arrayElement<std::string>(interjections);
-    }
+        auto shuffledNouns = Words::nouns;
+        std::shuffle(shuffledNouns.begin(), shuffledNouns.end(), std::default_random_engine());
 
-    const auto shuffledInterjections = Helper::shuffle(interjections);
-
-    for (const auto& interjection : shuffledInterjections)
-    {
-        if (interjection.size() == length)
-        {
-            return interjection;
+        for (const auto& noun : shuffledNouns) {
+            if (noun.size() == length.value()) {
+                return std::string(noun);  // cast to std::string
+            }
         }
     }
 
-    return Helper::arrayElement<std::string>(shuffledInterjections);
-}
+    std::string preposition(std::optional<unsigned> length = std::nullopt) {
+        if (!length) {
+            return Helper::arrayElement<std::string>(Words::prepositions);
+        }
 
-std::string Word::noun(std::optional<unsigned int> length)
-{
-    if (!length)
-    {
-        return Helper::arrayElement<std::string>(nouns);
+        auto shuffledPrepositions = Words::prepositions;
+        std::shuffle(shuffledPrepositions.begin(), shuffledPrepositions.end(), std::default_random_engine());
+
+        for (const auto& preposition : shuffledPrepositions) {
+            if (preposition.size() == length.value()) {
+                return std::string(preposition);  // cast to std::string
+            }
+        }
     }
+    
+    std::string verb(std::optional<unsigned> length = std::nullopt) {
+        if (!length) {
+            return Helper::arrayElement<std::string>(Words::verbs);
+        }
 
-    const auto shuffledNouns = Helper::shuffle(nouns);
+        auto shuffledVerbs = Words::verbs;
+        std::shuffle(shuffledVerbs.begin(), shuffledVerbs.end(), std::default_random_engine());
 
-    for (const auto& noun : shuffledNouns)
-    {
-        if (noun.size() == length)
-        {
-            return noun;
+        for (const auto& verb : shuffledVerbs) {
+            if (verb.size() == length.value()) {
+                return std::string(verb);  // cast to std::string
+            }
         }
     }
 
-    return Helper::arrayElement<std::string>(shuffledNouns);
-}
-
-std::string Word::preposition(std::optional<unsigned int> length)
-{
-    if (!length)
-    {
-        return Helper::arrayElement<std::string>(prepositions);
-    }
-
-    const auto shuffledPrepositions = Helper::shuffle(prepositions);
-
-    for (const auto& preposition : shuffledPrepositions)
-    {
-        if (preposition.size() == length)
-        {
-            return preposition;
-        }
-    }
-
-    return Helper::arrayElement<std::string>(shuffledPrepositions);
-}
-
-std::string Word::verb(std::optional<unsigned int> length)
-{
-    if (!length)
-    {
-        return Helper::arrayElement<std::string>(verbs);
-    }
-
-    const auto shuffledVerbs = Helper::shuffle(verbs);
-
-    for (const auto& verb : shuffledVerbs)
-    {
-        if (verb.size() == length)
-        {
-            return verb;
-        }
-    }
-
-    return Helper::arrayElement<std::string>(shuffledVerbs);
-}
-}
+} // namespace faker
