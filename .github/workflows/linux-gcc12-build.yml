@@ -28,4 +28,4 @@ jobs:
             -DBUILD_TESTING:BOOL=OFF
 
       - name: Build
-        run: cmake --build --preset=unixlike-gcc-release
+        run: cmake --build --preset=unixlike-gcc-release --parallel 1
