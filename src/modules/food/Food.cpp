@@ -1,90 +1,77 @@
 #include "faker-cxx/Food.h"
 
-#include "data/AlcoholicBeverages.h"
-#include "data/DishNames.h"
-#include "data/FoodCategories.h"
-#include "data/Fruits.h"
-#include "data/Grains.h"
-#include "data/Meats.h"
-#include "data/MilkProducts.h"
-#include "data/NonalcoholicBeverages.h"
-#include "data/Nuts.h"
-#include "data/Oils.h"
-#include "data/Seafoods.h"
-#include "data/Seeds.h"
-#include "data/SugarProducts.h"
-#include "data/Vegetables.h"
 #include "faker-cxx/Helper.h"
+#include "FoodData.h"
 
 namespace faker
 {
-std::string Food::alcoholicBeverage()
+std::string_view Food::alcoholicBeverage()
 {
-    return Helper::arrayElement<std::string>(alcoholicBeverages);
+    return Helper::arrayElement(alcoholicBeverages);
 }
 
-std::string Food::dishName()
+std::string_view Food::dishName()
 {
-    return Helper::arrayElement<std::string>(dishNames);
+    return Helper::arrayElement(dishNames);
 }
 
-std::string Food::foodCategory()
+std::string_view Food::foodCategory()
 {
-    return Helper::arrayElement<std::string>(foodCategories);
+    return Helper::arrayElement(foodCategories);
 }
 
-std::string Food::fruit()
+std::string_view Food::fruit()
 {
-    return Helper::arrayElement<std::string>(fruits);
+    return Helper::arrayElement(fruits);
 }
 
-std::string Food::grain()
+std::string_view Food::grain()
 {
-    return Helper::arrayElement<std::string>(grains);
+    return Helper::arrayElement(grains);
 }
 
-std::string Food::meat()
+std::string_view Food::meat()
 {
-    return Helper::arrayElement<std::string>(meats);
+    return Helper::arrayElement(meats);
 }
 
-std::string Food::milkProduct()
+std::string_view Food::milkProduct()
 {
-    return Helper::arrayElement<std::string>(milkProducts);
+    return Helper::arrayElement(milkProducts);
 }
 
-std::string Food::nonalcoholicBeverage()
+std::string_view Food::nonalcoholicBeverage()
 {
-    return Helper::arrayElement<std::string>(nonalcoholicBeverages);
+    return Helper::arrayElement(nonalcoholicBeverages);
 }
 
-std::string Food::nut()
+std::string_view Food::nut()
 {
-    return Helper::arrayElement<std::string>(nuts);
+    return Helper::arrayElement(nuts);
 }
 
-std::string Food::oil()
+std::string_view Food::oil()
 {
-    return Helper::arrayElement<std::string>(oils);
+    return Helper::arrayElement(oils);
 }
 
-std::string Food::seafood()
+std::string_view Food::seafood()
 {
-    return Helper::arrayElement<std::string>(seafoods);
+    return Helper::arrayElement(seafoods);
 }
 
-std::string Food::seed()
+std::string_view Food::seed()
 {
-    return Helper::arrayElement<std::string>(seeds);
+    return Helper::arrayElement(seeds);
 }
 
-std::string Food::sugarProduct()
+std::string_view Food::sugarProduct()
 {
-    return Helper::arrayElement<std::string>(sugarProducts);
+    return Helper::arrayElement(sugarProducts);
 }
 
-std::string Food::vegetable()
+std::string_view Food::vegetable()
 {
-    return Helper::arrayElement<std::string>(vegetables);
+    return Helper::arrayElement(vegetables);
 }
 }
