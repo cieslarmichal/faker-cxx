@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Food::alcoholicBeverage() // "champain"
      * @endcode
      */
-    static std::string alcoholicBeverage();
+    static std::string_view alcoholicBeverage();
 
     /**
      * @brief Returns a random grain measurement.
@@ -27,7 +27,7 @@ public:
      * Food::grain() // "1 Lt"
      * @endcode
      */
-    static std::string grain();
+    static std::string_view grain();
 
     /**
      * @brief Returns a random milk product's name.
@@ -38,7 +38,7 @@ public:
      * Food::milkProduct() // "mozzarella"
      * @endcode
      */
-    static std::string milkProduct();
+    static std::string_view milkProduct();
 
     /**
      * @brief Returns a random fruit's name.
@@ -49,7 +49,7 @@ public:
      * Food::fruit() // "apple"
      * @endcode
      */
-    static std::string fruit();
+    static std::string_view fruit();
 
     /**
      * @brief Returns a random meat's name.
@@ -60,7 +60,7 @@ public:
      * Food::meat() // "antrikot"
      * @endcode
      */
-    static std::string meat();
+    static std::string_view meat();
 
     /**
      * @brief Returns a random seafood's name.
@@ -71,7 +71,7 @@ public:
      * Food::seafood() // "lobster"
      * @endcode
      */
-    static std::string seafood();
+    static std::string_view seafood();
 
     /**
      * @brief Returns a random vegetable's name.
@@ -82,7 +82,7 @@ public:
      * Food::vegetable() // "watermelon"
      * @endcode
      */
-    static std::string vegetable();
+    static std::string_view vegetable();
 
     /**
      * @brief Returns a random oil's name.
@@ -93,7 +93,7 @@ public:
      * Food::oil() // "olive oil"
      * @endcode
      */
-    static std::string oil();
+    static std::string_view oil();
 
     /**
      * @brief Returns a random nut's name.
@@ -104,7 +104,7 @@ public:
      * Food::nut() // "walnut"
      * @endcode
      */
-    static std::string nut();
+    static std::string_view nut();
 
     /**
      * @brief Returns a random seed's name.
@@ -115,7 +115,7 @@ public:
      * Food::seed() // "mozzarella"
      * @endcode
      */
-    static std::string seed();
+    static std::string_view seed();
 
     /**
      * @brief Returns a random sugar product's name.
@@ -126,7 +126,7 @@ public:
      * Food::sugarProduct() // "honey harmony"
      * @endcode
      */
-    static std::string sugarProduct();
+    static std::string_view sugarProduct();
 
     /**
      * @brief Returns a random non-alcoholic beverage's name.
@@ -137,7 +137,7 @@ public:
      * Food::nonalcoholicBeverage() // "water"
      * @endcode
      */
-    static std::string nonalcoholicBeverage();
+    static std::string_view nonalcoholicBeverage();
 
     /**
      * @brief Returns a random dish's name.
@@ -148,7 +148,7 @@ public:
      * Food::dishName() // "beef wellington"
      * @endcode
      */
-    static std::string dishName();
+    static std::string_view dishName();
 
     /**
      * @brief Returns a random food categories' name.
@@ -159,6 +159,6 @@ public:
      * Food::foodCategory() // "Dairy"
      * @endcode
      */
-    static std::string foodCategory();
+    static std::string_view foodCategory();
 };
 }

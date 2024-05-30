@@ -47,6 +47,7 @@ set(FAKER_SOURCES
     src/modules/finance/Finance.cpp
     src/modules/finance/FinanceData.cpp
     src/modules/food/Food.cpp
+    src/modules/food/FoodData.cpp
     src/modules/git/Git.cpp
     src/modules/hacker/Hacker.cpp
     src/modules/helper/Helper.cpp
