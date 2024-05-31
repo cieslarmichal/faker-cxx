@@ -384,7 +384,7 @@ TEST_F(StringTest, shouldGenerateDefaultApha)
 
     ASSERT_EQ(alpha.size(), 1);
     ASSERT_TRUE(
-        std::ranges::any_of(mixedAlphaCharacters, [alpha](char mixedCharacter) { return alpha[0] == mixedCharacter; }));
+        std::ranges::any_of(string::mixedAlphaCharacters, [alpha](char mixedCharacter) { return alpha[0] == mixedCharacter; }));
 }
 
 TEST_F(StringTest, shouldGenerateMixedAlpha)
@@ -824,7 +824,7 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZeros)
                                     [](char numericCharacterWithPossibleZero)
                                     {
                                         return std::ranges::any_of(
-                                            numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
+                                            string::numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
                                             { return numericCharacterWithPossibleZero == numericCharacter; });
                                     }));
 }
@@ -934,7 +934,7 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZerosWithGuarantee2)
             numericWithPossibleZeroCharacters,
             [](char numericCharacterWithPossibleZero)
             {
-                return std::ranges::any_of(numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
+                return std::ranges::any_of(string::numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
                                            { return numericCharacterWithPossibleZero == numericCharacter; });
             }));
         auto count_0 = std::ranges::count(numeric, '0');
@@ -995,7 +995,7 @@ TEST_F(StringTest, shouldGenerateHexadecimal)
     ASSERT_EQ(hexadecimal.size(), hexadecimalLength + 2);
     ASSERT_EQ(prefix, "0x");
     ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                    { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateHexadecimalWithHashPrefix)
@@ -1010,7 +1010,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithHashPrefix)
     ASSERT_EQ(hexadecimal.size(), hexadecimalLength + 1);
     ASSERT_EQ(prefix, "#");
     ASSERT_TRUE(std::ranges::any_of(hexNumber, [](char hexNumberCharacter)
-                                    { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return string::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateHexadecimalWithoutPrefix)
@@ -1021,7 +1021,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithoutPrefix)
 
     ASSERT_EQ(hexadecimal.size(), hexadecimalLength);
     ASSERT_TRUE(std::ranges::any_of(hexadecimal, [](char hexNumberCharacter)
-                                    { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return string::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee1)
@@ -1042,7 +1042,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee1)
         ASSERT_EQ(hexNumber.size(), hexadecimalLength);
         ASSERT_EQ(prefix, "0x");
         ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                        { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                        { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 
         auto count_a = std::ranges::count(hexNumber, 'a');
         auto count_f = std::ranges::count(hexNumber, 'f');
@@ -1068,7 +1068,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee2)
         ASSERT_EQ(hexNumber.size(), hexadecimalLength);
         ASSERT_EQ(prefix, "0x");
         ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                        { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                        { return string::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 
         auto count_A = std::ranges::count(hexNumber, 'A');
         auto count_F = std::ranges::count(hexNumber, 'F');
