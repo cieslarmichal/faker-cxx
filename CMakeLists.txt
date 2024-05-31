@@ -50,6 +50,7 @@ set(FAKER_SOURCES
     src/modules/food/FoodData.cpp
     src/modules/git/Git.cpp
     src/modules/hacker/Hacker.cpp
+    src/modules/hacker/HackerData.cpp
     src/modules/helper/Helper.cpp
     src/modules/image/Image.cpp
     src/modules/internet/Internet.cpp

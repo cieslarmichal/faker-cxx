@@ -1,74 +1,74 @@
 #include "faker-cxx/Hacker.h"
 
-#include <string>
-
 #include "../../common/StringHelper.h"
-#include "data/Abbreviations.h"
-#include "data/Adjectives.h"
-#include "data/Ingverbs.h"
-#include "data/Nouns.h"
-#include "data/Phrases.h"
-#include "data/Verbs.h"
+#include "faker-cxx/Helper.h"
+#include "HackerData.h"
 
 namespace faker
 {
-std::string Hacker::abbreviation()
+std::string_view Hacker::abbreviation()
 {
-    return faker::Helper::arrayElement<std::string>(faker::abbreviations);
+    return Helper::arrayElement(abbreviations);
 }
 
-std::string Hacker::adjective()
+std::string_view Hacker::adjective()
 {
-    return faker::Helper::arrayElement<std::string>(faker::adjectives);
+    return Helper::arrayElement(adjectives);
 }
 
-std::string Hacker::noun()
+std::string_view Hacker::noun()
 {
-    return faker::Helper::arrayElement<std::string>(faker::nouns);
+    return Helper::arrayElement(nouns);
 }
 
-std::string Hacker::verb()
+std::string_view Hacker::verb()
 {
-    return faker::Helper::arrayElement<std::string>(faker::verbs);
+    return Helper::arrayElement(verbs);
 }
 
-std::string Hacker::ingverb()
+std::string_view Hacker::ingverb()
 {
-    return faker::Helper::arrayElement<std::string>(faker::ingverbs);
+    return Helper::arrayElement(ingverbs);
 }
 
 std::string Hacker::phrase()
 {
-    auto splitRandomPhrase = StringHelper::split(faker::Helper::arrayElement<std::string>(faker::phrases));
-    std::string ret;
+    const auto splitRandomPhrase = StringHelper::split(static_cast<std::string>(Helper::arrayElement(phrases)));
 
-    for (auto& word : splitRandomPhrase)
+    std::string phrase;
+
+    for (const auto& word : splitRandomPhrase)
     {
-        word = StringHelper::removePunctuation(word);
-        if (word == "{abbreviation}")
+        const auto normalizedWord = StringHelper::removePunctuation(word);
+
+        if (normalizedWord == "{abbreviation}")
         {
-            word = abbreviation();
+            phrase += abbreviation();
         }
-        else if (word == "{adjective}")
+        else if (normalizedWord == "{adjective}")
         {
-            word = adjective();
+            phrase += adjective();
         }
-        else if (word == "{noun}")
+        else if (normalizedWord == "{noun}")
         {
-            word = noun();
+            phrase += noun();
         }
-        else if (word == "{verb}")
+        else if (normalizedWord == "{verb}")
         {
-            word = verb();
+            phrase += verb();
         }
-        else if (word == "{ingverb}")
+        else if (normalizedWord == "{ingverb}")
         {
-            word = ingverb();
+            phrase += ingverb();
+        }
+        else
+        {
+            phrase += normalizedWord;
         }
 
-        ret += word + " ";
+        phrase += " ";
     }
 
-    return ret;
+    return phrase;
 }
 }

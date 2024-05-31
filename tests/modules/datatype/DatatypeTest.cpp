@@ -23,15 +23,15 @@ TEST_F(DatatypeTest, shouldGenerateBoolean)
 
 TEST_F(DatatypeTest, BooleanWithProbTest)
 {
-    bool result2 = Datatype::boolean(0.3);
+    const auto result2 = Datatype::boolean(0.3);
     EXPECT_TRUE(result2 || !result2);
 
-    bool result3 = Datatype::boolean(0.8);
+    const auto result3 = Datatype::boolean(0.8);
     EXPECT_TRUE(result3 || !result3);
 
-    bool result4 = Datatype::boolean(0.0);
+    const auto result4 = Datatype::boolean(0.0);
     EXPECT_FALSE(result4);
 
-    bool result5 = Datatype::boolean(1.0);
+    const auto result5 = Datatype::boolean(1.0);
     EXPECT_TRUE(result5);
 }

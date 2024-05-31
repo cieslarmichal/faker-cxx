@@ -1,15 +1,10 @@
 #include "faker-cxx/Hacker.h"
 
 #include <algorithm>
-#include <string>
 
 #include "gtest/gtest.h"
 
-#include "hacker/data/Abbreviations.h"
-#include "hacker/data/Adjectives.h"
-#include "hacker/data/Ingverbs.h"
-#include "hacker/data/Nouns.h"
-#include "hacker/data/Verbs.h"
+#include "hacker/HackerData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -21,49 +16,51 @@ public:
 
 TEST_F(HackerTest, shouldGenerateAbbreviation)
 {
-    std::string generatedAbbreviation = Hacker::abbreviation();
+    const auto generatedAbbreviation = Hacker::abbreviation();
 
-    ASSERT_TRUE(std::ranges::any_of(abbreviations, [generatedAbbreviation](const std::string& abbreviation)
+    ASSERT_TRUE(std::ranges::any_of(abbreviations, [generatedAbbreviation](const std::string_view& abbreviation)
                                     { return abbreviation == generatedAbbreviation; }));
 }
 
 TEST_F(HackerTest, shouldGenerateAdjective)
 {
-    std::string generatedAdjective = Hacker::adjective();
+    const auto generatedAdjective = Hacker::adjective();
 
-    ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string& adjective)
+    ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string_view& adjective)
                                     { return adjective == generatedAdjective; }));
 }
 
 TEST_F(HackerTest, shouldGenerateNoun)
 {
-    std::string generatedNoun = Hacker::noun();
+    const auto generatedNoun = Hacker::noun();
 
-    ASSERT_TRUE(std::ranges::any_of(nouns, [generatedNoun](const std::string& noun) { return noun == generatedNoun; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(nouns, [generatedNoun](const std::string_view& noun) { return noun == generatedNoun; }));
 }
 
 TEST_F(HackerTest, shouldGenerateVerb)
 {
-    std::string generatedVerb = Hacker::verb();
+    const auto generatedVerb = Hacker::verb();
 
-    ASSERT_TRUE(std::ranges::any_of(verbs, [generatedVerb](const std::string& verb) { return verb == generatedVerb; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(verbs, [generatedVerb](const std::string_view& verb) { return verb == generatedVerb; }));
 }
 
 TEST_F(HackerTest, shouldGenerateIngverb)
 {
-    std::string generatedIngverb = Hacker::ingverb();
+    const auto generatedIngverb = Hacker::ingverb();
 
-    ASSERT_TRUE(std::ranges::any_of(ingverbs, [generatedIngverb](const std::string& ingverb)
+    ASSERT_TRUE(std::ranges::any_of(ingverbs, [generatedIngverb](const std::string_view& ingverb)
                                     { return ingverb == generatedIngverb; }));
 }
 
 TEST_F(HackerTest, shouldGeneratePhrase)
 {
-    std::string generatedPhrase = Hacker::phrase();
+    const auto generatedPhrase = Hacker::phrase();
     bool hasAdjective, hasNoun, hasVerb, hasAbbreviation;
     hasAdjective = hasNoun = hasVerb = hasAbbreviation = false;
 
-    for (const std::string& adj : adjectives)
+    for (const std::string_view& adj : adjectives)
     {
         if (generatedPhrase.find(adj) != std::string::npos)
         {
@@ -72,7 +69,7 @@ TEST_F(HackerTest, shouldGeneratePhrase)
         }
     }
 
-    for (const std::string& noun : nouns)
+    for (const std::string_view& noun : nouns)
     {
         if (generatedPhrase.find(noun) != std::string::npos)
         {
@@ -81,7 +78,7 @@ TEST_F(HackerTest, shouldGeneratePhrase)
         }
     }
 
-    for (const std::string& verb : verbs)
+    for (const std::string_view& verb : verbs)
     {
         if (generatedPhrase.find(verb) != std::string::npos)
         {
@@ -90,7 +87,7 @@ TEST_F(HackerTest, shouldGeneratePhrase)
         }
     }
 
-    for (const std::string& abbreviation : abbreviations)
+    for (const std::string_view& abbreviation : abbreviations)
     {
         if (generatedPhrase.find(abbreviation) != std::string::npos)
         {

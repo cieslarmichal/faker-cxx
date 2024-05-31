@@ -1,7 +1,7 @@
 #pragma once
 
 #include <optional>
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -23,7 +23,7 @@ public:
         Technics,
         Transport
     };
-    
+
     /**
      * @brief Generates a real image url with `https://loremflickr.com/`.
      *
@@ -72,6 +72,6 @@ public:
      * @code
      * Image::type() // "png"
      */
-    static std::string type();
+    static std::string_view type();
 };
 }

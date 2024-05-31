@@ -18,7 +18,7 @@ TEST_F(HelperTest, ArrayElement)
 {
     std::vector<std::string> data{"hello", "world"};
 
-    std::string result = Helper::arrayElement(data);
+    const auto result = Helper::arrayElement(data);
 
     ASSERT_TRUE(std::ranges::any_of(data, [&result](const std::string& element) { return result == element; }));
 }
@@ -34,7 +34,7 @@ TEST_F(HelperTest, ArrayElementSpan)
 {
     std::vector<std::string> data{"hello", "world"};
 
-    std::string result = Helper::arrayElement(std::span<const std::string>(data));
+    const auto result = Helper::arrayElement(std::span<const std::string>(data));
 
     ASSERT_TRUE(std::ranges::any_of(data, [&result](const std::string& element) { return result == element; }));
 }
@@ -74,7 +74,7 @@ TEST_F(HelperTest, ShuffleString)
 {
     std::string input = "Hello World!";
 
-    std::string result = Helper::shuffleString(input);
+    const auto result = Helper::shuffleString(input);
 
     ASSERT_TRUE(
         std::ranges::all_of(input, [&result](char character) { return result.find(character) != std::string::npos; }));
@@ -109,7 +109,8 @@ TEST_F(HelperTest, SetElementEmptyData)
 TEST_F(HelperTest, ReplaceSymbolWithNumber)
 {
     std::string input = "123#456!";
-    std::string result = Helper::replaceSymbolWithNumber(input);
+
+    const auto result = Helper::replaceSymbolWithNumber(input);
 
     ASSERT_TRUE(std::ranges::all_of(result, ::isdigit));
 }
@@ -117,22 +118,23 @@ TEST_F(HelperTest, ReplaceSymbolWithNumber)
 TEST_F(HelperTest, RegexpStyleStringParse)
 {
     std::string input = "#{5}[2-4]test[1-3]";
-    std::string result = Helper::regexpStyleStringParse(input);
+
+    const auto result = Helper::regexpStyleStringParse(input);
 
     ASSERT_EQ(result.size(), 11);
 }
 
 TEST_F(HelperTest, ReplaceCreditCardSymbols)
 {
-    std::string result_default = Helper::replaceCreditCardSymbols();
+    const auto result_default = Helper::replaceCreditCardSymbols();
     ASSERT_EQ(result_default.size(), 24);
     ASSERT_EQ(result_default[4], '-');
     ASSERT_EQ(result_default[9], '-');
     ASSERT_EQ(result_default[14], '-');
     ASSERT_EQ(result_default[19], '-');
 
-    std::string format_custom = "1234-[4-9]-##!!-L";
-    std::string result_custom = Helper::replaceCreditCardSymbols(format_custom);
+    const auto format_custom = "1234-[4-9]-##!!-L";
+    const auto result_custom = Helper::replaceCreditCardSymbols(format_custom);
     std::regex custom_format_regex("1234-[4-9]-\\d{2}[2-9]{2}-\\d");
     ASSERT_TRUE(std::regex_match(result_custom, custom_format_regex));
 
