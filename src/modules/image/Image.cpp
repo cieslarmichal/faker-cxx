@@ -1,9 +1,9 @@
 #include "faker-cxx/Image.h"
 
+#include <array>
 #include <unordered_map>
 
 #include "../../common/FormatHelper.h"
-#include "data/Type.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 
@@ -11,6 +11,9 @@ namespace faker
 {
 namespace
 {
+const std::array<std::string_view, 15> imageTypes = {"ai",  "bmp", "eps", "gif", "heif", "indd", "jpeg", "jpg",
+                                                     "pdf", "png", "psd", "raw", "svg",  "tiff", "webp"};
+
 std::unordered_map<Image::ImageCategory, std::string> imageCategoryToLoremFlickrStringMapping = {
     {Image::ImageCategory::Animals, "animals"},   {Image::ImageCategory::Business, "business"},
     {Image::ImageCategory::Cats, "cats"},         {Image::ImageCategory::City, "city"},
@@ -41,7 +44,7 @@ std::string Image::dimensions()
     return FormatHelper::format("{}x{}", Number::integer<int>(1, 32720), Number::integer<int>(1, 17280));
 }
 
-std::string Image::type()
+std::string_view Image::type()
 {
     return Helper::arrayElement(imageTypes);
 }

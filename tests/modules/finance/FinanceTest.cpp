@@ -394,7 +394,9 @@ TEST_F(FinanceTest, shouldGenerateEthereumAddress)
 TEST_F(FinanceTest, shouldGenerateExpirationDate)
 {
     const auto expirationDate = Finance::creditCardExpirationDate();
-    int tenthPlaceYear = std::stoi(expirationDate.substr(3, 2));
+
+    const int tenthPlaceYear = std::stoi(expirationDate.substr(3, 2));
+
     ASSERT_TRUE(tenthPlaceYear >= 24);
 }
 

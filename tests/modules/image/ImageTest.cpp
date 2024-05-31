@@ -1,12 +1,12 @@
 #include "faker-cxx/Image.h"
 
 #include <algorithm>
-#include <string>
+#include <array>
+#include <string_view>
 
 #include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
-#include "image/data/Type.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -60,19 +60,24 @@ TEST_F(ImageTest, shouldGenerateDimensions)
 {
     const auto dimensions = Image::dimensions();
 
-    std::vector<std::string> split_dimensions = StringHelper::split(dimensions, "x");
+    const auto split_dimensions = StringHelper::split(dimensions, "x");
 
-    auto width_dimension = std::stoi(split_dimensions[0]);
+    const auto width_dimension = std::stoi(split_dimensions[0]);
+
     ASSERT_TRUE(width_dimension >= 1 && width_dimension <= 32720);
 
-    auto height_dimension = std::stoi(split_dimensions[1]);
+    const auto height_dimension = std::stoi(split_dimensions[1]);
+
     ASSERT_TRUE(height_dimension >= 1 && height_dimension <= 17280);
 }
 
 TEST_F(ImageTest, shouldGenerateType)
 {
+    const std::array<std::string_view, 15> imageTypes = {"ai",  "bmp", "eps", "gif", "heif", "indd", "jpeg", "jpg",
+                                                         "pdf", "png", "psd", "raw", "svg",  "tiff", "webp"};
+
     const auto generatedType = Image::type();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(imageTypes, [generatedType](const std::string& type) { return type == generatedType; }));
+    ASSERT_TRUE(std::ranges::any_of(imageTypes,
+                                    [generatedType](const std::string_view& type) { return type == generatedType; }));
 }

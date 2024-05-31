@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -16,7 +16,7 @@ public:
      * Hacker::abbreviation() // "TCP"
      * @endcode
      */
-    static std::string abbreviation();
+    static std::string_view abbreviation();
 
     /**
      * @brief Returns a random adjective.
@@ -27,7 +27,7 @@ public:
      * Hacker::adjective() // "open-source"
      * @endcode
      */
-    static std::string adjective();
+    static std::string_view adjective();
 
     /**
      * @brief Returns a random noun.
@@ -38,7 +38,7 @@ public:
      * Hacker::noun() // "coder"
      * @endcode
      */
-    static std::string noun();
+    static std::string_view noun();
 
     /**
      * @brief Returns a random verb.
@@ -49,7 +49,7 @@ public:
      * Hacker::verb() // "run"
      * @endcode
      */
-    static std::string verb();
+    static std::string_view verb();
 
     /**
      * @brief Returns a random ingverb.
@@ -60,7 +60,7 @@ public:
      * Hacker::ingverb() // "backing up"
      * @endcode
      */
-    static std::string ingverb();
+    static std::string_view ingverb();
 
     /**
      * @brief Returns a random phrase.
