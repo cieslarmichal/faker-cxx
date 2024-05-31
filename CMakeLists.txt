@@ -72,6 +72,7 @@ set(FAKER_SOURCES
     src/modules/sport/Sport.cpp
     src/modules/sport/SportData.cpp
     src/modules/string/String.cpp
+    src/modules/string/StringData.cpp
     src/modules/system/System.cpp
     src/modules/vehicle/Vehicle.cpp
     src/modules/vehicle/VehicleData.cpp
@@ -84,6 +85,7 @@ set(FAKER_SOURCES
     src/common/LuhnCheck.cpp
     src/common/StringHelper.cpp
     src/common/PrecisionMapper.cpp
+        src/modules/string/StringData.h
 )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})

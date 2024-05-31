@@ -8,7 +8,7 @@
 
 #include "common/FormatHelper.h"
 #include "common/StringHelper.h"
-#include "modules/string/data/Characters.h"
+#include "modules/string/StringData.h"
 #include "InternetData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
@@ -126,22 +126,22 @@ std::string Internet::password(int length, const PasswordOptions& options)
 
     if (options.upperLetters)
     {
-        characters += faker::upperCharacters;
+        characters += faker::string::upperCharacters;
     }
 
     if (options.lowerLetters)
     {
-        characters += faker::lowerCharacters;
+        characters += faker::string::lowerCharacters;
     }
 
     if (options.numbers)
     {
-        characters += faker::numericCharacters;
+        characters += faker::string::numericCharacters;
     }
 
     if (options.symbols)
     {
-        characters += faker::symbolCharacters;
+        characters += faker::string::symbolCharacters;
     }
 
     std::string password;

@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 
 #include "database/DatabaseData.h"
-#include "string/data/Characters.h"
+#include "string/StringData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -53,5 +53,5 @@ TEST_F(DatabaseTest, shouldGenerateMongoDbObjectId)
 
     ASSERT_EQ(mongoDbObjectId.size(), 24);
     ASSERT_TRUE(std::ranges::any_of(mongoDbObjectId, [](char hexNumberCharacter)
-                                    { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
