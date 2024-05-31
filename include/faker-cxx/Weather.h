@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -99,13 +99,13 @@ public:
     /**
      * @brief Generated a random weather description
      *
-     * @return String A random weather description
+     * @return String_View A random weather description
      *
      * @code
      * Weather::description(); // "Sunny"
      * @endcode
      */
-    static std::string weatherDescription();
+    static std::string_view weatherDescription();
 
     /**
      * @brief Generated a random cloud cover percentage

@@ -1,11 +1,9 @@
-#pragma once
-
-#include <string>
-#include <vector>
+#include "WeatherData.h"
 
 namespace faker
 {
-const std::vector<std::string> weatherDescriptions = {
+
+const std::array<std::string_view, 16> weatherDescriptions = {
     "clear sky",     "few clouds",  "scattered clouds",
     "broken clouds", "shower rain", "rainy",
     "thunderstorm",  "snowy",       "misty",
@@ -13,4 +11,5 @@ const std::vector<std::string> weatherDescriptions = {
     "cloudy",        "windy",       "dark",
     "foggy",
 };
+
 }
