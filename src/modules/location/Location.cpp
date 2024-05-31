@@ -13,42 +13,83 @@ namespace faker
 {
 namespace
 {
-const std::unordered_map<AddressCountry, CountryAddressesInfo> countryToCountryAddressesMapping{
-    {AddressCountry::Usa, usaAddresses},
-    {AddressCountry::Poland, polandAddresses},
-    {AddressCountry::Russia, russiaAddresses},
-    {AddressCountry::France, franceAddresses},
-    {AddressCountry::Ukraine, ukraineAddresses},
-    {AddressCountry::Italy, italyAddresses},
-    {AddressCountry::Germany, germanyAddresses},
-    {AddressCountry::Czech, czechAddresses},
-    {AddressCountry::Australia, australiaAddresses},
-    {AddressCountry::India, indiaAddresses},
-    {AddressCountry::Denmark, denmarkAddresses},
-    {AddressCountry::Spain, spainAddresses},
-    {AddressCountry::Brazil, brazilAddresses},
-    {AddressCountry::Finland, finlandAddresses},
-    {AddressCountry::Estonia, estoniaAddresses},
-};
+CountryAddressesInfo getAddresses(const AddressCountry& country)
+{
+    switch (country)
+    {
+    case AddressCountry::Usa:
+        return usaAddresses;
+    case AddressCountry::Poland:
+        return polandAddresses;
+    case AddressCountry::Russia:
+        return russiaAddresses;
+    case AddressCountry::France:
+        return franceAddresses;
+    case AddressCountry::Ukraine:
+        return ukraineAddresses;
+    case AddressCountry::Italy:
+        return italyAddresses;
+    case AddressCountry::Germany:
+        return germanyAddresses;
+    case AddressCountry::Czech:
+        return czechAddresses;
+    case AddressCountry::Australia:
+        return australiaAddresses;
+    case AddressCountry::India:
+        return indiaAddresses;
+    case AddressCountry::Denmark:
+        return denmarkAddresses;
+    case AddressCountry::Spain:
+        return spainAddresses;
+    case AddressCountry::Brazil:
+        return brazilAddresses;
+    case AddressCountry::Finland:
+        return finlandAddresses;
+    case AddressCountry::Estonia:
+        return estoniaAddresses;
+    default:
+        return usaAddresses;
+    }
+}
 
-const std::unordered_map<AddressCountry, Country> countryAddressToCountryMapping{
-    {AddressCountry::Usa, Country::Usa},
-    {AddressCountry::Poland, Country::Poland},
-    {AddressCountry::Russia, Country::Russia},
-    {AddressCountry::France, Country::France},
-    {AddressCountry::Ukraine, Country::Ukraine},
-    {AddressCountry::Italy, Country::Italy},
-    {AddressCountry::Germany, Country::Germany},
-    {AddressCountry::Czech, Country::Czech},
-    {AddressCountry::Australia, Country::Australia},
-    {AddressCountry::India, Country::India},
-    {AddressCountry::Denmark, Country::Denmark},
-    {AddressCountry::Spain, Country::Spain},
-    {AddressCountry::Brazil, Country::Brazil},
-    {AddressCountry::Finland, Country::Finland},
-    {AddressCountry::Estonia, Country::Estonia},
-
-};
+Country getCountry(const AddressCountry& addressCountry)
+{
+    switch (addressCountry)
+    {
+    case AddressCountry::Usa:
+        return Country::Usa;
+    case AddressCountry::Poland:
+        return Country::Poland;
+    case AddressCountry::Russia:
+        return Country::Russia;
+    case AddressCountry::France:
+        return Country::France;
+    case AddressCountry::Ukraine:
+        return Country::Ukraine;
+    case AddressCountry::Italy:
+        return Country::Italy;
+    case AddressCountry::Germany:
+        return Country::Germany;
+    case AddressCountry::Czech:
+        return Country::Czech;
+    case AddressCountry::Australia:
+        return Country::Australia;
+    case AddressCountry::India:
+        return Country::India;
+    case AddressCountry::Denmark:
+        return Country::Denmark;
+    case AddressCountry::Spain:
+        return Country::Spain;
+    case AddressCountry::Brazil:
+        return Country::Brazil;
+    case AddressCountry::Finland:
+        return Country::Finland;
+    case AddressCountry::Estonia:
+        return Country::Estonia;
+    default:
+        return Country::Usa;
+    }
+}
 }
 
 std::string_view Location::country()
@@ -63,7 +104,7 @@ std::string_view Location::countryCode()
 
 std::string_view Location::county(AddressCountry country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     if (countryAddresses.counties.empty())
     {
@@ -75,22 +116,20 @@ std::string_view Location::county(AddressCountry country)
 
 std::string_view Location::state(AddressCountry country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     return Helper::arrayElement(countryAddresses.states);
 }
 
 std::string Location::city(AddressCountry country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     const auto cityFormat = static_cast<std::string>(Helper::arrayElement(countryAddresses.cityFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"firstName", [&country]()
-         { return static_cast<std::string>(Person::firstName(countryAddressToCountryMapping.at(country))); }},
-        {"lastName", [&country]()
-         { return static_cast<std::string>(Person::lastName(countryAddressToCountryMapping.at(country))); }},
+        {"firstName", [&country]() { return static_cast<std::string>(Person::firstName(getCountry(country))); }},
+        {"lastName", [&country]() { return static_cast<std::string>(Person::lastName(getCountry(country))); }},
         {"cityName",
          [&countryAddresses]() { return static_cast<std::string>(Helper::arrayElement(countryAddresses.cities)); }},
         {"cityPrefix", [&countryAddresses]()
@@ -103,14 +142,14 @@ std::string Location::city(AddressCountry country)
 
 std::string Location::zipCode(AddressCountry country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     return Helper::replaceSymbolWithNumber(static_cast<std::string>(countryAddresses.zipCodeFormat));
 }
 
 std::string Location::streetAddress(AddressCountry country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"buildingNumber", [&country]() { return buildingNumber(country); }},
@@ -124,15 +163,13 @@ std::string Location::streetAddress(AddressCountry country)
 
 std::string Location::street(AddressCountry country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     const auto streetFormat = static_cast<std::string>(Helper::arrayElement(countryAddresses.streetFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"firstName", [&country]()
-         { return static_cast<std::string>(Person::firstName(countryAddressToCountryMapping.at(country))); }},
-        {"lastName", [&country]()
-         { return static_cast<std::string>(Person::lastName(countryAddressToCountryMapping.at(country))); }},
+        {"firstName", [&country]() { return static_cast<std::string>(Person::firstName(getCountry(country))); }},
+        {"lastName", [&country]() { return static_cast<std::string>(Person::lastName(getCountry(country))); }},
         {"streetName", [&countryAddresses]()
          { return static_cast<std::string>(Helper::arrayElement(countryAddresses.streetNames)); }},
         {"streetPrefix", [&countryAddresses]()
@@ -145,7 +182,7 @@ std::string Location::street(AddressCountry country)
 
 std::string Location::buildingNumber(AddressCountry country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     const auto buildingNumberFormat =
         static_cast<std::string>(Helper::arrayElement(countryAddresses.buildingNumberFormats));
@@ -155,7 +192,7 @@ std::string Location::buildingNumber(AddressCountry country)
 
 std::string Location::secondaryAddress(AddressCountry country)
 {
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     if (countryAddresses.secondaryAddressFormats.empty())
     {

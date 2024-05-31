@@ -36,23 +36,44 @@ const std::vector<AddressCountry> addressCountries{
     AddressCountry::Brazil,  AddressCountry::Finland, AddressCountry::Estonia,
 };
 
-const std::unordered_map<AddressCountry, CountryAddressesInfo> countryToCountryAddressesMapping{
-    {AddressCountry::Usa, usaAddresses},
-    {AddressCountry::Poland, polandAddresses},
-    {AddressCountry::Russia, russiaAddresses},
-    {AddressCountry::France, franceAddresses},
-    {AddressCountry::Ukraine, ukraineAddresses},
-    {AddressCountry::Italy, italyAddresses},
-    {AddressCountry::Germany, germanyAddresses},
-    {AddressCountry::Czech, czechAddresses},
-    {AddressCountry::Australia, australiaAddresses},
-    {AddressCountry::India, indiaAddresses},
-    {AddressCountry::Denmark, denmarkAddresses},
-    {AddressCountry::Spain, spainAddresses},
-    {AddressCountry::Brazil, brazilAddresses},
-    {AddressCountry::Finland, finlandAddresses},
-    {AddressCountry::Estonia, estoniaAddresses},
-};
+CountryAddressesInfo getAddresses(const AddressCountry& country)
+{
+    switch (country)
+    {
+    case AddressCountry::Usa:
+        return usaAddresses;
+    case AddressCountry::Poland:
+        return polandAddresses;
+    case AddressCountry::Russia:
+        return russiaAddresses;
+    case AddressCountry::France:
+        return franceAddresses;
+    case AddressCountry::Ukraine:
+        return ukraineAddresses;
+    case AddressCountry::Italy:
+        return italyAddresses;
+    case AddressCountry::Germany:
+        return germanyAddresses;
+    case AddressCountry::Czech:
+        return czechAddresses;
+    case AddressCountry::Australia:
+        return australiaAddresses;
+    case AddressCountry::India:
+        return indiaAddresses;
+    case AddressCountry::Denmark:
+        return denmarkAddresses;
+    case AddressCountry::Spain:
+        return spainAddresses;
+    case AddressCountry::Brazil:
+        return brazilAddresses;
+    case AddressCountry::Finland:
+        return finlandAddresses;
+    case AddressCountry::Estonia:
+        return estoniaAddresses;
+    default:
+        return usaAddresses;
+    }
+}
 
 const std::unordered_map<AddressCountry, std::string> generatedTestName{
     {AddressCountry::Usa, "shouldGenerateAmericanAddress"},
@@ -111,7 +132,7 @@ TEST_P(LocationTest, shouldGenerateCounty)
 {
     const auto country = GetParam();
 
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     const auto generatedCounty = Location::county(country);
 
@@ -124,7 +145,7 @@ TEST_P(LocationTest, shouldGenerateState)
 {
     const auto country = GetParam();
 
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     // TODO: remove
     if (country == AddressCountry::Estonia)
@@ -142,7 +163,7 @@ TEST_P(LocationTest, shouldGenerateCity)
 {
     const auto country = GetParam();
 
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     const auto generatedCity = Location::city(country);
 
@@ -175,7 +196,7 @@ TEST_P(LocationTest, shouldGenerateZipCode)
 {
     const auto country = GetParam();
 
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     const auto generatedZipCode = Location::zipCode(country);
 
@@ -188,7 +209,7 @@ TEST_P(LocationTest, shouldGenerateBuildingNumber)
 {
     const auto country = GetParam();
 
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     const auto generatedBuildingNumber = Location::buildingNumber(country);
 
@@ -227,7 +248,7 @@ TEST_P(LocationTest, shouldGenerateSecondaryAddress)
 {
     const auto country = GetParam();
 
-    const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
+    const auto& countryAddresses = getAddresses(country);
 
     const auto generatedSecondaryAddress = Location::secondaryAddress(country);
 
