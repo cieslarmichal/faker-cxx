@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 #include "types/Precision.h"
 
@@ -23,12 +23,6 @@ enum class AddressCountry
     Brazil,
     Finland,
     Estonia,
-    Romania,
-    Latvia,
-    Nepal,
-    Belgium,
-    Serbia,
-    Argentina
 };
 
 class Location
@@ -43,7 +37,7 @@ public:
      * Location::country() // "Poland"
      * @endcode
      */
-    static std::string country();
+    static std::string_view country();
 
     /**
      * @brief Returns a random country code.
@@ -54,7 +48,7 @@ public:
      * Location::countryCode() // "PL"
      * @endcode
      */
-    static std::string countryCode();
+    static std::string_view countryCode();
 
     /**
      * @brief Returns a random state for a given country.
@@ -67,7 +61,7 @@ public:
      * Location::state() // "Arizona"
      * @endcode
      */
-    static std::string state(AddressCountry country = AddressCountry::Usa);
+    static std::string_view state(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random county for a given country.
@@ -80,7 +74,7 @@ public:
      * Location::county() // "Adams County"
      * @endcode
      */
-    static std::string county(AddressCountry country = AddressCountry::Usa);
+    static std::string_view county(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random city for given country.
@@ -197,7 +191,7 @@ public:
      * Location::direction() // "North"
      * @endcode
      */
-    static std::string direction();
+    static std::string_view direction();
 
     /**
      * @brief Generates a random time zone.
@@ -208,6 +202,6 @@ public:
      * Location::timeZone() // "Europe/Warsaw"
      * @endcode
      */
-    static std::string timeZone();
+    static std::string_view timeZone();
 };
 }
