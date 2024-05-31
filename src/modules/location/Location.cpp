@@ -5,77 +5,63 @@
 
 #include "../../common/FormatHelper.h"
 #include "../../common/PrecisionMapper.h"
-#include "data/argentina/ArgentinaAddresses.h"
-#include "data/australia/AustraliaAddresses.h"
-#include "data/belgium/BelgiumAddresses.h"
-#include "data/brazil/BrazilAddresses.h"
-#include "data/Countries.h"
-#include "data/czech/CzechAddresses.h"
-#include "data/denmark/DenmarkAddresses.h"
-#include "data/Directions.h"
-#include "data/estonia/EstoniaAddresses.h"
-#include "data/finland/FinlandAddresses.h"
-#include "data/france/FranceAddresses.h"
-#include "data/germany/GermanyAddresses.h"
-#include "data/india/IndiaAddresses.h"
-#include "data/italy/ItalyAddresses.h"
-#include "data/latvia/LatviaAddresses.h"
-#include "data/nepal/NepalAddresses.h"
-#include "data/poland/PolandAddresses.h"
-#include "data/romania/RomaniaAddresses.h"
-#include "data/russia/RussiaAddresses.h"
-#include "data/serbia/SerbiaAddresses.h"
-#include "data/spain/SpainAddresses.h"
-#include "data/TimeZones.h"
-#include "data/ukraine/UkraineAddresses.h"
-#include "data/usa/UsaAddresses.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
+#include "LocationData.h"
 
 namespace faker
 {
 namespace
 {
-const std::unordered_map<AddressCountry, CountryAddresses> countryToCountryAddressesMapping{
-    {AddressCountry::Argentina, argentinaAddresses}, {AddressCountry::Usa, usaAddresses},
-    {AddressCountry::Poland, polandAddresses},       {AddressCountry::Russia, russiaAddresses},
-    {AddressCountry::France, franceAddresses},       {AddressCountry::Ukraine, ukraineAddresses},
-    {AddressCountry::Italy, italyAddresses},         {AddressCountry::Germany, germanyAddresses},
-    {AddressCountry::Czech, czechAddresses},         {AddressCountry::Australia, australiaAddresses},
-    {AddressCountry::India, indiaAddresses},         {AddressCountry::Denmark, denmarkAddresses},
-    {AddressCountry::Spain, spainAddresses},         {AddressCountry::Brazil, brazilAddresses},
-    {AddressCountry::Finland, finlandAddresses},     {AddressCountry::Estonia, estoniaAddresses},
-    {AddressCountry::Romania, romaniaAddresses},     {AddressCountry::Latvia, latviaAddresses},
-    {AddressCountry::Nepal, nepalAddresses},         {AddressCountry::Belgium, belgiumAddresses},
-    {AddressCountry::Serbia, serbiaAddresses},
+const std::unordered_map<AddressCountry, CountryAddressesInfo> countryToCountryAddressesMapping{
+    {AddressCountry::Usa, usaAddresses},
+    {AddressCountry::Poland, polandAddresses},
+    {AddressCountry::Russia, russiaAddresses},
+    {AddressCountry::France, franceAddresses},
+    {AddressCountry::Ukraine, ukraineAddresses},
+    {AddressCountry::Italy, italyAddresses},
+    {AddressCountry::Germany, germanyAddresses},
+    {AddressCountry::Czech, czechAddresses},
+    {AddressCountry::Australia, australiaAddresses},
+    {AddressCountry::India, indiaAddresses},
+    {AddressCountry::Denmark, denmarkAddresses},
+    {AddressCountry::Spain, spainAddresses},
+    {AddressCountry::Brazil, brazilAddresses},
+    {AddressCountry::Finland, finlandAddresses},
+    {AddressCountry::Estonia, estoniaAddresses},
 };
 
 const std::unordered_map<AddressCountry, Country> countryAddressToCountryMapping{
-    {AddressCountry::Argentina, Country::Argentina}, {AddressCountry::Usa, Country::Usa},
-    {AddressCountry::Poland, Country::Poland},       {AddressCountry::Russia, Country::Russia},
-    {AddressCountry::France, Country::France},       {AddressCountry::Ukraine, Country::Ukraine},
-    {AddressCountry::Italy, Country::Italy},         {AddressCountry::Germany, Country::Germany},
-    {AddressCountry::Czech, Country::Czech},         {AddressCountry::Australia, Country::Australia},
-    {AddressCountry::India, Country::India},         {AddressCountry::Denmark, Country::Denmark},
-    {AddressCountry::Spain, Country::Spain},         {AddressCountry::Brazil, Country::Brazil},
-    {AddressCountry::Finland, Country::Finland},     {AddressCountry::Estonia, Country::Estonia},
-    {AddressCountry::Romania, Country::Romania},     {AddressCountry::Latvia, Country::Latvia},
-    {AddressCountry::Nepal, Country::Nepal},         {AddressCountry::Belgium, Country::Belgium},
-    {AddressCountry::Serbia, Country::Serbia},
+    {AddressCountry::Usa, Country::Usa},
+    {AddressCountry::Poland, Country::Poland},
+    {AddressCountry::Russia, Country::Russia},
+    {AddressCountry::France, Country::France},
+    {AddressCountry::Ukraine, Country::Ukraine},
+    {AddressCountry::Italy, Country::Italy},
+    {AddressCountry::Germany, Country::Germany},
+    {AddressCountry::Czech, Country::Czech},
+    {AddressCountry::Australia, Country::Australia},
+    {AddressCountry::India, Country::India},
+    {AddressCountry::Denmark, Country::Denmark},
+    {AddressCountry::Spain, Country::Spain},
+    {AddressCountry::Brazil, Country::Brazil},
+    {AddressCountry::Finland, Country::Finland},
+    {AddressCountry::Estonia, Country::Estonia},
+
 };
 }
 
-std::string Location::country()
+std::string_view Location::country()
 {
-    return Helper::arrayElement<std::string>(allCountries);
+    return Helper::arrayElement(allCountries);
 }
 
-std::string Location::countryCode()
+std::string_view Location::countryCode()
 {
-    return Helper::arrayElement<std::string>(countryCodes);
+    return Helper::arrayElement(countryCodes);
 }
 
-std::string Location::county(AddressCountry country)
+std::string_view Location::county(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
@@ -84,30 +70,33 @@ std::string Location::county(AddressCountry country)
         return "";
     }
 
-    return Helper::arrayElement<std::string>(countryAddresses.counties);
+    return Helper::arrayElement(countryAddresses.counties);
 }
 
-std::string Location::state(AddressCountry country)
+std::string_view Location::state(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    return Helper::arrayElement<std::string>(countryAddresses.states);
+    return Helper::arrayElement(countryAddresses.states);
 }
 
 std::string Location::city(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    const auto cityFormat = Helper::arrayElement<std::string>(countryAddresses.cityFormats);
+    const auto cityFormat = static_cast<std::string>(Helper::arrayElement(countryAddresses.cityFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"firstName", [&country]() { return Person::firstName(countryAddressToCountryMapping.at(country)); }},
-        {"lastName", [&country]() { return Person::lastName(countryAddressToCountryMapping.at(country)); }},
-        {"cityName", [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.cities); }},
-        {"cityPrefix",
-         [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.cityPrefixes); }},
-        {"citySuffix",
-         [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.citySuffixes); }}};
+        {"firstName", [&country]()
+         { return static_cast<std::string>(Person::firstName(countryAddressToCountryMapping.at(country))); }},
+        {"lastName", [&country]()
+         { return static_cast<std::string>(Person::lastName(countryAddressToCountryMapping.at(country))); }},
+        {"cityName",
+         [&countryAddresses]() { return static_cast<std::string>(Helper::arrayElement(countryAddresses.cities)); }},
+        {"cityPrefix", [&countryAddresses]()
+         { return static_cast<std::string>(Helper::arrayElement(countryAddresses.cityPrefixes)); }},
+        {"citySuffix", [&countryAddresses]()
+         { return static_cast<std::string>(Helper::arrayElement(countryAddresses.citySuffixes)); }}};
 
     return FormatHelper::fillTokenValues(cityFormat, dataGeneratorsMapping);
 }
@@ -116,7 +105,7 @@ std::string Location::zipCode(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    return Helper::replaceSymbolWithNumber(countryAddresses.zipCodeFormat);
+    return Helper::replaceSymbolWithNumber(static_cast<std::string>(countryAddresses.zipCodeFormat));
 }
 
 std::string Location::streetAddress(AddressCountry country)
@@ -128,7 +117,7 @@ std::string Location::streetAddress(AddressCountry country)
         {"street", [&country]() { return street(country); }},
         {"secondaryAddress", [&country]() { return secondaryAddress(country); }}};
 
-    const auto addressFormat = Helper::arrayElement<std::string>(countryAddresses.addressFormats);
+    const auto addressFormat = static_cast<std::string>(Helper::arrayElement(countryAddresses.addressFormats));
 
     return FormatHelper::fillTokenValues(addressFormat, dataGeneratorsMapping);
 }
@@ -137,17 +126,19 @@ std::string Location::street(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    const auto streetFormat = Helper::arrayElement<std::string>(countryAddresses.streetFormats);
+    const auto streetFormat = static_cast<std::string>(Helper::arrayElement(countryAddresses.streetFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"firstName", [&country]() { return Person::firstName(countryAddressToCountryMapping.at(country)); }},
-        {"lastName", [&country]() { return Person::lastName(countryAddressToCountryMapping.at(country)); }},
-        {"streetName",
-         [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.streetNames); }},
-        {"streetPrefix",
-         [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.streetPrefixes); }},
-        {"streetSuffix",
-         [&countryAddresses]() { return Helper::arrayElement<std::string>(countryAddresses.streetSuffixes); }}};
+        {"firstName", [&country]()
+         { return static_cast<std::string>(Person::firstName(countryAddressToCountryMapping.at(country))); }},
+        {"lastName", [&country]()
+         { return static_cast<std::string>(Person::lastName(countryAddressToCountryMapping.at(country))); }},
+        {"streetName", [&countryAddresses]()
+         { return static_cast<std::string>(Helper::arrayElement(countryAddresses.streetNames)); }},
+        {"streetPrefix", [&countryAddresses]()
+         { return static_cast<std::string>(Helper::arrayElement(countryAddresses.streetPrefixes)); }},
+        {"streetSuffix", [&countryAddresses]()
+         { return static_cast<std::string>(Helper::arrayElement(countryAddresses.streetSuffixes)); }}};
 
     return FormatHelper::fillTokenValues(streetFormat, dataGeneratorsMapping);
 }
@@ -156,7 +147,8 @@ std::string Location::buildingNumber(AddressCountry country)
 {
     const auto& countryAddresses = countryToCountryAddressesMapping.at(country);
 
-    const auto buildingNumberFormat = Helper::arrayElement<std::string>(countryAddresses.buildingNumberFormats);
+    const auto buildingNumberFormat =
+        static_cast<std::string>(Helper::arrayElement(countryAddresses.buildingNumberFormats));
 
     return Helper::replaceSymbolWithNumber(buildingNumberFormat);
 }
@@ -170,7 +162,8 @@ std::string Location::secondaryAddress(AddressCountry country)
         return "";
     }
 
-    const auto secondaryAddressFormat = Helper::arrayElement<std::string>(countryAddresses.secondaryAddressFormats);
+    const auto secondaryAddressFormat =
+        static_cast<std::string>(Helper::arrayElement(countryAddresses.secondaryAddressFormats));
 
     return Helper::replaceSymbolWithNumber(secondaryAddressFormat);
 }
@@ -205,14 +198,14 @@ std::string Location::longitude(Precision precision)
     return ss.str();
 }
 
-std::string Location::direction()
+std::string_view Location::direction()
 {
-    return Helper::arrayElement<std::string>(directions);
+    return Helper::arrayElement(directions);
 }
 
-std::string Location::timeZone()
+std::string_view Location::timeZone()
 {
-    return Helper::arrayElement<std::string>(timeZones);
+    return Helper::arrayElement(timeZones);
 }
 
 }
