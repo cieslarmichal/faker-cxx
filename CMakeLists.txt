@@ -84,7 +84,6 @@ set(FAKER_SOURCES
     src/common/LuhnCheck.cpp
     src/common/StringHelper.cpp
     src/common/PrecisionMapper.cpp
-        src/modules/string/StringData.h
 )
 
 add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
