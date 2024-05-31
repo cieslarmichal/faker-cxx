@@ -1,11 +1,11 @@
 #include "faker-cxx/Weather.h"
 
 #include <algorithm>
-#include <string>
+#include <string_view>
 
 #include "gtest/gtest.h"
 
-#include "weather/data/WeatherDescription.h"
+#include "weather/WeatherData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -63,10 +63,10 @@ TEST_F(WeatherTest, shouldGenerateHumidity)
 
 TEST_F(WeatherTest, shouldGenerateWeatherDescription)
 {
-    std::string generatedWeatherDescription = Weather::weatherDescription();
+    const std::string_view generatedWeatherDescription = Weather::weatherDescription();
 
     ASSERT_TRUE(std::ranges::any_of(weatherDescriptions,
-                                    [generatedWeatherDescription](const std::string& weatherDescription)
+                                    [generatedWeatherDescription](const std::string_view& weatherDescription)
                                     { return weatherDescription == generatedWeatherDescription; }));
 }
 

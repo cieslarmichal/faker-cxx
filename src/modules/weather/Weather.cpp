@@ -1,10 +1,10 @@
 #include "faker-cxx/Weather.h"
 
-#include <string>
+#include <string_view>
 
-#include "data/WeatherDescription.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
+#include "WeatherData.h"
 
 namespace faker
 {
@@ -51,9 +51,9 @@ int Weather::humidity()
     return Number::integer(0, 100);
 }
 
-std::string Weather::weatherDescription()
+std::string_view Weather::weatherDescription()
 {
-    return Helper::arrayElement<std::string>(weatherDescriptions);
+    return Helper::arrayElement(weatherDescriptions);
 }
 
 int Weather::cloudCover()
