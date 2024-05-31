@@ -6,7 +6,7 @@
 
 #include "commerce/CommerceData.h"
 #include "common/StringHelper.h"
-#include "string/data/Characters.h"
+#include "string/StringData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -47,7 +47,7 @@ TEST_F(CommerceTest, shouldGenerateSku)
     ASSERT_TRUE(std::ranges::all_of(sku,
                                     [](char skuCharacter)
                                     {
-                                        return std::ranges::any_of(numericCharacters,
+                                        return std::ranges::any_of(string::numericCharacters,
                                                                    [skuCharacter](char numericCharacter)
                                                                    { return skuCharacter == numericCharacter; });
                                     }));
@@ -63,7 +63,7 @@ TEST_F(CommerceTest, shouldGenerateSkuWithSpecifiedLength)
     ASSERT_TRUE(std::ranges::all_of(sku,
                                     [](char skuCharacter)
                                     {
-                                        return std::ranges::any_of(numericCharacters,
+                                        return std::ranges::any_of(string::numericCharacters,
                                                                    [skuCharacter](char numericCharacter)
                                                                    { return skuCharacter == numericCharacter; });
                                     }));
@@ -279,7 +279,7 @@ TEST_F(CommerceTest, shouldGenerateDiscountCode)
                                     [](char generatedDiscountCodeCharacter)
                                     {
                                         return std::ranges::any_of(
-                                            upperAlphanumericCharacters,
+                                            string::upperAlphanumericCharacters,
                                             [generatedDiscountCodeCharacter](char upperAlphanumericCharacter)
                                             { return upperAlphanumericCharacter == generatedDiscountCodeCharacter; });
                                     }));
@@ -310,7 +310,7 @@ TEST_F(CommerceTest, shouldGenerateOrderNumber)
 TEST_F(CommerceTest, shouldGenerateOrderStatus)
 {
     const auto generatedOrderStatus = Commerce::orderStatus();
-    
+
     ASSERT_TRUE(std::ranges::any_of(orderStatuses, [generatedOrderStatus](const std::string_view& orderStatus)
                                     { return orderStatus == generatedOrderStatus; }));
 }

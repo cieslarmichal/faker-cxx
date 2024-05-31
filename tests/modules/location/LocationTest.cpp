@@ -22,7 +22,7 @@
 #include "person/data/spain/SpanishLastNames.h"
 #include "person/data/ukraine/UkrainianFirstNames.h"
 #include "person/data/ukraine/UkrainianLastNames.h"
-#include "string/data/Characters.h"
+#include "string/StringData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -115,7 +115,7 @@ public:
         return std::ranges::all_of(data,
                                    [](char dataCharacter)
                                    {
-                                       return std::ranges::any_of(numericCharacters,
+                                       return std::ranges::any_of(string::numericCharacters,
                                                                   [dataCharacter](char numericCharacter)
                                                                   { return numericCharacter == dataCharacter; });
                                    });
@@ -123,7 +123,7 @@ public:
 
     static bool checkIfCharacterIsNumeric(char character)
     {
-        return std::ranges::any_of(numericCharacters,
+        return std::ranges::any_of(string::numericCharacters,
                                    [character](char numericCharacter) { return numericCharacter == character; });
     }
 };

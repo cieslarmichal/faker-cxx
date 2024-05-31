@@ -7,7 +7,7 @@
 
 #include "color/ColorData.h"
 #include "common/StringHelper.h"
-#include "string/data/Characters.h"
+#include "string/StringData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -73,7 +73,7 @@ TEST_F(ColorTest, shouldGenerateHexColorWithoutAlpha)
     ASSERT_EQ(hexadecimal.size(), 7);
     ASSERT_EQ(prefix, "#");
     ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                    { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
@@ -86,7 +86,7 @@ TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
     ASSERT_EQ(hexadecimal.size(), 10);
     ASSERT_EQ(prefix, "0x");
     ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                    { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return string::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(ColorTest, shouldGenerateHslWithoutAlpha)

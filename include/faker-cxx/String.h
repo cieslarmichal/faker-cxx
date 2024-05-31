@@ -6,7 +6,7 @@
 #include <set>
 #include <sstream>
 #include <string>
-#include <unordered_map>
+#include <map>
 
 #include "RandomGenerator.h"
 #include "types/Hex.h"
@@ -27,16 +27,16 @@ struct CharCount
 };
 
 /**
- * A std::unordered_map where user can specify the count required for specific chars
+ * A std::map where user can specify the count required for specific chars
  */
-using GuaranteeMap = std::unordered_map<char, CharCount>;
+using GuaranteeMap = std::map<char, CharCount>;
 
 /**
  * @brief Checks if the given guarantee map is valid for given targetCharacters and length.
  *
  * @returns a bool.
  *
- * @param guarantee A std::unordered_map that maps the count range of specific characters required
+ * @param guarantee A std::map that maps the count range of specific characters required
  * @param targetCharacters A std::string consisting of all chars available for that string generating function
  * @param length The number of characters to generate.
  *
@@ -54,7 +54,7 @@ bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
  *
  * @returns least required std::string
  *
- * @param guarantee A std::unordered_map<char,CharCount> which stores the guarantee specified by the user
+ * @param guarantee A std::map<char,CharCount> which stores the guarantee specified by the user
  *
  * @code
  * GuaranteeMap guarantee { {'0',{3,10}},{'a',{6,8}} }; // "000aaaaaa"

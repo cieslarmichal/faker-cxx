@@ -12,7 +12,7 @@
 #include "person/data/england/EnglishLastNames.h"
 #include "person/data/romania/RomanianFirstNames.h"
 #include "person/data/romania/RomanianLastNames.h"
-#include "string/data/Characters.h"
+#include "string/StringData.h"
 #include "word/data/Adjectives.h"
 #include "word/data/Nouns.h"
 #include "internet/InternetData.h"
@@ -649,7 +649,7 @@ TEST_F(InternetTest, shouldGenerateIpv6)
                                     {
                                         return std::ranges::all_of(
                                             generatedIpv6Part, [](char hexCharacter)
-                                            { return hexLowerCharacters.find(hexCharacter) != std::string::npos; });
+                                            { return string::hexLowerCharacters.find(hexCharacter) != std::string::npos; });
                                     }));
 }
 
