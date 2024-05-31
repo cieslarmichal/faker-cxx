@@ -4,7 +4,7 @@ var searchData=
   ['tempunit_1',['tempUnit',['../classfaker_1_1Science.html#ab3667bf9c6d644ac1e07d42239b42179',1,'faker::Science']]],
   ['time_2',['time',['../classfaker_1_1Date.html#a085c4ef17837fa59fd6582f5f21f288e',1,'faker::Date']]],
   ['timeunit_3',['timeUnit',['../classfaker_1_1Science.html#a326517a93a08ce089df339e11a96e40d',1,'faker::Science']]],
-  ['timezone_4',['timeZone',['../classfaker_1_1Location.html#a90d40c1120e2719bb3a04e66a7c59e0c',1,'faker::Location']]],
+  ['timezone_4',['timeZone',['../classfaker_1_1Location.html#a4489d46d3499ae7528e74ab8203162a7',1,'faker::Location']]],
   ['timezone_5',['timezone',['../classfaker_1_1Date.html#ab42aa188d27cf6b19223d7a400eccb87',1,'faker::Date']]],
   ['title_6',['title',['../classfaker_1_1Book.html#aa3356a7e1834385f95e31bca8af754ac',1,'faker::Book']]],
   ['tovector_7',['toVector',['../classfaker_1_1Helper.html#a505d077c850b9914762fb68af0d926cf',1,'faker::Helper']]],
