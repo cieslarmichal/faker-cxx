@@ -1,17 +1,15 @@
 #include "faker-cxx/Internet.h"
 
 #include <array>
+#include <vector>
+#include <initializer_list>
 #include <unordered_map>
+#include <map>
 
-#include "../../common/FormatHelper.h"
-#include "../../common/StringHelper.h"
-#include "../string/data/Characters.h"
-#include "data/DomainSuffixes.h"
-#include "data/EmailHosts.h"
-#include "data/Emojis.h"
-#include "data/HttpMediaType.h"
-#include "data/HttpRequestHeaders.h"
-#include "data/HttpResponseHeaders.h"
+#include "common/FormatHelper.h"
+#include "common/StringHelper.h"
+#include "modules/string/data/Characters.h"
+#include "InternetData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
@@ -22,16 +20,16 @@ namespace faker
 {
 namespace
 {
-const std::vector<std::string> webProtocols{"http", "https"};
-const std::vector<std::string> httpMethodNames{"GET", "POST", "DELETE", "PATCH", "PUT"};
-const std::vector<unsigned> httpStatusInformationalCodes{100, 101, 102, 103};
-const std::vector<unsigned> httpStatusSuccessCodes{200, 201, 202, 203, 204, 205, 206, 207, 208, 226};
-const std::vector<unsigned> httpStatusRedirectionCodes{300, 301, 302, 303, 304, 305, 306, 307, 308};
-const std::vector<unsigned> httpStatusClientErrorCodes{400, 401, 402, 403, 404, 405, 406, 407, 408, 409,
-                                                       410, 411, 412, 413, 414, 415, 416, 417, 418, 421,
-                                                       422, 423, 424, 425, 426, 428, 429, 431, 451};
-const std::vector<unsigned> httpStatusServerErrorCodes{500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511};
-const std::unordered_map<HttpResponseType, std::vector<unsigned>> httpResponseTypeToCodesMapping{
+const std::array<std::string_view, 2> webProtocols{"http", "https"};
+const std::array<std::string_view, 5> httpMethodNames{"GET", "POST", "DELETE", "PATCH", "PUT"};
+const std::initializer_list<unsigned> httpStatusInformationalCodes{100, 101, 102, 103};
+const std::initializer_list<unsigned> httpStatusSuccessCodes{200, 201, 202, 203, 204, 205, 206, 207, 208, 226};
+const std::initializer_list<unsigned> httpStatusRedirectionCodes{300, 301, 302, 303, 304, 305, 306, 307, 308};
+const std::initializer_list<unsigned> httpStatusClientErrorCodes{400, 401, 402, 403, 404, 405, 406, 407, 408, 409,
+                                                           410, 411, 412, 413, 414, 415, 416, 417, 418, 421,
+                                                           422, 423, 424, 425, 426, 428, 429, 431, 451};
+const std::initializer_list<unsigned> httpStatusServerErrorCodes{500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511};
+const std::map<HttpResponseType, std::initializer_list<unsigned>> httpResponseTypeToCodesMapping{
     {HttpResponseType::Informational, httpStatusInformationalCodes},
     {HttpResponseType::Success, httpStatusSuccessCodes},
     {HttpResponseType::Redirection, httpStatusRedirectionCodes},
@@ -46,13 +44,40 @@ constexpr unsigned int ipv4ClassBFirstSector = 172;
 constexpr unsigned int ipv4ClassBSecondSectorLowerBound = 16u;
 constexpr unsigned int ipv4ClassBSecondSectorUpperBound = 31u;
 constexpr unsigned int ipv4SectorUpperBound = 255u;
-const std::unordered_map<Internet::EmojiType, std::vector<std::string>> emojiTypeToEmojisMapping{
-    {Internet::EmojiType::Smiley, smileyEmojis},     {Internet::EmojiType::Body, bodyEmojis},
-    {Internet::EmojiType::Person, personEmojis},     {Internet::EmojiType::Nature, natureEmojis},
-    {Internet::EmojiType::Food, foodEmojis},         {Internet::EmojiType::Travel, travelEmojis},
-    {Internet::EmojiType::Activity, activityEmojis}, {Internet::EmojiType::Object, objectEmojis},
-    {Internet::EmojiType::Symbol, symbolEmojis},     {Internet::EmojiType::Flag, flagEmojis},
+
+const std::map<Internet::EmojiType, std::vector<std::string_view>> emojiTypeToEmojisMapping = {
+    {Internet::EmojiType::Smiley, Helper::toVector(internet::smileyEmojis)},
+    {Internet::EmojiType::Body, Helper::toVector(internet::bodyEmojis)},
+    {Internet::EmojiType::Person, Helper::toVector(internet::personEmojis)},
+    {Internet::EmojiType::Nature, Helper::toVector(internet::natureEmojis)},
+    {Internet::EmojiType::Food, Helper::toVector(internet::foodEmojis)},
+    {Internet::EmojiType::Travel, Helper::toVector(internet::travelEmojis)},
+    {Internet::EmojiType::Activity, Helper::toVector(internet::activityEmojis)},
+    {Internet::EmojiType::Object, Helper::toVector(internet::objectEmojis)},
+    {Internet::EmojiType::Symbol, Helper::toVector(internet::symbolEmojis)},
+    {Internet::EmojiType::Flag, Helper::toVector(internet::flagEmojis)},
 };
+}
+
+std::vector<std::string_view> getAllEmojis()
+{
+    using namespace faker::internet;
+    std::vector<std::string_view> emojis;
+    emojis.reserve(smileyEmojis.size() + bodyEmojis.size() + personEmojis.size() + natureEmojis.size() +
+                   foodEmojis.size() + travelEmojis.size() + activityEmojis.size() + objectEmojis.size() +
+                   symbolEmojis.size() + flagEmojis.size());
+
+    emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
+    emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
+    emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
+    emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
+    emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
+    emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
+    emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
+    emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
+    emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
+    emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
+    return emojis;
 }
 
 std::string Internet::username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit,
@@ -86,16 +111,16 @@ std::string Internet::email(std::optional<std::string> firstName, std::optional<
                             std::optional<std::string> emailHost)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                                emailHost ? *emailHost : Helper::arrayElement<std::string>(emailHosts));
+                                emailHost ? *emailHost : Helper::arrayElement(internet::emailHosts));
 }
 
 std::string Internet::exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                                Helper::arrayElement<std::string>(emailExampleHosts));
+                                Helper::arrayElement(internet::emailExampleHosts));
 }
 
-std::string Internet::password(int length, PasswordOptions options)
+std::string Internet::password(int length, const PasswordOptions& options)
 {
     std::string characters;
 
@@ -129,53 +154,34 @@ std::string Internet::password(int length, PasswordOptions options)
     return password;
 }
 
-std::string Internet::emoji(std::optional<Internet::EmojiType> type)
+std::string_view Internet::emoji(std::optional<Internet::EmojiType> type)
 {
+    using namespace faker::internet;
     if (type)
     {
-        const auto& emojis = emojiTypeToEmojisMapping.at(*type);
+        const auto& emojisMapped = emojiTypeToEmojisMapping.at(*type);
 
-        return Helper::arrayElement<std::string>(emojis);
+        return Helper::arrayElement(emojisMapped);
     }
 
-    std::vector<std::string> emojis;
-
-    emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
-    emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
-    emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
-    emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
-    emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
-    emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
-    emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
-    emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
-    emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
-    emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
-
-    return Helper::arrayElement<std::string>(emojis);
+    const auto emojis = getAllEmojis();
+    return Helper::arrayElement(emojis);
 }
 
 bool Internet::checkIfEmojiIsValid(const std::string& emojiToCheck)
 {
-    for (const auto& vector : {smileyEmojis, bodyEmojis, personEmojis, natureEmojis, foodEmojis, travelEmojis,
-                               activityEmojis, objectEmojis, symbolEmojis, flagEmojis})
-    {
-        if (std::find(vector.begin(), vector.end(), emojiToCheck) != vector.end())
-        {
-            return true;
-        }
-    }
-
-    return false;
+    const auto emojis = getAllEmojis();
+    return std::find(emojis.begin(), emojis.end(), emojiToCheck) != emojis.end();
 }
 
-std::string Internet::protocol()
+std::string_view Internet::protocol()
 {
-    return Helper::arrayElement<std::string>(webProtocols);
+    return Helper::arrayElement(webProtocols);
 }
 
-std::string Internet::httpMethod()
+std::string_view Internet::httpMethod()
 {
-    return Helper::arrayElement<std::string>(httpMethodNames);
+    return Helper::arrayElement(httpMethodNames);
 }
 
 unsigned Internet::httpStatusCode(std::optional<HttpResponseType> responseType)
@@ -184,10 +190,13 @@ unsigned Internet::httpStatusCode(std::optional<HttpResponseType> responseType)
     {
         const auto& statusCodes = httpResponseTypeToCodesMapping.at(*responseType);
 
-        return Helper::arrayElement<unsigned>(statusCodes);
+        return Helper::arrayElement(statusCodes);
     }
 
     std::vector<unsigned> statusCodes;
+    statusCodes.reserve(httpStatusInformationalCodes.size() + httpStatusSuccessCodes.size() +
+                        httpStatusRedirectionCodes.size() + httpStatusClientErrorCodes.size() +
+                        httpStatusServerErrorCodes.size());
 
     statusCodes.insert(statusCodes.end(), httpStatusInformationalCodes.begin(), httpStatusInformationalCodes.end());
     statusCodes.insert(statusCodes.end(), httpStatusSuccessCodes.begin(), httpStatusSuccessCodes.end());
@@ -195,25 +204,25 @@ unsigned Internet::httpStatusCode(std::optional<HttpResponseType> responseType)
     statusCodes.insert(statusCodes.end(), httpStatusClientErrorCodes.begin(), httpStatusClientErrorCodes.end());
     statusCodes.insert(statusCodes.end(), httpStatusServerErrorCodes.begin(), httpStatusServerErrorCodes.end());
 
-    return Helper::arrayElement<unsigned>(statusCodes);
+    return Helper::arrayElement(statusCodes);
 }
 
-std::string Internet::httpRequestHeader()
+std::string_view Internet::httpRequestHeader()
 {
-    return Helper::arrayElement<std::string>(httpRequestHeaders);
+    return Helper::arrayElement(internet::httpRequestHeaders);
 }
 
-std::string Internet::httpResponseHeader()
+std::string_view Internet::httpResponseHeader()
 {
-    return Helper::arrayElement<std::string>(httpResponseHeaders);
+    return Helper::arrayElement(internet::httpResponseHeaders);
 }
 
-std::string Internet::httpMediaType()
+std::string_view Internet::httpMediaType()
 {
-    return Helper::arrayElement<std::string>(httpMediaTypes);
+    return Helper::arrayElement(internet::httpMediaTypes);
 }
 
-std::string Internet::ipv4(IPv4Class ipv4class)
+std::string Internet::ipv4(const IPv4Class& ipv4class)
 {
     std::array<unsigned int, 4> sectors{};
 
@@ -276,7 +285,7 @@ std::string Internet::mac(const std::string& sep)
 {
     std::string mac;
     std::string currentSep = sep;
-    std::vector<std::string> acceptableSeparators = {":", "-", ""};
+    const std::initializer_list<std::string> acceptableSeparators = {":", "-", ""};
 
     if (std::ranges::find(acceptableSeparators, currentSep) == acceptableSeparators.end())
     {
@@ -301,7 +310,7 @@ unsigned Internet::port()
     return Number::integer(65535u);
 }
 
-std::string Internet::url(WebProtocol webProtocol)
+std::string Internet::url(const WebProtocol& webProtocol)
 {
     const auto protocol = webProtocol == WebProtocol::Https ? "https" : "http";
 
@@ -318,9 +327,9 @@ std::string Internet::domainWord()
     return StringHelper::toLower(FormatHelper::format("{}-{}", Word::adjective(), Word::noun()));
 }
 
-std::string Internet::domainSuffix()
+std::string_view Internet::domainSuffix()
 {
-    return Helper::arrayElement<std::string>(domainSuffixes);
+    return Helper::arrayElement(internet::domainSuffixes);
 }
 
 std::string Internet::anonymousUsername(unsigned maxLength)

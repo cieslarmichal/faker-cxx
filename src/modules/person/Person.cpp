@@ -3,8 +3,10 @@
 #include <regex>
 #include <set>
 #include <unordered_map>
+#include <string>
+#include <string_view>
 
-#include "../../common/FormatHelper.h"
+#include "common/FormatHelper.h"
 #include "data/albania/AlbanianPeopleNames.h"
 #include "data/argentina/ArgentinianPeopleNames.h"
 #include "data/australia/AustralianPeopleNames.h"
@@ -395,13 +397,14 @@ std::string Person::prefix(std::optional<Sex> sex)
 
 std::string Person::bio()
 {
-    const auto randomBioFormat = Helper::arrayElement<std::string>(bioFormats);
+    const std::string randomBioFormat = Helper::arrayElement(bioFormats);
 
-    const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
+    const std::unordered_map<std::string, std::function<std::string()>> dataGeneratorsMapping {
         {"bio_part", []() { return Helper::arrayElement(bioPart); }},
         {"bio_supporter", []() { return Helper::arrayElement(bioSupporter); }},
         {"noun", []() { return Word::noun(); }},
-        {"emoji", []() { return Internet::emoji(); }}};
+        {"emoji", []() { return std::string{Internet::emoji()}; }}
+    };
 
     return FormatHelper::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
 }
