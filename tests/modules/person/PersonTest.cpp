@@ -872,7 +872,7 @@ bool checkTokenFormat(const std::string& bio)
         if (std::find(bioPart.begin(), bioPart.end(), matches[1]) != bioPart.end() &&
             std::find(bioPart.begin(), bioPart.end(), matches[2]) != bioPart.end() &&
             std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() &&
-            Internet::checkIfEmojiIsValid(matches[4]))
+            Internet::checkIfEmojiIsValid(std::string{matches[4]}))
             return true;
     }
 
@@ -891,7 +891,7 @@ bool checkTokenFormat(const std::string& bio)
         // in the bio_part vector.
         if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
             std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
-            Internet::checkIfEmojiIsValid(matches[3]))
+            Internet::checkIfEmojiIsValid(std::string{matches[3]}))
             return true;
     }
 
@@ -912,7 +912,7 @@ bool checkTokenFormat(const std::string& bio)
         if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
             std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
             std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() &&
-            Internet::checkIfEmojiIsValid(matches[4]))
+            Internet::checkIfEmojiIsValid(std::string{matches[4]}))
             return true;
     }
 

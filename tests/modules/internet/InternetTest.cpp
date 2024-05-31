@@ -504,14 +504,14 @@ TEST_F(InternetTest, shouldGenerateProtocol)
     const auto webProtocol = Internet::protocol();
 
     ASSERT_TRUE(std::ranges::any_of(webProtocols,
-                                    [webProtocol](const std::string& protocol) { return webProtocol == protocol; }));
+                                    [webProtocol](const std::string_view& protocol) { return webProtocol == protocol; }));
 }
 
 TEST_F(InternetTest, shouldGenerateHttpMethod)
 {
     const auto generatedHttpMethod = Internet::httpMethod();
 
-    ASSERT_TRUE(std::ranges::any_of(httpMethodNames, [generatedHttpMethod](const std::string& httpMethod)
+    ASSERT_TRUE(std::ranges::any_of(httpMethodNames, [generatedHttpMethod](const std::string_view& httpMethod)
                                     { return generatedHttpMethod == httpMethod; }));
 }
 
@@ -645,7 +645,7 @@ TEST_F(InternetTest, shouldGenerateIpv6)
     ASSERT_TRUE(std::ranges::all_of(generatedIpv6Parts, [](const std::string& generatedIpv6Part)
                                     { return generatedIpv6Part.size() == 4; }));
     ASSERT_TRUE(std::ranges::all_of(generatedIpv6Parts,
-                                    [](const std::string& generatedIpv6Part)
+                                    [](const std::string_view& generatedIpv6Part)
                                     {
                                         return std::ranges::all_of(
                                             generatedIpv6Part, [](char hexCharacter)

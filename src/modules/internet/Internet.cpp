@@ -4,6 +4,7 @@
 #include <vector>
 #include <initializer_list>
 #include <unordered_map>
+#include <map>
 
 #include "common/FormatHelper.h"
 #include "common/StringHelper.h"
@@ -28,7 +29,7 @@ const std::initializer_list<unsigned> httpStatusClientErrorCodes{400, 401, 402, 
                                                            410, 411, 412, 413, 414, 415, 416, 417, 418, 421,
                                                            422, 423, 424, 425, 426, 428, 429, 431, 451};
 const std::initializer_list<unsigned> httpStatusServerErrorCodes{500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511};
-const std::unordered_map<HttpResponseType, std::initializer_list<unsigned>> httpResponseTypeToCodesMapping{
+const std::map<HttpResponseType, std::initializer_list<unsigned>> httpResponseTypeToCodesMapping{
     {HttpResponseType::Informational, httpStatusInformationalCodes},
     {HttpResponseType::Success, httpStatusSuccessCodes},
     {HttpResponseType::Redirection, httpStatusRedirectionCodes},
@@ -44,7 +45,7 @@ constexpr unsigned int ipv4ClassBSecondSectorLowerBound = 16u;
 constexpr unsigned int ipv4ClassBSecondSectorUpperBound = 31u;
 constexpr unsigned int ipv4SectorUpperBound = 255u;
 
-const std::unordered_map<Internet::EmojiType, std::vector<std::string_view>> emojiTypeToEmojisMapping = {
+const std::map<Internet::EmojiType, std::vector<std::string_view>> emojiTypeToEmojisMapping = {
     {Internet::EmojiType::Smiley, Helper::toVector(internet::smileyEmojis)},
     {Internet::EmojiType::Body, Helper::toVector(internet::bodyEmojis)},
     {Internet::EmojiType::Person, Helper::toVector(internet::personEmojis)},
@@ -167,7 +168,7 @@ std::string_view Internet::emoji(std::optional<Internet::EmojiType> type)
     return Helper::arrayElement(emojis);
 }
 
-bool Internet::checkIfEmojiIsValid(const std::string_view& emojiToCheck)
+bool Internet::checkIfEmojiIsValid(const std::string& emojiToCheck)
 {
     const auto emojis = getAllEmojis();
     return std::find(emojis.begin(), emojis.end(), emojiToCheck) != emojis.end();
@@ -284,7 +285,7 @@ std::string Internet::mac(const std::string& sep)
 {
     std::string mac;
     std::string currentSep = sep;
-    std::vector<std::string> acceptableSeparators = {":", "-", ""};
+    const std::initializer_list<std::string> acceptableSeparators = {":", "-", ""};
 
     if (std::ranges::find(acceptableSeparators, currentSep) == acceptableSeparators.end())
     {
