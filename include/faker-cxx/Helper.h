@@ -6,6 +6,8 @@
 #include <set>
 #include <span>
 #include <string>
+#include <vector>
+#include <initializer_list>
 
 #include "Datatype.h"
 #include "Number.h"
@@ -79,6 +81,32 @@ public:
         const auto index = Number::integer<size_t>(data.size() - 1);
 
         return data[index];
+    }
+
+    /**
+     * @brief Get a random element from an initializer list.
+     *
+     * @tparam T an element type of the initializer list.
+     *
+     * @param data initializer list of elements.
+     *
+     * @return T a random element from the initializer list.
+     *
+     * @code
+     * Helper::arrayElement<std::string>(std::initializer_list<std::string>{{"hello"}, {"world"}}) // "hello"
+     * @endcode
+     */
+    template <class T>
+    static T arrayElement(const std::initializer_list<T>& data)
+    {
+        if (data.size() == 0)
+        {
+            throw std::invalid_argument{"Data is empty."};
+        }
+
+        const auto index = Number::integer<size_t>(data.size() - 1);
+
+        return *(data.begin() + index);
     }
 
     /**

@@ -2,6 +2,7 @@
 
 #include <array>
 #include <vector>
+#include <initializer_list>
 #include <unordered_map>
 
 #include "common/FormatHelper.h"
@@ -18,16 +19,16 @@ namespace faker
 {
 namespace
 {
-const std::array<std::string, 2> webProtocols{"http", "https"};
-const std::array<std::string, 5> httpMethodNames{"GET", "POST", "DELETE", "PATCH", "PUT"};
-const std::vector<unsigned> httpStatusInformationalCodes{100, 101, 102, 103};
-const std::vector<unsigned> httpStatusSuccessCodes{200, 201, 202, 203, 204, 205, 206, 207, 208, 226};
-const std::vector<unsigned> httpStatusRedirectionCodes{300, 301, 302, 303, 304, 305, 306, 307, 308};
-const std::vector<unsigned> httpStatusClientErrorCodes{400, 401, 402, 403, 404, 405, 406, 407, 408, 409,
+const std::array<std::string_view, 2> webProtocols{"http", "https"};
+const std::array<std::string_view, 5> httpMethodNames{"GET", "POST", "DELETE", "PATCH", "PUT"};
+const std::initializer_list<unsigned> httpStatusInformationalCodes{100, 101, 102, 103};
+const std::initializer_list<unsigned> httpStatusSuccessCodes{200, 201, 202, 203, 204, 205, 206, 207, 208, 226};
+const std::initializer_list<unsigned> httpStatusRedirectionCodes{300, 301, 302, 303, 304, 305, 306, 307, 308};
+const std::initializer_list<unsigned> httpStatusClientErrorCodes{400, 401, 402, 403, 404, 405, 406, 407, 408, 409,
                                                            410, 411, 412, 413, 414, 415, 416, 417, 418, 421,
                                                            422, 423, 424, 425, 426, 428, 429, 431, 451};
-const std::vector<unsigned> httpStatusServerErrorCodes{500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511};
-const std::unordered_map<HttpResponseType, std::vector<unsigned>> httpResponseTypeToCodesMapping{
+const std::initializer_list<unsigned> httpStatusServerErrorCodes{500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511};
+const std::unordered_map<HttpResponseType, std::initializer_list<unsigned>> httpResponseTypeToCodesMapping{
     {HttpResponseType::Informational, httpStatusInformationalCodes},
     {HttpResponseType::Success, httpStatusSuccessCodes},
     {HttpResponseType::Redirection, httpStatusRedirectionCodes},
@@ -188,10 +189,13 @@ unsigned Internet::httpStatusCode(std::optional<HttpResponseType> responseType)
     {
         const auto& statusCodes = httpResponseTypeToCodesMapping.at(*responseType);
 
-        return Helper::arrayElement<unsigned>(statusCodes);
+        return Helper::arrayElement(statusCodes);
     }
 
     std::vector<unsigned> statusCodes;
+    statusCodes.reserve(httpStatusInformationalCodes.size() + httpStatusSuccessCodes.size() +
+                        httpStatusRedirectionCodes.size() + httpStatusClientErrorCodes.size() +
+                        httpStatusServerErrorCodes.size());
 
     statusCodes.insert(statusCodes.end(), httpStatusInformationalCodes.begin(), httpStatusInformationalCodes.end());
     statusCodes.insert(statusCodes.end(), httpStatusSuccessCodes.begin(), httpStatusSuccessCodes.end());
@@ -199,7 +203,7 @@ unsigned Internet::httpStatusCode(std::optional<HttpResponseType> responseType)
     statusCodes.insert(statusCodes.end(), httpStatusClientErrorCodes.begin(), httpStatusClientErrorCodes.end());
     statusCodes.insert(statusCodes.end(), httpStatusServerErrorCodes.begin(), httpStatusServerErrorCodes.end());
 
-    return Helper::arrayElement<unsigned>(statusCodes);
+    return Helper::arrayElement(statusCodes);
 }
 
 std::string_view Internet::httpRequestHeader()
