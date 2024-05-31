@@ -8,7 +8,8 @@ var searchData=
   ['timezone_5',['timeZone',['../classfaker_1_1Location.html#a90d40c1120e2719bb3a04e66a7c59e0c',1,'faker::Location']]],
   ['timezone_6',['timezone',['../classfaker_1_1Date.html#ab42aa188d27cf6b19223d7a400eccb87',1,'faker::Date']]],
   ['title_7',['title',['../classfaker_1_1Book.html#aa3356a7e1834385f95e31bca8af754ac',1,'faker::Book']]],
-  ['translator_8',['translator',['../classfaker_1_1Book.html#a4608c5670078804769828029119573ae',1,'faker::Book']]],
-  ['tvshow_9',['tvShow',['../classfaker_1_1Movie.html#acde4548b33deccaefede4ef937e7877b',1,'faker::Movie']]],
-  ['type_10',['type',['../classfaker_1_1Animal.html#a0be4c8a6942f740034daf2d1dc0a75a8',1,'faker::Animal::type()'],['../classfaker_1_1Company.html#ae3bf0c91b23d25bb26d9fc180c859804',1,'faker::Company::type()'],['../classfaker_1_1Computer.html#a347ed9fff16e7f457d7b6862d0641907',1,'faker::Computer::type()'],['../classfaker_1_1Vehicle.html#ab698a19ed20d00f5408848356d84bc06',1,'faker::Vehicle::type()']]]
+  ['tovector_8',['toVector',['../classfaker_1_1Helper.html#a505d077c850b9914762fb68af0d926cf',1,'faker::Helper']]],
+  ['translator_9',['translator',['../classfaker_1_1Book.html#a4608c5670078804769828029119573ae',1,'faker::Book']]],
+  ['tvshow_10',['tvShow',['../classfaker_1_1Movie.html#acde4548b33deccaefede4ef937e7877b',1,'faker::Movie']]],
+  ['type_11',['type',['../classfaker_1_1Animal.html#a0be4c8a6942f740034daf2d1dc0a75a8',1,'faker::Animal::type()'],['../classfaker_1_1Company.html#ae3bf0c91b23d25bb26d9fc180c859804',1,'faker::Company::type()'],['../classfaker_1_1Computer.html#a347ed9fff16e7f457d7b6862d0641907',1,'faker::Computer::type()'],['../classfaker_1_1Vehicle.html#ab698a19ed20d00f5408848356d84bc06',1,'faker::Vehicle::type()']]]
 ];

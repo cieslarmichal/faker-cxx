@@ -107,138 +107,139 @@ $(function(){initNavTree('Internet_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;array&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;types/Country.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">namespace </span>faker</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">enum class</span> HttpResponseType</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    Informational,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    Success,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    Redirection,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    ClientError,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    ServerError</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">enum class</span> WebProtocol</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>{</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    Http,</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    Https</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">enum class</span> IPv4Class</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>{</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    A,</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    B,</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    C</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>};</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
-<div class="foldopen" id="foldopen00033" data-start="{" data-end="};">
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="structfaker_1_1PasswordOptions.html">   33</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structfaker_1_1PasswordOptions.html">PasswordOptions</a></div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>{</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keywordtype">bool</span> upperLetters = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">bool</span> lowerLetters = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">bool</span> numbers = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">bool</span> symbols = <span class="keyword">true</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>};</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;types/Country.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">enum class</span> HttpResponseType</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>{</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    Informational,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    Success,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    Redirection,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    ClientError,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    ServerError</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>};</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">enum class</span> WebProtocol</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>{</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    Http,</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    Https</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">enum class</span> IPv4Class</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    A,</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    B,</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    C</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>};</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="foldopen" id="foldopen00034" data-start="{" data-end="};">
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="structfaker_1_1PasswordOptions.html">   34</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structfaker_1_1PasswordOptions.html">PasswordOptions</a></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>{</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordtype">bool</span> upperLetters = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordtype">bool</span> lowerLetters = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordtype">bool</span> numbers = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    <span class="keywordtype">bool</span> symbols = <span class="keyword">true</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>};</div>
 </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="foldopen" id="foldopen00041" data-start="{" data-end="};">
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html">   41</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>{</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#ae4ab9735869c62cf258089f0cd741f83">   59</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#ae4ab9735869c62cf258089f0cd741f83">username</a>(std::optional&lt;std::string&gt; firstName = std::nullopt,</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                                std::optional&lt;std::string&gt; lastName = std::nullopt, Country country = Country::Usa);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">   79</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(std::optional&lt;std::string&gt; firstName = std::nullopt,</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>                             std::optional&lt;std::string&gt; lastName = std::nullopt,</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                             std::optional&lt;std::string&gt; emailHost = std::nullopt);</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a97776d509e7284b2663aa5631dc21bbc">   95</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a97776d509e7284b2663aa5631dc21bbc">exampleEmail</a>(std::optional&lt;std::string&gt; firstName = std::nullopt,</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>                                    std::optional&lt;std::string&gt; lastName = std::nullopt);</div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#aa485a1fe01f437fb5787b28d94d9c077">  111</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#aa485a1fe01f437fb5787b28d94d9c077">password</a>(<span class="keywordtype">int</span> length = 15, <a class="code hl_struct" href="structfaker_1_1PasswordOptions.html">PasswordOptions</a> options = {});</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">enum class</span> EmojiType</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    {</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>        Smiley,</div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        Body,</div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        <a class="code hl_class" href="classfaker_1_1Person.html">Person</a>,</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        Nature,</div>
-<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        <a class="code hl_class" href="classfaker_1_1Food.html">Food</a>,</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        Travel,</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        Activity,</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        Object,</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        Symbol,</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        Flag</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    };</div>
-<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#ab05b16c1008c0c95509b6d88d6d90b60">  139</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#ab05b16c1008c0c95509b6d88d6d90b60">emoji</a>(std::optional&lt;EmojiType&gt; type = std::nullopt);</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span> </div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a8c9c6bd30d42f99a7a58728034ef8f6a">  152</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classfaker_1_1Internet.html#a8c9c6bd30d42f99a7a58728034ef8f6a">checkIfEmojiIsValid</a>(<span class="keyword">const</span> std::string&amp; emojiToCheck);</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span> </div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#afcec10d2c5cccf38bfc9c5ddda6d7a04">  163</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#afcec10d2c5cccf38bfc9c5ddda6d7a04">protocol</a>();</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a1787871f9974218270bdd597320eae16">  174</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a1787871f9974218270bdd597320eae16">httpMethod</a>();</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span> </div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37">  188</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37">httpStatusCode</a>(std::optional&lt;HttpResponseType&gt; responseType = std::nullopt);</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span> </div>
-<div class="line"><a id="l00199" name="l00199"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#ab5c23e5e20d5d76c3e87e7fdbe4533b5">  199</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#ab5c23e5e20d5d76c3e87e7fdbe4533b5">httpRequestHeader</a>();</div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno">  200</span> </div>
-<div class="line"><a id="l00210" name="l00210"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a2035e26d9d435c144c96f3a78c02c390">  210</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a2035e26d9d435c144c96f3a78c02c390">httpResponseHeader</a>();</div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00221" name="l00221"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#ab5bd8ab51d4594f34d1edc35e357a1b2">  221</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#ab5bd8ab51d4594f34d1edc35e357a1b2">httpMediaType</a>();</div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span> </div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">  235</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">ipv4</a>(IPv4Class ipv4class = IPv4Class::C);</div>
-<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span> </div>
-<div class="line"><a id="l00254" name="l00254"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a50ba49be4f910fa160bcc48eb313f64f">  254</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a50ba49be4f910fa160bcc48eb313f64f">ipv4</a>(<span class="keyword">const</span> std::array&lt;unsigned int, 4&gt;&amp; baseIpv4Address,</div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno">  255</span>                            <span class="keyword">const</span> std::array&lt;unsigned int, 4&gt;&amp; generationMask);</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span> </div>
-<div class="line"><a id="l00266" name="l00266"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#abe53af22a375870b7feb9020d2a13b53">  266</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#abe53af22a375870b7feb9020d2a13b53">ipv6</a>();</div>
-<div class="line"><a id="l00267" name="l00267"></a><span class="lineno">  267</span> </div>
-<div class="line"><a id="l00279" name="l00279"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#af690ede0de3494404572b73f127bd09a">  279</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#af690ede0de3494404572b73f127bd09a">mac</a>(<span class="keyword">const</span> std::string&amp; sep = <span class="stringliteral">&quot;:&quot;</span>);</div>
-<div class="line"><a id="l00280" name="l00280"></a><span class="lineno">  280</span> </div>
-<div class="line"><a id="l00290" name="l00290"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#aa4ae235611f88b6f607b2958b49dcdd0">  290</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Internet.html#aa4ae235611f88b6f607b2958b49dcdd0">port</a>();</div>
-<div class="line"><a id="l00291" name="l00291"></a><span class="lineno">  291</span> </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a5e1681677a509194597848cd44f9a2e7">  303</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a5e1681677a509194597848cd44f9a2e7">url</a>(WebProtocol webProtocol = WebProtocol::Https);</div>
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno">  304</span> </div>
-<div class="line"><a id="l00314" name="l00314"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a0ea6cb024c64493e473d7b2ffe624623">  314</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a0ea6cb024c64493e473d7b2ffe624623">domainName</a>();</div>
-<div class="line"><a id="l00315" name="l00315"></a><span class="lineno">  315</span> </div>
-<div class="line"><a id="l00325" name="l00325"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a199a6c56acd69f45f07315669ebe0111">  325</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a199a6c56acd69f45f07315669ebe0111">domainWord</a>();</div>
-<div class="line"><a id="l00326" name="l00326"></a><span class="lineno">  326</span> </div>
-<div class="line"><a id="l00336" name="l00336"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a37f2c674c23e72832384258558c5e47f">  336</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a37f2c674c23e72832384258558c5e47f">domainSuffix</a>();</div>
-<div class="line"><a id="l00337" name="l00337"></a><span class="lineno">  337</span> </div>
-<div class="line"><a id="l00349" name="l00349"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a495813778b7e50dc6d957986b68255e2">  349</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a495813778b7e50dc6d957986b68255e2">anonymousUsername</a>(<span class="keywordtype">unsigned</span> maxLength);</div>
-<div class="line"><a id="l00350" name="l00350"></a><span class="lineno">  350</span>};</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="foldopen" id="foldopen00042" data-start="{" data-end="};">
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html">   42</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Internet.html">Internet</a></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>{</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#ae4ab9735869c62cf258089f0cd741f83">   60</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#ae4ab9735869c62cf258089f0cd741f83">username</a>(std::optional&lt;std::string&gt; firstName = std::nullopt,</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                                std::optional&lt;std::string&gt; lastName = std::nullopt, Country country = Country::Usa);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">   80</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">email</a>(std::optional&lt;std::string&gt; firstName = std::nullopt,</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>                             std::optional&lt;std::string&gt; lastName = std::nullopt,</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>                             std::optional&lt;std::string&gt; emailHost = std::nullopt);</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a97776d509e7284b2663aa5631dc21bbc">   96</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a97776d509e7284b2663aa5631dc21bbc">exampleEmail</a>(std::optional&lt;std::string&gt; firstName = std::nullopt,</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>                                    std::optional&lt;std::string&gt; lastName = std::nullopt);</div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#af61a12e80cb2425625409a6d779cdedc">  112</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#af61a12e80cb2425625409a6d779cdedc">password</a>(<span class="keywordtype">int</span> length = 15, <span class="keyword">const</span> <a class="code hl_struct" href="structfaker_1_1PasswordOptions.html">PasswordOptions</a>&amp; options = {});</div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keyword">enum class</span> EmojiType</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>    {</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>        Smiley,</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>        Body,</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>        <a class="code hl_class" href="classfaker_1_1Person.html">Person</a>,</div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>        Nature,</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>        <a class="code hl_class" href="classfaker_1_1Food.html">Food</a>,</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>        Travel,</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>        Activity,</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>        Object,</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>        Symbol,</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>        Flag</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    };</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a88b70c44e8773e10fe7ea4ba31038480">  140</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Internet.html#a88b70c44e8773e10fe7ea4ba31038480">emoji</a>(std::optional&lt;EmojiType&gt; type = std::nullopt);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a8c9c6bd30d42f99a7a58728034ef8f6a">  153</a></span>    <span class="keyword">static</span> <span class="keywordtype">bool</span> <a class="code hl_function" href="classfaker_1_1Internet.html#a8c9c6bd30d42f99a7a58728034ef8f6a">checkIfEmojiIsValid</a>(<span class="keyword">const</span> std::string&amp; emojiToCheck);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a6694708680bfa716d51039bd89c315c0">  164</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Internet.html#a6694708680bfa716d51039bd89c315c0">protocol</a>();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#ab8f31cf5b891958ef42ad5fed573efbe">  175</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Internet.html#ab8f31cf5b891958ef42ad5fed573efbe">httpMethod</a>();</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37">  189</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37">httpStatusCode</a>(std::optional&lt;HttpResponseType&gt; responseType = std::nullopt);</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a97fb8df2a16c6d117d32db1d2b9e5bf9">  200</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Internet.html#a97fb8df2a16c6d117d32db1d2b9e5bf9">httpRequestHeader</a>();</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a7fa7b4093b7d3895cfe4210507caf3a2">  211</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Internet.html#a7fa7b4093b7d3895cfe4210507caf3a2">httpResponseHeader</a>();</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#aae170262056747b12da5190204a2a6f7">  222</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Internet.html#aae170262056747b12da5190204a2a6f7">httpMediaType</a>();</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#afba2d4de956d4553c378ee8aafb26097">  236</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#afba2d4de956d4553c378ee8aafb26097">ipv4</a>(<span class="keyword">const</span> IPv4Class&amp; ipv4class = IPv4Class::C);</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
+<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a50ba49be4f910fa160bcc48eb313f64f">  255</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a50ba49be4f910fa160bcc48eb313f64f">ipv4</a>(<span class="keyword">const</span> std::array&lt;unsigned int, 4&gt;&amp; baseIpv4Address,</div>
+<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>                            <span class="keyword">const</span> std::array&lt;unsigned int, 4&gt;&amp; generationMask);</div>
+<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span> </div>
+<div class="line"><a id="l00267" name="l00267"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#abe53af22a375870b7feb9020d2a13b53">  267</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#abe53af22a375870b7feb9020d2a13b53">ipv6</a>();</div>
+<div class="line"><a id="l00268" name="l00268"></a><span class="lineno">  268</span> </div>
+<div class="line"><a id="l00280" name="l00280"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#af690ede0de3494404572b73f127bd09a">  280</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#af690ede0de3494404572b73f127bd09a">mac</a>(<span class="keyword">const</span> std::string&amp; sep = <span class="stringliteral">&quot;:&quot;</span>);</div>
+<div class="line"><a id="l00281" name="l00281"></a><span class="lineno">  281</span> </div>
+<div class="line"><a id="l00291" name="l00291"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#aa4ae235611f88b6f607b2958b49dcdd0">  291</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Internet.html#aa4ae235611f88b6f607b2958b49dcdd0">port</a>();</div>
+<div class="line"><a id="l00292" name="l00292"></a><span class="lineno">  292</span> </div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a8eaf2325ebce06abf9d0bce30122ab03">  304</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a8eaf2325ebce06abf9d0bce30122ab03">url</a>(<span class="keyword">const</span> WebProtocol&amp; webProtocol = WebProtocol::Https);</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span> </div>
+<div class="line"><a id="l00315" name="l00315"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a0ea6cb024c64493e473d7b2ffe624623">  315</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a0ea6cb024c64493e473d7b2ffe624623">domainName</a>();</div>
+<div class="line"><a id="l00316" name="l00316"></a><span class="lineno">  316</span> </div>
+<div class="line"><a id="l00326" name="l00326"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a199a6c56acd69f45f07315669ebe0111">  326</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a199a6c56acd69f45f07315669ebe0111">domainWord</a>();</div>
+<div class="line"><a id="l00327" name="l00327"></a><span class="lineno">  327</span> </div>
+<div class="line"><a id="l00337" name="l00337"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a179ea6f381546efc3544de650707b395">  337</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Internet.html#a179ea6f381546efc3544de650707b395">domainSuffix</a>();</div>
+<div class="line"><a id="l00338" name="l00338"></a><span class="lineno">  338</span> </div>
+<div class="line"><a id="l00350" name="l00350"></a><span class="lineno"><a class="line" href="classfaker_1_1Internet.html#a495813778b7e50dc6d957986b68255e2">  350</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Internet.html#a495813778b7e50dc6d957986b68255e2">anonymousUsername</a>(<span class="keywordtype">unsigned</span> maxLength);</div>
+<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>};</div>
 </div>
-<div class="line"><a id="l00351" name="l00351"></a><span class="lineno">  351</span>}</div>
+<div class="line"><a id="l00352" name="l00352"></a><span class="lineno">  352</span>}</div>
 <div class="ttc" id="aclassfaker_1_1Food_html"><div class="ttname"><a href="classfaker_1_1Food.html">faker::Food</a></div><div class="ttdef"><b>Definition</b> Food.h:8</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html"><div class="ttname"><a href="classfaker_1_1Internet.html">faker::Internet</a></div><div class="ttdef"><b>Definition</b> Internet.h:42</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html"><div class="ttname"><a href="classfaker_1_1Internet.html">faker::Internet</a></div><div class="ttdef"><b>Definition</b> Internet.h:43</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_a0ea6cb024c64493e473d7b2ffe624623"><div class="ttname"><a href="classfaker_1_1Internet.html#a0ea6cb024c64493e473d7b2ffe624623">faker::Internet::domainName</a></div><div class="ttdeci">static std::string domainName()</div><div class="ttdoc">Generates a random domain name.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_a1787871f9974218270bdd597320eae16"><div class="ttname"><a href="classfaker_1_1Internet.html#a1787871f9974218270bdd597320eae16">faker::Internet::httpMethod</a></div><div class="ttdeci">static std::string httpMethod()</div><div class="ttdoc">Generates a random http method name.</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_a179ea6f381546efc3544de650707b395"><div class="ttname"><a href="classfaker_1_1Internet.html#a179ea6f381546efc3544de650707b395">faker::Internet::domainSuffix</a></div><div class="ttdeci">static std::string_view domainSuffix()</div><div class="ttdoc">Generates a random domain suffix.</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_a199a6c56acd69f45f07315669ebe0111"><div class="ttname"><a href="classfaker_1_1Internet.html#a199a6c56acd69f45f07315669ebe0111">faker::Internet::domainWord</a></div><div class="ttdeci">static std::string domainWord()</div><div class="ttdoc">Generates a random domain word.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_a2035e26d9d435c144c96f3a78c02c390"><div class="ttname"><a href="classfaker_1_1Internet.html#a2035e26d9d435c144c96f3a78c02c390">faker::Internet::httpResponseHeader</a></div><div class="ttdeci">static std::string httpResponseHeader()</div><div class="ttdoc">Generates a random http response header.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_a37f2c674c23e72832384258558c5e47f"><div class="ttname"><a href="classfaker_1_1Internet.html#a37f2c674c23e72832384258558c5e47f">faker::Internet::domainSuffix</a></div><div class="ttdeci">static std::string domainSuffix()</div><div class="ttdoc">Generates a random domain suffix.</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_a495813778b7e50dc6d957986b68255e2"><div class="ttname"><a href="classfaker_1_1Internet.html#a495813778b7e50dc6d957986b68255e2">faker::Internet::anonymousUsername</a></div><div class="ttdeci">static std::string anonymousUsername(unsigned maxLength)</div><div class="ttdoc">Generates a random username.</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_a50ba49be4f910fa160bcc48eb313f64f"><div class="ttname"><a href="classfaker_1_1Internet.html#a50ba49be4f910fa160bcc48eb313f64f">faker::Internet::ipv4</a></div><div class="ttdeci">static std::string ipv4(const std::array&lt; unsigned int, 4 &gt; &amp;baseIpv4Address, const std::array&lt; unsigned int, 4 &gt; &amp;generationMask)</div><div class="ttdoc">Returns a string containing randomized ipv4 address based on given base address and mask.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_a5e1681677a509194597848cd44f9a2e7"><div class="ttname"><a href="classfaker_1_1Internet.html#a5e1681677a509194597848cd44f9a2e7">faker::Internet::url</a></div><div class="ttdeci">static std::string url(WebProtocol webProtocol=WebProtocol::Https)</div><div class="ttdoc">Generates a random url.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_a7aa45388e3c92c943e25f704e9889c3a"><div class="ttname"><a href="classfaker_1_1Internet.html#a7aa45388e3c92c943e25f704e9889c3a">faker::Internet::ipv4</a></div><div class="ttdeci">static std::string ipv4(IPv4Class ipv4class=IPv4Class::C)</div><div class="ttdoc">Returns a string containing randomized ipv4 address of the given class.</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_a6694708680bfa716d51039bd89c315c0"><div class="ttname"><a href="classfaker_1_1Internet.html#a6694708680bfa716d51039bd89c315c0">faker::Internet::protocol</a></div><div class="ttdeci">static std::string_view protocol()</div><div class="ttdoc">Returns a random web protocol. Either `http` or `https`.</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_a7fa7b4093b7d3895cfe4210507caf3a2"><div class="ttname"><a href="classfaker_1_1Internet.html#a7fa7b4093b7d3895cfe4210507caf3a2">faker::Internet::httpResponseHeader</a></div><div class="ttdeci">static std::string_view httpResponseHeader()</div><div class="ttdoc">Generates a random http response header.</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_a88b70c44e8773e10fe7ea4ba31038480"><div class="ttname"><a href="classfaker_1_1Internet.html#a88b70c44e8773e10fe7ea4ba31038480">faker::Internet::emoji</a></div><div class="ttdeci">static std::string_view emoji(std::optional&lt; EmojiType &gt; type=std::nullopt)</div><div class="ttdoc">Returns a random emoji.</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_a8c9c6bd30d42f99a7a58728034ef8f6a"><div class="ttname"><a href="classfaker_1_1Internet.html#a8c9c6bd30d42f99a7a58728034ef8f6a">faker::Internet::checkIfEmojiIsValid</a></div><div class="ttdeci">static bool checkIfEmojiIsValid(const std::string &amp;emojiToCheck)</div><div class="ttdoc">Verify that a given emoji is valid.</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_a8eaf2325ebce06abf9d0bce30122ab03"><div class="ttname"><a href="classfaker_1_1Internet.html#a8eaf2325ebce06abf9d0bce30122ab03">faker::Internet::url</a></div><div class="ttdeci">static std::string url(const WebProtocol &amp;webProtocol=WebProtocol::Https)</div><div class="ttdoc">Generates a random url.</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_a97776d509e7284b2663aa5631dc21bbc"><div class="ttname"><a href="classfaker_1_1Internet.html#a97776d509e7284b2663aa5631dc21bbc">faker::Internet::exampleEmail</a></div><div class="ttdeci">static std::string exampleEmail(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base with example domain.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_aa485a1fe01f437fb5787b28d94d9c077"><div class="ttname"><a href="classfaker_1_1Internet.html#aa485a1fe01f437fb5787b28d94d9c077">faker::Internet::password</a></div><div class="ttdeci">static std::string password(int length=15, PasswordOptions options={})</div><div class="ttdoc">Generates a random password-like string. Do not use this method for generating actual passwords for u...</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_a97fb8df2a16c6d117d32db1d2b9e5bf9"><div class="ttname"><a href="classfaker_1_1Internet.html#a97fb8df2a16c6d117d32db1d2b9e5bf9">faker::Internet::httpRequestHeader</a></div><div class="ttdeci">static std::string_view httpRequestHeader()</div><div class="ttdoc">Generates a random http request header.</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_aa4ae235611f88b6f607b2958b49dcdd0"><div class="ttname"><a href="classfaker_1_1Internet.html#aa4ae235611f88b6f607b2958b49dcdd0">faker::Internet::port</a></div><div class="ttdeci">static unsigned port()</div><div class="ttdoc">Generates a random port.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_ab05b16c1008c0c95509b6d88d6d90b60"><div class="ttname"><a href="classfaker_1_1Internet.html#ab05b16c1008c0c95509b6d88d6d90b60">faker::Internet::emoji</a></div><div class="ttdeci">static std::string emoji(std::optional&lt; EmojiType &gt; type=std::nullopt)</div><div class="ttdoc">Returns a random emoji.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_ab5bd8ab51d4594f34d1edc35e357a1b2"><div class="ttname"><a href="classfaker_1_1Internet.html#ab5bd8ab51d4594f34d1edc35e357a1b2">faker::Internet::httpMediaType</a></div><div class="ttdeci">static std::string httpMediaType()</div><div class="ttdoc">Generates a random http media type.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_ab5c23e5e20d5d76c3e87e7fdbe4533b5"><div class="ttname"><a href="classfaker_1_1Internet.html#ab5c23e5e20d5d76c3e87e7fdbe4533b5">faker::Internet::httpRequestHeader</a></div><div class="ttdeci">static std::string httpRequestHeader()</div><div class="ttdoc">Generates a random http request header.</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_aae170262056747b12da5190204a2a6f7"><div class="ttname"><a href="classfaker_1_1Internet.html#aae170262056747b12da5190204a2a6f7">faker::Internet::httpMediaType</a></div><div class="ttdeci">static std::string_view httpMediaType()</div><div class="ttdoc">Generates a random http media type.</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_ab8f31cf5b891958ef42ad5fed573efbe"><div class="ttname"><a href="classfaker_1_1Internet.html#ab8f31cf5b891958ef42ad5fed573efbe">faker::Internet::httpMethod</a></div><div class="ttdeci">static std::string_view httpMethod()</div><div class="ttdoc">Generates a random http method name.</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_abe53af22a375870b7feb9020d2a13b53"><div class="ttname"><a href="classfaker_1_1Internet.html#abe53af22a375870b7feb9020d2a13b53">faker::Internet::ipv6</a></div><div class="ttdeci">static std::string ipv6()</div><div class="ttdoc">Returns a string containing randomized ipv6 address.</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_ac9c4ff01e85aa66576683bdce5969b37"><div class="ttname"><a href="classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37">faker::Internet::httpStatusCode</a></div><div class="ttdeci">static unsigned httpStatusCode(std::optional&lt; HttpResponseType &gt; responseType=std::nullopt)</div><div class="ttdoc">Returns a random http status code.</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_ae4ab9735869c62cf258089f0cd741f83"><div class="ttname"><a href="classfaker_1_1Internet.html#ae4ab9735869c62cf258089f0cd741f83">faker::Internet::username</a></div><div class="ttdeci">static std::string username(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, Country country=Country::Usa)</div><div class="ttdoc">Generates a username using the given person's name as base.</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_af39e73f7b102e8ae73a9ebee7693ad2c"><div class="ttname"><a href="classfaker_1_1Internet.html#af39e73f7b102e8ae73a9ebee7693ad2c">faker::Internet::email</a></div><div class="ttdeci">static std::string email(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base.</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_af61a12e80cb2425625409a6d779cdedc"><div class="ttname"><a href="classfaker_1_1Internet.html#af61a12e80cb2425625409a6d779cdedc">faker::Internet::password</a></div><div class="ttdeci">static std::string password(int length=15, const PasswordOptions &amp;options={})</div><div class="ttdoc">Generates a random password-like string. Do not use this method for generating actual passwords for u...</div></div>
 <div class="ttc" id="aclassfaker_1_1Internet_html_af690ede0de3494404572b73f127bd09a"><div class="ttname"><a href="classfaker_1_1Internet.html#af690ede0de3494404572b73f127bd09a">faker::Internet::mac</a></div><div class="ttdeci">static std::string mac(const std::string &amp;sep=&quot;:&quot;)</div><div class="ttdoc">Returns a generated random mac address.</div></div>
-<div class="ttc" id="aclassfaker_1_1Internet_html_afcec10d2c5cccf38bfc9c5ddda6d7a04"><div class="ttname"><a href="classfaker_1_1Internet.html#afcec10d2c5cccf38bfc9c5ddda6d7a04">faker::Internet::protocol</a></div><div class="ttdeci">static std::string protocol()</div><div class="ttdoc">Returns a random web protocol. Either `http` or `https`.</div></div>
+<div class="ttc" id="aclassfaker_1_1Internet_html_afba2d4de956d4553c378ee8aafb26097"><div class="ttname"><a href="classfaker_1_1Internet.html#afba2d4de956d4553c378ee8aafb26097">faker::Internet::ipv4</a></div><div class="ttdeci">static std::string ipv4(const IPv4Class &amp;ipv4class=IPv4Class::C)</div><div class="ttdoc">Returns a string containing randomized ipv4 address of the given class.</div></div>
 <div class="ttc" id="aclassfaker_1_1Person_html"><div class="ttname"><a href="classfaker_1_1Person.html">faker::Person</a></div><div class="ttdef"><b>Definition</b> Person.h:16</div></div>
-<div class="ttc" id="astructfaker_1_1PasswordOptions_html"><div class="ttname"><a href="structfaker_1_1PasswordOptions.html">faker::PasswordOptions</a></div><div class="ttdef"><b>Definition</b> Internet.h:34</div></div>
+<div class="ttc" id="astructfaker_1_1PasswordOptions_html"><div class="ttname"><a href="structfaker_1_1PasswordOptions.html">faker::PasswordOptions</a></div><div class="ttdef"><b>Definition</b> Internet.h:35</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

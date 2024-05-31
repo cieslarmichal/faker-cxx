@@ -18,6 +18,6 @@ var searchData=
   ['distanceunit_15',['distanceUnit',['../classfaker_1_1Science.html#ab42a1c8263c0a0f2f74c6db5fcccd134',1,'faker::Science']]],
   ['dog_16',['dog',['../classfaker_1_1Animal.html#ae826deac98dad495066e5997a2bf60ce',1,'faker::Animal']]],
   ['domainname_17',['domainName',['../classfaker_1_1Internet.html#a0ea6cb024c64493e473d7b2ffe624623',1,'faker::Internet']]],
-  ['domainsuffix_18',['domainSuffix',['../classfaker_1_1Internet.html#a37f2c674c23e72832384258558c5e47f',1,'faker::Internet']]],
+  ['domainsuffix_18',['domainSuffix',['../classfaker_1_1Internet.html#a179ea6f381546efc3544de650707b395',1,'faker::Internet']]],
   ['domainword_19',['domainWord',['../classfaker_1_1Internet.html#a199a6c56acd69f45f07315669ebe0111',1,'faker::Internet']]]
 ];

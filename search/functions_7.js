@@ -8,10 +8,10 @@ var searchData=
   ['hsb_5',['hsb',['../classfaker_1_1Color.html#ae3253948412674d74a3ad9c010df5b77',1,'faker::Color']]],
   ['hsl_6',['hsl',['../classfaker_1_1Color.html#ac76590c23d158333133277b6f6f2163a',1,'faker::Color']]],
   ['hsv_7',['hsv',['../classfaker_1_1Color.html#a678712ced9e1af658474934bb418faab',1,'faker::Color']]],
-  ['httpmediatype_8',['httpMediaType',['../classfaker_1_1Internet.html#ab5bd8ab51d4594f34d1edc35e357a1b2',1,'faker::Internet']]],
-  ['httpmethod_9',['httpMethod',['../classfaker_1_1Internet.html#a1787871f9974218270bdd597320eae16',1,'faker::Internet']]],
-  ['httprequestheader_10',['httpRequestHeader',['../classfaker_1_1Internet.html#ab5c23e5e20d5d76c3e87e7fdbe4533b5',1,'faker::Internet']]],
-  ['httpresponseheader_11',['httpResponseHeader',['../classfaker_1_1Internet.html#a2035e26d9d435c144c96f3a78c02c390',1,'faker::Internet']]],
+  ['httpmediatype_8',['httpMediaType',['../classfaker_1_1Internet.html#aae170262056747b12da5190204a2a6f7',1,'faker::Internet']]],
+  ['httpmethod_9',['httpMethod',['../classfaker_1_1Internet.html#ab8f31cf5b891958ef42ad5fed573efbe',1,'faker::Internet']]],
+  ['httprequestheader_10',['httpRequestHeader',['../classfaker_1_1Internet.html#a97fb8df2a16c6d117d32db1d2b9e5bf9',1,'faker::Internet']]],
+  ['httpresponseheader_11',['httpResponseHeader',['../classfaker_1_1Internet.html#a7fa7b4093b7d3895cfe4210507caf3a2',1,'faker::Internet']]],
   ['httpstatuscode_12',['httpStatusCode',['../classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37',1,'faker::Internet']]],
   ['humidity_13',['humidity',['../classfaker_1_1Weather.html#af7a0525193a2748adf628334d5eb542a',1,'faker::Weather']]]
 ];
