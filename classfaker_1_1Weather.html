@@ -138,9 +138,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:af7a0525193a2748adf628334d5eb542a" id="r_af7a0525193a2748adf628334d5eb542a"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7a0525193a2748adf628334d5eb542a">humidity</a> ()</td></tr>
 <tr class="memdesc:af7a0525193a2748adf628334d5eb542a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generated a random humidity percentage.  <br /></td></tr>
 <tr class="separator:af7a0525193a2748adf628334d5eb542a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf4050bec8abf1acdaf68179197ab9a1" id="r_abf4050bec8abf1acdaf68179197ab9a1"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf4050bec8abf1acdaf68179197ab9a1">weatherDescription</a> ()</td></tr>
-<tr class="memdesc:abf4050bec8abf1acdaf68179197ab9a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generated a random weather description.  <br /></td></tr>
-<tr class="separator:abf4050bec8abf1acdaf68179197ab9a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07c5c81f09887af34773023e08616d7d" id="r_a07c5c81f09887af34773023e08616d7d"><td class="memItemLeft" align="right" valign="top">static std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07c5c81f09887af34773023e08616d7d">weatherDescription</a> ()</td></tr>
+<tr class="memdesc:a07c5c81f09887af34773023e08616d7d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generated a random weather description.  <br /></td></tr>
+<tr class="separator:a07c5c81f09887af34773023e08616d7d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7d0451aec845d0f8e1bd2e9989d818d0" id="r_a7d0451aec845d0f8e1bd2e9989d818d0"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7d0451aec845d0f8e1bd2e9989d818d0">cloudCover</a> ()</td></tr>
 <tr class="memdesc:a7d0451aec845d0f8e1bd2e9989d818d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generated a random cloud cover percentage.  <br /></td></tr>
 <tr class="separator:a7d0451aec845d0f8e1bd2e9989d818d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -326,8 +326,8 @@ Static Public Member Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="abf4050bec8abf1acdaf68179197ab9a1" name="abf4050bec8abf1acdaf68179197ab9a1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf4050bec8abf1acdaf68179197ab9a1">&#9670;&#160;</a></span>weatherDescription()</h2>
+<a id="a07c5c81f09887af34773023e08616d7d" name="a07c5c81f09887af34773023e08616d7d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07c5c81f09887af34773023e08616d7d">&#9670;&#160;</a></span>weatherDescription()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -336,7 +336,7 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string faker::Weather::weatherDescription </td>
+          <td class="memname">static std::string_view faker::Weather::weatherDescription </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -350,7 +350,7 @@ Static Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Generated a random weather description. </p>
-<dl class="section return"><dt>Returns</dt><dd><a class="el" href="classfaker_1_1String.html">String</a> A random weather description</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>String_View A random weather description</dd></dl>
 <div class="fragment"><div class="line">Weather::description(); <span class="comment">// &quot;Sunny&quot;</span></div>
 </div><!-- fragment --> 
 </div>
