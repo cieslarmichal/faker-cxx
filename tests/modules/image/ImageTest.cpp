@@ -1,7 +1,8 @@
 #include "faker-cxx/Image.h"
 
 #include <algorithm>
-#include <string>
+#include <array>
+#include <string_view>
 
 #include "gtest/gtest.h"
 
