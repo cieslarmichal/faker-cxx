@@ -52,7 +52,10 @@ jobs:
             -pr:h clang-18 \
             -s compiler.cppstd=20 \
             -s build_type=Debug \
-            -o "*:shared=True" --build=missing
+            -o "*:shared=True" \
+            -c:b tools.build:compiler_executables="{'c': '/usr/bin/clang-18', 'cpp': '/usr/bin/clang++-18'}" \
+            -c:h tools.build:compiler_executables="{'c': '/usr/bin/clang-18', 'cpp': '/usr/bin/clang++-18'}" \
+            --build=missing \
 
       - name: Configure CMake
         run: |

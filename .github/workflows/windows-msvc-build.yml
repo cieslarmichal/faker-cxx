@@ -43,13 +43,7 @@ jobs:
 
       - name: Install Conan dependencies
         run: |
-          conan install conanfile.txt \
-            -r conancenter \
-            -pr:b msvc-19 \
-            -pr:h msvc-19 \
-            -s compiler.cppstd=20 \
-            -s build_type=Debug \
-            -o "*:shared=True" --build=missing
+          conan install conanfile.txt -r conancenter -pr:b msvc-19 -pr:h msvc-19 -s compiler.cppstd=20 -s build_type=Debug -o "*:shared=True" --build=missing
 
       - name: Configure CMake
         run: |

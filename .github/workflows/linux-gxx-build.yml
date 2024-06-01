@@ -54,7 +54,10 @@ jobs:
             -pr:h gcc-${{ matrix.gcc_version }} \
             -s compiler.cppstd=20 \
             -s build_type=Debug \
-            -o "*:shared=True" --build=missing
+            -c:b tools.build:compiler_executables="{'c': '/usr/bin/gcc-${{ matrix.gcc_version }}', 'cpp': '/usr/bin/g++-${{ matrix.gcc_version }}'}" \
+            -c:h tools.build:compiler_executables="{'c': '/usr/bin/gcc-${{ matrix.gcc_version }}', 'cpp': '/usr/bin/g++-${{ matrix.gcc_version }}'}" \
+            -o "*:shared=True" \
+            --build=missing
 
       - name: Configure CMake
         run: |
