@@ -42,6 +42,9 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r .github/requirements.txt
 
+      - name: Install Ninja
+        uses: seanmiddleditch/gha-setup-ninja@master
+
       - name: Configure Conan profile
         run: conan profile detect --force --name msvc-19
 

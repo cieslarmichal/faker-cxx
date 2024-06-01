@@ -46,9 +46,6 @@ jobs:
           python-version: '3.10'
           cache: 'pip'
 
-      - name: Install Ninja
-        uses: seanmiddleditch/gha-setup-ninja@master
-
       - name: Install Python dependencies
         run: pip install -r .github/requirements.txt
 
