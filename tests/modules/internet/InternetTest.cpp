@@ -1,13 +1,23 @@
 #include "faker-cxx/Internet.h"
 
 #include <algorithm>
-#include <string_view>
+#include <array>
+#include <cctype>
 #include <charconv>
+#include <cstddef>
 #include <initializer_list>
+#include <optional>
+#include <sstream>
+#include <string>
+#include <string_view>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
+#include "faker-cxx/Number.h"
+#include "faker-cxx/types/Country.h"
+#include "internet/InternetData.h"
 #include "person/data/england/EnglishFirstNames.h"
 #include "person/data/england/EnglishLastNames.h"
 #include "person/data/romania/RomanianFirstNames.h"
@@ -15,8 +25,6 @@
 #include "string/StringData.h"
 #include "word/data/Adjectives.h"
 #include "word/data/Nouns.h"
-#include "internet/InternetData.h"
-#include "faker-cxx/Number.h"
 
 using namespace ::testing;
 using namespace faker;

@@ -1,11 +1,21 @@
 #include "faker-cxx/Finance.h"
 
+#include <cstddef>
+#include <ios>
+#include <optional>
+#include <sstream>
+#include <string>
+#include <string_view>
+#include <vector>
+
 #include "../../common/FormatHelper.h"
 #include "../../common/PrecisionMapper.h"
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
+#include "faker-cxx/types/Hex.h"
+#include "faker-cxx/types/Precision.h"
 #include "FinanceData.h"
 
 namespace faker

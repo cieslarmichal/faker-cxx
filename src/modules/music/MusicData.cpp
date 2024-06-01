@@ -1,5 +1,8 @@
 #include "MusicData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker::music
 {
 const std::array<std::string_view, 298> artists = {

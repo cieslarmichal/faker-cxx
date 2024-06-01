@@ -1,7 +1,7 @@
 #include "faker-cxx/Phone.h"
 
 #include <algorithm>
-#include <vector>
+#include <cctype>
 #include <string>
 #include <string_view>
 

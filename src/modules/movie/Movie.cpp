@@ -1,7 +1,9 @@
 #include "faker-cxx/Movie.h"
 
-#include "MovieData.h"
+#include <string_view>
+
 #include "faker-cxx/Helper.h"
+#include "MovieData.h"
 
 namespace faker
 {

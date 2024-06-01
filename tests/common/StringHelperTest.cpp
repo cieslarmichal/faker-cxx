@@ -1,6 +1,6 @@
 ﻿#include "StringHelper.h"
 
-#include <algorithm>
+#include <vector>
 
 #include "gtest/gtest.h"
 

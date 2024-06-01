@@ -1,6 +1,9 @@
 #include "faker-cxx/Airline.h"
 
 #include <algorithm>
+#include <cctype>
+#include <string>
+#include <string_view>
 
 #include "gtest/gtest.h"
 

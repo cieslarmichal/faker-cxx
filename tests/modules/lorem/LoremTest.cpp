@@ -1,6 +1,8 @@
 #include "faker-cxx/Lorem.h"
 
 #include <algorithm>
+#include <cctype>
+#include <string_view>
 
 #include "gtest/gtest.h"
 

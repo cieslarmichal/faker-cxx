@@ -1,5 +1,8 @@
 #include "PhoneData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker::phone
 {
 const std::array<std::string_view, 217> areaCodes = {

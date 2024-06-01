@@ -1,5 +1,8 @@
 #include "VehicleData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker
 {
 namespace vehicle

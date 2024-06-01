@@ -1,8 +1,12 @@
 #include "faker-cxx/Database.h"
 
+#include <string>
+#include <string_view>
+
 #include "DatabaseData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/String.h"
+#include "faker-cxx/types/Hex.h"
 
 namespace faker
 {

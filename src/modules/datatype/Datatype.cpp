@@ -1,5 +1,7 @@
 #include "faker-cxx/Datatype.h"
 
+#include <cmath>
+
 #include "faker-cxx/Number.h"
 
 namespace faker

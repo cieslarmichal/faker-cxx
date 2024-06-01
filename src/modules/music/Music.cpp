@@ -1,7 +1,9 @@
 #include "faker-cxx/Music.h"
 
-#include "MusicData.h"
+#include <string_view>
+
 #include "faker-cxx/Helper.h"
+#include "MusicData.h"
 
 namespace faker
 {

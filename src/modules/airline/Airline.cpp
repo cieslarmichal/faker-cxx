@@ -1,5 +1,8 @@
 #include "faker-cxx/Airline.h"
 
+#include <string>
+#include <string_view>
+
 #include "AirlineData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"

@@ -1,5 +1,7 @@
 #include "faker-cxx/Number.h"
 
+#include <random>
+
 namespace faker
 {
 std::random_device Number::randomDevice;

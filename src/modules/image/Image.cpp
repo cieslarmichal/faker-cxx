@@ -1,6 +1,9 @@
 #include "faker-cxx/Image.h"
 
 #include <array>
+#include <optional>
+#include <string>
+#include <string_view>
 #include <unordered_map>
 
 #include "../../common/FormatHelper.h"

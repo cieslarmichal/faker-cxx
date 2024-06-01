@@ -1,5 +1,9 @@
 #include "faker-cxx/Git.h"
 
+#include <cstddef>
+#include <optional>
+#include <string>
+
 #include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
 #include "../date/DateData.h"
@@ -8,6 +12,8 @@
 #include "faker-cxx/Number.h"
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
+#include "faker-cxx/types/Country.h"
+#include "faker-cxx/types/Hex.h"
 #include "faker-cxx/Word.h"
 
 namespace faker

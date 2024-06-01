@@ -1,6 +1,10 @@
 #include "faker-cxx/Commerce.h"
 
 #include <algorithm>
+#include <cctype>
+#include <cstddef>
+#include <string>
+#include <string_view>
 
 #include "gtest/gtest.h"
 

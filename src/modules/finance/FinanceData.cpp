@@ -1,5 +1,12 @@
 #include "FinanceData.h"
 
+#include <array>
+#include <string_view>
+#include <unordered_map>
+#include <vector>
+
+#include "faker-cxx/Finance.h"
+
 namespace faker
 {
 const std::array<Finance::BicCountry, 10> bicCountries{

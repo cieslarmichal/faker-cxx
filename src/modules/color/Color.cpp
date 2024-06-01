@@ -1,10 +1,14 @@
 #include "faker-cxx/Color.h"
 
+#include <string>
+#include <string_view>
+
 #include "../../common/FormatHelper.h"
 #include "ColorData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
+#include "faker-cxx/types/Hex.h"
 
 namespace faker
 {

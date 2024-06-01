@@ -4,7 +4,10 @@
 #include <cstdint>
 #include <cstring>
 #include <iomanip>
+#include <ios>
+#include <optional>
 #include <sstream>
+#include <string>
 
 #include "faker-cxx/Word.h"
 

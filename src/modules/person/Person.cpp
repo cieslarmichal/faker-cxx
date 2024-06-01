@@ -1,10 +1,11 @@
 #include "faker-cxx/Person.h"
 
-#include <regex>
+#include <functional>
+#include <optional>
 #include <set>
-#include <unordered_map>
 #include <string>
-#include <string_view>
+#include <unordered_map>
+#include <vector>
 
 #include "common/FormatHelper.h"
 #include "data/albania/AlbanianPeopleNames.h"
@@ -79,8 +80,11 @@
 #include "data/ZodiacSigns.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
+#include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
+#include "faker-cxx/types/Country.h"
 #include "faker-cxx/Word.h"
+#include "modules/person/data/PeopleNames.h"
 
 namespace faker
 {

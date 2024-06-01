@@ -1,13 +1,17 @@
 #include "faker-cxx/String.h"
 
 #include <algorithm>
+#include <cctype>
 #include <random>
 #include <stdexcept>
+#include <string>
+#include <utility>
 
 #include "gtest/gtest.h"
 
-#include "string/StringData.h"
 #include "faker-cxx/RandomGenerator.h"
+#include "faker-cxx/types/Hex.h"
+#include "string/StringData.h"
 
 using namespace ::testing;
 using namespace faker;

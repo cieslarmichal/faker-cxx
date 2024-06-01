@@ -1,11 +1,17 @@
 #include "faker-cxx/Person.h"
 
 #include <algorithm>
+#include <cctype>
 #include <regex>
+#include <string>
+#include <unordered_map>
+#include <utility>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 #include "faker-cxx/Internet.h"
+#include "faker-cxx/types/Country.h"
 #include "person/data/albania/AlbanianPeopleNames.h"
 #include "person/data/argentina/ArgentinianPeopleNames.h"
 #include "person/data/australia/AustralianPeopleNames.h"
@@ -76,6 +82,7 @@
 #include "person/data/usa/UsaPeopleNames.h"
 #include "person/data/vietnam/VietnamesePeopleNames.h"
 #include "person/data/ZodiacSigns.h"
+#include "StringHelper.h"
 #include "word/data/Nouns.h"
 
 using namespace ::testing;

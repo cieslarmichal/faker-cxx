@@ -1,5 +1,7 @@
 #include "faker-cxx/Animal.h"
 
+#include <string_view>
+
 #include "AnimalData.h"
 #include "faker-cxx/Helper.h"
 

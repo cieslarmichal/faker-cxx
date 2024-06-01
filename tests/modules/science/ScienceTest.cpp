@@ -1,6 +1,7 @@
 #include "faker-cxx/Science.h"
 
 #include <algorithm>
+#include <vector>
 
 #include "gtest/gtest.h"
 

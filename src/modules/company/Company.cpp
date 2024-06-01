@@ -1,8 +1,12 @@
 #include "faker-cxx/Company.h"
 
+#include <string>
+#include <string_view>
+
 #include "../../common/FormatHelper.h"
 #include "CompanyData.h"
 #include "faker-cxx/Helper.h"
+#include "faker-cxx/Number.h"
 #include "faker-cxx/Person.h"
 
 namespace faker

@@ -1,5 +1,8 @@
 #include "WeatherData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker
 {
 

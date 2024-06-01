@@ -1,14 +1,17 @@
 #include "faker-cxx/Finance.h"
 
 #include <algorithm>
-#include <charconv>
 #include <ranges>
 #include <regex>
+#include <string>
+#include <string_view>
+#include <unordered_map>
 
 #include "gtest/gtest.h"
 
 #include "common/LuhnCheck.h"
 #include "common/StringHelper.h"
+#include "faker-cxx/types/Precision.h"
 #include "finance/FinanceData.h"
 #include "gmock/gmock.h"
 #include "string/StringData.h"

@@ -1,7 +1,9 @@
 #include "faker-cxx/Medicine.h"
 
-#include "MedicineData.h"
+#include <string_view>
+
 #include "faker-cxx/Helper.h"
+#include "MedicineData.h"
 
 namespace faker
 {

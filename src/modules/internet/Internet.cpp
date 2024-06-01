@@ -1,20 +1,28 @@
 #include "faker-cxx/Internet.h"
 
+#include <algorithm>
 #include <array>
-#include <vector>
+#include <cstddef>
 #include <initializer_list>
-#include <unordered_map>
 #include <map>
+#include <optional>
+#include <sstream>
+#include <string>
+#include <string_view>
+#include <utility>
+#include <vector>
 
 #include "common/FormatHelper.h"
 #include "common/StringHelper.h"
-#include "modules/string/StringData.h"
-#include "InternetData.h"
 #include "faker-cxx/Helper.h"
+#include "faker-cxx/Number.h"
 #include "faker-cxx/Person.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/types/Country.h"
+#include "faker-cxx/types/Hex.h"
 #include "faker-cxx/Word.h"
+#include "InternetData.h"
+#include "modules/string/StringData.h"
 
 namespace faker
 {

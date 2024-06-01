@@ -1,5 +1,8 @@
 #include "AnimalData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker
 {
 const std::array<std::string_view, 8> bears = {"Giant panda",         "Spectacled bear",  "Sun bear",   "Sloth bear",

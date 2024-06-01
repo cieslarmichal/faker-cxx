@@ -2,6 +2,8 @@
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/types/Precision.h"
+
 using namespace ::testing;
 using namespace faker;
 

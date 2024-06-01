@@ -1,9 +1,15 @@
 #include "faker-cxx/Lorem.h"
 
+#include <cctype>
+#include <string>
+#include <string_view>
+#include <vector>
+
 #include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
-#include "LoremData.h"
 #include "faker-cxx/Helper.h"
+#include "faker-cxx/Number.h"
+#include "LoremData.h"
 
 namespace faker
 {

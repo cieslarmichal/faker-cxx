@@ -1,5 +1,8 @@
 #include "ComputerData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker
 {
 const std::array<std::string_view, 4> computerTypes = {"Desktop", "Laptop", "Mainframe", "Supercomputer"};

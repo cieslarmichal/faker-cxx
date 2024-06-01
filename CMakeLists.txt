@@ -3,8 +3,6 @@ project(faker-cxx LANGUAGES CXX)
 
 include(cmake/CompilerWarnings.cmake)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
 option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
 
 if (NOT USE_SYSTEM_DEPENDENCIES)

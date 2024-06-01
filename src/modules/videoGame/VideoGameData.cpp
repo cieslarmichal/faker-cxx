@@ -1,5 +1,8 @@
 #include "VideoGameData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker
 {
 namespace videoGame

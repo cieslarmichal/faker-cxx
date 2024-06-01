@@ -1,9 +1,15 @@
 #include "faker-cxx/Commerce.h"
 
+#include <cmath>
+#include <cstddef>
+#include <string>
+#include <string_view>
+
 #include "../../common/FormatHelper.h"
 #include "CommerceData.h"
 #include "faker-cxx/Finance.h"
 #include "faker-cxx/Helper.h"
+#include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
 
 namespace faker
