@@ -17,6 +17,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Configure cl.exe in PATH
+        uses: ilammy/msvc-dev-cmd@v1
+
       - name: Cache Conan packages
         id: cache-conan
         uses: actions/cache@v4.0.2
