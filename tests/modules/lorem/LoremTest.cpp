@@ -5,7 +5,7 @@
 #include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
-#include "lorem/data/LoremWords.h"
+#include "lorem/LoremData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -20,7 +20,7 @@ TEST_F(LoremTest, shouldGenerateWord)
     const auto generatedWord = Lorem::word();
 
     ASSERT_TRUE(
-        std::ranges::any_of(loremWords, [generatedWord](const std::string& word) { return word == generatedWord; }));
+        std::ranges::any_of(loremWords, [generatedWord](const std::string_view& word) { return word == generatedWord; }));
 }
 
 TEST_F(LoremTest, shouldGenerateWords)
@@ -37,7 +37,7 @@ TEST_F(LoremTest, shouldGenerateWords)
         [](const std::string& separatedWord)
         {
             return std::ranges::any_of(
-                loremWords, [separatedWord](const std::string& word)
+                loremWords, [separatedWord](const std::string_view& word)
                 { return word == static_cast<char>(std::tolower(separatedWord[0])) + separatedWord.substr(1); });
         }));
 }
@@ -58,7 +58,7 @@ TEST_F(LoremTest, shouldGenerateSentence)
         [](const std::string& sentenceWord)
         {
             return std::ranges::any_of(
-                loremWords, [sentenceWord](const std::string& word)
+                loremWords, [sentenceWord](const std::string_view& word)
                 { return word == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1); });
         }));
 }
@@ -84,7 +84,7 @@ TEST_F(LoremTest, shouldGenerateSentences)
             [](const std::string& sentenceWord)
             {
                 return std::ranges::any_of(
-                    loremWords, [sentenceWord](const std::string& word)
+                    loremWords, [sentenceWord](const std::string_view& word)
                     { return word == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1); });
             }));
     }
@@ -102,7 +102,7 @@ TEST_F(LoremTest, shouldGenerateSlug)
         [](const std::string& separatedWord)
         {
             return std::ranges::any_of(
-                loremWords, [separatedWord](const std::string& word)
+                loremWords, [separatedWord](const std::string_view& word)
                 { return word == static_cast<char>(std::tolower(separatedWord[0])) + separatedWord.substr(1); });
         }));
 }
@@ -128,7 +128,7 @@ TEST_F(LoremTest, shouldGenerateParagraph)
             [](const std::string& sentenceWord)
             {
                 return std::ranges::any_of(
-                    loremWords, [sentenceWord](const std::string& word)
+                    loremWords, [sentenceWord](const std::string_view& word)
                     { return word == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1); });
             }));
     }
@@ -159,7 +159,7 @@ TEST_F(LoremTest, shouldGenerateParagraphs)
                 [](const std::string& sentenceWord)
                 {
                     return std::ranges::any_of(
-                        loremWords, [sentenceWord](const std::string& word)
+                        loremWords, [sentenceWord](const std::string_view& word)
                         { return word == static_cast<char>(std::tolower(sentenceWord[0])) + sentenceWord.substr(1); });
                 }));
         }
