@@ -13,6 +13,8 @@ jobs:
   build:
     runs-on: macos-14
     name: ci-macos-14-apple-clang-18
+    env:
+      CLANG18_PATH: /opt/homebrew/opt/llvm@18/bin/clang
 
     steps:
       - name: Checkout
@@ -49,8 +51,8 @@ jobs:
 
       - name: Configure Conan profile
         run: |
-          CC=/opt/homebrew/opt/llvm@18/bin/clang \
-          CXX=/opt/homebrew/opt/llvm@18/bin/clang++ \
+          CC=${{ env.CLANG18_PATH }} \
+          CXX=${{ env.CLANG18_PATH }}++ \
           conan profile detect --force --name apple-clang-18
 
       - name: Install Conan dependencies
@@ -62,6 +64,8 @@ jobs:
             -s compiler.cppstd=20 \
             -s build_type=Debug \
             -o "*:shared=True" \
+            -c:b tools.build:compiler_executables="{'c': '${{ env.CLANG18_PATH }}', 'cpp': '${{ env.CLANG18_PATH }}++'}" \
+            -c:h tools.build:compiler_executables="{'c': '${{ env.CLANG18_PATH }}', 'cpp': '${{ env.CLANG18_PATH }}++'}" \
             --build=missing
 
 
@@ -69,8 +73,8 @@ jobs:
         run: |
           cmake -S . --preset=unixlike-clang-debug \
             -DBUILD_TESTING:BOOL=ON \
-            -DCMAKE_CXX_COMPILER=/opt/homebrew/opt/llvm@18/bin/clang++ \
-            -DCMAKE_C_COMPILER=/opt/homebrew/opt/llvm@18/bin/clang \
+            -DCMAKE_CXX_COMPILER=${{ env.CLANG18_PATH }}++ \
+            -DCMAKE_C_COMPILER=${{ env.CLANG18_PATH }} \
             -DUSE_STD_FORMAT:BOOL=ON \
             -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
