@@ -1,10 +1,16 @@
 #include "faker-cxx/Location.h"
 
 #include <algorithm>
+#include <cstddef>
+#include <string>
+#include <string_view>
+#include <unordered_map>
+#include <vector>
 
 #include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
+#include "faker-cxx/types/Precision.h"
 #include "location/LocationData.h"
 #include "person/data/australia/AustralianFirstNames.h"
 #include "person/data/australia/AustralianLastNames.h"

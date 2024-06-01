@@ -2,11 +2,14 @@
 
 #include <algorithm>
 #include <charconv>
+#include <string>
+#include <string_view>
 
 #include "gtest/gtest.h"
 
 #include "color/ColorData.h"
 #include "common/StringHelper.h"
+#include "faker-cxx/types/Hex.h"
 #include "string/StringData.h"
 
 using namespace ::testing;

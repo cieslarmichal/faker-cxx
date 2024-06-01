@@ -1,6 +1,7 @@
 #include "faker-cxx/Database.h"
 
 #include <algorithm>
+#include <string_view>
 
 #include "gtest/gtest.h"
 

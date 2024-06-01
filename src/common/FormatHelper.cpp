@@ -1,6 +1,9 @@
 #include "FormatHelper.h"
 
+#include <functional>
 #include <stdexcept>
+#include <string>
+#include <unordered_map>
 
 namespace faker
 {

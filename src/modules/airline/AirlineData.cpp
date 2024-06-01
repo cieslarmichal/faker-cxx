@@ -1,5 +1,11 @@
 #include "AirlineData.h"
 
+#include <array>
+#include <string_view>
+#include <unordered_map>
+
+#include "faker-cxx/Airline.h"
+
 namespace faker
 {
 const std::array<std::string_view, 3> aircraftTypes = {"regional", "narrowbody", "widebody"};

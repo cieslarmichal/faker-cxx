@@ -1,5 +1,8 @@
 #include "FoodData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker
 {
 const std::array<std::string_view, 47> alcoholicBeverages{

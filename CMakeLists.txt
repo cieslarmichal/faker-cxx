@@ -3,8 +3,6 @@ cmake_minimum_required(VERSION 3.22)
 set(PROJECT_NAME faker-cxx)
 project(${PROJECT_NAME} CXX)
 
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
-
 option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
 
 if (NOT USE_SYSTEM_DEPENDENCIES)

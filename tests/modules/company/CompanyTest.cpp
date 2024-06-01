@@ -1,6 +1,8 @@
 #include "faker-cxx/Company.h"
 
 #include <algorithm>
+#include <string_view>
+#include <vector>
 
 #include "gtest/gtest.h"
 

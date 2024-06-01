@@ -1,5 +1,8 @@
 #include "DatabaseData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker
 {
 const std::array<std::string_view, 7> collations = {"utf8_unicode_ci",  "utf8_general_ci",  "utf8_bin",

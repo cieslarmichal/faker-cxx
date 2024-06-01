@@ -1,10 +1,13 @@
 #include "faker-cxx/Vehicle.h"
 
+#include <string>
+#include <string_view>
+
 #include "common/FormatHelper.h"
-#include "VehicleData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
+#include "VehicleData.h"
 
 namespace faker
 {

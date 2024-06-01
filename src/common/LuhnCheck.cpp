@@ -1,5 +1,9 @@
 #include "LuhnCheck.h"
 
+#include <algorithm>
+#include <cctype>
+#include <string>
+
 namespace faker
 {
 int LuhnCheck::luhnCheckSum(const std::string& inputString)

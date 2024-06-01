@@ -1,15 +1,19 @@
 #include "faker-cxx/String.h"
 
+#include <algorithm>
 #include <cassert>
+#include <ios>
+#include <map>
+#include <optional>
+#include <set>
+#include <sstream>
 #include <stdexcept>
 #include <string>
-#include <unordered_map>
-#include <map>
-#include <algorithm>
 
-#include "StringData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
+#include "faker-cxx/types/Hex.h"
+#include "StringData.h"
 
 namespace faker
 {

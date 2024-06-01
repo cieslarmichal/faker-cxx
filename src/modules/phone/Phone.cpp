@@ -1,7 +1,12 @@
 #include "faker-cxx/Phone.h"
 
-#include "PhoneData.h"
+#include <optional>
+#include <string>
+#include <string_view>
+#include <unordered_map>
+
 #include "faker-cxx/Helper.h"
+#include "PhoneData.h"
 
 namespace faker
 {

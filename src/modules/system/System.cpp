@@ -1,8 +1,12 @@
 #include "faker-cxx/System.h"
 
-#include <algorithm>
+#include <cstddef>
+#include <cstdlib>
+#include <optional>
 #include <set>
+#include <sstream>
 #include <string>
+#include <unordered_map>
 #include <vector>
 
 #include "../src/common/StringHelper.h"
@@ -10,8 +14,10 @@
 #include "data/CronDayOfWeek.h"
 #include "data/DirectoryPath.h"
 #include "data/MimeTypes.h"
+#include "faker-cxx/Datatype.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
+#include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
 

@@ -1,5 +1,7 @@
 #include "faker-cxx/Food.h"
 
+#include <string_view>
+
 #include "faker-cxx/Helper.h"
 #include "FoodData.h"
 

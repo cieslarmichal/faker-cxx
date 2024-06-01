@@ -1,5 +1,7 @@
 #include "faker-cxx/Number.h"
 
+#include <stdexcept>
+
 #include "gtest/gtest.h"
 
 using namespace ::testing;

@@ -1,5 +1,7 @@
 #include "faker-cxx/Computer.h"
 
+#include <string_view>
+
 #include "ComputerData.h"
 #include "faker-cxx/Helper.h"
 

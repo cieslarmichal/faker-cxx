@@ -1,5 +1,8 @@
 #include "CompanyData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker
 {
 const std::array<std::string_view, 65> buzzAdjectives = {"clicks-and-mortar",

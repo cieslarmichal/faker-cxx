@@ -1,6 +1,8 @@
 #include "faker-cxx/Word.h"
 
 #include <algorithm>
+#include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 

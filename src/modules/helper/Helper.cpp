@@ -1,12 +1,14 @@
 #include "faker-cxx/Helper.h"
 
 #include <algorithm>
+#include <cstddef>
 #include <random>
 #include <regex>
 #include <string>
 
 #include "../../common/LuhnCheck.h"
 #include "../../common/StringHelper.h"
+#include "faker-cxx/Number.h"
 
 namespace faker
 {

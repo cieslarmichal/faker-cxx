@@ -1,5 +1,9 @@
 #include "faker-cxx/Word.h"
 
+#include <optional>
+#include <string>
+#include <vector>
+
 #include "../../common/StringHelper.h"
 #include "data/Adjectives.h"
 #include "data/Adverbs.h"

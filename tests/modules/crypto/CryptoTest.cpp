@@ -1,7 +1,7 @@
 #include "faker-cxx/Crypto.h"
 
-#include <algorithm>
 #include <regex>
+#include <string>
 
 #include "gtest/gtest.h"
 

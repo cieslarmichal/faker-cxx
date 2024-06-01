@@ -1,7 +1,9 @@
 #include "faker-cxx/VideoGame.h"
 
-#include "VideoGameData.h"
+#include <string_view>
+
 #include "faker-cxx/Helper.h"
+#include "VideoGameData.h"
 
 
 namespace faker

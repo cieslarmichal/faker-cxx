@@ -1,5 +1,8 @@
 #include "SportData.h"
 
+#include <array>
+#include <string_view>
+
 namespace faker::sport
 {
 const std::array<std::string_view, 10> femaleAthletes = {

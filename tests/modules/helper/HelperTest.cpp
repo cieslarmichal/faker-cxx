@@ -1,8 +1,13 @@
 #include "faker-cxx/Helper.h"
 
 #include <algorithm>
+#include <cctype>
 #include <regex>
+#include <set>
+#include <span>
 #include <stdexcept>
+#include <string>
+#include <unordered_map>
 #include <vector>
 
 #include "gtest/gtest.h"

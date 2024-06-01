@@ -1,8 +1,8 @@
 #include "faker-cxx/Git.h"
 
-#include <algorithm>
 #include <regex>
 #include <string>
+#include <vector>
 
 #include "gtest/gtest.h"
 

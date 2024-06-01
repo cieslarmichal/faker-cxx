@@ -1,6 +1,7 @@
 #include "faker-cxx/Food.h"
 
 #include <algorithm>
+#include <string_view>
 
 #include "gtest/gtest.h"
 

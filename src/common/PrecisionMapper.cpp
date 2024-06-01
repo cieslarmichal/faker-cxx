@@ -1,5 +1,9 @@
 #include "PrecisionMapper.h"
 
+#include <unordered_map>
+
+#include "faker-cxx/types/Precision.h"
+
 namespace faker
 {
 const std::unordered_map<Precision, unsigned> PrecisionMapper::precisionToDecimalPlacesMapping{

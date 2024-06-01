@@ -1,5 +1,8 @@
 #include "faker-cxx/Hacker.h"
 
+#include <string>
+#include <string_view>
+
 #include "../../common/StringHelper.h"
 #include "faker-cxx/Helper.h"
 #include "HackerData.h"
