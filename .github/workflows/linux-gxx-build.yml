@@ -44,7 +44,8 @@ jobs:
             -DCMAKE_CXX_COMPILER=g++-${{ matrix.build_options.gcc_version }} \
             -DBUILD_TESTING:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=${{ matrix.build_options.use_system_deps }} \
-            -DCMAKE_TOOLCHAIN_FILE=${{ matrix.build_options.toolchain_file }}
+            -DCMAKE_TOOLCHAIN_FILE=${{ matrix.build_options.toolchain_file }} \
+            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=gold
 
       - name: Build
         run: cmake --build --preset=unixlike-gcc-debug
