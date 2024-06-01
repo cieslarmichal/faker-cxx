@@ -9,11 +9,11 @@ on:
 
 jobs:
   build:
-    name: ci-ubuntu-24.04-gcc-${{ matrix.build_options.gcc_version }}
+    name: ci-ubuntu-24.04-gcc-${{ matrix.gcc_version }}
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        build_options: [ {gcc_version: 12, use_system_deps: ON, toolchain_file: build/Debug/generators/conan_toolchain.cmake}, {gcc_version: 13, use_system_deps: OFF, toolchain_file: OFF} ]
+        gcc_version: [12, 13]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -44,18 +44,16 @@ jobs:
         run: pip install -r .github/requirements.txt
 
       - name: Configure Conan profile
-        if: ${{ matrix.build_options.use_system_deps == 'ON' }}
         run: |
-          CC=gcc-${{ matrix.build_options.gcc_version }} \
-          CXX=g++-${{ matrix.build_options.gcc_version }} \
-          conan profile detect --force --name gcc-${{ matrix.build_options.gcc_version }}
+          CC=gcc-${{ matrix.gcc_version }} \
+          CXX=g++-${{ matrix.gcc_version }} \
+          conan profile detect --force --name gcc-${{ matrix.gcc_version }}
 
       - name: Install Conan dependencies
-        if: ${{ matrix.build_options.use_system_deps == 'ON' }}
         run: |
           conan install conanfile.txt \
             -r conancenter \
-            -pr:h gcc-${{ matrix.build_options.gcc_version }} \
+            -pr:h gcc-${{ matrix.gcc_version }} \
             -s compiler.cppstd=20 \
             -s build_type=Debug \
             -o "*:shared=True" --build=missing
@@ -63,11 +61,12 @@ jobs:
       - name: Configure CMake
         run: |
           cmake -S . --preset=unixlike-gcc-debug \
-            -DCMAKE_C_COMPILER=gcc-${{ matrix.build_options.gcc_version }} \
-            -DCMAKE_CXX_COMPILER=g++-${{ matrix.build_options.gcc_version }} \
+            -DCMAKE_C_COMPILER=gcc-${{ matrix.gcc_version }} \
+            -DCMAKE_CXX_COMPILER=g++-${{ matrix.gcc_version }} \
             -DBUILD_TESTING:BOOL=ON \
-            -DUSE_SYSTEM_DEPENDENCIES:BOOL=${{ matrix.build_options.use_system_deps }} \
-            -DCMAKE_TOOLCHAIN_FILE=${{ matrix.build_options.toolchain_file }} \
+            -DUSE_STD_FORMAT:BOOL=ON \
+            -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
+            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
             -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=gold
 
       - name: Build
