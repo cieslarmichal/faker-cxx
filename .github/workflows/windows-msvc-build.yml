@@ -17,6 +17,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Configure Visual Studio Environment
+        uses: ilammy/msvc-dev-cmd@v1.13.0
+
       - name: ccache
         uses: hendrikmuhs/ccache-action@v1.2
 
@@ -48,10 +51,6 @@ jobs:
       - name: Install Conan dependencies
         run: |
           conan install conanfile.txt -r conancenter -pr:b msvc-19 -pr:h msvc-19 -s compiler.cppstd=20 -s build_type=Debug -o "*:shared=True" -c tools.cmake.cmaketoolchain:generator=Ninja --build=missing
-
-      - name: Setup MSVC Environment
-        shell: cmd
-        run: call "C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
 
       - name: Configure CMake
         run: |
