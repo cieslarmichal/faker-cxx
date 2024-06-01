@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
+project(faker-cxx LANGUAGES CXX)
 
-set(PROJECT_NAME faker-cxx)
-project(${PROJECT_NAME} CXX)
+include(cmake/CompilerWarnings.cmake)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -20,8 +20,6 @@ if (BUILD_TESTING)
     include("cmake/cmake-coverage.cmake")
     add_code_coverage_all_targets()
 endif ()
-
-set(LIBRARY_NAME faker-cxx)
 
 set(FAKER_SOURCES
     src/modules/airline/Airline.cpp
@@ -87,28 +85,28 @@ set(FAKER_SOURCES
     src/common/PrecisionMapper.cpp
 )
 
-add_library(${LIBRARY_NAME} ${FAKER_SOURCES})
+add_library(${CMAKE_PROJECT_NAME} ${FAKER_SOURCES})
 
 target_include_directories(
-    ${LIBRARY_NAME} PUBLIC
+    ${CMAKE_PROJECT_NAME} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
     $<INSTALL_INTERFACE:include>)
 
 target_include_directories(
-    ${LIBRARY_NAME} PRIVATE
+    ${CMAKE_PROJECT_NAME} PRIVATE
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/src>
 )
 
-target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
-if (MSVC)
-    target_compile_options(${LIBRARY_NAME} PRIVATE /permissive- /bigobj)
-else ()
-    target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wformat)
-endif ()
+target_compile_features(${CMAKE_PROJECT_NAME} PUBLIC cxx_std_20)
+configure_compiler_warnings(${CMAKE_PROJECT_NAME}
+    "${WARNINGS_AS_ERRORS}"
+    "${MSVC_WARNINGS}"
+    "${CLANG_WARNINGS}"
+    "${GCC_WARNINGS}")
 
 include(GNUInstallDirs)
-install(TARGETS ${LIBRARY_NAME}
-    EXPORT ${LIBRARY_NAME}-targets
+install(TARGETS ${CMAKE_PROJECT_NAME}
+    EXPORT ${CMAKE_PROJECT_NAME}-targets
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin)
@@ -119,20 +117,20 @@ install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/faker-cxx
     PATTERN "*.h"
 )
 
-install(EXPORT ${LIBRARY_NAME}-targets
-    NAMESPACE ${LIBRARY_NAME}::
-    FILE ${LIBRARY_NAME}-config.cmake
-    DESTINATION lib/cmake/${LIBRARY_NAME})
+install(EXPORT ${CMAKE_PROJECT_NAME}-targets
+    NAMESPACE ${CMAKE_PROJECT_NAME}::
+    FILE ${CMAKE_PROJECT_NAME}-config.cmake
+    DESTINATION lib/cmake/${CMAKE_PROJECT_NAME})
 
 if (HAS_STD_FORMAT AND NOT USE_SYSTEM_DEPENDENCIES)
-    target_compile_definitions(${LIBRARY_NAME} PRIVATE HAS_STD_FORMAT)
+    target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE HAS_STD_FORMAT)
 elseif (USE_SYSTEM_DEPENDENCIES)
     find_package(fmt REQUIRED)
-    target_link_libraries(${LIBRARY_NAME} PRIVATE fmt::fmt)
+    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt)
 else ()
     add_subdirectory(externals/fmt)
     set(FMT_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/fmt/include")
-    target_link_libraries(${LIBRARY_NAME} PRIVATE fmt)
+    target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt)
 endif ()
 
 if (BUILD_TESTING)

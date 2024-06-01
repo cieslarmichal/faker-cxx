@@ -50,6 +50,7 @@ html/
 latex/
 
 CMakeSettings.json
+CMakeUserPresets.json
 .vs/
 out/
 build-linux-gxx
