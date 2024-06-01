@@ -70,7 +70,6 @@ jobs:
             -DBUILD_TESTING:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
             -DUSE_STD_FORMAT:BOOL=ON \
-            -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
             -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
             -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=gold
 

@@ -79,7 +79,6 @@ jobs:
             -DCMAKE_C_COMPILER=${{ env.CLANG18_PATH }} \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
             -DUSE_STD_FORMAT:BOOL=ON \
-            -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
             -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake
 
