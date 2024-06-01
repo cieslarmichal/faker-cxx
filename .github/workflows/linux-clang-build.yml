@@ -38,6 +38,22 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r .github/requirements.txt
 
+      - name: Configure Conan profiles
+        run: |
+          CC=clang-18 \
+          CXX=clang++-18 \
+          conan profile detect --force --name clang-18
+
+      - name: Install Conan dependencies
+        run: |
+          conan install conanfile.txt \
+            -r conancenter \
+            -pr:b clang-18 \
+            -pr:h clang-18 \
+            -s compiler.cppstd=20 \
+            -s build_type=Debug \
+            -o "*:shared=True" --build=missing
+
       - name: Configure CMake
         run: |
           cmake -S ${{github.workspace}} --preset=unixlike-clang-debug \
@@ -46,7 +62,9 @@ jobs:
             -DCODE_COVERAGE:BOOL=ON \
             -DBUILD_TESTING:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
-            -DUSE_STD_FORMAT:BOOL=ON
+            -DUSE_STD_FORMAT:BOOL=ON \
+            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
+            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=gold
 
       - name: Build
         run: cmake --build --preset=unixlike-clang-debug

@@ -15,8 +15,19 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Cache Conan packages
+        id: cache-conan
+        uses: actions/cache@v3
+        env:
+          cache-name: cache-conan-packages
         with:
-          submodules: recursive
+          path: ~/.conan2
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('conanfile.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
 
       - name: Configure python
         uses: actions/setup-python@v5
@@ -27,12 +38,26 @@ jobs:
       - name: Install Python dependencies
         run: pip install -r .github/requirements.txt
 
-      - name: Configure cl.exe in PATH
-        uses: ilammy/msvc-dev-cmd@v1
+      - name: Configure Conan profile
+        run: conan profile detect --force --name msvc-19
+
+      - name: Install Conan dependencies
+        run: |
+          conan install conanfile.txt \
+            -r conancenter \
+            -pr:b msvc-19 \
+            -pr:h msvc-19 \
+            -s compiler.cppstd=20 \
+            -s build_type=Debug \
+            -o "*:shared=True" --build=missing
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=windows-msvc-debug -DBUILD_TESTING:BOOL=ON
+          cmake -S . --preset=windows-msvc-debug \
+            -DBUILD_TESTING:BOOL=ON \
+            -DUSE_STD_FORMAT:BOOL=ON \
+            -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
+            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake
 
       - name: Build
         run: cmake --build --preset=windows-msvc-debug
