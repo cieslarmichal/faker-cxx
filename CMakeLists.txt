@@ -103,7 +103,7 @@ target_compile_features(${LIBRARY_NAME} PUBLIC cxx_std_20)
 if (MSVC)
     target_compile_options(${LIBRARY_NAME} PRIVATE /permissive- /bigobj)
 else ()
-    target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wformat)
+    target_compile_options(${LIBRARY_NAME} PRIVATE -Wall -Wextra -Wpedantic -Wconversion -Wformat -Wa,-mbig-obj)
 endif ()
 
 include(GNUInstallDirs)
