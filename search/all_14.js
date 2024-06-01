@@ -10,6 +10,6 @@ var searchData=
   ['windspeed_7',['WindSpeed',['../structfaker_1_1Weather_1_1WindSpeed.html',1,'faker::Weather']]],
   ['windspeed_8',['windSpeed',['../classfaker_1_1Weather.html#a77001b0192ebcbca0c06d238462bfe94',1,'faker::Weather']]],
   ['word_9',['Word',['../classfaker_1_1Word.html',1,'faker']]],
-  ['word_10',['word',['../classfaker_1_1Lorem.html#a8a9728179b08efab84505fbb7ea46eed',1,'faker::Lorem']]],
+  ['word_10',['word',['../classfaker_1_1Lorem.html#a18d899975683f5a65f4fd67fb01368aa',1,'faker::Lorem']]],
   ['words_11',['words',['../classfaker_1_1Lorem.html#aca2ee45cd6137dc43ea791497be506bd',1,'faker::Lorem::words()'],['../classfaker_1_1Word.html#ad2feb12057a72ae5cba55895da1f3d11',1,'faker::Word::words()']]]
 ];
