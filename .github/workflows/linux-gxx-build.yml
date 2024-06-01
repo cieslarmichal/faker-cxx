@@ -21,7 +21,6 @@ jobs:
           submodules: recursive
 
       - name: Cache Conan packages
-        if: ${{ matrix.build_options.use_system_deps == 'ON' }}
         id: cache-conan
         uses: actions/cache@v3
         env:
