@@ -4,8 +4,9 @@ project(faker-cxx LANGUAGES CXX)
 include(cmake/CompilerWarnings.cmake)
 
 option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
+option(USE_STD_FORMAT "Use std::format when avaiable" ON)
 
-if (NOT USE_SYSTEM_DEPENDENCIES)
+if (USE_STD_FORMAT)
     set(CMAKE_REQUIRED_FLAGS -std=c++20)
     include(CheckCXXSourceCompiles)
     check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }"
@@ -120,7 +121,7 @@ install(EXPORT ${CMAKE_PROJECT_NAME}-targets
     FILE ${CMAKE_PROJECT_NAME}-config.cmake
     DESTINATION lib/cmake/${CMAKE_PROJECT_NAME})
 
-if (HAS_STD_FORMAT AND NOT USE_SYSTEM_DEPENDENCIES)
+if (HAS_STD_FORMAT)
     target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE HAS_STD_FORMAT)
 elseif (USE_SYSTEM_DEPENDENCIES)
     find_package(fmt REQUIRED)

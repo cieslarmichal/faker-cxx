@@ -16,7 +16,7 @@ jobs:
         build_options: [ {gcc_version: 12, use_system_deps: ON, toolchain_file: build/Debug/generators/conan_toolchain.cmake}, {gcc_version: 13, use_system_deps: OFF, toolchain_file: OFF} ]
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           submodules: recursive
 
@@ -38,17 +38,18 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
+          cache: 'pip'
 
-      - name: Install conan and ninja
-        run: pip install conan ninja
+      - name: Install Python dependencies
+        run: pip install -r .github/requirements.txt
 
       - name: Configure Conan profile
         if: ${{ matrix.build_options.use_system_deps == 'ON' }}
-        run: CC=gcc-12 CXX=g++-12 conan profile detect
+        run: CC=gcc-12 CXX=g++-12 conan profile detect --force --name gcc-${{ matrix.build_options.gcc_version }}
 
       - name: Install Conan dependencies
         if: ${{ matrix.build_options.use_system_deps == 'ON' }}
-        run: conan install conanfile.txt -r conancenter -s compiler.cppstd=20 -s build_type=Debug -o "*:shared=True" --build=missing
+        run: conan install conanfile.txt -r conancenter -pr:h gcc-${{ matrix.build_options.gcc_version }} -s compiler.cppstd=20 -s build_type=Debug -o "*:shared=True" --build=missing
 
       - name: Configure CMake
         run: |
