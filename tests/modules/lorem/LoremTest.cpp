@@ -20,7 +20,7 @@ TEST_F(LoremTest, shouldGenerateWord)
     const auto generatedWord = Lorem::word();
 
     ASSERT_TRUE(
-        std::ranges::any_of(loremWords, [generatedWord](const std::string& word) { return word == generatedWord; }));
+        std::ranges::any_of(loremWords, [generatedWord](const std::string_view& word) { return word == generatedWord; }));
 }
 
 TEST_F(LoremTest, shouldGenerateWords)

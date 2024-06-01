@@ -16,7 +16,7 @@ public:
      * Lorem::word() // "temporibus"
      * @endcode
      */
-    static std::string word();
+    static std::string_view word();
 
     /**
      * @brief Returns a random lorem words.

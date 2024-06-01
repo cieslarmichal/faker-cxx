@@ -58,6 +58,7 @@ set(FAKER_SOURCES
     src/modules/location/Location.cpp
     src/modules/location/LocationData.cpp
     src/modules/lorem/Lorem.cpp
+    src/modules/lorem/LoremData.cpp
     src/modules/medicine/Medicine.cpp
     src/modules/medicine/MedicineData.cpp
     src/modules/movie/Movie.cpp

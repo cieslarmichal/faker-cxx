@@ -2,23 +2,24 @@
 
 #include "../../common/FormatHelper.h"
 #include "../../common/StringHelper.h"
-#include "data/LoremWords.h"
+#include "LoremData.h"
 #include "faker-cxx/Helper.h"
 
 namespace faker
 {
-std::string Lorem::word()
+std::string_view Lorem::word()
 {
-    return Helper::arrayElement<std::string>(loremWords);
+    return Helper::arrayElement(loremWords);
 }
 
 std::string Lorem::words(unsigned numberOfWords)
 {
     std::vector<std::string> words;
+    words.reserve(numberOfWords);
 
     for (unsigned i = 0; i < numberOfWords; i++)
     {
-        words.push_back(word());
+        words.push_back(std::string(word()));
     }
 
     return StringHelper::join(words, " ");
@@ -38,6 +39,7 @@ std::string Lorem::sentences(unsigned minNumberOfSentences, unsigned maxNumberOf
     const std::integral auto numberOfSentences = Number::integer(minNumberOfSentences, maxNumberOfSentences);
 
     std::vector<std::string> sentences;
+    sentences.reserve(numberOfSentences);
 
     for (unsigned i = 0; i < numberOfSentences; i++)
     {
@@ -50,10 +52,11 @@ std::string Lorem::sentences(unsigned minNumberOfSentences, unsigned maxNumberOf
 std::string Lorem::slug(unsigned int numberOfWords)
 {
     std::vector<std::string> words;
+    words.reserve(numberOfWords);
 
     for (unsigned i = 0; i < numberOfWords; i++)
     {
-        words.push_back(word());
+        words.push_back(std::string(word()));
     }
 
     return StringHelper::join(words, "-");
@@ -69,6 +72,7 @@ std::string Lorem::paragraphs(unsigned int minNumberOfParagraphs, unsigned int m
     const std::integral auto numberOfParagraphs = Number::integer(minNumberOfParagraphs, maxNumberOfParagraphs);
 
     std::vector<std::string> paragraphs;
+    paragraphs.reserve(numberOfParagraphs);
 
     for (unsigned i = 0; i < numberOfParagraphs; i++)
     {
