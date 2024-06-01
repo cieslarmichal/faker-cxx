@@ -53,6 +53,7 @@ jobs:
         run: |
           conan install conanfile.txt \
             -r conancenter \
+            -pr:b gcc-${{ matrix.gcc_version }} \
             -pr:h gcc-${{ matrix.gcc_version }} \
             -s compiler.cppstd=20 \
             -s build_type=Debug \
