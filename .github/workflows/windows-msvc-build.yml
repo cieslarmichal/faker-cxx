@@ -49,9 +49,11 @@ jobs:
         run: |
           conan install conanfile.txt -r conancenter -pr:b msvc-19 -pr:h msvc-19 -s compiler.cppstd=20 -s build_type=Debug -o "*:shared=True" -c tools.cmake.cmaketoolchain:generator=Ninja --build=missing
 
+      - run: call "C:\Program Files (x86)\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+
       - name: Configure CMake
         run: |
-          cmake -S . --preset=windows-msvc-debug -G "Visual Studio 17 2022" -DCMAKE_CXX_COMPILER:STRING=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/build/generators/conan_toolchain.cmake
+          cmake -S . --preset=windows-msvc-debug -DCMAKE_CXX_COMPILER:STRING=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/build/generators/conan_toolchain.cmake
 
       - name: Build
         run: cmake --build --preset=windows-msvc-debug
