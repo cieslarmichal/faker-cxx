@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - 'main'
-      - hotfix/gcc12-build
   workflow_dispatch:
   pull_request:
 
