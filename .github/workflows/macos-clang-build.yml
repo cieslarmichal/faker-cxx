@@ -15,11 +15,15 @@ jobs:
     name: ci-macos-14-apple-clang-18
 
     steps:
-      - name: Install clang
-        run: brew install llvm@18 && echo 'export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"' >> /Users/runner/.bash_profile && source /Users/runner/.bash_profile && which clang++
-
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install clang
+        run: |
+          brew install llvm@18 \
+          && echo 'export PATH="/opt/homebrew/opt/llvm@18/bin:$PATH"' >> /Users/runner/.bash_profile \
+          && source /Users/runner/.bash_profile \
+          && which clang++
 
       - name: Cache Conan packages
         id: cache-conan
