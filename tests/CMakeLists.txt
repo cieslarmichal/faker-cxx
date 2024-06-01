@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.22)
 project(${CMAKE_PROJECT_NAME}-UT CXX)
 
 include(CTest)
+include("${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake")
 
 set(FAKER_UT_SOURCES
     common/FormatHelperTest.cpp
@@ -45,9 +46,12 @@ set(FAKER_UT_SOURCES
 )
 
 add_executable(${PROJECT_NAME} ${FAKER_UT_SOURCES})
-if (MSVC)
-    target_compile_options(${PROJECT_NAME} PRIVATE /permissive- /bigobj)
-endif ()
+configure_compiler_warnings(${PROJECT_NAME}
+    "${WARNINGS_AS_ERRORS}"
+    "${MSVC_WARNINGS}"
+    "${CLANG_WARNINGS}"
+    "${GCC_WARNINGS}")
+
 target_include_directories(${PROJECT_NAME} PRIVATE
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/src/common
