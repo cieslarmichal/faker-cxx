@@ -31,7 +31,7 @@ jobs:
           CC=gcc-12 CXX=g++-12 conan profile detect
 
       - name: Install dependencies
-        run: conan install conanfile.txt -r conancenter -s compiler.cppstd=20 -s build_type=Debug --build=missing
+        run: conan install conanfile.txt -r conancenter -s compiler.cppstd=20 -s build_type=Debug -o "*:shared=True" --build=missing
 
       - name: CMake configure
         run: |
