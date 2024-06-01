@@ -51,7 +51,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=windows-msvc-debug -G "Visual Studio 17 2022 x64" -DCMAKE_CXX_COMPILER:STRING=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/build/generators/conan_toolchain.cmake
+          cmake -S . --preset=windows-msvc-debug -G "Visual Studio 17 2022" -DCMAKE_CXX_COMPILER:STRING=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}/build/generators/conan_toolchain.cmake
 
       - name: Build
         run: cmake --build --preset=windows-msvc-debug
