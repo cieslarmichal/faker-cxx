@@ -19,6 +19,8 @@ jobs:
 
       - name: Configure cl.exe in PATH
         uses: ilammy/msvc-dev-cmd@v1
+        with:
+          arch: x64
 
       - name: Cache Conan packages
         id: cache-conan
