@@ -17,21 +17,34 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install Ninja
-        uses: seanmiddleditch/gha-setup-ninja@master
+      - name: Configure python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
 
-      - name: Configure CMake
+      - name: Install conan and ninja
+        run: pip install conan ninja
+
+      - name: Configure Conan profile
         run: |
-          cmake -S . --preset=unixlike-gcc-release \
-            -DCMAKE_C_COMPILER=gcc-12 \
+          CC=gcc-12 CXX=g++-12 conan profile detect
+
+      - name: Install dependencies
+        run: conan install conanfile.txt -r conancenter -s compiler.cppstd=20 -s build_type=Debug --build=missing
+
+      - name: CMake configure
+        run: |
+          cmake -G Ninja \
+            -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
+            -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
             -DCMAKE_CXX_COMPILER=g++-12 \
-            -DBUILD_TESTING:BOOL=OFF
+            -DCMAKE_C_COMPILER=gcc-12 \
+            -DBUILD_TESTING:BOOL=ON \
+            --preset=conan-debug
 
-      - name: Build
-        continue-on-error: true
-        run: |
-          cmake --build --preset=unixlike-gcc-release
-          if [ $? -ne 0 ]; then
-            echo "::warning::Build failed due out-of-memory error, marking job as skipped"
-            echo "::set-output name=skipped::true"
-          fi
+      - name: CMake Build
+        run: cmake --build --preset=conan-debug
+
+      - name: Run unit tests
+        working-directory: ${{github.workspace}}/build/Debug/tests
+        run: ctest --print-output-on-failure
