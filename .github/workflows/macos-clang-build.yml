@@ -48,7 +48,10 @@ jobs:
         run: pip install -r .github/requirements.txt
 
       - name: Configure Conan profile
-        run: conan profile detect --force --name apple-clang-18
+        run: |
+          CC=/opt/homebrew/opt/llvm@18/bin/clang \
+          CXX=/opt/homebrew/opt/llvm@18/bin/clang++ \
+          conan profile detect --force --name apple-clang-18
 
       - name: Install Conan dependencies
         run: |
@@ -66,8 +69,8 @@ jobs:
         run: |
           cmake -S . --preset=unixlike-clang-debug \
             -DBUILD_TESTING:BOOL=ON \
-            -DCMAKE_CXX_COMPILER=clang++ \
-            -DCMAKE_C_COMPILER=clang \
+            -DCMAKE_CXX_COMPILER=/opt/homebrew/opt/llvm@18/bin/clang++ \
+            -DCMAKE_C_COMPILER=/opt/homebrew/opt/llvm@18/bin/clang \
             -DUSE_STD_FORMAT:BOOL=ON \
             -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
