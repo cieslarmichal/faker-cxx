@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'main'
+      - 'ci/cache'
   workflow_dispatch:
   pull_request:
 
