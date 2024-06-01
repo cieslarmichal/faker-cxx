@@ -17,12 +17,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Configure cl.exe in PATH
-        run: |
-          "C:/Program Files/Microsoft Visual Studio/2022/Enterprise/VC/Auxiliary/Build/vcvars64.bat"
-
       - name: Install Ninja
         uses: seanmiddleditch/gha-setup-ninja@master
+
+      - name: Setup VS Environment
+        uses: seanmiddleditch/gha-setup-vsdevenv@master
 
       - name: Cache Conan packages
         id: cache-conan
