@@ -45,11 +45,20 @@ jobs:
 
       - name: Configure Conan profile
         if: ${{ matrix.build_options.use_system_deps == 'ON' }}
-        run: CC=gcc-12 CXX=g++-12 conan profile detect --force --name gcc-${{ matrix.build_options.gcc_version }}
+        run: |
+          CC=gcc-${{ matrix.build_options.gcc_version }} \
+          CXX=g++-${{ matrix.build_options.gcc_version }} \
+          conan profile detect --force --name gcc-${{ matrix.build_options.gcc_version }}
 
       - name: Install Conan dependencies
         if: ${{ matrix.build_options.use_system_deps == 'ON' }}
-        run: conan install conanfile.txt -r conancenter -pr:h gcc-${{ matrix.build_options.gcc_version }} -s compiler.cppstd=20 -s build_type=Debug -o "*:shared=True" --build=missing
+        run: |
+          conan install conanfile.txt \
+            -r conancenter \
+            -pr:h gcc-${{ matrix.build_options.gcc_version }} \
+            -s compiler.cppstd=20 \
+            -s build_type=Debug \
+            -o "*:shared=True" --build=missing
 
       - name: Configure CMake
         run: |
