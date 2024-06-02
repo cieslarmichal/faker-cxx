@@ -78,10 +78,10 @@ jobs:
         run: cmake --build --preset=unixlike-clang-debug
 
       - name: Store build artifacts
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: build-directory
-          path: ${{github.workspace}}/build/unixlike-clang-debug
+          path: ${{github.workspace}}/build
 
   coverage:
     name: coverage
@@ -102,18 +102,19 @@ jobs:
         run: pip install -r .github/requirements.txt
 
       - name: Download build directory
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build-directory
-          path: build/unixlike-clang-debug
+          path: build
 
       - name: Generate code coverage
+        # TODO: Use GH Action to post in the Action tab the coverage.txt file
         working-directory: ${{github.workspace}}/build/unixlike-clang-debug
         run: |
           ninja faker-ccov-all \
           && llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt
 
-      # TODO: Use GH Action to post in the Action tab the coverage.txt file
+
 
   cppcheck:
     name: cppcheck
@@ -133,10 +134,10 @@ jobs:
           version: 1.0
 
       - name: Download build directory
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build-directory
-          path: build/unixlike-clang-debug
+          path: build
 
       - name: Run cppcheck
         run: |
@@ -176,10 +177,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download build directory
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build-directory
-          path: build/unixlike-clang-debug
+          path: build
 
       - name: Run clang-tidy
         run: |
@@ -198,10 +199,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Download build directory
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4
         with:
           name: build-directory
-          path: build/unixlike-clang-debug
+          path: build
 
       - name: Configure python
         uses: actions/setup-python@v5

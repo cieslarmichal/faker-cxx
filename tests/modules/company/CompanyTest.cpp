@@ -4,7 +4,7 @@
 #include <string_view>
 #include <vector>
 
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
 #include "company/CompanyData.h"

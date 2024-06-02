@@ -6,7 +6,7 @@
 #include <string>
 #include <string_view>
 
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 #include "commerce/CommerceData.h"
 #include "common/StringHelper.h"

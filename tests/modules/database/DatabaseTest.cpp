@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string_view>
 
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 #include "database/DatabaseData.h"
 #include "string/StringData.h"

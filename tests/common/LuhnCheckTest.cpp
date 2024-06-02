@@ -1,6 +1,6 @@
 #include "LuhnCheck.h"
 
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 #include <string>
 
 using namespace faker;

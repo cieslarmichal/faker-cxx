@@ -7,7 +7,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
 #include "faker-cxx/types/Precision.h"

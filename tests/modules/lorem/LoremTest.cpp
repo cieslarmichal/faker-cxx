@@ -4,7 +4,7 @@
 #include <cctype>
 #include <string_view>
 
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
 #include "lorem/LoremData.h"

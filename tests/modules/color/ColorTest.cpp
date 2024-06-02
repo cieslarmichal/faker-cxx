@@ -5,7 +5,7 @@
 #include <string>
 #include <string_view>
 
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 #include "color/ColorData.h"
 #include "common/StringHelper.h"
