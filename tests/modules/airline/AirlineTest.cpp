@@ -5,7 +5,7 @@
 #include <string>
 #include <string_view>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 #include "airline/AirlineData.h"
 
@@ -181,6 +181,6 @@ TEST_F(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
 TEST_F(AirlineTest, shouldGenerateFlightNumberByRange)
 {
     const auto flightNumber = Airline::flightNumberByRange(false, {1, 6});
-    
+
     ASSERT_TRUE(flightNumber.length() <= 6);
 }

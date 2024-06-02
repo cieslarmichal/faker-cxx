@@ -3,7 +3,7 @@
 #include <regex>
 #include <string>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 using namespace ::testing;
 using namespace faker;
@@ -21,7 +21,7 @@ public:
     static bool isSHA256Hash(const std::string& input)
     {
         const std::regex regexExp("^[a-f0-9]{64}$");
-        
+
         return std::regex_match(input, regexExp);
     }
 };

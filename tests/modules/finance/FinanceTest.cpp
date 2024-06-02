@@ -7,7 +7,7 @@
 #include <string_view>
 #include <unordered_map>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 #include "common/LuhnCheck.h"
 #include "common/StringHelper.h"

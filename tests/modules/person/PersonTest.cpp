@@ -8,7 +8,7 @@
 #include <utility>
 #include <vector>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/types/Country.h"

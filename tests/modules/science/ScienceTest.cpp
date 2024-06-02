@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <vector>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 #include "science/data/ChemicalElements.h"
 #include "science/data/Units.h"

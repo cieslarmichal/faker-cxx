@@ -7,7 +7,7 @@
 #include <string>
 #include <utility>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 #include "faker-cxx/RandomGenerator.h"
 #include "faker-cxx/types/Hex.h"

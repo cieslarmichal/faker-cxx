@@ -12,7 +12,7 @@
 #include <string_view>
 #include <time.h>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 #include "common/StringHelper.h"
 #include "date/DateData.h"

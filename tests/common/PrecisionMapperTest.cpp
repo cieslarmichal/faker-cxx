@@ -1,6 +1,6 @@
 #include "common/PrecisionMapper.h"
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 #include "faker-cxx/types/Precision.h"
 

@@ -10,7 +10,7 @@
 #include <unordered_map>
 #include <vector>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 using namespace faker;
 using namespace ::testing;

@@ -2,7 +2,7 @@
 
 #include <stdexcept>
 
-#include "gtest/gtest.h"
+#include <gtest/gtest.h>
 
 using namespace ::testing;
 using namespace faker;
