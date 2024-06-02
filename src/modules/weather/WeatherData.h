@@ -8,4 +8,3 @@ namespace faker
 extern const std::array<std::string_view, 16> weatherDescriptions;
 
 }
-

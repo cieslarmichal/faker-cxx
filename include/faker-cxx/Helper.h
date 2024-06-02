@@ -2,12 +2,12 @@
 
 #include <algorithm>
 #include <functional>
+#include <initializer_list>
 #include <numeric>
 #include <set>
 #include <span>
 #include <string>
 #include <vector>
-#include <initializer_list>
 
 #include "Datatype.h"
 #include "Number.h"
@@ -300,8 +300,9 @@ public:
      * Helper::toVector(std::array<int, 3>{1, 2, 3}) // {1, 2, 3}
      * @endcode
      */
-    template<typename T, std::size_t N>
-        static std::vector<T> toVector(const std::array<T, N>& arr) {
+    template <typename T, std::size_t N>
+    static std::vector<T> toVector(const std::array<T, N>& arr)
+    {
         std::vector<T> vec;
         vec.reserve(N);
         vec.insert(vec.end(), arr.begin(), arr.end());

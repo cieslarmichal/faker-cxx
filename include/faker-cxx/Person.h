@@ -29,7 +29,8 @@ public:
      * Person::firstName(Country::England, Sex::Male) // "Arthur"
      * @endcode
      */
-    static std::string_view firstName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
+    static std::string_view firstName(std::optional<Country> country = std::nullopt,
+                                      std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random last name.
@@ -43,7 +44,8 @@ public:
      * Person::lastName() // "Peterson"
      * @endcode
      */
-    static std::string_view lastName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
+    static std::string_view lastName(std::optional<Country> country = std::nullopt,
+                                     std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random middle name.
@@ -57,7 +59,8 @@ public:
      * Person::middleName() // "Васильевич"
      * @endcode
      */
-    static std::string_view middleName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
+    static std::string_view middleName(std::optional<Country> country = std::nullopt,
+                                       std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random full name.
@@ -88,7 +91,8 @@ public:
      * Person::prefix(Sex::Male) // "Mr."
      * @endcode
      */
-    static std::string_view prefix(std::optional<Country> countryOpt = std::nullopt, std::optional<Sex> sex = std::nullopt);
+    static std::string_view prefix(std::optional<Country> countryOpt = std::nullopt,
+                                   std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random name suffix.
@@ -99,7 +103,8 @@ public:
      * Person::suffix() // "Jr."
      * @endcode
      */
-    static std::string_view suffix(std::optional<Country> countryOpt = std::nullopt, std::optional<Sex> sex = std::nullopt);
+    static std::string_view suffix(std::optional<Country> countryOpt = std::nullopt,
+                                   std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random bio.

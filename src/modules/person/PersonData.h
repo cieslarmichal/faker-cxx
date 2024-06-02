@@ -161,10 +161,9 @@ extern const PeopleNames chinesePeopleNames;
 
 // Croatia
 
-// TODO: remove some of it
 extern const std::array<std::string_view, 171> croatianMaleFirstNames;
 extern const std::array<std::string_view, 238> croatianFemaleFirstNames;
-extern const std::array<std::string_view, 11617> croatianLastNames;
+extern const std::array<std::string_view, 210> croatianLastNames;
 extern const std::array<std::string_view, 2> croatianSuffixes;
 extern const std::array<std::string_view, 2> croatianMalePrefixes;
 extern const std::array<std::string_view, 3> croatianFemalePrefixes;
@@ -243,10 +242,9 @@ extern const PeopleNames frenchPeopleNames;
 
 // Germany
 
-// TODO: remove some of it
 extern const std::array<std::string_view, 572> germanMaleFirstNames;
 extern const std::array<std::string_view, 583> germanFemaleFirstNames;
-extern const std::array<std::string_view, 1688> germanLastNames;
+extern const std::array<std::string_view, 300> germanLastNames;
 extern const std::array<std::string_view, 3> germanMalePrefixes;
 extern const std::array<std::string_view, 3> germanFemalePrefixes;
 extern const NameFormats germanNameFormats;
@@ -314,10 +312,9 @@ extern const PeopleNames israeliPeopleNames;
 
 // Italy
 
-// TODO: remove some of it
-extern const std::array<std::string_view, 1083> italianMaleFirstNames;
+extern const std::array<std::string_view, 600> italianMaleFirstNames;
 extern const std::array<std::string_view, 617> italianFemaleFirstNames;
-extern const std::array<std::string_view, 2170> italianLastNames;
+extern const std::array<std::string_view, 600> italianLastNames;
 extern const std::array<std::string_view, 4> italianPrefixes;
 extern const NameFormats italianNameFormats;
 extern const PeopleNames italianPeopleNames;
@@ -341,8 +338,7 @@ extern const PeopleNames kazakhPeopleNames;
 
 // Korea
 
-// TODO: remove some of it
-extern const std::array<std::string_view, 2963> koreanMaleFirstNames;
+extern const std::array<std::string_view, 100> koreanMaleFirstNames;
 extern const std::array<std::string_view, 112> koreanLastNames;
 extern const NameFormats koreanNameFormats;
 extern const PeopleNames koreanPeopleNames;
@@ -494,7 +490,6 @@ extern const std::array<std::string_view, 63> romanianFemaleFirstNames;
 extern const std::array<std::string_view, 101> romanianLastNames;
 extern const std::array<std::string_view, 2> romanianSuffixes;
 extern const std::array<std::string_view, 2> romanianMalePrefixes;
-extern const std::array<std::string_view, 2> romanianFemalePrefixes;
 extern const NameFormats romanianNameFormats;
 extern const PeopleNames romanianPeopleNames;
 
@@ -509,10 +504,9 @@ extern const PeopleNames russianPeopleNames;
 
 // Serbia
 
-// TODO: remove some of it
 extern const std::array<std::string_view, 200> serbianMaleFirstNames;
 extern const std::array<std::string_view, 200> serbianFemaleFirstNames;
-extern const std::array<std::string_view, 999> serbianLastNames;
+extern const std::array<std::string_view, 200> serbianLastNames;
 extern const NameFormats serbianNameFormats;
 extern const PeopleNames serbianPeopleNames;
 
@@ -545,7 +539,6 @@ extern const PeopleNames southAfricanPeopleNames;
 
 // Spain
 
-// TODO: remove some of it
 extern const std::array<std::string_view, 113> spanishMaleFirstNames;
 extern const std::array<std::string_view, 147> spanishFemaleFirstNames;
 extern const std::array<std::string_view, 625> spanishLastNames;
@@ -609,9 +602,8 @@ extern const PeopleNames usaPeopleNames;
 
 // Vietnam
 
-// TODO: remove some of it
-extern const std::array<std::string_view, 1224> vietnameseMaleFirstNames;
-extern const std::array<std::string_view, 1300> vietnameseFemaleFirstNames;
+extern const std::array<std::string_view, 200> vietnameseMaleFirstNames;
+extern const std::array<std::string_view, 200> vietnameseFemaleFirstNames;
 extern const std::array<std::string_view, 27> vietnameseLastNames;
 extern const NameFormats vietnameseNameFormats;
 extern const PeopleNames vietnamesePeopleNames;

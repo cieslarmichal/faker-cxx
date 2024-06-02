@@ -6,13 +6,13 @@
 #include <vector>
 
 #include "common/FormatHelper.h"
-#include "PersonData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/types/Country.h"
 #include "faker-cxx/Word.h"
+#include "PersonData.h"
 
 namespace faker
 {
@@ -330,12 +330,11 @@ std::string Person::bio()
 {
     const auto randomBioFormat = static_cast<std::string>(Helper::arrayElement(bioFormats));
 
-    const std::unordered_map<std::string, std::function<std::string()>> dataGeneratorsMapping {
+    const std::unordered_map<std::string, std::function<std::string()>> dataGeneratorsMapping{
         {"bio_part", []() { return std::string{Helper::arrayElement(bioParts)}; }},
         {"bio_supporter", []() { return std::string{Helper::arrayElement(bioSupporters)}; }},
         {"noun", []() { return Word::noun(); }},
-        {"emoji", []() { return std::string{Internet::emoji()}; }}
-    };
+        {"emoji", []() { return std::string{Internet::emoji()}; }}};
 
     return FormatHelper::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
 }
