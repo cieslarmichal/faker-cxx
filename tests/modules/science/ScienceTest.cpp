@@ -5,8 +5,7 @@
 
 #include "gtest/gtest.h"
 
-#include "science/data/ChemicalElements.h"
-#include "science/data/Units.h"
+#include "science/ScienceData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -38,7 +37,8 @@ TEST_F(ScienceTest, shouldGenerateChemElement)
 TEST_F(ScienceTest, shouldGenerateAnyUnit)
 {
     const auto generatedAnyUnit = Science::unit();
-    std::vector<faker::Science::Unit> units = distanceUnits;
+    std::vector<faker::Science::Unit> units;
+    units.insert(units.end(), distanceUnits.begin(), distanceUnits.end());
     units.insert(units.end(), massUnits.begin(), massUnits.end());
     units.insert(units.end(), timeUnits.begin(), timeUnits.end());
     units.insert(units.end(), currentUnits.begin(), currentUnits.end());
