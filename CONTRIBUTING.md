@@ -81,32 +81,6 @@ Before you can build the project, you'll need to set up your development environ
 
     If a file contains non-Latin characters (such as characters from Chinese, Arabic, or many other non-Latin alphabets), it's important to save the file with the correct encoding to ensure that the characters are displayed correctly. In Visual Studio Code, you can set the encoding for a file by clicking on the "UTF-8" button in the status bar at the bottom of the window, and then selecting "Save with Encoding" and choosing "UTF-8 without BOM".
 
-## Submitting Changes
-
-Once you've made your changes and ensured they adhere to the project's coding style and pass all tests, you can submit them for review. Here's how:
-
-1. **Push your changes:**
-
-    First, you'll need to push your changes to the branch in your fork of the repository. You can do this with the following command:
-
-    ```sh
-    git push origin your-branch-name
-    ```
-
-    Replace `your-branch-name` with the name of the branch you created for your changes.
-
-2. **Create a pull request:**
-
-    After pushing your changes, you'll need to create a pull request. This is a way of proposing your changes to the project maintainers and allowing them to review your code.
-
-    To create a pull request, go to the main page of the repository on GitHub, and click on the "Pull requests" tab. Then click on the "New pull request" button.
-
-    In the "base" dropdown, select the main branch of the original repository, and in the "compare" dropdown, select the branch in your fork with your changes.
-
-    Fill out the pull request form with a title and description that explain your changes, and then click "Create pull request".
-
-    For more detailed instructions, see GitHub's guide on [creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
-
 ## Building and Testing the Project
 
 ### Building the Project
@@ -162,6 +136,32 @@ After building the project, you can run the tests to ensure everything is workin
     ```sh
     ctest --preset unixlike-gcc-debug
     ```
+
+## Submitting Changes
+
+Once you've made your changes and ensured they adhere to the project's coding style and pass all tests, you can submit them for review. Here's how:
+
+1. **Push your changes:**
+
+    First, you'll need to push your changes to the branch in your fork of the repository. You can do this with the following command:
+
+    ```sh
+    git push origin your-branch-name
+    ```
+
+    Replace `your-branch-name` with the name of the branch you created for your changes.
+
+2. **Create a pull request:**
+
+    After pushing your changes, you'll need to create a pull request. This is a way of proposing your changes to the project maintainers and allowing them to review your code.
+
+    To create a pull request, go to the main page of the repository on GitHub, and click on the "Pull requests" tab. Then click on the "New pull request" button.
+
+    In the "base" dropdown, select the main branch of the original repository, and in the "compare" dropdown, select the branch in your fork with your changes.
+
+    Fill out the pull request form with a title and description that explain your changes, and then click "Create pull request".
+
+    For more detailed instructions, see GitHub's guide on [creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
 
 # Additional Resources
 
