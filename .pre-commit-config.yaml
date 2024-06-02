@@ -4,7 +4,6 @@ repos:
     rev: master
     hooks:
       - id: clang-format
-        args: [--style=LLVM]
       - id: clang-tidy
         args: ["-header-filter=include/.*", "-extra-arg=-std=c++20"]
       - id: oclint
