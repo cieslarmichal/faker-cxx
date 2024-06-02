@@ -41,7 +41,8 @@ jobs:
           cache: 'pip'
 
       - name: Install Python dependencies
-        run: pip install -r .github/requirements_build.txt
+        working-directory: .github
+        run: pip install .[ci]
 
       - name: Configure Conan profile
         run: |

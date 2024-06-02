@@ -30,7 +30,10 @@ jobs:
           cache: 'pip'
 
       - name: Install Python dependencies
-        run: pip install -r .github/requirements_analysis.txt
+        working-directory: .github
+        run: |
+          pip install .[ci] \
+          && pip install .[dev]
 
   build_project:
     name: ci-ubuntu-24.04-build-clang
