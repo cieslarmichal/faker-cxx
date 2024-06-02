@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <cctype>
-#include <cstddef>
 #include <string>
 #include <string_view>
 
@@ -51,7 +50,7 @@ TEST_F(CommerceTest, shouldGenerateSku)
     ASSERT_TRUE(std::ranges::all_of(sku,
                                     [](char skuCharacter)
                                     {
-                                        return std::ranges::any_of(string::numericCharacters,
+                                        return std::ranges::any_of(numericCharacters,
                                                                    [skuCharacter](char numericCharacter)
                                                                    { return skuCharacter == numericCharacter; });
                                     }));
@@ -67,7 +66,7 @@ TEST_F(CommerceTest, shouldGenerateSkuWithSpecifiedLength)
     ASSERT_TRUE(std::ranges::all_of(sku,
                                     [](char skuCharacter)
                                     {
-                                        return std::ranges::any_of(string::numericCharacters,
+                                        return std::ranges::any_of(numericCharacters,
                                                                    [skuCharacter](char numericCharacter)
                                                                    { return skuCharacter == numericCharacter; });
                                     }));
@@ -283,7 +282,7 @@ TEST_F(CommerceTest, shouldGenerateDiscountCode)
                                     [](char generatedDiscountCodeCharacter)
                                     {
                                         return std::ranges::any_of(
-                                            string::upperAlphanumericCharacters,
+                                            upperAlphanumericCharacters,
                                             [generatedDiscountCodeCharacter](char upperAlphanumericCharacter)
                                             { return upperAlphanumericCharacter == generatedDiscountCodeCharacter; });
                                     }));

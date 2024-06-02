@@ -1,12 +1,12 @@
 #pragma once
 
 #include <limits>
+#include <map>
 #include <optional>
 #include <random>
 #include <set>
 #include <sstream>
 #include <string>
-#include <map>
 
 #include "RandomGenerator.h"
 #include "types/Hex.h"

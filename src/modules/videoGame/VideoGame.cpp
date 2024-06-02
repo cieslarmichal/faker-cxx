@@ -5,7 +5,6 @@
 #include "faker-cxx/Helper.h"
 #include "VideoGameData.h"
 
-
 namespace faker
 {
 std::string_view VideoGame::gameTitle()

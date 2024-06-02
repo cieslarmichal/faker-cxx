@@ -104,7 +104,7 @@ public:
         return std::ranges::all_of(data,
                                    [](char dataCharacter)
                                    {
-                                       return std::ranges::any_of(string::numericCharacters,
+                                       return std::ranges::any_of(numericCharacters,
                                                                   [dataCharacter](char numericCharacter)
                                                                   { return numericCharacter == dataCharacter; });
                                    });
@@ -391,7 +391,7 @@ TEST_F(FinanceTest, shouldGenerateEthereumAddress)
     ASSERT_EQ(ethereumAddress.size(), 42);
     ASSERT_EQ(prefix, "0x");
     ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                    { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateExpirationDate)

@@ -2,8 +2,8 @@
 
 #include <string_view>
 
-#include "SportData.h"
 #include "faker-cxx/Helper.h"
+#include "SportData.h"
 
 namespace faker
 {

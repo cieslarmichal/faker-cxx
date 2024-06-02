@@ -3,8 +3,8 @@
 #include <set>
 #include <string>
 
-namespace faker::string {
-
+namespace faker
+{
 static const std::string upperCharacters{"ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
 static const std::string lowerCharacters{"abcdefghijklmnopqrstuvwxyz"};
 static const std::string numericCharactersWithoutZero{"123456789"};
@@ -33,17 +33,13 @@ static const std::set<char> mixedAlphaCharSet{
     'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',
 };
 
-static const std::set<char> hexUpperCharSet{
-    'A', 'B', 'C', 'D', 'E', 'F', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-};
+static const std::set<char> hexUpperCharSet{'A', 'B', 'C', 'D', 'E', 'F', '0', '1',
+                                            '2', '3', '4', '5', '6', '7', '8', '9'};
 
-static const std::set<char> hexLowerCharSet{
-    'a', 'b', 'c', 'd', 'e', 'f', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-};
+static const std::set<char> hexLowerCharSet{'a', 'b', 'c', 'd', 'e', 'f', '0', '1',
+                                            '2', '3', '4', '5', '6', '7', '8', '9'};
 
-static const std::set<char> digitSet{
-    '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
-};
+static const std::set<char> digitSet{'0', '1', '2', '3', '4', '5', '6', '7', '8', '9'};
 
 static const std::set<char> utf16CharSet{
     '!', '"', '#',  '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3',

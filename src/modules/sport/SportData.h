@@ -1,9 +1,10 @@
 #pragma once
 
-#include <string>
 #include <array>
+#include <string>
 
-namespace faker::sport {
+namespace faker::sport
+{
 
 extern const std::array<std::string_view, 10> femaleAthletes;
 extern const std::array<std::string_view, 10> maleAthletes;

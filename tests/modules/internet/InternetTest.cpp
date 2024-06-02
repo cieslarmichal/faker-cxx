@@ -4,7 +4,6 @@
 #include <array>
 #include <cctype>
 #include <charconv>
-#include <cstddef>
 #include <initializer_list>
 #include <optional>
 #include <sstream>
@@ -18,10 +17,7 @@
 #include "faker-cxx/Number.h"
 #include "faker-cxx/types/Country.h"
 #include "internet/InternetData.h"
-#include "person/data/england/EnglishFirstNames.h"
-#include "person/data/england/EnglishLastNames.h"
-#include "person/data/romania/RomanianFirstNames.h"
-#include "person/data/romania/RomanianLastNames.h"
+#include "person/PersonData.h"
 #include "string/StringData.h"
 #include "word/data/Adjectives.h"
 #include "word/data/Nouns.h"
@@ -108,15 +104,14 @@ public:
 
 TEST_F(InternetTest, shouldGenerateUsername)
 {
-    std::vector<std::string> firstNames{englishMalesFirstNames};
-
-    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
 
     const auto username = Internet::username();
 
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [username](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [username](const std::string_view& firstName)
                                     { return username.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [username](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [username](const std::string_view& lastName)
                                     { return username.find(lastName) != std::string::npos; }));
 }
 
@@ -127,21 +122,20 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFirstNameProvided)
     const auto username = Internet::username(firstName);
 
     ASSERT_TRUE(username.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [username](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [username](const std::string_view& lastName)
                                     { return username.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateUsernameWithLastNameProvided)
 {
-    std::vector<std::string> firstNames{englishMalesFirstNames};
-
-    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
 
     const auto lastName = "Cieslar";
 
     const auto username = Internet::username(std::nullopt, lastName);
 
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [username](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [username](const std::string_view& firstName)
                                     { return username.find(firstName) != std::string::npos; }));
     ASSERT_TRUE(username.find(lastName) != std::string::npos);
 }
@@ -160,25 +154,22 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFullNameProvided)
 
 TEST_F(InternetTest, shouldGenerateInternationalUsernames)
 {
-    std::vector<std::string> romanianFirstNames{romanianMalesFirstNames};
+    std::vector<std::string_view> firstNames(polishMaleFirstNames.begin(), polishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), polishFemaleFirstNames.begin(), polishFemaleFirstNames.end());
 
-    romanianFirstNames.insert(romanianFirstNames.end(), romanianFemalesFirstNames.begin(),
-                              romanianFemalesFirstNames.end());
+    const auto username = Internet::username(std::nullopt, std::nullopt, Country::Poland);
 
-    const auto username = Internet::username(std::nullopt, std::nullopt, Country::Romania);
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [username](const std::string_view& firstName)
+                                    { return username.find(firstName) != std::string::npos; }));
 
-    ASSERT_TRUE(std::ranges::any_of(romanianFirstNames, [username](const std::string& romanianFirstName)
-                                    { return username.find(romanianFirstName) != std::string::npos; }));
-
-    ASSERT_TRUE(std::ranges::any_of(romanianLastNames, [username](const std::string& romanianLastName)
-                                    { return username.find(romanianLastName) != std::string::npos; }));
+    ASSERT_TRUE(std::ranges::any_of(polishLastNames, [username](const std::string_view& lastName)
+                                    { return username.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmail)
 {
-    std::vector<std::string> firstNames{englishMalesFirstNames};
-
-    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
 
     const auto email = Internet::email();
 
@@ -189,11 +180,11 @@ TEST_F(InternetTest, shouldGenerateEmail)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internet::emailHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
@@ -210,18 +201,17 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internet::emailHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 {
-    std::vector<std::string> firstNames{englishMalesFirstNames};
-
-    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
 
     const auto lastName = "Howard";
 
@@ -234,19 +224,15 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internet::emailHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
     ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 {
-    std::vector<std::string> firstNames{englishMalesFirstNames};
-
-    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
-
     const auto firstName = "Cindy";
 
     const auto lastName = "Young";
@@ -260,7 +246,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internet::emailHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
@@ -268,9 +254,8 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 {
-    std::vector<std::string> firstNames{englishMalesFirstNames};
-
-    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
 
     const auto emailHost = "example.com";
 
@@ -284,17 +269,16 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
     const auto& generatedEmailHost = emailParts[1];
 
     ASSERT_EQ(generatedEmailHost, emailHost);
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmail)
 {
-    std::vector<std::string> firstNames{englishMalesFirstNames};
-
-    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
 
     const auto email = Internet::exampleEmail();
 
@@ -305,11 +289,11 @@ TEST_F(InternetTest, shouldGenerateExampleEmail)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internet::emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
@@ -326,18 +310,17 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internet::emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 {
-    std::vector<std::string> firstNames{englishMalesFirstNames};
-
-    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
+    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
 
     const auto lastName = "Wilkinson";
 
@@ -350,19 +333,15 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internet::emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
     ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 {
-    std::vector<std::string> firstNames{englishMalesFirstNames};
-
-    firstNames.insert(firstNames.end(), englishFemalesFirstNames.begin(), englishFemalesFirstNames.end());
-
     const auto firstName = "Walter";
 
     const auto lastName = "Brown";
@@ -376,7 +355,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internet::emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
     ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
@@ -404,7 +383,6 @@ TEST_F(InternetTest, shouldGeneratePasswordWithSpecifiedLength)
 
 TEST_F(InternetTest, shouldGenerateEmoji)
 {
-    using namespace faker::internet;
     const auto generatedEmoji = Internet::emoji();
 
     std::vector<std::string_view> emojis;
@@ -412,16 +390,16 @@ TEST_F(InternetTest, shouldGenerateEmoji)
                    foodEmojis.size() + travelEmojis.size() + activityEmojis.size() + objectEmojis.size() +
                    symbolEmojis.size() + flagEmojis.size());
 
-    emojis.insert(emojis.end(), internet::smileyEmojis.begin(), internet::smileyEmojis.end());
-    emojis.insert(emojis.end(), internet::bodyEmojis.begin(), internet::bodyEmojis.end());
-    emojis.insert(emojis.end(), internet::personEmojis.begin(), internet::personEmojis.end());
-    emojis.insert(emojis.end(), internet::natureEmojis.begin(), internet::natureEmojis.end());
-    emojis.insert(emojis.end(), internet::foodEmojis.begin(), internet::foodEmojis.end());
-    emojis.insert(emojis.end(), internet::travelEmojis.begin(), internet::travelEmojis.end());
-    emojis.insert(emojis.end(), internet::activityEmojis.begin(), internet::activityEmojis.end());
-    emojis.insert(emojis.end(), internet::objectEmojis.begin(), internet::objectEmojis.end());
-    emojis.insert(emojis.end(), internet::symbolEmojis.begin(), internet::symbolEmojis.end());
-    emojis.insert(emojis.end(), internet::flagEmojis.begin(), internet::flagEmojis.end());
+    emojis.insert(emojis.end(), smileyEmojis.begin(), smileyEmojis.end());
+    emojis.insert(emojis.end(), bodyEmojis.begin(), bodyEmojis.end());
+    emojis.insert(emojis.end(), personEmojis.begin(), personEmojis.end());
+    emojis.insert(emojis.end(), natureEmojis.begin(), natureEmojis.end());
+    emojis.insert(emojis.end(), foodEmojis.begin(), foodEmojis.end());
+    emojis.insert(emojis.end(), travelEmojis.begin(), travelEmojis.end());
+    emojis.insert(emojis.end(), activityEmojis.begin(), activityEmojis.end());
+    emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
+    emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
+    emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
 
     ASSERT_TRUE(
         std::ranges::any_of(emojis, [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
@@ -431,7 +409,7 @@ TEST_F(InternetTest, shouldGenerateSmileyEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Smiley);
 
-    ASSERT_TRUE(std::ranges::any_of(internet::smileyEmojis,
+    ASSERT_TRUE(std::ranges::any_of(smileyEmojis,
                                     [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
@@ -439,7 +417,7 @@ TEST_F(InternetTest, shouldGenerateBodyEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Body);
 
-    ASSERT_TRUE(std::ranges::any_of(internet::bodyEmojis,
+    ASSERT_TRUE(std::ranges::any_of(bodyEmojis,
                                     [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
@@ -447,7 +425,7 @@ TEST_F(InternetTest, shouldGeneratePersonEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Person);
 
-    ASSERT_TRUE(std::ranges::any_of(internet::personEmojis,
+    ASSERT_TRUE(std::ranges::any_of(personEmojis,
                                     [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
@@ -455,7 +433,7 @@ TEST_F(InternetTest, shouldGenerateNatureEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Nature);
 
-    ASSERT_TRUE(std::ranges::any_of(internet::natureEmojis,
+    ASSERT_TRUE(std::ranges::any_of(natureEmojis,
                                     [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
@@ -463,7 +441,7 @@ TEST_F(InternetTest, shouldGenerateFoodEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Food);
 
-    ASSERT_TRUE(std::ranges::any_of(internet::foodEmojis,
+    ASSERT_TRUE(std::ranges::any_of(foodEmojis,
                                     [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
@@ -471,7 +449,7 @@ TEST_F(InternetTest, shouldGenerateTravelEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Travel);
 
-    ASSERT_TRUE(std::ranges::any_of(internet::travelEmojis,
+    ASSERT_TRUE(std::ranges::any_of(travelEmojis,
                                     [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
@@ -479,7 +457,7 @@ TEST_F(InternetTest, shouldGenerateActivityEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Activity);
 
-    ASSERT_TRUE(std::ranges::any_of(internet::activityEmojis,
+    ASSERT_TRUE(std::ranges::any_of(activityEmojis,
                                     [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
@@ -487,7 +465,7 @@ TEST_F(InternetTest, shouldGenerateObjectEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Object);
 
-    ASSERT_TRUE(std::ranges::any_of(internet::objectEmojis,
+    ASSERT_TRUE(std::ranges::any_of(objectEmojis,
                                     [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
@@ -495,7 +473,7 @@ TEST_F(InternetTest, shouldGenerateSymbolEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Symbol);
 
-    ASSERT_TRUE(std::ranges::any_of(internet::symbolEmojis,
+    ASSERT_TRUE(std::ranges::any_of(symbolEmojis,
                                     [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
@@ -503,7 +481,7 @@ TEST_F(InternetTest, shouldGenerateFlagEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Flag);
 
-    ASSERT_TRUE(std::ranges::any_of(internet::flagEmojis,
+    ASSERT_TRUE(std::ranges::any_of(flagEmojis,
                                     [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
 }
 
@@ -542,7 +520,7 @@ TEST_F(InternetTest, shouldGenerateHttpRequestHeader)
 {
     const auto generatedHttpRequestHeader = Internet::httpRequestHeader();
 
-    ASSERT_TRUE(std::ranges::any_of(internet::httpRequestHeaders, [generatedHttpRequestHeader](const std::string_view& httpHeader)
+    ASSERT_TRUE(std::ranges::any_of(httpRequestHeaders, [generatedHttpRequestHeader](const std::string_view& httpHeader)
                                     { return generatedHttpRequestHeader == httpHeader; }));
 }
 
@@ -550,7 +528,7 @@ TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
 {
     const auto generatedHttpResponseHeader = Internet::httpResponseHeader();
 
-    ASSERT_TRUE(std::ranges::any_of(internet::httpResponseHeaders, [generatedHttpResponseHeader](const std::string_view& httpHeader)
+    ASSERT_TRUE(std::ranges::any_of(httpResponseHeaders, [generatedHttpResponseHeader](const std::string_view& httpHeader)
                                     { return generatedHttpResponseHeader == httpHeader; }));
 }
 
@@ -558,7 +536,7 @@ TEST_F(InternetTest, shouldGenerateHttpMediaType)
 {
     const auto generatedHttpMediaType = Internet::httpMediaType();
 
-    ASSERT_TRUE(std::ranges::any_of(internet::httpMediaTypes, [generatedHttpMediaType](const std::string_view& httpMediaType)
+    ASSERT_TRUE(std::ranges::any_of(httpMediaTypes, [generatedHttpMediaType](const std::string_view& httpMediaType)
                                     { return generatedHttpMediaType == httpMediaType; }));
 }
 
@@ -657,7 +635,7 @@ TEST_F(InternetTest, shouldGenerateIpv6)
                                     {
                                         return std::ranges::all_of(
                                             generatedIpv6Part, [](char hexCharacter)
-                                            { return string::hexLowerCharacters.find(hexCharacter) != std::string::npos; });
+                                            { return hexLowerCharacters.find(hexCharacter) != std::string::npos; });
                                     }));
 }
 
@@ -682,7 +660,7 @@ TEST_F(InternetTest, shouldGenerateDomainSuffix)
 {
     const auto generatedDomainSuffix = Internet::domainSuffix();
 
-    ASSERT_TRUE(std::ranges::any_of(internet::domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
 }
 
@@ -703,7 +681,7 @@ TEST_F(InternetTest, shouldGenerateDomainName)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    ASSERT_TRUE(std::ranges::any_of(internet::domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
 }
 
@@ -722,7 +700,7 @@ TEST_F(InternetTest, shouldGenerateHttpsUrl)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    ASSERT_TRUE(std::ranges::any_of(internet::domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
     ASSERT_EQ(generatedProtocol, "https");
 }
@@ -742,7 +720,7 @@ TEST_F(InternetTest, shouldGenerateHttpUrl)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    ASSERT_TRUE(std::ranges::any_of(internet::domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
     ASSERT_EQ(generatedProtocol, "http");
 }
