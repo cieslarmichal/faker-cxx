@@ -7,7 +7,10 @@ Before you can build the project, you'll need to set up your development environ
 
 1. **Install the required software:**
 
-    This project requires CMake and a C++ compiler. You can install these on Ubuntu with the following command:
+    This project requires CMake and a C++ compiler with C++20 standard supported. You can check what
+    compiler has C++20 at [cppreference](https://en.cppreference.com/w/cpp/compiler_support/20).
+
+    You can install these required tools on Ubuntu with the following command:
 
     ```sh
     sudo apt-get install cmake g++
