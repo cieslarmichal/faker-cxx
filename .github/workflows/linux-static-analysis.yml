@@ -17,12 +17,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Install and cache apt packages
-        uses: awalsh128/cache-apt-pkgs-action@latest
-        with:
-          packages: cppcheck
-          version: 1.0
-
       - name: Configure python
         uses: actions/setup-python@v5
         with:
@@ -30,7 +24,7 @@ jobs:
           cache: 'pip'
 
       - name: Install Python dependencies
-        run: pip install -r .github/requirements.txt pre-commit
+        run: pip install -r .github/requirements.txt
 
       - name: Install ccache
         uses: hendrikmuhs/ccache-action@v1.2
@@ -104,9 +98,18 @@ jobs:
     name: cppcheck
     runs-on: ubuntu-24.04
     needs: build_project
+    outputs:
+      build_output: ${{ steps.build_project.outputs }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Install and cache apt packages
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: cppcheck
+          version: 1.0
 
       - name: Run cppcheck
         run: |
@@ -158,6 +161,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Configure python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: pip install pre-commit
 
       - name: Run clang-format
         run: pre-commit run clang-format --all-files --color always --verbose
