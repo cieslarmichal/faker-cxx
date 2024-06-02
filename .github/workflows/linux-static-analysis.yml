@@ -169,7 +169,7 @@ jobs:
           run-clang-tidy \
             -p build/unixlike-clang-debug \
             -header-filter="include/*" \
-            -extra-arg="-std=gnu++20 || true
+            -extra-arg="-std=gnu++20" || true
 
   clang_format:
     name: clang-format
