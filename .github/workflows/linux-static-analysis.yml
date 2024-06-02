@@ -31,9 +31,7 @@ jobs:
 
       - name: Install Python dependencies
         working-directory: .github
-        run: |
-          pip install .[ci] \
-          && pip install .[dev]
+        run: pip install .[ci] .[dev]
 
   build_project:
     name: ci-ubuntu-24.04-build-clang
@@ -41,6 +39,9 @@ jobs:
     needs: install_dependencies
 
     steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
       - name: Install ccache
         uses: hendrikmuhs/ccache-action@v1.2
 
