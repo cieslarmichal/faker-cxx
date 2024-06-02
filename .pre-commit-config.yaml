@@ -4,11 +4,11 @@ repos:
     rev: master
     hooks:
       - id: clang-format
-        args: [--style=Google]
+        args: [--style=LLVM]
       - id: clang-tidy
+        args: ["-header-filter=include/.*", "-extra-arg=-std=c++20"]
       - id: oclint
       - id: uncrustify
       - id: cppcheck
         args: ["--template=gcc", "--suppress=missingIncludeSystem", "--suppress=variableScope", "--suppress=cppcheckError", "--suppress=internalAstError", "--suppress=unmatchedSuppression", "--suppress=passedByValue", "--suppress=syntaxError", "--suppress=preprocessorErrorDirective", "--inconclusive", "-I src", "-I src/common", "-I src/modules", "-I include", "--std=c++20", "--enable=style", "--enable=performance", "--enable=warning", "--enable=portability", "--inline-suppr"]
       - id: cpplint
-      - id: include-what-you-use

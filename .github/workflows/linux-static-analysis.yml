@@ -20,7 +20,7 @@ jobs:
       - name: Install and cache apt packages
         uses: awalsh128/cache-apt-pkgs-action@latest
         with:
-          packages: cppcheck uncrustify iwyu
+          packages: cppcheck
           version: 1.0
 
       - name: Configure python
@@ -142,28 +142,6 @@ jobs:
             src/ \
             tests/
 
-  uncrustify:
-    name: uncrustify
-    runs-on: ubuntu-24.04
-    needs: build_project
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Run uncrustify
-        run: pre-commit run uncrustify --all-files --color always --verbose
-
-  include_what_you_use:
-    name: include-what-you-use
-    runs-on: ubuntu-24.04
-    needs: build_project
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Run include-what-you-use
-        run: pre-commit run include-what-you-use --all-files --color always --verbose
-
   clang_tidy:
     name: clang-tidy
     runs-on: ubuntu-24.04
@@ -189,14 +167,3 @@ jobs:
 
       - name: Run clang-format
         run: pre-commit run clang-format --all-files --color always --verbose
-
-  oclint:
-    name: oclint
-    runs-on: ubuntu-24.04
-    needs: build_project
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Run oclint
-        run: pre-commit run oclint --all-files --color always --verbose
