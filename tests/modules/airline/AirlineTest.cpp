@@ -181,6 +181,6 @@ TEST_F(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
 TEST_F(AirlineTest, shouldGenerateFlightNumberByRange)
 {
     const auto flightNumber = Airline::flightNumberByRange(false, {1, 6});
-    
+
     ASSERT_TRUE(flightNumber.length() <= 6);
 }

@@ -21,7 +21,7 @@ public:
     static bool isSHA256Hash(const std::string& input)
     {
         const std::regex regexExp("^[a-f0-9]{64}$");
-        
+
         return std::regex_match(input, regexExp);
     }
 };

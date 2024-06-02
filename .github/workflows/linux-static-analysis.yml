@@ -1,0 +1,200 @@
+name: static-analysis
+
+on:
+  push:
+    branches:
+      - 'main'
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  build_project:
+    name: ci-ubuntu-24.04-build-clang
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Configure python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: pip install -r .github/requirements.txt
+
+      - name: Install ccache
+        uses: hendrikmuhs/ccache-action@v1.2
+
+      - name: Cache Conan packages
+        id: cache-conan
+        uses: actions/cache@v4.0.2
+        env:
+          cache-name: cache-conan-packages
+        with:
+          path: ~/.conan2
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('conanfile.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Configure Conan profiles
+        run: |
+          CC=clang-18 \
+          CXX=clang++-18 \
+          conan profile detect --force --name clang-18
+
+      - name: Install Conan dependencies
+        run: |
+          conan install conanfile.txt \
+            -r conancenter \
+            -pr:b clang-18 \
+            -pr:h clang-18 \
+            -s compiler.cppstd=20 \
+            -s build_type=Debug \
+            -o "*:shared=True" \
+            -c:b tools.build:compiler_executables="{'c': '/usr/bin/clang-18', 'cpp': '/usr/bin/clang++-18'}" \
+            -c:h tools.build:compiler_executables="{'c': '/usr/bin/clang-18', 'cpp': '/usr/bin/clang++-18'}" \
+            --build=missing \
+
+      - name: Configure CMake
+        run: |
+          cmake -S ${{github.workspace}} --preset=unixlike-clang-debug \
+            -DCMAKE_C_COMPILER=/usr/bin/clang-18 \
+            -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
+            -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DCODE_COVERAGE:BOOL=ON \
+            -DBUILD_TESTING:BOOL=ON \
+            -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
+            -DUSE_STD_FORMAT:BOOL=ON \
+            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
+            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=lld
+
+      - name: Build
+        run: cmake --build --preset=unixlike-clang-debug
+
+      - name: Generate code coverage
+        working-directory: ${{github.workspace}}/build/unixlike-clang-debug
+        run: |
+          ninja faker-ccov-all \
+          && llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt \
+          && llvm-cov-18 report `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata
+
+      - name: Store build artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: build-directory
+          path: ${{github.workspace}}/build
+
+  cppcheck:
+    name: cppcheck
+    runs-on: ubuntu-24.04
+    needs: build_project
+    outputs:
+      build_output: ${{ steps.build_project.outputs }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install and cache apt packages
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: cppcheck
+          version: 1.0
+
+      - name: Download build directory
+        uses: actions/download-artifact@v4
+        with:
+          name: build-directory
+          path: build
+
+      - name: Run cppcheck
+        run: |
+          cppcheck \
+            --template=gcc \
+            --suppress=missingIncludeSystem \
+            --suppress=variableScope \
+            --suppress=cppcheckError \
+            --suppress=internalAstError \
+            --suppress=unmatchedSuppression \
+            --suppress=passedByValue \
+            --suppress=syntaxError \
+            --suppress=preprocessorErrorDirective \
+            --inconclusive \
+            -I src \
+            -I src/common \
+            -I src/modules \
+            -I include \
+            --std=c++20 \
+            --enable=style \
+            --enable=performance \
+            --enable=warning \
+            --enable=portability \
+            --inline-suppr \
+            --cppcheck-build-dir=build/unixlike-clang-debug \
+            --project=build/unixlike-clang-debug/compile_commands.json
+
+  clang_tidy:
+    name: clang-tidy
+    runs-on: ubuntu-24.04
+    needs: build_project
+    outputs:
+      build_output: ${{ steps.build_project.outputs }}
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Cache Conan packages
+        id: cache-conan
+        uses: actions/cache/restore@v4.0.2
+        env:
+          cache-name: cache-conan-packages
+        with:
+          path: ~/.conan2
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('conanfile.txt') }}
+
+      - name: Download build directory
+        uses: actions/download-artifact@v4
+        with:
+          name: build-directory
+          path: build
+
+      - name: Run clang-tidy
+        run: |
+          run-clang-tidy \
+            -p build/unixlike-clang-debug \
+            -header-filter="include/*" \
+            -extra-arg="-std=gnu++20" || true
+
+  clang_format:
+    name: clang-format
+    runs-on: ubuntu-24.04
+    needs: build_project
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download build directory
+        uses: actions/download-artifact@v4
+        with:
+          name: build-directory
+          path: build
+
+      - name: Configure python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: pip install pre-commit
+
+      - name: Run clang-format
+        # FIXME: Ignore format errors for now
+        run: pre-commit run clang-format --all-files --color always --verbose || true

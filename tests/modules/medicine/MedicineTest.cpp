@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <string_view>
 #include <faker-cxx/Medicine.h>
-#include <gtest/gtest.h>
+#include "gtest/gtest.h"
 
 #include "medicine/MedicineData.h"
 
