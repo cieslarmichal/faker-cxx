@@ -1,0 +1,181 @@
+name: static-analysis
+
+on:
+  push:
+    branches:
+      - 'main'
+      - 'ci/static-analyzer'
+  workflow_dispatch:
+  pull_request:
+
+jobs:
+  install_dependencies:
+    name: ci-ubuntu-24.04-static-analysis
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install and cache apt packages
+        uses: awalsh128/cache-apt-pkgs-action@latest
+        with:
+          packages: cppcheck uncrustify iwyu
+          version: 1.0
+
+      - name: Configure python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: pip install -r .github/requirements_analysis.txt
+
+  build_project:
+    name: ci-ubuntu-24.04-build-clang
+    runs-on: ubuntu-24.04
+    needs: install_dependencies
+
+    steps:
+      - name: Install ccache
+        uses: hendrikmuhs/ccache-action@v1.2
+
+      - name: Cache Conan packages
+        id: cache-conan
+        uses: actions/cache@v4.0.2
+        env:
+          cache-name: cache-conan-packages
+        with:
+          path: ~/.conan2
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('conanfile.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Configure Conan profiles
+        run: |
+          CC=clang-18 \
+          CXX=clang++-18 \
+          conan profile detect --force --name clang-18
+
+      - name: Install Conan dependencies
+        run: |
+          conan install conanfile.txt \
+            -r conancenter \
+            -pr:b clang-18 \
+            -pr:h clang-18 \
+            -s compiler.cppstd=20 \
+            -s build_type=Debug \
+            -o "*:shared=True" \
+            -c:b tools.build:compiler_executables="{'c': '/usr/bin/clang-18', 'cpp': '/usr/bin/clang++-18'}" \
+            -c:h tools.build:compiler_executables="{'c': '/usr/bin/clang-18', 'cpp': '/usr/bin/clang++-18'}" \
+            --build=missing \
+
+      - name: Configure CMake
+        run: |
+          cmake -S ${{github.workspace}} --preset=unixlike-clang-debug \
+            -DCMAKE_C_COMPILER=/usr/bin/clang-18 \
+            -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
+            -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DCODE_COVERAGE:BOOL=ON \
+            -DBUILD_TESTING:BOOL=ON \
+            -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
+            -DUSE_STD_FORMAT:BOOL=ON \
+            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
+            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=gold
+
+      - name: Build
+        run: cmake --build --preset=unixlike-clang-debug
+
+
+  cppcheck:
+    name: cppcheck
+    runs-on: ubuntu-24.04
+    needs: build_project
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run cppcheck
+        run: cppcheck \
+             --template=gcc \
+             --suppress=missingIncludeSystem \
+             --suppress=variableScope \
+             --suppress=cppcheckError \
+             --suppress=internalAstError \
+             --suppress=unmatchedSuppression \
+             --suppress=passedByValue \
+             --suppress=syntaxError \
+             --suppress=preprocessorErrorDirective \
+             --inconclusive \
+             -I src \
+             -I src/common \
+             -I src/modules \
+             -I include \
+             --std=c++20 \
+             --enable=style \
+             --enable=performance \
+             --enable=warning \
+             --enable=portability \
+             --inline-suppr \
+             --cppcheck-build-dir=build/unixlike-clang-debug \
+             --project=build/unixlike-clang-debug/compile_commands.json \
+             src/ \
+             tests/
+
+  uncrustify:
+    name: uncrustify
+    runs-on: ubuntu-24.04
+    needs: build_project
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run uncrustify
+        run: pre-commit run uncrustify --all-files --color always --verbose
+
+  include_what_you_use:
+    name: include-what-you-use
+    runs-on: ubuntu-24.04
+    needs: build_project
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run include-what-you-use
+        run: pre-commit run include-what-you-use --all-files --color always --verbose
+
+  clang_tidy:
+    name: clang-tidy
+    runs-on: ubuntu-24.04
+    needs: build_project
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run clang-tidy
+        run: pre-commit run clang-tidy --all-files --color always --verbose
+
+  clang_format:
+    name: clang-format
+    runs-on: ubuntu-24.04
+    needs: build_project
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run clang-format
+        run: pre-commit run clang-format --all-files --color always --verbose
+
+  oclint:
+    name: oclint
+    runs-on: ubuntu-24.04
+    needs: build_project
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run oclint
+        run: pre-commit run oclint --all-files --color always --verbose
