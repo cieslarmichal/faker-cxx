@@ -14,7 +14,9 @@
             "binaryDir": "${sourceDir}/build/${presetName}",
             "installDir": "${sourceDir}/install/${presetName}",
             "cacheVariables": {
-                "USE_SYSTEM_DEPENDENCIES": "FALSE"
+                "USE_SYSTEM_DEPENDENCIES": "FALSE",
+                "USE_STD_FORMAT": "TRUE",
+                "BUILD_TESTING": "TRUE"
             }
         },
         {
