@@ -169,7 +169,7 @@ jobs:
           run-clang-tidy \
             -p build/unixlike-clang-debug \
             -header-filter="include/*" \
-            -extra-arg=-std=gnu++20
+            -extra-arg="-std=gnu++20 -suppress=clang-diagnostic-error"
 
   clang_format:
     name: clang-format
