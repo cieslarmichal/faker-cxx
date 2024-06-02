@@ -77,6 +77,12 @@ jobs:
       - name: Build
         run: cmake --build --preset=unixlike-clang-debug
 
+      - name: Store build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-directory
+          path: ${{github.workspace}}/build/unixlike-clang-debug
+
   coverage:
     name: coverage
     runs-on: ubuntu-24.04
@@ -85,6 +91,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Download build directory
+        uses: actions/download-artifact@v2
+        with:
+          name: build-directory
+          path: build/unixlike-clang-debug
 
       - name: Generate code coverage
         working-directory: ${{github.workspace}}/build/unixlike-clang-debug
@@ -110,6 +122,12 @@ jobs:
         with:
           packages: cppcheck
           version: 1.0
+
+      - name: Download build directory
+        uses: actions/download-artifact@v2
+        with:
+          name: build-directory
+          path: build/unixlike-clang-debug
 
       - name: Run cppcheck
         run: |
@@ -143,9 +161,18 @@ jobs:
     name: clang-tidy
     runs-on: ubuntu-24.04
     needs: build_project
+    outputs:
+      build_output: ${{ steps.build_project.outputs }}
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Download build directory
+        uses: actions/download-artifact@v2
+        with:
+          name: build-directory
+          path: build/unixlike-clang-debug
 
       - name: Run clang-tidy
         run: |
@@ -158,9 +185,16 @@ jobs:
     name: clang-format
     runs-on: ubuntu-24.04
     needs: build_project
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Download build directory
+        uses: actions/download-artifact@v2
+        with:
+          name: build-directory
+          path: build/unixlike-clang-debug
 
       - name: Configure python
         uses: actions/setup-python@v5
