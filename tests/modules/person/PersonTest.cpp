@@ -12,76 +12,7 @@
 
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/types/Country.h"
-#include "person/data/albania/AlbanianPeopleNames.h"
-#include "person/data/argentina/ArgentinianPeopleNames.h"
-#include "person/data/australia/AustralianPeopleNames.h"
-#include "person/data/austria/AustrianPeopleNames.h"
-#include "person/data/azerbaijan/AzerbaijaniPeopleNames.h"
-#include "person/data/belarus/BelarusianPeopleNames.h"
-#include "person/data/belgium/BelgianPeopleNames.h"
-#include "person/data/Bio.h"
-#include "person/data/bosnia/BosnianPeopleNames.h"
-#include "person/data/brazil/BrazilianPeopleNames.h"
-#include "person/data/bulgaria/BulgarianPeopleNames.h"
-#include "person/data/canada/CanadianPeopleNames.h"
-#include "person/data/china/ChinesePeopleNames.h"
-#include "person/data/croatia/CroatianPeopleNames.h"
-#include "person/data/czech/CzechPeopleNames.h"
-#include "person/data/denmark/DanishPeopleNames.h"
-#include "person/data/england/EnglishPeopleNames.h"
-#include "person/data/estonia/EstonianPeopleNames.h"
-#include "person/data/finland/FinnishPeopleNames.h"
-#include "person/data/france/FrenchPeopleNames.h"
-#include "person/data/Gender.h"
-#include "person/data/germany/GermanPeopleNames.h"
-#include "person/data/ghana/GhanaianPeopleNames.h"
-#include "person/data/greece/GreekPeopleNames.h"
-#include "person/data/Hobbies.h"
-#include "person/data/hungary/HungarianPeopleNames.h"
-#include "person/data/iceland/IcelandicPeopleNames.h"
-#include "person/data/india/IndianPeopleNames.h"
-#include "person/data/iran/PersianPeopleNames.h"
-#include "person/data/ireland/IrishPeopleNames.h"
-#include "person/data/israel/IsraeliPeopleNames.h"
-#include "person/data/italy/ItalianPeopleNames.h"
-#include "person/data/japan/JapanesePeopleNames.h"
-#include "person/data/JobTitles.h"
-#include "person/data/kazakhstan/KazakhPeopleNames.h"
-#include "person/data/korea/KoreanPeopleNames.h"
-#include "person/data/Languages.h"
-#include "person/data/latvia/LatvianPeopleNames.h"
-#include "person/data/lebanon/LebanesePeopleNames.h"
-#include "person/data/liechtenstein/LiechtensteinerPeopleNames.h"
-#include "person/data/lithuania/LithuanianPeopleNames.h"
-#include "person/data/macedonia/MacedonianPeopleNames.h"
-#include "person/data/maldives/MaldiviansPeopleNames.h"
-#include "person/data/malta/MaltesePeopleNames.h"
-#include "person/data/mexico/MexicanPeopleNames.h"
-#include "person/data/moldova/MoldovanPeopleNames.h"
-#include "person/data/monaco/MonacanPeopleNames.h"
-#include "person/data/Nationalities.h"
-#include "person/data/nepal/NepalesePeopleNames.h"
-#include "person/data/netherlands/DutchPeopleNames.h"
-#include "person/data/norway/NorwegianPeopleNames.h"
-#include "person/data/palestine/PalestinianPeopleNames.h"
-#include "person/data/PeopleNames.h"
-#include "person/data/poland/PolishPeopleNames.h"
-#include "person/data/portugal/PortuguesePeopleNames.h"
-#include "person/data/romania/RomanianPeopleNames.h"
-#include "person/data/russia/RussianPeopleNames.h"
-#include "person/data/serbia/SerbianPeopleNames.h"
-#include "person/data/slovakia/SlovakPeopleNames.h"
-#include "person/data/slovenia/SlovenianPeopleNames.h"
-#include "person/data/southAfrica/SouthAfricanPeopleNames.h"
-#include "person/data/spain/SpanishPeopleNames.h"
-#include "person/data/sweden/SwedishPeopleNames.h"
-#include "person/data/switzerland/SwissPeopleNames.h"
-#include "person/data/syria/SyrianPeopleNames.h"
-#include "person/data/turkey/TurkishPeopleNames.h"
-#include "person/data/ukraine/UkrainianPeopleNames.h"
-#include "person/data/usa/UsaPeopleNames.h"
-#include "person/data/vietnam/VietnamesePeopleNames.h"
-#include "person/data/ZodiacSigns.h"
+#include "person/PersonData.h"
 #include "StringHelper.h"
 #include "word/data/Nouns.h"
 
@@ -90,48 +21,7 @@ using namespace faker;
 
 namespace
 {
-const std::vector<SsnCountry> supportedSsnCountries{
-    SsnCountry::Poland, SsnCountry::UnitedStates, SsnCountry::UnitedKingdom, SsnCountry::Germany,
-    SsnCountry::France, SsnCountry::Italy,        SsnCountry::Spain,         SsnCountry::India,
-};
-
 const std::vector<std::string> sexes{"Male", "Female"};
-
-const std::unordered_map<Language, std::unordered_map<Sex, std::string>> sexTranslations = {
-    {Language::English, {{Sex::Male, "Male"}, {Sex::Female, "Female"}}},
-    {Language::Polish, {{Sex::Male, "Mężczyzna"}, {Sex::Female, "Kobieta"}}},
-    {Language::Italian, {{Sex::Male, "Maschio"}, {Sex::Female, "Femmina"}}},
-    {Language::French, {{Sex::Male, "Homme"}, {Sex::Female, "Femme"}}},
-    {Language::German, {{Sex::Male, "Mann"}, {Sex::Female, "Frau"}}},
-    {Language::Russian, {{Sex::Male, "Мужчина"}, {Sex::Female, "Женщина"}}},
-    {Language::Romanian, {{Sex::Male, "Bărbat"}, {Sex::Female, "Femeie"}}},
-    {Language::Hindi, {{Sex::Male, "पुरुष"}, {Sex::Female, "महिला"}}},
-    {Language::Finnish, {{Sex::Male, "Mies"}, {Sex::Female, "Nainen"}}},
-    {Language::Nepali, {{Sex::Male, "पुरुष"}, {Sex::Female, "महिला"}}},
-    {Language::Spanish, {{Sex::Male, "Hombre"}, {Sex::Female, "Mujer"}}},
-    {Language::Turkish, {{Sex::Male, "Erkek"}, {Sex::Female, "Kadın"}}},
-    {Language::Czech, {{Sex::Male, "Muž"}, {Sex::Female, "Žena"}}},
-    {Language::Slovak, {{Sex::Male, "Muž"}, {Sex::Female, "Žena"}}},
-    {Language::Ukrainian, {{Sex::Male, "Чоловік"}, {Sex::Female, "Жінка"}}},
-    {Language::Danish, {{Sex::Male, "Mand"}, {Sex::Female, "Kvinde"}}},
-    {Language::Swedish, {{Sex::Male, "Man"}, {Sex::Female, "Kvinna"}}},
-    {Language::Portuguese, {{Sex::Male, "Homem"}, {Sex::Female, "Mulher"}}},
-    {Language::Norwegian, {{Sex::Male, "Mann"}, {Sex::Female, "Kvinne"}}},
-    {Language::Japanese, {{Sex::Male, "男性"}, {Sex::Female, "女性"}}},
-    {Language::Hungarian, {{Sex::Male, "Férfi"}, {Sex::Female, "Nő"}}},
-    {Language::Croatian, {{Sex::Male, "Muškarac"}, {Sex::Female, "Žena"}}},
-    {Language::Greek, {{Sex::Male, "Άνδρας"}, {Sex::Female, "Γυναίκα"}}},
-    {Language::Slovene, {{Sex::Male, "Moški"}, {Sex::Female, "Ženska"}}},
-    {Language::Dutch, {{Sex::Male, "Man"}, {Sex::Female, "Vrouw"}}},
-    {Language::Mandarin, {{Sex::Male, "男"}, {Sex::Female, "女"}}},
-    {Language::Korean, {{Sex::Male, "남자"}, {Sex::Female, "여자"}}},
-    {Language::Serbian, {{Sex::Male, "Мушкарац"}, {Sex::Female, "Жена"}}},
-    {Language::Macedonian, {{Sex::Male, "Маж"}, {Sex::Female, "Жена"}}},
-    {Language::Albanian, {{Sex::Male, "Mashkull"}, {Sex::Female, "Femër"}}},
-    {Language::Latvian, {{Sex::Male, "Vīrietis"}, {Sex::Female, "Sieviete"}}},
-    {Language::Belarusian, {{Sex::Male, "Мужчына"}, {Sex::Female, "Жанчына"}}},
-    {Language::Estonian, {{Sex::Male, "Mees"}, {Sex::Female, "Naine"}}},
-    {Language::Irish, {{Sex::Male, "fireannach"}, {Sex::Female, "baineann"}}}};
 
 const std::vector<Country> countries{
     Country::Usa,       Country::England,       Country::Poland,      Country::Italy,     Country::France,
@@ -146,73 +36,139 @@ const std::vector<Country> countries{
     Country::Moldova,   Country::Lithuania,     Country::Iceland,     Country::Palestine, Country::Israel,
     Country::Vietnam,   Country::Monaco,        Country::Bosnia,      Country::Lebanon,   Country::Syria,
     Country::Malta,     Country::SouthAfrica,   Country::Azerbaijan,  Country::Ghana,     Country::Kazakhstan,
-    Country::Maldives,  Country::Liechtenstein,
+    Country::Maldives,
 };
 
-const std::unordered_map<Country, PeopleNames> countryToPeopleNamesMapping{
-    {Country::England, englishPeopleNames},
-    {Country::France, frenchPeopleNames},
-    {Country::Germany, germanPeopleNames},
-    {Country::Italy, italianPeopleNames},
-    {Country::Poland, polishPeopleNames},
-    {Country::Russia, russianPeopleNames},
-    {Country::Romania, romanianPeopleNames},
-    {Country::India, indianPeopleNames},
-    {Country::Finland, finnishPeopleNames},
-    {Country::Nepal, nepalesePeopleNames},
-    {Country::Spain, spanishPeopleNames},
-    {Country::Turkey, turkishPeopleNames},
-    {Country::Czech, czechPeopleNames},
-    {Country::Slovakia, slovakPeopleNames},
-    {Country::Ukraine, ukrainianPeopleNames},
-    {Country::Denmark, danishPeopleNames},
-    {Country::Sweden, swedishPeopleNames},
-    {Country::Usa, usaPeopleNames},
-    {Country::Brazil, brazilianPeopleNames},
-    {Country::Norway, norwegianPeopleNames},
-    {Country::Japan, japanesePeopleNames},
-    {Country::Portugal, portuguesePeopleNames},
-    {Country::Hungary, hungarianPeopleNames},
-    {Country::Croatia, croatianPeopleNames},
-    {Country::Greece, greekPeopleNames},
-    {Country::Slovenia, slovenianPeopleNames},
-    {Country::Austria, austrianPeopleNames},
-    {Country::Switzerland, swissPeopleNames},
-    {Country::Belgium, belgianPeopleNames},
-    {Country::Netherlands, dutchPeopleNames},
-    {Country::China, chinesePeopleNames},
-    {Country::Korea, koreanPeopleNames},
-    {Country::Canada, canadianPeopleNames},
-    {Country::Mexico, mexicanPeopleNames},
-    {Country::Argentina, argentinianPeopleNames},
-    {Country::Australia, australianPeopleNames},
-    {Country::Serbia, serbianPeopleNames},
-    {Country::Macedonia, macedonianPeopleNames},
-    {Country::Latvia, latvianPeopleNames},
-    {Country::Ireland, irishPeopleNames},
-    {Country::Belarus, belarusianPeopleNames},
-    {Country::Estonia, estonianPeopleNames},
-    {Country::Albania, albanianPeopleNames},
-    {Country::Iran, persianPeopleNames},
-    {Country::Bulgaria, bulgarianPeopleNames},
-    {Country::Moldova, moldovanPeopleNames},
-    {Country::Lithuania, lithuanianPeopleNames},
-    {Country::Iceland, icelandicPeopleNames},
-    {Country::Palestine, palestinianPeopleNames},
-    {Country::Israel, israeliPeopleNames},
-    {Country::Vietnam, vietnamesePeopleNames},
-    {Country::Monaco, monacanPeopleNames},
-    {Country::Bosnia, bosnianPeopleNames},
-    {Country::Lebanon, lebanesePeopleNames},
-    {Country::Syria, syrianPeopleNames},
-    {Country::Malta, maltesePeopleNames},
-    {Country::SouthAfrica, southAfricanPeopleNames},
-    {Country::Azerbaijan, azerbaijaniPeopleNames},
-    {Country::Ghana, ghanaianPeopleNames},
-    {Country::Kazakhstan, kazakhPeopleNames},
-    {Country::Maldives, maldiviansPeopleNames},
-    {Country::Liechtenstein, liechtensteinerPeopleNames},
-};
+const PeopleNames& getPeopleNamesByCountry(const Country& country)
+{
+    switch (country)
+    {
+    case Country::England:
+        return englishPeopleNames;
+    case Country::France:
+        return frenchPeopleNames;
+    case Country::Germany:
+        return germanPeopleNames;
+    case Country::Italy:
+        return italianPeopleNames;
+    case Country::Poland:
+        return polishPeopleNames;
+    case Country::Russia:
+        return russianPeopleNames;
+    case Country::Romania:
+        return romanianPeopleNames;
+    case Country::India:
+        return indianPeopleNames;
+    case Country::Finland:
+        return finnishPeopleNames;
+    case Country::Nepal:
+        return nepalesePeopleNames;
+    case Country::Spain:
+        return spanishPeopleNames;
+    case Country::Turkey:
+        return turkishPeopleNames;
+    case Country::Czech:
+        return czechPeopleNames;
+    case Country::Slovakia:
+        return slovakPeopleNames;
+    case Country::Ukraine:
+        return ukrainianPeopleNames;
+    case Country::Denmark:
+        return danishPeopleNames;
+    case Country::Sweden:
+        return swedishPeopleNames;
+    case Country::Usa:
+        return usaPeopleNames;
+    case Country::Brazil:
+        return brazilianPeopleNames;
+    case Country::Norway:
+        return norwegianPeopleNames;
+    case Country::Japan:
+        return japanesePeopleNames;
+    case Country::Portugal:
+        return portuguesePeopleNames;
+    case Country::Hungary:
+        return hungarianPeopleNames;
+    case Country::Croatia:
+        return croatianPeopleNames;
+    case Country::Greece:
+        return greekPeopleNames;
+    case Country::Slovenia:
+        return slovenianPeopleNames;
+    case Country::Austria:
+        return austrianPeopleNames;
+    case Country::Switzerland:
+        return swissPeopleNames;
+    case Country::Belgium:
+        return belgianPeopleNames;
+    case Country::Netherlands:
+        return dutchPeopleNames;
+    case Country::China:
+        return chinesePeopleNames;
+    case Country::Korea:
+        return koreanPeopleNames;
+    case Country::Canada:
+        return canadianPeopleNames;
+    case Country::Mexico:
+        return mexicanPeopleNames;
+    case Country::Argentina:
+        return argentinianPeopleNames;
+    case Country::Australia:
+        return australianPeopleNames;
+    case Country::Serbia:
+        return serbianPeopleNames;
+    case Country::Macedonia:
+        return macedonianPeopleNames;
+    case Country::Latvia:
+        return latvianPeopleNames;
+    case Country::Ireland:
+        return irishPeopleNames;
+    case Country::Belarus:
+        return belarusianPeopleNames;
+    case Country::Estonia:
+        return estonianPeopleNames;
+    case Country::Albania:
+        return albanianPeopleNames;
+    case Country::Iran:
+        return persianPeopleNames;
+    case Country::Bulgaria:
+        return bulgarianPeopleNames;
+    case Country::Moldova:
+        return moldovanPeopleNames;
+    case Country::Bosnia:
+        return bosnianPeopleNames;
+    case Country::Lithuania:
+        return lithuanianPeopleNames;
+    case Country::Iceland:
+        return icelandicPeopleNames;
+    case Country::Palestine:
+        return palestinianPeopleNames;
+    case Country::Israel:
+        return israeliPeopleNames;
+    case Country::Vietnam:
+        return vietnamesePeopleNames;
+    case Country::Monaco:
+        return monacanPeopleNames;
+    case Country::Lebanon:
+        return lebanesePeopleNames;
+    case Country::Syria:
+        return syrianPeopleNames;
+    case Country::Malta:
+        return maltesePeopleNames;
+    case Country::SouthAfrica:
+        return southAfricanPeopleNames;
+    case Country::Azerbaijan:
+        return azerbaijaniPeopleNames;
+    case Country::Ghana:
+        return ghanaianPeopleNames;
+    case Country::Kazakhstan:
+        return kazakhPeopleNames;
+    case Country::Maldives:
+        return maldiviansPeopleNames;
+    default:
+        throw std::runtime_error{"Country not found."};
+    }
+}
 
 const std::unordered_map<Country, std::string> generatedTestName{
     {Country::England, "shouldGenerateEnglishName"},
@@ -276,12 +232,11 @@ const std::unordered_map<Country, std::string> generatedTestName{
     {Country::Ghana, "shouldGenerateGhanaianName"},
     {Country::Kazakhstan, "shouldGenerateKazakhName"},
     {Country::Maldives, "shouldGenerateMaldivianName"},
-    {Country::Liechtenstein, "shouldGenerateLichtensteinerName"},
 };
 
 }
 
-std::string translateSex(Sex sex, Language language = Language::English)
+std::string_view translateSex(Sex sex, Language language = Language::English)
 {
     const auto sexTranslation = sexTranslations.find(language);
 
@@ -298,93 +253,24 @@ bool checkTokenFormat(const std::string& bio);
 class PersonTest : public TestWithParam<Country>
 {
 public:
-    PersonTest()
-    {
-        initializePrefixes();
-
-        initializeSuffixes();
-
-        initializeMiddleNames();
-    }
-
-    void initializePrefixes()
-    {
-        for (const auto& [_, peopleNames] : countryToPeopleNamesMapping)
-        {
-            malesPrefixes.insert(malesPrefixes.end(), peopleNames.malesNames.prefixes.begin(),
-                                 peopleNames.malesNames.prefixes.end());
-
-            femalesPrefixes.insert(femalesPrefixes.end(), peopleNames.femalesNames.prefixes.begin(),
-                                   peopleNames.femalesNames.prefixes.end());
-
-            allPrefixes.insert(allPrefixes.end(), peopleNames.malesNames.prefixes.begin(),
-                               peopleNames.malesNames.prefixes.end());
-            allPrefixes.insert(allPrefixes.end(), peopleNames.femalesNames.prefixes.begin(),
-                               peopleNames.femalesNames.prefixes.end());
-        }
-    }
-
-    void initializeSuffixes()
-    {
-        for (const auto& [_, peopleNames] : countryToPeopleNamesMapping)
-        {
-            malesSuffixes.insert(malesSuffixes.end(), peopleNames.malesNames.suffixes.begin(),
-                                 peopleNames.malesNames.suffixes.end());
-
-            femalesSuffixes.insert(femalesSuffixes.end(), peopleNames.femalesNames.suffixes.begin(),
-                                   peopleNames.femalesNames.suffixes.end());
-
-            allSuffixes.insert(allSuffixes.end(), peopleNames.malesNames.suffixes.begin(),
-                               peopleNames.malesNames.suffixes.end());
-            allSuffixes.insert(allSuffixes.end(), peopleNames.femalesNames.suffixes.begin(),
-                               peopleNames.femalesNames.suffixes.end());
-        }
-    }
-
-    void initializeMiddleNames()
-    {
-        for (const auto& [_, peopleNames] : countryToPeopleNamesMapping)
-        {
-            malesMiddleNames.insert(malesMiddleNames.end(), peopleNames.malesNames.middleNames.begin(),
-                                    peopleNames.malesNames.middleNames.end());
-
-            femalesMiddleNames.insert(femalesMiddleNames.end(), peopleNames.femalesNames.middleNames.begin(),
-                                      peopleNames.femalesNames.middleNames.end());
-
-            allMiddleNames.insert(allMiddleNames.end(), peopleNames.malesNames.middleNames.begin(),
-                                  peopleNames.malesNames.middleNames.end());
-            allMiddleNames.insert(allMiddleNames.end(), peopleNames.femalesNames.middleNames.begin(),
-                                  peopleNames.femalesNames.middleNames.end());
-        }
-    }
-
-    std::vector<std::string> allPrefixes;
-    std::vector<std::string> malesPrefixes;
-    std::vector<std::string> femalesPrefixes;
-    std::vector<std::string> allSuffixes;
-    std::vector<std::string> malesSuffixes;
-    std::vector<std::string> femalesSuffixes;
-    std::vector<std::string> allMiddleNames;
-    std::vector<std::string> malesMiddleNames;
-    std::vector<std::string> femalesMiddleNames;
 };
 
 TEST_P(PersonTest, shouldGenerateFirstName)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = getPeopleNamesByCountry(country);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
-    std::vector<std::string> firstNames{malesFirstNames};
+    std::vector<std::string> firstNames(malesFirstNames.begin(), malesFirstNames.end());
 
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
 
     const auto generatedFirstName = Person::firstName(country);
 
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFirstName](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFirstName](const std::string_view& firstName)
                                     { return firstName == generatedFirstName; }));
 }
 
@@ -392,13 +278,13 @@ TEST_P(PersonTest, shouldGenerateMaleFirstName)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = getPeopleNamesByCountry(country);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
     const auto generatedFirstName = Person::firstName(country, Sex::Male);
 
-    ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFirstName](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFirstName](const std::string_view& firstName)
                                     { return firstName == generatedFirstName; }));
 }
 
@@ -406,13 +292,13 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = getPeopleNamesByCountry(country);
 
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
     const auto generatedFirstName = Person::firstName(country, Sex::Female);
 
-    ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFirstName](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFirstName](const std::string_view& firstName)
                                     { return firstName == generatedFirstName; }));
 }
 
@@ -420,13 +306,13 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = getPeopleNamesByCountry(country);
 
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
     const auto generatedLastName = Person::lastName(country, Sex::Male);
 
-    ASSERT_TRUE(std::ranges::any_of(malesLastNames, [generatedLastName](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(malesLastNames, [generatedLastName](const std::string_view& lastName)
                                     { return lastName == generatedLastName; }));
 }
 
@@ -434,13 +320,13 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = getPeopleNamesByCountry(country);
 
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
     const auto generatedLastName = Person::lastName(country, Sex::Female);
 
-    ASSERT_TRUE(std::ranges::any_of(femalesLastNames, [generatedLastName](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(femalesLastNames, [generatedLastName](const std::string_view& lastName)
                                     { return lastName == generatedLastName; }));
 }
 
@@ -448,7 +334,7 @@ TEST_P(PersonTest, shouldGenerateFullName)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = getPeopleNamesByCountry(country);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
@@ -456,17 +342,17 @@ TEST_P(PersonTest, shouldGenerateFullName)
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
-    std::vector<std::string> firstNames{malesFirstNames};
-    std::vector<std::string> lastNames{malesLastNames};
+    std::vector<std::string_view> firstNames(malesFirstNames.begin(), malesFirstNames.end());
+    std::vector<std::string_view> lastNames(malesLastNames.begin(), malesLastNames.end());
 
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
     lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
 
     const auto generatedFullName = Person::fullName(country);
 
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFullName](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFullName](const std::string_view& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(lastNames, [generatedFullName](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(lastNames, [generatedFullName](const std::string_view& lastName)
                                     { return generatedFullName.find(lastName) != std::string::npos; }));
 }
 
@@ -474,7 +360,7 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = getPeopleNamesByCountry(country);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
@@ -482,9 +368,9 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 
     const auto generatedFullName = Person::fullName(country, Sex::Male);
 
-    ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFullName](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFullName](const std::string_view& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(malesLastNames, [generatedFullName](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(malesLastNames, [generatedFullName](const std::string_view& lastName)
                                     { return generatedFullName.find(lastName) != std::string::npos; }));
 }
 
@@ -492,7 +378,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = countryToPeopleNamesMapping.at(country);
+    const auto& peopleNames = getPeopleNamesByCountry(country);
 
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
@@ -500,44 +386,42 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 
     const auto generatedFullName = Person::fullName(country, Sex::Female);
 
-    ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFullName](const std::string& firstName)
+    ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFullName](const std::string_view& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(femalesLastNames, [generatedFullName](const std::string& lastName)
+    ASSERT_TRUE(std::ranges::any_of(femalesLastNames, [generatedFullName](const std::string_view& lastName)
                                     { return generatedFullName.find(lastName) != std::string::npos; }));
 }
 
 INSTANTIATE_TEST_SUITE_P(TestPersonNamesByCountries, PersonTest, ValuesIn(countries),
                          [](const TestParamInfo<Country>& info) { return generatedTestName.at(info.param); });
 
-TEST_F(PersonTest, shouldGenerateMiddleName)
-{
-    const auto generatedMiddleName = Person::middleName();
-
-    ASSERT_TRUE(std::ranges::any_of(allMiddleNames, [generatedMiddleName](const std::string& middleName)
-                                    { return middleName == generatedMiddleName; }));
-}
-
+// TODO: move to parameterized tests
 TEST_F(PersonTest, shouldGeneratePrefix)
 {
     const auto generatedPrefix = Person::prefix();
 
-    ASSERT_TRUE(std::ranges::any_of(allPrefixes, [generatedPrefix](const std::string& prefix)
+    std::vector<std::string_view> prefixes(englishMalePrefixes.begin(), englishMalePrefixes.end());
+
+    prefixes.insert(prefixes.end(), englishFemalePrefixes.begin(), englishFemalePrefixes.end());
+
+    ASSERT_TRUE(std::ranges::any_of(prefixes, [generatedPrefix](const std::string_view& prefix)
                                     { return prefix == generatedPrefix; }));
 }
 
+// TODO: move to parameterized tests
 TEST_F(PersonTest, shouldGenerateMalePrefix)
 {
-    const auto generatedPrefix = Person::prefix(Sex::Male);
+    const auto generatedPrefix = Person::prefix(std::nullopt, Sex::Male);
 
-    ASSERT_TRUE(std::ranges::any_of(malesPrefixes, [generatedPrefix](const std::string& prefix)
+    ASSERT_TRUE(std::ranges::any_of(englishMalePrefixes, [generatedPrefix](const std::string_view& prefix)
                                     { return prefix == generatedPrefix; }));
 }
 
 TEST_F(PersonTest, shouldGenerateFemalePrefix)
 {
-    const auto generatedPrefix = Person::prefix(Sex::Female);
+    const auto generatedPrefix = Person::prefix(std::nullopt, Sex::Female);
 
-    ASSERT_TRUE(std::ranges::any_of(femalesPrefixes, [generatedPrefix](const std::string& prefix)
+    ASSERT_TRUE(std::ranges::any_of(englishFemalePrefixes, [generatedPrefix](const std::string_view& prefix)
                                     { return prefix == generatedPrefix; }));
 }
 
@@ -545,7 +429,7 @@ TEST_F(PersonTest, shouldGenerateSuffix)
 {
     const auto generatedSuffix = Person::suffix();
 
-    ASSERT_TRUE(std::ranges::any_of(allSuffixes, [generatedSuffix](const std::string& suffix)
+    ASSERT_TRUE(std::ranges::any_of(englishSuffixes, [generatedSuffix](const std::string_view& suffix)
                                     { return suffix == generatedSuffix; }));
 }
 
@@ -560,7 +444,7 @@ TEST_F(PersonTest, shouldGenerateGender)
 {
     const auto generatedGender = Person::gender();
 
-    ASSERT_TRUE(std::ranges::any_of(genders, [generatedGender](const std::string& gender)
+    ASSERT_TRUE(std::ranges::any_of(genders, [generatedGender](const std::string_view& gender)
                                     { return gender == generatedGender; }));
 }
 
@@ -568,7 +452,7 @@ TEST_F(PersonTest, shouldGenerateJobDescriptor)
 {
     const auto generatedJobDescriptor = Person::jobDescriptor();
 
-    ASSERT_TRUE(std::ranges::any_of(jobDescriptors, [generatedJobDescriptor](const std::string& jobDescriptor)
+    ASSERT_TRUE(std::ranges::any_of(jobDescriptors, [generatedJobDescriptor](const std::string_view& jobDescriptor)
                                     { return jobDescriptor == generatedJobDescriptor; }));
 }
 
@@ -576,7 +460,7 @@ TEST_F(PersonTest, shouldGenerateJobArea)
 {
     const auto generatedJobArea = Person::jobArea();
 
-    ASSERT_TRUE(std::ranges::any_of(jobAreas, [generatedJobArea](const std::string& jobArea)
+    ASSERT_TRUE(std::ranges::any_of(jobAreas, [generatedJobArea](const std::string_view& jobArea)
                                     { return jobArea == generatedJobArea; }));
 }
 
@@ -584,7 +468,7 @@ TEST_F(PersonTest, shouldGenerateJobType)
 {
     const auto generatedJobType = Person::jobType();
 
-    ASSERT_TRUE(std::ranges::any_of(jobTypes, [generatedJobType](const std::string& jobType)
+    ASSERT_TRUE(std::ranges::any_of(jobTypes, [generatedJobType](const std::string_view& jobType)
                                     { return jobType == generatedJobType; }));
 }
 
@@ -598,11 +482,11 @@ TEST_F(PersonTest, shouldGenerateJobTitle)
     const auto& generatedJobArea = jobTitleElements[1];
     const auto& generatedJobType = jobTitleElements[2];
 
-    ASSERT_TRUE(std::ranges::any_of(jobDescriptors, [generatedJobDescriptor](const std::string& jobDescriptor)
+    ASSERT_TRUE(std::ranges::any_of(jobDescriptors, [generatedJobDescriptor](const std::string_view& jobDescriptor)
                                     { return jobDescriptor == generatedJobDescriptor; }));
-    ASSERT_TRUE(std::ranges::any_of(jobAreas, [generatedJobArea](const std::string& jobArea)
+    ASSERT_TRUE(std::ranges::any_of(jobAreas, [generatedJobArea](const std::string_view& jobArea)
                                     { return jobArea == generatedJobArea; }));
-    ASSERT_TRUE(std::ranges::any_of(jobTypes, [generatedJobType](const std::string& jobType)
+    ASSERT_TRUE(std::ranges::any_of(jobTypes, [generatedJobType](const std::string_view& jobType)
                                     { return jobType == generatedJobType; }));
 }
 
@@ -611,7 +495,7 @@ TEST_F(PersonTest, shouldGenerateHobby)
     const auto generatedHobby = Person::hobby();
 
     ASSERT_TRUE(
-        std::ranges::any_of(hobbies, [generatedHobby](const std::string& hobby) { return hobby == generatedHobby; }));
+        std::ranges::any_of(hobbies, [generatedHobby](const std::string_view& hobby) { return hobby == generatedHobby; }));
 }
 
 TEST_F(PersonTest, shouldGenerateBio)
@@ -625,7 +509,7 @@ TEST_F(PersonTest, shouldGenerateLanguage)
 {
     const auto generatedLanguage = Person::language();
 
-    ASSERT_TRUE(std::ranges::any_of(languages, [generatedLanguage](const std::string& language)
+    ASSERT_TRUE(std::ranges::any_of(languages, [generatedLanguage](const std::string_view& language)
                                     { return generatedLanguage == language; }));
 }
 
@@ -633,7 +517,7 @@ TEST_F(PersonTest, shouldGenerateNationality)
 {
     const auto generatedNationality = Person::nationality();
 
-    ASSERT_TRUE(std::ranges::any_of(nationalities, [generatedNationality](const std::string& nationality)
+    ASSERT_TRUE(std::ranges::any_of(nationalities, [generatedNationality](const std::string_view& nationality)
                                     { return generatedNationality == nationality; }));
 }
 
@@ -641,7 +525,7 @@ TEST_F(PersonTest, shouldGenerateWesternZodiacs)
 {
     const auto generatedWesternZodiacs = Person::westernZodiac();
 
-    ASSERT_TRUE(std::ranges::any_of(westernZodiacs, [generatedWesternZodiacs](const std::string& westernZodiac)
+    ASSERT_TRUE(std::ranges::any_of(westernZodiacs, [generatedWesternZodiacs](const std::string_view& westernZodiac)
                                     { return generatedWesternZodiacs == westernZodiac; }));
 }
 
@@ -649,7 +533,7 @@ TEST_F(PersonTest, shouldGenerateChineseZodiacs)
 {
     const auto generatedChineseZodiacs = Person::chineseZodiac();
 
-    ASSERT_TRUE(std::ranges::any_of(chineseZodiacs, [generatedChineseZodiacs](const std::string& chineseZodiac)
+    ASSERT_TRUE(std::ranges::any_of(chineseZodiacs, [generatedChineseZodiacs](const std::string_view& chineseZodiac)
                                     { return generatedChineseZodiacs == chineseZodiac; }));
 }
 
@@ -695,7 +579,14 @@ std::vector<std::pair<Language, Sex>> languageSexPairs = {
 
 std::string toString(Sex sex, Language language = Language::English)
 {
-    return translateSex(sex, language);
+    const auto sexTranslation = sexTranslations.find(language);
+
+    if (sexTranslation == sexTranslations.end())
+    {
+        throw std::runtime_error{"Sex not found."};
+    }
+
+    return std::string{sexTranslation->second.at(sex)};
 }
 
 std::string toString(Language language)
@@ -725,7 +616,7 @@ INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, testing::Valu
                          });
 
 const std::unordered_map<SsnCountry, unsigned> ssnLengths{
-    {SsnCountry::Poland, 11},  {SsnCountry::UnitedStates, 11}, {SsnCountry::UnitedKingdom, 13},
+    {SsnCountry::Poland, 11},  {SsnCountry::Usa, 11}, {SsnCountry::England, 13},
     {SsnCountry::Germany, 12}, {SsnCountry::France, 19},       {SsnCountry::Italy, 19},
     {SsnCountry::Spain, 10},   {SsnCountry::India, 10},
 };
@@ -748,8 +639,8 @@ TEST_P(PersonSsnSuite, shouldGenerateSsn)
 std::string toString(SsnCountry country)
 {
     std::unordered_map<SsnCountry, std::string> countryToStringMapping{
-        {SsnCountry::UnitedStates, "UnitedStates"},
-        {SsnCountry::UnitedKingdom, "UnitedKingdom"},
+        {SsnCountry::Usa, "Usa"},
+        {SsnCountry::England, "England"},
         {SsnCountry::Poland, "Poland"},
         {SsnCountry::Italy, "Italy"},
         {SsnCountry::France, "France"},
@@ -849,26 +740,30 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {bio_part} so check that the value is present in the bio_part
         // vector.
-        if (std::find(bioPart.begin(), bioPart.end(), matches[0]) != bioPart.end())
+        if (std::find(bioParts.begin(), bioParts.end(), std::string{matches[0]}) != bioParts.end())
+        {
             return true;
+        }
     }
 
     if (std::regex_match(bio, matches, secondRegex))
     {
         // In this case the bio is in the format {bio_part}, {bio_part} so check that the value is present in the
         // bio_part vector.
-        if (std::find(bioPart.begin(), bioPart.end(), matches[1]) != bioPart.end() &&
-            std::find(bioPart.begin(), bioPart.end(), matches[2]) != bioPart.end())
+        if (std::find(bioParts.begin(), bioParts.end(), std::string{matches[1]}) != bioParts.end() &&
+            std::find(bioParts.begin(), bioParts.end(), std::string{matches[2]}) != bioParts.end())
+        {
             return true;
+        }
     }
 
     if (std::regex_match(bio, matches, thirdRegex))
     {
         // In this case the bio is in the format {bio_part}, {bio_part}, {bio_part} so check that the value is
         // present in the bio_part vector.
-        if (std::find(bioPart.begin(), bioPart.end(), matches[1]) != bioPart.end() &&
-            std::find(bioPart.begin(), bioPart.end(), matches[2]) != bioPart.end() &&
-            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end())
+        if (std::find(bioParts.begin(), bioParts.end(), std::string{matches[1]}) != bioParts.end() &&
+            std::find(bioParts.begin(), bioParts.end(), std::string{matches[2]}) != bioParts.end() &&
+            std::find(bioParts.begin(), bioParts.end(), std::string{matches[3]}) != bioParts.end())
             return true;
     }
 
@@ -876,9 +771,9 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {bio_part}, {bio_part}, {bio_part}, {emoji} so check that the value
         // is present in the bio_part vector.
-        if (std::find(bioPart.begin(), bioPart.end(), matches[1]) != bioPart.end() &&
-            std::find(bioPart.begin(), bioPart.end(), matches[2]) != bioPart.end() &&
-            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() &&
+        if (std::find(bioParts.begin(), bioParts.end(), std::string{matches[1]}) != bioParts.end() &&
+            std::find(bioParts.begin(), bioParts.end(), std::string{matches[2]}) != bioParts.end() &&
+            std::find(bioParts.begin(), bioParts.end(), std::string{matches[3]}) != bioParts.end() &&
             Internet::checkIfEmojiIsValid(std::string{matches[4]}))
             return true;
     }
@@ -887,8 +782,8 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {noun} {bio_supporter} so check that the value is present
         // in the bio_part vector.
-        if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
-            std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end())
+        if (std::find(nouns.begin(), nouns.end(), std::string{matches[1]}) != nouns.end() &&
+            std::find(bioSupporters.begin(), bioSupporters.end(), std::string{matches[2]}) != bioSupporters.end())
             return true;
     }
 
@@ -896,8 +791,8 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {noun} {bio_supporter} {emoji} so check that the value is present
         // in the bio_part vector.
-        if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
-            std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
+        if (std::find(nouns.begin(), nouns.end(), std::string{matches[1]}) != nouns.end() &&
+            std::find(bioSupporters.begin(), bioSupporters.end(), std::string{matches[2]}) != bioSupporters.end() &&
             Internet::checkIfEmojiIsValid(std::string{matches[3]}))
             return true;
     }
@@ -906,9 +801,9 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} so check that the value is
         // present in the bio_part vector.
-        if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
-            std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
-            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end())
+        if (std::find(nouns.begin(), nouns.end(), std::string{matches[1]}) != nouns.end() &&
+            std::find(bioSupporters.begin(), bioSupporters.end(), std::string{matches[2]}) != bioSupporters.end() &&
+            std::find(bioParts.begin(), bioParts.end(), std::string{matches[3]}) != bioParts.end())
             return true;
     }
 
@@ -916,9 +811,9 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} {emoji} so check that the value
         // is present in the bio_part vector.
-        if (std::find(nouns.begin(), nouns.end(), matches[1]) != nouns.end() &&
-            std::find(bioSupporter.begin(), bioSupporter.end(), matches[2]) != bioSupporter.end() &&
-            std::find(bioPart.begin(), bioPart.end(), matches[3]) != bioPart.end() &&
+        if (std::find(nouns.begin(), nouns.end(), std::string{matches[1]}) != nouns.end() &&
+            std::find(bioSupporters.begin(), bioSupporters.end(), std::string{matches[2]}) != bioSupporters.end() &&
+            std::find(bioParts.begin(), bioParts.end(), std::string{matches[3]}) != bioParts.end() &&
             Internet::checkIfEmojiIsValid(std::string{matches[4]}))
             return true;
     }

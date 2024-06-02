@@ -388,7 +388,7 @@ TEST_F(StringTest, shouldGenerateDefaultApha)
 
     ASSERT_EQ(alpha.size(), 1);
     ASSERT_TRUE(
-        std::ranges::any_of(string::mixedAlphaCharacters, [alpha](char mixedCharacter) { return alpha[0] == mixedCharacter; }));
+        std::ranges::any_of(mixedAlphaCharacters, [alpha](char mixedCharacter) { return alpha[0] == mixedCharacter; }));
 }
 
 TEST_F(StringTest, shouldGenerateMixedAlpha)
@@ -401,7 +401,7 @@ TEST_F(StringTest, shouldGenerateMixedAlpha)
     ASSERT_TRUE(std::ranges::all_of(alpha,
                                     [](char alphaCharacter)
                                     {
-                                        return std::ranges::any_of(string::mixedAlphaCharacters,
+                                        return std::ranges::any_of(mixedAlphaCharacters,
                                                                    [alphaCharacter](char mixedCharacter)
                                                                    { return mixedCharacter == alphaCharacter; });
                                     }));
@@ -417,7 +417,7 @@ TEST_F(StringTest, shouldGenerateUpperAlpha)
     ASSERT_TRUE(std::ranges::all_of(alpha,
                                     [](char alphaCharacter)
                                     {
-                                        return std::ranges::any_of(string::upperCharacters,
+                                        return std::ranges::any_of(upperCharacters,
                                                                    [alphaCharacter](char upperCharacter)
                                                                    { return upperCharacter == alphaCharacter; });
                                     }));
@@ -433,7 +433,7 @@ TEST_F(StringTest, shouldGenerateLowerAlpha)
     ASSERT_TRUE(std::ranges::all_of(alpha,
                                     [](char alphaCharacter)
                                     {
-                                        return std::ranges::any_of(string::lowerCharacters,
+                                        return std::ranges::any_of(lowerCharacters,
                                                                    [alphaCharacter](char lowerCharacter)
                                                                    { return lowerCharacter == alphaCharacter; });
                                     }));
@@ -456,7 +456,7 @@ TEST_F(StringTest, shouldGenerateMixedAlphaWithGuarantee)
         ASSERT_TRUE(std::ranges::all_of(alpha,
                                         [](char alphaCharacter)
                                         {
-                                            return std::ranges::any_of(string::mixedAlphaCharacters,
+                                            return std::ranges::any_of(mixedAlphaCharacters,
                                                                        [alphaCharacter](char mixedCharacter)
                                                                        { return mixedCharacter == alphaCharacter; });
                                         }));
@@ -489,7 +489,7 @@ TEST_F(StringTest, shouldGenerateLowerAlphaWithGuarantee)
         ASSERT_TRUE(std::ranges::all_of(alpha,
                                         [](char alphaCharacter)
                                         {
-                                            return std::ranges::any_of(string::lowerCharSet,
+                                            return std::ranges::any_of(lowerCharSet,
                                                                        [alphaCharacter](char lowerCharacter)
                                                                        { return lowerCharacter == alphaCharacter; });
                                         }));
@@ -522,7 +522,7 @@ TEST_F(StringTest, shouldGenerateUpperAlphaWithGuarantee)
         ASSERT_TRUE(std::ranges::all_of(alpha,
                                         [](char alphaCharacter)
                                         {
-                                            return std::ranges::any_of(string::upperCharSet,
+                                            return std::ranges::any_of(upperCharSet,
                                                                        [alphaCharacter](char lowerCharacter)
                                                                        { return lowerCharacter == alphaCharacter; });
                                         }));
@@ -592,7 +592,7 @@ TEST_F(StringTest, shouldGenerateDefaultAphanumeric)
     const auto alphanumeric = String::alphanumeric();
 
     ASSERT_EQ(alphanumeric.size(), 1);
-    ASSERT_TRUE(std::ranges::any_of(string::mixedAlphanumericCharacters,
+    ASSERT_TRUE(std::ranges::any_of(mixedAlphanumericCharacters,
                                     [alphanumeric](char mixedCharacter) { return alphanumeric[0] == mixedCharacter; }));
 }
 
@@ -607,7 +607,7 @@ TEST_F(StringTest, shouldGenerateMixedAlphanumeric)
                                     [](char alphanumericCharacter)
                                     {
                                         return std::ranges::any_of(
-                                            string::mixedAlphanumericCharacters,
+                                            mixedAlphanumericCharacters,
                                             [alphanumericCharacter](char mixedAlphanumericCharacter)
                                             { return alphanumericCharacter == mixedAlphanumericCharacter; });
                                     }));
@@ -624,7 +624,7 @@ TEST_F(StringTest, shouldGenerateUpperAlphanumeric)
                                     [](char alphanumericCharacter)
                                     {
                                         return std::ranges::any_of(
-                                            string::upperAlphanumericCharacters,
+                                            upperAlphanumericCharacters,
                                             [alphanumericCharacter](char upperAlphanumericCharacter)
                                             { return upperAlphanumericCharacter == alphanumericCharacter; });
                                     }));
@@ -641,7 +641,7 @@ TEST_F(StringTest, shouldGenerateLowerAlphanumeric)
                                     [](char alphanumericCharacter)
                                     {
                                         return std::ranges::any_of(
-                                            string::lowerAlphanumericCharacters,
+                                            lowerAlphanumericCharacters,
                                             [alphanumericCharacter](char lowerAlphanumericCharacter)
                                             { return lowerAlphanumericCharacter == alphanumericCharacter; });
                                     }));
@@ -665,7 +665,7 @@ TEST_F(StringTest, shouldGenerateMixedAlphanumericWithGuarantee)
             alphanumeric,
             [](char alphanumericCharacter)
             {
-                return std::ranges::any_of(string::mixedAlphanumericCharacters, [alphanumericCharacter](char mixedCharacter)
+                return std::ranges::any_of(mixedAlphanumericCharacters, [alphanumericCharacter](char mixedCharacter)
                                            { return mixedCharacter == alphanumericCharacter; });
             }));
         auto count_1 = std::ranges::count(alphanumeric, '1');
@@ -699,7 +699,7 @@ TEST_F(StringTest, shouldGenerateLowerAlphanumericWithGuarantee)
             alphanumeric,
             [](char alphanumericCharacter)
             {
-                return std::ranges::any_of(string::lowerAlphanumericCharacters, [alphanumericCharacter](char lowerCharacter)
+                return std::ranges::any_of(lowerAlphanumericCharacters, [alphanumericCharacter](char lowerCharacter)
                                            { return lowerCharacter == alphanumericCharacter; });
             }));
         auto count_k = std::ranges::count(alphanumeric, 'k');
@@ -708,8 +708,7 @@ TEST_F(StringTest, shouldGenerateLowerAlphanumericWithGuarantee)
         auto count_0 = std::ranges::count(alphanumeric, '0');
 
         ASSERT_TRUE(count_k >= 5 && count_k <= 20);
-        ASSERT_TRUE(count_o >= 3 && count_o <= 20);
-        ASSERT_TRUE(count_a == 5);
+        ASSERT_TRUE(count_o >= 3 && count_o <= 20);       ASSERT_TRUE(count_a == 5);
         ASSERT_TRUE(count_0 >= 3 && count_0 <= 6);
     }
 }
@@ -733,7 +732,7 @@ TEST_F(StringTest, shouldGenerateUpperAlphanumericWithGuarantee)
             alphanumeric,
             [](char alphanumericCharacter)
             {
-                return std::ranges::any_of(string::upperAlphanumericCharacters, [alphanumericCharacter](char lowerCharacter)
+                return std::ranges::any_of(upperAlphanumericCharacters, [alphanumericCharacter](char lowerCharacter)
                                            { return lowerCharacter == alphanumericCharacter; });
             }));
         auto count_7 = std::ranges::count(alphanumeric, '7');
@@ -822,13 +821,13 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZeros)
     const auto numericWithPossibleZeroCharacters = numeric.substr(1);
 
     ASSERT_EQ(numeric.size(), numericLength);
-    ASSERT_TRUE(std::ranges::any_of(string::numericCharactersWithoutZero, [nonZeroCharacter](char numericCharacter)
+    ASSERT_TRUE(std::ranges::any_of(numericCharactersWithoutZero, [nonZeroCharacter](char numericCharacter)
                                     { return nonZeroCharacter == numericCharacter; }));
     ASSERT_TRUE(std::ranges::all_of(numericWithPossibleZeroCharacters,
                                     [](char numericCharacterWithPossibleZero)
                                     {
                                         return std::ranges::any_of(
-                                            string::numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
+                                            numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
                                             { return numericCharacterWithPossibleZero == numericCharacter; });
                                     }));
 }
@@ -901,13 +900,13 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZerosWithGuarantee1)
         const auto numericWithPossibleZeroCharacters = numeric.substr(1);
 
         ASSERT_EQ(numeric.size(), numericLength);
-        ASSERT_TRUE(std::ranges::any_of(string::numericCharactersWithoutZero, [nonZeroCharacter](char numericCharacter)
+        ASSERT_TRUE(std::ranges::any_of(numericCharactersWithoutZero, [nonZeroCharacter](char numericCharacter)
                                         { return nonZeroCharacter == numericCharacter; }));
         ASSERT_TRUE(std::ranges::all_of(
             numericWithPossibleZeroCharacters,
             [](char numericCharacterWithPossibleZero)
             {
-                return std::ranges::any_of(string::numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
+                return std::ranges::any_of(numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
                                            { return numericCharacterWithPossibleZero == numericCharacter; });
             }));
         auto count_0 = std::ranges::count(numeric, '0');
@@ -932,13 +931,13 @@ TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZerosWithGuarantee2)
         const auto numericWithPossibleZeroCharacters = numeric.substr(1);
 
         ASSERT_EQ(numeric.size(), numericLength);
-        ASSERT_TRUE(std::ranges::any_of(string::numericCharactersWithoutZero, [nonZeroCharacter](char numericCharacter)
+        ASSERT_TRUE(std::ranges::any_of(numericCharactersWithoutZero, [nonZeroCharacter](char numericCharacter)
                                         { return nonZeroCharacter == numericCharacter; }));
         ASSERT_TRUE(std::ranges::all_of(
             numericWithPossibleZeroCharacters,
             [](char numericCharacterWithPossibleZero)
             {
-                return std::ranges::any_of(string::numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
+                return std::ranges::any_of(numericCharacters, [numericCharacterWithPossibleZero](char numericCharacter)
                                            { return numericCharacterWithPossibleZero == numericCharacter; });
             }));
         auto count_0 = std::ranges::count(numeric, '0');
@@ -999,7 +998,7 @@ TEST_F(StringTest, shouldGenerateHexadecimal)
     ASSERT_EQ(hexadecimal.size(), hexadecimalLength + 2);
     ASSERT_EQ(prefix, "0x");
     ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                    { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateHexadecimalWithHashPrefix)
@@ -1014,7 +1013,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithHashPrefix)
     ASSERT_EQ(hexadecimal.size(), hexadecimalLength + 1);
     ASSERT_EQ(prefix, "#");
     ASSERT_TRUE(std::ranges::any_of(hexNumber, [](char hexNumberCharacter)
-                                    { return string::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateHexadecimalWithoutPrefix)
@@ -1025,7 +1024,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithoutPrefix)
 
     ASSERT_EQ(hexadecimal.size(), hexadecimalLength);
     ASSERT_TRUE(std::ranges::any_of(hexadecimal, [](char hexNumberCharacter)
-                                    { return string::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee1)
@@ -1046,7 +1045,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee1)
         ASSERT_EQ(hexNumber.size(), hexadecimalLength);
         ASSERT_EQ(prefix, "0x");
         ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                        { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                        { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 
         auto count_a = std::ranges::count(hexNumber, 'a');
         auto count_f = std::ranges::count(hexNumber, 'f');
@@ -1072,7 +1071,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee2)
         ASSERT_EQ(hexNumber.size(), hexadecimalLength);
         ASSERT_EQ(prefix, "0x");
         ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                        { return string::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                        { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 
         auto count_A = std::ranges::count(hexNumber, 'A');
         auto count_F = std::ranges::count(hexNumber, 'F');
@@ -1102,7 +1101,7 @@ TEST_F(StringTest, shouldGenerateHexadecimalWithGuarantee3)
         ASSERT_EQ(hexNumber.size(), hexadecimalLength);
         ASSERT_EQ(prefix, "0x");
         ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                        { return string::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                        { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 
         auto count_0 = std::ranges::count(hexNumber, '0');
         auto count_1 = std::ranges::count(hexNumber, '1');

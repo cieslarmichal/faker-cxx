@@ -65,6 +65,5 @@ enum class Country
     Ghana,
     Kazakhstan,
     Maldives,
-    Liechtenstein,
 };
 }

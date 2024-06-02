@@ -3,8 +3,8 @@
 #include <set>
 #include <string>
 
-namespace faker::string {
-
+namespace faker
+{
 static const std::string upperCharacters{"ABCDEFGHIJKLMNOPQRSTUVWXYZ"};
 static const std::string lowerCharacters{"abcdefghijklmnopqrstuvwxyz"};
 static const std::string numericCharactersWithoutZero{"123456789"};

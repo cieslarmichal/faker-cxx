@@ -1,7 +1,7 @@
 #pragma once
 
 #include <optional>
-#include <string>
+#include <string_view>
 
 #include "types/Country.h"
 
@@ -29,7 +29,7 @@ public:
      * Person::firstName(Country::England, Sex::Male) // "Arthur"
      * @endcode
      */
-    static std::string firstName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
+    static std::string_view firstName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random last name.
@@ -43,11 +43,12 @@ public:
      * Person::lastName() // "Peterson"
      * @endcode
      */
-    static std::string lastName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
+    static std::string_view lastName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random middle name.
      *
+     * @param country The local country. Defaults to `Country::England`.
      * @param sex The optional sex to use.
      *
      * @returns Middle name starting with a capital letter.
@@ -56,7 +57,7 @@ public:
      * Person::middleName() // "Васильевич"
      * @endcode
      */
-    static std::string middleName(std::optional<Sex> sex = std::nullopt);
+    static std::string_view middleName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random full name.
@@ -87,7 +88,7 @@ public:
      * Person::prefix(Sex::Male) // "Mr."
      * @endcode
      */
-    static std::string prefix(std::optional<Sex> sex = std::nullopt);
+    static std::string_view prefix(std::optional<Country> countryOpt = std::nullopt, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random name suffix.
@@ -98,7 +99,7 @@ public:
      * Person::suffix() // "Jr."
      * @endcode
      */
-    static std::string suffix();
+    static std::string_view suffix(std::optional<Country> countryOpt = std::nullopt, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random bio.
@@ -120,7 +121,7 @@ public:
      * Person::sex() // "Male"
      * @endcode
      */
-    static std::string sex(std::optional<Language> language = std::nullopt);
+    static std::string_view sex(std::optional<Language> language = std::nullopt);
 
     /**
      * @brief Returns a random gender.
@@ -131,7 +132,7 @@ public:
      * Person::gender() // "Transexual woman"
      * @endcode
      */
-    static std::string gender();
+    static std::string_view gender();
 
     /**
      * @brief Returns a random job title.
@@ -153,7 +154,7 @@ public:
      * Person::jobDescriptor() // "Senior"
      * @endcode
      */
-    static std::string jobDescriptor();
+    static std::string_view jobDescriptor();
 
     /**
      * @brief Returns a random job area.
@@ -164,7 +165,7 @@ public:
      * Person::jobArea() // "Software"
      * @endcode
      */
-    static std::string jobArea();
+    static std::string_view jobArea();
 
     /**
      * @brief Returns a random job type.
@@ -175,7 +176,7 @@ public:
      * Person::jobType() // "Engineer"
      * @endcode
      */
-    static std::string jobType();
+    static std::string_view jobType();
 
     /**
      * @brief Returns a random hobby.
@@ -186,7 +187,7 @@ public:
      * Person::hobby() // "Gaming"
      * @endcode
      */
-    static std::string hobby();
+    static std::string_view hobby();
 
     /**
      * @brief Returns a random language.
@@ -197,7 +198,7 @@ public:
      * Person::language() // "Polish"
      * @endcode
      */
-    static std::string language();
+    static std::string_view language();
 
     /**
      * @brief Returns a random nationality.
@@ -208,7 +209,7 @@ public:
      * Person::nationality() // "Romanian"
      * @endcode
      */
-    static std::string nationality();
+    static std::string_view nationality();
 
     /**
      * @brief Returns a random SSN.
@@ -233,7 +234,7 @@ public:
      * Person::westernZodiac() // "Virgo"
      * @endcode
      */
-    static std::string westernZodiac();
+    static std::string_view westernZodiac();
 
     /**
      * @brief Returns a random Chinese Zodiac
@@ -244,7 +245,7 @@ public:
      * Person::chineseZodiac() // "Dragon"
      * @endcode
      */
-    static std::string chineseZodiac();
+    static std::string_view chineseZodiac();
 
     /**
      * @brief Returns a random passport number from a given country
@@ -275,8 +276,8 @@ enum class Sex
 enum class SsnCountry
 {
     Poland,
-    UnitedStates,
-    UnitedKingdom,
+    Usa,
+    England,
     Germany,
     France,
     Italy,

@@ -20,18 +20,18 @@ namespace faker
 namespace
 {
 const std::map<StringCasing, std::string> stringCasingToAlphaCharactersMapping{
-    {StringCasing::Lower, string::lowerCharacters},
-    {StringCasing::Upper, string::upperCharacters},
-    {StringCasing::Mixed, string::mixedAlphaCharacters},
+    {StringCasing::Lower, lowerCharacters},
+    {StringCasing::Upper, upperCharacters},
+    {StringCasing::Mixed, mixedAlphaCharacters},
 };
 const std::map<StringCasing, std::string> stringCasingToAlphanumericCharactersMapping{
-    {StringCasing::Lower, string::lowerAlphanumericCharacters},
-    {StringCasing::Upper, string::upperAlphanumericCharacters},
-    {StringCasing::Mixed, string::mixedAlphanumericCharacters},
+    {StringCasing::Lower, lowerAlphanumericCharacters},
+    {StringCasing::Upper, upperAlphanumericCharacters},
+    {StringCasing::Mixed, mixedAlphanumericCharacters},
 };
 const std::map<HexCasing, std::string> hexCasingToCharactersMapping{
-    {HexCasing::Lower, string::hexLowerCharacters},
-    {HexCasing::Upper, string::hexUpperCharacters},
+    {HexCasing::Lower, hexLowerCharacters},
+    {HexCasing::Upper, hexUpperCharacters},
 };
 const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
     {HexPrefix::ZeroX, "0x"},
@@ -40,14 +40,14 @@ const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
 };
 
 const std::map<StringCasing, std::set<char>> stringCasingToAlphaCharSetMapping{
-    {StringCasing::Lower, string::lowerCharSet},
-    {StringCasing::Upper, string::upperCharSet},
-    {StringCasing::Mixed, string::mixedAlphaCharSet},
+    {StringCasing::Lower, lowerCharSet},
+    {StringCasing::Upper, upperCharSet},
+    {StringCasing::Mixed, mixedAlphaCharSet},
 };
 
 const std::map<HexCasing, std::set<char>> hexCasingToCharSetMapping{
-    {HexCasing::Lower, string::hexLowerCharSet},
-    {HexCasing::Upper, string::hexUpperCharSet},
+    {HexCasing::Lower, hexLowerCharSet},
+    {HexCasing::Upper, hexUpperCharSet},
 };
 }
 
@@ -139,7 +139,7 @@ std::string String::sample(unsigned int length)
 
 std::string String::sample(GuaranteeMap&& guarantee, unsigned int length)
 {
-    auto targetCharacters = string::utf16CharSet;
+    auto targetCharacters = utf16CharSet;
     // throw if guarantee is invalid
     if (!isValidGuarantee(guarantee, targetCharacters, length))
     {
@@ -236,7 +236,7 @@ std::string String::alphanumeric(unsigned int length, StringCasing casing, const
 
 std::string String::alphanumeric(GuaranteeMap&& guarantee, unsigned length, StringCasing casing)
 {
-    auto targetCharacters = string::digitSet;
+    auto targetCharacters = digitSet;
     auto charSet = stringCasingToAlphaCharSetMapping.at(casing);
     targetCharacters.merge(charSet);
     // throw if guarantee is invalid
@@ -255,11 +255,11 @@ std::string String::numeric(unsigned int length, bool allowLeadingZeros)
     {
         if (i == 0 && allowLeadingZeros)
         {
-            alphanumeric += Helper::arrayElement<char>(string::numericCharacters);
+            alphanumeric += Helper::arrayElement<char>(numericCharacters);
         }
         else
         {
-            alphanumeric += Helper::arrayElement<char>(string::numericCharactersWithoutZero);
+            alphanumeric += Helper::arrayElement<char>(numericCharactersWithoutZero);
         }
     }
 
@@ -277,7 +277,7 @@ std::string String::numeric(GuaranteeMap&& guarantee, const unsigned length, boo
             throw std::invalid_argument{"Invalid guarantee."};
         }
     }
-    auto targetCharacters = string::digitSet;
+    auto targetCharacters = digitSet;
     // throw if guarantee is invalid
     if (!isValidGuarantee(guarantee, targetCharacters, length))
     {

@@ -64,6 +64,7 @@ set(FAKER_SOURCES
     src/modules/music/MusicData.cpp
     src/modules/number/Number.cpp
     src/modules/person/Person.cpp
+    src/modules/person/PersonData.cpp
     src/modules/phone/Phone.cpp
     src/modules/phone/PhoneData.cpp
     src/modules/science/Science.cpp
