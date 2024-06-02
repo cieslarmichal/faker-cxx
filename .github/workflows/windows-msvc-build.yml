@@ -46,8 +46,7 @@ jobs:
           cache: 'pip'
 
       - name: Install Python dependencies
-        working-directory: .github
-        run: pip install .[ci]
+        run: python -m pip install -r .github/requirements.txt
 
       - name: Configure Conan profile
         run: conan profile detect --force --name msvc-19

@@ -1,5 +1,0 @@
-pyproject.toml
-workflows.egg-info/PKG-INFO
-workflows.egg-info/SOURCES.txt
-workflows.egg-info/dependency_links.txt
-workflows.egg-info/top_level.txt
