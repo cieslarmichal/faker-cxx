@@ -12,7 +12,7 @@ var searchData=
   ['sentences_9',['sentences',['../classfaker_1_1Lorem.html#a642a0a6fe7293f968b01a46b8202224a',1,'faker::Lorem']]],
   ['series_10',['series',['../classfaker_1_1Book.html#a481beefd5877f853ac5b06ca4e1d3085',1,'faker::Book']]],
   ['setelement_11',['setElement',['../classfaker_1_1Helper.html#afa9ce3f39af7cdaf537be7de5496e848',1,'faker::Helper']]],
-  ['sex_12',['sex',['../classfaker_1_1Person.html#a37ea215bfa7ee73f27ab80a9f7ed211f',1,'faker::Person']]],
+  ['sex_12',['sex',['../classfaker_1_1Person.html#aeba24330f0bad13c258ae96fd3e97f25',1,'faker::Person']]],
   ['sha256_13',['sha256',['../classfaker_1_1Crypto.html#ac0279633961b7060cb0fad3342844b8b',1,'faker::Crypto']]],
   ['shippingcarrier_14',['shippingCarrier',['../classfaker_1_1Commerce.html#a827ce98a14163ee96891cb7393f33f23',1,'faker::Commerce']]],
   ['shuffle_15',['shuffle',['../classfaker_1_1Helper.html#a5604817b289605971edea4034bd65115',1,'faker::Helper']]],
@@ -33,7 +33,7 @@ var searchData=
   ['streetaddress_30',['streetAddress',['../classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5',1,'faker::Location']]],
   ['string_31',['String',['../classfaker_1_1String.html',1,'faker']]],
   ['studioname_32',['studioName',['../classfaker_1_1VideoGame.html#afd842eaf01b55e9c93f864809ae233fc',1,'faker::VideoGame']]],
-  ['suffix_33',['suffix',['../classfaker_1_1Person.html#a386646bcc4139d378d890bb38f661196',1,'faker::Person']]],
+  ['suffix_33',['suffix',['../classfaker_1_1Person.html#affec8ddc4342317657338259aea55556',1,'faker::Person']]],
   ['sugarproduct_34',['sugarProduct',['../classfaker_1_1Food.html#ab4c284b39e36c8ebd29dcc8c285d2dbc',1,'faker::Food']]],
   ['system_35',['System',['../classfaker_1_1System.html',1,'faker']]]
 ];

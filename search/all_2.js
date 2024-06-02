@@ -10,7 +10,7 @@ var searchData=
   ['checkifemojiisvalid_7',['checkIfEmojiIsValid',['../classfaker_1_1Internet.html#a8c9c6bd30d42f99a7a58728034ef8f6a',1,'faker::Internet']]],
   ['chemicalelement_8',['ChemicalElement',['../structfaker_1_1Science_1_1ChemicalElement.html',1,'faker::Science']]],
   ['chemicalelement_9',['chemicalElement',['../classfaker_1_1Science.html#a5116cd34282af4c47442a32567da8c81',1,'faker::Science']]],
-  ['chinesezodiac_10',['chineseZodiac',['../classfaker_1_1Person.html#ac3c84e7dcb1c55d4750e91d8994129d2',1,'faker::Person']]],
+  ['chinesezodiac_10',['chineseZodiac',['../classfaker_1_1Person.html#aa96231fc1d15784260a29637e5843a72',1,'faker::Person']]],
   ['city_11',['city',['../classfaker_1_1Location.html#a4578e9848a3b0b7234be576135ae273a',1,'faker::Location']]],
   ['cloudcover_12',['cloudCover',['../classfaker_1_1Weather.html#a7d0451aec845d0f8e1bd2e9989d818d0',1,'faker::Weather']]],
   ['cmyk_13',['cmyk',['../classfaker_1_1Color.html#ab47da1db6d86a41571bfb39a079e45ad',1,'faker::Color']]],

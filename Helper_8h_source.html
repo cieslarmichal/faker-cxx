@@ -106,12 +106,12 @@ $(function(){initNavTree('Helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;functional&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;numeric&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;set&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;span&gt;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;initializer_list&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;numeric&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &lt;set&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &lt;span&gt;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;Datatype.h&quot;</span></div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;Number.h&quot;</span></div>
@@ -281,29 +281,30 @@ $(function(){initNavTree('Helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>    }</div>
 </div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span> </div>
-<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
+<div class="line"><a id="l00303" name="l00303"></a><span class="lineno">  303</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> T, std::<span class="keywordtype">size_t</span> N&gt;</div>
 <div class="foldopen" id="foldopen00304" data-start="{" data-end="}">
-<div class="line"><a id="l00304" name="l00304"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#a505d077c850b9914762fb68af0d926cf">  304</a></span>        <span class="keyword">static</span> std::vector&lt;T&gt; <a class="code hl_function" href="classfaker_1_1Helper.html#a505d077c850b9914762fb68af0d926cf">toVector</a>(<span class="keyword">const</span> std::array&lt;T, N&gt;&amp; arr) {</div>
-<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>        std::vector&lt;T&gt; vec;</div>
-<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        vec.reserve(N);</div>
-<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        vec.insert(vec.end(), arr.begin(), arr.end());</div>
-<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        <span class="keywordflow">return</span> vec;</div>
-<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>    }</div>
+<div class="line"><a id="l00304" name="l00304"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#a505d077c850b9914762fb68af0d926cf">  304</a></span>    <span class="keyword">static</span> std::vector&lt;T&gt; <a class="code hl_function" href="classfaker_1_1Helper.html#a505d077c850b9914762fb68af0d926cf">toVector</a>(<span class="keyword">const</span> std::array&lt;T, N&gt;&amp; arr)</div>
+<div class="line"><a id="l00305" name="l00305"></a><span class="lineno">  305</span>    {</div>
+<div class="line"><a id="l00306" name="l00306"></a><span class="lineno">  306</span>        std::vector&lt;T&gt; vec;</div>
+<div class="line"><a id="l00307" name="l00307"></a><span class="lineno">  307</span>        vec.reserve(N);</div>
+<div class="line"><a id="l00308" name="l00308"></a><span class="lineno">  308</span>        vec.insert(vec.end(), arr.begin(), arr.end());</div>
+<div class="line"><a id="l00309" name="l00309"></a><span class="lineno">  309</span>        <span class="keywordflow">return</span> vec;</div>
+<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span>    }</div>
 </div>
-<div class="line"><a id="l00310" name="l00310"></a><span class="lineno">  310</span> </div>
-<div class="line"><a id="l00327" name="l00327"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#ab639ccfc5cae32dc2bf09e07b4b5c8d6">  327</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#ab639ccfc5cae32dc2bf09e07b4b5c8d6">replaceSymbolWithNumber</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> <span class="keywordtype">char</span>&amp; symbol = <span class="charliteral">&#39;#&#39;</span>);</div>
-<div class="line"><a id="l00328" name="l00328"></a><span class="lineno">  328</span> </div>
-<div class="line"><a id="l00344" name="l00344"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199">  344</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199">replaceCreditCardSymbols</a>(<span class="keyword">const</span> std::string&amp; inputString = <span class="stringliteral">&quot;6453-####-####-####-###L&quot;</span>,</div>
-<div class="line"><a id="l00345" name="l00345"></a><span class="lineno">  345</span>                                                <span class="keywordtype">char</span> symbol = <span class="charliteral">&#39;#&#39;</span>);</div>
-<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span> </div>
-<div class="line"><a id="l00367" name="l00367"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">  367</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">regexpStyleStringParse</a>(<span class="keyword">const</span> std::string&amp; input);</div>
-<div class="line"><a id="l00368" name="l00368"></a><span class="lineno">  368</span> </div>
-<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span>    <span class="keyword">static</span> std::random_device randomDevice;</div>
-<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator;</div>
-<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>};</div>
+<div class="line"><a id="l00311" name="l00311"></a><span class="lineno">  311</span> </div>
+<div class="line"><a id="l00328" name="l00328"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#ab639ccfc5cae32dc2bf09e07b4b5c8d6">  328</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#ab639ccfc5cae32dc2bf09e07b4b5c8d6">replaceSymbolWithNumber</a>(<span class="keyword">const</span> std::string&amp; str, <span class="keyword">const</span> <span class="keywordtype">char</span>&amp; symbol = <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line"><a id="l00329" name="l00329"></a><span class="lineno">  329</span> </div>
+<div class="line"><a id="l00345" name="l00345"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199">  345</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199">replaceCreditCardSymbols</a>(<span class="keyword">const</span> std::string&amp; inputString = <span class="stringliteral">&quot;6453-####-####-####-###L&quot;</span>,</div>
+<div class="line"><a id="l00346" name="l00346"></a><span class="lineno">  346</span>                                                <span class="keywordtype">char</span> symbol = <span class="charliteral">&#39;#&#39;</span>);</div>
+<div class="line"><a id="l00347" name="l00347"></a><span class="lineno">  347</span> </div>
+<div class="line"><a id="l00368" name="l00368"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">  368</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768">regexpStyleStringParse</a>(<span class="keyword">const</span> std::string&amp; input);</div>
+<div class="line"><a id="l00369" name="l00369"></a><span class="lineno">  369</span> </div>
+<div class="line"><a id="l00370" name="l00370"></a><span class="lineno">  370</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00371" name="l00371"></a><span class="lineno">  371</span>    <span class="keyword">static</span> std::random_device randomDevice;</div>
+<div class="line"><a id="l00372" name="l00372"></a><span class="lineno">  372</span>    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator;</div>
+<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>};</div>
 </div>
-<div class="line"><a id="l00373" name="l00373"></a><span class="lineno">  373</span>}</div>
+<div class="line"><a id="l00374" name="l00374"></a><span class="lineno">  374</span>}</div>
 <div class="ttc" id="aclassfaker_1_1Datatype_html_adcc47b46212ca99e0eb8db4b888a678f"><div class="ttname"><a href="classfaker_1_1Datatype.html#adcc47b46212ca99e0eb8db4b888a678f">faker::Datatype::boolean</a></div><div class="ttdeci">static bool boolean()</div><div class="ttdoc">Returns a random boolean.</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html"><div class="ttname"><a href="classfaker_1_1Helper.html">faker::Helper</a></div><div class="ttdef"><b>Definition</b> Helper.h:18</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:247</div></div>
