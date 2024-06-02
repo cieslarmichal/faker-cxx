@@ -78,14 +78,3 @@ jobs:
 
       - name: Test
         run: ctest --preset=unixlike-clang-debug
-
-      - name: Generate code coverage
-        working-directory: ${{github.workspace}}/build/unixlike-clang-debug
-        run: |
-          ninja faker-ccov-all \
-          && llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt
-
-      - name: Codecov
-        uses: codecov/codecov-action@v3.1.4
-        with:
-          token: ${{ secrets.CODECOVTOKEN }}

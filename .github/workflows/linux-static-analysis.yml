@@ -89,6 +89,22 @@ jobs:
       - name: Build
         run: cmake --build --preset=unixlike-clang-debug
 
+  coverage:
+    name: coverage
+    runs-on: ubuntu-24.04
+    needs: build_project
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Generate code coverage
+        working-directory: ${{github.workspace}}/build/unixlike-clang-debug
+        run: |
+          ninja faker-ccov-all \
+          && llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt
+
+      # TODO: Use GH Action to post in the Action tab the coverage.txt file
 
   cppcheck:
     name: cppcheck
@@ -99,31 +115,32 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run cppcheck
-        run: cppcheck \
-             --template=gcc \
-             --suppress=missingIncludeSystem \
-             --suppress=variableScope \
-             --suppress=cppcheckError \
-             --suppress=internalAstError \
-             --suppress=unmatchedSuppression \
-             --suppress=passedByValue \
-             --suppress=syntaxError \
-             --suppress=preprocessorErrorDirective \
-             --inconclusive \
-             -I src \
-             -I src/common \
-             -I src/modules \
-             -I include \
-             --std=c++20 \
-             --enable=style \
-             --enable=performance \
-             --enable=warning \
-             --enable=portability \
-             --inline-suppr \
-             --cppcheck-build-dir=build/unixlike-clang-debug \
-             --project=build/unixlike-clang-debug/compile_commands.json \
-             src/ \
-             tests/
+        run: |
+          cppcheck \
+            --template=gcc \
+            --suppress=missingIncludeSystem \
+            --suppress=variableScope \
+            --suppress=cppcheckError \
+            --suppress=internalAstError \
+            --suppress=unmatchedSuppression \
+            --suppress=passedByValue \
+            --suppress=syntaxError \
+            --suppress=preprocessorErrorDirective \
+            --inconclusive \
+            -I src \
+            -I src/common \
+            -I src/modules \
+            -I include \
+            --std=c++20 \
+            --enable=style \
+            --enable=performance \
+            --enable=warning \
+            --enable=portability \
+            --inline-suppr \
+            --cppcheck-build-dir=build/unixlike-clang-debug \
+            --project=build/unixlike-clang-debug/compile_commands.json \
+            src/ \
+            tests/
 
   uncrustify:
     name: uncrustify
@@ -156,7 +173,11 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run clang-tidy
-        run: pre-commit run clang-tidy --all-files --color always --verbose
+        run: |
+          run-clang-tidy \
+            -p build/unixlike-clang-debug \
+            -header-filter=include/.* \
+            -extra-arg=-std=c++20
 
   clang_format:
     name: clang-format
