@@ -112,19 +112,10 @@ int main()
 
 ## Compiler support
 
-Use one of these compilers when working with Faker C++.
-
 - [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
 - [GCC➚](https://gcc.gnu.org/) version 12 or newer.
 - [Clang➚](https://clang.llvm.org/) version 16 or newer.
 - [Apple Clang➚](https://clang.llvm.org/) version 16 or newer.
-
-If you have any confusion please refer to the respective guides.
-
-- [Clang++](./docs/guides/clang-compilation-guide.md)
-- [Apple Clang++](./docs/guides/apple-clang-compilation-guide.md)
-- [G++](./docs/guides/gcc-compilation-guide.md)
-- [MSVC](./docs/guides/msvc-compilation-guide.md)
 
 ## Dependencies
 
@@ -155,6 +146,13 @@ To build the library with Conan, follow the steps below:
 ## ✨ Contributing
 
 We would love it if you contributed to Faker C++! 🚀
+
+Check our guides on how to build the project locally:
+
+- [Clang++](./docs/guides/clang-compilation-guide.md)
+- [Apple Clang++](./docs/guides/apple-clang-compilation-guide.md)
+- [G++](./docs/guides/gcc-compilation-guide.md)
+- [MSVC](./docs/guides/msvc-compilation-guide.md)
 
 Before contributing please review
 our [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.

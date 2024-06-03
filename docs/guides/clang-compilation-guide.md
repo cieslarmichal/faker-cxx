@@ -1,41 +1,39 @@
-## 🔨 Building project with Clang 16
+# 🔨 Building project with Clang
 
-### 1. Install Clang 16
+## 1. Install Clang
 
 ```bash
-sudo add-apt-repository ppa:trebelnik-stefina/launchpad-getkeys \
-&& sudo apt-get update \
-&& sudo apt-get install launchpad-getkeys \
-&& sudo add-apt-repository 'deb http://apt.llvm.org/jammy/ llvm-toolchain-jammy-16 main' \
-&& sudo launchpad-getkeys \
-&& sudo apt-get update -y \
-&& sudo apt-get install -y lld-16 ninja-build  build-essential libstdc++-13-dev \
- clang-16 clang-tools-16 llvm-16 lcov
+sudo apt install clang-18
 ```
 
-### 2. Prepare build directory
+## 2. Prepare build directory
 
 ```bash
 git clone https://github.com/cieslarmichal/faker-cxx.git
 cd faker-cxx
 git submodule update --init --recursive
-mkdir build && cd build
 ```
 
-### 3. Setup CMake
+## 3. Setup CMake
 
 ```bash
-cmake .. -DCMAKE_CXX_COMPILER=/usr/bin/clang++-16
+cmake -B ./build -DCMAKE_CXX_COMPILER=clang++ -DBUILD_TESTING=ON
 ```
 
-### 4. Build
+## 4. Build
 
 ```bash
-make
+cmake --build ./build
 ```
 
-### 5. Run tests
+## 5. Run tests
 
 ```bash
 ./faker-cxx-UT
+```
+
+or using CTest:
+
+```bash
+ctest --test-dir ./build
 ```
