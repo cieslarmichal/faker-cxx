@@ -76,7 +76,7 @@ jobs:
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
             -DUSE_STD_FORMAT:BOOL=ON \
             -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
-            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=ldd
+            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=lld
 
       - name: Build
         run: cmake --build --preset=unixlike-clang-debug
