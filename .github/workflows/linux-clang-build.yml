@@ -72,13 +72,19 @@ jobs:
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
             -DCODE_COVERAGE:BOOL=ON \
             -DBUILD_TESTING:BOOL=ON \
+            -DBUILD_EXAMPLES:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
             -DUSE_STD_FORMAT:BOOL=ON \
             -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
-            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=gold
+            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=lld
 
       - name: Build
         run: cmake --build --preset=unixlike-clang-debug
 
       - name: Test
         run: ctest --preset=unixlike-clang-debug
+
+      - name: Examples
+        run: |
+          cmake --build --preset=unixlike-clang-debug --target run-faker-cxx-basic-example \
+          && cmake --build --preset=unixlike-clang-debug --target run-faker-cxx-person-example
