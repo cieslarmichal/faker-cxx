@@ -5,6 +5,7 @@ include(cmake/CompilerWarnings.cmake)
 
 option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
 option(USE_STD_FORMAT "Use std::format when avaiable" ON)
+option(BUILD_EXAMPLES "Build examples" OFF)
 
 if (USE_STD_FORMAT)
     set(CMAKE_REQUIRED_FLAGS -std=c++20)
@@ -136,4 +137,8 @@ endif ()
 
 if (BUILD_TESTING)
     add_subdirectory(tests)
+endif ()
+
+if (BUILD_EXAMPLES)
+    add_subdirectory(examples)
 endif ()

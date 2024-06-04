@@ -158,3 +158,13 @@ Before contributing please review
 our [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.
 
 Additionally, we encourage you to join our [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
+
+## Examples
+
+This project offers examples to demonstrate how to use the Faker C++ library.
+These examples can be found in the [examples](examples/README.md) folder of the project repository.
+The examples showcase various modules of the library and provide code snippets that illustrate how to generate fake data using Faker C++.
+
+## LICENSE
+
+This project is under [MIT](LICENSE) license.
