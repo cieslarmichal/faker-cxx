@@ -165,6 +165,6 @@ This project offers examples to demonstrate how to use the Faker C++ library.
 These examples can be found in the [examples](examples/README.md) folder of the project repository.
 The examples showcase various modules of the library and provide code snippets that illustrate how to generate fake data using Faker C++.
 
-## LICENSE
+## License
 
 This project is under [MIT](LICENSE) license.

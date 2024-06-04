@@ -21,7 +21,7 @@ cd build/<preset-name>/examples/person
 ./faker-cxx-person-example
 ```
 
-However, using CMake, you can execute all examples at once:
+However, using CMake, you can execute all examples individually:
 
 ```
 cmake --build --preset <preset-name> --target run-faker-cxx-person-example
