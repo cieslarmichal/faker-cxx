@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - 'main'
-
+    paths-ignore:
+      - '**/*.md'
+      - 'LICENSE'
 jobs:
   publish:
     runs-on: ubuntu-latest
