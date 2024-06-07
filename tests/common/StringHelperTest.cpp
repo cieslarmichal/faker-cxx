@@ -33,12 +33,29 @@ TEST_F(StringHelperTest, splitStringByNewLine)
     ASSERT_EQ(result[2], "open");
     ASSERT_EQ(result[3], "source");
 }
+TEST_F(StringHelperTest, joinStringViewsIntoVectorBySpace)
+{
+    const std::vector<std::string_view> input{"Join", "faker", "development!"};
+
+    const auto result = StringHelper::join(input);
+
+    ASSERT_EQ(result, "Join faker development!");
+}
+
+TEST_F(StringHelperTest, joinStringViewsIntoVectorByNewLine)
+{
+    const std::vector<std::string_view> input{"Join", "faker", "development!"};
+
+    const auto result = StringHelper::join(input, "\n");
+
+    ASSERT_EQ(result, "Join\nfaker\ndevelopment!");
+}
 
 TEST_F(StringHelperTest, joinStringsIntoVectorBySpace)
 {
     const std::vector<std::string> input{"Join", "faker", "development!"};
 
-    const auto result = StringHelper::join(input);
+    const auto result = StringHelper::joinString(input);
 
     ASSERT_EQ(result, "Join faker development!");
 }
@@ -47,7 +64,7 @@ TEST_F(StringHelperTest, joinStringsIntoVectorByNewLine)
 {
     const std::vector<std::string> input{"Join", "faker", "development!"};
 
-    const auto result = StringHelper::join(input, "\n");
+    const auto result = StringHelper::joinString(input, "\n");
 
     ASSERT_EQ(result, "Join\nfaker\ndevelopment!");
 }

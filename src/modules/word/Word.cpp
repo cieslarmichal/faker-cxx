@@ -50,7 +50,7 @@ std::string Word::words(unsigned numberOfWords)
         words.push_back(sample());
     }
 
-    return StringHelper::join(words, " ");
+    return StringHelper::joinString(words, " ");
 }
 
 std::string Word::adjective(std::optional<unsigned int> length)

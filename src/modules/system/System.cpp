@@ -55,7 +55,7 @@ std::string System::fileName(const FileOptions& options)
                 std::string randomExt = fileExtension();
                 randomExtensions.push_back(randomExt);
             }
-            extensionsStr = "." + StringHelper::join(randomExtensions, ".");
+            extensionsStr = "." + StringHelper::joinString(randomExtensions, ".");
         }
         else
         {
@@ -69,7 +69,7 @@ std::string System::fileName(const FileOptions& options)
                 randomExtensions.push_back(randomExt);
             }
 
-            extensionsStr = "." + StringHelper::join(randomExtensions, ".");
+            extensionsStr = "." + StringHelper::joinString(randomExtensions, ".");
         }
     }
     return baseName + extensionsStr;
