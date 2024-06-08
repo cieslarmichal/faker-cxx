@@ -20,12 +20,12 @@ std::string_view Lorem::word()
 
 std::string Lorem::words(unsigned numberOfWords)
 {
-    std::vector<std::string> words;
+    std::vector<std::string_view> words;
     words.reserve(numberOfWords);
 
     for (unsigned i = 0; i < numberOfWords; i++)
     {
-        words.push_back(std::string(word()));
+        words.push_back(word());
     }
 
     return StringHelper::join(words, " ");
@@ -52,7 +52,7 @@ std::string Lorem::sentences(unsigned minNumberOfSentences, unsigned maxNumberOf
         sentences.push_back(sentence());
     }
 
-    return StringHelper::join(sentences, " ");
+    return StringHelper::joinString(sentences, " ");
 }
 
 std::string Lorem::slug(unsigned int numberOfWords)
@@ -65,7 +65,7 @@ std::string Lorem::slug(unsigned int numberOfWords)
         words.push_back(std::string(word()));
     }
 
-    return StringHelper::join(words, "-");
+    return StringHelper::joinString(words, "-");
 }
 
 std::string Lorem::paragraph(unsigned int minNumberOfSentences, unsigned int maxNumberOfSentences)
@@ -85,7 +85,7 @@ std::string Lorem::paragraphs(unsigned int minNumberOfParagraphs, unsigned int m
         paragraphs.push_back(paragraph());
     }
 
-    return StringHelper::join(paragraphs, "\n");
+    return StringHelper::joinString(paragraphs, "\n");
 }
 
 }

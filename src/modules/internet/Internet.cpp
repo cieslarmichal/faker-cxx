@@ -283,7 +283,7 @@ std::string Internet::ipv6()
         ipv6Parts.push_back(String::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
     }
 
-    return StringHelper::join(ipv6Parts, ":");
+    return StringHelper::joinString(ipv6Parts, ":");
 }
 
 std::string Internet::mac(const std::string& sep)
