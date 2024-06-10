@@ -701,5 +701,5 @@ const std::array<std::string_view, 24> vines = {"Bougainvillea",
                                                 "Star Jasmine",
                                                 "Virginia Creeper"};
 
-const std::array<std::string_view, 7> types = {"tree", "flower", "shrub", "grass", "fern", "succulent", "vine"};
+const std::array<std::string_view, 7> plantTypes = {"tree", "flower", "shrub", "grass", "fern", "succulent", "vine"};
 }

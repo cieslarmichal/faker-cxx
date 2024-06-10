@@ -12,5 +12,5 @@ extern const std::array<std::string_view, 97> grasses;
 extern const std::array<std::string_view, 87> ferns;
 extern const std::array<std::string_view, 132> succulents;
 extern const std::array<std::string_view, 24> vines;
-extern const std::array<std::string_view, 7> types;
+extern const std::array<std::string_view, 7> plantTypes;
 }

@@ -93,6 +93,6 @@ public:
      * Plant::type() // "tree"
      * @endcode
      */
-    static std::string_view type();
+    static std::string_view plantType();
 };
 }

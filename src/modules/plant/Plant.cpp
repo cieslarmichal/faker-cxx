@@ -42,8 +42,8 @@ std::string_view Plant::vine()
     return Helper::arrayElement(vines);
 }
 
-std::string_view Plant::type()
+std::string_view Plant::plantType()
 {
-    return Helper::arrayElement(types);
+    return Helper::arrayElement(plantTypes);
 }
 }

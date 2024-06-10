@@ -73,8 +73,8 @@ TEST_F(PlantTest, shouldGenerateVine)
 
 TEST_F(PlantTest, shouldGenerateType)
 {
-    const auto generatedType = Plant::type();
+    const auto generatedType = Plant::plantType();
 
     ASSERT_TRUE(
-        std::ranges::any_of(types, [generatedType](const std::string_view& type) { return type == generatedType; }));
+        std::ranges::any_of(plantTypes, [generatedType](const std::string_view& plantType) { return plantType == generatedType; }));
 }
