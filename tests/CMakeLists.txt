@@ -35,6 +35,7 @@ set(FAKER_UT_SOURCES
     modules/number/NumberTest.cpp
     modules/person/PersonTest.cpp
     modules/phone/PhoneTest.cpp
+    modules/plant/PlantTest.cpp
     modules/science/ScienceTest.cpp
     modules/sport/SportTest.cpp
     modules/string/StringTest.cpp
