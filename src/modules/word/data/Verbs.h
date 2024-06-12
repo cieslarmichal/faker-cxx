@@ -1,11 +1,11 @@
 #pragma once
 
-#include <string>
-#include <vector>
+#include <array>
+#include <string_view>
 
 namespace faker
 {
-const std::vector<std::string> verbs = {"abandon",
+const std::array<std::string_view,5910> verbs = {"abandon",
                                         "abase",
                                         "abate",
                                         "abbreviate",

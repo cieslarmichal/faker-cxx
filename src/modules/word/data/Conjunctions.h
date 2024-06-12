@@ -1,11 +1,11 @@
 #pragma once
 
-#include <string>
-#include <vector>
+#include <array>
+#include <string_view>
 
 namespace faker
 {
-const std::vector<std::string> conjunctions = {
+const std::array<std::string_view,51> conjunctions = {
     "after",    "although",     "and",      "as",          "because", "before",   "but",       "consequently",
     "even",     "finally",      "for",      "furthermore", "hence",   "how",      "however",   "if",
     "inasmuch", "incidentally", "indeed",   "instead",     "lest",    "likewise", "meanwhile", "nor",

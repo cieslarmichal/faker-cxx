@@ -72,6 +72,7 @@ class InternetTest : public Test
 public:
     InternetTest()
     {
+        sortedAdjectivesDescendingBySize.assign(adjectives.cbegin(), adjectives.cend());
         std::sort(sortedAdjectivesDescendingBySize.begin(), sortedAdjectivesDescendingBySize.end(),
                   [](const std::string& first, const std::string& second) { return first.size() > second.size(); });
     }
@@ -95,11 +96,19 @@ public:
 
         const auto generatedNoun = domainWord.substr(foundAdjective->size() + 1);
 
-        ASSERT_TRUE(std::ranges::any_of(nouns, [generatedNoun](const std::string& noun)
-                                        { return generatedNoun == StringHelper::toLower(noun); }));
+        ASSERT_TRUE(std::ranges::any_of(nouns,
+                                        [generatedNoun](const std::string_view& noun)
+                                        {
+                                            if (generatedNoun.size() != noun.size())
+                                                return false;
+                                            for (size_t i = 0; i < noun.size(); i++)
+                                                if (std::tolower(noun[i]) != std::tolower(generatedNoun[i]))
+                                                    return false;
+                                            return true;
+                                        }));
     }
 
-    std::vector<std::string> sortedAdjectivesDescendingBySize{adjectives};
+    std::vector<std::string> sortedAdjectivesDescendingBySize;
 };
 
 TEST_F(InternetTest, shouldGenerateUsername)

@@ -1,11 +1,11 @@
 #pragma once
 
-#include <string>
-#include <vector>
+#include <array>
+#include <string_view>
 
 namespace faker
 {
-const std::vector<std::string> adverbs = {
+const std::array<std::string_view,325> adverbs = {
     "abnormally",
     "absentmindedly",
     "accidentally",

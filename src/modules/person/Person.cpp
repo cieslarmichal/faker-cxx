@@ -330,11 +330,11 @@ std::string Person::bio()
 {
     const auto randomBioFormat = static_cast<std::string>(Helper::arrayElement(bioFormats));
 
-    const std::unordered_map<std::string, std::function<std::string()>> dataGeneratorsMapping{
-        {"bio_part", []() { return std::string{Helper::arrayElement(bioParts)}; }},
-        {"bio_supporter", []() { return std::string{Helper::arrayElement(bioSupporters)}; }},
+    const std::unordered_map<std::string_view, std::function<std::string_view()>> dataGeneratorsMapping{
+        {"bio_part", []() { return Helper::arrayElement(bioParts); }},
+        {"bio_supporter", []() { return Helper::arrayElement(bioSupporters); }},
         {"noun", []() { return Word::noun(); }},
-        {"emoji", []() { return std::string{Internet::emoji()}; }}};
+        {"emoji", []() { return Internet::emoji(); }}};
 
     return FormatHelper::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
 }

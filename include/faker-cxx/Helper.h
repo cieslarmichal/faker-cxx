@@ -57,6 +57,19 @@ public:
         return data[index];
     }
 
+    template <typename It>
+    static auto arrayElement(It start, It end) -> decltype(*::std::declval<It>())
+    {
+        size_t size = end - start;
+        if (size == 0)
+        {
+            throw std::invalid_argument{"Range [start,end) is empty."};
+        }
+
+        const auto index = Number::integer<size_t>(size - 1);
+        return start[index];
+    }
+
     /**
      * @brief Get a random element from a vector.
      *

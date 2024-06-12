@@ -2,6 +2,7 @@
 
 #include <optional>
 #include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -21,7 +22,7 @@ public:
      * Word::sample(5) // "spell"
      * @endcode
      */
-    static std::string sample(std::optional<unsigned> length = std::nullopt);
+    static std::string_view sample(std::optional<unsigned> length = std::nullopt);
 
     /**
      * @brief Returns a string containing a number of space separated random words.
@@ -50,7 +51,7 @@ public:
      * Word::adjective(3) // "bad"
      * @endcode
      */
-    static std::string adjective(std::optional<unsigned> length = std::nullopt);
+    static std::string_view adjective(std::optional<unsigned> length = std::nullopt);
 
     /**
      * @brief Returns a random adverb.
@@ -65,7 +66,7 @@ public:
      * Word::adverb(5) // "almost"
      * @endcode
      */
-    static std::string adverb(std::optional<unsigned> length = std::nullopt);
+    static std::string_view adverb(std::optional<unsigned> length = std::nullopt);
 
     /**
      * @brief Returns a random conjunction.
@@ -80,7 +81,7 @@ public:
      * Word::conjunction(6) // "indeed"
      * @endcode
      */
-    static std::string conjunction(std::optional<unsigned> length = std::nullopt);
+    static std::string_view conjunction(std::optional<unsigned> length = std::nullopt);
 
     /**
      * @brief Returns a random interjection.
@@ -95,7 +96,7 @@ public:
      * Word::interjection(4) // "yuck"
      * @endcode
      */
-    static std::string interjection(std::optional<unsigned> length = std::nullopt);
+    static std::string_view interjection(std::optional<unsigned> length = std::nullopt);
 
     /**
      * @brief Returns a random noun.
@@ -110,7 +111,7 @@ public:
      * Word::noun(8) // "distance"
      * @endcode
      */
-    static std::string noun(std::optional<unsigned> length = std::nullopt);
+    static std::string_view noun(std::optional<unsigned> length = std::nullopt);
 
     /**
      * @brief Returns a random preposition.
@@ -125,7 +126,7 @@ public:
      * Word::preposition(4) // "from"
      * @endcode
      */
-    static std::string preposition(std::optional<unsigned> length = std::nullopt);
+    static std::string_view preposition(std::optional<unsigned> length = std::nullopt);
 
     /**
      * @brief Returns a random verb.
@@ -140,6 +141,6 @@ public:
      * Word::verb(9) // "stabilise"
      * @endcode
      */
-    static std::string verb(std::optional<unsigned> length = std::nullopt);
+    static std::string_view verb(std::optional<unsigned> length = std::nullopt);
 };
 }
