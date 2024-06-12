@@ -1,11 +1,11 @@
 #pragma once
 
-#include <string>
-#include <vector>
+#include <array>
+#include <string_view>
 
 namespace faker
 {
-const std::vector<std::string> nouns = {"ATM",
+const std::array<std::string_view,6659> nouns = {"ATM",
                                         "CD",
                                         "SUV",
                                         "TV",
