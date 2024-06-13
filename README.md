@@ -13,7 +13,7 @@
 </div>
 
 ## Table of Contents
-[🎯 Goal](#-goal)
+- [🎯 Goal](#-goal)
 - [Usage and Documentation](#usage-and-documentation)
 - [💎 Modules](#-modules)
 - [Consuming library with CMake](#consuming-library-with-cmake-cmake-322-or-newer)
