@@ -12,6 +12,18 @@
 [![Chat on Discord](https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord)](https://discord.gg/h2ur8H6mK6)
 </div>
 
+## Table of Contents
+[🎯 Goal](#-goal)
+- [Usage and Documentation](#usage-and-documentation)
+- [💎 Modules](#-modules)
+- [Consuming library with CMake](#consuming-library-with-cmake-cmake-322-or-newer)
+- [Compiler support](#compiler-support)
+- [Dependencies](#dependencies)
+- [Building the library with Conan](#building-the-library-with-conan)
+- [✨ Contributing](#-contributing)
+- [Examples](#examples)
+- [License](#license)
+
 ## 🎯 Goal
 
 The goal of Faker C++ is to provide a library similar to [Faker.js](https://github.com/faker-js/faker) for C++
