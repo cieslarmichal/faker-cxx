@@ -11,16 +11,16 @@
 
 #include "gtest/gtest.h"
 
-#include "system/data/MimeTypes.h"
+#include "system/SystemData.h"
 
 using namespace ::testing;
 using namespace faker;
 
-const std::unordered_map<FileType, std::string> fileTypeToStringMapping{{FileType::Video, "video"},
-                                                                        {FileType::Audio, "audio"},
-                                                                        {FileType::Image, "image"},
-                                                                        {FileType::Text, "text"},
-                                                                        {FileType::Application, "application"}};
+const std::unordered_map<FileType, std::string_view> fileTypeToStringMapping{{FileType::Video, "video"},
+                                                                             {FileType::Audio, "audio"},
+                                                                             {FileType::Image, "image"},
+                                                                             {FileType::Text, "text"},
+                                                                             {FileType::Application, "application"}};
 
 class SystemTest : public Test
 {
@@ -67,7 +67,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
     auto text = FileType::Text;
     auto application = FileType::Application;
 
-    std::vector<std::string> imageExtensions;
+    std::vector<std::string_view> imageExtensions;
 
     for (const auto& mimeType : mimeTypes)
     {
@@ -79,7 +79,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
 
-    std::vector<std::string> audioExtensions;
+    std::vector<std::string_view> audioExtensions;
 
     for (const auto& mimeType : mimeTypes)
     {
@@ -91,7 +91,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
 
-    std::vector<std::string> videoExtensions;
+    std::vector<std::string_view> videoExtensions;
 
     for (const auto& mimeType : mimeTypes)
     {
@@ -102,7 +102,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
             videoExtensions.push_back(mimeType.substr(pos + 1));
         }
     }
-    std::vector<std::string> textExtensions;
+    std::vector<std::string_view> textExtensions;
 
     for (const auto& mimeType : mimeTypes)
     {
@@ -114,7 +114,7 @@ TEST_F(SystemTest, FileExtTestWithMimeTypeEnum)
         }
     }
 
-    std::vector<std::string> applicationExtensions;
+    std::vector<std::string_view> applicationExtensions;
 
     for (const auto& mimeType : mimeTypes)
     {
@@ -174,7 +174,7 @@ TEST_F(SystemTest, FileTypeTest)
     std::set<std::string> typeSet;
     for (const auto& entry : mimeTypes)
     {
-        const std::string& m = entry;
+        const std::string& m = std::string(entry);
         size_t pos = m.find('/');
         if (pos != std::string::npos)
         {
