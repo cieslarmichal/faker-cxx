@@ -2,6 +2,7 @@
 
 #include <functional>
 #include <string>
+#include <string_view>
 #include <unordered_map>
 #include <vector>
 
@@ -33,5 +34,8 @@ public:
     static std::string
     fillTokenValues(const std::string& format,
                     std::unordered_map<std::string, std::function<std::string()>> tokenValueGenerators);
+
+    static std::string fillTokenValues(const std::string& format,
+                    std::unordered_map<std::string_view, std::function<std::string_view()>> tokenValueGenerators);
 };
 }

@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/cieslarmichal/faker-cxx/main/docs/images/logo.png" width="250" alt="C++ Faker, a powerful tool for generating realistic and randomized fake data in C++ programming, enhancing data testing and development workflows"/>
+  <img src="https://raw.githubusercontent.com/cieslarmichal/faker-cxx/main/docs/public/logo.png" width="250" alt="C++ Faker, a powerful tool for generating realistic and randomized fake data in C++ programming, enhancing data testing and development workflows"/>
   <h1>Faker C++</h1>
   <p>Generate fake (but realistic) data for testing and development</p>
 
@@ -11,6 +11,18 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 [![Chat on Discord](https://img.shields.io/badge/chat-discord-blue?style=flat&logo=discord)](https://discord.gg/h2ur8H6mK6)
 </div>
+
+## Table of Contents
+- [🎯 Goal](#-goal)
+- [Usage and Documentation](#usage-and-documentation)
+- [💎 Modules](#-modules)
+- [Consuming library with CMake](#consuming-library-with-cmake-cmake-322-or-newer)
+- [Compiler support](#compiler-support)
+- [Dependencies](#dependencies)
+- [Building the library with Conan](#building-the-library-with-conan)
+- [✨ Contributing](#-contributing)
+- [Examples](#examples)
+- [License](#license)
 
 ## 🎯 Goal
 
@@ -112,19 +124,10 @@ int main()
 
 ## Compiler support
 
-Use one of these compilers when working with Faker C++.
-
 - [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
 - [GCC➚](https://gcc.gnu.org/) version 12 or newer.
 - [Clang➚](https://clang.llvm.org/) version 16 or newer.
 - [Apple Clang➚](https://clang.llvm.org/) version 16 or newer.
-
-If you have any confusion please refer to the respective guides.
-
-- [Clang++](./docs/guides/clang-compilation-guide.md)
-- [Apple Clang++](./docs/guides/apple-clang-compilation-guide.md)
-- [G++](./docs/guides/gcc-compilation-guide.md)
-- [MSVC](./docs/guides/msvc-compilation-guide.md)
 
 ## Dependencies
 
@@ -156,7 +159,24 @@ To build the library with Conan, follow the steps below:
 
 We would love it if you contributed to Faker C++! 🚀
 
+Check our guides on how to build the project locally:
+
+- [Clang++](./docs/guides/clang-compilation-guide.md)
+- [Apple Clang++](./docs/guides/apple-clang-compilation-guide.md)
+- [G++](./docs/guides/gcc-compilation-guide.md)
+- [MSVC](./docs/guides/msvc-compilation-guide.md)
+
 Before contributing please review
 our [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.
 
 Additionally, we encourage you to join our [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
+
+## Examples
+
+This project offers examples to demonstrate how to use the Faker C++ library.
+These examples can be found in the [examples](examples/README.md) folder of the project repository.
+The examples showcase various modules of the library and provide code snippets that illustrate how to generate fake data using Faker C++.
+
+## License
+
+This project is under [MIT](LICENSE) license.

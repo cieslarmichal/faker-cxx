@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - 'main'
+    paths-ignore:
+      - 'docs/**'
+      - '**/*.md'
+      - 'LICENSE'
   workflow_dispatch:
   pull_request:
 
@@ -11,25 +15,76 @@ on:
 jobs:
   build:
     runs-on: macos-14
-    name: ci-macos-14-apple-clang-15
+    name: ci-macos-14-apple-clang-18
+    env:
+      CLANG18_PATH: /opt/homebrew/opt/llvm@18/bin/clang
 
     steps:
-      - name: Install clang
-        run: brew install llvm@16 && echo 'export PATH="/opt/homebrew/opt/llvm@16/bin:$PATH"' >> /Users/runner/.bash_profile && source /Users/runner/.bash_profile && which clang++
-
       - name: Checkout
-        uses: actions/checkout@v3
-        with:
-          submodules: recursive
+        uses: actions/checkout@v4
 
-      - name: Install Ninja
-        uses: seanmiddleditch/gha-setup-ninja@master
+      - name: Install ccache
+        uses: hendrikmuhs/ccache-action@v1.2
+
+      - name: Install clang
+        run: |
+          brew install llvm@18 \
+          && echo 'export PATH="/opt/homebrew/opt/llvm@18/bin:$PATH"' >> /Users/runner/.bash_profile \
+          && source /Users/runner/.bash_profile \
+          && which clang++
+
+      - name: Cache Conan packages
+        id: cache-conan
+        uses: actions/cache@v4.0.2
+        env:
+          cache-name: cache-conan-packages
+        with:
+          path: ~/.conan2
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('conanfile.txt') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+            ${{ runner.os }}-build-
+            ${{ runner.os }}-
+
+      - name: Configure python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+          cache: 'pip'
+
+      - name: Install Python dependencies
+        run: pip install -r .github/requirements.txt
+
+      - name: Configure Conan profile
+        run: |
+          CC=${{ env.CLANG18_PATH }} \
+          CXX=${{ env.CLANG18_PATH }}++ \
+          conan profile detect --force --name apple-clang-18
+
+      - name: Install Conan dependencies
+        run: |
+          conan install conanfile.txt \
+            -r conancenter \
+            -pr:b apple-clang-18 \
+            -pr:h apple-clang-18 \
+            -s compiler.cppstd=20 \
+            -s build_type=Debug \
+            -o "*:shared=True" \
+            -c:b tools.build:compiler_executables="{'c': '${{ env.CLANG18_PATH }}', 'cpp': '${{ env.CLANG18_PATH }}++'}" \
+            -c:h tools.build:compiler_executables="{'c': '${{ env.CLANG18_PATH }}', 'cpp': '${{ env.CLANG18_PATH }}++'}" \
+            --build=missing
+
 
       - name: Configure CMake
         run: |
           cmake -S . --preset=unixlike-clang-debug \
             -DBUILD_TESTING:BOOL=ON \
-            -DCMAKE_CXX_COMPILER=clang++
+            -DCMAKE_CXX_COMPILER=${{ env.CLANG18_PATH }}++ \
+            -DCMAKE_C_COMPILER=${{ env.CLANG18_PATH }} \
+            -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
+            -DUSE_STD_FORMAT:BOOL=ON \
+            -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
+            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake
 
       - name: Build
         run: cmake --build --preset=unixlike-clang-debug

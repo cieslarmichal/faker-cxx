@@ -39,7 +39,7 @@ TEST_F(WordTest, shouldGenerateAdjective)
 {
     const auto generatedAdjective = Word::adjective();
 
-    ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string_view& word)
                                     { return word == generatedAdjective; }));
 }
 
@@ -47,7 +47,7 @@ TEST_F(WordTest, shouldGenerateAdjectiveWithExistingLength)
 {
     const auto generatedAdjective = Word::adjective(5);
 
-    ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string_view& word)
                                     { return word == generatedAdjective; }));
 }
 
@@ -55,7 +55,7 @@ TEST_F(WordTest, shouldGenerateAdjectiveWithNonExistingLength)
 {
     const auto generatedAdjective = Word::adjective(100);
 
-    ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string_view& word)
                                     { return word == generatedAdjective; }));
 }
 
@@ -64,7 +64,7 @@ TEST_F(WordTest, shouldGenerateAdverb)
     const auto generatedAdverb = Word::adverb();
 
     ASSERT_TRUE(
-        std::ranges::any_of(adverbs, [generatedAdverb](const std::string& word) { return word == generatedAdverb; }));
+        std::ranges::any_of(adverbs, [generatedAdverb](const std::string_view& word) { return word == generatedAdverb; }));
 }
 
 TEST_F(WordTest, shouldGenerateAdverbWithExistingLength)
@@ -72,7 +72,7 @@ TEST_F(WordTest, shouldGenerateAdverbWithExistingLength)
     const auto generatedAdverb = Word::adverb(5);
 
     ASSERT_TRUE(
-        std::ranges::any_of(adverbs, [generatedAdverb](const std::string& word) { return word == generatedAdverb; }));
+        std::ranges::any_of(adverbs, [generatedAdverb](const std::string_view& word) { return word == generatedAdverb; }));
 }
 
 TEST_F(WordTest, shouldGenerateAdverbWithNonExistingLength)
@@ -80,14 +80,14 @@ TEST_F(WordTest, shouldGenerateAdverbWithNonExistingLength)
     const auto generatedAdverb = Word::adverb(100);
 
     ASSERT_TRUE(
-        std::ranges::any_of(adverbs, [generatedAdverb](const std::string& word) { return word == generatedAdverb; }));
+        std::ranges::any_of(adverbs, [generatedAdverb](const std::string_view& word) { return word == generatedAdverb; }));
 }
 
 TEST_F(WordTest, shouldGenerateConjunction)
 {
     const auto generatedConjunction = Word::conjunction();
 
-    ASSERT_TRUE(std::ranges::any_of(conjunctions, [generatedConjunction](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(conjunctions, [generatedConjunction](const std::string_view& word)
                                     { return word == generatedConjunction; }));
 }
 
@@ -95,7 +95,7 @@ TEST_F(WordTest, shouldGenerateConjunctionWithExistingLength)
 {
     const auto generatedConjunction = Word::conjunction(5);
 
-    ASSERT_TRUE(std::ranges::any_of(conjunctions, [generatedConjunction](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(conjunctions, [generatedConjunction](const std::string_view& word)
                                     { return word == generatedConjunction; }));
 }
 
@@ -103,7 +103,7 @@ TEST_F(WordTest, shouldGenerateConjunctionWithNonExistingLength)
 {
     const auto generatedConjunction = Word::conjunction(100);
 
-    ASSERT_TRUE(std::ranges::any_of(conjunctions, [generatedConjunction](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(conjunctions, [generatedConjunction](const std::string_view& word)
                                     { return word == generatedConjunction; }));
 }
 
@@ -111,7 +111,7 @@ TEST_F(WordTest, shouldGenerateInterjection)
 {
     const auto generatedInterjection = Word::interjection();
 
-    ASSERT_TRUE(std::ranges::any_of(interjections, [generatedInterjection](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(interjections, [generatedInterjection](const std::string_view& word)
                                     { return word == generatedInterjection; }));
 }
 
@@ -119,7 +119,7 @@ TEST_F(WordTest, shouldGenerateInterjectionWithExistingLength)
 {
     const auto generatedInterjection = Word::interjection(5);
 
-    ASSERT_TRUE(std::ranges::any_of(interjections, [generatedInterjection](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(interjections, [generatedInterjection](const std::string_view& word)
                                     { return word == generatedInterjection; }));
 }
 
@@ -127,7 +127,7 @@ TEST_F(WordTest, shouldGenerateInterjectionWithNonExistingLength)
 {
     const auto generatedInterjection = Word::interjection(100);
 
-    ASSERT_TRUE(std::ranges::any_of(interjections, [generatedInterjection](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(interjections, [generatedInterjection](const std::string_view& word)
                                     { return word == generatedInterjection; }));
 }
 
@@ -135,28 +135,28 @@ TEST_F(WordTest, shouldGenerateNoun)
 {
     const auto generatedNoun = Word::noun();
 
-    ASSERT_TRUE(std::ranges::any_of(nouns, [generatedNoun](const std::string& word) { return word == generatedNoun; }));
+    ASSERT_TRUE(std::ranges::any_of(nouns, [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
 }
 
 TEST_F(WordTest, shouldGenerateNounWithExistingLength)
 {
     const auto generatedNoun = Word::noun(5);
 
-    ASSERT_TRUE(std::ranges::any_of(nouns, [generatedNoun](const std::string& word) { return word == generatedNoun; }));
+    ASSERT_TRUE(std::ranges::any_of(nouns, [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
 }
 
 TEST_F(WordTest, shouldGenerateNounWithNonExistingLength)
 {
     const auto generatedNoun = Word::noun(100);
 
-    ASSERT_TRUE(std::ranges::any_of(nouns, [generatedNoun](const std::string& word) { return word == generatedNoun; }));
+    ASSERT_TRUE(std::ranges::any_of(nouns, [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
 }
 
 TEST_F(WordTest, shouldGeneratePreposition)
 {
     const auto generatedPreposition = Word::preposition();
 
-    ASSERT_TRUE(std::ranges::any_of(prepositions, [generatedPreposition](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(prepositions, [generatedPreposition](const std::string_view& word)
                                     { return word == generatedPreposition; }));
 }
 
@@ -164,7 +164,7 @@ TEST_F(WordTest, shouldGeneratePrepositionWithExistingLength)
 {
     const auto generatedPreposition = Word::preposition(5);
 
-    ASSERT_TRUE(std::ranges::any_of(prepositions, [generatedPreposition](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(prepositions, [generatedPreposition](const std::string_view& word)
                                     { return word == generatedPreposition; }));
 }
 
@@ -172,7 +172,7 @@ TEST_F(WordTest, shouldGeneratePrepositionWithNonExistingLength)
 {
     const auto generatedPreposition = Word::preposition(100);
 
-    ASSERT_TRUE(std::ranges::any_of(prepositions, [generatedPreposition](const std::string& word)
+    ASSERT_TRUE(std::ranges::any_of(prepositions, [generatedPreposition](const std::string_view& word)
                                     { return word == generatedPreposition; }));
 }
 
@@ -180,21 +180,21 @@ TEST_F(WordTest, shouldGenerateVerb)
 {
     const auto generatedVerb = Word::verb();
 
-    ASSERT_TRUE(std::ranges::any_of(verbs, [generatedVerb](const std::string& word) { return word == generatedVerb; }));
+    ASSERT_TRUE(std::ranges::any_of(verbs, [generatedVerb](const std::string_view& word) { return word == generatedVerb; }));
 }
 
 TEST_F(WordTest, shouldGenerateVerbWithExistingLength)
 {
     const auto generatedVerb = Word::verb(5);
 
-    ASSERT_TRUE(std::ranges::any_of(verbs, [generatedVerb](const std::string& word) { return word == generatedVerb; }));
+    ASSERT_TRUE(std::ranges::any_of(verbs, [generatedVerb](const std::string_view& word) { return word == generatedVerb; }));
 }
 
 TEST_F(WordTest, shouldGenerateVerbWithNonExistingLength)
 {
     const auto generatedVerb = Word::verb(100);
 
-    ASSERT_TRUE(std::ranges::any_of(verbs, [generatedVerb](const std::string& word) { return word == generatedVerb; }));
+    ASSERT_TRUE(std::ranges::any_of(verbs, [generatedVerb](const std::string_view& word) { return word == generatedVerb; }));
 }
 
 TEST_F(WordTest, shouldGenerateSample)

@@ -1,6 +1,6 @@
 #pragma once
 
-#include <string>
+#include <string_view>
 
 namespace faker
 {
@@ -9,8 +9,8 @@ class Science
 public:
     struct ChemicalElement
     {
-        std::string name;
-        std::string symbol;
+        std::string_view name;
+        std::string_view symbol;
         int atomicNumber;
     };
 
@@ -28,9 +28,9 @@ public:
 
     struct Unit
     {
-        std::string name;
-        std::string symbol;
-        std::string usedToMeasure;
+        std::string_view name;
+        std::string_view symbol;
+        std::string_view usedToMeasure;
     };
 
     /**

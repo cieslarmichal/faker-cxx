@@ -34,7 +34,7 @@ std::string_view Animal::cow()
 
 std::string_view Animal::crocodile()
 {
-    return Helper::arrayElement(faker::crocodiles);
+    return Helper::arrayElement(crocodiles);
 }
 
 std::string_view Animal::dog()

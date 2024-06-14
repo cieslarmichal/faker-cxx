@@ -1,11 +1,11 @@
 #pragma once
 
-#include <string>
-#include <vector>
+#include <array>
+#include <string_view>
 
 namespace faker
 {
-const std::vector<std::string> prepositions = {
+const std::array<std::string_view,109> prepositions = {
     "a",
     "abaft",
     "aboard",

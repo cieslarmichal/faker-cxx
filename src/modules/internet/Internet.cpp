@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <array>
-#include <cstddef>
 #include <initializer_list>
 #include <map>
 #include <optional>
@@ -34,8 +33,8 @@ const std::initializer_list<unsigned> httpStatusInformationalCodes{100, 101, 102
 const std::initializer_list<unsigned> httpStatusSuccessCodes{200, 201, 202, 203, 204, 205, 206, 207, 208, 226};
 const std::initializer_list<unsigned> httpStatusRedirectionCodes{300, 301, 302, 303, 304, 305, 306, 307, 308};
 const std::initializer_list<unsigned> httpStatusClientErrorCodes{400, 401, 402, 403, 404, 405, 406, 407, 408, 409,
-                                                           410, 411, 412, 413, 414, 415, 416, 417, 418, 421,
-                                                           422, 423, 424, 425, 426, 428, 429, 431, 451};
+                                                                 410, 411, 412, 413, 414, 415, 416, 417, 418, 421,
+                                                                 422, 423, 424, 425, 426, 428, 429, 431, 451};
 const std::initializer_list<unsigned> httpStatusServerErrorCodes{500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511};
 const std::map<HttpResponseType, std::initializer_list<unsigned>> httpResponseTypeToCodesMapping{
     {HttpResponseType::Informational, httpStatusInformationalCodes},
@@ -54,22 +53,21 @@ constexpr unsigned int ipv4ClassBSecondSectorUpperBound = 31u;
 constexpr unsigned int ipv4SectorUpperBound = 255u;
 
 const std::map<Internet::EmojiType, std::vector<std::string_view>> emojiTypeToEmojisMapping = {
-    {Internet::EmojiType::Smiley, Helper::toVector(internet::smileyEmojis)},
-    {Internet::EmojiType::Body, Helper::toVector(internet::bodyEmojis)},
-    {Internet::EmojiType::Person, Helper::toVector(internet::personEmojis)},
-    {Internet::EmojiType::Nature, Helper::toVector(internet::natureEmojis)},
-    {Internet::EmojiType::Food, Helper::toVector(internet::foodEmojis)},
-    {Internet::EmojiType::Travel, Helper::toVector(internet::travelEmojis)},
-    {Internet::EmojiType::Activity, Helper::toVector(internet::activityEmojis)},
-    {Internet::EmojiType::Object, Helper::toVector(internet::objectEmojis)},
-    {Internet::EmojiType::Symbol, Helper::toVector(internet::symbolEmojis)},
-    {Internet::EmojiType::Flag, Helper::toVector(internet::flagEmojis)},
+    {Internet::EmojiType::Smiley, Helper::toVector(smileyEmojis)},
+    {Internet::EmojiType::Body, Helper::toVector(bodyEmojis)},
+    {Internet::EmojiType::Person, Helper::toVector(personEmojis)},
+    {Internet::EmojiType::Nature, Helper::toVector(natureEmojis)},
+    {Internet::EmojiType::Food, Helper::toVector(foodEmojis)},
+    {Internet::EmojiType::Travel, Helper::toVector(travelEmojis)},
+    {Internet::EmojiType::Activity, Helper::toVector(activityEmojis)},
+    {Internet::EmojiType::Object, Helper::toVector(objectEmojis)},
+    {Internet::EmojiType::Symbol, Helper::toVector(symbolEmojis)},
+    {Internet::EmojiType::Flag, Helper::toVector(flagEmojis)},
 };
 }
 
 std::vector<std::string_view> getAllEmojis()
 {
-    using namespace faker::internet;
     std::vector<std::string_view> emojis;
     emojis.reserve(smileyEmojis.size() + bodyEmojis.size() + personEmojis.size() + natureEmojis.size() +
                    foodEmojis.size() + travelEmojis.size() + activityEmojis.size() + objectEmojis.size() +
@@ -119,13 +117,13 @@ std::string Internet::email(std::optional<std::string> firstName, std::optional<
                             std::optional<std::string> emailHost)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                                emailHost ? *emailHost : Helper::arrayElement(internet::emailHosts));
+                                emailHost ? *emailHost : Helper::arrayElement(emailHosts));
 }
 
 std::string Internet::exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                                Helper::arrayElement(internet::emailExampleHosts));
+                                Helper::arrayElement(emailExampleHosts));
 }
 
 std::string Internet::password(int length, const PasswordOptions& options)
@@ -134,22 +132,22 @@ std::string Internet::password(int length, const PasswordOptions& options)
 
     if (options.upperLetters)
     {
-        characters += faker::string::upperCharacters;
+        characters += upperCharacters;
     }
 
     if (options.lowerLetters)
     {
-        characters += faker::string::lowerCharacters;
+        characters += lowerCharacters;
     }
 
     if (options.numbers)
     {
-        characters += faker::string::numericCharacters;
+        characters += numericCharacters;
     }
 
     if (options.symbols)
     {
-        characters += faker::string::symbolCharacters;
+        characters += symbolCharacters;
     }
 
     std::string password;
@@ -164,7 +162,6 @@ std::string Internet::password(int length, const PasswordOptions& options)
 
 std::string_view Internet::emoji(std::optional<Internet::EmojiType> type)
 {
-    using namespace faker::internet;
     if (type)
     {
         const auto& emojisMapped = emojiTypeToEmojisMapping.at(*type);
@@ -217,17 +214,17 @@ unsigned Internet::httpStatusCode(std::optional<HttpResponseType> responseType)
 
 std::string_view Internet::httpRequestHeader()
 {
-    return Helper::arrayElement(internet::httpRequestHeaders);
+    return Helper::arrayElement(httpRequestHeaders);
 }
 
 std::string_view Internet::httpResponseHeader()
 {
-    return Helper::arrayElement(internet::httpResponseHeaders);
+    return Helper::arrayElement(httpResponseHeaders);
 }
 
 std::string_view Internet::httpMediaType()
 {
-    return Helper::arrayElement(internet::httpMediaTypes);
+    return Helper::arrayElement(httpMediaTypes);
 }
 
 std::string Internet::ipv4(const IPv4Class& ipv4class)
@@ -286,7 +283,7 @@ std::string Internet::ipv6()
         ipv6Parts.push_back(String::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
     }
 
-    return StringHelper::join(ipv6Parts, ":");
+    return StringHelper::joinString(ipv6Parts, ":");
 }
 
 std::string Internet::mac(const std::string& sep)
@@ -337,7 +334,7 @@ std::string Internet::domainWord()
 
 std::string_view Internet::domainSuffix()
 {
-    return Helper::arrayElement(internet::domainSuffixes);
+    return Helper::arrayElement(domainSuffixes);
 }
 
 std::string Internet::anonymousUsername(unsigned maxLength)

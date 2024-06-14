@@ -1,11 +1,11 @@
 #pragma once
 
-#include <string>
-#include <vector>
+#include <array>
+#include <string_view>
 
 namespace faker
 {
-const std::vector<std::string> adjectives = {"abandoned",
+const std::array<std::string_view,1328> adjectives = {"abandoned",
                                              "able",
                                              "absolute",
                                              "adorable",

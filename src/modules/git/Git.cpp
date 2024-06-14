@@ -1,6 +1,5 @@
 #include "faker-cxx/Git.h"
 
-#include <cstddef>
 #include <optional>
 #include <string>
 
@@ -91,8 +90,8 @@ std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<un
         entry += commitSha();
     }
 
-    const auto firstName = Person::firstName(country);
-    const auto lastName = Person::lastName(country);
+    const auto firstName = static_cast<std::string>(Person::firstName(country));
+    const auto lastName = static_cast<std::string>(Person::lastName(country));
 
     entry += "\nAuthor: " + firstName + " " + lastName + " " + Internet::email(firstName, lastName) + "\nDate: ";
 
@@ -132,11 +131,11 @@ std::string Git::commitSha(unsigned length)
 
 Git::Author Git::author()
 {
-    const std::string firstName = Person::firstName();
-    const std::string lastName = Person::lastName();
+    const auto firstName = static_cast<std::string>(Person::firstName());
+    const auto lastName = static_cast<std::string>(Person::lastName());
 
-    const std::string name = firstName + " " + lastName;
-    const std::string email = Internet::email(firstName, lastName);
+    const auto name = firstName + " " + lastName;
+    const auto email = Internet::email(firstName, lastName);
 
     return {name, email};
 }
