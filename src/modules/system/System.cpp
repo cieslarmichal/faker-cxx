@@ -10,10 +10,7 @@
 #include <vector>
 
 #include "../src/common/StringHelper.h"
-#include "data/CommonInterface.h"
-#include "data/CronDayOfWeek.h"
-#include "data/DirectoryPath.h"
-#include "data/MimeTypes.h"
+#include "SystemData.h"
 #include "faker-cxx/Datatype.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
@@ -25,13 +22,13 @@ namespace faker
 {
 namespace
 {
-const std::unordered_map<FileType, std::string> fileTypeToStringMapping{{FileType::Video, "video"},
-                                                                        {FileType::Audio, "audio"},
-                                                                        {FileType::Image, "image"},
-                                                                        {FileType::Text, "text"},
-                                                                        {FileType::Application, "application"}};
+const std::unordered_map<FileType, std::string_view> fileTypeToStringMapping{{FileType::Video, "video"},
+                                                                             {FileType::Audio, "audio"},
+                                                                             {FileType::Image, "image"},
+                                                                             {FileType::Text, "text"},
+                                                                             {FileType::Application, "application"}};
 
-std::string extension(const std::string& mimeType)
+std::string_view extension(std::string_view mimeType)
 {
     const auto it = mimeTypesExtensions.find(mimeType);
     if (it == mimeTypesExtensions.end())
@@ -95,7 +92,7 @@ std::string System::fileExtension(const std::optional<FileType>& mimeType)
             const auto mt = mime.substr(0, pos);
             if (mimeTypeName == mt)
             {
-                extensions.push_back(mime.substr(pos + 1));
+                extensions.push_back(std::string(mime.substr(pos + 1)));
             }
         }
 
@@ -103,7 +100,7 @@ std::string System::fileExtension(const std::optional<FileType>& mimeType)
     }
     else
     {
-        std::set<std::string> extensionSet;
+        std::set<std::string_view> extensionSet;
 
         for (const auto& mimeTypeName : mimeTypes)
         {
@@ -136,14 +133,14 @@ std::string System::commonFileName(const std::optional<std::string>& ext)
 
 std::string System::commonFileExtension()
 {
-    auto mimeType = Helper::arrayElement<std::string>(commonMimeTypes);
+    auto mimeType = Helper::arrayElement<std::string_view>(commonMimeTypes);
 
-    return extension(mimeType);
+    return std::string(extension(mimeType));
 }
 
-std::string System::mimeType()
+std::string System::mimeType() 
 {
-    std::vector<std::string> mimeTypeKeys;
+    std::vector<std::string_view> mimeTypeKeys;
 
     mimeTypeKeys.reserve(mimeTypes.size());
 
@@ -152,12 +149,12 @@ std::string System::mimeType()
         mimeTypeKeys.push_back(entry);
     }
 
-    return Helper::arrayElement<std::string>(mimeTypeKeys);
+    return std::string(Helper::arrayElement<std::string_view>(mimeTypeKeys));
 }
 
 std::string System::commonFileType()
 {
-    return Helper::arrayElement<std::string>(commonFileTypes);
+    return std::string(Helper::arrayElement<std::string_view>(commonFileTypes));
 }
 
 std::string System::fileType()
@@ -168,7 +165,7 @@ std::string System::fileType()
 
     for (const auto& entry : localMimeTypes)
     {
-        const std::string& m = entry;
+        const std::string& m = std::string(entry);
 
         size_t pos = m.find('/');
 
@@ -186,7 +183,7 @@ std::string System::fileType()
 
 std::string System::directoryPath()
 {
-    return Helper::arrayElement<std::string>(directoryPaths);
+    return std::string(Helper::arrayElement<std::string_view>(directoryPaths));
 }
 
 std::string System::filePath()
@@ -209,10 +206,10 @@ std::string System::semver()
 
 std::string System::networkInterface(const std::optional<NetworkInterfaceOptions>& options)
 {
-    const auto defaultInterfaceType = Helper::arrayElement<std::string>(commonInterfaceTypes);
-    const std::string defaultInterfaceSchema = Helper::objectKey(commonInterfaceSchemas);
+    const auto defaultInterfaceType = Helper::arrayElement<std::string_view>(commonInterfaceTypes);
+    const std::string defaultInterfaceSchema = std::string(Helper::objectKey(commonInterfaceSchemas));
 
-    std::string interfaceType = defaultInterfaceType;
+    std::string interfaceType = std::string(defaultInterfaceType);
     std::string interfaceSchema = defaultInterfaceSchema;
 
     if (options.has_value())
@@ -253,7 +250,7 @@ std::string System::networkInterface(const std::optional<NetworkInterfaceOptions
         suffix += Helper::maybe<std::string>([&]() { return "d" + digit(); });
     }
 
-    return prefix + interfaceType + commonInterfaceSchemas.at(interfaceSchema) + suffix;
+    return prefix + interfaceType + std::string(commonInterfaceSchemas.at(interfaceSchema)) + suffix;
 }
 
 std::string System::cron(const CronOptions& options)
@@ -266,7 +263,8 @@ std::string System::cron(const CronOptions& options)
     std::vector<std::string> months = {std::to_string(Number::integer(1, 12)), "*"};
     std::vector<std::string> daysOfWeek = {
         std::to_string(Number::integer(6)),
-        cronDayOfWeek[static_cast<unsigned long>(Number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))], "*",
+        std::string(cronDayOfWeek[static_cast<unsigned long>(Number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))]),
+        "*",
         "?"};
 
     std::vector<std::string> years;
