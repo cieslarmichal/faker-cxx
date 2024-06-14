@@ -70,6 +70,7 @@ set(FAKER_SOURCES
     src/modules/sport/SportData.cpp
     src/modules/string/String.cpp
     src/modules/system/System.cpp
+    src/modules/system/SystemData.cpp
     src/modules/vehicle/Vehicle.cpp
     src/modules/vehicle/VehicleData.cpp
     src/modules/videoGame/VideoGame.cpp
