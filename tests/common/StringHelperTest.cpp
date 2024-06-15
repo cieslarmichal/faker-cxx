@@ -33,6 +33,7 @@ TEST_F(StringHelperTest, splitStringByNewLine)
     ASSERT_EQ(result[2], "open");
     ASSERT_EQ(result[3], "source");
 }
+
 TEST_F(StringHelperTest, joinStringViewsIntoVectorBySpace)
 {
     const std::vector<std::string_view> input{"Join", "faker", "development!"};

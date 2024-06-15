@@ -24,18 +24,18 @@ namespace
 const std::vector<std::string> sexes{"Male", "Female"};
 
 const std::vector<Country> countries{
-    Country::Usa,       Country::England,       Country::Poland,      Country::Italy,     Country::France,
-    Country::Germany,   Country::Russia,        Country::Romania,     Country::India,     Country::Finland,
-    Country::Nepal,     Country::Spain,         Country::Turkey,      Country::Czech,     Country::Slovakia,
-    Country::Ukraine,   Country::Denmark,       Country::Sweden,      Country::Brazil,    Country::Norway,
-    Country::Japan,     Country::Portugal,      Country::Hungary,     Country::Croatia,   Country::Greece,
-    Country::Slovenia,  Country::Austria,       Country::Switzerland, Country::Belgium,   Country::Netherlands,
-    Country::China,     Country::Korea,         Country::Canada,      Country::Mexico,    Country::Argentina,
-    Country::Australia, Country::Serbia,        Country::Macedonia,   Country::Albania,   Country::Latvia,
-    Country::Ireland,   Country::Belarus,       Country::Estonia,     Country::Iran,      Country::Bulgaria,
-    Country::Moldova,   Country::Lithuania,     Country::Iceland,     Country::Palestine, Country::Israel,
-    Country::Vietnam,   Country::Monaco,        Country::Bosnia,      Country::Lebanon,   Country::Syria,
-    Country::Malta,     Country::SouthAfrica,   Country::Azerbaijan,  Country::Ghana,     Country::Kazakhstan,
+    Country::Usa,       Country::England,     Country::Poland,      Country::Italy,     Country::France,
+    Country::Germany,   Country::Russia,      Country::Romania,     Country::India,     Country::Finland,
+    Country::Nepal,     Country::Spain,       Country::Turkey,      Country::Czech,     Country::Slovakia,
+    Country::Ukraine,   Country::Denmark,     Country::Sweden,      Country::Brazil,    Country::Norway,
+    Country::Japan,     Country::Portugal,    Country::Hungary,     Country::Croatia,   Country::Greece,
+    Country::Slovenia,  Country::Austria,     Country::Switzerland, Country::Belgium,   Country::Netherlands,
+    Country::China,     Country::Korea,       Country::Canada,      Country::Mexico,    Country::Argentina,
+    Country::Australia, Country::Serbia,      Country::Macedonia,   Country::Albania,   Country::Latvia,
+    Country::Ireland,   Country::Belarus,     Country::Estonia,     Country::Iran,      Country::Bulgaria,
+    Country::Moldova,   Country::Lithuania,   Country::Iceland,     Country::Palestine, Country::Israel,
+    Country::Vietnam,   Country::Monaco,      Country::Bosnia,      Country::Lebanon,   Country::Syria,
+    Country::Malta,     Country::SouthAfrica, Country::Azerbaijan,  Country::Ghana,     Country::Kazakhstan,
     Country::Maldives,
 };
 
@@ -494,8 +494,8 @@ TEST_F(PersonTest, shouldGenerateHobby)
 {
     const auto generatedHobby = Person::hobby();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(hobbies, [generatedHobby](const std::string_view& hobby) { return hobby == generatedHobby; }));
+    ASSERT_TRUE(std::ranges::any_of(hobbies, [generatedHobby](const std::string_view& hobby)
+                                    { return hobby == generatedHobby; }));
 }
 
 TEST_F(PersonTest, shouldGenerateBio)
@@ -616,9 +616,8 @@ INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, testing::Valu
                          });
 
 const std::unordered_map<SsnCountry, unsigned> ssnLengths{
-    {SsnCountry::Poland, 11},  {SsnCountry::Usa, 11}, {SsnCountry::England, 13},
-    {SsnCountry::Germany, 12}, {SsnCountry::France, 19},       {SsnCountry::Italy, 19},
-    {SsnCountry::Spain, 10},   {SsnCountry::India, 10},
+    {SsnCountry::Poland, 11}, {SsnCountry::Usa, 11},   {SsnCountry::England, 13}, {SsnCountry::Germany, 12},
+    {SsnCountry::France, 19}, {SsnCountry::Italy, 19}, {SsnCountry::Spain, 10},   {SsnCountry::India, 10},
 };
 
 class PersonSsnSuite : public TestWithParam<SsnCountry>
@@ -639,14 +638,9 @@ TEST_P(PersonSsnSuite, shouldGenerateSsn)
 std::string toString(SsnCountry country)
 {
     std::unordered_map<SsnCountry, std::string> countryToStringMapping{
-        {SsnCountry::Usa, "Usa"},
-        {SsnCountry::England, "England"},
-        {SsnCountry::Poland, "Poland"},
-        {SsnCountry::Italy, "Italy"},
-        {SsnCountry::France, "France"},
-        {SsnCountry::Germany, "Germany"},
-        {SsnCountry::India, "India"},
-        {SsnCountry::Spain, "Spain"},
+        {SsnCountry::Usa, "Usa"},     {SsnCountry::England, "England"}, {SsnCountry::Poland, "Poland"},
+        {SsnCountry::Italy, "Italy"}, {SsnCountry::France, "France"},   {SsnCountry::Germany, "Germany"},
+        {SsnCountry::India, "India"}, {SsnCountry::Spain, "Spain"},
     };
 
     return countryToStringMapping.at(country);

@@ -10,6 +10,7 @@ class RandomGenerator
 {
 public:
     RandomGenerator() : generator_{T(std::random_device{}())} {}
+
     ~RandomGenerator() = default;
 
     RandomGenerator(const RandomGenerator&) = default;

@@ -1,14 +1,10 @@
 #include "faker-cxx/Location.h"
 
-#include <functional>
-#include <ios>
-#include <sstream>
 #include <string>
 #include <string_view>
 #include <unordered_map>
 
 #include "../../common/FormatHelper.h"
-#include "../../common/PrecisionMapper.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/Person.h"
@@ -216,30 +212,14 @@ std::string Location::latitude(Precision precision)
 {
     const std::floating_point auto latitude = Number::decimal<double>(-90.0, 90.0);
 
-    std::stringstream ss;
-
-    ss << std::fixed;
-
-    ss.precision(PrecisionMapper::mapToDecimalPlaces(precision));
-
-    ss << latitude;
-
-    return ss.str();
+    return FormatHelper::precisionFormat(precision, latitude);
 }
 
 std::string Location::longitude(Precision precision)
 {
     const std::floating_point auto longitude = Number::decimal<double>(-180.0, 180.0);
 
-    std::stringstream ss;
-
-    ss << std::fixed;
-
-    ss.precision(PrecisionMapper::mapToDecimalPlaces(precision));
-
-    ss << longitude;
-
-    return ss.str();
+    return FormatHelper::precisionFormat(precision, longitude);
 }
 
 std::string_view Location::direction()

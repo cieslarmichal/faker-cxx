@@ -4,12 +4,14 @@
 #include <string>
 #include <string_view>
 #include <unordered_map>
-#include <vector>
 
 #if !defined(HAS_STD_FORMAT)
-#include <fmt/format.h>
+#include <fmt/chrono.h>
+#include <fmt/core.h>
 #else
 #include <format>
+
+#include "faker-cxx/types/Precision.h"
 #endif
 
 namespace faker
@@ -31,11 +33,14 @@ public:
     }
 #endif
 
+    static std::string precisionFormat(Precision precision, double value);
+
     static std::string
     fillTokenValues(const std::string& format,
                     std::unordered_map<std::string, std::function<std::string()>> tokenValueGenerators);
 
-    static std::string fillTokenValues(const std::string& format,
+    static std::string
+    fillTokenValues(const std::string& format,
                     std::unordered_map<std::string_view, std::function<std::string_view()>> tokenValueGenerators);
 };
 }

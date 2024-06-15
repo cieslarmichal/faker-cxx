@@ -27,8 +27,8 @@ TEST_F(MusicTest, shouldGenerateGenre)
 {
     const auto generatedGenre = Music::genre();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(music::musicGenres, [generatedGenre](const std::string_view& genre) { return generatedGenre == genre; }));
+    ASSERT_TRUE(std::ranges::any_of(music::musicGenres, [generatedGenre](const std::string_view& genre)
+                                    { return generatedGenre == genre; }));
 }
 
 TEST_F(MusicTest, shouldGenerateSongName)

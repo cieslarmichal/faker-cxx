@@ -8,6 +8,7 @@ namespace faker
 struct FileOptions
 {
     int extensionCount = 1;
+
     struct
     {
         int min = 1;

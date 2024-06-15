@@ -5,7 +5,6 @@
 #include <initializer_list>
 #include <map>
 #include <optional>
-#include <sstream>
 #include <string>
 #include <string_view>
 #include <utility>
@@ -351,11 +350,7 @@ std::string Internet::anonymousUsername(unsigned maxLength)
 
     const auto nounLength = maxLength - adjectiveLength;
 
-    std::stringstream usernameBuilder;
-
-    usernameBuilder << Word::adjective(adjectiveLength) << Word::noun(nounLength);
-
-    return usernameBuilder.str();
+    return FormatHelper::format("{}{}", Word::adjective(adjectiveLength), Word::noun(nounLength));
 }
 
 }
