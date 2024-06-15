@@ -3,10 +3,8 @@
 #include <algorithm>
 #include <array>
 #include <cctype>
-#include <charconv>
 #include <initializer_list>
 #include <optional>
-#include <sstream>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -35,8 +33,8 @@ const std::initializer_list<unsigned> httpStatusInformationalCodes{100, 101, 102
 const std::initializer_list<unsigned> httpStatusSuccessCodes{200, 201, 202, 203, 204, 205, 206, 207, 208, 226};
 const std::initializer_list<unsigned> httpStatusRedirectionCodes{300, 301, 302, 303, 304, 305, 306, 307, 308};
 const std::initializer_list<unsigned> httpStatusClientErrorCodes{400, 401, 402, 403, 404, 405, 406, 407, 408, 409,
-                                                       410, 411, 412, 413, 414, 415, 416, 417, 418, 421,
-                                                       422, 423, 424, 425, 426, 428, 429, 431, 451};
+                                                                 410, 411, 412, 413, 414, 415, 416, 417, 418, 421,
+                                                                 422, 423, 424, 425, 426, 428, 429, 431, 451};
 const std::initializer_list<unsigned> httpStatusServerErrorCodes{500, 501, 502, 503, 504, 505, 506, 507, 508, 510, 511};
 constexpr unsigned int classAFirstSection = 10u;
 constexpr unsigned int classBFirstSection = 172u;
@@ -47,22 +45,11 @@ constexpr unsigned int classCSecondSection = 168u;
 
 std::array<unsigned int, 4> deconstructIpv4String(const std::string& ipv4)
 {
-    std::array<unsigned int, 4> result{};
+    const auto ipParts = StringHelper::split(ipv4, ".");
 
-    std::istringstream ss(ipv4);
-
-    constexpr char separator = '.';
-
-    std::ranges::for_each(result,
-                          [&ss](unsigned int& c)
-                          {
-                              std::string token;
-
-                              std::getline(ss, token, separator);
-
-                              std::from_chars(token.data(), token.data() + token.size(), c);
-                          });
-
+    std::array<unsigned int, 4> result{static_cast<unsigned>(stoi(ipParts[0])), static_cast<unsigned>(stoi(ipParts[1])),
+                                       static_cast<unsigned>(stoi(ipParts[2])),
+                                       static_cast<unsigned>(stoi(ipParts[3]))};
     return result;
 }
 }
@@ -410,96 +397,96 @@ TEST_F(InternetTest, shouldGenerateEmoji)
     emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
     emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
 
-    ASSERT_TRUE(
-        std::ranges::any_of(emojis, [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(emojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateSmileyEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Smiley);
 
-    ASSERT_TRUE(std::ranges::any_of(smileyEmojis,
-                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(smileyEmojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateBodyEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Body);
 
-    ASSERT_TRUE(std::ranges::any_of(bodyEmojis,
-                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(bodyEmojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGeneratePersonEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Person);
 
-    ASSERT_TRUE(std::ranges::any_of(personEmojis,
-                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(personEmojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateNatureEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Nature);
 
-    ASSERT_TRUE(std::ranges::any_of(natureEmojis,
-                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(natureEmojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateFoodEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Food);
 
-    ASSERT_TRUE(std::ranges::any_of(foodEmojis,
-                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(foodEmojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateTravelEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Travel);
 
-    ASSERT_TRUE(std::ranges::any_of(travelEmojis,
-                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(travelEmojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateActivityEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Activity);
 
-    ASSERT_TRUE(std::ranges::any_of(activityEmojis,
-                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(activityEmojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateObjectEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Object);
 
-    ASSERT_TRUE(std::ranges::any_of(objectEmojis,
-                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(objectEmojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateSymbolEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Symbol);
 
-    ASSERT_TRUE(std::ranges::any_of(symbolEmojis,
-                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(symbolEmojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateFlagEmoji)
 {
     const auto generatedEmoji = Internet::emoji(Internet::EmojiType::Flag);
 
-    ASSERT_TRUE(std::ranges::any_of(flagEmojis,
-                                    [generatedEmoji](const std::string_view& emoji) { return generatedEmoji == emoji; }));
+    ASSERT_TRUE(std::ranges::any_of(flagEmojis, [generatedEmoji](const std::string_view& emoji)
+                                    { return generatedEmoji == emoji; }));
 }
 
 TEST_F(InternetTest, shouldGenerateProtocol)
 {
     const auto webProtocol = Internet::protocol();
 
-    ASSERT_TRUE(std::ranges::any_of(webProtocols,
-                                    [webProtocol](const std::string_view& protocol) { return webProtocol == protocol; }));
+    ASSERT_TRUE(std::ranges::any_of(webProtocols, [webProtocol](const std::string_view& protocol)
+                                    { return webProtocol == protocol; }));
 }
 
 TEST_F(InternetTest, shouldGenerateHttpMethod)
@@ -537,7 +524,8 @@ TEST_F(InternetTest, shouldGenerateHttpResponseHeader)
 {
     const auto generatedHttpResponseHeader = Internet::httpResponseHeader();
 
-    ASSERT_TRUE(std::ranges::any_of(httpResponseHeaders, [generatedHttpResponseHeader](const std::string_view& httpHeader)
+    ASSERT_TRUE(std::ranges::any_of(httpResponseHeaders,
+                                    [generatedHttpResponseHeader](const std::string_view& httpHeader)
                                     { return generatedHttpResponseHeader == httpHeader; }));
 }
 
@@ -600,6 +588,7 @@ TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassAAddress)
 TEST_F(InternetTest, shouldGenerateIpv4WithPrivateClassBAddress)
 {
     const auto generatedIpv4 = Internet::ipv4(IPv4Class::B);
+
     const auto addressSectors = deconstructIpv4String(generatedIpv4);
 
     ASSERT_EQ(addressSectors[0], classBFirstSection);

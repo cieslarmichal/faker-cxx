@@ -5,7 +5,7 @@
 
 #include "faker-cxx/System.h"
 
-namespace faker 
+namespace faker
 {
 extern const std::array<std::string_view, 3> commonInterfaceTypes;
 extern const std::unordered_map<std::string_view, std::string_view> commonInterfaceSchemas;

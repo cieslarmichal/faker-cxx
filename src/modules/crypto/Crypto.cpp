@@ -3,10 +3,7 @@
 #include <array>
 #include <cstdint>
 #include <cstring>
-#include <iomanip>
-#include <ios>
 #include <optional>
-#include <sstream>
 #include <string>
 
 #include "faker-cxx/Word.h"
@@ -15,16 +12,35 @@ namespace faker
 {
 namespace
 {
+template <size_t N>
+inline std::string toHex(const std::array<uint8_t, N>& data)
+{
+    static std::string_view hexDigits{"0123456789abcdef"};
+
+    std::string result;
+    result.reserve(N * 2);
+
+    for (uint8_t byte : data)
+    {
+        result.push_back(hexDigits[byte >> 4]);
+        result.push_back(hexDigits[byte & 0x0f]);
+    }
+
+    return result;
+}
+
 class SHA256
 {
-
 public:
     SHA256();
     void update(const uint8_t* data, size_t length);
     void update(const std::string& data);
     std::array<uint8_t, 32> digest();
 
-    static std::string toString(const std::array<uint8_t, 32>& digest);
+    static std::string toString(const std::array<uint8_t, 32>& digest)
+    {
+        return toHex(digest);
+    }
 
 private:
     uint8_t m_data[64]{};
@@ -116,17 +132,8 @@ std::string Crypto::md5(std::optional<std::string> data)
     {
         orgData = data.value();
     }
-    std::array<uint8_t, 16> md5Stream = md5_hash::compute(orgData);
-    std::ostringstream md5String;
-    for (uint8_t byte : md5Stream)
-    {
-        // Append each byte to the stringstream in hexadecimal format
-        md5String << std::hex << std::setw(2) << std::setfill('0') << static_cast<int>(byte);
-    }
-    // Convert the stringstream to a string
-    std::string result = md5String.str();
 
-    return result;
+    return toHex(md5_hash::compute(orgData));
 }
 
 namespace
@@ -435,17 +442,5 @@ void SHA256::revert(std::array<uint8_t, 32>& hash)
     }
 }
 
-std::string SHA256::toString(const std::array<uint8_t, 32>& digest)
-{
-    std::stringstream s;
-    s << std::setfill('0') << std::hex;
-
-    for (uint8_t i = 0; i < 32; i++)
-    {
-        s << std::setw(2) << (unsigned int)digest[i];
-    }
-
-    return s.str();
-}
 }
 }

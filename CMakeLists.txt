@@ -87,7 +87,6 @@ set(FAKER_SOURCES
     src/common/FormatHelper.cpp
     src/common/LuhnCheck.cpp
     src/common/StringHelper.cpp
-    src/common/PrecisionMapper.cpp
 )
 
 add_library(${CMAKE_PROJECT_NAME} ${FAKER_SOURCES})

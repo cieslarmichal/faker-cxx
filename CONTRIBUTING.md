@@ -58,48 +58,32 @@ Please avoid working directly on the ``main`` branch.
    Before making changes, make sure you have `clang-format` installed. If you're using Visual Studio Code, you can
    install the `clang-format` extension.
 
-   When you make a commit, `pre-commit` will automatically run `clang-format` on your code, ensuring it adheres to the
-   project's coding style.
+3**Make commits of logical units:**
 
-3. **Set up pre-commit hooks:**
+This means that each commit should contain a complete and coherent piece of work that can be understood independently
+of other changes. For example, if you're fixing two different bugs, it's better to make two separate commits (one for
+each bug) rather than one commit that contains fixes for both bugs. This makes it easier to understand the purpose of
+each commit, and allows each change to be reviewed and applied separately.
 
-   This project uses `pre-commit` hooks with `clang-format` to ensure code style consistency. Before making changes, set
-   up the pre-commit hooks with the following commands:
+4**Make sure you have added the necessary tests for your changes:**
 
-    ```sh
-    pip install pre-commit
-    pre-commit install
-    ```
+If you're adding a new feature or changing existing functionality, it's important to update or add tests that verify
+your changes. This helps to ensure that your changes work as expected and don't introduce new bugs. It also helps
+other developers understand what your code is supposed to do.
 
-   Now, `pre-commit` will automatically run `clang-format` on your code whenever you make a commit, ensuring it adheres
-   to the project's coding style.
+5**Run all the tests to assure nothing else was accidentally broken:**
 
-4. **Make commits of logical units:**
+Before you submit your changes, you should run all the project's tests to make sure your changes haven't
+inadvertently broken anything. Even if you think your changes are isolated, there could be unexpected interactions
+with other parts of the codebase.
 
-   This means that each commit should contain a complete and coherent piece of work that can be understood independently
-   of other changes. For example, if you're fixing two different bugs, it's better to make two separate commits (one for
-   each bug) rather than one commit that contains fixes for both bugs. This makes it easier to understand the purpose of
-   each commit, and allows each change to be reviewed and applied separately.
+6**If you've added a new file to your project with non-Latin characters, ensure that the file encoding is set to
+Unicode (UTF-8 without signature) - Codepage 65001 in Microsoft Visual Studio Code:**
 
-5. **Make sure you have added the necessary tests for your changes:**
-
-   If you're adding a new feature or changing existing functionality, it's important to update or add tests that verify
-   your changes. This helps to ensure that your changes work as expected and don't introduce new bugs. It also helps
-   other developers understand what your code is supposed to do.
-
-6. **Run all the tests to assure nothing else was accidentally broken:**
-
-   Before you submit your changes, you should run all the project's tests to make sure your changes haven't
-   inadvertently broken anything. Even if you think your changes are isolated, there could be unexpected interactions
-   with other parts of the codebase.
-
-7. **If you've added a new file to your project with non-Latin characters, ensure that the file encoding is set to
-   Unicode (UTF-8 without signature) - Codepage 65001 in Microsoft Visual Studio Code:**
-
-   If a file contains non-Latin characters (such as characters from Chinese, Arabic, or many other non-Latin alphabets),
-   it's important to save the file with the correct encoding to ensure that the characters are displayed correctly. In
-   Visual Studio Code, you can set the encoding for a file by clicking on the "UTF-8" button in the status bar at the
-   bottom of the window, and then selecting "Save with Encoding" and choosing "UTF-8 without BOM".
+If a file contains non-Latin characters (such as characters from Chinese, Arabic, or many other non-Latin alphabets),
+it's important to save the file with the correct encoding to ensure that the characters are displayed correctly. In
+Visual Studio Code, you can set the encoding for a file by clicking on the "UTF-8" button in the status bar at the
+bottom of the window, and then selecting "Save with Encoding" and choosing "UTF-8 without BOM".
 
 ## Building and Testing the Project
 

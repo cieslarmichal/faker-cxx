@@ -1,6 +1,5 @@
 #pragma once
 
-#include <algorithm>
 #include <string>
 
 namespace faker

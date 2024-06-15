@@ -27,24 +27,24 @@ TEST_F(PlantTest, shouldGenerateFlower)
 {
     const auto generatedFlower = Plant::flower();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(flowers, [generatedFlower](const std::string_view& flower) { return flower == generatedFlower; }));
+    ASSERT_TRUE(std::ranges::any_of(flowers, [generatedFlower](const std::string_view& flower)
+                                    { return flower == generatedFlower; }));
 }
 
 TEST_F(PlantTest, shouldGenerateShrub)
 {
     const auto generatedShrub = Plant::shrub();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(shrubs, [generatedShrub](const std::string_view& shrub) { return shrub == generatedShrub; }));
+    ASSERT_TRUE(std::ranges::any_of(shrubs, [generatedShrub](const std::string_view& shrub)
+                                    { return shrub == generatedShrub; }));
 }
 
 TEST_F(PlantTest, shouldGenerateGrass)
 {
     const auto generatedGrass = Plant::grass();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(grasses, [generatedGrass](const std::string_view& grass) { return grass == generatedGrass; }));
+    ASSERT_TRUE(std::ranges::any_of(grasses, [generatedGrass](const std::string_view& grass)
+                                    { return grass == generatedGrass; }));
 }
 
 TEST_F(PlantTest, shouldGenerateFern)
@@ -59,8 +59,8 @@ TEST_F(PlantTest, shouldGenerateSucculent)
 {
     const auto generatedSucculent = Plant::succulent();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(succulents, [generatedSucculent](const std::string_view& succulent) { return succulent == generatedSucculent; }));
+    ASSERT_TRUE(std::ranges::any_of(succulents, [generatedSucculent](const std::string_view& succulent)
+                                    { return succulent == generatedSucculent; }));
 }
 
 TEST_F(PlantTest, shouldGenerateVine)
@@ -75,6 +75,6 @@ TEST_F(PlantTest, shouldGenerateType)
 {
     const auto generatedType = Plant::plantType();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(plantTypes, [generatedType](const std::string_view& plantType) { return plantType == generatedType; }));
+    ASSERT_TRUE(std::ranges::any_of(plantTypes, [generatedType](const std::string_view& plantType)
+                                    { return plantType == generatedType; }));
 }

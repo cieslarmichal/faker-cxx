@@ -1,15 +1,11 @@
 #include "faker-cxx/Finance.h"
 
-#include <cstddef>
-#include <ios>
 #include <optional>
-#include <sstream>
 #include <string>
 #include <string_view>
 #include <vector>
 
 #include "../../common/FormatHelper.h"
-#include "../../common/PrecisionMapper.h"
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
@@ -50,15 +46,11 @@ std::string Finance::amount(double min, double max, Precision precision, const s
 {
     const std::floating_point auto generatedNumber = Number::decimal<double>(min, max);
 
-    std::stringstream ss;
+    std::string result{symbol};
 
-    ss << std::fixed;
+    result += FormatHelper::precisionFormat(precision, generatedNumber);
 
-    ss.precision(PrecisionMapper::mapToDecimalPlaces(precision));
-
-    ss << generatedNumber;
-
-    return FormatHelper::format("{}{}", symbol, ss.str());
+    return result;
 }
 
 std::string Finance::iban(std::optional<Finance::IbanCountry> country)
