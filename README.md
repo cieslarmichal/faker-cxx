@@ -13,6 +13,7 @@
 </div>
 
 ## Table of Contents
+
 - [🎯 Goal](#-goal)
 - [Usage and Documentation](#usage-and-documentation)
 - [💎 Modules](#-modules)
@@ -167,17 +168,28 @@ Check our guides on how to build the project locally:
 - [G++](./docs/guides/gcc-compilation-guide.md)
 - [MSVC](./docs/guides/msvc-compilation-guide.md)
 
-Before contributing please review
-our [CONTRIBUTING](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md) guide.
+Please make sure to read the [Contributing Guide](https://github.com/cieslarmichal/faker-cxx/blob/main/CONTRIBUTING.md)
+before making a pull request.
 
 Additionally, we encourage you to join our [Discord Channel](https://discord.gg/h2ur8H6mK6) for contributors.
+
+## 📘 Credits
+
+Thanks to all the people who already contributed to Faker!
+
+<a href="https://github.com/cieslarmichal/faker-cxx/graphs/contributors"><img src="https://opencollective.com/faker-cxx/contributors.svg?width=800" /></a>
 
 ## Examples
 
 This project offers examples to demonstrate how to use the Faker C++ library.
 These examples can be found in the [examples](examples/README.md) folder of the project repository.
-The examples showcase various modules of the library and provide code snippets that illustrate how to generate fake data using Faker C++.
+The examples showcase various modules of the library and provide code snippets that illustrate how to generate fake data
+using Faker C++.
 
-## License
+## 📝 Changelog
+
+Detailed changes for each release are documented in the [release notes](CHANGELOG.md).
+
+## 🔑 License
 
 This project is under [MIT](LICENSE) license.
