@@ -5,13 +5,14 @@
 #include <string_view>
 #include <unordered_map>
 
+#include "faker-cxx/types/Precision.h"
+
 #if !defined(HAS_STD_FORMAT)
 #include <fmt/chrono.h>
 #include <fmt/core.h>
 #else
 #include <format>
 
-#include "faker-cxx/types/Precision.h"
 #endif
 
 namespace faker
