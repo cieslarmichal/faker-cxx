@@ -92,6 +92,7 @@ int main()
 - 🔢 Number - random integers, floating point numbers
 - 🧑 Person - first, last names, job titles, hobby, genders, sex, nationality, language
 - 📞 Phone - phone number, IMEI
+- 🪴 Plant - plant type
 - ⚽ Sport - sport names, athletes, events
 - 🔢 String - uuids, alphanumeric, numeric, hexadecimal
 - 💻 System - file paths, file extensions, file names, directories, semantic version
