@@ -47,28 +47,6 @@ TEST_F(BookTest, shouldGeneratePublisher)
                                     { return publisher == bookPublisher; }));
 }
 
-TEST_F(BookTest, shouldGenerateIsbn)
-{
-    const auto bookIsbn = Book::isbn();
-
-    const auto isbnNumbersGroups = StringHelper::split(bookIsbn, "-");
-
-    ASSERT_EQ(bookIsbn.size(), 17);
-    ASSERT_EQ(isbnNumbersGroups[0].size(), 3);
-    ASSERT_EQ(isbnNumbersGroups[1].size(), 2);
-    ASSERT_EQ(isbnNumbersGroups[2].size(), 2);
-    ASSERT_EQ(isbnNumbersGroups[3].size(), 5);
-    ASSERT_EQ(isbnNumbersGroups[4].size(), 1);
-}
-
-TEST_F(BookTest, shouldGenerateTranslator)
-{
-    const auto bookTranslator = Book::translator();
-
-    ASSERT_TRUE(std::ranges::any_of(translators, [bookTranslator](const std::string_view& translator)
-                                    { return translator == bookTranslator; }));
-}
-
 TEST_F(BookTest, shouldGenerateFormat)
 {
     const auto bookFormat = Book::format();

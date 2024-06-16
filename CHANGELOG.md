@@ -6,7 +6,9 @@ All notable changes to this project will be documented in this file
 
 ### ⚠ BREAKING CHANGES
 
-* removed `Structure` module
+* removed `structure` module
+* removed `book.translator` method, use `person.fullName` instead
+* removed `book.isbn` method, use `commerce.isbn` instead
 * changed std::string to std::string_view in where possible
 
 ### Features
