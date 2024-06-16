@@ -14,6 +14,5 @@ var searchData=
   ['httpmethod_11',['httpMethod',['../classfaker_1_1Internet.html#ab8f31cf5b891958ef42ad5fed573efbe',1,'faker::Internet']]],
   ['httprequestheader_12',['httpRequestHeader',['../classfaker_1_1Internet.html#a97fb8df2a16c6d117d32db1d2b9e5bf9',1,'faker::Internet']]],
   ['httpresponseheader_13',['httpResponseHeader',['../classfaker_1_1Internet.html#a7fa7b4093b7d3895cfe4210507caf3a2',1,'faker::Internet']]],
-  ['httpstatuscode_14',['httpStatusCode',['../classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37',1,'faker::Internet']]],
-  ['humidity_15',['humidity',['../classfaker_1_1Weather.html#af7a0525193a2748adf628334d5eb542a',1,'faker::Weather']]]
+  ['httpstatuscode_14',['httpStatusCode',['../classfaker_1_1Internet.html#ac9c4ff01e85aa66576683bdce5969b37',1,'faker::Internet']]]
 ];

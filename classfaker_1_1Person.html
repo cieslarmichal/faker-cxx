@@ -114,9 +114,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a8744eeabac7eb9da102f981b088d78c4" id="r_a8744eeabac7eb9da102f981b088d78c4"><td class="memItemLeft" align="right" valign="top">static std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8744eeabac7eb9da102f981b088d78c4">lastName</a> (std::optional&lt; Country &gt; country=std::nullopt, std::optional&lt; Sex &gt; <a class="el" href="#aeba24330f0bad13c258ae96fd3e97f25">sex</a>=std::nullopt)</td></tr>
 <tr class="memdesc:a8744eeabac7eb9da102f981b088d78c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random last name.  <br /></td></tr>
 <tr class="separator:a8744eeabac7eb9da102f981b088d78c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadf5573834a330d8b30749a0af9926c4" id="r_aadf5573834a330d8b30749a0af9926c4"><td class="memItemLeft" align="right" valign="top">static std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aadf5573834a330d8b30749a0af9926c4">middleName</a> (std::optional&lt; Country &gt; country=std::nullopt, std::optional&lt; Sex &gt; <a class="el" href="#aeba24330f0bad13c258ae96fd3e97f25">sex</a>=std::nullopt)</td></tr>
-<tr class="memdesc:aadf5573834a330d8b30749a0af9926c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random middle name.  <br /></td></tr>
-<tr class="separator:aadf5573834a330d8b30749a0af9926c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4a3a11d354383caa8bcede4914dff6a1" id="r_a4a3a11d354383caa8bcede4914dff6a1"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4a3a11d354383caa8bcede4914dff6a1">fullName</a> (std::optional&lt; Country &gt; country=std::nullopt, std::optional&lt; Sex &gt; <a class="el" href="#aeba24330f0bad13c258ae96fd3e97f25">sex</a>=std::nullopt)</td></tr>
 <tr class="memdesc:a4a3a11d354383caa8bcede4914dff6a1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random full name.  <br /></td></tr>
 <tr class="separator:a4a3a11d354383caa8bcede4914dff6a1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -565,47 +562,6 @@ Static Public Member Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Last name starting with a capital letter.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a8744eeabac7eb9da102f981b088d78c4">Person::lastName</a>() <span class="comment">// &quot;Peterson&quot;</span></div>
 <div class="ttc" id="aclassfaker_1_1Person_html_a8744eeabac7eb9da102f981b088d78c4"><div class="ttname"><a href="#a8744eeabac7eb9da102f981b088d78c4">faker::Person::lastName</a></div><div class="ttdeci">static std::string_view lastName(std::optional&lt; Country &gt; country=std::nullopt, std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random last name.</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="aadf5573834a330d8b30749a0af9926c4" name="aadf5573834a330d8b30749a0af9926c4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadf5573834a330d8b30749a0af9926c4">&#9670;&#160;</a></span>middleName()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static std::string_view faker::Person::middleName </td>
-          <td>(</td>
-          <td class="paramtype">std::optional&lt; Country &gt;</td>          <td class="paramname"><span class="paramname"><em>country</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::optional&lt; Sex &gt;</td>          <td class="paramname"><span class="paramname"><em>sex</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span>&#160;)</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Returns a random middle name. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">country</td><td>The local country. Defaults to `CountryEngland`. </td></tr>
-    <tr><td class="paramname">sex</td><td>The optional sex to use.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Middle name starting with a capital letter.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#aadf5573834a330d8b30749a0af9926c4">Person::middleName</a>() <span class="comment">// &quot;Васильевич&quot;</span></div>
-<div class="ttc" id="aclassfaker_1_1Person_html_aadf5573834a330d8b30749a0af9926c4"><div class="ttname"><a href="#aadf5573834a330d8b30749a0af9926c4">faker::Person::middleName</a></div><div class="ttdeci">static std::string_view middleName(std::optional&lt; Country &gt; country=std::nullopt, std::optional&lt; Sex &gt; sex=std::nullopt)</div><div class="ttdoc">Returns a random middle name.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

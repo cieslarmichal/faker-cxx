@@ -10,14 +10,11 @@ var searchData=
   ['direction_7',['direction',['../classfaker_1_1Location.html#af7e4d6832d4cb771d9b531b96950a368',1,'faker::Location']]],
   ['director_8',['director',['../classfaker_1_1Movie.html#aaf0ce151f1e1abd0738b4988e9981d55',1,'faker::Movie']]],
   ['directorypath_9',['directoryPath',['../classfaker_1_1System.html#af362c5f4a0b869760dc49431227e0029',1,'faker::System']]],
-  ['discountamount_10',['discountAmount',['../classfaker_1_1Commerce.html#a79bba73b24961ba1578a74af05f6a675',1,'faker::Commerce']]],
-  ['discountcode_11',['discountCode',['../classfaker_1_1Commerce.html#a73ef699ae27be7d9fea49f05aff5331a',1,'faker::Commerce']]],
-  ['discountpercentage_12',['discountPercentage',['../classfaker_1_1Commerce.html#ad195166c9faffbdf0a8cf9b8a95ef6db',1,'faker::Commerce']]],
-  ['discounttype_13',['discountType',['../classfaker_1_1Commerce.html#aab2cd95b398dbe7b3e4d9e05e6a9a346',1,'faker::Commerce']]],
-  ['dishname_14',['dishName',['../classfaker_1_1Food.html#a58adefdb0a95aea6bbcbc6f190870be1',1,'faker::Food']]],
-  ['distanceunit_15',['distanceUnit',['../classfaker_1_1Science.html#ab42a1c8263c0a0f2f74c6db5fcccd134',1,'faker::Science']]],
-  ['dog_16',['dog',['../classfaker_1_1Animal.html#ae826deac98dad495066e5997a2bf60ce',1,'faker::Animal']]],
-  ['domainname_17',['domainName',['../classfaker_1_1Internet.html#a0ea6cb024c64493e473d7b2ffe624623',1,'faker::Internet']]],
-  ['domainsuffix_18',['domainSuffix',['../classfaker_1_1Internet.html#a179ea6f381546efc3544de650707b395',1,'faker::Internet']]],
-  ['domainword_19',['domainWord',['../classfaker_1_1Internet.html#a199a6c56acd69f45f07315669ebe0111',1,'faker::Internet']]]
+  ['discounttype_10',['discountType',['../classfaker_1_1Commerce.html#aab2cd95b398dbe7b3e4d9e05e6a9a346',1,'faker::Commerce']]],
+  ['dishname_11',['dishName',['../classfaker_1_1Food.html#a58adefdb0a95aea6bbcbc6f190870be1',1,'faker::Food']]],
+  ['distanceunit_12',['distanceUnit',['../classfaker_1_1Science.html#ab42a1c8263c0a0f2f74c6db5fcccd134',1,'faker::Science']]],
+  ['dog_13',['dog',['../classfaker_1_1Animal.html#ae826deac98dad495066e5997a2bf60ce',1,'faker::Animal']]],
+  ['domainname_14',['domainName',['../classfaker_1_1Internet.html#a0ea6cb024c64493e473d7b2ffe624623',1,'faker::Internet']]],
+  ['domainsuffix_15',['domainSuffix',['../classfaker_1_1Internet.html#a179ea6f381546efc3544de650707b395',1,'faker::Internet']]],
+  ['domainword_16',['domainWord',['../classfaker_1_1Internet.html#a199a6c56acd69f45f07315669ebe0111',1,'faker::Internet']]]
 ];

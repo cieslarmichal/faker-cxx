@@ -139,9 +139,5 @@ var NAVTREEINDEX0 =
 "structfaker_1_1NetworkInterfaceOptions.html":[0,0,0,26],
 "structfaker_1_1PasswordOptions.html":[0,0,0,28],
 "structfaker_1_1Science_1_1ChemicalElement.html":[0,0,0,33,0],
-"structfaker_1_1Science_1_1Unit.html":[0,0,0,33,1],
-"structfaker_1_1Weather_1_1Pressure.html":[0,0,0,39,0],
-"structfaker_1_1Weather_1_1Temperature.html":[0,0,0,39,1],
-"structfaker_1_1Weather_1_1Visibility.html":[0,0,0,39,2],
-"structfaker_1_1Weather_1_1WindSpeed.html":[0,0,0,39,3]
+"structfaker_1_1Science_1_1Unit.html":[0,0,0,33,1]
 };
