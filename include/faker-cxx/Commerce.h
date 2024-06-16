@@ -19,18 +19,6 @@ public:
     static std::string_view department();
 
     /**
-     * @brief Generates a random price between the given bounds (inclusive).
-
-     * @param min The lower bound for the price. Defaults to `0`.
-     * @param max The upper bound for the price. Defaults to `1000`.
-     *
-     * @code
-     * Commerce::price() // "88.62"
-     * @endcode
-     */
-    static std::string price(double min = 0, double max = 1000);
-
-    /**
      * @brief Generates a random sku by default only with digits.
      *
      * @param length The length of the sku.
@@ -131,17 +119,6 @@ public:
     static std::string ISBN10();
 
     /**
-     * @brief Returns a random product ID.
-     *
-     * @returns productId.
-     *
-     * @code
-     * Commerce::productId() // "ABCD123456"
-     * @endcode
-     */
-    static std::string productId();
-
-    /**
      * @brief Returns a random payment type.
      *
      * @returns paymentType.
@@ -197,17 +174,6 @@ public:
     static std::string_view productReview();
 
     /**
-     * @brief Returns a random product rating (0-5).
-     *
-     * @returns productRating.
-     *
-     * @code
-     * Commerce::productRating() // 4.1
-     * @endcode
-     */
-    static double productRating();
-
-    /**
      * @brief Returns a random discount type.
      *
      * @returns discountType.
@@ -217,50 +183,6 @@ public:
      * @endcode
      */
     static std::string_view discountType();
-
-    /**
-     * @brief Returns random discount code within the specified range of 6 to 12 characters.
-     *
-     * @returns discount code consists of uppercase letters and numbers.
-     *
-     * @code
-     * Commerce::discountCode() // "VNM15DEC1"
-     * @endcode
-     */
-    static std::string discountCode();
-
-    /**
-     * @brief Returns a random discount amount within the specified range of 10 to 1000.
-     *
-     * @returns discountAmount.
-     *
-     * @code
-     * Commerce::discountAmount() // 57.80
-     * @endcode
-     */
-    static double discountAmount();
-
-    /**
-     * @brief Returns a random discount percentage within the specified range of 1. to 90.
-     *
-     * @returns discountPercentage.
-     *
-     * @code
-     * Commerce::discountPercentage() // 35.50
-     * @endcode
-     */
-    static double discountPercentage();
-
-    /**
-     * @brief Returns a random order number.
-     *
-     * @returns orderNumber.
-     *
-     * @code
-     * Commerce::orderNumber() // 0123456
-     * @endcode
-     */
-    static std::string orderNumber();
 
     /**
      * @brief Returns a random order status.

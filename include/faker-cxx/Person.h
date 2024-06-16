@@ -48,21 +48,6 @@ public:
                                      std::optional<Sex> sex = std::nullopt);
 
     /**
-     * @brief Returns a random middle name.
-     *
-     * @param country The local country. Defaults to `Country::England`.
-     * @param sex The optional sex to use.
-     *
-     * @returns Middle name starting with a capital letter.
-     *
-     * @code
-     * Person::middleName() // "Васильевич"
-     * @endcode
-     */
-    static std::string_view middleName(std::optional<Country> country = std::nullopt,
-                                       std::optional<Sex> sex = std::nullopt);
-
-    /**
      * @brief Returns a random full name.
      *
      * @param country The local country. Defaults to `Country::England`.

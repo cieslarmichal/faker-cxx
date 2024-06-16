@@ -52,28 +52,6 @@ public:
     static std::string_view publisher();
 
     /**
-     * @brief Returns a random book ISBN.
-     *
-     * @returns Book ISBN.
-     *
-     * @code
-     * Book::isbn() // "978-83-01-00000-1"
-     * @endcode
-     */
-    static std::string isbn();
-
-    /**
-     * @brief Returns the full name of a translator
-     *
-     * @returns std::string_view full name
-     *
-     * @code
-     * Book::translator() // "Eric Floyd"
-     * @endcode
-     */
-    static std::string_view translator();
-
-    /**
      * @brief Returns format of book
      *
      * @returns BookFormat format of book
