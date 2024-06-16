@@ -222,11 +222,6 @@ std::string_view Person::lastName(std::optional<Country> countryOpt, std::option
     return Helper::arrayElement(lastNames);
 }
 
-std::string_view Person::middleName(std::optional<Country> countryOpt, std::optional<Sex> sex)
-{
-    return firstName(countryOpt, sex);
-}
-
 std::string Person::fullName(std::optional<Country> countryOpt, std::optional<Sex> sex)
 {
     const auto country = countryOpt ? *countryOpt : Country::England;
@@ -244,10 +239,9 @@ std::string Person::fullName(std::optional<Country> countryOpt, std::optional<Se
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"firstName", [&country, &sex]() { return std::string{firstName(country, sex)}; }},
-        {"middleName", [&country, &sex]() { return std::string{middleName(country, sex)}; }},
         {"lastName", [&country, &sex]() { return std::string{lastName(country, sex)}; }},
-        {"prefix", [&country, &sex]() { return std::string{middleName(country, sex)}; }},
-        {"suffix", [&country, &sex]() { return std::string{middleName(country, sex)}; }}};
+        {"prefix", [&country, &sex]() { return std::string{prefix(country, sex)}; }},
+        {"suffix", [&country, &sex]() { return std::string{suffix(country, sex)}; }}};
 
     return FormatHelper::fillTokenValues(nameFormat, dataGeneratorsMapping);
 }

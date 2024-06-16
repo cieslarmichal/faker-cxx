@@ -4056,7 +4056,7 @@ const std::array<std::string_view, 1> danishMalePrefixes{"hr."};
 
 const std::array<std::string_view, 1> danishFemalePrefixes{"fr."};
 
-const NameFormats danishNameFormats{{{"{firstName} {lastName}", 1}, {"{firstName} {middleName} {lastName}", 1}}};
+const NameFormats danishNameFormats{{{"{firstName} {lastName}", 1}, {"{firstName} {lastName}", 1}}};
 
 const PeopleNames danishPeopleNames{{danishMaleFirstNames, danishMalePrefixes, {}, {}},
                                     {danishFemaleFirstNames, danishLastNames, danishFemalePrefixes, {}},
@@ -10068,10 +10068,7 @@ const std::array<std::string_view, 562> russianFemaleLastNames = {
     "Шубина",       "Шувалова",      "Шульгина",    "Щеглова",      "Щербакова",   "Щукина",       "Юдина",
     "Яковлева",     "Яшина"};
 
-const NameFormats russianNameFormats{{{"{firstName} {lastName}", 1},
-                                      {"{lastName} {firstName}", 1},
-                                      {"{lastName} {middleName} {firstName}", 1},
-                                      {"{lastName} {firstName} {middleName}", 1}}};
+const NameFormats russianNameFormats{{{"{firstName} {lastName}", 1}, {"{lastName} {firstName}", 1}}};
 
 const PeopleNames russianPeopleNames{{russianMaleFirstNames, russianMaleLastNames, {}, {}},
                                      {russianFemaleFirstNames, russianFemaleLastNames, {}, {}},
@@ -11712,8 +11709,6 @@ const std::array<std::string_view, 1> ukrainianFemalePrefixes{"Пані"};
 const NameFormats ukrainianNameFormats{{
     {"{firstName} {lastName}", 1},
     {"{lastName} {firstName}", 1},
-    {"{firstName} {middleName} {lastName}", 1},
-    {"{lastName} {middleName} {firstName}", 1},
 }};
 
 const PeopleNames ukrainianPeopleNames{

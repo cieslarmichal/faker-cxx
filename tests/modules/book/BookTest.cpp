@@ -6,7 +6,6 @@
 #include "gtest/gtest.h"
 
 #include "book/BookData.h"
-#include "common/StringHelper.h"
 
 using namespace ::testing;
 using namespace faker;

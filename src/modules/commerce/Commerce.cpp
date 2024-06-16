@@ -1,15 +1,11 @@
 #include "faker-cxx/Commerce.h"
 
-#include <cmath>
-#include <cstddef>
 #include <string>
 #include <string_view>
 
 #include "../../common/FormatHelper.h"
 #include "CommerceData.h"
-#include "faker-cxx/Finance.h"
 #include "faker-cxx/Helper.h"
-#include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
 
 namespace faker
@@ -17,11 +13,6 @@ namespace faker
 std::string_view Commerce::department()
 {
     return Helper::arrayElement(departments);
-}
-
-std::string Commerce::price(double min, double max)
-{
-    return Finance::amount(min, max);
 }
 
 std::string Commerce::sku(unsigned int length)
@@ -160,11 +151,6 @@ std::string Commerce::ISBN10()
     return isbn10 + std::to_string(checkDigit);
 }
 
-std::string Commerce::productId()
-{
-    return String::alphanumeric(10, StringCasing::Upper, "");
-}
-
 std::string_view Commerce::paymentType()
 {
     return Helper::arrayElement(paymentTypes);
@@ -190,42 +176,9 @@ std::string_view Commerce::productReview()
     return Helper::arrayElement(productReviews);
 }
 
-double Commerce::productRating()
-{
-    const std::floating_point auto ratingValue = Number::decimal<double>(5.);
-    return std::ceil(ratingValue * 100) / 100;
-}
-
 std::string_view Commerce::discountType()
 {
     return Helper::arrayElement(discountTypes);
-}
-
-std::string Commerce::discountCode()
-{
-    const std::integral auto codeLength = Number::integer<unsigned int>(minDiscountCodeLength, maxDiscountCodeLength);
-
-    return String::alphanumeric(codeLength, StringCasing::Upper);
-}
-
-double Commerce::discountAmount()
-{
-    const std::floating_point auto amountValue = Number::decimal<double>(minDiscountAmount, maxDiscountAmount);
-
-    return std::ceil(amountValue * 100) / 100;
-}
-
-double Commerce::discountPercentage()
-{
-    const std::floating_point auto percentageValue =
-        Number::decimal<double>(minDiscountPercentage, maxDiscountPercentage);
-
-    return std::ceil(percentageValue * 100) / 100;
-}
-
-std::string Commerce::orderNumber()
-{
-    return String::numeric(7, true);
 }
 
 std::string_view Commerce::orderStatus()
