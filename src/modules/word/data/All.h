@@ -8,7 +8,7 @@
 #include "Prepositions.h"
 #include "Verbs.h"
 
-namespace faker
+namespace faker::word
 {
 
 // https://tristanbrindle.com/posts/a-more-useful-compile-time-quicksort

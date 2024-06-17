@@ -15,7 +15,7 @@ public:
      *
      * @code
      * Crypto::sha256("hello world") // "b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9"
-     * Crypto::sha256()    // Random hash of random word
+     * Crypto::sha256()    // Random hash of random 
      * @endcode
      */
     static std::string sha256(std::optional<std::string> = std::nullopt);

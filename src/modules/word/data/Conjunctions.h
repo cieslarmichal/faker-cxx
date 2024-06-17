@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::word
 {
 const std::array<std::string_view, 51> conjunctions = {
     "after",    "although",     "and",      "as",          "because", "before",   "but",       "consequently",

@@ -776,7 +776,7 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {noun} {bio_supporter} so check that the value is present
         // in the bio_part vector.
-        if (std::find(nouns.begin(), nouns.end(), std::string{matches[1]}) != nouns.end() &&
+        if (std::find(word::nouns.begin(), word::nouns.end(), std::string{matches[1]}) != word::nouns.end() &&
             std::find(bioSupporters.begin(), bioSupporters.end(), std::string{matches[2]}) != bioSupporters.end())
             return true;
     }
@@ -785,7 +785,7 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {noun} {bio_supporter} {emoji} so check that the value is present
         // in the bio_part vector.
-        if (std::find(nouns.begin(), nouns.end(), std::string{matches[1]}) != nouns.end() &&
+        if (std::find(word::nouns.begin(), word::nouns.end(), std::string{matches[1]}) != word::nouns.end() &&
             std::find(bioSupporters.begin(), bioSupporters.end(), std::string{matches[2]}) != bioSupporters.end() &&
             Internet::checkIfEmojiIsValid(std::string{matches[3]}))
             return true;
@@ -795,7 +795,7 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} so check that the value is
         // present in the bio_part vector.
-        if (std::find(nouns.begin(), nouns.end(), std::string{matches[1]}) != nouns.end() &&
+        if (std::find(word::nouns.begin(),  word::nouns.end(), std::string{matches[1]}) != word::nouns.end() &&
             std::find(bioSupporters.begin(), bioSupporters.end(), std::string{matches[2]}) != bioSupporters.end() &&
             std::find(bioParts.begin(), bioParts.end(), std::string{matches[3]}) != bioParts.end())
             return true;
@@ -805,7 +805,7 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} {emoji} so check that the value
         // is present in the bio_part vector.
-        if (std::find(nouns.begin(), nouns.end(), std::string{matches[1]}) != nouns.end() &&
+        if (std::find(word::nouns.begin(), word::nouns.end(), std::string{matches[1]}) != word::nouns.end() &&
             std::find(bioSupporters.begin(), bioSupporters.end(), std::string{matches[2]}) != bioSupporters.end() &&
             std::find(bioParts.begin(), bioParts.end(), std::string{matches[3]}) != bioParts.end() &&
             Internet::checkIfEmojiIsValid(std::string{matches[4]}))

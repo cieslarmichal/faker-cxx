@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::word
 {
 const std::array<std::string_view, 5910> verbs = {"abandon",
                                                   "abase",

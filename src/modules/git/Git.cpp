@@ -23,12 +23,12 @@ std::string Git::branch(unsigned maxIssueNum)
     switch (Number::integer(1, 3))
     {
     case 1:
-        return FormatHelper::format("{}-{}", Word::verb(), Word::noun());
+        return FormatHelper::format("{}-{}", word::verb(), word::noun());
     case 2:
-        return FormatHelper::format("{}-{}-{}", Word::verb(), Word::adjective(), Word::noun());
+        return FormatHelper::format("{}-{}-{}", word::verb(), word::adjective(), word::noun());
     default:
-        return FormatHelper::format("{}-{}-{}-{}", Number::integer(unsigned(1), maxIssueNum), Word::verb(),
-                                    Word::adjective(), Word::noun());
+        return FormatHelper::format("{}-{}-{}-{}", Number::integer(unsigned(1), maxIssueNum), word::verb(),
+                                    word::adjective(), word::noun());
     }
 }
 
@@ -114,13 +114,13 @@ std::string Git::commitMessage()
     switch (Number::integer(1, 4))
     {
     case 1:
-        return FormatHelper::format("{} {}", Word::verb(), Word::noun());
+        return FormatHelper::format("{} {}", word::verb(), word::noun());
     case 2:
-        return FormatHelper::format("{} {} {}", Word::verb(), Word::adjective(), Word::noun());
+        return FormatHelper::format("{} {} {}", word::verb(), word::adjective(), word::noun());
     case 3:
-        return FormatHelper::format("{} {} {}", Word::verb(), Word::noun(), Word::adverb());
+        return FormatHelper::format("{} {} {}", word::verb(), word::noun(), word::adverb());
     default:
-        return FormatHelper::format("{} {} {} {}", Word::verb(), Word::adjective(), Word::noun(), Word::adverb());
+        return FormatHelper::format("{} {} {} {}", word::verb(), word::adjective(), word::noun(), word::adverb());
     }
 }
 

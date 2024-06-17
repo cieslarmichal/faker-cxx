@@ -106,7 +106,7 @@ std::string Crypto::sha256(std::optional<std::string> data)
     std::string orgData;
     if (!data.has_value() || data->empty())
     {
-        orgData = Word::sample();
+        orgData = word::sample();
     }
     else
     {
@@ -126,7 +126,7 @@ std::string Crypto::md5(std::optional<std::string> data)
     std::string orgData;
     if (!data.has_value() || data->empty())
     {
-        orgData = Word::sample();
+        orgData = word::sample();
     }
     else
     {
