@@ -2,10 +2,8 @@
 
 #include <string_view>
 
-namespace faker
+namespace faker::airline
 {
-    namespace airline
-    {
         /**
      * @brief Get a random aircraft type
      *
@@ -15,7 +13,7 @@ namespace faker
      * Airline::aircraftType // "narrowbody"
      * @endcode
      */
-    static std::string_view aircraftType();
+    std::string_view aircraftType();
 
     struct Airplane
     {
@@ -32,7 +30,7 @@ namespace faker
      * Airline::airplane() // {"Boeing 737-800", "738"}
      * @endcode
      */
-    static Airplane airplane();
+     Airplane airplane();
 
     struct AirlineInfo
     {
@@ -49,7 +47,7 @@ namespace faker
      * Airline::airline() // {"Air Canada", "AC"}
      * @endcode
      */
-    static AirlineInfo airline();
+     AirlineInfo airline();
 
     struct Airport
     {
@@ -66,7 +64,7 @@ namespace faker
      * Airline::airport() // {"Toronto Pearson International Airport", "YYZ"}
      * @endcode
      */
-    static Airport airport();
+     Airport airport();
 
     enum class AircraftType
     {
@@ -86,7 +84,7 @@ namespace faker
      * Airline::seat(AircraftType::Narrowbody) // "1A"
      * @endcode
      */
-    static std::string seat(AircraftType aircraftType);
+     std::string seat(AircraftType aircraftType);
 
     /**
      * @brief Get a random record location
@@ -98,7 +96,7 @@ namespace faker
      * Airline::recordLocator(true) // "ABC123"
      * @endcode
      */
-    static std::string recordLocator(bool allowNumerics = false);
+     std::string recordLocator(bool allowNumerics = false);
 
     /**
      * @brief Get a random flight number from given length
@@ -115,7 +113,7 @@ namespace faker
      * Airline::flightNumber(false, 3) // "234"
      * @endcode
      */
-    static std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
+     std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
 
     struct Range
     {
@@ -138,6 +136,5 @@ namespace faker
      * Airline::flightNumber(false, {1, 4}) // "234" // "12" // "1234"
      * @endcode
      */
-    static std::string flightNumberByRange(bool addLeadingZeros = false, Range length = {1, 4});
+     std::string flightNumberByRange(bool addLeadingZeros = false, Range length = {1, 4});
     }
-}

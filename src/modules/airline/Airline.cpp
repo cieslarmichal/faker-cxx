@@ -8,35 +8,35 @@
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
 
-namespace faker
+namespace faker::airline
 {
-std::string_view airline::aircraftType()
+std::string_view aircraftType()
 {
     return Helper::arrayElement(aircraftTypes);
 }
 
-airline::Airplane airline::airplane()
+Airplane airplane()
 {
     return Helper::arrayElement(airplanes);
 }
 
-airline::AirlineInfo airline::airline()
+AirlineInfo airline()
 {
     return Helper::arrayElement(airlines);
 }
 
-airline::Airport airline::airport()
+Airport airport()
 {
     return Helper::arrayElement(airports);
 }
 
-std::string airline::seat(airline::AircraftType aircraftType)
+std::string seat(AircraftType aircraftType)
 {
     return std::to_string(Number::integer(1, aircraftTypeMaxRows.at(aircraftType))) +
            Helper::arrayElement<char>(aircraftTypeSeatLetters.at(aircraftType));
 }
 
-std::string airline::recordLocator(bool allowNumerics)
+std::string recordLocator(bool allowNumerics)
 {
     if (allowNumerics)
     {
@@ -46,7 +46,7 @@ std::string airline::recordLocator(bool allowNumerics)
     return String::alpha(6, StringCasing::Upper);
 }
 
-std::string airline::flightNumber(bool addLeadingZeros, unsigned int length)
+std::string flightNumber(bool addLeadingZeros, unsigned int length)
 {
     if (addLeadingZeros)
     {
@@ -56,7 +56,7 @@ std::string airline::flightNumber(bool addLeadingZeros, unsigned int length)
     return String::numeric(length, false);
 }
 
-std::string airline::flightNumberByRange(bool addLeadingZeros, airline::Range length)
+std::string flightNumberByRange(bool addLeadingZeros, Range length)
 {
     if (addLeadingZeros)
     {
