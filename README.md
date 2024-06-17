@@ -22,8 +22,10 @@
 - [Dependencies](#dependencies)
 - [Building the library with Conan](#building-the-library-with-conan)
 - [✨ Contributing](#-contributing)
+- [📘 Credits](#-credits)
 - [Examples](#examples)
-- [License](#license)
+- [📝 Changelog](#-changelog)
+- [🔑 License](#-license)
 
 ## 🎯 Goal
 
