@@ -60,39 +60,24 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 
 if (USE_SYSTEM_DEPENDENCIES)
     find_package(GTest REQUIRED)
-    target_link_libraries(${PROJECT_NAME} PRIVATE GTest::gtest
-        GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
+    target_link_libraries(${PROJECT_NAME} PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
 else ()
-    add_subdirectory("${CMAKE_SOURCE_DIR}/externals/googletest"
-        "${CMAKE_BINARY_DIR}/googletest")
+    add_subdirectory("${CMAKE_SOURCE_DIR}/externals/googletest" "${CMAKE_BINARY_DIR}/googletest")
 
-    set(GTEST_INCLUDE_DIR
-        "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
-    set(GMOCK_INCLUDE_DIR
-        "${CMAKE_SOURCE_DIR}/externals/googletest/googlemock/include")
+    set(GTEST_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
+    set(GMOCK_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/googletest/googlemock/include")
 
-    target_link_libraries(${PROJECT_NAME} PRIVATE gtest_main gmock_main
-        faker-cxx)
+    target_link_libraries(${PROJECT_NAME} PRIVATE gtest_main gmock_main faker-cxx)
 endif ()
 
 if (HAS_STD_FORMAT)
-    target_include_directories(
-        ${PROJECT_NAME}
-        PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR}
-        ${CMAKE_CURRENT_LIST_DIR})
+    target_include_directories(${PROJECT_NAME} PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
     target_compile_definitions(${PROJECT_NAME} PRIVATE HAS_STD_FORMAT)
 else ()
-    target_link_libraries(${PROJECT_NAME} PRIVATE
-        $<IF:$<TARGET_EXISTS:fmt::fmt>,fmt::fmt,fmt>)
-    target_include_directories(
-        ${PROJECT_NAME}
-        PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR}
-        ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
+    target_link_libraries(${PROJECT_NAME} PRIVATE $<IF:$<TARGET_EXISTS:fmt::fmt>,fmt::fmt,fmt>)
+    target_include_directories(${PROJECT_NAME} PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
 endif ()
 
-add_test(
-    NAME ${PROJECT_NAME}
-    COMMAND ${PROJECT_NAME}
-    WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
+add_test(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME} WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 
 target_code_coverage(${PROJECT_NAME} ALL)
