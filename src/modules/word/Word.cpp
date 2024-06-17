@@ -5,13 +5,14 @@
 #include <cstdint>
 #include <optional>
 #include <string>
+#include <string_view>
 #include <vector>
 
 #include "../../common/StringHelper.h"
 #include "data/All.h"
 #include "faker-cxx/Helper.h"
 
-namespace faker
+namespace faker::Word
 {
 template <typename It>
 auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end) -> decltype(*std::declval<It>())
@@ -44,12 +45,12 @@ auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end
     }
 }
 
-std::string_view Word::sample(std::optional<unsigned int> length)
+std::string_view sample(std::optional<unsigned int> length)
 {
     return sortedSizeArrayElement(length, _allWords.cbegin(), _allWords.cend());
 }
 
-std::string Word::words(unsigned numberOfWords)
+std::string words(unsigned numberOfWords)
 {
     if (numberOfWords == 0)
     {
@@ -98,37 +99,37 @@ std::string Word::words(unsigned numberOfWords)
     return combined_words;
 }
 
-std::string_view Word::adjective(std::optional<unsigned int> length)
+std::string_view adjective(std::optional<unsigned int> length)
 {
     return sortedSizeArrayElement(length, _adjectives_sorted.cbegin(), _adjectives_sorted.cend());
 }
 
-std::string_view Word::adverb(std::optional<unsigned int> length)
+std::string_view adverb(std::optional<unsigned int> length)
 {
     return sortedSizeArrayElement(length, _adverbs_sorted.cbegin(), _adverbs_sorted.cend());
 }
 
-std::string_view Word::conjunction(std::optional<unsigned int> length)
+std::string_view conjunction(std::optional<unsigned int> length)
 {
     return sortedSizeArrayElement(length, _conjunctions_sorted.cbegin(), _conjunctions_sorted.cend());
 }
 
-std::string_view Word::interjection(std::optional<unsigned int> length)
+std::string_view interjection(std::optional<unsigned int> length)
 {
     return sortedSizeArrayElement(length, _interjections_sorted.cbegin(), _interjections_sorted.cend());
 }
 
-std::string_view Word::noun(std::optional<unsigned int> length)
+std::string_view noun(std::optional<unsigned int> length)
 {
     return sortedSizeArrayElement(length, _nouns_sorted.cbegin(), _nouns_sorted.cend());
 }
 
-std::string_view Word::preposition(std::optional<unsigned int> length)
+std::string_view preposition(std::optional<unsigned int> length)
 {
     return sortedSizeArrayElement(length, _prepositions_sorted.cbegin(), _prepositions_sorted.cend());
 }
 
-std::string_view Word::verb(std::optional<unsigned int> length)
+std::string_view verb(std::optional<unsigned int> length)
 {
     return sortedSizeArrayElement(length, _verbs_sorted.cbegin(), _verbs_sorted.cend());
 }

@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::Word
 {
 const std::array<std::string_view, 46> interjections = {
     "yuck", "oh",     "phooey", "blah", "boo",  "whoa",  "yowza",    "huzzah", "boohoo", "fooey", "geez", "pfft",
