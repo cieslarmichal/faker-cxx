@@ -10,7 +10,7 @@ namespace faker
 {
 const std::array<std::string_view, 3> aircraftTypes = {"regional", "narrowbody", "widebody"};
 
-const std::array<Airline::AirlineInfo, 125> airlines = {{
+const std::array<airline::AirlineInfo, 125> airlines = {{
     {"Aegean Airlines", "A3"},
     {"Aeroflot", "SU"},
     {"Aerolineas Argentinas", "AR"},
@@ -138,7 +138,7 @@ const std::array<Airline::AirlineInfo, 125> airlines = {{
     {"Wizz Air", "W6"},
 }};
 
-const std::array<Airline::Airplane, 155> airplanes{{
+const std::array<airline::Airplane, 155> airplanes{{
     {"Aerospatiale/BAC Concorde", "SSC"},
     {"Airbus A300", "AB3"},
     {"Airbus A310", "310"},
@@ -296,7 +296,7 @@ const std::array<Airline::Airplane, 155> airplanes{{
     {"Yakovlev Yak-42", "YK2"},
 }};
 
-const std::array<Airline::Airport, 119> airports = {{
+const std::array<airline::Airport, 119> airports = {{
     {"Adelaide International Airport", "ADL"},
     {"Adolfo Suarez Madrid-Barajas Airport", "MAD"},
     {"Aeroparque Jorge Newbery Airport", "AEP"},
@@ -435,16 +435,16 @@ const std::array<Airline::Airport, 119> airports = {{
     {"Zurich Airport", "ZRH"},
 }};
 
-const std::unordered_map<Airline::AircraftType, int> aircraftTypeMaxRows = {
-    {Airline::AircraftType::Regional, 20},
-    {Airline::AircraftType::Narrowbody, 40},
-    {Airline::AircraftType::Widebody, 60},
+const std::unordered_map<airline::AircraftType, int> aircraftTypeMaxRows = {
+    {airline::AircraftType::Regional, 20},
+    {airline::AircraftType::Narrowbody, 40},
+    {airline::AircraftType::Widebody, 60},
 };
 
-const std::unordered_map<Airline::AircraftType, std::string_view> aircraftTypeSeatLetters = {
-    {Airline::AircraftType::Regional, "ABCD"},
-    {Airline::AircraftType::Narrowbody, "ABCDEF"},
-    {Airline::AircraftType::Widebody, "ABCDEFGHJK"},
+const std::unordered_map<airline::AircraftType, std::string_view> aircraftTypeSeatLetters = {
+    {airline::AircraftType::Regional, "ABCD"},
+    {airline::AircraftType::Narrowbody, "ABCDEF"},
+    {airline::AircraftType::Widebody, "ABCDEFGHJK"},
 };
 
 }

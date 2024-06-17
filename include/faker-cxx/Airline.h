@@ -4,10 +4,9 @@
 
 namespace faker
 {
-class Airline
-{
-public:
-    /**
+    namespace airline
+    {
+        /**
      * @brief Get a random aircraft type
      *
      * @return a random aircraft type
@@ -140,5 +139,5 @@ public:
      * @endcode
      */
     static std::string flightNumberByRange(bool addLeadingZeros = false, Range length = {1, 4});
-};
+    }
 }

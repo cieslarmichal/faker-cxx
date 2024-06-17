@@ -4,8 +4,9 @@ project(faker-cxx LANGUAGES CXX)
 include(cmake/CompilerWarnings.cmake)
 
 option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
-option(USE_STD_FORMAT "Use std::format when avaiable" ON)
+option(USE_STD_FORMAT "Use std::format when available" ON)
 option(BUILD_EXAMPLES "Build examples" OFF)
+option(BUILD_TESTING "Build tests" ON)
 
 if (USE_STD_FORMAT)
     set(CMAKE_REQUIRED_FLAGS -std=c++20)

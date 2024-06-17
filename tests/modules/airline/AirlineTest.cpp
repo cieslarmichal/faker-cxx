@@ -19,7 +19,7 @@ public:
 
 TEST_F(AirlineTest, shouldGenerateAircraftType)
 {
-    const auto generatedAircraftType = Airline::aircraftType();
+    const auto generatedAircraftType = airline::aircraftType();
 
     ASSERT_TRUE(std::ranges::any_of(aircraftTypes, [generatedAircraftType](const std::string_view& aircraftType)
                                     { return aircraftType == generatedAircraftType; }));
@@ -27,19 +27,19 @@ TEST_F(AirlineTest, shouldGenerateAircraftType)
 
 TEST_F(AirlineTest, shouldGenerateAirline)
 {
-    const auto generatedAirline = Airline::airline();
+    const auto generatedAirline = airline::airline();
 
     ASSERT_TRUE(std::ranges::any_of(
-        airlines, [generatedAirline](const Airline::AirlineInfo& airline)
+        airlines, [generatedAirline](const airline::AirlineInfo& airline)
         { return airline.name == generatedAirline.name && airline.iataCode == generatedAirline.iataCode; }));
 }
 
 TEST_F(AirlineTest, shouldGenerateAirplane)
 {
-    const auto generatedAirplane = Airline::airplane();
+    const auto generatedAirplane = airline::airplane();
 
     ASSERT_TRUE(std::ranges::any_of(airplanes,
-                                    [generatedAirplane](const Airline::Airplane& airplane) {
+                                    [generatedAirplane](const airline::Airplane& airplane) {
                                         return airplane.name == generatedAirplane.name &&
                                                airplane.iataTypeCode == generatedAirplane.iataTypeCode;
                                     }));
@@ -47,21 +47,21 @@ TEST_F(AirlineTest, shouldGenerateAirplane)
 
 TEST_F(AirlineTest, shouldGenerateAirport)
 {
-    const auto generatedAirport = Airline::airport();
+    const auto generatedAirport = airline::airport();
 
     ASSERT_TRUE(std::ranges::any_of(
-        airports, [generatedAirport](const Airline::Airport& airport)
+        airports, [generatedAirport](const airline::Airport& airport)
         { return airport.name == generatedAirport.name && airport.iataCode == generatedAirport.iataCode; }));
 }
 
 TEST_F(AirlineTest, shouldGenerateRecordLocator)
 {
-    const auto generatedRecordLocatorWithAlpha = Airline::recordLocator(false);
+    const auto generatedRecordLocatorWithAlpha = airline::recordLocator(false);
 
     ASSERT_EQ(generatedRecordLocatorWithAlpha.length(), 6);
     ASSERT_TRUE(std::ranges::all_of(generatedRecordLocatorWithAlpha, [](const char& c) { return std::isalpha(c); }));
 
-    const auto generatedRecordLocatorWithNumerics = Airline::recordLocator(true);
+    const auto generatedRecordLocatorWithNumerics = airline::recordLocator(true);
 
     ASSERT_EQ(generatedRecordLocatorWithNumerics.length(), 6);
     ASSERT_TRUE(std::ranges::all_of(generatedRecordLocatorWithNumerics, [](const char& c) { return std::isalnum(c); }));
@@ -69,12 +69,12 @@ TEST_F(AirlineTest, shouldGenerateRecordLocator)
 
 TEST_F(AirlineTest, shouldGenerateSeatNumberRegional)
 {
-    const auto generatedSeatNumber = Airline::seat(Airline::AircraftType::Regional);
+    const auto generatedSeatNumber = airline::seat(airline::AircraftType::Regional);
 
     ASSERT_TRUE(generatedSeatNumber.length() == 2 || generatedSeatNumber.length() == 3);
 
     int min = 1;
-    int max = aircraftTypeMaxRows.at(Airline::AircraftType::Regional);
+    int max = aircraftTypeMaxRows.at(airline::AircraftType::Regional);
 
     bool inRange = false;
 
@@ -89,19 +89,19 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberRegional)
     }
 
     ASSERT_TRUE(inRange);
-    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(Airline::AircraftType::Regional),
+    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(airline::AircraftType::Regional),
                                     [generatedSeatNumber](char letter)
                                     { return generatedSeatNumber.back() == letter; }));
 }
 
 TEST_F(AirlineTest, shouldGenerateSeatNumberNarrowbody)
 {
-    const auto generatedSeatNumber = Airline::seat(Airline::AircraftType::Narrowbody);
+    const auto generatedSeatNumber = airline::seat(airline::AircraftType::Narrowbody);
 
     ASSERT_TRUE(generatedSeatNumber.length() == 2 || generatedSeatNumber.length() == 3);
 
     int min = 1;
-    int max = aircraftTypeMaxRows.at(Airline::AircraftType::Narrowbody);
+    int max = aircraftTypeMaxRows.at(airline::AircraftType::Narrowbody);
 
     bool inRange = false;
 
@@ -118,19 +118,19 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberNarrowbody)
     }
 
     ASSERT_TRUE(inRange);
-    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(Airline::AircraftType::Narrowbody),
+    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(airline::AircraftType::Narrowbody),
                                     [generatedSeatNumber](char letter)
                                     { return generatedSeatNumber.back() == letter; }));
 }
 
 TEST_F(AirlineTest, shouldGenerateSeatNumberWidebody)
 {
-    const auto generatedSeatNumber = Airline::seat(Airline::AircraftType::Widebody);
+    const auto generatedSeatNumber = airline::seat(airline::AircraftType::Widebody);
 
     ASSERT_TRUE(generatedSeatNumber.length() == 2 || generatedSeatNumber.length() == 3);
 
     int min = 1;
-    int max = aircraftTypeMaxRows.at(Airline::AircraftType::Widebody);
+    int max = aircraftTypeMaxRows.at(airline::AircraftType::Widebody);
 
     bool inRange = false;
 
@@ -147,14 +147,14 @@ TEST_F(AirlineTest, shouldGenerateSeatNumberWidebody)
     }
 
     ASSERT_TRUE(inRange);
-    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(Airline::AircraftType::Widebody),
+    ASSERT_TRUE(std::ranges::any_of(aircraftTypeSeatLetters.at(airline::AircraftType::Widebody),
                                     [generatedSeatNumber](char letter)
                                     { return generatedSeatNumber.back() == letter; }));
 }
 
 TEST_F(AirlineTest, shouldGenerateFlightNumberNoLeadingZeros)
 {
-    const auto flightNumber = Airline::flightNumber();
+    const auto flightNumber = airline::flightNumber();
     const auto flightNumberInt = std::stoi(flightNumber);
 
     ASSERT_TRUE(flightNumber.length() == 4);
@@ -167,7 +167,7 @@ TEST_F(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
     bool leadingZero = false;
     while (!leadingZero)
     {
-        const auto flightNumber = Airline::flightNumber(true, 4);
+        const auto flightNumber = airline::flightNumber(true, 4);
 
         if (flightNumber.substr(0, 1) == "0")
         {
@@ -180,7 +180,7 @@ TEST_F(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
 
 TEST_F(AirlineTest, shouldGenerateFlightNumberByRange)
 {
-    const auto flightNumber = Airline::flightNumberByRange(false, {1, 6});
+    const auto flightNumber = airline::flightNumberByRange(false, {1, 6});
 
     ASSERT_TRUE(flightNumber.length() <= 6);
 }
