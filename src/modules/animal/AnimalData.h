@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::animal
 {
 extern const std::array<std::string_view, 8> bears;
 extern const std::array<std::string_view, 914> birds;
