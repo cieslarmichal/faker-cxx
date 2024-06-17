@@ -59,7 +59,7 @@ class InternetTest : public Test
 public:
     InternetTest()
     {
-        sortedAdjectivesDescendingBySize.assign(Word::adjectives.cbegin(), Word::adjectives.cend());
+        sortedAdjectivesDescendingBySize.assign(word::adjectives.cbegin(), word::adjectives.cend());
         std::sort(sortedAdjectivesDescendingBySize.begin(), sortedAdjectivesDescendingBySize.end(),
                   [](const std::string& first, const std::string& second) { return first.size() > second.size(); });
     }
@@ -83,7 +83,7 @@ public:
 
         const auto generatedNoun = domainWord.substr(foundAdjective->size() + 1);
 
-        ASSERT_TRUE(std::ranges::any_of(Word::nouns,
+        ASSERT_TRUE(std::ranges::any_of(word::nouns,
                                         [generatedNoun](const std::string_view& noun)
                                         {
                                             if (generatedNoun.size() != noun.size())

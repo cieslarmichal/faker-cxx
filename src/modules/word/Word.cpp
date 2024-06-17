@@ -12,7 +12,7 @@
 #include "data/All.h"
 #include "faker-cxx/Helper.h"
 
-namespace faker::Word
+namespace faker::word
 {
 template <typename It>
 auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end) -> decltype(*std::declval<It>())

@@ -328,7 +328,7 @@ std::string Internet::domainName()
 
 std::string Internet::domainWord()
 {
-    return StringHelper::toLower(FormatHelper::format("{}-{}", Word::adjective(), Word::noun()));
+    return StringHelper::toLower(FormatHelper::format("{}-{}", word::adjective(), word::noun()));
 }
 
 std::string_view Internet::domainSuffix()
@@ -350,7 +350,7 @@ std::string Internet::anonymousUsername(unsigned maxLength)
 
     const auto nounLength = maxLength - adjectiveLength;
 
-    return FormatHelper::format("{}{}", Word::adjective(adjectiveLength), Word::noun(nounLength));
+    return FormatHelper::format("{}{}", word::adjective(adjectiveLength), word::noun(nounLength));
 }
 
 }

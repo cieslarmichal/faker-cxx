@@ -15,7 +15,7 @@
 #include "word/data/Prepositions.h"
 #include "word/data/Verbs.h"
 
-using namespace faker::Word;
+using namespace faker::word;
 using namespace ::testing;
 
 class WordTest : public Test

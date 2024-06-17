@@ -327,7 +327,7 @@ std::string Person::bio()
     const std::unordered_map<std::string_view, std::function<std::string_view()>> dataGeneratorsMapping{
         {"bio_part", []() { return Helper::arrayElement(bioParts); }},
         {"bio_supporter", []() { return Helper::arrayElement(bioSupporters); }},
-        {"noun", []() { return Word::noun(); }},
+        {"noun", []() { return word::noun(); }},
         {"emoji", []() { return Internet::emoji(); }}};
 
     return FormatHelper::fillTokenValues(randomBioFormat, dataGeneratorsMapping);

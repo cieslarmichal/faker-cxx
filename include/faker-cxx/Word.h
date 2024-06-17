@@ -4,19 +4,19 @@
 #include <string>
 #include <string_view>
 
-namespace faker::Word
+namespace faker::word
 {
 /**
- * @brief Returns a random word.
+ * @brief Returns a random .
  *
- * @param length The expected length of the word.
- * If no word with given length will be found, it will return a random word.
+ * @param length The expected length of the .
+ * If no  with given length will be found, it will return a random .
  *
  * @returns Random sample word.
  *
  * @code
- * Word::sample() // "protection"
- * Word::sample(5) // "spell"
+ * word::sample() // "protection"
+ * word::sample(5) // "spell"
  * @endcode
  */
 std::string_view sample(std::optional<unsigned> length = std::nullopt);
@@ -29,8 +29,8 @@ std::string_view sample(std::optional<unsigned> length = std::nullopt);
  * @returns Random words separated with spaces.
  *
  * @code
- * Word::words() // "protection"
- * Word::words(5) // "before hourly patiently dribble equal"
+ * word::words() // "protection"
+ * word::words(5) // "before hourly patiently dribble equal"
  * @endcode
  */
 std::string words(unsigned numberOfWords = 1);
@@ -44,8 +44,8 @@ std::string words(unsigned numberOfWords = 1);
  * @returns Adjective.
  *
  * @code
- * Word::adjective() // "complete"
- * Word::adjective(3) // "bad"
+ * word::adjective() // "complete"
+ * word::adjective(3) // "bad"
  * @endcode
  */
 std::string_view adjective(std::optional<unsigned> length = std::nullopt);
@@ -59,8 +59,8 @@ std::string_view adjective(std::optional<unsigned> length = std::nullopt);
  * @returns Adverb.
  *
  * @code
- * Word::adverb() // "deliberately"
- * Word::adverb(5) // "almost"
+ * word::adverb() // "deliberately"
+ * word::adverb(5) // "almost"
  * @endcode
  */
 std::string_view adverb(std::optional<unsigned> length = std::nullopt);
@@ -74,8 +74,8 @@ std::string_view adverb(std::optional<unsigned> length = std::nullopt);
  * @returns Conjunction.
  *
  * @code
- * Word::conjunction() // "because"
- * Word::conjunction(6) // "indeed"
+ * word::conjunction() // "because"
+ * word::conjunction(6) // "indeed"
  * @endcode
  */
 std::string_view conjunction(std::optional<unsigned> length = std::nullopt);
@@ -89,8 +89,8 @@ std::string_view conjunction(std::optional<unsigned> length = std::nullopt);
  * @returns Interjection.
  *
  * @code
- * Word::interjection() // "psst"
- * Word::interjection(4) // "yuck"
+ * word::interjection() // "psst"
+ * word::interjection(4) // "yuck"
  * @endcode
  */
 std::string_view interjection(std::optional<unsigned> length = std::nullopt);
@@ -104,8 +104,8 @@ std::string_view interjection(std::optional<unsigned> length = std::nullopt);
  * @returns Noun.
  *
  * @code
- * Word::noun() // "pudding"
- * Word::noun(8) // "distance"
+ * word::noun() // "pudding"
+ * word::noun(8) // "distance"
  * @endcode
  */
 std::string_view noun(std::optional<unsigned> length = std::nullopt);
@@ -119,8 +119,8 @@ std::string_view noun(std::optional<unsigned> length = std::nullopt);
  * @returns Preposition.
  *
  * @code
- * Word::preposition() // "besides"
- * Word::preposition(4) // "from"
+ * word::preposition() // "besides"
+ * word::preposition(4) // "from"
  * @endcode
  */
 std::string_view preposition(std::optional<unsigned> length = std::nullopt);
@@ -134,8 +134,8 @@ std::string_view preposition(std::optional<unsigned> length = std::nullopt);
  * @returns Verb.
  *
  * @code
- * Word::verb() // "override"
- * Word::verb(9) // "stabilise"
+ * word::verb() // "override"
+ * word::verb(9) // "stabilise"
  * @endcode
  */
 std::string_view verb(std::optional<unsigned> length = std::nullopt);

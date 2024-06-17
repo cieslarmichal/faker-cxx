@@ -44,7 +44,7 @@ std::string_view extension(std::string_view mimeType)
 
 std::string System::fileName(const FileOptions& options)
 {
-    std::string baseName = Word::words();
+    std::string baseName = word::words();
     std::string extensionsStr;
 
     if (options.extensionCount > 0)
