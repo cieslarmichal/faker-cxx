@@ -71,7 +71,6 @@ var NAVTREEINDEX0 =
 "classfaker_1_1Vehicle.html":[0,0,0,37],
 "classfaker_1_1VideoGame.html":[0,0,0,38],
 "classfaker_1_1Weather.html":[0,0,0,39],
-"classfaker_1_1Word.html":[0,0,0,40],
 "dir_21275a4f97039163a157995766de70c2.html":[1,0,0,0],
 "dir_d44c64559bbebec7f509842c48db8b23.html":[1,0,0],
 "files.html":[1,0],

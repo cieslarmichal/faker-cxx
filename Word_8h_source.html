@@ -108,42 +108,26 @@ $(function(){initNavTree('Word_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker::word</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="};">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="classfaker_1_1Word.html">    9</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Word.html">Word</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="classfaker_1_1Word.html#a0b5edbadfcf31ecfd94c36fe105f42c3">   25</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Word.html#a0b5edbadfcf31ecfd94c36fe105f42c3">sample</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="classfaker_1_1Word.html#ad2feb12057a72ae5cba55895da1f3d11">   39</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Word.html#ad2feb12057a72ae5cba55895da1f3d11">words</a>(<span class="keywordtype">unsigned</span> numberOfWords = 1);</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="classfaker_1_1Word.html#a1559503560c5f73356b64ab39718c1f6">   54</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Word.html#a1559503560c5f73356b64ab39718c1f6">adjective</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="classfaker_1_1Word.html#acba71790288ce67495d7b6ea82803f2e">   69</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Word.html#acba71790288ce67495d7b6ea82803f2e">adverb</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="classfaker_1_1Word.html#a4cdf8fff4e4b6ea6c5d413736d5deb81">   84</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Word.html#a4cdf8fff4e4b6ea6c5d413736d5deb81">conjunction</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="classfaker_1_1Word.html#aa279ba7d1fb4c7c375827bdd6fcafcb9">   99</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Word.html#aa279ba7d1fb4c7c375827bdd6fcafcb9">interjection</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="classfaker_1_1Word.html#ac9d36b85557cf7e8db59ea1aac2dfdb5">  114</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Word.html#ac9d36b85557cf7e8db59ea1aac2dfdb5">noun</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="classfaker_1_1Word.html#a52f8ccc66bb47b3b9f46885b76ce58cd">  129</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Word.html#a52f8ccc66bb47b3b9f46885b76ce58cd">preposition</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno"><a class="line" href="classfaker_1_1Word.html#a73ce9110d93ca1d8fb24c34ea31fcbdd">  144</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Word.html#a73ce9110d93ca1d8fb24c34ea31fcbdd">verb</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>};</div>
-</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>}</div>
-<div class="ttc" id="aclassfaker_1_1Word_html"><div class="ttname"><a href="classfaker_1_1Word.html">faker::Word</a></div><div class="ttdef"><b>Definition</b> Word.h:10</div></div>
-<div class="ttc" id="aclassfaker_1_1Word_html_a0b5edbadfcf31ecfd94c36fe105f42c3"><div class="ttname"><a href="classfaker_1_1Word.html#a0b5edbadfcf31ecfd94c36fe105f42c3">faker::Word::sample</a></div><div class="ttdeci">static std::string_view sample(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random word.</div></div>
-<div class="ttc" id="aclassfaker_1_1Word_html_a1559503560c5f73356b64ab39718c1f6"><div class="ttname"><a href="classfaker_1_1Word.html#a1559503560c5f73356b64ab39718c1f6">faker::Word::adjective</a></div><div class="ttdeci">static std::string_view adjective(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random adjective.</div></div>
-<div class="ttc" id="aclassfaker_1_1Word_html_a4cdf8fff4e4b6ea6c5d413736d5deb81"><div class="ttname"><a href="classfaker_1_1Word.html#a4cdf8fff4e4b6ea6c5d413736d5deb81">faker::Word::conjunction</a></div><div class="ttdeci">static std::string_view conjunction(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random conjunction.</div></div>
-<div class="ttc" id="aclassfaker_1_1Word_html_a52f8ccc66bb47b3b9f46885b76ce58cd"><div class="ttname"><a href="classfaker_1_1Word.html#a52f8ccc66bb47b3b9f46885b76ce58cd">faker::Word::preposition</a></div><div class="ttdeci">static std::string_view preposition(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random preposition.</div></div>
-<div class="ttc" id="aclassfaker_1_1Word_html_a73ce9110d93ca1d8fb24c34ea31fcbdd"><div class="ttname"><a href="classfaker_1_1Word.html#a73ce9110d93ca1d8fb24c34ea31fcbdd">faker::Word::verb</a></div><div class="ttdeci">static std::string_view verb(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random verb.</div></div>
-<div class="ttc" id="aclassfaker_1_1Word_html_aa279ba7d1fb4c7c375827bdd6fcafcb9"><div class="ttname"><a href="classfaker_1_1Word.html#aa279ba7d1fb4c7c375827bdd6fcafcb9">faker::Word::interjection</a></div><div class="ttdeci">static std::string_view interjection(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random interjection.</div></div>
-<div class="ttc" id="aclassfaker_1_1Word_html_ac9d36b85557cf7e8db59ea1aac2dfdb5"><div class="ttname"><a href="classfaker_1_1Word.html#ac9d36b85557cf7e8db59ea1aac2dfdb5">faker::Word::noun</a></div><div class="ttdeci">static std::string_view noun(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random noun.</div></div>
-<div class="ttc" id="aclassfaker_1_1Word_html_acba71790288ce67495d7b6ea82803f2e"><div class="ttname"><a href="classfaker_1_1Word.html#acba71790288ce67495d7b6ea82803f2e">faker::Word::adverb</a></div><div class="ttdeci">static std::string_view adverb(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random adverb.</div></div>
-<div class="ttc" id="aclassfaker_1_1Word_html_ad2feb12057a72ae5cba55895da1f3d11"><div class="ttname"><a href="classfaker_1_1Word.html#ad2feb12057a72ae5cba55895da1f3d11">faker::Word::words</a></div><div class="ttdeci">static std::string words(unsigned numberOfWords=1)</div><div class="ttdoc">Returns a string containing a number of space separated random words.</div></div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>std::string_view sample(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>std::string words(<span class="keywordtype">unsigned</span> numberOfWords = 1);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>std::string_view adjective(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>std::string_view adverb(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span> </div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>std::string_view conjunction(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>std::string_view interjection(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>std::string_view noun(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>std::string_view preposition(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span> </div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>std::string_view verb(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
