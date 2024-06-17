@@ -9,5 +9,5 @@ var searchData=
   ['tovector_6',['toVector',['../classfaker_1_1Helper.html#a505d077c850b9914762fb68af0d926cf',1,'faker::Helper']]],
   ['tree_7',['tree',['../classfaker_1_1Plant.html#a2eacc5e6cb033bb7b8c04d758ae1a14c',1,'faker::Plant']]],
   ['tvshow_8',['tvShow',['../classfaker_1_1Movie.html#acde4548b33deccaefede4ef937e7877b',1,'faker::Movie']]],
-  ['type_9',['type',['../classfaker_1_1Animal.html#a0be4c8a6942f740034daf2d1dc0a75a8',1,'faker::Animal::type()'],['../classfaker_1_1Company.html#ae3bf0c91b23d25bb26d9fc180c859804',1,'faker::Company::type()'],['../classfaker_1_1Computer.html#a347ed9fff16e7f457d7b6862d0641907',1,'faker::Computer::type()'],['../classfaker_1_1Vehicle.html#ab698a19ed20d00f5408848356d84bc06',1,'faker::Vehicle::type()']]]
+  ['type_9',['type',['../classfaker_1_1Company.html#ae3bf0c91b23d25bb26d9fc180c859804',1,'faker::Company::type()'],['../classfaker_1_1Computer.html#a347ed9fff16e7f457d7b6862d0641907',1,'faker::Computer::type()'],['../classfaker_1_1Vehicle.html#ab698a19ed20d00f5408848356d84bc06',1,'faker::Vehicle::type()']]]
 ];
