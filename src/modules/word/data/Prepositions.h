@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::array<std::string_view,109> prepositions = {
+const std::array<std::string_view, 109> prepositions = {
     "a",
     "abaft",
     "aboard",

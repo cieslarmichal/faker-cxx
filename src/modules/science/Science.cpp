@@ -1,7 +1,7 @@
 #include "faker-cxx/Science.h"
 
-#include "ScienceData.h"
 #include "faker-cxx/Helper.h"
+#include "ScienceData.h"
 
 namespace faker
 {

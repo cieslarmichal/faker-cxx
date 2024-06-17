@@ -16,6 +16,7 @@ std::string_view Medicine::medicalTest()
 {
     return Helper::arrayElement(medicine::medicalTests);
 }
+
 std::string_view Medicine::specialty()
 {
     return Helper::arrayElement(medicine::specialties);

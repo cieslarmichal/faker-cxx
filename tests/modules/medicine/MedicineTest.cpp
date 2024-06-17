@@ -1,7 +1,8 @@
 
 #include <algorithm>
-#include <string_view>
 #include <faker-cxx/Medicine.h>
+#include <string_view>
+
 #include "gtest/gtest.h"
 
 #include "medicine/MedicineData.h"
@@ -18,7 +19,8 @@ TEST_F(MedicineTest, shouldGenerateMedicalCondition)
 {
     const auto generatedMedicalCondition = Medicine::condition();
 
-    ASSERT_TRUE(std::ranges::any_of(medicine::medicalConditions, [generatedMedicalCondition](const std::string_view& medicalCondition)
+    ASSERT_TRUE(std::ranges::any_of(medicine::medicalConditions,
+                                    [generatedMedicalCondition](const std::string_view& medicalCondition)
                                     { return medicalCondition == generatedMedicalCondition; }));
 }
 

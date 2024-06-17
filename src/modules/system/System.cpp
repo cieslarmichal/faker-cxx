@@ -1,22 +1,21 @@
 #include "faker-cxx/System.h"
 
-#include <cstddef>
 #include <cstdlib>
 #include <optional>
 #include <set>
-#include <sstream>
 #include <string>
 #include <unordered_map>
 #include <vector>
 
 #include "../src/common/StringHelper.h"
-#include "SystemData.h"
+#include "common/FormatHelper.h"
 #include "faker-cxx/Datatype.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/String.h"
 #include "faker-cxx/Word.h"
+#include "SystemData.h"
 
 namespace faker
 {
@@ -138,7 +137,7 @@ std::string System::commonFileExtension()
     return std::string(extension(mimeType));
 }
 
-std::string System::mimeType() 
+std::string System::mimeType()
 {
     std::vector<std::string_view> mimeTypeKeys;
 
@@ -197,11 +196,7 @@ std::string System::semver()
     int minor = Number::integer(9);
     int patch = Number::integer(9);
 
-    std::stringstream ss;
-
-    ss << major << '.' << minor << '.' << patch;
-
-    return ss.str();
+    return FormatHelper::format("{}.{}.{}", major, minor, patch);
 }
 
 std::string System::networkInterface(const std::optional<NetworkInterfaceOptions>& options)
@@ -263,9 +258,9 @@ std::string System::cron(const CronOptions& options)
     std::vector<std::string> months = {std::to_string(Number::integer(1, 12)), "*"};
     std::vector<std::string> daysOfWeek = {
         std::to_string(Number::integer(6)),
-        std::string(cronDayOfWeek[static_cast<unsigned long>(Number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))]),
-        "*",
-        "?"};
+        std::string(
+            cronDayOfWeek[static_cast<unsigned long>(Number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))]),
+        "*", "?"};
 
     std::vector<std::string> years;
     if (includeYear)

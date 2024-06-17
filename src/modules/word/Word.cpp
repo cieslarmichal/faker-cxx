@@ -2,10 +2,10 @@
 
 #include <algorithm>
 #include <array>
+#include <cstdint>
 #include <optional>
 #include <string>
 #include <vector>
-#include <cstdint>
 
 #include "../../common/StringHelper.h"
 #include "data/All.h"

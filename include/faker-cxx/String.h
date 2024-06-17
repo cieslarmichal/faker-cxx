@@ -5,7 +5,6 @@
 #include <optional>
 #include <random>
 #include <set>
-#include <sstream>
 #include <string>
 
 #include "RandomGenerator.h"
@@ -86,44 +85,44 @@ public:
     {
         static std::uniform_int_distribution<> dist(0, 15);
         static std::uniform_int_distribution<> dist2(8, 11);
+        static std::string_view hexCharacters{"0123456789abcdef"};
 
-        std::stringstream ss;
-        ss << std::hex;
+        std::string result;
+        result.reserve(36);
 
         for (int i = 0; i < 8; i++)
         {
-            ss << gen(dist);
+            result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
         }
+        result.append(1, '-');
 
-        ss << "-";
         for (int i = 0; i < 4; i++)
         {
-            ss << gen(dist);
+            result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
         }
+        result.append(1, '-');
 
-        ss << "-4";
+        result.append(1, '4');
         for (int i = 0; i < 3; i++)
         {
-            ss << gen(dist);
+            result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
         }
+        result.append(1, '-');
 
-        ss << "-";
-
-        ss << gen(dist2);
+        result.append(1, hexCharacters[static_cast<size_t>(gen(dist2))]);
 
         for (int i = 0; i < 3; i++)
         {
-            ss << gen(dist);
+            result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
         }
-
-        ss << "-";
+        result.append(1, '-');
 
         for (int i = 0; i < 12; i++)
         {
-            ss << gen(dist);
+            result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
         }
 
-        return ss.str();
+        return result;
     }
 
     /**

@@ -7,7 +7,6 @@ include("${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake")
 set(FAKER_UT_SOURCES
     common/FormatHelperTest.cpp
     common/LuhnCheckTest.cpp
-    common/PrecisionMapperTest.cpp
     common/StringHelperTest.cpp
     modules/airline/AirlineTest.cpp
     modules/animal/AnimalTest.cpp

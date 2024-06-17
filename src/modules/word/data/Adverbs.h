@@ -5,7 +5,7 @@
 
 namespace faker
 {
-const std::array<std::string_view,325> adverbs = {
+const std::array<std::string_view, 325> adverbs = {
     "abnormally",
     "absentmindedly",
     "accidentally",

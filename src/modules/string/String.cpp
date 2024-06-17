@@ -2,14 +2,13 @@
 
 #include <algorithm>
 #include <cassert>
-#include <ios>
 #include <map>
 #include <optional>
 #include <set>
-#include <sstream>
 #include <stdexcept>
 #include <string>
 
+#include "common/FormatHelper.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/types/Hex.h"
@@ -330,11 +329,7 @@ std::string String::hexadecimal(std::optional<int> min, std::optional<int> max)
         defaultMax = max.value();
     }
 
-    std::stringstream stream;
-
-    stream << std::hex << Number::integer(defaultMin, defaultMax);
-
-    return stream.str();
+    return FormatHelper::format("{:x}", Number::integer(defaultMin, defaultMax));
 }
 
 std::string String::hexadecimal(GuaranteeMap&& guarantee, unsigned int length, HexCasing casing, HexPrefix prefix)

@@ -708,7 +708,8 @@ TEST_F(StringTest, shouldGenerateLowerAlphanumericWithGuarantee)
         auto count_0 = std::ranges::count(alphanumeric, '0');
 
         ASSERT_TRUE(count_k >= 5 && count_k <= 20);
-        ASSERT_TRUE(count_o >= 3 && count_o <= 20);       ASSERT_TRUE(count_a == 5);
+        ASSERT_TRUE(count_o >= 3 && count_o <= 20);
+        ASSERT_TRUE(count_a == 5);
         ASSERT_TRUE(count_0 >= 3 && count_0 <= 6);
     }
 }
@@ -1227,6 +1228,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee1)
         ASSERT_TRUE(count_1 >= 2 && count_1 <= 7);
     }
 }
+
 TEST_F(StringTest, shouldGenerateBinaryWithGuarantee2)
 {
     const auto binaryLength = 10;
@@ -1253,6 +1255,7 @@ TEST_F(StringTest, shouldGenerateBinaryWithGuarantee2)
         ASSERT_TRUE(count_1 == 2);
     }
 }
+
 TEST_F(StringTest, shouldGenerateBinaryWithGuarantee3)
 {
     const auto binaryLength = 10;

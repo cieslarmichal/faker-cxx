@@ -61,12 +61,14 @@ public:
     static auto arrayElement(It start, It end) -> decltype(*::std::declval<It>())
     {
         size_t size = end - start;
+
         if (size == 0)
         {
             throw std::invalid_argument{"Range [start,end) is empty."};
         }
 
-        const auto index = Number::integer<size_t>(size - 1);
+        const std::integral auto index = Number::integer<size_t>(size - 1);
+
         return start[index];
     }
 
@@ -145,7 +147,9 @@ public:
         }
 
         T item;
+
         std::sample(data.begin(), data.end(), &item, 1, pseudoRandomGenerator);
+
         return item;
     }
 
@@ -188,39 +192,24 @@ public:
         }
 
         const std::integral auto targetWeightValue = Number::integer<unsigned>(1, sumOfWeights);
+
         unsigned currentSum = 0;
+
         size_t currentIdx = 0;
 
         while (currentIdx < data.size())
         {
             currentSum += data[currentIdx].weight;
+
             if (currentSum >= targetWeightValue)
+            {
                 break;
+            }
+
             currentIdx++;
         }
 
         return data.at(currentIdx).value;
-    }
-
-    /**
-     * @brief Returns shuffled vector.
-     *
-     * @tparam T an element type of the vector.
-     *
-     * @param data The vector.
-     *
-     * @return Vector with shuffled elements.
-     *
-     * @code
-     * Helper::shuffle<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // {{"world"}, {"hello"}}
-     * @endcode
-     */
-    template <class T>
-    static std::vector<T> shuffle(std::vector<T> data)
-    {
-        std::shuffle(std::begin(data), std::end(data), pseudoRandomGenerator);
-
-        return data;
     }
 
     /**
@@ -265,6 +254,7 @@ public:
         }
 
         std::vector<typename T::key_type> keys;
+
         for (const auto& entry : object)
         {
             keys.push_back(entry.first);
@@ -296,6 +286,7 @@ public:
         {
             return callback();
         }
+
         return TResult();
     }
 

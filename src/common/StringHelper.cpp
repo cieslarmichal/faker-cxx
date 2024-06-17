@@ -2,8 +2,6 @@
 
 #include <algorithm>
 #include <cctype>
-#include <cstddef>
-#include <sstream>
 #include <string>
 #include <vector>
 
@@ -32,41 +30,55 @@ std::vector<std::string> StringHelper::split(const std::string& data, const std:
 
 std::string StringHelper::joinString(const std::vector<std::string>& data, const std::string& separator)
 {
-    std::ostringstream result;
-
-    for (size_t i = 0; i < (data.size() - 1); ++i)
+    switch (data.size())
     {
-        result << data[i] << separator;
-    }
-
-    if (!data.empty()) [[likely]]
+    case 0:
+        return "";
+    case 1:
+        return data[0];
+    default:
     {
-        result << data[data.size() - 1];
-    }
+        std::string result{data[0]};
 
-    return result.str();
+        for (auto it = data.begin() + 1; it != data.end(); ++it)
+        {
+            result += separator;
+            result += *it;
+        }
+
+        return result;
+    }
+    }
 }
 
 std::string StringHelper::join(const std::vector<std::string_view>& data, const std::string& separator)
 {
-    std::ostringstream result;
-
-    for (size_t i = 0; i < (data.size() - 1); ++i)
+    switch (data.size())
     {
-        result << data[i] << separator;
-    }
-
-    if (!data.empty()) [[likely]]
+    case 0:
+        return "";
+    case 1:
+        return std::string{data[0]};
+    default:
     {
-        result << data[data.size() - 1];
-    }
+        std::string result{data[0]};
 
-    return result.str();
+        for (auto it = data.begin() + 1; it != data.end(); ++it)
+        {
+            result += separator;
+            result += *it;
+        }
+
+        return result;
+    }
+    }
 }
 
 std::string StringHelper::repeat(const std::string& data, int repetition)
 {
     std::string result;
+
+    result.reserve(data.size() * static_cast<unsigned long>(repetition));
 
     for (int i = 0; i < repetition; ++i)
     {
