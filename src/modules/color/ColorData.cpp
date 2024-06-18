@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::color
 {
 const std::array<std::string_view, 31> colors = {
     "red",      "green",  "blue",    "yellow", "purple", "mint green", "teal",      "white",

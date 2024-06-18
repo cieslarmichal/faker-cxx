@@ -10,14 +10,14 @@
 #include "faker-cxx/String.h"
 #include "faker-cxx/types/Hex.h"
 
-namespace faker
+namespace faker::color
 {
-std::string_view Color::name()
+std::string_view name()
 {
     return Helper::arrayElement(colors);
 }
 
-std::string Color::rgb(bool includeAlpha)
+std::string rgb(bool includeAlpha)
 {
     const std::integral auto red = Number::integer(255);
     const std::integral auto green = Number::integer(255);
@@ -33,12 +33,12 @@ std::string Color::rgb(bool includeAlpha)
     return FormatHelper::format("rgba({}, {}, {}, {:.2f})", red, green, blue, alpha);
 }
 
-std::string Color::hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
+std::string hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
 {
     return String::hexadecimal(includeAlpha ? 8 : 6, casing, prefix);
 }
 
-std::string Color::hsl(bool include_alpha)
+std::string hsl(bool include_alpha)
 {
     std::integral auto hue = Number::integer(360);
     std::integral auto saturation = Number::integer(100);
@@ -54,7 +54,7 @@ std::string Color::hsl(bool include_alpha)
     return FormatHelper::format("hsla({}, {}, {}, {:.2f})", hue, saturation, lightness, alpha);
 }
 
-std::string Color::lch(bool include_alpha)
+std::string lch(bool include_alpha)
 {
     std::integral auto luminance = Number::integer(100);
     std::integral auto chroma = Number::integer(100);
@@ -70,7 +70,7 @@ std::string Color::lch(bool include_alpha)
     return FormatHelper::format("lcha({}, {}, {}, {:.2f})", luminance, chroma, hue, alpha);
 }
 
-std::string Color::cmyk()
+std::string cmyk()
 {
     std::floating_point auto cyan = Number::decimal(1.);
     std::floating_point auto magenta = Number::decimal(1.);
@@ -80,7 +80,7 @@ std::string Color::cmyk()
     return FormatHelper::format("cmyk({:.2f}, {:.2f}, {:.2f}, {:.2f})", cyan, magenta, yellow, key);
 }
 
-std::string Color::lab()
+std::string lab()
 {
     std::floating_point auto lightness = Number::decimal(100.0);
     std::floating_point auto red_green = Number::decimal(-128.0, 128.0);
@@ -89,7 +89,7 @@ std::string Color::lab()
     return FormatHelper::format("lab({:.2f}, {:.2f}, {:.2f})", lightness, red_green, blue_yellow);
 }
 
-std::string Color::hsb()
+std::string hsb()
 {
     std::integral auto hue = Number::integer(360);
     std::integral auto saturation = Number::integer(100);
@@ -98,7 +98,7 @@ std::string Color::hsb()
     return FormatHelper::format("hsb({}, {}, {})", hue, saturation, brightness);
 }
 
-std::string Color::hsv()
+std::string hsv()
 {
     std::integral auto hue = Number::integer(360);
     std::integral auto saturation = Number::integer(100);
@@ -107,7 +107,7 @@ std::string Color::hsv()
     return FormatHelper::format("hsv({}, {}, {})", hue, saturation, value);
 }
 
-std::string Color::yuv()
+std::string yuv()
 {
     std::integral auto luminance = Number::integer(255);
     std::integral auto chrominance_blue = Number::integer(255);
