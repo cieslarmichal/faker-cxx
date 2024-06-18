@@ -8,39 +8,39 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/String.h"
 
-namespace faker
+namespace faker::commerce
 {
-std::string_view Commerce::department()
+std::string_view department()
 {
     return Helper::arrayElement(departments);
 }
 
-std::string Commerce::sku(unsigned int length)
+std::string sku(unsigned int length)
 {
     return String::numeric(length, false);
 }
 
-std::string_view Commerce::productAdjective()
+std::string_view productAdjective()
 {
     return Helper::arrayElement(productAdjectives);
 }
 
-std::string_view Commerce::productMaterial()
+std::string_view productMaterial()
 {
     return Helper::arrayElement(productMaterials);
 }
 
-std::string_view Commerce::productName()
+std::string_view productName()
 {
     return Helper::arrayElement(productNames);
 }
 
-std::string Commerce::productFullName()
+std::string productFullName()
 {
     return FormatHelper::format("{} {} {}", productAdjective(), productMaterial(), productName());
 }
 
-std::string Commerce::EAN13()
+std::string EAN13()
 {
     const auto ean13 = String::numeric(12, false);
 
@@ -68,7 +68,7 @@ std::string Commerce::EAN13()
     return ean13 + std::to_string(checkDigit);
 }
 
-std::string Commerce::EAN8()
+std::string EAN8()
 {
     const auto ean8 = String::numeric(7, false);
 
@@ -96,7 +96,7 @@ std::string Commerce::EAN8()
     return ean8 + std::to_string(checkDigit);
 }
 
-std::string Commerce::ISBN13()
+std::string ISBN13()
 {
     const auto isbn13 = String::numeric(12, true);
 
@@ -124,7 +124,7 @@ std::string Commerce::ISBN13()
     return isbn13 + std::to_string(checkDigit);
 }
 
-std::string Commerce::ISBN10()
+std::string ISBN10()
 {
     const auto isbn10 = String::numeric(9, true);
 
@@ -151,42 +151,42 @@ std::string Commerce::ISBN10()
     return isbn10 + std::to_string(checkDigit);
 }
 
-std::string_view Commerce::paymentType()
+std::string_view paymentType()
 {
     return Helper::arrayElement(paymentTypes);
 }
 
-std::string_view Commerce::paymentProvider()
+std::string_view paymentProvider()
 {
     return Helper::arrayElement(paymentProviders);
 }
 
-std::string_view Commerce::productDescription()
+std::string_view productDescription()
 {
     return Helper::arrayElement(productDescriptions);
 }
 
-std::string_view Commerce::productCategory()
+std::string_view productCategory()
 {
     return Helper::arrayElement(productCategoryNames);
 }
 
-std::string_view Commerce::productReview()
+std::string_view productReview()
 {
     return Helper::arrayElement(productReviews);
 }
 
-std::string_view Commerce::discountType()
+std::string_view discountType()
 {
     return Helper::arrayElement(discountTypes);
 }
 
-std::string_view Commerce::orderStatus()
+std::string_view orderStatus()
 {
     return Helper::arrayElement(orderStatuses);
 }
 
-std::string_view Commerce::shippingCarrier()
+std::string_view shippingCarrier()
 {
     return Helper::arrayElement(shippingCarriers);
 }

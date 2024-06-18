@@ -11,6 +11,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace faker::commerce;
 
 class CommerceTest : public Test
 {
@@ -19,7 +20,7 @@ public:
 
 TEST_F(CommerceTest, shouldGenerateCommerceDepartment)
 {
-    const auto generatedDepartment = Commerce::department();
+    const auto generatedDepartment = department();
 
     ASSERT_TRUE(std::ranges::any_of(departments, [generatedDepartment](const std::string_view& department)
                                     { return department == generatedDepartment; }));
@@ -27,10 +28,10 @@ TEST_F(CommerceTest, shouldGenerateCommerceDepartment)
 
 TEST_F(CommerceTest, shouldGenerateSku)
 {
-    const auto sku = Commerce::sku();
+    const auto generatedSku = sku();
 
-    ASSERT_EQ(sku.size(), 4);
-    ASSERT_TRUE(std::ranges::all_of(sku,
+    ASSERT_EQ(generatedSku.size(), 4);
+    ASSERT_TRUE(std::ranges::all_of(generatedSku,
                                     [](char skuCharacter)
                                     {
                                         return std::ranges::any_of(numericCharacters,
@@ -43,10 +44,10 @@ TEST_F(CommerceTest, shouldGenerateSkuWithSpecifiedLength)
 {
     const auto skuLength = 8;
 
-    const auto sku = Commerce::sku(skuLength);
+    const auto generatedSku = sku(skuLength);
 
-    ASSERT_EQ(sku.size(), skuLength);
-    ASSERT_TRUE(std::ranges::all_of(sku,
+    ASSERT_EQ(generatedSku.size(), skuLength);
+    ASSERT_TRUE(std::ranges::all_of(generatedSku,
                                     [](char skuCharacter)
                                     {
                                         return std::ranges::any_of(numericCharacters,
@@ -57,9 +58,9 @@ TEST_F(CommerceTest, shouldGenerateSkuWithSpecifiedLength)
 
 TEST_F(CommerceTest, shouldGenerateProductFullName)
 {
-    const auto productFullName = Commerce::productFullName();
+    const auto generatedProductFullName = productFullName();
 
-    const auto productFullNameElements = StringHelper::split(productFullName, " ");
+    const auto productFullNameElements = StringHelper::split(generatedProductFullName, " ");
 
     const auto& generatedProductAdjective = productFullNameElements[0];
     const auto& generatedProductMaterial = productFullNameElements[1];
@@ -75,7 +76,7 @@ TEST_F(CommerceTest, shouldGenerateProductFullName)
 
 TEST_F(CommerceTest, shouldGenerateProductAdjective)
 {
-    const auto generatedProductAdjective = Commerce::productAdjective();
+    const auto generatedProductAdjective = productAdjective();
 
     ASSERT_TRUE(std::ranges::any_of(productAdjectives, [generatedProductAdjective](const std::string_view& adjective)
                                     { return adjective == generatedProductAdjective; }));
@@ -83,7 +84,7 @@ TEST_F(CommerceTest, shouldGenerateProductAdjective)
 
 TEST_F(CommerceTest, shouldGenerateProductMaterial)
 {
-    const auto generatedProductMaterial = Commerce::productMaterial();
+    const auto generatedProductMaterial = productMaterial();
 
     ASSERT_TRUE(std::ranges::any_of(productMaterials, [generatedProductMaterial](const std::string_view& material)
                                     { return material == generatedProductMaterial; }));
@@ -91,7 +92,7 @@ TEST_F(CommerceTest, shouldGenerateProductMaterial)
 
 TEST_F(CommerceTest, shouldGenerateProductName)
 {
-    const auto generatedProductName = Commerce::productName();
+    const auto generatedProductName = productName();
 
     ASSERT_TRUE(std::ranges::any_of(productNames, [generatedProductName](const std::string_view& productName)
                                     { return productName == generatedProductName; }));
@@ -99,7 +100,7 @@ TEST_F(CommerceTest, shouldGenerateProductName)
 
 TEST_F(CommerceTest, shouldGenerateEan13)
 {
-    const auto generatedEan13 = Commerce::EAN13();
+    const auto generatedEan13 = EAN13();
 
     int sum = 0;
     for (size_t i = 0; i < 13; i++)
@@ -120,7 +121,7 @@ TEST_F(CommerceTest, shouldGenerateEan13)
 
 TEST_F(CommerceTest, shouldGenerateEan8)
 {
-    const auto generatedEan8 = Commerce::EAN8();
+    const auto generatedEan8 = EAN8();
 
     int sum = 0;
     for (size_t i = 0; i < 8; i++)
@@ -141,7 +142,7 @@ TEST_F(CommerceTest, shouldGenerateEan8)
 
 TEST_F(CommerceTest, shouldGenerateIsbn13)
 {
-    const auto generatedIsbn13 = Commerce::ISBN13();
+    const auto generatedIsbn13 = ISBN13();
 
     int sum = 0;
     for (size_t i = 0; i < 13; i++)
@@ -162,7 +163,7 @@ TEST_F(CommerceTest, shouldGenerateIsbn13)
 
 TEST_F(CommerceTest, shouldGenerateIsbn10)
 {
-    const auto generatedIsbn10 = Commerce::ISBN10();
+    const auto generatedIsbn10 = ISBN10();
 
     int sum = 0, weight = 10;
     if (generatedIsbn10[9] == 'X')
@@ -189,7 +190,7 @@ TEST_F(CommerceTest, shouldGenerateIsbn10)
 
 TEST_F(CommerceTest, shouldGeneratePaymentType)
 {
-    const auto generatedPaymentType = Commerce::paymentType();
+    const auto generatedPaymentType = paymentType();
 
     ASSERT_TRUE(std::ranges::any_of(paymentTypes, [generatedPaymentType](const std::string_view& paymentType)
                                     { return paymentType == generatedPaymentType; }));
@@ -197,7 +198,7 @@ TEST_F(CommerceTest, shouldGeneratePaymentType)
 
 TEST_F(CommerceTest, shouldGeneratePaymentProvider)
 {
-    const auto generatedPaymentProvider = Commerce::paymentProvider();
+    const auto generatedPaymentProvider = paymentProvider();
 
     ASSERT_TRUE(std::ranges::any_of(paymentProviders,
                                     [generatedPaymentProvider](const std::string_view& paymentProvider)
@@ -206,7 +207,7 @@ TEST_F(CommerceTest, shouldGeneratePaymentProvider)
 
 TEST_F(CommerceTest, shouldGenerateProductDescription)
 {
-    const auto generatedProductDescription = Commerce::productDescription();
+    const auto generatedProductDescription = productDescription();
 
     ASSERT_TRUE(std::ranges::any_of(productDescriptions,
                                     [generatedProductDescription](const std::string_view& productDescription)
@@ -215,7 +216,7 @@ TEST_F(CommerceTest, shouldGenerateProductDescription)
 
 TEST_F(CommerceTest, shouldGenerateProductCategory)
 {
-    const auto generatedProductCategory = Commerce::productCategory();
+    const auto generatedProductCategory = productCategory();
 
     ASSERT_TRUE(std::ranges::any_of(productCategoryNames,
                                     [generatedProductCategory](const std::string_view& productCategory)
@@ -224,7 +225,7 @@ TEST_F(CommerceTest, shouldGenerateProductCategory)
 
 TEST_F(CommerceTest, shouldGenerateProductReview)
 {
-    const auto generatedProductReview = Commerce::productReview();
+    const auto generatedProductReview = productReview();
 
     ASSERT_TRUE(std::ranges::any_of(productReviews, [generatedProductReview](const std::string_view& productReview)
                                     { return productReview == generatedProductReview; }));
@@ -232,7 +233,7 @@ TEST_F(CommerceTest, shouldGenerateProductReview)
 
 TEST_F(CommerceTest, shouldGenerateDiscountType)
 {
-    const auto generatedDiscountType = Commerce::discountType();
+    const auto generatedDiscountType = discountType();
 
     ASSERT_TRUE(std::ranges::any_of(discountTypes, [generatedDiscountType](const std::string_view& discountType)
                                     { return discountType == generatedDiscountType; }));
@@ -240,7 +241,7 @@ TEST_F(CommerceTest, shouldGenerateDiscountType)
 
 TEST_F(CommerceTest, shouldGenerateOrderStatus)
 {
-    const auto generatedOrderStatus = Commerce::orderStatus();
+    const auto generatedOrderStatus = orderStatus();
 
     ASSERT_TRUE(std::ranges::any_of(orderStatuses, [generatedOrderStatus](const std::string_view& orderStatus)
                                     { return orderStatus == generatedOrderStatus; }));
@@ -248,7 +249,7 @@ TEST_F(CommerceTest, shouldGenerateOrderStatus)
 
 TEST_F(CommerceTest, shouldGenerateShippingCarrier)
 {
-    const auto generatedShippingCarrier = Commerce::shippingCarrier();
+    const auto generatedShippingCarrier = shippingCarrier();
 
     ASSERT_TRUE(std::ranges::any_of(shippingCarriers,
                                     [generatedShippingCarrier](const std::string_view& shippingCarrier)

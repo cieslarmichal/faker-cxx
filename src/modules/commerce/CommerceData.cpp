@@ -3,31 +3,38 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::commerce
 {
 const std::array<std::string_view, 22> departments = {
-    "Books", "Movies",   "Music",  "Games",    "Electronics", "Computers", "Home", "Garden",
-    "Tools", "Grocery",  "Health", "Beauty",   "Toys",        "Kids",      "Baby", "Clothing",
-    "Shoes", "Jewelery", "Sports", "Outdoors", "Automotive",  "Industrial"};
+    "Books", "Movies",   "Music",  "Games",    "Electronics", "Computers",  "Home", "Garden",
+    "Tools", "Grocery",  "Health", "Beauty",   "Toys",        "Kids",       "Baby", "Clothing",
+    "Shoes", "Jewelery", "Sports", "Outdoors", "Automotive",  "Industrial",
+};
 
 const std::array<std::string_view, 24> productAdjectives = {
     "Small",       "Ergonomic", "Electronic", "Rustic",   "Intelligent", "Gorgeous", "Incredible", "Elegant",
     "Fantastic",   "Practical", "Modern",     "Recycled", "Sleek",       "Bespoke",  "Awesome",    "Generic",
-    "Handcrafted", "Handmade",  "Oriental",   "Licensed", "Luxurious",   "Refined",  "Unbranded",  "Tasty"};
+    "Handcrafted", "Handmade",  "Oriental",   "Licensed", "Luxurious",   "Refined",  "Unbranded",  "Tasty",
+};
 
-const std::array<std::string_view, 12> productMaterials = {"Steel",   "Bronze", "Wooden",  "Concrete",
-                                                           "Plastic", "Cotton", "Granite", "Rubber",
-                                                           "Metal",   "Soft",   "Fresh",   "Frozen"};
+const std::array<std::string_view, 12> productMaterials = {
+    "Steel",   "Bronze", "Wooden", "Concrete", "Plastic", "Cotton",
+    "Granite", "Rubber", "Metal",  "Soft",     "Fresh",   "Frozen",
+};
 
-const std::array<std::string_view, 24> productNames = {"Chair",  "Car",    "Computer", "Keyboard", "Mouse",    "Bike",
-                                                       "Ball",   "Gloves", "Pants",    "Shirt",    "Table",    "Shoes",
-                                                       "Hat",    "Towels", "Soap",     "Tuna",     "Chicken",  "Fish",
-                                                       "Cheese", "Bacon",  "Pizza",    "Salad",    "Sausages", "Chips"};
+const std::array<std::string_view, 24> productNames = {
+    "Chair",   "Car",   "Computer", "Keyboard", "Mouse", "Bike",   "Ball",     "Gloves",
+    "Pants",   "Shirt", "Table",    "Shoes",    "Hat",   "Towels", "Soap",     "Tuna",
+    "Chicken", "Fish",  "Cheese",   "Bacon",    "Pizza", "Salad",  "Sausages", "Chips",
+};
 
-const std::array<std::string_view, 5> paymentTypes = {"Credit Card", "Debit Card", "Cash", "Bank Transfer", "Check"};
+const std::array<std::string_view, 5> paymentTypes = {
+    "Credit Card", "Debit Card", "Cash", "Bank Transfer", "Check",
+};
 
 const std::array<std::string_view, 7> paymentProviders = {
-    "Stripe", "Paypal", "Square", "Helcim", "Merchant One", "Flagship Merchant Services", "Stax"};
+    "Stripe", "Paypal", "Square", "Helcim", "Merchant One", "Flagship Merchant Services", "Stax",
+};
 
 const std::array<std::string_view, 18> productDescriptions = {
     "Experience convenience and efficiency with innovative solution.",
@@ -55,28 +62,31 @@ const std::array<std::string_view, 18> productDescriptions = {
     "Optimize your efficiency with streamlined solution, eliminating unnecessary steps and "
     "maximizing productivity.",
     "Experience durability and longevity with rugged construction, built to withstand the test of "
-    "time and rigorous use."};
+    "time and rigorous use.",
+};
 
-const std::array<std::string_view, 20> productCategoryNames = {"Art and Craft",
-                                                               "Baby Products",
-                                                               "Beauty Products",
-                                                               "Board Games and Puzzles",
-                                                               "Books and Stationery",
-                                                               "Clothing, Shoes, and Jewelry",
-                                                               "Electronics",
-                                                               "Fitness Equipment",
-                                                               "Furniture and Furnishings",
-                                                               "Health and Wellness",
-                                                               "Home Decor",
-                                                               "Kitchen Appliances",
-                                                               "Musical Instruments",
-                                                               "Office Supplies",
-                                                               "Outdoor Gear",
-                                                               "Pet Supplies",
-                                                               "Photography Equipment",
-                                                               "Sporting Goods",
-                                                               "Tech Gadgets",
-                                                               "Toys"};
+const std::array<std::string_view, 20> productCategoryNames = {
+    "Art and Craft",
+    "Baby Products",
+    "Beauty Products",
+    "Board Games and Puzzles",
+    "Books and Stationery",
+    "Clothing, Shoes, and Jewelry",
+    "Electronics",
+    "Fitness Equipment",
+    "Furniture and Furnishings",
+    "Health and Wellness",
+    "Home Decor",
+    "Kitchen Appliances",
+    "Musical Instruments",
+    "Office Supplies",
+    "Outdoor Gear",
+    "Pet Supplies",
+    "Photography Equipment",
+    "Sporting Goods",
+    "Tech Gadgets",
+    "Toys",
+};
 
 const std::array<std::string_view, 20> productReviews = {
     "This product exceeded my expectations.",
@@ -98,9 +108,13 @@ const std::array<std::string_view, 20> productReviews = {
     "Unfortunately, it broke shortly after I started using it.",
     "I found it to be overpriced for what it offers.",
     "It feels cheaply made and lacks durability.",
-    "It's difficult to operate and not user-friendly."};
+    "It's difficult to operate and not user-friendly.",
+};
 
-const std::array<std::string_view, 2> discountTypes = {"percentage", "value"};
+const std::array<std::string_view, 2> discountTypes = {
+    "percentage",
+    "value",
+};
 
 const std::array<std::string_view, 9> shippingCarriers = {
     "UPS", "FedEx", "USPS", "DHL", "Canada Post", "Royal Mail", "Australia Post", "Correos", "Deutsche Post",

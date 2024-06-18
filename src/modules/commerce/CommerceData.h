@@ -3,15 +3,8 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::commerce
 {
-constexpr unsigned minDiscountCodeLength = 6;
-constexpr unsigned maxDiscountCodeLength = 12;
-constexpr double minDiscountAmount = 10.;
-constexpr double maxDiscountAmount = 1000.;
-constexpr double minDiscountPercentage = 1.;
-constexpr double maxDiscountPercentage = 90.;
-
 extern const std::array<std::string_view, 22> departments;
 extern const std::array<std::string_view, 24> productAdjectives;
 extern const std::array<std::string_view, 12> productMaterials;
