@@ -14,6 +14,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace color;
 
 class ColorTest : public Test
 {
@@ -22,7 +23,7 @@ public:
 
 TEST_F(ColorTest, shouldGenerateColorName)
 {
-    const auto generatedColorName = Color::name();
+    const auto generatedColorName = name();
 
     ASSERT_TRUE(std::ranges::any_of(colors, [generatedColorName](const std::string_view& colorName)
                                     { return colorName == generatedColorName; }));
@@ -30,7 +31,7 @@ TEST_F(ColorTest, shouldGenerateColorName)
 
 TEST_F(ColorTest, shouldGenerateRgbColorWithoutAlpha)
 {
-    const auto generatedRgbColor = Color::rgb();
+    const auto generatedRgbColor = rgb();
 
     const auto rgbNumbers = StringHelper::split(generatedRgbColor.substr(4, generatedRgbColor.size() - 1), " ");
 
@@ -48,7 +49,7 @@ TEST_F(ColorTest, shouldGenerateRgbColorWithoutAlpha)
 
 TEST_F(ColorTest, shouldGenerateRgbColorWithAlpha)
 {
-    const auto generatedRgbaColor = Color::rgb(true);
+    const auto generatedRgbaColor = rgb(true);
 
     const auto rgbaNumbers = StringHelper::split(generatedRgbaColor.substr(5, generatedRgbaColor.size() - 1), " ");
 
@@ -68,7 +69,7 @@ TEST_F(ColorTest, shouldGenerateRgbColorWithAlpha)
 
 TEST_F(ColorTest, shouldGenerateHexColorWithoutAlpha)
 {
-    const auto hexadecimal = Color::hex();
+    const auto hexadecimal = hex();
 
     const auto prefix = hexadecimal.substr(0, 1);
     const auto hexNumber = hexadecimal.substr(1);
@@ -81,7 +82,7 @@ TEST_F(ColorTest, shouldGenerateHexColorWithoutAlpha)
 
 TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
 {
-    const auto hexadecimal = Color::hex(HexCasing::Upper, HexPrefix::ZeroX, true);
+    const auto hexadecimal = hex(HexCasing::Upper, HexPrefix::ZeroX, true);
 
     const auto prefix = hexadecimal.substr(0, 2);
     const auto hexNumber = hexadecimal.substr(2);
@@ -94,8 +95,8 @@ TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
 
 TEST_F(ColorTest, shouldGenerateHslWithoutAlpha)
 {
-    const auto generatedHslColor = faker::Color::hsl();
-    const auto hslValues = faker::StringHelper::split(generatedHslColor.substr(4, generatedHslColor.size() - 1), " ");
+    const auto generatedHslColor = hsl();
+    const auto hslValues = StringHelper::split(generatedHslColor.substr(4, generatedHslColor.size() - 1), " ");
 
     int hue, staturation, lightness;
 
@@ -112,8 +113,8 @@ TEST_F(ColorTest, shouldGenerateHslWithoutAlpha)
 
 TEST_F(ColorTest, shouldGenerateHslWithAlpha)
 {
-    const auto generatedHslaColor = faker::Color::hsl(true);
-    const auto hslValues = faker::StringHelper::split(generatedHslaColor.substr(5, generatedHslaColor.size() - 1), " ");
+    const auto generatedHslaColor = hsl(true);
+    const auto hslValues = StringHelper::split(generatedHslaColor.substr(5, generatedHslaColor.size() - 1), " ");
 
     int hue, saturation, lightness;
 
@@ -134,8 +135,8 @@ TEST_F(ColorTest, shouldGenerateHslWithAlpha)
 
 TEST_F(ColorTest, shouldGenerateLchWithoutAlpha)
 {
-    const auto generatedLchColor = faker::Color::lch();
-    const auto lchValues = faker::StringHelper::split(generatedLchColor.substr(4, generatedLchColor.size() - 1), " ");
+    const auto generatedLchColor = lch();
+    const auto lchValues = StringHelper::split(generatedLchColor.substr(4, generatedLchColor.size() - 1), " ");
 
     int luminance, chroma, hue;
 
@@ -152,8 +153,8 @@ TEST_F(ColorTest, shouldGenerateLchWithoutAlpha)
 
 TEST_F(ColorTest, shouldGenerateLchWithAlpha)
 {
-    const auto generatedLchaColor = faker::Color::lch(true);
-    const auto lchValues = faker::StringHelper::split(generatedLchaColor.substr(5, generatedLchaColor.size() - 1), " ");
+    const auto generatedLchaColor = lch(true);
+    const auto lchValues = StringHelper::split(generatedLchaColor.substr(5, generatedLchaColor.size() - 1), " ");
 
     int luminance, chroma, hue;
 
@@ -174,9 +175,8 @@ TEST_F(ColorTest, shouldGenerateLchWithAlpha)
 
 TEST_F(ColorTest, shouldGenerateCmykColor)
 {
-    const auto generatedCmykColor = faker::Color::cmyk();
-    const auto cmykValues =
-        faker::StringHelper::split(generatedCmykColor.substr(5, generatedCmykColor.size() - 1), " ");
+    const auto generatedCmykColor = cmyk();
+    const auto cmykValues = StringHelper::split(generatedCmykColor.substr(5, generatedCmykColor.size() - 1), " ");
 
     auto offset = cmykValues[0].size();
     const auto cyan = std::stod(cmykValues[0], &offset);
@@ -197,8 +197,8 @@ TEST_F(ColorTest, shouldGenerateCmykColor)
 
 TEST_F(ColorTest, shouldGenerateLabColor)
 {
-    const auto generatedLabColor = faker::Color::lab();
-    const auto labValues = faker::StringHelper::split(generatedLabColor.substr(4, generatedLabColor.size() - 1), " ");
+    const auto generatedLabColor = lab();
+    const auto labValues = StringHelper::split(generatedLabColor.substr(4, generatedLabColor.size() - 1), " ");
 
     auto offset = labValues[0].size();
     const auto lightness = std::stod(labValues[0], &offset);
@@ -216,8 +216,8 @@ TEST_F(ColorTest, shouldGenerateLabColor)
 
 TEST_F(ColorTest, shouldGenerateHsb)
 {
-    const auto generatedHsbColor = faker::Color::hsb();
-    const auto hsbValues = faker::StringHelper::split(generatedHsbColor.substr(4, generatedHsbColor.size() - 1), " ");
+    const auto generatedHsbColor = hsb();
+    const auto hsbValues = StringHelper::split(generatedHsbColor.substr(4, generatedHsbColor.size() - 1), " ");
 
     int hue, saturation, brightness;
 
@@ -234,8 +234,8 @@ TEST_F(ColorTest, shouldGenerateHsb)
 
 TEST_F(ColorTest, shouldGenerateHsv)
 {
-    const auto generatedHsvColor = faker::Color::hsv();
-    const auto hsvValues = faker::StringHelper::split(generatedHsvColor.substr(4, generatedHsvColor.size() - 1), " ");
+    const auto generatedHsvColor = hsv();
+    const auto hsvValues = StringHelper::split(generatedHsvColor.substr(4, generatedHsvColor.size() - 1), " ");
 
     int hue, saturation, brightness;
 
@@ -252,8 +252,8 @@ TEST_F(ColorTest, shouldGenerateHsv)
 
 TEST_F(ColorTest, shouldGenerateYuv)
 {
-    const auto generatedYuvColor = faker::Color::yuv();
-    const auto yuvValues = faker::StringHelper::split(generatedYuvColor.substr(4, generatedYuvColor.size() - 1), " ");
+    const auto generatedYuvColor = yuv();
+    const auto yuvValues = StringHelper::split(generatedYuvColor.substr(4, generatedYuvColor.size() - 1), " ");
 
     int luminance, chrominanceBlueColor, chrominanceRedColor;
 
