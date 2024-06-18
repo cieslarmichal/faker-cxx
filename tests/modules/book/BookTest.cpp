@@ -8,7 +8,7 @@
 #include "book/BookData.h"
 
 using namespace ::testing;
-using namespace faker;
+using namespace faker::book;
 
 class BookTest : public Test
 {
@@ -17,14 +17,14 @@ public:
 
 TEST_F(BookTest, shouldGenerateTitle)
 {
-    const auto bookTitle = Book::title();
+    const auto bookTitle = title();
 
     ASSERT_TRUE(std::ranges::any_of(titles, [bookTitle](const std::string_view& title) { return title == bookTitle; }));
 }
 
 TEST_F(BookTest, shouldGenerateGenre)
 {
-    const auto bookGenre = Book::genre();
+    const auto bookGenre = genre();
 
     ASSERT_TRUE(
         std::ranges::any_of(bookGenres, [bookGenre](const std::string_view& genre) { return genre == bookGenre; }));
@@ -32,7 +32,7 @@ TEST_F(BookTest, shouldGenerateGenre)
 
 TEST_F(BookTest, shouldGenerateAuthor)
 {
-    const auto bookAuthor = Book::author();
+    const auto bookAuthor = author();
 
     ASSERT_TRUE(
         std::ranges::any_of(authors, [bookAuthor](const std::string_view& author) { return author == bookAuthor; }));
@@ -40,7 +40,7 @@ TEST_F(BookTest, shouldGenerateAuthor)
 
 TEST_F(BookTest, shouldGeneratePublisher)
 {
-    const auto bookPublisher = Book::publisher();
+    const auto bookPublisher = publisher();
 
     ASSERT_TRUE(std::ranges::any_of(publishers, [bookPublisher](const std::string_view& publisher)
                                     { return publisher == bookPublisher; }));
@@ -48,7 +48,7 @@ TEST_F(BookTest, shouldGeneratePublisher)
 
 TEST_F(BookTest, shouldGenerateFormat)
 {
-    const auto bookFormat = Book::format();
+    const auto bookFormat = format();
 
     ASSERT_TRUE(std::ranges::any_of(bookFormats,
                                     [bookFormat](const std::string_view& format) { return format == bookFormat; }));
@@ -56,7 +56,7 @@ TEST_F(BookTest, shouldGenerateFormat)
 
 TEST_F(BookTest, shouldGenerateSeries)
 {
-    const auto randomSeries = Book::series();
+    const auto randomSeries = series();
 
     ASSERT_TRUE(std::ranges::any_of(bookSeries,
                                     [randomSeries](const std::string_view& series) { return series == randomSeries; }));

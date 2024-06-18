@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::book
 {
 const std::array<std::string_view, 125> authors = {
     "A. A. Milne",

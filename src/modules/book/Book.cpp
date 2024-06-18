@@ -5,34 +5,34 @@
 #include "BookData.h"
 #include "faker-cxx/Helper.h"
 
-namespace faker
+namespace faker::book
 {
-std::string_view Book::title()
+std::string_view title()
 {
     return Helper::arrayElement(titles);
 }
 
-std::string_view Book::genre()
+std::string_view genre()
 {
     return Helper::arrayElement(bookGenres);
 }
 
-std::string_view Book::author()
+std::string_view author()
 {
     return Helper::arrayElement(authors);
 }
 
-std::string_view Book::publisher()
+std::string_view publisher()
 {
     return Helper::arrayElement(publishers);
 }
 
-std::string_view Book::format()
+std::string_view format()
 {
     return Helper::arrayElement(bookFormats);
 }
 
-std::string_view Book::series()
+std::string_view series()
 {
     return Helper::arrayElement(bookSeries);
 }

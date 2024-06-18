@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::book
 {
 extern const std::array<std::string_view, 125> authors;
 extern const std::array<std::string_view, 4> bookFormats;
