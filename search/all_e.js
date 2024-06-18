@@ -24,6 +24,5 @@ var searchData=
   ['productmaterial_21',['productMaterial',['../classfaker_1_1Commerce.html#a14bf747c2e466154a833f89b56c9f4ea',1,'faker::Commerce']]],
   ['productname_22',['productName',['../classfaker_1_1Commerce.html#a95bff9ff680bd6713de5ea78eec4e8d3',1,'faker::Commerce']]],
   ['productreview_23',['productReview',['../classfaker_1_1Commerce.html#a3d052f9a394da7294a2e352f1808b6b4',1,'faker::Commerce']]],
-  ['protocol_24',['protocol',['../classfaker_1_1Internet.html#a6694708680bfa716d51039bd89c315c0',1,'faker::Internet']]],
-  ['publisher_25',['publisher',['../classfaker_1_1Book.html#a7dec83353a67c2c7e1851fdb88eb993c',1,'faker::Book']]]
+  ['protocol_24',['protocol',['../classfaker_1_1Internet.html#a6694708680bfa716d51039bd89c315c0',1,'faker::Internet']]]
 ];

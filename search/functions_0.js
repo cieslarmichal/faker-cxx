@@ -13,6 +13,5 @@ var searchData=
   ['anonymoususername_10',['anonymousUsername',['../classfaker_1_1Internet.html#a495813778b7e50dc6d957986b68255e2',1,'faker::Internet']]],
   ['areacode_11',['areaCode',['../classfaker_1_1Phone.html#a388f10abe9436b9376c746eb522a8d08',1,'faker::Phone']]],
   ['arrayelement_12',['arrayElement',['../classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b',1,'faker::Helper::arrayElement(std::span&lt; const T &gt; data)'],['../classfaker_1_1Helper.html#ac7c79f7dbcb604b8c1c64e67d01ca1ad',1,'faker::Helper::arrayElement(const std::vector&lt; T &gt; &amp;data)'],['../classfaker_1_1Helper.html#a8d98ea8586ddd562c3fd55be509ae24f',1,'faker::Helper::arrayElement(const std::initializer_list&lt; T &gt; &amp;data)']]],
-  ['artist_13',['artist',['../classfaker_1_1Music.html#accfebfbbc5f2ac3d5119aa8ac90cd408',1,'faker::Music']]],
-  ['author_14',['author',['../classfaker_1_1Book.html#ae5cb6cc2e517816da37999b6cd8586c2',1,'faker::Book']]]
+  ['artist_13',['artist',['../classfaker_1_1Music.html#accfebfbbc5f2ac3d5119aa8ac90cd408',1,'faker::Music']]]
 ];

@@ -9,10 +9,9 @@ var searchData=
   ['firstname_6',['firstName',['../classfaker_1_1Person.html#a4e219a652fd1ddcdceefba615535a537',1,'faker::Person']]],
   ['flower_7',['flower',['../classfaker_1_1Plant.html#ab04b3d2428ec02d3c066fd1b132c0f70',1,'faker::Plant']]],
   ['foodcategory_8',['foodCategory',['../classfaker_1_1Food.html#a57ae8831ea7983c2a9c00615ec8a1ea0',1,'faker::Food']]],
-  ['format_9',['format',['../classfaker_1_1Book.html#af514e5832c1acf497e1d6c0b89301174',1,'faker::Book']]],
-  ['fromcharacters_10',['fromCharacters',['../classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331',1,'faker::String::fromCharacters(const std::string &amp;characters, unsigned length=1)'],['../classfaker_1_1String.html#a3dca95bfceba12c0c151f0564627bd0c',1,'faker::String::fromCharacters(GuaranteeMap &amp;&amp;guarantee, const std::string &amp;characters, unsigned length=1)']]],
-  ['fruit_11',['fruit',['../classfaker_1_1Food.html#a016b49c2297a67c33b0988f57a030209',1,'faker::Food']]],
-  ['fuel_12',['fuel',['../classfaker_1_1Vehicle.html#a992779ff9e9d6bb9c9517a2cb33192cf',1,'faker::Vehicle']]],
-  ['fullname_13',['fullName',['../classfaker_1_1Person.html#a4a3a11d354383caa8bcede4914dff6a1',1,'faker::Person']]],
-  ['futuredate_14',['futureDate',['../classfaker_1_1Date.html#abe6d9df85045d492d63f79e11e0ca08c',1,'faker::Date']]]
+  ['fromcharacters_9',['fromCharacters',['../classfaker_1_1String.html#a92030c8a33a900266ba32df06aefd331',1,'faker::String::fromCharacters(const std::string &amp;characters, unsigned length=1)'],['../classfaker_1_1String.html#a3dca95bfceba12c0c151f0564627bd0c',1,'faker::String::fromCharacters(GuaranteeMap &amp;&amp;guarantee, const std::string &amp;characters, unsigned length=1)']]],
+  ['fruit_10',['fruit',['../classfaker_1_1Food.html#a016b49c2297a67c33b0988f57a030209',1,'faker::Food']]],
+  ['fuel_11',['fuel',['../classfaker_1_1Vehicle.html#a992779ff9e9d6bb9c9517a2cb33192cf',1,'faker::Vehicle']]],
+  ['fullname_12',['fullName',['../classfaker_1_1Person.html#a4a3a11d354383caa8bcede4914dff6a1',1,'faker::Person']]],
+  ['futuredate_13',['futureDate',['../classfaker_1_1Date.html#abe6d9df85045d492d63f79e11e0ca08c',1,'faker::Date']]]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['vehicle_0',['Vehicle',['../classfaker_1_1Vehicle.html',1,'faker']]],
-  ['videogame_1',['VideoGame',['../classfaker_1_1VideoGame.html',1,'faker']]]
+  ['weather_0',['Weather',['../classfaker_1_1Weather.html',1,'faker']]],
+  ['weightedelement_1',['WeightedElement',['../structfaker_1_1Helper_1_1WeightedElement.html',1,'faker::Helper']]]
 ];
