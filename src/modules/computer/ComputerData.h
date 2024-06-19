@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::computer
 {
 extern const std::array<std::string_view, 4> computerTypes;
 extern const std::array<std::string_view, 20> computerManufacturers;
