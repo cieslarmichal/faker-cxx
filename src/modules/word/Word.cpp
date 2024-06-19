@@ -2,15 +2,12 @@
 
 #include <algorithm>
 #include <array>
-#include <cstdint>
 #include <optional>
 #include <string>
 #include <string_view>
-#include <vector>
 
-#include "../../common/StringHelper.h"
-#include "data/All.h"
 #include "faker-cxx/Helper.h"
+#include "WordData.h"
 
 namespace faker::word
 {
@@ -60,7 +57,7 @@ std::string words(unsigned numberOfWords)
     std::string combined_words;
     if (numberOfWords <= 256)
     {
-        std::array<unsigned int, 256> tmp; // fitting 1024 bytes worth of integers*
+        std::array<unsigned int, 256> tmp{}; // fitting 1024 bytes worth of integers*
         const size_t last_index = _allWords.size() - 1;
         size_t reserve_size = 0;
 

@@ -17,8 +17,7 @@
 #include "internet/InternetData.h"
 #include "person/PersonData.h"
 #include "string/StringData.h"
-#include "word/data/Adjectives.h"
-#include "word/data/Nouns.h"
+#include "word/WordData.h"
 
 using namespace ::testing;
 using namespace faker;
