@@ -7,13 +7,7 @@
 #include "gtest/gtest.h"
 
 #include "common/StringHelper.h"
-#include "word/data/Adjectives.h"
-#include "word/data/Adverbs.h"
-#include "word/data/Conjunctions.h"
-#include "word/data/Interjections.h"
-#include "word/data/Nouns.h"
-#include "word/data/Prepositions.h"
-#include "word/data/Verbs.h"
+#include "word/WordData.h"
 
 using namespace faker::word;
 using namespace ::testing;
@@ -21,18 +15,6 @@ using namespace ::testing;
 class WordTest : public Test
 {
 public:
-    WordTest()
-    {
-        allWords.insert(allWords.end(), adjectives.begin(), adjectives.end());
-        allWords.insert(allWords.end(), adverbs.begin(), adverbs.end());
-        allWords.insert(allWords.end(), conjunctions.begin(), conjunctions.end());
-        allWords.insert(allWords.end(), interjections.begin(), interjections.end());
-        allWords.insert(allWords.end(), nouns.begin(), nouns.end());
-        allWords.insert(allWords.end(), prepositions.begin(), prepositions.end());
-        allWords.insert(allWords.end(), verbs.begin(), verbs.end());
-    }
-
-    std::vector<std::string> allWords;
 };
 
 TEST_F(WordTest, shouldGenerateAdjective)
@@ -207,24 +189,24 @@ TEST_F(WordTest, shouldGenerateSample)
 {
     const auto generatedSample = sample();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(allWords, [generatedSample](const std::string& word) { return word == generatedSample; }));
+    ASSERT_TRUE(std::ranges::any_of(_allWords, [generatedSample](const std::string_view& word)
+                                    { return word == generatedSample; }));
 }
 
 TEST_F(WordTest, shouldGenerateSampleWithExistingLength)
 {
     const auto generatedSample = sample(5);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(allWords, [generatedSample](const std::string& word) { return word == generatedSample; }));
+    ASSERT_TRUE(std::ranges::any_of(_allWords, [generatedSample](const std::string_view& word)
+                                    { return word == generatedSample; }));
 }
 
 TEST_F(WordTest, shouldGenerateSampleWithNonExistingLength)
 {
     const auto generatedSample = sample(100);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(allWords, [generatedSample](const std::string& word) { return word == generatedSample; }));
+    ASSERT_TRUE(std::ranges::any_of(_allWords, [generatedSample](const std::string_view& word)
+                                    { return word == generatedSample; }));
 }
 
 TEST_F(WordTest, shouldGenerateWords)
@@ -233,7 +215,6 @@ TEST_F(WordTest, shouldGenerateWords)
 
     const auto separatedWords = faker::StringHelper::split(generatedWords, " ");
 
-    ASSERT_TRUE(std::ranges::all_of(separatedWords, [this](const std::string& separatedWord)
-                                    { return std::ranges::find(allWords, separatedWord) != allWords.end(); }));
+    ASSERT_TRUE(std::ranges::all_of(separatedWords, [](const std::string& separatedWord)
+                                    { return std::ranges::find(_allWords, separatedWord) != _allWords.end(); }));
 }
-

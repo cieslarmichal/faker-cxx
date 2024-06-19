@@ -85,6 +85,7 @@ set(FAKER_SOURCES
     src/modules/weather/Weather.cpp
     src/modules/weather/WeatherData.cpp
     src/modules/word/Word.cpp
+    src/modules/word/WordData.cpp
     src/common/FormatHelper.cpp
     src/common/LuhnCheck.cpp
     src/common/StringHelper.cpp

@@ -14,7 +14,7 @@
 #include "faker-cxx/types/Country.h"
 #include "person/PersonData.h"
 #include "StringHelper.h"
-#include "word/data/Nouns.h"
+#include "word/WordData.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -795,7 +795,7 @@ bool checkTokenFormat(const std::string& bio)
     {
         // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} so check that the value is
         // present in the bio_part vector.
-        if (std::find(word::nouns.begin(),  word::nouns.end(), std::string{matches[1]}) != word::nouns.end() &&
+        if (std::find(word::nouns.begin(), word::nouns.end(), std::string{matches[1]}) != word::nouns.end() &&
             std::find(bioSupporters.begin(), bioSupporters.end(), std::string{matches[2]}) != bioSupporters.end() &&
             std::find(bioParts.begin(), bioParts.end(), std::string{matches[3]}) != bioParts.end())
             return true;
