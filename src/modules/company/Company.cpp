@@ -9,9 +9,9 @@
 #include "faker-cxx/Number.h"
 #include "faker-cxx/Person.h"
 
-namespace faker
+namespace faker::company
 {
-std::string Company::name()
+std::string name()
 {
     std::string companyName;
 
@@ -36,52 +36,52 @@ std::string Company::name()
     return companyName;
 }
 
-std::string_view Company::type()
+std::string_view type()
 {
     return Helper::arrayElement(companyTypes);
 }
 
-std::string_view Company::industry()
+std::string_view industry()
 {
     return Helper::arrayElement(companyIndustries);
 }
 
-std::string Company::buzzPhrase()
+std::string buzzPhrase()
 {
     return FormatHelper::format("{} {} {}", buzzVerb(), buzzAdjective(), buzzNoun());
 }
 
-std::string_view Company::buzzAdjective()
+std::string_view buzzAdjective()
 {
     return Helper::arrayElement(buzzAdjectives);
 }
 
-std::string_view Company::buzzNoun()
+std::string_view buzzNoun()
 {
     return Helper::arrayElement(buzzNouns);
 }
 
-std::string_view Company::buzzVerb()
+std::string_view buzzVerb()
 {
     return Helper::arrayElement(buzzVerbs);
 }
 
-std::string Company::catchPhrase()
+std::string catchPhrase()
 {
     return FormatHelper::format("{} {} {}", catchPhraseAdjective(), catchPhraseDescriptor(), catchPhraseNoun());
 }
 
-std::string_view Company::catchPhraseAdjective()
+std::string_view catchPhraseAdjective()
 {
     return Helper::arrayElement(catchPhraseAdjectives);
 }
 
-std::string_view Company::catchPhraseDescriptor()
+std::string_view catchPhraseDescriptor()
 {
     return Helper::arrayElement(catchPhraseDescriptors);
 }
 
-std::string_view Company::catchPhraseNoun()
+std::string_view catchPhraseNoun()
 {
     return Helper::arrayElement(catchPhraseNouns);
 }
