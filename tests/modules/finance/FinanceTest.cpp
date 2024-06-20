@@ -202,8 +202,8 @@ TEST_P(FinanceTest, CheckIbanGenerator)
 
 INSTANTIATE_TEST_SUITE_P(TestIbanGenerator, FinanceTest,
                          ValuesIn(std::views::keys(expectedRegex).begin(), std::views::keys(expectedRegex).end()),
-                         [](const TestParamInfo<Finance::IbanCountry>& info)
-                         { return generatedTestName.at(info.param); });
+                         [](const TestParamInfo<Finance::IbanCountry>& paramInfo)
+                         { return generatedTestName.at(paramInfo.param); });
 
 TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 {
@@ -432,5 +432,5 @@ INSTANTIATE_TEST_SUITE_P(TestBicGenerator, FinanceBicTest,
                                 Finance::BicCountry::Romania, Finance::BicCountry::France, Finance::BicCountry::Italy,
                                 Finance::BicCountry::Spain, Finance::BicCountry::Netherlands,
                                 Finance::BicCountry::India),
-                         [](const TestParamInfo<Finance::BicCountry>& info)
-                         { return generatedBicTestName.at(info.param); });
+                         [](const TestParamInfo<Finance::BicCountry>& paramInfo)
+                         { return generatedBicTestName.at(paramInfo.param); });

@@ -393,7 +393,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 }
 
 INSTANTIATE_TEST_SUITE_P(TestPersonNamesByCountries, PersonTest, ValuesIn(countries),
-                         [](const TestParamInfo<Country>& info) { return generatedTestName.at(info.param); });
+                         [](const TestParamInfo<Country>& paramInfo) { return generatedTestName.at(paramInfo.param); });
 
 // TODO: move to parameterized tests
 TEST_F(PersonTest, shouldGeneratePrefix)
@@ -609,9 +609,9 @@ std::string toString(Language language)
 }
 
 INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, testing::ValuesIn(languageSexPairs),
-                         [](const testing::TestParamInfo<PersonSexSuite::ParamType>& info)
+                         [](const testing::TestParamInfo<PersonSexSuite::ParamType>& paramInfo)
                          {
-                             auto param = info.param;
+                             auto param = paramInfo.param;
                              return toString(param.first) + "_" + toString(param.second);
                          });
 
@@ -647,8 +647,8 @@ std::string toString(SsnCountry country)
 }
 
 INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite, testing::ValuesIn(supportedSsnCountries),
-                         [](const testing::TestParamInfo<PersonSsnSuite::ParamType>& info)
-                         { return "shouldGenerate" + toString(info.param) + "Ssn"; });
+                         [](const testing::TestParamInfo<PersonSsnSuite::ParamType>& paramInfo)
+                         { return "shouldGenerate" + toString(paramInfo.param) + "Ssn"; });
 
 class PersonPassportTest : public Test
 {

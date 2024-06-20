@@ -272,7 +272,8 @@ TEST_P(LocationTest, shouldGenerateSecondaryAddress)
 }
 
 INSTANTIATE_TEST_SUITE_P(TestLocationByCountries, LocationTest, ValuesIn(addressCountries),
-                         [](const TestParamInfo<AddressCountry>& info) { return generatedTestName.at(info.param); });
+                         [](const TestParamInfo<AddressCountry>& paramInfo)
+                         { return generatedTestName.at(paramInfo.param); });
 
 TEST_F(LocationTest, shouldGenerateUsaStreet)
 {
