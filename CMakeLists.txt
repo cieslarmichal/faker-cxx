@@ -24,19 +24,12 @@ endif ()
 
 set(FAKER_SOURCES
     src/modules/airline/Airline.cpp
-    src/modules/airline/AirlineData.cpp
     src/modules/animal/Animal.cpp
-    src/modules/animal/AnimalData.cpp
     src/modules/book/Book.cpp
-    src/modules/book/BookData.cpp
     src/modules/color/Color.cpp
-    src/modules/color/ColorData.cpp
     src/modules/commerce/Commerce.cpp
-    src/modules/commerce/CommerceData.cpp
     src/modules/company/Company.cpp
-    src/modules/company/CompanyData.cpp
     src/modules/computer/Computer.cpp
-    src/modules/computer/ComputerData.cpp
     src/modules/crypto/Crypto.cpp
     src/modules/database/Database.cpp
     src/modules/database/DatabaseData.cpp
