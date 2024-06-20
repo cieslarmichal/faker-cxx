@@ -8,21 +8,21 @@ namespace faker
 {
 enum class AddressCountry
 {
-    Usa,
-    Poland,
-    France,
-    Russia,
-    Ukraine,
-    Italy,
-    Germany,
-    Czech,
     Australia,
-    India,
-    Denmark,
-    Spain,
     Brazil,
-    Finland,
+    Czech,
+    Denmark,
     Estonia,
+    Finland,
+    France,
+    Germany,
+    India,
+    Italy,
+    Poland,
+    Russia,
+    Spain,
+    Ukraine,
+    Usa,
 };
 
 class Location

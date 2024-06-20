@@ -11,11 +11,11 @@ namespace faker
 {
 enum class HttpResponseType
 {
-    Informational,
-    Success,
-    Redirection,
     ClientError,
-    ServerError
+    Informational,
+    Redirection,
+    ServerError,
+    Success,
 };
 
 enum class WebProtocol
@@ -113,16 +113,16 @@ public:
 
     enum class EmojiType
     {
-        Smiley,
-        Body,
-        Person,
-        Nature,
-        Food,
-        Travel,
         Activity,
+        Body,
+        Flag,
+        Food,
+        Nature,
         Object,
+        Person,
+        Smiley,
         Symbol,
-        Flag
+        Travel,
     };
 
     /**

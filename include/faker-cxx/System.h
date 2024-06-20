@@ -18,11 +18,11 @@ struct FileOptions
 
 enum class FileType
 {
-    Video,
+    Application,
     Audio,
     Image,
     Text,
-    Application
+    Video,
 };
 
 struct CronOptions
