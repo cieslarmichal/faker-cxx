@@ -355,9 +355,8 @@ void SHA256::transform()
     for (uint8_t i = 0, j = 0; i < 16; i++, j += 4)
     { // Split data in 32 bit blocks for the 16 first words
         // m[i] = (m_data[j] << 24) | (m_data[j + 1] << 16) | (m_data[j + 2] << 8) | (m_data[j + 3]);
-        m[i] = static_cast<uint32_t>(
-            (static_cast<uint32_t>(m_data[j]) << 24) | (static_cast<uint32_t>(m_data[j + 1]) << 16) |
-            (static_cast<uint32_t>(m_data[j + 2]) << 8) | static_cast<uint32_t>(m_data[j + 3]));
+        m[i] = (static_cast<uint32_t>(m_data[j]) << 24) | (static_cast<uint32_t>(m_data[j + 1]) << 16) |
+                (static_cast<uint32_t>(m_data[j + 2]) << 8) | static_cast<uint32_t>(m_data[j + 3]);
     }
 
     for (uint8_t k = 16; k < 64; k++)
@@ -437,7 +436,7 @@ void SHA256::revert(std::array<uint8_t, 32>& hash)
     {
         for (uint8_t j = 0; j < 8; j++)
         {
-            hash[i + (j * 4)] = (m_state[j] >> (24 - i * 8)) & 0x000000ff;
+            hash[static_cast<uint8_t>(i + (j * 4))] = (m_state[j] >> (24 - i * 8)) & 0x000000ff;
         }
     }
 }

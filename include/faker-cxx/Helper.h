@@ -60,7 +60,7 @@ public:
     template <typename It>
     static auto arrayElement(It start, It end) -> decltype(*::std::declval<It>())
     {
-        size_t size = end - start;
+        size_t size = static_cast<size_t>(end - start);
 
         if (size == 0)
         {

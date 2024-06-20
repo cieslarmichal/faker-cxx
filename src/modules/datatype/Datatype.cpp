@@ -13,23 +13,23 @@ bool Datatype::boolean()
 
 bool Datatype::boolean(double probability)
 {
-    if (probability != NAN)
+    if (probability != nan(""))
     {
         double prob = probability;
 
-        if (prob <= 0.f)
+        if (prob <= 0.)
         {
             return false;
         }
 
-        if (prob >= 1.f)
+        if (prob >= 1.)
         {
             return true;
         }
 
-        return Number::decimal(0.f, 1.f) < prob;
+        return Number::decimal(0., 1.) < prob;
     }
 
-    return Number::decimal(0.f, 1.f) < 0.5f;
+    return Number::decimal(0., 1.) < 0.5;
 }
 }
