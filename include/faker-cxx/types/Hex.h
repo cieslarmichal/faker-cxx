@@ -10,8 +10,8 @@ enum class HexCasing
 
 enum class HexPrefix
 {
-    ZeroX,
     Hash,
-    None
+    None,
+    ZeroX,
 };
 }

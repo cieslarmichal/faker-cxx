@@ -141,16 +141,16 @@ public:
 
     enum class BicCountry
     {
-        Poland,
-        UnitedStates,
-        UnitedKingdom,
-        Germany,
-        Romania,
         France,
-        Italy,
-        Spain,
-        Netherlands,
+        Germany,
         India,
+        Italy,
+        Netherlands,
+        Poland,
+        Romania,
+        Spain,
+        UnitedKingdom,
+        UnitedStates,
     };
 
     /**
