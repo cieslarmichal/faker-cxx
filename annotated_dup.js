@@ -8,7 +8,6 @@ var annotated_dup =
         [ "Range", "structfaker_1_1airline_1_1Range.html", null ]
       ] ],
       [ "CharCount", "structfaker_1_1CharCount.html", null ],
-      [ "Company", "classfaker_1_1Company.html", null ],
       [ "CronOptions", "structfaker_1_1CronOptions.html", null ],
       [ "Crypto", "classfaker_1_1Crypto.html", null ],
       [ "Currency", "structfaker_1_1Currency.html", null ],
