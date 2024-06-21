@@ -24,68 +24,40 @@ endif ()
 
 set(FAKER_SOURCES
     src/modules/airline/Airline.cpp
-    src/modules/airline/AirlineData.cpp
     src/modules/animal/Animal.cpp
-    src/modules/animal/AnimalData.cpp
     src/modules/book/Book.cpp
-    src/modules/book/BookData.cpp
     src/modules/color/Color.cpp
-    src/modules/color/ColorData.cpp
     src/modules/commerce/Commerce.cpp
-    src/modules/commerce/CommerceData.cpp
     src/modules/company/Company.cpp
-    src/modules/company/CompanyData.cpp
     src/modules/computer/Computer.cpp
-    src/modules/computer/ComputerData.cpp
     src/modules/crypto/Crypto.cpp
     src/modules/database/Database.cpp
-    src/modules/database/DatabaseData.cpp
     src/modules/datatype/Datatype.cpp
     src/modules/date/Date.cpp
-    src/modules/date/DateData.cpp
     src/modules/finance/Finance.cpp
-    src/modules/finance/FinanceData.cpp
     src/modules/food/Food.cpp
-    src/modules/food/FoodData.cpp
     src/modules/git/Git.cpp
     src/modules/hacker/Hacker.cpp
-    src/modules/hacker/HackerData.cpp
     src/modules/helper/Helper.cpp
     src/modules/image/Image.cpp
     src/modules/internet/Internet.cpp
-    src/modules/internet/InternetData.cpp
     src/modules/location/Location.cpp
-    src/modules/location/LocationData.cpp
     src/modules/lorem/Lorem.cpp
-    src/modules/lorem/LoremData.cpp
     src/modules/medicine/Medicine.cpp
-    src/modules/medicine/MedicineData.cpp
     src/modules/movie/Movie.cpp
-    src/modules/movie/MovieData.cpp
     src/modules/music/Music.cpp
-    src/modules/music/MusicData.cpp
     src/modules/number/Number.cpp
     src/modules/person/Person.cpp
-    src/modules/person/PersonData.cpp
     src/modules/phone/Phone.cpp
-    src/modules/phone/PhoneData.cpp
     src/modules/plant/Plant.cpp
-    src/modules/plant/PlantData.cpp
     src/modules/science/Science.cpp
-    src/modules/science/ScienceData.cpp
     src/modules/sport/Sport.cpp
-    src/modules/sport/SportData.cpp
     src/modules/string/String.cpp
     src/modules/system/System.cpp
-    src/modules/system/SystemData.cpp
     src/modules/vehicle/Vehicle.cpp
-    src/modules/vehicle/VehicleData.cpp
     src/modules/videoGame/VideoGame.cpp
-    src/modules/videoGame/VideoGameData.cpp
     src/modules/weather/Weather.cpp
-    src/modules/weather/WeatherData.cpp
     src/modules/word/Word.cpp
-    src/modules/word/WordData.cpp
     src/common/FormatHelper.cpp
     src/common/LuhnCheck.cpp
     src/common/StringHelper.cpp

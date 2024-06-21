@@ -25,7 +25,7 @@ const std::unordered_map<PassportCountry, std::string_view> passportFormats{
     {PassportCountry::Romania, "00000000"},
 };
 
-const PeopleNames& getPeopleNamesByCountry(const Country& country)
+const struct PeopleNames& getPeopleNamesByCountry(const Country& country)
 {
     switch (country)
     {

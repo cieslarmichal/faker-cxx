@@ -1,11 +1,9 @@
-#include "WordData.h"
-
 #include <array>
 #include <string_view>
 
 namespace faker::word
 {
-const std::array<std::string_view, 1328> adjectives = {
+const auto adjectives = std::to_array<std::string_view>({
     "abandoned",
     "able",
     "absolute",
@@ -1334,9 +1332,9 @@ const std::array<std::string_view, 1328> adjectives = {
     "zealous",
     "zesty",
     "zigzag",
-};
+});
 
-const std::array<std::string_view, 325> adverbs = {
+const auto adverbs = std::to_array<std::string_view>({
     "abnormally",
     "absentmindedly",
     "accidentally",
@@ -1662,9 +1660,9 @@ const std::array<std::string_view, 325> adverbs = {
     "yesterday",
     "yieldingly",
     "youthfully",
-};
+});
 
-const std::array<std::string_view, 51> conjunctions = {
+const auto conjunctions = std::to_array<std::string_view>({
     "after",    "although",     "and",      "as",          "because", "before",   "but",       "consequently",
     "even",     "finally",      "for",      "furthermore", "hence",   "how",      "however",   "if",
     "inasmuch", "incidentally", "indeed",   "instead",     "lest",    "likewise", "meanwhile", "nor",
@@ -1672,16 +1670,16 @@ const std::array<std::string_view, 51> conjunctions = {
     "that",     "though",       "till",     "unless",      "until",   "what",     "when",      "whenever",
     "where",    "whereas",      "wherever", "whether",     "which",   "while",    "who",       "whoever",
     "whose",    "why",          "yet",
-};
+});
 
-const std::array<std::string_view, 46> interjections = {
+const auto interjections = std::to_array<std::string_view>({
     "yuck", "oh",     "phooey", "blah", "boo",  "whoa",  "yowza",    "huzzah", "boohoo", "fooey", "geez", "pfft",
     "ew",   "ah",     "yum",    "brr",  "hm",   "yahoo", "aha",      "woot",   "drat",   "gah",   "meh",  "psst",
     "aw",   "ugh",    "yippee", "eek",  "gee",  "bah",   "gadzooks", "duh",    "ha",     "mmm",   "ouch", "phew",
     "ack",  "uh-huh", "gosh",   "hmph", "pish", "zowie", "er",       "ick",    "oof",    "um",
-};
+});
 
-const std::array<std::string_view, 6659> nouns = {
+const auto nouns = std::to_array<std::string_view>({
     "ATM",
     "CD",
     "SUV",
@@ -8341,9 +8339,9 @@ const std::array<std::string_view, 6659> nouns = {
     "zoology",
     "zoot-suit",
     "zucchini",
-};
+});
 
-const std::array<std::string_view, 109> prepositions = {
+const auto prepositions = std::to_array<std::string_view>({
     "a",
     "abaft",
     "aboard",
@@ -8453,9 +8451,9 @@ const std::array<std::string_view, 109> prepositions = {
     "within",
     "without",
     "worth",
-};
+});
 
-const std::array<std::string_view, 5910> verbs = {
+const auto verbs = std::to_array<std::string_view>({
     "abandon",
     "abase",
     "abate",
@@ -14366,5 +14364,6 @@ const std::array<std::string_view, 5910> verbs = {
     "zip",
     "zone",
     "zoom",
-};
+});
+
 }
