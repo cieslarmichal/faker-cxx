@@ -43,20 +43,13 @@ set(FAKER_SOURCES
     src/modules/internet/Internet.cpp
     src/modules/location/Location.cpp
     src/modules/lorem/Lorem.cpp
-    src/modules/lorem/LoremData.cpp
     src/modules/medicine/Medicine.cpp
-    src/modules/medicine/MedicineData.cpp
     src/modules/movie/Movie.cpp
-    src/modules/movie/MovieData.cpp
     src/modules/music/Music.cpp
-    src/modules/music/MusicData.cpp
     src/modules/number/Number.cpp
     src/modules/person/Person.cpp
-    src/modules/person/PersonData.cpp
     src/modules/phone/Phone.cpp
-    src/modules/phone/PhoneData.cpp
     src/modules/plant/Plant.cpp
-    src/modules/plant/PlantData.cpp
     src/modules/science/Science.cpp
     src/modules/science/ScienceData.cpp
     src/modules/sport/Sport.cpp

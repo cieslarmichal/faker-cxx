@@ -39,7 +39,7 @@ const std::vector<Country> countries{
     Country::Maldives,
 };
 
-const PeopleNames& getPeopleNamesByCountry(const Country& country)
+const struct PeopleNames& getPeopleNamesByCountry(const Country& country)
 {
     switch (country)
     {
