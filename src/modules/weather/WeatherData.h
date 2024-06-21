@@ -5,6 +5,13 @@
 
 namespace faker
 {
-extern const std::array<std::string_view, 16> weatherDescriptions;
+const auto weatherDescriptions = std::to_array<std::string_view>({
+    "clear sky",     "few clouds",  "scattered clouds",
+    "broken clouds", "shower rain", "rainy",
+    "thunderstorm",  "snowy",       "misty",
+    "smoky",         "haze",        "sunny",
+    "cloudy",        "windy",       "dark",
+    "foggy",
+});
 
 }

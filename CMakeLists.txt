@@ -51,20 +51,13 @@ set(FAKER_SOURCES
     src/modules/phone/Phone.cpp
     src/modules/plant/Plant.cpp
     src/modules/science/Science.cpp
-    src/modules/science/ScienceData.cpp
     src/modules/sport/Sport.cpp
-    src/modules/sport/SportData.cpp
     src/modules/string/String.cpp
     src/modules/system/System.cpp
-    src/modules/system/SystemData.cpp
     src/modules/vehicle/Vehicle.cpp
-    src/modules/vehicle/VehicleData.cpp
     src/modules/videoGame/VideoGame.cpp
-    src/modules/videoGame/VideoGameData.cpp
     src/modules/weather/Weather.cpp
-    src/modules/weather/WeatherData.cpp
     src/modules/word/Word.cpp
-    src/modules/word/WordData.cpp
     src/common/FormatHelper.cpp
     src/common/LuhnCheck.cpp
     src/common/StringHelper.cpp
