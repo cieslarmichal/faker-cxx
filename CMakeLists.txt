@@ -32,23 +32,16 @@ set(FAKER_SOURCES
     src/modules/computer/Computer.cpp
     src/modules/crypto/Crypto.cpp
     src/modules/database/Database.cpp
-    src/modules/database/DatabaseData.cpp
     src/modules/datatype/Datatype.cpp
     src/modules/date/Date.cpp
-    src/modules/date/DateData.cpp
     src/modules/finance/Finance.cpp
-    src/modules/finance/FinanceData.cpp
     src/modules/food/Food.cpp
-    src/modules/food/FoodData.cpp
     src/modules/git/Git.cpp
     src/modules/hacker/Hacker.cpp
-    src/modules/hacker/HackerData.cpp
     src/modules/helper/Helper.cpp
     src/modules/image/Image.cpp
     src/modules/internet/Internet.cpp
-    src/modules/internet/InternetData.cpp
     src/modules/location/Location.cpp
-    src/modules/location/LocationData.cpp
     src/modules/lorem/Lorem.cpp
     src/modules/lorem/LoremData.cpp
     src/modules/medicine/Medicine.cpp
