@@ -5,44 +5,44 @@
 #include "faker-cxx/Helper.h"
 #include "PlantData.h"
 
-namespace faker
+namespace faker::plant
 {
-std::string_view Plant::tree()
+std::string_view tree()
 {
     return Helper::arrayElement(trees);
 }
 
-std::string_view Plant::flower()
+std::string_view flower()
 {
     return Helper::arrayElement(flowers);
 }
 
-std::string_view Plant::shrub()
+std::string_view shrub()
 {
     return Helper::arrayElement(shrubs);
 }
 
-std::string_view Plant::grass()
+std::string_view grass()
 {
     return Helper::arrayElement(grasses);
 }
 
-std::string_view Plant::fern()
+std::string_view fern()
 {
     return Helper::arrayElement(ferns);
 }
 
-std::string_view Plant::succulent()
+std::string_view succulent()
 {
     return Helper::arrayElement(succulents);
 }
 
-std::string_view Plant::vine()
+std::string_view vine()
 {
     return Helper::arrayElement(vines);
 }
 
-std::string_view Plant::plantType()
+std::string_view plantType()
 {
     return Helper::arrayElement(plantTypes);
 }
