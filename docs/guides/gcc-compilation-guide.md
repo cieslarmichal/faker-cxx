@@ -29,7 +29,7 @@ cmake --build ./build
 ## 5. Run tests
 
 ```bash
-./faker-cxx-UT
+./build/tests/faker-cxx-UT
 ```
 
 or using CTest:
