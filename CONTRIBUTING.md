@@ -58,26 +58,26 @@ Please avoid working directly on the ``main`` branch.
    Before making changes, make sure you have `clang-format` installed. If you're using Visual Studio Code, you can
    install the `clang-format` extension.
 
-3**Make commits of logical units:**
+3. **Make commits of logical units:**
 
 This means that each commit should contain a complete and coherent piece of work that can be understood independently
 of other changes. For example, if you're fixing two different bugs, it's better to make two separate commits (one for
 each bug) rather than one commit that contains fixes for both bugs. This makes it easier to understand the purpose of
 each commit, and allows each change to be reviewed and applied separately.
 
-4**Make sure you have added the necessary tests for your changes:**
+4. **Make sure you have added the necessary tests for your changes:**
 
 If you're adding a new feature or changing existing functionality, it's important to update or add tests that verify
 your changes. This helps to ensure that your changes work as expected and don't introduce new bugs. It also helps
 other developers understand what your code is supposed to do.
 
-5**Run all the tests to assure nothing else was accidentally broken:**
+5. **Run all the tests to assure nothing else was accidentally broken:**
 
 Before you submit your changes, you should run all the project's tests to make sure your changes haven't
 inadvertently broken anything. Even if you think your changes are isolated, there could be unexpected interactions
 with other parts of the codebase.
 
-6**If you've added a new file to your project with non-Latin characters, ensure that the file encoding is set to
+6. **If you've added a new file to your project with non-Latin characters, ensure that the file encoding is set to
 Unicode (UTF-8 without signature) - Codepage 65001 in Microsoft Visual Studio Code:**
 
 If a file contains non-Latin characters (such as characters from Chinese, Arabic, or many other non-Latin alphabets),
@@ -177,6 +177,44 @@ them for review. Here's how:
 
    For more detailed instructions, see GitHub's guide
    on [creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
+
+## Committing
+
+Pull Request titles need to follow our semantic convention.
+
+PR titles are written in following convention: `type: subject`
+
+**type** is required and indicates the intent of the PR
+
+> The types `feat` and `fix` will be shown in the changelog as `### Features` or `### Bug Fixes`  
+
+Allowed types are:
+
+| type     | description                                                               |
+| -------- | ------------------------------------------------------------------------- |
+| feat     | A new feature is introduced                                               |
+| fix      | A bug was fixed                                                           |
+| chore    | No user affected code changes were made                                   |
+| refactor | A refactoring that affected also user (e.g. log a deprecation warning)    |
+| docs     | Docs were changed                                                         |
+| test     | Test were changed                                                         |
+| ci       | CI were changed                                                           |
+| build    | Build scripts were changed                                                |
+| infra    | Infrastructure related things were made (e.g. issue-template was updated) |
+| revert   | A revert was triggered via git                                            |
+
+**subject** is required and describes what the PR does
+
+Some examples of valid pull request titles:
+
+```shell
+feat: add book module
+fix: fix randomizer function
+chore: add naming convention rule
+refactor: migrate from std::string to std::string_view
+docs: remove unused docs
+ci: add clang16 support
+```
 
 # Additional Resources
 
