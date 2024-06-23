@@ -2,11 +2,8 @@
 
 #include <string_view>
 
-namespace faker
+namespace faker::database
 {
-class Database
-{
-public:
     /**
      * @brief Returns a random database column name.
      *
@@ -16,7 +13,7 @@ public:
      * Database::columnName() // "created_at"
      * @endcode
      */
-    static std::string_view columnName();
+    std::string_view columnName();
 
     /**
      * @brief Returns a random database column type.
@@ -27,7 +24,7 @@ public:
      * Database::columnType() // "timestamp"
      * @endcode
      */
-    static std::string_view columnType();
+    std::string_view columnType();
 
     /**
      * @brief Returns a random database collation.
@@ -38,7 +35,7 @@ public:
      * Database::collation() // "utf8_unicode_ci"
      * @endcode
      */
-    static std::string_view collation();
+    std::string_view collation();
 
     /**
      * @brief Returns a random database engine.
@@ -49,7 +46,7 @@ public:
      * Database::engine() // "ARCHIVE"
      * @endcode
      */
-    static std::string_view engine();
+    std::string_view engine();
 
     /**
      * @brief Returns a MongoDB Object Id.
@@ -60,6 +57,5 @@ public:
      * Database::mongoDbObjectId() // "e175cac316a79afdd0ad3afb"
      * @endcode
      */
-    static std::string mongoDbObjectId();
-};
+    std::string mongoDbObjectId();
 }
