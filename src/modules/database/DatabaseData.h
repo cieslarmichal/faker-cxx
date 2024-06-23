@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::database
 {
 const auto collations = std::to_array<std::string_view>({
     "utf8_unicode_ci",  "utf8_general_ci",  "utf8_bin",
