@@ -27,11 +27,10 @@ var searchData=
   ['creditcardtype_24',['creditCardType',['../classfaker_1_1Finance.html#a2c42dde2914101fef7410089b48e8fc4',1,'faker::Finance']]],
   ['cron_25',['cron',['../classfaker_1_1System.html#abb1db608d1a8799021812fd616ed433c',1,'faker::System']]],
   ['cronoptions_26',['CronOptions',['../structfaker_1_1CronOptions.html',1,'faker']]],
-  ['crypto_27',['Crypto',['../classfaker_1_1Crypto.html',1,'faker']]],
-  ['currency_28',['Currency',['../structfaker_1_1Currency.html',1,'faker']]],
-  ['currency_29',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
-  ['currencycode_30',['currencyCode',['../classfaker_1_1Finance.html#ab849cf51f72334d0ea31be4686cbe4a8',1,'faker::Finance']]],
-  ['currencyname_31',['currencyName',['../classfaker_1_1Finance.html#ae4e3dd23a090a32ae2e46e009fe7f0db',1,'faker::Finance']]],
-  ['currencysymbol_32',['currencySymbol',['../classfaker_1_1Finance.html#a4f15c582e350f6940707de3ac11d2505',1,'faker::Finance']]],
-  ['currentunit_33',['currentUnit',['../classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50',1,'faker::Science']]]
+  ['currency_27',['Currency',['../structfaker_1_1Currency.html',1,'faker']]],
+  ['currency_28',['currency',['../classfaker_1_1Finance.html#a828465726c086af725ac1050d0e6ccd2',1,'faker::Finance']]],
+  ['currencycode_29',['currencyCode',['../classfaker_1_1Finance.html#ab849cf51f72334d0ea31be4686cbe4a8',1,'faker::Finance']]],
+  ['currencyname_30',['currencyName',['../classfaker_1_1Finance.html#ae4e3dd23a090a32ae2e46e009fe7f0db',1,'faker::Finance']]],
+  ['currencysymbol_31',['currencySymbol',['../classfaker_1_1Finance.html#a4f15c582e350f6940707de3ac11d2505',1,'faker::Finance']]],
+  ['currentunit_32',['currentUnit',['../classfaker_1_1Science.html#ac2014d2e2ef7e8f1ac52a47a72444c50',1,'faker::Science']]]
 ];
