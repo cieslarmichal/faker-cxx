@@ -1,6 +1,6 @@
 # Third Party Licenses
 
-## flexxxxer/md5_hash:
+## flexxxxer/Md5Hash:
 
 MIT License
 

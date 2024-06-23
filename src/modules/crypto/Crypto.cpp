@@ -8,7 +8,7 @@
 
 #include "faker-cxx/Word.h"
 
-namespace faker
+namespace faker::crypto
 {
 namespace
 {
@@ -68,7 +68,7 @@ private:
     void revert(std::array<uint8_t, 32>& hash);
 };
 
-class md5_hash
+class Md5Hash
 {
 public:
     /**
@@ -78,7 +78,7 @@ public:
     [[nodiscard]] static std::array<uint8_t, 16> compute(const std::string& message);
 
 private:
-    md5_hash() = default;
+    Md5Hash() = default;
 
     static uint32_t rotate_left(uint32_t x, int32_t n);
     static std::array<uint8_t, 4> uint32_to_4_bytes(uint32_t value);
@@ -101,7 +101,7 @@ private:
 };
 }
 
-std::string Crypto::sha256(std::optional<std::string> data)
+std::string sha256(std::optional<std::string> data)
 {
     std::string orgData;
     if (!data.has_value() || data->empty())
@@ -121,7 +121,7 @@ std::string Crypto::sha256(std::optional<std::string> data)
     return result;
 }
 
-std::string Crypto::md5(std::optional<std::string> data)
+std::string md5(std::optional<std::string> data)
 {
     std::string orgData;
     if (!data.has_value() || data->empty())
@@ -133,12 +133,12 @@ std::string Crypto::md5(std::optional<std::string> data)
         orgData = data.value();
     }
 
-    return toHex(md5_hash::compute(orgData));
+    return toHex(Md5Hash::compute(orgData));
 }
 
 namespace
 {
-uint32_t md5_hash::uint32_from_4_bytes(std::array<uint8_t, 4> bytes)
+uint32_t Md5Hash::uint32_from_4_bytes(std::array<uint8_t, 4> bytes)
 {
     uint32_t value = 0;
 
@@ -150,7 +150,7 @@ uint32_t md5_hash::uint32_from_4_bytes(std::array<uint8_t, 4> bytes)
     return value;
 }
 
-std::array<uint8_t, 4> md5_hash::uint32_to_4_bytes(uint32_t value)
+std::array<uint8_t, 4> Md5Hash::uint32_to_4_bytes(uint32_t value)
 {
     std::array<uint8_t, 4> bytes{};
 
@@ -162,12 +162,12 @@ std::array<uint8_t, 4> md5_hash::uint32_to_4_bytes(uint32_t value)
     return bytes;
 }
 
-uint32_t md5_hash::rotate_left(const uint32_t x, const int32_t n)
+uint32_t Md5Hash::rotate_left(const uint32_t x, const int32_t n)
 {
     return (x << n) | (x >> (32 - n));
 }
 
-std::array<uint8_t, 16> md5_hash::compute(const std::string& message)
+std::array<uint8_t, 16> Md5Hash::compute(const std::string& message)
 {
     // These vars will contain the hash
     uint32_t a0 = 0x67452301, b0 = 0xefcdab89, c0 = 0x98badcfe, d0 = 0x10325476;
@@ -187,13 +187,13 @@ std::array<uint8_t, 16> md5_hash::compute(const std::string& message)
     msg_copy[message.size()] = static_cast<char>(0x80);
 
     // std::array<uint8_t, 4> bytes = md5_hash::uint32_to_4_bytes(message.size() * 8);
-    std::array<uint8_t, 4> bytes = md5_hash::uint32_to_4_bytes(static_cast<uint32_t>(message.size() * 8));
+    std::array<uint8_t, 4> bytes = Md5Hash::uint32_to_4_bytes(static_cast<uint32_t>(message.size() * 8));
     for (size_t i = new_len; i < new_len + 4; i++)
         // msg_copy[i] = bytes[i - new_len];
         msg_copy[i] = static_cast<char>(bytes[i - new_len]);
 
     // bytes = md5_hash::uint32_to_4_bytes(message.size() >> 29);
-    bytes = md5_hash::uint32_to_4_bytes(static_cast<uint32_t>(message.size() >> 29));
+    bytes = Md5Hash::uint32_to_4_bytes(static_cast<uint32_t>(message.size() >> 29));
     for (size_t i = new_len + 4; i < new_len + 8; i++)
         msg_copy[i] = static_cast<char>(bytes[i - new_len - 4]);
     // msg_copy[i] = bytes[i - new_len - 4];
@@ -212,7 +212,7 @@ std::array<uint8_t, 16> md5_hash::compute(const std::string& message)
                 static_cast<uint8_t>(msg_copy[i + j * 4 + 3]),
             };
 
-            w[j] = md5_hash::uint32_from_4_bytes(array);
+            w[j] = Md5Hash::uint32_from_4_bytes(array);
         }
 
         uint32_t a = a0, b = b0, c = c0, d = d0;
@@ -250,7 +250,7 @@ std::array<uint8_t, 16> md5_hash::compute(const std::string& message)
             d = c;
             c = b;
             // b = b + md5_hash::rotate_left((a + f + md5_hash::k[j] + w[g]), md5_hash::r[j]);
-            b = b + md5_hash::rotate_left((a + f + md5_hash::k[j] + w[g]), static_cast<int32_t>(md5_hash::r[j]));
+            b = b + Md5Hash::rotate_left((a + f + Md5Hash::k[j] + w[g]), static_cast<int32_t>(Md5Hash::r[j]));
             a = temp;
         }
 
@@ -261,10 +261,10 @@ std::array<uint8_t, 16> md5_hash::compute(const std::string& message)
         d0 += d;
     }
 
-    const std::array<uint8_t, 4> a0_arr = md5_hash::uint32_to_4_bytes(a0);
-    const std::array<uint8_t, 4> b0_arr = md5_hash::uint32_to_4_bytes(b0);
-    const std::array<uint8_t, 4> c0_arr = md5_hash::uint32_to_4_bytes(c0);
-    const std::array<uint8_t, 4> d0_arr = md5_hash::uint32_to_4_bytes(d0);
+    const std::array<uint8_t, 4> a0_arr = Md5Hash::uint32_to_4_bytes(a0);
+    const std::array<uint8_t, 4> b0_arr = Md5Hash::uint32_to_4_bytes(b0);
+    const std::array<uint8_t, 4> c0_arr = Md5Hash::uint32_to_4_bytes(c0);
+    const std::array<uint8_t, 4> d0_arr = Md5Hash::uint32_to_4_bytes(d0);
 
     // append results bytes
     const std::array<uint8_t, 16> result = {
@@ -356,7 +356,7 @@ void SHA256::transform()
     { // Split data in 32 bit blocks for the 16 first words
         // m[i] = (m_data[j] << 24) | (m_data[j + 1] << 16) | (m_data[j + 2] << 8) | (m_data[j + 3]);
         m[i] = (static_cast<uint32_t>(m_data[j]) << 24) | (static_cast<uint32_t>(m_data[j + 1]) << 16) |
-                (static_cast<uint32_t>(m_data[j + 2]) << 8) | static_cast<uint32_t>(m_data[j + 3]);
+               (static_cast<uint32_t>(m_data[j + 2]) << 8) | static_cast<uint32_t>(m_data[j + 3]);
     }
 
     for (uint8_t k = 16; k < 64; k++)

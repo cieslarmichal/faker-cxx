@@ -6,7 +6,7 @@
 #include "gtest/gtest.h"
 
 using namespace ::testing;
-using namespace faker;
+using namespace faker::crypto;
 
 class CryptoTest : public Test
 {
@@ -28,28 +28,28 @@ public:
 
 TEST_F(CryptoTest, ShouldGenerateSHA256Hash)
 {
-    const auto generatedRandomHash = Crypto::sha256();
+    const auto generatedRandomHash = sha256();
 
     ASSERT_EQ(generatedRandomHash.length(), 64);
 }
 
 TEST_F(CryptoTest, ChecksSHA256Hash)
 {
-    const auto generatedRandomHash = Crypto::sha256();
+    const auto generatedRandomHash = sha256();
 
     ASSERT_TRUE(isSHA256Hash(generatedRandomHash));
 }
 
 TEST_F(CryptoTest, ShouldGenerateMD5Hash)
 {
-    const auto generatedRandomHash = Crypto::md5();
+    const auto generatedRandomHash = md5();
 
     ASSERT_EQ(generatedRandomHash.length(), 32);
 }
 
 TEST_F(CryptoTest, ChecksMD5Regex)
 {
-    const auto generatedRandomHash = Crypto::md5();
+    const auto generatedRandomHash = md5();
 
     ASSERT_TRUE(isMD5Hash(generatedRandomHash));
 }
