@@ -11,7 +11,6 @@ var annotated_dup =
       [ "CronOptions", "structfaker_1_1CronOptions.html", null ],
       [ "Currency", "structfaker_1_1Currency.html", null ],
       [ "Datatype", "classfaker_1_1Datatype.html", null ],
-      [ "Date", "classfaker_1_1Date.html", null ],
       [ "FileOptions", "structfaker_1_1FileOptions.html", null ],
       [ "Finance", "classfaker_1_1Finance.html", null ],
       [ "Git", "classfaker_1_1Git.html", "classfaker_1_1Git" ],

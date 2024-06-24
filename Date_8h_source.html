@@ -106,78 +106,52 @@ $(function(){initNavTree('Date_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="keyword">namespace </span>faker::date</div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>{</div>
-<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Date.html">Date</a></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    <span class="keyword">enum class</span> DateFormat</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    {</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        ISO,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        Timestamp,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    };</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a4dd0c5ac91cfd75e02001acbf736b831">   30</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Date.html#a4dd0c5ac91cfd75e02001acbf736b831">pastDate</a>(<span class="keywordtype">int</span> years = 1, DateFormat dateFormat = DateFormat::ISO);</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#abe6d9df85045d492d63f79e11e0ca08c">   46</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Date.html#abe6d9df85045d492d63f79e11e0ca08c">futureDate</a>(<span class="keywordtype">int</span> years = 1, DateFormat dateFormat = DateFormat::ISO);</div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a1b432760d794a4b34e51f64c75c75bd7">   62</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Date.html#a1b432760d794a4b34e51f64c75c75bd7">recentDate</a>(<span class="keywordtype">int</span> days = 3, DateFormat dateFormat = DateFormat::ISO);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#af7321b4172983b6d2fc64bcd65338ac5">   78</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Date.html#af7321b4172983b6d2fc64bcd65338ac5">soonDate</a>(<span class="keywordtype">int</span> days = 3, DateFormat dateFormat = DateFormat::ISO);</div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a2e5c4577e7b3a4efea73bb33705fd297">   95</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Date.html#a2e5c4577e7b3a4efea73bb33705fd297">birthdateByAge</a>(<span class="keywordtype">int</span> minAge = 18, <span class="keywordtype">int</span> maxAge = 80, DateFormat dateFormat = DateFormat::ISO);</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a3db63d6c4a118e99a6ae647a7b00d221">  112</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Date.html#a3db63d6c4a118e99a6ae647a7b00d221">birthdateByYear</a>(<span class="keywordtype">int</span> minYear = 1920, <span class="keywordtype">int</span> maxYear = 2000, DateFormat dateFormat = DateFormat::ISO);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a4bb905a88d0633810845c732441ea7c0">  123</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Date.html#a4bb905a88d0633810845c732441ea7c0">weekdayName</a>();</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a0f382548ce445c081eafeba557620250">  134</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Date.html#a0f382548ce445c081eafeba557620250">weekdayAbbreviatedName</a>();</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a16d77a2091bd19a69e4bb341f67019c5">  145</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Date.html#a16d77a2091bd19a69e4bb341f67019c5">monthName</a>();</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a5bf4aa1e8ee2162b2fe923101c742e0e">  156</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Date.html#a5bf4aa1e8ee2162b2fe923101c742e0e">monthAbbreviatedName</a>();</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span> </div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a442df83a5db24bbcc44baafc10040c7d">  167</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Date.html#a442df83a5db24bbcc44baafc10040c7d">year</a>();</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a5e9e159b66a0f9f910faae750ebb6a74">  178</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Date.html#a5e9e159b66a0f9f910faae750ebb6a74">month</a>();</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#aa1173c32959bcd22c3c6752c61c46cb3">  189</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Date.html#aa1173c32959bcd22c3c6752c61c46cb3">hour</a>();</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span> </div>
-<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a8c8dec2272fe1b4487275587a98bf48f">  200</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Date.html#a8c8dec2272fe1b4487275587a98bf48f">minute</a>();</div>
-<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span> </div>
-<div class="line"><a id="l00211" name="l00211"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#aabe38b1e0f4c2b81dc580b80e17f3148">  211</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Date.html#aabe38b1e0f4c2b81dc580b80e17f3148">second</a>();</div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span> </div>
-<div class="line"><a id="l00222" name="l00222"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a085c4ef17837fa59fd6582f5f21f288e">  222</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Date.html#a085c4ef17837fa59fd6582f5f21f288e">time</a>();</div>
-<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span> </div>
-<div class="line"><a id="l00233" name="l00233"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#a3a1fc89fd789e42da9a49658f9878a4a">  233</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Date.html#a3a1fc89fd789e42da9a49658f9878a4a">dayOfMonth</a>();</div>
-<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
-<div class="line"><a id="l00244" name="l00244"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#ae656dd431f76b1dd48055a725de57225">  244</a></span>    <span class="keyword">static</span> <span class="keywordtype">unsigned</span> <a class="code hl_function" href="classfaker_1_1Date.html#ae656dd431f76b1dd48055a725de57225">dayOfWeek</a>();</div>
-<div class="line"><a id="l00245" name="l00245"></a><span class="lineno">  245</span> </div>
-<div class="line"><a id="l00255" name="l00255"></a><span class="lineno"><a class="line" href="classfaker_1_1Date.html#ab42aa188d27cf6b19223d7a400eccb87">  255</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Date.html#ab42aa188d27cf6b19223d7a400eccb87">timezone</a>();</div>
-<div class="line"><a id="l00256" name="l00256"></a><span class="lineno">  256</span>};</div>
-</div>
-<div class="line"><a id="l00257" name="l00257"></a><span class="lineno">  257</span>}</div>
-<div class="ttc" id="aclassfaker_1_1Date_html"><div class="ttname"><a href="classfaker_1_1Date.html">faker::Date</a></div><div class="ttdef"><b>Definition</b> Date.h:8</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a085c4ef17837fa59fd6582f5f21f288e"><div class="ttname"><a href="classfaker_1_1Date.html#a085c4ef17837fa59fd6582f5f21f288e">faker::Date::time</a></div><div class="ttdeci">static std::string time()</div><div class="ttdoc">Returns random time string.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a0f382548ce445c081eafeba557620250"><div class="ttname"><a href="classfaker_1_1Date.html#a0f382548ce445c081eafeba557620250">faker::Date::weekdayAbbreviatedName</a></div><div class="ttdeci">static std::string_view weekdayAbbreviatedName()</div><div class="ttdoc">Returns an abbreviated name of random day of the week.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a16d77a2091bd19a69e4bb341f67019c5"><div class="ttname"><a href="classfaker_1_1Date.html#a16d77a2091bd19a69e4bb341f67019c5">faker::Date::monthName</a></div><div class="ttdeci">static std::string_view monthName()</div><div class="ttdoc">Returns a random name of a month.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a1b432760d794a4b34e51f64c75c75bd7"><div class="ttname"><a href="classfaker_1_1Date.html#a1b432760d794a4b34e51f64c75c75bd7">faker::Date::recentDate</a></div><div class="ttdeci">static std::string recentDate(int days=3, DateFormat dateFormat=DateFormat::ISO)</div><div class="ttdoc">Generates a random date in the recent past.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a2e5c4577e7b3a4efea73bb33705fd297"><div class="ttname"><a href="classfaker_1_1Date.html#a2e5c4577e7b3a4efea73bb33705fd297">faker::Date::birthdateByAge</a></div><div class="ttdeci">static std::string birthdateByAge(int minAge=18, int maxAge=80, DateFormat dateFormat=DateFormat::ISO)</div><div class="ttdoc">Generates a random birthdate by age.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a3a1fc89fd789e42da9a49658f9878a4a"><div class="ttname"><a href="classfaker_1_1Date.html#a3a1fc89fd789e42da9a49658f9878a4a">faker::Date::dayOfMonth</a></div><div class="ttdeci">static unsigned dayOfMonth()</div><div class="ttdoc">Returns random day of month.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a3db63d6c4a118e99a6ae647a7b00d221"><div class="ttname"><a href="classfaker_1_1Date.html#a3db63d6c4a118e99a6ae647a7b00d221">faker::Date::birthdateByYear</a></div><div class="ttdeci">static std::string birthdateByYear(int minYear=1920, int maxYear=2000, DateFormat dateFormat=DateFormat::ISO)</div><div class="ttdoc">Generates a random birthdate by year.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a442df83a5db24bbcc44baafc10040c7d"><div class="ttname"><a href="classfaker_1_1Date.html#a442df83a5db24bbcc44baafc10040c7d">faker::Date::year</a></div><div class="ttdeci">static unsigned year()</div><div class="ttdoc">Returns random year.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a4bb905a88d0633810845c732441ea7c0"><div class="ttname"><a href="classfaker_1_1Date.html#a4bb905a88d0633810845c732441ea7c0">faker::Date::weekdayName</a></div><div class="ttdeci">static std::string_view weekdayName()</div><div class="ttdoc">Returns a name of random day of the week.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a4dd0c5ac91cfd75e02001acbf736b831"><div class="ttname"><a href="classfaker_1_1Date.html#a4dd0c5ac91cfd75e02001acbf736b831">faker::Date::pastDate</a></div><div class="ttdeci">static std::string pastDate(int years=1, DateFormat dateFormat=DateFormat::ISO)</div><div class="ttdoc">Generates a random date in the past.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a5bf4aa1e8ee2162b2fe923101c742e0e"><div class="ttname"><a href="classfaker_1_1Date.html#a5bf4aa1e8ee2162b2fe923101c742e0e">faker::Date::monthAbbreviatedName</a></div><div class="ttdeci">static std::string_view monthAbbreviatedName()</div><div class="ttdoc">Returns an abbreviated name of random month.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a5e9e159b66a0f9f910faae750ebb6a74"><div class="ttname"><a href="classfaker_1_1Date.html#a5e9e159b66a0f9f910faae750ebb6a74">faker::Date::month</a></div><div class="ttdeci">static unsigned month()</div><div class="ttdoc">Returns random month.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_a8c8dec2272fe1b4487275587a98bf48f"><div class="ttname"><a href="classfaker_1_1Date.html#a8c8dec2272fe1b4487275587a98bf48f">faker::Date::minute</a></div><div class="ttdeci">static unsigned minute()</div><div class="ttdoc">Returns random minute.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_aa1173c32959bcd22c3c6752c61c46cb3"><div class="ttname"><a href="classfaker_1_1Date.html#aa1173c32959bcd22c3c6752c61c46cb3">faker::Date::hour</a></div><div class="ttdeci">static unsigned hour()</div><div class="ttdoc">Returns random hour.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_aabe38b1e0f4c2b81dc580b80e17f3148"><div class="ttname"><a href="classfaker_1_1Date.html#aabe38b1e0f4c2b81dc580b80e17f3148">faker::Date::second</a></div><div class="ttdeci">static unsigned second()</div><div class="ttdoc">Returns random second.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_ab42aa188d27cf6b19223d7a400eccb87"><div class="ttname"><a href="classfaker_1_1Date.html#ab42aa188d27cf6b19223d7a400eccb87">faker::Date::timezone</a></div><div class="ttdeci">static std::string_view timezone()</div><div class="ttdoc">Returns random timezone.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_abe6d9df85045d492d63f79e11e0ca08c"><div class="ttname"><a href="classfaker_1_1Date.html#abe6d9df85045d492d63f79e11e0ca08c">faker::Date::futureDate</a></div><div class="ttdeci">static std::string futureDate(int years=1, DateFormat dateFormat=DateFormat::ISO)</div><div class="ttdoc">Generates a random date in the future.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_ae656dd431f76b1dd48055a725de57225"><div class="ttname"><a href="classfaker_1_1Date.html#ae656dd431f76b1dd48055a725de57225">faker::Date::dayOfWeek</a></div><div class="ttdeci">static unsigned dayOfWeek()</div><div class="ttdoc">Returns random day of week.</div></div>
-<div class="ttc" id="aclassfaker_1_1Date_html_af7321b4172983b6d2fc64bcd65338ac5"><div class="ttname"><a href="classfaker_1_1Date.html#af7321b4172983b6d2fc64bcd65338ac5">faker::Date::soonDate</a></div><div class="ttdeci">static std::string soonDate(int days=3, DateFormat dateFormat=DateFormat::ISO)</div><div class="ttdoc">Generates a random date in the soon future.</div></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keyword">enum class</span> DateFormat</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    {</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>        ISO,</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        Timestamp,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    };</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    std::string pastDate(<span class="keywordtype">int</span> years = 1, DateFormat dateFormat = DateFormat::ISO);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    std::string futureDate(<span class="keywordtype">int</span> years = 1, DateFormat dateFormat = DateFormat::ISO);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    std::string recentDate(<span class="keywordtype">int</span> days = 3, DateFormat dateFormat = DateFormat::ISO);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    std::string soonDate(<span class="keywordtype">int</span> days = 3, DateFormat dateFormat = DateFormat::ISO);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    std::string birthdateByAge(<span class="keywordtype">int</span> minAge = 18, <span class="keywordtype">int</span> maxAge = 80, DateFormat dateFormat = DateFormat::ISO);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    std::string birthdateByYear(<span class="keywordtype">int</span> minYear = 1920, <span class="keywordtype">int</span> maxYear = 2000, DateFormat dateFormat = DateFormat::ISO);</div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span> </div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    std::string_view weekdayName();</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>    std::string_view weekdayAbbreviatedName();</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    std::string_view monthName();</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    std::string_view monthAbbreviatedName();</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordtype">unsigned</span> year();</div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordtype">unsigned</span> month();</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordtype">unsigned</span> hour();</div>
+<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span> </div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>    <span class="keywordtype">unsigned</span> minute();</div>
+<div class="line"><a id="l00198" name="l00198"></a><span class="lineno">  198</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordtype">unsigned</span> second();</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span> </div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span>    std::string time();</div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>    <span class="keywordtype">unsigned</span> dayOfMonth();</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00241" name="l00241"></a><span class="lineno">  241</span>    <span class="keywordtype">unsigned</span> dayOfWeek();</div>
+<div class="line"><a id="l00242" name="l00242"></a><span class="lineno">  242</span> </div>
+<div class="line"><a id="l00252" name="l00252"></a><span class="lineno">  252</span>    std::string_view timezoneRandom();</div>
+<div class="line"><a id="l00253" name="l00253"></a><span class="lineno">  253</span>}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
