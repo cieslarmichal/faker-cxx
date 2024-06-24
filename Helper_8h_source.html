@@ -153,7 +153,7 @@ $(function(){initNavTree('Helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    <span class="keyword">static</span> <span class="keyword">auto</span> <a class="code hl_function" href="classfaker_1_1Helper.html#a46622f2ea33bab9a6ee3d35149f8b01b">arrayElement</a>(It start, It end) -&gt; <span class="keyword">decltype</span>(*::std::declval&lt;It&gt;())</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    {</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keywordtype">size_t</span> size = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(end - start);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <span class="keyword">auto</span> size = <span class="keyword">static_cast&lt;</span><span class="keywordtype">size_t</span><span class="keyword">&gt;</span>(end - start);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <span class="keywordflow">if</span> (size == 0)</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        {</div>
@@ -287,7 +287,7 @@ $(function(){initNavTree('Helper_8h_source.html',''); initResizable(true); });
 <div class="foldopen" id="foldopen00283" data-start="{" data-end="}">
 <div class="line"><a id="l00283" name="l00283"></a><span class="lineno"><a class="line" href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">  283</a></span>    <span class="keyword">static</span> TResult <a class="code hl_function" href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">maybe</a>(std::function&lt;TResult()&gt; callback, <span class="keywordtype">double</span> probability = 0.5)</div>
 <div class="line"><a id="l00284" name="l00284"></a><span class="lineno">  284</span>    {</div>
-<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="classfaker_1_1Datatype.html#adcc47b46212ca99e0eb8db4b888a678f">Datatype::boolean</a>(probability))</div>
+<div class="line"><a id="l00285" name="l00285"></a><span class="lineno">  285</span>        <span class="keywordflow">if</span> (datatype::boolean(probability))</div>
 <div class="line"><a id="l00286" name="l00286"></a><span class="lineno">  286</span>        {</div>
 <div class="line"><a id="l00287" name="l00287"></a><span class="lineno">  287</span>            <span class="keywordflow">return</span> callback();</div>
 <div class="line"><a id="l00288" name="l00288"></a><span class="lineno">  288</span>        }</div>
@@ -320,7 +320,6 @@ $(function(){initNavTree('Helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00377" name="l00377"></a><span class="lineno">  377</span>};</div>
 </div>
 <div class="line"><a id="l00378" name="l00378"></a><span class="lineno">  378</span>}</div>
-<div class="ttc" id="aclassfaker_1_1Datatype_html_adcc47b46212ca99e0eb8db4b888a678f"><div class="ttname"><a href="classfaker_1_1Datatype.html#adcc47b46212ca99e0eb8db4b888a678f">faker::Datatype::boolean</a></div><div class="ttdeci">static bool boolean()</div><div class="ttdoc">Returns a random boolean.</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html"><div class="ttname"><a href="classfaker_1_1Helper.html">faker::Helper</a></div><div class="ttdef"><b>Definition</b> Helper.h:18</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html_a2767629938711ae619fadcf489698d11"><div class="ttname"><a href="classfaker_1_1Helper.html#a2767629938711ae619fadcf489698d11">faker::Helper::objectKey</a></div><div class="ttdeci">static T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:249</div></div>
 <div class="ttc" id="aclassfaker_1_1Helper_html_a378bc48e5d3c6438a70b75ede9e2d9a3"><div class="ttname"><a href="classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3">faker::Helper::maybe</a></div><div class="ttdeci">static TResult maybe(std::function&lt; TResult()&gt; callback, double probability=0.5)</div><div class="ttdoc">Returns the result of the callback if the probability check was successful, otherwise empty string.</div><div class="ttdef"><b>Definition</b> Helper.h:283</div></div>

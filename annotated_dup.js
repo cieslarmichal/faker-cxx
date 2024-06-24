@@ -14,7 +14,6 @@ var annotated_dup =
       ] ],
       [ "CharCount", "structfaker_1_1CharCount.html", null ],
       [ "Currency", "structfaker_1_1Currency.html", null ],
-      [ "Datatype", "classfaker_1_1Datatype.html", null ],
       [ "Finance", "classfaker_1_1Finance.html", null ],
       [ "Git", "classfaker_1_1Git.html", "classfaker_1_1Git" ],
       [ "Hacker", "classfaker_1_1Hacker.html", null ],
