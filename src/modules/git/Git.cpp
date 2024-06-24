@@ -15,10 +15,10 @@
 #include "faker-cxx/types/Hex.h"
 #include "faker-cxx/Word.h"
 
-namespace faker
+namespace faker::git
 {
 
-std::string Git::branch(unsigned maxIssueNum)
+std::string branch(unsigned maxIssueNum)
 {
     switch (Number::integer(1, 3))
     {
@@ -32,7 +32,7 @@ std::string Git::branch(unsigned maxIssueNum)
     }
 }
 
-std::string Git::commitDate(unsigned years)
+std::string commitDate(unsigned years)
 {
     const auto date = faker::date::pastDate(int(years));
 
@@ -74,10 +74,11 @@ std::string Git::commitDate(unsigned years)
     }
 
     return FormatHelper::format("{} {} {} {} {} {}", faker::date::weekdayAbbreviatedName(),
-                                faker::date::monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
+                                faker::date::monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year,
+                                timeZoneString);
 }
 
-std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Country country)
+std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Country country)
 {
     std::string entry = "commit ";
 
@@ -109,7 +110,7 @@ std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<un
     return entry;
 }
 
-std::string Git::commitMessage()
+std::string commitMessage()
 {
     switch (Number::integer(1, 4))
     {
@@ -124,7 +125,7 @@ std::string Git::commitMessage()
     }
 }
 
-std::string Git::commitSha(unsigned length)
+std::string commitSha(unsigned length)
 {
     return faker::String::hexadecimal(length, HexCasing::Lower, HexPrefix::None);
 }

@@ -11,6 +11,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace git;
 
 class GitTest : public Test
 {
@@ -39,17 +40,17 @@ std::string GitTest::generateShaRegex()
 
 TEST_F(GitTest, shouldGenerateBranch)
 {
-    const auto branch = Git::branch();
-    const auto branchSplit = faker::StringHelper::split(branch, "-").size();
+    const auto generatedBranch = branch();
+    const auto branchSplit = StringHelper::split(generatedBranch, "-").size();
 
     ASSERT_TRUE(2 <= branchSplit && branchSplit <= 7);
 }
 
 TEST_F(GitTest, branchIssueNumTest)
 {
-    auto testValue = unsigned(faker::Number::integer(2, 100));
+    auto testValue = unsigned(Number::integer(2, 100));
 
-    std::vector<std::string> branch = faker::StringHelper::split(Git::branch(testValue), "-");
+    std::vector<std::string> branchElements = StringHelper::split(branch(testValue), "-");
 
     bool numberAtFront = false;
 
@@ -57,10 +58,11 @@ TEST_F(GitTest, branchIssueNumTest)
 
     while (!numberAtFront)
     {
-        branch = faker::StringHelper::split(Git::branch(testValue), "-");
+        branchElements = StringHelper::split(branch(testValue), "-");
+        
         try
         {
-            number = std::stoi(branch[0]);
+            number = std::stoi(branchElements[0]);
             numberAtFront = true;
         }
         catch (...)
@@ -76,7 +78,7 @@ TEST_F(GitTest, shouldGenerateCommitDate)
 {
     const std::regex dateRegex("^" + GitTest::DATE_REGEX + "$");
 
-    ASSERT_TRUE(std::regex_match(Git::commitDate(), dateRegex));
+    ASSERT_TRUE(std::regex_match(commitDate(), dateRegex));
 }
 
 TEST_F(GitTest, shouldGenerateCommitEntry)
@@ -85,14 +87,14 @@ TEST_F(GitTest, shouldGenerateCommitEntry)
                                 "\nAuthor: [A-Z][a-zA-Z]+ [A-Z][a-zA-Z]+ .+@[0-9a-zA-Z]+\\.[0-9a-zA-Z]+\nDate: " +
                                 GitTest::DATE_REGEX + "\n\n\t" + GitTest::MESSAGE_REGEX + "$");
 
-    ASSERT_TRUE(std::regex_match(Git::commitEntry(), entryRegex));
+    ASSERT_TRUE(std::regex_match(commitEntry(), entryRegex));
 }
 
 TEST_F(GitTest, shouldGenerateCommitMessage)
 {
     const std::regex messageRegex("^" + GitTest::MESSAGE_REGEX + "$");
 
-    const auto temp = Git::commitMessage();
+    const auto temp = commitMessage();
 
     ASSERT_TRUE(std::regex_match(temp, messageRegex));
 }
@@ -103,5 +105,5 @@ TEST_F(GitTest, shouldGenerateCommitSha)
 
     const std::regex shaRegex("^" + GitTest::generateShaRegex(length) + "$");
 
-    ASSERT_TRUE(std::regex_match(Git::commitSha(length), shaRegex));
+    ASSERT_TRUE(std::regex_match(commitSha(length), shaRegex));
 }
