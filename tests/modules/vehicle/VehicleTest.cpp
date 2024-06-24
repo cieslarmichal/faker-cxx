@@ -20,67 +20,67 @@ public:
 
 TEST_F(VehicleTest, shouldGenerateBicycle)
 {
-    const auto generatedBicycle = Vehicle::bicycle();
+    const auto generatedBicycle = bicycle();
 
-    ASSERT_TRUE(std::ranges::any_of(vehicle::bicycle_types, [generatedBicycle](const std::string_view& bicycle)
+    ASSERT_TRUE(std::ranges::any_of(bicycle_types, [generatedBicycle](const std::string_view& bicycle)
                                     { return bicycle == generatedBicycle; }));
 }
 
 TEST_F(VehicleTest, shouldGenerateColor)
 {
-    const auto generatedColor = Vehicle::color();
+    const auto generatedColor = color();
 
-    ASSERT_TRUE(std::ranges::any_of(vehicle::vehicle_colors, [generatedColor](const std::string_view& color)
+    ASSERT_TRUE(std::ranges::any_of(vehicle_colors, [generatedColor](const std::string_view& color)
                                     { return color == generatedColor; }));
 }
 
 TEST_F(VehicleTest, shouldGenerateFuel)
 {
-    const auto generatedFuel = Vehicle::fuel();
+    const auto generatedFuel = fuel();
 
-    ASSERT_TRUE(std::ranges::any_of(vehicle::fuel_types,
+    ASSERT_TRUE(std::ranges::any_of(fuel_types,
                                     [generatedFuel](const std::string_view& fuel) { return fuel == generatedFuel; }));
 }
 
 TEST_F(VehicleTest, shouldGenerateManufacturer)
 {
-    const auto generatedManufacturer = Vehicle::manufacturer();
+    const auto generatedManufacturer = manufacturer();
 
-    ASSERT_TRUE(std::ranges::any_of(vehicle::manufacturers,
+    ASSERT_TRUE(std::ranges::any_of(manufacturers,
                                     [generatedManufacturer](const std::string_view& manufacturer)
                                     { return manufacturer == generatedManufacturer; }));
 }
 
 TEST_F(VehicleTest, shouldGenerateModel)
 {
-    const auto generatedModel = Vehicle::model();
+    const auto generatedModel = model();
 
-    ASSERT_TRUE(std::ranges::any_of(vehicle::models, [generatedModel](const std::string_view& model)
+    ASSERT_TRUE(std::ranges::any_of(models, [generatedModel](const std::string_view& model)
                                     { return model == generatedModel; }));
 }
 
 TEST_F(VehicleTest, shouldGenerateType)
 {
-    const auto generatedType = Vehicle::type();
+    const auto generatedType = type();
 
-    ASSERT_TRUE(std::ranges::any_of(vehicle::vehicle_types,
+    ASSERT_TRUE(std::ranges::any_of(vehicle_types,
                                     [generatedType](const std::string_view& type) { return type == generatedType; }));
 }
 
 TEST_F(VehicleTest, shouldGenerateVehicle)
 {
-    const auto generatedVehicle = Vehicle::vehicle();
+    const auto generatedVehicle = vehicleName();
 
-    ASSERT_TRUE(std::ranges::any_of(vehicle::manufacturers, [generatedVehicle](const std::string_view& manufacturer)
+    ASSERT_TRUE(std::ranges::any_of(manufacturers, [generatedVehicle](const std::string_view& manufacturer)
                                     { return generatedVehicle.starts_with(manufacturer); }));
 
-    ASSERT_TRUE(std::ranges::any_of(vehicle::models, [generatedVehicle](const std::string_view& model)
+    ASSERT_TRUE(std::ranges::any_of(models, [generatedVehicle](const std::string_view& model)
                                     { return generatedVehicle.ends_with(model); }));
 }
 
 TEST_F(VehicleTest, shouldGenerateVin)
 {
-    const auto generatedVin = Vehicle::vin();
+    const auto generatedVin = vin();
 
     std::regex vinRegex("[A-HJ-NPR-Z0-9]{10}[A-HJ-NPR-Z0-9]{1}[A-HJ-NPR-Z0-9]{1}[0-9]{5}");
 
@@ -91,7 +91,7 @@ TEST_F(VehicleTest, shouldGenerateVin)
 
 TEST_F(VehicleTest, shouldGenerateVrm)
 {
-    const auto generatedVrm = Vehicle::vrm();
+    const auto generatedVrm = vrm();
 
     std::regex vrmRegex("[A-Z]{2}[0-9]{2}[A-Z]{3}");
 

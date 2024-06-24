@@ -3,9 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
-{
-namespace vehicle
+namespace faker::vehicle
 {
 const auto bicycle_types = std::to_array<std::string_view>({
     "BMX bike",    "Cargo bike",    "City bike",      "Electric bike", "Folding bike",
@@ -38,5 +36,4 @@ const auto vehicle_types = std::to_array<std::string_view>({
     "RV",   "SUV", "Trailer", "Truck",   "Van",
 });
 
-}
 }
