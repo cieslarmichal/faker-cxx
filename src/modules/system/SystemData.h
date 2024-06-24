@@ -5,14 +5,30 @@
 
 #include "faker-cxx/System.h"
 
-namespace faker
+namespace faker::system
 {
-const auto commonInterfaceTypes = std::to_array<std::string_view>({"en", "wl", "ww"});
+const auto commonInterfaceTypes = std::to_array<std::string_view>({
+    "en",
+    "wl",
+    "ww",
+});
 
 const std::unordered_map<std::string_view, std::string_view> commonInterfaceSchemas = {
-    {"index", "o"}, {"slot", "s"}, {"mac", "x"}, {"pci", "p"}};
+    {"index", "o"},
+    {"slot", "s"},
+    {"mac", "x"},
+    {"pci", "p"},
+};
 
-const auto cronDayOfWeek = std::to_array<std::string_view>({"SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"});
+const auto cronDayOfWeek = std::to_array<std::string_view>({
+    "SUN",
+    "MON",
+    "TUE",
+    "WED",
+    "THU",
+    "FRI",
+    "SAT",
+});
 
 const auto directoryPaths = std::to_array<std::string_view>({
     "/etc/mail",
@@ -152,17 +168,13 @@ const std::unordered_map<std::string_view, std::string_view> mimeTypesExtensions
     {"application/x-7z-compressed", "7z"},
     {"application/x-tar", "tart"},
     {"application/xhtml+xml", "xhtml"},
-
     {"audio/ogg", "oga"},
     {"audio/webm", "weba"},
     {"audio/mpeg", "mp3"},
-
     {"image/svg+xml", "svg"},
-
     {"text/calendar", "ics"},
     {"text/javascript", "js"},
     {"text/plain", "txt"},
-
     {"video/3gpp", "3gp"},
     {"video/3gpp2", "3g2"},
     {"video/mp2t", "ts"},
@@ -171,11 +183,22 @@ const std::unordered_map<std::string_view, std::string_view> mimeTypesExtensions
 };
 
 const auto commonMimeTypes = std::to_array<std::string_view>({
-    "application/pdf", "audio/mpeg", "audio/wav",
-    "image/png",       "image/jpeg", "image/gif",
-    "video/mp4",       "video/mpeg", "text/html",
+    "application/pdf",
+    "audio/mpeg",
+    "audio/wav",
+    "image/png",
+    "image/jpeg",
+    "image/gif",
+    "video/mp4",
+    "video/mpeg",
+    "text/html",
 });
 
-const auto commonFileTypes = std::to_array<std::string_view>({"video", "audio", "image", "text", "application"});
-
+const auto commonFileTypes = std::to_array<std::string_view>({
+    "video",
+    "audio",
+    "image",
+    "text",
+    "application",
+});
 }

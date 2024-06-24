@@ -99,13 +99,13 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
         username = FormatHelper::format("{}{}{}", firstName, lastName, Number::integer<int>(999));
         break;
     case 1:
-        username = FormatHelper::format(
-            "{}{}{}", firstName, Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}), lastName);
+        username = FormatHelper::format("{}{}{}", firstName,
+                                        Helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
-        username = FormatHelper::format("{}{}{}{}", firstName,
-                                        Helper::arrayElement<std::string>(std::vector<std::string>{".", "_", ""}),
-                                        lastName, Number::integer<int>(99));
+        username =
+            FormatHelper::format("{}{}{}{}", firstName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}),
+                                 lastName, Number::integer<int>(99));
         break;
     }
 
