@@ -2,21 +2,18 @@
 
 #include <string_view>
 
-namespace faker
+namespace faker::vehicle
 {
-class Vehicle
-{
-public:
     /**
      * @brief Returns a random bicycle type.
      *
      * @returns bicycle type.
      *
      * @code
-     * Vehicle::bicycle() // "Electric bike"
+     * vehicle::bicycle() // "Electric bike"
      * @endcode
      */
-    static std::string_view bicycle();
+    std::string_view bicycle();
 
     /**
      * @brief Returns a random vehicle color.
@@ -24,10 +21,10 @@ public:
      * @returns vehicle color.
      *
      * @code
-     * Vehicle::color() // "Silver"
+     * vehicle::color() // "Silver"
      * @endcode
      */
-    static std::string_view color();
+    std::string_view color();
 
     /**
      * @brief Returns a random vehicle fuel.
@@ -35,10 +32,10 @@ public:
      * @returns vehicle fuel.
      *
      * @code
-     * Vehicle::fuel() // "Diesel"
+     * vehicle::fuel() // "Diesel"
      * @endcode
      */
-    static std::string_view fuel();
+    std::string_view fuel();
 
     /**
      * @brief Returns a random vehicle(car) manufacturer.
@@ -46,10 +43,10 @@ public:
      * @returns vehicle(car) manufacturer.
      *
      * @code
-     * Vehicle::manufacturer() // "Ferrari"
+     * vehicle::manufacturer() // "Ferrari"
      * @endcode
      */
-    static std::string_view manufacturer();
+    std::string_view manufacturer();
 
     /**
      * @brief Returns a random vehicle(car) model.
@@ -57,10 +54,10 @@ public:
      * @returns vehicle(car) model.
      *
      * @code
-     * Vehicle::model() // "Fiesta"
+     * vehicle::model() // "Fiesta"
      * @endcode
      */
-    static std::string_view model();
+    std::string_view model();
 
     /**
      * @brief Returns a random vehicle type.
@@ -68,10 +65,10 @@ public:
      * @returns vehicle type.
      *
      * @code
-     * Vehicle::type() // "Van"
+     * vehicle::type() // "Van"
      * @endcode
      */
-    static std::string_view type();
+    std::string_view type();
 
     /**
      * @brief Returns a random vehicle(car).
@@ -79,10 +76,10 @@ public:
      * @returns vehicle composed by a manufacturer and model.
      *
      * @code
-     * Vehicle::vehicle() // "BMW Explorer"
+     * vehicle::vehicleName() // "BMW Explorer"
      * @endcode
      */
-    static std::string vehicle();
+    std::string vehicleName();
 
     /**
      * @brief Returns a vehicle identification number (VIN).
@@ -90,10 +87,10 @@ public:
      * @returns vehicle identification number.
      *
      * @code
-     * Vehicle::vin() // "YV1MH682762184654"
+     * vehicle::vin() // "YV1MH682762184654"
      * @endcode
      */
-    static std::string vin();
+    std::string vin();
 
     /**
      * @brief Returns a vehicle registration number (Vehicle Registration Mark - VRM).
@@ -101,9 +98,8 @@ public:
      * @returns vehicle registration number.
      *
      * @code
-     * Vehicle::vrm() // "MF56UPA"
+     * vehicle::vrm() // "MF56UPA"
      * @endcode
      */
-    static std::string vrm();
-};
+    std::string vrm();
 }
