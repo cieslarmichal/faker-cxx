@@ -34,7 +34,7 @@ std::string Git::branch(unsigned maxIssueNum)
 
 std::string Git::commitDate(unsigned years)
 {
-    const auto date = Date::pastDate(int(years));
+    const auto date = faker::date::pastDate(int(years));
 
     const auto dateSplit = StringHelper::split(date, "-");
 
@@ -73,8 +73,8 @@ std::string Git::commitDate(unsigned years)
         timeZoneString += "00";
     }
 
-    return FormatHelper::format("{} {} {} {} {} {}", Date::weekdayAbbreviatedName(),
-                                monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
+    return FormatHelper::format("{} {} {} {} {} {}", faker::date::weekdayAbbreviatedName(),
+                                faker::date::monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year, timeZoneString);
 }
 
 std::string Git::commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Country country)

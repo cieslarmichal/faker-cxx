@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::date
 {
 const auto monthNames = std::to_array<std::string_view>({
     "January", "February", "March",     "April",   "May",      "June",
