@@ -3,9 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
-{
-namespace videoGame
+namespace faker::videogame
 {
 const auto videoGameNames = std::to_array<std::string_view>({
     "#killallzombies",
@@ -3593,5 +3591,4 @@ const auto studioNames = std::to_array<std::string_view>({
     "n-Space",
 });
 
-}
 }
