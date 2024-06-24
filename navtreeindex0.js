@@ -56,7 +56,6 @@ var NAVTREEINDEX0 =
 "classfaker_1_1Science.html":[0,0,0,22],
 "classfaker_1_1String.html":[0,0,0,23],
 "classfaker_1_1System.html":[0,0,0,24],
-"classfaker_1_1Weather.html":[0,0,0,25],
 "dir_21275a4f97039163a157995766de70c2.html":[1,0,0,0],
 "dir_d44c64559bbebec7f509842c48db8b23.html":[1,0,0],
 "files.html":[1,0],
