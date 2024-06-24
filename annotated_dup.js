@@ -14,7 +14,6 @@ var annotated_dup =
       [ "Date", "classfaker_1_1Date.html", null ],
       [ "FileOptions", "structfaker_1_1FileOptions.html", null ],
       [ "Finance", "classfaker_1_1Finance.html", null ],
-      [ "Food", "classfaker_1_1Food.html", null ],
       [ "Git", "classfaker_1_1Git.html", "classfaker_1_1Git" ],
       [ "Hacker", "classfaker_1_1Hacker.html", null ],
       [ "Helper", "classfaker_1_1Helper.html", "classfaker_1_1Helper" ],
