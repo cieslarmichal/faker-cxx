@@ -3,14 +3,24 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::weather
 {
 const auto weatherDescriptions = std::to_array<std::string_view>({
-    "clear sky",     "few clouds",  "scattered clouds",
-    "broken clouds", "shower rain", "rainy",
-    "thunderstorm",  "snowy",       "misty",
-    "smoky",         "haze",        "sunny",
-    "cloudy",        "windy",       "dark",
+    "clear sky",
+    "few clouds",
+    "scattered clouds",
+    "broken clouds",
+    "shower rain",
+    "rainy",
+    "thunderstorm",
+    "snowy",
+    "misty",
+    "smoky",
+    "haze",
+    "sunny",
+    "cloudy",
+    "windy",
+    "dark",
     "foggy",
 });
 

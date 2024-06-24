@@ -2,20 +2,16 @@
 
 #include <string_view>
 
-namespace faker
+namespace faker::weather
 {
-class Weather
-{
-public:
-    /**
-     * @brief Generated a random weather description
-     *
-     * @return String_View A random weather description
-     *
-     * @code
-     * Weather::description(); // "Sunny"
-     * @endcode
-     */
-    static std::string_view weatherDescription();
-};
+/**
+ * @brief Generated a random weather description
+ *
+ * @return A random weather description
+ *
+ * @code
+ * weather::weatherDescription(); // "Sunny"
+ * @endcode
+ */
+std::string_view weatherDescription();
 }

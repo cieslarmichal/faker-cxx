@@ -5,9 +5,9 @@
 #include "faker-cxx/Helper.h"
 #include "WeatherData.h"
 
-namespace faker
+namespace faker::weather
 {
-std::string_view Weather::weatherDescription()
+std::string_view weatherDescription()
 {
     return Helper::arrayElement(weatherDescriptions);
 }
