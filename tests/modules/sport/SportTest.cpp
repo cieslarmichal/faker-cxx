@@ -9,7 +9,7 @@
 
 using namespace ::testing;
 using namespace faker;
-using namespace faker::Sport;
+using namespace faker::sport;
 
 class SportTest : public Test
 {
@@ -18,7 +18,7 @@ public:
 
 TEST_F(SportTest, shouldGenerateSport)
 {
-    const auto generatedSport = sport();
+    const auto generatedSport = sportName();
 
     ASSERT_TRUE(std::ranges::any_of(sportNames, [generatedSport](const std::string_view& sport)
                                     { return sport == generatedSport; }));
