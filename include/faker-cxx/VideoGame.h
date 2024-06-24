@@ -2,11 +2,8 @@
 
 #include <string_view>
 
-namespace faker
+namespace faker::videogame
 {
-class VideoGame
-{
-public:
     /**
      * @brief Returns a random video game name.
      *
@@ -16,7 +13,7 @@ public:
      * VideoGame::gameTitle() // "Rayman Arena"
      * @endcode
      */
-    static std::string_view gameTitle();
+    std::string_view gameTitle();
 
     /**
      * @brief Returns a random video game genre.
@@ -27,7 +24,7 @@ public:
      * VideoGame::genre() // "Platformer"
      * @endcode
      */
-    static std::string_view genre();
+    std::string_view genre();
 
     /**
      * @brief Returns a random video game platform.
@@ -38,7 +35,7 @@ public:
      * VideoGame::platform() // "Playstation 5"
      * @endcode
      */
-    static std::string_view platform();
+    std::string_view platform();
 
     /**
      * @brief Returns a random video game studio name.
@@ -49,6 +46,5 @@ public:
      * VideoGame::studioName() // "Activision Blizzard"
      * @endcode
      */
-    static std::string_view studioName();
-};
+    std::string_view studioName();
 }
