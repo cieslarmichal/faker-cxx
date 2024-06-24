@@ -13,11 +13,9 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 
-namespace faker
+namespace faker::date
 {
-namespace
-{
-std::string serializeTimePoint(const auto& timePoint, Date::DateFormat dateFormat)
+std::string serializeTimePoint(const auto& timePoint, DateFormat dateFormat)
 {
     time_t timePointTimeT = std::chrono::system_clock::to_time_t(timePoint);
 
@@ -25,7 +23,7 @@ std::string serializeTimePoint(const auto& timePoint, Date::DateFormat dateForma
 
     std::stringstream ss;
 
-    if (dateFormat == Date::DateFormat::Timestamp)
+    if (dateFormat == DateFormat::Timestamp)
     {
         ss << std::chrono::duration_cast<std::chrono::seconds>(timePoint.time_since_epoch()).count();
     }
@@ -38,7 +36,7 @@ std::string serializeTimePoint(const auto& timePoint, Date::DateFormat dateForma
     return ss.str();
 }
 
-std::string betweenDate(const auto& from, const auto& to, Date::DateFormat dateFormat)
+std::string betweenDate(const auto& from, const auto& to, DateFormat dateFormat)
 {
     if (from > to)
     {
@@ -56,9 +54,8 @@ std::string betweenDate(const auto& from, const auto& to, Date::DateFormat dateF
 
 const auto numberOfHoursInDay = 24;
 const auto numberOfDaysInYear = 365;
-}
 
-std::string Date::futureDate(int years, Date::DateFormat dateFormat)
+std::string futureDate(int years, DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() + std::chrono::hours{1};
 
@@ -67,7 +64,7 @@ std::string Date::futureDate(int years, Date::DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::pastDate(int years, Date::DateFormat dateFormat)
+std::string pastDate(int years, DateFormat dateFormat)
 {
     const auto startDate =
         std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * years};
@@ -77,7 +74,7 @@ std::string Date::pastDate(int years, Date::DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::soonDate(int days, Date::DateFormat dateFormat)
+std::string soonDate(int days, DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() + std::chrono::hours{1};
 
@@ -86,7 +83,7 @@ std::string Date::soonDate(int days, Date::DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::recentDate(int days, Date::DateFormat dateFormat)
+std::string recentDate(int days, DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * days};
 
@@ -95,7 +92,7 @@ std::string Date::recentDate(int days, Date::DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::birthdateByAge(int minAge, int maxAge, Date::DateFormat dateFormat)
+std::string birthdateByAge(int minAge, int maxAge, DateFormat dateFormat)
 {
     const auto startDate =
         std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * maxAge};
@@ -106,7 +103,7 @@ std::string Date::birthdateByAge(int minAge, int maxAge, Date::DateFormat dateFo
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string Date::birthdateByYear(int minYear, int maxYear, Date::DateFormat dateFormat)
+std::string birthdateByYear(int minYear, int maxYear, DateFormat dateFormat)
 {
     tm startDateTime{};
     startDateTime.tm_year = minYear - 1900;
@@ -133,27 +130,27 @@ std::string Date::birthdateByYear(int minYear, int maxYear, Date::DateFormat dat
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string_view Date::weekdayName()
+std::string_view weekdayName()
 {
     return Helper::arrayElement(weekdayNames);
 }
 
-std::string_view Date::weekdayAbbreviatedName()
+std::string_view weekdayAbbreviatedName()
 {
     return Helper::arrayElement(weekdayAbbreviatedNames);
 }
 
-std::string_view Date::monthName()
+std::string_view monthName()
 {
     return Helper::arrayElement(monthNames);
 }
 
-std::string_view Date::monthAbbreviatedName()
+std::string_view monthAbbreviatedName()
 {
     return Helper::arrayElement(monthAbbreviatedNames);
 }
 
-unsigned int Date::year()
+unsigned int year()
 {
     unsigned minYear = 1950;
     unsigned maxYear = 2050;
@@ -161,42 +158,42 @@ unsigned int Date::year()
     return Number::integer<unsigned>(minYear, maxYear);
 }
 
-unsigned int Date::month()
+unsigned int month()
 {
     return Number::integer<unsigned>(1, 12);
 }
 
-unsigned int Date::hour()
+unsigned int hour()
 {
     return Number::integer<unsigned>(0, 23);
 }
 
-unsigned int Date::minute()
+unsigned int minute()
 {
     return Number::integer<unsigned>(0, 59);
 }
 
-unsigned int Date::second()
+unsigned int second()
 {
     return Number::integer<unsigned>(0, 59);
 }
 
-std::string Date::time()
+std::string time()
 {
-    return FormatHelper::format("{:02}:{:02}", Date::hour(), Date::minute());
+    return FormatHelper::format("{:02}:{:02}", hour(), minute());
 }
 
-unsigned int Date::dayOfMonth()
+unsigned int dayOfMonth()
 {
     return Number::integer<unsigned>(1, 31);
 }
 
-unsigned Date::dayOfWeek()
+unsigned dayOfWeek()
 {
     return Number::integer<unsigned>(1, 7);
 }
 
-std::string_view Date::timezone()
+std::string_view timezoneRandom()
 {
     return Helper::arrayElement(timezonesAbbreviatedNames);
 }

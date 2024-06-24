@@ -166,7 +166,7 @@ std::string Finance::ethereumAddress()
 
 std::string Finance::creditCardExpirationDate()
 {
-    const auto expirationDate = Date::futureDate(3);
+    const auto expirationDate = faker::date::futureDate(3);
 
     return expirationDate.substr(5, 2) + "/" + expirationDate.substr(2, 2);
 }

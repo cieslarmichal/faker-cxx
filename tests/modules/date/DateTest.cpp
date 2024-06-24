@@ -21,6 +21,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace faker::date;
 
 namespace
 {
@@ -55,7 +56,7 @@ TEST_F(DateTest, shouldGeneratePastDateISO)
 {
     const auto currentDate = std::chrono::system_clock::now();
 
-    const auto pastDateISO = Date::pastDate();
+    const auto pastDateISO = pastDate();
 
     const auto pastDate = parseISOFormattedStringToTimePoint(pastDateISO);
 
@@ -67,7 +68,7 @@ TEST_F(DateTest, shouldGeneratePastDateTimestamp)
 {
     const auto currentDate = std::chrono::system_clock::now();
 
-    const auto pastDateTimestamp = Date::pastDate(1, Date::DateFormat::Timestamp);
+    const auto pastDateTimestamp = pastDate(1, DateFormat::Timestamp);
 
     const auto pastDate = std::chrono::system_clock::from_time_t(std::stoi(pastDateTimestamp));
 
@@ -81,7 +82,7 @@ TEST_F(DateTest, shouldGenerateRecentDateISO)
 
     const auto recentDays = 5;
 
-    const auto recentDateISO = Date::recentDate(recentDays);
+    const auto recentDateISO = recentDate(recentDays);
 
     const auto recentDate = parseISOFormattedStringToTimePoint(recentDateISO);
 
@@ -95,7 +96,7 @@ TEST_F(DateTest, shouldGenerateRecentDateTimestamp)
 
     const auto recentDays = 5;
 
-    const auto recentDateTimestamp = Date::recentDate(recentDays, Date::DateFormat::Timestamp);
+    const auto recentDateTimestamp = recentDate(recentDays, DateFormat::Timestamp);
 
     const auto recentDate = std::chrono::system_clock::from_time_t(std::stoi(recentDateTimestamp));
 
@@ -107,7 +108,7 @@ TEST_F(DateTest, shouldGenerateFutureDateISO)
 {
     const auto currentDate = std::chrono::system_clock::now();
 
-    const auto futureDateISO = Date::futureDate();
+    const auto futureDateISO = futureDate();
 
     const auto futureDate = parseISOFormattedStringToTimePoint(futureDateISO);
 
@@ -119,7 +120,7 @@ TEST_F(DateTest, shouldGenerateFutureDateTimestamp)
 {
     const auto currentDate = std::chrono::system_clock::now();
 
-    const auto futureDateTimestamp = Date::futureDate(1, Date::DateFormat::Timestamp);
+    const auto futureDateTimestamp = futureDate(1, DateFormat::Timestamp);
 
     const auto futureDate = std::chrono::system_clock::from_time_t(std::stoi(futureDateTimestamp));
 
@@ -133,7 +134,7 @@ TEST_F(DateTest, shouldGenerateSoonDateISO)
 
     const auto soonDays = 2;
 
-    const auto soonDateISO = Date::soonDate(soonDays);
+    const auto soonDateISO = soonDate(soonDays);
 
     const auto soonDate = parseISOFormattedStringToTimePoint(soonDateISO);
 
@@ -147,7 +148,7 @@ TEST_F(DateTest, shouldGenerateSoonDateTimestamp)
 
     const auto soonDays = 2;
 
-    const auto soonDateTimestamp = Date::soonDate(soonDays, Date::DateFormat::Timestamp);
+    const auto soonDateTimestamp = soonDate(soonDays, DateFormat::Timestamp);
 
     const auto soonDate = std::chrono::system_clock::from_time_t(std::stoi(soonDateTimestamp));
 
@@ -157,7 +158,7 @@ TEST_F(DateTest, shouldGenerateSoonDateTimestamp)
 
 TEST_F(DateTest, shouldGenerateBirthDateByAgeISO)
 {
-    const auto birthdateISO = Date::birthdateByAge(5, 15);
+    const auto birthdateISO = birthdateByAge(5, 15);
 
     const auto birthdate = parseISOFormattedStringToTimePoint(birthdateISO);
 
@@ -173,7 +174,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByAgeISO)
 
 TEST_F(DateTest, shouldGenerateBirthDateByAgeTimestamp)
 {
-    const auto birthdateTimestamp = Date::birthdateByAge(5, 15, Date::DateFormat::Timestamp);
+    const auto birthdateTimestamp = birthdateByAge(5, 15, DateFormat::Timestamp);
 
     const auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
@@ -189,7 +190,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByAgeTimestamp)
 
 TEST_F(DateTest, shouldGenerateBirthDateByExactYearISO)
 {
-    const auto birthdateISO = Date::birthdateByYear(1996, 1996);
+    const auto birthdateISO = birthdateByYear(1996, 1996);
 
     const auto birthdate = parseISOFormattedStringToTm(birthdateISO);
 
@@ -198,7 +199,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByExactYearISO)
 
 TEST_F(DateTest, shouldGenerateBirthDateByExactYearTimestamp)
 {
-    const auto birthdateTimestamp = Date::birthdateByYear(1996, 1996, Date::DateFormat::Timestamp);
+    const auto birthdateTimestamp = birthdateByYear(1996, 1996, DateFormat::Timestamp);
 
     const auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
@@ -211,7 +212,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByExactYearTimestamp)
 
 TEST_F(DateTest, shouldGenerateBirthDateByRangeYearISO)
 {
-    const auto birthdateISO = Date::birthdateByYear(1990, 2000);
+    const auto birthdateISO = birthdateByYear(1990, 2000);
 
     const auto birthdate = parseISOFormattedStringToTm(birthdateISO);
 
@@ -221,7 +222,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByRangeYearISO)
 
 TEST_F(DateTest, shouldGenerateBirthDateByRangeYearTimestamp)
 {
-    const auto birthdateTimestamp = Date::birthdateByYear(1990, 2000, Date::DateFormat::Timestamp);
+    const auto birthdateTimestamp = birthdateByYear(1990, 2000, DateFormat::Timestamp);
 
     const auto birthdate = std::chrono::system_clock::from_time_t(std::stoi(birthdateTimestamp));
 
@@ -235,7 +236,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByRangeYearTimestamp)
 
 TEST_F(DateTest, shouldGenerateWeekdayName)
 {
-    const auto generatedWeekdayName = Date::weekdayName();
+    const auto generatedWeekdayName = weekdayName();
 
     ASSERT_TRUE(std::ranges::any_of(weekdayNames, [generatedWeekdayName](const std::string_view& weekdayName)
                                     { return weekdayName == generatedWeekdayName; }));
@@ -243,7 +244,7 @@ TEST_F(DateTest, shouldGenerateWeekdayName)
 
 TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
 {
-    const auto generatedWeekdayAbbreviatedName = Date::weekdayAbbreviatedName();
+    const auto generatedWeekdayAbbreviatedName = weekdayAbbreviatedName();
 
     ASSERT_TRUE(std::ranges::any_of(weekdayAbbreviatedNames,
                                     [generatedWeekdayAbbreviatedName](const std::string_view& weekdayAbbreviatedName)
@@ -252,7 +253,7 @@ TEST_F(DateTest, shouldGenerateWeekdayAbbreviatedName)
 
 TEST_F(DateTest, shouldGenerateMonthName)
 {
-    const auto generatedMonthName = Date::monthName();
+    const auto generatedMonthName = monthName();
 
     ASSERT_TRUE(std::ranges::any_of(monthNames, [generatedMonthName](const std::string_view& monthName)
                                     { return monthName == generatedMonthName; }));
@@ -260,7 +261,7 @@ TEST_F(DateTest, shouldGenerateMonthName)
 
 TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
 {
-    const auto generatedMonthAbbreviatedName = Date::monthAbbreviatedName();
+    const auto generatedMonthAbbreviatedName = monthAbbreviatedName();
 
     ASSERT_TRUE(std::ranges::any_of(monthAbbreviatedNames,
                                     [generatedMonthAbbreviatedName](const std::string_view& monthAbbreviatedName)
@@ -269,7 +270,7 @@ TEST_F(DateTest, shouldGenerateMonthAbbreviatedName)
 
 TEST_F(DateTest, shouldGenerateRandomYear)
 {
-    const auto generatedYear = Date::year();
+    const auto generatedYear = year();
 
     ASSERT_LE(generatedYear, 2050u);
     ASSERT_GE(generatedYear, 1950u);
@@ -277,7 +278,7 @@ TEST_F(DateTest, shouldGenerateRandomYear)
 
 TEST_F(DateTest, shouldGenerateRandomMonth)
 {
-    const auto genereatedMonth = Date::month();
+    const auto genereatedMonth = month();
 
     ASSERT_LE(genereatedMonth, 12u);
     ASSERT_GE(genereatedMonth, 1u);
@@ -285,7 +286,7 @@ TEST_F(DateTest, shouldGenerateRandomMonth)
 
 TEST_F(DateTest, shouldGenerateRandomHour)
 {
-    const auto generatedHour = Date::hour();
+    const auto generatedHour = hour();
 
     ASSERT_LE(generatedHour, 23u);
     ASSERT_GE(generatedHour, 0u);
@@ -293,7 +294,7 @@ TEST_F(DateTest, shouldGenerateRandomHour)
 
 TEST_F(DateTest, shouldGenerateRandomMinute)
 {
-    const auto generatedMinute = Date::minute();
+    const auto generatedMinute = minute();
 
     ASSERT_LE(generatedMinute, 59u);
     ASSERT_GE(generatedMinute, 0u);
@@ -301,7 +302,7 @@ TEST_F(DateTest, shouldGenerateRandomMinute)
 
 TEST_F(DateTest, shouldGenerateRandomSecond)
 {
-    const auto generatedSecond = Date::minute();
+    const auto generatedSecond = minute();
 
     ASSERT_LE(generatedSecond, 59u);
     ASSERT_GE(generatedSecond, 0u);
@@ -309,7 +310,7 @@ TEST_F(DateTest, shouldGenerateRandomSecond)
 
 TEST_F(DateTest, shouldGenerateRandomDayOfMonth)
 {
-    const auto generatedDayOfMonth = Date::dayOfMonth();
+    const auto generatedDayOfMonth = dayOfMonth();
 
     ASSERT_LE(generatedDayOfMonth, 31u);
     ASSERT_GE(generatedDayOfMonth, 1u);
@@ -317,7 +318,7 @@ TEST_F(DateTest, shouldGenerateRandomDayOfMonth)
 
 TEST_F(DateTest, shouldGenerateRandomDayOfWeek)
 {
-    const auto generatedDayOfWeek = Date::dayOfWeek();
+    const auto generatedDayOfWeek = dayOfWeek();
 
     ASSERT_LE(generatedDayOfWeek, 7u);
     ASSERT_GE(generatedDayOfWeek, 1u);
@@ -325,7 +326,7 @@ TEST_F(DateTest, shouldGenerateRandomDayOfWeek)
 
 TEST_F(DateTest, shouldGenerateRandomTimezone)
 {
-    const auto generatedTimeZone = Date::timezone();
+    const auto generatedTimeZone = timezoneRandom();
 
     ASSERT_TRUE(std::ranges::any_of(timezonesAbbreviatedNames, [generatedTimeZone](const std::string_view& timezoneName)
                                     { return timezoneName == generatedTimeZone; }));
@@ -333,7 +334,7 @@ TEST_F(DateTest, shouldGenerateRandomTimezone)
 
 TEST_F(DateTest, shouldGenerateRandomTime)
 {
-    const auto generatedTime = Date::time();
+    const auto generatedTime = time();
     const auto generatedTimeParts = StringHelper::split(generatedTime, ":");
 
     ASSERT_EQ(generatedTimeParts.size(), 2);

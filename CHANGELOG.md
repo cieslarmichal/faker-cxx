@@ -30,6 +30,8 @@ All notable changes to this project will be documented in this file
 * changed std::string to std::string_view in functions where is was possible
 * changed function name from `sport` to `sportName` in sport module
 * changed function name from `vehicle` to `vehicleName` in vehicle module
+* changed function name from `timezone` to `timezoneRandom` in date module
+
 
 ### Features
 
