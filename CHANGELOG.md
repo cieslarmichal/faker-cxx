@@ -26,12 +26,13 @@ All notable changes to this project will be documented in this file
 * removed `weather.uvIndex` method, use `number.integer` instead
 * removed `weather.humidity` method, use `number.integer` instead
 * removed `weather.cloudCover` method, use `number.integer` instead
-* changed classes to namespaces for functions grouping, for example use `number::integer` instead of `Number::integer`, applies to all modules
+* changed classes to namespaces for functions grouping, for example use `number::integer` instead of `Number::integer`,
+  applies to all modules
 * changed std::string to std::string_view in functions where is was possible
 * changed function name from `sport` to `sportName` in sport module
 * changed function name from `vehicle` to `vehicleName` in vehicle module
 * changed function name from `timezone` to `timezoneRandom` in date module
-
+* deleted function `commonFileType` from `System` module, use `system.fileType` instead
 
 ### Features
 

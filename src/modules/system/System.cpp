@@ -1,6 +1,6 @@
 #include "faker-cxx/System.h"
 
-#include <cstdlib>
+#include <iostream>
 #include <optional>
 #include <set>
 #include <string>
@@ -17,67 +17,70 @@
 #include "faker-cxx/Word.h"
 #include "SystemData.h"
 
-namespace faker
+namespace faker::system
 {
 namespace
 {
-const std::unordered_map<FileType, std::string_view> fileTypeToStringMapping{{FileType::Video, "video"},
-                                                                             {FileType::Audio, "audio"},
-                                                                             {FileType::Image, "image"},
-                                                                             {FileType::Text, "text"},
-                                                                             {FileType::Application, "application"}};
+const std::unordered_map<FileType, std::string_view> fileTypeToStringMapping{
+    {FileType::Video, "video"},
+    {FileType::Audio, "audio"},
+    {FileType::Image, "image"},
+    {FileType::Text, "text"},
+    {FileType::Application, "application"},
+};
 
 std::string_view extension(std::string_view mimeType)
 {
     const auto it = mimeTypesExtensions.find(mimeType);
+
     if (it == mimeTypesExtensions.end())
     {
         auto pos = mimeType.find_last_of('/');
+
         return mimeType.substr(pos + 1);
     }
-    else
-    {
-        return it->second;
-    }
+
+    return it->second;
 }
 }
 
-std::string System::fileName(const FileOptions& options)
+std::string fileName(const FileOptions& options)
 {
-    std::string baseName = word::words();
+    const auto baseName = word::words();
+
     std::string extensionsStr;
 
     if (options.extensionCount > 0)
     {
         std::vector<std::string> randomExtensions;
+
         if (options.extensionRange.min == options.extensionRange.max)
         {
             for (int i = 0; i < options.extensionCount; ++i)
             {
-                std::string randomExt = fileExtension();
-                randomExtensions.push_back(randomExt);
+                randomExtensions.push_back(fileExtension());
             }
+
             extensionsStr = "." + StringHelper::joinString(randomExtensions, ".");
         }
         else
         {
-            int numExtensions;
-            numExtensions =
-                options.extensionRange.min + rand() % (options.extensionRange.max - options.extensionRange.min + 1);
+            const std::integral auto numExtensions =
+                Number::integer(options.extensionRange.min, options.extensionRange.max);
 
             for (int i = 0; i < numExtensions; ++i)
             {
-                std::string randomExt = fileExtension();
-                randomExtensions.push_back(randomExt);
+                randomExtensions.push_back(fileExtension());
             }
 
             extensionsStr = "." + StringHelper::joinString(randomExtensions, ".");
         }
     }
+
     return baseName + extensionsStr;
 }
 
-std::string System::fileExtension(const std::optional<FileType>& mimeType)
+std::string fileExtension(const std::optional<FileType>& mimeType)
 {
     if (mimeType.has_value())
     {
@@ -88,14 +91,16 @@ std::string System::fileExtension(const std::optional<FileType>& mimeType)
         for (const auto& mime : mimeTypes)
         {
             size_t pos = mime.find_first_of('/');
+
             const auto mt = mime.substr(0, pos);
+
             if (mimeTypeName == mt)
             {
-                extensions.push_back(std::string(mime.substr(pos + 1)));
+                extensions.emplace_back(mime.substr(pos + 1));
             }
         }
 
-        return Helper::arrayElement<std::string>(extensions);
+        return Helper::arrayElement(extensions);
     }
     else
     {
@@ -108,11 +113,11 @@ std::string System::fileExtension(const std::optional<FileType>& mimeType)
 
         std::vector<std::string> extensions(extensionSet.begin(), extensionSet.end());
 
-        return Helper::arrayElement<std::string>(extensions);
+        return Helper::arrayElement(extensions);
     }
 }
 
-std::string System::commonFileName(const std::optional<std::string>& ext)
+std::string commonFileName(const std::optional<std::string>& ext)
 {
     FileOptions options;
 
@@ -126,18 +131,18 @@ std::string System::commonFileName(const std::optional<std::string>& ext)
     }
     else
     {
-        return str + "." + commonFileExtension();
+        return str + "." + std::string{commonFileExtension()};
     }
 }
 
-std::string System::commonFileExtension()
+std::string_view commonFileExtension()
 {
-    auto mimeType = Helper::arrayElement<std::string_view>(commonMimeTypes);
+    auto mimeType = Helper::arrayElement(commonMimeTypes);
 
-    return std::string(extension(mimeType));
+    return extension(mimeType);
 }
 
-std::string System::mimeType()
+std::string_view mimeType()
 {
     std::vector<std::string_view> mimeTypeKeys;
 
@@ -148,49 +153,25 @@ std::string System::mimeType()
         mimeTypeKeys.push_back(entry);
     }
 
-    return std::string(Helper::arrayElement<std::string_view>(mimeTypeKeys));
+    return Helper::arrayElement(mimeTypeKeys);
 }
 
-std::string System::commonFileType()
+std::string_view fileType()
 {
-    return std::string(Helper::arrayElement<std::string_view>(commonFileTypes));
+    return Helper::arrayElement(commonFileTypes);
 }
 
-std::string System::fileType()
+std::string_view directoryPath()
 {
-    std::set<std::string> typeSet;
-
-    const auto& localMimeTypes = mimeTypes;
-
-    for (const auto& entry : localMimeTypes)
-    {
-        const std::string& m = std::string(entry);
-
-        size_t pos = m.find('/');
-
-        if (pos != std::string::npos)
-        {
-            std::string type = m.substr(0, pos);
-            typeSet.insert(type);
-        }
-    }
-
-    std::vector<std::string> types(typeSet.begin(), typeSet.end());
-
-    return Helper::arrayElement<std::string>(types);
+    return Helper::arrayElement(directoryPaths);
 }
 
-std::string System::directoryPath()
+std::string filePath()
 {
-    return std::string(Helper::arrayElement<std::string_view>(directoryPaths));
+    return std::string{directoryPath()} + fileName();
 }
 
-std::string System::filePath()
-{
-    return directoryPath() + fileName();
-}
-
-std::string System::semver()
+std::string semver()
 {
     int major = Number::integer(9);
     int minor = Number::integer(9);
@@ -199,9 +180,9 @@ std::string System::semver()
     return FormatHelper::format("{}.{}.{}", major, minor, patch);
 }
 
-std::string System::networkInterface(const std::optional<NetworkInterfaceOptions>& options)
+std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options)
 {
-    const auto defaultInterfaceType = Helper::arrayElement<std::string_view>(commonInterfaceTypes);
+    const auto defaultInterfaceType = Helper::arrayElement(commonInterfaceTypes);
     const std::string defaultInterfaceSchema = std::string(Helper::objectKey(commonInterfaceSchemas));
 
     std::string interfaceType = std::string(defaultInterfaceType);
@@ -248,7 +229,7 @@ std::string System::networkInterface(const std::optional<NetworkInterfaceOptions
     return prefix + interfaceType + std::string(commonInterfaceSchemas.at(interfaceSchema)) + suffix;
 }
 
-std::string System::cron(const CronOptions& options)
+std::string cron(const CronOptions& options)
 {
     bool includeYear = options.includeYear;
     bool includeNonStandard = options.includeNonStandard;
@@ -272,12 +253,12 @@ std::string System::cron(const CronOptions& options)
         years = {std::to_string(Number::integer(1970, 2099)), "*"};
     }
 
-    auto minute = Helper::arrayElement<std::string>(minutes);
-    auto hour = Helper::arrayElement<std::string>(hours);
-    auto day = Helper::arrayElement<std::string>(days);
-    auto month = Helper::arrayElement<std::string>(months);
-    auto dayOfWeek = Helper::arrayElement<std::string>(daysOfWeek);
-    auto year = Helper::arrayElement<std::string>(years);
+    auto minute = Helper::arrayElement(minutes);
+    auto hour = Helper::arrayElement(hours);
+    auto day = Helper::arrayElement(days);
+    auto month = Helper::arrayElement(months);
+    auto dayOfWeek = Helper::arrayElement(daysOfWeek);
+    auto year = Helper::arrayElement(years);
 
     std::string standardExpression = minute + " " + hour + " " + day + " " + month + " " + dayOfWeek;
     if (includeYear)
