@@ -2,7 +2,7 @@
 
 #include <string_view>
 
-namespace faker::Sport
+namespace faker::sport
 {
     /**
      * @brief Returns a random sport.
@@ -14,7 +14,7 @@ namespace faker::Sport
      * @endcode
      */
     
-    std::string_view sport();
+    std::string_view sportName();
 
     /**
      * @brief Returns a random soccer team.
