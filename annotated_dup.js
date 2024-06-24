@@ -31,7 +31,6 @@ var annotated_dup =
       [ "Phone", "classfaker_1_1Phone.html", null ],
       [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", null ],
       [ "Science", "classfaker_1_1Science.html", "classfaker_1_1Science" ],
-      [ "Sport", "classfaker_1_1Sport.html", null ],
       [ "String", "classfaker_1_1String.html", null ],
       [ "System", "classfaker_1_1System.html", null ],
       [ "Vehicle", "classfaker_1_1Vehicle.html", null ],
