@@ -38,8 +38,7 @@ var NAVTREEINDEX0 =
 "Word_8h_source.html":[1,0,0,0,35],
 "annotated.html":[0,0],
 "classes.html":[0,1],
-"classfaker_1_1Finance.html":[0,0,0,4],
-"classfaker_1_1Git.html":[0,0,0,5],
+"classfaker_1_1Finance.html":[0,0,0,5],
 "classfaker_1_1Hacker.html":[0,0,0,6],
 "classfaker_1_1Helper.html":[0,0,0,7],
 "classfaker_1_1Internet.html":[0,0,0,8],
@@ -61,9 +60,8 @@ var NAVTREEINDEX0 =
 "functions_func.html":[0,2,1],
 "index.html":[],
 "pages.html":[],
-"structfaker_1_1CharCount.html":[0,0,0,2],
-"structfaker_1_1Currency.html":[0,0,0,3],
-"structfaker_1_1Git_1_1Author.html":[0,0,0,5,0],
+"structfaker_1_1CharCount.html":[0,0,0,3],
+"structfaker_1_1Currency.html":[0,0,0,4],
 "structfaker_1_1Helper_1_1WeightedElement.html":[0,0,0,7,0],
 "structfaker_1_1PasswordOptions.html":[0,0,0,15],
 "structfaker_1_1Science_1_1ChemicalElement.html":[0,0,0,19,0],
@@ -72,7 +70,8 @@ var NAVTREEINDEX0 =
 "structfaker_1_1airline_1_1Airplane.html":[0,0,0,0,1],
 "structfaker_1_1airline_1_1Airport.html":[0,0,0,0,2],
 "structfaker_1_1airline_1_1Range.html":[0,0,0,0,3],
-"structfaker_1_1system_1_1CronOptions.html":[0,0,0,1,0],
-"structfaker_1_1system_1_1FileOptions.html":[0,0,0,1,1],
-"structfaker_1_1system_1_1NetworkInterfaceOptions.html":[0,0,0,1,2]
+"structfaker_1_1git_1_1Author.html":[0,0,0,1,0],
+"structfaker_1_1system_1_1CronOptions.html":[0,0,0,2,0],
+"structfaker_1_1system_1_1FileOptions.html":[0,0,0,2,1],
+"structfaker_1_1system_1_1NetworkInterfaceOptions.html":[0,0,0,2,2]
 };

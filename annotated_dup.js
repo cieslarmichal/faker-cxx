@@ -7,6 +7,9 @@ var annotated_dup =
         [ "Airport", "structfaker_1_1airline_1_1Airport.html", null ],
         [ "Range", "structfaker_1_1airline_1_1Range.html", null ]
       ] ],
+      [ "git", null, [
+        [ "Author", "structfaker_1_1git_1_1Author.html", null ]
+      ] ],
       [ "system", null, [
         [ "CronOptions", "structfaker_1_1system_1_1CronOptions.html", null ],
         [ "FileOptions", "structfaker_1_1system_1_1FileOptions.html", null ],
@@ -15,7 +18,6 @@ var annotated_dup =
       [ "CharCount", "structfaker_1_1CharCount.html", null ],
       [ "Currency", "structfaker_1_1Currency.html", null ],
       [ "Finance", "classfaker_1_1Finance.html", null ],
-      [ "Git", "classfaker_1_1Git.html", "classfaker_1_1Git" ],
       [ "Hacker", "classfaker_1_1Hacker.html", null ],
       [ "Helper", "classfaker_1_1Helper.html", "classfaker_1_1Helper" ],
       [ "Internet", "classfaker_1_1Internet.html", null ],
