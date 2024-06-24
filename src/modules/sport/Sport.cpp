@@ -5,30 +5,30 @@
 #include "faker-cxx/Helper.h"
 #include "SportData.h"
 
-namespace faker
+namespace faker::Sport
 {
-std::string_view Sport::sport()
+std::string_view sport()
 {
-    return Helper::arrayElement(sport::sportNames);
+    return Helper::arrayElement(sportNames);
 }
 
-std::string_view Sport::soccerTeam()
+std::string_view soccerTeam()
 {
-    return Helper::arrayElement(sport::soccerTeams);
+    return Helper::arrayElement(soccerTeams);
 }
 
-std::string_view Sport::maleAthlete()
+std::string_view maleAthlete()
 {
-    return Helper::arrayElement(sport::maleAthletes);
+    return Helper::arrayElement(maleAthletes);
 }
 
-std::string_view Sport::femaleAthlete()
+std::string_view femaleAthlete()
 {
-    return Helper::arrayElement(sport::femaleAthletes);
+    return Helper::arrayElement(femaleAthletes);
 }
 
-std::string_view Sport::sportEvent()
+std::string_view sportEvent()
 {
-    return Helper::arrayElement(sport::sportEvents);
+    return Helper::arrayElement(sportEvents);
 }
 }

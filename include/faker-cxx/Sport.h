@@ -2,11 +2,8 @@
 
 #include <string_view>
 
-namespace faker
+namespace faker::Sport
 {
-class Sport
-{
-public:
     /**
      * @brief Returns a random sport.
      *
@@ -16,7 +13,8 @@ public:
      * Sport::sport() // "football"
      * @endcode
      */
-    static std::string_view sport();
+    
+    std::string_view sport();
 
     /**
      * @brief Returns a random soccer team.
@@ -27,7 +25,7 @@ public:
      * Sport::soccerTeam() // "Manchester United"
      * @endcode
      */
-    static std::string_view soccerTeam();
+    std::string_view soccerTeam();
 
     /**
      * @brief Returns a random male athlete.
@@ -38,7 +36,7 @@ public:
      * Sport::maleAthlete() // "Cristiano Ronaldo"
      * @endcode
      */
-    static std::string_view maleAthlete();
+    std::string_view maleAthlete();
 
     /**
      * @brief Returns a random female athlete.
@@ -49,7 +47,7 @@ public:
      * Sport::femaleAthlete() // "Serena Williams"
      * @endcode
      */
-    static std::string_view femaleAthlete();
+    std::string_view femaleAthlete();
 
     /**
      * @brief Returns a random Sport Event.
@@ -60,6 +58,5 @@ public:
      * Sport::sportEvent() // "Super Bowl"
      * @endcode
      */
-    static std::string_view sportEvent();
-};
+    std::string_view sportEvent();
 }
