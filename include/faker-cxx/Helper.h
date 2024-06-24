@@ -60,7 +60,7 @@ public:
     template <typename It>
     static auto arrayElement(It start, It end) -> decltype(*::std::declval<It>())
     {
-        size_t size = static_cast<size_t>(end - start);
+        auto size = static_cast<size_t>(end - start);
 
         if (size == 0)
         {
@@ -282,7 +282,7 @@ public:
     template <typename TResult>
     static TResult maybe(std::function<TResult()> callback, double probability = 0.5)
     {
-        if (Datatype::boolean(probability))
+        if (datatype::boolean(probability))
         {
             return callback();
         }
