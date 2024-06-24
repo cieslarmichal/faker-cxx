@@ -173,9 +173,9 @@ std::string filePath()
 
 std::string semver()
 {
-    int major = Number::integer(9);
-    int minor = Number::integer(9);
-    int patch = Number::integer(9);
+    const int major = Number::integer(9);
+    const int minor = Number::integer(9);
+    const int patch = Number::integer(9);
 
     return FormatHelper::format("{}.{}.{}", major, minor, patch);
 }
@@ -253,14 +253,15 @@ std::string cron(const CronOptions& options)
         years = {std::to_string(Number::integer(1970, 2099)), "*"};
     }
 
-    auto minute = Helper::arrayElement(minutes);
-    auto hour = Helper::arrayElement(hours);
-    auto day = Helper::arrayElement(days);
-    auto month = Helper::arrayElement(months);
-    auto dayOfWeek = Helper::arrayElement(daysOfWeek);
-    auto year = Helper::arrayElement(years);
+    const auto minute = Helper::arrayElement(minutes);
+    const auto hour = Helper::arrayElement(hours);
+    const auto day = Helper::arrayElement(days);
+    const auto month = Helper::arrayElement(months);
+    const auto dayOfWeek = Helper::arrayElement(daysOfWeek);
+    const auto year = Helper::arrayElement(years);
 
     std::string standardExpression = minute + " " + hour + " " + day + " " + month + " " + dayOfWeek;
+
     if (includeYear)
     {
         standardExpression += " " + year;
@@ -269,7 +270,7 @@ std::string cron(const CronOptions& options)
     std::vector<std::string> nonStandardExpressions = {"@annually", "@daily",  "@hourly", "@monthly",
                                                        "@reboot",   "@weekly", "@yearly"};
 
-    return (!includeNonStandard || Datatype::boolean(0)) ? standardExpression :
+    return (!includeNonStandard || datatype::boolean(0)) ? standardExpression :
                                                            Helper::arrayElement<std::string>(nonStandardExpressions);
 }
 }

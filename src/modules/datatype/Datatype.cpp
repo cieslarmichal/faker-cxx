@@ -4,14 +4,14 @@
 
 #include "faker-cxx/Number.h"
 
-namespace faker
+namespace faker::datatype
 {
-bool Datatype::boolean()
+bool boolean()
 {
     return Number::decimal<float>(0.f, 1.f) > 0.5f;
 }
 
-bool Datatype::boolean(double probability)
+bool boolean(double probability)
 {
     if (probability != nan(""))
     {
