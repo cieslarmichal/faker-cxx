@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::food
 {
 const auto alcoholicBeverages = std::to_array<std::string_view>({
     "Beer",

@@ -5,74 +5,74 @@
 #include "faker-cxx/Helper.h"
 #include "FoodData.h"
 
-namespace faker
+namespace faker::food
 {
-std::string_view Food::alcoholicBeverage()
+std::string_view alcoholicBeverage()
 {
     return Helper::arrayElement(alcoholicBeverages);
 }
 
-std::string_view Food::dishName()
+std::string_view dishName()
 {
     return Helper::arrayElement(dishNames);
 }
 
-std::string_view Food::foodCategory()
+std::string_view foodCategory()
 {
     return Helper::arrayElement(foodCategories);
 }
 
-std::string_view Food::fruit()
+std::string_view fruit()
 {
     return Helper::arrayElement(fruits);
 }
 
-std::string_view Food::grain()
+std::string_view grain()
 {
     return Helper::arrayElement(grains);
 }
 
-std::string_view Food::meat()
+std::string_view meat()
 {
     return Helper::arrayElement(meats);
 }
 
-std::string_view Food::milkProduct()
+std::string_view milkProduct()
 {
     return Helper::arrayElement(milkProducts);
 }
 
-std::string_view Food::nonalcoholicBeverage()
+std::string_view nonalcoholicBeverage()
 {
     return Helper::arrayElement(nonalcoholicBeverages);
 }
 
-std::string_view Food::nut()
+std::string_view nut()
 {
     return Helper::arrayElement(nuts);
 }
 
-std::string_view Food::oil()
+std::string_view oil()
 {
     return Helper::arrayElement(oils);
 }
 
-std::string_view Food::seafood()
+std::string_view seafood()
 {
     return Helper::arrayElement(seafoods);
 }
 
-std::string_view Food::seed()
+std::string_view seed()
 {
     return Helper::arrayElement(seeds);
 }
 
-std::string_view Food::sugarProduct()
+std::string_view sugarProduct()
 {
     return Helper::arrayElement(sugarProducts);
 }
 
-std::string_view Food::vegetable()
+std::string_view vegetable()
 {
     return Helper::arrayElement(vegetables);
 }
