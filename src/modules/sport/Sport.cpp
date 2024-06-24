@@ -5,9 +5,9 @@
 #include "faker-cxx/Helper.h"
 #include "SportData.h"
 
-namespace faker::Sport
+namespace faker::sport
 {
-std::string_view sport()
+std::string_view sportName()
 {
     return Helper::arrayElement(sportNames);
 }
