@@ -3,7 +3,7 @@
 #include <array>
 #include <string>
 
-namespace faker::Sport
+namespace faker::sport
 {
 const auto femaleAthletes = std::to_array<std::string_view>({
     "Alex Morgan",    "Jackie Joyner-Kersee", "Lindsey Vonn",    "Martina Navratilova", "Mia Hamm",
