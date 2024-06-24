@@ -19,7 +19,6 @@ var searchData=
   ['state_16',['state',['../classfaker_1_1Location.html#afc0556b278be839912b3141b9c4c0a9e',1,'faker::Location']]],
   ['street_17',['street',['../classfaker_1_1Location.html#ab7b136a671e83f17a5eb2cae4f43b67e',1,'faker::Location']]],
   ['streetaddress_18',['streetAddress',['../classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5',1,'faker::Location']]],
-  ['studioname_19',['studioName',['../classfaker_1_1VideoGame.html#afd842eaf01b55e9c93f864809ae233fc',1,'faker::VideoGame']]],
-  ['suffix_20',['suffix',['../classfaker_1_1Person.html#affec8ddc4342317657338259aea55556',1,'faker::Person']]],
-  ['sugarproduct_21',['sugarProduct',['../classfaker_1_1Food.html#ab4c284b39e36c8ebd29dcc8c285d2dbc',1,'faker::Food']]]
+  ['suffix_19',['suffix',['../classfaker_1_1Person.html#affec8ddc4342317657338259aea55556',1,'faker::Person']]],
+  ['sugarproduct_20',['sugarProduct',['../classfaker_1_1Food.html#ab4c284b39e36c8ebd29dcc8c285d2dbc',1,'faker::Food']]]
 ];
