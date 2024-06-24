@@ -1,5 +1,6 @@
 #include "faker-cxx/System.h"
 
+#include <algorithm>
 #include <optional>
 #include <regex>
 #include <set>
