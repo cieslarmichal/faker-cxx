@@ -9,6 +9,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace faker::food;
 
 class FoodTest : public Test
 {
@@ -17,7 +18,7 @@ public:
 
 TEST_F(FoodTest, shouldGenerateAlcoholicBeverage)
 {
-    const auto generatedAlcoholicBeverage = Food::alcoholicBeverage();
+    const auto generatedAlcoholicBeverage = alcoholicBeverage();
 
     ASSERT_TRUE(std::ranges::any_of(alcoholicBeverages,
                                     [generatedAlcoholicBeverage](const std::string_view& alcoholicBeverage)
@@ -26,7 +27,7 @@ TEST_F(FoodTest, shouldGenerateAlcoholicBeverage)
 
 TEST_F(FoodTest, shouldGenerateDishName)
 {
-    const auto generatedDishName = Food::dishName();
+    const auto generatedDishName = dishName();
 
     ASSERT_TRUE(std::ranges::any_of(dishNames, [generatedDishName](const std::string_view& dishName)
                                     { return generatedDishName == dishName; }));
@@ -34,7 +35,7 @@ TEST_F(FoodTest, shouldGenerateDishName)
 
 TEST_F(FoodTest, shouldGenerateFoodCategories)
 {
-    const auto generatedFoodCategory = Food::foodCategory();
+    const auto generatedFoodCategory = foodCategory();
 
     ASSERT_TRUE(std::ranges::any_of(foodCategories, [generatedFoodCategory](const std::string_view& foodCategory)
                                     { return generatedFoodCategory == foodCategory; }));
@@ -42,7 +43,7 @@ TEST_F(FoodTest, shouldGenerateFoodCategories)
 
 TEST_F(FoodTest, shouldGenerateFruit)
 {
-    const auto generatedFruit = Food::fruit();
+    const auto generatedFruit = fruit();
 
     ASSERT_TRUE(std::ranges::any_of(fruits, [generatedFruit](const std::string_view& fruit)
                                     { return generatedFruit == fruit; }));
@@ -50,7 +51,7 @@ TEST_F(FoodTest, shouldGenerateFruit)
 
 TEST_F(FoodTest, shouldGenerateMeat)
 {
-    const auto generatedMeat = Food::meat();
+    const auto generatedMeat = meat();
 
     ASSERT_TRUE(
         std::ranges::any_of(meats, [generatedMeat](const std::string_view& meat) { return generatedMeat == meat; }));
@@ -58,7 +59,7 @@ TEST_F(FoodTest, shouldGenerateMeat)
 
 TEST_F(FoodTest, shouldGenerateMilkProduct)
 {
-    const auto generatedMilkProduct = Food::milkProduct();
+    const auto generatedMilkProduct = milkProduct();
 
     ASSERT_TRUE(std::ranges::any_of(milkProducts, [generatedMilkProduct](const std::string_view& milkProduct)
                                     { return generatedMilkProduct == milkProduct; }));
@@ -66,7 +67,7 @@ TEST_F(FoodTest, shouldGenerateMilkProduct)
 
 TEST_F(FoodTest, shouldGenerateNonalcoholicBeverages)
 {
-    const auto generatedNonalcoholicBeverages = Food::nonalcoholicBeverage();
+    const auto generatedNonalcoholicBeverages = nonalcoholicBeverage();
 
     ASSERT_TRUE(std::ranges::any_of(nonalcoholicBeverages,
                                     [generatedNonalcoholicBeverages](const std::string_view& nonalcoholicBeverage)
@@ -75,21 +76,21 @@ TEST_F(FoodTest, shouldGenerateNonalcoholicBeverages)
 
 TEST_F(FoodTest, shouldGenerateNut)
 {
-    const auto generatedNut = Food::nut();
+    const auto generatedNut = nut();
 
     ASSERT_TRUE(std::ranges::any_of(nuts, [generatedNut](const std::string_view& nut) { return generatedNut == nut; }));
 }
 
 TEST_F(FoodTest, shouldGenerateOil)
 {
-    const auto generatedOil = Food::oil();
+    const auto generatedOil = oil();
 
     ASSERT_TRUE(std::ranges::any_of(oils, [generatedOil](const std::string_view& oil) { return generatedOil == oil; }));
 }
 
 TEST_F(FoodTest, shouldGenerateSeafood)
 {
-    const auto generatedSeafood = Food::seafood();
+    const auto generatedSeafood = seafood();
 
     ASSERT_TRUE(std::ranges::any_of(seafoods, [generatedSeafood](const std::string_view& seafood)
                                     { return generatedSeafood == seafood; }));
@@ -97,7 +98,7 @@ TEST_F(FoodTest, shouldGenerateSeafood)
 
 TEST_F(FoodTest, shouldGenerateSeed)
 {
-    const auto generatedSeed = Food::seed();
+    const auto generatedSeed = seed();
 
     ASSERT_TRUE(
         std::ranges::any_of(seeds, [generatedSeed](const std::string_view& seed) { return generatedSeed == seed; }));
@@ -105,7 +106,7 @@ TEST_F(FoodTest, shouldGenerateSeed)
 
 TEST_F(FoodTest, shouldGenerateGrain)
 {
-    const auto generatedGrain = Food::grain();
+    const auto generatedGrain = grain();
 
     ASSERT_TRUE(std::ranges::any_of(grains, [generatedGrain](const std::string_view& grain)
                                     { return generatedGrain == grain; }));
@@ -113,7 +114,7 @@ TEST_F(FoodTest, shouldGenerateGrain)
 
 TEST_F(FoodTest, shouldGenerateSugarProduct)
 {
-    const auto generatedSugarProduct = Food::sugarProduct();
+    const auto generatedSugarProduct = sugarProduct();
 
     ASSERT_TRUE(std::ranges::any_of(sugarProducts, [generatedSugarProduct](const std::string_view& sugarProduct)
                                     { return generatedSugarProduct == sugarProduct; }));
@@ -121,7 +122,7 @@ TEST_F(FoodTest, shouldGenerateSugarProduct)
 
 TEST_F(FoodTest, shouldGenerateVegetable)
 {
-    const auto generatedVegetable = Food::vegetable();
+    const auto generatedVegetable = vegetable();
 
     ASSERT_TRUE(std::ranges::any_of(vegetables, [generatedVegetable](const std::string_view& vegetable)
                                     { return generatedVegetable == vegetable; }));
