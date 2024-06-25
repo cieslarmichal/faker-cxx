@@ -12,7 +12,7 @@
 #include "faker-cxx/types/Precision.h"
 #include "LocationData.h"
 
-namespace faker
+namespace faker::location
 {
 namespace
 {
@@ -95,17 +95,17 @@ Country getCountry(const AddressCountry& addressCountry)
 }
 }
 
-std::string_view Location::country()
+std::string_view country()
 {
     return Helper::arrayElement(allCountries);
 }
 
-std::string_view Location::countryCode()
+std::string_view countryCode()
 {
     return Helper::arrayElement(countryCodes);
 }
 
-std::string_view Location::county(AddressCountry country)
+std::string_view county(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
@@ -117,14 +117,14 @@ std::string_view Location::county(AddressCountry country)
     return Helper::arrayElement(countryAddresses.counties);
 }
 
-std::string_view Location::state(AddressCountry country)
+std::string_view state(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
     return Helper::arrayElement(countryAddresses.states);
 }
 
-std::string Location::city(AddressCountry country)
+std::string city(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
@@ -143,14 +143,14 @@ std::string Location::city(AddressCountry country)
     return FormatHelper::fillTokenValues(cityFormat, dataGeneratorsMapping);
 }
 
-std::string Location::zipCode(AddressCountry country)
+std::string zipCode(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
     return Helper::replaceSymbolWithNumber(static_cast<std::string>(countryAddresses.zipCodeFormat));
 }
 
-std::string Location::streetAddress(AddressCountry country)
+std::string streetAddress(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
@@ -164,7 +164,7 @@ std::string Location::streetAddress(AddressCountry country)
     return FormatHelper::fillTokenValues(addressFormat, dataGeneratorsMapping);
 }
 
-std::string Location::street(AddressCountry country)
+std::string street(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
@@ -183,7 +183,7 @@ std::string Location::street(AddressCountry country)
     return FormatHelper::fillTokenValues(streetFormat, dataGeneratorsMapping);
 }
 
-std::string Location::buildingNumber(AddressCountry country)
+std::string buildingNumber(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
@@ -193,7 +193,7 @@ std::string Location::buildingNumber(AddressCountry country)
     return Helper::replaceSymbolWithNumber(buildingNumberFormat);
 }
 
-std::string Location::secondaryAddress(AddressCountry country)
+std::string secondaryAddress(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
@@ -208,26 +208,26 @@ std::string Location::secondaryAddress(AddressCountry country)
     return Helper::replaceSymbolWithNumber(secondaryAddressFormat);
 }
 
-std::string Location::latitude(Precision precision)
+std::string latitude(Precision precision)
 {
     const std::floating_point auto latitude = number::decimal<double>(-90.0, 90.0);
 
     return FormatHelper::precisionFormat(precision, latitude);
 }
 
-std::string Location::longitude(Precision precision)
+std::string longitude(Precision precision)
 {
     const std::floating_point auto longitude = number::decimal<double>(-180.0, 180.0);
 
     return FormatHelper::precisionFormat(precision, longitude);
 }
 
-std::string_view Location::direction()
+std::string_view direction()
 {
     return Helper::arrayElement(directions);
 }
 
-std::string_view Location::timeZone()
+std::string_view timeZone()
 {
     return Helper::arrayElement(timeZones);
 }

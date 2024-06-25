@@ -4,7 +4,7 @@
 #include <span>
 #include <string_view>
 
-namespace faker
+namespace faker::location
 {
 struct CountryAddressesInfo
 {
