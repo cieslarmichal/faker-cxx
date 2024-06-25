@@ -44,7 +44,7 @@ std::string_view Finance::accountType()
 
 std::string Finance::amount(double min, double max, Precision precision, const std::string& symbol)
 {
-    const std::floating_point auto generatedNumber = faker::number::decimal<double>(min, max);
+    const std::floating_point auto generatedNumber = number::decimal<double>(min, max);
 
     std::string result{symbol};
 
@@ -139,7 +139,7 @@ std::string Finance::creditCardCvv()
 
 std::string Finance::bitcoinAddress()
 {
-    const unsigned addressLength = faker::number::integer(26u, 33u);
+    const unsigned addressLength = number::integer(26u, 33u);
 
     auto address = Helper::arrayElement(std::vector<std::string>{"1", "3"});
 
@@ -150,7 +150,7 @@ std::string Finance::bitcoinAddress()
 
 std::string Finance::litecoinAddress()
 {
-    const unsigned addressLength = faker::number::integer(26u, 33u);
+    const unsigned addressLength = number::integer(26u, 33u);
 
     auto address = Helper::arrayElement(std::vector<std::string>{"L", "M", "3"});
 

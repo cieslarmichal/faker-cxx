@@ -47,7 +47,7 @@ std::string betweenDate(const auto& from, const auto& to, DateFormat dateFormat)
 
     const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();
 
-    const auto randomDateWithinRange = from + std::chrono::seconds{faker::number::integer(size - 1)};
+    const auto randomDateWithinRange = from + std::chrono::seconds{number::integer(size - 1)};
 
     return serializeTimePoint(randomDateWithinRange, dateFormat);
 }
@@ -155,27 +155,27 @@ unsigned int year()
     unsigned minYear = 1950;
     unsigned maxYear = 2050;
 
-    return faker::number::integer<unsigned>(minYear, maxYear);
+    return number::integer<unsigned>(minYear, maxYear);
 }
 
 unsigned int month()
 {
-    return faker::number::integer<unsigned>(1, 12);
+    return number::integer<unsigned>(1, 12);
 }
 
 unsigned int hour()
 {
-    return faker::number::integer<unsigned>(0, 23);
+    return number::integer<unsigned>(0, 23);
 }
 
 unsigned int minute()
 {
-    return faker::number::integer<unsigned>(0, 59);
+    return number::integer<unsigned>(0, 59);
 }
 
 unsigned int second()
 {
-    return faker::number::integer<unsigned>(0, 59);
+    return number::integer<unsigned>(0, 59);
 }
 
 std::string time()
@@ -185,12 +185,12 @@ std::string time()
 
 unsigned int dayOfMonth()
 {
-    return faker::number::integer<unsigned>(1, 31);
+    return number::integer<unsigned>(1, 31);
 }
 
 unsigned dayOfWeek()
 {
-    return faker::number::integer<unsigned>(1, 7);
+    return number::integer<unsigned>(1, 7);
 }
 
 std::string_view timezoneRandom()

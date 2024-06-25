@@ -32,7 +32,7 @@ Airport airport()
 
 std::string seat(AircraftType aircraftType)
 {
-    return std::to_string(faker::number::integer(1, aircraftTypeMaxRows.at(aircraftType))) +
+    return std::to_string(number::integer(1, aircraftTypeMaxRows.at(aircraftType))) +
            Helper::arrayElement<char>(aircraftTypeSeatLetters.at(aircraftType));
 }
 
@@ -60,9 +60,9 @@ std::string flightNumberByRange(bool addLeadingZeros, Range length)
 {
     if (addLeadingZeros)
     {
-        return String::numeric(faker::number::integer(length.min, length.max), true);
+        return String::numeric(number::integer(length.min, length.max), true);
     }
 
-    return String::numeric(faker::number::integer(length.min, length.max), false);
+    return String::numeric(number::integer(length.min, length.max), false);
 }
 }

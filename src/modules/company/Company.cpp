@@ -15,7 +15,7 @@ std::string name()
 {
     std::string companyName;
 
-    switch (faker::number::integer<int>(3))
+    switch (number::integer<int>(3))
     {
     case 0:
         companyName = FormatHelper::format("{} {}", Person::lastName(), Helper::arrayElement(companySuffixes));

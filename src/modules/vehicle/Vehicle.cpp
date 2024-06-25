@@ -54,7 +54,7 @@ std::string vin()
     return FormatHelper::format("{}{}{}{}", String::alphanumeric(10, StringCasing::Upper, exclude_characters),
                                 String::alpha(1, StringCasing::Upper, exclude_characters),
                                 String::alphanumeric(1, StringCasing::Upper, exclude_characters),
-                                faker::number::integer(10000, 99999));
+                                number::integer(10000, 99999));
 }
 
 std::string vrm()
