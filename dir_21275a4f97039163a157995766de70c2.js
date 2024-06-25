@@ -11,6 +11,7 @@ var dir_21275a4f97039163a157995766de70c2 =
     [ "Database.h", "Database_8h_source.html", null ],
     [ "Datatype.h", "Datatype_8h_source.html", null ],
     [ "Date.h", "Date_8h_source.html", null ],
+    [ "Faker.h", "Faker_8h_source.html", null ],
     [ "Finance.h", "Finance_8h_source.html", null ],
     [ "Food.h", "Food_8h_source.html", null ],
     [ "Git.h", "Git_8h_source.html", null ],
