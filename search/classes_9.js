@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['unit_0',['Unit',['../structfaker_1_1Science_1_1Unit.html',1,'faker::Science']]]
+  ['weightedelement_0',['WeightedElement',['../structfaker_1_1Helper_1_1WeightedElement.html',1,'faker::Helper']]]
 ];

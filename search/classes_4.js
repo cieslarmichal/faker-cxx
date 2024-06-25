@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['internet_0',['Internet',['../classfaker_1_1Internet.html',1,'faker']]]
+  ['networkinterfaceoptions_0',['NetworkInterfaceOptions',['../structfaker_1_1system_1_1NetworkInterfaceOptions.html',1,'faker::system']]]
 ];
