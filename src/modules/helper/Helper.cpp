@@ -31,11 +31,11 @@ std::string Helper::replaceSymbolWithNumber(const std::string& str, const char& 
     {
         if (ch == symbol)
         {
-            result += std::to_string(Number::integer(0, 9));
+            result += std::to_string(faker::number::integer(0, 9));
         }
         else if (ch == '!')
         {
-            result += std::to_string(Number::integer(2, 9));
+            result += std::to_string(faker::number::integer(2, 9));
         }
         else
         {
@@ -85,7 +85,7 @@ std::string Helper::regexpStyleStringParse(const std::string& input)
             std::swap(min, max);
         }
 
-        int repetitions = Number::integer(min, max);
+        int repetitions = faker::number::integer(min, max);
         data = data.substr(0, static_cast<unsigned long>(token.position())) +
                StringHelper::repeat(token[1], repetitions) +
                data.substr(static_cast<unsigned long>(token.position() + token.length()));
@@ -112,7 +112,7 @@ std::string Helper::regexpStyleStringParse(const std::string& input)
         }
 
         data = data.substr(0, static_cast<unsigned long>(token.position())) +
-               std::to_string(Number::integer(min, max)) +
+               std::to_string(faker::number::integer(min, max)) +
                data.substr(static_cast<unsigned long>(token.position() + token.length()));
     }
 

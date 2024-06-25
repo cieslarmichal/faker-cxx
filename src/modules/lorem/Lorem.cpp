@@ -33,7 +33,7 @@ std::string Lorem::words(unsigned numberOfWords)
 
 std::string Lorem::sentence(unsigned minNumberOfWords, unsigned maxNumberOfWords)
 {
-    const std::integral auto numberOfWords = Number::integer(minNumberOfWords, maxNumberOfWords);
+    const std::integral auto numberOfWords = faker::number::integer(minNumberOfWords, maxNumberOfWords);
 
     const auto sentenceWords = words(numberOfWords);
 
@@ -42,7 +42,7 @@ std::string Lorem::sentence(unsigned minNumberOfWords, unsigned maxNumberOfWords
 
 std::string Lorem::sentences(unsigned minNumberOfSentences, unsigned maxNumberOfSentences)
 {
-    const std::integral auto numberOfSentences = Number::integer(minNumberOfSentences, maxNumberOfSentences);
+    const std::integral auto numberOfSentences = faker::number::integer(minNumberOfSentences, maxNumberOfSentences);
 
     std::vector<std::string> sentences;
     sentences.reserve(numberOfSentences);
@@ -75,7 +75,7 @@ std::string Lorem::paragraph(unsigned int minNumberOfSentences, unsigned int max
 
 std::string Lorem::paragraphs(unsigned int minNumberOfParagraphs, unsigned int maxNumberOfParagraphs)
 {
-    const std::integral auto numberOfParagraphs = Number::integer(minNumberOfParagraphs, maxNumberOfParagraphs);
+    const std::integral auto numberOfParagraphs = faker::number::integer(minNumberOfParagraphs, maxNumberOfParagraphs);
 
     std::vector<std::string> paragraphs;
     paragraphs.reserve(numberOfParagraphs);

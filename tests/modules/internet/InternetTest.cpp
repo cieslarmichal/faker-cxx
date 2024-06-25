@@ -734,7 +734,7 @@ TEST_F(InternetTest, shouldGenerateAnonymousUsername)
 {
     for (int i = 0; i < 100; i++)
     {
-        const std::integral auto maxLength = Number::integer<unsigned>(6, 20);
+        const std::integral auto maxLength = faker::number::integer<unsigned>(6, 20);
         const auto generatedUsername = Internet::anonymousUsername(maxLength);
 
         ASSERT_EQ(generatedUsername.length(), maxLength);

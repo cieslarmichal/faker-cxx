@@ -48,7 +48,7 @@ TEST_F(GitTest, shouldGenerateBranch)
 
 TEST_F(GitTest, branchIssueNumTest)
 {
-    auto testValue = unsigned(Number::integer(2, 100));
+    auto testValue = unsigned(faker::number::integer(2, 100));
 
     std::vector<std::string> branchElements = StringHelper::split(branch(testValue), "-");
 

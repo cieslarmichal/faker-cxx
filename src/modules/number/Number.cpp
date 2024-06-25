@@ -2,9 +2,9 @@
 
 #include <random>
 
-namespace faker
+namespace faker::number
 {
-std::random_device Number::randomDevice;
+std::random_device randomDevice;
 
-std::mt19937 Number::pseudoRandomGenerator(Number::randomDevice());
+std::mt19937 pseudoRandomGenerator(randomDevice());
 }

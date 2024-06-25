@@ -39,7 +39,7 @@ public:
             throw std::invalid_argument{"Data is empty."};
         }
 
-        const auto index = Number::integer<size_t>(data.size() - 1);
+        const auto index = faker::number::integer<size_t>(data.size() - 1);
 
         return data[index];
     }
@@ -52,7 +52,7 @@ public:
             throw std::invalid_argument{"Data is empty."};
         }
 
-        const auto index = Number::integer<size_t>(data.size() - 1);
+        const auto index = faker::number::integer<size_t>(data.size() - 1);
 
         return data[index];
     }
@@ -67,7 +67,7 @@ public:
             throw std::invalid_argument{"Range [start,end) is empty."};
         }
 
-        const std::integral auto index = Number::integer<size_t>(size - 1);
+        const std::integral auto index = faker::number::integer<size_t>(size - 1);
 
         return start[index];
     }
@@ -93,7 +93,7 @@ public:
             throw std::invalid_argument{"Data is empty."};
         }
 
-        const auto index = Number::integer<size_t>(data.size() - 1);
+        const auto index = faker::number::integer<size_t>(data.size() - 1);
 
         return data[index];
     }
@@ -119,7 +119,7 @@ public:
             throw std::invalid_argument{"Data is empty."};
         }
 
-        const auto index = Number::integer<size_t>(data.size() - 1);
+        const auto index = faker::number::integer<size_t>(data.size() - 1);
 
         return *(data.begin() + index);
     }
@@ -191,7 +191,7 @@ public:
             throw std::invalid_argument{"Sum of weights is zero."};
         }
 
-        const std::integral auto targetWeightValue = Number::integer<unsigned>(1, sumOfWeights);
+        const std::integral auto targetWeightValue = faker::number::integer<unsigned>(1, sumOfWeights);
 
         unsigned currentSum = 0;
 

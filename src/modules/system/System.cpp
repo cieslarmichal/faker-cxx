@@ -66,7 +66,7 @@ std::string fileName(const FileOptions& options)
         else
         {
             const std::integral auto numExtensions =
-                Number::integer(options.extensionRange.min, options.extensionRange.max);
+                faker::number::integer(options.extensionRange.min, options.extensionRange.max);
 
             for (int i = 0; i < numExtensions; ++i)
             {
@@ -173,9 +173,9 @@ std::string filePath()
 
 std::string semver()
 {
-    const int major = Number::integer(9);
-    const int minor = Number::integer(9);
-    const int patch = Number::integer(9);
+    const int major = faker::number::integer(9);
+    const int minor = faker::number::integer(9);
+    const int patch = faker::number::integer(9);
 
     return FormatHelper::format("{}.{}.{}", major, minor, patch);
 }
@@ -233,24 +233,24 @@ std::string cron(const CronOptions& options)
 {
     bool includeYear = options.includeYear;
     bool includeNonStandard = options.includeNonStandard;
-    std::vector<std::string> minutes = {std::to_string(Number::integer(59)), "*"};
-    std::vector<std::string> hours = {std::to_string(Number::integer(23)), "*"};
-    std::vector<std::string> days = {std::to_string(Number::integer(1, 31)), "*", "?"};
-    std::vector<std::string> months = {std::to_string(Number::integer(1, 12)), "*"};
+    std::vector<std::string> minutes = {std::to_string(faker::number::integer(59)), "*"};
+    std::vector<std::string> hours = {std::to_string(faker::number::integer(23)), "*"};
+    std::vector<std::string> days = {std::to_string(faker::number::integer(1, 31)), "*", "?"};
+    std::vector<std::string> months = {std::to_string(faker::number::integer(1, 12)), "*"};
     std::vector<std::string> daysOfWeek = {
-        std::to_string(Number::integer(6)),
+        std::to_string(faker::number::integer(6)),
         std::string(
-            cronDayOfWeek[static_cast<unsigned long>(Number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))]),
+            cronDayOfWeek[static_cast<unsigned long>(faker::number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))]),
         "*", "?"};
 
     std::vector<std::string> years;
     if (includeYear)
     {
-        years.push_back(std::to_string(Number::integer(1970, 2099)));
+        years.push_back(std::to_string(faker::number::integer(1970, 2099)));
     }
     else
     {
-        years = {std::to_string(Number::integer(1970, 2099)), "*"};
+        years = {std::to_string(faker::number::integer(1970, 2099)), "*"};
     }
 
     const auto minute = Helper::arrayElement(minutes);

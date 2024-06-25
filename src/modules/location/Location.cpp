@@ -210,14 +210,14 @@ std::string Location::secondaryAddress(AddressCountry country)
 
 std::string Location::latitude(Precision precision)
 {
-    const std::floating_point auto latitude = Number::decimal<double>(-90.0, 90.0);
+    const std::floating_point auto latitude = faker::number::decimal<double>(-90.0, 90.0);
 
     return FormatHelper::precisionFormat(precision, latitude);
 }
 
 std::string Location::longitude(Precision precision)
 {
-    const std::floating_point auto longitude = Number::decimal<double>(-180.0, 180.0);
+    const std::floating_point auto longitude = faker::number::decimal<double>(-180.0, 180.0);
 
     return FormatHelper::precisionFormat(precision, longitude);
 }

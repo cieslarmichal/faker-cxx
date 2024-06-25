@@ -63,7 +63,7 @@ std::string words(unsigned numberOfWords)
 
         for (unsigned i = 0; i < numberOfWords; i++)
         {
-            tmp[i] = Number::integer<unsigned int>(last_index);
+            tmp[i] = faker::number::integer<unsigned int>(last_index);
             auto vw = _allWords[tmp[i]];
             reserve_size += vw.size();
         }
