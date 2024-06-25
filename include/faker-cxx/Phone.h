@@ -5,13 +5,9 @@
 #include <string_view>
 #include <unordered_map>
 
-namespace faker
+namespace faker::phone
 {
 enum class PhoneNumberCountryFormat;
-
-class Phone
-{
-public:
     /**
      * @brief Returns a random phone number.
      *
@@ -20,12 +16,12 @@ public:
      * @returns Random phone number.
      *
      * @code
-     * Phone::number() // "961-770-7727"
-     * Phone::number("501-###-###") // "501-039-841"
-     * Phone::number("+48 91 ### ## ##") // "+48 91 463 61 70"
+     * phone::number() // "961-770-7727"
+     * phone::number("501-###-###") // "501-039-841"
+     * phone::number("+48 91 ### ## ##") // "+48 91 463 61 70"
      * @endcode
      */
-    static std::string number(std::optional<std::string> = std::nullopt);
+    std::string number(std::optional<std::string> = std::nullopt);
 
     /**
      * @brief Returns a random phone platform.
@@ -33,10 +29,10 @@ public:
      * @returns Random phone platform.
      *
      * @code
-     * Phone::platform() // "iOS"
+     * phone::platform() // "iOS"
      * @endcode
      */
-    static std::string_view platform();
+    std::string_view platform();
 
     /**
      * @brief Returns a random phone model.
@@ -44,10 +40,10 @@ public:
      * @returns Random phone model.
      *
      * @code
-     * Phone::modelName() // "Samsung Galaxy S22"
+     * phone::modelName() // "Samsung Galaxy S22"
      * @endcode
      */
-    static std::string_view modelName();
+    std::string_view modelName();
 
     /**
      * @brief Returns a random phone manufacturer.
@@ -55,10 +51,10 @@ public:
      * @returns Random phone manufacturer.
      *
      * @code
-     * Phone::manufacturer() // "Sony"
+     * phone::manufacturer() // "Sony"
      * @endcode
      */
-    static std::string_view manufacturer();
+    std::string_view manufacturer();
 
     /**
      * @brief Returns a random phone number based on country phone number template.
@@ -68,10 +64,10 @@ public:
      * @returns Random phone number based on country phone number template.
      *
      * @code
-     * Phone::number(PhoneNumberCountryFormat::Usa) // "+1 (395) 714-1494"
+     * phone::number(PhoneNumberCountryFormat::Usa) // "+1 (395) 714-1494"
      * @endcode
      */
-    static std::string number(PhoneNumberCountryFormat format);
+    std::string number(PhoneNumberCountryFormat format);
 
     /**
      * @brief Returns IMEI number.
@@ -79,10 +75,10 @@ public:
      * @returns IMEI number.
      *
      * @code
-     * Phone::imei() // "13-850175-913761-7"
+     * phone::imei() // "13-850175-913761-7"
      * @endcode
      */
-    static std::string imei();
+    std::string imei();
 
     /**
      * @brief returns a random country area code
@@ -90,15 +86,12 @@ public:
      * @returns Random country area code
      *
      * @code
-     * Phone::areaCode() // "+1"
+     * phone::areaCode() // "+1"
      * @endcode
      */
-    static std::string_view areaCode();
+    std::string_view areaCode();
 
-private:
-    static std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap();
-    static std::unordered_map<PhoneNumberCountryFormat, std::string> phoneNumberFormatMap;
-};
+    std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap();
 
 enum class PhoneNumberCountryFormat
 {
