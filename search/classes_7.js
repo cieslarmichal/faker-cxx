@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['passwordoptions_0',['PasswordOptions',['../structfaker_1_1PasswordOptions.html',1,'faker']]],
-  ['person_1',['Person',['../classfaker_1_1Person.html',1,'faker']]]
+  ['randomgenerator_0',['RandomGenerator',['../classfaker_1_1RandomGenerator.html',1,'faker']]],
+  ['range_1',['Range',['../structfaker_1_1airline_1_1Range.html',1,'faker::airline']]]
 ];
