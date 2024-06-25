@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::hacker
 {
 const auto abbreviations = std::to_array<std::string_view>({
     "e.g.", "i.e.", "etc.", "Mr.",  "Mrs.", "Ms.", "Dr.", "Prof.",

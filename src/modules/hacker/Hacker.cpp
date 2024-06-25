@@ -7,34 +7,34 @@
 #include "faker-cxx/Helper.h"
 #include "HackerData.h"
 
-namespace faker
+namespace faker::hacker
 {
-std::string_view Hacker::abbreviation()
+std::string_view abbreviation()
 {
     return Helper::arrayElement(abbreviations);
 }
 
-std::string_view Hacker::adjective()
+std::string_view adjective()
 {
     return Helper::arrayElement(adjectives);
 }
 
-std::string_view Hacker::noun()
+std::string_view noun()
 {
     return Helper::arrayElement(nouns);
 }
 
-std::string_view Hacker::verb()
+std::string_view verb()
 {
     return Helper::arrayElement(verbs);
 }
 
-std::string_view Hacker::ingverb()
+std::string_view ingverb()
 {
     return Helper::arrayElement(ingverbs);
 }
 
-std::string Hacker::phrase()
+std::string phrase()
 {
     const auto splitRandomPhrase = StringHelper::split(static_cast<std::string>(Helper::arrayElement(phrases)));
 
