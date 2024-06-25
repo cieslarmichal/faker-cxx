@@ -3,11 +3,8 @@
 #include <optional>
 #include <string_view>
 
-namespace faker
+namespace faker::image
 {
-class Image
-{
-public:
     enum class ImageCategory
     {
         Animals,
@@ -34,12 +31,12 @@ public:
      * @returns Random real image url from external service.
      *
      * @code
-     * Image::imageUrl() // "https://loremflickr.com/640/480"
-     * Image::imageUrl(800, 600) // "https://loremflickr.com/800/600"
-     * Image::imageUrl(800, 600, ImageCategory::Animals) // "https://loremflickr.com/800/600/animals"
+     * image::imageUrl() // "https://loremflickr.com/640/480"
+     * image::imageUrl(800, 600) // "https://loremflickr.com/800/600"
+     * image::imageUrl(800, 600, ImageCategory::Animals) // "https://loremflickr.com/800/600/animals"
      * @endcode
      */
-    static std::string imageUrl(unsigned width = 640, unsigned height = 480,
+    std::string imageUrl(unsigned width = 640, unsigned height = 480,
                                 std::optional<ImageCategory> category = std::nullopt);
 
     /**
@@ -48,10 +45,10 @@ public:
      * @returns Url to github avatar.
      *
      * @code
-     * Image::githubAvatarUrl() // "https://avatars.githubusercontent.com/u/9716558"
+     * image::githubAvatarUrl() // "https://avatars.githubusercontent.com/u/9716558"
      * @endcode
      */
-    static std::string githubAvatarUrl();
+    std::string githubAvatarUrl();
 
     /**
      * @brief Generates a random image dimensions.
@@ -59,10 +56,10 @@ public:
      * @returns Random image dimensions.
      *
      * @code
-     * Image::dimensions() // "1920x1080"
+     * image::dimensions() // "1920x1080"
      * @endcode
      */
-    static std::string dimensions();
+    std::string dimensions();
 
     /**
      * @brief Generates a random type of image.
@@ -70,8 +67,7 @@ public:
      * @returns Type of image.
      *
      * @code
-     * Image::type() // "png"
+     * image::type() // "png"
      */
-    static std::string_view type();
-};
+    std::string_view type();
 }
