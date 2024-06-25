@@ -2,11 +2,8 @@
 
 #include <string>
 
-namespace faker
+namespace faker::lorem
 {
-class Lorem
-{
-public:
     /**
      * @brief Returns a random lorem word.
      *
@@ -16,7 +13,7 @@ public:
      * Lorem::word() // "temporibus"
      * @endcode
      */
-    static std::string_view word();
+    std::string_view word();
 
     /**
      * @brief Returns a random lorem words.
@@ -29,7 +26,7 @@ public:
      * Lorem::words() // "qui praesentium pariatur"
      * @endcode
      */
-    static std::string words(unsigned numberOfWords = 3);
+    std::string words(unsigned numberOfWords = 3);
 
     /**
      * @brief Returns a random lorem sentence.
@@ -43,7 +40,7 @@ public:
      * Lorem::sentence() // "Laborum voluptatem officiis est et."
      * @endcode
      */
-    static std::string sentence(unsigned minNumberOfWords = 3, unsigned maxNumberOfWords = 10);
+    std::string sentence(unsigned minNumberOfWords = 3, unsigned maxNumberOfWords = 10);
 
     /**
      * @brief Returns a random lorem sentences.
@@ -57,7 +54,7 @@ public:
      * Lorem::sentences(2, 2) // "Maxime vel numquam quibusdam. Dignissimos ex molestias quam nihil occaecati maiores."
      * @endcode
      */
-    static std::string sentences(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
+    std::string sentences(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
 
     /**
      * @brief Generates a slugified text consisting of the given number of hyphen separated words.
@@ -70,7 +67,7 @@ public:
      * Lorem::slug(5) // "delectus-totam-iusto-itaque-placeat"
      * @endcode
      */
-    static std::string slug(unsigned numberOfWords = 3);
+    std::string slug(unsigned numberOfWords = 3);
 
     /**
      * @brief Returns a random lorem paragraph.
@@ -84,7 +81,7 @@ public:
      * Lorem::paragraph() // "Animi possimus nemo consequuntur ut ea et tempore unde qui. Quis corporis esse."
      * @endcode
      */
-    static std::string paragraph(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
+    std::string paragraph(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
 
     /**
      * @brief Returns a random lorem paragraphs.
@@ -101,6 +98,5 @@ public:
      * // Sapiente deleniti et. Ducimus maiores eum. Rem dolorem itaque aliquam."
      * @endcode
      */
-    static std::string paragraphs(unsigned minNumberOfParagraphs = 2, unsigned maxNumberOfParagraphs = 4);
-};
+    std::string paragraphs(unsigned minNumberOfParagraphs = 2, unsigned maxNumberOfParagraphs = 4);
 }
