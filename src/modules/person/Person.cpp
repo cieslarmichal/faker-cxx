@@ -328,7 +328,7 @@ std::string Person::bio()
         {"bio_part", []() { return Helper::arrayElement(bioParts); }},
         {"bio_supporter", []() { return Helper::arrayElement(bioSupporters); }},
         {"noun", []() { return word::noun(); }},
-        {"emoji", []() { return Internet::emoji(); }}};
+        {"emoji", []() { return internet::emoji(); }}};
 
     return FormatHelper::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
 }

@@ -3,7 +3,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::internet
 {
 const auto domainSuffixes = std::to_array<std::string_view>({
     "biz", "com", "info", "name", "net", "org",

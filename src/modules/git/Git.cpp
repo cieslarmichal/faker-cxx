@@ -94,7 +94,7 @@ std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigne
     const auto firstName = static_cast<std::string>(Person::firstName(country));
     const auto lastName = static_cast<std::string>(Person::lastName(country));
 
-    entry += "\nAuthor: " + firstName + " " + lastName + " " + Internet::email(firstName, lastName) + "\nDate: ";
+    entry += "\nAuthor: " + firstName + " " + lastName + " " + internet::email(firstName, lastName) + "\nDate: ";
 
     if (dateYears)
     {
