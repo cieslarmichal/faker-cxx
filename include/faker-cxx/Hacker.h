@@ -2,21 +2,18 @@
 
 #include <string_view>
 
-namespace faker
+namespace faker::hacker
 {
-class Hacker
-{
-public:
     /**
      * @brief Returns a hacker abbreviation.
      *
      * @returns abbreviation.
      *
      * @code
-     * Hacker::abbreviation() // "TCP"
+     * hacker::abbreviation() // "TCP"
      * @endcode
      */
-    static std::string_view abbreviation();
+    std::string_view abbreviation();
 
     /**
      * @brief Returns a random adjective.
@@ -24,10 +21,10 @@ public:
      * @returns adjective.
      *
      * @code
-     * Hacker::adjective() // "open-source"
+     * hacker::adjective() // "open-source"
      * @endcode
      */
-    static std::string_view adjective();
+    std::string_view adjective();
 
     /**
      * @brief Returns a random noun.
@@ -35,10 +32,10 @@ public:
      * @returns noun.
      *
      * @code
-     * Hacker::noun() // "coder"
+     * hacker::noun() // "coder"
      * @endcode
      */
-    static std::string_view noun();
+    std::string_view noun();
 
     /**
      * @brief Returns a random verb.
@@ -46,10 +43,10 @@ public:
      * @returns verb.
      *
      * @code
-     * Hacker::verb() // "run"
+     * hacker::verb() // "run"
      * @endcode
      */
-    static std::string_view verb();
+    std::string_view verb();
 
     /**
      * @brief Returns a random ingverb.
@@ -57,10 +54,10 @@ public:
      * @returns ingverb.
      *
      * @code
-     * Hacker::ingverb() // "backing up"
+     * hacker::ingverb() // "backing up"
      * @endcode
      */
-    static std::string_view ingverb();
+    std::string_view ingverb();
 
     /**
      * @brief Returns a random phrase.
@@ -68,9 +65,8 @@ public:
      * @return phrase.
      *
      * @code
-     * Hacker::phrase() // "If we bypass the monitor, we can get to the TCP monitor through the neural EXE monitor!"
+     * hacker::phrase() // "If we bypass the monitor, we can get to the TCP monitor through the neural EXE monitor!"
      * @endcode
      */
-    static std::string phrase();
-};
+    std::string phrase();
 }

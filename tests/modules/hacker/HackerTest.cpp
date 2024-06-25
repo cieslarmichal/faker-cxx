@@ -10,6 +10,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace faker::hacker;
 
 class HackerTest : public Test
 {
@@ -18,7 +19,7 @@ public:
 
 TEST_F(HackerTest, shouldGenerateAbbreviation)
 {
-    const auto generatedAbbreviation = Hacker::abbreviation();
+    const auto generatedAbbreviation = abbreviation();
 
     ASSERT_TRUE(std::ranges::any_of(abbreviations, [generatedAbbreviation](const std::string_view& abbreviation)
                                     { return abbreviation == generatedAbbreviation; }));
@@ -26,7 +27,7 @@ TEST_F(HackerTest, shouldGenerateAbbreviation)
 
 TEST_F(HackerTest, shouldGenerateAdjective)
 {
-    const auto generatedAdjective = Hacker::adjective();
+    const auto generatedAdjective = adjective();
 
     ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string_view& adjective)
                                     { return adjective == generatedAdjective; }));
@@ -34,7 +35,7 @@ TEST_F(HackerTest, shouldGenerateAdjective)
 
 TEST_F(HackerTest, shouldGenerateNoun)
 {
-    const auto generatedNoun = Hacker::noun();
+    const auto generatedNoun = noun();
 
     ASSERT_TRUE(
         std::ranges::any_of(nouns, [generatedNoun](const std::string_view& noun) { return noun == generatedNoun; }));
@@ -42,7 +43,7 @@ TEST_F(HackerTest, shouldGenerateNoun)
 
 TEST_F(HackerTest, shouldGenerateVerb)
 {
-    const auto generatedVerb = Hacker::verb();
+    const auto generatedVerb = verb();
 
     ASSERT_TRUE(
         std::ranges::any_of(verbs, [generatedVerb](const std::string_view& verb) { return verb == generatedVerb; }));
@@ -50,7 +51,7 @@ TEST_F(HackerTest, shouldGenerateVerb)
 
 TEST_F(HackerTest, shouldGenerateIngverb)
 {
-    const auto generatedIngverb = Hacker::ingverb();
+    const auto generatedIngverb = ingverb();
 
     ASSERT_TRUE(std::ranges::any_of(ingverbs, [generatedIngverb](const std::string_view& ingverb)
                                     { return ingverb == generatedIngverb; }));
@@ -58,7 +59,7 @@ TEST_F(HackerTest, shouldGenerateIngverb)
 
 TEST_F(HackerTest, shouldGeneratePhrase)
 {
-    const auto generatedPhrase = Hacker::phrase();
+    const auto generatedPhrase = phrase();
     bool hasAdjective, hasNoun, hasVerb, hasAbbreviation;
     hasAdjective = hasNoun = hasVerb = hasAbbreviation = false;
 
