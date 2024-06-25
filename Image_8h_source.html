@@ -107,37 +107,33 @@ $(function(){initNavTree('Image_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="keyword">namespace </span>faker::image</div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>{</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">class </span>Image</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <span class="keyword">enum class</span> ImageCategory</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    {</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        Animals,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        Business,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        Cats,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        City,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        Food,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        Nightlife,</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        Fashion,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        People,</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        Nature,</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        Sports,</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>        Technics,</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>        Transport</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    };</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keyword">static</span> std::string imageUrl(<span class="keywordtype">unsigned</span> width = 640, <span class="keywordtype">unsigned</span> height = 480,</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>                                std::optional&lt;ImageCategory&gt; category = std::nullopt);</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <span class="keyword">static</span> std::string githubAvatarUrl();</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    <span class="keyword">static</span> std::string dimensions();</div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    <span class="keyword">static</span> std::string_view type();</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>};</div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>}</div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <span class="keyword">enum class</span> ImageCategory</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    {</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>        Animals,</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        Business,</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        Cats,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        City,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        Food,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        Nightlife,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        Fashion,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        People,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        Nature,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        Sports,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        Technics,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        Transport</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    };</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    std::string imageUrl(<span class="keywordtype">unsigned</span> width = 640, <span class="keywordtype">unsigned</span> height = 480,</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>                                std::optional&lt;ImageCategory&gt; category = std::nullopt);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    std::string githubAvatarUrl();</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    std::string dimensions();</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>    std::string_view type();</div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
