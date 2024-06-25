@@ -11,14 +11,14 @@
 #include "faker-cxx/Number.h"
 #include "LoremData.h"
 
-namespace faker
+namespace faker::lorem
 {
-std::string_view Lorem::word()
+std::string_view word()
 {
     return Helper::arrayElement(loremWords);
 }
 
-std::string Lorem::words(unsigned numberOfWords)
+std::string words(unsigned numberOfWords)
 {
     std::vector<std::string_view> words;
     words.reserve(numberOfWords);
@@ -31,7 +31,7 @@ std::string Lorem::words(unsigned numberOfWords)
     return StringHelper::join(words, " ");
 }
 
-std::string Lorem::sentence(unsigned minNumberOfWords, unsigned maxNumberOfWords)
+std::string sentence(unsigned minNumberOfWords, unsigned maxNumberOfWords)
 {
     const std::integral auto numberOfWords = number::integer(minNumberOfWords, maxNumberOfWords);
 
@@ -40,7 +40,7 @@ std::string Lorem::sentence(unsigned minNumberOfWords, unsigned maxNumberOfWords
     return FormatHelper::format("{}{}.", static_cast<char>(std::toupper(sentenceWords[0])), sentenceWords.substr(1));
 }
 
-std::string Lorem::sentences(unsigned minNumberOfSentences, unsigned maxNumberOfSentences)
+std::string sentences(unsigned minNumberOfSentences, unsigned maxNumberOfSentences)
 {
     const std::integral auto numberOfSentences = number::integer(minNumberOfSentences, maxNumberOfSentences);
 
@@ -55,7 +55,7 @@ std::string Lorem::sentences(unsigned minNumberOfSentences, unsigned maxNumberOf
     return StringHelper::joinString(sentences, " ");
 }
 
-std::string Lorem::slug(unsigned int numberOfWords)
+std::string slug(unsigned int numberOfWords)
 {
     std::vector<std::string> words;
     words.reserve(numberOfWords);
@@ -68,12 +68,12 @@ std::string Lorem::slug(unsigned int numberOfWords)
     return StringHelper::joinString(words, "-");
 }
 
-std::string Lorem::paragraph(unsigned int minNumberOfSentences, unsigned int maxNumberOfSentences)
+std::string paragraph(unsigned int minNumberOfSentences, unsigned int maxNumberOfSentences)
 {
     return sentences(minNumberOfSentences, maxNumberOfSentences);
 }
 
-std::string Lorem::paragraphs(unsigned int minNumberOfParagraphs, unsigned int maxNumberOfParagraphs)
+std::string paragraphs(unsigned int minNumberOfParagraphs, unsigned int maxNumberOfParagraphs)
 {
     const std::integral auto numberOfParagraphs = number::integer(minNumberOfParagraphs, maxNumberOfParagraphs);
 

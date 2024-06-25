@@ -10,7 +10,7 @@
 #include "lorem/LoremData.h"
 
 using namespace ::testing;
-using namespace faker;
+using namespace faker::lorem;
 
 class LoremTest : public Test
 {
@@ -19,7 +19,7 @@ public:
 
 TEST_F(LoremTest, shouldGenerateWord)
 {
-    const auto generatedWord = Lorem::word();
+    const auto generatedWord = word();
 
     ASSERT_TRUE(std::ranges::any_of(loremWords,
                                     [generatedWord](const std::string_view& word) { return word == generatedWord; }));
@@ -29,9 +29,10 @@ TEST_F(LoremTest, shouldGenerateWords)
 {
     const auto numberOfWords = 5;
 
-    const auto generatedWords = Lorem::words(numberOfWords);
+    const auto generatedWords = words(numberOfWords);
 
-    const auto separatedWords = StringHelper::split(generatedWords, " ");
+    const auto separatedWords = faker::StringHelper::split(generatedWords, " ");
+    
 
     ASSERT_EQ(separatedWords.size(), numberOfWords);
     ASSERT_TRUE(std::ranges::all_of(
@@ -46,14 +47,14 @@ TEST_F(LoremTest, shouldGenerateWords)
 
 TEST_F(LoremTest, shouldGenerateSentence)
 {
-    const auto sentence = Lorem::sentence();
+    const auto generatedSentence = sentence();
 
-    const auto sentenceWithoutEndingDot = sentence.substr(0, sentence.size() - 1);
+    const auto sentenceWithoutEndingDot = generatedSentence.substr(0, generatedSentence.size() - 1);
 
-    const auto sentenceWords = StringHelper::split(sentenceWithoutEndingDot, " ");
+    const auto sentenceWords = faker::StringHelper::split(sentenceWithoutEndingDot, " ");
 
-    ASSERT_TRUE(std::isupper(sentence[0]));
-    ASSERT_TRUE(sentence.ends_with("."));
+    ASSERT_TRUE(std::isupper(generatedSentence[0]));
+    ASSERT_TRUE(generatedSentence.ends_with("."));
     ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
     ASSERT_TRUE(std::ranges::all_of(
         sentenceWords,
@@ -67,9 +68,9 @@ TEST_F(LoremTest, shouldGenerateSentence)
 
 TEST_F(LoremTest, shouldGenerateSentences)
 {
-    const auto sentences = Lorem::sentences();
+    const auto generatedSentences = sentences();
 
-    const auto separatedSentences = StringHelper::split(sentences, ". ");
+    const auto separatedSentences = faker::StringHelper::split(generatedSentences, ". ");
 
     for (auto sentence : separatedSentences)
     {
@@ -77,7 +78,7 @@ TEST_F(LoremTest, shouldGenerateSentences)
 
         ASSERT_TRUE(std::isupper(sentence[0]));
 
-        const auto sentenceWords = StringHelper::split(sentence, " ");
+        const auto sentenceWords = faker::StringHelper::split(sentence, " ");
 
         ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 
@@ -94,9 +95,9 @@ TEST_F(LoremTest, shouldGenerateSentences)
 
 TEST_F(LoremTest, shouldGenerateSlug)
 {
-    const auto generatedSlug = Lorem::slug(3);
+    const auto generatedSlug = slug(3);
 
-    const auto separatedWords = StringHelper::split(generatedSlug, "-");
+    const auto separatedWords = faker::StringHelper::split(generatedSlug, "-");
 
     ASSERT_EQ(separatedWords.size(), 3);
     ASSERT_TRUE(std::ranges::all_of(
@@ -111,9 +112,9 @@ TEST_F(LoremTest, shouldGenerateSlug)
 
 TEST_F(LoremTest, shouldGenerateParagraph)
 {
-    const auto paragraph = Lorem::paragraph();
+    const auto generatedParagraph = paragraph();
 
-    const auto separatedSentences = StringHelper::split(paragraph, ". ");
+    const auto separatedSentences = faker::StringHelper::split(generatedParagraph, ". ");
 
     for (auto sentence : separatedSentences)
     {
@@ -121,7 +122,7 @@ TEST_F(LoremTest, shouldGenerateParagraph)
 
         ASSERT_TRUE(std::isupper(sentence[0]));
 
-        const auto sentenceWords = StringHelper::split(sentence, " ");
+        const auto sentenceWords = faker::StringHelper::split(sentence, " ");
 
         ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 
@@ -138,13 +139,13 @@ TEST_F(LoremTest, shouldGenerateParagraph)
 
 TEST_F(LoremTest, shouldGenerateParagraphs)
 {
-    const auto paragraphs = Lorem::paragraphs();
+    const auto generatedParagraphs = paragraphs();
 
-    const auto separatedParagraphs = StringHelper::split(paragraphs, "\n");
+    const auto separatedParagraphs = faker::StringHelper::split(generatedParagraphs, "\n");
 
-    for (const auto& paragraph : separatedParagraphs)
+    for (const auto& generatedParagraph : separatedParagraphs)
     {
-        const auto separatedSentences = StringHelper::split(paragraph, ". ");
+        const auto separatedSentences = faker::StringHelper::split(generatedParagraph, ". ");
 
         for (auto sentence : separatedSentences)
         {
@@ -152,7 +153,7 @@ TEST_F(LoremTest, shouldGenerateParagraphs)
 
             ASSERT_TRUE(std::isupper(sentence[0]));
 
-            const auto sentenceWords = StringHelper::split(sentence, " ");
+            const auto sentenceWords = faker::StringHelper::split(sentence, " ");
 
             ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 

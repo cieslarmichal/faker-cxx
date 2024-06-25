@@ -2,7 +2,7 @@
 #include <array>
 #include <string_view>
 
-namespace faker
+namespace faker::lorem
 {
 const auto loremWords = std::to_array<std::string_view>({
     "alias",
