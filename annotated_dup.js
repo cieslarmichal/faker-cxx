@@ -24,7 +24,6 @@ var annotated_dup =
       [ "Location", "classfaker_1_1Location.html", null ],
       [ "Lorem", "classfaker_1_1Lorem.html", null ],
       [ "Medicine", "classfaker_1_1Medicine.html", null ],
-      [ "Movie", "classfaker_1_1Movie.html", null ],
       [ "PasswordOptions", "structfaker_1_1PasswordOptions.html", null ],
       [ "Person", "classfaker_1_1Person.html", null ],
       [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", null ],
