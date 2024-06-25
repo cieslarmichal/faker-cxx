@@ -11,6 +11,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace faker::phone;
 
 class PhoneTest : public Test
 {
@@ -24,7 +25,7 @@ protected:
 
 TEST_F(PhoneTest, NumberWithNoFormat)
 {
-    const auto phoneNumber = Phone::number();
+    const auto phoneNumber = number();
 
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 }
@@ -32,71 +33,71 @@ TEST_F(PhoneTest, NumberWithNoFormat)
 TEST_F(PhoneTest, NumberWithFormat)
 {
     auto format = "501-###-###";
-    auto phoneNumber = Phone::number(format);
+    auto phoneNumber = number(format);
     ASSERT_NE(phoneNumber, format);
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 
     format = "+48 91 ### ## ##";
-    phoneNumber = Phone::number(format);
+    phoneNumber = number(format);
     ASSERT_NE(phoneNumber, format);
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 
     format = "+376 (###) ###-####";
-    phoneNumber = Phone::number(format);
+    phoneNumber = number(format);
     ASSERT_NE(phoneNumber, format);
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 
     format = "+376 (!!!) !!!-!!!!";
-    phoneNumber = Phone::number(format);
+    phoneNumber = number(format);
     ASSERT_NE(phoneNumber, format);
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 }
 
 TEST_F(PhoneTest, IMEIGeneration)
 {
-    auto imei = Phone::imei();
+    auto generatedImei = imei();
 
-    imei.erase(std::remove(imei.begin(), imei.end(), '-'), imei.end());
+    generatedImei.erase(std::remove(generatedImei.begin(), generatedImei.end(), '-'), generatedImei.end());
 
-    ASSERT_EQ(imei.length(), 15);
-    ASSERT_TRUE(isStringNumericWithSpecialChars(imei));
+    ASSERT_EQ(generatedImei.length(), 15);
+    ASSERT_TRUE(isStringNumericWithSpecialChars(generatedImei));
 }
 
 TEST_F(PhoneTest, NumberFormatTest)
 {
-    const auto phoneNumber = Phone::number(PhoneNumberCountryFormat::Zimbabwe);
+    const auto generatedPhoneNumber = number(PhoneNumberCountryFormat::Zimbabwe);
 
-    EXPECT_FALSE(phoneNumber.empty());
-    ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
+    EXPECT_FALSE(generatedPhoneNumber.empty());
+    ASSERT_TRUE(isStringNumericWithSpecialChars(generatedPhoneNumber));
 }
 
 TEST_F(PhoneTest, PlatformGeneration)
 {
-    const auto generatedPlatform = Phone::platform();
-    ASSERT_TRUE(std::ranges::any_of(phone::PhonePlatforms.begin(), phone::PhonePlatforms.end(),
+    const auto generatedPlatform = platform();
+    ASSERT_TRUE(std::ranges::any_of(PhonePlatforms.begin(), PhonePlatforms.end(),
                                     [generatedPlatform](const std::string_view& platform)
                                     { return platform == generatedPlatform; }));
 }
 
 TEST_F(PhoneTest, ModelNameGeneration)
 {
-    const auto generatedModelName = Phone::modelName();
-    ASSERT_TRUE(std::ranges::any_of(phone::PhoneModelNames.begin(), phone::PhoneModelNames.end(),
+    const auto generatedModelName = modelName();
+    ASSERT_TRUE(std::ranges::any_of(PhoneModelNames.begin(), PhoneModelNames.end(),
                                     [generatedModelName](const std::string_view& modelName)
                                     { return modelName == generatedModelName; }));
 }
 
 TEST_F(PhoneTest, ManufacturerGeneration)
 {
-    const auto generatedManufacturer = Phone::manufacturer();
-    ASSERT_TRUE(std::ranges::any_of(phone::PhoneManufacturers.begin(), phone::PhoneManufacturers.end(),
+    const auto generatedManufacturer = manufacturer();
+    ASSERT_TRUE(std::ranges::any_of(PhoneManufacturers.begin(), PhoneManufacturers.end(),
                                     [generatedManufacturer](const std::string_view& manufacturer)
                                     { return manufacturer == generatedManufacturer; }));
 }
 
 TEST_F(PhoneTest, AreaCodeGeneration)
 {
-    const auto areaCode = Phone::areaCode();
-    ASSERT_TRUE(std::ranges::any_of(phone::areaCodes.begin(), phone::areaCodes.end(),
-                                    [areaCode](const std::string_view& code) { return code == areaCode; }));
+    const auto generatedAreaCode = areaCode();
+    ASSERT_TRUE(std::ranges::any_of(areaCodes.begin(), areaCodes.end(),
+                                    [generatedAreaCode](const std::string_view& code) { return code == generatedAreaCode; }));
 }

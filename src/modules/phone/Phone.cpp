@@ -8,12 +8,12 @@
 #include "faker-cxx/Helper.h"
 #include "PhoneData.h"
 
-namespace faker
+namespace faker::phone
 {
-std::unordered_map<PhoneNumberCountryFormat, std::string> Phone::phoneNumberFormatMap =
-    Phone::createPhoneNumberFormatMap();
+std::unordered_map<PhoneNumberCountryFormat, std::string> phoneNumberFormatMap =
+    createPhoneNumberFormatMap();
 
-std::string Phone::number(std::optional<std::string> format)
+std::string number(std::optional<std::string> format)
 {
     std::string selectedFormat;
 
@@ -29,7 +29,7 @@ std::string Phone::number(std::optional<std::string> format)
     return Helper::replaceSymbolWithNumber(selectedFormat);
 }
 
-std::string Phone::number(PhoneNumberCountryFormat format)
+std::string number(PhoneNumberCountryFormat format)
 {
     std::string countryFormat = phoneNumberFormatMap.at(format);
 
@@ -41,27 +41,27 @@ std::string Phone::number(PhoneNumberCountryFormat format)
     return Helper::replaceSymbolWithNumber(countryFormat);
 }
 
-std::string Phone::imei()
+std::string imei()
 {
     return Helper::replaceCreditCardSymbols("##-######-######-L", '#');
 }
 
-std::string_view Phone::platform()
+std::string_view platform()
 {
     return Helper::arrayElement(phone::PhonePlatforms);
 }
 
-std::string_view Phone::modelName()
+std::string_view modelName()
 {
     return Helper::arrayElement(phone::PhoneModelNames);
 }
 
-std::string_view Phone::manufacturer()
+std::string_view manufacturer()
 {
     return Helper::arrayElement(phone::PhoneManufacturers);
 }
 
-std::unordered_map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumberFormatMap()
+std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap()
 {
     std::unordered_map<PhoneNumberCountryFormat, std::string> formatMap;
 
@@ -77,7 +77,7 @@ std::unordered_map<PhoneNumberCountryFormat, std::string> Phone::createPhoneNumb
     return formatMap;
 }
 
-std::string_view Phone::areaCode()
+std::string_view areaCode()
 {
     return Helper::arrayElement(phone::areaCodes);
 }
