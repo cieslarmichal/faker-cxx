@@ -216,7 +216,7 @@ std::string networkInterface(const std::optional<NetworkInterfaceOptions>& optio
     }
     else if (interfaceSchema == "mac")
     {
-        suffix = Internet::mac("");
+        suffix = internet::mac("");
     }
     else if (interfaceSchema == "pci")
     {

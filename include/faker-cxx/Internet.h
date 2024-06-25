@@ -7,7 +7,7 @@
 
 #include "types/Country.h"
 
-namespace faker
+namespace faker::internet
 {
 enum class HttpResponseType
 {
@@ -39,9 +39,6 @@ struct PasswordOptions
     bool symbols = true;
 };
 
-class Internet
-{
-public:
     /**
      * @brief Generates a username using the given person's name as base.
      *
@@ -51,13 +48,13 @@ public:
      * @returns Username including neither, one or both of the provided names.
      *
      * @code
-     * Internet::username() // "Richardson.Jeffrey1997"
-     * Internet::username("Michael") // "Michael_Allen29"
-     * Internet::username(std::nullopt, "Cieslar") // "Phillip_Cieslar20"
-     * Internet::username("Andrew", "Cieslar") // "Andrew.Cieslar"
+     * internet::username() // "Richardson.Jeffrey1997"
+     * internet::username("Michael") // "Michael_Allen29"
+     * internet::username(std::nullopt, "Cieslar") // "Phillip_Cieslar20"
+     * internet::username("Andrew", "Cieslar") // "Andrew.Cieslar"
      * @endcode
      */
-    static std::string username(std::optional<std::string> firstName = std::nullopt,
+    std::string username(std::optional<std::string> firstName = std::nullopt,
                                 std::optional<std::string> lastName = std::nullopt, Country country = Country::Usa);
 
     /**
@@ -70,14 +67,14 @@ public:
      * @returns Email including neither, one or both of the provided names, with random/provided email host.
      *
      * @code
-     * Internet::email() // "Jimenez.Clyde@gmail.com"
-     * Internet::email("Tom") // "TomRichardson79@outlook.com"
-     * Internet::email(std::nullopt, "Howard") // "FreddieHoward@hotmail.com"
-     * Internet::email("Cindy", "Young") // "Young_Cindy@gmail.com"
-     * Internet::email(std::nullopt, std::nullopt, "example.com") // "Wright.Edna1973@code.com"
+     * internet::email() // "Jimenez.Clyde@gmail.com"
+     * internet::email("Tom") // "TomRichardson79@outlook.com"
+     * internet::email(std::nullopt, "Howard") // "FreddieHoward@hotmail.com"
+     * internet::email("Cindy", "Young") // "Young_Cindy@gmail.com"
+     * internet::email(std::nullopt, std::nullopt, "example.com") // "Wright.Edna1973@code.com"
      * @endcode
      */
-    static std::string email(std::optional<std::string> firstName = std::nullopt,
+    std::string email(std::optional<std::string> firstName = std::nullopt,
                              std::optional<std::string> lastName = std::nullopt,
                              std::optional<std::string> emailHost = std::nullopt);
 
@@ -90,10 +87,10 @@ public:
      * @returns Email including neither, one or both of the provided names, with example email host.
      *
      * @code
-     * Internet::exampleEmail() // "Jimenez.Clyde@example.com"
+     * internet::exampleEmail() // "Jimenez.Clyde@example.com"
      * @endcode
      */
-    static std::string exampleEmail(std::optional<std::string> firstName = std::nullopt,
+    std::string exampleEmail(std::optional<std::string> firstName = std::nullopt,
                                     std::optional<std::string> lastName = std::nullopt);
 
     /**
@@ -105,11 +102,11 @@ public:
      * @returns Random password-like string.
      *
      * @code
-     * Internet::password() // "gXGpe9pKfFcKy9R"
-     * Internet::password(25) // "xv8vDu*wM!Rg0$zd0kH%8p!WY"
+     * internet::password() // "gXGpe9pKfFcKy9R"
+     * internet::password(25) // "xv8vDu*wM!Rg0$zd0kH%8p!WY"
      * @endcode
      */
-    static std::string password(int length = 15, const PasswordOptions& options = {});
+    std::string password(int length = 15, const PasswordOptions& options = {});
 
     enum class EmojiType
     {
@@ -133,11 +130,11 @@ public:
      * @returns Emoji.
      *
      * @code
-     * Internet::emoji() // "👑"
-     * Internet::emoji(EmojiType::Food) // "🍕"
+     * internet::emoji() // "👑"
+     * internet::emoji(EmojiType::Food) // "🍕"
      * @endcode
      */
-    static std::string_view emoji(std::optional<EmojiType> type = std::nullopt);
+    std::string_view emoji(std::optional<EmojiType> type = std::nullopt);
 
     /**
      * @brief Verify that a given emoji is valid.
@@ -147,10 +144,10 @@ public:
      * @returns true if emojiToCheck is found in one of the vectors, false otherwise.
      *
      * @code
-     * Internet::checkIfEmojiIsValid("👑") // true
+     * internet::checkIfEmojiIsValid("👑") // true
      * @endcode
      */
-    static bool checkIfEmojiIsValid(const std::string& emojiToCheck);
+    bool checkIfEmojiIsValid(const std::string& emojiToCheck);
 
     /**
      * @brief Returns a random web protocol. Either `http` or `https`.
@@ -158,10 +155,10 @@ public:
      * @returns Web protocol.
      *
      * @code
-     * Internet::protocol() // "https"
+     * internet::protocol() // "https"
      * @endcode
      */
-    static std::string_view protocol();
+    std::string_view protocol();
 
     /**
      * @brief Generates a random http method name.
@@ -169,10 +166,10 @@ public:
      * @returns Http method name.
      *
      * @code
-     * Internet::httpMethod() // "POST"
+     * internet::httpMethod() // "POST"
      * @endcode
      */
-    static std::string_view httpMethod();
+    std::string_view httpMethod();
 
     /**
      * @brief Returns a random http status code.
@@ -182,11 +179,11 @@ public:
      * @returns Http status code.
      *
      * @code
-     * Internet::httpStatusCode() // 500
-     * Internet::httpStatusCode(HttpStatusCodeType::success) // 201
+     * internet::httpStatusCode() // 500
+     * internet::httpStatusCode(HttpStatusCodeType::success) // 201
      * @endcode
      */
-    static unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::nullopt);
+    unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::nullopt);
 
     /**
      * @brief Generates a random http request header.
@@ -194,10 +191,10 @@ public:
      * @returns Http request header.
      *
      * @code
-     * Internet::httpRequestHeader() // "Authorization"
+     * internet::httpRequestHeader() // "Authorization"
      * @endcode
      */
-    static std::string_view httpRequestHeader();
+    std::string_view httpRequestHeader();
 
     /**
      * @brief Generates a random http response header.
@@ -205,10 +202,10 @@ public:
      * @returns Http response header.
      *
      * @code
-     * Internet::httpResponseHeader() // "Location"
+     * internet::httpResponseHeader() // "Location"
      * @endcode
      */
-    static std::string_view httpResponseHeader();
+    std::string_view httpResponseHeader();
 
     /**
      * @brief Generates a random http media type.
@@ -216,10 +213,10 @@ public:
      * @returns Http media type.
      *
      * @code
-     * Internet::httpMediaType() // "application/json"
+     * internet::httpMediaType() // "application/json"
      * @endcode
      */
-    static std::string_view httpMediaType();
+    std::string_view httpMediaType();
 
     /**
      * @brief Returns a string containing randomized ipv4 address of the given class.
@@ -229,11 +226,11 @@ public:
      * @return String representation of the ipv4 address.
      *
      * @code
-     * Internet::ipv4() // "192.168.0.1"
-     * Internet::ipv4(IPv4Class::classA) // "10.0.0.1"
+     * internet::ipv4() // "192.168.0.1"
+     * internet::ipv4(IPv4Class::classA) // "10.0.0.1"
      * @endcode
      */
-    static std::string ipv4(const IPv4Class& ipv4class = IPv4Class::C);
+    std::string ipv4(const IPv4Class& ipv4class = IPv4Class::C);
 
     /**
      * @brief Returns a string containing randomized ipv4 address based on given base address and mask.
@@ -248,11 +245,11 @@ public:
      * @return std::string representation of the ipv4 address.
      *
      * @code
-     * Internet::ipv4({255.0.0.0}, {10.100.100.100}) // "10.128.17.1"
-     * Internet::ipv4({255.255.128.0}, {129.168.255.0}) // "192.168.128.10"
+     * internet::ipv4({255.0.0.0}, {10.100.100.100}) // "10.128.17.1"
+     * internet::ipv4({255.255.128.0}, {129.168.255.0}) // "192.168.128.10"
      * @endcode
      */
-    static std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
+    std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
                             const std::array<unsigned int, 4>& generationMask);
 
     /**
@@ -261,10 +258,10 @@ public:
      * @return String representation of the ipv6 address.
      *
      * @code
-     * Internet::ipv6() // "269f:1230:73e3:318d:842b:daab:326d:897b"
+     * internet::ipv6() // "269f:1230:73e3:318d:842b:daab:326d:897b"
      * @endcode
      */
-    static std::string ipv6();
+    std::string ipv6();
 
     /**
      * @brief Returns a generated random mac address.
@@ -274,10 +271,10 @@ public:
      * @return A generated random mac address.
      *
      * @code
-     * Internet::mac() // "2d:10:34:2f:ac:ac"
+     * internet::mac() // "2d:10:34:2f:ac:ac"
      * @endcode
      */
-    static std::string mac(const std::string& sep = ":");
+    std::string mac(const std::string& sep = ":");
 
     /**
      * @brief Generates a random port.
@@ -285,10 +282,10 @@ public:
      * @return Port.
      *
      * @code
-     * Internet::port() // 5432
+     * internet::port() // 5432
      * @endcode
      */
-    static unsigned port();
+    unsigned port();
 
     /**
      * @brief Generates a random url.
@@ -298,10 +295,10 @@ public:
      * @return Http(s) url.
      *
      * @code
-     * Internet::url() // "https://slow-timer.info"
+     * internet::url() // "https://slow-timer.info"
      * @endcode
      */
-    static std::string url(const WebProtocol& webProtocol = WebProtocol::Https);
+    std::string url(const WebProtocol& webProtocol = WebProtocol::Https);
 
     /**
      * @brief Generates a random domain name.
@@ -309,10 +306,10 @@ public:
      * @return Domain name.
      *
      * @code
-     * Internet::domainName() // "slow-timer.info"
+     * internet::domainName() // "slow-timer.info"
      * @endcode
      */
-    static std::string domainName();
+    std::string domainName();
 
     /**
      * @brief Generates a random domain word.
@@ -320,10 +317,10 @@ public:
      * @return Domain word.
      *
      * @code
-     * Internet::domainWord() // "close-reality"
+     * internet::domainWord() // "close-reality"
      * @endcode
      */
-    static std::string domainWord();
+    std::string domainWord();
 
     /**
      * @brief Generates a random domain suffix.
@@ -331,10 +328,10 @@ public:
      * @return Domain suffix.
      *
      * @code
-     * Internet::domainSuffix() // "com"
+     * internet::domainSuffix() // "com"
      * @endcode
      */
-    static std::string_view domainSuffix();
+    std::string_view domainSuffix();
 
     /**
      * @brief Generates a random username.
@@ -344,9 +341,8 @@ public:
      * @return Username.
      *
      * @code
-     * Internet::anonymousUsername() // "profusebrother", "richad", "powerfuldifferential"
+     * internet::anonymousUsername() // "profusebrother", "richad", "powerfuldifferential"
      * @endcode
      */
-    static std::string anonymousUsername(unsigned maxLength);
-};
+    std::string anonymousUsername(unsigned maxLength);
 }
