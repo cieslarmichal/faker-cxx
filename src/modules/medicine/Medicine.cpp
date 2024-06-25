@@ -5,21 +5,21 @@
 #include "faker-cxx/Helper.h"
 #include "MedicineData.h"
 
-namespace faker
+namespace faker::medicine
 {
-std::string_view Medicine::condition()
+std::string_view condition()
 {
-    return Helper::arrayElement(medicine::medicalConditions);
+    return Helper::arrayElement(medicalConditions);
 }
 
-std::string_view Medicine::medicalTest()
+std::string_view medicalTest()
 {
-    return Helper::arrayElement(medicine::medicalTests);
+    return Helper::arrayElement(medicalTests);
 }
 
-std::string_view Medicine::specialty()
+std::string_view specialty()
 {
-    return Helper::arrayElement(medicine::specialties);
+    return Helper::arrayElement(specialties);
 }
 
 }

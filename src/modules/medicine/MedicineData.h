@@ -64,7 +64,7 @@ const auto medicalConditions = std::to_array<std::string_view>({
     "Thalassemia Major",
     "Tuberculosis",
     "Ulcerative Colitis",
-    "Ulcers, Stomach or Intestinal"
+    "Ulcers, Stomach or Intestinal",
 });
 
 const auto medicalTests = std::to_array<std::string_view>({
@@ -102,7 +102,7 @@ const auto medicalTests = std::to_array<std::string_view>({
     "skin biopsy",
     "thoracentesis",
     "urodynamic testing",
-    "vaginal examination"
+    "vaginal examination",
 });
 
 const auto specialties = std::to_array<std::string_view>({
@@ -160,7 +160,6 @@ const auto specialties = std::to_array<std::string_view>({
     "Tropical medicine",
     "Urology",
     "Vascular surgery",
-    "Venereology"
+    "Venereology",
 });
-
 }

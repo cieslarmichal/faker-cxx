@@ -8,7 +8,7 @@
 #include "medicine/MedicineData.h"
 
 using namespace ::testing;
-using namespace faker;
+using namespace faker::medicine;
 
 class MedicineTest : public Test
 {
@@ -17,25 +17,25 @@ public:
 
 TEST_F(MedicineTest, shouldGenerateMedicalCondition)
 {
-    const auto generatedMedicalCondition = Medicine::condition();
+    const auto generatedMedicalCondition = condition();
 
-    ASSERT_TRUE(std::ranges::any_of(medicine::medicalConditions,
+    ASSERT_TRUE(std::ranges::any_of(medicalConditions,
                                     [generatedMedicalCondition](const std::string_view& medicalCondition)
                                     { return medicalCondition == generatedMedicalCondition; }));
 }
 
 TEST_F(MedicineTest, shouldGenerateMedicalTest)
 {
-    const auto generatedMedicalTest = Medicine::medicalTest();
+    const auto generatedMedicalTest = medicalTest();
 
-    ASSERT_TRUE(std::ranges::any_of(medicine::medicalTests, [generatedMedicalTest](const std::string_view& medicalTest)
+    ASSERT_TRUE(std::ranges::any_of(medicalTests, [generatedMedicalTest](const std::string_view& medicalTest)
                                     { return medicalTest == generatedMedicalTest; }));
 }
 
 TEST_F(MedicineTest, shouldGenerateSpecialty)
 {
-    const auto generatedSpecialty = Medicine::specialty();
+    const auto generatedSpecialty = specialty();
 
-    ASSERT_TRUE(std::ranges::any_of(medicine::specialties, [generatedSpecialty](const std::string_view& specialty)
+    ASSERT_TRUE(std::ranges::any_of(specialties, [generatedSpecialty](const std::string_view& specialty)
                                     { return specialty == generatedSpecialty; }));
 }
