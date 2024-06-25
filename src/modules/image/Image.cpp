@@ -10,24 +10,24 @@
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 
-namespace faker
+namespace faker::image
 {
 namespace
 {
 const std::array<std::string_view, 15> imageTypes = {"ai",  "bmp", "eps", "gif", "heif", "indd", "jpeg", "jpg",
                                                      "pdf", "png", "psd", "raw", "svg",  "tiff", "webp"};
 
-std::unordered_map<Image::ImageCategory, std::string> imageCategoryToLoremFlickrStringMapping = {
-    {Image::ImageCategory::Animals, "animals"},   {Image::ImageCategory::Business, "business"},
-    {Image::ImageCategory::Cats, "cats"},         {Image::ImageCategory::City, "city"},
-    {Image::ImageCategory::Food, "food"},         {Image::ImageCategory::Nightlife, "nightlife"},
-    {Image::ImageCategory::Fashion, "fashion"},   {Image::ImageCategory::People, "people"},
-    {Image::ImageCategory::Nature, "nature"},     {Image::ImageCategory::Sports, "sports"},
-    {Image::ImageCategory::Technics, "technics"}, {Image::ImageCategory::Transport, "transport"},
+std::unordered_map<ImageCategory, std::string> imageCategoryToLoremFlickrStringMapping = {
+    {ImageCategory::Animals, "animals"},   {ImageCategory::Business, "business"},
+    {ImageCategory::Cats, "cats"},         {ImageCategory::City, "city"},
+    {ImageCategory::Food, "food"},         {ImageCategory::Nightlife, "nightlife"},
+    {ImageCategory::Fashion, "fashion"},   {ImageCategory::People, "people"},
+    {ImageCategory::Nature, "nature"},     {ImageCategory::Sports, "sports"},
+    {ImageCategory::Technics, "technics"}, {ImageCategory::Transport, "transport"},
 };
 }
 
-std::string Image::imageUrl(unsigned int width, unsigned int height, std::optional<ImageCategory> category)
+std::string imageUrl(unsigned int width, unsigned int height, std::optional<ImageCategory> category)
 {
     const std::string image_category =
         category.has_value() ?
@@ -37,17 +37,17 @@ std::string Image::imageUrl(unsigned int width, unsigned int height, std::option
     return FormatHelper::format("https://loremflickr.com/{}/{}{}", width, height, image_category);
 }
 
-std::string Image::githubAvatarUrl()
+std::string githubAvatarUrl()
 {
     return FormatHelper::format("https://avatars.githubusercontent.com/u/{}", number::integer<int>(100000000));
 }
 
-std::string Image::dimensions()
+std::string dimensions()
 {
     return FormatHelper::format("{}x{}", number::integer<int>(1, 32720), number::integer<int>(1, 17280));
 }
 
-std::string_view Image::type()
+std::string_view type()
 {
     return Helper::arrayElement(imageTypes);
 }

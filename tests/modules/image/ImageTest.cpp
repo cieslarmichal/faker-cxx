@@ -11,6 +11,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace faker::image;
 
 class ImageTest : public Test
 {
@@ -19,9 +20,9 @@ public:
 
 TEST_F(ImageTest, shouldGenerateImageUrlDefault)
 {
-    const auto imageUrl = Image::imageUrl();
+    const auto generatedImageUrl = imageUrl();
 
-    ASSERT_EQ(imageUrl, "https://loremflickr.com/640/480");
+    ASSERT_EQ(generatedImageUrl, "https://loremflickr.com/640/480");
 }
 
 TEST_F(ImageTest, shouldGenerateImageUrl)
@@ -29,39 +30,39 @@ TEST_F(ImageTest, shouldGenerateImageUrl)
     const auto width = 800;
     const auto height = 600;
 
-    const auto imageUrl = Image::imageUrl(width, height);
+    const auto generatedImageUrl = imageUrl(width, height);
 
-    ASSERT_EQ(imageUrl, "https://loremflickr.com/800/600");
+    ASSERT_EQ(generatedImageUrl, "https://loremflickr.com/800/600");
 }
 
 TEST_F(ImageTest, shouldGenerateImageUrlCategory)
 {
     const auto width = 800;
     const auto height = 600;
-    const auto category = Image::ImageCategory::Fashion;
+    const auto category = ImageCategory::Fashion;
 
-    const auto imageUrl = Image::imageUrl(width, height, category);
+    const auto generatedImageUrl = imageUrl(width, height, category);
 
-    ASSERT_EQ(imageUrl, "https://loremflickr.com/800/600/fashion");
+    ASSERT_EQ(generatedImageUrl, "https://loremflickr.com/800/600/fashion");
 }
 
 TEST_F(ImageTest, shouldGenerateGithubAvatarUrl)
 {
-    const auto githubAvatarUrl = Image::githubAvatarUrl();
+    const auto generatedGithubAvatarUrl = githubAvatarUrl();
 
     const std::string expectedGithubAvatarPrefix = "https://avatars.githubusercontent.com/u/";
 
-    const auto userNumber = std::stoi(githubAvatarUrl.substr(expectedGithubAvatarPrefix.size()));
+    const auto userNumber = std::stoi(generatedGithubAvatarUrl.substr(expectedGithubAvatarPrefix.size()));
 
-    ASSERT_TRUE(githubAvatarUrl.starts_with(expectedGithubAvatarPrefix));
+    ASSERT_TRUE(generatedGithubAvatarUrl.starts_with(expectedGithubAvatarPrefix));
     ASSERT_TRUE(userNumber >= 0 && userNumber <= 100000000);
 }
 
 TEST_F(ImageTest, shouldGenerateDimensions)
 {
-    const auto dimensions = Image::dimensions();
+    const auto generatedDimensions = dimensions();
 
-    const auto split_dimensions = StringHelper::split(dimensions, "x");
+    const auto split_dimensions = StringHelper::split(generatedDimensions, "x");
 
     const auto width_dimension = std::stoi(split_dimensions[0]);
 
@@ -77,7 +78,7 @@ TEST_F(ImageTest, shouldGenerateType)
     const std::array<std::string_view, 15> imageTypes = {"ai",  "bmp", "eps", "gif", "heif", "indd", "jpeg", "jpg",
                                                          "pdf", "png", "psd", "raw", "svg",  "tiff", "webp"};
 
-    const auto generatedType = Image::type();
+    const auto generatedType = type();
 
     ASSERT_TRUE(std::ranges::any_of(imageTypes,
                                     [generatedType](const std::string_view& type) { return type == generatedType; }));
