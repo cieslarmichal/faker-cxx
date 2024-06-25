@@ -9,8 +9,8 @@
 int main()
 {
     const auto id = faker::String::uuid();
-    const auto email = faker::Internet::email();
-    const auto password = faker::Internet::password();
+    const auto email = faker::internet::email();
+    const auto password = faker::internet::password();
     const auto city = faker::Location::city();
     const auto streetAddress = faker::Location::streetAddress();
 
