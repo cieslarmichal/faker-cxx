@@ -4,7 +4,7 @@
 
 #include "types/Precision.h"
 
-namespace faker
+namespace faker::location
 {
 enum class AddressCountry
 {
@@ -25,19 +25,16 @@ enum class AddressCountry
     Usa,
 };
 
-class Location
-{
-public:
     /**
      * @brief Returns a random country name.
      *
      * @returns Country name.
      *
      * @code
-     * Location::country() // "Poland"
+     * location::country() // "Poland"
      * @endcode
      */
-    static std::string_view country();
+    std::string_view country();
 
     /**
      * @brief Returns a random country code.
@@ -45,10 +42,10 @@ public:
      * @returns Country code consisting two letters.
      *
      * @code
-     * Location::countryCode() // "PL"
+     * location::countryCode() // "PL"
      * @endcode
      */
-    static std::string_view countryCode();
+    std::string_view countryCode();
 
     /**
      * @brief Returns a random state for a given country.
@@ -58,10 +55,10 @@ public:
      * @returns State.
      *
      * @code
-     * Location::state() // "Arizona"
+     * location::state() // "Arizona"
      * @endcode
      */
-    static std::string_view state(AddressCountry country = AddressCountry::Usa);
+    std::string_view state(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random county for a given country.
@@ -71,10 +68,10 @@ public:
      * @returns County.
      *
      * @code
-     * Location::county() // "Adams County"
+     * location::county() // "Adams County"
      * @endcode
      */
-    static std::string_view county(AddressCountry country = AddressCountry::Usa);
+    std::string_view county(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random city for given country.
@@ -84,10 +81,10 @@ public:
      * @returns City.
      *
      * @code
-     * Location::city() // "Boston"
+     * location::city() // "Boston"
      * @endcode
      */
-    static std::string city(AddressCountry country = AddressCountry::Usa);
+    std::string city(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random zip code for given country.
@@ -97,11 +94,11 @@ public:
      * @returns Zip code.
      *
      * @code
-     * Location::zipCode() // "47683-9880"
-     * Location::zipCode(Country::Poland) // "31-881"
+     * location::zipCode() // "47683-9880"
+     * location::zipCode(Country::Poland) // "31-881"
      * @endcode
      */
-    static std::string zipCode(AddressCountry country = AddressCountry::Usa);
+    std::string zipCode(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random street address for given country.
@@ -111,10 +108,10 @@ public:
      * @returns Street address including building number and street name.
      *
      * @code
-     * Location::streetAddress() // "34830 Erdman Hollow"
+     * location::streetAddress() // "34830 Erdman Hollow"
      * @endcode
      */
-    static std::string streetAddress(AddressCountry country = AddressCountry::Usa);
+    std::string streetAddress(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random street for given country.
@@ -124,10 +121,10 @@ public:
      * @returns Street name.
      *
      * @code
-     * Location::street() // "Schroeder Isle"
+     * location::street() // "Schroeder Isle"
      * @endcode
      */
-    static std::string street(AddressCountry country = AddressCountry::Usa);
+    std::string street(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random building number for given country.
@@ -137,10 +134,10 @@ public:
      * @returns Building number.
      *
      * @code
-     * Location::buildingNumber() // "505"
+     * location::buildingNumber() // "505"
      * @endcode
      */
-    static std::string buildingNumber(AddressCountry country = AddressCountry::Usa);
+    std::string buildingNumber(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Returns a random secondary address number for given country.
@@ -151,10 +148,10 @@ public:
      * @returns Secondary address.
      *
      * @code
-     * Location::secondaryAddress() // "Apt. 861"
+     * location::secondaryAddress() // "Apt. 861"
      * @endcode
      */
-    static std::string secondaryAddress(AddressCountry country = AddressCountry::Usa);
+    std::string secondaryAddress(AddressCountry country = AddressCountry::Usa);
 
     /**
      * @brief Generates a random latitude.
@@ -164,10 +161,10 @@ public:
      * @returns Latitude within -90 to 90 range.
      *
      * @code
-     * Location::latitude() // "-30.9501"
+     * location::latitude() // "-30.9501"
      * @endcode
      */
-    static std::string latitude(Precision precision = Precision::FourDp);
+    std::string latitude(Precision precision = Precision::FourDp);
 
     /**
      * @brief Generates a random longitude.
@@ -177,10 +174,10 @@ public:
      * @returns Longitude within -180 to 180 range.
      *
      * @code
-     * Location::longitude() // "-30.9501"
+     * location::longitude() // "-30.9501"
      * @endcode
      */
-    static std::string longitude(Precision precision = Precision::FourDp);
+    std::string longitude(Precision precision = Precision::FourDp);
 
     /**
      * @brief Generates a random direction from cardinal and ordinal directions.
@@ -188,10 +185,10 @@ public:
      * @returns Direction.
      *
      * @code
-     * Location::direction() // "North"
+     * location::direction() // "North"
      * @endcode
      */
-    static std::string_view direction();
+    std::string_view direction();
 
     /**
      * @brief Generates a random time zone.
@@ -199,9 +196,8 @@ public:
      * @returns Time zone.
      *
      * @code
-     * Location::timeZone() // "Europe/Warsaw"
+     * location::timeZone() // "Europe/Warsaw"
      * @endcode
      */
-    static std::string_view timeZone();
-};
+    std::string_view timeZone();
 }
