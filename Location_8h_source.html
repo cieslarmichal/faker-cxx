@@ -108,7 +108,7 @@ $(function(){initNavTree('Location_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;types/Precision.h&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker::location</div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">enum class</span> AddressCountry</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
@@ -129,55 +129,34 @@ $(function(){initNavTree('Location_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    Usa,</div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>};</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="foldopen" id="foldopen00028" data-start="{" data-end="};">
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html">   28</a></span><span class="keyword">class </span><a class="code hl_class" href="classfaker_1_1Location.html">Location</a></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>{</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">   40</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">country</a>();</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#a688304e2ae2fd88a2c94f15cc470a17f">   51</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Location.html#a688304e2ae2fd88a2c94f15cc470a17f">countryCode</a>();</div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#afc0556b278be839912b3141b9c4c0a9e">   64</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Location.html#afc0556b278be839912b3141b9c4c0a9e">state</a>(AddressCountry <a class="code hl_function" href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">country</a> = AddressCountry::Usa);</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#a1fa0f1ac1a944222f031fe40606a8d06">   77</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Location.html#a1fa0f1ac1a944222f031fe40606a8d06">county</a>(AddressCountry <a class="code hl_function" href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">country</a> = AddressCountry::Usa);</div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#a4578e9848a3b0b7234be576135ae273a">   90</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Location.html#a4578e9848a3b0b7234be576135ae273a">city</a>(AddressCountry <a class="code hl_function" href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">country</a> = AddressCountry::Usa);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#a7d5acd750429fe11b712151a32ce593f">  104</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Location.html#a7d5acd750429fe11b712151a32ce593f">zipCode</a>(AddressCountry <a class="code hl_function" href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">country</a> = AddressCountry::Usa);</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00117" name="l00117"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5">  117</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5">streetAddress</a>(AddressCountry <a class="code hl_function" href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">country</a> = AddressCountry::Usa);</div>
-<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#ab7b136a671e83f17a5eb2cae4f43b67e">  130</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Location.html#ab7b136a671e83f17a5eb2cae4f43b67e">street</a>(AddressCountry <a class="code hl_function" href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">country</a> = AddressCountry::Usa);</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#aa171973df05a3c1ef52a9dcb09079fd4">  143</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Location.html#aa171973df05a3c1ef52a9dcb09079fd4">buildingNumber</a>(AddressCountry <a class="code hl_function" href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">country</a> = AddressCountry::Usa);</div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span> </div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#a7232d39949dca851236acb15a464684e">  157</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Location.html#a7232d39949dca851236acb15a464684e">secondaryAddress</a>(AddressCountry <a class="code hl_function" href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">country</a> = AddressCountry::Usa);</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#afc7027977ed6b8e6a6d7f4c9d132befc">  170</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Location.html#afc7027977ed6b8e6a6d7f4c9d132befc">latitude</a>(Precision precision = Precision::FourDp);</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#a1ef192c67fe9acb9acdbae90cc12c699">  183</a></span>    <span class="keyword">static</span> std::string <a class="code hl_function" href="classfaker_1_1Location.html#a1ef192c67fe9acb9acdbae90cc12c699">longitude</a>(Precision precision = Precision::FourDp);</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#af7e4d6832d4cb771d9b531b96950a368">  194</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Location.html#af7e4d6832d4cb771d9b531b96950a368">direction</a>();</div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span> </div>
-<div class="line"><a id="l00205" name="l00205"></a><span class="lineno"><a class="line" href="classfaker_1_1Location.html#a4489d46d3499ae7528e74ab8203162a7">  205</a></span>    <span class="keyword">static</span> std::string_view <a class="code hl_function" href="classfaker_1_1Location.html#a4489d46d3499ae7528e74ab8203162a7">timeZone</a>();</div>
-<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>};</div>
-</div>
-<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span>}</div>
-<div class="ttc" id="aclassfaker_1_1Location_html"><div class="ttname"><a href="classfaker_1_1Location.html">faker::Location</a></div><div class="ttdef"><b>Definition</b> Location.h:29</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_a1ef192c67fe9acb9acdbae90cc12c699"><div class="ttname"><a href="classfaker_1_1Location.html#a1ef192c67fe9acb9acdbae90cc12c699">faker::Location::longitude</a></div><div class="ttdeci">static std::string longitude(Precision precision=Precision::FourDp)</div><div class="ttdoc">Generates a random longitude.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_a1fa0f1ac1a944222f031fe40606a8d06"><div class="ttname"><a href="classfaker_1_1Location.html#a1fa0f1ac1a944222f031fe40606a8d06">faker::Location::county</a></div><div class="ttdeci">static std::string_view county(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random county for a given country.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_a4489d46d3499ae7528e74ab8203162a7"><div class="ttname"><a href="classfaker_1_1Location.html#a4489d46d3499ae7528e74ab8203162a7">faker::Location::timeZone</a></div><div class="ttdeci">static std::string_view timeZone()</div><div class="ttdoc">Generates a random time zone.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_a4578e9848a3b0b7234be576135ae273a"><div class="ttname"><a href="classfaker_1_1Location.html#a4578e9848a3b0b7234be576135ae273a">faker::Location::city</a></div><div class="ttdeci">static std::string city(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random city for given country.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_a688304e2ae2fd88a2c94f15cc470a17f"><div class="ttname"><a href="classfaker_1_1Location.html#a688304e2ae2fd88a2c94f15cc470a17f">faker::Location::countryCode</a></div><div class="ttdeci">static std::string_view countryCode()</div><div class="ttdoc">Returns a random country code.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_a7232d39949dca851236acb15a464684e"><div class="ttname"><a href="classfaker_1_1Location.html#a7232d39949dca851236acb15a464684e">faker::Location::secondaryAddress</a></div><div class="ttdeci">static std::string secondaryAddress(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random secondary address number for given country. This refers to a specific location at a ...</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_a7d5acd750429fe11b712151a32ce593f"><div class="ttname"><a href="classfaker_1_1Location.html#a7d5acd750429fe11b712151a32ce593f">faker::Location::zipCode</a></div><div class="ttdeci">static std::string zipCode(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random zip code for given country.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_aa171973df05a3c1ef52a9dcb09079fd4"><div class="ttname"><a href="classfaker_1_1Location.html#aa171973df05a3c1ef52a9dcb09079fd4">faker::Location::buildingNumber</a></div><div class="ttdeci">static std::string buildingNumber(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random building number for given country.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_ab7b136a671e83f17a5eb2cae4f43b67e"><div class="ttname"><a href="classfaker_1_1Location.html#ab7b136a671e83f17a5eb2cae4f43b67e">faker::Location::street</a></div><div class="ttdeci">static std::string street(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random street for given country.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_ad7e4d71ca7d7ce3d0ccd002d53ebe1a5"><div class="ttname"><a href="classfaker_1_1Location.html#ad7e4d71ca7d7ce3d0ccd002d53ebe1a5">faker::Location::streetAddress</a></div><div class="ttdeci">static std::string streetAddress(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random street address for given country.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_ae0fd965aa64469e582524c190c4787ab"><div class="ttname"><a href="classfaker_1_1Location.html#ae0fd965aa64469e582524c190c4787ab">faker::Location::country</a></div><div class="ttdeci">static std::string_view country()</div><div class="ttdoc">Returns a random country name.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_af7e4d6832d4cb771d9b531b96950a368"><div class="ttname"><a href="classfaker_1_1Location.html#af7e4d6832d4cb771d9b531b96950a368">faker::Location::direction</a></div><div class="ttdeci">static std::string_view direction()</div><div class="ttdoc">Generates a random direction from cardinal and ordinal directions.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_afc0556b278be839912b3141b9c4c0a9e"><div class="ttname"><a href="classfaker_1_1Location.html#afc0556b278be839912b3141b9c4c0a9e">faker::Location::state</a></div><div class="ttdeci">static std::string_view state(AddressCountry country=AddressCountry::Usa)</div><div class="ttdoc">Returns a random state for a given country.</div></div>
-<div class="ttc" id="aclassfaker_1_1Location_html_afc7027977ed6b8e6a6d7f4c9d132befc"><div class="ttname"><a href="classfaker_1_1Location.html#afc7027977ed6b8e6a6d7f4c9d132befc">faker::Location::latitude</a></div><div class="ttdeci">static std::string latitude(Precision precision=Precision::FourDp)</div><div class="ttdoc">Generates a random latitude.</div></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    std::string_view country();</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    std::string_view countryCode();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    std::string_view state(AddressCountry country = AddressCountry::Usa);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    std::string_view county(AddressCountry country = AddressCountry::Usa);</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    std::string city(AddressCountry country = AddressCountry::Usa);</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    std::string zipCode(AddressCountry country = AddressCountry::Usa);</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    std::string streetAddress(AddressCountry country = AddressCountry::Usa);</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    std::string street(AddressCountry country = AddressCountry::Usa);</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    std::string buildingNumber(AddressCountry country = AddressCountry::Usa);</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    std::string secondaryAddress(AddressCountry country = AddressCountry::Usa);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    std::string latitude(Precision precision = Precision::FourDp);</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    std::string longitude(Precision precision = Precision::FourDp);</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    std::string_view direction();</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>    std::string_view timeZone();</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>}</div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
