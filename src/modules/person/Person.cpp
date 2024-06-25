@@ -415,7 +415,7 @@ std::string Person::ssn(std::optional<SsnCountry> country)
         }
         else if (ssnFormatCharacter == '#')
         {
-            ssn += std::to_string(Number::integer(0, 9));
+            ssn += std::to_string(number::integer(0, 9));
         }
         else
         {

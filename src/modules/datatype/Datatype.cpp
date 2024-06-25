@@ -8,7 +8,7 @@ namespace faker::datatype
 {
 bool boolean()
 {
-    return Number::decimal<float>(0.f, 1.f) > 0.5f;
+    return number::decimal<float>(0.f, 1.f) > 0.5f;
 }
 
 bool boolean(double probability)
@@ -27,9 +27,9 @@ bool boolean(double probability)
             return true;
         }
 
-        return Number::decimal(0., 1.) < prob;
+        return number::decimal(0., 1.) < prob;
     }
 
-    return Number::decimal(0., 1.) < 0.5;
+    return number::decimal(0., 1.) < 0.5;
 }
 }

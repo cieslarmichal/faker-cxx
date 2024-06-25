@@ -130,7 +130,7 @@ std::string String::sample(unsigned int length)
 
     for (unsigned i = 0; i < length; i++)
     {
-        sample += static_cast<char>(Number::integer(33, 125));
+        sample += static_cast<char>(number::integer(33, 125));
     }
 
     return sample;
@@ -287,7 +287,7 @@ std::string String::numeric(GuaranteeMap&& guarantee, const unsigned length, boo
     // if leading zero not allowed, pick first digit a non-zero
     else
     {
-        auto firstChar = std::to_string(Number::integer(1, 9));
+        auto firstChar = std::to_string(number::integer(1, 9));
         auto it = guarantee.find(firstChar[0]);
         if (it != guarantee.end())
         {
@@ -329,7 +329,7 @@ std::string String::hexadecimal(std::optional<int> min, std::optional<int> max)
         defaultMax = max.value();
     }
 
-    return FormatHelper::format("{:x}", Number::integer(defaultMin, defaultMax));
+    return FormatHelper::format("{:x}", number::integer(defaultMin, defaultMax));
 }
 
 std::string String::hexadecimal(GuaranteeMap&& guarantee, unsigned int length, HexCasing casing, HexPrefix prefix)
@@ -349,7 +349,7 @@ std::string String::binary(unsigned int length)
     std::string binaryNumber;
     for (unsigned int i = 0; i < length; ++i)
     {
-        binaryNumber += static_cast<char>(Number::integer(1));
+        binaryNumber += static_cast<char>(number::integer(1));
     }
     return "0b" + binaryNumber;
 }
@@ -372,7 +372,7 @@ std::string String::octal(unsigned int length)
     std::string octalNumber;
     for (unsigned int i = 0; i < length; ++i)
     {
-        octalNumber += static_cast<char>(Number::integer(7));
+        octalNumber += static_cast<char>(number::integer(7));
     }
     return "0o" + octalNumber;
 }

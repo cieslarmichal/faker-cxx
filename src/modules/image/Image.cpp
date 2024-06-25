@@ -39,12 +39,12 @@ std::string Image::imageUrl(unsigned int width, unsigned int height, std::option
 
 std::string Image::githubAvatarUrl()
 {
-    return FormatHelper::format("https://avatars.githubusercontent.com/u/{}", Number::integer<int>(100000000));
+    return FormatHelper::format("https://avatars.githubusercontent.com/u/{}", number::integer<int>(100000000));
 }
 
 std::string Image::dimensions()
 {
-    return FormatHelper::format("{}x{}", Number::integer<int>(1, 32720), Number::integer<int>(1, 17280));
+    return FormatHelper::format("{}x{}", number::integer<int>(1, 32720), number::integer<int>(1, 17280));
 }
 
 std::string_view Image::type()

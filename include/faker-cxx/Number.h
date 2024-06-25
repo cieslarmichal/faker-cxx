@@ -4,11 +4,11 @@
 #include <random>
 #include <stdexcept>
 
-namespace faker
+namespace faker::number
 {
-class Number
-{
-public:
+    namespace{
+        std::mt19937 pseudoRandomGenerator;
+    }
     /**
      * @brief Generates a random integer number in the given range, bounds included.
      *
@@ -22,7 +22,7 @@ public:
      * @return T a random integer number
      */
     template <std::integral I>
-    static I integer(I min, I max)
+    I integer(I min, I max)
     {
         if (min > max)
         {
@@ -47,9 +47,9 @@ public:
      * @return T a random integer number
      */
     template <std::integral I>
-    static I integer(I max)
+    I integer(I max)
     {
-        return Number::integer<I>(static_cast<I>(0), max);
+        return integer<I>(static_cast<I>(0), max);
     }
 
     /**
@@ -65,7 +65,7 @@ public:
      * @return F a random decimal number.
      */
     template <std::floating_point F>
-    static F decimal(F min, F max)
+    F decimal(F min, F max)
     {
         if (min > max)
         {
@@ -90,13 +90,8 @@ public:
      * @return F, a random decimal number.
      */
     template <std::floating_point F>
-    static F decimal(F max)
+    F decimal(F max)
     {
         return decimal<F>(static_cast<F>(0.), max);
     }
-
-private:
-    static std::random_device randomDevice;
-    static std::mt19937 pseudoRandomGenerator;
-};
 }

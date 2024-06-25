@@ -93,10 +93,10 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
 
     std::string username;
 
-    switch (Number::integer<int>(2))
+    switch (number::integer<int>(2))
     {
     case 0:
-        username = FormatHelper::format("{}{}{}", firstName, lastName, Number::integer<int>(999));
+        username = FormatHelper::format("{}{}{}", firstName, lastName, number::integer<int>(999));
         break;
     case 1:
         username = FormatHelper::format("{}{}{}", firstName,
@@ -105,7 +105,7 @@ std::string Internet::username(std::optional<std::string> firstNameInit, std::op
     case 2:
         username =
             FormatHelper::format("{}{}{}{}", firstName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}),
-                                 lastName, Number::integer<int>(99));
+                                 lastName, number::integer<int>(99));
         break;
     }
 
@@ -230,20 +230,20 @@ std::string Internet::ipv4(const IPv4Class& ipv4class)
 {
     std::array<unsigned int, 4> sectors{};
 
-    sectors[3] = Number::integer<unsigned int>(ipv4SectorUpperBound);
-    sectors[2] = Number::integer<unsigned int>(ipv4SectorUpperBound);
+    sectors[3] = number::integer<unsigned int>(ipv4SectorUpperBound);
+    sectors[2] = number::integer<unsigned int>(ipv4SectorUpperBound);
 
     switch (ipv4class)
     {
     case IPv4Class::A:
     {
-        sectors[1] = Number::integer<unsigned int>(ipv4SectorUpperBound);
+        sectors[1] = number::integer<unsigned int>(ipv4SectorUpperBound);
         sectors[0] = ipv4ClassAFirstSector;
         break;
     }
     case IPv4Class::B:
     {
-        sectors[1] = Number::integer<unsigned int>(ipv4ClassBSecondSectorLowerBound, ipv4ClassBSecondSectorUpperBound);
+        sectors[1] = number::integer<unsigned int>(ipv4ClassBSecondSectorLowerBound, ipv4ClassBSecondSectorUpperBound);
         sectors[0] = ipv4ClassBFirstSector;
         break;
     }
@@ -264,7 +264,7 @@ std::string Internet::ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
 
     for (std::size_t i = 0; i < ipv4AddressSectors; i++)
     {
-        sectors[i] = (~generationMask[i]) & Number::integer<unsigned int>(ipv4SectorUpperBound);
+        sectors[i] = (~generationMask[i]) & number::integer<unsigned int>(ipv4SectorUpperBound);
         sectors[i] |= (baseIpv4Address[i] & generationMask[i]);
     }
 
@@ -311,7 +311,7 @@ std::string Internet::mac(const std::string& sep)
 
 unsigned Internet::port()
 {
-    return Number::integer(65535u);
+    return number::integer(65535u);
 }
 
 std::string Internet::url(const WebProtocol& webProtocol)
@@ -346,7 +346,7 @@ std::string Internet::anonymousUsername(unsigned maxLength)
     else if (maxLength > defaultMax)
         maxLength = defaultMax;
 
-    const std::integral auto adjectiveLength = Number::integer<unsigned>(3, 1 + maxLength / 2);
+    const std::integral auto adjectiveLength = number::integer<unsigned>(3, 1 + maxLength / 2);
 
     const auto nounLength = maxLength - adjectiveLength;
 

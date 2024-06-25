@@ -20,14 +20,14 @@ namespace faker::git
 
 std::string branch(unsigned maxIssueNum)
 {
-    switch (Number::integer(1, 3))
+    switch (number::integer(1, 3))
     {
     case 1:
         return FormatHelper::format("{}-{}", word::verb(), word::noun());
     case 2:
         return FormatHelper::format("{}-{}-{}", word::verb(), word::adjective(), word::noun());
     default:
-        return FormatHelper::format("{}-{}-{}-{}", Number::integer(unsigned(1), maxIssueNum), word::verb(),
+        return FormatHelper::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(),
                                     word::adjective(), word::noun());
     }
 }
@@ -48,11 +48,11 @@ std::string commitDate(unsigned years)
 
     const auto time = StringHelper::split(restSplit[1], "Z")[0];
 
-    int timeZone = Number::integer(0, 12);
+    int timeZone = number::integer(0, 12);
 
     std::string timeZoneString;
 
-    if (Number::integer(0, 1))
+    if (number::integer(0, 1))
     {
         timeZoneString += "-";
     }
@@ -112,7 +112,7 @@ std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigne
 
 std::string commitMessage()
 {
-    switch (Number::integer(1, 4))
+    switch (number::integer(1, 4))
     {
     case 1:
         return FormatHelper::format("{} {}", word::verb(), word::noun());
