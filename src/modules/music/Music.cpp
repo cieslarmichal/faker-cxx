@@ -5,20 +5,20 @@
 #include "faker-cxx/Helper.h"
 #include "MusicData.h"
 
-namespace faker
+namespace faker::music
 {
-std::string_view Music::artist()
+std::string_view artist()
 {
-    return Helper::arrayElement(music::artists);
+    return Helper::arrayElement(artists);
 }
 
-std::string_view Music::genre()
+std::string_view genre()
 {
-    return Helper::arrayElement(music::musicGenres);
+    return Helper::arrayElement(musicGenres);
 }
 
-std::string_view Music::songName()
+std::string_view songName()
 {
-    return Helper::arrayElement(music::songNames);
+    return Helper::arrayElement(songNames);
 }
 }

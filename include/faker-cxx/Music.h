@@ -2,21 +2,18 @@
 
 #include <string_view>
 
-namespace faker
+namespace faker::music
 {
-class Music
-{
-public:
     /**
      * @brief Returns a random artist.
      *
      * @returns Artist.
      *
      * @code
-     * Music::artist() // "Nirvana"
+     * music::artist() // "Nirvana"
      * @endcode
      */
-    static std::string_view artist();
+    std::string_view artist();
 
     /**
      * @brief Returns a random music genre.
@@ -24,10 +21,10 @@ public:
      * @returns Music genre.
      *
      * @code
-     * Music::genre() // "Rock"
+     * music::genre() // "Rock"
      * @endcode
      */
-    static std::string_view genre();
+    std::string_view genre();
 
     /**
      * @brief Returns a random song name.
@@ -35,9 +32,8 @@ public:
      * @returns Song name.
      *
      * @code
-     * Music::songName() // "Light My Fire"
+     * music::songName() // "Light My Fire"
      * @endcode
      */
-    static std::string_view songName();
-};
+    std::string_view songName();
 }
