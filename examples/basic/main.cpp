@@ -11,8 +11,8 @@ int main()
     const auto id = faker::String::uuid();
     const auto email = faker::Internet::email();
     const auto password = faker::Internet::password();
-    const auto city = faker::Location::city();
-    const auto streetAddress = faker::Location::streetAddress();
+    const auto city = faker::location::city();
+    const auto streetAddress = faker::location::streetAddress();
 
     std::cout << id << std::endl;
     std::cout << email << std::endl;
