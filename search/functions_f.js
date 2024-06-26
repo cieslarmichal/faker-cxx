@@ -1,7 +1,6 @@
 var searchData=
 [
-  ['regexpstylestringparse_0',['regexpStyleStringParse',['../classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768',1,'faker::Helper']]],
-  ['replacecreditcardsymbols_1',['replaceCreditCardSymbols',['../classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199',1,'faker::Helper']]],
-  ['replacesymbolwithnumber_2',['replaceSymbolWithNumber',['../classfaker_1_1Helper.html#ab639ccfc5cae32dc2bf09e07b4b5c8d6',1,'faker::Helper']]],
-  ['routingnumber_3',['routingNumber',['../classfaker_1_1Finance.html#a630a739b5fefc9cb3cdf264bc27db2aa',1,'faker::Finance']]]
+  ['tempunit_0',['tempUnit',['../classfaker_1_1Science.html#ab3667bf9c6d644ac1e07d42239b42179',1,'faker::Science']]],
+  ['timeunit_1',['timeUnit',['../classfaker_1_1Science.html#a326517a93a08ce089df339e11a96e40d',1,'faker::Science']]],
+  ['tovector_2',['toVector',['../classfaker_1_1Helper.html#a505d077c850b9914762fb68af0d926cf',1,'faker::Helper']]]
 ];
