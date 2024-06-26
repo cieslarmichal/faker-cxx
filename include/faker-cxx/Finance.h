@@ -7,18 +7,16 @@
 #include "types/Country.h"
 #include "types/Precision.h"
 
-namespace faker
+namespace faker::finance
 {
-struct Currency
-{
-    std::string_view name;
-    std::string_view code;
-    std::string_view symbol;
-};
+    struct Currency
+    {
+        std::string_view name;
+        std::string_view code;
+        std::string_view symbol;
+    };
 
-class Finance
-{
-public:
+
     /**
      * @brief Returns a random currency.
      *
@@ -28,7 +26,7 @@ public:
      * Finance::currency() // "{"US Dollar","USD","$"}"
      * @endcode
      */
-    static Currency currency();
+    Currency currency();
 
     /**
      * @brief Returns a random currency name.
@@ -39,7 +37,7 @@ public:
      * Finance::currencyName() // "US Dollar"
      * @endcode
      */
-    static std::string_view currencyName();
+    std::string_view currencyName();
 
     /**
      * @brief Returns a random currency code.
@@ -50,7 +48,7 @@ public:
      * Finance::currencyCode() // "USD"
      * @endcode
      */
-    static std::string_view currencyCode();
+    std::string_view currencyCode();
 
     /**
      * @brief Returns a random currency symbol.
@@ -61,7 +59,7 @@ public:
      * Finance::currencySymbol() // "$"
      * @endcode
      */
-    static std::string_view currencySymbol();
+    std::string_view currencySymbol();
 
     /**
      * @brief Returns a random account type.
@@ -72,7 +70,7 @@ public:
      * Finance::accountType() // "Savings"
      * @endcode
      */
-    static std::string_view accountType();
+    std::string_view accountType();
 
     /**
      * @brief Generates a random amount between the given bounds (inclusive).
@@ -91,7 +89,7 @@ public:
      * Finance::amount(5, 10, Precision::TwoDp, "$") // "$5.85"
      * @endcode
      */
-    static std::string amount(double min = 0, double max = 1000, Precision precision = Precision::TwoDp,
+    std::string amount(double min = 0, double max = 1000, Precision precision = Precision::TwoDp,
                               const std::string& symbol = "");
 
     enum class IbanCountry
@@ -137,7 +135,7 @@ public:
      * Finance::iban(IbanCountry::Poland) // "PL61109010140000071219812874"
      * @endcode
      */
-    static std::string iban(std::optional<IbanCountry> country = std::nullopt);
+    std::string iban(std::optional<IbanCountry> country = std::nullopt);
 
     enum class BicCountry
     {
@@ -165,7 +163,7 @@ public:
      * Finance::bic(BicCountry::Poland) // "BREXPLPWMUL"
      * @endcode
      */
-    static std::string_view bic(std::optional<BicCountry> country = std::nullopt);
+    std::string_view bic(std::optional<BicCountry> country = std::nullopt);
 
     /**
      * Generates a random account number.
@@ -179,7 +177,7 @@ public:
      * Finance::accountNumber(26) // "55875455514825927518796290"
      * @endcode
      */
-    static std::string accountNumber(unsigned length = 8);
+    std::string accountNumber(unsigned length = 8);
 
     /**
      * Generates a random PIN number.
@@ -193,7 +191,7 @@ public:
      * Finance::pin(8) // "21378928"
      * @endcode
      */
-    static std::string pin(unsigned length = 4);
+    std::string pin(unsigned length = 4);
 
     /**
      * Generates a random routing number.
@@ -204,7 +202,7 @@ public:
      * Finance::routingNumber() // "522814402"
      * @endcode
      */
-    static std::string routingNumber();
+    std::string routingNumber();
 
     enum class CreditCardType
     {
@@ -225,7 +223,7 @@ public:
      * Finance::creditCardNumber() // "4882664999007"
      * @endcode
      */
-    static std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std::nullopt);
+    std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std::nullopt);
 
     /**
      * Generates a random credit card CVV.
@@ -236,7 +234,7 @@ public:
      * Finance::creditCardCvv() // "506"
      * @endcode
      */
-    static std::string creditCardCvv();
+    std::string creditCardCvv();
 
     /**
      * Generates a random bitcoin address.
@@ -247,7 +245,7 @@ public:
      * Finance::bitcoinAddress() // "3ySdvCkTLVy7gKD4j6JfSaf5d"
      * @endcode
      */
-    static std::string bitcoinAddress();
+    std::string bitcoinAddress();
 
     /**
      * Generates a random litecoin address.
@@ -258,7 +256,7 @@ public:
      * Finance::litecoinAddress() // "LoQaSTGWBRXkWfyxKbNKuPrAWGELzcW"
      * @endcode
      */
-    static std::string litecoinAddress();
+    std::string litecoinAddress();
 
     /**
      * Generates a random ethereum address.
@@ -269,7 +267,7 @@ public:
      * Finance::ethereumAddress() // "0xf03dfeecbafc5147241cc4c4ca20b3c9dfd04c4a"
      * @endcode
      */
-    static std::string ethereumAddress();
+    std::string ethereumAddress();
 
     /**
      * Generates a random expiration date.
@@ -280,7 +278,7 @@ public:
      * Finance::creditCardExpirationDate() // "03/26"
      * @endcode
      */
-    static std::string creditCardExpirationDate();
+    std::string creditCardExpirationDate();
 
     /**
      * Generates a random credit card type.
@@ -291,6 +289,6 @@ public:
      * Finance::creditCardType() // "Visa"
      * @endcode
      */
-    static std::string_view creditCardType();
-};
+    std::string_view creditCardType();
+
 }

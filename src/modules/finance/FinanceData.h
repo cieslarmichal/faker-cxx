@@ -7,53 +7,53 @@
 
 #include "faker-cxx/Finance.h"
 
-namespace faker
+namespace faker::finance
 {
-const auto bicCountries = std::to_array<Finance::BicCountry>({
-    Finance::BicCountry::Poland,  Finance::BicCountry::UnitedStates, Finance::BicCountry::UnitedKingdom,
-    Finance::BicCountry::Germany, Finance::BicCountry::Romania,      Finance::BicCountry::France,
-    Finance::BicCountry::Italy,   Finance::BicCountry::Spain,        Finance::BicCountry::Netherlands,
-    Finance::BicCountry::India
+const auto bicCountries = std::to_array<BicCountry>({
+    BicCountry::Poland,  BicCountry::UnitedStates, BicCountry::UnitedKingdom,
+    BicCountry::Germany, BicCountry::Romania,      BicCountry::France,
+    BicCountry::Italy,   BicCountry::Spain,        BicCountry::Netherlands,
+    BicCountry::India
 });
 
-const auto ibanCountries = std::to_array<Finance::IbanCountry>({
-    Finance::IbanCountry::Austria,  Finance::IbanCountry::Belgium,     Finance::IbanCountry::Bulgaria,
-    Finance::IbanCountry::Croatia,  Finance::IbanCountry::Cyprus,      Finance::IbanCountry::Czechia,
-    Finance::IbanCountry::Denmark,  Finance::IbanCountry::Estonia,     Finance::IbanCountry::Finland,
-    Finance::IbanCountry::France,   Finance::IbanCountry::Germany,     Finance::IbanCountry::Greece,
-    Finance::IbanCountry::Hungary,  Finance::IbanCountry::Ireland,     Finance::IbanCountry::Italy,
-    Finance::IbanCountry::Latvia,   Finance::IbanCountry::Lithuania,   Finance::IbanCountry::Luxembourg,
-    Finance::IbanCountry::Malta,    Finance::IbanCountry::Netherlands, Finance::IbanCountry::Poland,
-    Finance::IbanCountry::Portugal, Finance::IbanCountry::Romania,     Finance::IbanCountry::Slovakia,
-    Finance::IbanCountry::Slovenia, Finance::IbanCountry::Spain,       Finance::IbanCountry::Sweden,
+const auto ibanCountries = std::to_array<IbanCountry>({
+    IbanCountry::Austria,  IbanCountry::Belgium,     IbanCountry::Bulgaria,
+    IbanCountry::Croatia,  IbanCountry::Cyprus,      IbanCountry::Czechia,
+    IbanCountry::Denmark,  IbanCountry::Estonia,     IbanCountry::Finland,
+    IbanCountry::France,   IbanCountry::Germany,     IbanCountry::Greece,
+    IbanCountry::Hungary,  IbanCountry::Ireland,     IbanCountry::Italy,
+    IbanCountry::Latvia,   IbanCountry::Lithuania,   IbanCountry::Luxembourg,
+    IbanCountry::Malta,    IbanCountry::Netherlands, IbanCountry::Poland,
+    IbanCountry::Portugal, IbanCountry::Romania,     IbanCountry::Slovakia,
+    IbanCountry::Slovenia, IbanCountry::Spain,       IbanCountry::Sweden,
 });
 
 const auto accountTypes = std::to_array<std::string_view>({
     "Checking", "Savings", "Money Market", "Investment", "Home Loan", "Credit Card", "Auto Loan", "Personal Loan",
 });
 
-const std::unordered_map<Finance::BicCountry, std::vector<std::string_view>> bicCountriesCodes = {
-    {Finance::BicCountry::Poland,
+const std::unordered_map<BicCountry, std::vector<std::string_view>> bicCountriesCodes = {
+    {BicCountry::Poland,
      {"BPKOPLPW", "PKOPPLPW", "BREXPLPWMUL", "BNPAPLP", "POLUPLPR", "BIGBPLPW", "WBKPPLPP", "CITIPLPX", "INGBPLPW",
       "DEUTPLPK", "DEUTPLP"}},
-    {Finance::BicCountry::UnitedStates,
+    {BicCountry::UnitedStates,
      {"BOFAUS3N", "CITIUS33", "WELLSFARGO", "USBKUS44", "CHASUS33", "HSBCUS33", "PNCCUS33"}},
-    {Finance::BicCountry::UnitedKingdom,
+    {BicCountry::UnitedKingdom,
      {"BARCGB22", "HSBCKENW", "LOYDGB21", "NWBKGB2L", "RBOSGB2L", "HSBCGB2L", "DEUTGB2L"}},
-    {Finance::BicCountry::Germany,
+    {BicCountry::Germany,
      {"DEUTDEFF", "DRESDEFF", "COBADEFF", "BYLADEM1", "GENODEFF", "HYVEDEMM", "MALADE51", "NOLADE21", "SOLADEST",
       "UNCRDEFF"}},
-    {Finance::BicCountry::Romania,
+    {BicCountry::Romania,
      {"RNCBROBU", "BRDEROBU", "BTRLRO22", "PIRBROBU", "INGBROBU", "EXIMRO22", "CRDZROBU"}},
-    {Finance::BicCountry::France,
+    {BicCountry::France,
      {"BNPAFRPP", "CEPAFRPP", "CRLYFRPP", "SOGEFRPP", "AGRIFRPP", "HSBDFRPP", "CCFRFRPP", "BNORDRPP", "CMCIFRPP"}},
-    {Finance::BicCountry::Italy, {"UNCRITMM", "BCITITMM", "INTESA", "UBSPITPA", "BLOPIT22", "CITIITMX", "BNLIITRR"}},
-    {Finance::BicCountry::Spain,
+    {BicCountry::Italy, {"UNCRITMM", "BCITITMM", "INTESA", "UBSPITPA", "BLOPIT22", "CITIITMX", "BNLIITRR"}},
+    {BicCountry::Spain,
      {"CAIXESBB", "BBVAESMM", "SABSESBB", "BSCHESMM", "POPUESMM", "INGDESMM", "CITIES2X", "BCOEESMM"}},
-    {Finance::BicCountry::Netherlands,
+    {BicCountry::Netherlands,
      {"ABNANL2A", "INGBNL2A", "RABONL2U", "TRIONL2U", "KNABNL2H", "SBINNL2X", "DEUTNL2N"}},
     {
-        Finance::BicCountry::India,
+        BicCountry::India,
         {"HDFCINBB", "ICICINBB", "SBININBB", "PNBAINBB", "UBININBB", "AXISINBB", "KKBKINBB", "YESBINBB", "IDBIINBB"},
     }};
 
@@ -77,11 +77,11 @@ const auto visaCreditCardFormats = std::to_array<std::string_view>({
     "4###-####-####-###L",
 });
 
-const auto creditCardTypes = std::to_array<Finance::CreditCardType>({
-    Finance::CreditCardType::Visa,
-    Finance::CreditCardType::AmericanExpress,
-    Finance::CreditCardType::MasterCard,
-    Finance::CreditCardType::Discover,
+const auto creditCardTypes = std::to_array<CreditCardType>({
+    CreditCardType::Visa,
+    CreditCardType::AmericanExpress,
+    CreditCardType::MasterCard,
+    CreditCardType::Discover,
 });
 
 const auto creditCardNames = std::to_array<std::string_view>({
@@ -866,34 +866,34 @@ const auto currencies = std::to_array<Currency>({
 
 // Iban format structure from https://bank.codes/iban/structure/
 // Note: a - alphabets (letters only), c - characters (letters & numbers), n - numbers (numbers only)
-const std::unordered_map<Finance::IbanCountry, std::vector<std::string_view>> ibanFormats{
-    {Finance::IbanCountry::Austria, {"AT", "2n", "5n", "11n"}},
-    {Finance::IbanCountry::Belgium, {"BE", "2n", "3n", "7n", "2n"}},
-    {Finance::IbanCountry::Bulgaria, {"BG", "2n", "4a", "4n", "2n", "8c"}},
-    {Finance::IbanCountry::Croatia, {"HR", "2n", "7n", "10n"}},
-    {Finance::IbanCountry::Cyprus, {"CY", "2n", "3n", "5n", "16c"}},
-    {Finance::IbanCountry::Czechia, {"CZ", "2n", "4n", "6n", "10n"}},
-    {Finance::IbanCountry::Denmark, {"DK", "2n", "4n", "9n", "1n"}},
-    {Finance::IbanCountry::Estonia, {"EE", "2n", "2n", "2n", "11n", "1n"}},
-    {Finance::IbanCountry::Finland, {"FI", "2n", "6n", "7n", "1n"}},
-    {Finance::IbanCountry::France, {"FR", "2n", "5n", "5n", "11c", "2n"}},
-    {Finance::IbanCountry::Germany, {"DE", "2n", "8n", "10n"}},
-    {Finance::IbanCountry::Greece, {"GR", "2n", "3n", "4n", "16c"}},
-    {Finance::IbanCountry::Hungary, {"HU", "2n", "3n", "4n", "1n", "15n", "1n"}},
-    {Finance::IbanCountry::Ireland, {"IE", "2n", "4a", "6n", "8n"}},
-    {Finance::IbanCountry::Italy, {"IT", "2n", "1a", "5n", "5n", "12c"}},
-    {Finance::IbanCountry::Latvia, {"LV", "2n", "4a", "13n"}},
-    {Finance::IbanCountry::Lithuania, {"LT", "2n", "5n", "11n"}},
-    {Finance::IbanCountry::Luxembourg, {"LU", "2n", "3n", "13c"}},
-    {Finance::IbanCountry::Malta, {"MT", "2n", "4a", "5n", "18c"}},
-    {Finance::IbanCountry::Netherlands, {"NL", "2n", "4a", "10n"}},
-    {Finance::IbanCountry::Poland, {"PL", "2n", "3n", "4n", "1n", "16n"}},
-    {Finance::IbanCountry::Portugal, {"PT", "2n", "4n", "4n", "11n", "2n"}},
-    {Finance::IbanCountry::Romania, {"RO", "2n", "4a", "16c"}},
-    {Finance::IbanCountry::Slovakia, {"SK", "2n", "4n", "6n", "10n"}},
-    {Finance::IbanCountry::Slovenia, {"SI", "2n", "2n", "3n", "8n", "2n"}},
-    {Finance::IbanCountry::Spain, {"ES", "2n", "4n", "4n", "2n", "10n"}},
-    {Finance::IbanCountry::Sweden, {"SE", "2n", "3n", "16n", "1n"}},
+const std::unordered_map<IbanCountry, std::vector<std::string_view>> ibanFormats{
+    {IbanCountry::Austria, {"AT", "2n", "5n", "11n"}},
+    {IbanCountry::Belgium, {"BE", "2n", "3n", "7n", "2n"}},
+    {IbanCountry::Bulgaria, {"BG", "2n", "4a", "4n", "2n", "8c"}},
+    {IbanCountry::Croatia, {"HR", "2n", "7n", "10n"}},
+    {IbanCountry::Cyprus, {"CY", "2n", "3n", "5n", "16c"}},
+    {IbanCountry::Czechia, {"CZ", "2n", "4n", "6n", "10n"}},
+    {IbanCountry::Denmark, {"DK", "2n", "4n", "9n", "1n"}},
+    {IbanCountry::Estonia, {"EE", "2n", "2n", "2n", "11n", "1n"}},
+    {IbanCountry::Finland, {"FI", "2n", "6n", "7n", "1n"}},
+    {IbanCountry::France, {"FR", "2n", "5n", "5n", "11c", "2n"}},
+    {IbanCountry::Germany, {"DE", "2n", "8n", "10n"}},
+    {IbanCountry::Greece, {"GR", "2n", "3n", "4n", "16c"}},
+    {IbanCountry::Hungary, {"HU", "2n", "3n", "4n", "1n", "15n", "1n"}},
+    {IbanCountry::Ireland, {"IE", "2n", "4a", "6n", "8n"}},
+    {IbanCountry::Italy, {"IT", "2n", "1a", "5n", "5n", "12c"}},
+    {IbanCountry::Latvia, {"LV", "2n", "4a", "13n"}},
+    {IbanCountry::Lithuania, {"LT", "2n", "5n", "11n"}},
+    {IbanCountry::Luxembourg, {"LU", "2n", "3n", "13c"}},
+    {IbanCountry::Malta, {"MT", "2n", "4a", "5n", "18c"}},
+    {IbanCountry::Netherlands, {"NL", "2n", "4a", "10n"}},
+    {IbanCountry::Poland, {"PL", "2n", "3n", "4n", "1n", "16n"}},
+    {IbanCountry::Portugal, {"PT", "2n", "4n", "4n", "11n", "2n"}},
+    {IbanCountry::Romania, {"RO", "2n", "4a", "16c"}},
+    {IbanCountry::Slovakia, {"SK", "2n", "4n", "6n", "10n"}},
+    {IbanCountry::Slovenia, {"SI", "2n", "2n", "3n", "8n", "2n"}},
+    {IbanCountry::Spain, {"ES", "2n", "4n", "4n", "2n", "10n"}},
+    {IbanCountry::Sweden, {"SE", "2n", "3n", "16n", "1n"}},
 };
 
 }
