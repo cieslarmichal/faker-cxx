@@ -14,35 +14,36 @@
 #include "faker-cxx/types/Precision.h"
 #include "FinanceData.h"
 
-namespace faker
+
+namespace faker::finance
 {
 
-Currency Finance::currency()
+Currency currency()
 {
     return Helper::arrayElement(currencies);
 }
 
-std::string_view Finance::currencyName()
+std::string_view currencyName()
 {
     return Helper::arrayElement(currencies).name;
 }
 
-std::string_view Finance::currencyCode()
+std::string_view currencyCode()
 {
     return Helper::arrayElement(currencies).code;
 }
 
-std::string_view Finance::currencySymbol()
+std::string_view currencySymbol()
 {
     return Helper::arrayElement(currencies).symbol;
 }
 
-std::string_view Finance::accountType()
+std::string_view accountType()
 {
     return Helper::arrayElement(accountTypes);
 }
 
-std::string Finance::amount(double min, double max, Precision precision, const std::string& symbol)
+std::string amount(double min, double max, Precision precision, const std::string& symbol)
 {
     const std::floating_point auto generatedNumber = number::decimal<double>(min, max);
 
@@ -53,7 +54,7 @@ std::string Finance::amount(double min, double max, Precision precision, const s
     return result;
 }
 
-std::string Finance::iban(std::optional<Finance::IbanCountry> country)
+std::string iban(std::optional<IbanCountry> country)
 {
     const auto ibanCountry = country ? *country : Helper::arrayElement(ibanCountries);
 
@@ -88,29 +89,29 @@ std::string Finance::iban(std::optional<Finance::IbanCountry> country)
     return iban;
 }
 
-std::string_view Finance::bic(std::optional<Finance::BicCountry> country)
+std::string_view bic(std::optional<BicCountry> country)
 {
     const auto bicCountry = country ? *country : Helper::arrayElement(bicCountries);
 
     return Helper::arrayElement(bicCountriesCodes.at(bicCountry));
 }
 
-std::string Finance::accountNumber(unsigned int length)
+std::string accountNumber(unsigned int length)
 {
     return String::numeric(length, true);
 }
 
-std::string Finance::pin(unsigned int length)
+std::string pin(unsigned int length)
 {
     return String::numeric(length, true);
 }
 
-std::string Finance::routingNumber()
+std::string routingNumber()
 {
     return String::numeric(9, true);
 }
 
-std::string Finance::creditCardNumber(std::optional<Finance::CreditCardType> creditCardType)
+std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
 {
     const auto creditCardTargetType = creditCardType ? *creditCardType : Helper::arrayElement(creditCardTypes);
 
@@ -132,12 +133,12 @@ std::string Finance::creditCardNumber(std::optional<Finance::CreditCardType> cre
     return "";
 }
 
-std::string Finance::creditCardCvv()
+std::string creditCardCvv()
 {
     return String::numeric(3, true);
 }
 
-std::string Finance::bitcoinAddress()
+std::string bitcoinAddress()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
@@ -148,7 +149,7 @@ std::string Finance::bitcoinAddress()
     return address;
 }
 
-std::string Finance::litecoinAddress()
+std::string litecoinAddress()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
@@ -159,19 +160,19 @@ std::string Finance::litecoinAddress()
     return address;
 }
 
-std::string Finance::ethereumAddress()
+std::string ethereumAddress()
 {
     return String::hexadecimal(40, HexCasing::Lower);
 }
 
-std::string Finance::creditCardExpirationDate()
+std::string creditCardExpirationDate()
 {
     const auto expirationDate = faker::date::futureDate(3);
 
     return expirationDate.substr(5, 2) + "/" + expirationDate.substr(2, 2);
 }
 
-std::string_view Finance::creditCardType()
+std::string_view creditCardType()
 {
     return Helper::arrayElement(creditCardNames);
 }
