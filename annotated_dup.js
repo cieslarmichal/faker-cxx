@@ -1,36 +1,36 @@
 var annotated_dup =
 [
-    [ "faker", null, [
-      [ "airline", null, [
-        [ "AirlineInfo", "structfaker_1_1airline_1_1AirlineInfo.html", null ],
-        [ "Airplane", "structfaker_1_1airline_1_1Airplane.html", null ],
-        [ "Airport", "structfaker_1_1airline_1_1Airport.html", null ],
-        [ "Range", "structfaker_1_1airline_1_1Range.html", null ]
+    [ "faker", "namespacefaker.html", [
+      [ "airline", "namespacefaker_1_1airline.html", [
+        [ "AirlineInfo", "structfaker_1_1airline_1_1AirlineInfo.html", "structfaker_1_1airline_1_1AirlineInfo" ],
+        [ "Airplane", "structfaker_1_1airline_1_1Airplane.html", "structfaker_1_1airline_1_1Airplane" ],
+        [ "Airport", "structfaker_1_1airline_1_1Airport.html", "structfaker_1_1airline_1_1Airport" ],
+        [ "Range", "structfaker_1_1airline_1_1Range.html", "structfaker_1_1airline_1_1Range" ]
       ] ],
-      [ "finance", null, [
-        [ "Currency", "structfaker_1_1finance_1_1Currency.html", null ]
+      [ "finance", "namespacefaker_1_1finance.html", [
+        [ "Currency", "structfaker_1_1finance_1_1Currency.html", "structfaker_1_1finance_1_1Currency" ]
       ] ],
-      [ "git", null, [
-        [ "Author", "structfaker_1_1git_1_1Author.html", null ]
+      [ "git", "namespacefaker_1_1git.html", [
+        [ "Author", "structfaker_1_1git_1_1Author.html", "structfaker_1_1git_1_1Author" ]
       ] ],
-      [ "helper", null, [
-        [ "WeightedElement", "structfaker_1_1helper_1_1WeightedElement.html", null ]
+      [ "helper", "namespacefaker_1_1helper.html", [
+        [ "WeightedElement", "structfaker_1_1helper_1_1WeightedElement.html", "structfaker_1_1helper_1_1WeightedElement" ]
       ] ],
-      [ "internet", null, [
-        [ "PasswordOptions", "structfaker_1_1internet_1_1PasswordOptions.html", null ]
+      [ "internet", "namespacefaker_1_1internet.html", [
+        [ "PasswordOptions", "structfaker_1_1internet_1_1PasswordOptions.html", "structfaker_1_1internet_1_1PasswordOptions" ]
       ] ],
-      [ "science", null, [
-        [ "ChemicalElement", "structfaker_1_1science_1_1ChemicalElement.html", null ],
-        [ "Unit", "structfaker_1_1science_1_1Unit.html", null ]
+      [ "science", "namespacefaker_1_1science.html", [
+        [ "ChemicalElement", "structfaker_1_1science_1_1ChemicalElement.html", "structfaker_1_1science_1_1ChemicalElement" ],
+        [ "Unit", "structfaker_1_1science_1_1Unit.html", "structfaker_1_1science_1_1Unit" ]
       ] ],
-      [ "string", null, [
-        [ "CharCount", "structfaker_1_1string_1_1CharCount.html", null ]
+      [ "string", "namespacefaker_1_1string.html", [
+        [ "CharCount", "structfaker_1_1string_1_1CharCount.html", "structfaker_1_1string_1_1CharCount" ]
       ] ],
-      [ "system", null, [
-        [ "CronOptions", "structfaker_1_1system_1_1CronOptions.html", null ],
-        [ "FileOptions", "structfaker_1_1system_1_1FileOptions.html", null ],
-        [ "NetworkInterfaceOptions", "structfaker_1_1system_1_1NetworkInterfaceOptions.html", null ]
+      [ "system", "namespacefaker_1_1system.html", [
+        [ "CronOptions", "structfaker_1_1system_1_1CronOptions.html", "structfaker_1_1system_1_1CronOptions" ],
+        [ "FileOptions", "structfaker_1_1system_1_1FileOptions.html", "structfaker_1_1system_1_1FileOptions" ],
+        [ "NetworkInterfaceOptions", "structfaker_1_1system_1_1NetworkInterfaceOptions.html", "structfaker_1_1system_1_1NetworkInterfaceOptions" ]
       ] ],
-      [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", null ]
+      [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", "classfaker_1_1RandomGenerator" ]
     ] ]
 ];

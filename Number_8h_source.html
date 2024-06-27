@@ -102,16 +102,18 @@ $(function(){initNavTree('Number_8h_source.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">Number.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
+<a href="Number_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;concepts&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;random&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker::number</div>
+<div class="foldopen" id="foldopen00007" data-start="{" data-end="}">
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="namespacefaker_1_1number.html">    7</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacefaker_1_1number.html">faker::number</a></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
 <div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral I&gt;</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>I integer(I min, I max)</div>
+<div class="foldopen" id="foldopen00022" data-start="{" data-end="}">
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">   22</a></span>I <a class="code hl_function" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">integer</a>(I min, I max)</div>
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>{</div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordflow">if</span> (min &gt; max)</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    {</div>
@@ -124,15 +126,19 @@ $(function(){initNavTree('Number_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">return</span> distribution(pseudoRandomGenerator);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>}</div>
+</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral I&gt;</div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>I integer(I max)</div>
+<div class="foldopen" id="foldopen00049" data-start="{" data-end="}">
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="namespacefaker_1_1number.html#afc3ffd60474194ebb9de6c1fadbd6a6e">   49</a></span>I <a class="code hl_function" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">integer</a>(I max)</div>
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>{</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">return</span> integer&lt;I&gt;(<span class="keyword">static_cast&lt;</span>I<span class="keyword">&gt;</span>(0), max);</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">integer&lt;I&gt;</a>(<span class="keyword">static_cast&lt;</span>I<span class="keyword">&gt;</span>(0), max);</div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>}</div>
+</div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> F&gt;</div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>F decimal(F min, F max)</div>
+<div class="foldopen" id="foldopen00067" data-start="{" data-end="}">
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno"><a class="line" href="namespacefaker_1_1number.html#acbf7901ccec478ee254602fc5dbedb25">   67</a></span>F <a class="code hl_function" href="namespacefaker_1_1number.html#acbf7901ccec478ee254602fc5dbedb25">decimal</a>(F min, F max)</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>{</div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    <span class="keywordflow">if</span> (min &gt; max)</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>    {</div>
@@ -145,19 +151,26 @@ $(function(){initNavTree('Number_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">return</span> distribution(pseudoRandomGenerator);</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>}</div>
+</div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> F&gt;</div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>F decimal(F max)</div>
+<div class="foldopen" id="foldopen00094" data-start="{" data-end="}">
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="namespacefaker_1_1number.html#a9c47857bcf94b75f2a4c8c65591d21b0">   94</a></span>F <a class="code hl_function" href="namespacefaker_1_1number.html#acbf7901ccec478ee254602fc5dbedb25">decimal</a>(F max)</div>
 <div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>{</div>
-<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">return</span> decimal&lt;F&gt;(<span class="keyword">static_cast&lt;</span>F<span class="keyword">&gt;</span>(0.), max);</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1number.html#acbf7901ccec478ee254602fc5dbedb25">decimal&lt;F&gt;</a>(<span class="keyword">static_cast&lt;</span>F<span class="keyword">&gt;</span>(0.), max);</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>}</div>
+</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>}</div>
+</div>
+<div class="ttc" id="anamespacefaker_1_1number_html"><div class="ttname"><a href="namespacefaker_1_1number.html">faker::number</a></div><div class="ttdef"><b>Definition</b> Number.h:8</div></div>
+<div class="ttc" id="anamespacefaker_1_1number_html_a56e8f02c1fc4e0b18f9d55901a31d659"><div class="ttname"><a href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">faker::number::integer</a></div><div class="ttdeci">I integer(I min, I max)</div><div class="ttdoc">Generates a random integer number in the given range, bounds included.</div><div class="ttdef"><b>Definition</b> Number.h:22</div></div>
+<div class="ttc" id="anamespacefaker_1_1number_html_acbf7901ccec478ee254602fc5dbedb25"><div class="ttname"><a href="namespacefaker_1_1number.html#acbf7901ccec478ee254602fc5dbedb25">faker::number::decimal</a></div><div class="ttdeci">F decimal(F min, F max)</div><div class="ttdoc">Generates a random decimal number in the given range, bounds included.</div><div class="ttdef"><b>Definition</b> Number.h:67</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_21275a4f97039163a157995766de70c2.html">faker-cxx</a></li><li class="navelem"><b>Number.h</b></li>
+    <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><a class="el" href="dir_21275a4f97039163a157995766de70c2.html">faker-cxx</a></li><li class="navelem"><a class="el" href="Number_8h.html">Number.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.11.0 </li>
   </ul>
 </div>
