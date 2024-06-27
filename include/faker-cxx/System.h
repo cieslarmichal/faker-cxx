@@ -46,15 +46,15 @@ struct NetworkInterfaceOptions
  * @returns Random file name with extension.
  *
  * @code
- * system::fileName() // "injustice.mpeg"
+ * faker::system::fileName() // "injustice.mpeg"
  *
  * FileOptions options
  * options.extensionCount = 3
- * system::fileName(options) // "transformation.wav.mpeg.mp4"
+ * faker::system::fileName(options) // "transformation.wav.mpeg.mp4"
  *
  * options.extensionRange.min = 1;
  * options.extensionRange.max = 3;
- * system::fileName(options) // "sparkle.png.pdf"
+ * faker::system::fileName(options) // "sparkle.png.pdf"
  * @endcode
  */
 std::string fileName(const FileOptions& options = {});
@@ -67,7 +67,7 @@ std::string fileName(const FileOptions& options = {});
  * @returns A file extension.
  *
  * @code
- * system::fileExtension(MimeType::Image) // "png"
+ * faker::system::fileExtension(MimeType::Image) // "png"
  * @endcode
  */
 std::string fileExtension(const std::optional<FileType>& mimeType = std::nullopt);
@@ -80,8 +80,8 @@ std::string fileExtension(const std::optional<FileType>& mimeType = std::nullopt
  * @returns A random file name with a given extension or a commonly used extension.
  *
  * @code
- * system::commonFileName() // "dollar.jpg"
- * system::commonFileName("txt") // "global_borders_wyoming.txt"
+ * faker::system::commonFileName() // "dollar.jpg"
+ * faker::system::commonFileName("txt") // "global_borders_wyoming.txt"
  * @endcode
  */
 std::string commonFileName(const std::optional<std::string>& ext = std::nullopt);
@@ -92,7 +92,7 @@ std::string commonFileName(const std::optional<std::string>& ext = std::nullopt)
  * @returns A commonly used file extension.
  *
  * @code
- * system::commonFileExtension() // "gif"
+ * faker::system::commonFileExtension() // "gif"
  * @endcode
  */
 std::string_view commonFileExtension();
@@ -103,7 +103,7 @@ std::string_view commonFileExtension();
  * @returns A mime-type.
  *
  * @code
- * system::mimeType() // "video/vnd.vivo"
+ * faker::system::mimeType() // "video/vnd.vivo"
  * @endcode
  */
 std::string_view mimeType();
@@ -114,7 +114,7 @@ std::string_view mimeType();
  * @returns A commonly used file type.
  *
  * @code
- * system::fileType() // "audio"
+ * faker::system::fileType() // "audio"
  * @endcode
  */
 std::string_view fileType();
@@ -125,7 +125,7 @@ std::string_view fileType();
  * @returns A directory path.
  *
  * @code
- * system::directoryPath() // "/etc/mail"
+ * faker::system::directoryPath() // "/etc/mail"
  * @endcode
  */
 std::string_view directoryPath();
@@ -136,7 +136,7 @@ std::string_view directoryPath();
  * @returns A file path.
  *
  * @code
- * system::filePath() // "/usr/local/src/money.dotx"
+ * faker::system::filePath() // "/usr/local/src/money.dotx"
  * @endcode
  */
 std::string filePath();
@@ -147,7 +147,7 @@ std::string filePath();
  * @returns A semantic version.
  *
  * @code
- * system::semver() // "1.1.2"
+ * faker::system::semver() // "1.1.2"
  * @endcode
  */
 std::string semver();
@@ -162,20 +162,20 @@ std::string semver();
  * @returns A random network interface.
  *
  * @code
- * system::networkInterface() // "enp2s7f8"
+ * faker::system::networkInterface() // "enp2s7f8"
  *
  * NetworkInterfaceOptions options;
  * options.interfaceType = "wl";
- * system::networkInterface(options) // "wlsf4d2"
+ * faker::system::networkInterface(options) // "wlsf4d2"
  *
  * NetworkInterfaceOptions options;
  * options.interfaceSchema = "mac";
- * system::networkInterface(options) // "enxd17705ed394f"
+ * faker::system::networkInterface(options) // "enxd17705ed394f"
  *
  * NetworkInterfaceOptions options;
  * options.interfaceType = "en";
  * options.interfaceSchema = "pci";
- * system::networkInterface(options) // "enp1s9f1d2"
+ * faker::system::networkInterface(options) // "enp1s9f1d2"
  * @endcode
  */
 std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options = {});
@@ -195,19 +195,19 @@ std::string networkInterface(const std::optional<NetworkInterfaceOptions>& optio
  *
  * CronOptions options
  * options.includeYear = true
- * std::string cronExpr = system::cron(options) // "16 14 * 11 2 2038"
+ * std::string cronExpr = faker::system::cron(options) // "16 14 * 11 2 2038"
  *
  * CronOptions options
  * options.includeYear = false
- * std::string cronExpr = system::cron(options) // "16 14 * 11 2"
+ * std::string cronExpr = faker::system::cron(options) // "16 14 * 11 2"
  *
  * CronOptions options
  * options.includeNonStandard = false
- * std::string cronExpr = system::cron(options) // 34 2 ? 8 *
+ * std::string cronExpr = faker::system::cron(options) // 34 2 ? 8 *
  *
  * CronOptions options
  * options.includeNonStandard = true
- * std::string cronExpr = system::cron(options) // "@reboot"
+ * std::string cronExpr = faker::system::cron(options) // "@reboot"
  * @endcode
  */
 std::string cron(const CronOptions& options = {});

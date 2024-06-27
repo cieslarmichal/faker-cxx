@@ -10,7 +10,7 @@ namespace faker::weather
  * @return A random weather description
  *
  * @code
- * weather::weatherDescription(); // "Sunny"
+ * faker::weather::weatherDescription(); // "Sunny"
  * @endcode
  */
 std::string_view weatherDescription();

@@ -10,7 +10,7 @@ namespace faker::vehicle
      * @returns bicycle type.
      *
      * @code
-     * vehicle::bicycle() // "Electric bike"
+     * faker::vehicle::bicycle() // "Electric bike"
      * @endcode
      */
     std::string_view bicycle();
@@ -21,7 +21,7 @@ namespace faker::vehicle
      * @returns vehicle color.
      *
      * @code
-     * vehicle::color() // "Silver"
+     * faker::vehicle::color() // "Silver"
      * @endcode
      */
     std::string_view color();
@@ -32,7 +32,7 @@ namespace faker::vehicle
      * @returns vehicle fuel.
      *
      * @code
-     * vehicle::fuel() // "Diesel"
+     * faker::vehicle::fuel() // "Diesel"
      * @endcode
      */
     std::string_view fuel();
@@ -43,7 +43,7 @@ namespace faker::vehicle
      * @returns vehicle(car) manufacturer.
      *
      * @code
-     * vehicle::manufacturer() // "Ferrari"
+     * faker::vehicle::manufacturer() // "Ferrari"
      * @endcode
      */
     std::string_view manufacturer();
@@ -54,7 +54,7 @@ namespace faker::vehicle
      * @returns vehicle(car) model.
      *
      * @code
-     * vehicle::model() // "Fiesta"
+     * faker::vehicle::model() // "Fiesta"
      * @endcode
      */
     std::string_view model();
@@ -65,7 +65,7 @@ namespace faker::vehicle
      * @returns vehicle type.
      *
      * @code
-     * vehicle::type() // "Van"
+     * faker::vehicle::type() // "Van"
      * @endcode
      */
     std::string_view type();
@@ -76,7 +76,7 @@ namespace faker::vehicle
      * @returns vehicle composed by a manufacturer and model.
      *
      * @code
-     * vehicle::vehicleName() // "BMW Explorer"
+     * faker::vehicle::vehicleName() // "BMW Explorer"
      * @endcode
      */
     std::string vehicleName();
@@ -87,7 +87,7 @@ namespace faker::vehicle
      * @returns vehicle identification number.
      *
      * @code
-     * vehicle::vin() // "YV1MH682762184654"
+     * faker::vehicle::vin() // "YV1MH682762184654"
      * @endcode
      */
     std::string vin();
@@ -98,7 +98,7 @@ namespace faker::vehicle
      * @returns vehicle registration number.
      *
      * @code
-     * vehicle::vrm() // "MF56UPA"
+     * faker::vehicle::vrm() // "MF56UPA"
      * @endcode
      */
     std::string vrm();

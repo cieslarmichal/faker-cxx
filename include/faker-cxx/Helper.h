@@ -25,8 +25,8 @@ namespace faker::helper
  * @return T a random element from the container.
  *
  * @code
- * helper::arrayElement<char>(std::string{"abcd"}) // "b"
- * helper::arrayElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
+ * faker::helper::arrayElement<char>(std::string{"abcd"}) // "b"
+ * faker::helper::arrayElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
  * @endcode
  */
 template <class T>
@@ -80,7 +80,7 @@ auto arrayElement(It start, It end) -> decltype(*::std::declval<It>())
  * @return T a random element from the vector.
  *
  * @code
- * helper::arrayElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
+ * faker::helper::arrayElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
  * @endcode
  */
 template <class T>
@@ -96,6 +96,7 @@ T arrayElement(const std::vector<T>& data)
     return data[index];
 }
 
+
 /**
  * @brief Get a random element from an initializer list.
  *
@@ -106,7 +107,7 @@ T arrayElement(const std::vector<T>& data)
  * @return T a random element from the initializer list.
  *
  * @code
- * helper::arrayElement<std::string>(std::initializer_list<std::string>{{"hello"}, {"world"}}) // "hello"
+ * faker::helper::arrayElement<std::string>(std::initializer_list<std::string>{{"hello"}, {"world"}}) // "hello"
  * @endcode
  */
 template <class T>
@@ -133,7 +134,7 @@ T arrayElement(const std::initializer_list<T>& data)
  *
  * @code
  * std::set<char> chars{'a', 'b', 'c', 'd', 'e'};
- * helper::setElement(chars) // 'd'
+ * faker::helper::setElement(chars) // 'd'
  * @endcode
  */
 template <class T>
@@ -170,7 +171,7 @@ struct WeightedElement
  * @return T a weighted element value from the vector.
  *
  * @code
- * helper::weightedArrayElement<std::string>(std::vector<helper::WeightedElement<std::string>>{{1, "value1"}, {10,
+ * faker::helper::weightedArrayElement<std::string>(std::vector<helper::WeightedElement<std::string>>{{1, "value1"}, {10,
  * "value2"}}) // "hello2"
  * @endcode
  */
@@ -220,7 +221,7 @@ T weightedArrayElement(const std::vector<WeightedElement<T>>& data)
  * @return std::string with shuffled chars
  *
  * @code
- * helper::shuffleString("hello") // "eollh"
+ * faker::helper::shuffleString("hello") // "eollh"
  * @endcode
  */
 std::string shuffleString(std::string data);
@@ -242,7 +243,7 @@ std::string shuffleString(std::string data);
  * {2, "two"},
  * {3, "three"}
  * };
- * helper::objectKey(testMap) // "2"
+ * faker::helper::objectKey(testMap) // "2"
  * @endcode
  */
 template <typename T>
@@ -275,8 +276,8 @@ typename T::key_type objectKey(const T& object)
  * @return The result of the callback if the probability check was successful, otherwise empty string.
  *
  * @code
- * helper::maybe<std::string>([]() { return "Hello World!"; }) // ""
- * helper::maybe<int>([]() { return 42; }, 0.9) // "42"
+ * faker::helper::maybe<std::string>([]() { return "Hello World!"; }) // ""
+ * faker::helper::maybe<int>([]() { return 42; }, 0.9) // "42"
  * @endcode
  */
 template <typename TResult>
@@ -301,7 +302,7 @@ TResult maybe(std::function<TResult()> callback, double probability = 0.5)
  * @return The same array as a vector.
  *
  * @code
- * helper::toVector(std::array<int, 3>{1, 2, 3}) // {1, 2, 3}
+ * faker::helper::toVector(std::array<int, 3>{1, 2, 3}) // {1, 2, 3}
  * @endcode
  */
 template <typename T, std::size_t N>
@@ -323,10 +324,10 @@ std::vector<T> toVector(const std::array<T, N>& arr)
  * @return The string replaced symbols with digits.
  *
  * @code
- * helper::replaceSymbolWithNumber() // ""
- * helper::replaceSymbolWithNumber("#####") // "04812"
- * helper::replaceSymbolWithNumber("!####") // "27378"
- * helper::replaceSymbolWithNumber("Your pin is: !####") // "29841"
+ * faker::helper::replaceSymbolWithNumber() // ""
+ * faker::helper::replaceSymbolWithNumber("#####") // "04812"
+ * faker::helper::replaceSymbolWithNumber("!####") // "27378"
+ * faker::helper::replaceSymbolWithNumber("Your pin is: !####") // "29841"
  * @endcode
  */
 std::string replaceSymbolWithNumber(const std::string& str, const char& symbol = '#');
@@ -342,8 +343,8 @@ std::string replaceSymbolWithNumber(const std::string& str, const char& symbol =
  * @return The string replaced symbols with digits.
  *
  * @code
- * helper::replaceCreditCardSymbols() // "6453-4876-8626-8995-3771"
- * helper::replaceCreditCardSymbols("1234-[4-9]-##!!-L") // "1234-9-5298-2"
+ * faker::helper::replaceCreditCardSymbols() // "6453-4876-8626-8995-3771"
+ * faker::helper::replaceCreditCardSymbols("1234-[4-9]-##!!-L") // "1234-9-5298-2"
  * @endcode
  */
 std::string replaceCreditCardSymbols(const std::string& inputString = "6453-####-####-####-###L", char symbol = '#');
@@ -361,11 +362,11 @@ std::string replaceCreditCardSymbols(const std::string& inputString = "6453-####
  * @return The replaced regex-like expression in the string with matching values.
  *
  * @code
- * helper::regexpStyleStringParse() // ""
- * helper::regexpStyleStringParse("#{5}") // "#####"
- * helper::regexpStyleStringParse("#{2,9}") // "#######"
- * helper::regexpStyleStringParse("[500-15000]") // "8375"
- * helper::regexpStyleStringParse("#{3}test[1-5]") // "###test3"
+ * faker::helper::regexpStyleStringParse() // ""
+ * faker::helper::regexpStyleStringParse("#{5}") // "#####"
+ * faker::helper::regexpStyleStringParse("#{2,9}") // "#######"
+ * faker::helper::regexpStyleStringParse("[500-15000]") // "8375"
+ * faker::helper::regexpStyleStringParse("#{3}test[1-5]") // "###test3"
  * @endcode
  */
 std::string regexpStyleStringParse(const std::string& input);

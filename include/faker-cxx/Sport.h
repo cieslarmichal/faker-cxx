@@ -10,7 +10,7 @@ namespace faker::sport
      * @returns sport.
      *
      * @code
-     * Sport::sport() // "football"
+     * faker::sport::sport() // "football"
      * @endcode
      */
     
@@ -22,7 +22,7 @@ namespace faker::sport
      * @returns soccer team.
      *
      * @code
-     * Sport::soccerTeam() // "Manchester United"
+     * faker::sport::soccerTeam() // "Manchester United"
      * @endcode
      */
     std::string_view soccerTeam();
@@ -33,7 +33,7 @@ namespace faker::sport
      * @returns male athlete.
      *
      * @code
-     * Sport::maleAthlete() // "Cristiano Ronaldo"
+     * faker::sport::maleAthlete() // "Cristiano Ronaldo"
      * @endcode
      */
     std::string_view maleAthlete();
@@ -44,7 +44,7 @@ namespace faker::sport
      * @returns female athlete.
      *
      * @code
-     * Sport::femaleAthlete() // "Serena Williams"
+     * faker::sport::femaleAthlete() // "Serena Williams"
      * @endcode
      */
     std::string_view femaleAthlete();
@@ -55,7 +55,7 @@ namespace faker::sport
      * @returns Sport Event.
      *
      * @code
-     * Sport::sportEvent() // "Super Bowl"
+     * faker::sport::sportEvent() // "Super Bowl"
      * @endcode
      */
     std::string_view sportEvent();

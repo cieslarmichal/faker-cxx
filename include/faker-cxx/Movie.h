@@ -10,7 +10,7 @@ namespace faker::movie
  * @returns Movie genre.
  *
  * @code
- * movie::genre() // "Drama"
+ * faker::movie::genre() // "Drama"
  * @endcode
  */
 std::string_view genre();
@@ -21,7 +21,7 @@ std::string_view genre();
  * @returns Movie title.
  *
  * @code
- * movie::movieTitle() // "Pulp Fiction"
+ * faker::movie::movieTitle() // "Pulp Fiction"
  * @endcode
  */
 std::string_view movieTitle();
@@ -32,7 +32,7 @@ std::string_view movieTitle();
  * @returns Tv show.
  *
  * @code
- * movie::tvShow() // "The Sopranos"
+ * faker::movie::tvShow() // "The Sopranos"
  * @endcode
  */
 std::string_view tvShow();
@@ -43,7 +43,7 @@ std::string_view tvShow();
  * @returns Movie director name.
  *
  * @code
- * movie::director() // "Quentin Tarantino"
+ * faker::movie::director() // "Quentin Tarantino"
  * @endcode
  */
 std::string_view director();
@@ -54,7 +54,7 @@ std::string_view director();
  * @returns Actor name.
  *
  * @code
- * movie::actor() // "John Travolta"
+ * faker::movie::actor() // "John Travolta"
  * @endcode
  */
 std::string_view actor();
@@ -65,7 +65,7 @@ std::string_view actor();
  * @returns Actress name.
  *
  * @code
- * movie::actress() // "Scarlett Johansson"
+ * faker::movie::actress() // "Scarlett Johansson"
  * @endcode
  */
 std::string_view actress();

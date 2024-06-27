@@ -10,7 +10,7 @@ namespace faker::music
      * @returns Artist.
      *
      * @code
-     * music::artist() // "Nirvana"
+     * faker::music::artist() // "Nirvana"
      * @endcode
      */
     std::string_view artist();
@@ -21,7 +21,7 @@ namespace faker::music
      * @returns Music genre.
      *
      * @code
-     * music::genre() // "Rock"
+     * faker::music::genre() // "Rock"
      * @endcode
      */
     std::string_view genre();
@@ -32,7 +32,7 @@ namespace faker::music
      * @returns Song name.
      *
      * @code
-     * music::songName() // "Light My Fire"
+     * faker::music::songName() // "Light My Fire"
      * @endcode
      */
     std::string_view songName();

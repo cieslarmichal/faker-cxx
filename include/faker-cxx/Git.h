@@ -20,7 +20,7 @@ struct Author
  * @returns Branch name.
  *
  * @code
- * git::branch() // "capitalize-bus"
+ * faker::git::branch() // "capitalize-bus"
  * @endcode
  */
 std::string branch(unsigned maxIssueNum = 100);
@@ -32,7 +32,7 @@ std::string branch(unsigned maxIssueNum = 100);
  * @returns Commit date.
  *
  * @code
- * git::commitDate() // "Mon Jan 17 15:05:53 2022 +1100"
+ * faker::git::commitDate() // "Mon Jan 17 15:05:53 2022 +1100"
  * @endcode
  */
 std::string commitDate(unsigned years = 15);
@@ -47,7 +47,7 @@ std::string commitDate(unsigned years = 15);
  * @returns Commit entry.
  *
  * @code
- * git::commitEntry() // "commit 9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca
+ * faker::git::commitEntry() // "commit 9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca
                         Author: Rachel McLaughlin Rachel_McLaughlin@gmail.com
                         Date: Mon Jan 17 15:05:53 2022 +1100
 
@@ -63,7 +63,7 @@ std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt,
  * @returns Commit message.
  *
  * @code
- * git::commitMessage() // "spawn polyp"
+ * faker::git::commitMessage() // "spawn polyp"
  * @endcode
  */
 std::string commitMessage();
@@ -76,7 +76,7 @@ std::string commitMessage();
  * @returns SHA hash.
  *
  * @code
- * git::commitSha() // "9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca"
+ * faker::git::commitSha() // "9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca"
  * @endcode
  */
 std::string commitSha(unsigned length = 40);

@@ -31,9 +31,9 @@ namespace faker::image
      * @returns Random real image url from external service.
      *
      * @code
-     * image::imageUrl() // "https://loremflickr.com/640/480"
-     * image::imageUrl(800, 600) // "https://loremflickr.com/800/600"
-     * image::imageUrl(800, 600, ImageCategory::Animals) // "https://loremflickr.com/800/600/animals"
+     * faker::image::imageUrl() // "https://loremflickr.com/640/480"
+     * faker::image::imageUrl(800, 600) // "https://loremflickr.com/800/600"
+     * faker::image::imageUrl(800, 600, ImageCategory::Animals) // "https://loremflickr.com/800/600/animals"
      * @endcode
      */
     std::string imageUrl(unsigned width = 640, unsigned height = 480,
@@ -45,7 +45,7 @@ namespace faker::image
      * @returns Url to github avatar.
      *
      * @code
-     * image::githubAvatarUrl() // "https://avatars.githubusercontent.com/u/9716558"
+     * faker::image::githubAvatarUrl() // "https://avatars.githubusercontent.com/u/9716558"
      * @endcode
      */
     std::string githubAvatarUrl();
@@ -56,7 +56,7 @@ namespace faker::image
      * @returns Random image dimensions.
      *
      * @code
-     * image::dimensions() // "1920x1080"
+     * faker::image::dimensions() // "1920x1080"
      * @endcode
      */
     std::string dimensions();
@@ -67,7 +67,7 @@ namespace faker::image
      * @returns Type of image.
      *
      * @code
-     * image::type() // "png"
+     * faker::image::type() // "png"
      */
     std::string_view type();
 }

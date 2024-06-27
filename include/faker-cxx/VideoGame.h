@@ -10,7 +10,7 @@ namespace faker::videogame
      * @returns Video game name.
      *
      * @code
-     * VideoGame::gameTitle() // "Rayman Arena"
+     * faker::videogame::gameTitle() // "Rayman Arena"
      * @endcode
      */
     std::string_view gameTitle();
@@ -21,7 +21,7 @@ namespace faker::videogame
      * @returns Video game genre.
      *
      * @code
-     * VideoGame::genre() // "Platformer"
+     * faker::videogame::genre() // "Platformer"
      * @endcode
      */
     std::string_view genre();
@@ -32,7 +32,7 @@ namespace faker::videogame
      * @returns Platform.
      *
      * @code
-     * VideoGame::platform() // "Playstation 5"
+     * faker::videogame::platform() // "Playstation 5"
      * @endcode
      */
     std::string_view platform();
@@ -43,7 +43,7 @@ namespace faker::videogame
      * @returns Studio name.
      *
      * @code
-     * VideoGame::studioName() // "Activision Blizzard"
+     * faker::videogame::studioName() // "Activision Blizzard"
      * @endcode
      */
     std::string_view studioName();

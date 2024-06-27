@@ -10,7 +10,7 @@ namespace faker::commerce
  * @returns Commerce department name.
  *
  * @code
- * commerce::department() // "Books"
+ * faker::commerce::department() // "Books"
  * @endcode
  */
 std::string_view department();
@@ -21,8 +21,8 @@ std::string_view department();
  * @param length The length of the sku.
  *
  * @code
- * commerce::sku() // "3027"
- * commerce::sku(8) // "10512056"
+ * faker::commerce::sku() // "3027"
+ * faker::commerce::sku(8) // "10512056"
  * @endcode
  */
 std::string sku(unsigned length = 4);
@@ -33,7 +33,7 @@ std::string sku(unsigned length = 4);
  * @returns Product adjective.
  *
  * @code
- * commerce::productAdjective() // "Handcrafted"
+ * faker::commerce::productAdjective() // "Handcrafted"
  * @endcode
  */
 std::string_view productAdjective();
@@ -44,7 +44,7 @@ std::string_view productAdjective();
  * @returns Product material.
  *
  * @code
- * commerce::productMaterial() // "Wooden"
+ * faker::commerce::productMaterial() // "Wooden"
  * @endcode
  */
 std::string_view productMaterial();
@@ -55,7 +55,7 @@ std::string_view productMaterial();
  * @returns Product short name.
  *
  * @code
- * commerce::productName() // "Computer"
+ * faker::commerce::productName() // "Computer"
  * @endcode
  */
 std::string_view productName();
@@ -66,7 +66,7 @@ std::string_view productName();
  * @returns Product full name.
  *
  * @code
- * commerce::productFullName() // "Incredible Soft Gloves"
+ * faker::commerce::productFullName() // "Incredible Soft Gloves"
  * @endcode
  */
 std::string productFullName();
@@ -77,7 +77,7 @@ std::string productFullName();
  * @returns Ean13 code.
  *
  * @code
- * commerce::EAN13() // "1234567890128"
+ * faker::commerce::EAN13() // "1234567890128"
  * @endcode
  */
 std::string EAN13();
@@ -88,7 +88,7 @@ std::string EAN13();
  * @returns Ean8 code.
  *
  * @code
- * commerce::EAN8() // "90311017"
+ * faker::commerce::EAN8() // "90311017"
  * @endcode
  */
 std::string EAN8();
@@ -99,7 +99,7 @@ std::string EAN8();
  * @returns Isbn13 code.
  *
  * @code
- * commerce::ISBN13() // "9781234567897"
+ * faker::commerce::ISBN13() // "9781234567897"
  * @endcode
  */
 std::string ISBN13();
@@ -110,7 +110,7 @@ std::string ISBN13();
  * @returns Isbn10 code.
  *
  * @code
- * commerce::ISBN10() // "0200716018"
+ * faker::commerce::ISBN10() // "0200716018"
  * @endcode
  */
 std::string ISBN10();
@@ -121,7 +121,7 @@ std::string ISBN10();
  * @returns paymentType.
  *
  * @code
- * commerce::paymentType() // "Credit Card"
+ * faker::commerce::paymentType() // "Credit Card"
  * @endcode
  */
 std::string_view paymentType();
@@ -132,7 +132,7 @@ std::string_view paymentType();
  * @returns paymentProvider.
  *
  * @code
- * commerce::paymentProvider() // "Paypal"
+ * faker::commerce::paymentProvider() // "Paypal"
  * @endcode
  */
 std::string_view paymentProvider();
@@ -143,7 +143,7 @@ std::string_view paymentProvider();
  * @returns productDescription.
  *
  * @code
- * commerce::productDescription() // "Elevate your lifestyle with premium quality product."
+ * faker::commerce::productDescription() // "Elevate your lifestyle with premium quality product."
  * @endcode
  */
 std::string_view productDescription();
@@ -154,7 +154,7 @@ std::string_view productDescription();
  * @returns productCategory.
  *
  * @code
- * commerce::productCategory() // "Electronics"
+ * faker::commerce::productCategory() // "Electronics"
  * @endcode
  */
 std::string_view productCategory();
@@ -165,7 +165,7 @@ std::string_view productCategory();
  * @returns productReview.
  *
  * @code
- * commerce::productReview() //  "Unfortunately, it broke shortly after I started using it."
+ * faker::commerce::productReview() //  "Unfortunately, it broke shortly after I started using it."
  * @endcode
  */
 std::string_view productReview();
@@ -176,7 +176,7 @@ std::string_view productReview();
  * @returns discountType.
  *
  * @code
- * commerce::discountType() // "percentage"
+ * faker::commerce::discountType() // "percentage"
  * @endcode
  */
 std::string_view discountType();
@@ -187,7 +187,7 @@ std::string_view discountType();
  * @returns orderStatus.
  *
  * @code
- * commerce::orderStatus() // "shipped"
+ * faker::commerce::orderStatus() // "shipped"
  * @endcode
  */
 std::string_view orderStatus();
@@ -198,7 +198,7 @@ std::string_view orderStatus();
  * @returns shipping carrier
  *
  * @code
- * commerce::shippingMethod() // "FedEx"
+ * faker::commerce::shippingMethod() // "FedEx"
  * @endcode
  */
 std::string_view shippingCarrier();

@@ -10,7 +10,7 @@ namespace faker::database
      * @returns Database column name.
      *
      * @code
-     * Database::columnName() // "created_at"
+     * faker::database::columnName() // "created_at"
      * @endcode
      */
     std::string_view columnName();
@@ -21,7 +21,7 @@ namespace faker::database
      * @returns Database column type.
      *
      * @code
-     * Database::columnType() // "timestamp"
+     * faker::database::columnType() // "timestamp"
      * @endcode
      */
     std::string_view columnType();
@@ -32,7 +32,7 @@ namespace faker::database
      * @returns Database collation.
      *
      * @code
-     * Database::collation() // "utf8_unicode_ci"
+     * faker::database::collation() // "utf8_unicode_ci"
      * @endcode
      */
     std::string_view collation();
@@ -43,7 +43,7 @@ namespace faker::database
      * @returns Database engine.
      *
      * @code
-     * Database::engine() // "ARCHIVE"
+     * faker::database::engine() // "ARCHIVE"
      * @endcode
      */
     std::string_view engine();
@@ -54,7 +54,7 @@ namespace faker::database
      * @returns MongoDB Object Id.
      *
      * @code
-     * Database::mongoDbObjectId() // "e175cac316a79afdd0ad3afb"
+     * faker::database::mongoDbObjectId() // "e175cac316a79afdd0ad3afb"
      * @endcode
      */
     std::string mongoDbObjectId();

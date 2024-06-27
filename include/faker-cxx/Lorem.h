@@ -10,7 +10,7 @@ namespace faker::lorem
      * @returns Lorem word.
      *
      * @code
-     * Lorem::word() // "temporibus"
+     * faker::lorem::word() // "temporibus"
      * @endcode
      */
     std::string_view word();
@@ -23,7 +23,7 @@ namespace faker::lorem
      * @returns Lorem words.
      *
      * @code
-     * Lorem::words() // "qui praesentium pariatur"
+     * faker::lorem::words() // "qui praesentium pariatur"
      * @endcode
      */
     std::string words(unsigned numberOfWords = 3);
@@ -37,7 +37,7 @@ namespace faker::lorem
      * @returns Lorem sentence.
      *
      * @code
-     * Lorem::sentence() // "Laborum voluptatem officiis est et."
+     * faker::lorem::sentence() // "Laborum voluptatem officiis est et."
      * @endcode
      */
     std::string sentence(unsigned minNumberOfWords = 3, unsigned maxNumberOfWords = 10);
@@ -51,7 +51,7 @@ namespace faker::lorem
      * @returns Lorem sentences separated with spaces.
      *
      * @code
-     * Lorem::sentences(2, 2) // "Maxime vel numquam quibusdam. Dignissimos ex molestias quam nihil occaecati maiores."
+     * faker::lorem::sentences(2, 2) // "Maxime vel numquam quibusdam. Dignissimos ex molestias quam nihil occaecati maiores."
      * @endcode
      */
     std::string sentences(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
@@ -64,7 +64,7 @@ namespace faker::lorem
      * @returns Hyphen separated words.
      *
      * @code
-     * Lorem::slug(5) // "delectus-totam-iusto-itaque-placeat"
+     * faker::lorem::slug(5) // "delectus-totam-iusto-itaque-placeat"
      * @endcode
      */
     std::string slug(unsigned numberOfWords = 3);
@@ -78,7 +78,7 @@ namespace faker::lorem
      * @returns Lorem paragraph.
      *
      * @code
-     * Lorem::paragraph() // "Animi possimus nemo consequuntur ut ea et tempore unde qui. Quis corporis esse."
+     * faker::lorem::paragraph() // "Animi possimus nemo consequuntur ut ea et tempore unde qui. Quis corporis esse."
      * @endcode
      */
     std::string paragraph(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
@@ -92,7 +92,7 @@ namespace faker::lorem
      * @returns Lorem paragraphs separated with newlines.
      *
      * @code
-     * Lorem::paragraphs()
+     * faker::lorem::paragraphs()
      * // "Beatae voluptatem dicta et assumenda fugit eaque quidem consequatur. Fuga unde provident.
      * // Voluptatibus quo pariatur est. Doloribus commodi et et exercitationem vel et. Omnis inventore cum aut amet.
      * // Sapiente deleniti et. Ducimus maiores eum. Rem dolorem itaque aliquam."

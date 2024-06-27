@@ -10,7 +10,7 @@ namespace faker::plant
  * @returns Species of tree.
  *
  * @code
- * Plant::tree() // "Oak"
+ * faker::plant::tree() // "Oak"
  * @endcode
  */
 std::string_view tree();
@@ -21,7 +21,7 @@ std::string_view tree();
  * @returns Species of flower.
  *
  * @code
- * Plant::flower() // "Rose"
+ * faker::plant::flower() // "Rose"
  * @endcode
  */
 std::string_view flower();
@@ -32,7 +32,7 @@ std::string_view flower();
  * @returns Species of shrub.
  *
  * @code
- * Plant::shrub() // "Azalea"
+ * faker::plant::shrub() // "Azalea"
  * @endcode
  */
 std::string_view shrub();
@@ -43,7 +43,7 @@ std::string_view shrub();
  * @returns Species of grass.
  *
  * @code
- * Plant::grass() // "Kentucky Bluegrass"
+ * faker::plant::grass() // "Kentucky Bluegrass"
  * @endcode
  */
 std::string_view grass();
@@ -54,7 +54,7 @@ std::string_view grass();
  * @returns Species of fern.
  *
  * @code
- * Plant::fern() // "Maidenhair"
+ * faker::plant::fern() // "Maidenhair"
  * @endcode
  */
 std::string_view fern();
@@ -65,7 +65,7 @@ std::string_view fern();
  * @returns Species of succulent.
  *
  * @code
- * Plant::succulent() // "Aloe Vera"
+ * faker::plant::succulent() // "Aloe Vera"
  * @endcode
  */
 std::string_view succulent();
@@ -76,7 +76,7 @@ std::string_view succulent();
  * @returns Species of vine.
  *
  * @code
- * Plant::vine() // "Ivy"
+ * faker::plant::vine() // "Ivy"
  * @endcode
  */
 std::string_view vine();
@@ -87,7 +87,7 @@ std::string_view vine();
  * @returns Type of plant.
  *
  * @code
- * Plant::type() // "tree"
+ * faker::plant::type() // "tree"
  * @endcode
  */
 std::string_view plantType();

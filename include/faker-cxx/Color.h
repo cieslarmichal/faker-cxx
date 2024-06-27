@@ -12,7 +12,7 @@ namespace faker::color
  * @returns Human readable color name.
  *
  * @code
- * color::name() // "Blue"
+ * faker::color::name() // "Blue"
  * @endcode
  */
 std::string_view name();
@@ -25,8 +25,8 @@ std::string_view name();
  * @returns RGB color formatted with rgb(X,X,X) or rgba(X,X,X,X).
  *
  * @code
- * color::rgb() // "rgb(67, 28, 240)"
- * color::rgb(true) // "rgba(220, 28, 79, 0.50)"
+ * faker::color::rgb() // "rgb(67, 28, 240)"
+ * faker::color::rgb(true) // "rgba(220, 28, 79, 0.50)"
  * @endcode
  */
 std::string rgb(bool includeAlpha = false);
@@ -41,8 +41,8 @@ std::string rgb(bool includeAlpha = false);
  * @returns Hex color formatted that starts with `0x` or `#`.
  *
  * @code
- * color::hex() // "#e3f380"
- * color::hex(HexCasing::Upper, HexPrefix::ZeroX, true) // "0xE3F3801A"
+ * faker::color::hex() // "#e3f380"
+ * faker::color::hex(HexCasing::Upper, HexPrefix::ZeroX, true) // "0xE3F3801A"
  * @endcode
  */
 std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash, bool includeAlpha = false);
@@ -53,8 +53,8 @@ std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefi
  * @param includeAlpha Adds an alpha value to the color (HSLA). Defaults to `false`.
  * @returns HSL color formatted with hsl(X,X,X) or hsla(X,X,X,X).
  * @code
- * color::hsl() // "hsl(0, 20, 100)"
- * color::hsl(true) // "hsla(0, 0, 100, 0.50)"
+ * faker::color::hsl() // "hsl(0, 20, 100)"
+ * faker::color::hsl(true) // "hsla(0, 0, 100, 0.50)"
  * @endcode
  */
 std::string hsl(bool includeAlpha = false);
@@ -65,8 +65,8 @@ std::string hsl(bool includeAlpha = false);
  * @param includeAlpha Adds an alpha value to the color (LCHA). Defaults to `false`.
  * @returns LCH color formatted with lch(X,X,X) or lcha(X,X,X,X).
  * @code
- * color::lch() // "lch(0, 20, 100)"
- * color::lch(true) // "lcha(0, 0, 100, 0.50)"
+ * faker::color::lch() // "lch(0, 20, 100)"
+ * faker::color::lch(true) // "lcha(0, 0, 100, 0.50)"
  * @endcode
  */
 std::string lch(bool includeAlpha = false);
@@ -76,7 +76,7 @@ std::string lch(bool includeAlpha = false);
  *
  * @returns CMYK color formatted with cmyk(X,X,X,X)
  * @code
- * color::cmyk() // "cmyk(0.72, 0.88, 0.00, 0.06)"
+ * faker::color::cmyk() // "cmyk(0.72, 0.88, 0.00, 0.06)"
  * @endcode
  */
 std::string cmyk();
@@ -86,7 +86,7 @@ std::string cmyk();
  *
  * @returns LAB color formatted with lab(X,X,X)
  * @code
- * color::lab() // "lab(98.74, 2.18, -2.35)"
+ * faker::color::lab() // "lab(98.74, 2.18, -2.35)"
  * @endcode
  */
 std::string lab();
@@ -96,7 +96,7 @@ std::string lab();
  *
  * @returns HSB color formatted with hsb(X,X,X)
  * @code
- * color::hsb() // "hsb(37, 82, 50)"
+ * faker::color::hsb() // "hsb(37, 82, 50)"
  * @endcode
  */
 std::string hsb();
@@ -106,7 +106,7 @@ std::string hsb();
  *
  * @returns HSV color formatted with hsv(X,X,X)
  * @code
- * color::hsv() // "hsv(21, 67, 39)"
+ * faker::color::hsv() // "hsv(21, 67, 39)"
  * @endcode
  */
 std::string hsv();
@@ -116,7 +116,7 @@ std::string hsv();
  *
  * @returns YUV color formatted with yuv(X,X,X)
  * @code
- * color::yuv() // "yuv(42, 234, 109)"
+ * faker::color::yuv() // "yuv(42, 234, 109)"
  * @endcode
  */
 std::string yuv();

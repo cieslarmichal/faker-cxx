@@ -18,10 +18,10 @@ namespace faker::date
      * @returns ISO formatted string.
      *
      * @code
-     * date::pastDate() // "2023-12-08T19:31:32Z"
-     * date::pastDate(5) // "2020-06-16T15:24:09Z"
-     * date::pastDate(5, DateFormat::ISO) // "2020-06-16T15:24:09Z"
-     * date::pastDate(5, DateFormat::Timestamp) // "1592321049"
+     * faker::date::pastDate() // "2023-12-08T19:31:32Z"
+     * faker::date::pastDate(5) // "2020-06-16T15:24:09Z"
+     * faker::date::pastDate(5, DateFormat::ISO) // "2020-06-16T15:24:09Z"
+     * faker::date::pastDate(5, DateFormat::Timestamp) // "1592321049"
      * @endcode
      */
     std::string pastDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
@@ -34,10 +34,10 @@ namespace faker::date
      * @returns ISO formatted string.
      *
      * @code
-     * date::futureDate() // "2023-09-27T09:47:46Z"
-     * date::futureDate(5) // "2024-06-11T19:46:29Z"
-     * date::futureDate(5, DateFormat::ISO) // "2024-06-11T19:46:29Z"
-     * date::futureDate(5, DateFormat::Timestamp) // "1718229989"
+     * faker::date::futureDate() // "2023-09-27T09:47:46Z"
+     * faker::date::futureDate(5) // "2024-06-11T19:46:29Z"
+     * faker::date::futureDate(5, DateFormat::ISO) // "2024-06-11T19:46:29Z"
+     * faker::date::futureDate(5, DateFormat::Timestamp) // "1718229989"
      * @endcode
      */
     std::string futureDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
@@ -50,10 +50,10 @@ namespace faker::date
      * @returns ISO formatted string.
      *
      * @code
-     * date::recentDate() // "2023-07-05T14:12:40Z"
-     * date::recentDate(10) // "2023-06-29T18:24:12Z"
-     * date::recentDate(10, DateFormat::ISO) // "2023-06-29T18:24:12Z"
-     * date::recentDate(10, DateFormat::Timestamp) // "1718229989"
+     * faker::date::recentDate() // "2023-07-05T14:12:40Z"
+     * faker::date::recentDate(10) // "2023-06-29T18:24:12Z"
+     * faker::date::recentDate(10, DateFormat::ISO) // "2023-06-29T18:24:12Z"
+     * faker::date::recentDate(10, DateFormat::Timestamp) // "1718229989"
      * @endcode
      */
     std::string recentDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
@@ -66,10 +66,10 @@ namespace faker::date
      * @returns ISO formatted string.
      *
      * @code
-     * date::soonDate() // "2023-07-07T18:19:12Z"
-     * date::soonDate(10) // "2023-07-15T09:59:11Z"
-     * date::soonDate(10, DateFormat::ISO) // "2023-07-15T09:59:11Z"
-     * date::soonDate(10, DateFormat::Timestamp) // "1718229989"
+     * faker::date::soonDate() // "2023-07-07T18:19:12Z"
+     * faker::date::soonDate(10) // "2023-07-15T09:59:11Z"
+     * faker::date::soonDate(10, DateFormat::ISO) // "2023-07-15T09:59:11Z"
+     * faker::date::soonDate(10, DateFormat::Timestamp) // "1718229989"
      * @endcode
      */
     std::string soonDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
@@ -83,10 +83,10 @@ namespace faker::date
      * @returns ISO formatted string.
      *
      * @code
-     * date::birthdateByAge() // "2002-12-07T23:20:12Z"
-     * date::birthdateByAge(20, 30) // "1996-11-14T11:27:09Z"
-     * date::birthdateByAge(20, 30, DateFormat::ISO) // "1996-11-14T11:27:09Z"
-     * date::birthdateByAge(20, 30, DateFormat::Timestamp) // "1718229989"
+     * faker::date::birthdateByAge() // "2002-12-07T23:20:12Z"
+     * faker::date::birthdateByAge(20, 30) // "1996-11-14T11:27:09Z"
+     * faker::date::birthdateByAge(20, 30, DateFormat::ISO) // "1996-11-14T11:27:09Z"
+     * faker::date::birthdateByAge(20, 30, DateFormat::Timestamp) // "1718229989"
      * @endcode
      */
     std::string birthdateByAge(int minAge = 18, int maxAge = 80, DateFormat dateFormat = DateFormat::ISO);
@@ -100,10 +100,10 @@ namespace faker::date
      * @returns ISO formatted string.
      *
      * @code
-     * date::birthdateByYear() // "1965-02-19T02:19:47Z"
-     * date::birthdateByYear(1996, 1996) // "1996-05-19T12:00:23Z"
-     * date::birthdateByYear(1996, 1996, DateFormat::ISO) // "1996-05-19T12:00:23Z"
-     * date::birthdateByYear(1996, 1996, DateFormat::Timestamp) // "1718229989"
+     * faker::date::birthdateByYear() // "1965-02-19T02:19:47Z"
+     * faker::date::birthdateByYear(1996, 1996) // "1996-05-19T12:00:23Z"
+     * faker::date::birthdateByYear(1996, 1996, DateFormat::ISO) // "1996-05-19T12:00:23Z"
+     * faker::date::birthdateByYear(1996, 1996, DateFormat::Timestamp) // "1718229989"
      * @endcode
      */
     std::string birthdateByYear(int minYear = 1920, int maxYear = 2000, DateFormat dateFormat = DateFormat::ISO);
@@ -114,7 +114,7 @@ namespace faker::date
      * @returns Name of the weekday.
      *
      * @code
-     * date::weekdayName() // "Monday"
+     * faker::date::weekdayName() // "Monday"
      * @endcode
      */
     std::string_view weekdayName();
@@ -125,7 +125,7 @@ namespace faker::date
      * @returns Abbreviated name of the weekday.
      *
      * @code
-     * date::weekdayAbbreviatedName() // "Mon"
+     * faker::date::weekdayAbbreviatedName() // "Mon"
      * @endcode
      */
     std::string_view weekdayAbbreviatedName();
@@ -136,7 +136,7 @@ namespace faker::date
      * @returns Name of the month.
      *
      * @code
-     * date::monthName() // "October"
+     * faker::date::monthName() // "October"
      * @endcode
      */
     std::string_view monthName();
@@ -147,7 +147,7 @@ namespace faker::date
      * @returns Abbreviated name of the month.
      *
      * @code
-     * date::monthAbbreviatedName() // "Feb"
+     * faker::date::monthAbbreviatedName() // "Feb"
      * @endcode
      */
     std::string_view monthAbbreviatedName();
@@ -158,7 +158,7 @@ namespace faker::date
      * @returns A random year
      *
      * @code
-     * date::year() // 2000
+     * faker::date::year() // 2000
      * @endcode
      */
     unsigned year();
@@ -169,7 +169,7 @@ namespace faker::date
      * @returns A random month
      *
      * @code
-     * date::month() // 9
+     * faker::date::month() // 9
      * @endcode
      */
     unsigned month();
@@ -180,7 +180,7 @@ namespace faker::date
      * @returns A random month
      *
      * @code
-     * date::hour() // 21
+     * faker::date::hour() // 21
      * @endcode
      */
     unsigned hour();
@@ -191,7 +191,7 @@ namespace faker::date
      * @returns A random minute
      *
      * @code
-     * date::minute() // 40
+     * faker::date::minute() // 40
      * @endcode
      */
     unsigned minute();
@@ -202,7 +202,7 @@ namespace faker::date
      * @returns A random second
      *
      * @code
-     * date::second() // 40
+     * faker::date::second() // 40
      * @endcode
      */
     unsigned second();
@@ -213,7 +213,7 @@ namespace faker::date
      * @returns A random time string
      *
      * @code
-     * date::time() // 21:40
+     * faker::date::time() // 21:40
      * @endcode
      */
     std::string time();
@@ -224,7 +224,7 @@ namespace faker::date
      * @returns A random day of month
      *
      * @code
-     * date::dayOfMonth() // 15
+     * faker::date::dayOfMonth() // 15
      * @endcode
      */
     unsigned dayOfMonth();
@@ -235,7 +235,7 @@ namespace faker::date
      * @returns A random day of week
      *
      * @code
-     * date::dayOfWeek() // 5
+     * faker::date::dayOfWeek() // 5
      * @endcode
      */
     unsigned dayOfWeek();
@@ -246,7 +246,7 @@ namespace faker::date
      * @returns A random timezone
      *
      * @code
-     * date::timezoneRandom() // PT
+     * faker::date::timezoneRandom() // PT
      * @endcode
      */
     std::string_view timezoneRandom();

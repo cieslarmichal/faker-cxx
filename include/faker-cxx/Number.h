@@ -6,6 +6,7 @@
 
 namespace faker::number
 {
+  
 /**
  * @brief Generates a random integer number in the given range, bounds included.
  *
@@ -17,6 +18,10 @@ namespace faker::number
  * @throws std::invalid_argument if min is greater than max.
  *
  * @return T a random integer number
+ * 
+ * @code
+ * faker::number::integer(5, 10) // 7
+ * @endcode
  */
 template <std::integral I>
 I integer(I min, I max)
@@ -41,9 +46,13 @@ I integer(I min, I max)
  *
  * @throws std::invalid_argument if min is greater than max.
  *
- * @see integer<I>(I, I)
+ * @see integer<I>(I)
  *
  * @return T a random integer number
+ * 
+ * @code
+ * faker::number::integer(10) // 5
+ * @endcode
  */
 template <std::integral I>
 I integer(I max)
@@ -62,6 +71,10 @@ I integer(I max)
  * @throws std::invalid_argument if min is greater than max.
  *
  * @return F a random decimal number.
+ * 
+ * @code
+ * faker::number::decimal(10.2, 17.7) // 15.6
+ * @encode
  */
 template <std::floating_point F>
 F decimal(F min, F max)
@@ -72,27 +85,31 @@ F decimal(F min, F max)
     }
 
     static std::mt19937 pseudoRandomGenerator{std::random_device{}()};
-
     std::uniform_real_distribution<F> distribution(min, max);
 
     return distribution(pseudoRandomGenerator);
 }
 
-/**
- * @brief Generates a random decimal number between 0 and the given maximum value, bounds included.
- *
- * @tparam F The type of the generated number, must be a floating point type (float, double, long double).
- * @param max The maximum value of the range.
- *
- * @throws std::invalid_argument if max is less than 0.
- *
- * @see decimal<F>(F, F)
- *
- * @return F, a random decimal number.
- */
-template <std::floating_point F>
-F decimal(F max)
-{
-    return decimal<F>(static_cast<F>(0.), max);
-}
+    /**
+     * @brief Generates a random decimal number between 0 and the given maximum value, bounds included.
+     *
+     * @tparam F The type of the generated number, must be a floating point type (float, double, long double).
+     * @param max The maximum value of the range.
+     *
+     * @throws std::invalid_argument if max is less than 0.
+     *
+     * @see decimal<F>(F)
+     *
+     * @return F, a random decimal number.
+     * 
+     * @code
+     * faker::number::decimal(20.5) // 17.2
+     * @encode
+     */
+    template <std::floating_point F>
+    F decimal(F max)
+    {
+        return decimal<F>(static_cast<F>(0.), max);
+    }
+
 }

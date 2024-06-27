@@ -17,7 +17,7 @@ struct ChemicalElement
  * @returns ChemicalElement
  *
  * @code
- * Science::chemicalElement() // Object of ChemicalElement containing info about a random element in the periodic
+ * faker::science::chemicalElement() // Object of ChemicalElement containing info about a random element in the periodic
  * table.
  * @endcode
  */
@@ -36,7 +36,7 @@ struct Unit
  * @returns Unit
  *
  * @code
- * Science::unit() // Object of Unit containing info about a random unit of measurement.
+ * faker::science::unit() // Object of Unit containing info about a random unit of measurement.
  * @endcode
  */
 Unit unit();
@@ -47,7 +47,7 @@ Unit unit();
  * @returns Unit
  *
  * @code
- * Science::distanceUnit() // Object of Unit containing info about a random unit of measurement used to measure
+ * faker::science::distanceUnit() // Object of Unit containing info about a random unit of measurement used to measure
  * distance.
  * @endcode
  */
@@ -59,7 +59,7 @@ Unit distanceUnit();
  * @returns Unit
  *
  * @code
- * Science::timeUnit() // Object of Unit containing info about a random unit of measurement used to measure time.
+ * faker::science::timeUnit() // Object of Unit containing info about a random unit of measurement used to measure time.
  * @endcode
  */
 Unit timeUnit();
@@ -70,7 +70,7 @@ Unit timeUnit();
  * @returns Unit
  *
  * @code
- * Science::massUnit() // Object of Unit containing info about a random unit of measurement used to measure mass.
+ * faker::science::massUnit() // Object of Unit containing info about a random unit of measurement used to measure mass.
  * @endcode
  */
 Unit massUnit();
@@ -81,7 +81,7 @@ Unit massUnit();
  * @returns Unit
  *
  * @code
- * Science::tempUnit() // Object of Unit containing info about a random unit of measurement used to measure temp.
+ * faker::science::tempUnit() // Object of Unit containing info about a random unit of measurement used to measure temp.
  * @endcode
  */
 Unit tempUnit();
@@ -92,7 +92,7 @@ Unit tempUnit();
  * @returns Unit
  *
  * @code
- * Science::currentUnit() // Object of Unit containing info about a random unit of measurement used to measure
+ * faker::science::currentUnit() // Object of Unit containing info about a random unit of measurement used to measure
  * current.
  * @endcode
  */

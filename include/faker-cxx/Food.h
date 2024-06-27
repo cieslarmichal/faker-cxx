@@ -10,7 +10,7 @@ namespace faker::food
      * @returns Alcoholic beverage.
      *
      * @code
-     * food::alcoholicBeverage() // "champain"
+     * faker::food::alcoholicBeverage() // "champain"
      * @endcode
      */
     std::string_view alcoholicBeverage();
@@ -21,7 +21,7 @@ namespace faker::food
      * @returns Grain.
      *
      * @code
-     * food::grain() // "1 Lt"
+     * faker::food::grain() // "1 Lt"
      * @endcode
      */
     std::string_view grain();
@@ -32,7 +32,7 @@ namespace faker::food
      * @returns Milk product.
      *
      * @code
-     * food::milkProduct() // "mozzarella"
+     * faker::food::milkProduct() // "mozzarella"
      * @endcode
      */
     std::string_view milkProduct();
@@ -43,7 +43,7 @@ namespace faker::food
      * @returns Fruit.
      *
      * @code
-     * food::fruit() // "apple"
+     * faker::food::fruit() // "apple"
      * @endcode
      */
     std::string_view fruit();
@@ -54,7 +54,7 @@ namespace faker::food
      * @returns Meat.
      *
      * @code
-     * food::meat() // "antrikot"
+     * faker::food::meat() // "antrikot"
      * @endcode
      */
     std::string_view meat();
@@ -65,7 +65,7 @@ namespace faker::food
      * @returns Seafood.
      *
      * @code
-     * food::seafood() // "lobster"
+     * faker::food::seafood() // "lobster"
      * @endcode
      */
     std::string_view seafood();
@@ -76,7 +76,7 @@ namespace faker::food
      * @returns Vegetable.
      *
      * @code
-     * food::vegetable() // "watermelon"
+     * faker::food::vegetable() // "watermelon"
      * @endcode
      */
     std::string_view vegetable();
@@ -87,7 +87,7 @@ namespace faker::food
      * @returns Oil.
      *
      * @code
-     * food::oil() // "olive oil"
+     * faker::food::oil() // "olive oil"
      * @endcode
      */
     std::string_view oil();
@@ -98,7 +98,7 @@ namespace faker::food
      * @returns Nuts.
      *
      * @code
-     * food::nut() // "walnut"
+     * faker::food::nut() // "walnut"
      * @endcode
      */
     std::string_view nut();
@@ -109,7 +109,7 @@ namespace faker::food
      * @returns Seed.
      *
      * @code
-     * food::seed() // "mozzarella"
+     * faker::food::seed() // "mozzarella"
      * @endcode
      */
     std::string_view seed();
@@ -120,7 +120,7 @@ namespace faker::food
      * @returns Sugar product.
      *
      * @code
-     * food::sugarProduct() // "honey harmony"
+     * faker::food::sugarProduct() // "honey harmony"
      * @endcode
      */
     std::string_view sugarProduct();
@@ -131,7 +131,7 @@ namespace faker::food
      * @returns Non-alcoholic Beverage.
      *
      * @code
-     * food::nonalcoholicBeverage() // "water"
+     * faker::food::nonalcoholicBeverage() // "water"
      * @endcode
      */
     std::string_view nonalcoholicBeverage();
@@ -142,7 +142,7 @@ namespace faker::food
      * @returns Dish.
      *
      * @code
-     * food::dishName() // "beef wellington"
+     * faker::food::dishName() // "beef wellington"
      * @endcode
      */
     std::string_view dishName();
@@ -153,7 +153,7 @@ namespace faker::food
      * @returns Food Category.
      *
      * @code
-     * food::foodCategory() // "Dairy"
+     * faker::food::foodCategory() // "Dairy"
      * @endcode
      */
     std::string_view foodCategory();

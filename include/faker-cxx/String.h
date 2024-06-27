@@ -74,7 +74,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @param gen A random number generator (type RandomGenerator)
      *
      * @code
-     * string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
+     * faker::string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
      * @endcode
      */
     template <typename T = std::mt19937>
@@ -130,8 +130,8 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Sample string.
      *
      * @code
-     * string::sample() // "Zo!.:*e>wR"
-     * string::sample(5) // "6Bye8"
+     * faker::string::sample() // "Zo!.:*e>wR"
+     * faker::string::sample(5) // "6Bye8"
      * @endcode
      */
     std::string sample(unsigned length = 10);
@@ -145,8 +145,8 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Sample string.
      *
      * @code
-     * string::sample({}) // "Zo!.:*e>wR"
-     * string::sample({{'|' ,{2,2}},{'^',{0,0}},{':',{1,8}}}, 8) // "|6Bye8:|"
+     * faker::string::sample({}) // "Zo!.:*e>wR"
+     * faker::string::sample({{'|' ,{2,2}},{'^',{0,0}},{':',{1,8}}}, 8) // "|6Bye8:|"
      * @endcode
      */
     std::string sample(GuaranteeMap&& guarantee, unsigned length = 10);
@@ -160,8 +160,8 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns String from characters.
      *
      * @code
-     * string::fromCharacters("abc") // "b"
-     * string::fromCharacters("qwerty", 5) // "qrwqt"
+     * faker::string::fromCharacters("abc") // "b"
+     * faker::string::fromCharacters("qwerty", 5) // "qrwqt"
      * @endcode
      */
     std::string fromCharacters(const std::string& characters, unsigned length = 1);
@@ -176,8 +176,8 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns String from characters.
      *
      * @code
-     * string::fromCharacters({}, "abc") // "b"
-     * string::fromCharacters({{'q',{2,2}},{'e',{1,5}}}, "qwerty", 8) // "yqreqety"
+     * faker::string::fromCharacters({}, "abc") // "b"
+     * faker::string::fromCharacters({{'q',{2,2}},{'e',{1,5}}}, "qwerty", 8) // "yqreqety"
      * @endcode
      */
     std::string fromCharacters(GuaranteeMap&& guarantee, const std::string& characters, unsigned length = 1);
@@ -193,9 +193,9 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Alpha string.
      *
      * @code
-     * string::alpha() // "b"
-     * string::alpha(5, StringCasing::Upper) // "DTCIC"
-     * string::alpha(4, StringCasing::Lower) // "brpt"
+     * faker::string::alpha() // "b"
+     * faker::string::alpha(5, StringCasing::Upper) // "DTCIC"
+     * faker::string::alpha(4, StringCasing::Lower) // "brpt"
      * @endcode
      */
     std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
@@ -211,9 +211,9 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Alpha string.
      *
      * @code
-     * string::alpha({}) // "b"
-     * string::alpha({{'A',{2,2}}, 5, StringCasing::Upper) // "DACAC"
-     * string::alpha({{'a',{0,0}},{'b',{3,3}},{'c', {0,2}}}, 10, StringCasing::Lower) // "bicnmmkbbp"
+     * faker::string::alpha({}) // "b"
+     * faker::string::alpha({{'A',{2,2}}, 5, StringCasing::Upper) // "DACAC"
+     * faker::string::alpha({{'a',{0,0}},{'b',{3,3}},{'c', {0,2}}}, 10, StringCasing::Lower) // "bicnmmkbbp"
      * @endcode
      */
     std::string alpha(GuaranteeMap&& guarantee, unsigned length = 1, StringCasing casing = StringCasing::Mixed);
@@ -229,9 +229,9 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Alphanumeric string.
      *
      * @code
-     * string::alphanumeric() // "4"
-     * string::alphanumeric(5, StringCasing::Upper) // "3e5V7"
-     * string::alphanumeric(4, StringCasing::Lower) // "1nrq"
+     * faker::string::alphanumeric() // "4"
+     * faker::string::alphanumeric(5, StringCasing::Upper) // "3e5V7"
+     * faker::string::alphanumeric(4, StringCasing::Lower) // "1nrq"
      * @endcode
      */
     std::string alphanumeric(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
@@ -247,9 +247,9 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Alphanumeric string.
      *
      * @code
-     * string::alphanumeric({}) // "4"
-     * string::alphanumeric({{'A', {3,6}},{'1', {1,1}}, 5, StringCasing::Upper) // "1EAAA"
-     * string::alphanumeric({{'a',{0,2}},{'2',{0,3}},{'z',{3,5}}}, 10, StringCasing::Lower) // "z1naazrqz0"
+     * faker::string::alphanumeric({}) // "4"
+     * faker::string::alphanumeric({{'A', {3,6}},{'1', {1,1}}, 5, StringCasing::Upper) // "1EAAA"
+     * faker::string::alphanumeric({{'a',{0,2}},{'2',{0,3}},{'z',{3,5}}}, 10, StringCasing::Lower) // "z1naazrqz0"
      * @endcode
      */
     std::string alphanumeric(GuaranteeMap&& guarantee, unsigned length = 1,
@@ -264,9 +264,9 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Numeric string.
      *
      * @code
-     * string::numeric() // "1"
-     * string::numeric(6) // "035742"
-     * string::numeric(6, false) // "254429"
+     * faker::string::numeric() // "1"
+     * faker::string::numeric(6) // "035742"
+     * faker::string::numeric(6, false) // "254429"
      * @endcode
      */
     std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
@@ -281,9 +281,9 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Numeric string.
      *
      * @code
-     * string::numeric({}) // "1"
-     * string::numeric({'5',{3,6}}, 6) // "055542"
-     * string::numeric({'0',{0,0}}, {'4',{1,1}}, 6, false) // "854829"
+     * faker::string::numeric({}) // "1"
+     * faker::string::numeric({'5',{3,6}}, 6) // "055542"
+     * faker::string::numeric({'0',{0,0}}, {'4',{1,1}}, 6, false) // "854829"
      * @endcode
      */
     std::string numeric(GuaranteeMap&& guarantee, unsigned length = 1, bool allowLeadingZeros = true);
@@ -298,10 +298,10 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Hexadecimal string.
      *
      * @code
-     * string::hexadecimal() // "0xb"
-     * string::hexadecimal(10) // "0xae13d044cb"
-     * string::hexadecimal(6, HexCasing::Upper, HexPrefix::Hash) // "#E3F380"
-     * string::hexadecimal(6, HexCasing::Lower, HexPrefix::None) // "e3f380"
+     * faker::string::hexadecimal() // "0xb"
+     * faker::string::hexadecimal(10) // "0xae13d044cb"
+     * faker::string::hexadecimal(6, HexCasing::Upper, HexPrefix::Hash) // "#E3F380"
+     * faker::string::hexadecimal(6, HexCasing::Lower, HexPrefix::None) // "e3f380"
      * @endcode
      */
     std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
@@ -316,8 +316,8 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @return A lowercase hexadecimal number.
      *
      * @code
-     * string::hexadecimal() // "b"
-     * string::hexadecimal(0, 255) // "9d"
+     * faker::string::hexadecimal() // "b"
+     * faker::string::hexadecimal(0, 255) // "9d"
      * @endcode
      */
     std::string hexadecimal(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
@@ -333,10 +333,10 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Hexadecimal string.
      *
      * @code
-     * string::hexadecimal({}) // "0xb"
-     * string::hexadecimal({'a',{2,2}}, 10) // "0xae13d04acb"
-     * string::hexadecimal({'F', {2,4}}, 6, HexCasing::Upper, HexPrefix::Hash) // "#E3FFF0"
-     * string::hexadecimal({'1', {1,4}, {'2', {1, 4}, {'c', {1,1}}, 6, HexCasing::Lower, HexPrefix::None) // "121a1c"
+     * faker::string::hexadecimal({}) // "0xb"
+     * faker::string::hexadecimal({'a',{2,2}}, 10) // "0xae13d04acb"
+     * faker::string::hexadecimal({'F', {2,4}}, 6, HexCasing::Upper, HexPrefix::Hash) // "#E3FFF0"
+     * faker::string::hexadecimal({'1', {1,4}, {'2', {1, 4}, {'c', {1,1}}, 6, HexCasing::Lower, HexPrefix::None) // "121a1c"
      * @endcode
      */
     std::string hexadecimal(GuaranteeMap&& guarantee, unsigned length = 1, HexCasing casing = HexCasing::Lower,
@@ -350,7 +350,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Binary string.
      *
      * @code
-     * string::binary(8) // "0b01110101"
+     * faker::string::binary(8) // "0b01110101"
      * @endcode
      */
     std::string binary(unsigned length = 1);
@@ -364,7 +364,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Binary string.
      *
      * @code
-     * string::binary({'1',{7,8}}, 8) // "0b11110111"
+     * faker::string::binary({'1',{7,8}}, 8) // "0b11110111"
      * @endcode
      */
     std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
@@ -377,7 +377,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Octal string.
      *
      * @code
-     * string::octal(8) // "0o52561721"
+     * faker::string::octal(8) // "0o52561721"
      * @endcode
      */
     std::string octal(unsigned length = 1);
@@ -391,7 +391,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * @returns Octal string.
      *
      * @code
-     * string::octal({'4',{4,5}}, 8) // "0o42444041"
+     * faker::string::octal({'4',{4,5}}, 8) // "0o42444041"
      * @endcode
      */
     std::string octal(GuaranteeMap&& guarantee, unsigned length = 1);

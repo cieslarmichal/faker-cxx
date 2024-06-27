@@ -10,7 +10,7 @@ namespace faker::medicine
  * @returns Medical condition.
  *
  * @code
- * medicine::condition() // "AIDS"
+ * faker::medicine::condition() // "AIDS"
  * @endcode
  */
 std::string_view condition();
@@ -21,7 +21,7 @@ std::string_view condition();
  * @returns Medical test.
  *
  * @code
- * medicine::medicalTest() // "pulmonary auscultation"
+ * faker::medicine::medicalTest() // "pulmonary auscultation"
  * @endcode
  */
 std::string_view medicalTest();
@@ -32,7 +32,7 @@ std::string_view medicalTest();
  * @returns Medical specialty.
  *
  * @code
- * medicine::specialty() // "Cardiology"
+ * faker::medicine::specialty() // "Cardiology"
  * @endcode
  */
 

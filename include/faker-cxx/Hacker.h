@@ -10,7 +10,7 @@ namespace faker::hacker
      * @returns abbreviation.
      *
      * @code
-     * hacker::abbreviation() // "TCP"
+     * faker::hacker::abbreviation() // "TCP"
      * @endcode
      */
     std::string_view abbreviation();
@@ -21,7 +21,7 @@ namespace faker::hacker
      * @returns adjective.
      *
      * @code
-     * hacker::adjective() // "open-source"
+     * faker::hacker::adjective() // "open-source"
      * @endcode
      */
     std::string_view adjective();
@@ -32,7 +32,7 @@ namespace faker::hacker
      * @returns noun.
      *
      * @code
-     * hacker::noun() // "coder"
+     * faker::hacker::noun() // "coder"
      * @endcode
      */
     std::string_view noun();
@@ -43,7 +43,7 @@ namespace faker::hacker
      * @returns verb.
      *
      * @code
-     * hacker::verb() // "run"
+     * faker::hacker::verb() // "run"
      * @endcode
      */
     std::string_view verb();
@@ -54,7 +54,7 @@ namespace faker::hacker
      * @returns ingverb.
      *
      * @code
-     * hacker::ingverb() // "backing up"
+     * faker::hacker::ingverb() // "backing up"
      * @endcode
      */
     std::string_view ingverb();
@@ -65,7 +65,7 @@ namespace faker::hacker
      * @return phrase.
      *
      * @code
-     * hacker::phrase() // "If we bypass the monitor, we can get to the TCP monitor through the neural EXE monitor!"
+     * faker::hacker::phrase() // "If we bypass the monitor, we can get to the TCP monitor through the neural EXE monitor!"
      * @endcode
      */
     std::string phrase();

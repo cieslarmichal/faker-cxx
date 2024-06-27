@@ -23,7 +23,7 @@ namespace faker::finance
      * @returns Currency.
      *
      * @code
-     * Finance::currency() // "{"US Dollar","USD","$"}"
+     * faker::finance::currency() // "{"US Dollar","USD","$"}"
      * @endcode
      */
     Currency currency();
@@ -34,7 +34,7 @@ namespace faker::finance
      * @returns Name of the currency.
      *
      * @code
-     * Finance::currencyName() // "US Dollar"
+     * faker::finance::currencyName() // "US Dollar"
      * @endcode
      */
     std::string_view currencyName();
@@ -45,7 +45,7 @@ namespace faker::finance
      * @returns Code of the currency.
      *
      * @code
-     * Finance::currencyCode() // "USD"
+     * faker::finance::currencyCode() // "USD"
      * @endcode
      */
     std::string_view currencyCode();
@@ -56,7 +56,7 @@ namespace faker::finance
      * @returns Symbol of the currency.
      *
      * @code
-     * Finance::currencySymbol() // "$"
+     * faker::finance::currencySymbol() // "$"
      * @endcode
      */
     std::string_view currencySymbol();
@@ -67,7 +67,7 @@ namespace faker::finance
      * @returns Account type.
      *
      * @code
-     * Finance::accountType() // "Savings"
+     * faker::finance::accountType() // "Savings"
      * @endcode
      */
     std::string_view accountType();
@@ -83,10 +83,10 @@ namespace faker::finance
      * @returns Amount of money as string.
      *
      * @code
-     * Finance::amount() // "720.18"
-     * Finance::amount(5, 10) // "4.22"
-     * Finance::amount(5, 10, Precision::ZeroDp) // "4"
-     * Finance::amount(5, 10, Precision::TwoDp, "$") // "$5.85"
+     * faker::finance::amount() // "720.18"
+     * faker::finance::amount(5, 10) // "4.22"
+     * faker::finance::amount(5, 10, Precision::ZeroDp) // "4"
+     * faker::finance::amount(5, 10, Precision::TwoDp, "$") // "$5.85"
      * @endcode
      */
     std::string amount(double min = 0, double max = 1000, Precision precision = Precision::TwoDp,
@@ -132,7 +132,7 @@ namespace faker::finance
      * @returns IBAN.
      *
      * @code
-     * Finance::iban(IbanCountry::Poland) // "PL61109010140000071219812874"
+     * faker::finance::iban(IbanCountry::Poland) // "PL61109010140000071219812874"
      * @endcode
      */
     std::string iban(std::optional<IbanCountry> country = std::nullopt);
@@ -160,7 +160,7 @@ namespace faker::finance
      * @returns BIC.
      *
      * @code
-     * Finance::bic(BicCountry::Poland) // "BREXPLPWMUL"
+     * faker::finance::bic(BicCountry::Poland) // "BREXPLPWMUL"
      * @endcode
      */
     std::string_view bic(std::optional<BicCountry> country = std::nullopt);
@@ -173,8 +173,8 @@ namespace faker::finance
      * @returns Account number.
      *
      * @code
-     * Finance::accountNumber() // "92842238"
-     * Finance::accountNumber(26) // "55875455514825927518796290"
+     * faker::finance::accountNumber() // "92842238"
+     * faker::finance::accountNumber(26) // "55875455514825927518796290"
      * @endcode
      */
     std::string accountNumber(unsigned length = 8);
@@ -187,8 +187,8 @@ namespace faker::finance
      * @returns PIN number.
      *
      * @code
-     * Finance::pin() // "5067"
-     * Finance::pin(8) // "21378928"
+     * faker::finance::pin() // "5067"
+     * faker::finance::pin(8) // "21378928"
      * @endcode
      */
     std::string pin(unsigned length = 4);
@@ -199,7 +199,7 @@ namespace faker::finance
      * @returns Routing number.
      *
      * @code
-     * Finance::routingNumber() // "522814402"
+     * faker::finance::routingNumber() // "522814402"
      * @endcode
      */
     std::string routingNumber();
@@ -220,7 +220,7 @@ namespace faker::finance
      * @returns Credit card number.
      *
      * @code
-     * Finance::creditCardNumber() // "4882664999007"
+     * faker::finance::creditCardNumber() // "4882664999007"
      * @endcode
      */
     std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std::nullopt);
@@ -231,7 +231,7 @@ namespace faker::finance
      * @returns Credit card CVV.
      *
      * @code
-     * Finance::creditCardCvv() // "506"
+     * faker::finance::creditCardCvv() // "506"
      * @endcode
      */
     std::string creditCardCvv();
@@ -242,7 +242,7 @@ namespace faker::finance
      * @returns Bitcoin address.
      *
      * @code
-     * Finance::bitcoinAddress() // "3ySdvCkTLVy7gKD4j6JfSaf5d"
+     * faker::finance::bitcoinAddress() // "3ySdvCkTLVy7gKD4j6JfSaf5d"
      * @endcode
      */
     std::string bitcoinAddress();
@@ -253,7 +253,7 @@ namespace faker::finance
      * @returns Litecoin address.
      *
      * @code
-     * Finance::litecoinAddress() // "LoQaSTGWBRXkWfyxKbNKuPrAWGELzcW"
+     * faker::finance::litecoinAddress() // "LoQaSTGWBRXkWfyxKbNKuPrAWGELzcW"
      * @endcode
      */
     std::string litecoinAddress();
@@ -264,7 +264,7 @@ namespace faker::finance
      * @returns Ethereum address.
      *
      * @code
-     * Finance::ethereumAddress() // "0xf03dfeecbafc5147241cc4c4ca20b3c9dfd04c4a"
+     * faker::finance::ethereumAddress() // "0xf03dfeecbafc5147241cc4c4ca20b3c9dfd04c4a"
      * @endcode
      */
     std::string ethereumAddress();
@@ -275,7 +275,7 @@ namespace faker::finance
      * @returns std::string date.
      *
      * @code
-     * Finance::creditCardExpirationDate() // "03/26"
+     * faker::finance::creditCardExpirationDate() // "03/26"
      * @endcode
      */
     std::string creditCardExpirationDate();
@@ -286,7 +286,7 @@ namespace faker::finance
      * @returns std::string creditCardType.
      *
      * @code
-     * Finance::creditCardType() // "Visa"
+     * faker::finance::creditCardType() // "Visa"
      * @endcode
      */
     std::string_view creditCardType();
