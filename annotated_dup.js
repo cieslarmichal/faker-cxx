@@ -25,7 +25,6 @@ var annotated_dup =
         [ "NetworkInterfaceOptions", "structfaker_1_1system_1_1NetworkInterfaceOptions.html", null ]
       ] ],
       [ "Helper", "classfaker_1_1Helper.html", "classfaker_1_1Helper" ],
-      [ "Person", "classfaker_1_1Person.html", null ],
       [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", null ],
       [ "Science", "classfaker_1_1Science.html", "classfaker_1_1Science" ]
     ] ]

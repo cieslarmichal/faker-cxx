@@ -1,4 +1,6 @@
 var searchData=
 [
-  ['gender_0',['gender',['../classfaker_1_1Person.html#ac1d1888173dd3a2b49c6be835b799220',1,'faker::Person']]]
+  ['regexpstylestringparse_0',['regexpStyleStringParse',['../classfaker_1_1Helper.html#ad97b7e42b9f650bdea9ecba04b135768',1,'faker::Helper']]],
+  ['replacecreditcardsymbols_1',['replaceCreditCardSymbols',['../classfaker_1_1Helper.html#aa5b961cfbb6d333449127750f9e95199',1,'faker::Helper']]],
+  ['replacesymbolwithnumber_2',['replaceSymbolWithNumber',['../classfaker_1_1Helper.html#ab639ccfc5cae32dc2bf09e07b4b5c8d6',1,'faker::Helper']]]
 ];

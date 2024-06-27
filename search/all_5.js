@@ -1,4 +1,5 @@
 var searchData=
 [
-  ['gender_0',['gender',['../classfaker_1_1Person.html#ac1d1888173dd3a2b49c6be835b799220',1,'faker::Person']]]
+  ['massunit_0',['massUnit',['../classfaker_1_1Science.html#a11c2fe7aa766dcb44275eeb8fdc01896',1,'faker::Science']]],
+  ['maybe_1',['maybe',['../classfaker_1_1Helper.html#a378bc48e5d3c6438a70b75ede9e2d9a3',1,'faker::Helper']]]
 ];
