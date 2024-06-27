@@ -203,7 +203,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a commonly used file extension.</p>
 <dl class="section return"><dt>Returns</dt><dd>A commonly used file extension.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a6b7e776e89f9d98a2445068de5ba7e00">system::commonFileExtension</a>() <span class="comment">// &quot;gif&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a6b7e776e89f9d98a2445068de5ba7e00">faker::system::commonFileExtension</a>() <span class="comment">// &quot;gif&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_a6b7e776e89f9d98a2445068de5ba7e00"><div class="ttname"><a href="#a6b7e776e89f9d98a2445068de5ba7e00">faker::system::commonFileExtension</a></div><div class="ttdeci">std::string_view commonFileExtension()</div></div>
 </div><!-- fragment --> 
 </div>
@@ -230,9 +230,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A random file name with a given extension or a commonly used extension.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#aad257e51aeaf64c852c2a4c437673bed">system::commonFileName</a>() <span class="comment">// &quot;dollar.jpg&quot;</span></div>
-<div class="line">system::<a class="code hl_function" href="#aad257e51aeaf64c852c2a4c437673bed">commonFileName</a>(&quot;txt&quot;) <span class="comment">// &quot;global_borders_wyoming.txt&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#aad257e51aeaf64c852c2a4c437673bed">faker::system::commonFileName</a>() <span class="comment">// &quot;dollar.jpg&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::system::<a class="code hl_function" href="#aad257e51aeaf64c852c2a4c437673bed">commonFileName</a>(&quot;txt&quot;) <span class="comment">// &quot;global_borders_wyoming.txt&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_aad257e51aeaf64c852c2a4c437673bed"><div class="ttname"><a href="#aad257e51aeaf64c852c2a4c437673bed">faker::system::commonFileName</a></div><div class="ttdeci">std::string commonFileName(const std::optional&lt; std::string &gt; &amp;ext=std::nullopt)</div></div>
+<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> Airline.h:6</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -270,19 +271,19 @@ Functions</h2></td></tr>
 <div class="line"> </div>
 <div class="line"><a class="code hl_struct" href="structfaker_1_1system_1_1CronOptions.html">CronOptions</a> options</div>
 <div class="line">options.<a class="code hl_variable" href="structfaker_1_1system_1_1CronOptions.html#acd8a7339d985faa4187d339916e84d32">includeYear</a> = <span class="keyword">true</span></div>
-<div class="line">std::string cronExpr = <a class="code hl_function" href="#a38e41ca0dce57c758966a20ef0a809fc">system::cron</a>(options) <span class="comment">// &quot;16 14 * 11 2 2038&quot;</span></div>
+<div class="line">std::string cronExpr = <a class="code hl_function" href="#a38e41ca0dce57c758966a20ef0a809fc">faker::system::cron</a>(options) <span class="comment">// &quot;16 14 * 11 2 2038&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_struct" href="structfaker_1_1system_1_1CronOptions.html">CronOptions</a> options</div>
 <div class="line">options.<a class="code hl_variable" href="structfaker_1_1system_1_1CronOptions.html#acd8a7339d985faa4187d339916e84d32">includeYear</a> = <span class="keyword">false</span></div>
-<div class="line">std::string cronExpr = <a class="code hl_function" href="#a38e41ca0dce57c758966a20ef0a809fc">system::cron</a>(options) <span class="comment">// &quot;16 14 * 11 2&quot;</span></div>
+<div class="line">std::string cronExpr = <a class="code hl_function" href="#a38e41ca0dce57c758966a20ef0a809fc">faker::system::cron</a>(options) <span class="comment">// &quot;16 14 * 11 2&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_struct" href="structfaker_1_1system_1_1CronOptions.html">CronOptions</a> options</div>
 <div class="line">options.<a class="code hl_variable" href="structfaker_1_1system_1_1CronOptions.html#a514e32dcad2eb509387bc05493ec34b8">includeNonStandard</a> = <span class="keyword">false</span></div>
-<div class="line">std::string cronExpr = <a class="code hl_function" href="#a38e41ca0dce57c758966a20ef0a809fc">system::cron</a>(options) <span class="comment">// 34 2 ? 8 *</span></div>
+<div class="line">std::string cronExpr = <a class="code hl_function" href="#a38e41ca0dce57c758966a20ef0a809fc">faker::system::cron</a>(options) <span class="comment">// 34 2 ? 8 *</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_struct" href="structfaker_1_1system_1_1CronOptions.html">CronOptions</a> options</div>
 <div class="line">options.<a class="code hl_variable" href="structfaker_1_1system_1_1CronOptions.html#a514e32dcad2eb509387bc05493ec34b8">includeNonStandard</a> = <span class="keyword">true</span></div>
-<div class="line">std::string cronExpr = <a class="code hl_function" href="#a38e41ca0dce57c758966a20ef0a809fc">system::cron</a>(options) <span class="comment">// &quot;@reboot&quot;</span></div>
+<div class="line">std::string cronExpr = <a class="code hl_function" href="#a38e41ca0dce57c758966a20ef0a809fc">faker::system::cron</a>(options) <span class="comment">// &quot;@reboot&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_a38e41ca0dce57c758966a20ef0a809fc"><div class="ttname"><a href="#a38e41ca0dce57c758966a20ef0a809fc">faker::system::cron</a></div><div class="ttdeci">std::string cron(const CronOptions &amp;options={})</div></div>
 <div class="ttc" id="astructfaker_1_1system_1_1CronOptions_html"><div class="ttname"><a href="structfaker_1_1system_1_1CronOptions.html">faker::system::CronOptions</a></div><div class="ttdef"><b>Definition</b> System.h:30</div></div>
 <div class="ttc" id="astructfaker_1_1system_1_1CronOptions_html_a514e32dcad2eb509387bc05493ec34b8"><div class="ttname"><a href="structfaker_1_1system_1_1CronOptions.html#a514e32dcad2eb509387bc05493ec34b8">faker::system::CronOptions::includeNonStandard</a></div><div class="ttdeci">bool includeNonStandard</div><div class="ttdef"><b>Definition</b> System.h:32</div></div>
@@ -306,7 +307,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a directory path.</p>
 <dl class="section return"><dt>Returns</dt><dd>A directory path.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#afdad863fa2df95c35576c5359873d2cc">system::directoryPath</a>() <span class="comment">// &quot;/etc/mail&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#afdad863fa2df95c35576c5359873d2cc">faker::system::directoryPath</a>() <span class="comment">// &quot;/etc/mail&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_afdad863fa2df95c35576c5359873d2cc"><div class="ttname"><a href="#afdad863fa2df95c35576c5359873d2cc">faker::system::directoryPath</a></div><div class="ttdeci">std::string_view directoryPath()</div></div>
 </div><!-- fragment --> 
 </div>
@@ -334,7 +335,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A file extension.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a726010cfcd6aaaab4b0054f45c72de74">system::fileExtension</a>(MimeType::Image) <span class="comment">// &quot;png&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a726010cfcd6aaaab4b0054f45c72de74">faker::system::fileExtension</a>(MimeType::Image) <span class="comment">// &quot;png&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_a726010cfcd6aaaab4b0054f45c72de74"><div class="ttname"><a href="#a726010cfcd6aaaab4b0054f45c72de74">faker::system::fileExtension</a></div><div class="ttdeci">std::string fileExtension(const std::optional&lt; FileType &gt; &amp;mimeType=std::nullopt)</div><div class="ttdoc">Returns a file extension.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -362,15 +363,15 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Random file name with extension.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#af230cb9d644c2e8db69f1ec2d1357c0a">system::fileName</a>() <span class="comment">// &quot;injustice.mpeg&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#af230cb9d644c2e8db69f1ec2d1357c0a">faker::system::fileName</a>() <span class="comment">// &quot;injustice.mpeg&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_struct" href="structfaker_1_1system_1_1FileOptions.html">FileOptions</a> options</div>
 <div class="line">options.extensionCount = 3</div>
-<div class="line">system::<a class="code hl_function" href="#af230cb9d644c2e8db69f1ec2d1357c0a">fileName</a>(options) <span class="comment">// &quot;transformation.wav.mpeg.mp4&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::system::<a class="code hl_function" href="#af230cb9d644c2e8db69f1ec2d1357c0a">fileName</a>(options) <span class="comment">// &quot;transformation.wav.mpeg.mp4&quot;</span></div>
 <div class="line"> </div>
 <div class="line">options.extensionRange.min = 1;</div>
 <div class="line">options.extensionRange.max = 3;</div>
-<div class="line">system::<a class="code hl_function" href="#af230cb9d644c2e8db69f1ec2d1357c0a">fileName</a>(options) <span class="comment">// &quot;sparkle.png.pdf&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::system::<a class="code hl_function" href="#af230cb9d644c2e8db69f1ec2d1357c0a">fileName</a>(options) <span class="comment">// &quot;sparkle.png.pdf&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_af230cb9d644c2e8db69f1ec2d1357c0a"><div class="ttname"><a href="#af230cb9d644c2e8db69f1ec2d1357c0a">faker::system::fileName</a></div><div class="ttdeci">std::string fileName(const FileOptions &amp;options={})</div><div class="ttdoc">Returns a random file name with extension.</div></div>
 <div class="ttc" id="astructfaker_1_1system_1_1FileOptions_html"><div class="ttname"><a href="structfaker_1_1system_1_1FileOptions.html">faker::system::FileOptions</a></div><div class="ttdef"><b>Definition</b> System.h:10</div></div>
 </div><!-- fragment --> 
@@ -392,7 +393,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a file path.</p>
 <dl class="section return"><dt>Returns</dt><dd>A file path.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a0b6a342786f02463dfbf79e188179fd5">system::filePath</a>() <span class="comment">// &quot;/usr/local/src/money.dotx&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a0b6a342786f02463dfbf79e188179fd5">faker::system::filePath</a>() <span class="comment">// &quot;/usr/local/src/money.dotx&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_a0b6a342786f02463dfbf79e188179fd5"><div class="ttname"><a href="#a0b6a342786f02463dfbf79e188179fd5">faker::system::filePath</a></div><div class="ttdeci">std::string filePath()</div></div>
 </div><!-- fragment --> 
 </div>
@@ -413,7 +414,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a commonly used file type.</p>
 <dl class="section return"><dt>Returns</dt><dd>A commonly used file type.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a7b35e2fb4bfc7cff9670a800198f071c">system::fileType</a>() <span class="comment">// &quot;audio&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a7b35e2fb4bfc7cff9670a800198f071c">faker::system::fileType</a>() <span class="comment">// &quot;audio&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_a7b35e2fb4bfc7cff9670a800198f071c"><div class="ttname"><a href="#a7b35e2fb4bfc7cff9670a800198f071c">faker::system::fileType</a></div><div class="ttdeci">std::string_view fileType()</div></div>
 </div><!-- fragment --> 
 </div>
@@ -434,7 +435,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a mime-type.</p>
 <dl class="section return"><dt>Returns</dt><dd>A mime-type.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a5b7c73d6bde98732d09c5c46118f5199">system::mimeType</a>() <span class="comment">// &quot;video/vnd.vivo&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a5b7c73d6bde98732d09c5c46118f5199">faker::system::mimeType</a>() <span class="comment">// &quot;video/vnd.vivo&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_a5b7c73d6bde98732d09c5c46118f5199"><div class="ttname"><a href="#a5b7c73d6bde98732d09c5c46118f5199">faker::system::mimeType</a></div><div class="ttdeci">std::string_view mimeType()</div></div>
 </div><!-- fragment --> 
 </div>
@@ -469,20 +470,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A random network interface.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a9a5f62f1cb1f26bb14cf2d4c3b13031a">system::networkInterface</a>() <span class="comment">// &quot;enp2s7f8&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a9a5f62f1cb1f26bb14cf2d4c3b13031a">faker::system::networkInterface</a>() <span class="comment">// &quot;enp2s7f8&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_struct" href="structfaker_1_1system_1_1NetworkInterfaceOptions.html">NetworkInterfaceOptions</a> options;</div>
 <div class="line">options.interfaceType = &quot;wl&quot;;</div>
-<div class="line">system::<a class="code hl_function" href="#a9a5f62f1cb1f26bb14cf2d4c3b13031a">networkInterface</a>(options) <span class="comment">// &quot;wlsf4d2&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::system::<a class="code hl_function" href="#a9a5f62f1cb1f26bb14cf2d4c3b13031a">networkInterface</a>(options) <span class="comment">// &quot;wlsf4d2&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_struct" href="structfaker_1_1system_1_1NetworkInterfaceOptions.html">NetworkInterfaceOptions</a> options;</div>
 <div class="line">options.interfaceSchema = &quot;mac&quot;;</div>
-<div class="line">system::<a class="code hl_function" href="#a9a5f62f1cb1f26bb14cf2d4c3b13031a">networkInterface</a>(options) <span class="comment">// &quot;enxd17705ed394f&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::system::<a class="code hl_function" href="#a9a5f62f1cb1f26bb14cf2d4c3b13031a">networkInterface</a>(options) <span class="comment">// &quot;enxd17705ed394f&quot;</span></div>
 <div class="line"> </div>
 <div class="line"><a class="code hl_struct" href="structfaker_1_1system_1_1NetworkInterfaceOptions.html">NetworkInterfaceOptions</a> options;</div>
 <div class="line">options.interfaceType = &quot;en&quot;;</div>
 <div class="line">options.interfaceSchema = &quot;pci&quot;;</div>
-<div class="line">system::<a class="code hl_function" href="#a9a5f62f1cb1f26bb14cf2d4c3b13031a">networkInterface</a>(options) <span class="comment">// &quot;enp1s9f1d2&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::system::<a class="code hl_function" href="#a9a5f62f1cb1f26bb14cf2d4c3b13031a">networkInterface</a>(options) <span class="comment">// &quot;enp1s9f1d2&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_a9a5f62f1cb1f26bb14cf2d4c3b13031a"><div class="ttname"><a href="#a9a5f62f1cb1f26bb14cf2d4c3b13031a">faker::system::networkInterface</a></div><div class="ttdeci">std::string networkInterface(const std::optional&lt; NetworkInterfaceOptions &gt; &amp;options={})</div></div>
 <div class="ttc" id="astructfaker_1_1system_1_1NetworkInterfaceOptions_html"><div class="ttname"><a href="structfaker_1_1system_1_1NetworkInterfaceOptions.html">faker::system::NetworkInterfaceOptions</a></div><div class="ttdef"><b>Definition</b> System.h:36</div></div>
 </div><!-- fragment --> 
@@ -504,7 +505,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Returns a semantic version.</p>
 <dl class="section return"><dt>Returns</dt><dd>A semantic version.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a9736b08b0d753a6a227c1454efd9ada6">system::semver</a>() <span class="comment">// &quot;1.1.2&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a9736b08b0d753a6a227c1454efd9ada6">faker::system::semver</a>() <span class="comment">// &quot;1.1.2&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1system_html_a9736b08b0d753a6a227c1454efd9ada6"><div class="ttname"><a href="#a9736b08b0d753a6a227c1454efd9ada6">faker::system::semver</a></div><div class="ttdeci">std::string semver()</div></div>
 </div><!-- fragment --> 
 </div>

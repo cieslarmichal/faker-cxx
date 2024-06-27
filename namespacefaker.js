@@ -210,12 +210,6 @@ var namespacefaker =
       [ "genre", "namespacefaker_1_1music.html#aa4026ee2d3f948b16016326756f268d8", null ],
       [ "songName", "namespacefaker_1_1music.html#a687409148ce6bee425c496cee757e77b", null ]
     ] ],
-    [ "number", "namespacefaker_1_1number.html", [
-      [ "decimal", "namespacefaker_1_1number.html#a9c47857bcf94b75f2a4c8c65591d21b0", null ],
-      [ "decimal", "namespacefaker_1_1number.html#acbf7901ccec478ee254602fc5dbedb25", null ],
-      [ "integer", "namespacefaker_1_1number.html#afc3ffd60474194ebb9de6c1fadbd6a6e", null ],
-      [ "integer", "namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659", null ]
-    ] ],
     [ "person", "namespacefaker_1_1person.html", [
       [ "Language", "namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8", [
         [ "Albanian", "namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8aa716b6a3e8cf5994165d64d712db61d8", null ],

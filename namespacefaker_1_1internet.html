@@ -360,7 +360,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Username.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a7984e90922498f1299cecd31c5f575a7">internet::anonymousUsername</a>() <span class="comment">// &quot;profusebrother&quot;, &quot;richad&quot;, &quot;powerfuldifferential&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a7984e90922498f1299cecd31c5f575a7">faker::internet::anonymousUsername</a>() <span class="comment">// &quot;profusebrother&quot;, &quot;richad&quot;, &quot;powerfuldifferential&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a7984e90922498f1299cecd31c5f575a7"><div class="ttname"><a href="#a7984e90922498f1299cecd31c5f575a7">faker::internet::anonymousUsername</a></div><div class="ttdeci">std::string anonymousUsername(unsigned maxLength)</div><div class="ttdoc">Generates a random username.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -388,7 +388,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if emojiToCheck is found in one of the vectors, false otherwise.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a0746027aba19bc27dbe5bca73707f0bc">internet::checkIfEmojiIsValid</a>(<span class="stringliteral">&quot;👑&quot;</span>) <span class="comment">// true</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a0746027aba19bc27dbe5bca73707f0bc">faker::internet::checkIfEmojiIsValid</a>(<span class="stringliteral">&quot;👑&quot;</span>) <span class="comment">// true</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a0746027aba19bc27dbe5bca73707f0bc"><div class="ttname"><a href="#a0746027aba19bc27dbe5bca73707f0bc">faker::internet::checkIfEmojiIsValid</a></div><div class="ttdeci">bool checkIfEmojiIsValid(const std::string &amp;emojiToCheck)</div><div class="ttdoc">Verify that a given emoji is valid.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -410,7 +410,7 @@ Functions</h2></td></tr>
 
 <p>Generates a random domain name. </p>
 <dl class="section return"><dt>Returns</dt><dd>Domain name.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#acb5cc643b943d68ccf0b122ef3d15ced">internet::domainName</a>() <span class="comment">// &quot;slow-timer.info&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#acb5cc643b943d68ccf0b122ef3d15ced">faker::internet::domainName</a>() <span class="comment">// &quot;slow-timer.info&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_acb5cc643b943d68ccf0b122ef3d15ced"><div class="ttname"><a href="#acb5cc643b943d68ccf0b122ef3d15ced">faker::internet::domainName</a></div><div class="ttdeci">std::string domainName()</div><div class="ttdoc">Generates a random domain name.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -432,7 +432,7 @@ Functions</h2></td></tr>
 
 <p>Generates a random domain suffix. </p>
 <dl class="section return"><dt>Returns</dt><dd>Domain suffix.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ad0f6d0599df66e819d84903c5d1c04cd">internet::domainSuffix</a>() <span class="comment">// &quot;com&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ad0f6d0599df66e819d84903c5d1c04cd">faker::internet::domainSuffix</a>() <span class="comment">// &quot;com&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_ad0f6d0599df66e819d84903c5d1c04cd"><div class="ttname"><a href="#ad0f6d0599df66e819d84903c5d1c04cd">faker::internet::domainSuffix</a></div><div class="ttdeci">std::string_view domainSuffix()</div><div class="ttdoc">Generates a random domain suffix.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -454,7 +454,7 @@ Functions</h2></td></tr>
 
 <p>Generates a random domain word. </p>
 <dl class="section return"><dt>Returns</dt><dd>Domain word.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a2d0343d5392ac333fecf27fab9567cbc">internet::domainWord</a>() <span class="comment">// &quot;close-reality&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a2d0343d5392ac333fecf27fab9567cbc">faker::internet::domainWord</a>() <span class="comment">// &quot;close-reality&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a2d0343d5392ac333fecf27fab9567cbc"><div class="ttname"><a href="#a2d0343d5392ac333fecf27fab9567cbc">faker::internet::domainWord</a></div><div class="ttdeci">std::string domainWord()</div><div class="ttdoc">Generates a random domain word.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -493,12 +493,13 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Email including neither, one or both of the provided names, with random/provided email host.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">internet::email</a>() <span class="comment">// &quot;Jimenez.Clyde@gmail.com&quot;</span></div>
-<div class="line">internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(&quot;Tom&quot;) <span class="comment">// &quot;TomRichardson79@outlook.com&quot;</span></div>
-<div class="line">internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(std::nullopt, &quot;Howard&quot;) <span class="comment">// &quot;FreddieHoward@hotmail.com&quot;</span></div>
-<div class="line">internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(&quot;Cindy&quot;, &quot;Young&quot;) <span class="comment">// &quot;Young_Cindy@gmail.com&quot;</span></div>
-<div class="line">internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(std::nullopt, std::nullopt, &quot;example.com&quot;) <span class="comment">// &quot;Wright.Edna1973@code.com&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">faker::internet::email</a>() <span class="comment">// &quot;Jimenez.Clyde@gmail.com&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(&quot;Tom&quot;) <span class="comment">// &quot;TomRichardson79@outlook.com&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(std::nullopt, &quot;Howard&quot;) <span class="comment">// &quot;FreddieHoward@hotmail.com&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(&quot;Cindy&quot;, &quot;Young&quot;) <span class="comment">// &quot;Young_Cindy@gmail.com&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(std::nullopt, std::nullopt, &quot;example.com&quot;) <span class="comment">// &quot;Wright.Edna1973@code.com&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a5082d31654a79c42189bd74ebcd9f177"><div class="ttname"><a href="#a5082d31654a79c42189bd74ebcd9f177">faker::internet::email</a></div><div class="ttdeci">std::string email(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base.</div></div>
+<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> Airline.h:6</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -525,8 +526,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Emoji.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#acc05c79fd96761953b3f01f819536180">internet::emoji</a>() <span class="comment">// &quot;👑&quot;</span></div>
-<div class="line">internet::<a class="code hl_function" href="#acc05c79fd96761953b3f01f819536180">emoji</a>(<a class="code hl_enumeration" href="#ab1fd12c6089e1eb7e783223be1b73ac1">EmojiType</a>::<a class="code hl_enumvalue" href="#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">Food</a>) <span class="comment">// &quot;🍕&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#acc05c79fd96761953b3f01f819536180">faker::internet::emoji</a>() <span class="comment">// &quot;👑&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#acc05c79fd96761953b3f01f819536180">emoji</a>(<a class="code hl_enumeration" href="#ab1fd12c6089e1eb7e783223be1b73ac1">EmojiType</a>::<a class="code hl_enumvalue" href="#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">Food</a>) <span class="comment">// &quot;🍕&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1">faker::internet::EmojiType</a></div><div class="ttdeci">EmojiType</div><div class="ttdef"><b>Definition</b> Internet.h:112</div></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">faker::internet::EmojiType::Food</a></div><div class="ttdeci">@ Food</div></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_acc05c79fd96761953b3f01f819536180"><div class="ttname"><a href="#acc05c79fd96761953b3f01f819536180">faker::internet::emoji</a></div><div class="ttdeci">std::string_view emoji(std::optional&lt; EmojiType &gt; type=std::nullopt)</div><div class="ttdoc">Returns a random emoji.</div></div>
@@ -561,7 +562,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Email including neither, one or both of the provided names, with example email host.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#aed462baedf55f4a57818f2d47aa69961">internet::exampleEmail</a>() <span class="comment">// &quot;Jimenez.Clyde@example.com&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#aed462baedf55f4a57818f2d47aa69961">faker::internet::exampleEmail</a>() <span class="comment">// &quot;Jimenez.Clyde@example.com&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_aed462baedf55f4a57818f2d47aa69961"><div class="ttname"><a href="#aed462baedf55f4a57818f2d47aa69961">faker::internet::exampleEmail</a></div><div class="ttdeci">std::string exampleEmail(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base with example domain.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -583,7 +584,7 @@ Functions</h2></td></tr>
 
 <p>Generates a random http media type. </p>
 <dl class="section return"><dt>Returns</dt><dd>Http media type.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ae9d32d02503d82a6bda4fdaeac223fec">internet::httpMediaType</a>() <span class="comment">// &quot;application/json&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ae9d32d02503d82a6bda4fdaeac223fec">faker::internet::httpMediaType</a>() <span class="comment">// &quot;application/json&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_ae9d32d02503d82a6bda4fdaeac223fec"><div class="ttname"><a href="#ae9d32d02503d82a6bda4fdaeac223fec">faker::internet::httpMediaType</a></div><div class="ttdeci">std::string_view httpMediaType()</div><div class="ttdoc">Generates a random http media type.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -605,7 +606,7 @@ Functions</h2></td></tr>
 
 <p>Generates a random http method name. </p>
 <dl class="section return"><dt>Returns</dt><dd>Http method name.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a9b548a60dd56b4caf3adda3dd36fe531">internet::httpMethod</a>() <span class="comment">// &quot;POST&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a9b548a60dd56b4caf3adda3dd36fe531">faker::internet::httpMethod</a>() <span class="comment">// &quot;POST&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a9b548a60dd56b4caf3adda3dd36fe531"><div class="ttname"><a href="#a9b548a60dd56b4caf3adda3dd36fe531">faker::internet::httpMethod</a></div><div class="ttdeci">std::string_view httpMethod()</div><div class="ttdoc">Generates a random http method name.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -627,7 +628,7 @@ Functions</h2></td></tr>
 
 <p>Generates a random http request header. </p>
 <dl class="section return"><dt>Returns</dt><dd>Http request header.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ad7ebdb868d20077439327c5630d77521">internet::httpRequestHeader</a>() <span class="comment">// &quot;Authorization&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ad7ebdb868d20077439327c5630d77521">faker::internet::httpRequestHeader</a>() <span class="comment">// &quot;Authorization&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_ad7ebdb868d20077439327c5630d77521"><div class="ttname"><a href="#ad7ebdb868d20077439327c5630d77521">faker::internet::httpRequestHeader</a></div><div class="ttdeci">std::string_view httpRequestHeader()</div><div class="ttdoc">Generates a random http request header.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -649,7 +650,7 @@ Functions</h2></td></tr>
 
 <p>Generates a random http response header. </p>
 <dl class="section return"><dt>Returns</dt><dd>Http response header.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a8c549b1e91e70508dd706eecbb5d04c3">internet::httpResponseHeader</a>() <span class="comment">// &quot;Location&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a8c549b1e91e70508dd706eecbb5d04c3">faker::internet::httpResponseHeader</a>() <span class="comment">// &quot;Location&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a8c549b1e91e70508dd706eecbb5d04c3"><div class="ttname"><a href="#a8c549b1e91e70508dd706eecbb5d04c3">faker::internet::httpResponseHeader</a></div><div class="ttdeci">std::string_view httpResponseHeader()</div><div class="ttdoc">Generates a random http response header.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -677,8 +678,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Http status code.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#addf925e625f04b4d77cd1a051bc03491">internet::httpStatusCode</a>() <span class="comment">// 500</span></div>
-<div class="line">internet::<a class="code hl_function" href="#addf925e625f04b4d77cd1a051bc03491">httpStatusCode</a>(HttpStatusCodeType::success) <span class="comment">// 201</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#addf925e625f04b4d77cd1a051bc03491">faker::internet::httpStatusCode</a>() <span class="comment">// 500</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#addf925e625f04b4d77cd1a051bc03491">httpStatusCode</a>(HttpStatusCodeType::success) <span class="comment">// 201</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_addf925e625f04b4d77cd1a051bc03491"><div class="ttname"><a href="#addf925e625f04b4d77cd1a051bc03491">faker::internet::httpStatusCode</a></div><div class="ttdeci">unsigned httpStatusCode(std::optional&lt; HttpResponseType &gt; responseType=std::nullopt)</div><div class="ttdoc">Returns a random http status code.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -706,8 +707,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String representation of the ipv4 address.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">internet::ipv4</a>() <span class="comment">// &quot;192.168.0.1&quot;</span></div>
-<div class="line">internet::<a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">ipv4</a>(<a class="code hl_enumeration" href="#a02270adba2a94976603175f8904646cd">IPv4Class</a>::classA) <span class="comment">// &quot;10.0.0.1&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">faker::internet::ipv4</a>() <span class="comment">// &quot;192.168.0.1&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">ipv4</a>(<a class="code hl_enumeration" href="#a02270adba2a94976603175f8904646cd">IPv4Class</a>::classA) <span class="comment">// &quot;10.0.0.1&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a02270adba2a94976603175f8904646cd"><div class="ttname"><a href="#a02270adba2a94976603175f8904646cd">faker::internet::IPv4Class</a></div><div class="ttdeci">IPv4Class</div><div class="ttdef"><b>Definition</b> Internet.h:28</div></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a1867349f60b73f441e7b42b3d1550503"><div class="ttname"><a href="#a1867349f60b73f441e7b42b3d1550503">faker::internet::ipv4</a></div><div class="ttdeci">std::string ipv4(const IPv4Class &amp;ipv4class=IPv4Class::C)</div><div class="ttdoc">Returns a string containing randomized ipv4 address of the given class.</div></div>
 </div><!-- fragment --> 
@@ -742,8 +743,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string representation of the ipv4 address.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">internet::ipv4</a>({255.0.0.0}, {10.100.100.100}) <span class="comment">// &quot;10.128.17.1&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">internet::ipv4</a>({255.255.128.0}, {129.168.255.0}) <span class="comment">// &quot;192.168.128.10&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">faker::internet::ipv4</a>({255.0.0.0}, {10.100.100.100}) <span class="comment">// &quot;10.128.17.1&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">faker::internet::ipv4</a>({255.255.128.0}, {129.168.255.0}) <span class="comment">// &quot;192.168.128.10&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -764,7 +765,7 @@ Functions</h2></td></tr>
 
 <p>Returns a string containing randomized ipv6 address. </p>
 <dl class="section return"><dt>Returns</dt><dd>String representation of the ipv6 address.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a6f44672173ac347db321ea45c5fbc108">internet::ipv6</a>() <span class="comment">// &quot;269f:1230:73e3:318d:842b:daab:326d:897b&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a6f44672173ac347db321ea45c5fbc108">faker::internet::ipv6</a>() <span class="comment">// &quot;269f:1230:73e3:318d:842b:daab:326d:897b&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a6f44672173ac347db321ea45c5fbc108"><div class="ttname"><a href="#a6f44672173ac347db321ea45c5fbc108">faker::internet::ipv6</a></div><div class="ttdeci">std::string ipv6()</div><div class="ttdoc">Returns a string containing randomized ipv6 address.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -792,7 +793,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A generated random mac address.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#aa81ae4efbe46bdf5c5bfba6bfcd62d8c">internet::mac</a>() <span class="comment">// &quot;2d:10:34:2f:ac:ac&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#aa81ae4efbe46bdf5c5bfba6bfcd62d8c">faker::internet::mac</a>() <span class="comment">// &quot;2d:10:34:2f:ac:ac&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_aa81ae4efbe46bdf5c5bfba6bfcd62d8c"><div class="ttname"><a href="#aa81ae4efbe46bdf5c5bfba6bfcd62d8c">faker::internet::mac</a></div><div class="ttdeci">std::string mac(const std::string &amp;sep=&quot;:&quot;)</div><div class="ttdoc">Returns a generated random mac address.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -824,8 +825,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Random password-like string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#af1e915a97047baa2c43be9d16c96324f">internet::password</a>() <span class="comment">// &quot;gXGpe9pKfFcKy9R&quot;</span></div>
-<div class="line">internet::<a class="code hl_function" href="#af1e915a97047baa2c43be9d16c96324f">password</a>(25) <span class="comment">// &quot;xv8vDu*wM!Rg0$zd0kH%8p!WY&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#af1e915a97047baa2c43be9d16c96324f">faker::internet::password</a>() <span class="comment">// &quot;gXGpe9pKfFcKy9R&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#af1e915a97047baa2c43be9d16c96324f">password</a>(25) <span class="comment">// &quot;xv8vDu*wM!Rg0$zd0kH%8p!WY&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_af1e915a97047baa2c43be9d16c96324f"><div class="ttname"><a href="#af1e915a97047baa2c43be9d16c96324f">faker::internet::password</a></div><div class="ttdeci">std::string password(int length=15, const PasswordOptions &amp;options={})</div><div class="ttdoc">Generates a random password-like string. Do not use this method for generating actual passwords for u...</div></div>
 </div><!-- fragment --> 
 </div>
@@ -847,7 +848,7 @@ Functions</h2></td></tr>
 
 <p>Generates a random port. </p>
 <dl class="section return"><dt>Returns</dt><dd>Port.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a0e2cd71dd1429486c255254161fe3e8d">internet::port</a>() <span class="comment">// 5432</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a0e2cd71dd1429486c255254161fe3e8d">faker::internet::port</a>() <span class="comment">// 5432</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a0e2cd71dd1429486c255254161fe3e8d"><div class="ttname"><a href="#a0e2cd71dd1429486c255254161fe3e8d">faker::internet::port</a></div><div class="ttdeci">unsigned port()</div><div class="ttdoc">Generates a random port.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -869,7 +870,7 @@ Functions</h2></td></tr>
 
 <p>Returns a random web protocol. Either `http` or `https`. </p>
 <dl class="section return"><dt>Returns</dt><dd>Web protocol.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a39aa3144b0c1cad63c72cf0270bf3a2a">internet::protocol</a>() <span class="comment">// &quot;https&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a39aa3144b0c1cad63c72cf0270bf3a2a">faker::internet::protocol</a>() <span class="comment">// &quot;https&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a39aa3144b0c1cad63c72cf0270bf3a2a"><div class="ttname"><a href="#a39aa3144b0c1cad63c72cf0270bf3a2a">faker::internet::protocol</a></div><div class="ttdeci">std::string_view protocol()</div><div class="ttdoc">Returns a random web protocol. Either `http` or `https`.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -897,7 +898,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="#ac9fba82884b9a80bff2604b01135c7eca9d4d43de68f0b3555d5a5ef5dc05bb95">Http(s)</a> url.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a92cc6255f875a1386b4ac47edba22b05">internet::url</a>() <span class="comment">// &quot;https://slow-timer.info&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a92cc6255f875a1386b4ac47edba22b05">faker::internet::url</a>() <span class="comment">// &quot;https://slow-timer.info&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a92cc6255f875a1386b4ac47edba22b05"><div class="ttname"><a href="#a92cc6255f875a1386b4ac47edba22b05">faker::internet::url</a></div><div class="ttdeci">std::string url(const WebProtocol &amp;webProtocol=WebProtocol::Https)</div><div class="ttdoc">Generates a random url.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -935,10 +936,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Username including neither, one or both of the provided names.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">internet::username</a>() <span class="comment">// &quot;Richardson.Jeffrey1997&quot;</span></div>
-<div class="line">internet::<a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">username</a>(&quot;Michael&quot;) <span class="comment">// &quot;Michael_Allen29&quot;</span></div>
-<div class="line">internet::<a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">username</a>(std::nullopt, &quot;Cieslar&quot;) <span class="comment">// &quot;Phillip_Cieslar20&quot;</span></div>
-<div class="line">internet::<a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">username</a>(&quot;Andrew&quot;, &quot;Cieslar&quot;) <span class="comment">// &quot;Andrew.Cieslar&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">faker::internet::username</a>() <span class="comment">// &quot;Richardson.Jeffrey1997&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">username</a>(&quot;Michael&quot;) <span class="comment">// &quot;Michael_Allen29&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">username</a>(std::nullopt, &quot;Cieslar&quot;) <span class="comment">// &quot;Phillip_Cieslar20&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">username</a>(&quot;Andrew&quot;, &quot;Cieslar&quot;) <span class="comment">// &quot;Andrew.Cieslar&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a6873a40b7b83d3227d0401a7c0c6fa03"><div class="ttname"><a href="#a6873a40b7b83d3227d0401a7c0c6fa03">faker::internet::username</a></div><div class="ttdeci">std::string username(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, Country country=Country::Usa)</div><div class="ttdoc">Generates a username using the given person's name as base.</div></div>
 </div><!-- fragment --> 
 </div>

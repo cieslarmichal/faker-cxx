@@ -269,9 +269,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Alpha string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">string::alpha</a>({}) <span class="comment">// &quot;b&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">string::alpha</a>({{<span class="charliteral">&#39;A&#39;</span>,{2,2}}, 5, <a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">StringCasing::Upper</a>) <span class="comment">// &quot;DACAC&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">string::alpha</a>({{<span class="charliteral">&#39;a&#39;</span>,{0,0}},{<span class="charliteral">&#39;b&#39;</span>,{3,3}},{<span class="charliteral">&#39;c&#39;</span>, {0,2}}}, 10, <a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">StringCasing::Lower</a>) <span class="comment">// &quot;bicnmmkbbp&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">faker::string::alpha</a>({}) <span class="comment">// &quot;b&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">faker::string::alpha</a>({{<span class="charliteral">&#39;A&#39;</span>,{2,2}}, 5, <a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">StringCasing::Upper</a>) <span class="comment">// &quot;DACAC&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">faker::string::alpha</a>({{<span class="charliteral">&#39;a&#39;</span>,{0,0}},{<span class="charliteral">&#39;b&#39;</span>,{3,3}},{<span class="charliteral">&#39;c&#39;</span>, {0,2}}}, 10, <a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">StringCasing::Lower</a>) <span class="comment">// &quot;bicnmmkbbp&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec"><div class="ttname"><a href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">faker::string::StringCasing::Upper</a></div><div class="ttdeci">@ Upper</div></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93"><div class="ttname"><a href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">faker::string::StringCasing::Lower</a></div><div class="ttdeci">@ Lower</div></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_ad0f4eaebf422d9ddf8740a763c17c66c"><div class="ttname"><a href="#ad0f4eaebf422d9ddf8740a763c17c66c">faker::string::alpha</a></div><div class="ttdeci">std::string alpha(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)</div><div class="ttdoc">Generates a string consisting of letters in the English alphabet.</div></div>
@@ -312,10 +312,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Alpha string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">string::alpha</a>() <span class="comment">// &quot;b&quot;</span></div>
-<div class="line">string::<a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">alpha</a>(5, <a class="code hl_enumeration" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a>::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">Upper</a>) <span class="comment">// &quot;DTCIC&quot;</span></div>
-<div class="line"><span class="keywordtype">string</span>::<a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">alpha</a>(4, <a class="code hl_enumeration" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a>::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">Lower</a>) <span class="comment">// &quot;brpt&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">faker::string::alpha</a>() <span class="comment">// &quot;b&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">alpha</a>(5, <a class="code hl_enumeration" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a>::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">Upper</a>) <span class="comment">// &quot;DTCIC&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#ad0f4eaebf422d9ddf8740a763c17c66c">alpha</a>(4, <a class="code hl_enumeration" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a>::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">Lower</a>) <span class="comment">// &quot;brpt&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a5b7a1d4a3ebb389e224c7bfc534d7cda"><div class="ttname"><a href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">faker::string::StringCasing</a></div><div class="ttdeci">StringCasing</div><div class="ttdef"><b>Definition</b> String.h:16</div></div>
+<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> Airline.h:6</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -353,9 +354,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Alphanumeric string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">string::alphanumeric</a>({}) <span class="comment">// &quot;4&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">string::alphanumeric</a>({{<span class="charliteral">&#39;A&#39;</span>, {3,6}},{<span class="charliteral">&#39;1&#39;</span>, {1,1}}, 5, <a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">StringCasing::Upper</a>) <span class="comment">// &quot;1EAAA&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">string::alphanumeric</a>({{<span class="charliteral">&#39;a&#39;</span>,{0,2}},{<span class="charliteral">&#39;2&#39;</span>,{0,3}},{<span class="charliteral">&#39;z&#39;</span>,{3,5}}}, 10, <a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">StringCasing::Lower</a>) <span class="comment">// &quot;z1naazrqz0&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">faker::string::alphanumeric</a>({}) <span class="comment">// &quot;4&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">faker::string::alphanumeric</a>({{<span class="charliteral">&#39;A&#39;</span>, {3,6}},{<span class="charliteral">&#39;1&#39;</span>, {1,1}}, 5, <a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">StringCasing::Upper</a>) <span class="comment">// &quot;1EAAA&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">faker::string::alphanumeric</a>({{<span class="charliteral">&#39;a&#39;</span>,{0,2}},{<span class="charliteral">&#39;2&#39;</span>,{0,3}},{<span class="charliteral">&#39;z&#39;</span>,{3,5}}}, 10, <a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">StringCasing::Lower</a>) <span class="comment">// &quot;z1naazrqz0&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_ada511e0da86ca3a8efcc8874c6cb516f"><div class="ttname"><a href="#ada511e0da86ca3a8efcc8874c6cb516f">faker::string::alphanumeric</a></div><div class="ttdeci">std::string alphanumeric(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)</div><div class="ttdoc">Generates a string consisting of alpha characters and digits.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -394,9 +395,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Alphanumeric string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">string::alphanumeric</a>() <span class="comment">// &quot;4&quot;</span></div>
-<div class="line">string::<a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">alphanumeric</a>(5, <a class="code hl_enumeration" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a>::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">Upper</a>) <span class="comment">// &quot;3e5V7&quot;</span></div>
-<div class="line"><span class="keywordtype">string</span>::<a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">alphanumeric</a>(4, <a class="code hl_enumeration" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a>::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">Lower</a>) <span class="comment">// &quot;1nrq&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">faker::string::alphanumeric</a>() <span class="comment">// &quot;4&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">alphanumeric</a>(5, <a class="code hl_enumeration" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a>::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">Upper</a>) <span class="comment">// &quot;3e5V7&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#ada511e0da86ca3a8efcc8874c6cb516f">alphanumeric</a>(4, <a class="code hl_enumeration" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a>::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">Lower</a>) <span class="comment">// &quot;1nrq&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -428,7 +429,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Binary string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a9e6d05b396d2e71fd46c2556faf6162a">string::binary</a>({<span class="charliteral">&#39;1&#39;</span>,{7,8}}, 8) <span class="comment">// &quot;0b11110111&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a9e6d05b396d2e71fd46c2556faf6162a">faker::string::binary</a>({<span class="charliteral">&#39;1&#39;</span>,{7,8}}, 8) <span class="comment">// &quot;0b11110111&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a9e6d05b396d2e71fd46c2556faf6162a"><div class="ttname"><a href="#a9e6d05b396d2e71fd46c2556faf6162a">faker::string::binary</a></div><div class="ttdeci">std::string binary(unsigned length=1)</div><div class="ttdoc">Generates a binary string.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -456,7 +457,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Binary string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a9e6d05b396d2e71fd46c2556faf6162a">string::binary</a>(8) <span class="comment">// &quot;0b01110101&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a9e6d05b396d2e71fd46c2556faf6162a">faker::string::binary</a>(8) <span class="comment">// &quot;0b01110101&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -488,8 +489,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String from characters.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a01a1a0aa804e3a4a46d831cf7c977f2f">string::fromCharacters</a>(<span class="stringliteral">&quot;abc&quot;</span>) <span class="comment">// &quot;b&quot;</span></div>
-<div class="line">string::<a class="code hl_function" href="#a01a1a0aa804e3a4a46d831cf7c977f2f">fromCharacters</a>(&quot;qwerty&quot;, 5) <span class="comment">// &quot;qrwqt&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a01a1a0aa804e3a4a46d831cf7c977f2f">faker::string::fromCharacters</a>(<span class="stringliteral">&quot;abc&quot;</span>) <span class="comment">// &quot;b&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a01a1a0aa804e3a4a46d831cf7c977f2f">fromCharacters</a>(&quot;qwerty&quot;, 5) <span class="comment">// &quot;qrwqt&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a01a1a0aa804e3a4a46d831cf7c977f2f"><div class="ttname"><a href="#a01a1a0aa804e3a4a46d831cf7c977f2f">faker::string::fromCharacters</a></div><div class="ttdeci">std::string fromCharacters(const std::string &amp;characters, unsigned length=1)</div><div class="ttdoc">Generates a string consisting of given characters.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -528,8 +529,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String from characters.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a01a1a0aa804e3a4a46d831cf7c977f2f">string::fromCharacters</a>({}, <span class="stringliteral">&quot;abc&quot;</span>) <span class="comment">// &quot;b&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#a01a1a0aa804e3a4a46d831cf7c977f2f">string::fromCharacters</a>({{<span class="charliteral">&#39;q&#39;</span>,{2,2}},{<span class="charliteral">&#39;e&#39;</span>,{1,5}}}, <span class="stringliteral">&quot;qwerty&quot;</span>, 8) <span class="comment">// &quot;yqreqety&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a01a1a0aa804e3a4a46d831cf7c977f2f">faker::string::fromCharacters</a>({}, <span class="stringliteral">&quot;abc&quot;</span>) <span class="comment">// &quot;b&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a01a1a0aa804e3a4a46d831cf7c977f2f">faker::string::fromCharacters</a>({{<span class="charliteral">&#39;q&#39;</span>,{2,2}},{<span class="charliteral">&#39;e&#39;</span>,{1,5}}}, <span class="stringliteral">&quot;qwerty&quot;</span>, 8) <span class="comment">// &quot;yqreqety&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -603,10 +604,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Hexadecimal string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">string::hexadecimal</a>({}) <span class="comment">// &quot;0xb&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">string::hexadecimal</a>({<span class="charliteral">&#39;a&#39;</span>,{2,2}}, 10) <span class="comment">// &quot;0xae13d04acb&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">string::hexadecimal</a>({<span class="charliteral">&#39;F&#39;</span>, {2,4}}, 6, HexCasing::Upper, HexPrefix::Hash) <span class="comment">// &quot;#E3FFF0&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">string::hexadecimal</a>({<span class="charliteral">&#39;1&#39;</span>, {1,4}, {<span class="charliteral">&#39;2&#39;</span>, {1, 4}, {<span class="charliteral">&#39;c&#39;</span>, {1,1}}, 6, HexCasing::Lower, HexPrefix::None) <span class="comment">// &quot;121a1c&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">faker::string::hexadecimal</a>({}) <span class="comment">// &quot;0xb&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">faker::string::hexadecimal</a>({<span class="charliteral">&#39;a&#39;</span>,{2,2}}, 10) <span class="comment">// &quot;0xae13d04acb&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">faker::string::hexadecimal</a>({<span class="charliteral">&#39;F&#39;</span>, {2,4}}, 6, HexCasing::Upper, HexPrefix::Hash) <span class="comment">// &quot;#E3FFF0&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">faker::string::hexadecimal</a>({<span class="charliteral">&#39;1&#39;</span>, {1,4}, {<span class="charliteral">&#39;2&#39;</span>, {1, 4}, {<span class="charliteral">&#39;c&#39;</span>, {1,1}}, 6, HexCasing::Lower, HexPrefix::None) <span class="comment">// &quot;121a1c&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a1c8f39a9083d995b932fe6d0dc8aa416"><div class="ttname"><a href="#a1c8f39a9083d995b932fe6d0dc8aa416">faker::string::hexadecimal</a></div><div class="ttdeci">std::string hexadecimal(unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</div><div class="ttdoc">Generates a hexadecimal string.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -639,8 +640,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A lowercase hexadecimal number.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">string::hexadecimal</a>() <span class="comment">// &quot;b&quot;</span></div>
-<div class="line">string::<a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">hexadecimal</a>(0, 255) <span class="comment">// &quot;9d&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">faker::string::hexadecimal</a>() <span class="comment">// &quot;b&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">hexadecimal</a>(0, 255) <span class="comment">// &quot;9d&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -678,10 +679,10 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Hexadecimal string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">string::hexadecimal</a>() <span class="comment">// &quot;0xb&quot;</span></div>
-<div class="line">string::<a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">hexadecimal</a>(10) <span class="comment">// &quot;0xae13d044cb&quot;</span></div>
-<div class="line"><span class="keywordtype">string</span>::<a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">hexadecimal</a>(6, HexCasing::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">Upper</a>, HexPrefix::Hash) <span class="comment">// &quot;#E3F380&quot;</span></div>
-<div class="line"><span class="keywordtype">string</span>::<a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">hexadecimal</a>(6, HexCasing::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">Lower</a>, HexPrefix::None) <span class="comment">// &quot;e3f380&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">faker::string::hexadecimal</a>() <span class="comment">// &quot;0xb&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">hexadecimal</a>(10) <span class="comment">// &quot;0xae13d044cb&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">hexadecimal</a>(6, HexCasing::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">Upper</a>, HexPrefix::Hash) <span class="comment">// &quot;#E3F380&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a1c8f39a9083d995b932fe6d0dc8aa416">hexadecimal</a>(6, HexCasing::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">Lower</a>, HexPrefix::None) <span class="comment">// &quot;e3f380&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -761,9 +762,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Numeric string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">string::numeric</a>({}) <span class="comment">// &quot;1&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">string::numeric</a>({<span class="charliteral">&#39;5&#39;</span>,{3,6}}, 6) <span class="comment">// &quot;055542&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">string::numeric</a>({<span class="charliteral">&#39;0&#39;</span>,{0,0}}, {<span class="charliteral">&#39;4&#39;</span>,{1,1}}, 6, <span class="keyword">false</span>) <span class="comment">// &quot;854829&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">faker::string::numeric</a>({}) <span class="comment">// &quot;1&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">faker::string::numeric</a>({<span class="charliteral">&#39;5&#39;</span>,{3,6}}, 6) <span class="comment">// &quot;055542&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">faker::string::numeric</a>({<span class="charliteral">&#39;0&#39;</span>,{0,0}}, {<span class="charliteral">&#39;4&#39;</span>,{1,1}}, 6, <span class="keyword">false</span>) <span class="comment">// &quot;854829&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a64bd9e8226d6418b3a10a9deda65b78d"><div class="ttname"><a href="#a64bd9e8226d6418b3a10a9deda65b78d">faker::string::numeric</a></div><div class="ttdeci">std::string numeric(unsigned length=1, bool allowLeadingZeros=true)</div><div class="ttdoc">Generates a given length string of digits.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -796,9 +797,9 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Numeric string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">string::numeric</a>() <span class="comment">// &quot;1&quot;</span></div>
-<div class="line">string::<a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">numeric</a>(6) <span class="comment">// &quot;035742&quot;</span></div>
-<div class="line"><span class="keywordtype">string</span>::<a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">numeric</a>(6, false) <span class="comment">// &quot;254429&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">faker::string::numeric</a>() <span class="comment">// &quot;1&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">numeric</a>(6) <span class="comment">// &quot;035742&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a64bd9e8226d6418b3a10a9deda65b78d">numeric</a>(6, false) <span class="comment">// &quot;254429&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -830,7 +831,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Octal string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a81c9c75d8a252926f919e152285745a4">string::octal</a>({<span class="charliteral">&#39;4&#39;</span>,{4,5}}, 8) <span class="comment">// &quot;0o42444041&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a81c9c75d8a252926f919e152285745a4">faker::string::octal</a>({<span class="charliteral">&#39;4&#39;</span>,{4,5}}, 8) <span class="comment">// &quot;0o42444041&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a81c9c75d8a252926f919e152285745a4"><div class="ttname"><a href="#a81c9c75d8a252926f919e152285745a4">faker::string::octal</a></div><div class="ttdeci">std::string octal(unsigned length=1)</div><div class="ttdoc">Generates an octal string.</div></div>
 </div><!-- fragment --> 
 </div>
@@ -858,7 +859,7 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Octal string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a81c9c75d8a252926f919e152285745a4">string::octal</a>(8) <span class="comment">// &quot;0o52561721&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a81c9c75d8a252926f919e152285745a4">faker::string::octal</a>(8) <span class="comment">// &quot;0o52561721&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -890,8 +891,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Sample string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ac825d46cb8e73eee5ba8aea4f50e455d">string::sample</a>({}) <span class="comment">// &quot;Zo!.:*e&gt;wR&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#ac825d46cb8e73eee5ba8aea4f50e455d">string::sample</a>({{<span class="charliteral">&#39;|&#39;</span> ,{2,2}},{<span class="charliteral">&#39;^&#39;</span>,{0,0}},{<span class="charliteral">&#39;:&#39;</span>,{1,8}}}, 8) <span class="comment">// &quot;|6Bye8:|&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ac825d46cb8e73eee5ba8aea4f50e455d">faker::string::sample</a>({}) <span class="comment">// &quot;Zo!.:*e&gt;wR&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#ac825d46cb8e73eee5ba8aea4f50e455d">faker::string::sample</a>({{<span class="charliteral">&#39;|&#39;</span> ,{2,2}},{<span class="charliteral">&#39;^&#39;</span>,{0,0}},{<span class="charliteral">&#39;:&#39;</span>,{1,8}}}, 8) <span class="comment">// &quot;|6Bye8:|&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_ac825d46cb8e73eee5ba8aea4f50e455d"><div class="ttname"><a href="#ac825d46cb8e73eee5ba8aea4f50e455d">faker::string::sample</a></div><div class="ttdeci">std::string sample(unsigned length=10)</div><div class="ttdoc">Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).</div></div>
 </div><!-- fragment --> 
 </div>
@@ -919,8 +920,8 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Sample string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ac825d46cb8e73eee5ba8aea4f50e455d">string::sample</a>() <span class="comment">// &quot;Zo!.:*e&gt;wR&quot;</span></div>
-<div class="line">string::<a class="code hl_function" href="#ac825d46cb8e73eee5ba8aea4f50e455d">sample</a>(5) <span class="comment">// &quot;6Bye8&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ac825d46cb8e73eee5ba8aea4f50e455d">faker::string::sample</a>() <span class="comment">// &quot;Zo!.:*e&gt;wR&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#ac825d46cb8e73eee5ba8aea4f50e455d">sample</a>(5) <span class="comment">// &quot;6Bye8&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -949,7 +950,7 @@ template&lt;typename T  = std::mt19937&gt; </div>
   </table>
   </dd>
 </dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a335d7aad191429aa88bed20818881d95">string::uuid</a>() <span class="comment">// &quot;27666229-cedb-4a45-8018-98b1e1d921e2&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a335d7aad191429aa88bed20818881d95">faker::string::uuid</a>() <span class="comment">// &quot;27666229-cedb-4a45-8018-98b1e1d921e2&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a335d7aad191429aa88bed20818881d95"><div class="ttname"><a href="#a335d7aad191429aa88bed20818881d95">faker::string::uuid</a></div><div class="ttdeci">std::string uuid(RandomGenerator&lt; T &gt; gen=RandomGenerator&lt; std::mt19937 &gt;{})</div><div class="ttdoc">Generates an Universally Unique Identifier with version 4.</div><div class="ttdef"><b>Definition</b> String.h:81</div></div>
 </div><!-- fragment --> 
 </div>
