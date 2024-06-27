@@ -119,19 +119,6 @@ public:
     }
 };
 
-TEST_P(LocationTest, shouldGenerateCounty)
-{
-    const auto country = GetParam();
-
-    const auto& countryAddresses = getAddresses(country);
-
-    const auto generatedCounty = county(country);
-
-    ASSERT_TRUE(std::ranges::any_of(countryAddresses.counties, [&generatedCounty](const std::string_view& county)
-                                    { return county == generatedCounty; }) ||
-                (countryAddresses.counties.empty() && generatedCounty.empty()));
-}
-
 TEST_P(LocationTest, shouldGenerateState)
 {
     const auto country = GetParam();

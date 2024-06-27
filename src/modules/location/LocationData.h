@@ -21,7 +21,6 @@ struct CountryAddressesInfo
     std::span<const std::string_view> cities;
     std::span<const std::string_view> citySuffixes;
     std::span<const std::string_view> states;
-    std::span<const std::string_view> counties;
 };
 
 const auto allCountries = std::to_array<std::string_view>({
@@ -360,7 +359,6 @@ const CountryAddressesInfo australiaAddresses{
     (australiaCities),
     {},
     (australiaStates),
-    {},
 };
 
 // Brazil
@@ -422,7 +420,6 @@ const CountryAddressesInfo brazilAddresses{
     {},
     (brazilCitySuffixes),
     (brazilStates),
-    {},
 };
 
 // Czech Republic
@@ -646,7 +643,6 @@ const CountryAddressesInfo czechAddresses{
     (czechCities),
     {},
     (czechStates),
-    {},
 };
 
 // Denmark
@@ -778,20 +774,21 @@ const auto denmarkStreetFormats = std::to_array<std::string_view>({"{streetName}
 
 const auto denmarkCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo denmarkAddresses{denmarkZipCodeFormat,
-                                            (denmarkAddressFormats),
-                                            (denmarkSecondaryAddressFormats),
-                                            (denmarkStreetFormats),
-                                            {},
-                                            (denmarkStreetNames),
-                                            {},
-                                            (denmarkBuildingNumberFormats),
-                                            (denmarkCityFormats),
-                                            {},
-                                            (denmarkCities),
-                                            {},
-                                            (denmarkStates),
-                                            {}};
+const CountryAddressesInfo denmarkAddresses{
+    denmarkZipCodeFormat,
+    (denmarkAddressFormats),
+    (denmarkSecondaryAddressFormats),
+    (denmarkStreetFormats),
+    {},
+    (denmarkStreetNames),
+    {},
+    (denmarkBuildingNumberFormats),
+    (denmarkCityFormats),
+    {},
+    (denmarkCities),
+    {},
+    (denmarkStates),
+};
 
 // Estonia
 
@@ -801,24 +798,6 @@ const auto estoniaCities = std::to_array<std::string_view>({
     "Narva",
     "Pärnu",
     "Kohtla-Järve",
-});
-
-const auto estoniaCounties = std::to_array<std::string_view>({
-    "Harju",
-    "Hiiu",
-    "Ida-Viru",
-    "Jõgeva",
-    "Järva",
-    "Lääne",
-    "Lääne-Viru",
-    "Põlva",
-    "Pärnu",
-    "Rapla",
-    "Saare",
-    "Tartu",
-    "Valga",
-    "Viljandi",
-    "Võru",
 });
 
 const auto estoniaStreetNames = std::to_array<std::string_view>({
@@ -848,20 +827,21 @@ const auto estoniaStreetFormats = std::to_array<std::string_view>({"{streetName}
 
 const auto estoniaCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo estoniaAddresses{estoniaZipCodeFormat,
-                                            (estoniaAddressFormats),
-                                            {},
-                                            (estoniaStreetFormats),
-                                            {},
-                                            (estoniaStreetNames),
-                                            (estoniaStreetSuffixes),
-                                            (estoniaBuildingNumberFormats),
-                                            (estoniaCityFormats),
-                                            {},
-                                            (estoniaCities),
-                                            {},
-                                            {},
-                                            (estoniaCounties)};
+const CountryAddressesInfo estoniaAddresses{
+    estoniaZipCodeFormat,
+    (estoniaAddressFormats),
+    {},
+    (estoniaStreetFormats),
+    {},
+    (estoniaStreetNames),
+    (estoniaStreetSuffixes),
+    (estoniaBuildingNumberFormats),
+    (estoniaCityFormats),
+    {},
+    (estoniaCities),
+    {},
+    {},
+};
 
 // Finland
 
@@ -907,20 +887,21 @@ const auto finlandStreetFormats =
 
 const auto finlandCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo finlandAddresses{finlandZipCodeFormat,
-                                            (finlandAddressFormats),
-                                            (finlandSecondaryAddressFormats),
-                                            (finlandStreetFormats),
-                                            {},
-                                            {},
-                                            (finlandStreetSuffixes),
-                                            (finlandBuildingNumberFormats),
-                                            (finlandCityFormats),
-                                            {},
-                                            (finlandCities),
-                                            {},
-                                            (finlandStates),
-                                            {}};
+const CountryAddressesInfo finlandAddresses{
+    finlandZipCodeFormat,
+    (finlandAddressFormats),
+    (finlandSecondaryAddressFormats),
+    (finlandStreetFormats),
+    {},
+    {},
+    (finlandStreetSuffixes),
+    (finlandBuildingNumberFormats),
+    (finlandCityFormats),
+    {},
+    (finlandCities),
+    {},
+    (finlandStates),
+};
 
 // France
 
@@ -1061,20 +1042,21 @@ const auto franceStreetFormats = std::to_array<std::string_view>({"{streetPrefix
 
 const auto franceCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo franceAddresses{franceZipCodeFormat,
-                                           (franceAddressFormats),
-                                           (franceSecondaryAddressFormats),
-                                           (franceStreetFormats),
-                                           (franceStreetPrefixes),
-                                           {},
-                                           (franceStreetSuffixes),
-                                           (franceBuildingNumberFormats),
-                                           (franceCityFormats),
-                                           {},
-                                           (franceCities),
-                                           {},
-                                           (franceStates),
-                                           {}};
+const CountryAddressesInfo franceAddresses{
+    franceZipCodeFormat,
+    (franceAddressFormats),
+    (franceSecondaryAddressFormats),
+    (franceStreetFormats),
+    (franceStreetPrefixes),
+    {},
+    (franceStreetSuffixes),
+    (franceBuildingNumberFormats),
+    (franceCityFormats),
+    {},
+    (franceCities),
+    {},
+    (franceStates),
+};
 
 // Germany
 
@@ -1228,20 +1210,21 @@ const auto germanyStreetFormats = std::to_array<std::string_view>({"{streetName}
 
 const auto germanyCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo germanyAddresses{germanyZipCodeFormat,
-                                            (germanyAddressFormats),
-                                            (germanySecondaryAddressFormats),
-                                            (germanyStreetFormats),
-                                            {},
-                                            (germanyStreetNames),
-                                            {},
-                                            (germanyBuildingNumberFormats),
-                                            (germanyCityFormats),
-                                            {},
-                                            (germanyCities),
-                                            {},
-                                            (germanyStates),
-                                            {}};
+const CountryAddressesInfo germanyAddresses{
+    germanyZipCodeFormat,
+    (germanyAddressFormats),
+    (germanySecondaryAddressFormats),
+    (germanyStreetFormats),
+    {},
+    (germanyStreetNames),
+    {},
+    (germanyBuildingNumberFormats),
+    (germanyCityFormats),
+    {},
+    (germanyCities),
+    {},
+    (germanyStates),
+};
 
 // India
 
@@ -1340,20 +1323,21 @@ const auto indiaStreetFormats =
 
 const auto indiaCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo indiaAddresses{indiaZipCodeFormat,
-                                          (indiaAddressFormats),
-                                          (indiaSecondaryAddressFormats),
-                                          (indiaStreetFormats),
-                                          {},
-                                          {},
-                                          (indiaStreetSuffixes),
-                                          (indiaBuildingNumberFormats),
-                                          (indiaCityFormats),
-                                          {},
-                                          (indiaCities),
-                                          {},
-                                          (indiaStates),
-                                          {}};
+const CountryAddressesInfo indiaAddresses{
+    indiaZipCodeFormat,
+    (indiaAddressFormats),
+    (indiaSecondaryAddressFormats),
+    (indiaStreetFormats),
+    {},
+    {},
+    (indiaStreetSuffixes),
+    (indiaBuildingNumberFormats),
+    (indiaCityFormats),
+    {},
+    (indiaCities),
+    {},
+    (indiaStates),
+};
 
 // Italy
 
@@ -1480,20 +1464,21 @@ const auto italyStreetFormats =
 
 const auto italyCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo italyAddresses{italyZipCodeFormat,
-                                          (italyAddressFormats),
-                                          (italySecondaryAddressFormats),
-                                          (italyStreetFormats),
-                                          (italyStreetPrefixes),
-                                          {},
-                                          {},
-                                          (italyBuildingNumberFormats),
-                                          (italyCityFormats),
-                                          {},
-                                          (italyCities),
-                                          {},
-                                          (italyStates),
-                                          {}};
+const CountryAddressesInfo italyAddresses{
+    italyZipCodeFormat,
+    (italyAddressFormats),
+    (italySecondaryAddressFormats),
+    (italyStreetFormats),
+    (italyStreetPrefixes),
+    {},
+    {},
+    (italyBuildingNumberFormats),
+    (italyCityFormats),
+    {},
+    (italyCities),
+    {},
+    (italyStates),
+};
 
 // Poland
 
@@ -1699,20 +1684,21 @@ const auto polandStreetFormats = std::to_array<std::string_view>({"{streetPrefix
 
 const auto polandCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo polandAddresses{polandZipCodeFormat,
-                                           (polandAddressFormats),
-                                           (polandSecondaryAddressFormats),
-                                           (polandStreetFormats),
-                                           (polandStreetPrefixes),
-                                           (polandStreetNames),
-                                           {},
-                                           (polandBuildingNumberFormats),
-                                           (polandCityFormats),
-                                           {},
-                                           (polandCities),
-                                           {},
-                                           (polandStates),
-                                           {}};
+const CountryAddressesInfo polandAddresses{
+    polandZipCodeFormat,
+    (polandAddressFormats),
+    (polandSecondaryAddressFormats),
+    (polandStreetFormats),
+    (polandStreetPrefixes),
+    (polandStreetNames),
+    {},
+    (polandBuildingNumberFormats),
+    (polandCityFormats),
+    {},
+    (polandCities),
+    {},
+    (polandStates),
+};
 
 // Russia
 
@@ -1849,79 +1835,60 @@ const auto russiaStreetFormats = std::to_array<std::string_view>(
 
 const auto russiaCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo russiaAddresses{russiaZipCodeFormat,
-                                           (russiaAddressFormats),
-                                           (russiaSecondaryAddressFormats),
-                                           (russiaStreetFormats),
-                                           (russiaStreetPrefixes),
-                                           (russiaStreetNames),
-                                           {},
-                                           (russiaBuildingNumberFormats),
-                                           (russiaCityFormats),
-                                           {},
-                                           (russiaCities),
-                                           {},
-                                           (russiaStates),
-                                           {}};
+const CountryAddressesInfo russiaAddresses{
+    russiaZipCodeFormat,
+    (russiaAddressFormats),
+    (russiaSecondaryAddressFormats),
+    (russiaStreetFormats),
+    (russiaStreetPrefixes),
+    (russiaStreetNames),
+    {},
+    (russiaBuildingNumberFormats),
+    (russiaCityFormats),
+    {},
+    (russiaCities),
+    {},
+    (russiaStates),
+};
 
 // Spain
 
 const auto spainCities = std::to_array<std::string_view>({
     // clang-format off
-    "Parla",                "Ponferrada",           "Mollet del Vallés",    "Almería",  
-    "Telde",                "Zamora",               "Puertollano",          "San Sebastián",  
-    "Baracaldo",            "Alcalá de Guadaira",   "Madrid",               "Leganés",  
-    "San Fernando",         "Fuengirola",           "Barcelona",            "Santander",  
-    "Torrevieja",           "Mijas",                "Valencia",             "Burgos",  
-    "Lugo",                 "Sanlúcar de Barrameda","Sevilla",              "Castellón de la Plana",  
-    "Santiago de Compostela","La Línea de la Concepción","Zaragoza",        "Alcorcón",  
-    "Gerona",               "Majadahonda",          "Málaga",               "Albacete",  
-    "Cáceres",              "Sagunto",              "Murcia",               "Getafe",  
-    "Lorca",                "El Prat de LLobregat", "Palma de Mallorca",    "Salamanca",  
-    "Coslada",              "Viladecans",           "Las Palmas de Gran Canaria","Huelva",  
-    "Talavera de la Reina", "Linares",              "Bilbao",               "Logroño",  
-    "El Puerto de Santa María","Alcoy",             "Córdoba",              "Badajoz",  
-    "Cornellá de Llobregat","Irún",                 "Alicante",             "San Cristróbal de la Laguna",  
-    "Avilés",               "Estepona",             "Valladolid",           "León",  
-    "Palencia",             "Torremolinos",         "Vigo",                 "Tarragona",  
-    "Gecho",                "Rivas-Vaciamadrid",    "Gijón",                "Cádiz",  
-    "Orihuela",             "Molina de Segura",     "Hospitalet de LLobregat","Lérida",  
-    "Pontevedra",           "Paterna",              "La Coruña",            "Marbella",  
-    "Pozuelo de Alarcón",   "Granollers",           "Granada",              "Mataró",  
-    "Toledo",               "Santa Lucía de Tirajana","Vitoria",            "Dos Hermanas",  
-    "El Ejido",             "Motril",               "Elche",                "Santa Coloma de Gramanet",  
-    "Guadalajara",          "Cerdañola del Vallés", "Santa Cruz de Tenerife","Jaén",  
-    "Gandía",               "Arrecife",             "Oviedo",               "Algeciras",  
-    "Ceuta",                "Segovia",              "Badalona",             "Torrejón de Ardoz",  
-    "Ferrol",               "Torrelavega",          "Cartagena",            "Orense",  
-    "Chiclana de la Frontera","Elda",               "Móstoles",             "Alcobendas",  
-    "Manresa",              "Mérida",               "Jerez de la Frontera", "Reus",  
-    "Roquetas de Mar",      "Ávila",                "Tarrasa",              "Calahorra",  
-    "Ciudad Real",          "Valdemoro",            "Sabadell",             "Inca",  
-    "Rubí",                 "Cuenta",               "Alcalá de Henares",    "Aýna",  
-    "Benidorm",             "Collado Villalba",     "Pamplona",  
+    "Parla",                "Ponferrada",           "Mollet del Vallés",    "Almería",
+    "Telde",                "Zamora",               "Puertollano",          "San Sebastián",
+    "Baracaldo",            "Alcalá de Guadaira",   "Madrid",               "Leganés",
+    "San Fernando",         "Fuengirola",           "Barcelona",            "Santander",
+    "Torrevieja",           "Mijas",                "Valencia",             "Burgos",
+    "Lugo",                 "Sanlúcar de Barrameda","Sevilla",              "Castellón de la Plana",
+    "Santiago de Compostela","La Línea de la Concepción","Zaragoza",        "Alcorcón",
+    "Gerona",               "Majadahonda",          "Málaga",               "Albacete",
+    "Cáceres",              "Sagunto",              "Murcia",               "Getafe",
+    "Lorca",                "El Prat de LLobregat", "Palma de Mallorca",    "Salamanca",
+    "Coslada",              "Viladecans",           "Las Palmas de Gran Canaria","Huelva",
+    "Talavera de la Reina", "Linares",              "Bilbao",               "Logroño",
+    "El Puerto de Santa María","Alcoy",             "Córdoba",              "Badajoz",
+    "Cornellá de Llobregat","Irún",                 "Alicante",             "San Cristróbal de la Laguna",
+    "Avilés",               "Estepona",             "Valladolid",           "León",
+    "Palencia",             "Torremolinos",         "Vigo",                 "Tarragona",
+    "Gecho",                "Rivas-Vaciamadrid",    "Gijón",                "Cádiz",
+    "Orihuela",             "Molina de Segura",     "Hospitalet de LLobregat","Lérida",
+    "Pontevedra",           "Paterna",              "La Coruña",            "Marbella",
+    "Pozuelo de Alarcón",   "Granollers",           "Granada",              "Mataró",
+    "Toledo",               "Santa Lucía de Tirajana","Vitoria",            "Dos Hermanas",
+    "El Ejido",             "Motril",               "Elche",                "Santa Coloma de Gramanet",
+    "Guadalajara",          "Cerdañola del Vallés", "Santa Cruz de Tenerife","Jaén",
+    "Gandía",               "Arrecife",             "Oviedo",               "Algeciras",
+    "Ceuta",                "Segovia",              "Badalona",             "Torrejón de Ardoz",
+    "Ferrol",               "Torrelavega",          "Cartagena",            "Orense",
+    "Chiclana de la Frontera","Elda",               "Móstoles",             "Alcobendas",
+    "Manresa",              "Mérida",               "Jerez de la Frontera", "Reus",
+    "Roquetas de Mar",      "Ávila",                "Tarrasa",              "Calahorra",
+    "Ciudad Real",          "Valdemoro",            "Sabadell",             "Inca",
+    "Rubí",                 "Cuenta",               "Alcalá de Henares",    "Aýna",
+    "Benidorm",             "Collado Villalba",     "Pamplona",
     "San Sebastían de los Reyes","Benalmádena",     "Fuenlabrada",
     // clang-format on
-});
-
-const auto spainCounties = std::to_array<std::string_view>({
-    "Álava",       "Albacete",       "Alicante",
-    "Almería",     "Asturias",       "Ávila",
-    "Badajoz",     "Barcelona",      "Burgos",
-    "Cantabria",   "Castellón",      "Ciudad Real",
-    "Cuenca",      "Cáceres",        "Cádiz",
-    "Córdoba",     "Gerona",         "Granada",
-    "Guadalajara", "Guipúzcoa",      "Huelva",
-    "Huesca",      "Islas Baleares", "Jaén",
-    "La Coruña",   "La Rioja",       "Las Palmas",
-    "León",        "Lugo",           "lérida",
-    "Madrid",      "Murcia",         "Málaga",
-    "Navarra",     "Orense",         "Palencia",
-    "Pontevedra",  "Salamanca",      "Santa Cruz de Tenerife",
-    "Segovia",     "Sevilla",        "Soria",
-    "Tarragona",   "Teruel",         "Toledo",
-    "Valencia",    "Valladolid",     "Vizcaya",
-    "Zamora",      "Zaragoza",
 });
 
 const auto spainStates = std::to_array<std::string_view>({
@@ -1962,20 +1929,21 @@ const auto spainStreetFormats =
 
 const auto spainCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo spainAddresses{spainZipCodeFormat,
-                                          (spainAddressFormats),
-                                          (spainSecondaryAddressFormats),
-                                          (spainStreetFormats),
-                                          {},
-                                          {},
-                                          (spainStreetSuffixes),
-                                          (spainBuildingNumberFormats),
-                                          (spainCityFormats),
-                                          {},
-                                          (spainCities),
-                                          {},
-                                          (spainStates),
-                                          (spainCounties)};
+const CountryAddressesInfo spainAddresses{
+    spainZipCodeFormat,
+    (spainAddressFormats),
+    (spainSecondaryAddressFormats),
+    (spainStreetFormats),
+    {},
+    {},
+    (spainStreetSuffixes),
+    (spainBuildingNumberFormats),
+    (spainCityFormats),
+    {},
+    (spainCities),
+    {},
+    (spainStates),
+};
 
 // Ukraine
 
@@ -2106,20 +2074,21 @@ const auto ukraineStreetFormats = std::to_array<std::string_view>(
 
 const auto ukraineCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo ukraineAddresses{ukraineZipCodeFormat,
-                                            (ukraineAddressFormats),
-                                            (ukraineSecondaryAddressFormats),
-                                            (ukraineStreetFormats),
-                                            (ukraineStreetPrefixes),
-                                            (ukraineStreetNames),
-                                            {},
-                                            (ukraineBuildingNumberFormats),
-                                            (ukraineCityFormats),
-                                            {},
-                                            (ukraineCities),
-                                            {},
-                                            (ukraineStates),
-                                            {}};
+const CountryAddressesInfo ukraineAddresses{
+    ukraineZipCodeFormat,
+    (ukraineAddressFormats),
+    (ukraineSecondaryAddressFormats),
+    (ukraineStreetFormats),
+    (ukraineStreetPrefixes),
+    (ukraineStreetNames),
+    {},
+    (ukraineBuildingNumberFormats),
+    (ukraineCityFormats),
+    {},
+    (ukraineCities),
+    {},
+    (ukraineStates),
+};
 
 // USA
 
@@ -2251,17 +2220,6 @@ const auto usaCities = std::to_array<std::string_view>({
     // clang-format on
 });
 
-const auto usaCounties = std::to_array<std::string_view>({
-    "Adams County",     "Calhoun County",    "Carroll County", "Clark County",    "Clay County",
-    "Crawford County",  "Douglas County",    "Fayette County", "Franklin County", "Grant County",
-    "Greene County",    "Hamilton County",   "Hancock County", "Henry County",    "Jackson County",
-    "Jefferson County", "Johnson County",    "Lake County",    "Lawrence County", "Lee County",
-    "Lincoln County",   "Logan County",      "Madison County", "Marion County",   "Marshall County",
-    "Monroe County",    "Montgomery County", "Morgan County",  "Perry County",    "Pike County",
-    "Polk County",      "Scott County",      "Union County",   "Warren County",   "Washington County",
-    "Wayne County",
-});
-
 const auto usaStates = std::to_array<std::string_view>(
     {"Alabama",       "Alaska",     "Arizona",      "Arkansas",     "California",     "Colorado",      "Connecticut",
      "Delaware",      "Florida",    "Georgia",      "Hawaii",       "Idaho",          "Illinois",      "Indiana",
@@ -2312,19 +2270,20 @@ const auto usaStreetFormats =
 
 const auto usaCityFormats = std::to_array<std::string_view>({"{cityName}"});
 
-const CountryAddressesInfo usaAddresses{usaZipCodeFormat,
-                                        (usaAddressFormats),
-                                        (usaSecondaryAddressFormats),
-                                        (usaStreetFormats),
-                                        {},
-                                        {},
-                                        (usaStreetSuffixes),
-                                        (usaBuildingNumberFormats),
-                                        (usaCityFormats),
-                                        {},
-                                        (usaCities),
-                                        {},
-                                        usaStates,
-                                        usaCounties};
+const CountryAddressesInfo usaAddresses{
+    usaZipCodeFormat,
+    (usaAddressFormats),
+    (usaSecondaryAddressFormats),
+    (usaStreetFormats),
+    {},
+    {},
+    (usaStreetSuffixes),
+    (usaBuildingNumberFormats),
+    (usaCityFormats),
+    {},
+    (usaCities),
+    {},
+    usaStates,
+};
 
 }
