@@ -105,18 +105,6 @@ std::string_view countryCode()
     return helper::arrayElement(countryCodes);
 }
 
-std::string_view county(AddressCountry country)
-{
-    const auto& countryAddresses = getAddresses(country);
-
-    if (countryAddresses.counties.empty())
-    {
-        return "";
-    }
-
-    return helper::arrayElement(countryAddresses.counties);
-}
-
 std::string_view state(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
