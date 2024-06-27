@@ -25,11 +25,14 @@
 var NAVTREE =
 [
   [ "Faker C++", "index.html", [
-    [ "Namespace Members", "namespacemembers.html", [
-      [ "All", "namespacemembers.html", "namespacemembers_dup" ],
-      [ "Functions", "namespacemembers_func.html", "namespacemembers_func" ],
-      [ "Typedefs", "namespacemembers_type.html", null ],
-      [ "Enumerations", "namespacemembers_enum.html", null ]
+    [ "Namespaces", "namespaces.html", [
+      [ "Namespace List", "namespaces.html", "namespaces_dup" ],
+      [ "Namespace Members", "namespacemembers.html", [
+        [ "All", "namespacemembers.html", "namespacemembers_dup" ],
+        [ "Functions", "namespacemembers_func.html", "namespacemembers_func" ],
+        [ "Typedefs", "namespacemembers_type.html", null ],
+        [ "Enumerations", "namespacemembers_enum.html", null ]
+      ] ]
     ] ],
     [ "Classes", "annotated.html", [
       [ "Class List", "annotated.html", "annotated_dup" ],
@@ -51,7 +54,10 @@ var NAVTREEINDEX =
 "Airline_8h.html",
 "Internet_8h.html#a02270adba2a94976603175f8904646cd",
 "Phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa3cda26e0c8aedbf662adb42f923ef3ec",
-"Vehicle_8h.html"
+"Vehicle_8h.html",
+"namespacefaker_1_1food.html#aa2586db301f6a26b8f9ccfdb333fd293",
+"namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa1add2eb41fcae9b2a15b4a7d68571409",
+"namespacefaker_1_1string.html#ac9905fff398faebc862080ebfaec57d6"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
