@@ -25,8 +25,10 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
 
     const auto companyNameElements = StringHelper::split(companyName, " ");
 
-    std::vector<std::string_view> expectedFirstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
-    expectedFirstNames.insert(expectedFirstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
+    std::vector<std::string_view> expectedFirstNames(person::englishMaleFirstNames.begin(),
+                                                     person::englishMaleFirstNames.end());
+    expectedFirstNames.insert(expectedFirstNames.end(), person::englishFemaleFirstNames.begin(),
+                              person::englishFemaleFirstNames.end());
 
     if (companyNameElements.size() == 2)
     {

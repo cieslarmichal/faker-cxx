@@ -230,12 +230,14 @@ TEST_F(FinanceTest, shouldGenerateIban)
 {
     const auto generatedIban = iban();
 
-    ASSERT_TRUE(generatedIban.starts_with("AT") || generatedIban.starts_with("BE") || generatedIban.starts_with("BG") || generatedIban.starts_with("HR") ||
-                generatedIban.starts_with("CY") || generatedIban.starts_with("CZ") || generatedIban.starts_with("DK") || generatedIban.starts_with("EE") ||
-                generatedIban.starts_with("FI") || generatedIban.starts_with("FR") || generatedIban.starts_with("DE") || generatedIban.starts_with("GR") ||
-                generatedIban.starts_with("HU") || generatedIban.starts_with("IE") || generatedIban.starts_with("IT") || generatedIban.starts_with("LV") ||
-                generatedIban.starts_with("LT") || generatedIban.starts_with("LU") || generatedIban.starts_with("MT") || generatedIban.starts_with("NL") ||
-                generatedIban.starts_with("PL") || generatedIban.starts_with("PT") || generatedIban.starts_with("RO") || generatedIban.starts_with("SK") ||
+    ASSERT_TRUE(generatedIban.starts_with("AT") || generatedIban.starts_with("BE") || generatedIban.starts_with("BG") ||
+                generatedIban.starts_with("HR") || generatedIban.starts_with("CY") || generatedIban.starts_with("CZ") ||
+                generatedIban.starts_with("DK") || generatedIban.starts_with("EE") || generatedIban.starts_with("FI") ||
+                generatedIban.starts_with("FR") || generatedIban.starts_with("DE") || generatedIban.starts_with("GR") ||
+                generatedIban.starts_with("HU") || generatedIban.starts_with("IE") || generatedIban.starts_with("IT") ||
+                generatedIban.starts_with("LV") || generatedIban.starts_with("LT") || generatedIban.starts_with("LU") ||
+                generatedIban.starts_with("MT") || generatedIban.starts_with("NL") || generatedIban.starts_with("PL") ||
+                generatedIban.starts_with("PT") || generatedIban.starts_with("RO") || generatedIban.starts_with("SK") ||
                 generatedIban.starts_with("SI") || generatedIban.starts_with("ES") || generatedIban.starts_with("SE"));
 }
 
@@ -391,8 +393,9 @@ TEST_F(FinanceTest, shouldGenerateEthereumAddress)
 
     ASSERT_EQ(generatedEthereumAddress.size(), 42);
     ASSERT_EQ(prefix, "0x");
-    ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                                    { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
+                            { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateExpirationDate)
@@ -428,10 +431,8 @@ TEST_P(FinanceBicTest, CheckBicGenerator)
 }
 
 INSTANTIATE_TEST_SUITE_P(TestBicGenerator, FinanceBicTest,
-                         Values(BicCountry::Poland, BicCountry::UnitedStates,
-                                BicCountry::UnitedKingdom, BicCountry::Germany,
-                                BicCountry::Romania, BicCountry::France, BicCountry::Italy,
-                                BicCountry::Spain, BicCountry::Netherlands,
-                                BicCountry::India),
+                         Values(BicCountry::Poland, BicCountry::UnitedStates, BicCountry::UnitedKingdom,
+                                BicCountry::Germany, BicCountry::Romania, BicCountry::France, BicCountry::Italy,
+                                BicCountry::Spain, BicCountry::Netherlands, BicCountry::India),
                          [](const TestParamInfo<BicCountry>& paramInfo)
                          { return generatedBicTestName.at(paramInfo.param); });

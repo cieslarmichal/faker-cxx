@@ -9,26 +9,26 @@ namespace faker::sport
 {
 std::string_view sportName()
 {
-    return Helper::arrayElement(sportNames);
+    return helper::arrayElement(sportNames);
 }
 
 std::string_view soccerTeam()
 {
-    return Helper::arrayElement(soccerTeams);
+    return helper::arrayElement(soccerTeams);
 }
 
 std::string_view maleAthlete()
 {
-    return Helper::arrayElement(maleAthletes);
+    return helper::arrayElement(maleAthletes);
 }
 
 std::string_view femaleAthlete()
 {
-    return Helper::arrayElement(femaleAthletes);
+    return helper::arrayElement(femaleAthletes);
 }
 
 std::string_view sportEvent()
 {
-    return Helper::arrayElement(sportEvents);
+    return helper::arrayElement(sportEvents);
 }
 }

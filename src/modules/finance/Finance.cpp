@@ -14,33 +14,32 @@
 #include "faker-cxx/types/Precision.h"
 #include "FinanceData.h"
 
-
 namespace faker::finance
 {
 
 Currency currency()
 {
-    return Helper::arrayElement(currencies);
+    return helper::arrayElement(currencies);
 }
 
 std::string_view currencyName()
 {
-    return Helper::arrayElement(currencies).name;
+    return helper::arrayElement(currencies).name;
 }
 
 std::string_view currencyCode()
 {
-    return Helper::arrayElement(currencies).code;
+    return helper::arrayElement(currencies).code;
 }
 
 std::string_view currencySymbol()
 {
-    return Helper::arrayElement(currencies).symbol;
+    return helper::arrayElement(currencies).symbol;
 }
 
 std::string_view accountType()
 {
-    return Helper::arrayElement(accountTypes);
+    return helper::arrayElement(accountTypes);
 }
 
 std::string amount(double min, double max, Precision precision, const std::string& symbol)
@@ -56,7 +55,7 @@ std::string amount(double min, double max, Precision precision, const std::strin
 
 std::string iban(std::optional<IbanCountry> country)
 {
-    const auto ibanCountry = country ? *country : Helper::arrayElement(ibanCountries);
+    const auto ibanCountry = country ? *country : helper::arrayElement(ibanCountries);
 
     const auto& ibanFormat = ibanFormats.at(ibanCountry);
 
@@ -91,9 +90,9 @@ std::string iban(std::optional<IbanCountry> country)
 
 std::string_view bic(std::optional<BicCountry> country)
 {
-    const auto bicCountry = country ? *country : Helper::arrayElement(bicCountries);
+    const auto bicCountry = country ? *country : helper::arrayElement(bicCountries);
 
-    return Helper::arrayElement(bicCountriesCodes.at(bicCountry));
+    return helper::arrayElement(bicCountriesCodes.at(bicCountry));
 }
 
 std::string accountNumber(unsigned int length)
@@ -113,21 +112,21 @@ std::string routingNumber()
 
 std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
 {
-    const auto creditCardTargetType = creditCardType ? *creditCardType : Helper::arrayElement(creditCardTypes);
+    const auto creditCardTargetType = creditCardType ? *creditCardType : helper::arrayElement(creditCardTypes);
 
     switch (creditCardTargetType)
     {
     case CreditCardType::AmericanExpress:
-        return Helper::replaceCreditCardSymbols(
-            static_cast<std::string>(Helper::arrayElement(americanExpressCreditCardFormats)));
+        return helper::replaceCreditCardSymbols(
+            static_cast<std::string>(helper::arrayElement(americanExpressCreditCardFormats)));
     case CreditCardType::Discover:
-        return Helper::replaceCreditCardSymbols(
-            static_cast<std::string>(Helper::arrayElement(discoverCreditCardFormats)));
+        return helper::replaceCreditCardSymbols(
+            static_cast<std::string>(helper::arrayElement(discoverCreditCardFormats)));
     case CreditCardType::MasterCard:
-        return Helper::replaceCreditCardSymbols(
-            static_cast<std::string>(Helper::arrayElement(masterCardCreditCardFormats)));
+        return helper::replaceCreditCardSymbols(
+            static_cast<std::string>(helper::arrayElement(masterCardCreditCardFormats)));
     case CreditCardType::Visa:
-        return Helper::replaceCreditCardSymbols(static_cast<std::string>(Helper::arrayElement(visaCreditCardFormats)));
+        return helper::replaceCreditCardSymbols(static_cast<std::string>(helper::arrayElement(visaCreditCardFormats)));
     }
 
     return "";
@@ -142,7 +141,7 @@ std::string bitcoinAddress()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
-    auto address = Helper::arrayElement(std::vector<std::string>{"1", "3"});
+    auto address = helper::arrayElement(std::vector<std::string>{"1", "3"});
 
     address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
@@ -153,7 +152,7 @@ std::string litecoinAddress()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
-    auto address = Helper::arrayElement(std::vector<std::string>{"L", "M", "3"});
+    auto address = helper::arrayElement(std::vector<std::string>{"L", "M", "3"});
 
     address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
@@ -174,7 +173,7 @@ std::string creditCardExpirationDate()
 
 std::string_view creditCardType()
 {
-    return Helper::arrayElement(creditCardNames);
+    return helper::arrayElement(creditCardNames);
 }
 
 }

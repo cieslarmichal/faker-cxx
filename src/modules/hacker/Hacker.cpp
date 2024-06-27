@@ -11,32 +11,32 @@ namespace faker::hacker
 {
 std::string_view abbreviation()
 {
-    return Helper::arrayElement(abbreviations);
+    return helper::arrayElement(abbreviations);
 }
 
 std::string_view adjective()
 {
-    return Helper::arrayElement(adjectives);
+    return helper::arrayElement(adjectives);
 }
 
 std::string_view noun()
 {
-    return Helper::arrayElement(nouns);
+    return helper::arrayElement(nouns);
 }
 
 std::string_view verb()
 {
-    return Helper::arrayElement(verbs);
+    return helper::arrayElement(verbs);
 }
 
 std::string_view ingverb()
 {
-    return Helper::arrayElement(ingverbs);
+    return helper::arrayElement(ingverbs);
 }
 
 std::string phrase()
 {
-    const auto splitRandomPhrase = StringHelper::split(static_cast<std::string>(Helper::arrayElement(phrases)));
+    const auto splitRandomPhrase = StringHelper::split(static_cast<std::string>(helper::arrayElement(phrases)));
 
     std::string phrase;
 

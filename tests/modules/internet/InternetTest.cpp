@@ -100,7 +100,8 @@ public:
 
 TEST_F(InternetTest, shouldGenerateUsername)
 {
-    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(),
+                                             person::englishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto generatedUsername = username();
@@ -124,7 +125,8 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFirstNameProvided)
 
 TEST_F(InternetTest, shouldGenerateUsernameWithLastNameProvided)
 {
-    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(),
+                                             person::englishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto lastName = "Cieslar";
@@ -164,7 +166,8 @@ TEST_F(InternetTest, shouldGenerateInternationalUsernames)
 
 TEST_F(InternetTest, shouldGenerateEmail)
 {
-    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(),
+                                             person::englishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto generatedEmail = email();
@@ -206,7 +209,8 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 {
-    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(),
+                                             person::englishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto lastName = "Howard";
@@ -250,7 +254,8 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 {
-    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(),
+                                             person::englishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto emailHost = "example.com";
@@ -273,7 +278,8 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 
 TEST_F(InternetTest, shouldGenerateExampleEmail)
 {
-    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(),
+                                             person::englishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto email = exampleEmail();
@@ -315,7 +321,8 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 {
-    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(),
+                                             person::englishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto lastName = "Wilkinson";
@@ -628,13 +635,13 @@ TEST_F(InternetTest, shouldGenerateIpv6)
 
     ASSERT_TRUE(std::ranges::all_of(generatedIpv6Parts, [](const std::string& generatedIpv6Part)
                                     { return generatedIpv6Part.size() == 4; }));
-    ASSERT_TRUE(std::ranges::all_of(generatedIpv6Parts,
-                                    [](const std::string_view& generatedIpv6Part)
-                                    {
-                                        return std::ranges::all_of(
-                                            generatedIpv6Part, [](char hexCharacter)
-                                            { return string::hexLowerCharacters.find(hexCharacter) != std::string::npos; });
-                                    }));
+    ASSERT_TRUE(std::ranges::all_of(
+        generatedIpv6Parts,
+        [](const std::string_view& generatedIpv6Part)
+        {
+            return std::ranges::all_of(generatedIpv6Part, [](char hexCharacter)
+                                       { return string::hexLowerCharacters.find(hexCharacter) != std::string::npos; });
+        }));
 }
 
 TEST_F(InternetTest, MacDefaultSeparator)
