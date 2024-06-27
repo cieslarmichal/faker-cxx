@@ -19,6 +19,10 @@ var annotated_dup =
       [ "internet", null, [
         [ "PasswordOptions", "structfaker_1_1internet_1_1PasswordOptions.html", null ]
       ] ],
+      [ "science", null, [
+        [ "ChemicalElement", "structfaker_1_1science_1_1ChemicalElement.html", null ],
+        [ "Unit", "structfaker_1_1science_1_1Unit.html", null ]
+      ] ],
       [ "string", null, [
         [ "CharCount", "structfaker_1_1string_1_1CharCount.html", null ]
       ] ],
@@ -27,7 +31,6 @@ var annotated_dup =
         [ "FileOptions", "structfaker_1_1system_1_1FileOptions.html", null ],
         [ "NetworkInterfaceOptions", "structfaker_1_1system_1_1NetworkInterfaceOptions.html", null ]
       ] ],
-      [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", null ],
-      [ "Science", "classfaker_1_1Science.html", "classfaker_1_1Science" ]
+      [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", null ]
     ] ]
 ];

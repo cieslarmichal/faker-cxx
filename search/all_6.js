@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['passwordoptions_0',['PasswordOptions',['../structfaker_1_1internet_1_1PasswordOptions.html',1,'faker::internet']]]
+  ['unit_0',['Unit',['../structfaker_1_1science_1_1Unit.html',1,'faker::science']]]
 ];

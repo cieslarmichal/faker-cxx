@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['massunit_0',['massUnit',['../classfaker_1_1Science.html#a11c2fe7aa766dcb44275eeb8fdc01896',1,'faker::Science']]]
+  ['passwordoptions_0',['PasswordOptions',['../structfaker_1_1internet_1_1PasswordOptions.html',1,'faker::internet']]]
 ];
