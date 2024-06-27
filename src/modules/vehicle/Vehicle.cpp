@@ -11,7 +11,6 @@
 
 namespace faker::vehicle
 {
-
 std::string_view bicycle()
 {
     return helper::arrayElement(bicycle_types);
