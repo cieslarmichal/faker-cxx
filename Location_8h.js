@@ -21,7 +21,6 @@ var Location_8h =
     [ "city", "Location_8h.html#a067df038502723c706785d79bc18f4cf", null ],
     [ "country", "Location_8h.html#a31317ea37043cb3b0f2cdc85c121424b", null ],
     [ "countryCode", "Location_8h.html#a0b8614d8dd7e662d30d204a17eb5b7fe", null ],
-    [ "county", "Location_8h.html#aff56b18007bcabd851130ecf3fd1b272", null ],
     [ "direction", "Location_8h.html#a3143e2d38681d13edc6750d6d8b5184a", null ],
     [ "latitude", "Location_8h.html#a52b5a116bca1c7a1a98b45bdad013ba8", null ],
     [ "longitude", "Location_8h.html#aa0bacdc2268c1cbffb1d5eb74373d041", null ],
