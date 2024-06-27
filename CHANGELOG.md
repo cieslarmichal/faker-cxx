@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file
 
-## 2.0.0 (TBD)
+## v2.0.0 (27.06.2024)
 
 ### ⚠ BREAKING CHANGES
 
