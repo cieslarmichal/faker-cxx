@@ -10,8 +10,7 @@
 
 namespace faker::phone
 {
-std::unordered_map<PhoneNumberCountryFormat, std::string> phoneNumberFormatMap =
-    createPhoneNumberFormatMap();
+std::unordered_map<PhoneNumberCountryFormat, std::string> phoneNumberFormatMap = createPhoneNumberFormatMap();
 
 std::string number(std::optional<std::string> format)
 {
@@ -19,14 +18,14 @@ std::string number(std::optional<std::string> format)
 
     if (!format.has_value() || format->empty())
     {
-        selectedFormat = Helper::arrayElement(phone::phoneNumbers);
+        selectedFormat = helper::arrayElement(phone::phoneNumbers);
     }
     else
     {
         selectedFormat = format.value();
     }
 
-    return Helper::replaceSymbolWithNumber(selectedFormat);
+    return helper::replaceSymbolWithNumber(selectedFormat);
 }
 
 std::string number(PhoneNumberCountryFormat format)
@@ -38,27 +37,27 @@ std::string number(PhoneNumberCountryFormat format)
         return phoneNumberFormatMap.at(PhoneNumberCountryFormat::Default);
     }
 
-    return Helper::replaceSymbolWithNumber(countryFormat);
+    return helper::replaceSymbolWithNumber(countryFormat);
 }
 
 std::string imei()
 {
-    return Helper::replaceCreditCardSymbols("##-######-######-L", '#');
+    return helper::replaceCreditCardSymbols("##-######-######-L", '#');
 }
 
 std::string_view platform()
 {
-    return Helper::arrayElement(phone::PhonePlatforms);
+    return helper::arrayElement(phone::PhonePlatforms);
 }
 
 std::string_view modelName()
 {
-    return Helper::arrayElement(phone::PhoneModelNames);
+    return helper::arrayElement(phone::PhoneModelNames);
 }
 
 std::string_view manufacturer()
 {
-    return Helper::arrayElement(phone::PhoneManufacturers);
+    return helper::arrayElement(phone::PhoneManufacturers);
 }
 
 std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap()
@@ -79,6 +78,6 @@ std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberForma
 
 std::string_view areaCode()
 {
-    return Helper::arrayElement(phone::areaCodes);
+    return helper::arrayElement(phone::areaCodes);
 }
 }

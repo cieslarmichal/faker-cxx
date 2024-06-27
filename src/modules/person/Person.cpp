@@ -187,7 +187,7 @@ std::string_view firstName(std::optional<Country> countryOpt, std::optional<Sex>
         firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
     }
 
-    return Helper::arrayElement(firstNames);
+    return helper::arrayElement(firstNames);
 }
 
 std::string_view lastName(std::optional<Country> countryOpt, std::optional<Sex> sex)
@@ -219,7 +219,7 @@ std::string_view lastName(std::optional<Country> countryOpt, std::optional<Sex> 
         lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
     }
 
-    return Helper::arrayElement(lastNames);
+    return helper::arrayElement(lastNames);
 }
 
 std::string fullName(std::optional<Country> countryOpt, std::optional<Sex> sex)
@@ -228,14 +228,14 @@ std::string fullName(std::optional<Country> countryOpt, std::optional<Sex> sex)
 
     const auto& peopleNames = getPeopleNamesByCountry(country);
 
-    std::vector<Helper::WeightedElement<std::string_view>> weightedElements;
+    std::vector<helper::WeightedElement<std::string_view>> weightedElements;
 
     for (const auto& nameFormat : peopleNames.nameFormats)
     {
         weightedElements.push_back({nameFormat.weight, nameFormat.format});
     }
 
-    const auto nameFormat = static_cast<std::string>(Helper::weightedArrayElement<std::string_view>(weightedElements));
+    const auto nameFormat = static_cast<std::string>(helper::weightedArrayElement<std::string_view>(weightedElements));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"firstName", [&country, &sex]() { return std::string{firstName(country, sex)}; }},
@@ -280,7 +280,7 @@ std::string_view prefix(std::optional<Country> countryOpt, std::optional<Sex> se
         return {};
     }
 
-    return Helper::arrayElement(prefixes);
+    return helper::arrayElement(prefixes);
 }
 
 std::string_view suffix(std::optional<Country> countryOpt, std::optional<Sex> sex)
@@ -317,16 +317,16 @@ std::string_view suffix(std::optional<Country> countryOpt, std::optional<Sex> se
         return {};
     }
 
-    return Helper::arrayElement(suffixes);
+    return helper::arrayElement(suffixes);
 }
 
 std::string bio()
 {
-    const auto randomBioFormat = static_cast<std::string>(Helper::arrayElement(bioFormats));
+    const auto randomBioFormat = static_cast<std::string>(helper::arrayElement(bioFormats));
 
     const std::unordered_map<std::string_view, std::function<std::string_view()>> dataGeneratorsMapping{
-        {"bio_part", []() { return Helper::arrayElement(bioParts); }},
-        {"bio_supporter", []() { return Helper::arrayElement(bioSupporters); }},
+        {"bio_part", []() { return helper::arrayElement(bioParts); }},
+        {"bio_supporter", []() { return helper::arrayElement(bioSupporters); }},
         {"noun", []() { return word::noun(); }},
         {"emoji", []() { return internet::emoji(); }}};
 
@@ -337,7 +337,7 @@ std::string_view sex(std::optional<Language> languageOpt)
 {
     const std::vector<std::string> sexes{"Male", "Female"};
 
-    const auto chosenSex = Helper::arrayElement(sexes);
+    const auto chosenSex = helper::arrayElement(sexes);
 
     const auto sexEnum = chosenSex == "Male" ? Sex::Male : Sex::Female;
 
@@ -355,7 +355,7 @@ std::string_view sex(std::optional<Language> languageOpt)
 
 std::string_view gender()
 {
-    return Helper::arrayElement(genders);
+    return helper::arrayElement(genders);
 }
 
 std::string jobTitle()
@@ -365,41 +365,41 @@ std::string jobTitle()
 
 std::string_view jobDescriptor()
 {
-    return Helper::arrayElement(jobDescriptors);
+    return helper::arrayElement(jobDescriptors);
 }
 
 std::string_view jobArea()
 {
-    return Helper::arrayElement(jobAreas);
+    return helper::arrayElement(jobAreas);
 }
 
 std::string_view jobType()
 {
-    return Helper::arrayElement(jobTypes);
+    return helper::arrayElement(jobTypes);
 }
 
 std::string_view hobby()
 {
-    return Helper::arrayElement(hobbies);
+    return helper::arrayElement(hobbies);
 }
 
 std::string_view language()
 {
-    return Helper::arrayElement(languages);
+    return helper::arrayElement(languages);
 }
 
 std::string_view nationality()
 {
-    return Helper::arrayElement(nationalities);
+    return helper::arrayElement(nationalities);
 }
 
 std::string ssn(std::optional<SsnCountry> country)
 {
-    const auto ssnCountry = country ? *country : Helper::arrayElement(supportedSsnCountries);
+    const auto ssnCountry = country ? *country : helper::arrayElement(supportedSsnCountries);
 
     const auto& ssnFormat = std::string{ssnFormats.at(ssnCountry)};
 
-    auto ssnWithoutRegexes = Helper::regexpStyleStringParse(ssnFormat);
+    auto ssnWithoutRegexes = helper::regexpStyleStringParse(ssnFormat);
 
     std::string ssn;
 
@@ -428,12 +428,12 @@ std::string ssn(std::optional<SsnCountry> country)
 
 std::string_view westernZodiac()
 {
-    return Helper::arrayElement(westernZodiacs);
+    return helper::arrayElement(westernZodiacs);
 }
 
 std::string_view chineseZodiac()
 {
-    return Helper::arrayElement(chineseZodiacs);
+    return helper::arrayElement(chineseZodiacs);
 }
 
 std::string passport(std::optional<PassportCountry> countryOpt)

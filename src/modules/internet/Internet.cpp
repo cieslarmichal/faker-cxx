@@ -52,16 +52,11 @@ constexpr unsigned int ipv4ClassBSecondSectorUpperBound = 31u;
 constexpr unsigned int ipv4SectorUpperBound = 255u;
 
 const std::map<EmojiType, std::vector<std::string_view>> emojiTypeToEmojisMapping = {
-    {EmojiType::Smiley, Helper::toVector(smileyEmojis)},
-    {EmojiType::Body, Helper::toVector(bodyEmojis)},
-    {EmojiType::Person, Helper::toVector(personEmojis)},
-    {EmojiType::Nature, Helper::toVector(natureEmojis)},
-    {EmojiType::Food, Helper::toVector(foodEmojis)},
-    {EmojiType::Travel, Helper::toVector(travelEmojis)},
-    {EmojiType::Activity, Helper::toVector(activityEmojis)},
-    {EmojiType::Object, Helper::toVector(objectEmojis)},
-    {EmojiType::Symbol, Helper::toVector(symbolEmojis)},
-    {EmojiType::Flag, Helper::toVector(flagEmojis)},
+    {EmojiType::Smiley, helper::toVector(smileyEmojis)},     {EmojiType::Body, helper::toVector(bodyEmojis)},
+    {EmojiType::Person, helper::toVector(personEmojis)},     {EmojiType::Nature, helper::toVector(natureEmojis)},
+    {EmojiType::Food, helper::toVector(foodEmojis)},         {EmojiType::Travel, helper::toVector(travelEmojis)},
+    {EmojiType::Activity, helper::toVector(activityEmojis)}, {EmojiType::Object, helper::toVector(objectEmojis)},
+    {EmojiType::Symbol, helper::toVector(symbolEmojis)},     {EmojiType::Flag, helper::toVector(flagEmojis)},
 };
 }
 
@@ -85,8 +80,7 @@ std::vector<std::string_view> getAllEmojis()
     return emojis;
 }
 
-std::string username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit,
-                               Country country)
+std::string username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit, Country country)
 {
     const auto firstName = firstNameInit ? *firstNameInit : person::firstName(country);
     const auto lastName = lastNameInit ? *lastNameInit : person::lastName(country);
@@ -100,11 +94,11 @@ std::string username(std::optional<std::string> firstNameInit, std::optional<std
         break;
     case 1:
         username = FormatHelper::format("{}{}{}", firstName,
-                                        Helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
+                                        helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
         username =
-            FormatHelper::format("{}{}{}{}", firstName, Helper::arrayElement(std::vector<std::string>{".", "_", ""}),
+            FormatHelper::format("{}{}{}{}", firstName, helper::arrayElement(std::vector<std::string>{".", "_", ""}),
                                  lastName, number::integer<int>(99));
         break;
     }
@@ -113,16 +107,16 @@ std::string username(std::optional<std::string> firstNameInit, std::optional<std
 }
 
 std::string email(std::optional<std::string> firstName, std::optional<std::string> lastName,
-                            std::optional<std::string> emailHost)
+                  std::optional<std::string> emailHost)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                                emailHost ? *emailHost : Helper::arrayElement(emailHosts));
+                                emailHost ? *emailHost : helper::arrayElement(emailHosts));
 }
 
 std::string exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
     return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                                Helper::arrayElement(emailExampleHosts));
+                                helper::arrayElement(emailExampleHosts));
 }
 
 std::string password(int length, const PasswordOptions& options)
@@ -153,7 +147,7 @@ std::string password(int length, const PasswordOptions& options)
 
     for (int i = 0; i < length; ++i)
     {
-        password += Helper::arrayElement<char>(characters);
+        password += helper::arrayElement<char>(characters);
     }
 
     return password;
@@ -165,11 +159,11 @@ std::string_view emoji(std::optional<EmojiType> type)
     {
         const auto& emojisMapped = emojiTypeToEmojisMapping.at(*type);
 
-        return Helper::arrayElement(emojisMapped);
+        return helper::arrayElement(emojisMapped);
     }
 
     const auto emojis = getAllEmojis();
-    return Helper::arrayElement(emojis);
+    return helper::arrayElement(emojis);
 }
 
 bool checkIfEmojiIsValid(const std::string& emojiToCheck)
@@ -180,12 +174,12 @@ bool checkIfEmojiIsValid(const std::string& emojiToCheck)
 
 std::string_view protocol()
 {
-    return Helper::arrayElement(webProtocols);
+    return helper::arrayElement(webProtocols);
 }
 
 std::string_view httpMethod()
 {
-    return Helper::arrayElement(httpMethodNames);
+    return helper::arrayElement(httpMethodNames);
 }
 
 unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
@@ -194,7 +188,7 @@ unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
     {
         const auto& statusCodes = httpResponseTypeToCodesMapping.at(*responseType);
 
-        return Helper::arrayElement(statusCodes);
+        return helper::arrayElement(statusCodes);
     }
 
     std::vector<unsigned> statusCodes;
@@ -208,22 +202,22 @@ unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
     statusCodes.insert(statusCodes.end(), httpStatusClientErrorCodes.begin(), httpStatusClientErrorCodes.end());
     statusCodes.insert(statusCodes.end(), httpStatusServerErrorCodes.begin(), httpStatusServerErrorCodes.end());
 
-    return Helper::arrayElement(statusCodes);
+    return helper::arrayElement(statusCodes);
 }
 
 std::string_view httpRequestHeader()
 {
-    return Helper::arrayElement(httpRequestHeaders);
+    return helper::arrayElement(httpRequestHeaders);
 }
 
 std::string_view httpResponseHeader()
 {
-    return Helper::arrayElement(httpResponseHeaders);
+    return helper::arrayElement(httpResponseHeaders);
 }
 
 std::string_view httpMediaType()
 {
-    return Helper::arrayElement(httpMediaTypes);
+    return helper::arrayElement(httpMediaTypes);
 }
 
 std::string ipv4(const IPv4Class& ipv4class)
@@ -257,8 +251,7 @@ std::string ipv4(const IPv4Class& ipv4class)
     return FormatHelper::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
-std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
-                           const std::array<unsigned int, 4>& generationMask)
+std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address, const std::array<unsigned int, 4>& generationMask)
 {
     std::array<unsigned int, 4> sectors{};
 
@@ -333,7 +326,7 @@ std::string domainWord()
 
 std::string_view domainSuffix()
 {
-    return Helper::arrayElement(domainSuffixes);
+    return helper::arrayElement(domainSuffixes);
 }
 
 std::string anonymousUsername(unsigned maxLength)

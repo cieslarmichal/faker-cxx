@@ -9,46 +9,46 @@ namespace faker::computer
 {
 std::string_view type()
 {
-    return Helper::arrayElement(computerTypes);
+    return helper::arrayElement(computerTypes);
 }
 
 std::string_view manufacture()
 {
-    return Helper::arrayElement(computerManufacturers);
+    return helper::arrayElement(computerManufacturers);
 }
 
 std::string_view model()
 {
-    return Helper::arrayElement(computerModels);
+    return helper::arrayElement(computerModels);
 }
 
 std::string_view cpuManufacture()
 {
-    return Helper::arrayElement(cpuManufacturers);
+    return helper::arrayElement(cpuManufacturers);
 }
 
 std::string_view cpuType()
 {
-    return Helper::arrayElement(cpuTypes);
+    return helper::arrayElement(cpuTypes);
 }
 
 std::string_view cpuModel()
 {
-    return Helper::arrayElement(cpuModels);
+    return helper::arrayElement(cpuModels);
 }
 
 std::string_view gpuManufacture()
 {
-    return Helper::arrayElement(gpuManufacturers);
+    return helper::arrayElement(gpuManufacturers);
 }
 
 std::string_view gpuType()
 {
-    return Helper::arrayElement(gpuTypes);
+    return helper::arrayElement(gpuTypes);
 }
 
 std::string_view gpuModel()
 {
-    return Helper::arrayElement(gpuModels);
+    return helper::arrayElement(gpuModels);
 }
 }

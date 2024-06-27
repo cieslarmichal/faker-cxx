@@ -59,7 +59,7 @@ TEST_F(GitTest, branchIssueNumTest)
     while (!numberAtFront)
     {
         branchElements = StringHelper::split(branch(testValue), "-");
-        
+
         try
         {
             number = std::stoi(branchElements[0]);

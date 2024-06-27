@@ -16,7 +16,7 @@ auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end
 {
     if (!length)
     {
-        return Helper::arrayElement(start, end);
+        return helper::arrayElement(start, end);
     }
 
     size_t length_64 = *length;
@@ -25,21 +25,26 @@ auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end
 
     if (lower_it == end)
     {
-        return Helper::arrayElement(start, end);
+        return helper::arrayElement(start, end);
     }
-    else
-    {
-        if (lower_it->size() != length)
-            return Helper::arrayElement(start, end);
 
-        auto upper_it = lower_it;
-        for (; upper_it != end; upper_it++)
-        {
-            if (upper_it->size() != lower_it->size())
-                break;
-        }
-        return Helper::arrayElement(lower_it, upper_it);
+    if (lower_it->size() != length)
+    {
+        return helper::arrayElement(start, end);
     }
+
+    auto upper_it = lower_it;
+
+    for (; upper_it != end; upper_it++)
+    {
+        if (upper_it->size() != lower_it->size())
+        {
+
+            break;
+        }
+    }
+
+    return helper::arrayElement(lower_it, upper_it);
 }
 
 std::string_view sample(std::optional<unsigned int> length)

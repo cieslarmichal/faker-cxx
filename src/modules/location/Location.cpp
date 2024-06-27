@@ -97,12 +97,12 @@ Country getCountry(const AddressCountry& addressCountry)
 
 std::string_view country()
 {
-    return Helper::arrayElement(allCountries);
+    return helper::arrayElement(allCountries);
 }
 
 std::string_view countryCode()
 {
-    return Helper::arrayElement(countryCodes);
+    return helper::arrayElement(countryCodes);
 }
 
 std::string_view county(AddressCountry country)
@@ -114,31 +114,31 @@ std::string_view county(AddressCountry country)
         return "";
     }
 
-    return Helper::arrayElement(countryAddresses.counties);
+    return helper::arrayElement(countryAddresses.counties);
 }
 
 std::string_view state(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
-    return Helper::arrayElement(countryAddresses.states);
+    return helper::arrayElement(countryAddresses.states);
 }
 
 std::string city(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
-    const auto cityFormat = static_cast<std::string>(Helper::arrayElement(countryAddresses.cityFormats));
+    const auto cityFormat = static_cast<std::string>(helper::arrayElement(countryAddresses.cityFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"firstName", [&country]() { return static_cast<std::string>(person::firstName(getCountry(country))); }},
         {"lastName", [&country]() { return static_cast<std::string>(person::lastName(getCountry(country))); }},
         {"cityName",
-         [&countryAddresses]() { return static_cast<std::string>(Helper::arrayElement(countryAddresses.cities)); }},
+         [&countryAddresses]() { return static_cast<std::string>(helper::arrayElement(countryAddresses.cities)); }},
         {"cityPrefix", [&countryAddresses]()
-         { return static_cast<std::string>(Helper::arrayElement(countryAddresses.cityPrefixes)); }},
+         { return static_cast<std::string>(helper::arrayElement(countryAddresses.cityPrefixes)); }},
         {"citySuffix", [&countryAddresses]()
-         { return static_cast<std::string>(Helper::arrayElement(countryAddresses.citySuffixes)); }}};
+         { return static_cast<std::string>(helper::arrayElement(countryAddresses.citySuffixes)); }}};
 
     return FormatHelper::fillTokenValues(cityFormat, dataGeneratorsMapping);
 }
@@ -147,7 +147,7 @@ std::string zipCode(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
-    return Helper::replaceSymbolWithNumber(static_cast<std::string>(countryAddresses.zipCodeFormat));
+    return helper::replaceSymbolWithNumber(static_cast<std::string>(countryAddresses.zipCodeFormat));
 }
 
 std::string streetAddress(AddressCountry country)
@@ -159,7 +159,7 @@ std::string streetAddress(AddressCountry country)
         {"street", [&country]() { return street(country); }},
         {"secondaryAddress", [&country]() { return secondaryAddress(country); }}};
 
-    const auto addressFormat = static_cast<std::string>(Helper::arrayElement(countryAddresses.addressFormats));
+    const auto addressFormat = static_cast<std::string>(helper::arrayElement(countryAddresses.addressFormats));
 
     return FormatHelper::fillTokenValues(addressFormat, dataGeneratorsMapping);
 }
@@ -168,17 +168,17 @@ std::string street(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
-    const auto streetFormat = static_cast<std::string>(Helper::arrayElement(countryAddresses.streetFormats));
+    const auto streetFormat = static_cast<std::string>(helper::arrayElement(countryAddresses.streetFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"firstName", [&country]() { return static_cast<std::string>(person::firstName(getCountry(country))); }},
         {"lastName", [&country]() { return static_cast<std::string>(person::lastName(getCountry(country))); }},
         {"streetName", [&countryAddresses]()
-         { return static_cast<std::string>(Helper::arrayElement(countryAddresses.streetNames)); }},
+         { return static_cast<std::string>(helper::arrayElement(countryAddresses.streetNames)); }},
         {"streetPrefix", [&countryAddresses]()
-         { return static_cast<std::string>(Helper::arrayElement(countryAddresses.streetPrefixes)); }},
+         { return static_cast<std::string>(helper::arrayElement(countryAddresses.streetPrefixes)); }},
         {"streetSuffix", [&countryAddresses]()
-         { return static_cast<std::string>(Helper::arrayElement(countryAddresses.streetSuffixes)); }}};
+         { return static_cast<std::string>(helper::arrayElement(countryAddresses.streetSuffixes)); }}};
 
     return FormatHelper::fillTokenValues(streetFormat, dataGeneratorsMapping);
 }
@@ -188,9 +188,9 @@ std::string buildingNumber(AddressCountry country)
     const auto& countryAddresses = getAddresses(country);
 
     const auto buildingNumberFormat =
-        static_cast<std::string>(Helper::arrayElement(countryAddresses.buildingNumberFormats));
+        static_cast<std::string>(helper::arrayElement(countryAddresses.buildingNumberFormats));
 
-    return Helper::replaceSymbolWithNumber(buildingNumberFormat);
+    return helper::replaceSymbolWithNumber(buildingNumberFormat);
 }
 
 std::string secondaryAddress(AddressCountry country)
@@ -203,9 +203,9 @@ std::string secondaryAddress(AddressCountry country)
     }
 
     const auto secondaryAddressFormat =
-        static_cast<std::string>(Helper::arrayElement(countryAddresses.secondaryAddressFormats));
+        static_cast<std::string>(helper::arrayElement(countryAddresses.secondaryAddressFormats));
 
-    return Helper::replaceSymbolWithNumber(secondaryAddressFormat);
+    return helper::replaceSymbolWithNumber(secondaryAddressFormat);
 }
 
 std::string latitude(Precision precision)
@@ -224,12 +224,12 @@ std::string longitude(Precision precision)
 
 std::string_view direction()
 {
-    return Helper::arrayElement(directions);
+    return helper::arrayElement(directions);
 }
 
 std::string_view timeZone()
 {
-    return Helper::arrayElement(timeZones);
+    return helper::arrayElement(timeZones);
 }
 
 }

@@ -18,7 +18,7 @@ std::string name()
     switch (number::integer<int>(3))
     {
     case 0:
-        companyName = FormatHelper::format("{} {}", person::lastName(), Helper::arrayElement(companySuffixes));
+        companyName = FormatHelper::format("{} {}", person::lastName(), helper::arrayElement(companySuffixes));
         break;
     case 1:
         companyName = FormatHelper::format("{} {} {}", person::firstName(), person::lastName(), person::jobArea());
@@ -29,7 +29,7 @@ std::string name()
         break;
     case 3:
         companyName = FormatHelper::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(),
-                                           Helper::arrayElement(companySuffixes));
+                                           helper::arrayElement(companySuffixes));
         break;
     }
 
@@ -38,12 +38,12 @@ std::string name()
 
 std::string_view type()
 {
-    return Helper::arrayElement(companyTypes);
+    return helper::arrayElement(companyTypes);
 }
 
 std::string_view industry()
 {
-    return Helper::arrayElement(companyIndustries);
+    return helper::arrayElement(companyIndustries);
 }
 
 std::string buzzPhrase()
@@ -53,17 +53,17 @@ std::string buzzPhrase()
 
 std::string_view buzzAdjective()
 {
-    return Helper::arrayElement(buzzAdjectives);
+    return helper::arrayElement(buzzAdjectives);
 }
 
 std::string_view buzzNoun()
 {
-    return Helper::arrayElement(buzzNouns);
+    return helper::arrayElement(buzzNouns);
 }
 
 std::string_view buzzVerb()
 {
-    return Helper::arrayElement(buzzVerbs);
+    return helper::arrayElement(buzzVerbs);
 }
 
 std::string catchPhrase()
@@ -73,16 +73,16 @@ std::string catchPhrase()
 
 std::string_view catchPhraseAdjective()
 {
-    return Helper::arrayElement(catchPhraseAdjectives);
+    return helper::arrayElement(catchPhraseAdjectives);
 }
 
 std::string_view catchPhraseDescriptor()
 {
-    return Helper::arrayElement(catchPhraseDescriptors);
+    return helper::arrayElement(catchPhraseDescriptors);
 }
 
 std::string_view catchPhraseNoun()
 {
-    return Helper::arrayElement(catchPhraseNouns);
+    return helper::arrayElement(catchPhraseNouns);
 }
 }

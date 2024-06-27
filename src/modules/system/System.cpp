@@ -100,7 +100,7 @@ std::string fileExtension(const std::optional<FileType>& mimeType)
             }
         }
 
-        return Helper::arrayElement(extensions);
+        return helper::arrayElement(extensions);
     }
     else
     {
@@ -113,7 +113,7 @@ std::string fileExtension(const std::optional<FileType>& mimeType)
 
         std::vector<std::string> extensions(extensionSet.begin(), extensionSet.end());
 
-        return Helper::arrayElement(extensions);
+        return helper::arrayElement(extensions);
     }
 }
 
@@ -137,7 +137,7 @@ std::string commonFileName(const std::optional<std::string>& ext)
 
 std::string_view commonFileExtension()
 {
-    auto mimeType = Helper::arrayElement(commonMimeTypes);
+    auto mimeType = helper::arrayElement(commonMimeTypes);
 
     return extension(mimeType);
 }
@@ -153,17 +153,17 @@ std::string_view mimeType()
         mimeTypeKeys.push_back(entry);
     }
 
-    return Helper::arrayElement(mimeTypeKeys);
+    return helper::arrayElement(mimeTypeKeys);
 }
 
 std::string_view fileType()
 {
-    return Helper::arrayElement(commonFileTypes);
+    return helper::arrayElement(commonFileTypes);
 }
 
 std::string_view directoryPath()
 {
-    return Helper::arrayElement(directoryPaths);
+    return helper::arrayElement(directoryPaths);
 }
 
 std::string filePath()
@@ -182,8 +182,8 @@ std::string semver()
 
 std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options)
 {
-    const auto defaultInterfaceType = Helper::arrayElement(commonInterfaceTypes);
-    const std::string defaultInterfaceSchema = std::string(Helper::objectKey(commonInterfaceSchemas));
+    const auto defaultInterfaceType = helper::arrayElement(commonInterfaceTypes);
+    const std::string defaultInterfaceSchema = std::string(helper::objectKey(commonInterfaceSchemas));
 
     std::string interfaceType = std::string(defaultInterfaceType);
     std::string interfaceSchema = defaultInterfaceSchema;
@@ -211,8 +211,8 @@ std::string networkInterface(const std::optional<NetworkInterfaceOptions>& optio
     }
     else if (interfaceSchema == "slot")
     {
-        suffix = Helper::maybe<std::string>([&]() { return "f" + digit(); });
-        suffix += Helper::maybe<std::string>([&]() { return "d" + digit(); });
+        suffix = helper::maybe<std::string>([&]() { return "f" + digit(); });
+        suffix += helper::maybe<std::string>([&]() { return "d" + digit(); });
     }
     else if (interfaceSchema == "mac")
     {
@@ -220,10 +220,10 @@ std::string networkInterface(const std::optional<NetworkInterfaceOptions>& optio
     }
     else if (interfaceSchema == "pci")
     {
-        prefix = Helper::maybe<std::string>([&]() { return "P" + digit(); });
+        prefix = helper::maybe<std::string>([&]() { return "P" + digit(); });
         suffix = digit() + "s" + digit();
-        suffix += Helper::maybe<std::string>([&]() { return "f" + digit(); });
-        suffix += Helper::maybe<std::string>([&]() { return "d" + digit(); });
+        suffix += helper::maybe<std::string>([&]() { return "f" + digit(); });
+        suffix += helper::maybe<std::string>([&]() { return "d" + digit(); });
     }
 
     return prefix + interfaceType + std::string(commonInterfaceSchemas.at(interfaceSchema)) + suffix;
@@ -253,12 +253,12 @@ std::string cron(const CronOptions& options)
         years = {std::to_string(number::integer(1970, 2099)), "*"};
     }
 
-    const auto minute = Helper::arrayElement(minutes);
-    const auto hour = Helper::arrayElement(hours);
-    const auto day = Helper::arrayElement(days);
-    const auto month = Helper::arrayElement(months);
-    const auto dayOfWeek = Helper::arrayElement(daysOfWeek);
-    const auto year = Helper::arrayElement(years);
+    const auto minute = helper::arrayElement(minutes);
+    const auto hour = helper::arrayElement(hours);
+    const auto day = helper::arrayElement(days);
+    const auto month = helper::arrayElement(months);
+    const auto dayOfWeek = helper::arrayElement(daysOfWeek);
+    const auto year = helper::arrayElement(years);
 
     std::string standardExpression = minute + " " + hour + " " + day + " " + month + " " + dayOfWeek;
 
@@ -271,6 +271,6 @@ std::string cron(const CronOptions& options)
                                                        "@reboot",   "@weekly", "@yearly"};
 
     return (!includeNonStandard || datatype::boolean(0)) ? standardExpression :
-                                                           Helper::arrayElement<std::string>(nonStandardExpressions);
+                                                           helper::arrayElement<std::string>(nonStandardExpressions);
 }
 }
