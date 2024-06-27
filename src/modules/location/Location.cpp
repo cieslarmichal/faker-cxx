@@ -131,8 +131,8 @@ std::string city(AddressCountry country)
     const auto cityFormat = static_cast<std::string>(Helper::arrayElement(countryAddresses.cityFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"firstName", [&country]() { return static_cast<std::string>(Person::firstName(getCountry(country))); }},
-        {"lastName", [&country]() { return static_cast<std::string>(Person::lastName(getCountry(country))); }},
+        {"firstName", [&country]() { return static_cast<std::string>(person::firstName(getCountry(country))); }},
+        {"lastName", [&country]() { return static_cast<std::string>(person::lastName(getCountry(country))); }},
         {"cityName",
          [&countryAddresses]() { return static_cast<std::string>(Helper::arrayElement(countryAddresses.cities)); }},
         {"cityPrefix", [&countryAddresses]()
@@ -171,8 +171,8 @@ std::string street(AddressCountry country)
     const auto streetFormat = static_cast<std::string>(Helper::arrayElement(countryAddresses.streetFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"firstName", [&country]() { return static_cast<std::string>(Person::firstName(getCountry(country))); }},
-        {"lastName", [&country]() { return static_cast<std::string>(Person::lastName(getCountry(country))); }},
+        {"firstName", [&country]() { return static_cast<std::string>(person::firstName(getCountry(country))); }},
+        {"lastName", [&country]() { return static_cast<std::string>(person::lastName(getCountry(country))); }},
         {"streetName", [&countryAddresses]()
          { return static_cast<std::string>(Helper::arrayElement(countryAddresses.streetNames)); }},
         {"streetPrefix", [&countryAddresses]()

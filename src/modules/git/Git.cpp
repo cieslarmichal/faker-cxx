@@ -91,8 +91,8 @@ std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigne
         entry += commitSha();
     }
 
-    const auto firstName = static_cast<std::string>(Person::firstName(country));
-    const auto lastName = static_cast<std::string>(Person::lastName(country));
+    const auto firstName = static_cast<std::string>(person::firstName(country));
+    const auto lastName = static_cast<std::string>(person::lastName(country));
 
     entry += "\nAuthor: " + firstName + " " + lastName + " " + internet::email(firstName, lastName) + "\nDate: ";
 
