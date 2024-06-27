@@ -18,17 +18,17 @@ std::string name()
     switch (number::integer<int>(3))
     {
     case 0:
-        companyName = FormatHelper::format("{} {}", Person::lastName(), Helper::arrayElement(companySuffixes));
+        companyName = FormatHelper::format("{} {}", person::lastName(), Helper::arrayElement(companySuffixes));
         break;
     case 1:
-        companyName = FormatHelper::format("{} {} {}", Person::firstName(), Person::lastName(), Person::jobArea());
+        companyName = FormatHelper::format("{} {} {}", person::firstName(), person::lastName(), person::jobArea());
         break;
     case 2:
         companyName =
-            FormatHelper::format("{} {} {} Services", Person::firstName(), Person::lastName(), Person::jobArea());
+            FormatHelper::format("{} {} {} Services", person::firstName(), person::lastName(), person::jobArea());
         break;
     case 3:
-        companyName = FormatHelper::format("{} {} {} {}", Person::firstName(), Person::lastName(), Person::jobArea(),
+        companyName = FormatHelper::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(),
                                            Helper::arrayElement(companySuffixes));
         break;
     }

@@ -88,8 +88,8 @@ std::vector<std::string_view> getAllEmojis()
 std::string username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit,
                                Country country)
 {
-    const auto firstName = firstNameInit ? *firstNameInit : Person::firstName(country);
-    const auto lastName = lastNameInit ? *lastNameInit : Person::lastName(country);
+    const auto firstName = firstNameInit ? *firstNameInit : person::firstName(country);
+    const auto lastName = lastNameInit ? *lastNameInit : person::lastName(country);
 
     std::string username;
 

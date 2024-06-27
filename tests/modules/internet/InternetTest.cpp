@@ -100,14 +100,14 @@ public:
 
 TEST_F(InternetTest, shouldGenerateUsername)
 {
-    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
-    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto generatedUsername = username();
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
+    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
@@ -118,14 +118,14 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFirstNameProvided)
     const auto generatedUsername = username(firstName);
 
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
+    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateUsernameWithLastNameProvided)
 {
-    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
-    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto lastName = "Cieslar";
 
@@ -150,22 +150,22 @@ TEST_F(InternetTest, shouldGenerateUsernameWithFullNameProvided)
 
 TEST_F(InternetTest, shouldGenerateInternationalUsernames)
 {
-    std::vector<std::string_view> firstNames(polishMaleFirstNames.begin(), polishMaleFirstNames.end());
-    firstNames.insert(firstNames.end(), polishFemaleFirstNames.begin(), polishFemaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::polishMaleFirstNames.begin(), person::polishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::polishFemaleFirstNames.begin(), person::polishFemaleFirstNames.end());
 
     const auto generatedUsername = username(std::nullopt, std::nullopt, Country::Poland);
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
 
-    ASSERT_TRUE(std::ranges::any_of(polishLastNames, [generatedUsername](const std::string_view& lastName)
+    ASSERT_TRUE(std::ranges::any_of(person::polishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmail)
 {
-    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
-    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto generatedEmail = email();
 
@@ -180,7 +180,7 @@ TEST_F(InternetTest, shouldGenerateEmail)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
+    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
@@ -200,14 +200,14 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
     ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
+    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 {
-    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
-    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto lastName = "Howard";
 
@@ -250,8 +250,8 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 
 TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 {
-    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
-    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto emailHost = "example.com";
 
@@ -267,14 +267,14 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
     ASSERT_EQ(generatedEmailHost, emailHost);
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
+    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmail)
 {
-    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
-    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto email = exampleEmail();
 
@@ -289,7 +289,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmail)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
                                     { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
+    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
@@ -309,14 +309,14 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
     ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::ranges::any_of(englishLastNames, [generatedUsername](const std::string_view& lastName)
+    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
                                     { return generatedUsername.find(lastName) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 {
-    std::vector<std::string_view> firstNames(englishMaleFirstNames.begin(), englishMaleFirstNames.end());
-    firstNames.insert(firstNames.end(), englishFemaleFirstNames.begin(), englishFemaleFirstNames.end());
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(), person::englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
     const auto lastName = "Wilkinson";
 

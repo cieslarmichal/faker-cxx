@@ -14,7 +14,7 @@
 #include "faker-cxx/Word.h"
 #include "PersonData.h"
 
-namespace faker
+namespace faker::person
 {
 namespace
 {
@@ -158,7 +158,7 @@ const struct PeopleNames& getPeopleNamesByCountry(const Country& country)
 
 }
 
-std::string_view Person::firstName(std::optional<Country> countryOpt, std::optional<Sex> sex)
+std::string_view firstName(std::optional<Country> countryOpt, std::optional<Sex> sex)
 {
     const auto country = countryOpt ? *countryOpt : Country::England;
 
@@ -190,7 +190,7 @@ std::string_view Person::firstName(std::optional<Country> countryOpt, std::optio
     return Helper::arrayElement(firstNames);
 }
 
-std::string_view Person::lastName(std::optional<Country> countryOpt, std::optional<Sex> sex)
+std::string_view lastName(std::optional<Country> countryOpt, std::optional<Sex> sex)
 {
     const auto country = countryOpt ? *countryOpt : Country::England;
 
@@ -222,7 +222,7 @@ std::string_view Person::lastName(std::optional<Country> countryOpt, std::option
     return Helper::arrayElement(lastNames);
 }
 
-std::string Person::fullName(std::optional<Country> countryOpt, std::optional<Sex> sex)
+std::string fullName(std::optional<Country> countryOpt, std::optional<Sex> sex)
 {
     const auto country = countryOpt ? *countryOpt : Country::England;
 
@@ -246,7 +246,7 @@ std::string Person::fullName(std::optional<Country> countryOpt, std::optional<Se
     return FormatHelper::fillTokenValues(nameFormat, dataGeneratorsMapping);
 }
 
-std::string_view Person::prefix(std::optional<Country> countryOpt, std::optional<Sex> sex)
+std::string_view prefix(std::optional<Country> countryOpt, std::optional<Sex> sex)
 {
     const auto country = countryOpt ? *countryOpt : Country::England;
 
@@ -283,7 +283,7 @@ std::string_view Person::prefix(std::optional<Country> countryOpt, std::optional
     return Helper::arrayElement(prefixes);
 }
 
-std::string_view Person::suffix(std::optional<Country> countryOpt, std::optional<Sex> sex)
+std::string_view suffix(std::optional<Country> countryOpt, std::optional<Sex> sex)
 {
     const auto country = countryOpt ? *countryOpt : Country::England;
 
@@ -320,7 +320,7 @@ std::string_view Person::suffix(std::optional<Country> countryOpt, std::optional
     return Helper::arrayElement(suffixes);
 }
 
-std::string Person::bio()
+std::string bio()
 {
     const auto randomBioFormat = static_cast<std::string>(Helper::arrayElement(bioFormats));
 
@@ -333,7 +333,7 @@ std::string Person::bio()
     return FormatHelper::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
 }
 
-std::string_view Person::sex(std::optional<Language> languageOpt)
+std::string_view sex(std::optional<Language> languageOpt)
 {
     const std::vector<std::string> sexes{"Male", "Female"};
 
@@ -353,47 +353,47 @@ std::string_view Person::sex(std::optional<Language> languageOpt)
     return sexTranslation->second.at(sexEnum);
 }
 
-std::string_view Person::gender()
+std::string_view gender()
 {
     return Helper::arrayElement(genders);
 }
 
-std::string Person::jobTitle()
+std::string jobTitle()
 {
     return FormatHelper::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
 }
 
-std::string_view Person::jobDescriptor()
+std::string_view jobDescriptor()
 {
     return Helper::arrayElement(jobDescriptors);
 }
 
-std::string_view Person::jobArea()
+std::string_view jobArea()
 {
     return Helper::arrayElement(jobAreas);
 }
 
-std::string_view Person::jobType()
+std::string_view jobType()
 {
     return Helper::arrayElement(jobTypes);
 }
 
-std::string_view Person::hobby()
+std::string_view hobby()
 {
     return Helper::arrayElement(hobbies);
 }
 
-std::string_view Person::language()
+std::string_view language()
 {
     return Helper::arrayElement(languages);
 }
 
-std::string_view Person::nationality()
+std::string_view nationality()
 {
     return Helper::arrayElement(nationalities);
 }
 
-std::string Person::ssn(std::optional<SsnCountry> country)
+std::string ssn(std::optional<SsnCountry> country)
 {
     const auto ssnCountry = country ? *country : Helper::arrayElement(supportedSsnCountries);
 
@@ -426,17 +426,17 @@ std::string Person::ssn(std::optional<SsnCountry> country)
     return ssn;
 }
 
-std::string_view Person::westernZodiac()
+std::string_view westernZodiac()
 {
     return Helper::arrayElement(westernZodiacs);
 }
 
-std::string_view Person::chineseZodiac()
+std::string_view chineseZodiac()
 {
     return Helper::arrayElement(chineseZodiacs);
 }
 
-std::string Person::passport(std::optional<PassportCountry> countryOpt)
+std::string passport(std::optional<PassportCountry> countryOpt)
 {
     const auto country = countryOpt ? *countryOpt : PassportCountry::Usa;
 

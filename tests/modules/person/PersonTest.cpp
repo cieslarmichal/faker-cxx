@@ -18,6 +18,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace faker::person;
 
 namespace
 {
@@ -234,8 +235,6 @@ const std::unordered_map<Country, std::string> generatedTestName{
     {Country::Maldives, "shouldGenerateMaldivianName"},
 };
 
-}
-
 std::string_view translateSex(Sex sex, Language language = Language::English)
 {
     const auto sexTranslation = sexTranslations.find(language);
@@ -246,6 +245,8 @@ std::string_view translateSex(Sex sex, Language language = Language::English)
     }
 
     return sexTranslation->second.at(sex);
+}
+
 }
 
 bool checkTokenFormat(const std::string& bio);
@@ -268,7 +269,7 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
 
-    const auto generatedFirstName = Person::firstName(country);
+    const auto generatedFirstName = firstName(country);
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFirstName](const std::string_view& firstName)
                                     { return firstName == generatedFirstName; }));
@@ -282,7 +283,7 @@ TEST_P(PersonTest, shouldGenerateMaleFirstName)
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
-    const auto generatedFirstName = Person::firstName(country, Sex::Male);
+    const auto generatedFirstName = firstName(country, Sex::Male);
 
     ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFirstName](const std::string_view& firstName)
                                     { return firstName == generatedFirstName; }));
@@ -296,7 +297,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
-    const auto generatedFirstName = Person::firstName(country, Sex::Female);
+    const auto generatedFirstName = firstName(country, Sex::Female);
 
     ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFirstName](const std::string_view& firstName)
                                     { return firstName == generatedFirstName; }));
@@ -310,7 +311,7 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
 
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
-    const auto generatedLastName = Person::lastName(country, Sex::Male);
+    const auto generatedLastName = lastName(country, Sex::Male);
 
     ASSERT_TRUE(std::ranges::any_of(malesLastNames, [generatedLastName](const std::string_view& lastName)
                                     { return lastName == generatedLastName; }));
@@ -324,7 +325,7 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
 
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
-    const auto generatedLastName = Person::lastName(country, Sex::Female);
+    const auto generatedLastName = lastName(country, Sex::Female);
 
     ASSERT_TRUE(std::ranges::any_of(femalesLastNames, [generatedLastName](const std::string_view& lastName)
                                     { return lastName == generatedLastName; }));
@@ -348,7 +349,7 @@ TEST_P(PersonTest, shouldGenerateFullName)
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
     lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
 
-    const auto generatedFullName = Person::fullName(country);
+    const auto generatedFullName = fullName(country);
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFullName](const std::string_view& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
@@ -366,7 +367,7 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
-    const auto generatedFullName = Person::fullName(country, Sex::Male);
+    const auto generatedFullName = fullName(country, Sex::Male);
 
     ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFullName](const std::string_view& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
@@ -384,7 +385,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
-    const auto generatedFullName = Person::fullName(country, Sex::Female);
+    const auto generatedFullName = fullName(country, Sex::Female);
 
     ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFullName](const std::string_view& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
@@ -398,7 +399,7 @@ INSTANTIATE_TEST_SUITE_P(TestPersonNamesByCountries, PersonTest, ValuesIn(countr
 // TODO: move to parameterized tests
 TEST_F(PersonTest, shouldGeneratePrefix)
 {
-    const auto generatedPrefix = Person::prefix();
+    const auto generatedPrefix = prefix();
 
     std::vector<std::string_view> prefixes(englishMalePrefixes.begin(), englishMalePrefixes.end());
 
@@ -411,7 +412,7 @@ TEST_F(PersonTest, shouldGeneratePrefix)
 // TODO: move to parameterized tests
 TEST_F(PersonTest, shouldGenerateMalePrefix)
 {
-    const auto generatedPrefix = Person::prefix(std::nullopt, Sex::Male);
+    const auto generatedPrefix = prefix(std::nullopt, Sex::Male);
 
     ASSERT_TRUE(std::ranges::any_of(englishMalePrefixes, [generatedPrefix](const std::string_view& prefix)
                                     { return prefix == generatedPrefix; }));
@@ -419,7 +420,7 @@ TEST_F(PersonTest, shouldGenerateMalePrefix)
 
 TEST_F(PersonTest, shouldGenerateFemalePrefix)
 {
-    const auto generatedPrefix = Person::prefix(std::nullopt, Sex::Female);
+    const auto generatedPrefix = prefix(std::nullopt, Sex::Female);
 
     ASSERT_TRUE(std::ranges::any_of(englishFemalePrefixes, [generatedPrefix](const std::string_view& prefix)
                                     { return prefix == generatedPrefix; }));
@@ -427,7 +428,7 @@ TEST_F(PersonTest, shouldGenerateFemalePrefix)
 
 TEST_F(PersonTest, shouldGenerateSuffix)
 {
-    const auto generatedSuffix = Person::suffix();
+    const auto generatedSuffix = suffix();
 
     ASSERT_TRUE(std::ranges::any_of(englishSuffixes, [generatedSuffix](const std::string_view& suffix)
                                     { return suffix == generatedSuffix; }));
@@ -435,14 +436,14 @@ TEST_F(PersonTest, shouldGenerateSuffix)
 
 TEST_F(PersonTest, shouldGenerateSex)
 {
-    const auto generatedSex = Person::sex();
+    const auto generatedSex = sex();
 
     ASSERT_TRUE(std::ranges::any_of(sexes, [generatedSex](const std::string& sex) { return sex == generatedSex; }));
 }
 
 TEST_F(PersonTest, shouldGenerateGender)
 {
-    const auto generatedGender = Person::gender();
+    const auto generatedGender = gender();
 
     ASSERT_TRUE(std::ranges::any_of(genders, [generatedGender](const std::string_view& gender)
                                     { return gender == generatedGender; }));
@@ -450,7 +451,7 @@ TEST_F(PersonTest, shouldGenerateGender)
 
 TEST_F(PersonTest, shouldGenerateJobDescriptor)
 {
-    const auto generatedJobDescriptor = Person::jobDescriptor();
+    const auto generatedJobDescriptor = jobDescriptor();
 
     ASSERT_TRUE(std::ranges::any_of(jobDescriptors, [generatedJobDescriptor](const std::string_view& jobDescriptor)
                                     { return jobDescriptor == generatedJobDescriptor; }));
@@ -458,7 +459,7 @@ TEST_F(PersonTest, shouldGenerateJobDescriptor)
 
 TEST_F(PersonTest, shouldGenerateJobArea)
 {
-    const auto generatedJobArea = Person::jobArea();
+    const auto generatedJobArea = jobArea();
 
     ASSERT_TRUE(std::ranges::any_of(jobAreas, [generatedJobArea](const std::string_view& jobArea)
                                     { return jobArea == generatedJobArea; }));
@@ -466,7 +467,7 @@ TEST_F(PersonTest, shouldGenerateJobArea)
 
 TEST_F(PersonTest, shouldGenerateJobType)
 {
-    const auto generatedJobType = Person::jobType();
+    const auto generatedJobType = jobType();
 
     ASSERT_TRUE(std::ranges::any_of(jobTypes, [generatedJobType](const std::string_view& jobType)
                                     { return jobType == generatedJobType; }));
@@ -474,7 +475,7 @@ TEST_F(PersonTest, shouldGenerateJobType)
 
 TEST_F(PersonTest, shouldGenerateJobTitle)
 {
-    const auto generatedJobTitle = Person::jobTitle();
+    const auto generatedJobTitle = jobTitle();
 
     const auto jobTitleElements = StringHelper::split(generatedJobTitle, " ");
 
@@ -492,7 +493,7 @@ TEST_F(PersonTest, shouldGenerateJobTitle)
 
 TEST_F(PersonTest, shouldGenerateHobby)
 {
-    const auto generatedHobby = Person::hobby();
+    const auto generatedHobby = hobby();
 
     ASSERT_TRUE(std::ranges::any_of(hobbies, [generatedHobby](const std::string_view& hobby)
                                     { return hobby == generatedHobby; }));
@@ -500,14 +501,14 @@ TEST_F(PersonTest, shouldGenerateHobby)
 
 TEST_F(PersonTest, shouldGenerateBio)
 {
-    const auto generatedBio = Person::bio();
+    const auto generatedBio = bio();
 
     ASSERT_TRUE(checkTokenFormat(generatedBio));
 }
 
 TEST_F(PersonTest, shouldGenerateLanguage)
 {
-    const auto generatedLanguage = Person::language();
+    const auto generatedLanguage = language();
 
     ASSERT_TRUE(std::ranges::any_of(languages, [generatedLanguage](const std::string_view& language)
                                     { return generatedLanguage == language; }));
@@ -515,7 +516,7 @@ TEST_F(PersonTest, shouldGenerateLanguage)
 
 TEST_F(PersonTest, shouldGenerateNationality)
 {
-    const auto generatedNationality = Person::nationality();
+    const auto generatedNationality = nationality();
 
     ASSERT_TRUE(std::ranges::any_of(nationalities, [generatedNationality](const std::string_view& nationality)
                                     { return generatedNationality == nationality; }));
@@ -523,7 +524,7 @@ TEST_F(PersonTest, shouldGenerateNationality)
 
 TEST_F(PersonTest, shouldGenerateWesternZodiacs)
 {
-    const auto generatedWesternZodiacs = Person::westernZodiac();
+    const auto generatedWesternZodiacs = westernZodiac();
 
     ASSERT_TRUE(std::ranges::any_of(westernZodiacs, [generatedWesternZodiacs](const std::string_view& westernZodiac)
                                     { return generatedWesternZodiacs == westernZodiac; }));
@@ -531,7 +532,7 @@ TEST_F(PersonTest, shouldGenerateWesternZodiacs)
 
 TEST_F(PersonTest, shouldGenerateChineseZodiacs)
 {
-    const auto generatedChineseZodiacs = Person::chineseZodiac();
+    const auto generatedChineseZodiacs = chineseZodiac();
 
     ASSERT_TRUE(std::ranges::any_of(chineseZodiacs, [generatedChineseZodiacs](const std::string_view& chineseZodiac)
                                     { return generatedChineseZodiacs == chineseZodiac; }));
@@ -628,11 +629,11 @@ TEST_P(PersonSsnSuite, shouldGenerateSsn)
 {
     const auto country = GetParam();
 
-    const auto ssn = Person::ssn(country);
+    const auto generatedSsn = ssn(country);
 
     const auto expectedSsnLength = ssnLengths.at(country);
 
-    ASSERT_EQ(ssn.size(), expectedSsnLength);
+    ASSERT_EQ(generatedSsn.size(), expectedSsnLength);
 }
 
 std::string toString(SsnCountry country)
@@ -657,7 +658,7 @@ public:
 
 TEST_F(PersonPassportTest, shouldGenerateUsaPassport)
 {
-    const auto passportNumber = Person::passport(PassportCountry::Usa);
+    const auto passportNumber = passport(PassportCountry::Usa);
 
     ASSERT_EQ(passportNumber.size(), 9);
     ASSERT_TRUE(std::isalpha(passportNumber[0]));
@@ -673,7 +674,7 @@ TEST_F(PersonPassportTest, shouldGenerateUsaPassport)
 
 TEST_F(PersonPassportTest, shouldGeneratePolandPassport)
 {
-    const auto passportNumber = Person::passport(PassportCountry::Poland);
+    const auto passportNumber = passport(PassportCountry::Poland);
 
     ASSERT_EQ(passportNumber.size(), 9);
     ASSERT_TRUE(std::isalpha(passportNumber[0]));
@@ -689,7 +690,7 @@ TEST_F(PersonPassportTest, shouldGeneratePolandPassport)
 
 TEST_F(PersonPassportTest, shouldGenerateFrenchPassport)
 {
-    const auto passportNumber = Person::passport(PassportCountry::France);
+    const auto passportNumber = passport(PassportCountry::France);
 
     ASSERT_EQ(passportNumber.size(), 9);
     ASSERT_TRUE(std::isdigit(passportNumber[0]));
@@ -705,7 +706,7 @@ TEST_F(PersonPassportTest, shouldGenerateFrenchPassport)
 
 TEST_F(PersonPassportTest, shouldGenerateRomanianPassport)
 {
-    const auto passportNumber = Person::passport(PassportCountry::Romania);
+    const auto passportNumber = passport(PassportCountry::Romania);
     ASSERT_EQ(passportNumber.size(), 8);
     ASSERT_TRUE(std::isdigit(passportNumber[0]));
     ASSERT_TRUE(std::isdigit(passportNumber[1]));
