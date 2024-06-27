@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['charcount_0',['CharCount',['../structfaker_1_1CharCount.html',1,'faker']]],
+  ['charcount_0',['CharCount',['../structfaker_1_1string_1_1CharCount.html',1,'faker::string']]],
   ['chemicalelement_1',['ChemicalElement',['../structfaker_1_1Science_1_1ChemicalElement.html',1,'faker::Science']]],
   ['chemicalelement_2',['chemicalElement',['../classfaker_1_1Science.html#a5116cd34282af4c47442a32567da8c81',1,'faker::Science']]],
   ['chinesezodiac_3',['chineseZodiac',['../classfaker_1_1Person.html#aa96231fc1d15784260a29637e5843a72',1,'faker::Person']]],

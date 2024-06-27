@@ -16,16 +16,17 @@ var annotated_dup =
       [ "internet", null, [
         [ "PasswordOptions", "structfaker_1_1internet_1_1PasswordOptions.html", null ]
       ] ],
+      [ "string", null, [
+        [ "CharCount", "structfaker_1_1string_1_1CharCount.html", null ]
+      ] ],
       [ "system", null, [
         [ "CronOptions", "structfaker_1_1system_1_1CronOptions.html", null ],
         [ "FileOptions", "structfaker_1_1system_1_1FileOptions.html", null ],
         [ "NetworkInterfaceOptions", "structfaker_1_1system_1_1NetworkInterfaceOptions.html", null ]
       ] ],
-      [ "CharCount", "structfaker_1_1CharCount.html", null ],
       [ "Helper", "classfaker_1_1Helper.html", "classfaker_1_1Helper" ],
       [ "Person", "classfaker_1_1Person.html", null ],
       [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", null ],
-      [ "Science", "classfaker_1_1Science.html", "classfaker_1_1Science" ],
-      [ "String", "classfaker_1_1String.html", null ]
+      [ "Science", "classfaker_1_1Science.html", "classfaker_1_1Science" ]
     ] ]
 ];
