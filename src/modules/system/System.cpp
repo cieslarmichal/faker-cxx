@@ -1,6 +1,5 @@
 #include "faker-cxx/System.h"
 
-#include <iostream>
 #include <optional>
 #include <set>
 #include <string>
