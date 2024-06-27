@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['science_0',['Science',['../classfaker_1_1Science.html',1,'faker']]],
-  ['setelement_1',['setElement',['../classfaker_1_1Helper.html#afa9ce3f39af7cdaf537be7de5496e848',1,'faker::Helper']]],
-  ['shufflestring_2',['shuffleString',['../classfaker_1_1Helper.html#aac9274ace8624b68896fd049064bcfa3',1,'faker::Helper']]]
+  ['unit_0',['Unit',['../structfaker_1_1Science_1_1Unit.html',1,'faker::Science']]],
+  ['unit_1',['unit',['../classfaker_1_1Science.html#a1603947449ecc5b7bc31f5a4bbc4cc97',1,'faker::Science']]]
 ];

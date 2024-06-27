@@ -13,6 +13,9 @@ var annotated_dup =
       [ "git", null, [
         [ "Author", "structfaker_1_1git_1_1Author.html", null ]
       ] ],
+      [ "helper", null, [
+        [ "WeightedElement", "structfaker_1_1helper_1_1WeightedElement.html", null ]
+      ] ],
       [ "internet", null, [
         [ "PasswordOptions", "structfaker_1_1internet_1_1PasswordOptions.html", null ]
       ] ],
@@ -24,7 +27,6 @@ var annotated_dup =
         [ "FileOptions", "structfaker_1_1system_1_1FileOptions.html", null ],
         [ "NetworkInterfaceOptions", "structfaker_1_1system_1_1NetworkInterfaceOptions.html", null ]
       ] ],
-      [ "Helper", "classfaker_1_1Helper.html", "classfaker_1_1Helper" ],
       [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", null ],
       [ "Science", "classfaker_1_1Science.html", "classfaker_1_1Science" ]
     ] ]

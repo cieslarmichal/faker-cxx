@@ -39,7 +39,6 @@ var NAVTREEINDEX0 =
 "Word_8h_source.html":[1,0,0,0,36],
 "annotated.html":[0,0],
 "classes.html":[0,1],
-"classfaker_1_1Helper.html":[0,0,0,6],
 "classfaker_1_1RandomGenerator.html":[0,0,0,7],
 "classfaker_1_1Science.html":[0,0,0,8],
 "dir_21275a4f97039163a157995766de70c2.html":[1,0,0,0],
@@ -49,7 +48,6 @@ var NAVTREEINDEX0 =
 "functions_func.html":[0,2,1],
 "index.html":[],
 "pages.html":[],
-"structfaker_1_1Helper_1_1WeightedElement.html":[0,0,0,6,0],
 "structfaker_1_1Science_1_1ChemicalElement.html":[0,0,0,8,0],
 "structfaker_1_1Science_1_1Unit.html":[0,0,0,8,1],
 "structfaker_1_1airline_1_1AirlineInfo.html":[0,0,0,0,0],
@@ -58,9 +56,10 @@ var NAVTREEINDEX0 =
 "structfaker_1_1airline_1_1Range.html":[0,0,0,0,3],
 "structfaker_1_1finance_1_1Currency.html":[0,0,0,1,0],
 "structfaker_1_1git_1_1Author.html":[0,0,0,2,0],
-"structfaker_1_1internet_1_1PasswordOptions.html":[0,0,0,3,0],
-"structfaker_1_1string_1_1CharCount.html":[0,0,0,4,0],
-"structfaker_1_1system_1_1CronOptions.html":[0,0,0,5,0],
-"structfaker_1_1system_1_1FileOptions.html":[0,0,0,5,1],
-"structfaker_1_1system_1_1NetworkInterfaceOptions.html":[0,0,0,5,2]
+"structfaker_1_1helper_1_1WeightedElement.html":[0,0,0,3,0],
+"structfaker_1_1internet_1_1PasswordOptions.html":[0,0,0,4,0],
+"structfaker_1_1string_1_1CharCount.html":[0,0,0,5,0],
+"structfaker_1_1system_1_1CronOptions.html":[0,0,0,6,0],
+"structfaker_1_1system_1_1FileOptions.html":[0,0,0,6,1],
+"structfaker_1_1system_1_1NetworkInterfaceOptions.html":[0,0,0,6,2]
 };
