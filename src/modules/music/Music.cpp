@@ -9,16 +9,16 @@ namespace faker::music
 {
 std::string_view artist()
 {
-    return Helper::arrayElement(artists);
+    return helper::arrayElement(artists);
 }
 
 std::string_view genre()
 {
-    return Helper::arrayElement(musicGenres);
+    return helper::arrayElement(musicGenres);
 }
 
 std::string_view songName()
 {
-    return Helper::arrayElement(songNames);
+    return helper::arrayElement(songNames);
 }
 }

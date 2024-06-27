@@ -1,7 +1,6 @@
 #include "faker-cxx/Helper.h"
 
 #include <algorithm>
-#include <cstddef>
 #include <random>
 #include <regex>
 #include <string>
@@ -10,20 +9,18 @@
 #include "../../common/StringHelper.h"
 #include "faker-cxx/Number.h"
 
-namespace faker
+namespace faker::helper
 {
-std::random_device Helper::randomDevice;
-
-std::mt19937 Helper::pseudoRandomGenerator(Helper::randomDevice());
-
-std::string Helper::shuffleString(std::string data)
+std::string shuffleString(std::string data)
 {
+    static std::mt19937 pseudoRandomGenerator(std::random_device{}());
+
     std::shuffle(data.begin(), data.end(), pseudoRandomGenerator);
 
     return data;
 }
 
-std::string Helper::replaceSymbolWithNumber(const std::string& str, const char& symbol)
+std::string replaceSymbolWithNumber(const std::string& str, const char& symbol)
 {
     std::string result;
 
@@ -46,7 +43,7 @@ std::string Helper::replaceSymbolWithNumber(const std::string& str, const char& 
     return result;
 }
 
-std::string Helper::replaceCreditCardSymbols(const std::string& inputString, char symbol)
+std::string replaceCreditCardSymbols(const std::string& inputString, char symbol)
 {
     // Replace regex-like expressions in the given string with matching values.
     std::string modifiedString = regexpStyleStringParse(inputString);
@@ -67,7 +64,7 @@ std::string Helper::replaceCreditCardSymbols(const std::string& inputString, cha
     return modifiedString;
 }
 
-std::string Helper::regexpStyleStringParse(const std::string& input)
+std::string regexpStyleStringParse(const std::string& input)
 {
     std::string data = input;
     // Deal with range repeat `{min,max}`

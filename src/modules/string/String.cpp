@@ -49,8 +49,7 @@ const std::map<HexCasing, std::set<char>> hexCasingToCharSetMapping{
     {HexCasing::Upper, hexUpperCharSet},
 };
 
-std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
-                                                unsigned int length)
+std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
 {
     std::string output{};
     output += generateAtLeastString(guarantee);
@@ -65,7 +64,7 @@ std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>&
         while (true)
         {
             // pick random char from targetCharacters
-            generatedChar = Helper::setElement(targetCharacters);
+            generatedChar = helper::setElement(targetCharacters);
 
             auto it = guarantee.find(generatedChar);
             // if no constraint on generated char, break out of loop
@@ -87,7 +86,7 @@ std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>&
         output += generatedChar;
     }
     // shuffle the generated string as the atleast string generated earlier was not generated randomly
-    output = Helper::shuffleString(output);
+    output = helper::shuffleString(output);
     return output;
 }
 }
@@ -153,7 +152,7 @@ std::string fromCharacters(const std::string& characters, unsigned int length)
 
     for (unsigned i = 0; i < length; i++)
     {
-        result += Helper::arrayElement<char>(characters);
+        result += helper::arrayElement<char>(characters);
     }
 
     return result;
@@ -192,7 +191,7 @@ std::string alpha(unsigned length, StringCasing casing, const std::string& exclu
 
     for (unsigned i = 0; i < length; i++)
     {
-        alpha += Helper::arrayElement<char>(targetCharacters);
+        alpha += helper::arrayElement<char>(targetCharacters);
     }
 
     return alpha;
@@ -227,7 +226,7 @@ std::string alphanumeric(unsigned int length, StringCasing casing, const std::st
 
     for (unsigned i = 0; i < length; i++)
     {
-        alphanumeric += Helper::arrayElement<char>(targetCharacters);
+        alphanumeric += helper::arrayElement<char>(targetCharacters);
     }
 
     return alphanumeric;
@@ -254,11 +253,11 @@ std::string numeric(unsigned int length, bool allowLeadingZeros)
     {
         if (i == 0 && allowLeadingZeros)
         {
-            alphanumeric += Helper::arrayElement<char>(numericCharacters);
+            alphanumeric += helper::arrayElement<char>(numericCharacters);
         }
         else
         {
-            alphanumeric += Helper::arrayElement<char>(numericCharactersWithoutZero);
+            alphanumeric += helper::arrayElement<char>(numericCharactersWithoutZero);
         }
     }
 
@@ -308,7 +307,7 @@ std::string hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
 
     for (unsigned i = 0; i < length; i++)
     {
-        hexadecimal += Helper::arrayElement<char>(hexadecimalCharacters);
+        hexadecimal += helper::arrayElement<char>(hexadecimalCharacters);
     }
 
     return hexadecimal;

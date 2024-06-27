@@ -18,12 +18,10 @@ const std::array<std::string_view, 15> imageTypes = {"ai",  "bmp", "eps", "gif",
                                                      "pdf", "png", "psd", "raw", "svg",  "tiff", "webp"};
 
 std::unordered_map<ImageCategory, std::string> imageCategoryToLoremFlickrStringMapping = {
-    {ImageCategory::Animals, "animals"},   {ImageCategory::Business, "business"},
-    {ImageCategory::Cats, "cats"},         {ImageCategory::City, "city"},
-    {ImageCategory::Food, "food"},         {ImageCategory::Nightlife, "nightlife"},
-    {ImageCategory::Fashion, "fashion"},   {ImageCategory::People, "people"},
-    {ImageCategory::Nature, "nature"},     {ImageCategory::Sports, "sports"},
-    {ImageCategory::Technics, "technics"}, {ImageCategory::Transport, "transport"},
+    {ImageCategory::Animals, "animals"}, {ImageCategory::Business, "business"}, {ImageCategory::Cats, "cats"},
+    {ImageCategory::City, "city"},       {ImageCategory::Food, "food"},         {ImageCategory::Nightlife, "nightlife"},
+    {ImageCategory::Fashion, "fashion"}, {ImageCategory::People, "people"},     {ImageCategory::Nature, "nature"},
+    {ImageCategory::Sports, "sports"},   {ImageCategory::Technics, "technics"}, {ImageCategory::Transport, "transport"},
 };
 }
 
@@ -49,6 +47,6 @@ std::string dimensions()
 
 std::string_view type()
 {
-    return Helper::arrayElement(imageTypes);
+    return helper::arrayElement(imageTypes);
 }
 }

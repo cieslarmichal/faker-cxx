@@ -46,7 +46,6 @@ set(FAKER_SOURCES
     src/modules/medicine/Medicine.cpp
     src/modules/movie/Movie.cpp
     src/modules/music/Music.cpp
-    src/modules/number/Number.cpp
     src/modules/person/Person.cpp
     src/modules/phone/Phone.cpp
     src/modules/plant/Plant.cpp

@@ -12,28 +12,28 @@ namespace faker::airline
 {
 std::string_view aircraftType()
 {
-    return Helper::arrayElement(aircraftTypes);
+    return helper::arrayElement(aircraftTypes);
 }
 
 Airplane airplane()
 {
-    return Helper::arrayElement(airplanes);
+    return helper::arrayElement(airplanes);
 }
 
 AirlineInfo airline()
 {
-    return Helper::arrayElement(airlines);
+    return helper::arrayElement(airlines);
 }
 
 Airport airport()
 {
-    return Helper::arrayElement(airports);
+    return helper::arrayElement(airports);
 }
 
 std::string seat(AircraftType aircraftType)
 {
     return std::to_string(number::integer(1, aircraftTypeMaxRows.at(aircraftType))) +
-           Helper::arrayElement<char>(aircraftTypeSeatLetters.at(aircraftType));
+           helper::arrayElement<char>(aircraftTypeSeatLetters.at(aircraftType));
 }
 
 std::string recordLocator(bool allowNumerics)

@@ -36,7 +36,8 @@ purposes within C++ applications.
 ## Usage and Documentation
 
 To properly use Faker C++ you must first consume the Faker library (see Consuming Library with CMake).
-Once that is done, you need to include the proper header files depending on the module you wish to generate data from.
+Once that is done, you need to include the proper header files depending on the module you wish to generate data from or
+use general include file `faker-cxx/Faker.h`.
 The module header file names can be found in [docs](https://cieslarmichal.github.io/faker-cxx).
 
 Below is an example of how to use Faker C++ in your code.
@@ -49,13 +50,15 @@ Below is an example of how to use Faker C++ in your code.
 #include "faker-cxx/Location.h"
 #include "faker-cxx/String.h"
 
+// or #include "faker-cxx/Faker.h" for all modules
+
 int main()
 {
-    const auto id = faker::String::uuid();
-    const auto email = faker::Internet::email();
-    const auto password = faker::Internet::password();
-    const auto city = faker::Location::city();
-    const auto streetAddress = faker::Location::streetAddress();
+    const auto id = faker::string::uuid();
+    const auto email = faker::internet::email();
+    const auto password = faker::internet::password();
+    const auto city = faker::location::city();
+    const auto streetAddress = faker::location::streetAddress();
 
     std::cout << id << std::endl;               // 58018063-ce5a-4fa7-adfd-327eb2e2d9a5
     std::cout << email << std::endl;            // Lois_Hauck@hotmail.com

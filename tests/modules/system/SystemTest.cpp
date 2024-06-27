@@ -191,8 +191,6 @@ TEST_F(SystemTest, FileTypeTest)
 
     const auto fileTypeResult = fileType();
 
-    std::cout << fileTypeResult << std::endl;
-
     bool isValidFileType = std::ranges::find(expectedTypes, fileTypeResult) != expectedTypes.end();
 
     EXPECT_TRUE(isValidFileType);

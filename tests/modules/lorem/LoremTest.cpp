@@ -32,7 +32,6 @@ TEST_F(LoremTest, shouldGenerateWords)
     const auto generatedWords = words(numberOfWords);
 
     const auto separatedWords = faker::StringHelper::split(generatedWords, " ");
-    
 
     ASSERT_EQ(separatedWords.size(), numberOfWords);
     ASSERT_TRUE(std::ranges::all_of(

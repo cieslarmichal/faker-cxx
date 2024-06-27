@@ -3,48 +3,49 @@
 #include "faker-cxx/Helper.h"
 #include "ScienceData.h"
 
-namespace faker
+namespace faker::science
 {
-Science::ChemicalElement Science::chemicalElement()
+ChemicalElement chemicalElement()
 {
-    return Helper::arrayElement(chemicalElements);
+    return helper::arrayElement(chemicalElements);
 }
 
-Science::Unit Science::unit()
+Unit unit()
 {
-    std::vector<faker::Science::Unit> units;
+    std::vector<Unit> units;
+
     units.insert(units.end(), distanceUnits.begin(), distanceUnits.end());
     units.insert(units.end(), massUnits.begin(), massUnits.end());
     units.insert(units.end(), timeUnits.begin(), timeUnits.end());
     units.insert(units.end(), currentUnits.begin(), currentUnits.end());
     units.insert(units.end(), temperatureUnits.begin(), temperatureUnits.end());
 
-    return Helper::arrayElement<Science::Unit>(units);
+    return helper::arrayElement<Unit>(units);
 }
 
-Science::Unit Science::distanceUnit()
+Unit distanceUnit()
 {
-    return Helper::arrayElement(distanceUnits);
+    return helper::arrayElement(distanceUnits);
 }
 
-Science::Unit Science::timeUnit()
+Unit timeUnit()
 {
-    return Helper::arrayElement(timeUnits);
+    return helper::arrayElement(timeUnits);
 }
 
-Science::Unit Science::massUnit()
+Unit massUnit()
 {
-    return Helper::arrayElement(massUnits);
+    return helper::arrayElement(massUnits);
 }
 
-Science::Unit Science::tempUnit()
+Unit tempUnit()
 {
-    return Helper::arrayElement(temperatureUnits);
+    return helper::arrayElement(temperatureUnits);
 }
 
-Science::Unit Science::currentUnit()
+Unit currentUnit()
 {
-    return Helper::arrayElement(currentUnits);
+    return helper::arrayElement(currentUnits);
 }
 
 }
