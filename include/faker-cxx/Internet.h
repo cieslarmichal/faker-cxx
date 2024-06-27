@@ -48,10 +48,10 @@ struct PasswordOptions
      * @returns Username including neither, one or both of the provided names.
      *
      * @code
-     * internet::username() // "Richardson.Jeffrey1997"
-     * internet::username("Michael") // "Michael_Allen29"
-     * internet::username(std::nullopt, "Cieslar") // "Phillip_Cieslar20"
-     * internet::username("Andrew", "Cieslar") // "Andrew.Cieslar"
+     * faker::internet::username() // "Richardson.Jeffrey1997"
+     * faker::internet::username("Michael") // "Michael_Allen29"
+     * faker::internet::username(std::nullopt, "Cieslar") // "Phillip_Cieslar20"
+     * faker::internet::username("Andrew", "Cieslar") // "Andrew.Cieslar"
      * @endcode
      */
     std::string username(std::optional<std::string> firstName = std::nullopt,
@@ -67,11 +67,11 @@ struct PasswordOptions
      * @returns Email including neither, one or both of the provided names, with random/provided email host.
      *
      * @code
-     * internet::email() // "Jimenez.Clyde@gmail.com"
-     * internet::email("Tom") // "TomRichardson79@outlook.com"
-     * internet::email(std::nullopt, "Howard") // "FreddieHoward@hotmail.com"
-     * internet::email("Cindy", "Young") // "Young_Cindy@gmail.com"
-     * internet::email(std::nullopt, std::nullopt, "example.com") // "Wright.Edna1973@code.com"
+     * faker::internet::email() // "Jimenez.Clyde@gmail.com"
+     * faker::internet::email("Tom") // "TomRichardson79@outlook.com"
+     * faker::internet::email(std::nullopt, "Howard") // "FreddieHoward@hotmail.com"
+     * faker::internet::email("Cindy", "Young") // "Young_Cindy@gmail.com"
+     * faker::internet::email(std::nullopt, std::nullopt, "example.com") // "Wright.Edna1973@code.com"
      * @endcode
      */
     std::string email(std::optional<std::string> firstName = std::nullopt,
@@ -87,7 +87,7 @@ struct PasswordOptions
      * @returns Email including neither, one or both of the provided names, with example email host.
      *
      * @code
-     * internet::exampleEmail() // "Jimenez.Clyde@example.com"
+     * faker::internet::exampleEmail() // "Jimenez.Clyde@example.com"
      * @endcode
      */
     std::string exampleEmail(std::optional<std::string> firstName = std::nullopt,
@@ -102,8 +102,8 @@ struct PasswordOptions
      * @returns Random password-like string.
      *
      * @code
-     * internet::password() // "gXGpe9pKfFcKy9R"
-     * internet::password(25) // "xv8vDu*wM!Rg0$zd0kH%8p!WY"
+     * faker::internet::password() // "gXGpe9pKfFcKy9R"
+     * faker::internet::password(25) // "xv8vDu*wM!Rg0$zd0kH%8p!WY"
      * @endcode
      */
     std::string password(int length = 15, const PasswordOptions& options = {});
@@ -130,8 +130,8 @@ struct PasswordOptions
      * @returns Emoji.
      *
      * @code
-     * internet::emoji() // "👑"
-     * internet::emoji(EmojiType::Food) // "🍕"
+     * faker::internet::emoji() // "👑"
+     * faker::internet::emoji(EmojiType::Food) // "🍕"
      * @endcode
      */
     std::string_view emoji(std::optional<EmojiType> type = std::nullopt);
@@ -144,7 +144,7 @@ struct PasswordOptions
      * @returns true if emojiToCheck is found in one of the vectors, false otherwise.
      *
      * @code
-     * internet::checkIfEmojiIsValid("👑") // true
+     * faker::internet::checkIfEmojiIsValid("👑") // true
      * @endcode
      */
     bool checkIfEmojiIsValid(const std::string& emojiToCheck);
@@ -155,7 +155,7 @@ struct PasswordOptions
      * @returns Web protocol.
      *
      * @code
-     * internet::protocol() // "https"
+     * faker::internet::protocol() // "https"
      * @endcode
      */
     std::string_view protocol();
@@ -166,7 +166,7 @@ struct PasswordOptions
      * @returns Http method name.
      *
      * @code
-     * internet::httpMethod() // "POST"
+     * faker::internet::httpMethod() // "POST"
      * @endcode
      */
     std::string_view httpMethod();
@@ -179,8 +179,8 @@ struct PasswordOptions
      * @returns Http status code.
      *
      * @code
-     * internet::httpStatusCode() // 500
-     * internet::httpStatusCode(HttpStatusCodeType::success) // 201
+     * faker::internet::httpStatusCode() // 500
+     * faker::internet::httpStatusCode(HttpStatusCodeType::success) // 201
      * @endcode
      */
     unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::nullopt);
@@ -191,7 +191,7 @@ struct PasswordOptions
      * @returns Http request header.
      *
      * @code
-     * internet::httpRequestHeader() // "Authorization"
+     * faker::internet::httpRequestHeader() // "Authorization"
      * @endcode
      */
     std::string_view httpRequestHeader();
@@ -202,7 +202,7 @@ struct PasswordOptions
      * @returns Http response header.
      *
      * @code
-     * internet::httpResponseHeader() // "Location"
+     * faker::internet::httpResponseHeader() // "Location"
      * @endcode
      */
     std::string_view httpResponseHeader();
@@ -213,7 +213,7 @@ struct PasswordOptions
      * @returns Http media type.
      *
      * @code
-     * internet::httpMediaType() // "application/json"
+     * faker::internet::httpMediaType() // "application/json"
      * @endcode
      */
     std::string_view httpMediaType();
@@ -226,8 +226,8 @@ struct PasswordOptions
      * @return String representation of the ipv4 address.
      *
      * @code
-     * internet::ipv4() // "192.168.0.1"
-     * internet::ipv4(IPv4Class::classA) // "10.0.0.1"
+     * faker::internet::ipv4() // "192.168.0.1"
+     * faker::internet::ipv4(IPv4Class::classA) // "10.0.0.1"
      * @endcode
      */
     std::string ipv4(const IPv4Class& ipv4class = IPv4Class::C);
@@ -245,8 +245,8 @@ struct PasswordOptions
      * @return std::string representation of the ipv4 address.
      *
      * @code
-     * internet::ipv4({255.0.0.0}, {10.100.100.100}) // "10.128.17.1"
-     * internet::ipv4({255.255.128.0}, {129.168.255.0}) // "192.168.128.10"
+     * faker::internet::ipv4({255.0.0.0}, {10.100.100.100}) // "10.128.17.1"
+     * faker::internet::ipv4({255.255.128.0}, {129.168.255.0}) // "192.168.128.10"
      * @endcode
      */
     std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
@@ -258,7 +258,7 @@ struct PasswordOptions
      * @return String representation of the ipv6 address.
      *
      * @code
-     * internet::ipv6() // "269f:1230:73e3:318d:842b:daab:326d:897b"
+     * faker::internet::ipv6() // "269f:1230:73e3:318d:842b:daab:326d:897b"
      * @endcode
      */
     std::string ipv6();
@@ -271,7 +271,7 @@ struct PasswordOptions
      * @return A generated random mac address.
      *
      * @code
-     * internet::mac() // "2d:10:34:2f:ac:ac"
+     * faker::internet::mac() // "2d:10:34:2f:ac:ac"
      * @endcode
      */
     std::string mac(const std::string& sep = ":");
@@ -282,7 +282,7 @@ struct PasswordOptions
      * @return Port.
      *
      * @code
-     * internet::port() // 5432
+     * faker::internet::port() // 5432
      * @endcode
      */
     unsigned port();
@@ -295,7 +295,7 @@ struct PasswordOptions
      * @return Http(s) url.
      *
      * @code
-     * internet::url() // "https://slow-timer.info"
+     * faker::internet::url() // "https://slow-timer.info"
      * @endcode
      */
     std::string url(const WebProtocol& webProtocol = WebProtocol::Https);
@@ -306,7 +306,7 @@ struct PasswordOptions
      * @return Domain name.
      *
      * @code
-     * internet::domainName() // "slow-timer.info"
+     * faker::internet::domainName() // "slow-timer.info"
      * @endcode
      */
     std::string domainName();
@@ -317,7 +317,7 @@ struct PasswordOptions
      * @return Domain word.
      *
      * @code
-     * internet::domainWord() // "close-reality"
+     * faker::internet::domainWord() // "close-reality"
      * @endcode
      */
     std::string domainWord();
@@ -328,7 +328,7 @@ struct PasswordOptions
      * @return Domain suffix.
      *
      * @code
-     * internet::domainSuffix() // "com"
+     * faker::internet::domainSuffix() // "com"
      * @endcode
      */
     std::string_view domainSuffix();
@@ -341,7 +341,7 @@ struct PasswordOptions
      * @return Username.
      *
      * @code
-     * internet::anonymousUsername() // "profusebrother", "richad", "powerfuldifferential"
+     * faker::internet::anonymousUsername() // "profusebrother", "richad", "powerfuldifferential"
      * @endcode
      */
     std::string anonymousUsername(unsigned maxLength);

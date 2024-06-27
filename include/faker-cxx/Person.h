@@ -21,9 +21,9 @@ enum class Language;
      * @returns First name starting with a capital letter.
      *
      * @code
-     * person::firstName() // "Michael"
-     * person::firstName(Country::England, Sex::Female) // "Emma"
-     * person::firstName(Country::England, Sex::Male) // "Arthur"
+     * faker::person::firstName() // "Michael"
+     * faker::person::firstName(Country::England, Sex::Female) // "Emma"
+     * faker::person::firstName(Country::England, Sex::Male) // "Arthur"
      * @endcode
      */
     std::string_view firstName(std::optional<Country> country = std::nullopt,
@@ -38,7 +38,7 @@ enum class Language;
      * @returns Last name starting with a capital letter.
      *
      * @code
-     * person::lastName() // "Peterson"
+     * faker::person::lastName() // "Peterson"
      * @endcode
      */
     std::string_view lastName(std::optional<Country> country = std::nullopt,
@@ -53,9 +53,9 @@ enum class Language;
      * @returns Full name starting with first name.
      *
      * @code
-     * person::fullName() // "Marcia Robinson"
-     * person::fullName(Country::England, Sex::Female) // "Jennifer Martin"
-     * person::fullName(Country::England, Sex::Male) // "Samuel Walker"
+     * faker::person::fullName() // "Marcia Robinson"
+     * faker::person::fullName(Country::England, Sex::Female) // "Jennifer Martin"
+     * faker::person::fullName(Country::England, Sex::Male) // "Samuel Walker"
      * @endcode
      */
     std::string fullName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
@@ -68,9 +68,9 @@ enum class Language;
      * @returns Name prefix.
      *
      * @code
-     * person::prefix() // "Miss"
-     * person::prefix(Sex::Female) // "Ms."
-     * person::prefix(Sex::Male) // "Mr."
+     * faker::person::prefix() // "Miss"
+     * faker::person::prefix(Sex::Female) // "Ms."
+     * faker::person::prefix(Sex::Male) // "Mr."
      * @endcode
      */
     std::string_view prefix(std::optional<Country> countryOpt = std::nullopt,
@@ -82,7 +82,7 @@ enum class Language;
      * @returns Name suffix.
      *
      * @code
-     * person::suffix() // "Jr."
+     * faker::person::suffix() // "Jr."
      * @endcode
      */
     std::string_view suffix(std::optional<Country> countryOpt = std::nullopt,
@@ -94,7 +94,7 @@ enum class Language;
      * @returns Bio.
      *
      * @code
-     * person::bio() //"Developer"
+     * faker::person::bio() //"Developer"
      * @endcode
      */
     std::string bio();
@@ -105,7 +105,7 @@ enum class Language;
      * @returns Sex.
      *
      * @code
-     * person::sex() // "Male"
+     * faker::person::sex() // "Male"
      * @endcode
      */
     std::string_view sex(std::optional<Language> language = std::nullopt);
@@ -116,7 +116,7 @@ enum class Language;
      * @returns Gender.
      *
      * @code
-     * person::gender() // "Transexual woman"
+     * faker::person::gender() // "Transexual woman"
      * @endcode
      */
     std::string_view gender();
@@ -127,7 +127,7 @@ enum class Language;
      * @returns Job title.
      *
      * @code
-     * person::jobTitle() // "Global Accounts Engineer"
+     * faker::person::jobTitle() // "Global Accounts Engineer"
      * @endcode
      */
     std::string jobTitle();
@@ -138,7 +138,7 @@ enum class Language;
      * @returns Job descriptor.
      *
      * @code
-     * person::jobDescriptor() // "Senior"
+     * faker::person::jobDescriptor() // "Senior"
      * @endcode
      */
     std::string_view jobDescriptor();
@@ -149,7 +149,7 @@ enum class Language;
      * @returns Job area.
      *
      * @code
-     * person::jobArea() // "Software"
+     * faker::person::jobArea() // "Software"
      * @endcode
      */
     std::string_view jobArea();
@@ -160,7 +160,7 @@ enum class Language;
      * @returns Job type.
      *
      * @code
-     * person::jobType() // "Engineer"
+     * faker::person::jobType() // "Engineer"
      * @endcode
      */
     std::string_view jobType();
@@ -171,7 +171,7 @@ enum class Language;
      * @returns Hobby.
      *
      * @code
-     * person::hobby() // "Gaming"
+     * faker::person::hobby() // "Gaming"
      * @endcode
      */
     std::string_view hobby();
@@ -182,7 +182,7 @@ enum class Language;
      * @returns Language.
      *
      * @code
-     * person::language() // "Polish"
+     * faker::person::language() // "Polish"
      * @endcode
      */
     std::string_view language();
@@ -193,7 +193,7 @@ enum class Language;
      * @returns Nationality.
      *
      * @code
-     * person::nationality() // "Romanian"
+     * faker::person::nationality() // "Romanian"
      * @endcode
      */
     std::string_view nationality();
@@ -206,8 +206,8 @@ enum class Language;
      * @returns Social Security Number.
      *
      * @code
-     * person::ssn() // "437-12-6854"
-     * person::ssn(SsnCountry::Polish) // "95111901567"
+     * faker::person::ssn() // "437-12-6854"
+     * faker::person::ssn(SsnCountry::Polish) // "95111901567"
      * @endcode
      */
     std::string ssn(std::optional<SsnCountry> country = std::nullopt);
@@ -218,7 +218,7 @@ enum class Language;
      * @returns Western Zodiac
      *
      * @code
-     * person::westernZodiac() // "Virgo"
+     * faker::person::westernZodiac() // "Virgo"
      * @endcode
      */
     std::string_view westernZodiac();
@@ -229,7 +229,7 @@ enum class Language;
      * @returns Chinese Zodiac
      *
      * @code
-     * person::chineseZodiac() // "Dragon"
+     * faker::person::chineseZodiac() // "Dragon"
      * @endcode
      */
     std::string_view chineseZodiac();
@@ -240,7 +240,7 @@ enum class Language;
      * @returns Passport
      *
      * @code
-     * person::passport(PassportCountry::Romania) // "12345678"
+     * faker::person::passport(PassportCountry::Romania) // "12345678"
      * @endcode
      */
     std::string passport(std::optional<PassportCountry> country = std::nullopt);

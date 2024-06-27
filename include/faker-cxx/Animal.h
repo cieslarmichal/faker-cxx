@@ -10,7 +10,7 @@ namespace faker::animal
  * @returns Species of bear.
  *
  * @code
- * animal::bear() // "Polar bear"
+ * faker::animal::bear() // "Polar bear"
  * @endcode
  */
 std::string_view bear();
@@ -21,7 +21,7 @@ std::string_view bear();
  * @returns Species of bird.
  *
  * @code
- * animal::bird() // "Black-bellied Whistling-Duck"
+ * faker::animal::bird() // "Black-bellied Whistling-Duck"
  * @endcode
  */
 std::string_view bird();
@@ -32,7 +32,7 @@ std::string_view bird();
  * @returns Species of cat.
  *
  * @code
- * animal::cat() // "Chartreux"
+ * faker::animal::cat() // "Chartreux"
  * @endcode
  */
 std::string_view cat();
@@ -43,7 +43,7 @@ std::string_view cat();
  * @returns Species of cetacean.
  *
  * @code
- * animal::cetacean() // "Blue Whale"
+ * faker::animal::cetacean() // "Blue Whale"
  * @endcode
  */
 std::string_view cetacean();
@@ -54,7 +54,7 @@ std::string_view cetacean();
  * @returns Species of cow.
  *
  * @code
- * animal::cow() // "American Angus"
+ * faker::animal::cow() // "American Angus"
  * @endcode
  */
 std::string_view cow();
@@ -65,7 +65,7 @@ std::string_view cow();
  * @returns Species of crocodilia.
  *
  * @code
- * animal::crocodile() // "Dwarf Crocodile"
+ * faker::animal::crocodile() // "Dwarf Crocodile"
  * @endcode
  */
 std::string_view crocodile();
@@ -76,7 +76,7 @@ std::string_view crocodile();
  * @returns Species of dog.
  *
  * @code
- * animal::dog() // "Shiba Inu"
+ * faker::animal::dog() // "Shiba Inu"
  * @endcode
  */
 std::string_view dog();
@@ -87,7 +87,7 @@ std::string_view dog();
  * @returns Species of fish.
  *
  * @code
- * animal::fish() // "Silver carp"
+ * faker::animal::fish() // "Silver carp"
  * @endcode
  */
 std::string_view fish();
@@ -98,7 +98,7 @@ std::string_view fish();
  * @returns Species of horse.
  *
  * @code
- * animal::horse() // "Fjord Horse"
+ * faker::animal::horse() // "Fjord Horse"
  * @endcode
  */
 std::string_view horse();
@@ -109,7 +109,7 @@ std::string_view horse();
  * @returns Species of insect.
  *
  * @code
- * animal::insect() // "Bee"
+ * faker::animal::insect() // "Bee"
  * @endcode
  */
 std::string_view insect();
@@ -120,7 +120,7 @@ std::string_view insect();
  * @returns Species of lion.
  *
  * @code
- * animal::lion() // "West African Lion"
+ * faker::animal::lion() // "West African Lion"
  * @endcode
  */
 std::string_view lion();
@@ -131,7 +131,7 @@ std::string_view lion();
  * @returns Species of rabbit.
  *
  * @code
- * animal::rabbit() // "Californian"
+ * faker::animal::rabbit() // "Californian"
  * @endcode
  */
 std::string_view rabbit();
@@ -142,7 +142,7 @@ std::string_view rabbit();
  * @returns Species of rodent.
  *
  * @code
- * animal::rodent() // "Chinchilla"
+ * faker::animal::rodent() // "Chinchilla"
  * @endcode
  */
 std::string_view rodent();
@@ -153,7 +153,7 @@ std::string_view rodent();
  * @returns Species of snake.
  *
  * @code
- * animal::snake() // "Boa constrictor"
+ * faker::animal::snake() // "Boa constrictor"
  * @endcode
  */
 std::string_view snake();
@@ -164,7 +164,7 @@ std::string_view snake();
  * @returns Type of animal.
  *
  * @code
- * animal::type() // "dog"
+ * faker::animal::type() // "dog"
  * @endcode
  */
 std::string_view type();

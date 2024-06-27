@@ -20,6 +20,11 @@ namespace faker::number
      * @throws std::invalid_argument if min is greater than max.
      *
      * @return T a random integer number
+     * 
+     * 
+     * @code
+     * faker::number::integer(5, 10) // 7
+     * @endcode
      */
     template <std::integral I>
     I integer(I min, I max)
@@ -45,6 +50,10 @@ namespace faker::number
      * @see integer<I>(I, I)
      *
      * @return T a random integer number
+     * 
+     * @code
+     * faker::number::integer(10) // 5
+     * @endcode
      */
     template <std::integral I>
     I integer(I max)
@@ -63,6 +72,10 @@ namespace faker::number
      * @throws std::invalid_argument if min is greater than max.
      *
      * @return F a random decimal number.
+     * 
+     * @code
+     * faker::number::decimal(10.2, 17.7) // 15.6
+     * @encode
      */
     template <std::floating_point F>
     F decimal(F min, F max)
@@ -88,6 +101,10 @@ namespace faker::number
      * @see decimal<F>(F, F)
      *
      * @return F, a random decimal number.
+     * 
+     * @code
+     * faker::number::decimal(20.5) // 17.2
+     * @encode
      */
     template <std::floating_point F>
     F decimal(F max)

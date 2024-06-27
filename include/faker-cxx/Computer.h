@@ -10,7 +10,7 @@ namespace faker::computer
  * @returns computer type
  *
  * @code
- * computer::type() // Laptop
+ * faker::computer::type() // Laptop
  * @endcode
  */
 std::string_view type();
@@ -21,7 +21,7 @@ std::string_view type();
  * @returns manufacture name
  *
  * @code
- * computer::manufacture() // HP
+ * faker::computer::manufacture() // HP
  * @endcode
  */
 std::string_view manufacture();
@@ -32,7 +32,7 @@ std::string_view manufacture();
  * @returns computer model
  *
  * @code
- * computer::model() // MacBook Air
+ * faker::computer::model() // MacBook Air
  * @endcode
  */
 std::string_view model();
@@ -43,7 +43,7 @@ std::string_view model();
  * @returns CPU manufacture name
  *
  * @code
- * computer::cpuManufacture() // Intel
+ * faker::computer::cpuManufacture() // Intel
  * @endcode
  */
 std::string_view cpuManufacture();
@@ -54,7 +54,7 @@ std::string_view cpuManufacture();
  * @returns CPU type
  *
  * @code
- * computer::cpuType() // x86
+ * faker::computer::cpuType() // x86
  * @endcode
  */
 std::string_view cpuType();
@@ -65,7 +65,7 @@ std::string_view cpuType();
  * @returns computer CPU model
  *
  * @code
- * computer::cpuModel() // Core i9-11900k
+ * faker::computer::cpuModel() // Core i9-11900k
  * @endcode
  */
 std::string_view cpuModel();
@@ -76,7 +76,7 @@ std::string_view cpuModel();
  * @returns GPU manufacture name
  *
  * @code
- * computer::gpuManufacture() // NVIDIA
+ * faker::computer::gpuManufacture() // NVIDIA
  * @endcode
  */
 std::string_view gpuManufacture();
@@ -87,7 +87,7 @@ std::string_view gpuManufacture();
  * @returns GPU type
  *
  * @code
- * computer::gpuType() // Integrated
+ * faker::computer::gpuType() // Integrated
  * @endcode
  */
 std::string_view gpuType();
@@ -98,7 +98,7 @@ std::string_view gpuType();
  * @returns computer GPU model
  *
  * @code
- * computer::gpuModel() // NVIDIA GeForce RTX 3080
+ * faker::computer::gpuModel() // NVIDIA GeForce RTX 3080
  * @endcode
  */
 std::string_view gpuModel();

@@ -10,7 +10,7 @@ namespace faker::book
  * @returns Book title.
  *
  * @code
- * book::title() // "Romeo and Juliet"
+ * faker::book::title() // "Romeo and Juliet"
  * @endcode
  */
 std::string_view title();
@@ -21,7 +21,7 @@ std::string_view title();
  * @returns Book genre.
  *
  * @code
- * book::genre() // "Fantasy"
+ * faker::book::genre() // "Fantasy"
  * @endcode
  */
 std::string_view genre();
@@ -32,7 +32,7 @@ std::string_view genre();
  * @returns Book author.
  *
  * @code
- * book::author() // "William Shakespeare"
+ * faker::book::author() // "William Shakespeare"
  * @endcode
  */
 std::string_view author();
@@ -43,7 +43,7 @@ std::string_view author();
  * @returns Book publisher.
  *
  * @code
- * book::publisher() // "Addison-Wesley"
+ * faker::book::publisher() // "Addison-Wesley"
  * @endcode
  */
 std::string_view publisher();
@@ -54,7 +54,7 @@ std::string_view publisher();
  * @returns BookFormat format of book
  *
  * @code
- * book::format() // "Paperback"
+ * faker::book::format() // "Paperback"
  * @endcode
  */
 std::string_view format();
@@ -65,7 +65,7 @@ std::string_view format();
  * @returns std::string_view book series
  *
  * @code
- * book::series() // "Harry Potter"
+ * faker::book::series() // "Harry Potter"
  * @endcode
  */
 std::string_view series();

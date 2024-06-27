@@ -15,8 +15,8 @@ namespace faker::word
  * @returns Random sample word.
  *
  * @code
- * word::sample() // "protection"
- * word::sample(5) // "spell"
+ * faker::word::sample() // "protection"
+ * faker::word::sample(5) // "spell"
  * @endcode
  */
 std::string_view sample(std::optional<unsigned> length = std::nullopt);
@@ -29,8 +29,8 @@ std::string_view sample(std::optional<unsigned> length = std::nullopt);
  * @returns Random words separated with spaces.
  *
  * @code
- * word::words() // "protection"
- * word::words(5) // "before hourly patiently dribble equal"
+ * faker::word::words() // "protection"
+ * faker::word::words(5) // "before hourly patiently dribble equal"
  * @endcode
  */
 std::string words(unsigned numberOfWords = 1);
@@ -44,8 +44,8 @@ std::string words(unsigned numberOfWords = 1);
  * @returns Adjective.
  *
  * @code
- * word::adjective() // "complete"
- * word::adjective(3) // "bad"
+ * faker::word::adjective() // "complete"
+ * faker::word::adjective(3) // "bad"
  * @endcode
  */
 std::string_view adjective(std::optional<unsigned> length = std::nullopt);
@@ -59,8 +59,8 @@ std::string_view adjective(std::optional<unsigned> length = std::nullopt);
  * @returns Adverb.
  *
  * @code
- * word::adverb() // "deliberately"
- * word::adverb(5) // "almost"
+ * faker::word::adverb() // "deliberately"
+ * faker::word::adverb(5) // "almost"
  * @endcode
  */
 std::string_view adverb(std::optional<unsigned> length = std::nullopt);
@@ -74,8 +74,8 @@ std::string_view adverb(std::optional<unsigned> length = std::nullopt);
  * @returns Conjunction.
  *
  * @code
- * word::conjunction() // "because"
- * word::conjunction(6) // "indeed"
+ * faker::word::conjunction() // "because"
+ * faker::word::conjunction(6) // "indeed"
  * @endcode
  */
 std::string_view conjunction(std::optional<unsigned> length = std::nullopt);
@@ -89,8 +89,8 @@ std::string_view conjunction(std::optional<unsigned> length = std::nullopt);
  * @returns Interjection.
  *
  * @code
- * word::interjection() // "psst"
- * word::interjection(4) // "yuck"
+ * faker::word::interjection() // "psst"
+ * faker::word::interjection(4) // "yuck"
  * @endcode
  */
 std::string_view interjection(std::optional<unsigned> length = std::nullopt);
@@ -104,8 +104,8 @@ std::string_view interjection(std::optional<unsigned> length = std::nullopt);
  * @returns Noun.
  *
  * @code
- * word::noun() // "pudding"
- * word::noun(8) // "distance"
+ * faker::word::noun() // "pudding"
+ * faker::word::noun(8) // "distance"
  * @endcode
  */
 std::string_view noun(std::optional<unsigned> length = std::nullopt);
@@ -119,8 +119,8 @@ std::string_view noun(std::optional<unsigned> length = std::nullopt);
  * @returns Preposition.
  *
  * @code
- * word::preposition() // "besides"
- * word::preposition(4) // "from"
+ * faker::word::preposition() // "besides"
+ * faker::word::preposition(4) // "from"
  * @endcode
  */
 std::string_view preposition(std::optional<unsigned> length = std::nullopt);
@@ -134,8 +134,8 @@ std::string_view preposition(std::optional<unsigned> length = std::nullopt);
  * @returns Verb.
  *
  * @code
- * word::verb() // "override"
- * word::verb(9) // "stabilise"
+ * faker::word::verb() // "override"
+ * faker::word::verb(9) // "stabilise"
  * @endcode
  */
 std::string_view verb(std::optional<unsigned> length = std::nullopt);

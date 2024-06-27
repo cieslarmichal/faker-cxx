@@ -16,9 +16,9 @@ enum class PhoneNumberCountryFormat;
      * @returns Random phone number.
      *
      * @code
-     * phone::number() // "961-770-7727"
-     * phone::number("501-###-###") // "501-039-841"
-     * phone::number("+48 91 ### ## ##") // "+48 91 463 61 70"
+     * faker::phone::number() // "961-770-7727"
+     * faker::phone::number("501-###-###") // "501-039-841"
+     * faker::phone::number("+48 91 ### ## ##") // "+48 91 463 61 70"
      * @endcode
      */
     std::string number(std::optional<std::string> = std::nullopt);
@@ -29,7 +29,7 @@ enum class PhoneNumberCountryFormat;
      * @returns Random phone platform.
      *
      * @code
-     * phone::platform() // "iOS"
+     * faker::phone::platform() // "iOS"
      * @endcode
      */
     std::string_view platform();
@@ -40,7 +40,7 @@ enum class PhoneNumberCountryFormat;
      * @returns Random phone model.
      *
      * @code
-     * phone::modelName() // "Samsung Galaxy S22"
+     * faker::phone::modelName() // "Samsung Galaxy S22"
      * @endcode
      */
     std::string_view modelName();
@@ -51,7 +51,7 @@ enum class PhoneNumberCountryFormat;
      * @returns Random phone manufacturer.
      *
      * @code
-     * phone::manufacturer() // "Sony"
+     * faker::phone::manufacturer() // "Sony"
      * @endcode
      */
     std::string_view manufacturer();
@@ -64,7 +64,7 @@ enum class PhoneNumberCountryFormat;
      * @returns Random phone number based on country phone number template.
      *
      * @code
-     * phone::number(PhoneNumberCountryFormat::Usa) // "+1 (395) 714-1494"
+     * faker::phone::number(PhoneNumberCountryFormat::Usa) // "+1 (395) 714-1494"
      * @endcode
      */
     std::string number(PhoneNumberCountryFormat format);
@@ -75,7 +75,7 @@ enum class PhoneNumberCountryFormat;
      * @returns IMEI number.
      *
      * @code
-     * phone::imei() // "13-850175-913761-7"
+     * faker::phone::imei() // "13-850175-913761-7"
      * @endcode
      */
     std::string imei();
@@ -86,7 +86,7 @@ enum class PhoneNumberCountryFormat;
      * @returns Random country area code
      *
      * @code
-     * phone::areaCode() // "+1"
+     * faker::phone::areaCode() // "+1"
      * @endcode
      */
     std::string_view areaCode();

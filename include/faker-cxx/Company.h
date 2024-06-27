@@ -10,7 +10,7 @@ namespace faker::company
  * @returns Company name.
  *
  * @code
- * company::name() // "Adams Inc"
+ * faker::company::name() // "Adams Inc"
  * @endcode
  */
 std::string name();
@@ -21,7 +21,7 @@ std::string name();
  * @returns Company type.
  *
  * @code
- * company::type() // "Nonprofit"
+ * faker::company::type() // "Nonprofit"
  * @endcode
  */
 std::string_view type();
@@ -32,7 +32,7 @@ std::string_view type();
  * @returns Company industry.
  *
  * @code
- * company::industry() // "Biotechnology"
+ * faker::company::industry() // "Biotechnology"
  * @endcode
  */
 std::string_view industry();
@@ -43,7 +43,7 @@ std::string_view industry();
  * @returns Buzz phrase.
  *
  * @code
- * company::buzzPhrase() // "cultivate synergistic e-market"
+ * faker::company::buzzPhrase() // "cultivate synergistic e-market"
  * @endcode
  */
 std::string buzzPhrase();
@@ -54,7 +54,7 @@ std::string buzzPhrase();
  * @returns Buzz adjective.
  *
  * @code
- * company::buzzAdjective() // "one-to-one"
+ * faker::company::buzzAdjective() // "one-to-one"
  * @endcode
  */
 std::string_view buzzAdjective();
@@ -65,7 +65,7 @@ std::string_view buzzAdjective();
  * @returns Buzz noun.
  *
  * @code
- * company::buzzNoun() // "paradigms"
+ * faker::company::buzzNoun() // "paradigms"
  * @endcode
  */
 std::string_view buzzNoun();
@@ -76,7 +76,7 @@ std::string_view buzzNoun();
  * @returns Buzz verb.
  *
  * @code
- * company::buzzVerb() // "empower"
+ * faker::company::buzzVerb() // "empower"
  * @endcode
  */
 std::string_view buzzVerb();
@@ -87,7 +87,7 @@ std::string_view buzzVerb();
  * @returns Catch phrase.
  *
  * @code
- * company::catchPhrase() // "Upgradable systematic flexibility"
+ * faker::company::catchPhrase() // "Upgradable systematic flexibility"
  * @endcode
  */
 std::string catchPhrase();
@@ -98,7 +98,7 @@ std::string catchPhrase();
  * @returns Catch phrase adjective.
  *
  * @code
- * company::catchPhraseAdjective() // "Multi-tiered"
+ * faker::company::catchPhraseAdjective() // "Multi-tiered"
  * @endcode
  */
 std::string_view catchPhraseAdjective();
@@ -109,7 +109,7 @@ std::string_view catchPhraseAdjective();
  * @returns Catch phrase descriptor.
  *
  * @code
- * company::catchPhraseDescriptor() // "composite"
+ * faker::company::catchPhraseDescriptor() // "composite"
  * @endcode
  */
 std::string_view catchPhraseDescriptor();
@@ -120,7 +120,7 @@ std::string_view catchPhraseDescriptor();
  * @returns Catch phrase noun.
  *
  * @code
- * company::catchPhraseNoun() // "leverage"
+ * faker::company::catchPhraseNoun() // "leverage"
  * @endcode
  */
 std::string_view catchPhraseNoun();

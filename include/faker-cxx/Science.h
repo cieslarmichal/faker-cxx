@@ -20,7 +20,7 @@ public:
      * @returns ChemicalElement
      *
      * @code
-     * Science::chemicalElement() // Object of ChemicalElement containing info about a random element in the periodic
+     * faker::science::chemicalElement() // Object of ChemicalElement containing info about a random element in the periodic
      * table.
      * @endcode
      */
@@ -39,7 +39,7 @@ public:
      * @returns Unit
      *
      * @code
-     * Science::unit() // Object of Unit containing info about a random unit of measurement.
+     * faker::science::unit() // Object of Unit containing info about a random unit of measurement.
      * @endcode
      */
     static Unit unit();
@@ -50,7 +50,7 @@ public:
      * @returns Unit
      *
      * @code
-     * Science::distanceUnit() // Object of Unit containing info about a random unit of measurement used to measure
+     * faker::science::distanceUnit() // Object of Unit containing info about a random unit of measurement used to measure
      * distance.
      * @endcode
      */
@@ -62,7 +62,7 @@ public:
      * @returns Unit
      *
      * @code
-     * Science::timeUnit() // Object of Unit containing info about a random unit of measurement used to measure time.
+     * faker::science::timeUnit() // Object of Unit containing info about a random unit of measurement used to measure time.
      * @endcode
      */
     static Unit timeUnit();
@@ -73,7 +73,7 @@ public:
      * @returns Unit
      *
      * @code
-     * Science::massUnit() // Object of Unit containing info about a random unit of measurement used to measure mass.
+     * faker::science::massUnit() // Object of Unit containing info about a random unit of measurement used to measure mass.
      * @endcode
      */
     static Unit massUnit();
@@ -84,7 +84,7 @@ public:
      * @returns Unit
      *
      * @code
-     * Science::tempUnit() // Object of Unit containing info about a random unit of measurement used to measure temp.
+     * faker::science::tempUnit() // Object of Unit containing info about a random unit of measurement used to measure temp.
      * @endcode
      */
     static Unit tempUnit();
@@ -95,7 +95,7 @@ public:
      * @returns Unit
      *
      * @code
-     * Science::currentUnit() // Object of Unit containing info about a random unit of measurement used to measure
+     * faker::science::currentUnit() // Object of Unit containing info about a random unit of measurement used to measure
      * current.
      * @endcode
      */

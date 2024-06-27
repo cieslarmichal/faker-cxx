@@ -31,7 +31,7 @@ enum class AddressCountry
      * @returns Country name.
      *
      * @code
-     * location::country() // "Poland"
+     * faker::location::country() // "Poland"
      * @endcode
      */
     std::string_view country();
@@ -42,7 +42,7 @@ enum class AddressCountry
      * @returns Country code consisting two letters.
      *
      * @code
-     * location::countryCode() // "PL"
+     * faker::location::countryCode() // "PL"
      * @endcode
      */
     std::string_view countryCode();
@@ -55,7 +55,7 @@ enum class AddressCountry
      * @returns State.
      *
      * @code
-     * location::state() // "Arizona"
+     * faker::location::state() // "Arizona"
      * @endcode
      */
     std::string_view state(AddressCountry country = AddressCountry::Usa);
@@ -68,7 +68,7 @@ enum class AddressCountry
      * @returns County.
      *
      * @code
-     * location::county() // "Adams County"
+     * faker::location::county() // "Adams County"
      * @endcode
      */
     std::string_view county(AddressCountry country = AddressCountry::Usa);
@@ -81,7 +81,7 @@ enum class AddressCountry
      * @returns City.
      *
      * @code
-     * location::city() // "Boston"
+     * faker::location::city() // "Boston"
      * @endcode
      */
     std::string city(AddressCountry country = AddressCountry::Usa);
@@ -94,8 +94,8 @@ enum class AddressCountry
      * @returns Zip code.
      *
      * @code
-     * location::zipCode() // "47683-9880"
-     * location::zipCode(Country::Poland) // "31-881"
+     * faker::location::zipCode() // "47683-9880"
+     * faker::location::zipCode(Country::Poland) // "31-881"
      * @endcode
      */
     std::string zipCode(AddressCountry country = AddressCountry::Usa);
@@ -108,7 +108,7 @@ enum class AddressCountry
      * @returns Street address including building number and street name.
      *
      * @code
-     * location::streetAddress() // "34830 Erdman Hollow"
+     * faker::location::streetAddress() // "34830 Erdman Hollow"
      * @endcode
      */
     std::string streetAddress(AddressCountry country = AddressCountry::Usa);
@@ -121,7 +121,7 @@ enum class AddressCountry
      * @returns Street name.
      *
      * @code
-     * location::street() // "Schroeder Isle"
+     * faker::location::street() // "Schroeder Isle"
      * @endcode
      */
     std::string street(AddressCountry country = AddressCountry::Usa);
@@ -134,7 +134,7 @@ enum class AddressCountry
      * @returns Building number.
      *
      * @code
-     * location::buildingNumber() // "505"
+     * faker::location::buildingNumber() // "505"
      * @endcode
      */
     std::string buildingNumber(AddressCountry country = AddressCountry::Usa);
@@ -148,7 +148,7 @@ enum class AddressCountry
      * @returns Secondary address.
      *
      * @code
-     * location::secondaryAddress() // "Apt. 861"
+     * faker::location::secondaryAddress() // "Apt. 861"
      * @endcode
      */
     std::string secondaryAddress(AddressCountry country = AddressCountry::Usa);
@@ -161,7 +161,7 @@ enum class AddressCountry
      * @returns Latitude within -90 to 90 range.
      *
      * @code
-     * location::latitude() // "-30.9501"
+     * faker::location::latitude() // "-30.9501"
      * @endcode
      */
     std::string latitude(Precision precision = Precision::FourDp);
@@ -174,7 +174,7 @@ enum class AddressCountry
      * @returns Longitude within -180 to 180 range.
      *
      * @code
-     * location::longitude() // "-30.9501"
+     * faker::location::longitude() // "-30.9501"
      * @endcode
      */
     std::string longitude(Precision precision = Precision::FourDp);
@@ -185,7 +185,7 @@ enum class AddressCountry
      * @returns Direction.
      *
      * @code
-     * location::direction() // "North"
+     * faker::location::direction() // "North"
      * @endcode
      */
     std::string_view direction();
@@ -196,7 +196,7 @@ enum class AddressCountry
      * @returns Time zone.
      *
      * @code
-     * location::timeZone() // "Europe/Warsaw"
+     * faker::location::timeZone() // "Europe/Warsaw"
      * @endcode
      */
     std::string_view timeZone();

@@ -10,7 +10,7 @@ namespace faker::airline
      * @return a random aircraft type
      *
      * @code
-     * Airline::aircraftType // "narrowbody"
+     * faker::airline::aircraftType // "narrowbody"
      * @endcode
      */
     std::string_view aircraftType();
@@ -27,7 +27,7 @@ namespace faker::airline
      * @return a random airplane and its iataTypeCode
      *
      * @code
-     * Airline::airplane() // {"Boeing 737-800", "738"}
+     * faker::airline::airplane() // {"Boeing 737-800", "738"}
      * @endcode
      */
      Airplane airplane();
@@ -44,7 +44,7 @@ namespace faker::airline
      * @return a random airline and its iataCode
      *
      * @code
-     * Airline::airline() // {"Air Canada", "AC"}
+     * faker::airline::airline() // {"Air Canada", "AC"}
      * @endcode
      */
      AirlineInfo airline();
@@ -61,7 +61,7 @@ namespace faker::airline
      * @return a random airport and its iataCode
      *
      * @code
-     * Airline::airport() // {"Toronto Pearson International Airport", "YYZ"}
+     * faker::airline::airport() // {"Toronto Pearson International Airport", "YYZ"}
      * @endcode
      */
      Airport airport();
@@ -81,7 +81,7 @@ namespace faker::airline
      * @return a random seat
      *
      * @code
-     * Airline::seat(AircraftType::Narrowbody) // "1A"
+     * faker::airline::seat(AircraftType::Narrowbody) // "1A"
      * @endcode
      */
      std::string seat(AircraftType aircraftType);
@@ -92,8 +92,8 @@ namespace faker::airline
      * @return a random record location
      *
      * @code
-     * Airline::recordLocator() // "ABCDEF"
-     * Airline::recordLocator(true) // "ABC123"
+     * faker::airline::recordLocator() // "ABCDEF"
+     * faker::airline::recordLocator(true) // "ABC123"
      * @endcode
      */
      std::string recordLocator(bool allowNumerics = false);
@@ -108,9 +108,9 @@ namespace faker::airline
      * @return a random flight number
      *
      * @code
-     * Airline::flightNumber() // "1234"
-     * Airline::flightNumber(true) // "0123"
-     * Airline::flightNumber(false, 3) // "234"
+     * faker::airline::flightNumber() // "1234"
+     * faker::airline::flightNumber(true) // "0123"
+     * faker::airline::flightNumber(false, 3) // "234"
      * @endcode
      */
      std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
@@ -131,9 +131,9 @@ namespace faker::airline
      * @return a random flight number
      *
      * @code
-     * Airline::flightNumber() // "1234"
-     * Airline::flightNumber(true) // "0123"
-     * Airline::flightNumber(false, {1, 4}) // "234" // "12" // "1234"
+     * faker::airline::flightNumber() // "1234"
+     * faker::airline::flightNumber(true) // "0123"
+     * faker::airline::flightNumber(false, {1, 4}) // "234" // "12" // "1234"
      * @endcode
      */
      std::string flightNumberByRange(bool addLeadingZeros = false, Range length = {1, 4});

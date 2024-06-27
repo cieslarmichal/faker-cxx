@@ -8,7 +8,7 @@ namespace faker::datatype
  * @returns Boolean.
  *
  * @code
- * datatype::boolean() // "false"
+ * faker::datatype::boolean() // "false"
  * @endcode
  */
 bool boolean();
@@ -26,9 +26,9 @@ bool boolean();
  * @returns Boolean.
  *
  * @code
- * datatype::boolean() // "false"
- * datatype::boolean(0.9) // "true"
- * datatype::boolean(0.1) // "false"
+ * faker::datatype::boolean() // "false"
+ * faker::datatype::boolean(0.9) // "true"
+ * faker::datatype::boolean(0.1) // "false"
  * @endcode
  */
 bool boolean(double probability);
