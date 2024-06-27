@@ -1,7 +1,6 @@
 #include <cstdlib>
 #include <iostream>
 
-#include "faker-cxx/Date.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/Location.h"
 #include "faker-cxx/String.h"
