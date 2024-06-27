@@ -40,29 +40,29 @@ std::string recordLocator(bool allowNumerics)
 {
     if (allowNumerics)
     {
-        return String::alphanumeric(6, StringCasing::Upper);
+        return string::alphanumeric(6, string::StringCasing::Upper);
     }
 
-    return String::alpha(6, StringCasing::Upper);
+    return string::alpha(6, string::StringCasing::Upper);
 }
 
 std::string flightNumber(bool addLeadingZeros, unsigned int length)
 {
     if (addLeadingZeros)
     {
-        return String::numeric(length, true);
+        return string::numeric(length, true);
     }
 
-    return String::numeric(length, false);
+    return string::numeric(length, false);
 }
 
 std::string flightNumberByRange(bool addLeadingZeros, Range length)
 {
     if (addLeadingZeros)
     {
-        return String::numeric(number::integer(length.min, length.max), true);
+        return string::numeric(number::integer(length.min, length.max), true);
     }
 
-    return String::numeric(number::integer(length.min, length.max), false);
+    return string::numeric(number::integer(length.min, length.max), false);
 }
 }

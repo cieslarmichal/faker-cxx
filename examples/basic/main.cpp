@@ -8,7 +8,7 @@
 
 int main()
 {
-    const auto id = faker::String::uuid();
+    const auto id = faker::string::uuid();
     const auto email = faker::internet::email();
     const auto password = faker::internet::password();
     const auto city = faker::location::city();

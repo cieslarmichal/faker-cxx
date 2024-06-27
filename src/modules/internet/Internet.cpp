@@ -131,22 +131,22 @@ std::string password(int length, const PasswordOptions& options)
 
     if (options.upperLetters)
     {
-        characters += upperCharacters;
+        characters += string::upperCharacters;
     }
 
     if (options.lowerLetters)
     {
-        characters += lowerCharacters;
+        characters += string::lowerCharacters;
     }
 
     if (options.numbers)
     {
-        characters += numericCharacters;
+        characters += string::numericCharacters;
     }
 
     if (options.symbols)
     {
-        characters += symbolCharacters;
+        characters += string::symbolCharacters;
     }
 
     std::string password;
@@ -279,7 +279,7 @@ std::string ipv6()
 
     for (int i = 0; i < 8; i++)
     {
-        ipv6Parts.push_back(String::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
+        ipv6Parts.push_back(string::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
     }
 
     return StringHelper::joinString(ipv6Parts, ":");
@@ -298,7 +298,7 @@ std::string mac(const std::string& sep)
 
     for (int i = 0; i < 12; i++)
     {
-        mac += String::hexadecimal(0, 15);
+        mac += string::hexadecimal(0, 15);
 
         if (i % 2 == 1 && i != 11)
         {

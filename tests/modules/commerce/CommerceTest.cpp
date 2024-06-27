@@ -34,7 +34,7 @@ TEST_F(CommerceTest, shouldGenerateSku)
     ASSERT_TRUE(std::ranges::all_of(generatedSku,
                                     [](char skuCharacter)
                                     {
-                                        return std::ranges::any_of(numericCharacters,
+                                        return std::ranges::any_of(string::numericCharacters,
                                                                    [skuCharacter](char numericCharacter)
                                                                    { return skuCharacter == numericCharacter; });
                                     }));
@@ -50,7 +50,7 @@ TEST_F(CommerceTest, shouldGenerateSkuWithSpecifiedLength)
     ASSERT_TRUE(std::ranges::all_of(generatedSku,
                                     [](char skuCharacter)
                                     {
-                                        return std::ranges::any_of(numericCharacters,
+                                        return std::ranges::any_of(string::numericCharacters,
                                                                    [skuCharacter](char numericCharacter)
                                                                    { return skuCharacter == numericCharacter; });
                                     }));

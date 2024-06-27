@@ -14,7 +14,7 @@
 #include "faker-cxx/types/Hex.h"
 #include "StringData.h"
 
-namespace faker
+namespace faker::string
 {
 namespace
 {
@@ -48,41 +48,8 @@ const std::map<HexCasing, std::set<char>> hexCasingToCharSetMapping{
     {HexCasing::Lower, hexLowerCharSet},
     {HexCasing::Upper, hexUpperCharSet},
 };
-}
 
-bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
-{
-    unsigned int atleastCountSum{};
-    unsigned int atmostCountSum{};
-    for (auto& it : guarantee)
-    {
-        // if a char in guarantee is not in char set, it is an invalid guarantee
-        if (std::find(targetCharacters.begin(), targetCharacters.end(), it.first) == targetCharacters.end())
-        {
-            return false;
-        }
-        atleastCountSum += it.second.atLeastCount;
-        atmostCountSum += it.second.atMostCount;
-    }
-    // if atleastCount sums up greater than total length of string, it is an invalid guarantee
-    // if all chars in targetCharacters are mapped in guarantee, we need to check for validity of atmostCount
-    // if atmostCount sumps up less than total length of string, it in an invalid guarantee
-    if (atleastCountSum > length || (guarantee.size() == targetCharacters.size() && atmostCountSum < length))
-        return false;
-    return true;
-}
-
-std::string generateAtLeastString(const GuaranteeMap& guarantee)
-{
-    std::string result;
-    for (auto& it : guarantee)
-    {
-        result += std::string(it.second.atLeastCount, it.first);
-    }
-    return result;
-}
-
-std::string String::generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
+std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
                                                 unsigned int length)
 {
     std::string output{};
@@ -123,8 +90,41 @@ std::string String::generateStringWithGuarantee(GuaranteeMap& guarantee, std::se
     output = Helper::shuffleString(output);
     return output;
 }
+}
 
-std::string String::sample(unsigned int length)
+bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
+{
+    unsigned int atleastCountSum{};
+    unsigned int atmostCountSum{};
+    for (auto& it : guarantee)
+    {
+        // if a char in guarantee is not in char set, it is an invalid guarantee
+        if (std::find(targetCharacters.begin(), targetCharacters.end(), it.first) == targetCharacters.end())
+        {
+            return false;
+        }
+        atleastCountSum += it.second.atLeastCount;
+        atmostCountSum += it.second.atMostCount;
+    }
+    // if atleastCount sums up greater than total length of string, it is an invalid guarantee
+    // if all chars in targetCharacters are mapped in guarantee, we need to check for validity of atmostCount
+    // if atmostCount sumps up less than total length of string, it in an invalid guarantee
+    if (atleastCountSum > length || (guarantee.size() == targetCharacters.size() && atmostCountSum < length))
+        return false;
+    return true;
+}
+
+std::string generateAtLeastString(const GuaranteeMap& guarantee)
+{
+    std::string result;
+    for (auto& it : guarantee)
+    {
+        result += std::string(it.second.atLeastCount, it.first);
+    }
+    return result;
+}
+
+std::string sample(unsigned int length)
 {
     std::string sample;
 
@@ -136,7 +136,7 @@ std::string String::sample(unsigned int length)
     return sample;
 }
 
-std::string String::sample(GuaranteeMap&& guarantee, unsigned int length)
+std::string sample(GuaranteeMap&& guarantee, unsigned int length)
 {
     auto targetCharacters = utf16CharSet;
     // throw if guarantee is invalid
@@ -147,7 +147,7 @@ std::string String::sample(GuaranteeMap&& guarantee, unsigned int length)
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string String::fromCharacters(const std::string& characters, unsigned int length)
+std::string fromCharacters(const std::string& characters, unsigned int length)
 {
     std::string result;
 
@@ -159,7 +159,7 @@ std::string String::fromCharacters(const std::string& characters, unsigned int l
     return result;
 }
 
-std::string String::fromCharacters(GuaranteeMap&& guarantee, const std::string& characters, unsigned length)
+std::string fromCharacters(GuaranteeMap&& guarantee, const std::string& characters, unsigned length)
 {
     std::set<char> targetCharacters;
     for (auto character : characters)
@@ -174,7 +174,7 @@ std::string String::fromCharacters(GuaranteeMap&& guarantee, const std::string& 
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string String::alpha(unsigned length, StringCasing casing, const std::string& excludeCharacters)
+std::string alpha(unsigned length, StringCasing casing, const std::string& excludeCharacters)
 {
     const auto& alphaCharacters = stringCasingToAlphaCharactersMapping.at(casing);
 
@@ -198,7 +198,7 @@ std::string String::alpha(unsigned length, StringCasing casing, const std::strin
     return alpha;
 }
 
-std::string String::alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing casing)
+std::string alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing casing)
 {
     auto targetCharacters = stringCasingToAlphaCharSetMapping.at(casing);
     // throw if guarantee is invalid
@@ -209,7 +209,7 @@ std::string String::alpha(GuaranteeMap&& guarantee, unsigned int length, StringC
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string String::alphanumeric(unsigned int length, StringCasing casing, const std::string& excludeCharacters)
+std::string alphanumeric(unsigned int length, StringCasing casing, const std::string& excludeCharacters)
 {
     const auto& alphanumericCharacters = stringCasingToAlphanumericCharactersMapping.at(casing);
 
@@ -233,7 +233,7 @@ std::string String::alphanumeric(unsigned int length, StringCasing casing, const
     return alphanumeric;
 }
 
-std::string String::alphanumeric(GuaranteeMap&& guarantee, unsigned length, StringCasing casing)
+std::string alphanumeric(GuaranteeMap&& guarantee, unsigned length, StringCasing casing)
 {
     auto targetCharacters = digitSet;
     auto charSet = stringCasingToAlphaCharSetMapping.at(casing);
@@ -246,7 +246,7 @@ std::string String::alphanumeric(GuaranteeMap&& guarantee, unsigned length, Stri
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string String::numeric(unsigned int length, bool allowLeadingZeros)
+std::string numeric(unsigned int length, bool allowLeadingZeros)
 {
     std::string alphanumeric;
 
@@ -265,7 +265,7 @@ std::string String::numeric(unsigned int length, bool allowLeadingZeros)
     return alphanumeric;
 }
 
-std::string String::numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowLeadingZeros)
+std::string numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowLeadingZeros)
 {
     // if leading zero not allowed, atleastCount of '0' cannot be equal to length
     if (!allowLeadingZeros)
@@ -298,7 +298,7 @@ std::string String::numeric(GuaranteeMap&& guarantee, const unsigned length, boo
     }
 }
 
-std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
+std::string hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
 {
     const auto& hexadecimalCharacters = hexCasingToCharactersMapping.at(casing);
 
@@ -314,7 +314,7 @@ std::string String::hexadecimal(unsigned int length, HexCasing casing, HexPrefix
     return hexadecimal;
 }
 
-std::string String::hexadecimal(std::optional<int> min, std::optional<int> max)
+std::string hexadecimal(std::optional<int> min, std::optional<int> max)
 {
     int defaultMin = 0;
     int defaultMax = 15;
@@ -332,7 +332,7 @@ std::string String::hexadecimal(std::optional<int> min, std::optional<int> max)
     return FormatHelper::format("{:x}", number::integer(defaultMin, defaultMax));
 }
 
-std::string String::hexadecimal(GuaranteeMap&& guarantee, unsigned int length, HexCasing casing, HexPrefix prefix)
+std::string hexadecimal(GuaranteeMap&& guarantee, unsigned int length, HexCasing casing, HexPrefix prefix)
 {
     std::set<char> targetCharacters = hexCasingToCharSetMapping.at(casing);
     // throw if guarantee is invalid
@@ -344,7 +344,7 @@ std::string String::hexadecimal(GuaranteeMap&& guarantee, unsigned int length, H
     return hexadecimalPrefix + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string String::binary(unsigned int length)
+std::string binary(unsigned int length)
 {
     std::string binaryNumber;
     for (unsigned int i = 0; i < length; ++i)
@@ -354,7 +354,7 @@ std::string String::binary(unsigned int length)
     return "0b" + binaryNumber;
 }
 
-std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
+std::string binary(GuaranteeMap&& guarantee, unsigned int length)
 {
     // numbers used by binary representation
     std::set<char> targetCharacters{'0', '1'};
@@ -367,7 +367,7 @@ std::string String::binary(GuaranteeMap&& guarantee, unsigned int length)
     return "0b" + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string String::octal(unsigned int length)
+std::string octal(unsigned int length)
 {
     std::string octalNumber;
     for (unsigned int i = 0; i < length; ++i)
@@ -377,7 +377,7 @@ std::string String::octal(unsigned int length)
     return "0o" + octalNumber;
 }
 
-std::string String::octal(GuaranteeMap&& guarantee, unsigned int length)
+std::string octal(GuaranteeMap&& guarantee, unsigned int length)
 {
     // numbers used by octal representation
     std::set<char> targetCharacters{'0', '1', '2', '3', '4', '5', '6', '7'};

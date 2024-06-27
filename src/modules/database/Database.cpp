@@ -32,6 +32,6 @@ std::string_view engine()
 
 std::string mongoDbObjectId()
 {
-    return String::hexadecimal(24, HexCasing::Lower, HexPrefix::None);
+    return string::hexadecimal(24, HexCasing::Lower, HexPrefix::None);
 }
 }

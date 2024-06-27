@@ -55,5 +55,5 @@ TEST_F(DatabaseTest, shouldGenerateMongoDbObjectId)
 
     ASSERT_EQ(generatedMongoDbObjectId.size(), 24);
     ASSERT_TRUE(std::ranges::any_of(generatedMongoDbObjectId, [](char hexNumberCharacter)
-                                    { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                                    { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
