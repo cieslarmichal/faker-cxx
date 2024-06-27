@@ -633,7 +633,7 @@ TEST_F(InternetTest, shouldGenerateIpv6)
                                     {
                                         return std::ranges::all_of(
                                             generatedIpv6Part, [](char hexCharacter)
-                                            { return hexLowerCharacters.find(hexCharacter) != std::string::npos; });
+                                            { return string::hexLowerCharacters.find(hexCharacter) != std::string::npos; });
                                     }));
 }
 

@@ -17,7 +17,7 @@ std::string_view department()
 
 std::string sku(unsigned int length)
 {
-    return String::numeric(length, false);
+    return string::numeric(length, false);
 }
 
 std::string_view productAdjective()
@@ -42,7 +42,7 @@ std::string productFullName()
 
 std::string EAN13()
 {
-    const auto ean13 = String::numeric(12, false);
+    const auto ean13 = string::numeric(12, false);
 
     int sum = 0;
 
@@ -70,7 +70,7 @@ std::string EAN13()
 
 std::string EAN8()
 {
-    const auto ean8 = String::numeric(7, false);
+    const auto ean8 = string::numeric(7, false);
 
     int sum = 0;
 
@@ -98,7 +98,7 @@ std::string EAN8()
 
 std::string ISBN13()
 {
-    const auto isbn13 = String::numeric(12, true);
+    const auto isbn13 = string::numeric(12, true);
 
     int sum = 0;
 
@@ -126,7 +126,7 @@ std::string ISBN13()
 
 std::string ISBN10()
 {
-    const auto isbn10 = String::numeric(9, true);
+    const auto isbn10 = string::numeric(9, true);
 
     int sum = 0, weight = 10;
 

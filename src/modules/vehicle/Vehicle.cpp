@@ -51,16 +51,16 @@ std::string vin()
 {
     std::string exclude_characters{"oiqOIQ"};
 
-    return FormatHelper::format("{}{}{}{}", String::alphanumeric(10, StringCasing::Upper, exclude_characters),
-                                String::alpha(1, StringCasing::Upper, exclude_characters),
-                                String::alphanumeric(1, StringCasing::Upper, exclude_characters),
+    return FormatHelper::format("{}{}{}{}", string::alphanumeric(10, string::StringCasing::Upper, exclude_characters),
+                                string::alpha(1, string::StringCasing::Upper, exclude_characters),
+                                string::alphanumeric(1, string::StringCasing::Upper, exclude_characters),
                                 number::integer(10000, 99999));
 }
 
 std::string vrm()
 {
-    return FormatHelper::format("{}{}{}", String::alpha(2, StringCasing::Upper), String::numeric(2, true),
-                                String::alpha(3, StringCasing::Upper));
+    return FormatHelper::format("{}{}{}", string::alpha(2, string::StringCasing::Upper), string::numeric(2, true),
+                                string::alpha(3, string::StringCasing::Upper));
 }
 
 }

@@ -74,15 +74,15 @@ std::string iban(std::optional<IbanCountry> country)
 
         if (ibanFormatEntryDataType == 'a')
         {
-            iban += String::alpha(static_cast<unsigned>(ibanFormatEntryDataLength), StringCasing::Upper);
+            iban += string::alpha(static_cast<unsigned>(ibanFormatEntryDataLength), string::StringCasing::Upper);
         }
         else if (ibanFormatEntryDataType == 'c')
         {
-            iban += String::alphanumeric(static_cast<unsigned>(ibanFormatEntryDataLength), StringCasing::Upper);
+            iban += string::alphanumeric(static_cast<unsigned>(ibanFormatEntryDataLength), string::StringCasing::Upper);
         }
         else if (ibanFormatEntryDataType == 'n')
         {
-            iban += String::numeric(static_cast<unsigned>(ibanFormatEntryDataLength));
+            iban += string::numeric(static_cast<unsigned>(ibanFormatEntryDataLength));
         }
     }
 
@@ -98,17 +98,17 @@ std::string_view bic(std::optional<BicCountry> country)
 
 std::string accountNumber(unsigned int length)
 {
-    return String::numeric(length, true);
+    return string::numeric(length, true);
 }
 
 std::string pin(unsigned int length)
 {
-    return String::numeric(length, true);
+    return string::numeric(length, true);
 }
 
 std::string routingNumber()
 {
-    return String::numeric(9, true);
+    return string::numeric(9, true);
 }
 
 std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
@@ -135,7 +135,7 @@ std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
 
 std::string creditCardCvv()
 {
-    return String::numeric(3, true);
+    return string::numeric(3, true);
 }
 
 std::string bitcoinAddress()
@@ -144,7 +144,7 @@ std::string bitcoinAddress()
 
     auto address = Helper::arrayElement(std::vector<std::string>{"1", "3"});
 
-    address += String::alphanumeric(addressLength, StringCasing::Mixed, "0OIl");
+    address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
     return address;
 }
@@ -155,14 +155,14 @@ std::string litecoinAddress()
 
     auto address = Helper::arrayElement(std::vector<std::string>{"L", "M", "3"});
 
-    address += String::alphanumeric(addressLength, StringCasing::Mixed, "0OIl");
+    address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
     return address;
 }
 
 std::string ethereumAddress()
 {
-    return String::hexadecimal(40, HexCasing::Lower);
+    return string::hexadecimal(40, HexCasing::Lower);
 }
 
 std::string creditCardExpirationDate()

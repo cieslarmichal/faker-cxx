@@ -127,7 +127,7 @@ std::string commitMessage()
 
 std::string commitSha(unsigned length)
 {
-    return faker::String::hexadecimal(length, HexCasing::Lower, HexPrefix::None);
+    return faker::string::hexadecimal(length, HexCasing::Lower, HexPrefix::None);
 }
 
 }

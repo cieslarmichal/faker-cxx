@@ -407,11 +407,11 @@ std::string Person::ssn(std::optional<SsnCountry> country)
     {
         if (ssnFormatCharacter == 'L')
         {
-            ssn += String::alpha(1, StringCasing::Upper);
+            ssn += string::alpha(1, string::StringCasing::Upper);
         }
         else if (ssnFormatCharacter == 'F')
         {
-            ssn += String::alphanumeric(1, StringCasing::Upper);
+            ssn += string::alphanumeric(1, string::StringCasing::Upper);
         }
         else if (ssnFormatCharacter == '#')
         {
@@ -448,12 +448,12 @@ std::string Person::passport(std::optional<PassportCountry> countryOpt)
     {
         if (c == 'A')
         {
-            passportNumber += String::alpha(1, StringCasing::Upper);
+            passportNumber += string::alpha(1, string::StringCasing::Upper);
         }
 
         else if (c == '0')
         {
-            passportNumber += String::numeric(1);
+            passportNumber += string::numeric(1);
         }
     }
 
