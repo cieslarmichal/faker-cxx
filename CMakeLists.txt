@@ -84,6 +84,10 @@ configure_compiler_warnings(${CMAKE_PROJECT_NAME}
 
 include(GenerateExportHeader)
 generate_export_header(${CMAKE_PROJECT_NAME} BASE_NAME FAKER_CXX EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/include/faker-cxx/Export.h)
+set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
+    CXX_VISIBILITY_PRESET hidden
+    CMAKE_VISIBILITY_INLINES_HIDDEN 1
+)
 
 target_include_directories(
     ${CMAKE_PROJECT_NAME}
