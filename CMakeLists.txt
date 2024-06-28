@@ -22,6 +22,8 @@ if (BUILD_TESTING)
     add_code_coverage_all_targets()
 endif ()
 
+file(GLOB_RECURSE HEADER_FILES "src/modules/**/*.h" "src/modules/**/*.h")
+
 set(FAKER_SOURCES
     src/modules/airline/Airline.cpp
     src/modules/animal/Animal.cpp
@@ -62,12 +64,13 @@ set(FAKER_SOURCES
     src/common/StringHelper.cpp
 )
 
-add_library(${CMAKE_PROJECT_NAME} ${FAKER_SOURCES})
+add_library(${CMAKE_PROJECT_NAME} ${FAKER_SOURCES} ${HEADER_FILES})
 
 target_include_directories(
     ${CMAKE_PROJECT_NAME} PUBLIC
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-    $<INSTALL_INTERFACE:include>)
+    $<INSTALL_INTERFACE:include>
+)
 
 target_include_directories(
     ${CMAKE_PROJECT_NAME} PRIVATE
@@ -81,15 +84,29 @@ configure_compiler_warnings(${CMAKE_PROJECT_NAME}
     "${CLANG_WARNINGS}"
     "${GCC_WARNINGS}")
 
+set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
+    CXX_VISIBILITY_PRESET hidden
+    VISIBILITY_INLINES_HIDDEN YES
+)
+
+include(GenerateExportHeader)
+generate_export_header(${CMAKE_PROJECT_NAME} BASE_NAME FAKER_CXX EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/include/faker-cxx/Export.h)
+
+target_include_directories(
+    ${CMAKE_PROJECT_NAME}
+    PUBLIC $<BUILD_INTERFACE:${CMAKE_CURRENT_BINARY_DIR}/include>
+    PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/include
+)
+
 include(GNUInstallDirs)
 install(TARGETS ${CMAKE_PROJECT_NAME}
     EXPORT ${CMAKE_PROJECT_NAME}-targets
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
-    RUNTIME DESTINATION bin)
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/faker-cxx
-    DESTINATION include/
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
     FILES_MATCHING
     PATTERN "*.h"
 )
@@ -102,7 +119,7 @@ install(EXPORT ${CMAKE_PROJECT_NAME}-targets
 if (HAS_STD_FORMAT)
     target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE HAS_STD_FORMAT)
 elseif (USE_SYSTEM_DEPENDENCIES)
-    find_package(fmt REQUIRED)
+    find_package(fmt CONFIG REQUIRED)
     target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt)
 else ()
     add_subdirectory(externals/fmt)

@@ -1,10 +1,11 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::airline
 {
-        /**
+    /**
      * @brief Get a random aircraft type
      *
      * @return a random aircraft type
@@ -13,9 +14,9 @@ namespace faker::airline
      * faker::airline::aircraftType // "narrowbody"
      * @endcode
      */
-    std::string_view aircraftType();
+    FAKER_CXX_EXPORT std::string_view aircraftType();
 
-    struct Airplane
+    struct FAKER_CXX_EXPORT Airplane
     {
         std::string_view name;
         std::string_view iataTypeCode;
@@ -30,9 +31,9 @@ namespace faker::airline
      * faker::airline::airplane() // {"Boeing 737-800", "738"}
      * @endcode
      */
-     Airplane airplane();
+    FAKER_CXX_EXPORT Airplane airplane();
 
-    struct AirlineInfo
+    struct FAKER_CXX_EXPORT AirlineInfo
     {
         std::string_view name;
         std::string_view iataCode;
@@ -47,9 +48,9 @@ namespace faker::airline
      * faker::airline::airline() // {"Air Canada", "AC"}
      * @endcode
      */
-     AirlineInfo airline();
+    FAKER_CXX_EXPORT AirlineInfo airline();
 
-    struct Airport
+    struct FAKER_CXX_EXPORT Airport
     {
         std::string_view name;
         std::string_view iataCode;
@@ -64,9 +65,9 @@ namespace faker::airline
      * faker::airline::airport() // {"Toronto Pearson International Airport", "YYZ"}
      * @endcode
      */
-     Airport airport();
+    FAKER_CXX_EXPORT Airport airport();
 
-    enum class AircraftType
+    enum class FAKER_CXX_EXPORT AircraftType
     {
         Regional,
         Narrowbody,
@@ -84,7 +85,7 @@ namespace faker::airline
      * faker::airline::seat(AircraftType::Narrowbody) // "1A"
      * @endcode
      */
-     std::string seat(AircraftType aircraftType);
+    FAKER_CXX_EXPORT std::string seat(AircraftType aircraftType);
 
     /**
      * @brief Get a random record location
@@ -96,7 +97,7 @@ namespace faker::airline
      * faker::airline::recordLocator(true) // "ABC123"
      * @endcode
      */
-     std::string recordLocator(bool allowNumerics = false);
+    FAKER_CXX_EXPORT std::string recordLocator(bool allowNumerics = false);
 
     /**
      * @brief Get a random flight number from given length
@@ -113,9 +114,9 @@ namespace faker::airline
      * faker::airline::flightNumber(false, 3) // "234"
      * @endcode
      */
-     std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
+    FAKER_CXX_EXPORT std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
 
-    struct Range
+    struct FAKER_CXX_EXPORT Range
     {
         unsigned int min;
         unsigned int max;
@@ -136,5 +137,5 @@ namespace faker::airline
      * faker::airline::flightNumber(false, {1, 4}) // "234" // "12" // "1234"
      * @endcode
      */
-     std::string flightNumberByRange(bool addLeadingZeros = false, Range length = {1, 4});
-    }
+    FAKER_CXX_EXPORT std::string flightNumberByRange(bool addLeadingZeros = false, Range length = {1, 4});
+}

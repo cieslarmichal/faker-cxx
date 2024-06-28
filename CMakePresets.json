@@ -10,7 +10,6 @@
             "name": "conf-common",
             "description": "General settings that apply to all configurations",
             "hidden": true,
-            "generator": "Ninja",
             "binaryDir": "${sourceDir}/build/${presetName}",
             "installDir": "${sourceDir}/install/${presetName}",
             "cacheVariables": {
