@@ -16,6 +16,9 @@ jobs:
   build:
     name: ci-windows-msvc-19
     runs-on: windows-latest
+    strategy:
+      matrix:
+        shared: [ON, OFF]
 
     steps:
       - name: Checkout
@@ -61,7 +64,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=windows-msvc-debug -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}\build\Debug\generators\conan_toolchain.cmake -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON
+          cmake -S . --preset=windows-msvc-debug -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}\build\Debug\generators\conan_toolchain.cmake -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON -DBUILD_SHARED_LIBS:BOOOL=${{ matrix.shared }}
 
       - name: Build
         run: cmake --build --preset=windows-msvc-debug
