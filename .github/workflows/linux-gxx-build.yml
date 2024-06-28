@@ -13,11 +13,12 @@ on:
 
 jobs:
   build:
-    name: ci-ubuntu-24.04-gcc-${{ matrix.gcc_version }}
+    name: ci-ubuntu-24.04-gcc-${{ matrix.gcc_version }}-${{ matrix.type }}
     runs-on: ubuntu-24.04
     strategy:
       matrix:
         gcc_version: [12, 13]
+        type: [static, shared]
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -68,7 +69,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=unixlike-gcc-debug \
+          cmake -S . --preset=unixlike-gcc-debug-${{ matrix.type }} \
             -DCMAKE_C_COMPILER=gcc-${{ matrix.gcc_version }} \
             -DCMAKE_CXX_COMPILER=g++-${{ matrix.gcc_version }} \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
@@ -79,7 +80,7 @@ jobs:
             -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=gold
 
       - name: Build
-        run: cmake --build --preset=unixlike-gcc-debug
+        run: cmake --build --preset=unixlike-gcc-debug-${{ matrix.type }}
 
       - name: Test
-        run: ctest --preset=unixlike-gcc-debug
+        run: ctest --preset=unixlike-gcc-debug-${{ matrix.type }}

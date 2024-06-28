@@ -292,84 +292,96 @@
             "displayName": "Strict",
             "description": "Validate Windows MSVC Static Library Debug Build",
             "inherits": "test-common",
-            "configurePreset": "windows-msvc-debug-static"
+            "configurePreset": "windows-msvc-debug-static",
+            "configuration": "Debug"
         },
         {
             "name": "windows-msvc-debug-shared",
             "displayName": "Strict",
             "description": "Validate Windows MSVC Shared Library Debug Build",
             "inherits": "test-common",
-            "configurePreset": "windows-msvc-debug-shared"
+            "configurePreset": "windows-msvc-debug-shared",
+            "configuration": "Debug"
         },
         {
             "name": "windows-msvc-release-static",
             "displayName": "Strict",
             "description": "Validate Windows MSVC Static Library Release Build",
             "inherits": "test-common",
-            "configurePreset": "windows-msvc-release-static"
+            "configurePreset": "windows-msvc-release-static",
+            "configuration": "Release"
         },
         {
             "name": "windows-msvc-release-shared",
             "displayName": "Strict",
             "description": "Validate Windows MSVC Shared Library Release Build",
             "inherits": "test-common",
-            "configurePreset": "windows-msvc-release-shared"
+            "configurePreset": "windows-msvc-release-shared",
+            "configuration": "Release"
         },
         {
             "name": "unixlike-gcc-debug-static",
             "displayName": "Strict",
             "description": "Validate Unixlike GCC Static Library Debug Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-gcc-debug-static"
+            "configurePreset": "unixlike-gcc-debug-static",
+            "configuration": "Debug"
         },
         {
             "name": "unixlike-gcc-debug-shared",
             "displayName": "Strict",
             "description": "Validate Unixlike GCC Static Library Debug Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-gcc-debug-shared"
+            "configurePreset": "unixlike-gcc-debug-shared",
+            "configuration": "Debug"
         },
         {
             "name": "unixlike-gcc-release-static",
             "displayName": "Strict",
             "description": "Validate Unixlike Clang Static Library Release Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-gcc-release-static"
+            "configurePreset": "unixlike-gcc-release-static",
+            "configuration": "Release"
         },
         {
             "name": "unixlike-gcc-release-shared",
             "displayName": "Strict",
             "description": "Validate Unixlike GCC Shared Library Release Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-gcc-release-shared"
+            "configurePreset": "unixlike-gcc-release-shared",
+            "configuration": "Release"
         },
         {
             "name": "unixlike-clang-debug-static",
             "displayName": "Strict",
             "description": "Validate Unixlike Clang Static Library Debug Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-clang-debug-static"
+            "configurePreset": "unixlike-clang-debug-static",
+            "configuration": "Debug"
         },
         {
             "name": "unixlike-clang-debug-shared",
             "displayName": "Strict",
             "description": "Validate Unixlike Clang Shared Library Debug Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-clang-debug-shared"
+            "configurePreset": "unixlike-clang-debug-shared",
+            "configuration": "Debug"
         },
         {
             "name": "unixlike-clang-release-static",
             "displayName": "Strict",
             "description": "Validate Unixlike Clang Static Library Release Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-clang-release-static"
+            "configurePreset": "unixlike-clang-release-static",
+            "configuration": "Release"
         },
         {
             "name": "unixlike-clang-release-shared",
             "displayName": "Strict",
             "description": "Validate Unixlike Clang Shared Library Release Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-clang-release-shared"
+            "configurePreset": "unixlike-clang-release-shared",
+            "configuration": "Release"
         }
     ]
 }

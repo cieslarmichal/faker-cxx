@@ -14,11 +14,11 @@ on:
 
 jobs:
   build:
-    name: ci-windows-msvc-19-shared-${{ matrix.shared }}
+    name: ci-windows-msvc-19-${{ matrix.type }}
     runs-on: windows-latest
     strategy:
       matrix:
-        shared: [ON, OFF]
+        type: [static, shared]
 
     steps:
       - name: Checkout
@@ -64,10 +64,10 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=windows-msvc-debug -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}\build\Debug\generators\conan_toolchain.cmake -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON -DBUILD_SHARED_LIBS:BOOOL=${{ matrix.shared }}
+          cmake -S . --preset=windows-msvc-debug-${{ matrix.type }} -G Ninja -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}\build\Debug\generators\conan_toolchain.cmake -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON
 
       - name: Build
-        run: cmake --build --preset=windows-msvc-debug
+        run: cmake --build --preset=windows-msvc-debug-${{ matrix.type }}
 
       - name: Test
-        run: ctest --preset=windows-msvc-debug
+        run: ctest --preset=windows-msvc-debug-${{ matrix.type }}
