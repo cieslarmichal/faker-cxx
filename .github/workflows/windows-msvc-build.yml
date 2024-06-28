@@ -14,7 +14,7 @@ on:
 
 jobs:
   build:
-    name: ci-windows-msvc-19
+    name: ci-windows-msvc-19-shared-${{ matrix.shared }}
     runs-on: windows-latest
     strategy:
       matrix:
