@@ -79,8 +79,7 @@ jobs:
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
             -DUSE_STD_FORMAT:BOOL=ON \
             -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
-            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=lld \
-            -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/install
+            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=lld
 
       - name: Build
         run: cmake --build --preset=unixlike-clang-debug-${{ matrix.type }}
@@ -89,7 +88,7 @@ jobs:
         run: ctest --preset=unixlike-clang-debug-${{ matrix.type }}
 
       - name: Install
-        run: cmake --build --preset=unixlike-gcc-debug-${{ matrix.type }} --target install
+        run: cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target install
 
       - name: Examples
         run: |

@@ -84,8 +84,7 @@ jobs:
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
             -DUSE_STD_FORMAT:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
-            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
-            -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/install
+            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake
 
       - name: Build
         run: cmake --build --preset=unixlike-clang-debug-static
@@ -94,4 +93,4 @@ jobs:
         run: ctest --preset=unixlike-clang-debug-static
 
       - name: Install
-        run: cmake --build --preset=unixlike-gcc-debug-static --target install
+        run: cmake --build --preset=unixlike-clang-debug-static --target install
