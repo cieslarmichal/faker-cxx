@@ -77,10 +77,14 @@ jobs:
             -DUSE_STD_FORMAT:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
             -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
-            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=gold
+            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=gold \
+            -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/install
 
       - name: Build
         run: cmake --build --preset=unixlike-gcc-debug-${{ matrix.type }}
 
       - name: Test
         run: ctest --preset=unixlike-gcc-debug-${{ matrix.type }}
+
+      - name: Install
+        run: cmake --build --preset=unixlike-gcc-debug-${{ matrix.type }} --target install

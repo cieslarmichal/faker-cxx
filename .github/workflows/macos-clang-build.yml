@@ -15,7 +15,7 @@ on:
 jobs:
   build:
     runs-on: macos-14
-    name: ci-macos-14-apple-clang-18
+    name: ci-macos-14-apple-clang-18-static
     env:
       CLANG18_PATH: /opt/homebrew/opt/llvm@18/bin/clang
 
@@ -77,17 +77,21 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=unixlike-clang-debug \
+          cmake -S . --preset=unixlike-clang-debug-static \
             -DBUILD_TESTING:BOOL=ON \
             -DCMAKE_CXX_COMPILER=${{ env.CLANG18_PATH }}++ \
             -DCMAKE_C_COMPILER=${{ env.CLANG18_PATH }} \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
             -DUSE_STD_FORMAT:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
-            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake
+            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
+            -DCMAKE_INSTALL_PREFIX=${{ github.workspace }}/install
 
       - name: Build
-        run: cmake --build --preset=unixlike-clang-debug
+        run: cmake --build --preset=unixlike-clang-debug-static
 
       - name: Test
-        run: ctest --preset=unixlike-clang-debug
+        run: ctest --preset=unixlike-clang-debug-static
+
+      - name: Install
+        run: cmake --build --preset=unixlike-gcc-debug-static --target install
