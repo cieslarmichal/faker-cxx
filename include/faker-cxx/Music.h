@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::music
 {
@@ -13,7 +14,7 @@ namespace faker::music
      * faker::music::artist() // "Nirvana"
      * @endcode
      */
-    std::string_view artist();
+    FAKER_CXX_EXPORT std::string_view artist();
 
     /**
      * @brief Returns a random music genre.
@@ -24,7 +25,7 @@ namespace faker::music
      * faker::music::genre() // "Rock"
      * @endcode
      */
-    std::string_view genre();
+    FAKER_CXX_EXPORT std::string_view genre();
 
     /**
      * @brief Returns a random song name.
@@ -35,5 +36,5 @@ namespace faker::music
      * faker::music::songName() // "Light My Fire"
      * @endcode
      */
-    std::string_view songName();
+    FAKER_CXX_EXPORT std::string_view songName();
 }

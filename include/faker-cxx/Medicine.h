@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::medicine
 {
@@ -13,7 +14,7 @@ namespace faker::medicine
  * faker::medicine::condition() // "AIDS"
  * @endcode
  */
-std::string_view condition();
+FAKER_CXX_EXPORT std::string_view condition();
 
 /**
  * @brief Returns a random medical test
@@ -24,7 +25,7 @@ std::string_view condition();
  * faker::medicine::medicalTest() // "pulmonary auscultation"
  * @endcode
  */
-std::string_view medicalTest();
+FAKER_CXX_EXPORT std::string_view medicalTest();
 
 /**
  * @brief Returns a random Medical specialty
@@ -36,5 +37,5 @@ std::string_view medicalTest();
  * @endcode
  */
 
-std::string_view specialty();
+FAKER_CXX_EXPORT std::string_view specialty();
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::movie
 {
@@ -13,7 +14,7 @@ namespace faker::movie
  * faker::movie::genre() // "Drama"
  * @endcode
  */
-std::string_view genre();
+FAKER_CXX_EXPORT std::string_view genre();
 
 /**
  * @brief Returns a random movie title.
@@ -24,7 +25,7 @@ std::string_view genre();
  * faker::movie::movieTitle() // "Pulp Fiction"
  * @endcode
  */
-std::string_view movieTitle();
+FAKER_CXX_EXPORT std::string_view movieTitle();
 
 /**
  * @brief Returns a random tv show.
@@ -35,7 +36,7 @@ std::string_view movieTitle();
  * faker::movie::tvShow() // "The Sopranos"
  * @endcode
  */
-std::string_view tvShow();
+FAKER_CXX_EXPORT std::string_view tvShow();
 
 /**
  * @brief Returns a random movie director name.
@@ -46,7 +47,7 @@ std::string_view tvShow();
  * faker::movie::director() // "Quentin Tarantino"
  * @endcode
  */
-std::string_view director();
+FAKER_CXX_EXPORT std::string_view director();
 
 /**
  * @brief Returns a random actor name.
@@ -57,7 +58,7 @@ std::string_view director();
  * faker::movie::actor() // "John Travolta"
  * @endcode
  */
-std::string_view actor();
+FAKER_CXX_EXPORT std::string_view actor();
 
 /**
  * @brief Returns a random actress name.
@@ -68,5 +69,5 @@ std::string_view actor();
  * faker::movie::actress() // "Scarlett Johansson"
  * @endcode
  */
-std::string_view actress();
+FAKER_CXX_EXPORT std::string_view actress();
 }

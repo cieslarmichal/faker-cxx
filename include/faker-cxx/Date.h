@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::date
 {
@@ -24,7 +25,7 @@ namespace faker::date
      * faker::date::pastDate(5, DateFormat::Timestamp) // "1592321049"
      * @endcode
      */
-    std::string pastDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
+    FAKER_CXX_EXPORT std::string pastDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Generates a random date in the future.
@@ -40,7 +41,7 @@ namespace faker::date
      * faker::date::futureDate(5, DateFormat::Timestamp) // "1718229989"
      * @endcode
      */
-    std::string futureDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
+    FAKER_CXX_EXPORT std::string futureDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Generates a random date in the recent past.
@@ -56,7 +57,7 @@ namespace faker::date
      * faker::date::recentDate(10, DateFormat::Timestamp) // "1718229989"
      * @endcode
      */
-    std::string recentDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
+    FAKER_CXX_EXPORT std::string recentDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Generates a random date in the soon future.
@@ -72,7 +73,7 @@ namespace faker::date
      * faker::date::soonDate(10, DateFormat::Timestamp) // "1718229989"
      * @endcode
      */
-    std::string soonDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
+    FAKER_CXX_EXPORT std::string soonDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Generates a random birthdate by age.
@@ -89,7 +90,7 @@ namespace faker::date
      * faker::date::birthdateByAge(20, 30, DateFormat::Timestamp) // "1718229989"
      * @endcode
      */
-    std::string birthdateByAge(int minAge = 18, int maxAge = 80, DateFormat dateFormat = DateFormat::ISO);
+    FAKER_CXX_EXPORT std::string birthdateByAge(int minAge = 18, int maxAge = 80, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Generates a random birthdate by year.
@@ -106,7 +107,7 @@ namespace faker::date
      * faker::date::birthdateByYear(1996, 1996, DateFormat::Timestamp) // "1718229989"
      * @endcode
      */
-    std::string birthdateByYear(int minYear = 1920, int maxYear = 2000, DateFormat dateFormat = DateFormat::ISO);
+    FAKER_CXX_EXPORT std::string birthdateByYear(int minYear = 1920, int maxYear = 2000, DateFormat dateFormat = DateFormat::ISO);
 
     /**
      * @brief Returns a name of random day of the week.
@@ -117,7 +118,7 @@ namespace faker::date
      * faker::date::weekdayName() // "Monday"
      * @endcode
      */
-    std::string_view weekdayName();
+    FAKER_CXX_EXPORT std::string_view weekdayName();
 
     /**
      * @brief Returns an abbreviated name of random day of the week.
@@ -128,7 +129,7 @@ namespace faker::date
      * faker::date::weekdayAbbreviatedName() // "Mon"
      * @endcode
      */
-    std::string_view weekdayAbbreviatedName();
+    FAKER_CXX_EXPORT std::string_view weekdayAbbreviatedName();
 
     /**
      * @brief Returns a random name of a month.
@@ -139,7 +140,7 @@ namespace faker::date
      * faker::date::monthName() // "October"
      * @endcode
      */
-    std::string_view monthName();
+    FAKER_CXX_EXPORT std::string_view monthName();
 
     /**
      * @brief Returns an abbreviated name of random month.
@@ -150,7 +151,7 @@ namespace faker::date
      * faker::date::monthAbbreviatedName() // "Feb"
      * @endcode
      */
-    std::string_view monthAbbreviatedName();
+    FAKER_CXX_EXPORT std::string_view monthAbbreviatedName();
 
     /**
      * @brief Returns random year.
@@ -161,7 +162,7 @@ namespace faker::date
      * faker::date::year() // 2000
      * @endcode
      */
-    unsigned year();
+    FAKER_CXX_EXPORT unsigned year();
 
     /**
      * @brief Returns random month.
@@ -172,7 +173,7 @@ namespace faker::date
      * faker::date::month() // 9
      * @endcode
      */
-    unsigned month();
+    FAKER_CXX_EXPORT unsigned month();
 
     /**
      * @brief Returns random hour.
@@ -183,7 +184,7 @@ namespace faker::date
      * faker::date::hour() // 21
      * @endcode
      */
-    unsigned hour();
+    FAKER_CXX_EXPORT unsigned hour();
 
     /**
      * @brief Returns random minute.
@@ -194,7 +195,7 @@ namespace faker::date
      * faker::date::minute() // 40
      * @endcode
      */
-    unsigned minute();
+    FAKER_CXX_EXPORT unsigned minute();
 
     /**
      * @brief Returns random second.
@@ -205,7 +206,7 @@ namespace faker::date
      * faker::date::second() // 40
      * @endcode
      */
-    unsigned second();
+    FAKER_CXX_EXPORT unsigned second();
 
     /**
      * @brief Returns random time string.
@@ -216,7 +217,7 @@ namespace faker::date
      * faker::date::time() // 21:40
      * @endcode
      */
-    std::string time();
+    FAKER_CXX_EXPORT std::string time();
 
     /**
      * @brief Returns random day of month.
@@ -227,7 +228,7 @@ namespace faker::date
      * faker::date::dayOfMonth() // 15
      * @endcode
      */
-    unsigned dayOfMonth();
+    FAKER_CXX_EXPORT unsigned dayOfMonth();
 
     /**
      * @brief Returns random day of week.
@@ -238,7 +239,7 @@ namespace faker::date
      * faker::date::dayOfWeek() // 5
      * @endcode
      */
-    unsigned dayOfWeek();
+    FAKER_CXX_EXPORT unsigned dayOfWeek();
 
     /**
      * @brief Returns random timezone.
@@ -249,5 +250,5 @@ namespace faker::date
      * faker::date::timezoneRandom() // PT
      * @endcode
      */
-    std::string_view timezoneRandom();
+    FAKER_CXX_EXPORT std::string_view timezoneRandom();
 }

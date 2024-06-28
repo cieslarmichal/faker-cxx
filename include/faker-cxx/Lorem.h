@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "faker-cxx/Export.h"
 
 namespace faker::lorem
 {
@@ -13,7 +14,7 @@ namespace faker::lorem
      * faker::lorem::word() // "temporibus"
      * @endcode
      */
-    std::string_view word();
+    FAKER_CXX_EXPORT std::string_view word();
 
     /**
      * @brief Returns a random lorem words.
@@ -26,7 +27,7 @@ namespace faker::lorem
      * faker::lorem::words() // "qui praesentium pariatur"
      * @endcode
      */
-    std::string words(unsigned numberOfWords = 3);
+    FAKER_CXX_EXPORT std::string words(unsigned numberOfWords = 3);
 
     /**
      * @brief Returns a random lorem sentence.
@@ -40,7 +41,7 @@ namespace faker::lorem
      * faker::lorem::sentence() // "Laborum voluptatem officiis est et."
      * @endcode
      */
-    std::string sentence(unsigned minNumberOfWords = 3, unsigned maxNumberOfWords = 10);
+    FAKER_CXX_EXPORT std::string sentence(unsigned minNumberOfWords = 3, unsigned maxNumberOfWords = 10);
 
     /**
      * @brief Returns a random lorem sentences.
@@ -54,7 +55,7 @@ namespace faker::lorem
      * faker::lorem::sentences(2, 2) // "Maxime vel numquam quibusdam. Dignissimos ex molestias quam nihil occaecati maiores."
      * @endcode
      */
-    std::string sentences(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
+    FAKER_CXX_EXPORT std::string sentences(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
 
     /**
      * @brief Generates a slugified text consisting of the given number of hyphen separated words.
@@ -67,7 +68,7 @@ namespace faker::lorem
      * faker::lorem::slug(5) // "delectus-totam-iusto-itaque-placeat"
      * @endcode
      */
-    std::string slug(unsigned numberOfWords = 3);
+    FAKER_CXX_EXPORT std::string slug(unsigned numberOfWords = 3);
 
     /**
      * @brief Returns a random lorem paragraph.
@@ -81,7 +82,7 @@ namespace faker::lorem
      * faker::lorem::paragraph() // "Animi possimus nemo consequuntur ut ea et tempore unde qui. Quis corporis esse."
      * @endcode
      */
-    std::string paragraph(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
+    FAKER_CXX_EXPORT std::string paragraph(unsigned minNumberOfSentences = 2, unsigned maxNumberOfSentences = 6);
 
     /**
      * @brief Returns a random lorem paragraphs.
@@ -98,5 +99,5 @@ namespace faker::lorem
      * // Sapiente deleniti et. Ducimus maiores eum. Rem dolorem itaque aliquam."
      * @endcode
      */
-    std::string paragraphs(unsigned minNumberOfParagraphs = 2, unsigned maxNumberOfParagraphs = 4);
+    FAKER_CXX_EXPORT std::string paragraphs(unsigned minNumberOfParagraphs = 2, unsigned maxNumberOfParagraphs = 4);
 }

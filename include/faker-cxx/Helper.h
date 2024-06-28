@@ -10,6 +10,7 @@
 #include <string>
 #include <vector>
 
+#include "faker-cxx/Export.h"
 #include "Datatype.h"
 #include "Number.h"
 
@@ -224,7 +225,7 @@ T weightedArrayElement(const std::vector<WeightedElement<T>>& data)
  * faker::helper::shuffleString("hello") // "eollh"
  * @endcode
  */
-std::string shuffleString(std::string data);
+FAKER_CXX_EXPORT std::string shuffleString(std::string data);
 
 /**
  * @brief Returns a random key from given object.
@@ -330,7 +331,7 @@ std::vector<T> toVector(const std::array<T, N>& arr)
  * faker::helper::replaceSymbolWithNumber("Your pin is: !####") // "29841"
  * @endcode
  */
-std::string replaceSymbolWithNumber(const std::string& str, const char& symbol = '#');
+FAKER_CXX_EXPORT std::string replaceSymbolWithNumber(const std::string& str, const char& symbol = '#');
 
 /**
  * @brief Returns credit card schema with replaced symbols and patterns in a credit card  including Luhn checksum
@@ -347,7 +348,7 @@ std::string replaceSymbolWithNumber(const std::string& str, const char& symbol =
  * faker::helper::replaceCreditCardSymbols("1234-[4-9]-##!!-L") // "1234-9-5298-2"
  * @endcode
  */
-std::string replaceCreditCardSymbols(const std::string& inputString = "6453-####-####-####-###L", char symbol = '#');
+FAKER_CXX_EXPORT std::string replaceCreditCardSymbols(const std::string& inputString = "6453-####-####-####-###L", char symbol = '#');
 
 /**
  * @brief Returns the replaced regex-like expression in the string with matching values.
@@ -369,5 +370,5 @@ std::string replaceCreditCardSymbols(const std::string& inputString = "6453-####
  * faker::helper::regexpStyleStringParse("#{3}test[1-5]") // "###test3"
  * @endcode
  */
-std::string regexpStyleStringParse(const std::string& input);
+FAKER_CXX_EXPORT std::string regexpStyleStringParse(const std::string& input);
 }

@@ -3,11 +3,12 @@
 #include <optional>
 #include <string>
 
+#include "faker-cxx/Export.h"
 #include "faker-cxx/types/Country.h"
 
 namespace faker::git
 {
-struct Author
+struct FAKER_CXX_EXPORT Author
 {
     std::string name;
     std::string email;
@@ -23,7 +24,7 @@ struct Author
  * faker::git::branch() // "capitalize-bus"
  * @endcode
  */
-std::string branch(unsigned maxIssueNum = 100);
+FAKER_CXX_EXPORT std::string branch(unsigned maxIssueNum = 100);
 
 /**
  * @brief Generates a random date in form of string.
@@ -35,7 +36,7 @@ std::string branch(unsigned maxIssueNum = 100);
  * faker::git::commitDate() // "Mon Jan 17 15:05:53 2022 +1100"
  * @endcode
  */
-std::string commitDate(unsigned years = 15);
+FAKER_CXX_EXPORT std::string commitDate(unsigned years = 15);
 
 /**
  * @brief Generates a random commit entry in form of string.
@@ -54,7 +55,7 @@ std::string commitDate(unsigned years = 15);
                             spawn polyp"
  * @endcode
  */
-std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt,
+FAKER_CXX_EXPORT std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt,
                         std::optional<unsigned> shaLength = std::nullopt, Country country = Country::England);
 
 /**
@@ -66,7 +67,7 @@ std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt,
  * faker::git::commitMessage() // "spawn polyp"
  * @endcode
  */
-std::string commitMessage();
+FAKER_CXX_EXPORT std::string commitMessage();
 
 /**
  * @brief Returns a random SHA hash.
@@ -79,5 +80,5 @@ std::string commitMessage();
  * faker::git::commitSha() // "9cbc41bb8ce0438c8de9cb25a1c6ad33441d8aca"
  * @endcode
  */
-std::string commitSha(unsigned length = 40);
+FAKER_CXX_EXPORT std::string commitSha(unsigned length = 40);
 }

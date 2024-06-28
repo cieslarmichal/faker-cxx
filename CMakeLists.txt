@@ -22,8 +22,6 @@ if (BUILD_TESTING)
     add_code_coverage_all_targets()
 endif ()
 
-file(GLOB_RECURSE HEADER_FILES "src/modules/**/*.h" "src/modules/**/*.h")
-
 set(FAKER_SOURCES
     src/modules/airline/Airline.cpp
     src/modules/animal/Animal.cpp
@@ -64,7 +62,7 @@ set(FAKER_SOURCES
     src/common/StringHelper.cpp
 )
 
-add_library(${CMAKE_PROJECT_NAME} ${FAKER_SOURCES} ${HEADER_FILES})
+add_library(${CMAKE_PROJECT_NAME} ${FAKER_SOURCES})
 
 target_include_directories(
     ${CMAKE_PROJECT_NAME} PUBLIC
@@ -106,6 +104,12 @@ install(TARGETS ${CMAKE_PROJECT_NAME}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR})
 
 install(DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/include/faker-cxx
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+    FILES_MATCHING
+    PATTERN "*.h"
+)
+
+install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include/faker-cxx
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
     FILES_MATCHING
     PATTERN "*.h"

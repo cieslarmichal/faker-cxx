@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::company
 {
@@ -13,7 +14,7 @@ namespace faker::company
  * faker::company::name() // "Adams Inc"
  * @endcode
  */
-std::string name();
+FAKER_CXX_EXPORT std::string name();
 
 /**
  * @brief Returns a random company type.
@@ -24,7 +25,7 @@ std::string name();
  * faker::company::type() // "Nonprofit"
  * @endcode
  */
-std::string_view type();
+FAKER_CXX_EXPORT std::string_view type();
 
 /**
  * @brief Returns a random company industry.
@@ -35,7 +36,7 @@ std::string_view type();
  * faker::company::industry() // "Biotechnology"
  * @endcode
  */
-std::string_view industry();
+FAKER_CXX_EXPORT std::string_view industry();
 
 /**
  * @brief Returns a random buzz phrase.
@@ -46,7 +47,7 @@ std::string_view industry();
  * faker::company::buzzPhrase() // "cultivate synergistic e-market"
  * @endcode
  */
-std::string buzzPhrase();
+FAKER_CXX_EXPORT std::string buzzPhrase();
 
 /**
  * @brief Returns a random buzz adjective.
@@ -57,7 +58,7 @@ std::string buzzPhrase();
  * faker::company::buzzAdjective() // "one-to-one"
  * @endcode
  */
-std::string_view buzzAdjective();
+FAKER_CXX_EXPORT std::string_view buzzAdjective();
 
 /**
  * @brief Returns a random buzz noun.
@@ -68,7 +69,7 @@ std::string_view buzzAdjective();
  * faker::company::buzzNoun() // "paradigms"
  * @endcode
  */
-std::string_view buzzNoun();
+FAKER_CXX_EXPORT std::string_view buzzNoun();
 
 /**
  * @brief Returns a random buzz verb.
@@ -79,7 +80,7 @@ std::string_view buzzNoun();
  * faker::company::buzzVerb() // "empower"
  * @endcode
  */
-std::string_view buzzVerb();
+FAKER_CXX_EXPORT std::string_view buzzVerb();
 
 /**
  * @brief Returns a random catch phrase.
@@ -90,7 +91,7 @@ std::string_view buzzVerb();
  * faker::company::catchPhrase() // "Upgradable systematic flexibility"
  * @endcode
  */
-std::string catchPhrase();
+FAKER_CXX_EXPORT std::string catchPhrase();
 
 /**
  * @brief Returns a random catch phrase adjective.
@@ -101,7 +102,7 @@ std::string catchPhrase();
  * faker::company::catchPhraseAdjective() // "Multi-tiered"
  * @endcode
  */
-std::string_view catchPhraseAdjective();
+FAKER_CXX_EXPORT std::string_view catchPhraseAdjective();
 
 /**
  * @brief Returns a random catch phrase descriptor.
@@ -112,7 +113,7 @@ std::string_view catchPhraseAdjective();
  * faker::company::catchPhraseDescriptor() // "composite"
  * @endcode
  */
-std::string_view catchPhraseDescriptor();
+FAKER_CXX_EXPORT std::string_view catchPhraseDescriptor();
 
 /**
  * @brief Returns a random catch phrase noun.
@@ -123,5 +124,5 @@ std::string_view catchPhraseDescriptor();
  * faker::company::catchPhraseNoun() // "leverage"
  * @endcode
  */
-std::string_view catchPhraseNoun();
+FAKER_CXX_EXPORT std::string_view catchPhraseNoun();
 }

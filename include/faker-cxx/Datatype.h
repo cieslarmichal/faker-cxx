@@ -1,5 +1,7 @@
 #pragma once
 
+#include "faker-cxx/Export.h"
+
 namespace faker::datatype
 {
 /**
@@ -11,7 +13,7 @@ namespace faker::datatype
  * faker::datatype::boolean() // "false"
  * @endcode
  */
-bool boolean();
+FAKER_CXX_EXPORT bool boolean();
 
 /**
  * @brief Returns a random boolean.
@@ -31,5 +33,5 @@ bool boolean();
  * faker::datatype::boolean(0.1) // "false"
  * @endcode
  */
-bool boolean(double probability);
+FAKER_CXX_EXPORT bool boolean(double probability);
 }

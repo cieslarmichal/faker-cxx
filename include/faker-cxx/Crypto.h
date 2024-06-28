@@ -2,6 +2,7 @@
 
 #include <optional>
 #include <string>
+#include "faker-cxx/Export.h"
 
 namespace faker::crypto
 {
@@ -15,7 +16,7 @@ namespace faker::crypto
  * faker::crypto::sha256()    // Random hash of random
  * @endcode
  */
-std::string sha256(std::optional<std::string> = std::nullopt);
+FAKER_CXX_EXPORT std::string sha256(std::optional<std::string> = std::nullopt);
 
 /**
  * @brief Returns a random MD5 hash or hash of provided data.
@@ -27,5 +28,5 @@ std::string sha256(std::optional<std::string> = std::nullopt);
  * faker::crypto::md5()    // Random hash of random word
  * @endcode
  */
-std::string md5(std::optional<std::string> = std::nullopt);
+FAKER_CXX_EXPORT std::string md5(std::optional<std::string> = std::nullopt);
 }

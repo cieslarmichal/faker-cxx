@@ -67,7 +67,7 @@ namespace faker::airline
      */
     FAKER_CXX_EXPORT Airport airport();
 
-    enum class FAKER_CXX_EXPORT AircraftType
+    enum class AircraftType
     {
         Regional,
         Narrowbody,
