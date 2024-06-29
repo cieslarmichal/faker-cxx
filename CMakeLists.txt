@@ -88,7 +88,6 @@ set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
     CXX_VISIBILITY_PRESET hidden
     CMAKE_VISIBILITY_INLINES_HIDDEN 1
 )
-target_compile_definitions(${CMAKE_PROJECT_NAME} PUBLIC $<$<NOT:$<CXX_COMPILER_ID:MSVC>>:FAKER_CXX_STATIC_DEFINE>)
 
 target_include_directories(
     ${CMAKE_PROJECT_NAME}
