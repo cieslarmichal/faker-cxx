@@ -109,7 +109,7 @@ jobs:
         env:
           cache-name: cache-bazel-data
         with:
-          path: ~/_bazel_${{ github.actor }}
+          path: /home/runner/.cache/bazel/_bazel_runner
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('MODULE.bazel') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
