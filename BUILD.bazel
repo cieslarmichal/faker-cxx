@@ -1,0 +1,28 @@
+load("@rules_cc//cc:defs.bzl", "cc_library")
+
+genrule(
+    name = "generate_export_header",
+    srcs = [],
+    outs = ["include/faker-cxx/Export.h"],
+    cmd = """
+        echo "#pragma once" > $@
+        echo "#define FAKER_CXX_EXPORT" >> $@
+    """,
+)
+
+cc_library(
+    name = "faker-cxx",
+    srcs = glob(["src/**/*.cpp"]),
+    hdrs = glob(["src/**/*.h", "include/**/*.h"]) + [":generate_export_header"],
+    includes = ["include", "src"],
+    visibility = ["//visibility:public"],
+    deps = ["@fmt//:fmt"],
+    copts = select({
+        "//conditions:default": [
+            "-std=c++20"
+        ],
+        "@platforms//os:windows": [
+            "/std:c++20",
+        ],
+    }),
+)
