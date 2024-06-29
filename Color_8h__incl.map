@@ -1,7 +1,9 @@
 <map id="include/faker&#45;cxx/Color.h" name="include/faker&#45;cxx/Color.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,168,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="12,79,65,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="81,33,57,67,53,64,76,30"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="90,79,179,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="97,30,120,64,116,67,92,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="47,5,209,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,59,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,34,62,72,58,68,110,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="83,79,173,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,31,131,63,125,63,125,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="197,79,320,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="151,29,225,69,222,74,149,34"/>
 </map>

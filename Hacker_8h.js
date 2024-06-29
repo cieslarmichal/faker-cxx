@@ -1,9 +1,9 @@
 var Hacker_8h =
 [
-    [ "abbreviation", "Hacker_8h.html#acd6a81ea49b6b20fa8611419512ee10f", null ],
-    [ "adjective", "Hacker_8h.html#ad20638e4e69212401bdd7cd718966be6", null ],
-    [ "ingverb", "Hacker_8h.html#a219461f5eefdaaf572b263562fe2e025", null ],
-    [ "noun", "Hacker_8h.html#a48cf993e09f6ac0160250bc5452df5b9", null ],
-    [ "phrase", "Hacker_8h.html#a1f5e5a7c6d0d4e1e1cbf7760cc6c73fe", null ],
-    [ "verb", "Hacker_8h.html#a613dfcf29afe110dfc1cb85337da5d9b", null ]
+    [ "abbreviation", "Hacker_8h.html#acda247954f20cfd70336242b02bcdd1d", null ],
+    [ "adjective", "Hacker_8h.html#ab145eeeb1541c504518051e74bb1d6c0", null ],
+    [ "ingverb", "Hacker_8h.html#a88bf4b9f6a06f804c206f51d36e3831d", null ],
+    [ "noun", "Hacker_8h.html#af4138bc944b402d9563120e50750aa26", null ],
+    [ "phrase", "Hacker_8h.html#ab8e34e7b1172882cf567b0106779214c", null ],
+    [ "verb", "Hacker_8h.html#a31cdbd8f27c40864c4cc622de9ac4a14", null ]
 ];

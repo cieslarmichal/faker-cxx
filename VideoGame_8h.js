@@ -1,7 +1,7 @@
 var VideoGame_8h =
 [
-    [ "gameTitle", "VideoGame_8h.html#a4f51ce8271b4356736a05f5efb8fee58", null ],
-    [ "genre", "VideoGame_8h.html#a54a1c4e7ed9618e9f6b00956c5e1c996", null ],
-    [ "platform", "VideoGame_8h.html#adbf90f3e74f8f081b643f59ecf0ef7e4", null ],
-    [ "studioName", "VideoGame_8h.html#a2278603116988bb7a3a278bbf21abe4b", null ]
+    [ "gameTitle", "VideoGame_8h.html#ab36d80c15e07e2e266da6df41a40f222", null ],
+    [ "genre", "VideoGame_8h.html#ae5bdba1c888f8934eb817848a705983c", null ],
+    [ "platform", "VideoGame_8h.html#a4dd164bf14e461898d8a1408c6300127", null ],
+    [ "studioName", "VideoGame_8h.html#a31ebb893e24ebecdc8392f9f36363005", null ]
 ];

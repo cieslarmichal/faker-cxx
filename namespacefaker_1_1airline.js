@@ -9,12 +9,12 @@ var namespacefaker_1_1airline =
       [ "Narrowbody", "namespacefaker_1_1airline.html#aa0f30eb26e69720c80bc6ec9184247b7a05b24a6d4237848d917e06244f7e1736", null ],
       [ "Widebody", "namespacefaker_1_1airline.html#aa0f30eb26e69720c80bc6ec9184247b7a1023529b16fb0241300737d43d83dd43", null ]
     ] ],
-    [ "aircraftType", "namespacefaker_1_1airline.html#a7bbffc434f39726fc3fa8e269e3a6153", null ],
-    [ "airline", "namespacefaker_1_1airline.html#a2d77cd49e5a018ff59bd3b4af15ad61f", null ],
-    [ "airplane", "namespacefaker_1_1airline.html#a532d10901dace2ab28b0960f180d7167", null ],
-    [ "airport", "namespacefaker_1_1airline.html#ac601e607e9255c2b2adfdc7f1164fff5", null ],
-    [ "flightNumber", "namespacefaker_1_1airline.html#aa56913f27a3e446347815040005a5ad6", null ],
-    [ "flightNumberByRange", "namespacefaker_1_1airline.html#a05f13ae28d39d5dbcb5b936e4497dd87", null ],
-    [ "recordLocator", "namespacefaker_1_1airline.html#a37f9fc7a55a48c6b1b751abf672c6b8c", null ],
-    [ "seat", "namespacefaker_1_1airline.html#ad4616c2354c2f4ed5cb609d5cfe3c6ae", null ]
+    [ "aircraftType", "namespacefaker_1_1airline.html#a727a0d70eabe9b705561b7a37a329dcd", null ],
+    [ "airline", "namespacefaker_1_1airline.html#ae206a7cb56b3047e258315df5f7161a9", null ],
+    [ "airplane", "namespacefaker_1_1airline.html#a088e61d005ef3d6b2e5f31a1b1a879af", null ],
+    [ "airport", "namespacefaker_1_1airline.html#a92371b24b6158571a8a57abb904ab4e2", null ],
+    [ "flightNumber", "namespacefaker_1_1airline.html#af528ab7cf1d1a4578ccf79f903337b08", null ],
+    [ "flightNumberByRange", "namespacefaker_1_1airline.html#aa8b0b5cbbe6eebbd8869fdac9fc5ddc1", null ],
+    [ "recordLocator", "namespacefaker_1_1airline.html#a9d4a31bb5a16f63ad962a51bfb5ff10a", null ],
+    [ "seat", "namespacefaker_1_1airline.html#abd4ed31284f90116d7d449776ad57055", null ]
 ];

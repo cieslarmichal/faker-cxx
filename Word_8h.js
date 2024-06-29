@@ -1,12 +1,12 @@
 var Word_8h =
 [
-    [ "adjective", "Word_8h.html#aac796dde65ebca48c2c8f13c573e8f2f", null ],
-    [ "adverb", "Word_8h.html#af1aa6d42bad487947ee2f689ba408fc0", null ],
-    [ "conjunction", "Word_8h.html#abc098fdfbc3aafc972845777809eb804", null ],
-    [ "interjection", "Word_8h.html#a8e0958090d99910a02a9207eb195ac72", null ],
-    [ "noun", "Word_8h.html#aa9fba0899d670e8b41578ce7ca6f0649", null ],
-    [ "preposition", "Word_8h.html#a6dc3f2b0ec7c85a289ae817c8f5fbd82", null ],
-    [ "sample", "Word_8h.html#a43c692f60960fbf94b050bfe4b8e8e22", null ],
-    [ "verb", "Word_8h.html#aafc560af719f8bb54443106ccc5ce097", null ],
-    [ "words", "Word_8h.html#aa25f46ff1050df3e7d8fbaf9c1e43e61", null ]
+    [ "adjective", "Word_8h.html#af0f10fe34e975d361fd1d286d5073cc2", null ],
+    [ "adverb", "Word_8h.html#a0d9897ef2f1a2c30d8c375db2a8da628", null ],
+    [ "conjunction", "Word_8h.html#a6e7e5f4576246ac2b1f086a0ecc2c62f", null ],
+    [ "interjection", "Word_8h.html#a82ec1a575f056e5c79d2e7bc4e89335d", null ],
+    [ "noun", "Word_8h.html#aa380bf2a6c8cd76db8fe13d20ff6ccf9", null ],
+    [ "preposition", "Word_8h.html#ad55c7c834bad43272cfcf0f6bce0aa7b", null ],
+    [ "sample", "Word_8h.html#a756eef88511091fc80942ab0a1502aaa", null ],
+    [ "verb", "Word_8h.html#a03ac408bfcf1e583e0e94830bd7e54e8", null ],
+    [ "words", "Word_8h.html#a3300afd6043c0f11af23e3bd0b9f1782", null ]
 ];

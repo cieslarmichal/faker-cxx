@@ -1,5 +1,5 @@
 var Datatype_8h =
 [
-    [ "boolean", "Datatype_8h.html#a034365c43eb802729f01cce05d0088e1", null ],
-    [ "boolean", "Datatype_8h.html#a35179e705e5cfcfcb9596b0da1a1242c", null ]
+    [ "boolean", "Datatype_8h.html#a6e8fea28b1cf18124cb1c854496b35c2", null ],
+    [ "boolean", "Datatype_8h.html#a3f0613615165573f77dba5349bb00241", null ]
 ];

@@ -1,13 +1,15 @@
 <map id="include/faker&#45;cxx/Finance.h" name="include/faker&#45;cxx/Finance.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="128,5,306,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="192,5,370,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,79,72,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="188,34,84,75,82,70,186,29"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="241,34,87,79,86,74,239,29"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="96,79,149,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="203,34,152,72,149,67,200,29"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="255,34,164,75,162,70,253,29"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="174,79,261,105"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="220,31,220,63,215,63,215,31"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="285,79,395,105"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="239,29,308,69,305,73,237,34"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="420,79,540,105"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="262,29,421,72,420,77,261,34"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="273,33,240,69,236,66,269,29"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="285,79,408,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="294,29,327,66,323,69,290,33"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="433,79,543,105"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="317,29,439,71,438,76,315,34"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="568,79,688,105"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="341,29,555,73,554,78,340,34"/>
 </map>

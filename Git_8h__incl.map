@@ -1,9 +1,11 @@
 <map id="include/faker&#45;cxx/Git.h" name="include/faker&#45;cxx/Git.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="48,5,197,31"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="104,5,253,31"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,79,72,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,34,66,71,63,67,107,30"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="156,34,77,74,75,69,154,29"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="96,79,149,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="125,31,125,63,120,63,120,31"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="173,79,339,105"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="146,29,221,69,218,74,144,34"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="171,33,143,68,139,65,167,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="173,79,296,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="190,30,218,65,214,68,186,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="321,79,487,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="218,29,352,71,350,76,216,34"/>
 </map>

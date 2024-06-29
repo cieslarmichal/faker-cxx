@@ -1,13 +1,13 @@
 var Color_8h =
 [
-    [ "cmyk", "Color_8h.html#af9489b47125df91562d9dfe74baa48d6", null ],
-    [ "hex", "Color_8h.html#a6898fd424937d70c224b2e865ee95c36", null ],
-    [ "hsb", "Color_8h.html#a2a9fbb291d06dac5bbf080df7f071029", null ],
-    [ "hsl", "Color_8h.html#acfeb67e5d7107fb3458dd1f85f92cca0", null ],
-    [ "hsv", "Color_8h.html#a211a94576870c858386db5f385e431c9", null ],
-    [ "lab", "Color_8h.html#aa663b09a8bbd624fda6d1be5e3bfdc9e", null ],
-    [ "lch", "Color_8h.html#a816a0c0be275b89b64c35ecf2cc4f28a", null ],
-    [ "name", "Color_8h.html#a2a16d64d3382baf7f172b4202339d0cd", null ],
-    [ "rgb", "Color_8h.html#a7cb3694851af1b3ff9d8749a79a8edbc", null ],
-    [ "yuv", "Color_8h.html#aa19e81ff75573b59f41c95efc2b72f21", null ]
+    [ "cmyk", "Color_8h.html#a029e95b2d93b04c1b07ecf8e1942f690", null ],
+    [ "hex", "Color_8h.html#ad77b26473e833e142dbcf4b7eb40151d", null ],
+    [ "hsb", "Color_8h.html#a95505c20701451ee42aba82bc5209264", null ],
+    [ "hsl", "Color_8h.html#a036bd0fa934a250f82eeb08c6a74bfcd", null ],
+    [ "hsv", "Color_8h.html#a125a5d22271e5883e4b4c939324eabcf", null ],
+    [ "lab", "Color_8h.html#afd8333f4cc9596e3819ad009f6080528", null ],
+    [ "lch", "Color_8h.html#a7c586ab6590f34db1170dbd586bf18b1", null ],
+    [ "name", "Color_8h.html#a293bb321a832653d0436df1fcdccacbf", null ],
+    [ "rgb", "Color_8h.html#af6a5bd8e9feb97f01ef3a41621cec14a", null ],
+    [ "yuv", "Color_8h.html#a8e30cdd5e0f2d52ca7a21c37a5843d3f", null ]
 ];

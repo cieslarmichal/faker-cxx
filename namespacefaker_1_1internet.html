@@ -152,72 +152,72 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a6873a40b7b83d3227d0401a7c0c6fa03" id="r_a6873a40b7b83d3227d0401a7c0c6fa03"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6873a40b7b83d3227d0401a7c0c6fa03">username</a> (std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, Country country=Country::Usa)</td></tr>
-<tr class="memdesc:a6873a40b7b83d3227d0401a7c0c6fa03"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a username using the given person's name as base.  <br /></td></tr>
-<tr class="separator:a6873a40b7b83d3227d0401a7c0c6fa03"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5082d31654a79c42189bd74ebcd9f177" id="r_a5082d31654a79c42189bd74ebcd9f177"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5082d31654a79c42189bd74ebcd9f177">email</a> (std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</td></tr>
-<tr class="memdesc:a5082d31654a79c42189bd74ebcd9f177"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an email address using the given person's name as base.  <br /></td></tr>
-<tr class="separator:a5082d31654a79c42189bd74ebcd9f177"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed462baedf55f4a57818f2d47aa69961" id="r_aed462baedf55f4a57818f2d47aa69961"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aed462baedf55f4a57818f2d47aa69961">exampleEmail</a> (std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt)</td></tr>
-<tr class="memdesc:aed462baedf55f4a57818f2d47aa69961"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an email address using the given person's name as base with example domain.  <br /></td></tr>
-<tr class="separator:aed462baedf55f4a57818f2d47aa69961"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af1e915a97047baa2c43be9d16c96324f" id="r_af1e915a97047baa2c43be9d16c96324f"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e915a97047baa2c43be9d16c96324f">password</a> (int length=15, const <a class="el" href="structfaker_1_1internet_1_1PasswordOptions.html">PasswordOptions</a> &amp;options={})</td></tr>
-<tr class="memdesc:af1e915a97047baa2c43be9d16c96324f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random password-like string. Do not use this method for generating actual passwords for users. Since the source of the randomness is not cryptographically secure, neither is this generator.  <br /></td></tr>
-<tr class="separator:af1e915a97047baa2c43be9d16c96324f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acc05c79fd96761953b3f01f819536180" id="r_acc05c79fd96761953b3f01f819536180"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acc05c79fd96761953b3f01f819536180">emoji</a> (std::optional&lt; <a class="el" href="#ab1fd12c6089e1eb7e783223be1b73ac1">EmojiType</a> &gt; type=std::nullopt)</td></tr>
-<tr class="memdesc:acc05c79fd96761953b3f01f819536180"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random emoji.  <br /></td></tr>
-<tr class="separator:acc05c79fd96761953b3f01f819536180"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0746027aba19bc27dbe5bca73707f0bc" id="r_a0746027aba19bc27dbe5bca73707f0bc"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0746027aba19bc27dbe5bca73707f0bc">checkIfEmojiIsValid</a> (const std::string &amp;emojiToCheck)</td></tr>
-<tr class="memdesc:a0746027aba19bc27dbe5bca73707f0bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that a given emoji is valid.  <br /></td></tr>
-<tr class="separator:a0746027aba19bc27dbe5bca73707f0bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39aa3144b0c1cad63c72cf0270bf3a2a" id="r_a39aa3144b0c1cad63c72cf0270bf3a2a"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a39aa3144b0c1cad63c72cf0270bf3a2a">protocol</a> ()</td></tr>
-<tr class="memdesc:a39aa3144b0c1cad63c72cf0270bf3a2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random web protocol. Either `http` or `https`.  <br /></td></tr>
-<tr class="separator:a39aa3144b0c1cad63c72cf0270bf3a2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b548a60dd56b4caf3adda3dd36fe531" id="r_a9b548a60dd56b4caf3adda3dd36fe531"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9b548a60dd56b4caf3adda3dd36fe531">httpMethod</a> ()</td></tr>
-<tr class="memdesc:a9b548a60dd56b4caf3adda3dd36fe531"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random http method name.  <br /></td></tr>
-<tr class="separator:a9b548a60dd56b4caf3adda3dd36fe531"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:addf925e625f04b4d77cd1a051bc03491" id="r_addf925e625f04b4d77cd1a051bc03491"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#addf925e625f04b4d77cd1a051bc03491">httpStatusCode</a> (std::optional&lt; <a class="el" href="#a25d31766e509fb398f5534224b171a8d">HttpResponseType</a> &gt; responseType=std::nullopt)</td></tr>
-<tr class="memdesc:addf925e625f04b4d77cd1a051bc03491"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random http status code.  <br /></td></tr>
-<tr class="separator:addf925e625f04b4d77cd1a051bc03491"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7ebdb868d20077439327c5630d77521" id="r_ad7ebdb868d20077439327c5630d77521"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7ebdb868d20077439327c5630d77521">httpRequestHeader</a> ()</td></tr>
-<tr class="memdesc:ad7ebdb868d20077439327c5630d77521"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random http request header.  <br /></td></tr>
-<tr class="separator:ad7ebdb868d20077439327c5630d77521"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8c549b1e91e70508dd706eecbb5d04c3" id="r_a8c549b1e91e70508dd706eecbb5d04c3"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c549b1e91e70508dd706eecbb5d04c3">httpResponseHeader</a> ()</td></tr>
-<tr class="memdesc:a8c549b1e91e70508dd706eecbb5d04c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random http response header.  <br /></td></tr>
-<tr class="separator:a8c549b1e91e70508dd706eecbb5d04c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9d32d02503d82a6bda4fdaeac223fec" id="r_ae9d32d02503d82a6bda4fdaeac223fec"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9d32d02503d82a6bda4fdaeac223fec">httpMediaType</a> ()</td></tr>
-<tr class="memdesc:ae9d32d02503d82a6bda4fdaeac223fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random http media type.  <br /></td></tr>
-<tr class="separator:ae9d32d02503d82a6bda4fdaeac223fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1867349f60b73f441e7b42b3d1550503" id="r_a1867349f60b73f441e7b42b3d1550503"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1867349f60b73f441e7b42b3d1550503">ipv4</a> (const <a class="el" href="#a02270adba2a94976603175f8904646cd">IPv4Class</a> &amp;ipv4class=<a class="el" href="#a02270adba2a94976603175f8904646cda0d61f8370cad1d412f80b84d143e1257">IPv4Class::C</a>)</td></tr>
-<tr class="memdesc:a1867349f60b73f441e7b42b3d1550503"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing randomized ipv4 address of the given class.  <br /></td></tr>
-<tr class="separator:a1867349f60b73f441e7b42b3d1550503"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cd0c9ec4dcca31fce9b9b516e6fe40a" id="r_a8cd0c9ec4dcca31fce9b9b516e6fe40a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8cd0c9ec4dcca31fce9b9b516e6fe40a">ipv4</a> (const std::array&lt; unsigned int, 4 &gt; &amp;baseIpv4Address, const std::array&lt; unsigned int, 4 &gt; &amp;generationMask)</td></tr>
-<tr class="memdesc:a8cd0c9ec4dcca31fce9b9b516e6fe40a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing randomized ipv4 address based on given base address and mask.  <br /></td></tr>
-<tr class="separator:a8cd0c9ec4dcca31fce9b9b516e6fe40a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f44672173ac347db321ea45c5fbc108" id="r_a6f44672173ac347db321ea45c5fbc108"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6f44672173ac347db321ea45c5fbc108">ipv6</a> ()</td></tr>
-<tr class="memdesc:a6f44672173ac347db321ea45c5fbc108"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing randomized ipv6 address.  <br /></td></tr>
-<tr class="separator:a6f44672173ac347db321ea45c5fbc108"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa81ae4efbe46bdf5c5bfba6bfcd62d8c" id="r_aa81ae4efbe46bdf5c5bfba6bfcd62d8c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa81ae4efbe46bdf5c5bfba6bfcd62d8c">mac</a> (const std::string &amp;sep=&quot;:&quot;)</td></tr>
-<tr class="memdesc:aa81ae4efbe46bdf5c5bfba6bfcd62d8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a generated random mac address.  <br /></td></tr>
-<tr class="separator:aa81ae4efbe46bdf5c5bfba6bfcd62d8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e2cd71dd1429486c255254161fe3e8d" id="r_a0e2cd71dd1429486c255254161fe3e8d"><td class="memItemLeft" align="right" valign="top">unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e2cd71dd1429486c255254161fe3e8d">port</a> ()</td></tr>
-<tr class="memdesc:a0e2cd71dd1429486c255254161fe3e8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random port.  <br /></td></tr>
-<tr class="separator:a0e2cd71dd1429486c255254161fe3e8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92cc6255f875a1386b4ac47edba22b05" id="r_a92cc6255f875a1386b4ac47edba22b05"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a92cc6255f875a1386b4ac47edba22b05">url</a> (const <a class="el" href="#ac9fba82884b9a80bff2604b01135c7ec">WebProtocol</a> &amp;webProtocol=<a class="el" href="#ac9fba82884b9a80bff2604b01135c7eca2badb7fa3e862298a650909d45c5066b">WebProtocol::Https</a>)</td></tr>
-<tr class="memdesc:a92cc6255f875a1386b4ac47edba22b05"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random url.  <br /></td></tr>
-<tr class="separator:a92cc6255f875a1386b4ac47edba22b05"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb5cc643b943d68ccf0b122ef3d15ced" id="r_acb5cc643b943d68ccf0b122ef3d15ced"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acb5cc643b943d68ccf0b122ef3d15ced">domainName</a> ()</td></tr>
-<tr class="memdesc:acb5cc643b943d68ccf0b122ef3d15ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random domain name.  <br /></td></tr>
-<tr class="separator:acb5cc643b943d68ccf0b122ef3d15ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2d0343d5392ac333fecf27fab9567cbc" id="r_a2d0343d5392ac333fecf27fab9567cbc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2d0343d5392ac333fecf27fab9567cbc">domainWord</a> ()</td></tr>
-<tr class="memdesc:a2d0343d5392ac333fecf27fab9567cbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random domain word.  <br /></td></tr>
-<tr class="separator:a2d0343d5392ac333fecf27fab9567cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0f6d0599df66e819d84903c5d1c04cd" id="r_ad0f6d0599df66e819d84903c5d1c04cd"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad0f6d0599df66e819d84903c5d1c04cd">domainSuffix</a> ()</td></tr>
-<tr class="memdesc:ad0f6d0599df66e819d84903c5d1c04cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random domain suffix.  <br /></td></tr>
-<tr class="separator:ad0f6d0599df66e819d84903c5d1c04cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7984e90922498f1299cecd31c5f575a7" id="r_a7984e90922498f1299cecd31c5f575a7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7984e90922498f1299cecd31c5f575a7">anonymousUsername</a> (unsigned maxLength)</td></tr>
-<tr class="memdesc:a7984e90922498f1299cecd31c5f575a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random username.  <br /></td></tr>
-<tr class="separator:a7984e90922498f1299cecd31c5f575a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae749a34446ecccdddcbba60868c4746" id="r_aae749a34446ecccdddcbba60868c4746"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae749a34446ecccdddcbba60868c4746">username</a> (std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, Country country=Country::Usa)</td></tr>
+<tr class="memdesc:aae749a34446ecccdddcbba60868c4746"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a username using the given person's name as base.  <br /></td></tr>
+<tr class="separator:aae749a34446ecccdddcbba60868c4746"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a640c9552088825e8f39eb42b61399c6e" id="r_a640c9552088825e8f39eb42b61399c6e"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a640c9552088825e8f39eb42b61399c6e">email</a> (std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</td></tr>
+<tr class="memdesc:a640c9552088825e8f39eb42b61399c6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an email address using the given person's name as base.  <br /></td></tr>
+<tr class="separator:a640c9552088825e8f39eb42b61399c6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a73507aa24e5f1d8b74e0db4cdee32ee9" id="r_a73507aa24e5f1d8b74e0db4cdee32ee9"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73507aa24e5f1d8b74e0db4cdee32ee9">exampleEmail</a> (std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt)</td></tr>
+<tr class="memdesc:a73507aa24e5f1d8b74e0db4cdee32ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an email address using the given person's name as base with example domain.  <br /></td></tr>
+<tr class="separator:a73507aa24e5f1d8b74e0db4cdee32ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a88b044d010594ec94fa7127efb7c8bb1" id="r_a88b044d010594ec94fa7127efb7c8bb1"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88b044d010594ec94fa7127efb7c8bb1">password</a> (int length=15, const <a class="el" href="structfaker_1_1internet_1_1PasswordOptions.html">PasswordOptions</a> &amp;options={})</td></tr>
+<tr class="memdesc:a88b044d010594ec94fa7127efb7c8bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random password-like string. Do not use this method for generating actual passwords for users. Since the source of the randomness is not cryptographically secure, neither is this generator.  <br /></td></tr>
+<tr class="separator:a88b044d010594ec94fa7127efb7c8bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40ee9376026f9017e3dcc90a8f53b7bc" id="r_a40ee9376026f9017e3dcc90a8f53b7bc"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40ee9376026f9017e3dcc90a8f53b7bc">emoji</a> (std::optional&lt; <a class="el" href="#ab1fd12c6089e1eb7e783223be1b73ac1">EmojiType</a> &gt; type=std::nullopt)</td></tr>
+<tr class="memdesc:a40ee9376026f9017e3dcc90a8f53b7bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random emoji.  <br /></td></tr>
+<tr class="separator:a40ee9376026f9017e3dcc90a8f53b7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae1a9eb9071b9843c891c065fd87345e7" id="r_ae1a9eb9071b9843c891c065fd87345e7"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae1a9eb9071b9843c891c065fd87345e7">checkIfEmojiIsValid</a> (const std::string &amp;emojiToCheck)</td></tr>
+<tr class="memdesc:ae1a9eb9071b9843c891c065fd87345e7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verify that a given emoji is valid.  <br /></td></tr>
+<tr class="separator:ae1a9eb9071b9843c891c065fd87345e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acefc699b5b4a93a1f1538cbb49331114" id="r_acefc699b5b4a93a1f1538cbb49331114"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acefc699b5b4a93a1f1538cbb49331114">protocol</a> ()</td></tr>
+<tr class="memdesc:acefc699b5b4a93a1f1538cbb49331114"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random web protocol. Either `http` or `https`.  <br /></td></tr>
+<tr class="separator:acefc699b5b4a93a1f1538cbb49331114"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a351eb5eed7fd927d6a2869263b56e852" id="r_a351eb5eed7fd927d6a2869263b56e852"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a351eb5eed7fd927d6a2869263b56e852">httpMethod</a> ()</td></tr>
+<tr class="memdesc:a351eb5eed7fd927d6a2869263b56e852"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random http method name.  <br /></td></tr>
+<tr class="separator:a351eb5eed7fd927d6a2869263b56e852"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18bb9341e2a6b1745f93bb56acf973ea" id="r_a18bb9341e2a6b1745f93bb56acf973ea"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a18bb9341e2a6b1745f93bb56acf973ea">httpStatusCode</a> (std::optional&lt; <a class="el" href="#a25d31766e509fb398f5534224b171a8d">HttpResponseType</a> &gt; responseType=std::nullopt)</td></tr>
+<tr class="memdesc:a18bb9341e2a6b1745f93bb56acf973ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random http status code.  <br /></td></tr>
+<tr class="separator:a18bb9341e2a6b1745f93bb56acf973ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a298bf281d43e08c58448962c094605ab" id="r_a298bf281d43e08c58448962c094605ab"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a298bf281d43e08c58448962c094605ab">httpRequestHeader</a> ()</td></tr>
+<tr class="memdesc:a298bf281d43e08c58448962c094605ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random http request header.  <br /></td></tr>
+<tr class="separator:a298bf281d43e08c58448962c094605ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abac7e3c94d09f0f7a381f64a8032684e" id="r_abac7e3c94d09f0f7a381f64a8032684e"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abac7e3c94d09f0f7a381f64a8032684e">httpResponseHeader</a> ()</td></tr>
+<tr class="memdesc:abac7e3c94d09f0f7a381f64a8032684e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random http response header.  <br /></td></tr>
+<tr class="separator:abac7e3c94d09f0f7a381f64a8032684e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae3de074437688cc7aa5d4926a184182" id="r_aae3de074437688cc7aa5d4926a184182"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae3de074437688cc7aa5d4926a184182">httpMediaType</a> ()</td></tr>
+<tr class="memdesc:aae3de074437688cc7aa5d4926a184182"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random http media type.  <br /></td></tr>
+<tr class="separator:aae3de074437688cc7aa5d4926a184182"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9ec5e80a347ec1ad2a53f85588b510dc" id="r_a9ec5e80a347ec1ad2a53f85588b510dc"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9ec5e80a347ec1ad2a53f85588b510dc">ipv4</a> (const <a class="el" href="#a02270adba2a94976603175f8904646cd">IPv4Class</a> &amp;ipv4class=<a class="el" href="#a02270adba2a94976603175f8904646cda0d61f8370cad1d412f80b84d143e1257">IPv4Class::C</a>)</td></tr>
+<tr class="memdesc:a9ec5e80a347ec1ad2a53f85588b510dc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing randomized ipv4 address of the given class.  <br /></td></tr>
+<tr class="separator:a9ec5e80a347ec1ad2a53f85588b510dc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6b363e2801aca6b2a686e80ee24c7c3" id="r_af6b363e2801aca6b2a686e80ee24c7c3"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af6b363e2801aca6b2a686e80ee24c7c3">ipv4</a> (const std::array&lt; unsigned int, 4 &gt; &amp;baseIpv4Address, const std::array&lt; unsigned int, 4 &gt; &amp;generationMask)</td></tr>
+<tr class="memdesc:af6b363e2801aca6b2a686e80ee24c7c3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing randomized ipv4 address based on given base address and mask.  <br /></td></tr>
+<tr class="separator:af6b363e2801aca6b2a686e80ee24c7c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa1ebac0fa8bab72b27017f6736b7c51f" id="r_aa1ebac0fa8bab72b27017f6736b7c51f"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa1ebac0fa8bab72b27017f6736b7c51f">ipv6</a> ()</td></tr>
+<tr class="memdesc:aa1ebac0fa8bab72b27017f6736b7c51f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing randomized ipv6 address.  <br /></td></tr>
+<tr class="separator:aa1ebac0fa8bab72b27017f6736b7c51f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb2e69d9d72e640a64d4bda2d55b45fe" id="r_aeb2e69d9d72e640a64d4bda2d55b45fe"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb2e69d9d72e640a64d4bda2d55b45fe">mac</a> (const std::string &amp;sep=&quot;:&quot;)</td></tr>
+<tr class="memdesc:aeb2e69d9d72e640a64d4bda2d55b45fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a generated random mac address.  <br /></td></tr>
+<tr class="separator:aeb2e69d9d72e640a64d4bda2d55b45fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7fe45110325fe2a80fe3cc776ac2ed2" id="r_af7fe45110325fe2a80fe3cc776ac2ed2"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT unsigned&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af7fe45110325fe2a80fe3cc776ac2ed2">port</a> ()</td></tr>
+<tr class="memdesc:af7fe45110325fe2a80fe3cc776ac2ed2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random port.  <br /></td></tr>
+<tr class="separator:af7fe45110325fe2a80fe3cc776ac2ed2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a005caa05149d90b3854aef6a4ccdf27e" id="r_a005caa05149d90b3854aef6a4ccdf27e"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a005caa05149d90b3854aef6a4ccdf27e">url</a> (const <a class="el" href="#ac9fba82884b9a80bff2604b01135c7ec">WebProtocol</a> &amp;webProtocol=<a class="el" href="#ac9fba82884b9a80bff2604b01135c7eca2badb7fa3e862298a650909d45c5066b">WebProtocol::Https</a>)</td></tr>
+<tr class="memdesc:a005caa05149d90b3854aef6a4ccdf27e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random url.  <br /></td></tr>
+<tr class="separator:a005caa05149d90b3854aef6a4ccdf27e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7233a627869287ae8dc81a1dd8324fd2" id="r_a7233a627869287ae8dc81a1dd8324fd2"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7233a627869287ae8dc81a1dd8324fd2">domainName</a> ()</td></tr>
+<tr class="memdesc:a7233a627869287ae8dc81a1dd8324fd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random domain name.  <br /></td></tr>
+<tr class="separator:a7233a627869287ae8dc81a1dd8324fd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49fa76d8f033206ed91f965fd625b2cf" id="r_a49fa76d8f033206ed91f965fd625b2cf"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a49fa76d8f033206ed91f965fd625b2cf">domainWord</a> ()</td></tr>
+<tr class="memdesc:a49fa76d8f033206ed91f965fd625b2cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random domain word.  <br /></td></tr>
+<tr class="separator:a49fa76d8f033206ed91f965fd625b2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9332c1bd3d5fb1111e2fcc5fa04131a7" id="r_a9332c1bd3d5fb1111e2fcc5fa04131a7"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9332c1bd3d5fb1111e2fcc5fa04131a7">domainSuffix</a> ()</td></tr>
+<tr class="memdesc:a9332c1bd3d5fb1111e2fcc5fa04131a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random domain suffix.  <br /></td></tr>
+<tr class="separator:a9332c1bd3d5fb1111e2fcc5fa04131a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0e22ade4bf001c126dd22e5c72506031" id="r_a0e22ade4bf001c126dd22e5c72506031"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e22ade4bf001c126dd22e5c72506031">anonymousUsername</a> (unsigned maxLength)</td></tr>
+<tr class="memdesc:a0e22ade4bf001c126dd22e5c72506031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random username.  <br /></td></tr>
+<tr class="separator:a0e22ade4bf001c126dd22e5c72506031"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="ab1fd12c6089e1eb7e783223be1b73ac1" name="ab1fd12c6089e1eb7e783223be1b73ac1"></a>
@@ -337,14 +337,14 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a7984e90922498f1299cecd31c5f575a7" name="a7984e90922498f1299cecd31c5f575a7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7984e90922498f1299cecd31c5f575a7">&#9670;&#160;</a></span>anonymousUsername()</h2>
+<a id="a0e22ade4bf001c126dd22e5c72506031" name="a0e22ade4bf001c126dd22e5c72506031"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e22ade4bf001c126dd22e5c72506031">&#9670;&#160;</a></span>anonymousUsername()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::anonymousUsername </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::anonymousUsername </td>
           <td>(</td>
           <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>maxLength</em></span></td><td>)</td>
           <td></td>
@@ -360,19 +360,19 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Username.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a7984e90922498f1299cecd31c5f575a7">faker::internet::anonymousUsername</a>() <span class="comment">// &quot;profusebrother&quot;, &quot;richad&quot;, &quot;powerfuldifferential&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a7984e90922498f1299cecd31c5f575a7"><div class="ttname"><a href="#a7984e90922498f1299cecd31c5f575a7">faker::internet::anonymousUsername</a></div><div class="ttdeci">std::string anonymousUsername(unsigned maxLength)</div><div class="ttdoc">Generates a random username.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a0e22ade4bf001c126dd22e5c72506031">faker::internet::anonymousUsername</a>() <span class="comment">// &quot;profusebrother&quot;, &quot;richad&quot;, &quot;powerfuldifferential&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a0e22ade4bf001c126dd22e5c72506031"><div class="ttname"><a href="#a0e22ade4bf001c126dd22e5c72506031">faker::internet::anonymousUsername</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string anonymousUsername(unsigned maxLength)</div><div class="ttdoc">Generates a random username.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a0746027aba19bc27dbe5bca73707f0bc" name="a0746027aba19bc27dbe5bca73707f0bc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0746027aba19bc27dbe5bca73707f0bc">&#9670;&#160;</a></span>checkIfEmojiIsValid()</h2>
+<a id="ae1a9eb9071b9843c891c065fd87345e7" name="ae1a9eb9071b9843c891c065fd87345e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1a9eb9071b9843c891c065fd87345e7">&#9670;&#160;</a></span>checkIfEmojiIsValid()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool faker::internet::checkIfEmojiIsValid </td>
+          <td class="memname">FAKER_CXX_EXPORT bool faker::internet::checkIfEmojiIsValid </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>emojiToCheck</em></span></td><td>)</td>
           <td></td>
@@ -388,19 +388,19 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>true if emojiToCheck is found in one of the vectors, false otherwise.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a0746027aba19bc27dbe5bca73707f0bc">faker::internet::checkIfEmojiIsValid</a>(<span class="stringliteral">&quot;👑&quot;</span>) <span class="comment">// true</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a0746027aba19bc27dbe5bca73707f0bc"><div class="ttname"><a href="#a0746027aba19bc27dbe5bca73707f0bc">faker::internet::checkIfEmojiIsValid</a></div><div class="ttdeci">bool checkIfEmojiIsValid(const std::string &amp;emojiToCheck)</div><div class="ttdoc">Verify that a given emoji is valid.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ae1a9eb9071b9843c891c065fd87345e7">faker::internet::checkIfEmojiIsValid</a>(<span class="stringliteral">&quot;👑&quot;</span>) <span class="comment">// true</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_ae1a9eb9071b9843c891c065fd87345e7"><div class="ttname"><a href="#ae1a9eb9071b9843c891c065fd87345e7">faker::internet::checkIfEmojiIsValid</a></div><div class="ttdeci">FAKER_CXX_EXPORT bool checkIfEmojiIsValid(const std::string &amp;emojiToCheck)</div><div class="ttdoc">Verify that a given emoji is valid.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="acb5cc643b943d68ccf0b122ef3d15ced" name="acb5cc643b943d68ccf0b122ef3d15ced"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acb5cc643b943d68ccf0b122ef3d15ced">&#9670;&#160;</a></span>domainName()</h2>
+<a id="a7233a627869287ae8dc81a1dd8324fd2" name="a7233a627869287ae8dc81a1dd8324fd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7233a627869287ae8dc81a1dd8324fd2">&#9670;&#160;</a></span>domainName()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::domainName </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::domainName </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -410,19 +410,19 @@ Functions</h2></td></tr>
 
 <p>Generates a random domain name. </p>
 <dl class="section return"><dt>Returns</dt><dd>Domain name.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#acb5cc643b943d68ccf0b122ef3d15ced">faker::internet::domainName</a>() <span class="comment">// &quot;slow-timer.info&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_acb5cc643b943d68ccf0b122ef3d15ced"><div class="ttname"><a href="#acb5cc643b943d68ccf0b122ef3d15ced">faker::internet::domainName</a></div><div class="ttdeci">std::string domainName()</div><div class="ttdoc">Generates a random domain name.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a7233a627869287ae8dc81a1dd8324fd2">faker::internet::domainName</a>() <span class="comment">// &quot;slow-timer.info&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a7233a627869287ae8dc81a1dd8324fd2"><div class="ttname"><a href="#a7233a627869287ae8dc81a1dd8324fd2">faker::internet::domainName</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string domainName()</div><div class="ttdoc">Generates a random domain name.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="ad0f6d0599df66e819d84903c5d1c04cd" name="ad0f6d0599df66e819d84903c5d1c04cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0f6d0599df66e819d84903c5d1c04cd">&#9670;&#160;</a></span>domainSuffix()</h2>
+<a id="a9332c1bd3d5fb1111e2fcc5fa04131a7" name="a9332c1bd3d5fb1111e2fcc5fa04131a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9332c1bd3d5fb1111e2fcc5fa04131a7">&#9670;&#160;</a></span>domainSuffix()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view faker::internet::domainSuffix </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string_view faker::internet::domainSuffix </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -432,19 +432,19 @@ Functions</h2></td></tr>
 
 <p>Generates a random domain suffix. </p>
 <dl class="section return"><dt>Returns</dt><dd>Domain suffix.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ad0f6d0599df66e819d84903c5d1c04cd">faker::internet::domainSuffix</a>() <span class="comment">// &quot;com&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_ad0f6d0599df66e819d84903c5d1c04cd"><div class="ttname"><a href="#ad0f6d0599df66e819d84903c5d1c04cd">faker::internet::domainSuffix</a></div><div class="ttdeci">std::string_view domainSuffix()</div><div class="ttdoc">Generates a random domain suffix.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a9332c1bd3d5fb1111e2fcc5fa04131a7">faker::internet::domainSuffix</a>() <span class="comment">// &quot;com&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a9332c1bd3d5fb1111e2fcc5fa04131a7"><div class="ttname"><a href="#a9332c1bd3d5fb1111e2fcc5fa04131a7">faker::internet::domainSuffix</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view domainSuffix()</div><div class="ttdoc">Generates a random domain suffix.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a2d0343d5392ac333fecf27fab9567cbc" name="a2d0343d5392ac333fecf27fab9567cbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d0343d5392ac333fecf27fab9567cbc">&#9670;&#160;</a></span>domainWord()</h2>
+<a id="a49fa76d8f033206ed91f965fd625b2cf" name="a49fa76d8f033206ed91f965fd625b2cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49fa76d8f033206ed91f965fd625b2cf">&#9670;&#160;</a></span>domainWord()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::domainWord </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::domainWord </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -454,19 +454,19 @@ Functions</h2></td></tr>
 
 <p>Generates a random domain word. </p>
 <dl class="section return"><dt>Returns</dt><dd>Domain word.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a2d0343d5392ac333fecf27fab9567cbc">faker::internet::domainWord</a>() <span class="comment">// &quot;close-reality&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a2d0343d5392ac333fecf27fab9567cbc"><div class="ttname"><a href="#a2d0343d5392ac333fecf27fab9567cbc">faker::internet::domainWord</a></div><div class="ttdeci">std::string domainWord()</div><div class="ttdoc">Generates a random domain word.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a49fa76d8f033206ed91f965fd625b2cf">faker::internet::domainWord</a>() <span class="comment">// &quot;close-reality&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a49fa76d8f033206ed91f965fd625b2cf"><div class="ttname"><a href="#a49fa76d8f033206ed91f965fd625b2cf">faker::internet::domainWord</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string domainWord()</div><div class="ttdoc">Generates a random domain word.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a5082d31654a79c42189bd74ebcd9f177" name="a5082d31654a79c42189bd74ebcd9f177"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5082d31654a79c42189bd74ebcd9f177">&#9670;&#160;</a></span>email()</h2>
+<a id="a640c9552088825e8f39eb42b61399c6e" name="a640c9552088825e8f39eb42b61399c6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a640c9552088825e8f39eb42b61399c6e">&#9670;&#160;</a></span>email()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::email </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::email </td>
           <td>(</td>
           <td class="paramtype">std::optional&lt; std::string &gt;</td>          <td class="paramname"><span class="paramname"><em>firstName</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span>, </td>
         </tr>
@@ -493,24 +493,24 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Email including neither, one or both of the provided names, with random/provided email host.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">faker::internet::email</a>() <span class="comment">// &quot;Jimenez.Clyde@gmail.com&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(&quot;Tom&quot;) <span class="comment">// &quot;TomRichardson79@outlook.com&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(std::nullopt, &quot;Howard&quot;) <span class="comment">// &quot;FreddieHoward@hotmail.com&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(&quot;Cindy&quot;, &quot;Young&quot;) <span class="comment">// &quot;Young_Cindy@gmail.com&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a5082d31654a79c42189bd74ebcd9f177">email</a>(std::nullopt, std::nullopt, &quot;example.com&quot;) <span class="comment">// &quot;Wright.Edna1973@code.com&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a5082d31654a79c42189bd74ebcd9f177"><div class="ttname"><a href="#a5082d31654a79c42189bd74ebcd9f177">faker::internet::email</a></div><div class="ttdeci">std::string email(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base.</div></div>
-<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> Airline.h:6</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a640c9552088825e8f39eb42b61399c6e">faker::internet::email</a>() <span class="comment">// &quot;Jimenez.Clyde@gmail.com&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a640c9552088825e8f39eb42b61399c6e">email</a>(&quot;Tom&quot;) <span class="comment">// &quot;TomRichardson79@outlook.com&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a640c9552088825e8f39eb42b61399c6e">email</a>(std::nullopt, &quot;Howard&quot;) <span class="comment">// &quot;FreddieHoward@hotmail.com&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a640c9552088825e8f39eb42b61399c6e">email</a>(&quot;Cindy&quot;, &quot;Young&quot;) <span class="comment">// &quot;Young_Cindy@gmail.com&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a640c9552088825e8f39eb42b61399c6e">email</a>(std::nullopt, std::nullopt, &quot;example.com&quot;) <span class="comment">// &quot;Wright.Edna1973@code.com&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a640c9552088825e8f39eb42b61399c6e"><div class="ttname"><a href="#a640c9552088825e8f39eb42b61399c6e">faker::internet::email</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string email(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, std::optional&lt; std::string &gt; emailHost=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base.</div></div>
+<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> Airline.h:7</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="acc05c79fd96761953b3f01f819536180" name="acc05c79fd96761953b3f01f819536180"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acc05c79fd96761953b3f01f819536180">&#9670;&#160;</a></span>emoji()</h2>
+<a id="a40ee9376026f9017e3dcc90a8f53b7bc" name="a40ee9376026f9017e3dcc90a8f53b7bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40ee9376026f9017e3dcc90a8f53b7bc">&#9670;&#160;</a></span>emoji()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view faker::internet::emoji </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string_view faker::internet::emoji </td>
           <td>(</td>
           <td class="paramtype">std::optional&lt; <a class="el" href="#ab1fd12c6089e1eb7e783223be1b73ac1">EmojiType</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>type</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span></td><td>)</td>
           <td></td>
@@ -526,22 +526,22 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Emoji.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#acc05c79fd96761953b3f01f819536180">faker::internet::emoji</a>() <span class="comment">// &quot;👑&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#acc05c79fd96761953b3f01f819536180">emoji</a>(<a class="code hl_enumeration" href="#ab1fd12c6089e1eb7e783223be1b73ac1">EmojiType</a>::<a class="code hl_enumvalue" href="#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">Food</a>) <span class="comment">// &quot;🍕&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1">faker::internet::EmojiType</a></div><div class="ttdeci">EmojiType</div><div class="ttdef"><b>Definition</b> Internet.h:112</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a40ee9376026f9017e3dcc90a8f53b7bc">faker::internet::emoji</a>() <span class="comment">// &quot;👑&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a40ee9376026f9017e3dcc90a8f53b7bc">emoji</a>(<a class="code hl_enumeration" href="#ab1fd12c6089e1eb7e783223be1b73ac1">EmojiType</a>::<a class="code hl_enumvalue" href="#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">Food</a>) <span class="comment">// &quot;🍕&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a40ee9376026f9017e3dcc90a8f53b7bc"><div class="ttname"><a href="#a40ee9376026f9017e3dcc90a8f53b7bc">faker::internet::emoji</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view emoji(std::optional&lt; EmojiType &gt; type=std::nullopt)</div><div class="ttdoc">Returns a random emoji.</div></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1">faker::internet::EmojiType</a></div><div class="ttdeci">EmojiType</div><div class="ttdef"><b>Definition</b> Internet.h:113</div></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">faker::internet::EmojiType::Food</a></div><div class="ttdeci">@ Food</div></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_acc05c79fd96761953b3f01f819536180"><div class="ttname"><a href="#acc05c79fd96761953b3f01f819536180">faker::internet::emoji</a></div><div class="ttdeci">std::string_view emoji(std::optional&lt; EmojiType &gt; type=std::nullopt)</div><div class="ttdoc">Returns a random emoji.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="aed462baedf55f4a57818f2d47aa69961" name="aed462baedf55f4a57818f2d47aa69961"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed462baedf55f4a57818f2d47aa69961">&#9670;&#160;</a></span>exampleEmail()</h2>
+<a id="a73507aa24e5f1d8b74e0db4cdee32ee9" name="a73507aa24e5f1d8b74e0db4cdee32ee9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a73507aa24e5f1d8b74e0db4cdee32ee9">&#9670;&#160;</a></span>exampleEmail()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::exampleEmail </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::exampleEmail </td>
           <td>(</td>
           <td class="paramtype">std::optional&lt; std::string &gt;</td>          <td class="paramname"><span class="paramname"><em>firstName</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span>, </td>
         </tr>
@@ -562,19 +562,19 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Email including neither, one or both of the provided names, with example email host.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#aed462baedf55f4a57818f2d47aa69961">faker::internet::exampleEmail</a>() <span class="comment">// &quot;Jimenez.Clyde@example.com&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_aed462baedf55f4a57818f2d47aa69961"><div class="ttname"><a href="#aed462baedf55f4a57818f2d47aa69961">faker::internet::exampleEmail</a></div><div class="ttdeci">std::string exampleEmail(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base with example domain.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a73507aa24e5f1d8b74e0db4cdee32ee9">faker::internet::exampleEmail</a>() <span class="comment">// &quot;Jimenez.Clyde@example.com&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a73507aa24e5f1d8b74e0db4cdee32ee9"><div class="ttname"><a href="#a73507aa24e5f1d8b74e0db4cdee32ee9">faker::internet::exampleEmail</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string exampleEmail(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt)</div><div class="ttdoc">Generates an email address using the given person's name as base with example domain.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="ae9d32d02503d82a6bda4fdaeac223fec" name="ae9d32d02503d82a6bda4fdaeac223fec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae9d32d02503d82a6bda4fdaeac223fec">&#9670;&#160;</a></span>httpMediaType()</h2>
+<a id="aae3de074437688cc7aa5d4926a184182" name="aae3de074437688cc7aa5d4926a184182"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae3de074437688cc7aa5d4926a184182">&#9670;&#160;</a></span>httpMediaType()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view faker::internet::httpMediaType </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string_view faker::internet::httpMediaType </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -584,19 +584,19 @@ Functions</h2></td></tr>
 
 <p>Generates a random http media type. </p>
 <dl class="section return"><dt>Returns</dt><dd>Http media type.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ae9d32d02503d82a6bda4fdaeac223fec">faker::internet::httpMediaType</a>() <span class="comment">// &quot;application/json&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_ae9d32d02503d82a6bda4fdaeac223fec"><div class="ttname"><a href="#ae9d32d02503d82a6bda4fdaeac223fec">faker::internet::httpMediaType</a></div><div class="ttdeci">std::string_view httpMediaType()</div><div class="ttdoc">Generates a random http media type.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#aae3de074437688cc7aa5d4926a184182">faker::internet::httpMediaType</a>() <span class="comment">// &quot;application/json&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_aae3de074437688cc7aa5d4926a184182"><div class="ttname"><a href="#aae3de074437688cc7aa5d4926a184182">faker::internet::httpMediaType</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view httpMediaType()</div><div class="ttdoc">Generates a random http media type.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a9b548a60dd56b4caf3adda3dd36fe531" name="a9b548a60dd56b4caf3adda3dd36fe531"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b548a60dd56b4caf3adda3dd36fe531">&#9670;&#160;</a></span>httpMethod()</h2>
+<a id="a351eb5eed7fd927d6a2869263b56e852" name="a351eb5eed7fd927d6a2869263b56e852"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a351eb5eed7fd927d6a2869263b56e852">&#9670;&#160;</a></span>httpMethod()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view faker::internet::httpMethod </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string_view faker::internet::httpMethod </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -606,19 +606,19 @@ Functions</h2></td></tr>
 
 <p>Generates a random http method name. </p>
 <dl class="section return"><dt>Returns</dt><dd>Http method name.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a9b548a60dd56b4caf3adda3dd36fe531">faker::internet::httpMethod</a>() <span class="comment">// &quot;POST&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a9b548a60dd56b4caf3adda3dd36fe531"><div class="ttname"><a href="#a9b548a60dd56b4caf3adda3dd36fe531">faker::internet::httpMethod</a></div><div class="ttdeci">std::string_view httpMethod()</div><div class="ttdoc">Generates a random http method name.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a351eb5eed7fd927d6a2869263b56e852">faker::internet::httpMethod</a>() <span class="comment">// &quot;POST&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a351eb5eed7fd927d6a2869263b56e852"><div class="ttname"><a href="#a351eb5eed7fd927d6a2869263b56e852">faker::internet::httpMethod</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view httpMethod()</div><div class="ttdoc">Generates a random http method name.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="ad7ebdb868d20077439327c5630d77521" name="ad7ebdb868d20077439327c5630d77521"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad7ebdb868d20077439327c5630d77521">&#9670;&#160;</a></span>httpRequestHeader()</h2>
+<a id="a298bf281d43e08c58448962c094605ab" name="a298bf281d43e08c58448962c094605ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a298bf281d43e08c58448962c094605ab">&#9670;&#160;</a></span>httpRequestHeader()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view faker::internet::httpRequestHeader </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string_view faker::internet::httpRequestHeader </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -628,19 +628,19 @@ Functions</h2></td></tr>
 
 <p>Generates a random http request header. </p>
 <dl class="section return"><dt>Returns</dt><dd>Http request header.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ad7ebdb868d20077439327c5630d77521">faker::internet::httpRequestHeader</a>() <span class="comment">// &quot;Authorization&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_ad7ebdb868d20077439327c5630d77521"><div class="ttname"><a href="#ad7ebdb868d20077439327c5630d77521">faker::internet::httpRequestHeader</a></div><div class="ttdeci">std::string_view httpRequestHeader()</div><div class="ttdoc">Generates a random http request header.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a298bf281d43e08c58448962c094605ab">faker::internet::httpRequestHeader</a>() <span class="comment">// &quot;Authorization&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a298bf281d43e08c58448962c094605ab"><div class="ttname"><a href="#a298bf281d43e08c58448962c094605ab">faker::internet::httpRequestHeader</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view httpRequestHeader()</div><div class="ttdoc">Generates a random http request header.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a8c549b1e91e70508dd706eecbb5d04c3" name="a8c549b1e91e70508dd706eecbb5d04c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c549b1e91e70508dd706eecbb5d04c3">&#9670;&#160;</a></span>httpResponseHeader()</h2>
+<a id="abac7e3c94d09f0f7a381f64a8032684e" name="abac7e3c94d09f0f7a381f64a8032684e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abac7e3c94d09f0f7a381f64a8032684e">&#9670;&#160;</a></span>httpResponseHeader()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view faker::internet::httpResponseHeader </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string_view faker::internet::httpResponseHeader </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -650,19 +650,19 @@ Functions</h2></td></tr>
 
 <p>Generates a random http response header. </p>
 <dl class="section return"><dt>Returns</dt><dd>Http response header.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a8c549b1e91e70508dd706eecbb5d04c3">faker::internet::httpResponseHeader</a>() <span class="comment">// &quot;Location&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a8c549b1e91e70508dd706eecbb5d04c3"><div class="ttname"><a href="#a8c549b1e91e70508dd706eecbb5d04c3">faker::internet::httpResponseHeader</a></div><div class="ttdeci">std::string_view httpResponseHeader()</div><div class="ttdoc">Generates a random http response header.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#abac7e3c94d09f0f7a381f64a8032684e">faker::internet::httpResponseHeader</a>() <span class="comment">// &quot;Location&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_abac7e3c94d09f0f7a381f64a8032684e"><div class="ttname"><a href="#abac7e3c94d09f0f7a381f64a8032684e">faker::internet::httpResponseHeader</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view httpResponseHeader()</div><div class="ttdoc">Generates a random http response header.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="addf925e625f04b4d77cd1a051bc03491" name="addf925e625f04b4d77cd1a051bc03491"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#addf925e625f04b4d77cd1a051bc03491">&#9670;&#160;</a></span>httpStatusCode()</h2>
+<a id="a18bb9341e2a6b1745f93bb56acf973ea" name="a18bb9341e2a6b1745f93bb56acf973ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18bb9341e2a6b1745f93bb56acf973ea">&#9670;&#160;</a></span>httpStatusCode()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned faker::internet::httpStatusCode </td>
+          <td class="memname">FAKER_CXX_EXPORT unsigned faker::internet::httpStatusCode </td>
           <td>(</td>
           <td class="paramtype">std::optional&lt; <a class="el" href="#a25d31766e509fb398f5534224b171a8d">HttpResponseType</a> &gt;</td>          <td class="paramname"><span class="paramname"><em>responseType</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span></td><td>)</td>
           <td></td>
@@ -678,20 +678,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Http status code.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#addf925e625f04b4d77cd1a051bc03491">faker::internet::httpStatusCode</a>() <span class="comment">// 500</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#addf925e625f04b4d77cd1a051bc03491">httpStatusCode</a>(HttpStatusCodeType::success) <span class="comment">// 201</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_addf925e625f04b4d77cd1a051bc03491"><div class="ttname"><a href="#addf925e625f04b4d77cd1a051bc03491">faker::internet::httpStatusCode</a></div><div class="ttdeci">unsigned httpStatusCode(std::optional&lt; HttpResponseType &gt; responseType=std::nullopt)</div><div class="ttdoc">Returns a random http status code.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a18bb9341e2a6b1745f93bb56acf973ea">faker::internet::httpStatusCode</a>() <span class="comment">// 500</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a18bb9341e2a6b1745f93bb56acf973ea">httpStatusCode</a>(HttpStatusCodeType::success) <span class="comment">// 201</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a18bb9341e2a6b1745f93bb56acf973ea"><div class="ttname"><a href="#a18bb9341e2a6b1745f93bb56acf973ea">faker::internet::httpStatusCode</a></div><div class="ttdeci">FAKER_CXX_EXPORT unsigned httpStatusCode(std::optional&lt; HttpResponseType &gt; responseType=std::nullopt)</div><div class="ttdoc">Returns a random http status code.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a1867349f60b73f441e7b42b3d1550503" name="a1867349f60b73f441e7b42b3d1550503"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1867349f60b73f441e7b42b3d1550503">&#9670;&#160;</a></span>ipv4() <span class="overload">[1/2]</span></h2>
+<a id="a9ec5e80a347ec1ad2a53f85588b510dc" name="a9ec5e80a347ec1ad2a53f85588b510dc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9ec5e80a347ec1ad2a53f85588b510dc">&#9670;&#160;</a></span>ipv4() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::ipv4 </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::ipv4 </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="#a02270adba2a94976603175f8904646cd">IPv4Class</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>ipv4class</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a02270adba2a94976603175f8904646cda0d61f8370cad1d412f80b84d143e1257">IPv4Class::C</a></span></td><td>)</td>
           <td></td>
@@ -707,21 +707,21 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>String representation of the ipv4 address.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">faker::internet::ipv4</a>() <span class="comment">// &quot;192.168.0.1&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">ipv4</a>(<a class="code hl_enumeration" href="#a02270adba2a94976603175f8904646cd">IPv4Class</a>::classA) <span class="comment">// &quot;10.0.0.1&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a02270adba2a94976603175f8904646cd"><div class="ttname"><a href="#a02270adba2a94976603175f8904646cd">faker::internet::IPv4Class</a></div><div class="ttdeci">IPv4Class</div><div class="ttdef"><b>Definition</b> Internet.h:28</div></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a1867349f60b73f441e7b42b3d1550503"><div class="ttname"><a href="#a1867349f60b73f441e7b42b3d1550503">faker::internet::ipv4</a></div><div class="ttdeci">std::string ipv4(const IPv4Class &amp;ipv4class=IPv4Class::C)</div><div class="ttdoc">Returns a string containing randomized ipv4 address of the given class.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a9ec5e80a347ec1ad2a53f85588b510dc">faker::internet::ipv4</a>() <span class="comment">// &quot;192.168.0.1&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a9ec5e80a347ec1ad2a53f85588b510dc">ipv4</a>(<a class="code hl_enumeration" href="#a02270adba2a94976603175f8904646cd">IPv4Class</a>::classA) <span class="comment">// &quot;10.0.0.1&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a02270adba2a94976603175f8904646cd"><div class="ttname"><a href="#a02270adba2a94976603175f8904646cd">faker::internet::IPv4Class</a></div><div class="ttdeci">IPv4Class</div><div class="ttdef"><b>Definition</b> Internet.h:29</div></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a9ec5e80a347ec1ad2a53f85588b510dc"><div class="ttname"><a href="#a9ec5e80a347ec1ad2a53f85588b510dc">faker::internet::ipv4</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string ipv4(const IPv4Class &amp;ipv4class=IPv4Class::C)</div><div class="ttdoc">Returns a string containing randomized ipv4 address of the given class.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a8cd0c9ec4dcca31fce9b9b516e6fe40a" name="a8cd0c9ec4dcca31fce9b9b516e6fe40a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cd0c9ec4dcca31fce9b9b516e6fe40a">&#9670;&#160;</a></span>ipv4() <span class="overload">[2/2]</span></h2>
+<a id="af6b363e2801aca6b2a686e80ee24c7c3" name="af6b363e2801aca6b2a686e80ee24c7c3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af6b363e2801aca6b2a686e80ee24c7c3">&#9670;&#160;</a></span>ipv4() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::ipv4 </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::ipv4 </td>
           <td>(</td>
           <td class="paramtype">const std::array&lt; unsigned int, 4 &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>baseIpv4Address</em></span>, </td>
         </tr>
@@ -743,19 +743,19 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>std::string representation of the ipv4 address.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">faker::internet::ipv4</a>({255.0.0.0}, {10.100.100.100}) <span class="comment">// &quot;10.128.17.1&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#a1867349f60b73f441e7b42b3d1550503">faker::internet::ipv4</a>({255.255.128.0}, {129.168.255.0}) <span class="comment">// &quot;192.168.128.10&quot;</span></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a9ec5e80a347ec1ad2a53f85588b510dc">faker::internet::ipv4</a>({255.0.0.0}, {10.100.100.100}) <span class="comment">// &quot;10.128.17.1&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a9ec5e80a347ec1ad2a53f85588b510dc">faker::internet::ipv4</a>({255.255.128.0}, {129.168.255.0}) <span class="comment">// &quot;192.168.128.10&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a6f44672173ac347db321ea45c5fbc108" name="a6f44672173ac347db321ea45c5fbc108"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6f44672173ac347db321ea45c5fbc108">&#9670;&#160;</a></span>ipv6()</h2>
+<a id="aa1ebac0fa8bab72b27017f6736b7c51f" name="aa1ebac0fa8bab72b27017f6736b7c51f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa1ebac0fa8bab72b27017f6736b7c51f">&#9670;&#160;</a></span>ipv6()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::ipv6 </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::ipv6 </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -765,19 +765,19 @@ Functions</h2></td></tr>
 
 <p>Returns a string containing randomized ipv6 address. </p>
 <dl class="section return"><dt>Returns</dt><dd>String representation of the ipv6 address.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a6f44672173ac347db321ea45c5fbc108">faker::internet::ipv6</a>() <span class="comment">// &quot;269f:1230:73e3:318d:842b:daab:326d:897b&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a6f44672173ac347db321ea45c5fbc108"><div class="ttname"><a href="#a6f44672173ac347db321ea45c5fbc108">faker::internet::ipv6</a></div><div class="ttdeci">std::string ipv6()</div><div class="ttdoc">Returns a string containing randomized ipv6 address.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#aa1ebac0fa8bab72b27017f6736b7c51f">faker::internet::ipv6</a>() <span class="comment">// &quot;269f:1230:73e3:318d:842b:daab:326d:897b&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_aa1ebac0fa8bab72b27017f6736b7c51f"><div class="ttname"><a href="#aa1ebac0fa8bab72b27017f6736b7c51f">faker::internet::ipv6</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string ipv6()</div><div class="ttdoc">Returns a string containing randomized ipv6 address.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="aa81ae4efbe46bdf5c5bfba6bfcd62d8c" name="aa81ae4efbe46bdf5c5bfba6bfcd62d8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa81ae4efbe46bdf5c5bfba6bfcd62d8c">&#9670;&#160;</a></span>mac()</h2>
+<a id="aeb2e69d9d72e640a64d4bda2d55b45fe" name="aeb2e69d9d72e640a64d4bda2d55b45fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb2e69d9d72e640a64d4bda2d55b45fe">&#9670;&#160;</a></span>mac()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::mac </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::mac </td>
           <td>(</td>
           <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>sep</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;:&quot;</span></td><td>)</td>
           <td></td>
@@ -793,19 +793,19 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>A generated random mac address.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#aa81ae4efbe46bdf5c5bfba6bfcd62d8c">faker::internet::mac</a>() <span class="comment">// &quot;2d:10:34:2f:ac:ac&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_aa81ae4efbe46bdf5c5bfba6bfcd62d8c"><div class="ttname"><a href="#aa81ae4efbe46bdf5c5bfba6bfcd62d8c">faker::internet::mac</a></div><div class="ttdeci">std::string mac(const std::string &amp;sep=&quot;:&quot;)</div><div class="ttdoc">Returns a generated random mac address.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#aeb2e69d9d72e640a64d4bda2d55b45fe">faker::internet::mac</a>() <span class="comment">// &quot;2d:10:34:2f:ac:ac&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_aeb2e69d9d72e640a64d4bda2d55b45fe"><div class="ttname"><a href="#aeb2e69d9d72e640a64d4bda2d55b45fe">faker::internet::mac</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string mac(const std::string &amp;sep=&quot;:&quot;)</div><div class="ttdoc">Returns a generated random mac address.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="af1e915a97047baa2c43be9d16c96324f" name="af1e915a97047baa2c43be9d16c96324f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1e915a97047baa2c43be9d16c96324f">&#9670;&#160;</a></span>password()</h2>
+<a id="a88b044d010594ec94fa7127efb7c8bb1" name="a88b044d010594ec94fa7127efb7c8bb1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88b044d010594ec94fa7127efb7c8bb1">&#9670;&#160;</a></span>password()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::password </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::password </td>
           <td>(</td>
           <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>length</em></span><span class="paramdefsep"> = </span><span class="paramdefval">15</span>, </td>
         </tr>
@@ -825,20 +825,20 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Random password-like string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#af1e915a97047baa2c43be9d16c96324f">faker::internet::password</a>() <span class="comment">// &quot;gXGpe9pKfFcKy9R&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#af1e915a97047baa2c43be9d16c96324f">password</a>(25) <span class="comment">// &quot;xv8vDu*wM!Rg0$zd0kH%8p!WY&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_af1e915a97047baa2c43be9d16c96324f"><div class="ttname"><a href="#af1e915a97047baa2c43be9d16c96324f">faker::internet::password</a></div><div class="ttdeci">std::string password(int length=15, const PasswordOptions &amp;options={})</div><div class="ttdoc">Generates a random password-like string. Do not use this method for generating actual passwords for u...</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a88b044d010594ec94fa7127efb7c8bb1">faker::internet::password</a>() <span class="comment">// &quot;gXGpe9pKfFcKy9R&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a88b044d010594ec94fa7127efb7c8bb1">password</a>(25) <span class="comment">// &quot;xv8vDu*wM!Rg0$zd0kH%8p!WY&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a88b044d010594ec94fa7127efb7c8bb1"><div class="ttname"><a href="#a88b044d010594ec94fa7127efb7c8bb1">faker::internet::password</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string password(int length=15, const PasswordOptions &amp;options={})</div><div class="ttdoc">Generates a random password-like string. Do not use this method for generating actual passwords for u...</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a0e2cd71dd1429486c255254161fe3e8d" name="a0e2cd71dd1429486c255254161fe3e8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e2cd71dd1429486c255254161fe3e8d">&#9670;&#160;</a></span>port()</h2>
+<a id="af7fe45110325fe2a80fe3cc776ac2ed2" name="af7fe45110325fe2a80fe3cc776ac2ed2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7fe45110325fe2a80fe3cc776ac2ed2">&#9670;&#160;</a></span>port()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">unsigned faker::internet::port </td>
+          <td class="memname">FAKER_CXX_EXPORT unsigned faker::internet::port </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -848,19 +848,19 @@ Functions</h2></td></tr>
 
 <p>Generates a random port. </p>
 <dl class="section return"><dt>Returns</dt><dd>Port.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a0e2cd71dd1429486c255254161fe3e8d">faker::internet::port</a>() <span class="comment">// 5432</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a0e2cd71dd1429486c255254161fe3e8d"><div class="ttname"><a href="#a0e2cd71dd1429486c255254161fe3e8d">faker::internet::port</a></div><div class="ttdeci">unsigned port()</div><div class="ttdoc">Generates a random port.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#af7fe45110325fe2a80fe3cc776ac2ed2">faker::internet::port</a>() <span class="comment">// 5432</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_af7fe45110325fe2a80fe3cc776ac2ed2"><div class="ttname"><a href="#af7fe45110325fe2a80fe3cc776ac2ed2">faker::internet::port</a></div><div class="ttdeci">FAKER_CXX_EXPORT unsigned port()</div><div class="ttdoc">Generates a random port.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a39aa3144b0c1cad63c72cf0270bf3a2a" name="a39aa3144b0c1cad63c72cf0270bf3a2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a39aa3144b0c1cad63c72cf0270bf3a2a">&#9670;&#160;</a></span>protocol()</h2>
+<a id="acefc699b5b4a93a1f1538cbb49331114" name="acefc699b5b4a93a1f1538cbb49331114"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acefc699b5b4a93a1f1538cbb49331114">&#9670;&#160;</a></span>protocol()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string_view faker::internet::protocol </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string_view faker::internet::protocol </td>
           <td>(</td>
           <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -870,19 +870,19 @@ Functions</h2></td></tr>
 
 <p>Returns a random web protocol. Either `http` or `https`. </p>
 <dl class="section return"><dt>Returns</dt><dd>Web protocol.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a39aa3144b0c1cad63c72cf0270bf3a2a">faker::internet::protocol</a>() <span class="comment">// &quot;https&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a39aa3144b0c1cad63c72cf0270bf3a2a"><div class="ttname"><a href="#a39aa3144b0c1cad63c72cf0270bf3a2a">faker::internet::protocol</a></div><div class="ttdeci">std::string_view protocol()</div><div class="ttdoc">Returns a random web protocol. Either `http` or `https`.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#acefc699b5b4a93a1f1538cbb49331114">faker::internet::protocol</a>() <span class="comment">// &quot;https&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_acefc699b5b4a93a1f1538cbb49331114"><div class="ttname"><a href="#acefc699b5b4a93a1f1538cbb49331114">faker::internet::protocol</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view protocol()</div><div class="ttdoc">Returns a random web protocol. Either `http` or `https`.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a92cc6255f875a1386b4ac47edba22b05" name="a92cc6255f875a1386b4ac47edba22b05"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a92cc6255f875a1386b4ac47edba22b05">&#9670;&#160;</a></span>url()</h2>
+<a id="a005caa05149d90b3854aef6a4ccdf27e" name="a005caa05149d90b3854aef6a4ccdf27e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a005caa05149d90b3854aef6a4ccdf27e">&#9670;&#160;</a></span>url()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::url </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::url </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="#ac9fba82884b9a80bff2604b01135c7ec">WebProtocol</a> &amp;</td>          <td class="paramname"><span class="paramname"><em>webProtocol</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#ac9fba82884b9a80bff2604b01135c7eca2badb7fa3e862298a650909d45c5066b">WebProtocol::Https</a></span></td><td>)</td>
           <td></td>
@@ -898,19 +898,19 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd><a class="el" href="#ac9fba82884b9a80bff2604b01135c7eca9d4d43de68f0b3555d5a5ef5dc05bb95">Http(s)</a> url.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a92cc6255f875a1386b4ac47edba22b05">faker::internet::url</a>() <span class="comment">// &quot;https://slow-timer.info&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a92cc6255f875a1386b4ac47edba22b05"><div class="ttname"><a href="#a92cc6255f875a1386b4ac47edba22b05">faker::internet::url</a></div><div class="ttdeci">std::string url(const WebProtocol &amp;webProtocol=WebProtocol::Https)</div><div class="ttdoc">Generates a random url.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a005caa05149d90b3854aef6a4ccdf27e">faker::internet::url</a>() <span class="comment">// &quot;https://slow-timer.info&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a005caa05149d90b3854aef6a4ccdf27e"><div class="ttname"><a href="#a005caa05149d90b3854aef6a4ccdf27e">faker::internet::url</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string url(const WebProtocol &amp;webProtocol=WebProtocol::Https)</div><div class="ttdoc">Generates a random url.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a6873a40b7b83d3227d0401a7c0c6fa03" name="a6873a40b7b83d3227d0401a7c0c6fa03"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6873a40b7b83d3227d0401a7c0c6fa03">&#9670;&#160;</a></span>username()</h2>
+<a id="aae749a34446ecccdddcbba60868c4746" name="aae749a34446ecccdddcbba60868c4746"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae749a34446ecccdddcbba60868c4746">&#9670;&#160;</a></span>username()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string faker::internet::username </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::username </td>
           <td>(</td>
           <td class="paramtype">std::optional&lt; std::string &gt;</td>          <td class="paramname"><span class="paramname"><em>firstName</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span>, </td>
         </tr>
@@ -936,11 +936,11 @@ Functions</h2></td></tr>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Username including neither, one or both of the provided names.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">faker::internet::username</a>() <span class="comment">// &quot;Richardson.Jeffrey1997&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">username</a>(&quot;Michael&quot;) <span class="comment">// &quot;Michael_Allen29&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">username</a>(std::nullopt, &quot;Cieslar&quot;) <span class="comment">// &quot;Phillip_Cieslar20&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a6873a40b7b83d3227d0401a7c0c6fa03">username</a>(&quot;Andrew&quot;, &quot;Cieslar&quot;) <span class="comment">// &quot;Andrew.Cieslar&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a6873a40b7b83d3227d0401a7c0c6fa03"><div class="ttname"><a href="#a6873a40b7b83d3227d0401a7c0c6fa03">faker::internet::username</a></div><div class="ttdeci">std::string username(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, Country country=Country::Usa)</div><div class="ttdoc">Generates a username using the given person's name as base.</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#aae749a34446ecccdddcbba60868c4746">faker::internet::username</a>() <span class="comment">// &quot;Richardson.Jeffrey1997&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#aae749a34446ecccdddcbba60868c4746">username</a>(&quot;Michael&quot;) <span class="comment">// &quot;Michael_Allen29&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#aae749a34446ecccdddcbba60868c4746">username</a>(std::nullopt, &quot;Cieslar&quot;) <span class="comment">// &quot;Phillip_Cieslar20&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#aae749a34446ecccdddcbba60868c4746">username</a>(&quot;Andrew&quot;, &quot;Cieslar&quot;) <span class="comment">// &quot;Andrew.Cieslar&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_aae749a34446ecccdddcbba60868c4746"><div class="ttname"><a href="#aae749a34446ecccdddcbba60868c4746">faker::internet::username</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string username(std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt, Country country=Country::Usa)</div><div class="ttdoc">Generates a username using the given person's name as base.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

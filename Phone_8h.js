@@ -232,12 +232,12 @@ var Phone_8h =
       [ "Zambia", "Phone_8h.html#af67e35b39f2987b4ed513541c7425a0aab0aa0804e676a38255af4fd70236af7c", null ],
       [ "Zimbabwe", "Phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa9d5116a2451bc98c2b46b93acbc1b4f0", null ]
     ] ],
-    [ "areaCode", "Phone_8h.html#a7b8f2bedf28f69e05d5301a262aafc84", null ],
-    [ "createPhoneNumberFormatMap", "Phone_8h.html#a0570c9e1cbaf4029dce8391e8ee82136", null ],
-    [ "imei", "Phone_8h.html#a65067f7798859dde47329dcbf394309c", null ],
-    [ "manufacturer", "Phone_8h.html#a7dd39c75af5a1c92b0bdc8fb5af411bc", null ],
-    [ "modelName", "Phone_8h.html#a254899020ff9e9f170df6192ed1cdc9d", null ],
-    [ "number", "Phone_8h.html#acec68af85bab18de03132a7ba7aaf717", null ],
-    [ "number", "Phone_8h.html#ab87e1563eb6ca035e8eb1ff4f4ddedbc", null ],
-    [ "platform", "Phone_8h.html#a60d31aa54f8880e3780b05aaefbd1e25", null ]
+    [ "areaCode", "Phone_8h.html#af0ac28a1180f714704a2098afe61cceb", null ],
+    [ "createPhoneNumberFormatMap", "Phone_8h.html#ad22489de493fbdfb3f849f35f6657c18", null ],
+    [ "imei", "Phone_8h.html#a610e92717aef3b4c7ae68d3982248807", null ],
+    [ "manufacturer", "Phone_8h.html#a6c9fc68316c71b3fed6bbb2e8196114d", null ],
+    [ "modelName", "Phone_8h.html#a9f75c5ff84cca943b1dad4fd8ac9c37d", null ],
+    [ "number", "Phone_8h.html#a8eaab573a6fc096915ccbf9b4e64d097", null ],
+    [ "number", "Phone_8h.html#a3650beedfaf4ee151d36ad97334a5c28", null ],
+    [ "platform", "Phone_8h.html#a4428423b163c879f3b829e22dd9599e9", null ]
 ];

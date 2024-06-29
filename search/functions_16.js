@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['zipcode_0',['zipCode',['../namespacefaker_1_1location.html#a49e27bccb036eb542fea02a4e6eaaaa6',1,'faker::location']]]
+  ['zipcode_0',['zipCode',['../namespacefaker_1_1location.html#a670448b0a8109a4b14b899231fa5da2d',1,'faker::location']]]
 ];

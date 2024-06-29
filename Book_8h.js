@@ -1,9 +1,9 @@
 var Book_8h =
 [
-    [ "author", "Book_8h.html#a9d0b2419884e08a03abcaf3eab1404f8", null ],
-    [ "format", "Book_8h.html#a2cc4b90b4520f1c6270b75c04bb6d9e9", null ],
-    [ "genre", "Book_8h.html#a386ea74bfcbe29d2ee6d548b84d22913", null ],
-    [ "publisher", "Book_8h.html#af7a880b84f03ecde0682f5f6902cce36", null ],
-    [ "series", "Book_8h.html#ade2c418d498da58f35ef8d2598695bac", null ],
-    [ "title", "Book_8h.html#ae4056294f2921db836fcbfc6ab7a989a", null ]
+    [ "author", "Book_8h.html#a79b26014c07fdacac3e0577c0c42deb4", null ],
+    [ "format", "Book_8h.html#a82befa5a03d3cbaf833aae155d6aa59d", null ],
+    [ "genre", "Book_8h.html#a54abd69be2c8c7cc922be0e96ba3a4e4", null ],
+    [ "publisher", "Book_8h.html#a1fa4a557140820ec75d9411d082950f6", null ],
+    [ "series", "Book_8h.html#a3ed50eb1ee042cf87f5cddc940578e20", null ],
+    [ "title", "Book_8h.html#af6280d543f49b04263f1efd7b3399bd5", null ]
 ];

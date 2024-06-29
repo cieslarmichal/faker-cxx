@@ -107,16 +107,19 @@ $(function(){initNavTree('Color_8h.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;string&gt;</code><br />
 <code>#include &quot;types/Hex.h&quot;</code><br />
+<code>#include &quot;faker-cxx/Export.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Color.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="Color_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2Color_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2Color_8h" id="ainclude_2faker-cxx_2Color_8h">
-<area shape="rect" title=" " alt="" coords="5,5,168,31"/>
-<area shape="rect" title=" " alt="" coords="12,79,65,105"/>
-<area shape="poly" title=" " alt="" coords="81,33,57,67,53,64,76,30"/>
-<area shape="rect" title=" " alt="" coords="90,79,179,105"/>
-<area shape="poly" title=" " alt="" coords="97,30,120,64,116,67,92,33"/>
+<area shape="rect" title=" " alt="" coords="47,5,209,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,59,105"/>
+<area shape="poly" title=" " alt="" coords="113,34,62,72,58,68,110,29"/>
+<area shape="rect" title=" " alt="" coords="83,79,173,105"/>
+<area shape="poly" title=" " alt="" coords="131,31,131,63,125,63,125,31"/>
+<area shape="rect" title=" " alt="" coords="197,79,320,105"/>
+<area shape="poly" title=" " alt="" coords="151,29,225,69,222,74,149,34"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -141,36 +144,36 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2a16d64d3382baf7f172b4202339d0cd" id="r_a2a16d64d3382baf7f172b4202339d0cd"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a2a16d64d3382baf7f172b4202339d0cd">faker::color::name</a> ()</td></tr>
-<tr class="memdesc:a2a16d64d3382baf7f172b4202339d0cd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random color.  <br /></td></tr>
-<tr class="separator:a2a16d64d3382baf7f172b4202339d0cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7cb3694851af1b3ff9d8749a79a8edbc" id="r_a7cb3694851af1b3ff9d8749a79a8edbc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a7cb3694851af1b3ff9d8749a79a8edbc">faker::color::rgb</a> (bool includeAlpha=false)</td></tr>
-<tr class="memdesc:a7cb3694851af1b3ff9d8749a79a8edbc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an RGB color.  <br /></td></tr>
-<tr class="separator:a7cb3694851af1b3ff9d8749a79a8edbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6898fd424937d70c224b2e865ee95c36" id="r_a6898fd424937d70c224b2e865ee95c36"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a6898fd424937d70c224b2e865ee95c36">faker::color::hex</a> (HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::Hash, bool includeAlpha=false)</td></tr>
-<tr class="memdesc:a6898fd424937d70c224b2e865ee95c36"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a hex color.  <br /></td></tr>
-<tr class="separator:a6898fd424937d70c224b2e865ee95c36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfeb67e5d7107fb3458dd1f85f92cca0" id="r_acfeb67e5d7107fb3458dd1f85f92cca0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#acfeb67e5d7107fb3458dd1f85f92cca0">faker::color::hsl</a> (bool includeAlpha=false)</td></tr>
-<tr class="memdesc:acfeb67e5d7107fb3458dd1f85f92cca0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an HSL color.  <br /></td></tr>
-<tr class="separator:acfeb67e5d7107fb3458dd1f85f92cca0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a816a0c0be275b89b64c35ecf2cc4f28a" id="r_a816a0c0be275b89b64c35ecf2cc4f28a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a816a0c0be275b89b64c35ecf2cc4f28a">faker::color::lch</a> (bool includeAlpha=false)</td></tr>
-<tr class="memdesc:a816a0c0be275b89b64c35ecf2cc4f28a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an LCH color.  <br /></td></tr>
-<tr class="separator:a816a0c0be275b89b64c35ecf2cc4f28a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9489b47125df91562d9dfe74baa48d6" id="r_af9489b47125df91562d9dfe74baa48d6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#af9489b47125df91562d9dfe74baa48d6">faker::color::cmyk</a> ()</td></tr>
-<tr class="memdesc:af9489b47125df91562d9dfe74baa48d6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a CMYK color.  <br /></td></tr>
-<tr class="separator:af9489b47125df91562d9dfe74baa48d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa663b09a8bbd624fda6d1be5e3bfdc9e" id="r_aa663b09a8bbd624fda6d1be5e3bfdc9e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#aa663b09a8bbd624fda6d1be5e3bfdc9e">faker::color::lab</a> ()</td></tr>
-<tr class="memdesc:aa663b09a8bbd624fda6d1be5e3bfdc9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a LAB color.  <br /></td></tr>
-<tr class="separator:aa663b09a8bbd624fda6d1be5e3bfdc9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a9fbb291d06dac5bbf080df7f071029" id="r_a2a9fbb291d06dac5bbf080df7f071029"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a2a9fbb291d06dac5bbf080df7f071029">faker::color::hsb</a> ()</td></tr>
-<tr class="memdesc:a2a9fbb291d06dac5bbf080df7f071029"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a HSB color.  <br /></td></tr>
-<tr class="separator:a2a9fbb291d06dac5bbf080df7f071029"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a211a94576870c858386db5f385e431c9" id="r_a211a94576870c858386db5f385e431c9"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a211a94576870c858386db5f385e431c9">faker::color::hsv</a> ()</td></tr>
-<tr class="memdesc:a211a94576870c858386db5f385e431c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a HSV color.  <br /></td></tr>
-<tr class="separator:a211a94576870c858386db5f385e431c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa19e81ff75573b59f41c95efc2b72f21" id="r_aa19e81ff75573b59f41c95efc2b72f21"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#aa19e81ff75573b59f41c95efc2b72f21">faker::color::yuv</a> ()</td></tr>
-<tr class="memdesc:aa19e81ff75573b59f41c95efc2b72f21"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a YUV color.  <br /></td></tr>
-<tr class="separator:aa19e81ff75573b59f41c95efc2b72f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a293bb321a832653d0436df1fcdccacbf" id="r_a293bb321a832653d0436df1fcdccacbf"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a293bb321a832653d0436df1fcdccacbf">faker::color::name</a> ()</td></tr>
+<tr class="memdesc:a293bb321a832653d0436df1fcdccacbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random color.  <br /></td></tr>
+<tr class="separator:a293bb321a832653d0436df1fcdccacbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6a5bd8e9feb97f01ef3a41621cec14a" id="r_af6a5bd8e9feb97f01ef3a41621cec14a"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#af6a5bd8e9feb97f01ef3a41621cec14a">faker::color::rgb</a> (bool includeAlpha=false)</td></tr>
+<tr class="memdesc:af6a5bd8e9feb97f01ef3a41621cec14a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an RGB color.  <br /></td></tr>
+<tr class="separator:af6a5bd8e9feb97f01ef3a41621cec14a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad77b26473e833e142dbcf4b7eb40151d" id="r_ad77b26473e833e142dbcf4b7eb40151d"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#ad77b26473e833e142dbcf4b7eb40151d">faker::color::hex</a> (HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::Hash, bool includeAlpha=false)</td></tr>
+<tr class="memdesc:ad77b26473e833e142dbcf4b7eb40151d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a hex color.  <br /></td></tr>
+<tr class="separator:ad77b26473e833e142dbcf4b7eb40151d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a036bd0fa934a250f82eeb08c6a74bfcd" id="r_a036bd0fa934a250f82eeb08c6a74bfcd"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a036bd0fa934a250f82eeb08c6a74bfcd">faker::color::hsl</a> (bool includeAlpha=false)</td></tr>
+<tr class="memdesc:a036bd0fa934a250f82eeb08c6a74bfcd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an HSL color.  <br /></td></tr>
+<tr class="separator:a036bd0fa934a250f82eeb08c6a74bfcd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c586ab6590f34db1170dbd586bf18b1" id="r_a7c586ab6590f34db1170dbd586bf18b1"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a7c586ab6590f34db1170dbd586bf18b1">faker::color::lch</a> (bool includeAlpha=false)</td></tr>
+<tr class="memdesc:a7c586ab6590f34db1170dbd586bf18b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns an LCH color.  <br /></td></tr>
+<tr class="separator:a7c586ab6590f34db1170dbd586bf18b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a029e95b2d93b04c1b07ecf8e1942f690" id="r_a029e95b2d93b04c1b07ecf8e1942f690"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a029e95b2d93b04c1b07ecf8e1942f690">faker::color::cmyk</a> ()</td></tr>
+<tr class="memdesc:a029e95b2d93b04c1b07ecf8e1942f690"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a CMYK color.  <br /></td></tr>
+<tr class="separator:a029e95b2d93b04c1b07ecf8e1942f690"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afd8333f4cc9596e3819ad009f6080528" id="r_afd8333f4cc9596e3819ad009f6080528"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#afd8333f4cc9596e3819ad009f6080528">faker::color::lab</a> ()</td></tr>
+<tr class="memdesc:afd8333f4cc9596e3819ad009f6080528"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a LAB color.  <br /></td></tr>
+<tr class="separator:afd8333f4cc9596e3819ad009f6080528"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95505c20701451ee42aba82bc5209264" id="r_a95505c20701451ee42aba82bc5209264"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a95505c20701451ee42aba82bc5209264">faker::color::hsb</a> ()</td></tr>
+<tr class="memdesc:a95505c20701451ee42aba82bc5209264"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a HSB color.  <br /></td></tr>
+<tr class="separator:a95505c20701451ee42aba82bc5209264"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a125a5d22271e5883e4b4c939324eabcf" id="r_a125a5d22271e5883e4b4c939324eabcf"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a125a5d22271e5883e4b4c939324eabcf">faker::color::hsv</a> ()</td></tr>
+<tr class="memdesc:a125a5d22271e5883e4b4c939324eabcf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a HSV color.  <br /></td></tr>
+<tr class="separator:a125a5d22271e5883e4b4c939324eabcf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e30cdd5e0f2d52ca7a21c37a5843d3f" id="r_a8e30cdd5e0f2d52ca7a21c37a5843d3f"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1color.html#a8e30cdd5e0f2d52ca7a21c37a5843d3f">faker::color::yuv</a> ()</td></tr>
+<tr class="memdesc:a8e30cdd5e0f2d52ca7a21c37a5843d3f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a YUV color.  <br /></td></tr>
+<tr class="separator:a8e30cdd5e0f2d52ca7a21c37a5843d3f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

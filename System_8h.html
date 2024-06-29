@@ -110,18 +110,21 @@ $(function(){initNavTree('System_8h.html',''); initResizable(true); });
 <div class="textblock"><code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
+<code>#include &quot;faker-cxx/Export.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for System.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="System_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2System_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2System_8h" id="ainclude_2faker-cxx_2System_8h">
-<area shape="rect" title=" " alt="" coords="34,5,211,31"/>
+<area shape="rect" title=" " alt="" coords="81,5,257,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,72,105"/>
-<area shape="poly" title=" " alt="" coords="110,34,66,71,63,67,107,30"/>
+<area shape="poly" title=" " alt="" coords="148,34,75,74,72,69,146,29"/>
 <area shape="rect" title=" " alt="" coords="96,79,149,105"/>
-<area shape="poly" title=" " alt="" coords="125,31,125,63,120,63,120,31"/>
+<area shape="poly" title=" " alt="" coords="164,33,141,67,136,64,159,30"/>
 <area shape="rect" title=" " alt="" coords="174,79,261,105"/>
-<area shape="poly" title=" " alt="" coords="140,29,191,67,188,72,137,34"/>
+<area shape="poly" title=" " alt="" coords="179,30,203,64,198,67,175,33"/>
+<area shape="rect" title=" " alt="" coords="285,79,408,105"/>
+<area shape="poly" title=" " alt="" coords="200,29,303,70,301,75,198,34"/>
 </map>
 </div>
 </div>
@@ -158,30 +161,30 @@ Enumerations</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:af230cb9d644c2e8db69f1ec2d1357c0a" id="r_af230cb9d644c2e8db69f1ec2d1357c0a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#af230cb9d644c2e8db69f1ec2d1357c0a">faker::system::fileName</a> (const <a class="el" href="structfaker_1_1system_1_1FileOptions.html">FileOptions</a> &amp;options={})</td></tr>
-<tr class="memdesc:af230cb9d644c2e8db69f1ec2d1357c0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random file name with extension.  <br /></td></tr>
-<tr class="separator:af230cb9d644c2e8db69f1ec2d1357c0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a726010cfcd6aaaab4b0054f45c72de74" id="r_a726010cfcd6aaaab4b0054f45c72de74"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a726010cfcd6aaaab4b0054f45c72de74">faker::system::fileExtension</a> (const std::optional&lt; <a class="el" href="namespacefaker_1_1system.html#aeeae0c993bee26944d1d31ad6c339a08">FileType</a> &gt; &amp;<a class="el" href="namespacefaker_1_1system.html#a5b7c73d6bde98732d09c5c46118f5199">mimeType</a>=std::nullopt)</td></tr>
-<tr class="memdesc:a726010cfcd6aaaab4b0054f45c72de74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a file extension.  <br /></td></tr>
-<tr class="separator:a726010cfcd6aaaab4b0054f45c72de74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad257e51aeaf64c852c2a4c437673bed" id="r_aad257e51aeaf64c852c2a4c437673bed"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#aad257e51aeaf64c852c2a4c437673bed">faker::system::commonFileName</a> (const std::optional&lt; std::string &gt; &amp;ext=std::nullopt)</td></tr>
-<tr class="separator:aad257e51aeaf64c852c2a4c437673bed"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b7e776e89f9d98a2445068de5ba7e00" id="r_a6b7e776e89f9d98a2445068de5ba7e00"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a6b7e776e89f9d98a2445068de5ba7e00">faker::system::commonFileExtension</a> ()</td></tr>
-<tr class="separator:a6b7e776e89f9d98a2445068de5ba7e00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b7c73d6bde98732d09c5c46118f5199" id="r_a5b7c73d6bde98732d09c5c46118f5199"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a5b7c73d6bde98732d09c5c46118f5199">faker::system::mimeType</a> ()</td></tr>
-<tr class="separator:a5b7c73d6bde98732d09c5c46118f5199"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b35e2fb4bfc7cff9670a800198f071c" id="r_a7b35e2fb4bfc7cff9670a800198f071c"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a7b35e2fb4bfc7cff9670a800198f071c">faker::system::fileType</a> ()</td></tr>
-<tr class="separator:a7b35e2fb4bfc7cff9670a800198f071c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdad863fa2df95c35576c5359873d2cc" id="r_afdad863fa2df95c35576c5359873d2cc"><td class="memItemLeft" align="right" valign="top">std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#afdad863fa2df95c35576c5359873d2cc">faker::system::directoryPath</a> ()</td></tr>
-<tr class="separator:afdad863fa2df95c35576c5359873d2cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b6a342786f02463dfbf79e188179fd5" id="r_a0b6a342786f02463dfbf79e188179fd5"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a0b6a342786f02463dfbf79e188179fd5">faker::system::filePath</a> ()</td></tr>
-<tr class="separator:a0b6a342786f02463dfbf79e188179fd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9736b08b0d753a6a227c1454efd9ada6" id="r_a9736b08b0d753a6a227c1454efd9ada6"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a9736b08b0d753a6a227c1454efd9ada6">faker::system::semver</a> ()</td></tr>
-<tr class="separator:a9736b08b0d753a6a227c1454efd9ada6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9a5f62f1cb1f26bb14cf2d4c3b13031a" id="r_a9a5f62f1cb1f26bb14cf2d4c3b13031a"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a9a5f62f1cb1f26bb14cf2d4c3b13031a">faker::system::networkInterface</a> (const std::optional&lt; <a class="el" href="structfaker_1_1system_1_1NetworkInterfaceOptions.html">NetworkInterfaceOptions</a> &gt; &amp;options={})</td></tr>
-<tr class="separator:a9a5f62f1cb1f26bb14cf2d4c3b13031a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a38e41ca0dce57c758966a20ef0a809fc" id="r_a38e41ca0dce57c758966a20ef0a809fc"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a38e41ca0dce57c758966a20ef0a809fc">faker::system::cron</a> (const <a class="el" href="structfaker_1_1system_1_1CronOptions.html">CronOptions</a> &amp;options={})</td></tr>
-<tr class="separator:a38e41ca0dce57c758966a20ef0a809fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60b8848155700550735de7e9df912005" id="r_a60b8848155700550735de7e9df912005"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a60b8848155700550735de7e9df912005">faker::system::fileName</a> (const <a class="el" href="structfaker_1_1system_1_1FileOptions.html">FileOptions</a> &amp;options={})</td></tr>
+<tr class="memdesc:a60b8848155700550735de7e9df912005"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random file name with extension.  <br /></td></tr>
+<tr class="separator:a60b8848155700550735de7e9df912005"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad4309983f04c3100cca8fc8e45968e3b" id="r_ad4309983f04c3100cca8fc8e45968e3b"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#ad4309983f04c3100cca8fc8e45968e3b">faker::system::fileExtension</a> (const std::optional&lt; <a class="el" href="namespacefaker_1_1system.html#aeeae0c993bee26944d1d31ad6c339a08">FileType</a> &gt; &amp;<a class="el" href="namespacefaker_1_1system.html#ad28ecf10cae675e76cbf0232611c700b">mimeType</a>=std::nullopt)</td></tr>
+<tr class="memdesc:ad4309983f04c3100cca8fc8e45968e3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a file extension.  <br /></td></tr>
+<tr class="separator:ad4309983f04c3100cca8fc8e45968e3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a309b2c94f384cc9d682640506aba1375" id="r_a309b2c94f384cc9d682640506aba1375"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a309b2c94f384cc9d682640506aba1375">faker::system::commonFileName</a> (const std::optional&lt; std::string &gt; &amp;ext=std::nullopt)</td></tr>
+<tr class="separator:a309b2c94f384cc9d682640506aba1375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d7b69a1a18ae8958c29271e1f230a2" id="r_a74d7b69a1a18ae8958c29271e1f230a2"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a74d7b69a1a18ae8958c29271e1f230a2">faker::system::commonFileExtension</a> ()</td></tr>
+<tr class="separator:a74d7b69a1a18ae8958c29271e1f230a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad28ecf10cae675e76cbf0232611c700b" id="r_ad28ecf10cae675e76cbf0232611c700b"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#ad28ecf10cae675e76cbf0232611c700b">faker::system::mimeType</a> ()</td></tr>
+<tr class="separator:ad28ecf10cae675e76cbf0232611c700b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7006eb2917cbeaf645afd4d9dc1c5bb" id="r_aa7006eb2917cbeaf645afd4d9dc1c5bb"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#aa7006eb2917cbeaf645afd4d9dc1c5bb">faker::system::fileType</a> ()</td></tr>
+<tr class="separator:aa7006eb2917cbeaf645afd4d9dc1c5bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a853ea09c9fb8b8c03fda5c0ed1d29086" id="r_a853ea09c9fb8b8c03fda5c0ed1d29086"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a853ea09c9fb8b8c03fda5c0ed1d29086">faker::system::directoryPath</a> ()</td></tr>
+<tr class="separator:a853ea09c9fb8b8c03fda5c0ed1d29086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a152dc7686f707ff769181cd6821aba7c" id="r_a152dc7686f707ff769181cd6821aba7c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a152dc7686f707ff769181cd6821aba7c">faker::system::filePath</a> ()</td></tr>
+<tr class="separator:a152dc7686f707ff769181cd6821aba7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f4b656749ffa2840fbef78d38d4c254" id="r_a0f4b656749ffa2840fbef78d38d4c254"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a0f4b656749ffa2840fbef78d38d4c254">faker::system::semver</a> ()</td></tr>
+<tr class="separator:a0f4b656749ffa2840fbef78d38d4c254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f65bb388e66bc8cb04e07ecf5a8e4e9" id="r_a9f65bb388e66bc8cb04e07ecf5a8e4e9"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a9f65bb388e66bc8cb04e07ecf5a8e4e9">faker::system::networkInterface</a> (const std::optional&lt; <a class="el" href="structfaker_1_1system_1_1NetworkInterfaceOptions.html">NetworkInterfaceOptions</a> &gt; &amp;options={})</td></tr>
+<tr class="separator:a9f65bb388e66bc8cb04e07ecf5a8e4e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f8f6e022652e96f1bfa55dff4c8082a" id="r_a9f8f6e022652e96f1bfa55dff4c8082a"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1system.html#a9f8f6e022652e96f1bfa55dff4c8082a">faker::system::cron</a> (const <a class="el" href="structfaker_1_1system_1_1CronOptions.html">CronOptions</a> &amp;options={})</td></tr>
+<tr class="separator:a9f8f6e022652e96f1bfa55dff4c8082a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

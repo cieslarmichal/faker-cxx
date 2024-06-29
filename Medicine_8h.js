@@ -1,6 +1,6 @@
 var Medicine_8h =
 [
-    [ "condition", "Medicine_8h.html#a7130243ac62bdbbd51adff48d57954ca", null ],
-    [ "medicalTest", "Medicine_8h.html#a75ec9409935c2fb14d7bac089993e790", null ],
-    [ "specialty", "Medicine_8h.html#a7ba6b45627d6db8d9984a5724860d16b", null ]
+    [ "condition", "Medicine_8h.html#add3e653f246cc4dc44639728f84260f4", null ],
+    [ "medicalTest", "Medicine_8h.html#a20de78bbbd9859d1be5a025d1aa67df0", null ],
+    [ "specialty", "Medicine_8h.html#ae3051b9186cd322160e6f6986c70d49d", null ]
 ];

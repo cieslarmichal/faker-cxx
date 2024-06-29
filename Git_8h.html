@@ -108,19 +108,22 @@ $(function(){initNavTree('Git_8h.html',''); initResizable(true); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &quot;faker-cxx/Export.h&quot;</code><br />
 <code>#include &quot;faker-cxx/types/Country.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for Git.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="Git_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2Git_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2Git_8h" id="ainclude_2faker-cxx_2Git_8h">
-<area shape="rect" title=" " alt="" coords="48,5,197,31"/>
+<area shape="rect" title=" " alt="" coords="104,5,253,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,72,105"/>
-<area shape="poly" title=" " alt="" coords="110,34,66,71,63,67,107,30"/>
+<area shape="poly" title=" " alt="" coords="156,34,77,74,75,69,154,29"/>
 <area shape="rect" title=" " alt="" coords="96,79,149,105"/>
-<area shape="poly" title=" " alt="" coords="125,31,125,63,120,63,120,31"/>
-<area shape="rect" title=" " alt="" coords="173,79,339,105"/>
-<area shape="poly" title=" " alt="" coords="146,29,221,69,218,74,144,34"/>
+<area shape="poly" title=" " alt="" coords="171,33,143,68,139,65,167,30"/>
+<area shape="rect" title=" " alt="" coords="173,79,296,105"/>
+<area shape="poly" title=" " alt="" coords="190,30,218,65,214,68,186,33"/>
+<area shape="rect" title=" " alt="" coords="321,79,487,105"/>
+<area shape="poly" title=" " alt="" coords="218,29,352,71,350,76,216,34"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -150,21 +153,21 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a4e9e76963846a33886421a59e65c8c25" id="r_a4e9e76963846a33886421a59e65c8c25"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#a4e9e76963846a33886421a59e65c8c25">faker::git::branch</a> (unsigned maxIssueNum=100)</td></tr>
-<tr class="memdesc:a4e9e76963846a33886421a59e65c8c25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random branch name.  <br /></td></tr>
-<tr class="separator:a4e9e76963846a33886421a59e65c8c25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa031fd6b63fb866c8d2479a7dfee0d35" id="r_aa031fd6b63fb866c8d2479a7dfee0d35"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#aa031fd6b63fb866c8d2479a7dfee0d35">faker::git::commitDate</a> (unsigned years=15)</td></tr>
-<tr class="memdesc:aa031fd6b63fb866c8d2479a7dfee0d35"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random date in form of string.  <br /></td></tr>
-<tr class="separator:aa031fd6b63fb866c8d2479a7dfee0d35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2770daf99a087e82a8cd1ac2ae3c24a7" id="r_a2770daf99a087e82a8cd1ac2ae3c24a7"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#a2770daf99a087e82a8cd1ac2ae3c24a7">faker::git::commitEntry</a> (std::optional&lt; unsigned &gt; dateYears=std::nullopt, std::optional&lt; unsigned &gt; shaLength=std::nullopt, Country country=Country::England)</td></tr>
-<tr class="memdesc:a2770daf99a087e82a8cd1ac2ae3c24a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random commit entry in form of string.  <br /></td></tr>
-<tr class="separator:a2770daf99a087e82a8cd1ac2ae3c24a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35a6ab9dad291855cfac919e9869346c" id="r_a35a6ab9dad291855cfac919e9869346c"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#a35a6ab9dad291855cfac919e9869346c">faker::git::commitMessage</a> ()</td></tr>
-<tr class="memdesc:a35a6ab9dad291855cfac919e9869346c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random commit message.  <br /></td></tr>
-<tr class="separator:a35a6ab9dad291855cfac919e9869346c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a63cc6bc9fa0458977d0982f858864535" id="r_a63cc6bc9fa0458977d0982f858864535"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#a63cc6bc9fa0458977d0982f858864535">faker::git::commitSha</a> (unsigned length=40)</td></tr>
-<tr class="memdesc:a63cc6bc9fa0458977d0982f858864535"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random SHA hash.  <br /></td></tr>
-<tr class="separator:a63cc6bc9fa0458977d0982f858864535"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9057763074d9ca99cb23aa4696766893" id="r_a9057763074d9ca99cb23aa4696766893"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#a9057763074d9ca99cb23aa4696766893">faker::git::branch</a> (unsigned maxIssueNum=100)</td></tr>
+<tr class="memdesc:a9057763074d9ca99cb23aa4696766893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random branch name.  <br /></td></tr>
+<tr class="separator:a9057763074d9ca99cb23aa4696766893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2e2ae5d68f8df30fbc31156c54f9778" id="r_aa2e2ae5d68f8df30fbc31156c54f9778"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#aa2e2ae5d68f8df30fbc31156c54f9778">faker::git::commitDate</a> (unsigned years=15)</td></tr>
+<tr class="memdesc:aa2e2ae5d68f8df30fbc31156c54f9778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random date in form of string.  <br /></td></tr>
+<tr class="separator:aa2e2ae5d68f8df30fbc31156c54f9778"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f23fd2f7cb8f5996ef83a2e48a3417e" id="r_a5f23fd2f7cb8f5996ef83a2e48a3417e"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#a5f23fd2f7cb8f5996ef83a2e48a3417e">faker::git::commitEntry</a> (std::optional&lt; unsigned &gt; dateYears=std::nullopt, std::optional&lt; unsigned &gt; shaLength=std::nullopt, Country country=Country::England)</td></tr>
+<tr class="memdesc:a5f23fd2f7cb8f5996ef83a2e48a3417e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random commit entry in form of string.  <br /></td></tr>
+<tr class="separator:a5f23fd2f7cb8f5996ef83a2e48a3417e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a309bf5a4ba8173045c751f3509494f94" id="r_a309bf5a4ba8173045c751f3509494f94"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#a309bf5a4ba8173045c751f3509494f94">faker::git::commitMessage</a> ()</td></tr>
+<tr class="memdesc:a309bf5a4ba8173045c751f3509494f94"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random commit message.  <br /></td></tr>
+<tr class="separator:a309bf5a4ba8173045c751f3509494f94"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a436a7fdcdcca81c208bbca7da97af168" id="r_a436a7fdcdcca81c208bbca7da97af168"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#a436a7fdcdcca81c208bbca7da97af168">faker::git::commitSha</a> (unsigned length=40)</td></tr>
+<tr class="memdesc:a436a7fdcdcca81c208bbca7da97af168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random SHA hash.  <br /></td></tr>
+<tr class="separator:a436a7fdcdcca81c208bbca7da97af168"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
