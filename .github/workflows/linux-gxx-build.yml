@@ -17,81 +17,7 @@ on:
       - 'LICENSE'
 
 jobs:
-  build:
-    name: ci-ubuntu-24.04-gcc-${{ matrix.gcc_version }}-${{ matrix.type }}
-    runs-on: ubuntu-24.04
-    strategy:
-      matrix:
-        gcc_version: [12, 13]
-        type: [static, shared]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
 
-      - name: Install ccache
-        uses: hendrikmuhs/ccache-action@v1.2
-
-      - name: Cache Conan packages
-        id: cache-conan
-        uses: actions/cache@v4.0.2
-        env:
-          cache-name: cache-conan-packages
-        with:
-          path: ~/.conan2
-          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('conanfile.txt') }}
-          restore-keys: |
-            ${{ runner.os }}-build-${{ env.cache-name }}-
-            ${{ runner.os }}-build-
-            ${{ runner.os }}-
-
-      - name: Configure python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.10'
-          cache: 'pip'
-
-      - name: Install Python dependencies
-        run: pip install -r .github/requirements.txt
-
-      - name: Configure Conan profile
-        run: |
-          CC=gcc-${{ matrix.gcc_version }} \
-          CXX=g++-${{ matrix.gcc_version }} \
-          conan profile detect --force --name gcc-${{ matrix.gcc_version }}
-
-      - name: Install Conan dependencies
-        run: |
-          conan install conanfile.txt \
-            -r conancenter \
-            -pr:b gcc-${{ matrix.gcc_version }} \
-            -pr:h gcc-${{ matrix.gcc_version }} \
-            -s compiler.cppstd=20 \
-            -s build_type=Debug \
-            -c:b tools.build:compiler_executables="{'c': '/usr/bin/gcc-${{ matrix.gcc_version }}', 'cpp': '/usr/bin/g++-${{ matrix.gcc_version }}'}" \
-            -c:h tools.build:compiler_executables="{'c': '/usr/bin/gcc-${{ matrix.gcc_version }}', 'cpp': '/usr/bin/g++-${{ matrix.gcc_version }}'}" \
-            -o "*:shared=True" \
-            --build=missing
-
-      - name: Configure CMake
-        run: |
-          cmake -S . --preset=unixlike-gcc-debug-${{ matrix.type }} \
-            -DCMAKE_C_COMPILER=gcc-${{ matrix.gcc_version }} \
-            -DCMAKE_CXX_COMPILER=g++-${{ matrix.gcc_version }} \
-            -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
-            -DBUILD_TESTING:BOOL=ON \
-            -DUSE_STD_FORMAT:BOOL=ON \
-            -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
-            -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
-            -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=gold
-
-      - name: Build
-        run: cmake --build --preset=unixlike-gcc-debug-${{ matrix.type }}
-
-      - name: Test
-        run: ctest --preset=unixlike-gcc-debug-${{ matrix.type }}
-
-      - name: Install
-        run: cmake --build --preset=unixlike-gcc-debug-${{ matrix.type }} --target install
 
   bazel:
     name: ci-ubuntu-24.04-gcc-bazel
@@ -117,7 +43,9 @@ jobs:
             ${{ runner.os }}-
 
       - name: Build faker-cxx library
-        run: bazel build //:faker-cxx
+        run: |
+          bazel build //:faker-cxx
+          ls -l
 
       - name: Build faker-cxx examples and run
         run: |
