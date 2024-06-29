@@ -15,12 +15,4 @@ cc_library(
             "/std:c++20",
         ],
     }),
-    defines = select({
-        "//conditions:default": [
-            "FAKER_CXX_STATIC_DEFINE"
-        ],
-        "@platforms//os:windows": [
-            "/std:c++20",
-        ],
-    }),
 )
