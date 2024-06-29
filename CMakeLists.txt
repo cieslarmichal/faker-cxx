@@ -3,7 +3,11 @@ project(faker-cxx LANGUAGES CXX)
 
 include(cmake/CompilerWarnings.cmake)
 
-set(CMAKE_REQUIRED_FLAGS "$<$<CXX_COMPILER_ID:MSVC>:/std:c++20>$<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-std=c++20>")
+if (MSVC)
+    set(CMAKE_REQUIRED_FLAGS /std:c++20)
+else()
+    set(CMAKE_REQUIRED_FLAGS -std=c++20)
+endif()
 include(CheckCXXSourceCompiles)
 check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }"
     HAS_STD_FORMAT)
