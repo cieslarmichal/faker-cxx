@@ -3,6 +3,10 @@ project(faker-cxx LANGUAGES CXX)
 
 include(cmake/CompilerWarnings.cmake)
 
+option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
+option(BUILD_EXAMPLES "Build examples" OFF)
+option(BUILD_TESTING "Build tests" ON)
+
 if (MSVC)
     set(CMAKE_REQUIRED_FLAGS /std:c++20)
 else()
@@ -11,10 +15,9 @@ endif()
 include(CheckCXXSourceCompiles)
 check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }"
     HAS_STD_FORMAT)
-
-option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
-option(BUILD_EXAMPLES "Build examples" OFF)
-option(BUILD_TESTING "Build tests" ON)
+if (NOT HAS_STD_FORMAT)
+    message(STATUS "Compiler has no support for std::format. Need to use fmt library as dependency.")
+endif()
 
 include(CMakeDependentOption)
 cmake_dependent_option(USE_STD_FORMAT "Use std::format when available" ON "HAS_STD_FORMAT" OFF)
