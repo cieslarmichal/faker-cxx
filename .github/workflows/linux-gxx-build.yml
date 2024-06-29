@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - 'main'
+      - 'feature/bazel-build'
     paths-ignore:
       - 'docs/**'
       - '**/*.md'
