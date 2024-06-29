@@ -12,6 +12,7 @@
             "hidden": true,
             "binaryDir": "${sourceDir}/build/${presetName}",
             "installDir": "${sourceDir}/install/${presetName}",
+            "generator": "Ninja",
             "cacheVariables": {
                 "USE_SYSTEM_DEPENDENCIES": "FALSE",
                 "USE_STD_FORMAT": "TRUE",
