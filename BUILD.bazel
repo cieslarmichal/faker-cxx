@@ -2,14 +2,22 @@ load("@rules_cc//cc:defs.bzl", "cc_library")
 
 cc_library(
     name = "faker-cxx",
-    srcs = glob(["**/*.cpp"]),
-    hdrs = glob(["**/*.h"]),
-    includes = ["$(location BUILD.bazel)/../include", "$(location BUILD.bazel)"],
+    srcs = glob(["src/**/*.cpp"]),
+    hdrs = glob(["src/**/*.h", "include/**/*.h"]),
+    includes = ["include", "src"],
     visibility = ["//visibility:public"],
     deps = ["@fmt//:fmt"],
     copts = select({
         "//conditions:default": [
             "-std=c++20"
+        ],
+        "@platforms//os:windows": [
+            "/std:c++20",
+        ],
+    }),
+    defines = select({
+        "//conditions:default": [
+            "FAKER_CXX_STATIC_DEFINE"
         ],
         "@platforms//os:windows": [
             "/std:c++20",

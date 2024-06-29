@@ -3,7 +3,7 @@ load("@rules_cc//cc:defs.bzl", "cc_binary")
 cc_test(
     name = "faker-cxx-ut",
     srcs = glob(["**/*.cpp"]),
-    deps = ["//src:faker-cxx", "@googletest//:gtest_main"],
+    deps = ["//:faker-cxx", "@googletest//:gtest_main"],
     includes = ["../src/common", "../src/modules"],
     copts = select({
         "//conditions:default": [

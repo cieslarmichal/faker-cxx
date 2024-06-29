@@ -3,7 +3,7 @@ load("@rules_cc//cc:defs.bzl", "cc_binary")
 cc_binary(
     name = "faker-cxx-basic-example",
     srcs = ["basic/main.cpp",],
-    deps = ["//src:faker-cxx",],
+    deps = ["//:faker-cxx",],
     copts = select({
         "//conditions:default": [
             "-std=c++20"
@@ -17,7 +17,7 @@ cc_binary(
 cc_binary(
     name = "faker-cxx-person-example",
     srcs = ["person/main.cpp",],
-    deps = ["//src:faker-cxx",],
+    deps = ["//:faker-cxx",],
     copts = select({
         "//conditions:default": [
             "-std=c++20"

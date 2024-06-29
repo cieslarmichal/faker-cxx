@@ -63,3 +63,7 @@ build-linux-clang
 #kdevelop temp files
 *.kdev4
 .kdev4
+
+bazel-*
+MODULE.bazel.lock
+install/
