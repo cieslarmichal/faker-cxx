@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(${CMAKE_PROJECT_NAME}-UT CXX)
+project(${CMAKE_PROJECT_NAME}-UT LANGUAGES CXX)
 
 include(CTest)
 include("${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake")
@@ -45,7 +45,10 @@ set(FAKER_UT_SOURCES
     modules/word/WordTest.cpp
 )
 
-add_executable(${PROJECT_NAME} ${FAKER_UT_SOURCES})
+add_executable(${PROJECT_NAME} ${FAKER_UT_SOURCES} ${FAKER_SOURCES})
+
+target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_20)
+
 configure_compiler_warnings(${PROJECT_NAME}
     "${WARNINGS_AS_ERRORS}"
     "${MSVC_WARNINGS}"
@@ -53,21 +56,23 @@ configure_compiler_warnings(${PROJECT_NAME}
     "${GCC_WARNINGS}")
 
 target_include_directories(${PROJECT_NAME} PRIVATE
+    ${CMAKE_SOURCE_DIR}/include
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_SOURCE_DIR}/src/common
     ${CMAKE_SOURCE_DIR}/src/modules
+    ${CMAKE_BINARY_DIR}/include
 )
 
 if (USE_SYSTEM_DEPENDENCIES)
     find_package(GTest REQUIRED)
-    target_link_libraries(${PROJECT_NAME} PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
+    target_link_libraries(${PROJECT_NAME} PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main)
 else ()
     add_subdirectory("${CMAKE_SOURCE_DIR}/externals/googletest" "${CMAKE_BINARY_DIR}/googletest")
 
     set(GTEST_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
     set(GMOCK_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/googletest/googlemock/include")
 
-    target_link_libraries(${PROJECT_NAME} PRIVATE gtest_main gmock_main faker-cxx)
+    target_link_libraries(${PROJECT_NAME} PRIVATE gtest_main gmock_main)
 endif ()
 
 if (HAS_STD_FORMAT)
@@ -80,6 +85,6 @@ endif ()
 
 add_test(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME} WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 set_tests_properties(${PROJECT_NAME} PROPERTIES ENVIRONMENT_MODIFICATION
-                     "PATH=path_list_prepend:$<$<BOOL:${WIN32}>:$<TARGET_FILE_DIR:faker-cxx>>")
+    "PATH=path_list_prepend:$<$<BOOL:${WIN32}>:$<TARGET_FILE_DIR:faker-cxx>>")
 
 target_code_coverage(${PROJECT_NAME} ALL)
