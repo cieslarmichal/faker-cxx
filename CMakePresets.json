@@ -10,9 +10,9 @@
             "name": "conf-common",
             "description": "General settings that apply to all configurations",
             "hidden": true,
-            "generator": "Ninja",
             "binaryDir": "${sourceDir}/build/${presetName}",
             "installDir": "${sourceDir}/install/${presetName}",
+            "generator": "Ninja",
             "cacheVariables": {
                 "USE_SYSTEM_DEPENDENCIES": "FALSE",
                 "USE_STD_FORMAT": "TRUE",
@@ -53,109 +53,225 @@
             }
         },
         {
-            "name": "windows-msvc-debug",
-            "displayName": "msvc Debug ",
-            "description": "Target Windows with the msvc compiler, debug build type",
+            "name": "windows-msvc-debug-static",
+            "displayName": "Windows MSVC Debug Static",
+            "description": "Target Windows with the msvc compiler, debug build type, static library",
             "inherits": "conf-windows-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe",
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "BUILD_SHARED_LIBS": "OFF"
             }
         },
         {
-            "name": "windows-msvc-release",
-            "displayName": "msvc Release",
-            "description": "Target Windows with the msvc compiler, release build type",
+            "name": "windows-msvc-debug-shared",
+            "displayName": "Windows MSVC Debug Shared",
+            "description": "Target Windows with the msvc compiler, debug build type, shared library",
             "inherits": "conf-windows-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "cl.exe",
                 "CMAKE_CXX_COMPILER": "cl.exe",
-                "CMAKE_BUILD_TYPE": "RelWithDebInfo"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "BUILD_SHARED_LIBS": "ON"
             }
         },
         {
-            "name": "unixlike-gcc-debug",
-            "displayName": "gcc Debug",
-            "description": "Target Unix-like OS with the gcc compiler, debug build type",
+            "name": "windows-msvc-release-static",
+            "displayName": "Windows MSVC Release Static",
+            "description": "Target Windows with the msvc compiler, release build type, static library",
+            "inherits": "conf-windows-common",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe",
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "BUILD_SHARED_LIBS": "OFF"
+            }
+        },
+        {
+            "name": "windows-msvc-release-shared",
+            "displayName": "Windows MSVC Release Shared",
+            "description": "Target Windows with the msvc compiler, release build type, shared library",
+            "inherits": "conf-windows-common",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "cl.exe",
+                "CMAKE_CXX_COMPILER": "cl.exe",
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "BUILD_SHARED_LIBS": "ON"
+            }
+        },
+        {
+            "name": "unixlike-gcc-debug-static",
+            "displayName": "Unixlike GCC Debug Static",
+            "description": "Target Unix-like OS with the gcc compiler, debug build type, static library",
             "inherits": "conf-unixlike-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "gcc",
                 "CMAKE_CXX_COMPILER": "g++",
-                "CMAKE_BUILD_TYPE": "Debug"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "BUILD_SHARED_LIBS": "OFF"
             }
         },
         {
-            "name": "unixlike-gcc-release",
-            "displayName": "gcc Release",
-            "description": "Target Unix-like OS with the gcc compiler, release build type",
+            "name": "unixlike-gcc-debug-shared",
+            "displayName": "Unixlike GCC Debug Shared",
+            "description": "Target Unix-like OS with the gcc compiler, debug build type, shared library",
             "inherits": "conf-unixlike-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "gcc",
                 "CMAKE_CXX_COMPILER": "g++",
-                "CMAKE_BUILD_TYPE": "Release"
+                "CMAKE_BUILD_TYPE": "Debug",
+                "BUILD_SHARED_LIBS": "ON"
             }
         },
         {
-            "name": "unixlike-clang-debug",
-            "displayName": "clang Debug",
-            "description": "Target Unix-like OS with the clang compiler, debug build type",
+            "name": "unixlike-gcc-release-static",
+            "displayName": "Unixlike GCC Release Static",
+            "description": "Target Unix-like OS with the gcc compiler, release build type, static library",
+            "inherits": "conf-unixlike-common",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "gcc",
+                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_BUILD_TYPE": "Release",
+                "BUILD_SHARED_LIBS": "OFF"
+            }
+        },
+        {
+            "name": "unixlike-gcc-release-shared",
+            "displayName": "Unixlike GCC Release Shared",
+            "description": "Target Unix-like OS with the gcc compiler, release build type, shared library",
+            "inherits": "conf-unixlike-common",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "gcc",
+                "CMAKE_CXX_COMPILER": "g++",
+                "CMAKE_BUILD_TYPE": "Release",
+                "BUILD_SHARED_LIBS": "ON"
+            }
+        },
+        {
+            "name": "unixlike-clang-debug-static",
+            "displayName": "Unixlike Clang Debug Static",
+            "description": "Target Unix-like OS with the clang compiler, debug build type, static library",
             "inherits": "conf-unixlike-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "clang",
                 "CMAKE_CXX_COMPILER": "clang++",
                 "CMAKE_BUILD_TYPE": "Debug",
-                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "BUILD_SHARED_LIBS": "OFF"
             }
         },
         {
-            "name": "unixlike-clang-release",
-            "displayName": "clang Release",
-            "description": "Target Unix-like OS with the clang compiler, release build type",
+            "name": "unixlike-clang-debug-shared",
+            "displayName": "Unixlike Clang Debug Shared",
+            "description": "Target Unix-like OS with the clang compiler, debug build type, shared library",
+            "inherits": "conf-unixlike-common",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang",
+                "CMAKE_CXX_COMPILER": "clang++",
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "BUILD_SHARED_LIBS": "ON"
+            }
+        },
+        {
+            "name": "unixlike-clang-release-static",
+            "displayName": "Unixlike Clang Release Static",
+            "description": "Target Unix-like OS with the clang compiler, release build type, static library",
             "inherits": "conf-unixlike-common",
             "cacheVariables": {
                 "CMAKE_C_COMPILER": "clang",
                 "CMAKE_CXX_COMPILER": "clang++",
                 "CMAKE_BUILD_TYPE": "RelWithDebInfo",
-                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON"
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "BUILD_SHARED_LIBS": "OFF"
+            }
+        },
+        {
+            "name": "unixlike-clang-release-shared",
+            "displayName": "Unixlike Clang Release Shared",
+            "description": "Target Unix-like OS with the clang compiler, release build type, shared library",
+            "inherits": "conf-unixlike-common",
+            "cacheVariables": {
+                "CMAKE_C_COMPILER": "clang",
+                "CMAKE_CXX_COMPILER": "clang++",
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
+                "BUILD_SHARED_LIBS": "ON"
             }
         }
     ],
     "buildPresets": [
         {
-            "name": "unixlike-gcc-release",
-            "displayName": "Library Release Build",
-            "configurePreset": "unixlike-gcc-release",
+            "name": "unixlike-gcc-release-static",
+            "displayName": "Static Library Release Build",
+            "configurePreset": "unixlike-gcc-release-static",
             "configuration": "Release"
         },
         {
-            "name": "unixlike-gcc-debug",
-            "displayName": "Library Debug Build",
-            "configurePreset": "unixlike-gcc-debug",
+            "name": "unixlike-gcc-release-shared",
+            "displayName": "Shared Library Release Build",
+            "configurePreset": "unixlike-gcc-release-shared",
+            "configuration": "Release"
+        },
+        {
+            "name": "unixlike-gcc-debug-static",
+            "displayName": "Static Library Debug Build",
+            "configurePreset": "unixlike-gcc-debug-static",
             "configuration": "Debug"
         },
         {
-            "name": "unixlike-clang-release",
-            "displayName": "Library Release Build",
-            "configurePreset": "unixlike-clang-release",
-            "configuration": "Release"
-        },
-        {
-            "name": "unixlike-clang-debug",
-            "displayName": "Library Debug Build",
-            "configurePreset": "unixlike-clang-debug",
+            "name": "unixlike-gcc-debug-shared",
+            "displayName": "Shared Library Debug Build",
+            "configurePreset": "unixlike-gcc-debug-shared",
             "configuration": "Debug"
         },
         {
-            "name": "windows-msvc-release",
-            "displayName": "Library Release Build",
-            "configurePreset": "windows-msvc-release",
+            "name": "unixlike-clang-release-static",
+            "displayName": "Static Library Release Build",
+            "configurePreset": "unixlike-clang-release-static",
             "configuration": "Release"
         },
         {
-            "name": "windows-msvc-debug",
-            "displayName": "Library Debug Build",
-            "configurePreset": "windows-msvc-debug",
+            "name": "unixlike-clang-release-shared",
+            "displayName": "Shared Library Release Build",
+            "configurePreset": "unixlike-clang-release-shared",
+            "configuration": "Release"
+        },
+        {
+            "name": "unixlike-clang-debug-static",
+            "displayName": "Static Library Debug Build",
+            "configurePreset": "unixlike-clang-debug-static",
+            "configuration": "Debug"
+        },
+        {
+            "name": "unixlike-clang-debug-shared",
+            "displayName": "Shared Library Debug Build",
+            "configurePreset": "unixlike-clang-debug-shared",
+            "configuration": "Debug"
+        },
+        {
+            "name": "windows-msvc-release-static",
+            "displayName": "Static Library Release Build",
+            "configurePreset": "windows-msvc-release-static",
+            "configuration": "Release"
+        },
+        {
+            "name": "windows-msvc-release-shared",
+            "displayName": "Shared Library Release Build",
+            "configurePreset": "windows-msvc-release-shared",
+            "configuration": "Release"
+        },
+        {
+            "name": "windows-msvc-debug-static",
+            "displayName": "Static Library Debug Build",
+            "configurePreset": "windows-msvc-debug-static",
+            "configuration": "Debug"
+        },
+        {
+            "name": "windows-msvc-debug-shared",
+            "displayName": "Shared Library Debug Build",
+            "configurePreset": "windows-msvc-debug-shared",
             "configuration": "Debug"
         }
       ],
@@ -173,46 +289,100 @@
             }
         },
         {
-            "name": "windows-msvc-debug",
+            "name": "windows-msvc-debug-static",
             "displayName": "Strict",
-            "description": "Enable output and stop on failure",
+            "description": "Validate Windows MSVC Static Library Debug Build",
             "inherits": "test-common",
-            "configurePreset": "windows-msvc-debug"
+            "configurePreset": "windows-msvc-debug-static",
+            "configuration": "Debug"
         },
         {
-            "name": "windows-msvc-release",
+            "name": "windows-msvc-debug-shared",
             "displayName": "Strict",
-            "description": "Enable output and stop on failure",
+            "description": "Validate Windows MSVC Shared Library Debug Build",
             "inherits": "test-common",
-            "configurePreset": "windows-msvc-release"
+            "configurePreset": "windows-msvc-debug-shared",
+            "configuration": "Debug"
         },
         {
-            "name": "unixlike-gcc-debug",
+            "name": "windows-msvc-release-static",
             "displayName": "Strict",
-            "description": "Enable output and stop on failure",
+            "description": "Validate Windows MSVC Static Library Release Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-gcc-debug"
+            "configurePreset": "windows-msvc-release-static",
+            "configuration": "Release"
         },
         {
-            "name": "unixlike-gcc-release",
+            "name": "windows-msvc-release-shared",
             "displayName": "Strict",
-            "description": "Enable output and stop on failure",
+            "description": "Validate Windows MSVC Shared Library Release Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-gcc-release"
+            "configurePreset": "windows-msvc-release-shared",
+            "configuration": "Release"
         },
         {
-            "name": "unixlike-clang-debug",
+            "name": "unixlike-gcc-debug-static",
             "displayName": "Strict",
-            "description": "Enable output and stop on failure",
+            "description": "Validate Unixlike GCC Static Library Debug Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-clang-debug"
+            "configurePreset": "unixlike-gcc-debug-static",
+            "configuration": "Debug"
         },
         {
-            "name": "unixlike-clang-release",
+            "name": "unixlike-gcc-debug-shared",
             "displayName": "Strict",
-            "description": "Enable output and stop on failure",
+            "description": "Validate Unixlike GCC Static Library Debug Build",
             "inherits": "test-common",
-            "configurePreset": "unixlike-clang-release"
+            "configurePreset": "unixlike-gcc-debug-shared",
+            "configuration": "Debug"
+        },
+        {
+            "name": "unixlike-gcc-release-static",
+            "displayName": "Strict",
+            "description": "Validate Unixlike Clang Static Library Release Build",
+            "inherits": "test-common",
+            "configurePreset": "unixlike-gcc-release-static",
+            "configuration": "Release"
+        },
+        {
+            "name": "unixlike-gcc-release-shared",
+            "displayName": "Strict",
+            "description": "Validate Unixlike GCC Shared Library Release Build",
+            "inherits": "test-common",
+            "configurePreset": "unixlike-gcc-release-shared",
+            "configuration": "Release"
+        },
+        {
+            "name": "unixlike-clang-debug-static",
+            "displayName": "Strict",
+            "description": "Validate Unixlike Clang Static Library Debug Build",
+            "inherits": "test-common",
+            "configurePreset": "unixlike-clang-debug-static",
+            "configuration": "Debug"
+        },
+        {
+            "name": "unixlike-clang-debug-shared",
+            "displayName": "Strict",
+            "description": "Validate Unixlike Clang Shared Library Debug Build",
+            "inherits": "test-common",
+            "configurePreset": "unixlike-clang-debug-shared",
+            "configuration": "Debug"
+        },
+        {
+            "name": "unixlike-clang-release-static",
+            "displayName": "Strict",
+            "description": "Validate Unixlike Clang Static Library Release Build",
+            "inherits": "test-common",
+            "configurePreset": "unixlike-clang-release-static",
+            "configuration": "Release"
+        },
+        {
+            "name": "unixlike-clang-release-shared",
+            "displayName": "Strict",
+            "description": "Validate Unixlike Clang Shared Library Release Build",
+            "inherits": "test-common",
+            "configurePreset": "unixlike-clang-release-shared",
+            "configuration": "Release"
         }
     ]
 }

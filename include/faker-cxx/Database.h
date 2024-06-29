@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::database
 {
@@ -13,7 +14,7 @@ namespace faker::database
      * faker::database::columnName() // "created_at"
      * @endcode
      */
-    std::string_view columnName();
+    FAKER_CXX_EXPORT std::string_view columnName();
 
     /**
      * @brief Returns a random database column type.
@@ -24,7 +25,7 @@ namespace faker::database
      * faker::database::columnType() // "timestamp"
      * @endcode
      */
-    std::string_view columnType();
+    FAKER_CXX_EXPORT std::string_view columnType();
 
     /**
      * @brief Returns a random database collation.
@@ -35,7 +36,7 @@ namespace faker::database
      * faker::database::collation() // "utf8_unicode_ci"
      * @endcode
      */
-    std::string_view collation();
+    FAKER_CXX_EXPORT std::string_view collation();
 
     /**
      * @brief Returns a random database engine.
@@ -46,7 +47,7 @@ namespace faker::database
      * faker::database::engine() // "ARCHIVE"
      * @endcode
      */
-    std::string_view engine();
+    FAKER_CXX_EXPORT std::string_view engine();
 
     /**
      * @brief Returns a MongoDB Object Id.
@@ -57,5 +58,5 @@ namespace faker::database
      * faker::database::mongoDbObjectId() // "e175cac316a79afdd0ad3afb"
      * @endcode
      */
-    std::string mongoDbObjectId();
+    FAKER_CXX_EXPORT std::string mongoDbObjectId();
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::sport
 {
@@ -13,8 +14,8 @@ namespace faker::sport
      * faker::sport::sport() // "football"
      * @endcode
      */
-    
-    std::string_view sportName();
+
+    FAKER_CXX_EXPORT std::string_view sportName();
 
     /**
      * @brief Returns a random soccer team.
@@ -25,7 +26,7 @@ namespace faker::sport
      * faker::sport::soccerTeam() // "Manchester United"
      * @endcode
      */
-    std::string_view soccerTeam();
+    FAKER_CXX_EXPORT std::string_view soccerTeam();
 
     /**
      * @brief Returns a random male athlete.
@@ -36,7 +37,7 @@ namespace faker::sport
      * faker::sport::maleAthlete() // "Cristiano Ronaldo"
      * @endcode
      */
-    std::string_view maleAthlete();
+    FAKER_CXX_EXPORT std::string_view maleAthlete();
 
     /**
      * @brief Returns a random female athlete.
@@ -47,7 +48,7 @@ namespace faker::sport
      * faker::sport::femaleAthlete() // "Serena Williams"
      * @endcode
      */
-    std::string_view femaleAthlete();
+    FAKER_CXX_EXPORT std::string_view femaleAthlete();
 
     /**
      * @brief Returns a random Sport Event.
@@ -58,5 +59,5 @@ namespace faker::sport
      * faker::sport::sportEvent() // "Super Bowl"
      * @endcode
      */
-    std::string_view sportEvent();
+    FAKER_CXX_EXPORT std::string_view sportEvent();
 }

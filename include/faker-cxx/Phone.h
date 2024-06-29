@@ -4,6 +4,7 @@
 #include <string>
 #include <string_view>
 #include <unordered_map>
+#include "faker-cxx/Export.h"
 
 namespace faker::phone
 {
@@ -21,7 +22,7 @@ enum class PhoneNumberCountryFormat;
      * faker::phone::number("+48 91 ### ## ##") // "+48 91 463 61 70"
      * @endcode
      */
-    std::string number(std::optional<std::string> = std::nullopt);
+    FAKER_CXX_EXPORT std::string number(std::optional<std::string> = std::nullopt);
 
     /**
      * @brief Returns a random phone platform.
@@ -32,7 +33,7 @@ enum class PhoneNumberCountryFormat;
      * faker::phone::platform() // "iOS"
      * @endcode
      */
-    std::string_view platform();
+    FAKER_CXX_EXPORT std::string_view platform();
 
     /**
      * @brief Returns a random phone model.
@@ -43,7 +44,7 @@ enum class PhoneNumberCountryFormat;
      * faker::phone::modelName() // "Samsung Galaxy S22"
      * @endcode
      */
-    std::string_view modelName();
+    FAKER_CXX_EXPORT std::string_view modelName();
 
     /**
      * @brief Returns a random phone manufacturer.
@@ -54,7 +55,7 @@ enum class PhoneNumberCountryFormat;
      * faker::phone::manufacturer() // "Sony"
      * @endcode
      */
-    std::string_view manufacturer();
+    FAKER_CXX_EXPORT std::string_view manufacturer();
 
     /**
      * @brief Returns a random phone number based on country phone number template.
@@ -67,7 +68,7 @@ enum class PhoneNumberCountryFormat;
      * faker::phone::number(PhoneNumberCountryFormat::Usa) // "+1 (395) 714-1494"
      * @endcode
      */
-    std::string number(PhoneNumberCountryFormat format);
+    FAKER_CXX_EXPORT std::string number(PhoneNumberCountryFormat format);
 
     /**
      * @brief Returns IMEI number.
@@ -78,7 +79,7 @@ enum class PhoneNumberCountryFormat;
      * faker::phone::imei() // "13-850175-913761-7"
      * @endcode
      */
-    std::string imei();
+    FAKER_CXX_EXPORT std::string imei();
 
     /**
      * @brief returns a random country area code
@@ -89,9 +90,9 @@ enum class PhoneNumberCountryFormat;
      * faker::phone::areaCode() // "+1"
      * @endcode
      */
-    std::string_view areaCode();
+    FAKER_CXX_EXPORT std::string_view areaCode();
 
-    std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap();
+    FAKER_CXX_EXPORT std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap();
 
 enum class PhoneNumberCountryFormat
 {

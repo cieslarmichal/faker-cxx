@@ -4,12 +4,13 @@
 #include <string>
 #include <string_view>
 
+#include "faker-cxx/Export.h"
 #include "types/Country.h"
 #include "types/Precision.h"
 
 namespace faker::finance
 {
-    struct Currency
+    struct FAKER_CXX_EXPORT Currency
     {
         std::string_view name;
         std::string_view code;
@@ -26,7 +27,7 @@ namespace faker::finance
      * faker::finance::currency() // "{"US Dollar","USD","$"}"
      * @endcode
      */
-    Currency currency();
+    FAKER_CXX_EXPORT Currency currency();
 
     /**
      * @brief Returns a random currency name.
@@ -37,7 +38,7 @@ namespace faker::finance
      * faker::finance::currencyName() // "US Dollar"
      * @endcode
      */
-    std::string_view currencyName();
+    FAKER_CXX_EXPORT std::string_view currencyName();
 
     /**
      * @brief Returns a random currency code.
@@ -48,7 +49,7 @@ namespace faker::finance
      * faker::finance::currencyCode() // "USD"
      * @endcode
      */
-    std::string_view currencyCode();
+    FAKER_CXX_EXPORT std::string_view currencyCode();
 
     /**
      * @brief Returns a random currency symbol.
@@ -59,7 +60,7 @@ namespace faker::finance
      * faker::finance::currencySymbol() // "$"
      * @endcode
      */
-    std::string_view currencySymbol();
+    FAKER_CXX_EXPORT std::string_view currencySymbol();
 
     /**
      * @brief Returns a random account type.
@@ -70,7 +71,7 @@ namespace faker::finance
      * faker::finance::accountType() // "Savings"
      * @endcode
      */
-    std::string_view accountType();
+    FAKER_CXX_EXPORT std::string_view accountType();
 
     /**
      * @brief Generates a random amount between the given bounds (inclusive).
@@ -89,7 +90,7 @@ namespace faker::finance
      * faker::finance::amount(5, 10, Precision::TwoDp, "$") // "$5.85"
      * @endcode
      */
-    std::string amount(double min = 0, double max = 1000, Precision precision = Precision::TwoDp,
+    FAKER_CXX_EXPORT std::string amount(double min = 0, double max = 1000, Precision precision = Precision::TwoDp,
                               const std::string& symbol = "");
 
     enum class IbanCountry
@@ -135,7 +136,7 @@ namespace faker::finance
      * faker::finance::iban(IbanCountry::Poland) // "PL61109010140000071219812874"
      * @endcode
      */
-    std::string iban(std::optional<IbanCountry> country = std::nullopt);
+    FAKER_CXX_EXPORT std::string iban(std::optional<IbanCountry> country = std::nullopt);
 
     enum class BicCountry
     {
@@ -163,7 +164,7 @@ namespace faker::finance
      * faker::finance::bic(BicCountry::Poland) // "BREXPLPWMUL"
      * @endcode
      */
-    std::string_view bic(std::optional<BicCountry> country = std::nullopt);
+    FAKER_CXX_EXPORT std::string_view bic(std::optional<BicCountry> country = std::nullopt);
 
     /**
      * Generates a random account number.
@@ -177,7 +178,7 @@ namespace faker::finance
      * faker::finance::accountNumber(26) // "55875455514825927518796290"
      * @endcode
      */
-    std::string accountNumber(unsigned length = 8);
+    FAKER_CXX_EXPORT std::string accountNumber(unsigned length = 8);
 
     /**
      * Generates a random PIN number.
@@ -191,7 +192,7 @@ namespace faker::finance
      * faker::finance::pin(8) // "21378928"
      * @endcode
      */
-    std::string pin(unsigned length = 4);
+    FAKER_CXX_EXPORT std::string pin(unsigned length = 4);
 
     /**
      * Generates a random routing number.
@@ -202,7 +203,7 @@ namespace faker::finance
      * faker::finance::routingNumber() // "522814402"
      * @endcode
      */
-    std::string routingNumber();
+    FAKER_CXX_EXPORT std::string routingNumber();
 
     enum class CreditCardType
     {
@@ -223,7 +224,7 @@ namespace faker::finance
      * faker::finance::creditCardNumber() // "4882664999007"
      * @endcode
      */
-    std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std::nullopt);
+    FAKER_CXX_EXPORT std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std::nullopt);
 
     /**
      * Generates a random credit card CVV.
@@ -234,7 +235,7 @@ namespace faker::finance
      * faker::finance::creditCardCvv() // "506"
      * @endcode
      */
-    std::string creditCardCvv();
+    FAKER_CXX_EXPORT std::string creditCardCvv();
 
     /**
      * Generates a random bitcoin address.
@@ -245,7 +246,7 @@ namespace faker::finance
      * faker::finance::bitcoinAddress() // "3ySdvCkTLVy7gKD4j6JfSaf5d"
      * @endcode
      */
-    std::string bitcoinAddress();
+    FAKER_CXX_EXPORT std::string bitcoinAddress();
 
     /**
      * Generates a random litecoin address.
@@ -256,7 +257,7 @@ namespace faker::finance
      * faker::finance::litecoinAddress() // "LoQaSTGWBRXkWfyxKbNKuPrAWGELzcW"
      * @endcode
      */
-    std::string litecoinAddress();
+    FAKER_CXX_EXPORT std::string litecoinAddress();
 
     /**
      * Generates a random ethereum address.
@@ -267,7 +268,7 @@ namespace faker::finance
      * faker::finance::ethereumAddress() // "0xf03dfeecbafc5147241cc4c4ca20b3c9dfd04c4a"
      * @endcode
      */
-    std::string ethereumAddress();
+    FAKER_CXX_EXPORT std::string ethereumAddress();
 
     /**
      * Generates a random expiration date.
@@ -278,7 +279,7 @@ namespace faker::finance
      * faker::finance::creditCardExpirationDate() // "03/26"
      * @endcode
      */
-    std::string creditCardExpirationDate();
+    FAKER_CXX_EXPORT std::string creditCardExpirationDate();
 
     /**
      * Generates a random credit card type.
@@ -289,6 +290,6 @@ namespace faker::finance
      * faker::finance::creditCardType() // "Visa"
      * @endcode
      */
-    std::string_view creditCardType();
+    FAKER_CXX_EXPORT std::string_view creditCardType();
 
 }

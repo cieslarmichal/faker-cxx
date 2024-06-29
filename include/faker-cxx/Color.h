@@ -3,6 +3,7 @@
 #include <string>
 
 #include "types/Hex.h"
+#include "faker-cxx/Export.h"
 
 namespace faker::color
 {
@@ -15,7 +16,7 @@ namespace faker::color
  * faker::color::name() // "Blue"
  * @endcode
  */
-std::string_view name();
+FAKER_CXX_EXPORT std::string_view name();
 
 /**
  * @brief Returns an RGB color.
@@ -29,7 +30,7 @@ std::string_view name();
  * faker::color::rgb(true) // "rgba(220, 28, 79, 0.50)"
  * @endcode
  */
-std::string rgb(bool includeAlpha = false);
+FAKER_CXX_EXPORT std::string rgb(bool includeAlpha = false);
 
 /**
  * @brief Returns a hex color.
@@ -45,7 +46,7 @@ std::string rgb(bool includeAlpha = false);
  * faker::color::hex(HexCasing::Upper, HexPrefix::ZeroX, true) // "0xE3F3801A"
  * @endcode
  */
-std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash, bool includeAlpha = false);
+FAKER_CXX_EXPORT std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash, bool includeAlpha = false);
 
 /**
  * @brief Returns an HSL color.
@@ -57,7 +58,7 @@ std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefi
  * faker::color::hsl(true) // "hsla(0, 0, 100, 0.50)"
  * @endcode
  */
-std::string hsl(bool includeAlpha = false);
+FAKER_CXX_EXPORT std::string hsl(bool includeAlpha = false);
 
 /**
  * @brief Returns an LCH color.
@@ -69,7 +70,7 @@ std::string hsl(bool includeAlpha = false);
  * faker::color::lch(true) // "lcha(0, 0, 100, 0.50)"
  * @endcode
  */
-std::string lch(bool includeAlpha = false);
+FAKER_CXX_EXPORT std::string lch(bool includeAlpha = false);
 
 /**
  * @brief Return a CMYK color
@@ -79,7 +80,7 @@ std::string lch(bool includeAlpha = false);
  * faker::color::cmyk() // "cmyk(0.72, 0.88, 0.00, 0.06)"
  * @endcode
  */
-std::string cmyk();
+FAKER_CXX_EXPORT std::string cmyk();
 
 /**
  * @brief Return a LAB color
@@ -89,7 +90,7 @@ std::string cmyk();
  * faker::color::lab() // "lab(98.74, 2.18, -2.35)"
  * @endcode
  */
-std::string lab();
+FAKER_CXX_EXPORT std::string lab();
 
 /**
  * @brief Return a HSB color
@@ -99,7 +100,7 @@ std::string lab();
  * faker::color::hsb() // "hsb(37, 82, 50)"
  * @endcode
  */
-std::string hsb();
+FAKER_CXX_EXPORT std::string hsb();
 
 /**
  * @brief Return a HSV color
@@ -109,7 +110,7 @@ std::string hsb();
  * faker::color::hsv() // "hsv(21, 67, 39)"
  * @endcode
  */
-std::string hsv();
+FAKER_CXX_EXPORT std::string hsv();
 
 /**
  * @brief Return a YUV color
@@ -119,5 +120,5 @@ std::string hsv();
  * faker::color::yuv() // "yuv(42, 234, 109)"
  * @endcode
  */
-std::string yuv();
+FAKER_CXX_EXPORT std::string yuv();
 }

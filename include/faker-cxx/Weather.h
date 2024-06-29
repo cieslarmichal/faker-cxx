@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::weather
 {
@@ -13,5 +14,5 @@ namespace faker::weather
  * faker::weather::weatherDescription(); // "Sunny"
  * @endcode
  */
-std::string_view weatherDescription();
+FAKER_CXX_EXPORT std::string_view weatherDescription();
 }

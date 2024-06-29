@@ -3,10 +3,11 @@
 #include <optional>
 #include <string>
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::system
 {
-struct FileOptions
+struct FAKER_CXX_EXPORT FileOptions
 {
     int extensionCount = 1;
 
@@ -26,13 +27,13 @@ enum class FileType
     Video,
 };
 
-struct CronOptions
+struct FAKER_CXX_EXPORT CronOptions
 {
     bool includeYear = false;
     bool includeNonStandard = false;
 };
 
-struct NetworkInterfaceOptions
+struct FAKER_CXX_EXPORT NetworkInterfaceOptions
 {
     std::optional<std::string> interfaceType;
     std::optional<std::string> interfaceSchema;
@@ -57,7 +58,7 @@ struct NetworkInterfaceOptions
  * faker::system::fileName(options) // "sparkle.png.pdf"
  * @endcode
  */
-std::string fileName(const FileOptions& options = {});
+FAKER_CXX_EXPORT std::string fileName(const FileOptions& options = {});
 
 /**
  * @brief Returns a file extension.
@@ -70,7 +71,7 @@ std::string fileName(const FileOptions& options = {});
  * faker::system::fileExtension(MimeType::Image) // "png"
  * @endcode
  */
-std::string fileExtension(const std::optional<FileType>& mimeType = std::nullopt);
+FAKER_CXX_EXPORT std::string fileExtension(const std::optional<FileType>& mimeType = std::nullopt);
 
 /**
  * Returns a random file name with a given extension or a commonly used extension.
@@ -84,7 +85,7 @@ std::string fileExtension(const std::optional<FileType>& mimeType = std::nullopt
  * faker::system::commonFileName("txt") // "global_borders_wyoming.txt"
  * @endcode
  */
-std::string commonFileName(const std::optional<std::string>& ext = std::nullopt);
+FAKER_CXX_EXPORT std::string commonFileName(const std::optional<std::string>& ext = std::nullopt);
 
 /**
  * Returns a commonly used file extension.
@@ -95,7 +96,7 @@ std::string commonFileName(const std::optional<std::string>& ext = std::nullopt)
  * faker::system::commonFileExtension() // "gif"
  * @endcode
  */
-std::string_view commonFileExtension();
+FAKER_CXX_EXPORT std::string_view commonFileExtension();
 
 /**
  * Returns a mime-type.
@@ -106,7 +107,7 @@ std::string_view commonFileExtension();
  * faker::system::mimeType() // "video/vnd.vivo"
  * @endcode
  */
-std::string_view mimeType();
+FAKER_CXX_EXPORT std::string_view mimeType();
 
 /**
  * Returns a commonly used file type.
@@ -117,7 +118,7 @@ std::string_view mimeType();
  * faker::system::fileType() // "audio"
  * @endcode
  */
-std::string_view fileType();
+FAKER_CXX_EXPORT std::string_view fileType();
 
 /**
  * Returns a directory path.
@@ -128,7 +129,7 @@ std::string_view fileType();
  * faker::system::directoryPath() // "/etc/mail"
  * @endcode
  */
-std::string_view directoryPath();
+FAKER_CXX_EXPORT std::string_view directoryPath();
 
 /**
  * Returns a file path.
@@ -139,7 +140,7 @@ std::string_view directoryPath();
  * faker::system::filePath() // "/usr/local/src/money.dotx"
  * @endcode
  */
-std::string filePath();
+FAKER_CXX_EXPORT std::string filePath();
 
 /**
  * Returns a semantic version.
@@ -150,7 +151,7 @@ std::string filePath();
  * faker::system::semver() // "1.1.2"
  * @endcode
  */
-std::string semver();
+FAKER_CXX_EXPORT std::string semver();
 
 /**
  * Returns a random network interface.
@@ -178,7 +179,7 @@ std::string semver();
  * faker::system::networkInterface(options) // "enp1s9f1d2"
  * @endcode
  */
-std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options = {});
+FAKER_CXX_EXPORT std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options = {});
 
 /**
  * Returns a random cron expression.
@@ -210,5 +211,5 @@ std::string networkInterface(const std::optional<NetworkInterfaceOptions>& optio
  * std::string cronExpr = faker::system::cron(options) // "@reboot"
  * @endcode
  */
-std::string cron(const CronOptions& options = {});
+FAKER_CXX_EXPORT std::string cron(const CronOptions& options = {});
 }

@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::computer
 {
@@ -13,7 +14,7 @@ namespace faker::computer
  * faker::computer::type() // Laptop
  * @endcode
  */
-std::string_view type();
+FAKER_CXX_EXPORT std::string_view type();
 
 /**
  * @brief Returns a random computer manufacture name.
@@ -24,7 +25,7 @@ std::string_view type();
  * faker::computer::manufacture() // HP
  * @endcode
  */
-std::string_view manufacture();
+FAKER_CXX_EXPORT std::string_view manufacture();
 
 /**
  * @brief Returns a random computer model.
@@ -35,7 +36,7 @@ std::string_view manufacture();
  * faker::computer::model() // MacBook Air
  * @endcode
  */
-std::string_view model();
+FAKER_CXX_EXPORT std::string_view model();
 
 /**
  * @brief Returns a random CPU manufacture name.
@@ -46,7 +47,7 @@ std::string_view model();
  * faker::computer::cpuManufacture() // Intel
  * @endcode
  */
-std::string_view cpuManufacture();
+FAKER_CXX_EXPORT std::string_view cpuManufacture();
 
 /**
  * @brief Returns a random CPU type.
@@ -57,7 +58,7 @@ std::string_view cpuManufacture();
  * faker::computer::cpuType() // x86
  * @endcode
  */
-std::string_view cpuType();
+FAKER_CXX_EXPORT std::string_view cpuType();
 
 /**
  * @brief Returns a random CPU model.
@@ -68,7 +69,7 @@ std::string_view cpuType();
  * faker::computer::cpuModel() // Core i9-11900k
  * @endcode
  */
-std::string_view cpuModel();
+FAKER_CXX_EXPORT std::string_view cpuModel();
 
 /**
  * @brief Returns a random GPU manufacture name.
@@ -79,7 +80,7 @@ std::string_view cpuModel();
  * faker::computer::gpuManufacture() // NVIDIA
  * @endcode
  */
-std::string_view gpuManufacture();
+FAKER_CXX_EXPORT std::string_view gpuManufacture();
 
 /**
  * @brief Returns a random GPU type.
@@ -90,7 +91,7 @@ std::string_view gpuManufacture();
  * faker::computer::gpuType() // Integrated
  * @endcode
  */
-std::string_view gpuType();
+FAKER_CXX_EXPORT std::string_view gpuType();
 
 /**
  * @brief Returns a random GPU model.
@@ -101,6 +102,6 @@ std::string_view gpuType();
  * faker::computer::gpuModel() // NVIDIA GeForce RTX 3080
  * @endcode
  */
-std::string_view gpuModel();
+FAKER_CXX_EXPORT std::string_view gpuModel();
 
 }

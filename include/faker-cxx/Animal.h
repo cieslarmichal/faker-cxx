@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::animal
 {
@@ -13,7 +14,7 @@ namespace faker::animal
  * faker::animal::bear() // "Polar bear"
  * @endcode
  */
-std::string_view bear();
+FAKER_CXX_EXPORT std::string_view bear();
 
 /**
  * @brief Returns a random species of bird.
@@ -24,7 +25,7 @@ std::string_view bear();
  * faker::animal::bird() // "Black-bellied Whistling-Duck"
  * @endcode
  */
-std::string_view bird();
+FAKER_CXX_EXPORT std::string_view bird();
 
 /**
  * @brief Returns a random species of cat.
@@ -35,7 +36,7 @@ std::string_view bird();
  * faker::animal::cat() // "Chartreux"
  * @endcode
  */
-std::string_view cat();
+FAKER_CXX_EXPORT std::string_view cat();
 
 /**
  * @brief Returns a random species of cetacean.
@@ -46,7 +47,7 @@ std::string_view cat();
  * faker::animal::cetacean() // "Blue Whale"
  * @endcode
  */
-std::string_view cetacean();
+FAKER_CXX_EXPORT std::string_view cetacean();
 
 /**
  * @brief Returns a random species of cow.
@@ -57,7 +58,7 @@ std::string_view cetacean();
  * faker::animal::cow() // "American Angus"
  * @endcode
  */
-std::string_view cow();
+FAKER_CXX_EXPORT std::string_view cow();
 
 /**
  * @brief Returns a random species of crocodilia.
@@ -68,7 +69,7 @@ std::string_view cow();
  * faker::animal::crocodile() // "Dwarf Crocodile"
  * @endcode
  */
-std::string_view crocodile();
+FAKER_CXX_EXPORT std::string_view crocodile();
 
 /**
  * @brief Returns a random species of dog.
@@ -79,7 +80,7 @@ std::string_view crocodile();
  * faker::animal::dog() // "Shiba Inu"
  * @endcode
  */
-std::string_view dog();
+FAKER_CXX_EXPORT std::string_view dog();
 
 /**
  * @brief Returns a random species of fish.
@@ -90,7 +91,7 @@ std::string_view dog();
  * faker::animal::fish() // "Silver carp"
  * @endcode
  */
-std::string_view fish();
+FAKER_CXX_EXPORT std::string_view fish();
 
 /**
  * @brief Returns a random species of horse.
@@ -101,7 +102,7 @@ std::string_view fish();
  * faker::animal::horse() // "Fjord Horse"
  * @endcode
  */
-std::string_view horse();
+FAKER_CXX_EXPORT std::string_view horse();
 
 /**
  * @brief Returns a random species of insect.
@@ -112,7 +113,7 @@ std::string_view horse();
  * faker::animal::insect() // "Bee"
  * @endcode
  */
-std::string_view insect();
+FAKER_CXX_EXPORT std::string_view insect();
 
 /**
  * @brief Returns a random species of lion.
@@ -123,7 +124,7 @@ std::string_view insect();
  * faker::animal::lion() // "West African Lion"
  * @endcode
  */
-std::string_view lion();
+FAKER_CXX_EXPORT std::string_view lion();
 
 /**
  * @brief Returns a random species of rabbit.
@@ -134,7 +135,7 @@ std::string_view lion();
  * faker::animal::rabbit() // "Californian"
  * @endcode
  */
-std::string_view rabbit();
+FAKER_CXX_EXPORT std::string_view rabbit();
 
 /**
  * @brief Returns a random species of rodent.
@@ -145,7 +146,7 @@ std::string_view rabbit();
  * faker::animal::rodent() // "Chinchilla"
  * @endcode
  */
-std::string_view rodent();
+FAKER_CXX_EXPORT std::string_view rodent();
 
 /**
  * @brief Returns a random species of snake.
@@ -156,7 +157,7 @@ std::string_view rodent();
  * faker::animal::snake() // "Boa constrictor"
  * @endcode
  */
-std::string_view snake();
+FAKER_CXX_EXPORT std::string_view snake();
 
 /**
  * @brief Returns a random type of animal.
@@ -167,5 +168,5 @@ std::string_view snake();
  * faker::animal::type() // "dog"
  * @endcode
  */
-std::string_view type();
+FAKER_CXX_EXPORT std::string_view type();
 }

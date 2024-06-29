@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::food
 {
@@ -13,7 +14,7 @@ namespace faker::food
      * faker::food::alcoholicBeverage() // "champain"
      * @endcode
      */
-    std::string_view alcoholicBeverage();
+    FAKER_CXX_EXPORT std::string_view alcoholicBeverage();
 
     /**
      * @brief Returns a random grain measurement.
@@ -24,7 +25,7 @@ namespace faker::food
      * faker::food::grain() // "1 Lt"
      * @endcode
      */
-    std::string_view grain();
+    FAKER_CXX_EXPORT std::string_view grain();
 
     /**
      * @brief Returns a random milk product's name.
@@ -35,7 +36,7 @@ namespace faker::food
      * faker::food::milkProduct() // "mozzarella"
      * @endcode
      */
-    std::string_view milkProduct();
+    FAKER_CXX_EXPORT std::string_view milkProduct();
 
     /**
      * @brief Returns a random fruit's name.
@@ -46,7 +47,7 @@ namespace faker::food
      * faker::food::fruit() // "apple"
      * @endcode
      */
-    std::string_view fruit();
+    FAKER_CXX_EXPORT std::string_view fruit();
 
     /**
      * @brief Returns a random meat's name.
@@ -57,7 +58,7 @@ namespace faker::food
      * faker::food::meat() // "antrikot"
      * @endcode
      */
-    std::string_view meat();
+    FAKER_CXX_EXPORT std::string_view meat();
 
     /**
      * @brief Returns a random seafood's name.
@@ -68,7 +69,7 @@ namespace faker::food
      * faker::food::seafood() // "lobster"
      * @endcode
      */
-    std::string_view seafood();
+    FAKER_CXX_EXPORT std::string_view seafood();
 
     /**
      * @brief Returns a random vegetable's name.
@@ -79,7 +80,7 @@ namespace faker::food
      * faker::food::vegetable() // "watermelon"
      * @endcode
      */
-    std::string_view vegetable();
+    FAKER_CXX_EXPORT std::string_view vegetable();
 
     /**
      * @brief Returns a random oil's name.
@@ -90,7 +91,7 @@ namespace faker::food
      * faker::food::oil() // "olive oil"
      * @endcode
      */
-    std::string_view oil();
+    FAKER_CXX_EXPORT std::string_view oil();
 
     /**
      * @brief Returns a random nut's name.
@@ -101,7 +102,7 @@ namespace faker::food
      * faker::food::nut() // "walnut"
      * @endcode
      */
-    std::string_view nut();
+    FAKER_CXX_EXPORT std::string_view nut();
 
     /**
      * @brief Returns a random seed's name.
@@ -112,7 +113,7 @@ namespace faker::food
      * faker::food::seed() // "mozzarella"
      * @endcode
      */
-    std::string_view seed();
+    FAKER_CXX_EXPORT std::string_view seed();
 
     /**
      * @brief Returns a random sugar product's name.
@@ -123,7 +124,7 @@ namespace faker::food
      * faker::food::sugarProduct() // "honey harmony"
      * @endcode
      */
-    std::string_view sugarProduct();
+    FAKER_CXX_EXPORT std::string_view sugarProduct();
 
     /**
      * @brief Returns a random non-alcoholic beverage's name.
@@ -134,7 +135,7 @@ namespace faker::food
      * faker::food::nonalcoholicBeverage() // "water"
      * @endcode
      */
-    std::string_view nonalcoholicBeverage();
+    FAKER_CXX_EXPORT std::string_view nonalcoholicBeverage();
 
     /**
      * @brief Returns a random dish's name.
@@ -145,7 +146,7 @@ namespace faker::food
      * faker::food::dishName() // "beef wellington"
      * @endcode
      */
-    std::string_view dishName();
+    FAKER_CXX_EXPORT std::string_view dishName();
 
     /**
      * @brief Returns a random food categories' name.
@@ -156,5 +157,5 @@ namespace faker::food
      * faker::food::foodCategory() // "Dairy"
      * @endcode
      */
-    std::string_view foodCategory();
+    FAKER_CXX_EXPORT std::string_view foodCategory();
 }

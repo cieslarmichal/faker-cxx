@@ -3,6 +3,7 @@
 #include <optional>
 #include <string_view>
 
+#include "faker-cxx/Export.h"
 #include "types/Country.h"
 
 namespace faker::person
@@ -26,7 +27,7 @@ enum class Language;
      * faker::person::firstName(Country::England, Sex::Male) // "Arthur"
      * @endcode
      */
-    std::string_view firstName(std::optional<Country> country = std::nullopt,
+    FAKER_CXX_EXPORT std::string_view firstName(std::optional<Country> country = std::nullopt,
                                       std::optional<Sex> sex = std::nullopt);
 
     /**
@@ -41,7 +42,7 @@ enum class Language;
      * faker::person::lastName() // "Peterson"
      * @endcode
      */
-    std::string_view lastName(std::optional<Country> country = std::nullopt,
+    FAKER_CXX_EXPORT std::string_view lastName(std::optional<Country> country = std::nullopt,
                                      std::optional<Sex> sex = std::nullopt);
 
     /**
@@ -58,7 +59,7 @@ enum class Language;
      * faker::person::fullName(Country::England, Sex::Male) // "Samuel Walker"
      * @endcode
      */
-    std::string fullName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
+    FAKER_CXX_EXPORT std::string fullName(std::optional<Country> country = std::nullopt, std::optional<Sex> sex = std::nullopt);
 
     /**
      * @brief Returns a random name prefix.
@@ -73,7 +74,7 @@ enum class Language;
      * faker::person::prefix(Sex::Male) // "Mr."
      * @endcode
      */
-    std::string_view prefix(std::optional<Country> countryOpt = std::nullopt,
+    FAKER_CXX_EXPORT std::string_view prefix(std::optional<Country> countryOpt = std::nullopt,
                                    std::optional<Sex> sex = std::nullopt);
 
     /**
@@ -85,7 +86,7 @@ enum class Language;
      * faker::person::suffix() // "Jr."
      * @endcode
      */
-    std::string_view suffix(std::optional<Country> countryOpt = std::nullopt,
+    FAKER_CXX_EXPORT std::string_view suffix(std::optional<Country> countryOpt = std::nullopt,
                                    std::optional<Sex> sex = std::nullopt);
 
     /**
@@ -97,7 +98,7 @@ enum class Language;
      * faker::person::bio() //"Developer"
      * @endcode
      */
-    std::string bio();
+    FAKER_CXX_EXPORT std::string bio();
 
     /**
      * @brief Returns a sex.
@@ -108,7 +109,7 @@ enum class Language;
      * faker::person::sex() // "Male"
      * @endcode
      */
-    std::string_view sex(std::optional<Language> language = std::nullopt);
+    FAKER_CXX_EXPORT std::string_view sex(std::optional<Language> language = std::nullopt);
 
     /**
      * @brief Returns a random gender.
@@ -119,7 +120,7 @@ enum class Language;
      * faker::person::gender() // "Transexual woman"
      * @endcode
      */
-    std::string_view gender();
+    FAKER_CXX_EXPORT std::string_view gender();
 
     /**
      * @brief Returns a random job title.
@@ -130,7 +131,7 @@ enum class Language;
      * faker::person::jobTitle() // "Global Accounts Engineer"
      * @endcode
      */
-    std::string jobTitle();
+    FAKER_CXX_EXPORT std::string jobTitle();
 
     /**
      * @brief Returns a random job descriptor.
@@ -141,7 +142,7 @@ enum class Language;
      * faker::person::jobDescriptor() // "Senior"
      * @endcode
      */
-    std::string_view jobDescriptor();
+    FAKER_CXX_EXPORT std::string_view jobDescriptor();
 
     /**
      * @brief Returns a random job area.
@@ -152,7 +153,7 @@ enum class Language;
      * faker::person::jobArea() // "Software"
      * @endcode
      */
-    std::string_view jobArea();
+    FAKER_CXX_EXPORT std::string_view jobArea();
 
     /**
      * @brief Returns a random job type.
@@ -163,7 +164,7 @@ enum class Language;
      * faker::person::jobType() // "Engineer"
      * @endcode
      */
-    std::string_view jobType();
+    FAKER_CXX_EXPORT std::string_view jobType();
 
     /**
      * @brief Returns a random hobby.
@@ -174,7 +175,7 @@ enum class Language;
      * faker::person::hobby() // "Gaming"
      * @endcode
      */
-    std::string_view hobby();
+    FAKER_CXX_EXPORT std::string_view hobby();
 
     /**
      * @brief Returns a random language.
@@ -185,7 +186,7 @@ enum class Language;
      * faker::person::language() // "Polish"
      * @endcode
      */
-    std::string_view language();
+    FAKER_CXX_EXPORT std::string_view language();
 
     /**
      * @brief Returns a random nationality.
@@ -196,7 +197,7 @@ enum class Language;
      * faker::person::nationality() // "Romanian"
      * @endcode
      */
-    std::string_view nationality();
+    FAKER_CXX_EXPORT std::string_view nationality();
 
     /**
      * @brief Returns a random SSN.
@@ -210,7 +211,7 @@ enum class Language;
      * faker::person::ssn(SsnCountry::Polish) // "95111901567"
      * @endcode
      */
-    std::string ssn(std::optional<SsnCountry> country = std::nullopt);
+    FAKER_CXX_EXPORT std::string ssn(std::optional<SsnCountry> country = std::nullopt);
 
     /**
      * @brief Returns a random Western Zodiac
@@ -221,7 +222,7 @@ enum class Language;
      * faker::person::westernZodiac() // "Virgo"
      * @endcode
      */
-    std::string_view westernZodiac();
+    FAKER_CXX_EXPORT std::string_view westernZodiac();
 
     /**
      * @brief Returns a random Chinese Zodiac
@@ -232,7 +233,7 @@ enum class Language;
      * faker::person::chineseZodiac() // "Dragon"
      * @endcode
      */
-    std::string_view chineseZodiac();
+    FAKER_CXX_EXPORT std::string_view chineseZodiac();
 
     /**
      * @brief Returns a random passport number from a given country
@@ -243,7 +244,7 @@ enum class Language;
      * faker::person::passport(PassportCountry::Romania) // "12345678"
      * @endcode
      */
-    std::string passport(std::optional<PassportCountry> country = std::nullopt);
+    FAKER_CXX_EXPORT std::string passport(std::optional<PassportCountry> country = std::nullopt);
 
 enum class PassportCountry
 {

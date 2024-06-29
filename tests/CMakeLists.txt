@@ -79,5 +79,7 @@ else ()
 endif ()
 
 add_test(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME} WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
+set_tests_properties(${PROJECT_NAME} PROPERTIES ENVIRONMENT_MODIFICATION
+                     "PATH=path_list_prepend:$<$<BOOL:${WIN32}>:$<TARGET_FILE_DIR:faker-cxx>>")
 
 target_code_coverage(${PROJECT_NAME} ALL)

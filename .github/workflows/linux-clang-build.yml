@@ -13,8 +13,11 @@ on:
 
 jobs:
   build:
-    name: ci-ubuntu-24.04-clang-18
+    name: ci-ubuntu-24.04-clang-18-${{ matrix.type }}
     runs-on: ubuntu-24.04
+    strategy:
+      matrix:
+        type: [static, shared]
 
     steps:
       - name: Checkout
@@ -66,7 +69,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S ${{github.workspace}} --preset=unixlike-clang-debug \
+          cmake -S ${{github.workspace}} --preset=unixlike-clang-debug-${{ matrix.type }} \
             -DCMAKE_C_COMPILER=/usr/bin/clang-18 \
             -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
@@ -79,12 +82,15 @@ jobs:
             -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=lld
 
       - name: Build
-        run: cmake --build --preset=unixlike-clang-debug
+        run: cmake --build --preset=unixlike-clang-debug-${{ matrix.type }}
 
       - name: Test
-        run: ctest --preset=unixlike-clang-debug
+        run: ctest --preset=unixlike-clang-debug-${{ matrix.type }}
+
+      - name: Install
+        run: cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target install
 
       - name: Examples
         run: |
-          cmake --build --preset=unixlike-clang-debug --target run-faker-cxx-basic-example \
-          && cmake --build --preset=unixlike-clang-debug --target run-faker-cxx-person-example
+          cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target run-faker-cxx-basic-example \
+          && cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target run-faker-cxx-person-example

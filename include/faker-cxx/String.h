@@ -7,6 +7,7 @@
 #include <set>
 #include <string>
 
+#include "faker-cxx/Export.h"
 #include "RandomGenerator.h"
 #include "types/Hex.h"
 
@@ -19,7 +20,7 @@ enum class StringCasing
     Upper
 };
 
-struct CharCount
+struct FAKER_CXX_EXPORT CharCount
 {
     unsigned int atLeastCount{(std::numeric_limits<unsigned int>::min)()};
     unsigned int atMostCount{(std::numeric_limits<unsigned int>::max)()};
@@ -46,7 +47,7 @@ using GuaranteeMap = std::map<char, CharCount>;
  * faker::string::isValidGuarantee(guarantee,targetCharacters,length) // false
  * @endcode
  */
-bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length);
+FAKER_CXX_EXPORT bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length);
 
 /**
  * @brief Generates the least required string for a given guarantee map
@@ -60,7 +61,7 @@ bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
  * faker::string::generateAtLeastString(guarantee);
  * @endcode
  */
-std::string generateAtLeastString(const GuaranteeMap& guarantee);
+FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap& guarantee);
 
     // namespace {
     //     std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
@@ -134,7 +135,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::sample(5) // "6Bye8"
      * @endcode
      */
-    std::string sample(unsigned length = 10);
+    FAKER_CXX_EXPORT std::string sample(unsigned length = 10);
 
     /**
      * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
@@ -149,7 +150,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::sample({{'|' ,{2,2}},{'^',{0,0}},{':',{1,8}}}, 8) // "|6Bye8:|"
      * @endcode
      */
-    std::string sample(GuaranteeMap&& guarantee, unsigned length = 10);
+    FAKER_CXX_EXPORT std::string sample(GuaranteeMap&& guarantee, unsigned length = 10);
 
     /**
      * @brief Generates a string consisting of given characters.
@@ -164,7 +165,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::fromCharacters("qwerty", 5) // "qrwqt"
      * @endcode
      */
-    std::string fromCharacters(const std::string& characters, unsigned length = 1);
+    FAKER_CXX_EXPORT std::string fromCharacters(const std::string& characters, unsigned length = 1);
 
     /**
      * @brief Generates a string consisting of given characters.
@@ -180,7 +181,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::fromCharacters({{'q',{2,2}},{'e',{1,5}}}, "qwerty", 8) // "yqreqety"
      * @endcode
      */
-    std::string fromCharacters(GuaranteeMap&& guarantee, const std::string& characters, unsigned length = 1);
+    FAKER_CXX_EXPORT std::string fromCharacters(GuaranteeMap&& guarantee, const std::string& characters, unsigned length = 1);
 
     /**
      * @brief Generates a string consisting of letters in the English alphabet.
@@ -198,7 +199,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::alpha(4, StringCasing::Lower) // "brpt"
      * @endcode
      */
-    std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
+    FAKER_CXX_EXPORT std::string alpha(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
                              const std::string& excludeCharacters = "");
 
     /**
@@ -216,7 +217,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::alpha({{'a',{0,0}},{'b',{3,3}},{'c', {0,2}}}, 10, StringCasing::Lower) // "bicnmmkbbp"
      * @endcode
      */
-    std::string alpha(GuaranteeMap&& guarantee, unsigned length = 1, StringCasing casing = StringCasing::Mixed);
+    FAKER_CXX_EXPORT std::string alpha(GuaranteeMap&& guarantee, unsigned length = 1, StringCasing casing = StringCasing::Mixed);
 
     /**
      * @brief Generates a string consisting of alpha characters and digits.
@@ -234,7 +235,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::alphanumeric(4, StringCasing::Lower) // "1nrq"
      * @endcode
      */
-    std::string alphanumeric(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
+    FAKER_CXX_EXPORT std::string alphanumeric(unsigned length = 1, StringCasing casing = StringCasing::Mixed,
                                     const std::string& excludeCharacters = "");
 
     /**
@@ -252,7 +253,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::alphanumeric({{'a',{0,2}},{'2',{0,3}},{'z',{3,5}}}, 10, StringCasing::Lower) // "z1naazrqz0"
      * @endcode
      */
-    std::string alphanumeric(GuaranteeMap&& guarantee, unsigned length = 1,
+    FAKER_CXX_EXPORT std::string alphanumeric(GuaranteeMap&& guarantee, unsigned length = 1,
                                     StringCasing casing = StringCasing::Mixed);
 
     /**
@@ -269,7 +270,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::numeric(6, false) // "254429"
      * @endcode
      */
-    std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
+    FAKER_CXX_EXPORT std::string numeric(unsigned length = 1, bool allowLeadingZeros = true);
 
     /**
      * @brief Generates a given length string of digits.
@@ -286,7 +287,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::numeric({'0',{0,0}}, {'4',{1,1}}, 6, false) // "854829"
      * @endcode
      */
-    std::string numeric(GuaranteeMap&& guarantee, unsigned length = 1, bool allowLeadingZeros = true);
+    FAKER_CXX_EXPORT std::string numeric(GuaranteeMap&& guarantee, unsigned length = 1, bool allowLeadingZeros = true);
 
     /**
      * @brief Generates a hexadecimal string.
@@ -304,7 +305,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::hexadecimal(6, HexCasing::Lower, HexPrefix::None) // "e3f380"
      * @endcode
      */
-    std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
+    FAKER_CXX_EXPORT std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
                                    HexPrefix prefix = HexPrefix::ZeroX);
 
     /**
@@ -320,7 +321,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::hexadecimal(0, 255) // "9d"
      * @endcode
      */
-    std::string hexadecimal(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
+    FAKER_CXX_EXPORT std::string hexadecimal(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
 
     /**
      * @brief Generates a hexadecimal string.
@@ -339,7 +340,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::hexadecimal({'1', {1,4}, {'2', {1, 4}, {'c', {1,1}}, 6, HexCasing::Lower, HexPrefix::None) // "121a1c"
      * @endcode
      */
-    std::string hexadecimal(GuaranteeMap&& guarantee, unsigned length = 1, HexCasing casing = HexCasing::Lower,
+    FAKER_CXX_EXPORT std::string hexadecimal(GuaranteeMap&& guarantee, unsigned length = 1, HexCasing casing = HexCasing::Lower,
                                    HexPrefix prefix = HexPrefix::ZeroX);
 
     /**
@@ -353,7 +354,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::binary(8) // "0b01110101"
      * @endcode
      */
-    std::string binary(unsigned length = 1);
+    FAKER_CXX_EXPORT std::string binary(unsigned length = 1);
 
     /**
      * @brief Generates a binary string.
@@ -367,7 +368,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::binary({'1',{7,8}}, 8) // "0b11110111"
      * @endcode
      */
-    std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
+    FAKER_CXX_EXPORT std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
 
     /**
      * @brief Generates an octal string.
@@ -380,7 +381,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::octal(8) // "0o52561721"
      * @endcode
      */
-    std::string octal(unsigned length = 1);
+    FAKER_CXX_EXPORT std::string octal(unsigned length = 1);
 
     /**
      * @brief Generates an octal string.
@@ -394,5 +395,5 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee);
      * faker::string::octal({'4',{4,5}}, 8) // "0o42444041"
      * @endcode
      */
-    std::string octal(GuaranteeMap&& guarantee, unsigned length = 1);
+    FAKER_CXX_EXPORT std::string octal(GuaranteeMap&& guarantee, unsigned length = 1);
 }

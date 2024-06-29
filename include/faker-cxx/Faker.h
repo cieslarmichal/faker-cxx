@@ -1,5 +1,6 @@
 #pragma once
 
+#include "faker-cxx/Export.h"
 #include "faker-cxx/Airline.h"
 #include "faker-cxx/Animal.h"
 #include "faker-cxx/Book.h"
