@@ -1,6 +1,11 @@
 #ifndef FAKER_CXX_EXPORT_H
 #define FAKER_CXX_EXPORT_H
 
+#ifndef _MSVC
+#  define FAKER_CXX_EXPORT
+#  define FAKER_CXX_NO_EXPORT
+#endif
+
 #ifdef FAKER_CXX_STATIC_DEFINE
 #  define FAKER_CXX_EXPORT
 #  define FAKER_CXX_NO_EXPORT
