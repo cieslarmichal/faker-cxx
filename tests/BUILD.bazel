@@ -4,10 +4,10 @@ cc_test(
     name = "faker-cxx-ut",
     srcs = glob(["**/*.cpp"]),
     deps = ["//src:faker-cxx", "@googletest//:gtest_main"],
-    includes = ["../include", "../src/common", "../src/modules"],
+    includes = ["../src/common", "../src/modules"],
     copts = select({
         "//conditions:default": [
-            "/std:c++20"
+            "-std=c++20"
         ],
         "@platforms//os:windows": [
             "/std:c++20",
