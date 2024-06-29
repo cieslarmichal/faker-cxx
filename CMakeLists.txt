@@ -3,17 +3,17 @@ project(faker-cxx LANGUAGES CXX)
 
 include(cmake/CompilerWarnings.cmake)
 
+set(CMAKE_REQUIRED_FLAGS "$<$<CXX_COMPILER_ID:MSVC>:/std:c++20>$<$<NOT:$<CXX_COMPILER_ID:MSVC>>:-std=c++20>")
+include(CheckCXXSourceCompiles)
+check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }"
+    HAS_STD_FORMAT)
+
 option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
-option(USE_STD_FORMAT "Use std::format when available" ON)
 option(BUILD_EXAMPLES "Build examples" OFF)
 option(BUILD_TESTING "Build tests" ON)
 
-if (USE_STD_FORMAT)
-    set(CMAKE_REQUIRED_FLAGS -std=c++20)
-    include(CheckCXXSourceCompiles)
-    check_cxx_source_compiles("#include <format>\nint main(){ auto var = std::format(\"{}\", \"Hello\"); return 0; }"
-        HAS_STD_FORMAT)
-endif ()
+include(CMakeDependentOption)
+cmake_dependent_option(USE_STD_FORMAT "Use std::format when available" ON "HAS_STD_FORMAT" OFF)
 
 if (BUILD_TESTING)
     enable_testing()
@@ -119,8 +119,8 @@ install(EXPORT ${CMAKE_PROJECT_NAME}-targets
     FILE ${CMAKE_PROJECT_NAME}-config.cmake
     DESTINATION lib/cmake/${CMAKE_PROJECT_NAME})
 
-if (HAS_STD_FORMAT)
-    target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE HAS_STD_FORMAT)
+if (USE_STD_FORMAT)
+    target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE USE_STD_FORMAT)
 elseif (USE_SYSTEM_DEPENDENCIES)
     find_package(fmt CONFIG REQUIRED)
     target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE fmt::fmt)

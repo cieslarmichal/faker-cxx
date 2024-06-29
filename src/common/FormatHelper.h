@@ -8,7 +8,7 @@
 #include "faker-cxx/types/Precision.h"
 #include "faker-cxx/Export.h"
 
-#if !defined(HAS_STD_FORMAT)
+#if !defined(USE_STD_FORMAT)
 #include <fmt/chrono.h>
 #include <fmt/core.h>
 #else
@@ -21,7 +21,7 @@ namespace faker
 class FormatHelper
 {
 public:
-#if !defined(HAS_STD_FORMAT)
+#if !defined(USE_STD_FORMAT)
     template <typename... Args>
     static std::string format(fmt::format_string<Args...> fmt, Args&&... args)
     {
