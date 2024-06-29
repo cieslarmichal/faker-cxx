@@ -1,10 +1,11 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::science
 {
-struct ChemicalElement
+struct FAKER_CXX_EXPORT ChemicalElement
 {
     std::string_view name;
     std::string_view symbol;
@@ -21,9 +22,9 @@ struct ChemicalElement
  * table.
  * @endcode
  */
-ChemicalElement chemicalElement();
+FAKER_CXX_EXPORT ChemicalElement chemicalElement();
 
-struct Unit
+struct FAKER_CXX_EXPORT Unit
 {
     std::string_view name;
     std::string_view symbol;
@@ -39,7 +40,7 @@ struct Unit
  * faker::science::unit() // Object of Unit containing info about a random unit of measurement.
  * @endcode
  */
-Unit unit();
+FAKER_CXX_EXPORT Unit unit();
 
 /**
  * @brief Returns a unit of measurement for either distance.
@@ -51,7 +52,7 @@ Unit unit();
  * distance.
  * @endcode
  */
-Unit distanceUnit();
+FAKER_CXX_EXPORT Unit distanceUnit();
 
 /**
  * @brief Returns a unit of measurement for either time.
@@ -62,7 +63,7 @@ Unit distanceUnit();
  * faker::science::timeUnit() // Object of Unit containing info about a random unit of measurement used to measure time.
  * @endcode
  */
-Unit timeUnit();
+FAKER_CXX_EXPORT Unit timeUnit();
 
 /**
  * @brief Returns a unit of measurement for either mass.
@@ -73,7 +74,7 @@ Unit timeUnit();
  * faker::science::massUnit() // Object of Unit containing info about a random unit of measurement used to measure mass.
  * @endcode
  */
-Unit massUnit();
+FAKER_CXX_EXPORT Unit massUnit();
 
 /**
  * @brief Returns a unit of measurement for either temp.
@@ -84,7 +85,7 @@ Unit massUnit();
  * faker::science::tempUnit() // Object of Unit containing info about a random unit of measurement used to measure temp.
  * @endcode
  */
-Unit tempUnit();
+FAKER_CXX_EXPORT Unit tempUnit();
 
 /**
  * @brief Returns a unit of measurement for either current.
@@ -96,5 +97,5 @@ Unit tempUnit();
  * current.
  * @endcode
  */
-Unit currentUnit();
+FAKER_CXX_EXPORT Unit currentUnit();
 }

@@ -2,6 +2,7 @@
 
 #include <optional>
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::image
 {
@@ -36,7 +37,7 @@ namespace faker::image
      * faker::image::imageUrl(800, 600, ImageCategory::Animals) // "https://loremflickr.com/800/600/animals"
      * @endcode
      */
-    std::string imageUrl(unsigned width = 640, unsigned height = 480,
+    FAKER_CXX_EXPORT std::string imageUrl(unsigned width = 640, unsigned height = 480,
                                 std::optional<ImageCategory> category = std::nullopt);
 
     /**
@@ -48,7 +49,7 @@ namespace faker::image
      * faker::image::githubAvatarUrl() // "https://avatars.githubusercontent.com/u/9716558"
      * @endcode
      */
-    std::string githubAvatarUrl();
+    FAKER_CXX_EXPORT std::string githubAvatarUrl();
 
     /**
      * @brief Generates a random image dimensions.
@@ -59,7 +60,7 @@ namespace faker::image
      * faker::image::dimensions() // "1920x1080"
      * @endcode
      */
-    std::string dimensions();
+    FAKER_CXX_EXPORT std::string dimensions();
 
     /**
      * @brief Generates a random type of image.
@@ -69,5 +70,5 @@ namespace faker::image
      * @code
      * faker::image::type() // "png"
      */
-    std::string_view type();
+    FAKER_CXX_EXPORT std::string_view type();
 }

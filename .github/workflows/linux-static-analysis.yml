@@ -10,10 +10,14 @@ on:
       - 'LICENSE'
   workflow_dispatch:
   pull_request:
+    paths-ignore:
+      - 'docs/**'
+      - '**/*.md'
+      - 'LICENSE'
 
 jobs:
   build_project:
-    name: ci-ubuntu-24.04-build-clang
+    name: ci-ubuntu-24.04-build-clang-static
     runs-on: ubuntu-24.04
 
     steps:
@@ -66,7 +70,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S ${{github.workspace}} --preset=unixlike-clang-debug \
+          cmake -S ${{github.workspace}} --preset=unixlike-clang-debug-static \
             -DCMAKE_C_COMPILER=/usr/bin/clang-18 \
             -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
@@ -78,10 +82,10 @@ jobs:
             -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=lld
 
       - name: Build
-        run: cmake --build --preset=unixlike-clang-debug
+        run: cmake --build --preset=unixlike-clang-debug-static
 
       - name: Generate code coverage
-        working-directory: ${{github.workspace}}/build/unixlike-clang-debug
+        working-directory: ${{github.workspace}}/build/unixlike-clang-debug-static
         run: |
           ninja faker-ccov-all \
           && llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt \
@@ -139,8 +143,8 @@ jobs:
             --enable=warning \
             --enable=portability \
             --inline-suppr \
-            --cppcheck-build-dir=build/unixlike-clang-debug \
-            --project=build/unixlike-clang-debug/compile_commands.json
+            --cppcheck-build-dir=build/unixlike-clang-debug-static \
+            --project=build/unixlike-clang-debug-static/compile_commands.json
 
   clang_tidy:
     name: clang-tidy
@@ -171,7 +175,7 @@ jobs:
       - name: Run clang-tidy
         run: |
           run-clang-tidy \
-            -p build/unixlike-clang-debug \
+            -p build/unixlike-clang-debug-static \
             -header-filter="include/*" \
             -extra-arg="-std=gnu++20" || true
 

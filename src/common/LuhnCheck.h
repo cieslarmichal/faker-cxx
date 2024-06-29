@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include "faker-cxx/Export.h"
 
 namespace faker
 {
@@ -15,7 +16,7 @@ public:
      * @return The luhn checksum value for the given value.
      *
      */
-    static int luhnCheckSum(const std::string& inputString);
+    FAKER_CXX_EXPORT static int luhnCheckSum(const std::string& inputString);
 
     /**
      * @brief Checks that the given string passes the luhn algorithm.
@@ -25,7 +26,7 @@ public:
      * @return Is the string pass the check or not.
      *
      */
-    static bool luhnCheck(const std::string& inputString);
+    FAKER_CXX_EXPORT static bool luhnCheck(const std::string& inputString);
 
     /**
      * @brief Returns the luhn check value for the given string.
@@ -36,6 +37,6 @@ public:
      * @return the luhn check value for the given string.
      *
      */
-    static int luhnCheckValue(const std::string& inputString);
+    FAKER_CXX_EXPORT static int luhnCheckValue(const std::string& inputString);
 };
 }

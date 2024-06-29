@@ -3,6 +3,7 @@
 #include <optional>
 #include <string>
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::word
 {
@@ -19,7 +20,7 @@ namespace faker::word
  * faker::word::sample(5) // "spell"
  * @endcode
  */
-std::string_view sample(std::optional<unsigned> length = std::nullopt);
+FAKER_CXX_EXPORT std::string_view sample(std::optional<unsigned> length = std::nullopt);
 
 /**
  * @brief Returns a string containing a number of space separated random words.
@@ -33,7 +34,7 @@ std::string_view sample(std::optional<unsigned> length = std::nullopt);
  * faker::word::words(5) // "before hourly patiently dribble equal"
  * @endcode
  */
-std::string words(unsigned numberOfWords = 1);
+FAKER_CXX_EXPORT std::string words(unsigned numberOfWords = 1);
 
 /**
  * @brief Returns a random adjective.
@@ -48,7 +49,7 @@ std::string words(unsigned numberOfWords = 1);
  * faker::word::adjective(3) // "bad"
  * @endcode
  */
-std::string_view adjective(std::optional<unsigned> length = std::nullopt);
+FAKER_CXX_EXPORT std::string_view adjective(std::optional<unsigned> length = std::nullopt);
 
 /**
  * @brief Returns a random adverb.
@@ -63,7 +64,7 @@ std::string_view adjective(std::optional<unsigned> length = std::nullopt);
  * faker::word::adverb(5) // "almost"
  * @endcode
  */
-std::string_view adverb(std::optional<unsigned> length = std::nullopt);
+FAKER_CXX_EXPORT std::string_view adverb(std::optional<unsigned> length = std::nullopt);
 
 /**
  * @brief Returns a random conjunction.
@@ -78,7 +79,7 @@ std::string_view adverb(std::optional<unsigned> length = std::nullopt);
  * faker::word::conjunction(6) // "indeed"
  * @endcode
  */
-std::string_view conjunction(std::optional<unsigned> length = std::nullopt);
+FAKER_CXX_EXPORT std::string_view conjunction(std::optional<unsigned> length = std::nullopt);
 
 /**
  * @brief Returns a random interjection.
@@ -93,7 +94,7 @@ std::string_view conjunction(std::optional<unsigned> length = std::nullopt);
  * faker::word::interjection(4) // "yuck"
  * @endcode
  */
-std::string_view interjection(std::optional<unsigned> length = std::nullopt);
+FAKER_CXX_EXPORT std::string_view interjection(std::optional<unsigned> length = std::nullopt);
 
 /**
  * @brief Returns a random noun.
@@ -108,7 +109,7 @@ std::string_view interjection(std::optional<unsigned> length = std::nullopt);
  * faker::word::noun(8) // "distance"
  * @endcode
  */
-std::string_view noun(std::optional<unsigned> length = std::nullopt);
+FAKER_CXX_EXPORT std::string_view noun(std::optional<unsigned> length = std::nullopt);
 
 /**
  * @brief Returns a random preposition.
@@ -123,7 +124,7 @@ std::string_view noun(std::optional<unsigned> length = std::nullopt);
  * faker::word::preposition(4) // "from"
  * @endcode
  */
-std::string_view preposition(std::optional<unsigned> length = std::nullopt);
+FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = std::nullopt);
 
 /**
  * @brief Returns a random verb.
@@ -138,5 +139,5 @@ std::string_view preposition(std::optional<unsigned> length = std::nullopt);
  * faker::word::verb(9) // "stabilise"
  * @endcode
  */
-std::string_view verb(std::optional<unsigned> length = std::nullopt);
+FAKER_CXX_EXPORT std::string_view verb(std::optional<unsigned> length = std::nullopt);
 }

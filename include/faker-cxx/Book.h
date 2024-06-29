@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::book
 {
@@ -13,7 +14,7 @@ namespace faker::book
  * faker::book::title() // "Romeo and Juliet"
  * @endcode
  */
-std::string_view title();
+FAKER_CXX_EXPORT std::string_view title();
 
 /**
  * @brief Returns a random book genre.
@@ -24,7 +25,7 @@ std::string_view title();
  * faker::book::genre() // "Fantasy"
  * @endcode
  */
-std::string_view genre();
+FAKER_CXX_EXPORT std::string_view genre();
 
 /**
  * @brief Returns a random book author.
@@ -35,7 +36,7 @@ std::string_view genre();
  * faker::book::author() // "William Shakespeare"
  * @endcode
  */
-std::string_view author();
+FAKER_CXX_EXPORT std::string_view author();
 
 /**
  * @brief Returns a random book publisher.
@@ -46,7 +47,7 @@ std::string_view author();
  * faker::book::publisher() // "Addison-Wesley"
  * @endcode
  */
-std::string_view publisher();
+FAKER_CXX_EXPORT std::string_view publisher();
 
 /**
  * @brief Returns format of book
@@ -57,7 +58,7 @@ std::string_view publisher();
  * faker::book::format() // "Paperback"
  * @endcode
  */
-std::string_view format();
+FAKER_CXX_EXPORT std::string_view format();
 
 /**
  * @brief returns a random book series
@@ -68,5 +69,5 @@ std::string_view format();
  * faker::book::series() // "Harry Potter"
  * @endcode
  */
-std::string_view series();
+FAKER_CXX_EXPORT std::string_view series();
 }

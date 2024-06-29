@@ -5,6 +5,7 @@
 #include <string>
 #include <string_view>
 
+#include "faker-cxx/Export.h"
 #include "types/Country.h"
 
 namespace faker::internet
@@ -31,7 +32,7 @@ enum class IPv4Class
     C
 };
 
-struct PasswordOptions
+struct FAKER_CXX_EXPORT PasswordOptions
 {
     bool upperLetters = true;
     bool lowerLetters = true;
@@ -54,7 +55,7 @@ struct PasswordOptions
      * faker::internet::username("Andrew", "Cieslar") // "Andrew.Cieslar"
      * @endcode
      */
-    std::string username(std::optional<std::string> firstName = std::nullopt,
+    FAKER_CXX_EXPORT std::string username(std::optional<std::string> firstName = std::nullopt,
                                 std::optional<std::string> lastName = std::nullopt, Country country = Country::Usa);
 
     /**
@@ -74,7 +75,7 @@ struct PasswordOptions
      * faker::internet::email(std::nullopt, std::nullopt, "example.com") // "Wright.Edna1973@code.com"
      * @endcode
      */
-    std::string email(std::optional<std::string> firstName = std::nullopt,
+    FAKER_CXX_EXPORT std::string email(std::optional<std::string> firstName = std::nullopt,
                              std::optional<std::string> lastName = std::nullopt,
                              std::optional<std::string> emailHost = std::nullopt);
 
@@ -90,7 +91,7 @@ struct PasswordOptions
      * faker::internet::exampleEmail() // "Jimenez.Clyde@example.com"
      * @endcode
      */
-    std::string exampleEmail(std::optional<std::string> firstName = std::nullopt,
+    FAKER_CXX_EXPORT std::string exampleEmail(std::optional<std::string> firstName = std::nullopt,
                                     std::optional<std::string> lastName = std::nullopt);
 
     /**
@@ -106,7 +107,7 @@ struct PasswordOptions
      * faker::internet::password(25) // "xv8vDu*wM!Rg0$zd0kH%8p!WY"
      * @endcode
      */
-    std::string password(int length = 15, const PasswordOptions& options = {});
+    FAKER_CXX_EXPORT std::string password(int length = 15, const PasswordOptions& options = {});
 
     enum class EmojiType
     {
@@ -134,7 +135,7 @@ struct PasswordOptions
      * faker::internet::emoji(EmojiType::Food) // "🍕"
      * @endcode
      */
-    std::string_view emoji(std::optional<EmojiType> type = std::nullopt);
+    FAKER_CXX_EXPORT std::string_view emoji(std::optional<EmojiType> type = std::nullopt);
 
     /**
      * @brief Verify that a given emoji is valid.
@@ -147,7 +148,7 @@ struct PasswordOptions
      * faker::internet::checkIfEmojiIsValid("👑") // true
      * @endcode
      */
-    bool checkIfEmojiIsValid(const std::string& emojiToCheck);
+    FAKER_CXX_EXPORT bool checkIfEmojiIsValid(const std::string& emojiToCheck);
 
     /**
      * @brief Returns a random web protocol. Either `http` or `https`.
@@ -158,7 +159,7 @@ struct PasswordOptions
      * faker::internet::protocol() // "https"
      * @endcode
      */
-    std::string_view protocol();
+    FAKER_CXX_EXPORT std::string_view protocol();
 
     /**
      * @brief Generates a random http method name.
@@ -169,7 +170,7 @@ struct PasswordOptions
      * faker::internet::httpMethod() // "POST"
      * @endcode
      */
-    std::string_view httpMethod();
+    FAKER_CXX_EXPORT std::string_view httpMethod();
 
     /**
      * @brief Returns a random http status code.
@@ -183,7 +184,7 @@ struct PasswordOptions
      * faker::internet::httpStatusCode(HttpStatusCodeType::success) // 201
      * @endcode
      */
-    unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::nullopt);
+    FAKER_CXX_EXPORT unsigned httpStatusCode(std::optional<HttpResponseType> responseType = std::nullopt);
 
     /**
      * @brief Generates a random http request header.
@@ -194,7 +195,7 @@ struct PasswordOptions
      * faker::internet::httpRequestHeader() // "Authorization"
      * @endcode
      */
-    std::string_view httpRequestHeader();
+    FAKER_CXX_EXPORT std::string_view httpRequestHeader();
 
     /**
      * @brief Generates a random http response header.
@@ -205,7 +206,7 @@ struct PasswordOptions
      * faker::internet::httpResponseHeader() // "Location"
      * @endcode
      */
-    std::string_view httpResponseHeader();
+    FAKER_CXX_EXPORT std::string_view httpResponseHeader();
 
     /**
      * @brief Generates a random http media type.
@@ -216,7 +217,7 @@ struct PasswordOptions
      * faker::internet::httpMediaType() // "application/json"
      * @endcode
      */
-    std::string_view httpMediaType();
+    FAKER_CXX_EXPORT std::string_view httpMediaType();
 
     /**
      * @brief Returns a string containing randomized ipv4 address of the given class.
@@ -230,7 +231,7 @@ struct PasswordOptions
      * faker::internet::ipv4(IPv4Class::classA) // "10.0.0.1"
      * @endcode
      */
-    std::string ipv4(const IPv4Class& ipv4class = IPv4Class::C);
+    FAKER_CXX_EXPORT std::string ipv4(const IPv4Class& ipv4class = IPv4Class::C);
 
     /**
      * @brief Returns a string containing randomized ipv4 address based on given base address and mask.
@@ -249,7 +250,7 @@ struct PasswordOptions
      * faker::internet::ipv4({255.255.128.0}, {129.168.255.0}) // "192.168.128.10"
      * @endcode
      */
-    std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
+    FAKER_CXX_EXPORT std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address,
                             const std::array<unsigned int, 4>& generationMask);
 
     /**
@@ -261,7 +262,7 @@ struct PasswordOptions
      * faker::internet::ipv6() // "269f:1230:73e3:318d:842b:daab:326d:897b"
      * @endcode
      */
-    std::string ipv6();
+    FAKER_CXX_EXPORT std::string ipv6();
 
     /**
      * @brief Returns a generated random mac address.
@@ -274,7 +275,7 @@ struct PasswordOptions
      * faker::internet::mac() // "2d:10:34:2f:ac:ac"
      * @endcode
      */
-    std::string mac(const std::string& sep = ":");
+    FAKER_CXX_EXPORT std::string mac(const std::string& sep = ":");
 
     /**
      * @brief Generates a random port.
@@ -285,7 +286,7 @@ struct PasswordOptions
      * faker::internet::port() // 5432
      * @endcode
      */
-    unsigned port();
+    FAKER_CXX_EXPORT unsigned port();
 
     /**
      * @brief Generates a random url.
@@ -298,7 +299,7 @@ struct PasswordOptions
      * faker::internet::url() // "https://slow-timer.info"
      * @endcode
      */
-    std::string url(const WebProtocol& webProtocol = WebProtocol::Https);
+    FAKER_CXX_EXPORT std::string url(const WebProtocol& webProtocol = WebProtocol::Https);
 
     /**
      * @brief Generates a random domain name.
@@ -309,7 +310,7 @@ struct PasswordOptions
      * faker::internet::domainName() // "slow-timer.info"
      * @endcode
      */
-    std::string domainName();
+    FAKER_CXX_EXPORT std::string domainName();
 
     /**
      * @brief Generates a random domain word.
@@ -320,7 +321,7 @@ struct PasswordOptions
      * faker::internet::domainWord() // "close-reality"
      * @endcode
      */
-    std::string domainWord();
+    FAKER_CXX_EXPORT std::string domainWord();
 
     /**
      * @brief Generates a random domain suffix.
@@ -331,7 +332,7 @@ struct PasswordOptions
      * faker::internet::domainSuffix() // "com"
      * @endcode
      */
-    std::string_view domainSuffix();
+    FAKER_CXX_EXPORT std::string_view domainSuffix();
 
     /**
      * @brief Generates a random username.
@@ -344,5 +345,5 @@ struct PasswordOptions
      * faker::internet::anonymousUsername() // "profusebrother", "richad", "powerfuldifferential"
      * @endcode
      */
-    std::string anonymousUsername(unsigned maxLength);
+    FAKER_CXX_EXPORT std::string anonymousUsername(unsigned maxLength);
 }

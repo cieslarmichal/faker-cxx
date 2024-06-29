@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::hacker
 {
@@ -13,7 +14,7 @@ namespace faker::hacker
      * faker::hacker::abbreviation() // "TCP"
      * @endcode
      */
-    std::string_view abbreviation();
+    FAKER_CXX_EXPORT std::string_view abbreviation();
 
     /**
      * @brief Returns a random adjective.
@@ -24,7 +25,7 @@ namespace faker::hacker
      * faker::hacker::adjective() // "open-source"
      * @endcode
      */
-    std::string_view adjective();
+    FAKER_CXX_EXPORT std::string_view adjective();
 
     /**
      * @brief Returns a random noun.
@@ -35,7 +36,7 @@ namespace faker::hacker
      * faker::hacker::noun() // "coder"
      * @endcode
      */
-    std::string_view noun();
+    FAKER_CXX_EXPORT std::string_view noun();
 
     /**
      * @brief Returns a random verb.
@@ -46,7 +47,7 @@ namespace faker::hacker
      * faker::hacker::verb() // "run"
      * @endcode
      */
-    std::string_view verb();
+    FAKER_CXX_EXPORT std::string_view verb();
 
     /**
      * @brief Returns a random ingverb.
@@ -57,7 +58,7 @@ namespace faker::hacker
      * faker::hacker::ingverb() // "backing up"
      * @endcode
      */
-    std::string_view ingverb();
+    FAKER_CXX_EXPORT std::string_view ingverb();
 
     /**
      * @brief Returns a random phrase.
@@ -68,5 +69,5 @@ namespace faker::hacker
      * faker::hacker::phrase() // "If we bypass the monitor, we can get to the TCP monitor through the neural EXE monitor!"
      * @endcode
      */
-    std::string phrase();
+    FAKER_CXX_EXPORT std::string phrase();
 }

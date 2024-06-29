@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
+
 
 namespace faker::videogame
 {
@@ -13,7 +15,7 @@ namespace faker::videogame
      * faker::videogame::gameTitle() // "Rayman Arena"
      * @endcode
      */
-    std::string_view gameTitle();
+    FAKER_CXX_EXPORT std::string_view gameTitle();
 
     /**
      * @brief Returns a random video game genre.
@@ -24,7 +26,7 @@ namespace faker::videogame
      * faker::videogame::genre() // "Platformer"
      * @endcode
      */
-    std::string_view genre();
+    FAKER_CXX_EXPORT std::string_view genre();
 
     /**
      * @brief Returns a random video game platform.
@@ -35,7 +37,7 @@ namespace faker::videogame
      * faker::videogame::platform() // "Playstation 5"
      * @endcode
      */
-    std::string_view platform();
+    FAKER_CXX_EXPORT std::string_view platform();
 
     /**
      * @brief Returns a random video game studio name.
@@ -46,5 +48,5 @@ namespace faker::videogame
      * faker::videogame::studioName() // "Activision Blizzard"
      * @endcode
      */
-    std::string_view studioName();
+    FAKER_CXX_EXPORT std::string_view studioName();
 }

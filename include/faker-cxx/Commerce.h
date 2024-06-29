@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::commerce
 {
@@ -13,7 +14,7 @@ namespace faker::commerce
  * faker::commerce::department() // "Books"
  * @endcode
  */
-std::string_view department();
+FAKER_CXX_EXPORT std::string_view department();
 
 /**
  * @brief Generates a random sku by default only with digits.
@@ -25,7 +26,7 @@ std::string_view department();
  * faker::commerce::sku(8) // "10512056"
  * @endcode
  */
-std::string sku(unsigned length = 4);
+FAKER_CXX_EXPORT std::string sku(unsigned length = 4);
 
 /**
  * @brief Returns a random product adjective.
@@ -36,7 +37,7 @@ std::string sku(unsigned length = 4);
  * faker::commerce::productAdjective() // "Handcrafted"
  * @endcode
  */
-std::string_view productAdjective();
+FAKER_CXX_EXPORT std::string_view productAdjective();
 
 /**
  * @brief Returns a random product material.
@@ -47,7 +48,7 @@ std::string_view productAdjective();
  * faker::commerce::productMaterial() // "Wooden"
  * @endcode
  */
-std::string_view productMaterial();
+FAKER_CXX_EXPORT std::string_view productMaterial();
 
 /**
  * @brief Returns a random product short name.
@@ -58,7 +59,7 @@ std::string_view productMaterial();
  * faker::commerce::productName() // "Computer"
  * @endcode
  */
-std::string_view productName();
+FAKER_CXX_EXPORT std::string_view productName();
 
 /**
  * @brief Returns a random product full name.
@@ -69,7 +70,7 @@ std::string_view productName();
  * faker::commerce::productFullName() // "Incredible Soft Gloves"
  * @endcode
  */
-std::string productFullName();
+FAKER_CXX_EXPORT std::string productFullName();
 
 /**
  * @brief Returns a random valid ean13 code.
@@ -80,7 +81,7 @@ std::string productFullName();
  * faker::commerce::EAN13() // "1234567890128"
  * @endcode
  */
-std::string EAN13();
+FAKER_CXX_EXPORT std::string EAN13();
 
 /**
  * @brief Returns a random valid ean8 code.
@@ -91,7 +92,7 @@ std::string EAN13();
  * faker::commerce::EAN8() // "90311017"
  * @endcode
  */
-std::string EAN8();
+FAKER_CXX_EXPORT std::string EAN8();
 
 /**
  * @brief Returns a random valid isbn13 code.
@@ -102,7 +103,7 @@ std::string EAN8();
  * faker::commerce::ISBN13() // "9781234567897"
  * @endcode
  */
-std::string ISBN13();
+FAKER_CXX_EXPORT std::string ISBN13();
 
 /**
  * @brief Returns a random valid ISBN10 code.
@@ -113,7 +114,7 @@ std::string ISBN13();
  * faker::commerce::ISBN10() // "0200716018"
  * @endcode
  */
-std::string ISBN10();
+FAKER_CXX_EXPORT std::string ISBN10();
 
 /**
  * @brief Returns a random payment type.
@@ -124,7 +125,7 @@ std::string ISBN10();
  * faker::commerce::paymentType() // "Credit Card"
  * @endcode
  */
-std::string_view paymentType();
+FAKER_CXX_EXPORT std::string_view paymentType();
 
 /**
  * @brief Returns a random payment provider.
@@ -135,7 +136,7 @@ std::string_view paymentType();
  * faker::commerce::paymentProvider() // "Paypal"
  * @endcode
  */
-std::string_view paymentProvider();
+FAKER_CXX_EXPORT std::string_view paymentProvider();
 
 /**
  * @brief Returns a random product description.
@@ -146,7 +147,7 @@ std::string_view paymentProvider();
  * faker::commerce::productDescription() // "Elevate your lifestyle with premium quality product."
  * @endcode
  */
-std::string_view productDescription();
+FAKER_CXX_EXPORT std::string_view productDescription();
 
 /**
  * @brief Returns a random product category.
@@ -157,7 +158,7 @@ std::string_view productDescription();
  * faker::commerce::productCategory() // "Electronics"
  * @endcode
  */
-std::string_view productCategory();
+FAKER_CXX_EXPORT std::string_view productCategory();
 
 /**
  * @brief Returns a random product review.
@@ -168,7 +169,7 @@ std::string_view productCategory();
  * faker::commerce::productReview() //  "Unfortunately, it broke shortly after I started using it."
  * @endcode
  */
-std::string_view productReview();
+FAKER_CXX_EXPORT std::string_view productReview();
 
 /**
  * @brief Returns a random discount type.
@@ -179,7 +180,7 @@ std::string_view productReview();
  * faker::commerce::discountType() // "percentage"
  * @endcode
  */
-std::string_view discountType();
+FAKER_CXX_EXPORT std::string_view discountType();
 
 /**
  * @brief Returns a random order status.
@@ -190,7 +191,7 @@ std::string_view discountType();
  * faker::commerce::orderStatus() // "shipped"
  * @endcode
  */
-std::string_view orderStatus();
+FAKER_CXX_EXPORT std::string_view orderStatus();
 
 /**
  * @brief Returns a random shipping carrier.
@@ -201,5 +202,5 @@ std::string_view orderStatus();
  * faker::commerce::shippingMethod() // "FedEx"
  * @endcode
  */
-std::string_view shippingCarrier();
+FAKER_CXX_EXPORT std::string_view shippingCarrier();
 }

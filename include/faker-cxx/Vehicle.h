@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string_view>
+#include "faker-cxx/Export.h"
 
 namespace faker::vehicle
 {
@@ -13,7 +14,7 @@ namespace faker::vehicle
      * faker::vehicle::bicycle() // "Electric bike"
      * @endcode
      */
-    std::string_view bicycle();
+    FAKER_CXX_EXPORT std::string_view bicycle();
 
     /**
      * @brief Returns a random vehicle color.
@@ -24,7 +25,7 @@ namespace faker::vehicle
      * faker::vehicle::color() // "Silver"
      * @endcode
      */
-    std::string_view color();
+    FAKER_CXX_EXPORT std::string_view color();
 
     /**
      * @brief Returns a random vehicle fuel.
@@ -35,7 +36,7 @@ namespace faker::vehicle
      * faker::vehicle::fuel() // "Diesel"
      * @endcode
      */
-    std::string_view fuel();
+    FAKER_CXX_EXPORT std::string_view fuel();
 
     /**
      * @brief Returns a random vehicle(car) manufacturer.
@@ -46,7 +47,7 @@ namespace faker::vehicle
      * faker::vehicle::manufacturer() // "Ferrari"
      * @endcode
      */
-    std::string_view manufacturer();
+    FAKER_CXX_EXPORT std::string_view manufacturer();
 
     /**
      * @brief Returns a random vehicle(car) model.
@@ -57,7 +58,7 @@ namespace faker::vehicle
      * faker::vehicle::model() // "Fiesta"
      * @endcode
      */
-    std::string_view model();
+    FAKER_CXX_EXPORT std::string_view model();
 
     /**
      * @brief Returns a random vehicle type.
@@ -68,7 +69,7 @@ namespace faker::vehicle
      * faker::vehicle::type() // "Van"
      * @endcode
      */
-    std::string_view type();
+    FAKER_CXX_EXPORT std::string_view type();
 
     /**
      * @brief Returns a random vehicle(car).
@@ -79,7 +80,7 @@ namespace faker::vehicle
      * faker::vehicle::vehicleName() // "BMW Explorer"
      * @endcode
      */
-    std::string vehicleName();
+    FAKER_CXX_EXPORT std::string vehicleName();
 
     /**
      * @brief Returns a vehicle identification number (VIN).
@@ -90,7 +91,7 @@ namespace faker::vehicle
      * faker::vehicle::vin() // "YV1MH682762184654"
      * @endcode
      */
-    std::string vin();
+    FAKER_CXX_EXPORT std::string vin();
 
     /**
      * @brief Returns a vehicle registration number (Vehicle Registration Mark - VRM).
@@ -101,5 +102,5 @@ namespace faker::vehicle
      * faker::vehicle::vrm() // "MF56UPA"
      * @endcode
      */
-    std::string vrm();
+    FAKER_CXX_EXPORT std::string vrm();
 }

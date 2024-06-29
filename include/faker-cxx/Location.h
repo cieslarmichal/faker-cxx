@@ -2,6 +2,7 @@
 
 #include <string_view>
 
+#include "faker-cxx/Export.h"
 #include "types/Precision.h"
 
 namespace faker::location
@@ -34,7 +35,7 @@ enum class AddressCountry
  * faker::location::country() // "Poland"
  * @endcode
  */
-std::string_view country();
+FAKER_CXX_EXPORT std::string_view country();
 
 /**
  * @brief Returns a random country code.
@@ -45,7 +46,7 @@ std::string_view country();
  * faker::location::countryCode() // "PL"
  * @endcode
  */
-std::string_view countryCode();
+FAKER_CXX_EXPORT std::string_view countryCode();
 
 /**
  * @brief Returns a random state for a given country.
@@ -58,7 +59,7 @@ std::string_view countryCode();
  * faker::location::state() // "Arizona"
  * @endcode
  */
-std::string_view state(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string_view state(AddressCountry country = AddressCountry::Usa);
 
 /**
  * @brief Returns a random city for given country.
@@ -71,7 +72,7 @@ std::string_view state(AddressCountry country = AddressCountry::Usa);
  * faker::location::city() // "Boston"
  * @endcode
  */
-std::string city(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string city(AddressCountry country = AddressCountry::Usa);
 
 /**
  * @brief Returns a random zip code for given country.
@@ -85,7 +86,7 @@ std::string city(AddressCountry country = AddressCountry::Usa);
  * faker::location::zipCode(Country::Poland) // "31-881"
  * @endcode
  */
-std::string zipCode(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string zipCode(AddressCountry country = AddressCountry::Usa);
 
 /**
  * @brief Returns a random street address for given country.
@@ -98,7 +99,7 @@ std::string zipCode(AddressCountry country = AddressCountry::Usa);
  * faker::location::streetAddress() // "34830 Erdman Hollow"
  * @endcode
  */
-std::string streetAddress(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string streetAddress(AddressCountry country = AddressCountry::Usa);
 
 /**
  * @brief Returns a random street for given country.
@@ -111,7 +112,7 @@ std::string streetAddress(AddressCountry country = AddressCountry::Usa);
  * faker::location::street() // "Schroeder Isle"
  * @endcode
  */
-std::string street(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string street(AddressCountry country = AddressCountry::Usa);
 
 /**
  * @brief Returns a random building number for given country.
@@ -124,7 +125,7 @@ std::string street(AddressCountry country = AddressCountry::Usa);
  * faker::location::buildingNumber() // "505"
  * @endcode
  */
-std::string buildingNumber(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string buildingNumber(AddressCountry country = AddressCountry::Usa);
 
 /**
  * @brief Returns a random secondary address number for given country.
@@ -138,7 +139,7 @@ std::string buildingNumber(AddressCountry country = AddressCountry::Usa);
  * faker::location::secondaryAddress() // "Apt. 861"
  * @endcode
  */
-std::string secondaryAddress(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string secondaryAddress(AddressCountry country = AddressCountry::Usa);
 
 /**
  * @brief Generates a random latitude.
@@ -151,7 +152,7 @@ std::string secondaryAddress(AddressCountry country = AddressCountry::Usa);
  * faker::location::latitude() // "-30.9501"
  * @endcode
  */
-std::string latitude(Precision precision = Precision::FourDp);
+FAKER_CXX_EXPORT std::string latitude(Precision precision = Precision::FourDp);
 
 /**
  * @brief Generates a random longitude.
@@ -164,7 +165,7 @@ std::string latitude(Precision precision = Precision::FourDp);
  * faker::location::longitude() // "-30.9501"
  * @endcode
  */
-std::string longitude(Precision precision = Precision::FourDp);
+FAKER_CXX_EXPORT std::string longitude(Precision precision = Precision::FourDp);
 
 /**
  * @brief Generates a random direction from cardinal and ordinal directions.
@@ -175,7 +176,7 @@ std::string longitude(Precision precision = Precision::FourDp);
  * faker::location::direction() // "North"
  * @endcode
  */
-std::string_view direction();
+FAKER_CXX_EXPORT std::string_view direction();
 
 /**
  * @brief Generates a random time zone.
@@ -186,5 +187,5 @@ std::string_view direction();
  * faker::location::timeZone() // "Europe/Warsaw"
  * @endcode
  */
-std::string_view timeZone();
+FAKER_CXX_EXPORT std::string_view timeZone();
 }

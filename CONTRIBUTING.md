@@ -107,31 +107,37 @@ Follow the steps below to build the project:
 
     ```sh
     cmake --list-presets
-    "unixlike-gcc-debug"     - gcc Debug
-    "unixlike-gcc-release"   - gcc Release
-    "unixlike-clang-debug"   - clang Debug
-    "unixlike-clang-release" - clang Release
-    "windows-msvc-release"   - msvc Release
-    "windows-msvc-release"   - msvc Debug
+    "unixlike-gcc-debug-static"     - Unixlike GCC Debug Static library
+    "unixlike-gcc-debug-shared"     - Unixlike GCC Debug Shared library
+    "unixlike-gcc-release-static"   - Unixlike GCC Release Static library
+    "unixlike-gcc-release-shared"   - Unixlike GCC Release Shared library
+    "unixlike-clang-debug-static"   - Unixlike Clang Debug Static library
+    "unixlike-clang-debug-shared"   - Unixlike Clang Debug Shared library
+    "unixlike-clang-release-static" - Unixlike Clang Release Static library
+    "unixlike-clang-release-shared" - Unixlike Clang Release Shared library
+    "windows-msvc-debug-static"     - Windows MSVC Debug Static library
+    "windows-msvc-debug-shared"     - Windows MSVC Debug Shared library
+    "windows-msvc-release-static"   - Windows MSVC Release Static library
+    "windows-msvc-release-shared"   - Windows MSVC Release Shared library
     ```
 
-   For instance, if you are in Ubuntu and want to build using GCC in Debug mode, you should use the
-   preset `unixlike-gcc-debug`. The `unixlike-clang-` preset should work for both Linux and macOS when using the CLang
+   For instance, if you are in Ubuntu and want to build using GCC in Debug mode and static library (faker-cxx.a), you should use the
+   preset `unixlike-gcc-debug=static`. The `unixlike-clang-` preset should work for both Linux and macOS when using the CLang
    compiler.
 
    The `-S .` option in the following command specifies the source directory:
 
     ```sh
-    cmake -S . --preset unixlike-gcc-debug
+    cmake -S . --preset unixlike-gcc-debug-static
     ```
 
 3. **Build the project:**
 
    The following command generates the build files and compiles the project using the settings specified in
-   the `unixlike-gcc-debug` preset:
+   the `unixlike-gcc-debug-static` preset:
 
     ```sh
-    cmake --build --preset unixlike-gcc-debug
+    cmake --build --preset unixlike-gcc-debug-static
     ```
 
 ### Testing the Project
@@ -142,8 +148,28 @@ tests. Follow the steps below to test the project:
 **1. Run the tests using the same preset:**
 
     ```sh
-    ctest --preset unixlike-gcc-debug
+    ctest --preset unixlike-gcc-debug-static
     ```
+
+### Installing the Project
+
+When wanting to install those generated artifacts like headers files and library, you can use CMake to operate as installer as well:
+
+   ```sh
+      cmake --build --preset unixlike-gcc-debug-static --target install
+   ```
+
+By default, CMake will install in the subfolder `install` in the source folder.
+
+In order to change the installation folder, you can use [CMAKE_INSTALL_PREFIX](https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html) to configure the destination folder:
+
+   ```sh
+      cmake -S . --preset unixlike-gcc-debug-static -DCMAKE_INSTALL_PREFIX=/opt/faker-cxx
+      cmake --build --preset unixlike-gcc-debug-static --target install
+   ```
+
+This configuration will install all artifacts in `/opt/faker-cxx`. The permission to write in the folder should be granted before executing the installation command.
+
 
 ## Submitting Changes
 
@@ -186,7 +212,7 @@ PR titles are written in following convention: `type: subject`
 
 **type** is required and indicates the intent of the PR
 
-> The types `feat` and `fix` will be shown in the changelog as `### Features` or `### Bug Fixes`  
+> The types `feat` and `fix` will be shown in the changelog as `### Features` or `### Bug Fixes`
 
 Allowed types are:
 
