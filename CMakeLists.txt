@@ -89,6 +89,11 @@ configure_compiler_warnings(${CMAKE_PROJECT_NAME}
     "${CLANG_WARNINGS}"
     "${GCC_WARNINGS}")
 
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Version.h.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/include/faker-cxx/Version.h"
+)
+
 include(GenerateExportHeader)
 generate_export_header(${CMAKE_PROJECT_NAME} BASE_NAME FAKER_CXX EXPORT_FILE_NAME ${CMAKE_CURRENT_BINARY_DIR}/include/faker-cxx/Export.h)
 set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
