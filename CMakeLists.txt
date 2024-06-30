@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22)
-project(faker-cxx LANGUAGES CXX)
+project(faker-cxx LANGUAGES CXX VERSION 2.0.0)
 
 include(cmake/CompilerWarnings.cmake)
 
@@ -94,6 +94,8 @@ generate_export_header(${CMAKE_PROJECT_NAME} BASE_NAME FAKER_CXX EXPORT_FILE_NAM
 set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
     CXX_VISIBILITY_PRESET hidden
     CMAKE_VISIBILITY_INLINES_HIDDEN 1
+    VERSION ${PROJECT_VERSION}
+    SOVERSION ${PROJECT_VERSION_MAJOR}
 )
 
 target_include_directories(
@@ -102,7 +104,13 @@ target_include_directories(
     PRIVATE ${CMAKE_CURRENT_BINARY_DIR}/include
 )
 
+include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)
+
+write_basic_package_version_file(${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMajorVersion)
+
 install(TARGETS ${CMAKE_PROJECT_NAME}
     EXPORT ${CMAKE_PROJECT_NAME}-targets
     ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
@@ -121,10 +129,15 @@ install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include/faker-cxx
     PATTERN "*.h"
 )
 
+install(FILES
+    "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake"
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${CMAKE_PROJECT_NAME}
+)
+
 install(EXPORT ${CMAKE_PROJECT_NAME}-targets
     NAMESPACE ${CMAKE_PROJECT_NAME}::
     FILE ${CMAKE_PROJECT_NAME}-config.cmake
-    DESTINATION lib/cmake/${CMAKE_PROJECT_NAME})
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${CMAKE_PROJECT_NAME})
 
 if (USE_STD_FORMAT)
     target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE USE_STD_FORMAT)
