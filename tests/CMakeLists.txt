@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.22)
 project(${CMAKE_PROJECT_NAME}-UT CXX)
 
 include(CTest)
+include(GoogleTest)
 include("${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake")
 
 set(FAKER_UT_SOURCES
@@ -40,6 +41,7 @@ set(FAKER_UT_SOURCES
     modules/string/StringTest.cpp
     modules/system/SystemTest.cpp
     modules/vehicle/VehicleTest.cpp
+    modules/version/VersionTest.cpp
     modules/videoGame/VideoGameTest.cpp
     modules/weather/WeatherTest.cpp
     modules/word/WordTest.cpp
@@ -83,3 +85,5 @@ set_tests_properties(${PROJECT_NAME} PROPERTIES ENVIRONMENT_MODIFICATION
                      "PATH=path_list_prepend:$<$<BOOL:${WIN32}>:$<TARGET_FILE_DIR:faker-cxx>>")
 
 target_code_coverage(${PROJECT_NAME} ALL)
+
+gtest_discover_tests(${PROJECT_NAME})
