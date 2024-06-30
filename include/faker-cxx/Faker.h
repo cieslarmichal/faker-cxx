@@ -34,6 +34,7 @@
 #include "faker-cxx/String.h"
 #include "faker-cxx/System.h"
 #include "faker-cxx/Vehicle.h"
+#include "faker-cxx/Version.h"
 #include "faker-cxx/VideoGame.h"
 #include "faker-cxx/Weather.h"
 #include "faker-cxx/Word.h"

@@ -10,10 +10,23 @@ genrule(
     """,
 )
 
+genrule(
+    name = "generate_version_header",
+    srcs = [],
+    outs = ["include/faker-cxx/Version.h"],
+    cmd = """
+        echo "#pragma once" > $@
+        echo '#define FAKER_CXX_VERSION_MAJOR 2' >> $@
+        echo '#define FAKER_CXX_VERSION_MINOR 0' >> $@
+        echo '#define FAKER_CXX_VERSION_PATCH 0' >> $@
+        echo '#define FAKER_CXX_VERSION "2.0.0"' >> $@
+    """,
+)
+
 cc_library(
     name = "faker-cxx",
     srcs = glob(["src/**/*.cpp"]),
-    hdrs = glob(["src/**/*.h", "include/**/*.h"]) + [":generate_export_header"],
+    hdrs = glob(["src/**/*.h", "include/**/*.h"]) + [":generate_export_header"] + [":generate_version_header"],
     includes = ["include", "src"],
     visibility = ["//visibility:public"],
     deps = ["@fmt//:fmt"],
