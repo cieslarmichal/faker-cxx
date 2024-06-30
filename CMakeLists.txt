@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.22)
-project(faker-cxx LANGUAGES CXX VERSION 2.0.0)
+project(faker-cxx
+        LANGUAGES CXX
+        VERSION 2.0.0
+        DESCRIPTION "C++ Faker library for generating fake (but realistic) data."
+        HOMEPAGE_URL "https://github.com/cieslarmichal/faker-cxx")
 
 include(cmake/CompilerWarnings.cmake)
 
@@ -92,6 +96,7 @@ configure_compiler_warnings(${CMAKE_PROJECT_NAME}
 configure_file(
     "${CMAKE_CURRENT_SOURCE_DIR}/cmake/Version.h.in"
     "${CMAKE_CURRENT_BINARY_DIR}/include/faker-cxx/Version.h"
+    @ONLY
 )
 
 include(GenerateExportHeader)
@@ -111,6 +116,12 @@ target_include_directories(
 
 include(CMakePackageConfigHelpers)
 include(GNUInstallDirs)
+
+configure_file(
+    "${CMAKE_CURRENT_SOURCE_DIR}/cmake/${PROJECT_NAME}.pc.in"
+    "${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.pc"
+    @ONLY
+)
 
 write_basic_package_version_file(${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
     VERSION ${PROJECT_VERSION}
@@ -134,15 +145,20 @@ install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/include/faker-cxx
     PATTERN "*.h"
 )
 
+install(FILES "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}.pc"
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
+)
+
 install(FILES
     "${CMAKE_CURRENT_BINARY_DIR}/${CMAKE_PROJECT_NAME}ConfigVersion.cmake"
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${CMAKE_PROJECT_NAME}
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
 )
 
 install(EXPORT ${CMAKE_PROJECT_NAME}-targets
     NAMESPACE ${CMAKE_PROJECT_NAME}::
     FILE ${CMAKE_PROJECT_NAME}-config.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/${CMAKE_PROJECT_NAME})
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
+)
 
 if (USE_STD_FORMAT)
     target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE USE_STD_FORMAT)
