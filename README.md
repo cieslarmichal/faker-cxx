@@ -16,12 +16,12 @@
 ## Table of Contents
 
 - [🎯 Goal](#-goal)
-- [Usage and Documentation](#usage-and-documentation)
+- [📖 Usage and Documentation](#usage-and-documentation)
 - [💎 Modules](#-modules)
 - [Consuming library with CMake](#consuming-library-with-cmake-cmake-322-or-newer)
-- [Compiler support](#compiler-support)
+- [⚒️ Compiler support](#compiler-support)
 - [Dependencies](#dependencies)
-- [Building the library with Conan](#building-the-library-with-conan)
+- [📦 Building the library with Conan](#building-the-library-with-conan)
 - [✨ Contributing](#-contributing)
 - [📘 Credits](#-credits)
 - [Examples](#examples)
@@ -34,11 +34,12 @@ The goal of Faker C++ is to provide a library similar to [Faker.js](https://gith
 community. Faker C++ helps with the creation of realistic and customizable fake data for testing and development
 purposes within C++ applications.
 
-## Usage and Documentation
+## 📖 Usage and Documentation
 
 To properly use Faker C++ you must first consume the Faker library (see Consuming Library with CMake).
-Once that is done, you need to include the proper [header](https://cieslarmichal.github.io/faker-cxx/files.html) file depending on the module you wish to generate data from or
-use general include file `faker-cxx/Faker.h`.
+Once that is done, you need to include the proper [header](https://cieslarmichal.github.io/faker-cxx/files.html) file
+depending on the module you wish to generate data from or use general include file `faker-cxx/Faker.h`.
+All the docs can be found [here](https://cieslarmichal.github.io/faker-cxx/).
 
 Below is an example of how to use Faker C++ in your code.
 
@@ -129,7 +130,7 @@ int main()
     target_link_libraries(main faker-cxx)
     ```
 
-## Compiler support
+## ⚒️ Compiler support
 
 - [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
 - [GCC➚](https://gcc.gnu.org/) version 12 or newer.
@@ -144,7 +145,7 @@ int main()
 In order to use external dependencies installed in your system, you can set the `USE_SYSTEM_DEPENDENCIES` CMake flag
 to `ON`.
 
-## Building the library with [Conan](https://conan.io/)
+## 📦 Building the library with [Conan](https://conan.io/)
 
 The library can be built using Conan package manager to solve external dependencies.
 To build the library with Conan, follow the steps below:
@@ -171,7 +172,8 @@ conan install --requires="faker-cxx/[*]" --build=missing
 ```
 
 The faker-cxx Conan recipe is kept up to date by Conan maintainers and community contributors.
-If the version is out of date, please [create an issue or pull request](https://github.com/conan-io/conan-center-index) on the ConanCenterIndex repository.
+If the version is out of date, please [create an issue or pull request](https://github.com/conan-io/conan-center-index)
+on the ConanCenterIndex repository.
 
 ## ✨ Contributing
 
