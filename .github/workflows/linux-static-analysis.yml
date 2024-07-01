@@ -91,6 +91,11 @@ jobs:
           && llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt \
           && llvm-cov-18 report `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata
 
+      - name: Code coverage
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+
       - name: Store build artifacts
         uses: actions/upload-artifact@v4
         with:
