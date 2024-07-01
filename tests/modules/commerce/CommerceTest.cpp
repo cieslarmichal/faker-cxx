@@ -60,7 +60,7 @@ TEST_F(CommerceTest, shouldGenerateProductFullName)
 {
     const auto generatedProductFullName = productFullName();
 
-    const auto productFullNameElements = StringHelper::split(generatedProductFullName, " ");
+    const auto productFullNameElements = common::StringHelper::split(generatedProductFullName, " ");
 
     const auto& generatedProductAdjective = productFullNameElements[0];
     const auto& generatedProductMaterial = productFullNameElements[1];

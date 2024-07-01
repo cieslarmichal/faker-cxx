@@ -147,7 +147,7 @@ TEST_P(LocationTest, shouldGenerateCity)
 
     if (country == location::AddressCountry::Brazil)
     {
-        const auto generatedCityElements = StringHelper::split(generatedCity, " ");
+        const auto generatedCityElements = common::StringHelper::split(generatedCity, " ");
 
         const auto& generatedCityPrefix = generatedCityElements[0];
 
@@ -269,7 +269,7 @@ TEST_F(LocationTest, shouldGenerateUsaStreet)
 {
     const auto generatedStreet = street();
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = common::StringHelper::split(generatedStreet, " ");
 
     const auto& generatedFirstOrLastName = generatedStreetElements[0];
     const auto& generatedStreetSuffix = generatedStreetElements[1];
@@ -292,7 +292,7 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress();
 
-    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+    const auto generatedStreetAddressElements = common::StringHelper::split(generatedStreetAddress, " ");
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedFirstOrLastName = generatedStreetAddressElements[1];
@@ -318,11 +318,11 @@ TEST_F(LocationTest, shouldGeneratePolandStreet)
 {
     const auto generatedStreet = street(AddressCountry::Poland);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = common::StringHelper::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetName =
-        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        common::StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     ASSERT_TRUE(std::ranges::any_of(polandStreetPrefixes, [&generatedStreetPrefix](const std::string_view& streetPrefix)
                                     { return streetPrefix == generatedStreetPrefix; }));
@@ -344,11 +344,11 @@ TEST_F(LocationTest, shouldGenerateRussiaStreet)
 {
     const auto generatedStreet = street(AddressCountry::Russia);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = common::StringHelper::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix =
-        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        common::StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     std::vector<std::string_view> firstNames(person::russianMaleFirstNames.begin(),
                                              person::russianMaleFirstNames.end());
@@ -392,11 +392,11 @@ TEST_F(LocationTest, shouldGenerateFranceStreet)
 {
     const auto generatedStreet = street(AddressCountry::France);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = common::StringHelper::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix =
-        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        common::StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     ASSERT_GE(generatedStreetElements.size(), 2);
     ASSERT_TRUE(std::ranges::any_of(franceStreetPrefixes, [&generatedStreetPrefix](const std::string_view& streetPrefix)
@@ -409,12 +409,12 @@ TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(AddressCountry::France);
 
-    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+    const auto generatedStreetAddressElements = common::StringHelper::split(generatedStreetAddress, " ");
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedStreetPrefix = generatedStreetAddressElements[1];
     const auto& generatedStreetSuffix =
-        StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
+        common::StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
 
     ASSERT_GE(generatedStreetAddressElements.size(), 3);
     ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 4);
@@ -448,7 +448,7 @@ TEST_F(LocationTest, shouldGenerateLatitude)
     auto offset = generatedLatitude.size();
     const auto latitudeAsFloat = std::stof(generatedLatitude, &offset);
 
-    const auto generatedLatitudeParts = StringHelper::split(generatedLatitude, ".");
+    const auto generatedLatitudeParts = common::StringHelper::split(generatedLatitude, ".");
 
     ASSERT_EQ(generatedLatitudeParts.size(), 2);
     ASSERT_EQ(generatedLatitudeParts[1].size(), 4);
@@ -463,7 +463,7 @@ TEST_F(LocationTest, shouldGenerateLatitudeWithSpecifiedPrecision)
     auto offset = generatedLatitude.size();
     const auto latitudeAsFloat = std::stof(generatedLatitude, &offset);
 
-    const auto generatedLatitudeParts = StringHelper::split(generatedLatitude, ".");
+    const auto generatedLatitudeParts = common::StringHelper::split(generatedLatitude, ".");
 
     ASSERT_EQ(generatedLatitudeParts.size(), 2);
     ASSERT_EQ(generatedLatitudeParts[1].size(), 3);
@@ -478,7 +478,7 @@ TEST_F(LocationTest, shouldGenerateLongitude)
     auto offset = generatedLongitude.size();
     const auto longitudeAsFloat = std::stof(generatedLongitude, &offset);
 
-    const auto generatedLongitudeParts = StringHelper::split(generatedLongitude, ".");
+    const auto generatedLongitudeParts = common::StringHelper::split(generatedLongitude, ".");
 
     ASSERT_EQ(generatedLongitudeParts.size(), 2);
     ASSERT_EQ(generatedLongitudeParts[1].size(), 4);
@@ -493,7 +493,7 @@ TEST_F(LocationTest, shouldGenerateLongitudeWithSpecifiedPrecision)
     auto offset = generatedLongitude.size();
     const auto longitudeAsFloat = std::stof(generatedLongitude, &offset);
 
-    const auto generatedLongitudeParts = StringHelper::split(generatedLongitude, ".");
+    const auto generatedLongitudeParts = common::StringHelper::split(generatedLongitude, ".");
 
     ASSERT_EQ(generatedLongitudeParts.size(), 2);
     ASSERT_EQ(generatedLongitudeParts[1].size(), 6);
@@ -521,11 +521,11 @@ TEST_F(LocationTest, shouldGenerateUkraineStreet)
 {
     const auto generatedStreet = street(AddressCountry::Ukraine);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = common::StringHelper::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix =
-        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        common::StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     ASSERT_TRUE(std::ranges::any_of(ukraineStreetPrefixes,
                                     [&generatedStreetPrefix](const std::string_view& streetPrefix)
@@ -578,11 +578,11 @@ TEST_F(LocationTest, shouldGenerateItalyStreet)
 {
     const auto generatedStreet = street(AddressCountry::Italy);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = common::StringHelper::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix =
-        StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+        common::StringHelper::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
     ASSERT_TRUE(std::ranges::any_of(italyStreetPrefixes, [&generatedStreetPrefix](const std::string_view& streetPrefix)
                                     { return streetPrefix == generatedStreetPrefix; }));
@@ -668,11 +668,11 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(AddressCountry::Australia);
 
-    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+    const auto generatedStreetAddressElements = common::StringHelper::split(generatedStreetAddress, " ");
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedStreetSuffix =
-        StringHelper::join({generatedStreetAddressElements.begin() + 1, generatedStreetAddressElements.end()});
+        common::StringHelper::join({generatedStreetAddressElements.begin() + 1, generatedStreetAddressElements.end()});
 
     std::vector<std::string_view> firstNames(person::australianMaleFirstNames.begin(),
                                              person::australianMaleFirstNames.end());
@@ -695,11 +695,11 @@ TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(AddressCountry::India);
 
-    const auto generatedStreetAddressElements = StringHelper::split(generatedStreetAddress, " ");
+    const auto generatedStreetAddressElements = common::StringHelper::split(generatedStreetAddress, " ");
 
     const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
     const auto& generatedStreetSuffix =
-        StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
+        common::StringHelper::join({generatedStreetAddressElements.begin() + 2, generatedStreetAddressElements.end()});
 
     ASSERT_GE(generatedStreetAddressElements.size(), 3);
     ASSERT_TRUE(!generatedBuildingNumber.empty());
@@ -762,7 +762,7 @@ TEST_F(LocationTest, shouldGenerateFinlandStreet)
 {
     const auto generatedStreet = street(AddressCountry::Finland);
 
-    const auto generatedStreetElements = StringHelper::split(generatedStreet, " ");
+    const auto generatedStreetElements = common::StringHelper::split(generatedStreet, " ");
 
     const auto& generatedStreetPrefix = generatedStreetElements[0];
     const auto& generatedStreetSuffix = generatedStreetElements[1];

@@ -5,9 +5,9 @@
 #include <string>
 #include <vector>
 
-namespace faker
+namespace faker::common::StringHelper
 {
-std::vector<std::string> StringHelper::split(const std::string& data, const std::string& separator)
+std::vector<std::string> split(const std::string& data, const std::string& separator)
 {
     size_t positionStart = 0;
     size_t positionEnd;
@@ -28,7 +28,7 @@ std::vector<std::string> StringHelper::split(const std::string& data, const std:
     return result;
 }
 
-std::string StringHelper::joinString(const std::vector<std::string>& data, const std::string& separator)
+std::string joinString(const std::vector<std::string>& data, const std::string& separator)
 {
     switch (data.size())
     {
@@ -51,7 +51,7 @@ std::string StringHelper::joinString(const std::vector<std::string>& data, const
     }
 }
 
-std::string StringHelper::join(const std::vector<std::string_view>& data, const std::string& separator)
+std::string join(const std::vector<std::string_view>& data, const std::string& separator)
 {
     switch (data.size())
     {
@@ -74,7 +74,7 @@ std::string StringHelper::join(const std::vector<std::string_view>& data, const 
     }
 }
 
-std::string StringHelper::repeat(const std::string& data, int repetition)
+std::string repeat(const std::string& data, int repetition)
 {
     std::string result;
 
@@ -88,7 +88,7 @@ std::string StringHelper::repeat(const std::string& data, int repetition)
     return result;
 }
 
-std::string StringHelper::toLower(const std::string& data)
+std::string toLower(const std::string& data)
 {
     std::string lowerData{data};
 
@@ -97,12 +97,12 @@ std::string StringHelper::toLower(const std::string& data)
     return lowerData;
 }
 
-bool StringHelper::isPunctuation(char c)
+bool isPunctuation(char c)
 {
     return (c == '.' || c == ',' || c == '!' || c == '?' || c == ';' || c == ':');
 }
 
-std::string StringHelper::removePunctuation(const std::string& word)
+std::string removePunctuation(const std::string& word)
 {
     std::string result{word};
 

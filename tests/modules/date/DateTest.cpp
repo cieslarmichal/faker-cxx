@@ -335,7 +335,7 @@ TEST_F(DateTest, shouldGenerateRandomTimezone)
 TEST_F(DateTest, shouldGenerateRandomTime)
 {
     const auto generatedTime = time();
-    const auto generatedTimeParts = StringHelper::split(generatedTime, ":");
+    const auto generatedTimeParts = common::StringHelper::split(generatedTime, ":");
 
     ASSERT_EQ(generatedTimeParts.size(), 2);
 

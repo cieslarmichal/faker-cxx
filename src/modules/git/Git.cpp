@@ -36,17 +36,17 @@ std::string commitDate(unsigned years)
 {
     const auto date = faker::date::pastDate(int(years));
 
-    const auto dateSplit = StringHelper::split(date, "-");
+    const auto dateSplit = common::StringHelper::split(date, "-");
 
     const auto& year = dateSplit[0];
     const auto& month = dateSplit[1];
     const auto& rest = dateSplit[2];
 
-    const auto restSplit = StringHelper::split(rest, "T");
+    const auto restSplit = common::StringHelper::split(rest, "T");
 
     const auto& day = restSplit[0];
 
-    const auto time = StringHelper::split(restSplit[1], "Z")[0];
+    const auto time = common::StringHelper::split(restSplit[1], "Z")[0];
 
     int timeZone = number::integer(0, 12);
 

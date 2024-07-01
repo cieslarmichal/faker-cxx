@@ -45,7 +45,7 @@ constexpr unsigned int classCSecondSection = 168u;
 
 std::array<unsigned int, 4> deconstructIpv4String(const std::string& ipv4)
 {
-    const auto ipParts = StringHelper::split(ipv4, ".");
+    const auto ipParts = common::StringHelper::split(ipv4, ".");
 
     std::array<unsigned int, 4> result{static_cast<unsigned>(stoi(ipParts[0])), static_cast<unsigned>(stoi(ipParts[1])),
                                        static_cast<unsigned>(stoi(ipParts[2])),
@@ -172,7 +172,7 @@ TEST_F(InternetTest, shouldGenerateEmail)
 
     const auto generatedEmail = email();
 
-    const auto emailParts = StringHelper::split(generatedEmail, "@");
+    const auto emailParts = common::StringHelper::split(generatedEmail, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -193,7 +193,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
 
     const auto generatedEmail = email(firstName);
 
-    const auto emailParts = StringHelper::split(generatedEmail, "@");
+    const auto emailParts = common::StringHelper::split(generatedEmail, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -217,7 +217,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 
     const auto generatedEmail = email(std::nullopt, lastName);
 
-    const auto emailParts = StringHelper::split(generatedEmail, "@");
+    const auto emailParts = common::StringHelper::split(generatedEmail, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -239,7 +239,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 
     const auto generatedEmail = email(firstName, lastName);
 
-    const auto emailParts = StringHelper::split(generatedEmail, "@");
+    const auto emailParts = common::StringHelper::split(generatedEmail, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -262,7 +262,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
 
     const auto generatedEmail = email(std::nullopt, std::nullopt, emailHost);
 
-    const auto emailParts = StringHelper::split(generatedEmail, "@");
+    const auto emailParts = common::StringHelper::split(generatedEmail, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -284,7 +284,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmail)
 
     const auto email = exampleEmail();
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = common::StringHelper::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -305,7 +305,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
 
     const auto email = exampleEmail(firstName);
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = common::StringHelper::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -329,7 +329,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 
     const auto email = exampleEmail(std::nullopt, lastName);
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = common::StringHelper::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -351,7 +351,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 
     const auto email = exampleEmail(firstName, lastName);
 
-    const auto emailParts = StringHelper::split(email, "@");
+    const auto emailParts = common::StringHelper::split(email, "@");
 
     ASSERT_EQ(emailParts.size(), 2);
 
@@ -629,7 +629,7 @@ TEST_F(InternetTest, shouldGenerateIpv6)
 {
     const auto generatedIpv6 = ipv6();
 
-    const auto generatedIpv6Parts = StringHelper::split(generatedIpv6, ":");
+    const auto generatedIpv6Parts = common::StringHelper::split(generatedIpv6, ":");
 
     ASSERT_EQ(generatedIpv6Parts.size(), 8);
 
@@ -680,7 +680,7 @@ TEST_F(InternetTest, shouldGenerateDomainName)
 {
     const auto generatedDomainName = domainName();
 
-    const auto generatedDomainNameParts = StringHelper::split(generatedDomainName, ".");
+    const auto generatedDomainNameParts = common::StringHelper::split(generatedDomainName, ".");
 
     const auto& generatedDomainWord = generatedDomainNameParts[0];
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
@@ -694,12 +694,12 @@ TEST_F(InternetTest, shouldGenerateHttpsUrl)
 {
     const auto generatedUrl = url();
 
-    const auto generatedUrlParts = StringHelper::split(generatedUrl, "://");
+    const auto generatedUrlParts = common::StringHelper::split(generatedUrl, "://");
 
     const auto& generatedProtocol = generatedUrlParts[0];
     const auto& generatedDomainName = generatedUrlParts[1];
 
-    const auto generatedDomainNameParts = StringHelper::split(generatedDomainName, ".");
+    const auto generatedDomainNameParts = common::StringHelper::split(generatedDomainName, ".");
 
     const auto& generatedDomainWord = generatedDomainNameParts[0];
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
@@ -714,12 +714,12 @@ TEST_F(InternetTest, shouldGenerateHttpUrl)
 {
     const auto generatedUrl = url(WebProtocol::Http);
 
-    const auto generatedUrlParts = StringHelper::split(generatedUrl, "://");
+    const auto generatedUrlParts = common::StringHelper::split(generatedUrl, "://");
 
     const auto& generatedProtocol = generatedUrlParts[0];
     const auto& generatedDomainName = generatedUrlParts[1];
 
-    const auto generatedDomainNameParts = StringHelper::split(generatedDomainName, ".");
+    const auto generatedDomainNameParts = common::StringHelper::split(generatedDomainName, ".");
 
     const auto& generatedDomainWord = generatedDomainNameParts[0];
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];

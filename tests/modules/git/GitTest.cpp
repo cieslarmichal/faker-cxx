@@ -41,7 +41,7 @@ std::string GitTest::generateShaRegex()
 TEST_F(GitTest, shouldGenerateBranch)
 {
     const auto generatedBranch = branch();
-    const auto branchSplit = StringHelper::split(generatedBranch, "-").size();
+    const auto branchSplit = common::StringHelper::split(generatedBranch, "-").size();
 
     ASSERT_TRUE(2 <= branchSplit && branchSplit <= 7);
 }
@@ -50,7 +50,7 @@ TEST_F(GitTest, branchIssueNumTest)
 {
     auto testValue = unsigned(number::integer(2, 100));
 
-    std::vector<std::string> branchElements = StringHelper::split(branch(testValue), "-");
+    std::vector<std::string> branchElements = common::StringHelper::split(branch(testValue), "-");
 
     bool numberAtFront = false;
 
@@ -58,7 +58,7 @@ TEST_F(GitTest, branchIssueNumTest)
 
     while (!numberAtFront)
     {
-        branchElements = StringHelper::split(branch(testValue), "-");
+        branchElements = common::StringHelper::split(branch(testValue), "-");
 
         try
         {

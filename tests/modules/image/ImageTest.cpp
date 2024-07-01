@@ -62,7 +62,7 @@ TEST_F(ImageTest, shouldGenerateDimensions)
 {
     const auto generatedDimensions = dimensions();
 
-    const auto split_dimensions = StringHelper::split(generatedDimensions, "x");
+    const auto split_dimensions = common::StringHelper::split(generatedDimensions, "x");
 
     const auto width_dimension = std::stoi(split_dimensions[0]);
 

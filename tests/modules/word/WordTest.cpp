@@ -10,6 +10,7 @@
 #include "word/WordData.h"
 
 using namespace faker::word;
+using namespace faker;
 using namespace ::testing;
 
 class WordTest : public Test
@@ -213,7 +214,7 @@ TEST_F(WordTest, shouldGenerateWords)
 {
     const auto generatedWords = words(5);
 
-    const auto separatedWords = faker::StringHelper::split(generatedWords, " ");
+    const auto separatedWords = common::StringHelper::split(generatedWords, " ");
 
     ASSERT_TRUE(std::ranges::all_of(separatedWords, [](const std::string& separatedWord)
                                     { return std::ranges::find(_allWords, separatedWord) != _allWords.end(); }));

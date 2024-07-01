@@ -14,7 +14,7 @@ public:
 
 TEST_F(StringHelperTest, splitStringBySpace)
 {
-    const auto result = StringHelper::split("faker cxx open source");
+    const auto result = common::StringHelper::split("faker cxx open source");
 
     ASSERT_EQ(result.size(), 4);
     ASSERT_EQ(result[0], "faker");
@@ -25,7 +25,7 @@ TEST_F(StringHelperTest, splitStringBySpace)
 
 TEST_F(StringHelperTest, splitStringByNewLine)
 {
-    const auto result = StringHelper::split("faker\ncxx\nopen\nsource", "\n");
+    const auto result = common::StringHelper::split("faker\ncxx\nopen\nsource", "\n");
 
     ASSERT_EQ(result.size(), 4);
     ASSERT_EQ(result[0], "faker");
@@ -38,7 +38,7 @@ TEST_F(StringHelperTest, joinStringViewsIntoVectorBySpace)
 {
     const std::vector<std::string_view> input{"Join", "faker", "development!"};
 
-    const auto result = StringHelper::join(input);
+    const auto result = common::StringHelper::join(input);
 
     ASSERT_EQ(result, "Join faker development!");
 }
@@ -47,7 +47,7 @@ TEST_F(StringHelperTest, joinStringViewsIntoVectorByNewLine)
 {
     const std::vector<std::string_view> input{"Join", "faker", "development!"};
 
-    const auto result = StringHelper::join(input, "\n");
+    const auto result = common::StringHelper::join(input, "\n");
 
     ASSERT_EQ(result, "Join\nfaker\ndevelopment!");
 }
@@ -56,7 +56,7 @@ TEST_F(StringHelperTest, joinStringsIntoVectorBySpace)
 {
     const std::vector<std::string> input{"Join", "faker", "development!"};
 
-    const auto result = StringHelper::joinString(input);
+    const auto result = common::StringHelper::joinString(input);
 
     ASSERT_EQ(result, "Join faker development!");
 }
@@ -65,7 +65,7 @@ TEST_F(StringHelperTest, joinStringsIntoVectorByNewLine)
 {
     const std::vector<std::string> input{"Join", "faker", "development!"};
 
-    const auto result = StringHelper::joinString(input, "\n");
+    const auto result = common::StringHelper::joinString(input, "\n");
 
     ASSERT_EQ(result, "Join\nfaker\ndevelopment!");
 }
@@ -75,7 +75,7 @@ TEST_F(StringHelperTest, repeatString)
     const std::string data = "hello ";
     const int repetition = 3;
 
-    const std::string result = StringHelper::repeat(data, repetition);
+    const std::string result = common::StringHelper::repeat(data, repetition);
 
     ASSERT_EQ(result, "hello hello hello ");
 }
@@ -84,7 +84,7 @@ TEST_F(StringHelperTest, toLower)
 {
     const std::string data = "HeLlo!";
 
-    const std::string result = StringHelper::toLower(data);
+    const std::string result = common::StringHelper::toLower(data);
 
     ASSERT_EQ(result, "hello!");
 }
@@ -94,19 +94,19 @@ TEST_F(StringHelperTest, IsPunctuation)
     std::string punctuation = ".,;:!?";
     for (char c : punctuation)
     {
-        EXPECT_TRUE(StringHelper::isPunctuation(c));
+        EXPECT_TRUE(common::StringHelper::isPunctuation(c));
     }
 
     std::string notPunctuation = "abc123";
     for (char c : notPunctuation)
     {
-        EXPECT_FALSE(StringHelper::isPunctuation(c));
+        EXPECT_FALSE(common::StringHelper::isPunctuation(c));
     }
 }
 
 TEST_F(StringHelperTest, RemovePunctuation)
 {
     std::string input = "Hello, World!";
-    std::string result = StringHelper::removePunctuation(input);
+    std::string result = common::StringHelper::removePunctuation(input);
     EXPECT_EQ(result, "Hello World");
 }

@@ -275,7 +275,7 @@ std::string ipv6()
         ipv6Parts.push_back(string::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
     }
 
-    return StringHelper::joinString(ipv6Parts, ":");
+    return common::StringHelper::joinString(ipv6Parts, ":");
 }
 
 std::string mac(const std::string& sep)
@@ -321,7 +321,7 @@ std::string domainName()
 
 std::string domainWord()
 {
-    return StringHelper::toLower(FormatHelper::format("{}-{}", word::adjective(), word::noun()));
+    return common::StringHelper::toLower(FormatHelper::format("{}-{}", word::adjective(), word::noun()));
 }
 
 std::string_view domainSuffix()
