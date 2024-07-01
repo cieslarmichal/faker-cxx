@@ -162,6 +162,17 @@ To build the library with Conan, follow the steps below:
     cmake --build --preset=conan-release
     ```
 
+## Installing the library with [Conan](https://conan.io/)
+
+You can install pre-built binaries for faker-cxx or build it from source using Conan. Use the following command:
+
+```bash
+conan install --requires="faker-cxx/[*]" --build=missing
+```
+
+The faker-cxx Conan recipe is kept up to date by Conan maintainers and community contributors.
+If the version is out of date, please [create an issue or pull request](https://github.com/conan-io/conan-center-index) on the ConanCenterIndex repository.
+
 ## ✨ Contributing
 
 We would love it if you contributed to Faker C++! 🚀
