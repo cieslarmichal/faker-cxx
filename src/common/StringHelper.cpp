@@ -5,7 +5,7 @@
 #include <string>
 #include <vector>
 
-namespace faker::common::StringHelper
+namespace faker::common
 {
 std::vector<std::string> split(const std::string& data, const std::string& separator)
 {

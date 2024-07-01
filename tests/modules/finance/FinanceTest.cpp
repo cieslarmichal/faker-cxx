@@ -176,7 +176,7 @@ TEST_F(FinanceTest, shouldGenerateAmount)
     auto offset = generatedAmount.size();
     const auto amountAsFloat = std::stof(generatedAmount, &offset);
 
-    const auto generatedAmountParts = common::StringHelper::split(generatedAmount, ".");
+    const auto generatedAmountParts = common::split(generatedAmount, ".");
 
     ASSERT_EQ(generatedAmountParts.size(), 2);
     ASSERT_EQ(generatedAmountParts[1].size(), 2);
@@ -217,7 +217,7 @@ TEST_F(FinanceTest, shouldGenerateAmountWithSymbol)
 
     const auto amountAsFloat = std::stof(generatedAmount.substr(currencySymbol.size()));
 
-    const auto generatedAmountParts = common::StringHelper::split(generatedAmount, ".");
+    const auto generatedAmountParts = common::split(generatedAmount, ".");
 
     ASSERT_TRUE(generatedAmount.starts_with(currencySymbol));
     ASSERT_EQ(generatedAmountParts.size(), 2);

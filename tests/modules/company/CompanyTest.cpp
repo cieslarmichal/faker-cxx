@@ -23,7 +23,7 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
 {
     const auto companyName = name();
 
-    const auto companyNameElements = common::StringHelper::split(companyName, " ");
+    const auto companyNameElements = common::split(companyName, " ");
 
     std::vector<std::string_view> expectedFirstNames(person::englishMaleFirstNames.begin(),
                                                      person::englishMaleFirstNames.end());

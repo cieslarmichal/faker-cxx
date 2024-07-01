@@ -32,7 +32,7 @@ TEST_F(LoremTest, shouldGenerateWords)
 
     const auto generatedWords = words(numberOfWords);
 
-    const auto separatedWords = common::StringHelper::split(generatedWords, " ");
+    const auto separatedWords = common::split(generatedWords, " ");
 
     ASSERT_EQ(separatedWords.size(), numberOfWords);
     ASSERT_TRUE(std::ranges::all_of(
@@ -51,7 +51,7 @@ TEST_F(LoremTest, shouldGenerateSentence)
 
     const auto sentenceWithoutEndingDot = generatedSentence.substr(0, generatedSentence.size() - 1);
 
-    const auto sentenceWords = common::StringHelper::split(sentenceWithoutEndingDot, " ");
+    const auto sentenceWords = common::split(sentenceWithoutEndingDot, " ");
 
     ASSERT_TRUE(std::isupper(generatedSentence[0]));
     ASSERT_TRUE(generatedSentence.ends_with("."));
@@ -70,7 +70,7 @@ TEST_F(LoremTest, shouldGenerateSentences)
 {
     const auto generatedSentences = sentences();
 
-    const auto separatedSentences = common::StringHelper::split(generatedSentences, ". ");
+    const auto separatedSentences = common::split(generatedSentences, ". ");
 
     for (auto sentence : separatedSentences)
     {
@@ -78,7 +78,7 @@ TEST_F(LoremTest, shouldGenerateSentences)
 
         ASSERT_TRUE(std::isupper(sentence[0]));
 
-        const auto sentenceWords = common::StringHelper::split(sentence, " ");
+        const auto sentenceWords = common::split(sentence, " ");
 
         ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 
@@ -97,7 +97,7 @@ TEST_F(LoremTest, shouldGenerateSlug)
 {
     const auto generatedSlug = slug(3);
 
-    const auto separatedWords = common::StringHelper::split(generatedSlug, "-");
+    const auto separatedWords = common::split(generatedSlug, "-");
 
     ASSERT_EQ(separatedWords.size(), 3);
     ASSERT_TRUE(std::ranges::all_of(
@@ -114,7 +114,7 @@ TEST_F(LoremTest, shouldGenerateParagraph)
 {
     const auto generatedParagraph = paragraph();
 
-    const auto separatedSentences = common::StringHelper::split(generatedParagraph, ". ");
+    const auto separatedSentences = common::split(generatedParagraph, ". ");
 
     for (auto sentence : separatedSentences)
     {
@@ -122,7 +122,7 @@ TEST_F(LoremTest, shouldGenerateParagraph)
 
         ASSERT_TRUE(std::isupper(sentence[0]));
 
-        const auto sentenceWords = common::StringHelper::split(sentence, " ");
+        const auto sentenceWords = common::split(sentence, " ");
 
         ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 
@@ -141,11 +141,11 @@ TEST_F(LoremTest, shouldGenerateParagraphs)
 {
     const auto generatedParagraphs = paragraphs();
 
-    const auto separatedParagraphs = common::StringHelper::split(generatedParagraphs, "\n");
+    const auto separatedParagraphs = common::split(generatedParagraphs, "\n");
 
     for (const auto& generatedParagraph : separatedParagraphs)
     {
-        const auto separatedSentences = common::StringHelper::split(generatedParagraph, ". ");
+        const auto separatedSentences = common::split(generatedParagraph, ". ");
 
         for (auto sentence : separatedSentences)
         {
@@ -153,7 +153,7 @@ TEST_F(LoremTest, shouldGenerateParagraphs)
 
             ASSERT_TRUE(std::isupper(sentence[0]));
 
-            const auto sentenceWords = common::StringHelper::split(sentence, " ");
+            const auto sentenceWords = common::split(sentence, " ");
 
             ASSERT_TRUE(sentenceWords.size() >= 3 && sentenceWords.size() <= 10);
 

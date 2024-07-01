@@ -33,7 +33,7 @@ TEST_F(ColorTest, shouldGenerateRgbColorWithoutAlpha)
 {
     const auto generatedRgbColor = rgb();
 
-    const auto rgbNumbers = common::StringHelper::split(generatedRgbColor.substr(4, generatedRgbColor.size() - 1), " ");
+    const auto rgbNumbers = common::split(generatedRgbColor.substr(4, generatedRgbColor.size() - 1), " ");
 
     int red, green, blue;
     std::from_chars(rgbNumbers[0].data(), rgbNumbers[0].data() + rgbNumbers[0].size(), red);
@@ -51,7 +51,7 @@ TEST_F(ColorTest, shouldGenerateRgbColorWithAlpha)
 {
     const auto generatedRgbaColor = rgb(true);
 
-    const auto rgbaNumbers = common::StringHelper::split(generatedRgbaColor.substr(5, generatedRgbaColor.size() - 1), " ");
+    const auto rgbaNumbers = common::split(generatedRgbaColor.substr(5, generatedRgbaColor.size() - 1), " ");
 
     int red, green, blue, alpha;
     std::from_chars(rgbaNumbers[0].data(), rgbaNumbers[0].data() + rgbaNumbers[0].size(), red);
@@ -98,7 +98,7 @@ TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
 TEST_F(ColorTest, shouldGenerateHslWithoutAlpha)
 {
     const auto generatedHslColor = hsl();
-    const auto hslValues = common::StringHelper::split(generatedHslColor.substr(4, generatedHslColor.size() - 1), " ");
+    const auto hslValues = common::split(generatedHslColor.substr(4, generatedHslColor.size() - 1), " ");
 
     int hue, staturation, lightness;
 
@@ -116,7 +116,7 @@ TEST_F(ColorTest, shouldGenerateHslWithoutAlpha)
 TEST_F(ColorTest, shouldGenerateHslWithAlpha)
 {
     const auto generatedHslaColor = hsl(true);
-    const auto hslValues = common::StringHelper::split(generatedHslaColor.substr(5, generatedHslaColor.size() - 1), " ");
+    const auto hslValues = common::split(generatedHslaColor.substr(5, generatedHslaColor.size() - 1), " ");
 
     int hue, saturation, lightness;
 
@@ -138,7 +138,7 @@ TEST_F(ColorTest, shouldGenerateHslWithAlpha)
 TEST_F(ColorTest, shouldGenerateLchWithoutAlpha)
 {
     const auto generatedLchColor = lch();
-    const auto lchValues = common::StringHelper::split(generatedLchColor.substr(4, generatedLchColor.size() - 1), " ");
+    const auto lchValues = common::split(generatedLchColor.substr(4, generatedLchColor.size() - 1), " ");
 
     int luminance, chroma, hue;
 
@@ -156,7 +156,7 @@ TEST_F(ColorTest, shouldGenerateLchWithoutAlpha)
 TEST_F(ColorTest, shouldGenerateLchWithAlpha)
 {
     const auto generatedLchaColor = lch(true);
-    const auto lchValues = common::StringHelper::split(generatedLchaColor.substr(5, generatedLchaColor.size() - 1), " ");
+    const auto lchValues = common::split(generatedLchaColor.substr(5, generatedLchaColor.size() - 1), " ");
 
     int luminance, chroma, hue;
 
@@ -178,7 +178,7 @@ TEST_F(ColorTest, shouldGenerateLchWithAlpha)
 TEST_F(ColorTest, shouldGenerateCmykColor)
 {
     const auto generatedCmykColor = cmyk();
-    const auto cmykValues = common::StringHelper::split(generatedCmykColor.substr(5, generatedCmykColor.size() - 1), " ");
+    const auto cmykValues = common::split(generatedCmykColor.substr(5, generatedCmykColor.size() - 1), " ");
 
     auto offset = cmykValues[0].size();
     const auto cyan = std::stod(cmykValues[0], &offset);
@@ -200,7 +200,7 @@ TEST_F(ColorTest, shouldGenerateCmykColor)
 TEST_F(ColorTest, shouldGenerateLabColor)
 {
     const auto generatedLabColor = lab();
-    const auto labValues = common::StringHelper::split(generatedLabColor.substr(4, generatedLabColor.size() - 1), " ");
+    const auto labValues = common::split(generatedLabColor.substr(4, generatedLabColor.size() - 1), " ");
 
     auto offset = labValues[0].size();
     const auto lightness = std::stod(labValues[0], &offset);
@@ -219,7 +219,7 @@ TEST_F(ColorTest, shouldGenerateLabColor)
 TEST_F(ColorTest, shouldGenerateHsb)
 {
     const auto generatedHsbColor = hsb();
-    const auto hsbValues = common::StringHelper::split(generatedHsbColor.substr(4, generatedHsbColor.size() - 1), " ");
+    const auto hsbValues = common::split(generatedHsbColor.substr(4, generatedHsbColor.size() - 1), " ");
 
     int hue, saturation, brightness;
 
@@ -237,7 +237,7 @@ TEST_F(ColorTest, shouldGenerateHsb)
 TEST_F(ColorTest, shouldGenerateHsv)
 {
     const auto generatedHsvColor = hsv();
-    const auto hsvValues = common::StringHelper::split(generatedHsvColor.substr(4, generatedHsvColor.size() - 1), " ");
+    const auto hsvValues = common::split(generatedHsvColor.substr(4, generatedHsvColor.size() - 1), " ");
 
     int hue, saturation, brightness;
 
@@ -255,7 +255,7 @@ TEST_F(ColorTest, shouldGenerateHsv)
 TEST_F(ColorTest, shouldGenerateYuv)
 {
     const auto generatedYuvColor = yuv();
-    const auto yuvValues = common::StringHelper::split(generatedYuvColor.substr(4, generatedYuvColor.size() - 1), " ");
+    const auto yuvValues = common::split(generatedYuvColor.substr(4, generatedYuvColor.size() - 1), " ");
 
     int luminance, chrominanceBlueColor, chrominanceRedColor;
 

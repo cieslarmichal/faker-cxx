@@ -214,7 +214,7 @@ TEST_F(WordTest, shouldGenerateWords)
 {
     const auto generatedWords = words(5);
 
-    const auto separatedWords = common::StringHelper::split(generatedWords, " ");
+    const auto separatedWords = common::split(generatedWords, " ");
 
     ASSERT_TRUE(std::ranges::all_of(separatedWords, [](const std::string& separatedWord)
                                     { return std::ranges::find(_allWords, separatedWord) != _allWords.end(); }));

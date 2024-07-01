@@ -60,7 +60,7 @@ std::string fileName(const FileOptions& options)
                 randomExtensions.push_back(fileExtension());
             }
 
-            extensionsStr = "." + common::StringHelper::joinString(randomExtensions, ".");
+            extensionsStr = "." + common::joinString(randomExtensions, ".");
         }
         else
         {
@@ -72,7 +72,7 @@ std::string fileName(const FileOptions& options)
                 randomExtensions.push_back(fileExtension());
             }
 
-            extensionsStr = "." + common::StringHelper::joinString(randomExtensions, ".");
+            extensionsStr = "." + common::joinString(randomExtensions, ".");
         }
     }
 

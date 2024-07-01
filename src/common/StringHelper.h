@@ -4,7 +4,7 @@
 #include <vector>
 #include "faker-cxx/Export.h"
 
-namespace faker::common::StringHelper
+namespace faker::common
 {
     FAKER_CXX_EXPORT std::vector<std::string> split(const std::string& data, const std::string& separator = " ");
     FAKER_CXX_EXPORT std::string joinString(const std::vector<std::string>& data, const std::string& separator = " ");
