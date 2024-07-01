@@ -36,13 +36,13 @@ std::string_view ingverb()
 
 std::string phrase()
 {
-    const auto splitRandomPhrase = StringHelper::split(static_cast<std::string>(helper::arrayElement(phrases)));
+    const auto splitRandomPhrase = common::split(static_cast<std::string>(helper::arrayElement(phrases)));
 
     std::string phrase;
 
     for (const auto& word : splitRandomPhrase)
     {
-        const auto normalizedWord = StringHelper::removePunctuation(word);
+        const auto normalizedWord = common::removePunctuation(word);
 
         if (normalizedWord == "{abbreviation}")
         {

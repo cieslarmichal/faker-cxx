@@ -28,7 +28,7 @@ std::string words(unsigned numberOfWords)
         words.push_back(word());
     }
 
-    return StringHelper::join(words, " ");
+    return common::join(words, " ");
 }
 
 std::string sentence(unsigned minNumberOfWords, unsigned maxNumberOfWords)
@@ -52,7 +52,7 @@ std::string sentences(unsigned minNumberOfSentences, unsigned maxNumberOfSentenc
         sentences.push_back(sentence());
     }
 
-    return StringHelper::joinString(sentences, " ");
+    return common::joinString(sentences, " ");
 }
 
 std::string slug(unsigned int numberOfWords)
@@ -65,7 +65,7 @@ std::string slug(unsigned int numberOfWords)
         words.push_back(std::string(word()));
     }
 
-    return StringHelper::joinString(words, "-");
+    return common::joinString(words, "-");
 }
 
 std::string paragraph(unsigned int minNumberOfSentences, unsigned int maxNumberOfSentences)
@@ -85,7 +85,7 @@ std::string paragraphs(unsigned int minNumberOfParagraphs, unsigned int maxNumbe
         paragraphs.push_back(paragraph());
     }
 
-    return StringHelper::joinString(paragraphs, "\n");
+    return common::joinString(paragraphs, "\n");
 }
 
 }
