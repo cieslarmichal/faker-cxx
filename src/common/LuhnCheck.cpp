@@ -4,9 +4,9 @@
 #include <cctype>
 #include <string>
 
-namespace faker
+namespace faker::common
 {
-int LuhnCheck::luhnCheckSum(const std::string& inputString)
+int luhnCheckSum(const std::string& inputString)
 {
     std::string modifiedStr = inputString;
     modifiedStr.erase(
@@ -36,12 +36,12 @@ int LuhnCheck::luhnCheckSum(const std::string& inputString)
     return sum % 10;
 }
 
-bool LuhnCheck::luhnCheck(const std::string& inputString)
+bool luhnCheck(const std::string& inputString)
 {
     return luhnCheckSum(inputString) == 0;
 }
 
-int LuhnCheck::luhnCheckValue(const std::string& inputString)
+int luhnCheckValue(const std::string& inputString)
 {
     int checksum = luhnCheckSum(inputString.substr(0, inputString.length() - 1) + '0');
 
