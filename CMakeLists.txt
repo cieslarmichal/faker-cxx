@@ -11,7 +11,7 @@ include(CMakeDependentOption)
 option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
 option(BUILD_EXAMPLES "Build examples" OFF)
 option(BUILD_TESTING "Build tests" ON)
-cmake_dependent_option(CODE_COVERAGE "Build faker-cxx with coverage support" ON "BUILD_TESTING" OFF)
+option(CODE_COVERAGE "Build faker-cxx with coverage support" OFF)
 
 if (MSVC)
     set(CMAKE_REQUIRED_FLAGS /std:c++20)
