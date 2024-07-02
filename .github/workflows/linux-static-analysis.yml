@@ -91,10 +91,10 @@ jobs:
       - name: Generate code coverage report
         working-directory: ${{github.workspace}}/build/unixlike-clang-debug-static
         run: |
-          && llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt \
+          llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt \
           && llvm-cov-18 report `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata
 
-      - name: Code coverage
+      - name: Upload code coverage report to Codecov
         uses: codecov/codecov-action@v4.0.1
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
