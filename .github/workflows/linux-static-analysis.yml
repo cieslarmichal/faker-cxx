@@ -81,15 +81,24 @@ jobs:
             -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \
             -DCMAKE_EXE_LINKER_FLAGS=-fuse-ld=lld
 
-      - name: Build
+      - name: Build library and tests
         run: cmake --build --preset=unixlike-clang-debug-static
 
-      - name: Generate code coverage
+      - name: Build code coverage
+        run: cmake --build --preset=unixlike-clang-debug-static --target=faker-ccov-all
+
+
+      - name: Generate code coverage report
         working-directory: ${{github.workspace}}/build/unixlike-clang-debug-static
         run: |
-          ninja faker-ccov-all \
-          && llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt \
+          llvm-cov-18 show `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata > coverage.txt \
           && llvm-cov-18 report `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata
+
+      - name: Upload code coverage report to Codecov
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          directory: ${{github.workspace}}/build/unixlike-clang-debug-static
 
       - name: Store build artifacts
         uses: actions/upload-artifact@v4

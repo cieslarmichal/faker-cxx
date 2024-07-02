@@ -98,3 +98,8 @@ jobs:
         run: |
           cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target run-faker-cxx-basic-example \
           && cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target run-faker-cxx-person-example
+
+      - name: Code coverage
+        uses: codecov/codecov-action@v4.0.1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
