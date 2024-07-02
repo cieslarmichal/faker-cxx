@@ -19,7 +19,7 @@
 - [📖 Usage and Documentation](#usage-and-documentation)
 - [💎 Modules](#-modules)
 - [Consuming library with CMake](#consuming-library-with-cmake-cmake-322-or-newer)
-- [⚒️ Compiler support](#⚒️-compiler-support)
+- [⚒️ Compiler support](#compiler-support)
 - [Dependencies](#dependencies)
 - [📦 Building the library with Conan](#building-the-library-with-conan)
 - [Installing the library with Conan](#installing-the-library-with-conan)
