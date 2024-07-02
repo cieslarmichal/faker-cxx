@@ -175,6 +175,23 @@ The faker-cxx Conan recipe is kept up to date by Conan maintainers and community
 If the version is out of date, please [create an issue or pull request](https://github.com/conan-io/conan-center-index)
 on the ConanCenterIndex repository.
 
+## Building the Project with Bazel
+
+As alternative, this project can be built using [Bazel](https://bazel.build/). The dependencies are managed directly by
+Bazel modules, downloading and building all external dependencies. Follow the steps below to build the project:
+
+1. **Navigate to the project directory:**
+
+    ```sh
+    cd /path/to/faker-cxx
+    ```
+
+2. **Build the project:**
+
+    ```sh
+    bazel build //:faker-cxx
+    ```
+
 ## ✨ Contributing
 
 We would love it if you contributed to Faker C++! 🚀
