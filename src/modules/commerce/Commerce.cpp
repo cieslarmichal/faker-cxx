@@ -37,7 +37,7 @@ std::string_view productName()
 
 std::string productFullName()
 {
-    return FormatHelper::format("{} {} {}", productAdjective(), productMaterial(), productName());
+    return common::format("{} {} {}", productAdjective(), productMaterial(), productName());
 }
 
 std::string EAN13()

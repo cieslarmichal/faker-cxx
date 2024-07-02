@@ -243,7 +243,7 @@ std::string fullName(std::optional<Country> countryOpt, std::optional<Sex> sex)
         {"prefix", [&country, &sex]() { return std::string{prefix(country, sex)}; }},
         {"suffix", [&country, &sex]() { return std::string{suffix(country, sex)}; }}};
 
-    return FormatHelper::fillTokenValues(nameFormat, dataGeneratorsMapping);
+    return common::fillTokenValues(nameFormat, dataGeneratorsMapping);
 }
 
 std::string_view prefix(std::optional<Country> countryOpt, std::optional<Sex> sex)
@@ -330,7 +330,7 @@ std::string bio()
         {"noun", []() { return word::noun(); }},
         {"emoji", []() { return internet::emoji(); }}};
 
-    return FormatHelper::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
+    return common::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
 }
 
 std::string_view sex(std::optional<Language> languageOpt)
@@ -360,7 +360,7 @@ std::string_view gender()
 
 std::string jobTitle()
 {
-    return FormatHelper::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
+    return common::format("{} {} {}", jobDescriptor(), jobArea(), jobType());
 }
 
 std::string_view jobDescriptor()

@@ -43,14 +43,14 @@ std::string_view type()
 
 std::string vehicleName()
 {
-    return FormatHelper::format("{} {}", manufacturer(), model());
+    return common::format("{} {}", manufacturer(), model());
 }
 
 std::string vin()
 {
     std::string exclude_characters{"oiqOIQ"};
 
-    return FormatHelper::format("{}{}{}{}", string::alphanumeric(10, string::StringCasing::Upper, exclude_characters),
+    return common::format("{}{}{}{}", string::alphanumeric(10, string::StringCasing::Upper, exclude_characters),
                                 string::alpha(1, string::StringCasing::Upper, exclude_characters),
                                 string::alphanumeric(1, string::StringCasing::Upper, exclude_characters),
                                 number::integer(10000, 99999));
@@ -58,7 +58,7 @@ std::string vin()
 
 std::string vrm()
 {
-    return FormatHelper::format("{}{}{}", string::alpha(2, string::StringCasing::Upper), string::numeric(2, true),
+    return common::format("{}{}{}", string::alpha(2, string::StringCasing::Upper), string::numeric(2, true),
                                 string::alpha(3, string::StringCasing::Upper));
 }
 

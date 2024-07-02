@@ -40,7 +40,7 @@ std::string betweenDate(const auto& from, const auto& to, DateFormat dateFormat)
 {
     if (from > to)
     {
-        throw std::runtime_error{FormatHelper::format("Start date is greater than end date. {{from: {}, to: {}}}",
+        throw std::runtime_error{common::format("Start date is greater than end date. {{from: {}, to: {}}}",
                                                       serializeTimePoint(from, dateFormat),
                                                       serializeTimePoint(to, dateFormat))};
     }
@@ -180,7 +180,7 @@ unsigned int second()
 
 std::string time()
 {
-    return FormatHelper::format("{:02}:{:02}", hour(), minute());
+    return common::format("{:02}:{:02}", hour(), minute());
 }
 
 unsigned int dayOfMonth()

@@ -90,15 +90,15 @@ std::string username(std::optional<std::string> firstNameInit, std::optional<std
     switch (number::integer<int>(2))
     {
     case 0:
-        username = FormatHelper::format("{}{}{}", firstName, lastName, number::integer<int>(999));
+        username = common::format("{}{}{}", firstName, lastName, number::integer<int>(999));
         break;
     case 1:
-        username = FormatHelper::format("{}{}{}", firstName,
+        username = common::format("{}{}{}", firstName,
                                         helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
         username =
-            FormatHelper::format("{}{}{}{}", firstName, helper::arrayElement(std::vector<std::string>{".", "_", ""}),
+            common::format("{}{}{}{}", firstName, helper::arrayElement(std::vector<std::string>{".", "_", ""}),
                                  lastName, number::integer<int>(99));
         break;
     }
@@ -109,13 +109,13 @@ std::string username(std::optional<std::string> firstNameInit, std::optional<std
 std::string email(std::optional<std::string> firstName, std::optional<std::string> lastName,
                   std::optional<std::string> emailHost)
 {
-    return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
+    return common::format("{}@{}", username(std::move(firstName), std::move(lastName)),
                                 emailHost ? *emailHost : helper::arrayElement(emailHosts));
 }
 
 std::string exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
-    return FormatHelper::format("{}@{}", username(std::move(firstName), std::move(lastName)),
+    return common::format("{}@{}", username(std::move(firstName), std::move(lastName)),
                                 helper::arrayElement(emailExampleHosts));
 }
 
@@ -248,7 +248,7 @@ std::string ipv4(const IPv4Class& ipv4class)
     }
     }
 
-    return FormatHelper::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
+    return common::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
 std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address, const std::array<unsigned int, 4>& generationMask)
@@ -261,7 +261,7 @@ std::string ipv4(const std::array<unsigned int, 4>& baseIpv4Address, const std::
         sectors[i] |= (baseIpv4Address[i] & generationMask[i]);
     }
 
-    return FormatHelper::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
+    return common::format("{}.{}.{}.{}", sectors[0], sectors[1], sectors[2], sectors[3]);
 }
 
 std::string ipv6()
@@ -311,17 +311,17 @@ std::string url(const WebProtocol& webProtocol)
 {
     const auto protocol = webProtocol == WebProtocol::Https ? "https" : "http";
 
-    return FormatHelper::format("{}://{}", protocol, domainName());
+    return common::format("{}://{}", protocol, domainName());
 }
 
 std::string domainName()
 {
-    return FormatHelper::format("{}.{}", domainWord(), domainSuffix());
+    return common::format("{}.{}", domainWord(), domainSuffix());
 }
 
 std::string domainWord()
 {
-    return common::toLower(FormatHelper::format("{}-{}", word::adjective(), word::noun()));
+    return common::toLower(common::format("{}-{}", word::adjective(), word::noun()));
 }
 
 std::string_view domainSuffix()
@@ -343,7 +343,7 @@ std::string anonymousUsername(unsigned maxLength)
 
     const auto nounLength = maxLength - adjectiveLength;
 
-    return FormatHelper::format("{}{}", word::adjective(adjectiveLength), word::noun(nounLength));
+    return common::format("{}{}", word::adjective(adjectiveLength), word::noun(nounLength));
 }
 
 }

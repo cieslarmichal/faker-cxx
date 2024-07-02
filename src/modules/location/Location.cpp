@@ -128,7 +128,7 @@ std::string city(AddressCountry country)
         {"citySuffix", [&countryAddresses]()
          { return static_cast<std::string>(helper::arrayElement(countryAddresses.citySuffixes)); }}};
 
-    return FormatHelper::fillTokenValues(cityFormat, dataGeneratorsMapping);
+    return common::fillTokenValues(cityFormat, dataGeneratorsMapping);
 }
 
 std::string zipCode(AddressCountry country)
@@ -149,7 +149,7 @@ std::string streetAddress(AddressCountry country)
 
     const auto addressFormat = static_cast<std::string>(helper::arrayElement(countryAddresses.addressFormats));
 
-    return FormatHelper::fillTokenValues(addressFormat, dataGeneratorsMapping);
+    return common::fillTokenValues(addressFormat, dataGeneratorsMapping);
 }
 
 std::string street(AddressCountry country)
@@ -168,7 +168,7 @@ std::string street(AddressCountry country)
         {"streetSuffix", [&countryAddresses]()
          { return static_cast<std::string>(helper::arrayElement(countryAddresses.streetSuffixes)); }}};
 
-    return FormatHelper::fillTokenValues(streetFormat, dataGeneratorsMapping);
+    return common::fillTokenValues(streetFormat, dataGeneratorsMapping);
 }
 
 std::string buildingNumber(AddressCountry country)
@@ -200,14 +200,14 @@ std::string latitude(Precision precision)
 {
     const std::floating_point auto latitude = number::decimal<double>(-90.0, 90.0);
 
-    return FormatHelper::precisionFormat(precision, latitude);
+    return common::precisionFormat(precision, latitude);
 }
 
 std::string longitude(Precision precision)
 {
     const std::floating_point auto longitude = number::decimal<double>(-180.0, 180.0);
 
-    return FormatHelper::precisionFormat(precision, longitude);
+    return common::precisionFormat(precision, longitude);
 }
 
 std::string_view direction()

@@ -18,17 +18,17 @@ std::string name()
     switch (number::integer<int>(3))
     {
     case 0:
-        companyName = FormatHelper::format("{} {}", person::lastName(), helper::arrayElement(companySuffixes));
+        companyName = common::format("{} {}", person::lastName(), helper::arrayElement(companySuffixes));
         break;
     case 1:
-        companyName = FormatHelper::format("{} {} {}", person::firstName(), person::lastName(), person::jobArea());
+        companyName = common::format("{} {} {}", person::firstName(), person::lastName(), person::jobArea());
         break;
     case 2:
         companyName =
-            FormatHelper::format("{} {} {} Services", person::firstName(), person::lastName(), person::jobArea());
+            common::format("{} {} {} Services", person::firstName(), person::lastName(), person::jobArea());
         break;
     case 3:
-        companyName = FormatHelper::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(),
+        companyName = common::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(),
                                            helper::arrayElement(companySuffixes));
         break;
     }
@@ -48,7 +48,7 @@ std::string_view industry()
 
 std::string buzzPhrase()
 {
-    return FormatHelper::format("{} {} {}", buzzVerb(), buzzAdjective(), buzzNoun());
+    return common::format("{} {} {}", buzzVerb(), buzzAdjective(), buzzNoun());
 }
 
 std::string_view buzzAdjective()
@@ -68,7 +68,7 @@ std::string_view buzzVerb()
 
 std::string catchPhrase()
 {
-    return FormatHelper::format("{} {} {}", catchPhraseAdjective(), catchPhraseDescriptor(), catchPhraseNoun());
+    return common::format("{} {} {}", catchPhraseAdjective(), catchPhraseDescriptor(), catchPhraseNoun());
 }
 
 std::string_view catchPhraseAdjective()

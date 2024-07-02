@@ -23,11 +23,11 @@ std::string branch(unsigned maxIssueNum)
     switch (number::integer(1, 3))
     {
     case 1:
-        return FormatHelper::format("{}-{}", word::verb(), word::noun());
+        return common::format("{}-{}", word::verb(), word::noun());
     case 2:
-        return FormatHelper::format("{}-{}-{}", word::verb(), word::adjective(), word::noun());
+        return common::format("{}-{}-{}", word::verb(), word::adjective(), word::noun());
     default:
-        return FormatHelper::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(),
+        return common::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(),
                                     word::adjective(), word::noun());
     }
 }
@@ -73,7 +73,7 @@ std::string commitDate(unsigned years)
         timeZoneString += "00";
     }
 
-    return FormatHelper::format("{} {} {} {} {} {}", faker::date::weekdayAbbreviatedName(),
+    return common::format("{} {} {} {} {} {}", faker::date::weekdayAbbreviatedName(),
                                 faker::date::monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year,
                                 timeZoneString);
 }
@@ -115,13 +115,13 @@ std::string commitMessage()
     switch (number::integer(1, 4))
     {
     case 1:
-        return FormatHelper::format("{} {}", word::verb(), word::noun());
+        return common::format("{} {}", word::verb(), word::noun());
     case 2:
-        return FormatHelper::format("{} {} {}", word::verb(), word::adjective(), word::noun());
+        return common::format("{} {} {}", word::verb(), word::adjective(), word::noun());
     case 3:
-        return FormatHelper::format("{} {} {}", word::verb(), word::noun(), word::adverb());
+        return common::format("{} {} {}", word::verb(), word::noun(), word::adverb());
     default:
-        return FormatHelper::format("{} {} {} {}", word::verb(), word::adjective(), word::noun(), word::adverb());
+        return common::format("{} {} {} {}", word::verb(), word::adjective(), word::noun(), word::adverb());
     }
 }
 
