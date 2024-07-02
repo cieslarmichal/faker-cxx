@@ -52,7 +52,7 @@ std::string replaceCreditCardSymbols(const std::string& inputString, char symbol
     modifiedString = replaceSymbolWithNumber(modifiedString, symbol);
 
     // Calculate the luhnCheckValue and replace 'L' with the checkNum
-    int checkNum = LuhnCheck::luhnCheckValue(modifiedString);
+    int checkNum = common::luhnCheckValue(modifiedString);
 
     size_t pos = modifiedString.find('L');
 

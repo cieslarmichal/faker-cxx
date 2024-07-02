@@ -290,7 +290,7 @@ TEST_F(FinanceTest, shouldGenerateCreditCardNumber)
     const auto generatedCreditCardNumber = creditCardNumber();
 
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(generatedCreditCardNumber));
-    ASSERT_TRUE(LuhnCheck::luhnCheck(generatedCreditCardNumber));
+    ASSERT_TRUE(common::luhnCheck(generatedCreditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateAmericanExpressCreditCardNumber)
@@ -299,7 +299,7 @@ TEST_F(FinanceTest, shouldGenerateAmericanExpressCreditCardNumber)
 
     ASSERT_TRUE(generatedCreditCardNumber.starts_with("34") || generatedCreditCardNumber.starts_with("37"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(generatedCreditCardNumber));
-    ASSERT_TRUE(LuhnCheck::luhnCheck(generatedCreditCardNumber));
+    ASSERT_TRUE(common::luhnCheck(generatedCreditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateDiscoverCreditCardNumber)
@@ -312,7 +312,7 @@ TEST_F(FinanceTest, shouldGenerateDiscoverCreditCardNumber)
                 generatedCreditCardNumber.starts_with("648") || generatedCreditCardNumber.starts_with("649") ||
                 generatedCreditCardNumber.starts_with("6011-62"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(generatedCreditCardNumber));
-    ASSERT_TRUE(LuhnCheck::luhnCheck(generatedCreditCardNumber));
+    ASSERT_TRUE(common::luhnCheck(generatedCreditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateMasterCardCreditCardNumber)
@@ -323,7 +323,7 @@ TEST_F(FinanceTest, shouldGenerateMasterCardCreditCardNumber)
                 generatedCreditCardNumber.starts_with("53") || generatedCreditCardNumber.starts_with("54") ||
                 generatedCreditCardNumber.starts_with("55") || generatedCreditCardNumber.starts_with("6771-89"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(generatedCreditCardNumber));
-    ASSERT_TRUE(LuhnCheck::luhnCheck(generatedCreditCardNumber));
+    ASSERT_TRUE(common::luhnCheck(generatedCreditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateVisaCreditCardNumber)
@@ -332,7 +332,7 @@ TEST_F(FinanceTest, shouldGenerateVisaCreditCardNumber)
 
     ASSERT_TRUE(generatedCreditCardNumber.starts_with("4"));
     ASSERT_TRUE(checkIfAllCharactersAreCreditCardCharacters(generatedCreditCardNumber));
-    ASSERT_TRUE(LuhnCheck::luhnCheck(generatedCreditCardNumber));
+    ASSERT_TRUE(common::luhnCheck(generatedCreditCardNumber));
 }
 
 TEST_F(FinanceTest, shouldGenerateCreditCardCvv)
