@@ -9,6 +9,7 @@
 
 using namespace ::testing;
 using namespace faker;
+using namespace faker::common;
 
 class FormatHelperTest : public Test
 {
@@ -25,7 +26,7 @@ TEST_F(FormatHelperTest, fillFormatTokensData)
                                                                       {"cxx", []() { return "faker"; }},
                                                                       {"library", []() { return "hello"; }}};
 
-    const auto result = FormatHelper::fillTokenValues(format, dataGeneratorsMapping);
+    const auto result = fillTokenValues(format, dataGeneratorsMapping);
 
     const auto expectedResult = "library cxx-faker hello";
 
@@ -39,12 +40,12 @@ TEST_F(FormatHelperTest, givenTokensWithNotDefinedGenerator_shouldThrow)
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"hello", []() { return "library"; }}, {"faker", []() { return "cxx"; }}, {"cxx", []() { return "faker"; }}};
 
-    ASSERT_THROW(FormatHelper::fillTokenValues(format, dataGeneratorsMapping), std::runtime_error);
+    ASSERT_THROW(fillTokenValues(format, dataGeneratorsMapping), std::runtime_error);
 }
 
 TEST_F(FormatHelperTest, shouldFormat)
 {
-    EXPECT_EQ(FormatHelper::format("{}", 1), "1");
-    EXPECT_EQ(FormatHelper::format("{} {}", "Hello", "World"), "Hello World");
-    EXPECT_EQ(FormatHelper::format("{0} {1}", "Hello", "World"), "Hello World");
+    EXPECT_EQ(format("{}", 1), "1");
+    EXPECT_EQ(format("{} {}", "Hello", "World"), "Hello World");
+    EXPECT_EQ(format("{0} {1}", "Hello", "World"), "Hello World");
 }

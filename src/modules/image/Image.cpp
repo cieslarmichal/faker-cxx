@@ -29,20 +29,20 @@ std::string imageUrl(unsigned int width, unsigned int height, std::optional<Imag
 {
     const std::string image_category =
         category.has_value() ?
-            FormatHelper::format("/{}", imageCategoryToLoremFlickrStringMapping.at(category.value())) :
+            common::format("/{}", imageCategoryToLoremFlickrStringMapping.at(category.value())) :
             "";
 
-    return FormatHelper::format("https://loremflickr.com/{}/{}{}", width, height, image_category);
+    return common::format("https://loremflickr.com/{}/{}{}", width, height, image_category);
 }
 
 std::string githubAvatarUrl()
 {
-    return FormatHelper::format("https://avatars.githubusercontent.com/u/{}", number::integer<int>(100000000));
+    return common::format("https://avatars.githubusercontent.com/u/{}", number::integer<int>(100000000));
 }
 
 std::string dimensions()
 {
-    return FormatHelper::format("{}x{}", number::integer<int>(1, 32720), number::integer<int>(1, 17280));
+    return common::format("{}x{}", number::integer<int>(1, 32720), number::integer<int>(1, 17280));
 }
 
 std::string_view type()

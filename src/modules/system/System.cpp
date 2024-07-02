@@ -176,7 +176,7 @@ std::string semver()
     const int minor = number::integer(9);
     const int patch = number::integer(9);
 
-    return FormatHelper::format("{}.{}.{}", major, minor, patch);
+    return common::format("{}.{}.{}", major, minor, patch);
 }
 
 std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options)

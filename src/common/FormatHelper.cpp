@@ -10,7 +10,7 @@ namespace faker
 
 // TODO: change to std::function<std::string_view()>
 std::string
-FormatHelper::fillTokenValues(const std::string& format,
+common::fillTokenValues(const std::string& format,
                               std::unordered_map<std::string, std::function<std::string()>> tokenValueGenerators)
 {
     std::string filledFormat;
@@ -31,7 +31,7 @@ FormatHelper::fillTokenValues(const std::string& format,
 
             if (foundTokenGenerator == tokenValueGenerators.end())
             {
-                throw std::runtime_error{FormatHelper::format("Generator not found for token {}.", token)};
+                throw std::runtime_error{common::format("Generator not found for token {}.", token)};
             }
 
             filledFormat += foundTokenGenerator->second();
@@ -47,7 +47,7 @@ FormatHelper::fillTokenValues(const std::string& format,
     return filledFormat;
 }
 
-std::string FormatHelper::fillTokenValues(
+std::string common::fillTokenValues(
     const std::string& format,
     std::unordered_map<std::string_view, std::function<std::string_view()>> tokenValueGenerators)
 {
@@ -69,7 +69,7 @@ std::string FormatHelper::fillTokenValues(
 
             if (foundTokenGenerator == tokenValueGenerators.end())
             {
-                throw std::runtime_error{FormatHelper::format("Generator not found for token {}.", token)};
+                throw std::runtime_error{common::format("Generator not found for token {}.", token)};
             }
 
             filledFormat += foundTokenGenerator->second();
@@ -85,26 +85,26 @@ std::string FormatHelper::fillTokenValues(
     return filledFormat;
 }
 
-std::string FormatHelper::precisionFormat(Precision precision, double value)
+std::string common::precisionFormat(Precision precision, double value)
 {
     switch (precision)
     {
     case Precision::ZeroDp:
-        return FormatHelper::format("{:.0f}", value);
+        return common::format("{:.0f}", value);
     case Precision::OneDp:
-        return FormatHelper::format("{:.1f}", value);
+        return common::format("{:.1f}", value);
     case Precision::TwoDp:
-        return FormatHelper::format("{:.2f}", value);
+        return common::format("{:.2f}", value);
     case Precision::ThreeDp:
-        return FormatHelper::format("{:.3f}", value);
+        return common::format("{:.3f}", value);
     case Precision::FourDp:
-        return FormatHelper::format("{:.4f}", value);
+        return common::format("{:.4f}", value);
     case Precision::FiveDp:
-        return FormatHelper::format("{:.5f}", value);
+        return common::format("{:.5f}", value);
     case Precision::SixDp:
-        return FormatHelper::format("{:.6f}", value);
+        return common::format("{:.6f}", value);
     case Precision::SevenDp:
-        return FormatHelper::format("{:.7f}", value);
+        return common::format("{:.7f}", value);
     default:
         throw std::invalid_argument("Invalid precision");
     }

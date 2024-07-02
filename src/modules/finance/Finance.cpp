@@ -48,7 +48,7 @@ std::string amount(double min, double max, Precision precision, const std::strin
 
     std::string result{symbol};
 
-    result += FormatHelper::precisionFormat(precision, generatedNumber);
+    result += common::precisionFormat(precision, generatedNumber);
 
     return result;
 }

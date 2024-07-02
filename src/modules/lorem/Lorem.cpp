@@ -37,7 +37,7 @@ std::string sentence(unsigned minNumberOfWords, unsigned maxNumberOfWords)
 
     const auto sentenceWords = words(numberOfWords);
 
-    return FormatHelper::format("{}{}.", static_cast<char>(std::toupper(sentenceWords[0])), sentenceWords.substr(1));
+    return common::format("{}{}.", static_cast<char>(std::toupper(sentenceWords[0])), sentenceWords.substr(1));
 }
 
 std::string sentences(unsigned minNumberOfSentences, unsigned maxNumberOfSentences)

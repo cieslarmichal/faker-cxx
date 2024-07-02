@@ -328,7 +328,7 @@ std::string hexadecimal(std::optional<int> min, std::optional<int> max)
         defaultMax = max.value();
     }
 
-    return FormatHelper::format("{:x}", number::integer(defaultMin, defaultMax));
+    return common::format("{:x}", number::integer(defaultMin, defaultMax));
 }
 
 std::string hexadecimal(GuaranteeMap&& guarantee, unsigned int length, HexCasing casing, HexPrefix prefix)
