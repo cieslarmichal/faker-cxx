@@ -77,7 +77,6 @@ jobs:
             -DCMAKE_C_COMPILER=/usr/bin/clang-18 \
             -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
-            -DCODE_COVERAGE:BOOL=ON \
             -DBUILD_TESTING:BOOL=ON \
             -DBUILD_EXAMPLES:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
@@ -98,8 +97,3 @@ jobs:
         run: |
           cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target run-faker-cxx-basic-example \
           && cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target run-faker-cxx-person-example
-
-      - name: Code coverage
-        uses: codecov/codecov-action@v4.0.1
-        with:
-          token: ${{ secrets.CODECOV_TOKEN }}
