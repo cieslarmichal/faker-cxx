@@ -97,6 +97,11 @@ std::string toLower(const std::string& data)
     return lowerData;
 }
 
+std::string toLower(const std::string_view& data)
+{
+    return toLower(std::string{data});
+}
+
 bool isPunctuation(char c)
 {
     return (c == '.' || c == ',' || c == '!' || c == '?' || c == ';' || c == ':');

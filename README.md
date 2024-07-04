@@ -1,7 +1,6 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/cieslarmichal/faker-cxx/main/docs/public/logo.png" width="250" alt="C++ Faker, a powerful tool for generating realistic and randomized fake data in C++ programming, enhancing data testing and development workflows"/>
   <h1>Faker C++</h1>
-  <p>Generate fake (but realistic) data for testing and development</p>
 
 [![clang++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml?query=branch%3Amain)
 [![apple clang++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/macos-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/macos-clang-build.yml?query=branch%3Amain)
@@ -15,26 +14,37 @@
 
 ## Table of Contents
 
-- [🎯 Goal](#-goal)
-- [📖 Usage and Documentation](#usage-and-documentation)
+- [Introduction](#introduction)
+- [Key Features](#key-features)
+- [📖 Usage and Documentation](#-usage-and-documentation)
 - [💎 Modules](#-modules)
-- [Consuming library with CMake](#consuming-library-with-cmake-cmake-322-or-newer)
-- [⚒️ Compiler support](#%EF%B8%8F-compiler-support)
+- [Consuming the library with CMake](#consuming-the-library-with-cmake)
+- [⚒️ Compiler support](#-compiler-support)
 - [Dependencies](#dependencies)
-- [📦 Building the library with Conan](#building-the-library-with-conan)
+- [📦 Building the library with Conan](#-building-the-library-with-conan)
 - [Installing the library with Conan](#installing-the-library-with-conan)
-- [Building the Project with Bazel](#building-the-project-with-bazel)
+- [Building the library with Bazel](#building-the-library-with-bazel)
 - [✨ Contributing](#-contributing)
 - [📘 Credits](#-credits)
 - [Examples](#examples)
 - [📝 Changelog](#-changelog)
 - [🔑 License](#-license)
 
-## 🎯 Goal
+## Introduction
 
-The goal of Faker C++ is to provide a library similar to [Faker.js](https://github.com/faker-js/faker) for C++
-community. Faker C++ helps with the creation of realistic and customizable fake data for testing and development
-purposes within C++ applications.
+Faker C++ is a C++ library inspired by the popular [Faker.js](https://github.com/faker-js/faker),
+aimed at providing developers with a robust tool for generating fake (but realistic) data.
+Whether you're building test suites, populating databases, or creating demos, Faker C++ has got you covered.
+
+## Key Features
+
+📚 Realistic Data Generation: Generate various types of data including names, addresses, emails, dates, and more.
+
+🛠 Modular Design: Choose from a wide range of modules like Internet, Location, String, Date, and more to generate
+specific types of data.
+
+🚀 Easy Integration: Seamlessly integrate with CMake, and it supports major compilers like MSVC, GCC, Clang, and Apple
+Clang.
 
 ## 📖 Usage and Documentation
 
@@ -48,12 +58,7 @@ Below is an example of how to use Faker C++ in your code.
 ```cpp
 #include <iostream>
 
-#include "faker-cxx/Date.h"
-#include "faker-cxx/Internet.h"
-#include "faker-cxx/Location.h"
-#include "faker-cxx/String.h"
-
-// or #include "faker-cxx/Faker.h" for all modules
+#include "faker-cxx/Faker.h" // or include specific module
 
 int main()
 {
@@ -62,12 +67,14 @@ int main()
     const auto password = faker::internet::password();
     const auto city = faker::location::city();
     const auto streetAddress = faker::location::streetAddress();
+    const auto bornDate = faker::date::birthdateByYear(1970, 2000);
 
-    std::cout << id << std::endl;               // 58018063-ce5a-4fa7-adfd-327eb2e2d9a5
-    std::cout << email << std::endl;            // Lois_Hauck@hotmail.com
-    std::cout << password << std::endl;         // @cWLwgM#Knalxeb
-    std::cout << city << std::endl;             // Sayre ville
-    std::cout << streetAddress << std::endl;    // 1716 Harriet Alley
+    std::cout << id << std::endl; // 59990db5-3a5f-40bf-8af0-7834c29ee884
+    std::cout << email << std::endl; // hills.rita@gmail.com
+    std::cout << password << std::endl; // Mf+*[(_'lHfM.$v{
+    std::cout << city << std::endl; // Rochester
+    std::cout << streetAddress << std::endl; // 643 Ricardo Creek
+    std::cout << bornDate << std::endl; // 1973-12-03T11:07:02Z
 
     return 0;
 }
@@ -110,7 +117,7 @@ int main()
 - 🌤️ Weather - temperature, pressure, humidity, weather description
 - 💬 Word - sample words, nouns, verbs
 
-## Consuming library with CMake (CMake 3.22 or newer)
+## Consuming the library with CMake
 
 1. Add faker to git submodules (execute in project root):
 
@@ -177,7 +184,7 @@ The faker-cxx Conan recipe is kept up to date by Conan maintainers and community
 If the version is out of date, please [create an issue or pull request](https://github.com/conan-io/conan-center-index)
 on the ConanCenterIndex repository.
 
-## Building the Project with [Bazel](https://bazel.build/)
+## Building the library with [Bazel](https://bazel.build/)
 
 As alternative, this project can be built using [Bazel](https://bazel.build/). The dependencies are managed directly by
 Bazel modules, downloading and building all external dependencies. Follow the steps below to build the project:
