@@ -2,6 +2,7 @@
 
 #include <algorithm>
 #include <array>
+#include <cctype>
 #include <initializer_list>
 #include <map>
 #include <optional>
@@ -78,28 +79,29 @@ std::vector<std::string_view> getAllEmojis()
     emojis.insert(emojis.end(), objectEmojis.begin(), objectEmojis.end());
     emojis.insert(emojis.end(), symbolEmojis.begin(), symbolEmojis.end());
     emojis.insert(emojis.end(), flagEmojis.begin(), flagEmojis.end());
+
     return emojis;
 }
 
 std::string username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit, Country country)
 {
-    const auto firstName = firstNameInit ? *firstNameInit : person::firstName(country);
-    const auto lastName = lastNameInit ? *lastNameInit : person::lastName(country);
+    const auto firstName = common::toLower(std::string{firstNameInit ? *firstNameInit : person::firstName(country)});
+    const auto lastName = common::toLower(std::string{lastNameInit ? *lastNameInit : person::lastName(country)});
 
     std::string username;
 
     switch (number::integer<int>(2))
     {
     case 0:
-        username = common::format("{}{}{}", firstName, lastName, number::integer<int>(999));
+        username = common::format("{}{}{}", firstName, lastName, number::integer<int>(1970, 2005));
         break;
     case 1:
         username =
             common::format("{}{}{}", firstName, helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
-        username = common::format("{}{}{}{}", firstName, helper::arrayElement(std::vector<std::string>{".", "_", ""}),
-                                  lastName, number::integer<int>(99));
+        username =
+            common::format("{}{}{}", lastName, helper::arrayElement(std::vector<std::string>{".", "_", ""}), firstName);
         break;
     }
 
@@ -163,12 +165,14 @@ std::string_view emoji(std::optional<EmojiType> type)
     }
 
     const auto emojis = getAllEmojis();
+
     return helper::arrayElement(emojis);
 }
 
 bool checkIfEmojiIsValid(const std::string& emojiToCheck)
 {
     const auto emojis = getAllEmojis();
+
     return std::find(emojis.begin(), emojis.end(), emojiToCheck) != emojis.end();
 }
 

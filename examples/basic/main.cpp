@@ -1,9 +1,6 @@
-#include <cstdlib>
 #include <iostream>
 
-#include "faker-cxx/Internet.h"
-#include "faker-cxx/Location.h"
-#include "faker-cxx/String.h"
+#include "faker-cxx/Faker.h"
 
 int main()
 {
@@ -12,12 +9,14 @@ int main()
     const auto password = faker::internet::password();
     const auto city = faker::location::city();
     const auto streetAddress = faker::location::streetAddress();
+    const auto bornDate = faker::date::birthdateByYear(1970, 2000);
 
     std::cout << id << std::endl;
     std::cout << email << std::endl;
     std::cout << password << std::endl;
     std::cout << city << std::endl;
     std::cout << streetAddress << std::endl;
+    std::cout << bornDate << std::endl;
 
-    return EXIT_SUCCESS;
+    return 0;
 }
