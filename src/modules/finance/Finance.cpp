@@ -5,6 +5,7 @@
 #include <string_view>
 #include <vector>
 
+#include "../../common/AlgoHelper.h"
 #include "../../common/FormatHelper.h"
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Helper.h"

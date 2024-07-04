@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "../src/common/StringHelper.h"
+#include "common/AlgoHelper.h"
 #include "common/FormatHelper.h"
 #include "faker-cxx/Datatype.h"
 #include "faker-cxx/Helper.h"

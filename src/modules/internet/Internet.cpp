@@ -11,6 +11,7 @@
 #include <utility>
 #include <vector>
 
+#include "common/AlgoHelper.h"
 #include "common/FormatHelper.h"
 #include "common/StringHelper.h"
 #include "faker-cxx/Helper.h"

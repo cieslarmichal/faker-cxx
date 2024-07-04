@@ -1,4 +1,5 @@
 #include "faker-cxx/Helper.h"
+#include <common/AlgoHelper.h>
 
 #include <algorithm>
 #include <cctype>
