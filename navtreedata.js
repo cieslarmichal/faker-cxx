@@ -52,12 +52,12 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "Airline_8h.html",
-"Internet_8h.html#a005caa05149d90b3854aef6a4ccdf27e",
-"Phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa4442e4af0916f53a07fb8ca9a49b98ed",
-"Vehicle_8h.html#a78783093e7083fa2e897f7ca2226da68",
-"namespacefaker_1_1food.html#abac00f1ce6f9b49dff1548efa5a2d017",
-"namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa28765464efe1b6583610335965b4d75a",
-"namespacefaker_1_1system.html#a853ea09c9fb8b8c03fda5c0ed1d29086"
+"Internet_8h.html#a25d31766e509fb398f5534224b171a8da1b6498e23a3c43775699129e7ebfcfeb",
+"Phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa4b5575a8d88fa7ac32b14c4a2f1e8953",
+"VideoGame_8h.html#a4dd164bf14e461898d8a1408c6300127",
+"namespacefaker_1_1git.html#a5f23fd2f7cb8f5996ef83a2e48a3417e",
+"namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa3a2c25e3258633afd0a6f755964526d8",
+"namespacefaker_1_1vehicle.html#a3ab3c5b8357f4abe61a81c97e3df99b1"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

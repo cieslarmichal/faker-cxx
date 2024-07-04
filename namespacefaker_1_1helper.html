@@ -109,6 +109,7 @@ $(function(){initNavTree('namespacefaker_1_1helper.html',''); initResizable(true
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structfaker_1_1helper_1_1WeightedElement.html">WeightedElement</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element by weight from a vector.  <a href="structfaker_1_1helper_1_1WeightedElement.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
@@ -131,38 +132,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a22370d33819758fb60d0b22751c6fbaa"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a22370d33819758fb60d0b22751c6fbaa">arrayElement</a> (const std::initializer_list&lt; T &gt; &amp;data)</td></tr>
 <tr class="memdesc:a22370d33819758fb60d0b22751c6fbaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from an initializer list.  <br /></td></tr>
 <tr class="separator:a22370d33819758fb60d0b22751c6fbaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a45706a0a4f710f384c1a8781ef14c0df" id="r_a45706a0a4f710f384c1a8781ef14c0df"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a45706a0a4f710f384c1a8781ef14c0df"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a45706a0a4f710f384c1a8781ef14c0df">setElement</a> (const std::set&lt; T &gt; &amp;data)</td></tr>
-<tr class="memdesc:a45706a0a4f710f384c1a8781ef14c0df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from a std::set.  <br /></td></tr>
-<tr class="separator:a45706a0a4f710f384c1a8781ef14c0df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad70082b17900d8c6a2d740cce993de97" id="r_ad70082b17900d8c6a2d740cce993de97"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:ad70082b17900d8c6a2d740cce993de97"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ad70082b17900d8c6a2d740cce993de97">weightedArrayElement</a> (const std::vector&lt; <a class="el" href="structfaker_1_1helper_1_1WeightedElement.html">WeightedElement</a>&lt; T &gt; &gt; &amp;data)</td></tr>
-<tr class="memdesc:ad70082b17900d8c6a2d740cce993de97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element by weight from a vector.  <br /></td></tr>
 <tr class="separator:ad70082b17900d8c6a2d740cce993de97"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a52e611f6feb6b6cebb53f65991a54f6c" id="r_a52e611f6feb6b6cebb53f65991a54f6c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a52e611f6feb6b6cebb53f65991a54f6c">shuffleString</a> (std::string data)</td></tr>
-<tr class="memdesc:a52e611f6feb6b6cebb53f65991a54f6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns shuffled std::string.  <br /></td></tr>
-<tr class="separator:a52e611f6feb6b6cebb53f65991a54f6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cf1563770798ffe911d9d4500c4a547" id="r_a8cf1563770798ffe911d9d4500c4a547"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a8cf1563770798ffe911d9d4500c4a547"><td class="memTemplItemLeft" align="right" valign="top">T::key_type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8cf1563770798ffe911d9d4500c4a547">objectKey</a> (const T &amp;object)</td></tr>
-<tr class="memdesc:a8cf1563770798ffe911d9d4500c4a547"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random key from given object.  <br /></td></tr>
-<tr class="separator:a8cf1563770798ffe911d9d4500c4a547"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a98ff8c2ecd79f17526a225e015669150" id="r_a98ff8c2ecd79f17526a225e015669150"><td class="memTemplParams" colspan="2">template&lt;typename TResult &gt; </td></tr>
-<tr class="memitem:a98ff8c2ecd79f17526a225e015669150"><td class="memTemplItemLeft" align="right" valign="top">TResult&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a98ff8c2ecd79f17526a225e015669150">maybe</a> (std::function&lt; TResult()&gt; callback, double probability=0.5)</td></tr>
-<tr class="memdesc:a98ff8c2ecd79f17526a225e015669150"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the result of the callback if the probability check was successful, otherwise empty string.  <br /></td></tr>
-<tr class="separator:a98ff8c2ecd79f17526a225e015669150"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acba439bbae90916469d2534caef3c6a6" id="r_acba439bbae90916469d2534caef3c6a6"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:acba439bbae90916469d2534caef3c6a6"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; T &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#acba439bbae90916469d2534caef3c6a6">toVector</a> (const std::array&lt; T, N &gt; &amp;arr)</td></tr>
-<tr class="memdesc:acba439bbae90916469d2534caef3c6a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a vector equivalent to the given array.  <br /></td></tr>
-<tr class="separator:acba439bbae90916469d2534caef3c6a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afea39638210df8858b64480f140f4c2c" id="r_afea39638210df8858b64480f140f4c2c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afea39638210df8858b64480f140f4c2c">replaceSymbolWithNumber</a> (const std::string &amp;str, const char &amp;symbol='#')</td></tr>
-<tr class="memdesc:afea39638210df8858b64480f140f4c2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the given string parsed symbol by symbol and replaced the placeholders with digits ("0" - "9"). "!" will be replaced by digits &gt;=2 ("2" - "9").  <br /></td></tr>
-<tr class="separator:afea39638210df8858b64480f140f4c2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a316cf4ac8f92ad52808e760f39974ca6" id="r_a316cf4ac8f92ad52808e760f39974ca6"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a316cf4ac8f92ad52808e760f39974ca6">replaceCreditCardSymbols</a> (const std::string &amp;inputString=&quot;6453-####-####-####-###L&quot;, char symbol='#')</td></tr>
-<tr class="memdesc:a316cf4ac8f92ad52808e760f39974ca6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns credit card schema with replaced symbols and patterns in a credit card including Luhn checksum This method supports both range patterns `[4-9]` as well as the patterns used by `replaceSymbolWithNumber()`. `L` will be replaced with the appropriate Luhn checksum.  <br /></td></tr>
-<tr class="separator:a316cf4ac8f92ad52808e760f39974ca6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a484c4cf1826e01d11c7f8541fb35e4f8" id="r_a484c4cf1826e01d11c7f8541fb35e4f8"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a484c4cf1826e01d11c7f8541fb35e4f8">regexpStyleStringParse</a> (const std::string &amp;input)</td></tr>
-<tr class="memdesc:a484c4cf1826e01d11c7f8541fb35e4f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the replaced regex-like expression in the string with matching values.  <br /></td></tr>
-<tr class="separator:a484c4cf1826e01d11c7f8541fb35e4f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ae9d5478c49e71aef7eb2623f3d9c9009" name="ae9d5478c49e71aef7eb2623f3d9c9009"></a>
@@ -216,7 +188,7 @@ template&lt;class T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T a random element from the initializer list.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#aa643a09d2b1129c269986c92a4cddb66">faker::helper::arrayElement&lt;std::string&gt;</a>(std::initializer_list&lt;std::string&gt;{{<span class="stringliteral">&quot;hello&quot;</span>}, {<span class="stringliteral">&quot;world&quot;</span>}}) <span class="comment">// &quot;hello&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_aa643a09d2b1129c269986c92a4cddb66"><div class="ttname"><a href="#aa643a09d2b1129c269986c92a4cddb66">faker::helper::arrayElement</a></div><div class="ttdeci">T arrayElement(std::span&lt; const T &gt; data)</div><div class="ttdoc">Get a random element from an STL container.</div><div class="ttdef"><b>Definition</b> Helper.h:34</div></div>
+<div class="ttc" id="anamespacefaker_1_1helper_html_aa643a09d2b1129c269986c92a4cddb66"><div class="ttname"><a href="#aa643a09d2b1129c269986c92a4cddb66">faker::helper::arrayElement</a></div><div class="ttdeci">T arrayElement(std::span&lt; const T &gt; data)</div><div class="ttdoc">Get a random element from an STL container.</div><div class="ttdef"><b>Definition</b> Helper.h:27</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -315,305 +287,6 @@ template&lt;class T &gt; </div>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a98ff8c2ecd79f17526a225e015669150" name="a98ff8c2ecd79f17526a225e015669150"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a98ff8c2ecd79f17526a225e015669150">&#9670;&#160;</a></span>maybe()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename TResult &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">TResult faker::helper::maybe </td>
-          <td>(</td>
-          <td class="paramtype">std::function&lt; TResult()&gt;</td>          <td class="paramname"><span class="paramname"><em>callback</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>probability</em></span><span class="paramdefsep"> = </span><span class="paramdefval">0.5</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the result of the callback if the probability check was successful, otherwise empty string. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">TResult</td><td>The type of result of the given callback.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">callback</td><td>The callback to that will be invoked if the probability check was successful. </td></tr>
-    <tr><td class="paramname">probability</td><td>The probability (`[0.00, 1.00]`) of the callback being invoked. Defaults to `0.5`.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The result of the callback if the probability check was successful, otherwise empty string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a98ff8c2ecd79f17526a225e015669150">faker::helper::maybe&lt;std::string&gt;</a>([]() { <span class="keywordflow">return</span> <span class="stringliteral">&quot;Hello World!&quot;</span>; }) <span class="comment">// &quot;&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#a98ff8c2ecd79f17526a225e015669150">faker::helper::maybe&lt;int&gt;</a>([]() { <span class="keywordflow">return</span> 42; }, 0.9) <span class="comment">// &quot;42&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_a98ff8c2ecd79f17526a225e015669150"><div class="ttname"><a href="#a98ff8c2ecd79f17526a225e015669150">faker::helper::maybe</a></div><div class="ttdeci">TResult maybe(std::function&lt; TResult()&gt; callback, double probability=0.5)</div><div class="ttdoc">Returns the result of the callback if the probability check was successful, otherwise empty string.</div><div class="ttdef"><b>Definition</b> Helper.h:285</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="a8cf1563770798ffe911d9d4500c4a547" name="a8cf1563770798ffe911d9d4500c4a547"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cf1563770798ffe911d9d4500c4a547">&#9670;&#160;</a></span>objectKey()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T::key_type faker::helper::objectKey </td>
-          <td>(</td>
-          <td class="paramtype">const T &amp;</td>          <td class="paramname"><span class="paramname"><em>object</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns a random key from given object. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type of the object to select from.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">object</td><td>The object to be used.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="exception"><dt>Exceptions</dt><dd>
-  <table class="exception">
-    <tr><td class="paramname">If</td><td>the given object is empty</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A random key from given object.</dd></dl>
-<div class="fragment"><div class="line">std::unordered_map&lt;int, std::string&gt; testMap = {</div>
-<div class="line">{1, <span class="stringliteral">&quot;one&quot;</span>},</div>
-<div class="line">{2, <span class="stringliteral">&quot;two&quot;</span>},</div>
-<div class="line">{3, <span class="stringliteral">&quot;three&quot;</span>}</div>
-<div class="line">};</div>
-<div class="line"><a class="code hl_function" href="#a8cf1563770798ffe911d9d4500c4a547">faker::helper::objectKey</a>(testMap) <span class="comment">// &quot;2&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_a8cf1563770798ffe911d9d4500c4a547"><div class="ttname"><a href="#a8cf1563770798ffe911d9d4500c4a547">faker::helper::objectKey</a></div><div class="ttdeci">T::key_type objectKey(const T &amp;object)</div><div class="ttdoc">Returns a random key from given object.</div><div class="ttdef"><b>Definition</b> Helper.h:251</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="a484c4cf1826e01d11c7f8541fb35e4f8" name="a484c4cf1826e01d11c7f8541fb35e4f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a484c4cf1826e01d11c7f8541fb35e4f8">&#9670;&#160;</a></span>regexpStyleStringParse()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FAKER_CXX_EXPORT std::string faker::helper::regexpStyleStringParse </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the replaced regex-like expression in the string with matching values. </p>
-<p>Supported patterns:</p><ul>
-<li>`.{times}` =&gt; Repeat the character exactly `times` times.</li>
-<li>`.{min,max}` =&gt; Repeat the character `min` to `max` times.</li>
-<li>`[min-max]` =&gt; Generate a number between min and max (inclusive).</li>
-</ul>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">input</td><td>The template string to to parse.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The replaced regex-like expression in the string with matching values.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a484c4cf1826e01d11c7f8541fb35e4f8">faker::helper::regexpStyleStringParse</a>() <span class="comment">// &quot;&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::helper::<a class="code hl_function" href="#a484c4cf1826e01d11c7f8541fb35e4f8">regexpStyleStringParse</a>(&quot;<span class="preprocessor">#{5}&quot;) // &quot;#####&quot;</span></div>
-<div class="line"><span class="preprocessor">faker::helper::regexpStyleStringParse(&quot;#{2,9}&quot;) // &quot;#######&quot;</span></div>
-<div class="line"><span class="preprocessor">faker::helper::regexpStyleStringParse(&quot;[500-15000]&quot;) // &quot;8375&quot;</span></div>
-<div class="line"><span class="preprocessor">faker::helper::regexpStyleStringParse(&quot;#{3}test[1-5]&quot;) // &quot;###test3&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_a484c4cf1826e01d11c7f8541fb35e4f8"><div class="ttname"><a href="#a484c4cf1826e01d11c7f8541fb35e4f8">faker::helper::regexpStyleStringParse</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string regexpStyleStringParse(const std::string &amp;input)</div><div class="ttdoc">Returns the replaced regex-like expression in the string with matching values.</div></div>
-<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> Airline.h:7</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="a316cf4ac8f92ad52808e760f39974ca6" name="a316cf4ac8f92ad52808e760f39974ca6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a316cf4ac8f92ad52808e760f39974ca6">&#9670;&#160;</a></span>replaceCreditCardSymbols()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FAKER_CXX_EXPORT std::string faker::helper::replaceCreditCardSymbols </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>inputString</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;6453-####-####-####-###L&quot;</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>symbol</em></span><span class="paramdefsep"> = </span><span class="paramdefval">'#'</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns credit card schema with replaced symbols and patterns in a credit card including Luhn checksum This method supports both range patterns `[4-9]` as well as the patterns used by `replaceSymbolWithNumber()`. `L` will be replaced with the appropriate Luhn checksum. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">inputString</td><td>TThe credit card format pattern. Defaults to "6453-####-####-####-###L". </td></tr>
-    <tr><td class="paramname">symbol</td><td>The symbol to replace with a digit. Defaults to '#'.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The string replaced symbols with digits.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a316cf4ac8f92ad52808e760f39974ca6">faker::helper::replaceCreditCardSymbols</a>() <span class="comment">// &quot;6453-4876-8626-8995-3771&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::helper::<a class="code hl_function" href="#a316cf4ac8f92ad52808e760f39974ca6">replaceCreditCardSymbols</a>(&quot;1234-[4-9]-<span class="preprocessor">##!!-L&quot;) // &quot;1234-9-5298-2&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_a316cf4ac8f92ad52808e760f39974ca6"><div class="ttname"><a href="#a316cf4ac8f92ad52808e760f39974ca6">faker::helper::replaceCreditCardSymbols</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string replaceCreditCardSymbols(const std::string &amp;inputString=&quot;6453-####-####-####-###L&quot;, char symbol='#')</div><div class="ttdoc">Returns credit card schema with replaced symbols and patterns in a credit card including Luhn checksu...</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="afea39638210df8858b64480f140f4c2c" name="afea39638210df8858b64480f140f4c2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afea39638210df8858b64480f140f4c2c">&#9670;&#160;</a></span>replaceSymbolWithNumber()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FAKER_CXX_EXPORT std::string faker::helper::replaceSymbolWithNumber </td>
-          <td>(</td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>str</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const char &amp;</td>          <td class="paramname"><span class="paramname"><em>symbol</em></span><span class="paramdefsep"> = </span><span class="paramdefval">'#'</span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns the given string parsed symbol by symbol and replaced the placeholders with digits ("0" - "9"). "!" will be replaced by digits &gt;=2 ("2" - "9"). </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">str</td><td>The template to parse string. </td></tr>
-    <tr><td class="paramname">symbol</td><td>The symbol to replace with digits. Defaults to '#'.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The string replaced symbols with digits.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#afea39638210df8858b64480f140f4c2c">faker::helper::replaceSymbolWithNumber</a>() <span class="comment">// &quot;&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::helper::<a class="code hl_function" href="#afea39638210df8858b64480f140f4c2c">replaceSymbolWithNumber</a>(&quot;<span class="preprocessor">#####&quot;) // &quot;04812&quot;</span></div>
-<div class="line"><span class="preprocessor">faker::helper::replaceSymbolWithNumber(&quot;!####&quot;) // &quot;27378&quot;</span></div>
-<div class="line"><span class="preprocessor">faker::helper::replaceSymbolWithNumber(&quot;Your pin is: !####&quot;) // &quot;29841&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_afea39638210df8858b64480f140f4c2c"><div class="ttname"><a href="#afea39638210df8858b64480f140f4c2c">faker::helper::replaceSymbolWithNumber</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string replaceSymbolWithNumber(const std::string &amp;str, const char &amp;symbol='#')</div><div class="ttdoc">Returns the given string parsed symbol by symbol and replaced the placeholders with digits (&quot;0&quot; - &quot;9&quot;...</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="a45706a0a4f710f384c1a8781ef14c0df" name="a45706a0a4f710f384c1a8781ef14c0df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a45706a0a4f710f384c1a8781ef14c0df">&#9670;&#160;</a></span>setElement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">T faker::helper::setElement </td>
-          <td>(</td>
-          <td class="paramtype">const std::set&lt; T &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Get a random element from a std::set. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>an element type of the std::set.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">std::set</td><td>of elements.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>T a random element from the std::set.</dd></dl>
-<div class="fragment"><div class="line">std::set&lt;char&gt; chars{<span class="charliteral">&#39;a&#39;</span>, <span class="charliteral">&#39;b&#39;</span>, <span class="charliteral">&#39;c&#39;</span>, <span class="charliteral">&#39;d&#39;</span>, <span class="charliteral">&#39;e&#39;</span>};</div>
-<div class="line"><a class="code hl_function" href="#a45706a0a4f710f384c1a8781ef14c0df">faker::helper::setElement</a>(chars) <span class="comment">// &#39;d&#39;</span></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_a45706a0a4f710f384c1a8781ef14c0df"><div class="ttname"><a href="#a45706a0a4f710f384c1a8781ef14c0df">faker::helper::setElement</a></div><div class="ttdeci">T setElement(const std::set&lt; T &gt; &amp;data)</div><div class="ttdoc">Get a random element from a std::set.</div><div class="ttdef"><b>Definition</b> Helper.h:142</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="a52e611f6feb6b6cebb53f65991a54f6c" name="a52e611f6feb6b6cebb53f65991a54f6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a52e611f6feb6b6cebb53f65991a54f6c">&#9670;&#160;</a></span>shuffleString()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FAKER_CXX_EXPORT std::string faker::helper::shuffleString </td>
-          <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>data</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns shuffled std::string. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>String to be shuffled</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>std::string with shuffled chars</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a52e611f6feb6b6cebb53f65991a54f6c">faker::helper::shuffleString</a>(<span class="stringliteral">&quot;hello&quot;</span>) <span class="comment">// &quot;eollh&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_a52e611f6feb6b6cebb53f65991a54f6c"><div class="ttname"><a href="#a52e611f6feb6b6cebb53f65991a54f6c">faker::helper::shuffleString</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string shuffleString(std::string data)</div><div class="ttdoc">Returns shuffled std::string.</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="acba439bbae90916469d2534caef3c6a6" name="acba439bbae90916469d2534caef3c6a6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acba439bbae90916469d2534caef3c6a6">&#9670;&#160;</a></span>toVector()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T , std::size_t N&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">std::vector&lt; T &gt; faker::helper::toVector </td>
-          <td>(</td>
-          <td class="paramtype">const std::array&lt; T, N &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>arr</em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns a vector equivalent to the given array. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>The type of the array. </td></tr>
-    <tr><td class="paramname">N</td><td>The size of the array.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">arr</td><td>The array to convert.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>The same array as a vector.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#acba439bbae90916469d2534caef3c6a6">faker::helper::toVector</a>(std::array&lt;int, 3&gt;{1, 2, 3}) <span class="comment">// {1, 2, 3}</span></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_acba439bbae90916469d2534caef3c6a6"><div class="ttname"><a href="#acba439bbae90916469d2534caef3c6a6">faker::helper::toVector</a></div><div class="ttdeci">std::vector&lt; T &gt; toVector(const std::array&lt; T, N &gt; &amp;arr)</div><div class="ttdoc">Returns a vector equivalent to the given array.</div><div class="ttdef"><b>Definition</b> Helper.h:310</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
 <a id="ad70082b17900d8c6a2d740cce993de97" name="ad70082b17900d8c6a2d740cce993de97"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ad70082b17900d8c6a2d740cce993de97">&#9670;&#160;</a></span>weightedArrayElement()</h2>
 
@@ -631,25 +304,6 @@ template&lt;class T &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Get a random element by weight from a vector. </p>
-<dl class="tparams"><dt>Template Parameters</dt><dd>
-  <table class="tparams">
-    <tr><td class="paramname">T</td><td>an element type of the weighted element.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">data</td><td>vector of weighted elements.</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>T a weighted element value from the vector.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ad70082b17900d8c6a2d740cce993de97">faker::helper::weightedArrayElement&lt;std::string&gt;</a>(std::vector&lt;<a class="code hl_struct" href="structfaker_1_1helper_1_1WeightedElement.html">helper::WeightedElement&lt;std::string&gt;</a>&gt;{{1, <span class="stringliteral">&quot;value1&quot;</span>}, {10,</div>
-<div class="line"><span class="stringliteral">&quot;value2&quot;</span>}}) <span class="comment">// &quot;hello2&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_ad70082b17900d8c6a2d740cce993de97"><div class="ttname"><a href="#ad70082b17900d8c6a2d740cce993de97">faker::helper::weightedArrayElement</a></div><div class="ttdeci">T weightedArrayElement(const std::vector&lt; WeightedElement&lt; T &gt; &gt; &amp;data)</div><div class="ttdoc">Get a random element by weight from a vector.</div><div class="ttdef"><b>Definition</b> Helper.h:180</div></div>
-<div class="ttc" id="astructfaker_1_1helper_1_1WeightedElement_html"><div class="ttname"><a href="structfaker_1_1helper_1_1WeightedElement.html">faker::helper::WeightedElement</a></div><div class="ttdef"><b>Definition</b> Helper.h:160</div></div>
-</div><!-- fragment --> 
 </div>
 </div>
 </div><!-- contents -->
