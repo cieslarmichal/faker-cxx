@@ -37,6 +37,7 @@ set(FAKER_SOURCES
     modules/videoGame/VideoGame.cpp
     modules/weather/Weather.cpp
     modules/word/Word.cpp
+    modules/e-sport/E-sport.cpp
     common/FormatHelper.cpp
     common/LuhnCheck.cpp
     common/StringHelper.cpp
@@ -77,6 +78,7 @@ set(FAKER_HEADERS
     modules/phone/PhoneData.h
     modules/color/ColorData.h
     modules/lorem/LoremData.h
+    modules/e-sport/E-sportData.h
 )
 
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${FAKER_SOURCES} ${FAKER_HEADERS})
