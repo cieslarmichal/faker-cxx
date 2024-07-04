@@ -161,9 +161,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a73507aa24e5f1d8b74e0db4cdee32ee9" id="r_a73507aa24e5f1d8b74e0db4cdee32ee9"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a73507aa24e5f1d8b74e0db4cdee32ee9">exampleEmail</a> (std::optional&lt; std::string &gt; firstName=std::nullopt, std::optional&lt; std::string &gt; lastName=std::nullopt)</td></tr>
 <tr class="memdesc:a73507aa24e5f1d8b74e0db4cdee32ee9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an email address using the given person's name as base with example domain.  <br /></td></tr>
 <tr class="separator:a73507aa24e5f1d8b74e0db4cdee32ee9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88b044d010594ec94fa7127efb7c8bb1" id="r_a88b044d010594ec94fa7127efb7c8bb1"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a88b044d010594ec94fa7127efb7c8bb1">password</a> (int length=15, const <a class="el" href="structfaker_1_1internet_1_1PasswordOptions.html">PasswordOptions</a> &amp;options={})</td></tr>
-<tr class="memdesc:a88b044d010594ec94fa7127efb7c8bb1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random password-like string. Do not use this method for generating actual passwords for users. Since the source of the randomness is not cryptographically secure, neither is this generator.  <br /></td></tr>
-<tr class="separator:a88b044d010594ec94fa7127efb7c8bb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a907669dea4db0c9bdcbb87a68ad3c05e" id="r_a907669dea4db0c9bdcbb87a68ad3c05e"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a907669dea4db0c9bdcbb87a68ad3c05e">password</a> (int length=16, const <a class="el" href="structfaker_1_1internet_1_1PasswordOptions.html">PasswordOptions</a> &amp;options={})</td></tr>
+<tr class="memdesc:a907669dea4db0c9bdcbb87a68ad3c05e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random password-like string. Do not use this method for generating actual passwords for users. Since the source of the randomness is not cryptographically secure, neither is this generator.  <br /></td></tr>
+<tr class="separator:a907669dea4db0c9bdcbb87a68ad3c05e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a40ee9376026f9017e3dcc90a8f53b7bc" id="r_a40ee9376026f9017e3dcc90a8f53b7bc"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a40ee9376026f9017e3dcc90a8f53b7bc">emoji</a> (std::optional&lt; <a class="el" href="#ab1fd12c6089e1eb7e783223be1b73ac1">EmojiType</a> &gt; type=std::nullopt)</td></tr>
 <tr class="memdesc:a40ee9376026f9017e3dcc90a8f53b7bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random emoji.  <br /></td></tr>
 <tr class="separator:a40ee9376026f9017e3dcc90a8f53b7bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -529,7 +529,7 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a40ee9376026f9017e3dcc90a8f53b7bc">faker::internet::emoji</a>() <span class="comment">// &quot;👑&quot;</span></div>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a40ee9376026f9017e3dcc90a8f53b7bc">emoji</a>(<a class="code hl_enumeration" href="#ab1fd12c6089e1eb7e783223be1b73ac1">EmojiType</a>::<a class="code hl_enumvalue" href="#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">Food</a>) <span class="comment">// &quot;🍕&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a40ee9376026f9017e3dcc90a8f53b7bc"><div class="ttname"><a href="#a40ee9376026f9017e3dcc90a8f53b7bc">faker::internet::emoji</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view emoji(std::optional&lt; EmojiType &gt; type=std::nullopt)</div><div class="ttdoc">Returns a random emoji.</div></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1">faker::internet::EmojiType</a></div><div class="ttdeci">EmojiType</div><div class="ttdef"><b>Definition</b> Internet.h:113</div></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1">faker::internet::EmojiType</a></div><div class="ttdeci">EmojiType</div><div class="ttdef"><b>Definition</b> Internet.h:114</div></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">faker::internet::EmojiType::Food</a></div><div class="ttdeci">@ Food</div></div>
 </div><!-- fragment --> 
 </div>
@@ -798,8 +798,8 @@ Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a88b044d010594ec94fa7127efb7c8bb1" name="a88b044d010594ec94fa7127efb7c8bb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a88b044d010594ec94fa7127efb7c8bb1">&#9670;&#160;</a></span>password()</h2>
+<a id="a907669dea4db0c9bdcbb87a68ad3c05e" name="a907669dea4db0c9bdcbb87a68ad3c05e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a907669dea4db0c9bdcbb87a68ad3c05e">&#9670;&#160;</a></span>password()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -807,7 +807,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">FAKER_CXX_EXPORT std::string faker::internet::password </td>
           <td>(</td>
-          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>length</em></span><span class="paramdefsep"> = </span><span class="paramdefval">15</span>, </td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>length</em></span><span class="paramdefsep"> = </span><span class="paramdefval">16</span>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -820,14 +820,14 @@ Functions</h2></td></tr>
 <p>Generates a random password-like string. Do not use this method for generating actual passwords for users. Since the source of the randomness is not cryptographically secure, neither is this generator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">length</td><td>The length of the password to generate. Defaults to `15`.</td></tr>
+    <tr><td class="paramname">length</td><td>The length of the password to generate. Defaults to `16`.</td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Random password-like string.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a88b044d010594ec94fa7127efb7c8bb1">faker::internet::password</a>() <span class="comment">// &quot;gXGpe9pKfFcKy9R&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a88b044d010594ec94fa7127efb7c8bb1">password</a>(25) <span class="comment">// &quot;xv8vDu*wM!Rg0$zd0kH%8p!WY&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_a88b044d010594ec94fa7127efb7c8bb1"><div class="ttname"><a href="#a88b044d010594ec94fa7127efb7c8bb1">faker::internet::password</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string password(int length=15, const PasswordOptions &amp;options={})</div><div class="ttdoc">Generates a random password-like string. Do not use this method for generating actual passwords for u...</div></div>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a907669dea4db0c9bdcbb87a68ad3c05e">faker::internet::password</a>() <span class="comment">// &quot;gXGpe9pKfFcKy9R&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a907669dea4db0c9bdcbb87a68ad3c05e">password</a>(25) <span class="comment">// &quot;xv8vDu*wM!Rg0$zd0kH%8p!WY&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_a907669dea4db0c9bdcbb87a68ad3c05e"><div class="ttname"><a href="#a907669dea4db0c9bdcbb87a68ad3c05e">faker::internet::password</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string password(int length=16, const PasswordOptions &amp;options={})</div><div class="ttdoc">Generates a random password-like string. Do not use this method for generating actual passwords for u...</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
