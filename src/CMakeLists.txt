@@ -45,6 +45,7 @@ set(FAKER_SOURCES
 set(FAKER_HEADERS
     common/LuhnCheck.h
     common/FormatHelper.h
+    common/AlgoHelper.h
     common/StringHelper.h
     modules/plant/PlantData.h
     modules/person/PersonData.h

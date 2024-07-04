@@ -5,6 +5,7 @@
 #include <string_view>
 #include <unordered_map>
 
+#include "../../common/AlgoHelper.h"
 #include "faker-cxx/Helper.h"
 #include "PhoneData.h"
 

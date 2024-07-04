@@ -6,6 +6,7 @@
 #include <vector>
 
 #include "common/FormatHelper.h"
+#include "common/AlgoHelper.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Internet.h"
 #include "faker-cxx/Number.h"

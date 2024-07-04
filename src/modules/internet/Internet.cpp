@@ -10,6 +10,7 @@
 #include <utility>
 #include <vector>
 
+#include "common/AlgoHelper.h"
 #include "common/FormatHelper.h"
 #include "common/StringHelper.h"
 #include "faker-cxx/Helper.h"
@@ -93,13 +94,12 @@ std::string username(std::optional<std::string> firstNameInit, std::optional<std
         username = common::format("{}{}{}", firstName, lastName, number::integer<int>(999));
         break;
     case 1:
-        username = common::format("{}{}{}", firstName,
-                                        helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
+        username =
+            common::format("{}{}{}", firstName, helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
         break;
     case 2:
-        username =
-            common::format("{}{}{}{}", firstName, helper::arrayElement(std::vector<std::string>{".", "_", ""}),
-                                 lastName, number::integer<int>(99));
+        username = common::format("{}{}{}{}", firstName, helper::arrayElement(std::vector<std::string>{".", "_", ""}),
+                                  lastName, number::integer<int>(99));
         break;
     }
 
@@ -110,13 +110,13 @@ std::string email(std::optional<std::string> firstName, std::optional<std::strin
                   std::optional<std::string> emailHost)
 {
     return common::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                                emailHost ? *emailHost : helper::arrayElement(emailHosts));
+                          emailHost ? *emailHost : helper::arrayElement(emailHosts));
 }
 
 std::string exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
     return common::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                                helper::arrayElement(emailExampleHosts));
+                          helper::arrayElement(emailExampleHosts));
 }
 
 std::string password(int length, const PasswordOptions& options)

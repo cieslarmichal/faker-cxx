@@ -9,6 +9,7 @@
 #include <string>
 
 #include "common/FormatHelper.h"
+#include "common/AlgoHelper.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "faker-cxx/types/Hex.h"
