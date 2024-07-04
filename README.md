@@ -1,7 +1,6 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/cieslarmichal/faker-cxx/main/docs/public/logo.png" width="250" alt="C++ Faker, a powerful tool for generating realistic and randomized fake data in C++ programming, enhancing data testing and development workflows"/>
   <h1>Faker C++</h1>
-  <p>Generate fake (but realistic) data for testing and development</p>
 
 [![clang++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml?query=branch%3Amain)
 [![apple clang++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/macos-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/macos-clang-build.yml?query=branch%3Amain)
@@ -15,7 +14,8 @@
 
 ## Table of Contents
 
-- [🎯 Goal](#-goal)
+- [Introduction](#introduction)
+- [Key Features](#key-features)
 - [📖 Usage and Documentation](#-usage-and-documentation)
 - [💎 Modules](#-modules)
 - [Consuming the library with CMake](#consuming-the-library-with-cmake)
@@ -30,11 +30,21 @@
 - [📝 Changelog](#-changelog)
 - [🔑 License](#-license)
 
-## 🎯 Goal
+## Introduction
 
-The goal of Faker C++ is to provide a library similar to [Faker.js](https://github.com/faker-js/faker) for C++
-community. Faker C++ helps with the creation of realistic and customizable fake data for testing and development
-purposes within C++ applications.
+Faker C++ is a C++ library inspired by the popular [Faker.js](https://github.com/faker-js/faker),
+aimed at providing developers with a robust tool for generating fake (but realistic) data.
+Whether you're building test suites, populating databases, or creating demos, Faker C++ has got you covered.
+
+## Key Features
+
+📚 Realistic Data Generation: Generate various types of data including names, addresses, emails, dates, and more.
+
+🛠 Modular Design: Choose from a wide range of modules like Internet, Location, String, Date, and more to generate
+specific types of data.
+
+🚀 Easy Integration: Seamlessly integrate with CMake, and it supports major compilers like MSVC, GCC, Clang, and Apple
+Clang.
 
 ## 📖 Usage and Documentation
 
