@@ -106,21 +106,24 @@ TEST_F(InternetTest, shouldGenerateUsername)
 
     const auto generatedUsername = username();
 
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
-                                    { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
-                                    { return generatedUsername.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
+                            { return generatedUsername.find(common::toLower(firstName)) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
+                            { return generatedUsername.find(common::toLower(lastName)) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateUsernameWithFirstNameProvided)
 {
-    const auto firstName = "Michael";
+    const std::string firstName = "Michael";
 
     const auto generatedUsername = username(firstName);
 
-    ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
-                                    { return generatedUsername.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(generatedUsername.find(common::toLower(firstName)) != std::string::npos);
+    ASSERT_TRUE(
+        std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
+                            { return generatedUsername.find(common::toLower(lastName)) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateUsernameWithLastNameProvided)
@@ -129,25 +132,26 @@ TEST_F(InternetTest, shouldGenerateUsernameWithLastNameProvided)
                                              person::englishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
-    const auto lastName = "Cieslar";
+    const std::string lastName = "Cieslar";
 
     const auto generatedUsername = username(std::nullopt, lastName);
 
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
-                                    { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
+    ASSERT_TRUE(
+        std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
+                            { return generatedUsername.find(common::toLower(firstName)) != std::string::npos; }));
+    ASSERT_TRUE(generatedUsername.find(common::toLower(lastName)) != std::string::npos);
 }
 
 TEST_F(InternetTest, shouldGenerateUsernameWithFullNameProvided)
 {
-    const auto firstName = "Andrew";
+    const std::string firstName = "Andrew";
 
-    const auto lastName = "Cieslar";
+    const std::string lastName = "Cieslar";
 
     const auto generatedUsername = username(firstName, lastName);
 
-    ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
+    ASSERT_TRUE(generatedUsername.find(common::toLower(firstName)) != std::string::npos);
+    ASSERT_TRUE(generatedUsername.find(common::toLower(lastName)) != std::string::npos);
 }
 
 TEST_F(InternetTest, shouldGenerateInternationalUsernames)
@@ -157,11 +161,13 @@ TEST_F(InternetTest, shouldGenerateInternationalUsernames)
 
     const auto generatedUsername = username(std::nullopt, std::nullopt, Country::Poland);
 
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
-                                    { return generatedUsername.find(firstName) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
+                            { return generatedUsername.find(common::toLower(firstName)) != std::string::npos; }));
 
-    ASSERT_TRUE(std::ranges::any_of(person::polishLastNames, [generatedUsername](const std::string_view& lastName)
-                                    { return generatedUsername.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(person::polishLastNames, [generatedUsername](const std::string_view& lastName)
+                            { return generatedUsername.find(common::toLower(lastName)) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmail)
@@ -181,15 +187,17 @@ TEST_F(InternetTest, shouldGenerateEmail)
 
     ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
-                                    { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
-                                    { return generatedUsername.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
+                            { return generatedUsername.find(common::toLower(firstName)) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
+                            { return generatedUsername.find(common::toLower(lastName)) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
 {
-    const auto firstName = "Tom";
+    const std::string firstName = "Tom";
 
     const auto generatedEmail = email(firstName);
 
@@ -202,9 +210,10 @@ TEST_F(InternetTest, shouldGenerateEmailWithFirstName)
 
     ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
-                                    { return generatedUsername.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(generatedUsername.find(common::toLower(firstName)) != std::string::npos);
+    ASSERT_TRUE(
+        std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
+                            { return generatedUsername.find(common::toLower(lastName)) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithLastName)
@@ -213,7 +222,7 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
                                              person::englishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
-    const auto lastName = "Howard";
+    const std::string lastName = "Howard";
 
     const auto generatedEmail = email(std::nullopt, lastName);
 
@@ -226,16 +235,17 @@ TEST_F(InternetTest, shouldGenerateEmailWithLastName)
 
     ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
-                                    { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
+    ASSERT_TRUE(
+        std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
+                            { return generatedUsername.find(common::toLower(firstName)) != std::string::npos; }));
+    ASSERT_TRUE(generatedUsername.find(common::toLower(lastName)) != std::string::npos);
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 {
-    const auto firstName = "Cindy";
+    const std::string firstName = "Cindy";
 
-    const auto lastName = "Young";
+    const std::string lastName = "Young";
 
     const auto generatedEmail = email(firstName, lastName);
 
@@ -248,8 +258,8 @@ TEST_F(InternetTest, shouldGenerateEmailWithFullName)
 
     ASSERT_TRUE(std::ranges::any_of(emailHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
+    ASSERT_TRUE(generatedUsername.find(common::toLower(firstName)) != std::string::npos);
+    ASSERT_TRUE(generatedUsername.find(common::toLower(lastName)) != std::string::npos);
 }
 
 TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
@@ -270,10 +280,12 @@ TEST_F(InternetTest, shouldGenerateEmailWithSpecifiedEmailHost)
     const auto& generatedEmailHost = emailParts[1];
 
     ASSERT_EQ(generatedEmailHost, emailHost);
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
-                                    { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
-                                    { return generatedUsername.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
+                            { return generatedUsername.find(common::toLower(firstName)) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
+                            { return generatedUsername.find(common::toLower(lastName)) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmail)
@@ -293,15 +305,17 @@ TEST_F(InternetTest, shouldGenerateExampleEmail)
 
     ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
-                                    { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
-                                    { return generatedUsername.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
+                            { return generatedUsername.find(common::toLower(firstName)) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
+                            { return generatedUsername.find(common::toLower(lastName)) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
 {
-    const auto firstName = "Barry";
+    const std::string firstName = "Barry";
 
     const auto email = exampleEmail(firstName);
 
@@ -314,9 +328,10 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFirstName)
 
     ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
-                                    { return generatedUsername.find(lastName) != std::string::npos; }));
+    ASSERT_TRUE(generatedUsername.find(common::toLower(firstName)) != std::string::npos);
+    ASSERT_TRUE(
+        std::ranges::any_of(person::englishLastNames, [generatedUsername](const std::string_view& lastName)
+                            { return generatedUsername.find(common::toLower(lastName)) != std::string::npos; }));
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
@@ -325,7 +340,7 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
                                              person::englishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
 
-    const auto lastName = "Wilkinson";
+    const std::string lastName = "Wilkinson";
 
     const auto email = exampleEmail(std::nullopt, lastName);
 
@@ -338,16 +353,17 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithLastName)
 
     ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
-                                    { return generatedUsername.find(firstName) != std::string::npos; }));
-    ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
+    ASSERT_TRUE(
+        std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
+                            { return generatedUsername.find(common::toLower(firstName)) != std::string::npos; }));
+    ASSERT_TRUE(generatedUsername.find(common::toLower(lastName)) != std::string::npos);
 }
 
 TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 {
-    const auto firstName = "Walter";
+    const std::string firstName = "Walter";
 
-    const auto lastName = "Brown";
+    const std::string lastName = "Brown";
 
     const auto email = exampleEmail(firstName, lastName);
 
@@ -360,15 +376,15 @@ TEST_F(InternetTest, shouldGenerateExampleEmailWithFullName)
 
     ASSERT_TRUE(std::ranges::any_of(emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
-    ASSERT_TRUE(generatedUsername.find(firstName) != std::string::npos);
-    ASSERT_TRUE(generatedUsername.find(lastName) != std::string::npos);
+    ASSERT_TRUE(generatedUsername.find(common::toLower(firstName)) != std::string::npos);
+    ASSERT_TRUE(generatedUsername.find(common::toLower(lastName)) != std::string::npos);
 }
 
 TEST_F(InternetTest, shouldGeneratePassword)
 {
     const auto generatedPassword = password();
 
-    ASSERT_EQ(generatedPassword.size(), 15);
+    ASSERT_EQ(generatedPassword.size(), 16);
     ASSERT_TRUE(std::ranges::all_of(generatedPassword, [&](char passwordCharacter)
                                     { return passwordCharacters.find(passwordCharacter) != std::string::npos; }));
 }
