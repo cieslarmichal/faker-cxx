@@ -1,9 +1,9 @@
-#include <cstdlib>
 #include <iostream>
 
 #include "faker-cxx/Person.h"
 
-int main() {
+int main()
+{
     const auto personFullName = faker::person::fullName();
     std::cout << "Person full name: " << personFullName << std::endl;
 
@@ -25,5 +25,5 @@ int main() {
     const auto passport = faker::person::passport();
     std::cout << "Person passport: " << passport << std::endl;
 
-    return EXIT_SUCCESS;
+    return 0;
 }

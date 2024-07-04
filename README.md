@@ -16,14 +16,14 @@
 ## Table of Contents
 
 - [🎯 Goal](#-goal)
-- [📖 Usage and Documentation](#usage-and-documentation)
+- [📖 Usage and Documentation](#-usage-and-documentation)
 - [💎 Modules](#-modules)
-- [Consuming library with CMake](#consuming-library-with-cmake-cmake-322-or-newer)
-- [⚒️ Compiler support](#%EF%B8%8F-compiler-support)
+- [Consuming the library with CMake](#consuming-the-library-with-cmake)
+- [⚒️ Compiler support](#-compiler-support)
 - [Dependencies](#dependencies)
-- [📦 Building the library with Conan](#building-the-library-with-conan)
+- [📦 Building the library with Conan](#-building-the-library-with-conan)
 - [Installing the library with Conan](#installing-the-library-with-conan)
-- [Building the Project with Bazel](#building-the-project-with-bazel)
+- [Building the library with Bazel](#building-the-library-with-bazel)
 - [✨ Contributing](#-contributing)
 - [📘 Credits](#-credits)
 - [Examples](#examples)
@@ -48,12 +48,7 @@ Below is an example of how to use Faker C++ in your code.
 ```cpp
 #include <iostream>
 
-#include "faker-cxx/Date.h"
-#include "faker-cxx/Internet.h"
-#include "faker-cxx/Location.h"
-#include "faker-cxx/String.h"
-
-// or #include "faker-cxx/Faker.h" for all modules
+#include "faker-cxx/Faker.h" // or include specific module
 
 int main()
 {
@@ -62,12 +57,14 @@ int main()
     const auto password = faker::internet::password();
     const auto city = faker::location::city();
     const auto streetAddress = faker::location::streetAddress();
+    const auto bornDate = faker::date::birthdateByYear(1970, 2000);
 
-    std::cout << id << std::endl;               // 58018063-ce5a-4fa7-adfd-327eb2e2d9a5
-    std::cout << email << std::endl;            // Lois_Hauck@hotmail.com
-    std::cout << password << std::endl;         // @cWLwgM#Knalxeb
-    std::cout << city << std::endl;             // Sayre ville
-    std::cout << streetAddress << std::endl;    // 1716 Harriet Alley
+    std::cout << id << std::endl; // 59990db5-3a5f-40bf-8af0-7834c29ee884
+    std::cout << email << std::endl; // hills.rita@gmail.com
+    std::cout << password << std::endl; // Mf+*[(_'lHfM.$v{
+    std::cout << city << std::endl; // Rochester
+    std::cout << streetAddress << std::endl; // 643 Ricardo Creek
+    std::cout << bornDate << std::endl; // 1973-12-03T11:07:02Z
 
     return 0;
 }
@@ -110,7 +107,7 @@ int main()
 - 🌤️ Weather - temperature, pressure, humidity, weather description
 - 💬 Word - sample words, nouns, verbs
 
-## Consuming library with CMake (CMake 3.22 or newer)
+## Consuming the library with CMake
 
 1. Add faker to git submodules (execute in project root):
 
@@ -177,7 +174,7 @@ The faker-cxx Conan recipe is kept up to date by Conan maintainers and community
 If the version is out of date, please [create an issue or pull request](https://github.com/conan-io/conan-center-index)
 on the ConanCenterIndex repository.
 
-## Building the Project with [Bazel](https://bazel.build/)
+## Building the library with [Bazel](https://bazel.build/)
 
 As alternative, this project can be built using [Bazel](https://bazel.build/). The dependencies are managed directly by
 Bazel modules, downloading and building all external dependencies. Follow the steps below to build the project:
