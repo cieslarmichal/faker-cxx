@@ -11,6 +11,7 @@
 #include <unordered_map>
 #include <vector>
 
+#include "gmock/gmock.h"
 #include "gtest/gtest.h"
 
 using namespace ::testing;
@@ -129,6 +130,15 @@ TEST_F(HelperTest, RegexpStyleStringParse)
     const auto result = regexpStyleStringParse(input);
 
     ASSERT_EQ(result.size(), 11);
+}
+
+TEST_F(HelperTest, RegexpStyleStringParseMaxMin)
+{
+    std::string input = "#{6,5}[4-2]test[1-3]";
+
+    const auto result = regexpStyleStringParse(input);
+
+    ASSERT_THAT(result.size(), AllOf(Ge(11),Le(12)));
 }
 
 TEST_F(HelperTest, ReplaceCreditCardSymbols)
