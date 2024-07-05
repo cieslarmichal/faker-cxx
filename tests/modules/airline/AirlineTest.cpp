@@ -179,9 +179,16 @@ TEST_F(AirlineTest, shouldGenerateFlightNumberLeadingZeros)
     ASSERT_TRUE(leadingZero);
 }
 
-TEST_F(AirlineTest, shouldGenerateFlightNumberByRange)
+TEST_F(AirlineTest, shouldGenerateFlightNumberByRangeNoLeadingZeros)
 {
     const auto flightNumber = flightNumberByRange(false, {1, 6});
 
     ASSERT_TRUE(flightNumber.length() <= 6);
+}
+
+TEST_F(AirlineTest, shouldGenerateFlightNumberByRangeLeadingZeros)
+{
+    const auto flightNumber = flightNumberByRange(true, {1, 8});
+
+    ASSERT_TRUE(flightNumber.length() <= 8);
 }
