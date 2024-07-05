@@ -34,6 +34,15 @@ TEST_F(StringHelperTest, splitStringByNewLine)
     ASSERT_EQ(result[3], "source");
 }
 
+TEST_F(StringHelperTest, joinStringViewsWithoutString)
+{
+    const std::vector<std::string_view> input{};
+
+    const auto result = common::join(input);
+
+    ASSERT_EQ(result, "");
+}
+
 TEST_F(StringHelperTest, joinStringViewsIntoVectorBySpace)
 {
     const std::vector<std::string_view> input{"Join", "faker", "development!"};
@@ -50,6 +59,15 @@ TEST_F(StringHelperTest, joinStringViewsIntoVectorByNewLine)
     const auto result = common::join(input, "\n");
 
     ASSERT_EQ(result, "Join\nfaker\ndevelopment!");
+}
+
+TEST_F(StringHelperTest, joinStringsWithoutString)
+{
+    const std::vector<std::string> input{};
+
+    const auto result = common::joinString(input);
+
+    ASSERT_EQ(result, "");
 }
 
 TEST_F(StringHelperTest, joinStringsIntoVectorBySpace)
