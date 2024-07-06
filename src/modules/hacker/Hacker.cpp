@@ -3,7 +3,7 @@
 #include <string>
 #include <string_view>
 
-#include "../../common/StringHelper.h"
+#include "common/StringHelper.h"
 #include "faker-cxx/Helper.h"
 #include "HackerData.h"
 

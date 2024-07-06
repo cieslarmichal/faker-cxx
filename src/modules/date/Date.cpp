@@ -8,7 +8,7 @@
 #include <string>
 #include <string_view>
 
-#include "../../common/FormatHelper.h"
+#include "common/FormatHelper.h"
 #include "DateData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"

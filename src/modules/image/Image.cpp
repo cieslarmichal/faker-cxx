@@ -6,7 +6,7 @@
 #include <string_view>
 #include <unordered_map>
 
-#include "../../common/FormatHelper.h"
+#include "common/FormatHelper.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 
