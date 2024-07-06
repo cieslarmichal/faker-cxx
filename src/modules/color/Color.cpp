@@ -3,7 +3,7 @@
 #include <string>
 #include <string_view>
 
-#include "../../common/FormatHelper.h"
+#include "common/FormatHelper.h"
 #include "ColorData.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
@@ -38,13 +38,13 @@ std::string hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
     return string::hexadecimal(includeAlpha ? 8 : 6, casing, prefix);
 }
 
-std::string hsl(bool include_alpha)
+std::string hsl(bool includeAlpha)
 {
     std::integral auto hue = number::integer(360);
     std::integral auto saturation = number::integer(100);
     std::integral auto lightness = number::integer(100);
 
-    if (!include_alpha)
+    if (!includeAlpha)
     {
         return common::format("hsl({}, {}, {})", hue, saturation, lightness);
     }
@@ -54,13 +54,13 @@ std::string hsl(bool include_alpha)
     return common::format("hsla({}, {}, {}, {:.2f})", hue, saturation, lightness, alpha);
 }
 
-std::string lch(bool include_alpha)
+std::string lch(bool includeAlpha)
 {
     std::integral auto luminance = number::integer(100);
     std::integral auto chroma = number::integer(100);
     std::integral auto hue = number::integer(360);
 
-    if (!include_alpha)
+    if (!includeAlpha)
     {
         return common::format("lch({}, {}, {})", luminance, chroma, hue);
     }
