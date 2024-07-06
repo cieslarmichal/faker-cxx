@@ -6,6 +6,7 @@
 #include <set>
 #include <stdexcept>
 #include <string>
+#include <iterator>
 
 #include "faker-cxx/Datatype.h"
 #include "faker-cxx/Export.h"
@@ -43,10 +44,7 @@ static T::key_type objectKey(const T& object)
     std::vector<typename T::key_type> keys;
     keys.reserve(object.size());
 
-    for (const auto& entry : object)
-    {
-        keys.push_back(entry.first);
-    }
+    std::transform(object.begin(), object.end(), std::back_inserter(keys), [](const auto& entry) { return entry.first; });
 
     return arrayElement<typename T::key_type>(keys);
 }

@@ -158,22 +158,16 @@ T weightedArrayElement(const std::vector<WeightedElement<T>>& data)
     const std::integral auto targetWeightValue = number::integer<unsigned>(1, sumOfWeights);
 
     unsigned currentSum = 0;
-
-    size_t currentIdx = 0;
-
-    while (currentIdx < data.size())
+    for (const auto& elem : data)
     {
-        currentSum += data[currentIdx].weight;
-
+        currentSum += elem.weight;
         if (currentSum >= targetWeightValue)
         {
-            break;
+            return elem.value;
         }
-
-        currentIdx++;
     }
 
-    return data.at(currentIdx).value;
+    return data.back().value;
 }
 
 }

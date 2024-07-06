@@ -83,25 +83,25 @@ std::vector<std::string_view> getAllEmojis()
     return emojis;
 }
 
-std::string username(std::optional<std::string> firstNameInit, std::optional<std::string> lastNameInit, Country country)
+std::string username(std::optional<std::string> firstName, std::optional<std::string> lastName, Country country)
 {
-    const auto firstName = common::toLower(std::string{firstNameInit ? *firstNameInit : person::firstName(country)});
-    const auto lastName = common::toLower(std::string{lastNameInit ? *lastNameInit : person::lastName(country)});
+    const auto firstNameLower = common::toLower(std::string{firstName ? *firstName : person::firstName(country)});
+    const auto lastNameLower = common::toLower(std::string{lastName ? *lastName : person::lastName(country)});
 
     std::string username;
 
     switch (number::integer<int>(2))
     {
     case 0:
-        username = common::format("{}{}{}", firstName, lastName, number::integer<int>(1970, 2005));
+        username = common::format("{}{}{}", firstNameLower, lastNameLower, number::integer<int>(1970, 2005));
         break;
     case 1:
         username =
-            common::format("{}{}{}", firstName, helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastName);
+            common::format("{}{}{}", firstNameLower, helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastNameLower);
         break;
     case 2:
         username =
-            common::format("{}{}{}", lastName, helper::arrayElement(std::vector<std::string>{".", "_", ""}), firstName);
+            common::format("{}{}{}", lastNameLower, helper::arrayElement(std::vector<std::string>{".", "_", ""}), firstNameLower);
         break;
     }
 
@@ -313,9 +313,9 @@ unsigned port()
 
 std::string url(const WebProtocol& webProtocol)
 {
-    const auto protocol = webProtocol == WebProtocol::Https ? "https" : "http";
+    const auto protocolStr = webProtocol == WebProtocol::Https ? "https" : "http";
 
-    return common::format("{}://{}", protocol, domainName());
+    return common::format("{}://{}", protocolStr, domainName());
 }
 
 std::string domainName()

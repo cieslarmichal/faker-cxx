@@ -74,7 +74,7 @@ enum class Language;
      * faker::person::prefix(Sex::Male) // "Mr."
      * @endcode
      */
-    FAKER_CXX_EXPORT std::string_view prefix(std::optional<Country> countryOpt = std::nullopt,
+    FAKER_CXX_EXPORT std::string_view prefix(std::optional<Country> country = std::nullopt,
                                    std::optional<Sex> sex = std::nullopt);
 
     /**
@@ -86,7 +86,7 @@ enum class Language;
      * faker::person::suffix() // "Jr."
      * @endcode
      */
-    FAKER_CXX_EXPORT std::string_view suffix(std::optional<Country> countryOpt = std::nullopt,
+    FAKER_CXX_EXPORT std::string_view suffix(std::optional<Country> country = std::nullopt,
                                    std::optional<Sex> sex = std::nullopt);
 
     /**

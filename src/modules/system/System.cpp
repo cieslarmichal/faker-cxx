@@ -137,21 +137,17 @@ std::string commonFileName(const std::optional<std::string>& ext)
 
 std::string_view commonFileExtension()
 {
-    auto mimeType = helper::arrayElement(commonMimeTypes);
+    auto mimeTypeStr = helper::arrayElement(commonMimeTypes);
 
-    return extension(mimeType);
+    return extension(mimeTypeStr);
 }
 
 std::string_view mimeType()
 {
     std::vector<std::string_view> mimeTypeKeys;
-
     mimeTypeKeys.reserve(mimeTypes.size());
 
-    for (const auto& entry : mimeTypes)
-    {
-        mimeTypeKeys.push_back(entry);
-    }
+    std::copy(mimeTypes.begin(), mimeTypes.end(), std::back_inserter(mimeTypeKeys));
 
     return helper::arrayElement(mimeTypeKeys);
 }

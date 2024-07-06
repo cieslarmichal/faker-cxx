@@ -70,7 +70,7 @@ public:
 
         for (const auto& adjective : sortedAdjectivesDescendingBySize)
         {
-            if (domainWord.find(adjective) == 0)
+            if (domainWord.starts_with(adjective))
             {
                 foundAdjective = adjective;
                 break;
