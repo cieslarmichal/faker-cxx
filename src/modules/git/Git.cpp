@@ -3,8 +3,8 @@
 #include <optional>
 #include <string>
 
-#include "../../common/FormatHelper.h"
-#include "../../common/StringHelper.h"
+#include "common/FormatHelper.h"
+#include "common/StringHelper.h"
 #include "../date/DateData.h"
 #include "faker-cxx/Date.h"
 #include "faker-cxx/Internet.h"

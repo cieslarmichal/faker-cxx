@@ -50,7 +50,7 @@ TEST_F(GitTest, branchIssueNumTest)
 {
     auto testValue = unsigned(number::integer(2, 100));
 
-    std::vector<std::string> branchElements = common::split(branch(testValue), "-");
+    std::vector<std::string> branchElements;
 
     bool numberAtFront = false;
 

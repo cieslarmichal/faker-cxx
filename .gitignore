@@ -67,3 +67,6 @@ build-linux-clang
 bazel-*
 MODULE.bazel.lock
 install/
+
+tests/default.profraw
+defaults.cfg

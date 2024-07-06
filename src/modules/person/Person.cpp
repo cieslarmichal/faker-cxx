@@ -159,11 +159,11 @@ const struct PeopleNames& getPeopleNamesByCountry(const Country& country)
 
 }
 
-std::string_view firstName(std::optional<Country> countryOpt, std::optional<Sex> sex)
+std::string_view firstName(std::optional<Country> country, std::optional<Sex> sex)
 {
-    const auto country = countryOpt ? *countryOpt : Country::England;
+    const auto countryStr = country ? *country : Country::England;
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByCountry(countryStr);
 
     std::vector<std::string_view> firstNames;
 
@@ -191,11 +191,11 @@ std::string_view firstName(std::optional<Country> countryOpt, std::optional<Sex>
     return helper::arrayElement(firstNames);
 }
 
-std::string_view lastName(std::optional<Country> countryOpt, std::optional<Sex> sex)
+std::string_view lastName(std::optional<Country> country, std::optional<Sex> sex)
 {
-    const auto country = countryOpt ? *countryOpt : Country::England;
+    const auto countryStr = country ? *country : Country::England;
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByCountry(countryStr);
 
     std::vector<std::string_view> lastNames;
 
@@ -223,35 +223,37 @@ std::string_view lastName(std::optional<Country> countryOpt, std::optional<Sex> 
     return helper::arrayElement(lastNames);
 }
 
-std::string fullName(std::optional<Country> countryOpt, std::optional<Sex> sex)
+std::string fullName(std::optional<Country> country, std::optional<Sex> sex)
 {
-    const auto country = countryOpt ? *countryOpt : Country::England;
+    const auto countryStr = country ? *country : Country::England;
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByCountry(countryStr);
 
     std::vector<helper::WeightedElement<std::string_view>> weightedElements;
+    weightedElements.reserve(peopleNames.nameFormats.size());
 
-    for (const auto& nameFormat : peopleNames.nameFormats)
-    {
-        weightedElements.push_back({nameFormat.weight, nameFormat.format});
-    }
+    std::transform(peopleNames.nameFormats.begin(), peopleNames.nameFormats.end(), std::back_inserter(weightedElements),
+        [](const NameFormat& nameFormat) {
+            return helper::WeightedElement<std::string_view>{nameFormat.weight, nameFormat.format};
+        }
+    );
 
     const auto nameFormat = static_cast<std::string>(helper::weightedArrayElement<std::string_view>(weightedElements));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"firstName", [&country, &sex]() { return std::string{firstName(country, sex)}; }},
-        {"lastName", [&country, &sex]() { return std::string{lastName(country, sex)}; }},
-        {"prefix", [&country, &sex]() { return std::string{prefix(country, sex)}; }},
-        {"suffix", [&country, &sex]() { return std::string{suffix(country, sex)}; }}};
+        {"firstName", [&countryStr, &sex]() { return std::string{firstName(countryStr, sex)}; }},
+        {"lastName", [&countryStr, &sex]() { return std::string{lastName(countryStr, sex)}; }},
+        {"prefix", [&countryStr, &sex]() { return std::string{prefix(countryStr, sex)}; }},
+        {"suffix", [&countryStr, &sex]() { return std::string{suffix(countryStr, sex)}; }}};
 
     return common::fillTokenValues(nameFormat, dataGeneratorsMapping);
 }
 
-std::string_view prefix(std::optional<Country> countryOpt, std::optional<Sex> sex)
+std::string_view prefix(std::optional<Country> country, std::optional<Sex> sex)
 {
-    const auto country = countryOpt ? *countryOpt : Country::England;
+    const auto countryStr = country ? *country : Country::England;
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByCountry(countryStr);
 
     std::vector<std::string_view> prefixes;
 
@@ -284,11 +286,11 @@ std::string_view prefix(std::optional<Country> countryOpt, std::optional<Sex> se
     return helper::arrayElement(prefixes);
 }
 
-std::string_view suffix(std::optional<Country> countryOpt, std::optional<Sex> sex)
+std::string_view suffix(std::optional<Country> country, std::optional<Sex> sex)
 {
-    const auto country = countryOpt ? *countryOpt : Country::England;
+    const auto countryStr = country ? *country : Country::England;
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByCountry(countryStr);
 
     std::vector<std::string_view> suffixes;
 
@@ -334,7 +336,7 @@ std::string bio()
     return common::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
 }
 
-std::string_view sex(std::optional<Language> languageOpt)
+std::string_view sex(std::optional<Language> language)
 {
     const std::vector<std::string> sexes{"Male", "Female"};
 
@@ -342,9 +344,9 @@ std::string_view sex(std::optional<Language> languageOpt)
 
     const auto sexEnum = chosenSex == "Male" ? Sex::Male : Sex::Female;
 
-    const auto language = languageOpt ? *languageOpt : Language::English;
+    const auto languageStr = language ? *language : Language::English;
 
-    const auto sexTranslation = sexTranslations.find(language);
+    const auto sexTranslation = sexTranslations.find(languageStr);
 
     if (sexTranslation == sexTranslations.end())
     {
@@ -437,11 +439,11 @@ std::string_view chineseZodiac()
     return helper::arrayElement(chineseZodiacs);
 }
 
-std::string passport(std::optional<PassportCountry> countryOpt)
+std::string passport(std::optional<PassportCountry> country)
 {
-    const auto country = countryOpt ? *countryOpt : PassportCountry::Usa;
+    const auto countryStr = country ? *country : PassportCountry::Usa;
 
-    const auto& passportFormat = passportFormats.at(country);
+    const auto& passportFormat = passportFormats.at(countryStr);
 
     std::string passportNumber;
 

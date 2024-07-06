@@ -1,6 +1,7 @@
 #pragma once
 
 #include <random>
+#include <type_traits>
 
 namespace faker
 {
@@ -18,9 +19,11 @@ public:
     RandomGenerator& operator=(const RandomGenerator&) = default;
     RandomGenerator& operator=(RandomGenerator&&) = default;
 
-    int operator()(std::uniform_int_distribution<>& dist)
+    template <typename Dist>
+        requires std::is_invocable_r_v<int, Dist&, T&>
+    int operator()(Dist&& dist)
     {
-        return dist(generator_);
+        return std::forward<Dist>(dist)(generator_);
     }
 
 private:

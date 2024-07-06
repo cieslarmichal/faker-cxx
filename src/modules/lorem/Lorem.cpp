@@ -4,9 +4,11 @@
 #include <string>
 #include <string_view>
 #include <vector>
+#include <algorithm>
+#include <iterator>
 
-#include "../../common/FormatHelper.h"
-#include "../../common/StringHelper.h"
+#include "common/FormatHelper.h"
+#include "common/StringHelper.h"
 #include "faker-cxx/Helper.h"
 #include "faker-cxx/Number.h"
 #include "LoremData.h"
@@ -57,15 +59,12 @@ std::string sentences(unsigned minNumberOfSentences, unsigned maxNumberOfSentenc
 
 std::string slug(unsigned int numberOfWords)
 {
-    std::vector<std::string> words;
-    words.reserve(numberOfWords);
+    std::vector<std::string> wordList;
+    wordList.reserve(numberOfWords);
 
-    for (unsigned i = 0; i < numberOfWords; i++)
-    {
-        words.push_back(std::string(word()));
-    }
+    std::generate_n(std::back_inserter(wordList), numberOfWords, []{ return std::string(word());});
 
-    return common::joinString(words, "-");
+    return common::joinString(wordList, "-");
 }
 
 std::string paragraph(unsigned int minNumberOfSentences, unsigned int maxNumberOfSentences)

@@ -4,9 +4,9 @@
 #include <regex>
 #include <string>
 
-#include "../../common/LuhnCheck.h"
-#include "../../common/StringHelper.h"
-#include "../../common/AlgoHelper.h"
+#include "common/LuhnCheck.h"
+#include "common/StringHelper.h"
+#include "common/AlgoHelper.h"
 #include "faker-cxx/Number.h"
 
 namespace faker::helper
