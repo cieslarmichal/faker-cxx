@@ -280,10 +280,10 @@ var namespacefaker =
       [ "lastName", "namespacefaker_1_1person.html#a09e7f2c9db689e06a6f057e852fe32e8", null ],
       [ "nationality", "namespacefaker_1_1person.html#adb390e221234be2ed111463db5eb681e", null ],
       [ "passport", "namespacefaker_1_1person.html#ae53e51b39112140ebb7f0df60afacebb", null ],
-      [ "prefix", "namespacefaker_1_1person.html#ac6415f4c79132e8f0a4d5901f24e1164", null ],
+      [ "prefix", "namespacefaker_1_1person.html#a58784be091182ce6e6e600b0b2e19a5f", null ],
       [ "sex", "namespacefaker_1_1person.html#a6f9626afb67c43e013958f64f5a58419", null ],
       [ "ssn", "namespacefaker_1_1person.html#a5f206e2cdd72189e665d0ab25c2da077", null ],
-      [ "suffix", "namespacefaker_1_1person.html#a4b1a52c1aaba6acee97fe5326af38cce", null ],
+      [ "suffix", "namespacefaker_1_1person.html#a2d4df33151a522f5abeb90722b0fa3ca", null ],
       [ "westernZodiac", "namespacefaker_1_1person.html#a8a744df8b8f7dc01d21047350493be3c", null ]
     ] ],
     [ "phone", "namespacefaker_1_1phone.html", [
