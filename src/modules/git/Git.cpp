@@ -20,12 +20,10 @@ namespace faker::git
 
 std::string branch(unsigned maxIssueNum)
 {
-    switch (number::integer(1, 3))
+    switch (number::integer(1, 2))
     {
     case 1:
         return common::format("{}-{}", word::verb(), word::noun());
-    case 2:
-        return common::format("{}-{}-{}", word::verb(), word::adjective(), word::noun());
     default:
         return common::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(),
                                     word::adjective(), word::noun());
