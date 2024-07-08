@@ -34,57 +34,18 @@ std::string branch(unsigned maxIssueNum)
 
 std::string commitDate(unsigned years)
 {
-    const auto date = faker::date::pastDate(int(years));
+    const std::string pastDate = faker::date::pastDate(int(years));
 
-    const auto dateSplit = common::split(date, "-");
-
-    const auto& year = dateSplit[0];
-    const auto& month = dateSplit[1];
-    const auto& rest = dateSplit[2];
-
-    const auto restSplit = common::split(rest, "T");
-
-    const auto& day = restSplit[0];
-
-    const auto time = common::split(restSplit[1], "Z")[0];
-
-    int timeZone = number::integer(0, 12);
-
-    std::string timeZoneString;
-
-    if (number::integer(0, 1))
-    {
-        timeZoneString += "-";
-    }
-    else
-    {
-        timeZoneString += "+";
-    }
-
-    if (timeZone <= 9)
-    {
-        timeZoneString += "0";
-    }
-
-    timeZoneString += std::to_string(timeZone * 100);
-
-    if (!timeZone)
-    {
-        timeZoneString += "00";
-    }
-
-    return common::format("{} {} {} {} {} {}", faker::date::weekdayAbbreviatedName(),
-                                faker::date::monthAbbreviatedNames[size_t(std::stoi(month) - 1)], day, time, year,
-                                timeZoneString);
+    return pastDate;
 }
 
 std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Country country)
 {
     std::string entry = "commit ";
 
-    if (shaLength)
+    if (shaLength.value_or(0))
     {
-        entry += commitSha(shaLength.emplace());
+        entry += commitSha(shaLength.value_or(0));
     }
     else
     {
@@ -96,9 +57,9 @@ std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigne
 
     entry += "\nAuthor: " + firstName + " " + lastName + " " + internet::email(firstName, lastName) + "\nDate: ";
 
-    if (dateYears)
+    if (dateYears.value_or(0))
     {
-        entry += commitDate(dateYears.emplace());
+        entry += commitDate(dateYears.value_or(0));
     }
     else
     {
@@ -112,16 +73,12 @@ std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigne
 
 std::string commitMessage()
 {
-    switch (number::integer(1, 4))
+    switch (number::integer(1, 2))
     {
     case 1:
         return common::format("{} {}", word::verb(), word::noun());
-    case 2:
-        return common::format("{} {} {}", word::verb(), word::adjective(), word::noun());
-    case 3:
-        return common::format("{} {} {}", word::verb(), word::noun(), word::adverb());
     default:
-        return common::format("{} {} {} {}", word::verb(), word::adjective(), word::noun(), word::adverb());
+        return common::format("{} {} {}", word::verb(), word::adjective(), word::noun());
     }
 }
 

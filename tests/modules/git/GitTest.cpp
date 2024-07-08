@@ -17,8 +17,9 @@ class GitTest : public Test
 {
 public:
     inline static const std::string DATE_REGEX =
-        "[A-Z][a-z]{2} [A-Z][a-z]{2,3} (([0-2][0-9])|(3[0-1])) (([0-1][0-9])|(2[0-4])):[0-5][0-9]:[0-5][0-9] "
-        "[1-2][0-9]{3} (-|\\+)((0[0-9])|(1[0-2]))00";
+        "[0-9]{4}-((0[13578]|1[02])-(0[1-9]|[12][0-9]|3[01])|(0[469]|11)-(0[1-9]|[12][0-9]|30)|(02)-(0[1-9]|[12][0-9]))"
+        "T(0[0-9]|1[0-9]|2[0-3]):(0[0-9]|[1-5][0-9]):(0[0-9]|[1-5][0-9])Z";
+
     inline static const std::string MESSAGE_REGEX =
         R"([a-zA-Z]+(\-[a-zA-Z]+)* ([a-zA-Z\-]+(\-[a-zA-Z]+)*\s)*[a-zA-Z\-]+(\-[a-zA-Z]+)*)";
     inline static const std::string EMAIL_REGEX = "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,}$";
@@ -88,6 +89,18 @@ TEST_F(GitTest, shouldGenerateCommitEntry)
                                 GitTest::DATE_REGEX + "\n\n\t" + GitTest::MESSAGE_REGEX + "$");
 
     ASSERT_TRUE(std::regex_match(commitEntry(), entryRegex));
+}
+
+TEST_F(GitTest, shouldGenerateCommitEntryWithGivenArguments)
+{
+    const unsigned years = 20;
+    const unsigned length = 50;
+
+    const std::regex entryRegex("^commit " + GitTest::generateShaRegex(length) +
+                                "\nAuthor: [A-Z][a-zA-Z]+ [A-Z][a-zA-Z]+ .+@[0-9a-zA-Z]+\\.[0-9a-zA-Z]+\nDate: " +
+                                GitTest::DATE_REGEX + "\n\n\t" + GitTest::MESSAGE_REGEX + "$");
+
+    ASSERT_TRUE(std::regex_match(commitEntry(years, length, Country::India), entryRegex));
 }
 
 TEST_F(GitTest, shouldGenerateCommitMessage)
