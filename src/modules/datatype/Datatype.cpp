@@ -17,17 +17,17 @@ bool boolean(double probability)
     {
         double prob = probability;
 
-        if (prob <= 0.)
+        if (prob <= double(0.))
         {
             return false;
         }
 
-        if (prob >= 1.)
+        if (prob >= double(1.))
         {
             return true;
         }
 
-        return number::decimal(0., 1.) < prob;
+        return double(number::decimal(0., 1.)) < prob;
     }
 
     return number::decimal(0., 1.) < 0.5;
