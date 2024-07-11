@@ -3,7 +3,7 @@ load("@rules_cc//cc:defs.bzl", "cc_library")
 genrule(
     name = "generate_export_header",
     srcs = [],
-    outs = ["include/faker-cxx/Export.h"],
+    outs = ["include/faker-cxx/export.h"],
     cmd = """
         echo "#pragma once" > $@
         echo "#define FAKER_CXX_EXPORT" >> $@
@@ -13,7 +13,7 @@ genrule(
 genrule(
     name = "generate_version_header",
     srcs = [],
-    outs = ["include/faker-cxx/Version.h"],
+    outs = ["include/faker-cxx/version.h"],
     cmd = """
         echo "#pragma once" > $@
         echo '#define FAKER_CXX_VERSION_MAJOR 2' >> $@
