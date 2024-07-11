@@ -28,7 +28,7 @@
 #include "faker-cxx/person.h"
 #include "faker-cxx/phone.h"
 #include "faker-cxx/plant.h"
-#include "faker-cxx/randomgenerator.h"
+#include "faker-cxx/random_generator.h"
 #include "faker-cxx/science.h"
 #include "faker-cxx/sport.h"
 #include "faker-cxx/string.h"
