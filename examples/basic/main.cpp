@@ -1,6 +1,6 @@
 #include <iostream>
 
-#include "faker-cxx/Faker.h"
+#include "faker-cxx/faker.h"
 
 int main()
 {

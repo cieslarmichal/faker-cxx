@@ -3,80 +3,80 @@ cmake_minimum_required(VERSION 3.22)
 include("${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake")
 
 set(FAKER_SOURCES
-    modules/airline/Airline.cpp
-    modules/animal/Animal.cpp
-    modules/book/Book.cpp
-    modules/color/Color.cpp
-    modules/commerce/Commerce.cpp
-    modules/company/Company.cpp
-    modules/computer/Computer.cpp
-    modules/crypto/Crypto.cpp
-    modules/database/Database.cpp
-    modules/datatype/Datatype.cpp
-    modules/date/Date.cpp
-    modules/finance/Finance.cpp
-    modules/food/Food.cpp
-    modules/git/Git.cpp
-    modules/hacker/Hacker.cpp
-    modules/helper/Helper.cpp
-    modules/image/Image.cpp
-    modules/internet/Internet.cpp
-    modules/location/Location.cpp
-    modules/lorem/Lorem.cpp
-    modules/medicine/Medicine.cpp
-    modules/movie/Movie.cpp
-    modules/music/Music.cpp
-    modules/person/Person.cpp
-    modules/phone/Phone.cpp
-    modules/plant/Plant.cpp
-    modules/science/Science.cpp
-    modules/sport/Sport.cpp
-    modules/string/String.cpp
-    modules/system/System.cpp
-    modules/vehicle/Vehicle.cpp
-    modules/videoGame/VideoGame.cpp
-    modules/weather/Weather.cpp
-    modules/word/Word.cpp
-    common/FormatHelper.cpp
-    common/LuhnCheck.cpp
-    common/StringHelper.cpp
+    modules/airline/airline.cpp
+    modules/animal/animal.cpp
+    modules/book/book.cpp
+    modules/color/color.cpp
+    modules/commerce/commerce.cpp
+    modules/company/company.cpp
+    modules/computer/computer.cpp
+    modules/crypto/crypto.cpp
+    modules/database/database.cpp
+    modules/datatype/datatype.cpp
+    modules/date/date.cpp
+    modules/finance/finance.cpp
+    modules/food/food.cpp
+    modules/git/git.cpp
+    modules/hacker/hacker.cpp
+    modules/helper/helper.cpp
+    modules/image/image.cpp
+    modules/internet/internet.cpp
+    modules/location/location.cpp
+    modules/lorem/lorem.cpp
+    modules/medicine/medicine.cpp
+    modules/movie/movie.cpp
+    modules/music/music.cpp
+    modules/person/person.cpp
+    modules/phone/phone.cpp
+    modules/plant/plant.cpp
+    modules/science/science.cpp
+    modules/sport/sport.cpp
+    modules/string/string.cpp
+    modules/system/system.cpp
+    modules/vehicle/vehicle.cpp
+    modules/video_game/video_game.cpp
+    modules/weather/weather.cpp
+    modules/word/word.cpp
+    common/format_helper.cpp
+    common/luhn_check.cpp
+    common/string_helper.cpp
 )
 
 set(FAKER_HEADERS
-    common/LuhnCheck.h
-    common/FormatHelper.h
-    common/AlgoHelper.h
-    common/StringHelper.h
-    modules/plant/PlantData.h
-    modules/person/PersonData.h
-    modules/internet/InternetData.h
-    modules/sport/SportData.h
-    modules/airline/AirlineData.h
-    modules/location/LocationData.h
-    modules/book/BookData.h
-    modules/string/StringData.h
-    modules/videoGame/VideoGameData.h
-    modules/medicine/MedicineData.h
-    modules/vehicle/VehicleData.h
-    modules/hacker/HackerData.h
-    modules/science/ScienceData.h
-    modules/date/DateData.h
-    modules/system/SystemData.h
-    modules/commerce/CommerceData.h
-    modules/computer/ComputerData.h
-    modules/weather/WeatherData.h
-    modules/music/MusicData.h
-    modules/database/DatabaseData.h
-    modules/movie/MovieData.h
-    modules/food/FoodData.h
-    modules/word/WordData.h
-    modules/word/WordStore.h
-    modules/animal/AnimalData.h
-    modules/company/CompanyData.h
-    modules/finance/FinanceData.h
-    modules/phone/PhoneData.h
-    modules/color/ColorData.h
-    modules/lorem/LoremData.h
+    common/luhn_check.h
+    common/format_helper.h
+    common/algo_helper.h
+    common/string_helper.h
+    modules/plant/plant_data.h
+    modules/person/person_data.h
+    modules/internet/internet_data.h
+    modules/sport/sport_data.h
+    modules/airline/airline_data.h
+    modules/location/location_data.h
+    modules/book/book_data.h
+    modules/string/string_data.h
+    modules/video_game/video_game_data.h
+    modules/medicine/medicine_data.h
+    modules/vehicle/vehicle_data.h
+    modules/hacker/hacker_data.h
+    modules/science/science_data.h
+    modules/date/date_data.h
+    modules/system/system_data.h
+    modules/commerce/commerce_data.h
+    modules/computer/computer_data.h
+    modules/weather/weather_data.h
+    modules/music/music_data.h
+    modules/database/database_data.h
+    modules/movie/movie_data.h
+    modules/food/food_data.h
+    modules/word/word_data.h
+    modules/word/word_store.h
+    modules/animal/animal_data.h
+    modules/company/company_data.h
+    modules/finance/finance_data.h
+    modules/phone/phone_data.h
+    modules/color/color_data.h
+    modules/lorem/lorem_data.h
 )
 
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${FAKER_SOURCES} ${FAKER_HEADERS})
@@ -105,14 +105,14 @@ configure_compiler_warnings(${CMAKE_PROJECT_NAME}
 
 configure_file(
     "${CMAKE_SOURCE_DIR}/cmake/Version.h.in"
-    "${CMAKE_BINARY_DIR}/include/faker-cxx/Version.h"
+    "${CMAKE_BINARY_DIR}/include/faker-cxx/version.h"
     @ONLY
 )
 
 include(GenerateExportHeader)
 generate_export_header(${CMAKE_PROJECT_NAME}
     BASE_NAME FAKER_CXX
-    EXPORT_FILE_NAME ${CMAKE_BINARY_DIR}/include/faker-cxx/Export.h
+    EXPORT_FILE_NAME ${CMAKE_BINARY_DIR}/include/faker-cxx/export.h
 )
 set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
     CXX_VISIBILITY_PRESET hidden

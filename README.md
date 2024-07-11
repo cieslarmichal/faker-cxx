@@ -51,7 +51,7 @@ Clang.
 
 To properly use Faker C++ you must first consume the Faker library (see Consuming Library with CMake).
 Once that is done, you need to include the proper [header](https://cieslarmichal.github.io/faker-cxx/files.html) file
-depending on the module you wish to generate data from or use general include file `faker-cxx/Faker.h`.
+depending on the module you wish to generate data from or use general include file `faker-cxx/faker.h`.
 All the docs can be found [here](https://cieslarmichal.github.io/faker-cxx/).
 
 Below is an example of how to use Faker C++ in your code.
@@ -59,7 +59,7 @@ Below is an example of how to use Faker C++ in your code.
 ```cpp
 #include <iostream>
 
-#include "faker-cxx/Faker.h" // or include specific module
+#include "faker-cxx/faker.h" // or include specific module
 
 int main()
 {
