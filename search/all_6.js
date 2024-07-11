@@ -12,7 +12,7 @@ var searchData=
   ['germany_9',['Germany',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918ad8b00929dec65d422303256336ada04f',1,'faker::finance::Germany'],['../namespacefaker_1_1finance.html#a7503073690854f337acfc752a1801f5dad8b00929dec65d422303256336ada04f',1,'faker::finance::Germany'],['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030ad8b00929dec65d422303256336ada04f',1,'faker::location::Germany'],['../namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90ad8b00929dec65d422303256336ada04f',1,'faker::person::Germany'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aad8b00929dec65d422303256336ada04f',1,'faker::phone::Germany']]],
   ['ghana_10',['Ghana',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aae7400496f1ce70cb62c2c44ca2ddc469',1,'faker::phone']]],
   ['gibraltar_11',['Gibraltar',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa672566a43483aa8212cb365658600b99',1,'faker::phone']]],
-  ['git_2eh_12',['Git.h',['../Git_8h.html',1,'']]],
+  ['git_2eh_12',['git.h',['../git_8h.html',1,'']]],
   ['gpumanufacture_13',['gpuManufacture',['../namespacefaker_1_1computer.html#a8dfa6197c1a88cb563fc58cbf3b882d7',1,'faker::computer']]],
   ['gpumodel_14',['gpuModel',['../namespacefaker_1_1computer.html#a6b12fd59524206a1f64c4bac4c29ef13',1,'faker::computer']]],
   ['gputype_15',['gpuType',['../namespacefaker_1_1computer.html#a3f1a6271d6f0032ff69d76db28a22fd7',1,'faker::computer']]],

@@ -24,7 +24,7 @@ var searchData=
   ['bitcoinaddress_21',['bitcoinAddress',['../namespacefaker_1_1finance.html#ab5e2e3ab4e301fed661d9f588600a717',1,'faker::finance']]],
   ['body_22',['Body',['../namespacefaker_1_1internet.html#ab1fd12c6089e1eb7e783223be1b73ac1aac101b32dda4448cf13a93fe283dddd8',1,'faker::internet']]],
   ['bolivia_23',['Bolivia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa28aaafc355915903ce4a7e1d3af3bc4e',1,'faker::phone']]],
-  ['book_2eh_24',['Book.h',['../Book_8h.html',1,'']]],
+  ['book_2eh_24',['book.h',['../book_8h.html',1,'']]],
   ['boolean_25',['boolean',['../namespacefaker_1_1datatype.html#a6e8fea28b1cf18124cb1c854496b35c2',1,'faker::datatype::boolean()'],['../namespacefaker_1_1datatype.html#a3f0613615165573f77dba5349bb00241',1,'faker::datatype::boolean(double probability)']]],
   ['bosniaandherzegovina_26',['BosniaAndHerzegovina',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa1150b6c57b0a01fed28deaf11335207d',1,'faker::phone']]],
   ['botswana_27',['Botswana',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6cd50fb3091b0a9d3c1ac2cf52441390',1,'faker::phone']]],

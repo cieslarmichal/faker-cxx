@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['randomgenerator_2eh_0',['RandomGenerator.h',['../RandomGenerator_8h.html',1,'']]]
+  ['random_5fgenerator_2eh_0',['random_generator.h',['../random__generator_8h.html',1,'']]]
 ];

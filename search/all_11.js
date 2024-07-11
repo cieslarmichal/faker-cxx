@@ -1,8 +1,8 @@
 var searchData=
 [
   ['rabbit_0',['rabbit',['../namespacefaker_1_1animal.html#a9d703f755381a685727eb7fb8647432a',1,'faker::animal']]],
-  ['randomgenerator_1',['RandomGenerator',['../classfaker_1_1RandomGenerator.html',1,'faker::RandomGenerator&lt; T &gt;'],['../classfaker_1_1RandomGenerator.html#a12ef734c55d755f004080317119eac91',1,'faker::RandomGenerator::RandomGenerator()'],['../classfaker_1_1RandomGenerator.html#a8b33adc0ec8edfffdc998a2b4d068a3b',1,'faker::RandomGenerator::RandomGenerator(const RandomGenerator &amp;)=default'],['../classfaker_1_1RandomGenerator.html#aaa2228768db64ca1304322260ca24ec0',1,'faker::RandomGenerator::RandomGenerator(RandomGenerator &amp;&amp;)=default']]],
-  ['randomgenerator_2eh_2',['RandomGenerator.h',['../RandomGenerator_8h.html',1,'']]],
+  ['random_5fgenerator_2eh_1',['random_generator.h',['../random__generator_8h.html',1,'']]],
+  ['randomgenerator_2',['RandomGenerator',['../classfaker_1_1RandomGenerator.html',1,'faker::RandomGenerator&lt; T &gt;'],['../classfaker_1_1RandomGenerator.html#a12ef734c55d755f004080317119eac91',1,'faker::RandomGenerator::RandomGenerator()'],['../classfaker_1_1RandomGenerator.html#a8b33adc0ec8edfffdc998a2b4d068a3b',1,'faker::RandomGenerator::RandomGenerator(const RandomGenerator &amp;)=default'],['../classfaker_1_1RandomGenerator.html#aaa2228768db64ca1304322260ca24ec0',1,'faker::RandomGenerator::RandomGenerator(RandomGenerator &amp;&amp;)=default']]],
   ['range_3',['Range',['../structfaker_1_1airline_1_1Range.html',1,'faker::airline']]],
   ['recentdate_4',['recentDate',['../namespacefaker_1_1date.html#a304545ffe96dbde52e3a36d1d5a0044c',1,'faker::date']]],
   ['recordlocator_5',['recordLocator',['../namespacefaker_1_1airline.html#a9d4a31bb5a16f63ad962a51bfb5ff10a',1,'faker::airline']]],

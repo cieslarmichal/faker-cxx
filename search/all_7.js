@@ -1,8 +1,8 @@
 var searchData=
 [
-  ['hacker_2eh_0',['Hacker.h',['../Hacker_8h.html',1,'']]],
+  ['hacker_2eh_0',['hacker.h',['../hacker_8h.html',1,'']]],
   ['haiti_1',['Haiti',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aab88959cb7d907d91065ac7ec19eb0b44',1,'faker::phone']]],
-  ['helper_2eh_2',['Helper.h',['../Helper_8h.html',1,'']]],
+  ['helper_2eh_2',['helper.h',['../helper_8h.html',1,'']]],
   ['hex_3',['hex',['../namespacefaker_1_1color.html#ad77b26473e833e142dbcf4b7eb40151d',1,'faker::color']]],
   ['hexadecimal_4',['hexadecimal',['../namespacefaker_1_1string.html#a53c522cba8f02956fb554ef73261424b',1,'faker::string::hexadecimal(unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)'],['../namespacefaker_1_1string.html#afdf0e7008f19716d3b6d82058cc07621',1,'faker::string::hexadecimal(std::optional&lt; int &gt; min=std::nullopt, std::optional&lt; int &gt; max=std::nullopt)'],['../namespacefaker_1_1string.html#a8e19bab9b27625c925d09c75b543fa72',1,'faker::string::hexadecimal(GuaranteeMap &amp;&amp;guarantee, unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)']]],
   ['hindi_5',['Hindi',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a45c3171ef193c74b402f407fba9d955b',1,'faker::person']]],

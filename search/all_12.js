@@ -12,7 +12,7 @@ var searchData=
   ['sanmarino_9',['SanMarino',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa8b73467d104f370f4879a987413bbbc6',1,'faker::phone']]],
   ['saotomeandprincipe_10',['SaoTomeAndPrincipe',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa5ab690f00e63ae31852cb5b353160949',1,'faker::phone']]],
   ['saudiarabia_11',['SaudiArabia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aadba1e2cc75d691a4817ed3fe0d79edac',1,'faker::phone']]],
-  ['science_2eh_12',['Science.h',['../Science_8h.html',1,'']]],
+  ['science_2eh_12',['science.h',['../science_8h.html',1,'']]],
   ['seafood_13',['seafood',['../namespacefaker_1_1food.html#a1afd0c7bce41f172f409956650b80401',1,'faker::food']]],
   ['seat_14',['seat',['../namespacefaker_1_1airline.html#abd4ed31284f90116d7d449776ad57055',1,'faker::airline']]],
   ['second_15',['second',['../namespacefaker_1_1date.html#aea16f01309c7b8134454035b8bf88617',1,'faker::date']]],
@@ -53,7 +53,7 @@ var searchData=
   ['spain_50',['Spain',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a907eba32d950bfab68227fd7ea22999b',1,'faker::finance::Spain'],['../namespacefaker_1_1finance.html#a7503073690854f337acfc752a1801f5da907eba32d950bfab68227fd7ea22999b',1,'faker::finance::Spain'],['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a907eba32d950bfab68227fd7ea22999b',1,'faker::location::Spain'],['../namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a907eba32d950bfab68227fd7ea22999b',1,'faker::person::Spain'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa907eba32d950bfab68227fd7ea22999b',1,'faker::phone::Spain']]],
   ['spanish_51',['Spanish',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8acb5480c32e71778852b08ae1e8712775',1,'faker::person']]],
   ['specialty_52',['specialty',['../namespacefaker_1_1medicine.html#ae3051b9186cd322160e6f6986c70d49d',1,'faker::medicine']]],
-  ['sport_2eh_53',['Sport.h',['../Sport_8h.html',1,'']]],
+  ['sport_2eh_53',['sport.h',['../sport_8h.html',1,'']]],
   ['sportevent_54',['sportEvent',['../namespacefaker_1_1sport.html#ae9662b27668406faaf6aadbad0866384',1,'faker::sport']]],
   ['sportname_55',['sportName',['../namespacefaker_1_1sport.html#ac83c75a907ea7c58bcec87698d259201',1,'faker::sport']]],
   ['srilanka_56',['SriLanka',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aab0595cb10912e30a71fec3d8c58d4011',1,'faker::phone']]],
@@ -62,7 +62,7 @@ var searchData=
   ['state_59',['state',['../namespacefaker_1_1location.html#a4d00638b4a23f205beca9030a93aa1d6',1,'faker::location']]],
   ['street_60',['street',['../namespacefaker_1_1location.html#a310ef73ae962c41f0fb793e932683881',1,'faker::location']]],
   ['streetaddress_61',['streetAddress',['../namespacefaker_1_1location.html#ae61de04e37a0c3ef796c2e2606accfeb',1,'faker::location']]],
-  ['string_2eh_62',['String.h',['../String_8h.html',1,'']]],
+  ['string_2eh_62',['string.h',['../string_8h.html',1,'']]],
   ['stringcasing_63',['StringCasing',['../namespacefaker_1_1string.html#a5b7a1d4a3ebb389e224c7bfc534d7cda',1,'faker::string']]],
   ['studioname_64',['studioName',['../namespacefaker_1_1videogame.html#a31ebb893e24ebecdc8392f9f36363005',1,'faker::videogame']]],
   ['success_65',['Success',['../namespacefaker_1_1internet.html#a25d31766e509fb398f5534224b171a8da505a83f220c02df2f85c3810cd9ceb38',1,'faker::internet']]],
@@ -79,5 +79,5 @@ var searchData=
   ['symbol_76',['symbol',['../structfaker_1_1finance_1_1Currency.html#a62b7b2b0c51f760b541d512dc1b258a8',1,'faker::finance::Currency::symbol'],['../structfaker_1_1science_1_1ChemicalElement.html#a28671ec7602c301da0b71c273a44db92',1,'faker::science::ChemicalElement::symbol'],['../structfaker_1_1science_1_1Unit.html#a4a6362cc36e3a09d126ab39f1b0b24a1',1,'faker::science::Unit::symbol']]],
   ['symbols_77',['symbols',['../structfaker_1_1internet_1_1PasswordOptions.html#a4be4b79a9720d1bea96a9001f9cf5d5a',1,'faker::internet::PasswordOptions']]],
   ['syrianarabrepublic_78',['SyrianArabRepublic',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aab30590449236426f85c33d8dbfec3501',1,'faker::phone']]],
-  ['system_2eh_79',['System.h',['../System_8h.html',1,'']]]
+  ['system_2eh_79',['system.h',['../system_8h.html',1,'']]]
 ];

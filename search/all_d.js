@@ -24,7 +24,7 @@ var searchData=
   ['norwegian_21',['Norwegian',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8ada550ca06bcacbd30b7c6ed32c864c70',1,'faker::person']]],
   ['noun_22',['noun',['../namespacefaker_1_1hacker.html#af4138bc944b402d9563120e50750aa26',1,'faker::hacker::noun()'],['../namespacefaker_1_1word.html#aa380bf2a6c8cd76db8fe13d20ff6ccf9',1,'faker::word::noun()']]],
   ['number_23',['number',['../namespacefaker_1_1phone.html#a3650beedfaf4ee151d36ad97334a5c28',1,'faker::phone::number(std::optional&lt; std::string &gt;=std::nullopt)'],['../namespacefaker_1_1phone.html#a8eaab573a6fc096915ccbf9b4e64d097',1,'faker::phone::number(PhoneNumberCountryFormat format)']]],
-  ['number_2eh_24',['Number.h',['../Number_8h.html',1,'']]],
+  ['number_2eh_24',['number.h',['../number_8h.html',1,'']]],
   ['numbers_25',['numbers',['../structfaker_1_1internet_1_1PasswordOptions.html#a947479a481d3c3735a9c83d887c63f20',1,'faker::internet::PasswordOptions']]],
   ['numeric_26',['numeric',['../namespacefaker_1_1string.html#a646c3109166518bfa5bcf5c2f5de98ef',1,'faker::string::numeric(unsigned length=1, bool allowLeadingZeros=true)'],['../namespacefaker_1_1string.html#a6b7e02197a0cec823f7b051c7234865b',1,'faker::string::numeric(GuaranteeMap &amp;&amp;guarantee, unsigned length=1, bool allowLeadingZeros=true)']]],
   ['nut_27',['nut',['../namespacefaker_1_1food.html#abac00f1ce6f9b49dff1548efa5a2d017',1,'faker::food']]]
