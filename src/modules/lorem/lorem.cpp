@@ -1,11 +1,10 @@
 #include "faker-cxx/lorem.h"
 
+#include <algorithm>
 #include <cctype>
 #include <string>
 #include <string_view>
 #include <vector>
-#include <algorithm>
-#include <iterator>
 
 #include "common/format_helper.h"
 #include "common/string_helper.h"
@@ -62,7 +61,7 @@ std::string slug(unsigned int numberOfWords)
     std::vector<std::string> wordList;
     wordList.reserve(numberOfWords);
 
-    std::generate_n(std::back_inserter(wordList), numberOfWords, []{ return std::string(word());});
+    std::generate_n(std::back_inserter(wordList), numberOfWords, [] { return std::string(word()); });
 
     return common::joinString(wordList, "-");
 }

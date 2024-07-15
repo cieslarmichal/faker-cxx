@@ -1,12 +1,11 @@
-
 #include <algorithm>
 #include <random>
 #include <regex>
 #include <string>
 
+#include "common/algo_helper.h"
 #include "common/luhn_check.h"
 #include "common/string_helper.h"
-#include "common/algo_helper.h"
 #include "faker-cxx/number.h"
 
 namespace faker::helper
@@ -83,8 +82,7 @@ std::string regexpStyleStringParse(const std::string& input)
         }
 
         int repetitions = number::integer(min, max);
-        data = data.substr(0, static_cast<unsigned long>(token.position())) +
-               common::repeat(token[1], repetitions) +
+        data = data.substr(0, static_cast<unsigned long>(token.position())) + common::repeat(token[1], repetitions) +
                data.substr(static_cast<unsigned long>(token.position() + token.length()));
     }
 
@@ -92,8 +90,7 @@ std::string regexpStyleStringParse(const std::string& input)
     while (std::regex_search(data, token, REP_REG))
     {
         int repetitions = std::stoi(token[2]);
-        data = data.substr(0, static_cast<unsigned long>(token.position())) +
-               common::repeat(token[1], repetitions) +
+        data = data.substr(0, static_cast<unsigned long>(token.position())) + common::repeat(token[1], repetitions) +
                data.substr(static_cast<unsigned long>(token.position() + token.length()));
     }
 

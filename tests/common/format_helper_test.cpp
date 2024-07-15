@@ -1,11 +1,10 @@
-#include "format_helper.h"
-
-#include <functional>
 #include <stdexcept>
 #include <string>
 #include <unordered_map>
 
 #include "gtest/gtest.h"
+
+#include "format_helper.h"
 
 using namespace ::testing;
 using namespace faker;
