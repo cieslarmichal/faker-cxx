@@ -2,7 +2,6 @@
 
 #include <algorithm>
 #include <array>
-#include <cctype>
 #include <initializer_list>
 #include <map>
 #include <optional>
@@ -96,12 +95,12 @@ std::string username(std::optional<std::string> firstName, std::optional<std::st
         username = common::format("{}{}{}", firstNameLower, lastNameLower, number::integer<int>(1970, 2005));
         break;
     case 1:
-        username =
-            common::format("{}{}{}", firstNameLower, helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastNameLower);
+        username = common::format("{}{}{}", firstNameLower,
+                                  helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastNameLower);
         break;
     case 2:
-        username =
-            common::format("{}{}{}", lastNameLower, helper::arrayElement(std::vector<std::string>{".", "_", ""}), firstNameLower);
+        username = common::format("{}{}{}", lastNameLower, helper::arrayElement(std::vector<std::string>{".", "_", ""}),
+                                  firstNameLower);
         break;
     }
 
