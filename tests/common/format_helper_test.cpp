@@ -49,3 +49,32 @@ TEST_F(FormatHelperTest, shouldFormat)
     EXPECT_EQ(format("{} {}", "Hello", "World"), "Hello World");
     EXPECT_EQ(format("{0} {1}", "Hello", "World"), "Hello World");
 }
+
+TEST_F(FormatHelperTest, ThrowsExceptionForMissingTokenGenerator)
+{
+    const auto format = "{existing} {missing}";
+    const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
+        {"existing", []() { return "value"; }}
+    };
+
+    try {
+        fillTokenValues(format, dataGeneratorsMapping);
+        FAIL() << "Expected std::runtime_error";
+    }
+    catch (const std::runtime_error& e) {
+        EXPECT_STREQ(e.what(), "Generator not found for token missing.");
+    }
+}
+
+TEST_F(FormatHelperTest, PrecisionFormat)
+{
+    EXPECT_EQ(precisionFormat(Precision::ZeroDp, 3.14159), "3");
+    EXPECT_EQ(precisionFormat(Precision::OneDp, 3.14159), "3.1");
+    EXPECT_EQ(precisionFormat(Precision::FiveDp, 3.14159), "3.14159");
+    EXPECT_EQ(precisionFormat(Precision::SevenDp, 3.14159), "3.1415900");
+}
+
+TEST_F(FormatHelperTest, ThrowsForInvalidPrecision)
+{
+    EXPECT_THROW(precisionFormat(static_cast<Precision>(999), 3.14159), std::invalid_argument);
+}
