@@ -219,3 +219,38 @@ TEST_F(WordTest, shouldGenerateWords)
     ASSERT_TRUE(std::ranges::all_of(separatedWords, [](const std::string& separatedWord)
                                     { return std::ranges::find(_allWords, separatedWord) != _allWords.end(); }));
 }
+
+TEST_F(WordTest, shouldReturnRandomElementWhenExactLengthNotFound)
+{
+    const unsigned int existingLength = 5;
+    
+    std::vector<std::string_view> matchingAdjectives;
+    for (const auto& adj : _adjectives_sorted) {
+        if (adj.size() == existingLength) {
+            matchingAdjectives.push_back(adj);
+        }
+    }
+    
+    const auto generatedAdjective = adjective(existingLength + 1);
+    
+    ASSERT_TRUE(std::ranges::find(_adjectives_sorted, generatedAdjective) != _adjectives_sorted.end());
+    ASSERT_TRUE(std::ranges::find(matchingAdjectives, generatedAdjective) == matchingAdjectives.end());
+}
+
+TEST_F(WordTest, shouldReturnEmptyStringForZeroWords)
+{
+    const auto result = words(0);
+    ASSERT_TRUE(result.empty());
+}
+
+TEST_F(WordTest, shouldGenerateLargeNumberOfWords)
+{
+    const unsigned int largeWordCount = 300;
+    const auto generatedWords = words(largeWordCount);
+    const auto separatedWords = common::split(generatedWords, " ");
+    
+    ASSERT_EQ(separatedWords.size(), largeWordCount);
+    for (const auto& word : separatedWords) {
+        ASSERT_TRUE(std::ranges::find(_allWords, word) != _allWords.end());
+    }
+}
