@@ -237,6 +237,13 @@ TEST_F(SystemTest, NetworkInterfaceMethodTest)
     const auto result4 = networkInterface(options4);
 
     ASSERT_TRUE(!result4.empty());
+
+    NetworkInterfaceOptions options5;
+    options5.interfaceSchema = "index";
+
+    const auto result5 = networkInterface(options5);
+
+    ASSERT_TRUE(!result5.empty());
 }
 
 TEST_F(SystemTest, ValidCronExpression)
