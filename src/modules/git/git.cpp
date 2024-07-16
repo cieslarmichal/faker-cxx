@@ -4,8 +4,6 @@
 #include <string>
 
 #include "common/format_helper.h"
-#include "common/string_helper.h"
-#include "../date/date_data.h"
 #include "faker-cxx/date.h"
 #include "faker-cxx/internet.h"
 #include "faker-cxx/number.h"
@@ -25,8 +23,8 @@ std::string branch(unsigned maxIssueNum)
     case 1:
         return common::format("{}-{}", word::verb(), word::noun());
     default:
-        return common::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(),
-                                    word::adjective(), word::noun());
+        return common::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(), word::adjective(),
+                              word::noun());
     }
 }
 
