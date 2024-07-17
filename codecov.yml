@@ -1,10 +1,22 @@
 coverage:
   status:
-    patch: false
-
-  range: 70..90
-  round: down
-  precision: 2
+    project:
+      default:
+        target: auto
+        threshold: 1%
+    patch:
+      default:
+        target: auto
+        threshold: 1%
+    changes:
+      default:
+        target: auto
+        threshold: 1%
 
 comment:
-  layout: diff, files
+  layout: "reach, diff, flags, files"
+  require_changes: true
+  behavior: default
+  show_coverage_change: yes
+  show_project_coverage: yes
+  show_diff_coverage: yes
