@@ -13,7 +13,7 @@ namespace faker::phone
 {
 std::unordered_map<PhoneNumberCountryFormat, std::string> phoneNumberFormatMap = createPhoneNumberFormatMap();
 
-std::string number(std::optional<std::string> format)
+std::string phoneNumberByFormat(std::optional<std::string> format)
 {
     std::string selectedFormat;
 
@@ -29,7 +29,7 @@ std::string number(std::optional<std::string> format)
     return helper::replaceSymbolWithNumber(selectedFormat);
 }
 
-std::string number(PhoneNumberCountryFormat format)
+std::string phoneNumberByCountry(PhoneNumberCountryFormat format)
 {
     std::string countryFormat = phoneNumberFormatMap.at(format);
 

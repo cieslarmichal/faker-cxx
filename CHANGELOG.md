@@ -8,6 +8,8 @@ All notable changes to this project will be documented in this file
 
 * removed `location.county` method
 * renamed all include files from `CamelCase` to `snake_case`
+* changed function name from `number` (by format) to `phoneNumberByFormat` in phone module
+* changed function name from `number` (by country) to `phoneNumberByCountry` in phone module
 
 ## v2.0.0 (27.06.2024)
 
