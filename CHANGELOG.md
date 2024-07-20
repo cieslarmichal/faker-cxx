@@ -2,11 +2,12 @@
 
 All notable changes to this project will be documented in this file
 
-## v2.1.0 (TBD)
+## v3.0.0 (TBD)
 
 ### ⚠ BREAKING CHANGES
 
 * removed `location.county` method
+* renamed all include files from `CamelCase` to `snake_case`
 
 ## v2.0.0 (27.06.2024)
 
