@@ -25,7 +25,7 @@ protected:
 
 TEST_F(PhoneTest, NumberWithNoFormat)
 {
-    const auto phoneNumber = number();
+    const auto phoneNumber = phoneNumberByFormat();
 
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 }
@@ -33,24 +33,32 @@ TEST_F(PhoneTest, NumberWithNoFormat)
 TEST_F(PhoneTest, NumberWithFormat)
 {
     auto format = "501-###-###";
-    auto phoneNumber = number(format);
+    auto phoneNumber = phoneNumberByFormat(format);
     ASSERT_NE(phoneNumber, format);
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 
     format = "+48 91 ### ## ##";
-    phoneNumber = number(format);
+    phoneNumber = phoneNumberByFormat(format);
     ASSERT_NE(phoneNumber, format);
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 
     format = "+376 (###) ###-####";
-    phoneNumber = number(format);
+    phoneNumber = phoneNumberByFormat(format);
     ASSERT_NE(phoneNumber, format);
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
 
     format = "+376 (!!!) !!!-!!!!";
-    phoneNumber = number(format);
+    phoneNumber = phoneNumberByFormat(format);
     ASSERT_NE(phoneNumber, format);
     ASSERT_TRUE(isStringNumericWithSpecialChars(phoneNumber));
+}
+
+TEST_F(PhoneTest, NumberWithCountryFormat)
+{
+    const auto generatedPhoneNumber = phoneNumberByCountry(PhoneNumberCountryFormat::Zimbabwe);
+
+    EXPECT_FALSE(generatedPhoneNumber.empty());
+    ASSERT_TRUE(isStringNumericWithSpecialChars(generatedPhoneNumber));
 }
 
 TEST_F(PhoneTest, IMEIGeneration)
@@ -61,14 +69,6 @@ TEST_F(PhoneTest, IMEIGeneration)
 
     ASSERT_EQ(generatedImei.length(), 15);
     ASSERT_TRUE(isStringNumericWithSpecialChars(generatedImei));
-}
-
-TEST_F(PhoneTest, NumberFormatTest)
-{
-    const auto generatedPhoneNumber = number(PhoneNumberCountryFormat::Zimbabwe);
-
-    EXPECT_FALSE(generatedPhoneNumber.empty());
-    ASSERT_TRUE(isStringNumericWithSpecialChars(generatedPhoneNumber));
 }
 
 TEST_F(PhoneTest, PlatformGeneration)

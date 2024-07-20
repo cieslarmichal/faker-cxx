@@ -17,12 +17,12 @@ enum class PhoneNumberCountryFormat;
      * @returns Random phone number.
      *
      * @code
-     * faker::phone::number() // "961-770-7727"
-     * faker::phone::number("501-###-###") // "501-039-841"
-     * faker::phone::number("+48 91 ### ## ##") // "+48 91 463 61 70"
+     * faker::phone::phoneNumberByFormat() // "961-770-7727"
+     * faker::phone::phoneNumberByFormat("501-###-###") // "501-039-841"
+     * faker::phone::phoneNumberByFormat("+48 91 ### ## ##") // "+48 91 463 61 70"
      * @endcode
      */
-    FAKER_CXX_EXPORT std::string number(std::optional<std::string> = std::nullopt);
+    FAKER_CXX_EXPORT std::string phoneNumberByFormat(std::optional<std::string> = std::nullopt);
 
     /**
      * @brief Returns a random phone platform.
@@ -68,7 +68,7 @@ enum class PhoneNumberCountryFormat;
      * faker::phone::number(PhoneNumberCountryFormat::Usa) // "+1 (395) 714-1494"
      * @endcode
      */
-    FAKER_CXX_EXPORT std::string number(PhoneNumberCountryFormat format);
+    FAKER_CXX_EXPORT std::string phoneNumberByCountry(PhoneNumberCountryFormat format);
 
     /**
      * @brief Returns IMEI number.
