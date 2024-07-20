@@ -524,8 +524,8 @@ var namespacefaker =
       [ "imei", "namespacefaker_1_1phone.html#a610e92717aef3b4c7ae68d3982248807", null ],
       [ "manufacturer", "namespacefaker_1_1phone.html#a6c9fc68316c71b3fed6bbb2e8196114d", null ],
       [ "modelName", "namespacefaker_1_1phone.html#a9f75c5ff84cca943b1dad4fd8ac9c37d", null ],
-      [ "number", "namespacefaker_1_1phone.html#a8eaab573a6fc096915ccbf9b4e64d097", null ],
-      [ "number", "namespacefaker_1_1phone.html#a3650beedfaf4ee151d36ad97334a5c28", null ],
+      [ "phoneNumberByCountry", "namespacefaker_1_1phone.html#a7755884dc2a70bb7d2813ca0c8b9628f", null ],
+      [ "phoneNumberByFormat", "namespacefaker_1_1phone.html#a7c35641ad697cec3d712343bea60e2ce", null ],
       [ "platform", "namespacefaker_1_1phone.html#a4428423b163c879f3b829e22dd9599e9", null ]
     ] ],
     [ "plant", "namespacefaker_1_1plant.html", [

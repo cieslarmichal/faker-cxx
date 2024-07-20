@@ -237,7 +237,7 @@ var phone_8h =
     [ "imei", "phone_8h.html#a610e92717aef3b4c7ae68d3982248807", null ],
     [ "manufacturer", "phone_8h.html#a6c9fc68316c71b3fed6bbb2e8196114d", null ],
     [ "modelName", "phone_8h.html#a9f75c5ff84cca943b1dad4fd8ac9c37d", null ],
-    [ "number", "phone_8h.html#a8eaab573a6fc096915ccbf9b4e64d097", null ],
-    [ "number", "phone_8h.html#a3650beedfaf4ee151d36ad97334a5c28", null ],
+    [ "phoneNumberByCountry", "phone_8h.html#a7755884dc2a70bb7d2813ca0c8b9628f", null ],
+    [ "phoneNumberByFormat", "phone_8h.html#a7c35641ad697cec3d712343bea60e2ce", null ],
     [ "platform", "phone_8h.html#a4428423b163c879f3b829e22dd9599e9", null ]
 ];
