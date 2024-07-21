@@ -3,40 +3,40 @@ cmake_minimum_required(VERSION 3.22)
 include("${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake")
 
 set(FAKER_SOURCES
-    modules/airline/airline.cpp
-    modules/animal/animal.cpp
-    modules/book/book.cpp
-    modules/color/color.cpp
-    modules/commerce/commerce.cpp
-    modules/company/company.cpp
-    modules/computer/computer.cpp
-    modules/crypto/crypto.cpp
-    modules/database/database.cpp
-    modules/datatype/datatype.cpp
-    modules/date/date.cpp
-    modules/finance/finance.cpp
-    modules/food/food.cpp
-    modules/git/git.cpp
-    modules/hacker/hacker.cpp
-    modules/helper/helper.cpp
-    modules/image/image.cpp
-    modules/internet/internet.cpp
-    modules/location/location.cpp
-    modules/lorem/lorem.cpp
-    modules/medicine/medicine.cpp
-    modules/movie/movie.cpp
-    modules/music/music.cpp
-    modules/person/person.cpp
-    modules/phone/phone.cpp
-    modules/plant/plant.cpp
-    modules/science/science.cpp
-    modules/sport/sport.cpp
-    modules/string/string.cpp
-    modules/system/system.cpp
-    modules/vehicle/vehicle.cpp
-    modules/video_game/video_game.cpp
-    modules/weather/weather.cpp
-    modules/word/word.cpp
+    modules/airline.cpp
+    modules/animal.cpp
+    modules/book.cpp
+    modules/color.cpp
+    modules/commerce.cpp
+    modules/company.cpp
+    modules/computer.cpp
+    modules/crypto.cpp
+    modules/database.cpp
+    modules/datatype.cpp
+    modules/date.cpp
+    modules/finance.cpp
+    modules/food.cpp
+    modules/git.cpp
+    modules/hacker.cpp
+    modules/helper.cpp
+    modules/image.cpp
+    modules/internet.cpp
+    modules/location.cpp
+    modules/lorem.cpp
+    modules/medicine.cpp
+    modules/movie.cpp
+    modules/music.cpp
+    modules/person.cpp
+    modules/phone.cpp
+    modules/plant.cpp
+    modules/science.cpp
+    modules/sport.cpp
+    modules/string.cpp
+    modules/system.cpp
+    modules/vehicle.cpp
+    modules/video_game.cpp
+    modules/weather.cpp
+    modules/word.cpp
     common/format_helper.cpp
     common/luhn_check.cpp
     common/string_helper.cpp
@@ -47,36 +47,36 @@ set(FAKER_HEADERS
     common/format_helper.h
     common/algo_helper.h
     common/string_helper.h
-    modules/plant/plant_data.h
-    modules/person/person_data.h
-    modules/internet/internet_data.h
-    modules/sport/sport_data.h
-    modules/airline/airline_data.h
-    modules/location/location_data.h
-    modules/book/book_data.h
-    modules/string/string_data.h
-    modules/video_game/video_game_data.h
-    modules/medicine/medicine_data.h
-    modules/vehicle/vehicle_data.h
-    modules/hacker/hacker_data.h
-    modules/science/science_data.h
-    modules/date/date_data.h
-    modules/system/system_data.h
-    modules/commerce/commerce_data.h
-    modules/computer/computer_data.h
-    modules/weather/weather_data.h
-    modules/music/music_data.h
-    modules/database/database_data.h
-    modules/movie/movie_data.h
-    modules/food/food_data.h
-    modules/word/word_data.h
-    modules/word/word_store.h
-    modules/animal/animal_data.h
-    modules/company/company_data.h
-    modules/finance/finance_data.h
-    modules/phone/phone_data.h
-    modules/color/color_data.h
-    modules/lorem/lorem_data.h
+    modules/plant_data.h
+    modules/person_data.h
+    modules/internet_data.h
+    modules/sport_data.h
+    modules/airline_data.h
+    modules/location_data.h
+    modules/book_data.h
+    modules/string_data.h
+    modules/video_game_data.h
+    modules/medicine_data.h
+    modules/vehicle_data.h
+    modules/hacker_data.h
+    modules/science_data.h
+    modules/date_data.h
+    modules/system_data.h
+    modules/commerce_data.h
+    modules/computer_data.h
+    modules/weather_data.h
+    modules/music_data.h
+    modules/database_data.h
+    modules/movie_data.h
+    modules/food_data.h
+    modules/word_data.h
+    modules/word_store.h
+    modules/animal_data.h
+    modules/company_data.h
+    modules/finance_data.h
+    modules/phone_data.h
+    modules/color_data.h
+    modules/lorem_data.h
 )
 
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${FAKER_SOURCES} ${FAKER_HEADERS})
