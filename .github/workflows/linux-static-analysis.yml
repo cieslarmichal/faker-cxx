@@ -186,7 +186,8 @@ jobs:
           run-clang-tidy \
             -p build/unixlike-clang-debug-static \
             -header-filter="include/*" \
-            -extra-arg="-std=gnu++20" || true
+            -header-filter="externals/fmt/test/gtest/gtest/*"
+            -extra-arg="-std=gnu++20 -Wno-double-promotion" || true
 
   clang_format:
     name: clang-format
