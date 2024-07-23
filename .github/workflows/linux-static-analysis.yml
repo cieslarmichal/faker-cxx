@@ -3,7 +3,7 @@ name: static-analysis
 on:
   push:
     branches:
-      - 'main'
+      - '*'
     paths-ignore:
       - 'docs/**'
       - '**/*.md'
@@ -183,12 +183,7 @@ jobs:
 
       - name: Run clang-tidy
         run: |
-          run-clang-tidy \
-            -p build/unixlike-clang-debug-static \
-            -header-filter="include/*" \
-            -header-filter="externals/fmt/test/gtest/gtest/*"
-            -extra-arg="-std=gnu++20" || true
-            -extra-arg="-Wno-double-promotion" || true
+          run-clang-tidy
 
   clang_format:
     name: clang-format

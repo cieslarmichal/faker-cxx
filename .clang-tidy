@@ -1,0 +1,6 @@
+Checks: '*'
+HeaderFilterRegex: 'include/.*|externals/fmt/test/gtest/gtest/.*'
+ExtraArgs:
+  - '-std=gnu++20'
+  - '-Wno-double-promotion'
+BuildPath: 'build/unixlike-clang-debug-static'
