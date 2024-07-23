@@ -182,8 +182,9 @@ jobs:
           path: build
 
       - name: Run clang-tidy
-        run: |
-          run-clang-tidy run-clang-tidy.json
+        - run: sudo apt-get update -y
+        - run: sudo apt-get install -y clang-tidy
+        - run: clang-tidy -p "build/unixlike-clang-debug-static" --header-filter="include/*|externals/fmt/test/gtest/gtest/*" -extra-arg="-std=gnu++20 --Wno-double-promotion"
 
   clang_format:
     name: clang-format

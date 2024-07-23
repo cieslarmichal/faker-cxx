@@ -1,7 +1,0 @@
-{
-    "paths": [
-        "include/.*",
-        "externals/fmt/test/gtest/gtest/.*"
-    ],
-    "buildRoot": "build/unixlike-clang-debug-static"
-}
