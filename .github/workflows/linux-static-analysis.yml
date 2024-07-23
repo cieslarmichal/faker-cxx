@@ -187,7 +187,8 @@ jobs:
             -p build/unixlike-clang-debug-static \
             -header-filter="include/*" \
             -header-filter="externals/fmt/test/gtest/gtest/*"
-            -extra-arg="-std=gnu++20 -Wno-double-promotion" || true
+            -extra-arg="-std=gnu++20" || true
+            -extra-arg="-Wno-double-promotion" || true
 
   clang_format:
     name: clang-format
