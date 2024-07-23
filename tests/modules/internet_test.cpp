@@ -424,6 +424,13 @@ TEST_F(InternetTest, shouldGenerateEmoji)
                                     { return generatedEmoji == emoji; }));
 }
 
+TEST_F(InternetTest, shouldCheckEmoji)
+{
+    const auto checkEmoji = "❤️";
+
+    ASSERT_TRUE(checkIfEmojiIsValid(checkEmoji));
+}
+
 TEST_F(InternetTest, shouldGenerateSmileyEmoji)
 {
     const auto generatedEmoji = emoji(EmojiType::Smiley);
@@ -663,6 +670,23 @@ TEST_F(InternetTest, shouldGenerateIpv6)
 TEST_F(InternetTest, MacDefaultSeparator)
 {
     const auto generatedMac = mac();
+
+    ASSERT_EQ(generatedMac.size(), 17);
+
+    for (size_t i = 0; i < generatedMac.size(); i += 3)
+    {
+        ASSERT_TRUE(isxdigit(generatedMac[i]));
+    }
+
+    for (size_t i = 2; i < generatedMac.size(); i += 3)
+    {
+        ASSERT_EQ(generatedMac[i], ':');
+    }
+}
+
+TEST_F(InternetTest, MacDefaultSeparatorOverwrite)
+{
+    const auto generatedMac = mac(";");
 
     ASSERT_EQ(generatedMac.size(), 17);
 
