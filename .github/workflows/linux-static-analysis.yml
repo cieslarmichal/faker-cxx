@@ -183,7 +183,7 @@ jobs:
 
       - name: Run clang-tidy
         run: |
-          run-clang-tidy
+          run-clang-tidy run-clang-tidy.json
 
   clang_format:
     name: clang-format
