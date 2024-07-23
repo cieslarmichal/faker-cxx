@@ -207,6 +207,7 @@ namespace faker::finance
 
     enum class CreditCardType
     {
+        DefaultCard,
         AmericanExpress,
         Discover,
         MasterCard,

@@ -293,6 +293,12 @@ TEST_F(FinanceTest, shouldGenerateCreditCardNumber)
     ASSERT_TRUE(common::luhnCheck(generatedCreditCardNumber));
 }
 
+TEST_F(FinanceTest, shouldGenerateEmptyCreditCardNumber)
+{
+    const auto emptyString = "";
+    ASSERT_TRUE(emptyString == creditCardNumber(CreditCardType::DefaultCard));
+}
+
 TEST_F(FinanceTest, shouldGenerateAmericanExpressCreditCardNumber)
 {
     const auto generatedCreditCardNumber = creditCardNumber(CreditCardType::AmericanExpress);
