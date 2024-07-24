@@ -61,6 +61,14 @@ TEST_F(PhoneTest, NumberWithCountryFormat)
     ASSERT_TRUE(isStringNumericWithSpecialChars(generatedPhoneNumber));
 }
 
+TEST_F(PhoneTest, NumberWithEmptyCountryFormat)
+{
+    const auto generatedPhoneNumber = phoneNumberByCountry();
+
+    EXPECT_FALSE(generatedPhoneNumber.empty());
+    ASSERT_TRUE(isStringNumericWithSpecialChars(generatedPhoneNumber));
+}
+
 TEST_F(PhoneTest, IMEIGeneration)
 {
     auto generatedImei = imei();

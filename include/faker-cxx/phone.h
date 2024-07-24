@@ -65,10 +65,11 @@ enum class PhoneNumberCountryFormat;
      * @returns Random phone number based on country phone number template.
      *
      * @code
+     * faker::phone::number() // "234-532-654"
      * faker::phone::number(PhoneNumberCountryFormat::Usa) // "+1 (395) 714-1494"
      * @endcode
      */
-    FAKER_CXX_EXPORT std::string phoneNumberByCountry(PhoneNumberCountryFormat format);
+    FAKER_CXX_EXPORT std::string phoneNumberByCountry(std::optional<PhoneNumberCountryFormat> format = std::nullopt);
 
     /**
      * @brief Returns IMEI number.
@@ -325,6 +326,6 @@ enum class PhoneNumberCountryFormat
     WesternSahara,
     Yemen,
     Zambia,
-    Zimbabwe
+    Zimbabwe,
 };
 }

@@ -29,14 +29,15 @@ std::string phoneNumberByFormat(std::optional<std::string> format)
     return helper::replaceSymbolWithNumber(selectedFormat);
 }
 
-std::string phoneNumberByCountry(PhoneNumberCountryFormat format)
+std::string phoneNumberByCountry(std::optional<PhoneNumberCountryFormat> format)
 {
-    std::string countryFormat = phoneNumberFormatMap.at(format);
+    std::string countryFormat = (format)? phoneNumberFormatMap.at(*format) : 
+    phoneNumberFormatMap.at(PhoneNumberCountryFormat::Default);;
 
-    if (countryFormat.empty())
-    {
-        return phoneNumberFormatMap.at(PhoneNumberCountryFormat::Default);
-    }
+    // if (countryFormat.empty())
+    // {
+    //     return phoneNumberFormatMap.at(PhoneNumberCountryFormat::Default);
+    // }
 
     return helper::replaceSymbolWithNumber(countryFormat);
 }
