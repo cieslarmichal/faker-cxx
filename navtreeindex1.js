@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"hacker_8h.html":[2,0,0,0,15],
 "hacker_8h.html#a31cdbd8f27c40864c4cc622de9ac4a14":[2,0,0,0,15,5],
 "hacker_8h.html#a88bf4b9f6a06f804c206f51d36e3831d":[2,0,0,0,15,2],
 "hacker_8h.html#ab145eeeb1541c504518051e74bb1d6c0":[2,0,0,0,15,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "namespacefaker_1_1date.html#aebfe1d2284e37ee6b434694b976bf120":[0,0,0,10,8],
 "namespacefaker_1_1date.html#aedf7f0dce5432f069ff57acaed0aa7e0":[0,0,0,10,17],
 "namespacefaker_1_1date.html#af25ba3f294ef24501adb2fbf5bf60ace":[0,0,0,10,9],
-"namespacefaker_1_1finance.html":[0,0,0,11],
-"namespacefaker_1_1finance.html#a036b1e9c9a590257c88f230ea7de602d":[0,0,0,11,11]
+"namespacefaker_1_1finance.html":[0,0,0,11]
 };

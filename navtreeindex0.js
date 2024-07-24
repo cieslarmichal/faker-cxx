@@ -186,10 +186,11 @@ var NAVTREEINDEX0 =
 "finance_8h.html#a89147ba29c55835df80b6bfbb31057b0":[2,0,0,0,12,19],
 "finance_8h.html#a89eeb8a7709d8f37073029532fa58f0a":[2,0,0,0,12,18],
 "finance_8h.html#aa583be46abeaac908c81656813251bfa":[2,0,0,0,12,2],
-"finance_8h.html#aa583be46abeaac908c81656813251bfaa2fe3351421d198ea6d3c4a4a0358d08f":[2,0,0,0,12,2,2],
-"finance_8h.html#aa583be46abeaac908c81656813251bfaa89fc0d6fe12b0e0c1af5c7a0373435a6":[2,0,0,0,12,2,3],
-"finance_8h.html#aa583be46abeaac908c81656813251bfaaabfc3a65538a6ec86502b2b498b6b4a6":[2,0,0,0,12,2,1],
-"finance_8h.html#aa583be46abeaac908c81656813251bfaad5926562cceb8fa8a6540e470f1df930":[2,0,0,0,12,2,0],
+"finance_8h.html#aa583be46abeaac908c81656813251bfaa12826aa8a17c36c4ae61c4da181a0d6b":[2,0,0,0,12,2,0],
+"finance_8h.html#aa583be46abeaac908c81656813251bfaa2fe3351421d198ea6d3c4a4a0358d08f":[2,0,0,0,12,2,3],
+"finance_8h.html#aa583be46abeaac908c81656813251bfaa89fc0d6fe12b0e0c1af5c7a0373435a6":[2,0,0,0,12,2,4],
+"finance_8h.html#aa583be46abeaac908c81656813251bfaaabfc3a65538a6ec86502b2b498b6b4a6":[2,0,0,0,12,2,2],
+"finance_8h.html#aa583be46abeaac908c81656813251bfaad5926562cceb8fa8a6540e470f1df930":[2,0,0,0,12,2,1],
 "finance_8h.html#ab5e2e3ab4e301fed661d9f588600a717":[2,0,0,0,12,8],
 "finance_8h.html#ac5b0ee06359a9a09f5c1fc09a6d7d918":[2,0,0,0,12,3],
 "finance_8h.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a00247297c394dd443dc97067830c35f4":[2,0,0,0,12,3,24],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "git_8h.html#a5f23fd2f7cb8f5996ef83a2e48a3417e":[2,0,0,0,14,3],
 "git_8h.html#a9057763074d9ca99cb23aa4696766893":[2,0,0,0,14,1],
 "git_8h.html#aa2e2ae5d68f8df30fbc31156c54f9778":[2,0,0,0,14,2],
-"git_8h_source.html":[2,0,0,0,14],
-"hacker_8h.html":[2,0,0,0,15]
+"git_8h_source.html":[2,0,0,0,14]
 };

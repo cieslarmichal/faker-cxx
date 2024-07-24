@@ -1,5 +1,7 @@
 var NAVTREEINDEX7 =
 {
+"science_8h.html#af4d5df3993f6749a148253bbc7e82d91":[2,0,0,0,29,3],
+"science_8h.html#af5ca292f992a9807b390a4a61c35eeeb":[2,0,0,0,29,8],
 "science_8h_source.html":[2,0,0,0,29],
 "sport_8h.html":[2,0,0,0,30],
 "sport_8h.html#aa90d1438ac4295f1625b351b0c93afe4":[2,0,0,0,30,2],

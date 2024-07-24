@@ -14,6 +14,7 @@ var namespacefaker_1_1finance =
       [ "UnitedStates", "namespacefaker_1_1finance.html#a7503073690854f337acfc752a1801f5daac238a333872128a1a6f442fcebef042", null ]
     ] ],
     [ "CreditCardType", "namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfa", [
+      [ "DefaultCard", "namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfaa12826aa8a17c36c4ae61c4da181a0d6b", null ],
       [ "AmericanExpress", "namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfaad5926562cceb8fa8a6540e470f1df930", null ],
       [ "Discover", "namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfaaabfc3a65538a6ec86502b2b498b6b4a6", null ],
       [ "MasterCard", "namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfaa2fe3351421d198ea6d3c4a4a0358d08f", null ],
