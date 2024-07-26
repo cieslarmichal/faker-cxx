@@ -7,7 +7,7 @@ var searchData=
   ['pastdate_4',['pastDate',['../namespacefaker_1_1date.html#a9b296cf77ba7fc42a060cd0aac3d3962',1,'faker::date']]],
   ['paymentprovider_5',['paymentProvider',['../namespacefaker_1_1commerce.html#aaee3e8a8ac13ef1bca94ea4a2ae64bbb',1,'faker::commerce']]],
   ['paymenttype_6',['paymentType',['../namespacefaker_1_1commerce.html#a4c926b19d1b601b79a969156b45eae9d',1,'faker::commerce']]],
-  ['phonenumberbycountry_7',['phoneNumberByCountry',['../namespacefaker_1_1phone.html#a7755884dc2a70bb7d2813ca0c8b9628f',1,'faker::phone']]],
+  ['phonenumberbycountry_7',['phoneNumberByCountry',['../namespacefaker_1_1phone.html#a9f9b60f2044a35d1894d8e0d7a5646cf',1,'faker::phone']]],
   ['phonenumberbyformat_8',['phoneNumberByFormat',['../namespacefaker_1_1phone.html#a7c35641ad697cec3d712343bea60e2ce',1,'faker::phone']]],
   ['phrase_9',['phrase',['../namespacefaker_1_1hacker.html#ab8e34e7b1172882cf567b0106779214c',1,'faker::hacker']]],
   ['pin_10',['pin',['../namespacefaker_1_1finance.html#a1a601801599811853376fccc3bd75831',1,'faker::finance']]],

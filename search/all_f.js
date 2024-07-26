@@ -21,7 +21,7 @@ var searchData=
   ['peru_18',['Peru',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa84c8fa2341f7d052a1ee3a36ff043798',1,'faker::phone']]],
   ['philippines_19',['Philippines',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa77dab2f81a6c8c9136efba7ab2c4c0f2',1,'faker::phone']]],
   ['phone_2eh_20',['phone.h',['../phone_8h.html',1,'']]],
-  ['phonenumberbycountry_21',['phoneNumberByCountry',['../namespacefaker_1_1phone.html#a7755884dc2a70bb7d2813ca0c8b9628f',1,'faker::phone']]],
+  ['phonenumberbycountry_21',['phoneNumberByCountry',['../namespacefaker_1_1phone.html#a9f9b60f2044a35d1894d8e0d7a5646cf',1,'faker::phone']]],
   ['phonenumberbyformat_22',['phoneNumberByFormat',['../namespacefaker_1_1phone.html#a7c35641ad697cec3d712343bea60e2ce',1,'faker::phone']]],
   ['phonenumbercountryformat_23',['PhoneNumberCountryFormat',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0a',1,'faker::phone']]],
   ['phrase_24',['phrase',['../namespacefaker_1_1hacker.html#ab8e34e7b1172882cf567b0106779214c',1,'faker::hacker']]],
