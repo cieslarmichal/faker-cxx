@@ -254,3 +254,13 @@ TEST_F(WordTest, shouldGenerateLargeNumberOfWords)
         ASSERT_TRUE(std::ranges::find(_allWords, word) != _allWords.end());
     }
 }
+
+TEST_F(WordTest, returnsRandomElementWhenNoLengthMatch)
+{
+    std::vector<std::string> words = {"one", "three", "five"};
+    std::optional<unsigned int> length = 6;
+
+    auto result = sortedSizeArrayElement(length, words.begin(), words.end());
+
+    ASSERT_TRUE(result == "one" || result == "three" || result == "five");
+}
