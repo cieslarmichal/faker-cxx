@@ -1,6 +1,7 @@
 #include "gtest/gtest.h"
-#include <vector>
+#include <algorithm>
 #include <iterator>
+#include <vector>
 
 #include "word_data.h"
 
@@ -70,7 +71,7 @@ TEST_F(WordDataTest, shouldSwapDifferentContainers)
 TEST_F(WordDataTest, shouldPartitionEvenOdd)
 {
     std::vector<int> vec = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    auto it = partition(vec.begin(), vec.end(), [](int n) { return n % 2 == 0; });
+    auto it = faker::word::cstd::partition(vec.begin(), vec.end(), [](int n) { return n % 2 == 0; });
     ASSERT_TRUE(std::all_of(vec.begin(), it, [](int n) { return n % 2 == 0; }));
     ASSERT_TRUE(std::all_of(it, vec.end(), [](int n) { return n % 2 != 0; }));
 }
@@ -78,7 +79,7 @@ TEST_F(WordDataTest, shouldPartitionEvenOdd)
 TEST_F(WordDataTest, shouldPartitionGreaterThanFive)
 {
     std::vector<int> vec = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
-    auto it = partition(vec.begin(), vec.end(), [](int n) { return n > 5; });
+    auto it = faker::word::cstd::partition(vec.begin(), vec.end(), [](int n) { return n > 5; });
     ASSERT_TRUE(std::all_of(vec.begin(), it, [](int n) { return n > 5; }));
     ASSERT_TRUE(std::all_of(it, vec.end(), [](int n) { return n <= 5; }));
 }
