@@ -1,52 +1,14 @@
-#include "faker-cxx/word.h"
-
 #include <algorithm>
 #include <array>
 #include <optional>
 #include <string>
 #include <string_view>
 
-#include "faker-cxx/helper.h"
+#include "faker-cxx/word.h"
 #include "word_data.h"
 
 namespace faker::word
 {
-template <typename It>
-auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end) -> decltype(*std::declval<It>())
-{
-    if (!length)
-    {
-        return helper::arrayElement(start, end);
-    }
-
-    size_t length_64 = *length;
-    auto lower_it = ::std::lower_bound(start, end, length_64,
-                                       [](const auto& lhs, const auto& value) { return lhs.size() < value; });
-
-    if (lower_it == end)
-    {
-        return helper::arrayElement(start, end);
-    }
-
-    if (lower_it->size() != length)
-    {
-        return helper::arrayElement(start, end);
-    }
-
-    auto upper_it = lower_it;
-
-    for (; upper_it != end; upper_it++)
-    {
-        if (upper_it->size() != lower_it->size())
-        {
-
-            break;
-        }
-    }
-
-    return helper::arrayElement(lower_it, upper_it);
-}
-
 std::string_view sample(std::optional<unsigned int> length)
 {
     return sortedSizeArrayElement(length, _allWords.cbegin(), _allWords.cend());
