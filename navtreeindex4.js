@@ -225,13 +225,14 @@ var NAVTREEINDEX4 =
 "namespacefaker_1_1weather.html":[0,0,0,31],
 "namespacefaker_1_1weather.html#a029a4533396f1266c44ac7aaae7a681f":[0,0,0,31,0],
 "namespacefaker_1_1word.html":[0,0,0,32],
-"namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8":[0,0,0,32,7],
+"namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8":[0,0,0,32,8],
 "namespacefaker_1_1word.html#a0d9897ef2f1a2c30d8c375db2a8da628":[0,0,0,32,1],
-"namespacefaker_1_1word.html#a3300afd6043c0f11af23e3bd0b9f1782":[0,0,0,32,8],
+"namespacefaker_1_1word.html#a3300afd6043c0f11af23e3bd0b9f1782":[0,0,0,32,9],
 "namespacefaker_1_1word.html#a6e7e5f4576246ac2b1f086a0ecc2c62f":[0,0,0,32,2],
 "namespacefaker_1_1word.html#a756eef88511091fc80942ab0a1502aaa":[0,0,0,32,6],
 "namespacefaker_1_1word.html#a82ec1a575f056e5c79d2e7bc4e89335d":[0,0,0,32,3],
 "namespacefaker_1_1word.html#aa380bf2a6c8cd76db8fe13d20ff6ccf9":[0,0,0,32,4],
+"namespacefaker_1_1word.html#abca5ae130a05654525f785f74f6e11ad":[0,0,0,32,7],
 "namespacefaker_1_1word.html#ad55c7c834bad43272cfcf0f6bce0aa7b":[0,0,0,32,5],
 "namespacefaker_1_1word.html#af0f10fe34e975d361fd1d286d5073cc2":[0,0,0,32,0],
 "namespacemembers.html":[0,1,0],
@@ -248,6 +249,5 @@ var NAVTREEINDEX4 =
 "namespacemembers_func_c.html":[0,1,1,2],
 "namespacemembers_func_d.html":[0,1,1,3],
 "namespacemembers_func_e.html":[0,1,1,4],
-"namespacemembers_func_f.html":[0,1,1,5],
-"namespacemembers_func_g.html":[0,1,1,6]
+"namespacemembers_func_f.html":[0,1,1,5]
 };

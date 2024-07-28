@@ -105,24 +105,46 @@ $(function(){initNavTree('word_8h.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">word.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;optional&gt;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
 <code>#include &quot;faker-cxx/export.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="helper_8h_source.html">faker-cxx/helper.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for word.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="word_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2word_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2word_8h" id="ainclude_2faker-cxx_2word_8h">
-<area shape="rect" title=" " alt="" coords="89,5,249,31"/>
-<area shape="rect" title=" " alt="" coords="5,79,72,105"/>
-<area shape="poly" title=" " alt="" coords="148,34,75,74,72,69,146,29"/>
-<area shape="rect" title=" " alt="" coords="96,79,149,105"/>
-<area shape="poly" title=" " alt="" coords="164,33,141,67,136,64,159,30"/>
-<area shape="rect" title=" " alt="" coords="174,79,261,105"/>
-<area shape="poly" title=" " alt="" coords="179,30,203,64,198,67,175,33"/>
-<area shape="rect" title=" " alt="" coords="285,79,408,105"/>
-<area shape="poly" title=" " alt="" coords="200,29,303,70,301,75,198,34"/>
+<area shape="rect" title=" " alt="" coords="188,5,348,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,80,105"/>
+<area shape="poly" title=" " alt="" coords="230,34,95,77,94,72,229,29"/>
+<area shape="rect" title=" " alt="" coords="104,79,170,105"/>
+<area shape="poly" title=" " alt="" coords="247,34,174,74,171,69,244,29"/>
+<area shape="rect" title=" " alt="" coords="194,79,248,105"/>
+<area shape="poly" title=" " alt="" coords="262,33,240,67,235,64,258,30"/>
+<area shape="rect" title=" " alt="" coords="272,79,360,105"/>
+<area shape="poly" title=" " alt="" coords="278,30,301,64,297,67,274,33"/>
+<area shape="rect" title=" " alt="" coords="384,79,506,105"/>
+<area shape="poly" title=" " alt="" coords="299,29,402,70,400,75,297,34"/>
+<area shape="rect" href="helper_8h.html" title=" " alt="" coords="531,79,653,105"/>
+<area shape="poly" title=" " alt="" coords="324,29,522,73,521,78,323,34"/>
+<area shape="rect" title=" " alt="" coords="356,153,452,178"/>
+<area shape="poly" title=" " alt="" coords="561,108,451,149,449,144,559,103"/>
+<area shape="rect" title=" " alt="" coords="476,153,543,178"/>
+<area shape="poly" title=" " alt="" coords="580,107,536,144,533,140,576,103"/>
+<area shape="rect" title=" " alt="" coords="567,153,616,178"/>
+<area shape="poly" title=" " alt="" coords="594,105,594,137,589,137,589,105"/>
+<area shape="rect" title=" " alt="" coords="640,153,698,178"/>
+<area shape="poly" title=" " alt="" coords="607,103,647,140,643,144,603,107"/>
+<area shape="rect" href="number_8h.html" title=" " alt="" coords="721,153,796,178"/>
+<area shape="poly" title=" " alt="" coords="621,103,717,144,715,149,619,108"/>
+<area shape="rect" title=" " alt="" coords="628,226,702,252"/>
+<area shape="poly" title=" " alt="" coords="744,181,694,219,691,215,741,177"/>
+<area shape="rect" title=" " alt="" coords="726,226,791,252"/>
+<area shape="poly" title=" " alt="" coords="761,179,761,211,756,211,756,179"/>
+<area shape="rect" title=" " alt="" coords="814,226,892,252"/>
+<area shape="poly" title=" " alt="" coords="776,177,827,215,824,219,773,181"/>
 </map>
 </div>
 </div>
@@ -164,6 +186,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a03ac408bfcf1e583e0e94830bd7e54e8" id="r_a03ac408bfcf1e583e0e94830bd7e54e8"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8">faker::word::verb</a> (std::optional&lt; unsigned &gt; length=std::nullopt)</td></tr>
 <tr class="memdesc:a03ac408bfcf1e583e0e94830bd7e54e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random verb.  <br /></td></tr>
 <tr class="separator:a03ac408bfcf1e583e0e94830bd7e54e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abca5ae130a05654525f785f74f6e11ad" id="r_abca5ae130a05654525f785f74f6e11ad"><td class="memTemplParams" colspan="2">template&lt;typename It &gt; </td></tr>
+<tr class="memitem:abca5ae130a05654525f785f74f6e11ad"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1word.html#abca5ae130a05654525f785f74f6e11ad">faker::word::sortedSizeArrayElement</a> (std::optional&lt; unsigned int &gt; length, It start, It end) -&gt; decltype(*std::declval&lt; It &gt;())</td></tr>
+<tr class="separator:abca5ae130a05654525f785f74f6e11ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
