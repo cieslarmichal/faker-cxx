@@ -44,6 +44,7 @@ set(FAKER_UT_SOURCES
     modules/video_game_test.cpp
     modules/weather_test.cpp
     modules/word_test.cpp
+    modules/word_data_test.cpp
 )
 
 add_executable(${PROJECT_NAME} ${FAKER_UT_SOURCES})

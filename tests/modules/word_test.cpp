@@ -255,7 +255,7 @@ TEST_F(WordTest, shouldGenerateLargeNumberOfWords)
     }
 }
 
-TEST_F(WordTest, returnsRandomElementWhenNoExactLengthMatch)
+TEST_F(WordTest, returnsRandomElementWhenNoLengthMatch)
 {
     std::vector<std::string> words = {"one", "three", "five"};
     std::optional<unsigned int> length = 6;
