@@ -60,8 +60,8 @@ TEST_F(HackerTest, shouldGenerateIngverb)
 TEST_F(HackerTest, shouldGeneratePhrase)
 {
     const auto generatedPhrase = phrase();
-    bool hasAdjective, hasNoun, hasVerb, hasAbbreviation;
-    hasAdjective = hasNoun = hasVerb = hasAbbreviation = false;
+    bool hasAdjective, hasNoun, hasVerb, hasAbbreviation, hasIngverb;
+    hasAdjective = hasNoun = hasVerb = hasAbbreviation = hasIngverb = false;
 
     for (const std::string_view& adj : adjectives)
     {
@@ -99,5 +99,14 @@ TEST_F(HackerTest, shouldGeneratePhrase)
         }
     }
 
-    ASSERT_TRUE((hasAdjective && hasNoun && hasVerb && hasAbbreviation));
+    for (const std::string_view& ingverb : ingverbs)
+    {
+        if (generatedPhrase.find(ingverb) != std::string::npos)
+        {
+            hasIngverb = true;
+            break;
+        }
+    }
+
+    ASSERT_TRUE((hasAdjective && hasNoun && hasVerb && hasAbbreviation && hasIngverb));
 }

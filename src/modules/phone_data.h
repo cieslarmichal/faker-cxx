@@ -271,7 +271,7 @@ const auto phoneNumbers = std::to_array<std::string_view>({
     "+212 (###) ####",      // Western Sahara
     "+967 (###) ###-####",  // Yemen
     "+260 (###) ###-####",  // Zambia
-    "+263 (###) ####"       // Zimbabwe
+    "+263 (###) ####",      // Zimbabwe
 });
 
 }
