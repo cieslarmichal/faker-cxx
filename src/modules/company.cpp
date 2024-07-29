@@ -11,25 +11,24 @@
 
 namespace faker::company
 {
-std::string name()
+std::string companyName(std::optional<CompanyNameFormat> format)
 {
-    std::string companyName;
+    CompanyNameFormat nameFormat = format ? *format : CompanyNameFormat::LastNameSuffix;
 
-    switch (number::integer<int>(3))
+    std::string companyName = "";
+
+    switch (nameFormat)
     {
-    case 0:
+    case CompanyNameFormat::LastNameSuffix:
         companyName = common::format("{} {}", person::lastName(), helper::arrayElement(companySuffixes));
         break;
-    case 1:
-        companyName = common::format("{} {} {}", person::firstName(), person::lastName(), person::jobArea());
+    case CompanyNameFormat::FirstNameLastNameSuffix:
+        companyName = common::format("{} {} {}", person::firstName(), person::lastName(), helper::arrayElement(companySuffixes));
         break;
-    case 2:
+    case CompanyNameFormat::FirstNameLastNameJobAreaSuffix:
         companyName =
-            common::format("{} {} {} Services", person::firstName(), person::lastName(), person::jobArea());
-        break;
-    case 3:
-        companyName = common::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(),
-                                           helper::arrayElement(companySuffixes));
+            common::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(), 
+                            helper::arrayElement(companySuffixes));
         break;
     }
 

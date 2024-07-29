@@ -21,30 +21,56 @@ public:
 
 TEST_F(CompanyTest, shouldGenerateCompanyName)
 {
-    const auto companyName = name();
+    const auto generatedCompanyName = companyName();
+    const auto generatedCompanyFirstLastNames = 
+                companyName(CompanyNameFormat::FirstNameLastNameSuffix);
+    const auto generatedCompanyFirstLastNamesJobArea = 
+                companyName(CompanyNameFormat::FirstNameLastNameJobAreaSuffix);
 
-    const auto companyNameElements = common::split(companyName, " ");
+    const auto companyNameElements = common::split(generatedCompanyName, " ");
+    const auto companyNameElements1 = common::split(generatedCompanyFirstLastNames, " ");
+    const auto companyNameElements2 = common::split(generatedCompanyFirstLastNamesJobArea, " ");
 
     std::vector<std::string_view> expectedFirstNames(person::englishMaleFirstNames.begin(),
                                                      person::englishMaleFirstNames.end());
     expectedFirstNames.insert(expectedFirstNames.end(), person::englishFemaleFirstNames.begin(),
                               person::englishFemaleFirstNames.end());
 
-    if (companyNameElements.size() == 2)
-    {
+    EXPECT_TRUE(companyNameElements.size() == 2);
+    EXPECT_TRUE(companyNameElements1.size() == 3);
+    EXPECT_TRUE(companyNameElements2.size() == 4);
+
+    if (companyNameElements.size() == 2){
+    
         const auto& generatedLastName = companyNameElements[0];
-        const auto& generatedCompanySuffix = companyNameElements[1];
+        const auto& lastElement = companyNameElements[1];
 
         ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedLastName](const std::string_view& lastName)
                                         { return lastName == generatedLastName; }));
-        ASSERT_TRUE(std::ranges::any_of(companySuffixes, [generatedCompanySuffix](const std::string_view& companySuffix)
-                                        { return companySuffix == generatedCompanySuffix; }));
+        ASSERT_TRUE(std::ranges::any_of(companySuffixes, [lastElement](const std::string_view& companySuffix)
+                                        { return companySuffix == lastElement; }));
     }
-    else if (companyNameElements.size() == 3)
-    {
-        const auto& generatedFirstName = companyNameElements[0];
-        const auto& generatedLastName = companyNameElements[1];
-        const auto& generatedJobArea = companyNameElements[2];
+
+    if (companyNameElements1.size() == 3){
+    
+        const auto& generatedFirstName = companyNameElements1[0];
+        const auto& generatedLastName = companyNameElements1[1];
+        const auto& lastElement = companyNameElements1[2];
+
+        ASSERT_TRUE(std::ranges::any_of(expectedFirstNames, [generatedFirstName](const std::string_view& firstName)
+                                        { return firstName == generatedFirstName; }));
+        ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedLastName](const std::string_view& lastName)
+                                        { return lastName == generatedLastName; }));
+        ASSERT_TRUE(std::ranges::any_of(companySuffixes, [lastElement](const std::string_view& companySuffix)
+                                        { return companySuffix == lastElement; }));
+    }
+
+    if (companyNameElements2.size() == 4){
+    
+        const auto& generatedFirstName = companyNameElements2[0];
+        const auto& generatedLastName = companyNameElements2[1];
+        const auto& generatedJobArea = companyNameElements2[2];
+        const auto& lastElement = companyNameElements2[3];
 
         ASSERT_TRUE(std::ranges::any_of(expectedFirstNames, [generatedFirstName](const std::string_view& firstName)
                                         { return firstName == generatedFirstName; }));
@@ -52,22 +78,7 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
                                         { return lastName == generatedLastName; }));
         ASSERT_TRUE(std::ranges::any_of(person::jobAreas, [generatedJobArea](const std::string_view& jobArea)
                                         { return jobArea == generatedJobArea; }));
-    }
-    else if (companyNameElements.size() == 4)
-    {
-        const auto& generatedFirstName = companyNameElements[0];
-        const auto& generatedLastName = companyNameElements[1];
-        const auto& generatedJobArea = companyNameElements[2];
-        const auto& lastElement = companyNameElements[3];
-
-        ASSERT_TRUE(std::ranges::any_of(expectedFirstNames, [generatedFirstName](const std::string_view& firstName)
-                                        { return firstName == generatedFirstName; }));
-        ASSERT_TRUE(std::ranges::any_of(person::englishLastNames, [generatedLastName](const std::string_view& lastName)
-                                        { return lastName == generatedLastName; }));
-        ASSERT_TRUE(std::ranges::any_of(person::jobAreas, [generatedJobArea](const std::string_view& jobArea)
-                                        { return jobArea == generatedJobArea; }));
-        ASSERT_TRUE(lastElement == "Services" ||
-                    std::ranges::any_of(companySuffixes, [lastElement](const std::string_view& companySuffix)
+        ASSERT_TRUE(std::ranges::any_of(companySuffixes, [lastElement](const std::string_view& companySuffix)
                                         { return companySuffix == lastElement; }));
     }
 }

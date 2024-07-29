@@ -1,20 +1,23 @@
 #pragma once
 
+#include <optional>
 #include <string_view>
 #include "faker-cxx/export.h"
 
 namespace faker::company
 {
+enum class CompanyNameFormat;
 /**
  * @brief Returns a random company name.
  *
  * @returns Company name.
  *
  * @code
- * faker::company::name() // "Adams Inc"
+ * faker::company::companyName() // "Peterson Inc"
+ * faker::company::companyName(CompanyNameFormat::FirstNameLastNameSuffix) // "Adams Peterson Inc"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string name();
+FAKER_CXX_EXPORT std::string companyName(std::optional<CompanyNameFormat> format = std::nullopt);
 
 /**
  * @brief Returns a random company type.
@@ -125,4 +128,11 @@ FAKER_CXX_EXPORT std::string_view catchPhraseDescriptor();
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view catchPhraseNoun();
+
+enum class CompanyNameFormat
+{
+    LastNameSuffix,
+    FirstNameLastNameSuffix,
+    FirstNameLastNameJobAreaSuffix,
+};
 }

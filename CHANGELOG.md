@@ -10,6 +10,8 @@ All notable changes to this project will be documented in this file
 * renamed all include files from `CamelCase` to `snake_case`
 * changed function name from `number` (by format) to `phoneNumberByFormat` in phone module
 * changed function name from `number` (by country) to `phoneNumberByCountry` in phone module
+* changed function name from `name` to `companyName` in company module
+* changed function `companyName` to take optional enum parameter in company module
 
 ## v2.0.0 (27.06.2024)
 
