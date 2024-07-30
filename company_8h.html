@@ -101,22 +101,26 @@ $(function(){initNavTree('company_8h.html',''); initResizable(true); });
 <div class="header">
   <div class="summary">
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">company.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;string_view&gt;</code><br />
+<div class="textblock"><code>#include &lt;optional&gt;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
 <code>#include &quot;faker-cxx/export.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for company.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="company_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2company_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2company_8h" id="ainclude_2faker-cxx_2company_8h">
-<area shape="rect" title=" " alt="" coords="21,5,205,31"/>
-<area shape="rect" title=" " alt="" coords="5,79,93,105"/>
-<area shape="poly" title=" " alt="" coords="104,33,72,69,68,66,100,29"/>
-<area shape="rect" title=" " alt="" coords="117,79,240,105"/>
-<area shape="poly" title=" " alt="" coords="126,29,159,66,155,69,122,33"/>
+<area shape="rect" title=" " alt="" coords="48,5,232,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,72,105"/>
+<area shape="poly" title=" " alt="" coords="124,34,70,72,67,67,121,29"/>
+<area shape="rect" title=" " alt="" coords="96,79,184,105"/>
+<area shape="poly" title=" " alt="" coords="142,31,142,63,137,63,137,31"/>
+<area shape="rect" title=" " alt="" coords="208,79,330,105"/>
+<area shape="poly" title=" " alt="" coords="163,29,235,69,232,73,160,34"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -139,11 +143,19 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1company.html">faker::company</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:a40dd6d3303b9e3274368e88e18a0f93f" id="r_a40dd6d3303b9e3274368e88e18a0f93f"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1company.html#a40dd6d3303b9e3274368e88e18a0f93f">faker::company::CompanyNameFormat</a> { <a class="el" href="namespacefaker_1_1company.html#a40dd6d3303b9e3274368e88e18a0f93fad91277e7facc85775b3b69103dc6386f">faker::company::LastNameSuffix</a>
+, <a class="el" href="namespacefaker_1_1company.html#a40dd6d3303b9e3274368e88e18a0f93fa825c4bb4c6581d910f849a1e240a16be">faker::company::FirstNameLastNameSuffix</a>
+, <a class="el" href="namespacefaker_1_1company.html#a40dd6d3303b9e3274368e88e18a0f93fa9437574530e004ce673c1162e96d0486">faker::company::FirstNameLastNameJobAreaSuffix</a>
+ }</td></tr>
+<tr class="separator:a40dd6d3303b9e3274368e88e18a0f93f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a7694dca1bd7ccd65e4303695231a561b" id="r_a7694dca1bd7ccd65e4303695231a561b"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1company.html#a7694dca1bd7ccd65e4303695231a561b">faker::company::name</a> ()</td></tr>
-<tr class="memdesc:a7694dca1bd7ccd65e4303695231a561b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random company name.  <br /></td></tr>
-<tr class="separator:a7694dca1bd7ccd65e4303695231a561b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7748ea0d17db38963f0e9e807e2bc556" id="r_a7748ea0d17db38963f0e9e807e2bc556"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1company.html#a7748ea0d17db38963f0e9e807e2bc556">faker::company::companyName</a> (std::optional&lt; <a class="el" href="namespacefaker_1_1company.html#a40dd6d3303b9e3274368e88e18a0f93f">CompanyNameFormat</a> &gt; format=std::nullopt)</td></tr>
+<tr class="memdesc:a7748ea0d17db38963f0e9e807e2bc556"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random company name.  <br /></td></tr>
+<tr class="separator:a7748ea0d17db38963f0e9e807e2bc556"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4d010c731f63c97b86e98c5a885982bb" id="r_a4d010c731f63c97b86e98c5a885982bb"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1company.html#a4d010c731f63c97b86e98c5a885982bb">faker::company::type</a> ()</td></tr>
 <tr class="memdesc:a4d010c731f63c97b86e98c5a885982bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random company type.  <br /></td></tr>
 <tr class="separator:a4d010c731f63c97b86e98c5a885982bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
