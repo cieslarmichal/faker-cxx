@@ -144,7 +144,7 @@ $(function(){initNavTree('helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>}</div>
 </div>
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="keyword">template</span> &lt;std::input_iterator It&gt;</div>
 <div class="foldopen" id="foldopen00053" data-start="{" data-end="}">
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno"><a class="line" href="namespacefaker_1_1helper.html#a620e3715e328fa71989c108d1c28ba48">   53</a></span><span class="keyword">auto</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#aa643a09d2b1129c269986c92a4cddb66">arrayElement</a>(It start, It end) -&gt; <span class="keyword">decltype</span>(*::std::declval&lt;It&gt;())</div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>{</div>
@@ -157,7 +157,7 @@ $(function(){initNavTree('helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span> </div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keyword">const</span> std::integral <span class="keyword">auto</span> index = number::integer&lt;size_t&gt;(size - 1);</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> start[index];</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> *(start + <span class="keyword">static_cast&lt;</span>std::iter_difference_t&lt;It&gt;<span class="keyword">&gt;</span>(index));</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
 </div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
