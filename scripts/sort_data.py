@@ -34,7 +34,7 @@ def sort_all_arrays_in_file(filename):
 
 def sort_all_arrays_in_directory(directory):
     for filename in os.listdir(directory):
-        if filename.endswith('_data.h'):
+        if filename.endswith('_data.h') and filename not in ["commerce_data.h", "person_data.h"]:
             filepath = os.path.join(directory, filename)
             sort_all_arrays_in_file(filepath)
 

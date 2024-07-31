@@ -72,7 +72,7 @@ const auto artists = std::to_array<std::string_view>({
     "Connie Francis",
     "Conway Twitty",
     "Count Basie",
-    "Crosby, Stills and Nash",
+    "Crosby Stills and Nash",
     "Curtis Mayfield and the Impressions",
     "Daryl Hall & John Oates",
     "David Bowie",
@@ -91,7 +91,7 @@ const auto artists = std::to_array<std::string_view>({
     "Drifters / Clyde McPhatter / Ben E. King",
     "Duke Ellington",
     "Eagles",
-    "Earth, Wind and Fire",
+    "Earth Wind and Fire",
     "Ed Sheeran",
     "Eddy Arnold",
     "Ella Fitzgerald",
@@ -99,7 +99,7 @@ const auto artists = std::to_array<std::string_view>({
     "Elton John",
     "Elvis Costello",
     "Elvis Presley",
-    "Emerson, Lake and Palmer",
+    "Emerson Lake and Palmer",
     "Eminem",
     "Enrico Caruso",
     "Eric B. and Rakim",
@@ -227,7 +227,7 @@ const auto artists = std::to_array<std::string_view>({
     "Peggy Lee",
     "Perry Como",
     "Pete Seeger and the Weavers",
-    "Peter, Paul and Mary",
+    "Peter Paul and Mary",
     "Pink Floyd",
     "Platters",
     "Police / Sting",
@@ -303,12 +303,27 @@ const auto artists = std::to_array<std::string_view>({
     "Woody Guthrie",
     "Wynonie Harris",
     "Yardbirds",
-    "Yes"
+    "Yes",
 });
 
 const auto musicGenres = std::to_array<std::string_view>({
-    "Blues", "Classical", "Country", "Electronic", "Folk", "Funk", "Hip Hop",          "Jazz", "Latin",
-    "Metal", "Pop",       "Rap",     "Reggae",     "Rock", "Soul", "Stage And Screen", "World"
+    "Blues",
+    "Classical",
+    "Country",
+    "Electronic",
+    "Folk",
+    "Funk",
+    "Hip Hop",
+    "Jazz",
+    "Latin",
+    "Metal",
+    "Pop",
+    "Rap",
+    "Reggae",
+    "Rock",
+    "Soul",
+    "Stage And Screen",
+    "World",
 });
 
 const auto songNames = std::to_array<std::string_view>({
@@ -1282,7 +1297,7 @@ const auto songNames = std::to_array<std::string_view>({
     "You're the One That I Want",
     "You've Got a Friend",
     "Your Cheatin' Heart",
-    "Your Song"
+    "Your Song",
 });
 
 }

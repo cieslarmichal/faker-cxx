@@ -6,18 +6,42 @@
 namespace faker::sport
 {
 const auto femaleAthletes = std::to_array<std::string_view>({
-    "Alex Morgan",    "Jackie Joyner-Kersee", "Lindsey Vonn",    "Martina Navratilova", "Mia Hamm",
-    "Nadia Comăneci", "Ronda Rousey",         "Serena Williams", "Simone Biles",        "Steffi Graf",
+    "Alex Morgan",
+    "Jackie Joyner-Kersee",
+    "Lindsey Vonn",
+    "Martina Navratilova",
+    "Mia Hamm",
+    "Nadia Comăneci",
+    "Ronda Rousey",
+    "Serena Williams",
+    "Simone Biles",
+    "Steffi Graf",
 });
 
 const auto maleAthletes = std::to_array<std::string_view>({
-    "Cristiano Ronaldo", "Kobe Bryant",  "LeBron James",  "Lionel Messi", "Michael Jordan",
-    "Michael Phelps",    "Muhammad Ali", "Roger Federer", "Tom Brady",    "Usain Bolt",
+    "Cristiano Ronaldo",
+    "Kobe Bryant",
+    "LeBron James",
+    "Lionel Messi",
+    "Michael Jordan",
+    "Michael Phelps",
+    "Muhammad Ali",
+    "Roger Federer",
+    "Tom Brady",
+    "Usain Bolt",
 });
 
 const auto soccerTeams = std::to_array<std::string_view>({
-    "AC Milan",    "Chelsea FC",   "FC Barcelona",         "FC Bayern Munich",       "Inter Milan",
-    "Juventus FC", "Liverpool FC", "Manchester United FC", "Paris Saint-Germain FC", "Real Madrid CF",
+    "AC Milan",
+    "Chelsea FC",
+    "FC Barcelona",
+    "FC Bayern Munich",
+    "Inter Milan",
+    "Juventus FC",
+    "Liverpool FC",
+    "Manchester United FC",
+    "Paris Saint-Germain FC",
+    "Real Madrid CF",
 });
 
 const auto sportEvents = std::to_array<std::string_view>({
@@ -34,8 +58,16 @@ const auto sportEvents = std::to_array<std::string_view>({
 });
 
 const auto sportNames = std::to_array<std::string_view>({
-    "American Football", "Baseball", "Basketball", "Cricket", "Golf", "Rugby", "Soccer",
-    "Table Tennis",      "Tennis",   "Volleyball",
+    "American Football",
+    "Baseball",
+    "Basketball",
+    "Cricket",
+    "Golf",
+    "Rugby",
+    "Soccer",
+    "Table Tennis",
+    "Tennis",
+    "Volleyball",
 });
 
 }
