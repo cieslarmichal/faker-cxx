@@ -49,7 +49,7 @@ T arrayElement(const std::array<T, N>& data)
     return data[index];
 }
 
-template <typename It>
+template <std::input_iterator It>
 auto arrayElement(It start, It end) -> decltype(*::std::declval<It>())
 {
     auto size = static_cast<size_t>(end - start);
@@ -61,7 +61,7 @@ auto arrayElement(It start, It end) -> decltype(*::std::declval<It>())
 
     const std::integral auto index = number::integer<size_t>(size - 1);
 
-    return start[index];
+    return *(start + static_cast<std::iter_difference_t<It>>(index));
 }
 
 /**
