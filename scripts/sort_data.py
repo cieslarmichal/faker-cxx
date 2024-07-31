@@ -16,11 +16,12 @@ def sort_all_arrays_in_file(filename):
     for match in matches:
         elements = re.split(r',\s*(?=")', match.strip())
 
-        elements = [element.strip() for element in elements if element.strip()]
+        elements = [element.strip().replace(",", "") for element in elements if element.strip()]
 
         sorted_elements = sorted(elements, key=lambda x: x.strip('"'))
 
         sorted_array = ',\n    '.join(sorted_elements)
+        sorted_array += ","
         sorted_array = f'std::to_array<std::string_view>({{\n    {sorted_array}\n}});'
 
         old_array_pattern = re.escape(f'std::to_array<std::string_view>({{{match}}});')
