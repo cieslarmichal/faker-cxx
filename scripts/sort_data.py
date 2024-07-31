@@ -10,7 +10,7 @@ def sort_all_arrays_in_file(filename):
     matches = array_pattern.findall(content)
 
     if not matches:
-        print(f"No arrays found in {filename}.")
+        print(f"No std::to_array<std::string_view> arrays found in {filename}.")
         return
 
     for match in matches:
@@ -18,10 +18,10 @@ def sort_all_arrays_in_file(filename):
 
         elements = [element.strip() for element in elements if element.strip()]
 
-        sorted_elements = sorted(elements, key=lambda x: x.strip(' "'))
+        sorted_elements = sorted(elements, key=lambda x: x.strip('"'))
 
         sorted_array = ',\n    '.join(sorted_elements)
-        sorted_array = f'std::to_array<std::string_view>({{\n    {sorted_array},\n,}});'
+        sorted_array = f'std::to_array<std::string_view>({{\n    {sorted_array}\n}});'
 
         old_array_pattern = re.escape(f'std::to_array<std::string_view>({{{match}}});')
         content = re.sub(old_array_pattern, sorted_array, content, count=1)
@@ -41,4 +41,4 @@ if len(argv) > 1:
     directory = argv[1]
     sort_all_arrays_in_directory(directory)
 else:
-    print("No directory specified, please pass in directory string as command line argument")
+    print("No directory specified, please pass in directory as command line argument")
