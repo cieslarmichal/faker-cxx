@@ -255,7 +255,7 @@ TEST_F(WordTest, shouldGenerateLargeNumberOfWords)
     }
 }
 
-TEST_F(WordTest, returnsRandomElementWhenNoLengthMatch)
+TEST_F(WordTest, returnsRandomElementWhenAllElementsLessthanGivenLength)
 {
     std::vector<std::string> words = {"one", "three", "five"};
     std::optional<unsigned int> length = 6;
@@ -263,4 +263,14 @@ TEST_F(WordTest, returnsRandomElementWhenNoLengthMatch)
     auto result = sortedSizeArrayElement(length, words.begin(), words.end());
 
     ASSERT_TRUE(result == "one" || result == "three" || result == "five");
+}
+
+TEST_F(WordTest, returnsFirstElementWhenNoLengthMatch)
+{
+    std::vector<std::string> words = {"one", "three", "five"};
+    std::optional<unsigned int> length = 4;
+
+    auto result = sortedSizeArrayElement(length, words.begin(), words.end());
+
+    ASSERT_TRUE(result == "three");
 }

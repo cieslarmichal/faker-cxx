@@ -49,8 +49,8 @@ T arrayElement(const std::array<T, N>& data)
     return data[index];
 }
 
-template <typename It>
-auto arrayElement(It start, It end) -> decltype(*::std::declval<It>())
+template <std::random_access_iterator It>
+auto arrayElement(It start, It end) -> It::range_difference_t
 {
     auto size = static_cast<size_t>(end - start);
 
@@ -62,6 +62,26 @@ auto arrayElement(It start, It end) -> decltype(*::std::declval<It>())
     const std::integral auto index = number::integer<size_t>(size - 1);
 
     return start[index];
+}
+
+template <std::input_iterator It>
+auto arrayElement(It start, It end)
+{
+    auto size = std::distance(start, end);
+
+    if (size == 0)
+    {
+        throw std::invalid_argument{"Range [start,end) is empty."};
+    }
+
+    const std::integral auto index = number::integer<size_t>(static_cast<unsigned long>(size - 1));
+
+    std::input_iterator auto dummyIterator = start;
+
+    for (size_t i = 0; i < index; i++)
+        dummyIterator++;
+
+    return *dummyIterator;
 }
 
 /**

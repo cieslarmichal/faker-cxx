@@ -13,21 +13,19 @@ bool boolean()
 
 bool boolean(double probability)
 {
-    if (probability != nan(""))
+    if (!std::isnan(probability))
     {
-        double prob = probability;
-
-        if (prob <= double(0.))
+        if (probability <= double(0))
         {
             return false;
         }
 
-        if (prob >= double(1.))
+        if (probability >= double(1))
         {
             return true;
         }
 
-        return double(number::decimal(0., 1.)) < prob;
+        return number::decimal(0., 1.) < probability;
     }
 
     return number::decimal(0., 1.) < 0.5;
