@@ -108,8 +108,8 @@ $(function(){initNavTree('word_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;string&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;faker-cxx/export.h&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;faker-cxx/export.h&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="helper_8h.html">faker-cxx/helper.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
 <div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
@@ -133,43 +133,44 @@ $(function(){initNavTree('word_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
 <div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8">  145</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8">verb</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
 <div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> It&gt;</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span><span class="keyword">template</span> &lt;std::input_iterator It&gt;</div>
 <div class="foldopen" id="foldopen00148" data-start="{" data-end="}">
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#abca5ae130a05654525f785f74f6e11ad">  148</a></span><span class="keyword">auto</span> <a class="code hl_function" href="namespacefaker_1_1word.html#abca5ae130a05654525f785f74f6e11ad">sortedSizeArrayElement</a>(std::optional&lt;unsigned int&gt; length, It start, It end) -&gt; <span class="keyword">decltype</span>(*std::declval&lt;It&gt;())</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>{</div>
-<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>    <span class="keywordflow">if</span> (!length)</div>
-<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    {</div>
-<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#aa643a09d2b1129c269986c92a4cddb66">helper::arrayElement</a>(start, end);</div>
-<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>    }</div>
-<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span>    <span class="keywordtype">size_t</span> length_64 = *length;</div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keyword">auto</span> lower_it = ::std::lower_bound(start, end, length_64,</div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>                                       [](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; lhs, <span class="keyword">const</span> <span class="keyword">auto</span>&amp; value) { <span class="keywordflow">return</span> lhs.size() &lt; value; });</div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span> </div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="keywordflow">if</span> (lower_it == end)</div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    {</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#aa643a09d2b1129c269986c92a4cddb66">helper::arrayElement</a>(start, end);</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    }</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="keywordflow">if</span> (lower_it-&gt;size() != length)</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    {</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        <span class="keywordflow">return</span> *lower_it;</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    }</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keyword">auto</span> upper_it = lower_it;</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span> </div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span>    <span class="keywordflow">for</span> (; upper_it != end; upper_it++)</div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    {</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>        <span class="keywordflow">if</span> (upper_it-&gt;size() != lower_it-&gt;size())</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        {</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        }</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    }</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span> </div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#aa643a09d2b1129c269986c92a4cddb66">helper::arrayElement</a>(lower_it, upper_it);</div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>}</div>
-</div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a9af6c14e49fab1dc06d04cbd965364e9">  148</a></span><span class="keyword">auto</span> <a class="code hl_function" href="namespacefaker_1_1word.html#a9af6c14e49fab1dc06d04cbd965364e9">sortedSizeArrayElement</a>(std::optional&lt;unsigned int&gt; length, It start, It end) -&gt;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    <span class="keyword">typename</span> std::iterator_traits&lt;It&gt;::value_type</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span>{</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    <span class="keywordflow">if</span> (!length)</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    {</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#aa643a09d2b1129c269986c92a4cddb66">helper::arrayElement</a>(start, end);</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span>    }</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span> </div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span>    <span class="keywordtype">size_t</span> length_64 = *length;</div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="keyword">auto</span> lower_it = ::std::lower_bound(start, end, length_64,</div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>                                       [](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; lhs, <span class="keyword">const</span> <span class="keyword">auto</span>&amp; value) { <span class="keywordflow">return</span> lhs.size() &lt; value; });</div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span> </div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="keywordflow">if</span> (lower_it == end)</div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    {</div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#aa643a09d2b1129c269986c92a4cddb66">helper::arrayElement</a>(start, end);</div>
+<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    }</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span> </div>
+<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>    <span class="keywordflow">if</span> (lower_it-&gt;size() != length)</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    {</div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <span class="keywordflow">return</span> *lower_it;</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
+<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span> </div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keyword">auto</span> upper_it = lower_it;</div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keywordflow">for</span> (; upper_it != end; upper_it++)</div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    {</div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>        <span class="keywordflow">if</span> (upper_it-&gt;size() != lower_it-&gt;size())</div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>        {</div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        }</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#aa643a09d2b1129c269986c92a4cddb66">helper::arrayElement</a>(lower_it, upper_it);</div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>}</div>
+</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>}</div>
 </div>
 <div class="ttc" id="ahelper_8h_html"><div class="ttname"><a href="helper_8h.html">helper.h</a></div></div>
 <div class="ttc" id="anamespacefaker_1_1helper_html_aa643a09d2b1129c269986c92a4cddb66"><div class="ttname"><a href="namespacefaker_1_1helper.html#aa643a09d2b1129c269986c92a4cddb66">faker::helper::arrayElement</a></div><div class="ttdeci">T arrayElement(std::span&lt; const T &gt; data)</div><div class="ttdoc">Get a random element from an STL container.</div><div class="ttdef"><b>Definition</b> helper.h:27</div></div>
@@ -180,8 +181,8 @@ $(function(){initNavTree('word_8h_source.html',''); initResizable(true); });
 <div class="ttc" id="anamespacefaker_1_1word_html_a6e7e5f4576246ac2b1f086a0ecc2c62f"><div class="ttname"><a href="namespacefaker_1_1word.html#a6e7e5f4576246ac2b1f086a0ecc2c62f">faker::word::conjunction</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view conjunction(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random conjunction.</div></div>
 <div class="ttc" id="anamespacefaker_1_1word_html_a756eef88511091fc80942ab0a1502aaa"><div class="ttname"><a href="namespacefaker_1_1word.html#a756eef88511091fc80942ab0a1502aaa">faker::word::sample</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view sample(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random .</div></div>
 <div class="ttc" id="anamespacefaker_1_1word_html_a82ec1a575f056e5c79d2e7bc4e89335d"><div class="ttname"><a href="namespacefaker_1_1word.html#a82ec1a575f056e5c79d2e7bc4e89335d">faker::word::interjection</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view interjection(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random interjection.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_a9af6c14e49fab1dc06d04cbd965364e9"><div class="ttname"><a href="namespacefaker_1_1word.html#a9af6c14e49fab1dc06d04cbd965364e9">faker::word::sortedSizeArrayElement</a></div><div class="ttdeci">auto sortedSizeArrayElement(std::optional&lt; unsigned int &gt; length, It start, It end) -&gt; typename std::iterator_traits&lt; It &gt;::value_type</div><div class="ttdef"><b>Definition</b> word.h:148</div></div>
 <div class="ttc" id="anamespacefaker_1_1word_html_aa380bf2a6c8cd76db8fe13d20ff6ccf9"><div class="ttname"><a href="namespacefaker_1_1word.html#aa380bf2a6c8cd76db8fe13d20ff6ccf9">faker::word::noun</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view noun(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random noun.</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_abca5ae130a05654525f785f74f6e11ad"><div class="ttname"><a href="namespacefaker_1_1word.html#abca5ae130a05654525f785f74f6e11ad">faker::word::sortedSizeArrayElement</a></div><div class="ttdeci">auto sortedSizeArrayElement(std::optional&lt; unsigned int &gt; length, It start, It end) -&gt; decltype(*std::declval&lt; It &gt;())</div><div class="ttdef"><b>Definition</b> word.h:148</div></div>
 <div class="ttc" id="anamespacefaker_1_1word_html_ad55c7c834bad43272cfcf0f6bce0aa7b"><div class="ttname"><a href="namespacefaker_1_1word.html#ad55c7c834bad43272cfcf0f6bce0aa7b">faker::word::preposition</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view preposition(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random preposition.</div></div>
 <div class="ttc" id="anamespacefaker_1_1word_html_af0f10fe34e975d361fd1d286d5073cc2"><div class="ttname"><a href="namespacefaker_1_1word.html#af0f10fe34e975d361fd1d286d5073cc2">faker::word::adjective</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view adjective(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random adjective.</div></div>
 </div><!-- fragment --></div><!-- contents -->
