@@ -4,8 +4,8 @@
 #include <optional>
 #include <string>
 #include <string_view>
-#include "faker-cxx/export.h"
 
+#include "faker-cxx/export.h"
 #include "faker-cxx/helper.h"
 
 namespace faker::word
@@ -144,8 +144,9 @@ FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = s
  */
 FAKER_CXX_EXPORT std::string_view verb(std::optional<unsigned> length = std::nullopt);
 
-template <typename It>
-auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end) -> decltype(*std::declval<It>())
+template <std::input_iterator It>
+auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end) ->
+    typename std::iterator_traits<It>::value_type
 {
     if (!length)
     {
