@@ -163,7 +163,7 @@ auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end
 
     if (lower_it->size() != length)
     {
-        return helper::arrayElement(start, end);
+        return *lower_it;
     }
 
     auto upper_it = lower_it;
