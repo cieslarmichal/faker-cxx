@@ -8,8 +8,8 @@ namespace faker::medicine
 const auto medicalConditions = std::to_array<std::string_view>({
     "AIDS",
     "Anorexia Nervosa",
-    "Arthritis, Juvenile Rheumatoid",
-    "Asthma, Moderate or Severe Persistent",
+    "Arthritis Juvenile Rheumatoid",
+    "Asthma Moderate or Severe Persistent",
     "Bronchiolitis",
     "Bulimia",
     "Cancer",
@@ -20,7 +20,7 @@ const auto medicalConditions = std::to_array<std::string_view>({
     "Crohn’s Disease",
     "Cystic Fibrosis",
     "Depression",
-    "Developmental, Sensory, or Motor Disabilities",
+    "Developmental Sensory or Motor Disabilities",
     "Diabetes Mellitus",
     "Down syndrome",
     "Elevated Blood Lead Level",
@@ -33,8 +33,8 @@ const auto medicalConditions = std::to_array<std::string_view>({
     "HIV Infection",
     "Heart Disease",
     "Hepatitis",
-    "Hypertension, Chronic/Prehypertension",
-    "Hypertension, Pregnancy-induced",
+    "Hypertension Chronic/Prehypertension",
+    "Hypertension Pregnancy-induced",
     "Hyperthyroidism",
     "Hypoglycemia",
     "Hypothyroidism",
@@ -44,7 +44,7 @@ const auto medicalConditions = std::to_array<std::string_view>({
     "Large for Gestational Age",
     "Liver Disease",
     "Lupus Erythematosus",
-    "Major Surgery, Burns, or Trauma",
+    "Major Surgery Burns or Trauma",
     "Malabsorption Syndromes",
     "Meningitis",
     "Multiple Sclerosis",
@@ -64,7 +64,7 @@ const auto medicalConditions = std::to_array<std::string_view>({
     "Thalassemia Major",
     "Tuberculosis",
     "Ulcerative Colitis",
-    "Ulcers, Stomach or Intestinal",
+    "Ulcers Stomach or Intestinal",
 });
 
 const auto medicalTests = std::to_array<std::string_view>({

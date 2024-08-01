@@ -9,7 +9,9 @@
 namespace faker::airline
 {
 const auto aircraftTypes = std::to_array<std::string_view>({
-    "regional", "narrowbody", "widebody"
+    "narrowbody",
+    "regional",
+    "widebody",
 });
 
 const auto airlines = std::to_array<AirlineInfo>({

@@ -29,7 +29,14 @@ const auto ibanCountries = std::to_array<IbanCountry>({
 });
 
 const auto accountTypes = std::to_array<std::string_view>({
-    "Checking", "Savings", "Money Market", "Investment", "Home Loan", "Credit Card", "Auto Loan", "Personal Loan",
+    "Auto Loan",
+    "Checking",
+    "Credit Card",
+    "Home Loan",
+    "Investment",
+    "Money Market",
+    "Personal Loan",
+    "Savings",
 });
 
 const std::unordered_map<BicCountry, std::vector<std::string_view>> bicCountriesCodes = {
@@ -63,8 +70,12 @@ const auto americanExpressCreditCardFormats = std::to_array<std::string_view>({
 });
 
 const auto discoverCreditCardFormats = std::to_array<std::string_view>({
-    "6011-####-####-###L",      "65##-####-####-###L",      "64[4-9]#-####-####-###L",
-    "6011-62##-####-####-###L", "65##-62##-####-####-###L", "64[4-9]#-62##-####-####-###L",
+    "6011-####-####-###L",
+    "6011-62##-####-####-###L",
+    "64[4-9]#-####-####-###L",
+    "64[4-9]#-62##-####-####-###L",
+    "65##-####-####-###L",
+    "65##-62##-####-####-###L",
 });
 
 const auto masterCardCreditCardFormats = std::to_array<std::string_view>({
@@ -85,10 +96,10 @@ const auto creditCardTypes = std::to_array<CreditCardType>({
 });
 
 const auto creditCardNames = std::to_array<std::string_view>({
-    "Visa",
     "American Express",
-    "MasterCard",
     "Discover",
+    "MasterCard",
+    "Visa",
 });
 
 const auto currencies = std::to_array<Currency>({
