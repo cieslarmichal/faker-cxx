@@ -1,10 +1,11 @@
 var namespacefaker_1_1helper =
 [
     [ "WeightedElement", "structfaker_1_1helper_1_1WeightedElement.html", "structfaker_1_1helper_1_1WeightedElement" ],
-    [ "arrayElement", "namespacefaker_1_1helper.html#ae9d5478c49e71aef7eb2623f3d9c9009", null ],
-    [ "arrayElement", "namespacefaker_1_1helper.html#a22370d33819758fb60d0b22751c6fbaa", null ],
-    [ "arrayElement", "namespacefaker_1_1helper.html#a5be5b41027205e0b5c8525882327bb7b", null ],
-    [ "arrayElement", "namespacefaker_1_1helper.html#a35c5227a9e9475827d3cfa04159c7b86", null ],
-    [ "arrayElement", "namespacefaker_1_1helper.html#aa643a09d2b1129c269986c92a4cddb66", null ],
-    [ "weightedArrayElement", "namespacefaker_1_1helper.html#ad70082b17900d8c6a2d740cce993de97", null ]
+    [ "randomElement", "namespacefaker_1_1helper.html#aa7c7da1393231a20777356cb458ae8e2", null ],
+    [ "randomElement", "namespacefaker_1_1helper.html#aa82ff70e079d069b76ae24532e7a2363", null ],
+    [ "randomElement", "namespacefaker_1_1helper.html#a886b0c93808371101b3432f9e15e425c", null ],
+    [ "randomElement", "namespacefaker_1_1helper.html#a847c1ad7b1ff31e01a1b36a040dae00f", null ],
+    [ "randomElement", "namespacefaker_1_1helper.html#a1d34cf2efa5d97968a40310acb80fada", null ],
+    [ "randomElement", "namespacefaker_1_1helper.html#af6d5af20216775c519cab75ba2f5d4bc", null ],
+    [ "weightedRandomElement", "namespacefaker_1_1helper.html#a37877d125f71459dbed8bca6310274e1", null ]
 ];

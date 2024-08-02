@@ -110,29 +110,32 @@ $(function(){initNavTree('helper_8h.html',''); initResizable(true); });
 <code>#include &lt;numeric&gt;</code><br />
 <code>#include &lt;span&gt;</code><br />
 <code>#include &lt;vector&gt;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
 <code>#include &quot;<a class="el" href="number_8h_source.html">number.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for helper.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="helper_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2helper_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2helper_8h" id="ainclude_2faker-cxx_2helper_8h">
-<area shape="rect" title=" " alt="" coords="157,5,325,31"/>
+<area shape="rect" title=" " alt="" coords="196,5,363,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,101,105"/>
-<area shape="poly" title=" " alt="" coords="210,34,100,75,98,70,208,29"/>
+<area shape="poly" title=" " alt="" coords="242,34,107,76,105,71,240,29"/>
 <area shape="rect" title=" " alt="" coords="125,79,192,105"/>
-<area shape="poly" title=" " alt="" coords="229,34,185,71,182,67,225,30"/>
+<area shape="poly" title=" " alt="" coords="260,34,194,73,191,68,258,29"/>
 <area shape="rect" title=" " alt="" coords="216,79,266,105"/>
-<area shape="poly" title=" " alt="" coords="244,31,244,63,238,63,238,31"/>
+<area shape="poly" title=" " alt="" coords="276,32,257,66,252,64,271,30"/>
 <area shape="rect" title=" " alt="" coords="290,79,347,105"/>
-<area shape="poly" title=" " alt="" coords="256,30,296,66,292,70,252,34"/>
-<area shape="rect" href="number_8h.html" title=" " alt="" coords="370,79,445,105"/>
-<area shape="poly" title=" " alt="" coords="270,29,366,70,364,75,268,34"/>
-<area shape="rect" title=" " alt="" coords="277,153,352,178"/>
-<area shape="poly" title=" " alt="" coords="393,107,344,145,340,141,390,103"/>
-<area shape="rect" title=" " alt="" coords="376,153,440,178"/>
-<area shape="poly" title=" " alt="" coords="410,105,410,137,405,137,405,105"/>
-<area shape="rect" title=" " alt="" coords="464,153,541,178"/>
-<area shape="poly" title=" " alt="" coords="425,103,476,141,473,145,422,107"/>
+<area shape="poly" title=" " alt="" coords="288,30,307,64,302,66,284,32"/>
+<area shape="rect" title=" " alt="" coords="371,79,442,105"/>
+<area shape="poly" title=" " alt="" coords="302,29,373,69,370,73,300,34"/>
+<area shape="rect" href="number_8h.html" title=" " alt="" coords="466,79,541,105"/>
+<area shape="poly" title=" " alt="" coords="318,29,452,71,451,77,317,34"/>
+<area shape="rect" title=" " alt="" coords="373,153,448,178"/>
+<area shape="poly" title=" " alt="" coords="489,107,440,145,436,141,486,103"/>
+<area shape="rect" title=" " alt="" coords="472,153,536,178"/>
+<area shape="poly" title=" " alt="" coords="506,105,506,137,501,137,501,105"/>
+<area shape="rect" title=" " alt="" coords="560,153,637,178"/>
+<area shape="poly" title=" " alt="" coords="521,103,572,141,569,145,518,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -165,27 +168,30 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:aa643a09d2b1129c269986c92a4cddb66" id="r_aa643a09d2b1129c269986c92a4cddb66"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:aa643a09d2b1129c269986c92a4cddb66"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#aa643a09d2b1129c269986c92a4cddb66">faker::helper::arrayElement</a> (std::span&lt; const T &gt; data)</td></tr>
-<tr class="memdesc:aa643a09d2b1129c269986c92a4cddb66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from an STL container.  <br /></td></tr>
-<tr class="separator:aa643a09d2b1129c269986c92a4cddb66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae9d5478c49e71aef7eb2623f3d9c9009" id="r_ae9d5478c49e71aef7eb2623f3d9c9009"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
-<tr class="memitem:ae9d5478c49e71aef7eb2623f3d9c9009"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#ae9d5478c49e71aef7eb2623f3d9c9009">faker::helper::arrayElement</a> (const std::array&lt; T, N &gt; &amp;data)</td></tr>
-<tr class="separator:ae9d5478c49e71aef7eb2623f3d9c9009"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a35c5227a9e9475827d3cfa04159c7b86" id="r_a35c5227a9e9475827d3cfa04159c7b86"><td class="memTemplParams" colspan="2">template&lt;std::random_access_iterator It&gt; </td></tr>
-<tr class="memitem:a35c5227a9e9475827d3cfa04159c7b86"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#a35c5227a9e9475827d3cfa04159c7b86">faker::helper::arrayElement</a> (It start, It end) -&gt; It::range_difference_t</td></tr>
-<tr class="separator:a35c5227a9e9475827d3cfa04159c7b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5be5b41027205e0b5c8525882327bb7b" id="r_a5be5b41027205e0b5c8525882327bb7b"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a5be5b41027205e0b5c8525882327bb7b"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#a5be5b41027205e0b5c8525882327bb7b">faker::helper::arrayElement</a> (const std::vector&lt; T &gt; &amp;data)</td></tr>
-<tr class="memdesc:a5be5b41027205e0b5c8525882327bb7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from a vector.  <br /></td></tr>
-<tr class="separator:a5be5b41027205e0b5c8525882327bb7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22370d33819758fb60d0b22751c6fbaa" id="r_a22370d33819758fb60d0b22751c6fbaa"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:a22370d33819758fb60d0b22751c6fbaa"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#a22370d33819758fb60d0b22751c6fbaa">faker::helper::arrayElement</a> (const std::initializer_list&lt; T &gt; &amp;data)</td></tr>
-<tr class="memdesc:a22370d33819758fb60d0b22751c6fbaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from an initializer list.  <br /></td></tr>
-<tr class="separator:a22370d33819758fb60d0b22751c6fbaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad70082b17900d8c6a2d740cce993de97" id="r_ad70082b17900d8c6a2d740cce993de97"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
-<tr class="memitem:ad70082b17900d8c6a2d740cce993de97"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#ad70082b17900d8c6a2d740cce993de97">faker::helper::weightedArrayElement</a> (const std::vector&lt; <a class="el" href="structfaker_1_1helper_1_1WeightedElement.html">WeightedElement</a>&lt; T &gt; &gt; &amp;data)</td></tr>
-<tr class="separator:ad70082b17900d8c6a2d740cce993de97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af6d5af20216775c519cab75ba2f5d4bc" id="r_af6d5af20216775c519cab75ba2f5d4bc"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:af6d5af20216775c519cab75ba2f5d4bc"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#af6d5af20216775c519cab75ba2f5d4bc">faker::helper::randomElement</a> (std::span&lt; const T &gt; data)</td></tr>
+<tr class="memdesc:af6d5af20216775c519cab75ba2f5d4bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from an STL container.  <br /></td></tr>
+<tr class="separator:af6d5af20216775c519cab75ba2f5d4bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa7c7da1393231a20777356cb458ae8e2" id="r_aa7c7da1393231a20777356cb458ae8e2"><td class="memTemplParams" colspan="2">template&lt;typename T , std::size_t N&gt; </td></tr>
+<tr class="memitem:aa7c7da1393231a20777356cb458ae8e2"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#aa7c7da1393231a20777356cb458ae8e2">faker::helper::randomElement</a> (const std::array&lt; T, N &gt; &amp;data)</td></tr>
+<tr class="separator:aa7c7da1393231a20777356cb458ae8e2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a847c1ad7b1ff31e01a1b36a040dae00f" id="r_a847c1ad7b1ff31e01a1b36a040dae00f"><td class="memTemplParams" colspan="2">template&lt;std::random_access_iterator It&gt; </td></tr>
+<tr class="memitem:a847c1ad7b1ff31e01a1b36a040dae00f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#a847c1ad7b1ff31e01a1b36a040dae00f">faker::helper::randomElement</a> (It start, It end)</td></tr>
+<tr class="separator:a847c1ad7b1ff31e01a1b36a040dae00f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d34cf2efa5d97968a40310acb80fada" id="r_a1d34cf2efa5d97968a40310acb80fada"><td class="memTemplParams" colspan="2">template&lt;std::forward_iterator It&gt; </td></tr>
+<tr class="memitem:a1d34cf2efa5d97968a40310acb80fada"><td class="memTemplItemLeft" align="right" valign="top">auto &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#a1d34cf2efa5d97968a40310acb80fada">faker::helper::randomElement</a> (It start, It end)</td></tr>
+<tr class="separator:a1d34cf2efa5d97968a40310acb80fada"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a886b0c93808371101b3432f9e15e425c" id="r_a886b0c93808371101b3432f9e15e425c"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a886b0c93808371101b3432f9e15e425c"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#a886b0c93808371101b3432f9e15e425c">faker::helper::randomElement</a> (const std::vector&lt; T &gt; &amp;data)</td></tr>
+<tr class="memdesc:a886b0c93808371101b3432f9e15e425c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from a vector.  <br /></td></tr>
+<tr class="separator:a886b0c93808371101b3432f9e15e425c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa82ff70e079d069b76ae24532e7a2363" id="r_aa82ff70e079d069b76ae24532e7a2363"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:aa82ff70e079d069b76ae24532e7a2363"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#aa82ff70e079d069b76ae24532e7a2363">faker::helper::randomElement</a> (const std::initializer_list&lt; T &gt; &amp;data)</td></tr>
+<tr class="memdesc:aa82ff70e079d069b76ae24532e7a2363"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from an initializer list.  <br /></td></tr>
+<tr class="separator:aa82ff70e079d069b76ae24532e7a2363"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37877d125f71459dbed8bca6310274e1" id="r_a37877d125f71459dbed8bca6310274e1"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
+<tr class="memitem:a37877d125f71459dbed8bca6310274e1"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1helper.html#a37877d125f71459dbed8bca6310274e1">faker::helper::weightedRandomElement</a> (const std::vector&lt; <a class="el" href="structfaker_1_1helper_1_1WeightedElement.html">WeightedElement</a>&lt; T &gt; &gt; &amp;data)</td></tr>
+<tr class="separator:a37877d125f71459dbed8bca6310274e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
