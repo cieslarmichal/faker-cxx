@@ -13,6 +13,8 @@ option(BUILD_EXAMPLES "Build examples" OFF)
 option(BUILD_TESTING "Build tests" ON)
 option(CODE_COVERAGE "Build faker-cxx with coverage support" OFF)
 
+SET(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 if (MSVC)
     set(CMAKE_REQUIRED_FLAGS /std:c++20)
 else()

@@ -4,7 +4,6 @@
 #include <numeric>
 #include <span>
 #include <vector>
-#include <iostream>
 
 #include "number.h"
 
@@ -64,7 +63,6 @@ auto randomElement(It start, It end)
     return start[index];
 }
 
-
 template <std::forward_iterator It>
 auto& randomElement(It start, It end)
 {
@@ -80,9 +78,11 @@ auto& randomElement(It start, It end)
     ++start;
     size_t count = 1;
 
-    while (start != end) {
-        std::uniform_int_distribution<size_t> distrib(0, count - 1);
-        if (distrib(gen) == 0) {
+    while (start != end)
+    {
+        std::uniform_int_distribution<size_t> distrib(0, count);
+        if (distrib(gen) == 0)
+        {
             result = *start;
         }
         ++start;
@@ -107,9 +107,11 @@ auto randomElement(It start, It end)
     ++start;
     size_t count = 1;
 
-    while (start != end) {
+    while (start != end)
+    {
         std::uniform_int_distribution<size_t> distrib(0, count);
-        if (distrib(gen) == 0) {
+        if (distrib(gen) == 0)
+        {
             result = std::move(*start);
         }
         ++start;
