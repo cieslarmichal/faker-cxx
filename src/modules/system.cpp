@@ -100,7 +100,7 @@ std::string fileExtension(const std::optional<FileType>& mimeType)
             }
         }
 
-        return helper::arrayElement(extensions);
+        return helper::randomElement(extensions);
     }
     else
     {
@@ -113,7 +113,7 @@ std::string fileExtension(const std::optional<FileType>& mimeType)
 
         std::vector<std::string> extensions(extensionSet.begin(), extensionSet.end());
 
-        return helper::arrayElement(extensions);
+        return helper::randomElement(extensions);
     }
 }
 
@@ -137,7 +137,7 @@ std::string commonFileName(const std::optional<std::string>& ext)
 
 std::string_view commonFileExtension()
 {
-    auto mimeTypeStr = helper::arrayElement(commonMimeTypes);
+    auto mimeTypeStr = helper::randomElement(commonMimeTypes);
 
     return extension(mimeTypeStr);
 }
@@ -149,17 +149,17 @@ std::string_view mimeType()
 
     std::copy(mimeTypes.begin(), mimeTypes.end(), std::back_inserter(mimeTypeKeys));
 
-    return helper::arrayElement(mimeTypeKeys);
+    return helper::randomElement(mimeTypeKeys);
 }
 
 std::string_view fileType()
 {
-    return helper::arrayElement(commonFileTypes);
+    return helper::randomElement(commonFileTypes);
 }
 
 std::string_view directoryPath()
 {
-    return helper::arrayElement(directoryPaths);
+    return helper::randomElement(directoryPaths);
 }
 
 std::string filePath()
@@ -178,7 +178,7 @@ std::string semver()
 
 std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options)
 {
-    const auto defaultInterfaceType = helper::arrayElement(commonInterfaceTypes);
+    const auto defaultInterfaceType = helper::randomElement(commonInterfaceTypes);
     const std::string defaultInterfaceSchema = std::string(helper::objectKey(commonInterfaceSchemas));
 
     std::string interfaceType = std::string(defaultInterfaceType);
@@ -249,12 +249,12 @@ std::string cron(const CronOptions& options)
         years = {std::to_string(number::integer(1970, 2099)), "*"};
     }
 
-    const auto minute = helper::arrayElement(minutes);
-    const auto hour = helper::arrayElement(hours);
-    const auto day = helper::arrayElement(days);
-    const auto month = helper::arrayElement(months);
-    const auto dayOfWeek = helper::arrayElement(daysOfWeek);
-    const auto year = helper::arrayElement(years);
+    const auto minute = helper::randomElement(minutes);
+    const auto hour = helper::randomElement(hours);
+    const auto day = helper::randomElement(days);
+    const auto month = helper::randomElement(months);
+    const auto dayOfWeek = helper::randomElement(daysOfWeek);
+    const auto year = helper::randomElement(years);
 
     std::string standardExpression = minute + " " + hour + " " + day + " " + month + " " + dayOfWeek;
 
@@ -267,6 +267,6 @@ std::string cron(const CronOptions& options)
                                                        "@reboot",   "@weekly", "@yearly"};
 
     return (!includeNonStandard || datatype::boolean(0)) ? standardExpression :
-                                                           helper::arrayElement<std::string>(nonStandardExpressions);
+                                                           helper::randomElement<std::string>(nonStandardExpressions);
 }
 }

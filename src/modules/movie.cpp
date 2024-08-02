@@ -9,32 +9,32 @@ namespace faker::movie
 {
 std::string_view genre()
 {
-    return helper::arrayElement(movieGenres);
+    return helper::randomElement(movieGenres);
 }
 
 std::string_view movieTitle()
 {
-    return helper::arrayElement(movies);
+    return helper::randomElement(movies);
 }
 
 std::string_view tvShow()
 {
-    return helper::arrayElement(tvShows);
+    return helper::randomElement(tvShows);
 }
 
 std::string_view director()
 {
-    return helper::arrayElement(directors);
+    return helper::randomElement(directors);
 }
 
 std::string_view actor()
 {
-    return helper::arrayElement(actors);
+    return helper::randomElement(actors);
 }
 
 std::string_view actress()
 {
-    return helper::arrayElement(actresses);
+    return helper::randomElement(actresses);
 }
 
 }

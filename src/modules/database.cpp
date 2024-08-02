@@ -12,22 +12,22 @@ namespace faker::database
 {
 std::string_view columnName()
 {
-    return helper::arrayElement(columnNames);
+    return helper::randomElement(columnNames);
 }
 
 std::string_view columnType()
 {
-    return helper::arrayElement(columnTypes);
+    return helper::randomElement(columnTypes);
 }
 
 std::string_view collation()
 {
-    return helper::arrayElement(collations);
+    return helper::randomElement(collations);
 }
 
 std::string_view engine()
 {
-    return helper::arrayElement(engines);
+    return helper::randomElement(engines);
 }
 
 std::string mongoDbObjectId()

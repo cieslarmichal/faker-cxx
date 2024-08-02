@@ -188,7 +188,7 @@ std::string_view firstName(std::optional<Country> country, std::optional<Sex> se
         firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
     }
 
-    return helper::arrayElement(firstNames);
+    return helper::randomElement(firstNames);
 }
 
 std::string_view lastName(std::optional<Country> country, std::optional<Sex> sex)
@@ -220,7 +220,7 @@ std::string_view lastName(std::optional<Country> country, std::optional<Sex> sex
         lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
     }
 
-    return helper::arrayElement(lastNames);
+    return helper::randomElement(lastNames);
 }
 
 std::string fullName(std::optional<Country> country, std::optional<Sex> sex)
@@ -238,7 +238,7 @@ std::string fullName(std::optional<Country> country, std::optional<Sex> sex)
         }
     );
 
-    const auto nameFormat = static_cast<std::string>(helper::weightedArrayElement<std::string_view>(weightedElements));
+    const auto nameFormat = static_cast<std::string>(helper::weightedRandomElement<std::string_view>(weightedElements));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"firstName", [&countryStr, &sex]() { return std::string{firstName(countryStr, sex)}; }},
@@ -283,7 +283,7 @@ std::string_view prefix(std::optional<Country> country, std::optional<Sex> sex)
         return {};
     }
 
-    return helper::arrayElement(prefixes);
+    return helper::randomElement(prefixes);
 }
 
 std::string_view suffix(std::optional<Country> country, std::optional<Sex> sex)
@@ -320,16 +320,16 @@ std::string_view suffix(std::optional<Country> country, std::optional<Sex> sex)
         return {};
     }
 
-    return helper::arrayElement(suffixes);
+    return helper::randomElement(suffixes);
 }
 
 std::string bio()
 {
-    const auto randomBioFormat = static_cast<std::string>(helper::arrayElement(bioFormats));
+    const auto randomBioFormat = static_cast<std::string>(helper::randomElement(bioFormats));
 
     const std::unordered_map<std::string_view, std::function<std::string_view()>> dataGeneratorsMapping{
-        {"bio_part", []() { return helper::arrayElement(bioParts); }},
-        {"bio_supporter", []() { return helper::arrayElement(bioSupporters); }},
+        {"bio_part", []() { return helper::randomElement(bioParts); }},
+        {"bio_supporter", []() { return helper::randomElement(bioSupporters); }},
         {"noun", []() { return word::noun(); }},
         {"emoji", []() { return internet::emoji(); }}};
 
@@ -340,7 +340,7 @@ std::string_view sex(std::optional<Language> language)
 {
     const std::vector<std::string> sexes{"Male", "Female"};
 
-    const auto chosenSex = helper::arrayElement(sexes);
+    const auto chosenSex = helper::randomElement(sexes);
 
     const auto sexEnum = chosenSex == "Male" ? Sex::Male : Sex::Female;
 
@@ -358,7 +358,7 @@ std::string_view sex(std::optional<Language> language)
 
 std::string_view gender()
 {
-    return helper::arrayElement(genders);
+    return helper::randomElement(genders);
 }
 
 std::string jobTitle()
@@ -368,37 +368,37 @@ std::string jobTitle()
 
 std::string_view jobDescriptor()
 {
-    return helper::arrayElement(jobDescriptors);
+    return helper::randomElement(jobDescriptors);
 }
 
 std::string_view jobArea()
 {
-    return helper::arrayElement(jobAreas);
+    return helper::randomElement(jobAreas);
 }
 
 std::string_view jobType()
 {
-    return helper::arrayElement(jobTypes);
+    return helper::randomElement(jobTypes);
 }
 
 std::string_view hobby()
 {
-    return helper::arrayElement(hobbies);
+    return helper::randomElement(hobbies);
 }
 
 std::string_view language()
 {
-    return helper::arrayElement(languages);
+    return helper::randomElement(languages);
 }
 
 std::string_view nationality()
 {
-    return helper::arrayElement(nationalities);
+    return helper::randomElement(nationalities);
 }
 
 std::string ssn(std::optional<SsnCountry> country)
 {
-    const auto ssnCountry = country ? *country : helper::arrayElement(supportedSsnCountries);
+    const auto ssnCountry = country ? *country : helper::randomElement(supportedSsnCountries);
 
     const auto& ssnFormat = std::string{ssnFormats.at(ssnCountry)};
 
@@ -431,12 +431,12 @@ std::string ssn(std::optional<SsnCountry> country)
 
 std::string_view westernZodiac()
 {
-    return helper::arrayElement(westernZodiacs);
+    return helper::randomElement(westernZodiacs);
 }
 
 std::string_view chineseZodiac()
 {
-    return helper::arrayElement(chineseZodiacs);
+    return helper::randomElement(chineseZodiacs);
 }
 
 std::string passport(std::optional<PassportCountry> country)

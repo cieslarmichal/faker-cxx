@@ -26,7 +26,7 @@ TEST_F(HelperTest, ArrayElement)
 {
     std::vector<std::string> data{"hello", "world", "this", "is", "faker-cxx", "library"};
 
-    const auto result = arrayElement(data);
+    const auto result = randomElement(data);
 
     ASSERT_TRUE(std::ranges::any_of(data, [&result](const std::string& element) { return result == element; }));
 }
@@ -35,14 +35,14 @@ TEST_F(HelperTest, ArrayElementEmptyData)
 {
     std::vector<std::string> data{};
 
-    ASSERT_THROW(arrayElement(data), std::invalid_argument);
+    ASSERT_THROW(randomElement(data), std::invalid_argument);
 }
 
 TEST_F(HelperTest, ArrayElementSpan)
 {
     std::vector<std::string> data{"hello", "world"};
 
-    const auto result = arrayElement(std::span<const std::string>(data));
+    const auto result = randomElement(std::span<const std::string>(data));
 
     ASSERT_TRUE(std::ranges::any_of(data, [&result](const std::string& element) { return result == element; }));
 }
@@ -51,14 +51,14 @@ TEST_F(HelperTest, ArrayElementSpanEmptyData)
 {
     std::vector<std::string> data{};
 
-    ASSERT_THROW(arrayElement(std::span<const std::string>(data)), std::invalid_argument);
+    ASSERT_THROW(randomElement(std::span<const std::string>(data)), std::invalid_argument);
 }
 
 TEST_F(HelperTest, WeightedArrayElement)
 {
     std::vector<WeightedElement<std::string>> data{{1, "hello"}, {9, "world"}};
 
-    const auto result = weightedArrayElement(data);
+    const auto result = weightedRandomElement(data);
 
     ASSERT_TRUE(std::ranges::any_of(data, [&result](const WeightedElement<std::string>& element)
                                     { return result == element.value; }));
@@ -68,14 +68,14 @@ TEST_F(HelperTest, WeightedArrayZeroSum)
 {
     std::vector<WeightedElement<std::string>> data{{0, "hello"}, {0, "world"}};
 
-    ASSERT_THROW(weightedArrayElement(data), std::invalid_argument);
+    ASSERT_THROW(weightedRandomElement(data), std::invalid_argument);
 }
 
 TEST_F(HelperTest, WeightedArrayEmptyData)
 {
     std::vector<WeightedElement<std::string>> data{};
 
-    ASSERT_THROW(weightedArrayElement(data), std::invalid_argument);
+    ASSERT_THROW(weightedRandomElement(data), std::invalid_argument);
 }
 
 TEST_F(HelperTest, ShuffleString)

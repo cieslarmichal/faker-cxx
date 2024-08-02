@@ -19,12 +19,12 @@ namespace faker::helper
  * @return T a random element from the container.
  *
  * @code
- * faker::helper::arrayElement<char>(std::string{"abcd"}) // "b"
- * faker::helper::arrayElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
+ * faker::helper::randomElement<char>(std::string{"abcd"}) // "b"
+ * faker::helper::randomElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
  * @endcode
  */
 template <class T>
-T arrayElement(std::span<const T> data)
+T randomElement(std::span<const T> data)
 {
     if (data.empty())
     {
@@ -37,7 +37,7 @@ T arrayElement(std::span<const T> data)
 }
 
 template <typename T, std::size_t N>
-T arrayElement(const std::array<T, N>& data)
+T randomElement(const std::array<T, N>& data)
 {
     if (data.empty())
     {
@@ -50,38 +50,72 @@ T arrayElement(const std::array<T, N>& data)
 }
 
 template <std::random_access_iterator It>
-auto arrayElement(It start, It end) -> It::range_difference_t
+auto randomElement(It start, It end)
 {
-    auto size = static_cast<size_t>(end - start);
-
-    if (size == 0)
+    if (start == end)
     {
-        throw std::invalid_argument{"Range [start,end) is empty."};
+        throw std::invalid_argument{"Range [start, end) is empty."};
     }
 
-    const std::integral auto index = number::integer<size_t>(size - 1);
+    auto size = end - start;
+    const auto index = number::integer(size);
 
     return start[index];
 }
 
-template <std::input_iterator It>
-auto arrayElement(It start, It end)
-{
-    auto size = std::distance(start, end);
 
-    if (size == 0)
+template <std::forward_iterator It>
+auto& randomElement(It start, It end)
+{
+    if (start == end)
     {
-        throw std::invalid_argument{"Range [start,end) is empty."};
+        throw std::invalid_argument{"Range [start, end) is empty."};
     }
 
-    const std::integral auto index = number::integer<size_t>(static_cast<unsigned long>(size - 1));
+    std::random_device rd;
+    std::mt19937 gen(rd());
 
-    std::input_iterator auto dummyIterator = start;
+    std::reference_wrapper<typename std::iterator_traits<It>::value_type> result = *start;
+    ++start;
+    size_t count = 1;
 
-    for (size_t i = 0; i < index; i++)
-        dummyIterator++;
+    while (start != end) {
+        std::uniform_int_distribution<size_t> distrib(0, count - 1);
+        if (distrib(gen) == 0) {
+            result = *start;
+        }
+        ++start;
+        ++count;
+    }
 
-    return *dummyIterator;
+    return result.get();
+}
+
+template <std::input_iterator It>
+auto randomElement(It start, It end)
+{
+    if (start == end)
+    {
+        throw std::invalid_argument{"Range [start, end) is empty."};
+    }
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    auto result = std::move(*start);
+    ++start;
+    size_t count = 1;
+
+    while (start != end) {
+        std::uniform_int_distribution<size_t> distrib(0, count);
+        if (distrib(gen) == 0) {
+            result = std::move(*start);
+        }
+        ++start;
+        ++count;
+    }
+
+    return result;
 }
 
 /**
@@ -94,11 +128,11 @@ auto arrayElement(It start, It end)
  * @return T a random element from the vector.
  *
  * @code
- * faker::helper::arrayElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
+ * faker::helper::randomElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
  * @endcode
  */
 template <class T>
-T arrayElement(const std::vector<T>& data)
+T randomElement(const std::vector<T>& data)
 {
     if (data.empty())
     {
@@ -120,11 +154,11 @@ T arrayElement(const std::vector<T>& data)
  * @return T a random element from the initializer list.
  *
  * @code
- * faker::helper::arrayElement<std::string>(std::initializer_list<std::string>{{"hello"}, {"world"}}) // "hello"
+ * faker::helper::randomElement<std::string>(std::initializer_list<std::string>{{"hello"}, {"world"}}) // "hello"
  * @endcode
  */
 template <class T>
-T arrayElement(const std::initializer_list<T>& data)
+T randomElement(const std::initializer_list<T>& data)
 {
     if (data.size() == 0)
     {
@@ -146,7 +180,7 @@ T arrayElement(const std::initializer_list<T>& data)
  * @return T a weighted element value from the vector.
  *
  * @code
- * faker::helper::weightedArrayElement<std::string>(std::vector<helper::WeightedElement<std::string>>{{1, "value1"},
+ * faker::helper::weightedRandomElement<std::string>(std::vector<helper::WeightedElement<std::string>>{{1, "value1"},
  * {10, "value2"}}) // "hello2"
  * @endcode
  */
@@ -159,7 +193,7 @@ struct WeightedElement
 };
 
 template <class T>
-T weightedArrayElement(const std::vector<WeightedElement<T>>& data)
+T weightedRandomElement(const std::vector<WeightedElement<T>>& data)
 {
     if (data.empty())
     {

@@ -9,76 +9,76 @@ namespace faker::animal
 {
 std::string_view bear()
 {
-    return helper::arrayElement(bears);
+    return helper::randomElement(bears);
 }
 
 std::string_view bird()
 {
-    return helper::arrayElement(birds);
+    return helper::randomElement(birds);
 }
 
 std::string_view cat()
 {
-    return helper::arrayElement(cats);
+    return helper::randomElement(cats);
 }
 
 std::string_view cetacean()
 {
-    return helper::arrayElement(cetaceans);
+    return helper::randomElement(cetaceans);
 }
 
 std::string_view cow()
 {
-    return helper::arrayElement(cows);
+    return helper::randomElement(cows);
 }
 
 std::string_view crocodile()
 {
-    return helper::arrayElement(crocodiles);
+    return helper::randomElement(crocodiles);
 }
 
 std::string_view dog()
 {
-    return helper::arrayElement(dogs);
+    return helper::randomElement(dogs);
 }
 
 std::string_view fish()
 {
-    return helper::arrayElement(fishes);
+    return helper::randomElement(fishes);
 }
 
 std::string_view horse()
 {
-    return helper::arrayElement(horses);
+    return helper::randomElement(horses);
 }
 
 std::string_view insect()
 {
-    return helper::arrayElement(insects);
+    return helper::randomElement(insects);
 }
 
 std::string_view lion()
 {
-    return helper::arrayElement(lions);
+    return helper::randomElement(lions);
 }
 
 std::string_view rabbit()
 {
-    return helper::arrayElement(rabbits);
+    return helper::randomElement(rabbits);
 }
 
 std::string_view rodent()
 {
-    return helper::arrayElement(rodents);
+    return helper::randomElement(rodents);
 }
 
 std::string_view snake()
 {
-    return helper::arrayElement(snakes);
+    return helper::randomElement(snakes);
 }
 
 std::string_view type()
 {
-    return helper::arrayElement(types);
+    return helper::randomElement(types);
 }
 }

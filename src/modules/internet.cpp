@@ -96,10 +96,11 @@ std::string username(std::optional<std::string> firstName, std::optional<std::st
         break;
     case 1:
         username = common::format("{}{}{}", firstNameLower,
-                                  helper::arrayElement(std::vector<std::string>{".", "_", ""}), lastNameLower);
+                                  helper::randomElement(std::vector<std::string>{".", "_", ""}), lastNameLower);
         break;
     case 2:
-        username = common::format("{}{}{}", lastNameLower, helper::arrayElement(std::vector<std::string>{".", "_", ""}),
+        username = common::format("{}{}{}", lastNameLower,
+                                  helper::randomElement(std::vector<std::string>{".", "_", ""}),
                                   firstNameLower);
         break;
     }
@@ -111,13 +112,13 @@ std::string email(std::optional<std::string> firstName, std::optional<std::strin
                   std::optional<std::string> emailHost)
 {
     return common::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                          emailHost ? *emailHost : helper::arrayElement(emailHosts));
+                          emailHost ? *emailHost : helper::randomElement(emailHosts));
 }
 
 std::string exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
 {
     return common::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                          helper::arrayElement(emailExampleHosts));
+                          helper::randomElement(emailExampleHosts));
 }
 
 std::string password(int length, const PasswordOptions& options)
@@ -148,7 +149,7 @@ std::string password(int length, const PasswordOptions& options)
 
     for (int i = 0; i < length; ++i)
     {
-        password += helper::arrayElement<char>(characters);
+        password += helper::randomElement<char>(characters);
     }
 
     return password;
@@ -160,12 +161,12 @@ std::string_view emoji(std::optional<EmojiType> type)
     {
         const auto& emojisMapped = emojiTypeToEmojisMapping.at(*type);
 
-        return helper::arrayElement(emojisMapped);
+        return helper::randomElement(emojisMapped);
     }
 
     const auto emojis = getAllEmojis();
 
-    return helper::arrayElement(emojis);
+    return helper::randomElement(emojis);
 }
 
 bool checkIfEmojiIsValid(const std::string& emojiToCheck)
@@ -177,12 +178,12 @@ bool checkIfEmojiIsValid(const std::string& emojiToCheck)
 
 std::string_view protocol()
 {
-    return helper::arrayElement(webProtocols);
+    return helper::randomElement(webProtocols);
 }
 
 std::string_view httpMethod()
 {
-    return helper::arrayElement(httpMethodNames);
+    return helper::randomElement(httpMethodNames);
 }
 
 unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
@@ -191,7 +192,7 @@ unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
     {
         const auto& statusCodes = httpResponseTypeToCodesMapping.at(*responseType);
 
-        return helper::arrayElement(statusCodes);
+        return helper::randomElement(statusCodes);
     }
 
     std::vector<unsigned> statusCodes;
@@ -205,22 +206,22 @@ unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
     statusCodes.insert(statusCodes.end(), httpStatusClientErrorCodes.begin(), httpStatusClientErrorCodes.end());
     statusCodes.insert(statusCodes.end(), httpStatusServerErrorCodes.begin(), httpStatusServerErrorCodes.end());
 
-    return helper::arrayElement(statusCodes);
+    return helper::randomElement(statusCodes);
 }
 
 std::string_view httpRequestHeader()
 {
-    return helper::arrayElement(httpRequestHeaders);
+    return helper::randomElement(httpRequestHeaders);
 }
 
 std::string_view httpResponseHeader()
 {
-    return helper::arrayElement(httpResponseHeaders);
+    return helper::randomElement(httpResponseHeaders);
 }
 
 std::string_view httpMediaType()
 {
-    return helper::arrayElement(httpMediaTypes);
+    return helper::randomElement(httpMediaTypes);
 }
 
 std::string ipv4(const IPv4Class& ipv4class)
@@ -329,7 +330,7 @@ std::string domainWord()
 
 std::string_view domainSuffix()
 {
-    return helper::arrayElement(domainSuffixes);
+    return helper::randomElement(domainSuffixes);
 }
 
 std::string anonymousUsername(unsigned maxLength)

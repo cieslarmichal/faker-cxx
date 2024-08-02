@@ -12,7 +12,7 @@ namespace faker::commerce
 {
 std::string_view department()
 {
-    return helper::arrayElement(departments);
+    return helper::randomElement(departments);
 }
 
 std::string sku(unsigned int length)
@@ -22,17 +22,17 @@ std::string sku(unsigned int length)
 
 std::string_view productAdjective()
 {
-    return helper::arrayElement(productAdjectives);
+    return helper::randomElement(productAdjectives);
 }
 
 std::string_view productMaterial()
 {
-    return helper::arrayElement(productMaterials);
+    return helper::randomElement(productMaterials);
 }
 
 std::string_view productName()
 {
-    return helper::arrayElement(productNames);
+    return helper::randomElement(productNames);
 }
 
 std::string productFullName()
@@ -153,42 +153,42 @@ std::string ISBN10()
 
 std::string_view paymentType()
 {
-    return helper::arrayElement(paymentTypes);
+    return helper::randomElement(paymentTypes);
 }
 
 std::string_view paymentProvider()
 {
-    return helper::arrayElement(paymentProviders);
+    return helper::randomElement(paymentProviders);
 }
 
 std::string_view productDescription()
 {
-    return helper::arrayElement(productDescriptions);
+    return helper::randomElement(productDescriptions);
 }
 
 std::string_view productCategory()
 {
-    return helper::arrayElement(productCategoryNames);
+    return helper::randomElement(productCategoryNames);
 }
 
 std::string_view productReview()
 {
-    return helper::arrayElement(productReviews);
+    return helper::randomElement(productReviews);
 }
 
 std::string_view discountType()
 {
-    return helper::arrayElement(discountTypes);
+    return helper::randomElement(discountTypes);
 }
 
 std::string_view orderStatus()
 {
-    return helper::arrayElement(orderStatuses);
+    return helper::randomElement(orderStatuses);
 }
 
 std::string_view shippingCarrier()
 {
-    return helper::arrayElement(shippingCarriers);
+    return helper::randomElement(shippingCarriers);
 }
 
 }

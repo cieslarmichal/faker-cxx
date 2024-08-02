@@ -155,7 +155,7 @@ std::string fromCharacters(const std::string& characters, unsigned int length)
 
     for (unsigned i = 0; i < length; i++)
     {
-        result += helper::arrayElement<char>(characters);
+        result += helper::randomElement<char>(characters);
     }
 
     return result;
@@ -196,7 +196,7 @@ std::string alpha(unsigned length, StringCasing casing, const std::string& exclu
 
     for (unsigned i = 0; i < length; i++)
     {
-        alpha += helper::arrayElement<char>(targetCharacters);
+        alpha += helper::randomElement<char>(targetCharacters);
     }
 
     return alpha;
@@ -232,7 +232,7 @@ std::string alphanumeric(unsigned int length, StringCasing casing, const std::st
 
     for (unsigned i = 0; i < length; i++)
     {
-        alphanumeric += helper::arrayElement<char>(targetCharacters);
+        alphanumeric += helper::randomElement<char>(targetCharacters);
     }
 
     return alphanumeric;
@@ -263,11 +263,11 @@ std::string numeric(unsigned int length, bool allowLeadingZeros)
     {
         if (i == 0 && allowLeadingZeros)
         {
-            alphanumericStr.push_back(helper::arrayElement<char>(numericCharacters));
+            alphanumericStr.push_back(helper::randomElement<char>(numericCharacters));
         }
         else
         {
-            alphanumericStr.push_back(helper::arrayElement<char>(numericCharactersWithoutZero));
+            alphanumericStr.push_back(helper::randomElement<char>(numericCharactersWithoutZero));
         }
     }
 
@@ -321,7 +321,7 @@ std::string hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
 
     for (unsigned i = 0; i < length; i++)
     {
-        hexadecimal += helper::arrayElement<char>(hexadecimalCharacters);
+        hexadecimal += helper::randomElement<char>(hexadecimalCharacters);
     }
 
     return hexadecimal;

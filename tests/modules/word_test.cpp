@@ -260,7 +260,7 @@ TEST_F(WordTest, returnsRandomElementWhenAllElementsLessthanGivenLength)
     std::vector<std::string> words = {"one", "three", "five"};
     std::optional<unsigned int> length = 6;
 
-    auto result = sortedSizeArrayElement(length, words.begin(), words.end());
+    auto result = sortedSizeRandomElement(length, words.begin(), words.end());
 
     ASSERT_TRUE(result == "one" || result == "three" || result == "five");
 }
@@ -270,7 +270,7 @@ TEST_F(WordTest, returnsFirstElementWhenNoLengthMatch)
     std::vector<std::string> words = {"one", "three", "five"};
     std::optional<unsigned int> length = 4;
 
-    auto result = sortedSizeArrayElement(length, words.begin(), words.end());
+    auto result = sortedSizeRandomElement(length, words.begin(), words.end());
 
     ASSERT_TRUE(result == "three");
 }

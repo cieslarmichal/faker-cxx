@@ -47,6 +47,6 @@ std::string dimensions()
 
 std::string_view type()
 {
-    return helper::arrayElement(imageTypes);
+    return helper::randomElement(imageTypes);
 }
 }

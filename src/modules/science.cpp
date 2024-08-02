@@ -7,7 +7,7 @@ namespace faker::science
 {
 ChemicalElement chemicalElement()
 {
-    return helper::arrayElement(chemicalElements);
+    return helper::randomElement(chemicalElements);
 }
 
 Unit unit()
@@ -20,32 +20,32 @@ Unit unit()
     units.insert(units.end(), currentUnits.begin(), currentUnits.end());
     units.insert(units.end(), temperatureUnits.begin(), temperatureUnits.end());
 
-    return helper::arrayElement<Unit>(units);
+    return helper::randomElement<Unit>(units);
 }
 
 Unit distanceUnit()
 {
-    return helper::arrayElement(distanceUnits);
+    return helper::randomElement(distanceUnits);
 }
 
 Unit timeUnit()
 {
-    return helper::arrayElement(timeUnits);
+    return helper::randomElement(timeUnits);
 }
 
 Unit massUnit()
 {
-    return helper::arrayElement(massUnits);
+    return helper::randomElement(massUnits);
 }
 
 Unit tempUnit()
 {
-    return helper::arrayElement(temperatureUnits);
+    return helper::randomElement(temperatureUnits);
 }
 
 Unit currentUnit()
 {
-    return helper::arrayElement(currentUnits);
+    return helper::randomElement(currentUnits);
 }
 
 }

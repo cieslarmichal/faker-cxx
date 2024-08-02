@@ -20,15 +20,15 @@ std::string companyName(std::optional<CompanyNameFormat> format)
     switch (nameFormat)
     {
     case CompanyNameFormat::LastNameSuffix:
-        companyName = common::format("{} {}", person::lastName(), helper::arrayElement(companySuffixes));
+        companyName = common::format("{} {}", person::lastName(), helper::randomElement(companySuffixes));
         break;
     case CompanyNameFormat::FirstNameLastNameSuffix:
-        companyName = common::format("{} {} {}", person::firstName(), person::lastName(), helper::arrayElement(companySuffixes));
+        companyName = common::format("{} {} {}", person::firstName(), person::lastName(), helper::randomElement(companySuffixes));
         break;
     case CompanyNameFormat::FirstNameLastNameJobAreaSuffix:
         companyName =
-            common::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(), 
-                            helper::arrayElement(companySuffixes));
+            common::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(),
+                                     helper::randomElement(companySuffixes));
         break;
     }
 
@@ -37,12 +37,12 @@ std::string companyName(std::optional<CompanyNameFormat> format)
 
 std::string_view type()
 {
-    return helper::arrayElement(companyTypes);
+    return helper::randomElement(companyTypes);
 }
 
 std::string_view industry()
 {
-    return helper::arrayElement(companyIndustries);
+    return helper::randomElement(companyIndustries);
 }
 
 std::string buzzPhrase()
@@ -52,17 +52,17 @@ std::string buzzPhrase()
 
 std::string_view buzzAdjective()
 {
-    return helper::arrayElement(buzzAdjectives);
+    return helper::randomElement(buzzAdjectives);
 }
 
 std::string_view buzzNoun()
 {
-    return helper::arrayElement(buzzNouns);
+    return helper::randomElement(buzzNouns);
 }
 
 std::string_view buzzVerb()
 {
-    return helper::arrayElement(buzzVerbs);
+    return helper::randomElement(buzzVerbs);
 }
 
 std::string catchPhrase()
@@ -72,16 +72,16 @@ std::string catchPhrase()
 
 std::string_view catchPhraseAdjective()
 {
-    return helper::arrayElement(catchPhraseAdjectives);
+    return helper::randomElement(catchPhraseAdjectives);
 }
 
 std::string_view catchPhraseDescriptor()
 {
-    return helper::arrayElement(catchPhraseDescriptors);
+    return helper::randomElement(catchPhraseDescriptors);
 }
 
 std::string_view catchPhraseNoun()
 {
-    return helper::arrayElement(catchPhraseNouns);
+    return helper::randomElement(catchPhraseNouns);
 }
 }

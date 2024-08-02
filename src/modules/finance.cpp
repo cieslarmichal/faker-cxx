@@ -20,27 +20,27 @@ namespace faker::finance
 
 Currency currency()
 {
-    return helper::arrayElement(currencies);
+    return helper::randomElement(currencies);
 }
 
 std::string_view currencyName()
 {
-    return helper::arrayElement(currencies).name;
+    return helper::randomElement(currencies).name;
 }
 
 std::string_view currencyCode()
 {
-    return helper::arrayElement(currencies).code;
+    return helper::randomElement(currencies).code;
 }
 
 std::string_view currencySymbol()
 {
-    return helper::arrayElement(currencies).symbol;
+    return helper::randomElement(currencies).symbol;
 }
 
 std::string_view accountType()
 {
-    return helper::arrayElement(accountTypes);
+    return helper::randomElement(accountTypes);
 }
 
 std::string amount(double min, double max, Precision precision, const std::string& symbol)
@@ -56,7 +56,7 @@ std::string amount(double min, double max, Precision precision, const std::strin
 
 std::string iban(std::optional<IbanCountry> country)
 {
-    const auto ibanCountry = country ? *country : helper::arrayElement(ibanCountries);
+    const auto ibanCountry = country ? *country : helper::randomElement(ibanCountries);
 
     const auto& ibanFormat = ibanFormats.at(ibanCountry);
 
@@ -91,9 +91,9 @@ std::string iban(std::optional<IbanCountry> country)
 
 std::string_view bic(std::optional<BicCountry> country)
 {
-    const auto bicCountry = country ? *country : helper::arrayElement(bicCountries);
+    const auto bicCountry = country ? *country : helper::randomElement(bicCountries);
 
-    return helper::arrayElement(bicCountriesCodes.at(bicCountry));
+    return helper::randomElement(bicCountriesCodes.at(bicCountry));
 }
 
 std::string accountNumber(unsigned int length)
@@ -113,21 +113,21 @@ std::string routingNumber()
 
 std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
 {
-    const auto creditCardTargetType = creditCardType ? *creditCardType : helper::arrayElement(creditCardTypes);
+    const auto creditCardTargetType = creditCardType ? *creditCardType : helper::randomElement(creditCardTypes);
 
     switch (creditCardTargetType)
     {
     case CreditCardType::AmericanExpress:
         return helper::replaceCreditCardSymbols(
-            static_cast<std::string>(helper::arrayElement(americanExpressCreditCardFormats)));
+            static_cast<std::string>(helper::randomElement(americanExpressCreditCardFormats)));
     case CreditCardType::Discover:
         return helper::replaceCreditCardSymbols(
-            static_cast<std::string>(helper::arrayElement(discoverCreditCardFormats)));
+            static_cast<std::string>(helper::randomElement(discoverCreditCardFormats)));
     case CreditCardType::MasterCard:
         return helper::replaceCreditCardSymbols(
-            static_cast<std::string>(helper::arrayElement(masterCardCreditCardFormats)));
+            static_cast<std::string>(helper::randomElement(masterCardCreditCardFormats)));
     case CreditCardType::Visa:
-        return helper::replaceCreditCardSymbols(static_cast<std::string>(helper::arrayElement(visaCreditCardFormats)));
+        return helper::replaceCreditCardSymbols(static_cast<std::string>(helper::randomElement(visaCreditCardFormats)));
     default:
         ;
     }
@@ -144,7 +144,7 @@ std::string bitcoinAddress()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
-    auto address = helper::arrayElement(std::vector<std::string>{"1", "3"});
+    auto address = helper::randomElement(std::vector<std::string>{"1", "3"});
 
     address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
@@ -155,7 +155,7 @@ std::string litecoinAddress()
 {
     const unsigned addressLength = number::integer(26u, 33u);
 
-    auto address = helper::arrayElement(std::vector<std::string>{"L", "M", "3"});
+    auto address = helper::randomElement(std::vector<std::string>{"L", "M", "3"});
 
     address += string::alphanumeric(addressLength, string::StringCasing::Mixed, "0OIl");
 
@@ -176,7 +176,7 @@ std::string creditCardExpirationDate()
 
 std::string_view creditCardType()
 {
-    return helper::arrayElement(creditCardNames);
+    return helper::randomElement(creditCardNames);
 }
 
 }

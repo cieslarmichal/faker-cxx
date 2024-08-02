@@ -14,7 +14,7 @@ namespace faker::color
 {
 std::string_view name()
 {
-    return helper::arrayElement(colors);
+    return helper::randomElement(colors);
 }
 
 std::string rgb(bool includeAlpha)
