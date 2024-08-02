@@ -4,6 +4,7 @@
 #include <numeric>
 #include <span>
 #include <vector>
+#include <iostream>
 
 #include "number.h"
 
@@ -58,7 +59,7 @@ auto randomElement(It start, It end)
     }
 
     auto size = end - start;
-    const auto index = number::integer(size);
+    const auto index = number::integer(size - 1);
 
     return start[index];
 }
