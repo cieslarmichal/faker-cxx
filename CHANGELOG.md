@@ -12,6 +12,7 @@ All notable changes to this project will be documented in this file
 * changed function name from `number` (by country) to `phoneNumberByCountry` in phone module
 * changed function name from `name` to `companyName` in company module
 * changed function `companyName` to take optional enum parameter in company module
+* changed function `branch` to take optional enum parameter in git module
 
 ## v2.0.0 (27.06.2024)
 

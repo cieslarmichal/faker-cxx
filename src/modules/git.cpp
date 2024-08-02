@@ -16,16 +16,27 @@
 namespace faker::git
 {
 
-std::string branch(unsigned maxIssueNum)
+std::string branch(std::optional<BranchIssueNum> issueNum, unsigned maxIssueNum)
 {
-    switch (number::integer(1, 2))
+
+    const auto issue = issueNum ? *issueNum : BranchIssueNum::WithIssueNumber;
+
+    std::string generatedBranch = "";
+
+    switch (issue)
     {
-    case 1:
-        return common::format("{}-{}", word::verb(), word::noun());
-    default:
-        return common::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(), word::adjective(),
+    case BranchIssueNum::WithoutIssueNumber:
+        generatedBranch =  common::format("{}-{}", word::verb(), word::noun());
+        break;
+    case BranchIssueNum::WithIssueNumber:
+    //     return common::format("{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(), word::noun());
+    // default:
+        generatedBranch =  common::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(), word::adjective(),
                               word::noun());
+        break;
     }
+    
+    return generatedBranch;
 }
 
 std::string commitDate(unsigned years)
