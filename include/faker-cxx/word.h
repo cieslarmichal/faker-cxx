@@ -145,12 +145,12 @@ FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = s
 FAKER_CXX_EXPORT std::string_view verb(std::optional<unsigned> length = std::nullopt);
 
 template <std::input_iterator It>
-auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end) ->
+auto sortedSizeRandomElement(std::optional<unsigned int> length, It start, It end) ->
     typename std::iterator_traits<It>::value_type
 {
     if (!length)
     {
-        return helper::arrayElement(start, end);
+        return helper::randomElement(start, end);
     }
 
     size_t length_64 = *length;
@@ -159,7 +159,7 @@ auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end
 
     if (lower_it == end)
     {
-        return helper::arrayElement(start, end);
+        return helper::randomElement(start, end);
     }
 
     if (lower_it->size() != length)
@@ -177,6 +177,6 @@ auto sortedSizeArrayElement(std::optional<unsigned int> length, It start, It end
         }
     }
 
-    return helper::arrayElement(lower_it, upper_it);
+    return helper::randomElement(lower_it, upper_it);
 }
 }

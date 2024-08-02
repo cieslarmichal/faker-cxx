@@ -132,22 +132,22 @@ std::string birthdateByYear(int minYear, int maxYear, DateFormat dateFormat)
 
 std::string_view weekdayName()
 {
-    return helper::arrayElement(weekdayNames);
+    return helper::randomElement(weekdayNames);
 }
 
 std::string_view weekdayAbbreviatedName()
 {
-    return helper::arrayElement(weekdayAbbreviatedNames);
+    return helper::randomElement(weekdayAbbreviatedNames);
 }
 
 std::string_view monthName()
 {
-    return helper::arrayElement(monthNames);
+    return helper::randomElement(monthNames);
 }
 
 std::string_view monthAbbreviatedName()
 {
-    return helper::arrayElement(monthAbbreviatedNames);
+    return helper::randomElement(monthAbbreviatedNames);
 }
 
 unsigned int year()
@@ -195,7 +195,7 @@ unsigned dayOfWeek()
 
 std::string_view timezoneRandom()
 {
-    return helper::arrayElement(timezonesAbbreviatedNames);
+    return helper::randomElement(timezonesAbbreviatedNames);
 }
 
 }

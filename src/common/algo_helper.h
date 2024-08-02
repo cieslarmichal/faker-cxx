@@ -46,7 +46,7 @@ static T::key_type objectKey(const T& object)
 
     std::transform(object.begin(), object.end(), std::back_inserter(keys), [](const auto& entry) { return entry.first; });
 
-    return arrayElement<typename T::key_type>(keys);
+    return randomElement<typename T::key_type>(keys);
 }
 
 template <typename TResult>

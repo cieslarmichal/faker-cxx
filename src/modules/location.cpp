@@ -98,36 +98,36 @@ Country getCountry(const AddressCountry& addressCountry)
 
 std::string_view country()
 {
-    return helper::arrayElement(allCountries);
+    return helper::randomElement(allCountries);
 }
 
 std::string_view countryCode()
 {
-    return helper::arrayElement(countryCodes);
+    return helper::randomElement(countryCodes);
 }
 
 std::string_view state(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
-    return helper::arrayElement(countryAddresses.states);
+    return helper::randomElement(countryAddresses.states);
 }
 
 std::string city(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
-    const auto cityFormat = static_cast<std::string>(helper::arrayElement(countryAddresses.cityFormats));
+    const auto cityFormat = static_cast<std::string>(helper::randomElement(countryAddresses.cityFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"firstName", [&country]() { return static_cast<std::string>(person::firstName(getCountry(country))); }},
         {"lastName", [&country]() { return static_cast<std::string>(person::lastName(getCountry(country))); }},
         {"cityName",
-         [&countryAddresses]() { return static_cast<std::string>(helper::arrayElement(countryAddresses.cities)); }},
+         [&countryAddresses]() { return static_cast<std::string>(helper::randomElement(countryAddresses.cities)); }},
         {"cityPrefix", [&countryAddresses]()
-         { return static_cast<std::string>(helper::arrayElement(countryAddresses.cityPrefixes)); }},
+         { return static_cast<std::string>(helper::randomElement(countryAddresses.cityPrefixes)); }},
         {"citySuffix", [&countryAddresses]()
-         { return static_cast<std::string>(helper::arrayElement(countryAddresses.citySuffixes)); }}};
+         { return static_cast<std::string>(helper::randomElement(countryAddresses.citySuffixes)); }}};
 
     return common::fillTokenValues(cityFormat, dataGeneratorsMapping);
 }
@@ -148,7 +148,7 @@ std::string streetAddress(AddressCountry country)
         {"street", [&country]() { return street(country); }},
         {"secondaryAddress", [&country]() { return secondaryAddress(country); }}};
 
-    const auto addressFormat = static_cast<std::string>(helper::arrayElement(countryAddresses.addressFormats));
+    const auto addressFormat = static_cast<std::string>(helper::randomElement(countryAddresses.addressFormats));
 
     return common::fillTokenValues(addressFormat, dataGeneratorsMapping);
 }
@@ -157,17 +157,17 @@ std::string street(AddressCountry country)
 {
     const auto& countryAddresses = getAddresses(country);
 
-    const auto streetFormat = static_cast<std::string>(helper::arrayElement(countryAddresses.streetFormats));
+    const auto streetFormat = static_cast<std::string>(helper::randomElement(countryAddresses.streetFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
         {"firstName", [&country]() { return static_cast<std::string>(person::firstName(getCountry(country))); }},
         {"lastName", [&country]() { return static_cast<std::string>(person::lastName(getCountry(country))); }},
         {"streetName", [&countryAddresses]()
-         { return static_cast<std::string>(helper::arrayElement(countryAddresses.streetNames)); }},
+         { return static_cast<std::string>(helper::randomElement(countryAddresses.streetNames)); }},
         {"streetPrefix", [&countryAddresses]()
-         { return static_cast<std::string>(helper::arrayElement(countryAddresses.streetPrefixes)); }},
+         { return static_cast<std::string>(helper::randomElement(countryAddresses.streetPrefixes)); }},
         {"streetSuffix", [&countryAddresses]()
-         { return static_cast<std::string>(helper::arrayElement(countryAddresses.streetSuffixes)); }}};
+         { return static_cast<std::string>(helper::randomElement(countryAddresses.streetSuffixes)); }}};
 
     return common::fillTokenValues(streetFormat, dataGeneratorsMapping);
 }
@@ -177,7 +177,7 @@ std::string buildingNumber(AddressCountry country)
     const auto& countryAddresses = getAddresses(country);
 
     const auto buildingNumberFormat =
-        static_cast<std::string>(helper::arrayElement(countryAddresses.buildingNumberFormats));
+        static_cast<std::string>(helper::randomElement(countryAddresses.buildingNumberFormats));
 
     return helper::replaceSymbolWithNumber(buildingNumberFormat);
 }
@@ -192,7 +192,7 @@ std::string secondaryAddress(AddressCountry country)
     }
 
     const auto secondaryAddressFormat =
-        static_cast<std::string>(helper::arrayElement(countryAddresses.secondaryAddressFormats));
+        static_cast<std::string>(helper::randomElement(countryAddresses.secondaryAddressFormats));
 
     return helper::replaceSymbolWithNumber(secondaryAddressFormat);
 }
@@ -213,12 +213,12 @@ std::string longitude(Precision precision)
 
 std::string_view direction()
 {
-    return helper::arrayElement(directions);
+    return helper::randomElement(directions);
 }
 
 std::string_view timeZone()
 {
-    return helper::arrayElement(timeZones);
+    return helper::randomElement(timeZones);
 }
 
 }

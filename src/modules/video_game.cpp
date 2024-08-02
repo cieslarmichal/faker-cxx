@@ -9,21 +9,21 @@ namespace faker::videogame
 {
 std::string_view gameTitle()
 {
-    return helper::arrayElement(videoGameNames);
+    return helper::randomElement(videoGameNames);
 }
 
 std::string_view genre()
 {
-    return helper::arrayElement(videoGameGenres);
+    return helper::randomElement(videoGameGenres);
 }
 
 std::string_view platform()
 {
-    return helper::arrayElement(platforms);
+    return helper::randomElement(platforms);
 }
 
 std::string_view studioName()
 {
-    return helper::arrayElement(studioNames);
+    return helper::randomElement(studioNames);
 }
 }

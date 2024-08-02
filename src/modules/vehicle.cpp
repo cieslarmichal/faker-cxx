@@ -13,32 +13,32 @@ namespace faker::vehicle
 {
 std::string_view bicycle()
 {
-    return helper::arrayElement(bicycle_types);
+    return helper::randomElement(bicycle_types);
 }
 
 std::string_view color()
 {
-    return helper::arrayElement(vehicle_colors);
+    return helper::randomElement(vehicle_colors);
 }
 
 std::string_view fuel()
 {
-    return helper::arrayElement(fuel_types);
+    return helper::randomElement(fuel_types);
 }
 
 std::string_view manufacturer()
 {
-    return helper::arrayElement(manufacturers);
+    return helper::randomElement(manufacturers);
 }
 
 std::string_view model()
 {
-    return helper::arrayElement(models);
+    return helper::randomElement(models);
 }
 
 std::string_view type()
 {
-    return helper::arrayElement(vehicle_types);
+    return helper::randomElement(vehicle_types);
 }
 
 std::string vehicleName()

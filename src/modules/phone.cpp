@@ -19,7 +19,7 @@ std::string phoneNumberByFormat(std::optional<std::string> format)
 
     if (!format.has_value() || format->empty())
     {
-        selectedFormat = helper::arrayElement(phone::phoneNumbers);
+        selectedFormat = helper::randomElement(phone::phoneNumbers);
     }
     else
     {
@@ -44,17 +44,17 @@ std::string imei()
 
 std::string_view platform()
 {
-    return helper::arrayElement(phone::PhonePlatforms);
+    return helper::randomElement(phone::PhonePlatforms);
 }
 
 std::string_view modelName()
 {
-    return helper::arrayElement(phone::PhoneModelNames);
+    return helper::randomElement(phone::PhoneModelNames);
 }
 
 std::string_view manufacturer()
 {
-    return helper::arrayElement(phone::PhoneManufacturers);
+    return helper::randomElement(phone::PhoneManufacturers);
 }
 
 std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberFormatMap()
@@ -75,6 +75,6 @@ std::unordered_map<PhoneNumberCountryFormat, std::string> createPhoneNumberForma
 
 std::string_view areaCode()
 {
-    return helper::arrayElement(phone::areaCodes);
+    return helper::randomElement(phone::areaCodes);
 }
 }

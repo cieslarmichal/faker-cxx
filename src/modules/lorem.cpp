@@ -16,7 +16,7 @@ namespace faker::lorem
 {
 std::string_view word()
 {
-    return helper::arrayElement(loremWords);
+    return helper::randomElement(loremWords);
 }
 
 std::string words(unsigned numberOfWords)

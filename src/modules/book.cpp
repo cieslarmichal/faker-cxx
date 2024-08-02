@@ -9,31 +9,31 @@ namespace faker::book
 {
 std::string_view title()
 {
-    return helper::arrayElement(titles);
+    return helper::randomElement(titles);
 }
 
 std::string_view genre()
 {
-    return helper::arrayElement(bookGenres);
+    return helper::randomElement(bookGenres);
 }
 
 std::string_view author()
 {
-    return helper::arrayElement(authors);
+    return helper::randomElement(authors);
 }
 
 std::string_view publisher()
 {
-    return helper::arrayElement(publishers);
+    return helper::randomElement(publishers);
 }
 
 std::string_view format()
 {
-    return helper::arrayElement(bookFormats);
+    return helper::randomElement(bookFormats);
 }
 
 std::string_view series()
 {
-    return helper::arrayElement(bookSeries);
+    return helper::randomElement(bookSeries);
 }
 }

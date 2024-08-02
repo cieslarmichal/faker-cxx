@@ -9,71 +9,71 @@ namespace faker::food
 {
 std::string_view alcoholicBeverage()
 {
-    return helper::arrayElement(alcoholicBeverages);
+    return helper::randomElement(alcoholicBeverages);
 }
 
 std::string_view dishName()
 {
-    return helper::arrayElement(dishNames);
+    return helper::randomElement(dishNames);
 }
 
 std::string_view foodCategory()
 {
-    return helper::arrayElement(foodCategories);
+    return helper::randomElement(foodCategories);
 }
 
 std::string_view fruit()
 {
-    return helper::arrayElement(fruits);
+    return helper::randomElement(fruits);
 }
 
 std::string_view grain()
 {
-    return helper::arrayElement(grains);
+    return helper::randomElement(grains);
 }
 
 std::string_view meat()
 {
-    return helper::arrayElement(meats);
+    return helper::randomElement(meats);
 }
 
 std::string_view milkProduct()
 {
-    return helper::arrayElement(milkProducts);
+    return helper::randomElement(milkProducts);
 }
 
 std::string_view nonalcoholicBeverage()
 {
-    return helper::arrayElement(nonalcoholicBeverages);
+    return helper::randomElement(nonalcoholicBeverages);
 }
 
 std::string_view nut()
 {
-    return helper::arrayElement(nuts);
+    return helper::randomElement(nuts);
 }
 
 std::string_view oil()
 {
-    return helper::arrayElement(oils);
+    return helper::randomElement(oils);
 }
 
 std::string_view seafood()
 {
-    return helper::arrayElement(seafoods);
+    return helper::randomElement(seafoods);
 }
 
 std::string_view seed()
 {
-    return helper::arrayElement(seeds);
+    return helper::randomElement(seeds);
 }
 
 std::string_view sugarProduct()
 {
-    return helper::arrayElement(sugarProducts);
+    return helper::randomElement(sugarProducts);
 }
 
 std::string_view vegetable()
 {
-    return helper::arrayElement(vegetables);
+    return helper::randomElement(vegetables);
 }
 }

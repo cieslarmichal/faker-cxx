@@ -9,17 +9,17 @@ namespace faker::medicine
 {
 std::string_view condition()
 {
-    return helper::arrayElement(medicalConditions);
+    return helper::randomElement(medicalConditions);
 }
 
 std::string_view medicalTest()
 {
-    return helper::arrayElement(medicalTests);
+    return helper::randomElement(medicalTests);
 }
 
 std::string_view specialty()
 {
-    return helper::arrayElement(specialties);
+    return helper::randomElement(specialties);
 }
 
 }

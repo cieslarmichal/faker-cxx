@@ -9,6 +9,6 @@ namespace faker::weather
 {
 std::string_view weatherDescription()
 {
-    return helper::arrayElement(weatherDescriptions);
+    return helper::randomElement(weatherDescriptions);
 }
 }

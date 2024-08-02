@@ -9,41 +9,41 @@ namespace faker::plant
 {
 std::string_view tree()
 {
-    return helper::arrayElement(trees);
+    return helper::randomElement(trees);
 }
 
 std::string_view flower()
 {
-    return helper::arrayElement(flowers);
+    return helper::randomElement(flowers);
 }
 
 std::string_view shrub()
 {
-    return helper::arrayElement(shrubs);
+    return helper::randomElement(shrubs);
 }
 
 std::string_view grass()
 {
-    return helper::arrayElement(grasses);
+    return helper::randomElement(grasses);
 }
 
 std::string_view fern()
 {
-    return helper::arrayElement(ferns);
+    return helper::randomElement(ferns);
 }
 
 std::string_view succulent()
 {
-    return helper::arrayElement(succulents);
+    return helper::randomElement(succulents);
 }
 
 std::string_view vine()
 {
-    return helper::arrayElement(vines);
+    return helper::randomElement(vines);
 }
 
 std::string_view plantType()
 {
-    return helper::arrayElement(plantTypes);
+    return helper::randomElement(plantTypes);
 }
 }
