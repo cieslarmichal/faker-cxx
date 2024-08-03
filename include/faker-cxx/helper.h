@@ -1,6 +1,5 @@
 #pragma once
 
-#include <initializer_list>
 #include <numeric>
 #include <random>
 #include <vector>
@@ -75,32 +74,6 @@ auto randomElement(Range&& range)
     }
 
     return result;
-}
-
-/**
- * @brief Get a random element from an initializer list.
- *
- * @tparam T an element type of the initializer list.
-    while (start != end) {
- * @param data initializer list of elements.
- *
- * @return T a random element from the initializer list.
- *
- * @code
- * faker::helper::randomElement<std::string>(std::initializer_list<std::string>{{"hello"}, {"world"}}) // "hello"
- * @endcode
- */
-template <class T>
-T randomElement(const std::initializer_list<T>& data)
-{
-    if (data.size() == 0)
-    {
-        throw std::invalid_argument{"Data is empty."};
-    }
-
-    const auto index = number::integer<size_t>(data.size() - 1);
-
-    return *(data.begin() + index);
 }
 
 /**

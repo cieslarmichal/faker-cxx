@@ -144,7 +144,20 @@ FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = s
  */
 FAKER_CXX_EXPORT std::string_view verb(std::optional<unsigned> length = std::nullopt);
 
-template <faker::helper::input_range_with_faster_size_compute_than_linear_rng Range>
+/**
+ * @brief Returns random element of length
+ *
+ * @param length The length of the elements to be picked from
+ *
+ * @ range The range of elements
+ *
+ * @returns An element of the range value type
+ *
+ * @code
+ * faker::word::sortedSizeRandomElement(3, {"hi, "hello", "hey"}) // "hey" - Since "hey" is the only element of length 3
+ * @endcode
+ */
+template <std::ranges::range Range>
 auto sortedSizeRandomElement(std::optional<unsigned int> length, Range&& range) -> decltype(auto)
 {
     if (!length)
