@@ -134,9 +134,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a03ac408bfcf1e583e0e94830bd7e54e8" id="r_a03ac408bfcf1e583e0e94830bd7e54e8"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a03ac408bfcf1e583e0e94830bd7e54e8">verb</a> (std::optional&lt; unsigned &gt; length=std::nullopt)</td></tr>
 <tr class="memdesc:a03ac408bfcf1e583e0e94830bd7e54e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random verb.  <br /></td></tr>
 <tr class="separator:a03ac408bfcf1e583e0e94830bd7e54e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0f9d32a36fe13eba29db40570817c4f" id="r_ab0f9d32a36fe13eba29db40570817c4f"><td class="memTemplParams" colspan="2">template&lt;std::input_iterator It&gt; </td></tr>
-<tr class="memitem:ab0f9d32a36fe13eba29db40570817c4f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ab0f9d32a36fe13eba29db40570817c4f">sortedSizeRandomElement</a> (std::optional&lt; unsigned int &gt; length, It start, It end) -&gt; typename std::iterator_traits&lt; It &gt;::value_type</td></tr>
-<tr class="separator:ab0f9d32a36fe13eba29db40570817c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae164b6efba4db33641cfb8eef950dd60" id="r_ae164b6efba4db33641cfb8eef950dd60"><td class="memTemplParams" colspan="2">template&lt;std::ranges::range Range&gt; </td></tr>
+<tr class="memitem:ae164b6efba4db33641cfb8eef950dd60"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae164b6efba4db33641cfb8eef950dd60">sortedSizeRandomElement</a> (std::optional&lt; unsigned int &gt; length, Range &amp;&amp;range) -&gt; decltype(auto)</td></tr>
+<tr class="memdesc:ae164b6efba4db33641cfb8eef950dd60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random element of length.  <br /></td></tr>
+<tr class="separator:ae164b6efba4db33641cfb8eef950dd60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="af0f10fe34e975d361fd1d286d5073cc2" name="af0f10fe34e975d361fd1d286d5073cc2"></a>
@@ -343,13 +344,13 @@ Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="ab0f9d32a36fe13eba29db40570817c4f" name="ab0f9d32a36fe13eba29db40570817c4f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab0f9d32a36fe13eba29db40570817c4f">&#9670;&#160;</a></span>sortedSizeRandomElement()</h2>
+<a id="ae164b6efba4db33641cfb8eef950dd60" name="ae164b6efba4db33641cfb8eef950dd60"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae164b6efba4db33641cfb8eef950dd60">&#9670;&#160;</a></span>sortedSizeRandomElement()</h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::input_iterator It&gt; </div>
+template&lt;std::ranges::range Range&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">auto faker::word::sortedSizeRandomElement </td>
@@ -359,17 +360,24 @@ template&lt;std::input_iterator It&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">It</td>          <td class="paramname"><span class="paramname"><em>start</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">It</td>          <td class="paramname"><span class="paramname"><em>end</em></span>&#160;) -&gt; typename std::iterator_traits&lt;It&gt;::value_type
+          <td class="paramtype">Range &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span>&#160;) -&gt; decltype(auto)
 </td>
         </tr>
       </table>
 </div><div class="memdoc">
 
+<p>Returns random element of length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>The length of the elements to be picked from</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>@ range The range of elements</p>
+<dl class="section return"><dt>Returns</dt><dd>An element of the range value type</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ae164b6efba4db33641cfb8eef950dd60">faker::word::sortedSizeRandomElement</a>(3, {<span class="stringliteral">&quot;hi, &quot;</span>hello<span class="stringliteral">&quot;, &quot;</span>hey<span class="stringliteral">&quot;}) // &quot;</span>hey<span class="stringliteral">&quot; - Since &quot;</span>hey<span class="stringliteral">&quot; is the only element of length 3</span></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_ae164b6efba4db33641cfb8eef950dd60"><div class="ttname"><a href="#ae164b6efba4db33641cfb8eef950dd60">faker::word::sortedSizeRandomElement</a></div><div class="ttdeci">auto sortedSizeRandomElement(std::optional&lt; unsigned int &gt; length, Range &amp;&amp;range) -&gt; decltype(auto)</div><div class="ttdoc">Returns random element of length.</div><div class="ttdef"><b>Definition</b> word.h:160</div></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="a03ac408bfcf1e583e0e94830bd7e54e8" name="a03ac408bfcf1e583e0e94830bd7e54e8"></a>

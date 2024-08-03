@@ -129,24 +129,19 @@ Include dependency graph for word.h:</div>
 <area shape="poly" title=" " alt="" coords="299,29,402,70,400,75,297,34"/>
 <area shape="rect" href="helper_8h.html" title=" " alt="" coords="531,79,653,105"/>
 <area shape="poly" title=" " alt="" coords="324,29,522,73,521,78,323,34"/>
-<area shape="rect" title=" " alt="" coords="318,153,413,178"/>
-<area shape="poly" title=" " alt="" coords="554,108,419,150,418,145,553,103"/>
-<area shape="rect" title=" " alt="" coords="437,153,504,178"/>
-<area shape="poly" title=" " alt="" coords="573,108,506,147,503,142,570,103"/>
-<area shape="rect" title=" " alt="" coords="528,153,578,178"/>
-<area shape="poly" title=" " alt="" coords="588,106,569,140,565,138,583,104"/>
-<area shape="rect" title=" " alt="" coords="602,153,659,178"/>
-<area shape="poly" title=" " alt="" coords="601,104,619,138,614,140,596,106"/>
-<area shape="rect" title=" " alt="" coords="683,153,754,178"/>
-<area shape="poly" title=" " alt="" coords="615,103,685,142,683,147,612,108"/>
-<area shape="rect" href="number_8h.html" title=" " alt="" coords="779,153,853,178"/>
-<area shape="poly" title=" " alt="" coords="631,103,764,145,763,150,629,108"/>
-<area shape="rect" title=" " alt="" coords="685,226,760,252"/>
-<area shape="poly" title=" " alt="" coords="802,181,752,219,749,215,798,177"/>
-<area shape="rect" title=" " alt="" coords="784,226,848,252"/>
-<area shape="poly" title=" " alt="" coords="818,179,818,211,813,211,813,179"/>
-<area shape="rect" title=" " alt="" coords="872,226,949,252"/>
-<area shape="poly" title=" " alt="" coords="833,177,884,215,881,219,830,181"/>
+<area shape="rect" title=" " alt="" coords="454,153,522,178"/>
+<area shape="poly" title=" " alt="" coords="576,107,519,146,516,141,573,103"/>
+<area shape="rect" title=" " alt="" coords="557,226,621,252"/>
+<area shape="poly" title=" " alt="" coords="593,105,588,153,589,210,584,211,583,153,587,105"/>
+<area shape="rect" title=" " alt="" coords="596,153,654,178"/>
+<area shape="poly" title=" " alt="" coords="600,104,615,137,611,140,595,106"/>
+<area shape="rect" href="number_8h.html" title=" " alt="" coords="677,153,752,178"/>
+<area shape="poly" title=" " alt="" coords="614,103,682,142,680,147,611,108"/>
+<area shape="poly" title=" " alt="" coords="695,181,625,221,622,216,692,177"/>
+<area shape="rect" title=" " alt="" coords="661,226,736,252"/>
+<area shape="poly" title=" " alt="" coords="714,179,707,211,702,210,709,178"/>
+<area shape="rect" title=" " alt="" coords="760,226,837,252"/>
+<area shape="poly" title=" " alt="" coords="730,177,774,214,771,218,727,181"/>
 </map>
 </div>
 </div>
@@ -188,9 +183,10 @@ Functions</h2></td></tr>
 <tr class="memitem:a03ac408bfcf1e583e0e94830bd7e54e8" id="r_a03ac408bfcf1e583e0e94830bd7e54e8"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8">faker::word::verb</a> (std::optional&lt; unsigned &gt; length=std::nullopt)</td></tr>
 <tr class="memdesc:a03ac408bfcf1e583e0e94830bd7e54e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random verb.  <br /></td></tr>
 <tr class="separator:a03ac408bfcf1e583e0e94830bd7e54e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab0f9d32a36fe13eba29db40570817c4f" id="r_ab0f9d32a36fe13eba29db40570817c4f"><td class="memTemplParams" colspan="2">template&lt;std::input_iterator It&gt; </td></tr>
-<tr class="memitem:ab0f9d32a36fe13eba29db40570817c4f"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1word.html#ab0f9d32a36fe13eba29db40570817c4f">faker::word::sortedSizeRandomElement</a> (std::optional&lt; unsigned int &gt; length, It start, It end) -&gt; typename std::iterator_traits&lt; It &gt;::value_type</td></tr>
-<tr class="separator:ab0f9d32a36fe13eba29db40570817c4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae164b6efba4db33641cfb8eef950dd60" id="r_ae164b6efba4db33641cfb8eef950dd60"><td class="memTemplParams" colspan="2">template&lt;std::ranges::range Range&gt; </td></tr>
+<tr class="memitem:ae164b6efba4db33641cfb8eef950dd60"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60">faker::word::sortedSizeRandomElement</a> (std::optional&lt; unsigned int &gt; length, Range &amp;&amp;range) -&gt; decltype(auto)</td></tr>
+<tr class="memdesc:ae164b6efba4db33641cfb8eef950dd60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random element of length.  <br /></td></tr>
+<tr class="separator:ae164b6efba4db33641cfb8eef950dd60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
