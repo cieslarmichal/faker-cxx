@@ -100,8 +100,7 @@ std::string username(std::optional<std::string> firstName, std::optional<std::st
         break;
     case 2:
         username = common::format("{}{}{}", lastNameLower,
-                                  helper::randomElement(std::vector<std::string>{".", "_", ""}),
-                                  firstNameLower);
+                                  helper::randomElement(std::vector<std::string>{".", "_", ""}), firstNameLower);
         break;
     }
 
@@ -149,7 +148,7 @@ std::string password(int length, const PasswordOptions& options)
 
     for (int i = 0; i < length; ++i)
     {
-        password += helper::randomElement<char>(characters);
+        password += helper::randomElement(characters);
     }
 
     return password;

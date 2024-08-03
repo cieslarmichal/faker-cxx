@@ -3,82 +3,18 @@
 #include <initializer_list>
 #include <numeric>
 #include <random>
-#include <span>
 #include <vector>
 
 #include "number.h"
 
 namespace faker::helper
 {
-/**
- * @brief Get a random element from an STL container.
- *
- * @tparam T an element type of the container.
- *
- * @param data The container.
- *
- * @return T a random element from the container.
- *
- * @code
- * faker::helper::randomElement<char>(std::string{"abcd"}) // "b"
- * faker::helper::randomElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
- * @endcode
- */
-template <class T>
-T randomElement(std::span<const T> data)
-{
-    if (data.empty())
-    {
-        throw std::invalid_argument{"Data is empty."};
-    }
-
-    const auto index = number::integer<size_t>(data.size() - 1);
-
-    return data[index];
-}
-
-template <typename T, std::size_t N>
-T randomElement(const std::array<T, N>& data)
-{
-    if (data.empty())
-    {
-        throw std::invalid_argument{"Data is empty."};
-    }
-
-    const auto index = number::integer<size_t>(data.size() - 1);
-
-    return data[index];
-}
-
-/**
- * @brief Get a random element from a vector.
- *
- * @tparam T an element type of the vector.
- *
- * @param data vector of elements.
- *
- * @return T a random element from the vector.
- *
- * @code
- * faker::helper::randomElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
- * @endcode
- */
-template <class T>
-T randomElement(const std::vector<T>& data)
-{
-    if (data.empty())
-    {
-        throw std::invalid_argument{"Data is empty."};
-    }
-
-    const auto index = number::integer<size_t>(data.size() - 1);
-
-    return data[index];
-}
 
 template <typename T>
 concept input_range_with_faster_size_compute_than_linear_rng =
-    std::ranges::input_range<T> && (std::ranges::input_range<T> || std::ranges::sized_range<T>);
+    std::ranges::input_range<T>            // must still be an input range no matter what, but additionally
+    && (std::ranges::sized_range<T>        // either knows its size in constant time, or
+        || std::ranges::forward_range<T>); // can multipass to compute the size
 
 template <input_range_with_faster_size_compute_than_linear_rng Range>
 decltype(auto) randomElement(Range&& range)
@@ -89,17 +25,24 @@ decltype(auto) randomElement(Range&& range)
     }
 
     auto size = std::ranges::distance(range);
-    const auto index = number::integer<size_t>(size);
 
-    return (*std::ranges::next(range.begin(), range.end()));
+    const auto index = number::integer(size - 1);
+
+    return (*std::ranges::next(range.begin(), index));
 }
 
 template <std::ranges::input_range Range>
 auto randomElement(Range&& range)
 {
     auto const end = range.end();
-    auto const itr = range.start();
+    auto itr = range.begin();
 
+    // Note: std::ranges::empty in general may need to grab begin/end
+    // then drop the iterator/sentinel, which can invalidate being, so
+    // it's not always usable with input_range's that aren't forward_range's
+    // we're going to "consume" the iterators ourselves so we can manually
+    // emptiness check by taking the iterator/sentinel pair and not dropping
+    // them
     if (itr == end)
     {
         throw std::invalid_argument{"Range [start, end) is empty."};
@@ -120,7 +63,7 @@ auto randomElement(Range&& range)
 
     RangeValue result = consume_itr();
     ++itr;
-    size_t count = 1;
+    std::size_t count = 1;
 
     for (; itr != end; ++itr, ++count)
     {

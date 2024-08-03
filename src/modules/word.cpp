@@ -1,16 +1,17 @@
+#include "faker-cxx/word.h"
+
 #include <array>
 #include <optional>
 #include <string>
 #include <string_view>
 
-#include "faker-cxx/word.h"
 #include "word_data.h"
 
 namespace faker::word
 {
 std::string_view sample(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _allWords.cbegin(), _allWords.cend());
+    return sortedSizeRandomElement(length, _allWords);
 }
 
 std::string words(unsigned numberOfWords)
@@ -64,36 +65,36 @@ std::string words(unsigned numberOfWords)
 
 std::string_view adjective(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _adjectives_sorted.cbegin(), _adjectives_sorted.cend());
+    return sortedSizeRandomElement(length, _adjectives_sorted);
 }
 
 std::string_view adverb(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _adverbs_sorted.cbegin(), _adverbs_sorted.cend());
+    return sortedSizeRandomElement(length, _adverbs_sorted);
 }
 
 std::string_view conjunction(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _conjunctions_sorted.cbegin(), _conjunctions_sorted.cend());
+    return sortedSizeRandomElement(length, _conjunctions_sorted);
 }
 
 std::string_view interjection(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _interjections_sorted.cbegin(), _interjections_sorted.cend());
+    return sortedSizeRandomElement(length, _interjections_sorted);
 }
 
 std::string_view noun(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _nouns_sorted.cbegin(), _nouns_sorted.cend());
+    return sortedSizeRandomElement(length, _nouns_sorted);
 }
 
 std::string_view preposition(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _prepositions_sorted.cbegin(), _prepositions_sorted.cend());
+    return sortedSizeRandomElement(length, _prepositions_sorted);
 }
 
 std::string_view verb(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _verbs_sorted.cbegin(), _verbs_sorted.cend());
+    return sortedSizeRandomElement(length, _verbs_sorted);
 }
 }

@@ -1,5 +1,3 @@
-#include "faker-cxx/word.h"
-
 #include <algorithm>
 #include <string>
 #include <vector>
@@ -7,6 +5,7 @@
 #include "gtest/gtest.h"
 
 #include "common/string_helper.h"
+#include "faker-cxx/word.h"
 #include "word_data.h"
 
 using namespace faker::word;
@@ -223,16 +222,18 @@ TEST_F(WordTest, shouldGenerateWords)
 TEST_F(WordTest, shouldReturnRandomElementWhenExactLengthNotFound)
 {
     const unsigned int existingLength = 5;
-    
+
     std::vector<std::string_view> matchingAdjectives;
-    for (const auto& adj : _adjectives_sorted) {
-        if (adj.size() == existingLength) {
+    for (const auto& adj : _adjectives_sorted)
+    {
+        if (adj.size() == existingLength)
+        {
             matchingAdjectives.push_back(adj);
         }
     }
-    
+
     const auto generatedAdjective = adjective(existingLength + 1);
-    
+
     ASSERT_TRUE(std::ranges::find(_adjectives_sorted, generatedAdjective) != _adjectives_sorted.end());
     ASSERT_TRUE(std::ranges::find(matchingAdjectives, generatedAdjective) == matchingAdjectives.end());
 }
@@ -248,9 +249,10 @@ TEST_F(WordTest, shouldGenerateLargeNumberOfWords)
     const unsigned int largeWordCount = 300;
     const auto generatedWords = words(largeWordCount);
     const auto separatedWords = common::split(generatedWords, " ");
-    
+
     ASSERT_EQ(separatedWords.size(), largeWordCount);
-    for (const auto& word : separatedWords) {
+    for (const auto& word : separatedWords)
+    {
         ASSERT_TRUE(std::ranges::find(_allWords, word) != _allWords.end());
     }
 }
@@ -260,7 +262,7 @@ TEST_F(WordTest, returnsRandomElementWhenAllElementsLessthanGivenLength)
     std::vector<std::string> words = {"one", "three", "five"};
     std::optional<unsigned int> length = 6;
 
-    auto result = sortedSizeRandomElement(length, words.begin(), words.end());
+    auto result = sortedSizeRandomElement(length, words);
 
     ASSERT_TRUE(result == "one" || result == "three" || result == "five");
 }
@@ -270,7 +272,7 @@ TEST_F(WordTest, returnsFirstElementWhenNoLengthMatch)
     std::vector<std::string> words = {"one", "three", "five"};
     std::optional<unsigned int> length = 4;
 
-    auto result = sortedSizeRandomElement(length, words.begin(), words.end());
+    auto result = sortedSizeRandomElement(length, words);
 
     ASSERT_TRUE(result == "three");
 }

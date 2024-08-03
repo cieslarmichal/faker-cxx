@@ -33,7 +33,7 @@ Airport airport()
 std::string seat(AircraftType aircraftType)
 {
     return std::to_string(number::integer(1, aircraftTypeMaxRows.at(aircraftType))) +
-           helper::randomElement<char>(aircraftTypeSeatLetters.at(aircraftType));
+           helper::randomElement(aircraftTypeSeatLetters.at(aircraftType));
 }
 
 std::string recordLocator(bool allowNumerics)

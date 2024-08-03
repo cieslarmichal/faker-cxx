@@ -144,22 +144,24 @@ FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = s
  */
 FAKER_CXX_EXPORT std::string_view verb(std::optional<unsigned> length = std::nullopt);
 
-template <std::input_iterator It>
-auto sortedSizeRandomElement(std::optional<unsigned int> length, It start, It end) ->
-    typename std::iterator_traits<It>::value_type
+template <faker::helper::input_range_with_faster_size_compute_than_linear_rng Range>
+auto sortedSizeRandomElement(std::optional<unsigned int> length, Range&& range) -> decltype(auto)
 {
     if (!length)
     {
-        return helper::randomElement(start, end);
+        return helper::randomElement(range);
     }
 
     size_t length_64 = *length;
+    auto start = range.begin();
+    auto end = range.end();
+
     auto lower_it = ::std::lower_bound(start, end, length_64,
                                        [](const auto& lhs, const auto& value) { return lhs.size() < value; });
 
     if (lower_it == end)
     {
-        return helper::randomElement(start, end);
+        return helper::randomElement(range);
     }
 
     if (lower_it->size() != length)
@@ -177,6 +179,6 @@ auto sortedSizeRandomElement(std::optional<unsigned int> length, It start, It en
         }
     }
 
-    return helper::randomElement(lower_it, upper_it);
+    return helper::randomElement(std::ranges::subrange(lower_it, upper_it));
 }
 }

@@ -267,6 +267,6 @@ std::string cron(const CronOptions& options)
                                                        "@reboot",   "@weekly", "@yearly"};
 
     return (!includeNonStandard || datatype::boolean(0)) ? standardExpression :
-                                                           helper::randomElement<std::string>(nonStandardExpressions);
+                                                           helper::randomElement(nonStandardExpressions);
 }
 }
