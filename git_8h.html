@@ -102,6 +102,7 @@ $(function(){initNavTree('git_8h.html',''); initResizable(true); });
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#namespaces">Namespaces</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">git.h File Reference</div></div>
 </div><!--header-->
@@ -151,11 +152,18 @@ Namespaces</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html">faker::git</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:af0da7c5c5fa0349172d07c1f103cbf9a" id="r_af0da7c5c5fa0349172d07c1f103cbf9a"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9a">faker::git::BranchIssueNum</a> { <a class="el" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9aab162deffe9bd54c097c31fa349290397">faker::git::WithoutIssueNumber</a>
+, <a class="el" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9aa69b2d00d9e6a206240d1e577693b3830">faker::git::WithIssueNumber</a>
+ }</td></tr>
+<tr class="separator:af0da7c5c5fa0349172d07c1f103cbf9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a9057763074d9ca99cb23aa4696766893" id="r_a9057763074d9ca99cb23aa4696766893"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#a9057763074d9ca99cb23aa4696766893">faker::git::branch</a> (unsigned maxIssueNum=100)</td></tr>
-<tr class="memdesc:a9057763074d9ca99cb23aa4696766893"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random branch name.  <br /></td></tr>
-<tr class="separator:a9057763074d9ca99cb23aa4696766893"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa20a779d8d85590d75a8cdddf217535d" id="r_aa20a779d8d85590d75a8cdddf217535d"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#aa20a779d8d85590d75a8cdddf217535d">faker::git::branch</a> (std::optional&lt; <a class="el" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9a">BranchIssueNum</a> &gt; issueNum=std::nullopt, unsigned maxIssueNum=100)</td></tr>
+<tr class="memdesc:aa20a779d8d85590d75a8cdddf217535d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random branch name.  <br /></td></tr>
+<tr class="separator:aa20a779d8d85590d75a8cdddf217535d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa2e2ae5d68f8df30fbc31156c54f9778" id="r_aa2e2ae5d68f8df30fbc31156c54f9778"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1git.html#aa2e2ae5d68f8df30fbc31156c54f9778">faker::git::commitDate</a> (unsigned years=15)</td></tr>
 <tr class="memdesc:aa2e2ae5d68f8df30fbc31156c54f9778"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random date in form of string.  <br /></td></tr>
 <tr class="separator:aa2e2ae5d68f8df30fbc31156c54f9778"><td class="memSeparator" colspan="2">&#160;</td></tr>

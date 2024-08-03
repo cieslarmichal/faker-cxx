@@ -12,7 +12,9 @@ var searchData=
   ['westernsahara_9',['WesternSahara',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa301ccfdd9382e3e970e2fae7b16e606d',1,'faker::phone']]],
   ['westernzodiac_10',['westernZodiac',['../namespacefaker_1_1person.html#a8a744df8b8f7dc01d21047350493be3c',1,'faker::person']]],
   ['widebody_11',['Widebody',['../namespacefaker_1_1airline.html#aa0f30eb26e69720c80bc6ec9184247b7a1023529b16fb0241300737d43d83dd43',1,'faker::airline']]],
-  ['word_12',['word',['../namespacefaker_1_1lorem.html#acfe2ea3b024c37b6ab92571404cd6ce4',1,'faker::lorem']]],
-  ['word_2eh_13',['word.h',['../word_8h.html',1,'']]],
-  ['words_14',['words',['../namespacefaker_1_1lorem.html#ac8ac32eec75e6335ffdd9e7ba42c88e8',1,'faker::lorem::words()'],['../namespacefaker_1_1word.html#a3300afd6043c0f11af23e3bd0b9f1782',1,'faker::word::words()']]]
+  ['withissuenumber_12',['WithIssueNumber',['../namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9aa69b2d00d9e6a206240d1e577693b3830',1,'faker::git']]],
+  ['withoutissuenumber_13',['WithoutIssueNumber',['../namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9aab162deffe9bd54c097c31fa349290397',1,'faker::git']]],
+  ['word_14',['word',['../namespacefaker_1_1lorem.html#acfe2ea3b024c37b6ab92571404cd6ce4',1,'faker::lorem']]],
+  ['word_2eh_15',['word.h',['../word_8h.html',1,'']]],
+  ['words_16',['words',['../namespacefaker_1_1lorem.html#ac8ac32eec75e6335ffdd9e7ba42c88e8',1,'faker::lorem::words()'],['../namespacefaker_1_1word.html#a3300afd6043c0f11af23e3bd0b9f1782',1,'faker::word::words()']]]
 ];

@@ -248,6 +248,6 @@ var NAVTREEINDEX0 =
 "functions_func.html":[1,2,1],
 "functions_vars.html":[1,2,2],
 "git_8h.html":[2,0,0,0,14],
-"git_8h.html#a309bf5a4ba8173045c751f3509494f94":[2,0,0,0,14,4],
-"git_8h.html#a436a7fdcdcca81c208bbca7da97af168":[2,0,0,0,14,5]
+"git_8h.html#a309bf5a4ba8173045c751f3509494f94":[2,0,0,0,14,5],
+"git_8h.html#a436a7fdcdcca81c208bbca7da97af168":[2,0,0,0,14,6]
 };
