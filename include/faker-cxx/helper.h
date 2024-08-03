@@ -2,6 +2,7 @@
 
 #include <initializer_list>
 #include <numeric>
+#include <random>
 #include <span>
 #include <vector>
 
@@ -49,78 +50,6 @@ T randomElement(const std::array<T, N>& data)
     return data[index];
 }
 
-template <std::random_access_iterator It>
-auto randomElement(It start, It end)
-{
-    if (start == end)
-    {
-        throw std::invalid_argument{"Range [start, end) is empty."};
-    }
-
-    auto size = end - start;
-    const auto index = number::integer(size - 1);
-
-    return start[index];
-}
-
-template <std::forward_iterator It>
-auto& randomElement(It start, It end)
-{
-    if (start == end)
-    {
-        throw std::invalid_argument{"Range [start, end) is empty."};
-    }
-
-    std::random_device rd;
-    std::mt19937 gen(rd());
-
-    std::reference_wrapper<typename std::iterator_traits<It>::value_type> result = *start;
-    ++start;
-    size_t count = 1;
-
-    while (start != end)
-    {
-        std::uniform_int_distribution<size_t> distrib(0, count);
-        if (distrib(gen) == 0)
-        {
-            result = *start;
-        }
-        ++start;
-        ++count;
-    }
-
-    return result.get();
-}
-
-template <std::input_iterator It>
-auto randomElement(It start, It end)
-{
-    if (start == end)
-    {
-        throw std::invalid_argument{"Range [start, end) is empty."};
-    }
-
-    std::random_device rd;
-    std::mt19937 gen(rd());
-
-    auto result = std::move(*start);
-    ++start;
-    size_t count = 1;
-
-    while (start != end)
-    {
-        std::uniform_int_distribution<size_t> distrib(0, count);
-        if (distrib(gen) == 0)
-        {
-            result = std::move(*start);
-        }
-        ++start;
-        ++count;
-    }
-
-    return result;
-}
-
 /**
  * @brief Get a random element from a vector.
  *
@@ -147,11 +76,69 @@ T randomElement(const std::vector<T>& data)
     return data[index];
 }
 
+template <typename T>
+concept input_range_with_faster_size_compute_than_linear_rng =
+    std::ranges::input_range<T> && (std::ranges::input_range<T> || std::ranges::sized_range<T>);
+
+template <input_range_with_faster_size_compute_than_linear_rng Range>
+decltype(auto) randomElement(Range&& range)
+{
+    if (std::ranges::empty(range))
+    {
+        throw std::invalid_argument{"Range [start, end) is empty."};
+    }
+
+    auto size = std::ranges::distance(range);
+    const auto index = number::integer<size_t>(size);
+
+    return (*std::ranges::next(range.begin(), range.end()));
+}
+
+template <std::ranges::input_range Range>
+auto randomElement(Range&& range)
+{
+    auto const end = range.end();
+    auto const itr = range.start();
+
+    if (itr == end)
+    {
+        throw std::invalid_argument{"Range [start, end) is empty."};
+    }
+
+    std::random_device rd;
+    std::mt19937 gen(rd());
+
+    using RangeValue = std::ranges::range_value_t<decltype(range)>;
+    auto consume_itr = [&itr]() -> decltype(auto)
+    {
+        using reference_type = std::ranges::range_reference_t<decltype(range)>;
+        if constexpr (std::is_reference_v<reference_type>)
+            return std::move(*itr);
+        else
+            return *itr;
+    };
+
+    RangeValue result = consume_itr();
+    ++itr;
+    size_t count = 1;
+
+    for (; itr != end; ++itr, ++count)
+    {
+        std::uniform_int_distribution<size_t> distrib(0, count);
+        if (distrib(gen) == 0)
+        {
+            result = consume_itr();
+        }
+    }
+
+    return result;
+}
+
 /**
  * @brief Get a random element from an initializer list.
  *
  * @tparam T an element type of the initializer list.
- *
+    while (start != end) {
  * @param data initializer list of elements.
  *
  * @return T a random element from the initializer list.
