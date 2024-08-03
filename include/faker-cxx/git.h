@@ -14,6 +14,8 @@ struct FAKER_CXX_EXPORT Author
     std::string email;
 };
 
+enum class BranchIssueNum;
+
 /**
  * @brief Returns a random branch name.
  *
@@ -24,7 +26,8 @@ struct FAKER_CXX_EXPORT Author
  * faker::git::branch() // "capitalize-bus"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string branch(unsigned maxIssueNum = 100);
+FAKER_CXX_EXPORT std::string branch(std::optional<BranchIssueNum> issueNum = std::nullopt, 
+                    unsigned maxIssueNum = 100);
 
 /**
  * @brief Generates a random date in form of string.
@@ -81,4 +84,10 @@ FAKER_CXX_EXPORT std::string commitMessage();
  * @endcode
  */
 FAKER_CXX_EXPORT std::string commitSha(unsigned length = 40);
+
+enum class BranchIssueNum {
+    WithoutIssueNumber,
+    WithIssueNumber,
+};
+
 }

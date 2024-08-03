@@ -1,6 +1,7 @@
 #include "faker-cxx/git.h"
 
 #include <regex>
+#include <algorithm>
 #include <string>
 #include <vector>
 
@@ -8,6 +9,7 @@
 
 #include "common/string_helper.h"
 #include "faker-cxx/number.h"
+#include "word_data.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -47,7 +49,7 @@ TEST_F(GitTest, shouldGenerateBranch)
     ASSERT_TRUE(2 <= branchSplit && branchSplit <= 7);
 }
 
-TEST_F(GitTest, branchIssueNumTest)
+TEST_F(GitTest, branchWithIssueNumTest)
 {
     auto testValue = unsigned(number::integer(2, 100));
 
@@ -59,7 +61,7 @@ TEST_F(GitTest, branchIssueNumTest)
 
     while (!numberAtFront)
     {
-        branchElements = common::split(branch(testValue), "-");
+        branchElements = common::split(branch(BranchIssueNum::WithIssueNumber, testValue), "-");
 
         try
         {
@@ -73,6 +75,26 @@ TEST_F(GitTest, branchIssueNumTest)
     }
 
     ASSERT_TRUE(1 <= number && number <= int(testValue));
+}
+
+TEST_F(GitTest, branchWithoutIssueNumTest)
+{
+    auto testValue = unsigned(number::integer(2, 100));
+
+    std::vector<std::string> branchElements;
+
+    branchElements = common::split(branch(BranchIssueNum::WithoutIssueNumber, testValue), "-");
+
+    const auto& generatedVerb = branchElements[0];
+    const auto& generatedNoun = branchElements[1];
+
+    ASSERT_TRUE(
+        std::ranges::any_of(word::verbs, [generatedVerb](const std::string_view& word) 
+                            { return word == generatedVerb; }));
+
+    ASSERT_TRUE(
+        std::ranges::any_of(word::nouns, [generatedNoun](const std::string_view& word) 
+                            { return word == generatedNoun; })); 
 }
 
 TEST_F(GitTest, shouldGenerateCommitDate)
