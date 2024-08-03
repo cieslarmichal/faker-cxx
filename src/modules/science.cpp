@@ -20,7 +20,7 @@ Unit unit()
     units.insert(units.end(), currentUnits.begin(), currentUnits.end());
     units.insert(units.end(), temperatureUnits.begin(), temperatureUnits.end());
 
-    return helper::randomElement<Unit>(units);
+    return helper::randomElement(units);
 }
 
 Unit distanceUnit()

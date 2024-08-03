@@ -1,74 +1,48 @@
 #pragma once
 
-#include <initializer_list>
 #include <numeric>
-#include <span>
+#include <random>
 #include <vector>
-#include <iostream>
 
 #include "number.h"
 
 namespace faker::helper
 {
-/**
- * @brief Get a random element from an STL container.
- *
- * @tparam T an element type of the container.
- *
- * @param data The container.
- *
- * @return T a random element from the container.
- *
- * @code
- * faker::helper::randomElement<char>(std::string{"abcd"}) // "b"
- * faker::helper::randomElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
- * @endcode
- */
-template <class T>
-T randomElement(std::span<const T> data)
+
+template <typename T>
+concept input_range_with_faster_size_compute_than_linear_rng =
+    std::ranges::input_range<T>            // must still be an input range no matter what, but additionally
+    && (std::ranges::sized_range<T>        // either knows its size in constant time, or
+        || std::ranges::forward_range<T>); // can multipass to compute the size
+
+template <input_range_with_faster_size_compute_than_linear_rng Range>
+decltype(auto) randomElement(Range&& range)
 {
-    if (data.empty())
-    {
-        throw std::invalid_argument{"Data is empty."};
-    }
-
-    const auto index = number::integer<size_t>(data.size() - 1);
-
-    return data[index];
-}
-
-template <typename T, std::size_t N>
-T randomElement(const std::array<T, N>& data)
-{
-    if (data.empty())
-    {
-        throw std::invalid_argument{"Data is empty."};
-    }
-
-    const auto index = number::integer<size_t>(data.size() - 1);
-
-    return data[index];
-}
-
-template <std::random_access_iterator It>
-auto randomElement(It start, It end)
-{
-    if (start == end)
+    if (std::ranges::empty(range))
     {
         throw std::invalid_argument{"Range [start, end) is empty."};
     }
 
-    auto size = end - start;
+    auto size = std::ranges::distance(range);
+
     const auto index = number::integer(size - 1);
 
-    return start[index];
+    return (*std::ranges::next(range.begin(), index));
 }
 
-
-template <std::forward_iterator It>
-auto& randomElement(It start, It end)
+template <std::ranges::input_range Range>
+auto randomElement(Range&& range)
 {
-    if (start == end)
+    auto const end = range.end();
+    auto itr = range.begin();
+
+    // Note: std::ranges::empty in general may need to grab begin/end
+    // then drop the iterator/sentinel, which can invalidate being, so
+    // it's not always usable with input_range's that aren't forward_range's
+    // we're going to "consume" the iterators ourselves so we can manually
+    // emptiness check by taking the iterator/sentinel pair and not dropping
+    // them
+    if (itr == end)
     {
         throw std::invalid_argument{"Range [start, end) is empty."};
     }
@@ -76,99 +50,30 @@ auto& randomElement(It start, It end)
     std::random_device rd;
     std::mt19937 gen(rd());
 
-    std::reference_wrapper<typename std::iterator_traits<It>::value_type> result = *start;
-    ++start;
-    size_t count = 1;
-
-    while (start != end) {
-        std::uniform_int_distribution<size_t> distrib(0, count - 1);
-        if (distrib(gen) == 0) {
-            result = *start;
-        }
-        ++start;
-        ++count;
-    }
-
-    return result.get();
-}
-
-template <std::input_iterator It>
-auto randomElement(It start, It end)
-{
-    if (start == end)
+    using RangeValue = std::ranges::range_value_t<decltype(range)>;
+    auto consume_itr = [&itr]() -> decltype(auto)
     {
-        throw std::invalid_argument{"Range [start, end) is empty."};
-    }
+        using reference_type = std::ranges::range_reference_t<decltype(range)>;
+        if constexpr (std::is_reference_v<reference_type>)
+            return std::move(*itr);
+        else
+            return *itr;
+    };
 
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    RangeValue result = consume_itr();
+    ++itr;
+    std::size_t count = 1;
 
-    auto result = std::move(*start);
-    ++start;
-    size_t count = 1;
-
-    while (start != end) {
+    for (; itr != end; ++itr, ++count)
+    {
         std::uniform_int_distribution<size_t> distrib(0, count);
-        if (distrib(gen) == 0) {
-            result = std::move(*start);
+        if (distrib(gen) == 0)
+        {
+            result = consume_itr();
         }
-        ++start;
-        ++count;
     }
 
     return result;
-}
-
-/**
- * @brief Get a random element from a vector.
- *
- * @tparam T an element type of the vector.
- *
- * @param data vector of elements.
- *
- * @return T a random element from the vector.
- *
- * @code
- * faker::helper::randomElement<std::string>(std::vector<std::string>{{"hello"}, {"world"}}) // "hello"
- * @endcode
- */
-template <class T>
-T randomElement(const std::vector<T>& data)
-{
-    if (data.empty())
-    {
-        throw std::invalid_argument{"Data is empty."};
-    }
-
-    const auto index = number::integer<size_t>(data.size() - 1);
-
-    return data[index];
-}
-
-/**
- * @brief Get a random element from an initializer list.
- *
- * @tparam T an element type of the initializer list.
- *
- * @param data initializer list of elements.
- *
- * @return T a random element from the initializer list.
- *
- * @code
- * faker::helper::randomElement<std::string>(std::initializer_list<std::string>{{"hello"}, {"world"}}) // "hello"
- * @endcode
- */
-template <class T>
-T randomElement(const std::initializer_list<T>& data)
-{
-    if (data.size() == 0)
-    {
-        throw std::invalid_argument{"Data is empty."};
-    }
-
-    const auto index = number::integer<size_t>(data.size() - 1);
-
-    return *(data.begin() + index);
 }
 
 /**

@@ -2,11 +2,11 @@
 
 #include <algorithm>
 #include <functional>
+#include <iterator>
 #include <random>
 #include <set>
 #include <stdexcept>
 #include <string>
-#include <iterator>
 
 #include "faker-cxx/datatype.h"
 #include "faker-cxx/export.h"
@@ -44,9 +44,10 @@ static T::key_type objectKey(const T& object)
     std::vector<typename T::key_type> keys;
     keys.reserve(object.size());
 
-    std::transform(object.begin(), object.end(), std::back_inserter(keys), [](const auto& entry) { return entry.first; });
+    std::transform(object.begin(), object.end(), std::back_inserter(keys),
+                   [](const auto& entry) { return entry.first; });
 
-    return randomElement<typename T::key_type>(keys);
+    return randomElement(keys);
 }
 
 template <typename TResult>
