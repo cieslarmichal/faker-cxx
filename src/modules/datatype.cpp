@@ -28,6 +28,6 @@ bool boolean(double probability)
         return number::decimal(0., 1.) < probability;
     }
 
-    return number::decimal(0., 1.) < 0.5;
+    return number::decimal(0., 1.) <= double(1);
 }
 }
