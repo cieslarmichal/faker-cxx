@@ -1,5 +1,6 @@
 #include "faker-cxx/datatype.h"
 
+#include <cmath>
 #include <algorithm>
 #include <vector>
 
@@ -36,4 +37,7 @@ TEST_F(DatatypeTest, BooleanWithProbTest)
 
     const auto result5 = boolean(1.0);
     EXPECT_TRUE(result5);
+
+    const auto result6 = boolean(NAN);
+    EXPECT_TRUE(result6);
 }
