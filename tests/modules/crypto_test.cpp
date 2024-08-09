@@ -40,6 +40,34 @@ TEST_F(CryptoTest, ChecksSHA256Hash)
     ASSERT_TRUE(isSHA256Hash(generatedRandomHash));
 }
 
+TEST_F(CryptoTest, ShouldGenerateSHA256HashWithData)
+{
+    const auto generatedRandomHash = sha256("SHA256 TEST");
+
+    ASSERT_EQ(generatedRandomHash.length(), 64);
+}
+
+TEST_F(CryptoTest, ChecksSHA256HashWithData)
+{
+    const auto generatedRandomHash = sha256("SHA256 TEST");
+
+    ASSERT_TRUE(isSHA256Hash(generatedRandomHash));
+}
+
+TEST_F(CryptoTest, ShouldGenerateSHA256HashWithLongData)
+{
+    const auto generatedRandomHash = sha256("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde978");
+
+    ASSERT_EQ(generatedRandomHash.length(), 64);
+}
+
+TEST_F(CryptoTest, ChecksSHA256HashWithLongData)
+{
+    const auto generatedRandomHash = sha256("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde978");
+
+    ASSERT_TRUE(isSHA256Hash(generatedRandomHash));
+}
+
 TEST_F(CryptoTest, ShouldGenerateMD5Hash)
 {
     const auto generatedRandomHash = md5();
@@ -50,6 +78,20 @@ TEST_F(CryptoTest, ShouldGenerateMD5Hash)
 TEST_F(CryptoTest, ChecksMD5Regex)
 {
     const auto generatedRandomHash = md5();
+
+    ASSERT_TRUE(isMD5Hash(generatedRandomHash));
+}
+
+TEST_F(CryptoTest, ShouldGenerateMD5HashWithData)
+{
+    const auto generatedRandomHash = md5("MD5 TEST");
+
+    ASSERT_EQ(generatedRandomHash.length(), 32);
+}
+
+TEST_F(CryptoTest, ChecksMD5RegexWithData)
+{
+    const auto generatedRandomHash = md5("MD5 TEST");
 
     ASSERT_TRUE(isMD5Hash(generatedRandomHash));
 }
