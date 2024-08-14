@@ -302,7 +302,7 @@ TEST_F(DateTest, shouldGenerateRandomMinute)
 
 TEST_F(DateTest, shouldGenerateRandomSecond)
 {
-    const auto generatedSecond = minute();
+    const auto generatedSecond = second();
 
     ASSERT_LE(generatedSecond, 59u);
     ASSERT_GE(generatedSecond, 0u);
