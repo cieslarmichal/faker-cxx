@@ -11,6 +11,9 @@ namespace faker::date
         Timestamp,
     };
 
+    std::string serializeTimePoint(const auto& timePoint, DateFormat dateFormat);
+    std::string betweenDate(const auto& from, const auto& to, DateFormat dateFormat);
+
     /**
      * @brief Generates a random date in the past.
      *

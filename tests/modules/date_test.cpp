@@ -13,6 +13,7 @@
 #include "gtest/gtest.h"
 
 #include "common/string_helper.h"
+#include "common/format_helper.h"
 #include "date_data.h"
 
 #ifdef _WIN32
@@ -51,6 +52,30 @@ public:
         return tm;
     }
 };
+
+
+
+TEST_F(DateTest, shouldThrowRuntimeError)
+{
+    const auto startDate = std::chrono::system_clock::now() + std::chrono::hours{1};
+
+    const auto endDate = startDate + std::chrono::hours{24 * 365 * 2};
+
+    bool caughtRuntimeError = false;
+
+    try { 
+        betweenDate(endDate, startDate, DateFormat::ISO);
+    }
+    catch (const std::runtime_error& err) {
+        ASSERT_EQ( common::format("Start date is greater than end date. {{from: {}, to: {}}}",
+                                    serializeTimePoint(endDate, DateFormat::ISO),
+                                    serializeTimePoint(startDate, DateFormat::ISO)), 
+                                    err.what());
+        caughtRuntimeError = true;
+    }
+    ASSERT_TRUE(caughtRuntimeError);
+}
+
 
 TEST_F(DateTest, shouldGeneratePastDateISO)
 {
