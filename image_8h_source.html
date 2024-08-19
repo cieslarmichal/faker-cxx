@@ -106,35 +106,36 @@ $(function(){initNavTree('image_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;faker-cxx/export.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker::image</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <span class="keyword">enum class</span> ImageCategory</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>    {</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>        Animals,</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>        Business,</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>        Cats,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>        City,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>        <a class="code hl_enumvalue" href="namespacefaker_1_1internet.html#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">Food</a>,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>        Nightlife,</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        Fashion,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>        People,</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>        <a class="code hl_enumvalue" href="namespacefaker_1_1internet.html#ab1fd12c6089e1eb7e783223be1b73ac1ad212ce7fdc2357d19628334b5a2a2b2f">Nature</a>,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        Sports,</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        Technics,</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>        Transport</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    };</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    FAKER_CXX_EXPORT std::string imageUrl(<span class="keywordtype">unsigned</span> width = 640, <span class="keywordtype">unsigned</span> height = 480,</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>                                std::optional&lt;ImageCategory&gt; category = std::nullopt);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>    FAKER_CXX_EXPORT std::string githubAvatarUrl();</div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    FAKER_CXX_EXPORT std::string dimensions();</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span>    FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1animal.html#af243dbc79d1b5d6b5a0d4cd629e23800">type</a>();</div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>}</div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;faker-cxx/export.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="keyword">namespace </span>faker::image</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">enum class</span> ImageCategory</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>    Animals,</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    Business,</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    Cats,</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    City,</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <a class="code hl_enumvalue" href="namespacefaker_1_1internet.html#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">Food</a>,</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    Nightlife,</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    Fashion,</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    People,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="namespacefaker_1_1internet.html#ab1fd12c6089e1eb7e783223be1b73ac1ad212ce7fdc2357d19628334b5a2a2b2f">Nature</a>,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    Sports,</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    Technics,</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    Transport</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>FAKER_CXX_EXPORT std::string imageUrl(<span class="keywordtype">unsigned</span> width = 640, <span class="keywordtype">unsigned</span> height = 480,</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>                                      std::optional&lt;ImageCategory&gt; category = std::nullopt);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>FAKER_CXX_EXPORT std::string githubAvatarUrl();</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span> </div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>FAKER_CXX_EXPORT std::string dimensions();</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1animal.html#af243dbc79d1b5d6b5a0d4cd629e23800">type</a>();</div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>}</div>
 <div class="ttc" id="anamespacefaker_1_1animal_html_af243dbc79d1b5d6b5a0d4cd629e23800"><div class="ttname"><a href="namespacefaker_1_1animal.html#af243dbc79d1b5d6b5a0d4cd629e23800">faker::animal::type</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view type()</div><div class="ttdoc">Returns a random type of animal.</div></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67"><div class="ttname"><a href="namespacefaker_1_1internet.html#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">faker::internet::EmojiType::Food</a></div><div class="ttdeci">@ Food</div></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1ad212ce7fdc2357d19628334b5a2a2b2f"><div class="ttname"><a href="namespacefaker_1_1internet.html#ab1fd12c6089e1eb7e783223be1b73ac1ad212ce7fdc2357d19628334b5a2a2b2f">faker::internet::EmojiType::Nature</a></div><div class="ttdeci">@ Nature</div></div>

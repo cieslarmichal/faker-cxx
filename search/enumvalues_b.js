@@ -10,7 +10,5 @@ var searchData=
   ['liechtenstein_7',['Liechtenstein',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aada4e3775bd2de6c37fadd9b0188f7a4e',1,'faker::phone']]],
   ['lithuania_8',['Lithuania',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918ad9051e0b77f8bb5521389618e70e2ada',1,'faker::finance::Lithuania'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aad9051e0b77f8bb5521389618e70e2ada',1,'faker::phone::Lithuania']]],
   ['lower_9',['Lower',['../namespacefaker_1_1string.html#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93',1,'faker::string']]],
-  ['lt_5flt_10',['lt_LT',['../namespacefaker_1_1person.html#a579b6d873612f625553a5ee4952754ecaabae594fc06c34b55082f4e73f49c8fa',1,'faker::person']]],
-  ['luxembourg_11',['Luxembourg',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a06630c890abadde9228ea818ce52b621',1,'faker::finance::Luxembourg'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa06630c890abadde9228ea818ce52b621',1,'faker::phone::Luxembourg']]],
-  ['lv_5flv_12',['lv_LV',['../namespacefaker_1_1person.html#a579b6d873612f625553a5ee4952754ecaca9c64efb174b75ee501e0b5912bd441',1,'faker::person']]]
+  ['luxembourg_10',['Luxembourg',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a06630c890abadde9228ea818ce52b621',1,'faker::finance::Luxembourg'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa06630c890abadde9228ea818ce52b621',1,'faker::phone::Luxembourg']]]
 ];
