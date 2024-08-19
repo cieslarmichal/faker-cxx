@@ -1,9 +1,9 @@
-#include "faker-cxx/crypto.h"
-
 #include <regex>
 #include <string>
 
 #include "gtest/gtest.h"
+
+#include "faker-cxx/crypto.h"
 
 using namespace ::testing;
 using namespace faker::crypto;

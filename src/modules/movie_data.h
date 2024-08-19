@@ -918,8 +918,7 @@ const auto directors = std::to_array<std::string_view>({
 const auto movieGenres = std::to_array<std::string_view>(
     {"Action", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Thriller", "Western"});
 
-const auto movies =
-    std::to_array<std::string_view>({
+const auto movies = std::to_array<std::string_view>({
     "12 Angry Men",
     "2001: A Space Odyssey",
     "8½",

@@ -1,5 +1,3 @@
-#include "faker-cxx/system.h"
-
 #include <algorithm>
 #include <optional>
 #include <regex>
@@ -10,6 +8,7 @@
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/system.h"
 #include "system_data.h"
 
 using namespace ::testing;

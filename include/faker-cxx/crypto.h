@@ -2,6 +2,7 @@
 
 #include <optional>
 #include <string>
+
 #include "faker-cxx/export.h"
 
 namespace faker::crypto

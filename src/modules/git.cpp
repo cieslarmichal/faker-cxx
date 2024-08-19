@@ -26,16 +26,16 @@ std::string branch(std::optional<BranchIssueNum> issueNum, unsigned maxIssueNum)
     switch (issue)
     {
     case BranchIssueNum::WithoutIssueNumber:
-        generatedBranch =  common::format("{}-{}", word::verb(), word::noun());
+        generatedBranch = common::format("{}-{}", word::verb(), word::noun());
         break;
     case BranchIssueNum::WithIssueNumber:
-    //     return common::format("{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(), word::noun());
-    // default:
-        generatedBranch =  common::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(), word::adjective(),
-                              word::noun());
+        //     return common::format("{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(), word::noun());
+        // default:
+        generatedBranch = common::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(),
+                                         word::adjective(), word::noun());
         break;
     }
-    
+
     return generatedBranch;
 }
 

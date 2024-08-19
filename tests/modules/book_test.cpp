@@ -1,11 +1,10 @@
-#include "faker-cxx/book.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
 #include "book_data.h"
+#include "faker-cxx/book.h"
 
 using namespace ::testing;
 using namespace faker::book;

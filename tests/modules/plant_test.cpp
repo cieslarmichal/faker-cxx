@@ -1,10 +1,9 @@
-#include "faker-cxx/plant.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/plant.h"
 #include "plant_data.h"
 
 using namespace ::testing;

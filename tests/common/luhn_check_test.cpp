@@ -1,8 +1,8 @@
-#include "luhn_check.h"
-
 #include <string>
 
 #include "gtest/gtest.h"
+
+#include "luhn_check.h"
 
 using namespace faker;
 using namespace faker::common;

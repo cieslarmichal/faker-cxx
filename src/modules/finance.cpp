@@ -128,8 +128,7 @@ std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
             static_cast<std::string>(helper::randomElement(masterCardCreditCardFormats)));
     case CreditCardType::Visa:
         return helper::replaceCreditCardSymbols(static_cast<std::string>(helper::randomElement(visaCreditCardFormats)));
-    default:
-        ;
+    default:;
     }
 
     return "";

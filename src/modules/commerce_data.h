@@ -18,8 +18,18 @@ const auto productAdjectives = std::to_array<std::string_view>({
 });
 
 const auto productMaterials = std::to_array<std::string_view>({
-    "Steel",   "Bronze", "Wooden", "Concrete", "Plastic", "Cotton",
-    "Granite", "Rubber", "Metal",  "Soft",     "Fresh",   "Frozen",
+    "Steel",
+    "Bronze",
+    "Wooden",
+    "Concrete",
+    "Plastic",
+    "Cotton",
+    "Granite",
+    "Rubber",
+    "Metal",
+    "Soft",
+    "Fresh",
+    "Frozen",
 });
 
 const auto productNames = std::to_array<std::string_view>({
@@ -29,11 +39,21 @@ const auto productNames = std::to_array<std::string_view>({
 });
 
 const auto paymentTypes = std::to_array<std::string_view>({
-    "Credit Card", "Debit Card", "Cash", "Bank Transfer", "Check",
+    "Credit Card",
+    "Debit Card",
+    "Cash",
+    "Bank Transfer",
+    "Check",
 });
 
 const auto paymentProviders = std::to_array<std::string_view>({
-    "Stripe", "Paypal", "Square", "Helcim", "Merchant One", "Flagship Merchant Services", "Stax",
+    "Stripe",
+    "Paypal",
+    "Square",
+    "Helcim",
+    "Merchant One",
+    "Flagship Merchant Services",
+    "Stax",
 });
 
 const auto productDescriptions = std::to_array<std::string_view>({
@@ -117,11 +137,25 @@ const auto discountTypes = std::to_array<std::string_view>({
 });
 
 const auto shippingCarriers = std::to_array<std::string_view>({
-    "UPS", "FedEx", "USPS", "DHL", "Canada Post", "Royal Mail", "Australia Post", "Correos", "Deutsche Post",
+    "UPS",
+    "FedEx",
+    "USPS",
+    "DHL",
+    "Canada Post",
+    "Royal Mail",
+    "Australia Post",
+    "Correos",
+    "Deutsche Post",
 });
 
 const auto orderStatuses = std::to_array<std::string_view>({
-    "In Transit", "Out for Delivery", "Delivered", "Failed Attempt", "Exception", "Pending", "Expired",
+    "In Transit",
+    "Out for Delivery",
+    "Delivered",
+    "Failed Attempt",
+    "Exception",
+    "Pending",
+    "Expired",
 });
 
 }

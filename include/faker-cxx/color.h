@@ -2,8 +2,8 @@
 
 #include <string>
 
-#include "types/hex.h"
 #include "faker-cxx/export.h"
+#include "types/hex.h"
 
 namespace faker::color
 {
@@ -46,7 +46,8 @@ FAKER_CXX_EXPORT std::string rgb(bool includeAlpha = false);
  * faker::color::hex(HexCasing::Upper, HexPrefix::ZeroX, true) // "0xE3F3801A"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash, bool includeAlpha = false);
+FAKER_CXX_EXPORT std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash,
+                                 bool includeAlpha = false);
 
 /**
  * @brief Returns an HSL color.

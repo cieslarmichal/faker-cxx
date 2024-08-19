@@ -1,5 +1,3 @@
-#include "faker-cxx/person.h"
-
 #include <algorithm>
 #include <cctype>
 #include <regex>
@@ -11,6 +9,7 @@
 #include "gtest/gtest.h"
 
 #include "faker-cxx/internet.h"
+#include "faker-cxx/person.h"
 #include "faker-cxx/types/country.h"
 #include "person_data.h"
 #include "string_helper.h"

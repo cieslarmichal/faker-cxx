@@ -4,8 +4,8 @@
 #include <string_view>
 #include <unordered_map>
 
-#include "common/format_helper.h"
 #include "common/algo_helper.h"
+#include "common/format_helper.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/person.h"

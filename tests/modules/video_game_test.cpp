@@ -1,10 +1,9 @@
-#include "faker-cxx/video_game.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/video_game.h"
 #include "video_game_data.h"
 
 using namespace ::testing;

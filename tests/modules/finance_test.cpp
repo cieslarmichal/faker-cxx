@@ -1,5 +1,3 @@
-#include "faker-cxx/finance.h"
-
 #include <algorithm>
 #include <ranges>
 #include <regex>
@@ -11,6 +9,7 @@
 
 #include "common/luhn_check.h"
 #include "common/string_helper.h"
+#include "faker-cxx/finance.h"
 #include "faker-cxx/types/precision.h"
 #include "finance_data.h"
 #include "gmock/gmock.h"

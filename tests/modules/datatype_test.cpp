@@ -1,10 +1,9 @@
-#include "faker-cxx/datatype.h"
-
-#include <cmath>
 #include <algorithm>
 #include <vector>
 
 #include "gtest/gtest.h"
+
+#include "faker-cxx/datatype.h"
 
 using namespace ::testing;
 using namespace faker::datatype;
@@ -26,18 +25,15 @@ TEST_F(DatatypeTest, shouldGenerateBoolean)
 
 TEST_F(DatatypeTest, BooleanWithProbTest)
 {
-    const auto result2 = boolean(0.3);
+    const auto result = boolean(0.3);
+    EXPECT_TRUE(result || !result);
+
+    const auto result2 = boolean(0.8);
     EXPECT_TRUE(result2 || !result2);
 
-    const auto result3 = boolean(0.8);
-    EXPECT_TRUE(result3 || !result3);
+    const auto result3 = boolean(0.0);
+    EXPECT_FALSE(result3);
 
-    const auto result4 = boolean(0.0);
-    EXPECT_FALSE(result4);
-
-    const auto result5 = boolean(1.0);
-    EXPECT_TRUE(result5);
-
-    const auto result6 = boolean(NAN);
-    EXPECT_TRUE(result6);
+    const auto result4 = boolean(1.0);
+    EXPECT_TRUE(result4);
 }

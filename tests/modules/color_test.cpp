@@ -1,5 +1,3 @@
-#include "faker-cxx/color.h"
-
 #include <algorithm>
 #include <charconv>
 #include <string>
@@ -9,6 +7,7 @@
 
 #include "color_data.h"
 #include "common/string_helper.h"
+#include "faker-cxx/color.h"
 #include "faker-cxx/types/hex.h"
 #include "string_data.h"
 

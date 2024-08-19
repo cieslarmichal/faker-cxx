@@ -1,13 +1,12 @@
-#include "faker-cxx/git.h"
-
-#include <regex>
 #include <algorithm>
+#include <regex>
 #include <string>
 #include <vector>
 
 #include "gtest/gtest.h"
 
 #include "common/string_helper.h"
+#include "faker-cxx/git.h"
 #include "faker-cxx/number.h"
 #include "word_data.h"
 
@@ -88,13 +87,11 @@ TEST_F(GitTest, branchWithoutIssueNumTest)
     const auto& generatedVerb = branchElements[0];
     const auto& generatedNoun = branchElements[1];
 
-    ASSERT_TRUE(
-        std::ranges::any_of(word::verbs, [generatedVerb](const std::string_view& word) 
-                            { return word == generatedVerb; }));
+    ASSERT_TRUE(std::ranges::any_of(word::verbs,
+                                    [generatedVerb](const std::string_view& word) { return word == generatedVerb; }));
 
-    ASSERT_TRUE(
-        std::ranges::any_of(word::nouns, [generatedNoun](const std::string_view& word) 
-                            { return word == generatedNoun; })); 
+    ASSERT_TRUE(std::ranges::any_of(word::nouns,
+                                    [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
 }
 
 TEST_F(GitTest, shouldGenerateCommitDate)

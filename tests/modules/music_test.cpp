@@ -1,10 +1,9 @@
-#include "faker-cxx/music.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/music.h"
 #include "music_data.h"
 
 using namespace ::testing;

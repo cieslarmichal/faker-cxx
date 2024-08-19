@@ -1,8 +1,8 @@
-﻿#include "string_helper.h"
-
-#include <vector>
+﻿#include <vector>
 
 #include "gtest/gtest.h"
+
+#include "string_helper.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -110,12 +110,14 @@ TEST_F(StringHelperTest, toLower)
 TEST_F(StringHelperTest, IsPunctuation)
 {
     std::string punctuation = ".,;:!?";
+
     for (char c : punctuation)
     {
         EXPECT_TRUE(common::isPunctuation(c));
     }
 
     std::string notPunctuation = "abc123";
+
     for (char c : notPunctuation)
     {
         EXPECT_FALSE(common::isPunctuation(c));
@@ -124,7 +126,9 @@ TEST_F(StringHelperTest, IsPunctuation)
 
 TEST_F(StringHelperTest, RemovePunctuation)
 {
-    std::string input = "Hello, World!";
-    std::string result = common::removePunctuation(input);
+    const auto input = "Hello, World!";
+
+    const auto result = common::removePunctuation(input);
+
     EXPECT_EQ(result, "Hello World");
 }

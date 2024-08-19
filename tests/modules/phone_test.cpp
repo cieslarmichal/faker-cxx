@@ -1,5 +1,3 @@
-#include "faker-cxx/phone.h"
-
 #include <algorithm>
 #include <cctype>
 #include <string>
@@ -7,6 +5,7 @@
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/phone.h"
 #include "phone_data.h"
 
 using namespace ::testing;
@@ -107,5 +106,6 @@ TEST_F(PhoneTest, AreaCodeGeneration)
 {
     const auto generatedAreaCode = areaCode();
     ASSERT_TRUE(std::ranges::any_of(areaCodes.begin(), areaCodes.end(),
-                                    [generatedAreaCode](const std::string_view& code) { return code == generatedAreaCode; }));
+                                    [generatedAreaCode](const std::string_view& code)
+                                    { return code == generatedAreaCode; }));
 }

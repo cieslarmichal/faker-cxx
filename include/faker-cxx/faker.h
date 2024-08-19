@@ -1,6 +1,5 @@
 #pragma once
 
-#include "faker-cxx/export.h"
 #include "faker-cxx/airline.h"
 #include "faker-cxx/animal.h"
 #include "faker-cxx/book.h"
@@ -12,6 +11,7 @@
 #include "faker-cxx/database.h"
 #include "faker-cxx/datatype.h"
 #include "faker-cxx/date.h"
+#include "faker-cxx/export.h"
 #include "faker-cxx/finance.h"
 #include "faker-cxx/food.h"
 #include "faker-cxx/git.h"

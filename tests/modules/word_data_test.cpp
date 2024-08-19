@@ -1,7 +1,8 @@
-#include "gtest/gtest.h"
 #include <algorithm>
 #include <iterator>
 #include <vector>
+
+#include "gtest/gtest.h"
 
 #include "word_data.h"
 

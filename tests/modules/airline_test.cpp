@@ -1,5 +1,3 @@
-#include "faker-cxx/airline.h"
-
 #include <algorithm>
 #include <cctype>
 #include <string>
@@ -8,6 +6,7 @@
 #include "gtest/gtest.h"
 
 #include "airline_data.h"
+#include "faker-cxx/airline.h"
 
 using namespace ::testing;
 using namespace faker::airline;

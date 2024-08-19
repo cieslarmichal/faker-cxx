@@ -1,10 +1,9 @@
-#include "faker-cxx/weather.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/weather.h"
 #include "weather_data.h"
 
 using namespace ::testing;

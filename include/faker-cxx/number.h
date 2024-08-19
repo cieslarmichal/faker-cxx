@@ -90,26 +90,26 @@ F decimal(F min, F max)
     return distribution(pseudoRandomGenerator);
 }
 
-    /**
-     * @brief Generates a random decimal number between 0 and the given maximum value, bounds included.
-     *
-     * @tparam F The type of the generated number, must be a floating point type (float, double, long double).
-     * @param max The maximum value of the range.
-     *
-     * @throws std::invalid_argument if max is less than 0.
-     *
-     * @see decimal<F>(F)
-     *
-     * @return F, a random decimal number.
-     *
-     * @code
-     * faker::number::decimal(20.5) // 17.2
-     * @encode
-     */
-    template <std::floating_point F>
-    F decimal(F max)
-    {
-        return decimal<F>(static_cast<F>(0.), max);
-    }
+/**
+ * @brief Generates a random decimal number between 0 and the given maximum value, bounds included.
+ *
+ * @tparam F The type of the generated number, must be a floating point type (float, double, long double).
+ * @param max The maximum value of the range.
+ *
+ * @throws std::invalid_argument if max is less than 0.
+ *
+ * @see decimal<F>(F)
+ *
+ * @return F, a random decimal number.
+ *
+ * @code
+ * faker::number::decimal(20.5) // 17.2
+ * @encode
+ */
+template <std::floating_point F>
+F decimal(F max)
+{
+    return decimal<F>(static_cast<F>(0.), max);
+}
 
 }

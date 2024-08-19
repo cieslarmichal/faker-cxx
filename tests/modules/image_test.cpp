@@ -1,5 +1,3 @@
-#include "faker-cxx/image.h"
-
 #include <algorithm>
 #include <array>
 #include <string>
@@ -8,6 +6,7 @@
 #include "gtest/gtest.h"
 
 #include "common/string_helper.h"
+#include "faker-cxx/image.h"
 
 using namespace ::testing;
 using namespace faker;

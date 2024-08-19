@@ -83,7 +83,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${FAKER_SOURCES} ${FAKER_HEADERS})
 target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE $<IF:$<TARGET_EXISTS:fmt::fmt>,fmt::fmt,${FMT_LIBRARY}>)
 if (USE_STD_FORMAT)
     target_compile_definitions(${CMAKE_PROJECT_NAME} PRIVATE USE_STD_FORMAT)
-endif()
+endif ()
 
 target_include_directories(
     ${CMAKE_PROJECT_NAME} PUBLIC
@@ -159,7 +159,7 @@ install(DIRECTORY ${CMAKE_BINARY_DIR}/include/faker-cxx
 )
 
 install(FILES "${CMAKE_BINARY_DIR}/${CMAKE_PROJECT_NAME}.pc"
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/pkgconfig
 )
 
 install(FILES

@@ -11,9 +11,7 @@ namespace faker::helper
 
 template <typename T>
 concept input_range_with_faster_size_compute_than_linear_rng =
-    std::ranges::input_range<T>            // must still be an input range no matter what, but additionally
-    && (std::ranges::sized_range<T>        // either knows its size in constant time, or
-        || std::ranges::forward_range<T>); // can multipass to compute the size
+    std::ranges::input_range<T> && (std::ranges::sized_range<T> || std::ranges::forward_range<T>);
 
 template <input_range_with_faster_size_compute_than_linear_rng Range>
 decltype(auto) randomElement(Range&& range)
@@ -36,12 +34,6 @@ auto randomElement(Range&& range)
     auto const end = range.end();
     auto itr = range.begin();
 
-    // Note: std::ranges::empty in general may need to grab begin/end
-    // then drop the iterator/sentinel, which can invalidate being, so
-    // it's not always usable with input_range's that aren't forward_range's
-    // we're going to "consume" the iterators ourselves so we can manually
-    // emptiness check by taking the iterator/sentinel pair and not dropping
-    // them
     if (itr == end)
     {
         throw std::invalid_argument{"Range [start, end) is empty."};
@@ -55,13 +47,19 @@ auto randomElement(Range&& range)
     {
         using reference_type = std::ranges::range_reference_t<decltype(range)>;
         if constexpr (std::is_reference_v<reference_type>)
+        {
             return std::move(*itr);
+        }
         else
+        {
             return *itr;
+        }
     };
 
     RangeValue result = consume_itr();
+
     ++itr;
+
     std::size_t count = 1;
 
     for (; itr != end; ++itr, ++count)
@@ -112,16 +110,18 @@ T weightedRandomElement(const std::vector<WeightedElement<T>>& data)
 
     if (sumOfWeights == 0u)
     {
-        throw std::invalid_argument{"Sum of weights is zero."};
+        throw std::invalid_argument{"Sum of weights cannot be zero."};
     }
 
-    const std::integral auto targetWeightValue = number::integer<unsigned>(1, sumOfWeights);
+    const auto targetWeightValue = number::integer(1u, sumOfWeights);
 
-    unsigned currentSum = 0;
+    auto currentSum = 0u;
+
     for (const auto& elem : data)
     {
         currentSum += elem.weight;
-        if (currentSum >= targetWeightValue)
+
+        if (currentSum > targetWeightValue)
         {
             return elem.value;
         }
