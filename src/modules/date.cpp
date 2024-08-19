@@ -4,7 +4,6 @@
 #include <ctime>
 #include <iomanip>
 #include <sstream>
-#include <stdexcept>
 #include <string>
 #include <string_view>
 
@@ -27,7 +26,6 @@ std::string serializeTimePoint(const auto& timePoint, DateFormat dateFormat)
     {
         ss << std::chrono::duration_cast<std::chrono::seconds>(timePoint.time_since_epoch()).count();
     }
-
     else
     {
         ss << std::put_time(&utcTime, "%Y-%m-%dT%H:%M:%SZ");
@@ -38,13 +36,6 @@ std::string serializeTimePoint(const auto& timePoint, DateFormat dateFormat)
 
 std::string betweenDate(const auto& from, const auto& to, DateFormat dateFormat)
 {
-    if (from > to)
-    {
-        throw std::runtime_error{common::format("Start date is greater than end date. {{from: {}, to: {}}}",
-                                                serializeTimePoint(from, dateFormat),
-                                                serializeTimePoint(to, dateFormat))};
-    }
-
     const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();
 
     const auto randomDateWithinRange = from + std::chrono::seconds{number::integer(size - 1)};
