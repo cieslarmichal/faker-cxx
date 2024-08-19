@@ -5,8 +5,8 @@
 #include <unordered_map>
 #include <vector>
 
-#include "common/format_helper.h"
 #include "common/algo_helper.h"
+#include "common/format_helper.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/internet.h"
 #include "faker-cxx/number.h"
@@ -233,10 +233,9 @@ std::string fullName(std::optional<Country> country, std::optional<Sex> sex)
     weightedElements.reserve(peopleNames.nameFormats.size());
 
     std::transform(peopleNames.nameFormats.begin(), peopleNames.nameFormats.end(), std::back_inserter(weightedElements),
-        [](const NameFormat& nameFormat) {
-            return helper::WeightedElement<std::string_view>{nameFormat.weight, nameFormat.format};
-        }
-    );
+                   [](const NameFormat& nameFormat) {
+                       return helper::WeightedElement<std::string_view>{nameFormat.weight, nameFormat.format};
+                   });
 
     const auto nameFormat = static_cast<std::string>(helper::weightedRandomElement<std::string_view>(weightedElements));
 

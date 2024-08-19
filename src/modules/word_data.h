@@ -1,10 +1,10 @@
 #pragma once
 
-#include "word_store.h"
-
 #include <array>
 #include <functional>
 #include <string_view>
+
+#include "word_store.h"
 
 namespace faker::word
 {

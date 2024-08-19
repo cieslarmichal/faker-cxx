@@ -1,5 +1,3 @@
-#include "faker-cxx/lorem.h"
-
 #include <algorithm>
 #include <cctype>
 #include <string_view>
@@ -7,10 +5,11 @@
 #include "gtest/gtest.h"
 
 #include "common/string_helper.h"
+#include "faker-cxx/lorem.h"
 #include "lorem_data.h"
 
 using namespace ::testing;
-using namespace::faker;
+using namespace ::faker;
 using namespace faker::lorem;
 
 class LoremTest : public Test

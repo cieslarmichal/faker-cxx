@@ -1,5 +1,3 @@
-#include "faker-cxx/location.h"
-
 #include <algorithm>
 #include <string>
 #include <string_view>
@@ -9,6 +7,7 @@
 #include "gtest/gtest.h"
 
 #include "common/string_helper.h"
+#include "faker-cxx/location.h"
 #include "faker-cxx/types/precision.h"
 #include "location_data.h"
 #include "person_data.h"

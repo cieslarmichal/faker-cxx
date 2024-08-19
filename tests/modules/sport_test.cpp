@@ -1,10 +1,9 @@
-#include "faker-cxx/sport.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/sport.h"
 #include "sport_data.h"
 
 using namespace ::testing;
@@ -52,7 +51,6 @@ TEST_F(SportTest, shouldGenerateFemaleAthlete)
 {
     const auto generatedFemaleAthlete = femaleAthlete();
 
-    ASSERT_TRUE(std::ranges::any_of(femaleAthletes,
-                                    [generatedFemaleAthlete](const std::string_view& femaleAthlete)
+    ASSERT_TRUE(std::ranges::any_of(femaleAthletes, [generatedFemaleAthlete](const std::string_view& femaleAthlete)
                                     { return femaleAthlete == generatedFemaleAthlete; }));
 }

@@ -1,10 +1,9 @@
-#include "faker-cxx/movie.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/movie.h"
 #include "movie_data.h"
 
 using namespace ::testing;

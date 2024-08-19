@@ -1,5 +1,3 @@
-#include "faker-cxx/date.h"
-
 #include <algorithm>
 #include <chrono>
 #include <cstdlib>
@@ -14,6 +12,7 @@
 
 #include "common/string_helper.h"
 #include "date_data.h"
+#include "faker-cxx/date.h"
 
 #ifdef _WIN32
 #define timegm _mkgmtime

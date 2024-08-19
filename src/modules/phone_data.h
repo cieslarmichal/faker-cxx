@@ -26,19 +26,42 @@ const auto areaCodes = std::to_array<std::string_view>({
 });
 
 const auto PhonePlatforms = std::to_array<std::string_view>({
-    "Android OS", "Palm OS",       "Symbian",
-    "Tizen",      "Windows Phone", "iOS",
+    "Android OS",
+    "Palm OS",
+    "Symbian",
+    "Tizen",
+    "Windows Phone",
+    "iOS",
 });
 
 const auto PhoneModelNames = std::to_array<std::string_view>({
-    "Google Pixel 4", "Google Pixel 6",     "Huawei P50",        "Motorola Edge 20",  "OnePlus 9",
-    "Oppo Find X3",   "Samsung Galaxy S22", "Samsung Galaxy S9", "Sony Xperia 1 III", "Xiaomi Mi 11",
-    "iPhone 13",      "iPhone 13",          "iPhone 14",         "iPhone 15",         "iPhone X",
+    "Google Pixel 4",
+    "Google Pixel 6",
+    "Huawei P50",
+    "Motorola Edge 20",
+    "OnePlus 9",
+    "Oppo Find X3",
+    "Samsung Galaxy S22",
+    "Samsung Galaxy S9",
+    "Sony Xperia 1 III",
+    "Xiaomi Mi 11",
+    "iPhone 13",
+    "iPhone 13",
+    "iPhone 14",
+    "iPhone 15",
+    "iPhone X",
 });
 
 const auto PhoneManufacturers = std::to_array<std::string_view>({
-    "Apple", "Google",  "Huawei", "Motorola", "OnePlus",
-    "Oppo",  "Samsung", "Sony",   "Xiaomi",
+    "Apple",
+    "Google",
+    "Huawei",
+    "Motorola",
+    "OnePlus",
+    "Oppo",
+    "Samsung",
+    "Sony",
+    "Xiaomi",
 });
 
 const auto phoneNumbers = std::to_array<std::string_view>({

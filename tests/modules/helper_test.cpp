@@ -1,6 +1,3 @@
-#include "faker-cxx/helper.h"
-#include <common/algo_helper.h>
-
 #include <algorithm>
 #include <cctype>
 #include <regex>
@@ -11,8 +8,11 @@
 #include <unordered_map>
 #include <vector>
 
-#include "gmock/gmock.h"
 #include "gtest/gtest.h"
+
+#include "common/algo_helper.h"
+#include "faker-cxx/helper.h"
+#include "gmock/gmock.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -62,6 +62,15 @@ TEST_F(HelperTest, WeightedArrayElement)
 
     ASSERT_TRUE(std::ranges::any_of(data, [&result](const WeightedElement<std::string>& element)
                                     { return result == element.value; }));
+}
+
+TEST_F(HelperTest, WeightedArrayElement_withZeroWeight)
+{
+    std::vector<WeightedElement<std::string>> data{{0, "hello"}, {1, "world"}};
+
+    const auto result = weightedRandomElement(data);
+
+    ASSERT_EQ(result, "world");
 }
 
 TEST_F(HelperTest, WeightedArrayZeroSum)
@@ -138,7 +147,7 @@ TEST_F(HelperTest, RegexpStyleStringParseMaxMin)
 
     const auto result = regexpStyleStringParse(input);
 
-    ASSERT_THAT(result.size(), AllOf(Ge(11),Le(12)));
+    ASSERT_THAT(result.size(), AllOf(Ge(11), Le(12)));
 }
 
 TEST_F(HelperTest, ReplaceCreditCardSymbols)

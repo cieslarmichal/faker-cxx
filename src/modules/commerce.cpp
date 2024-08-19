@@ -3,8 +3,8 @@
 #include <string>
 #include <string_view>
 
-#include "common/format_helper.h"
 #include "commerce_data.h"
+#include "common/format_helper.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/string.h"
 

@@ -52,15 +52,16 @@ TEST_F(FormatHelperTest, shouldFormat)
 TEST_F(FormatHelperTest, ThrowsExceptionForMissingTokenGenerator)
 {
     const auto format = "{existing} {missing}";
-    const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"existing", []() { return "value"; }}
-    };
+    const auto dataGeneratorsMapping =
+        std::unordered_map<std::string, std::function<std::string()>>{{"existing", []() { return "value"; }}};
 
-    try {
+    try
+    {
         fillTokenValues(format, dataGeneratorsMapping);
         FAIL() << "Expected std::runtime_error";
     }
-    catch (const std::runtime_error& e) {
+    catch (const std::runtime_error& e)
+    {
         EXPECT_STREQ(e.what(), "Generator not found for token missing.");
     }
 }

@@ -1,5 +1,3 @@
-#include "faker-cxx/vehicle.h"
-
 #include <algorithm>
 #include <regex>
 #include <string>
@@ -7,6 +5,7 @@
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/vehicle.h"
 #include "vehicle_data.h"
 
 using namespace ::testing;
@@ -46,8 +45,7 @@ TEST_F(VehicleTest, shouldGenerateManufacturer)
 {
     const auto generatedManufacturer = manufacturer();
 
-    ASSERT_TRUE(std::ranges::any_of(manufacturers,
-                                    [generatedManufacturer](const std::string_view& manufacturer)
+    ASSERT_TRUE(std::ranges::any_of(manufacturers, [generatedManufacturer](const std::string_view& manufacturer)
                                     { return manufacturer == generatedManufacturer; }));
 }
 

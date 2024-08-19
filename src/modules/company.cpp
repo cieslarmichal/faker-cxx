@@ -23,11 +23,11 @@ std::string companyName(std::optional<CompanyNameFormat> format)
         companyName = common::format("{} {}", person::lastName(), helper::randomElement(companySuffixes));
         break;
     case CompanyNameFormat::FirstNameLastNameSuffix:
-        companyName = common::format("{} {} {}", person::firstName(), person::lastName(), helper::randomElement(companySuffixes));
+        companyName =
+            common::format("{} {} {}", person::firstName(), person::lastName(), helper::randomElement(companySuffixes));
         break;
     case CompanyNameFormat::FirstNameLastNameJobAreaSuffix:
-        companyName =
-            common::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(),
+        companyName = common::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(),
                                      helper::randomElement(companySuffixes));
         break;
     }

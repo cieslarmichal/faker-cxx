@@ -1,5 +1,3 @@
-#include "faker-cxx/company.h"
-
 #include <algorithm>
 #include <string_view>
 #include <vector>
@@ -8,6 +6,7 @@
 
 #include "common/string_helper.h"
 #include "company_data.h"
+#include "faker-cxx/company.h"
 #include "person_data.h"
 
 using namespace ::testing;
@@ -22,10 +21,8 @@ public:
 TEST_F(CompanyTest, shouldGenerateCompanyName)
 {
     const auto generatedCompanyName = companyName();
-    const auto generatedCompanyFirstLastNames = 
-                companyName(CompanyNameFormat::FirstNameLastNameSuffix);
-    const auto generatedCompanyFirstLastNamesJobArea = 
-                companyName(CompanyNameFormat::FirstNameLastNameJobAreaSuffix);
+    const auto generatedCompanyFirstLastNames = companyName(CompanyNameFormat::FirstNameLastNameSuffix);
+    const auto generatedCompanyFirstLastNamesJobArea = companyName(CompanyNameFormat::FirstNameLastNameJobAreaSuffix);
 
     const auto companyNameElements = common::split(generatedCompanyName, " ");
     const auto companyNameElements1 = common::split(generatedCompanyFirstLastNames, " ");
@@ -40,8 +37,9 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
     EXPECT_TRUE(companyNameElements1.size() == 3);
     EXPECT_TRUE(companyNameElements2.size() == 4);
 
-    if (companyNameElements.size() == 2){
-    
+    if (companyNameElements.size() == 2)
+    {
+
         const auto& generatedLastName = companyNameElements[0];
         const auto& lastElement = companyNameElements[1];
 
@@ -51,8 +49,9 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
                                         { return companySuffix == lastElement; }));
     }
 
-    if (companyNameElements1.size() == 3){
-    
+    if (companyNameElements1.size() == 3)
+    {
+
         const auto& generatedFirstName = companyNameElements1[0];
         const auto& generatedLastName = companyNameElements1[1];
         const auto& lastElement = companyNameElements1[2];
@@ -65,8 +64,9 @@ TEST_F(CompanyTest, shouldGenerateCompanyName)
                                         { return companySuffix == lastElement; }));
     }
 
-    if (companyNameElements2.size() == 4){
-    
+    if (companyNameElements2.size() == 4)
+    {
+
         const auto& generatedFirstName = companyNameElements2[0];
         const auto& generatedLastName = companyNameElements2[1];
         const auto& generatedJobArea = companyNameElements2[2];

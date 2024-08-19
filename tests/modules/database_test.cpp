@@ -1,11 +1,10 @@
-#include "faker-cxx/database.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
 #include "database_data.h"
+#include "faker-cxx/database.h"
 #include "string_data.h"
 
 using namespace ::testing;
@@ -54,6 +53,7 @@ TEST_F(DatabaseTest, shouldGenerateMongoDbObjectId)
     const auto generatedMongoDbObjectId = mongoDbObjectId();
 
     ASSERT_EQ(generatedMongoDbObjectId.size(), 24);
-    ASSERT_TRUE(std::ranges::any_of(generatedMongoDbObjectId, [](char hexNumberCharacter)
-                                    { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+    ASSERT_TRUE(
+        std::ranges::any_of(generatedMongoDbObjectId, [](char hexNumberCharacter)
+                            { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }

@@ -1,5 +1,3 @@
-#include "faker-cxx/commerce.h"
-
 #include <algorithm>
 #include <string_view>
 
@@ -7,6 +5,7 @@
 
 #include "commerce_data.h"
 #include "common/string_helper.h"
+#include "faker-cxx/commerce.h"
 #include "string_data.h"
 
 using namespace ::testing;

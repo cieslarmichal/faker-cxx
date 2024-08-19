@@ -1,5 +1,3 @@
-#include "faker-cxx/string.h"
-
 #include <algorithm>
 #include <cctype>
 #include <random>
@@ -10,6 +8,7 @@
 #include "gtest/gtest.h"
 
 #include "faker-cxx/random_generator.h"
+#include "faker-cxx/string.h"
 #include "faker-cxx/types/hex.h"
 #include "string_data.h"
 
@@ -388,8 +387,8 @@ TEST_F(StringTest, shouldGenerateDefaultApha)
     const auto generatedAlpha = alpha();
 
     ASSERT_EQ(generatedAlpha.size(), 1);
-    ASSERT_TRUE(
-        std::ranges::any_of(mixedAlphaCharacters, [generatedAlpha](char mixedCharacter) { return generatedAlpha[0] == mixedCharacter; }));
+    ASSERT_TRUE(std::ranges::any_of(mixedAlphaCharacters, [generatedAlpha](char mixedCharacter)
+                                    { return generatedAlpha[0] == mixedCharacter; }));
 }
 
 TEST_F(StringTest, shouldGenerateMixedAlpha)
@@ -593,8 +592,8 @@ TEST_F(StringTest, shouldGenerateDefaultAphanumeric)
     const auto generatedAlphanumeric = alphanumeric();
 
     ASSERT_EQ(generatedAlphanumeric.size(), 1);
-    ASSERT_TRUE(std::ranges::any_of(mixedAlphanumericCharacters,
-                                    [generatedAlphanumeric](char mixedCharacter) { return generatedAlphanumeric[0] == mixedCharacter; }));
+    ASSERT_TRUE(std::ranges::any_of(mixedAlphanumericCharacters, [generatedAlphanumeric](char mixedCharacter)
+                                    { return generatedAlphanumeric[0] == mixedCharacter; }));
 }
 
 TEST_F(StringTest, shouldGenerateMixedAlphanumeric)
@@ -774,8 +773,7 @@ TEST_F(StringTest, invalidGuaranteeForAlphanumeric2)
         {'Y', {0, 1}}, {'Z', {0, 1}}, {'0', {0, 1}}, {'1', {0, 1}}, {'2', {0, 1}}, {'3', {0, 1}},
         {'4', {0, 1}}, {'5', {0, 1}}, {'6', {0, 1}}, {'7', {0, 1}}, {'8', {0, 1}}, {'9', {0, 1}},
     };
-    ASSERT_THROW(alphanumeric(std::move(guarantee), alphanumericLength, StringCasing::Upper),
-                 std::invalid_argument);
+    ASSERT_THROW(alphanumeric(std::move(guarantee), alphanumericLength, StringCasing::Upper), std::invalid_argument);
 }
 
 TEST_F(StringTest, invalidGuaranteeForAlphanumeric3)
@@ -791,8 +789,7 @@ TEST_F(StringTest, invalidGuaranteeForAlphanumeric4)
     const auto alphanumericLength = 20;
     // atleast 4 'a' // invalid // Can't have lower case characters when string casing is set to StringCasing::Upper
     GuaranteeMap guarantee = {{'a', {4, 10}}, {'B', {4, 10}}, {'2', {1}}};
-    ASSERT_THROW(alphanumeric(std::move(guarantee), alphanumericLength, StringCasing::Upper),
-                 std::invalid_argument);
+    ASSERT_THROW(alphanumeric(std::move(guarantee), alphanumericLength, StringCasing::Upper), std::invalid_argument);
 }
 
 TEST_F(StringTest, invalidGuaranteeForAlphanumeric5)
@@ -800,8 +797,7 @@ TEST_F(StringTest, invalidGuaranteeForAlphanumeric5)
     const auto alphanumericLength = 20;
     // atleast 4 'B' // invalid // Can't have upper case characters when string casing is set to StringCasing::Lower
     GuaranteeMap guarantee = {{'a', {4, 10}}, {'B', {4, 10}}, {'8', {8, 10}}};
-    ASSERT_THROW(alphanumeric(std::move(guarantee), alphanumericLength, StringCasing::Lower),
-                 std::invalid_argument);
+    ASSERT_THROW(alphanumeric(std::move(guarantee), alphanumericLength, StringCasing::Lower), std::invalid_argument);
 }
 
 TEST_F(StringTest, shouldGenerateNumeric)
@@ -809,8 +805,8 @@ TEST_F(StringTest, shouldGenerateNumeric)
     const auto generatedNumeric = numeric();
 
     ASSERT_EQ(generatedNumeric.size(), 1);
-    ASSERT_TRUE(
-        std::ranges::any_of(generatedNumeric, [generatedNumeric](char numericCharacter) { return generatedNumeric[0] == numericCharacter; }));
+    ASSERT_TRUE(std::ranges::any_of(generatedNumeric, [generatedNumeric](char numericCharacter)
+                                    { return generatedNumeric[0] == numericCharacter; }));
 }
 
 TEST_F(StringTest, shouldGenerateNumericWithoutLeadingZeros)
@@ -847,8 +843,8 @@ TEST_F(StringTest, shouldGenerateNumericWithGuarantee1)
         const auto generatedNumeric = numeric(std::move(copyGuarantee), numericLength);
 
         ASSERT_EQ(generatedNumeric.size(), numericLength);
-        ASSERT_TRUE(
-            std::ranges::any_of(generatedNumeric, [generatedNumeric](char numericCharacter) { return generatedNumeric[0] == numericCharacter; }));
+        ASSERT_TRUE(std::ranges::any_of(generatedNumeric, [generatedNumeric](char numericCharacter)
+                                        { return generatedNumeric[0] == numericCharacter; }));
 
         auto count_0 = std::ranges::count(generatedNumeric, '0');
         auto count_9 = std::ranges::count(generatedNumeric, '9');
@@ -872,8 +868,8 @@ TEST_F(StringTest, shouldGenerateNumericWithGuarantee2)
         const auto generatedNumeric = numeric(std::move(copyGuarantee), numericLength);
 
         ASSERT_EQ(generatedNumeric.size(), numericLength);
-        ASSERT_TRUE(
-            std::ranges::any_of(generatedNumeric, [generatedNumeric](char numericCharacter) { return generatedNumeric[0] == numericCharacter; }));
+        ASSERT_TRUE(std::ranges::any_of(generatedNumeric, [generatedNumeric](char numericCharacter)
+                                        { return generatedNumeric[0] == numericCharacter; }));
 
         auto count_1 = std::ranges::count(generatedNumeric, '1');
         auto count_2 = std::ranges::count(generatedNumeric, '2');

@@ -1,7 +1,5 @@
 #include "faker-cxx/datatype.h"
 
-#include <cmath>
-
 #include "faker-cxx/number.h"
 
 namespace faker::datatype
@@ -13,21 +11,16 @@ bool boolean()
 
 bool boolean(double probability)
 {
-    if (!std::isnan(probability))
+    if (probability <= double(0))
     {
-        if (probability <= double(0))
-        {
-            return false;
-        }
-
-        if (probability >= double(1))
-        {
-            return true;
-        }
-
-        return number::decimal(0., 1.) < probability;
+        return false;
     }
 
-    return number::decimal(0., 1.) <= double(1);
+    if (probability >= double(1))
+    {
+        return true;
+    }
+
+    return number::decimal(0., 1.) < probability;
 }
 }

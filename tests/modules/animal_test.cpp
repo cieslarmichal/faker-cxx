@@ -1,11 +1,10 @@
-#include "faker-cxx/animal.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
 #include "animal_data.h"
+#include "faker-cxx/animal.h"
 
 using namespace ::testing;
 using namespace faker::animal;

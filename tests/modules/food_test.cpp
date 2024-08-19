@@ -1,10 +1,9 @@
-#include "faker-cxx/food.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/food.h"
 #include "food_data.h"
 
 using namespace ::testing;

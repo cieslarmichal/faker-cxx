@@ -1,5 +1,3 @@
-#include "faker-cxx/internet.h"
-
 #include <algorithm>
 #include <array>
 #include <cctype>
@@ -12,6 +10,7 @@
 #include "gtest/gtest.h"
 
 #include "common/string_helper.h"
+#include "faker-cxx/internet.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/types/country.h"
 #include "internet_data.h"

@@ -9,9 +9,8 @@ namespace faker
 {
 
 // TODO: change to std::function<std::string_view()>
-std::string
-common::fillTokenValues(const std::string& format,
-                              std::unordered_map<std::string, std::function<std::string()>> tokenValueGenerators)
+std::string common::fillTokenValues(const std::string& format,
+                                    std::unordered_map<std::string, std::function<std::string()>> tokenValueGenerators)
 {
     std::string filledFormat;
 
@@ -47,9 +46,9 @@ common::fillTokenValues(const std::string& format,
     return filledFormat;
 }
 
-std::string common::fillTokenValues(
-    const std::string& format,
-    std::unordered_map<std::string_view, std::function<std::string_view()>> tokenValueGenerators)
+std::string
+common::fillTokenValues(const std::string& format,
+                        std::unordered_map<std::string_view, std::function<std::string_view()>> tokenValueGenerators)
 {
     std::string filledFormat;
 

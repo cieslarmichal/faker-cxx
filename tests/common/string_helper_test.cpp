@@ -1,8 +1,8 @@
-﻿#include "string_helper.h"
-
-#include <vector>
+﻿#include <vector>
 
 #include "gtest/gtest.h"
+
+#include "string_helper.h"
 
 using namespace ::testing;
 using namespace faker;

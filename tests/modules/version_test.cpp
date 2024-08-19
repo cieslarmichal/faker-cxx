@@ -1,6 +1,6 @@
-#include "faker-cxx/version.h"
-
 #include "gtest/gtest.h"
+
+#include "faker-cxx/version.h"
 
 using namespace ::testing;
 

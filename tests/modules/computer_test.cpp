@@ -1,11 +1,10 @@
-#include "faker-cxx/computer.h"
-
 #include <algorithm>
 #include <string_view>
 
 #include "gtest/gtest.h"
 
 #include "computer_data.h"
+#include "faker-cxx/computer.h"
 
 using namespace ::testing;
 using namespace faker::computer;

@@ -26,8 +26,7 @@ enum class BranchIssueNum;
  * faker::git::branch() // "capitalize-bus"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string branch(std::optional<BranchIssueNum> issueNum = std::nullopt, 
-                    unsigned maxIssueNum = 100);
+FAKER_CXX_EXPORT std::string branch(std::optional<BranchIssueNum> issueNum = std::nullopt, unsigned maxIssueNum = 100);
 
 /**
  * @brief Generates a random date in form of string.
@@ -59,7 +58,8 @@ FAKER_CXX_EXPORT std::string commitDate(unsigned years = 15);
  * @endcode
  */
 FAKER_CXX_EXPORT std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt,
-                        std::optional<unsigned> shaLength = std::nullopt, Country country = Country::England);
+                                         std::optional<unsigned> shaLength = std::nullopt,
+                                         Country country = Country::England);
 
 /**
  * @brief Generates a random commit message.
@@ -85,7 +85,8 @@ FAKER_CXX_EXPORT std::string commitMessage();
  */
 FAKER_CXX_EXPORT std::string commitSha(unsigned length = 40);
 
-enum class BranchIssueNum {
+enum class BranchIssueNum
+{
     WithoutIssueNumber,
     WithIssueNumber,
 };

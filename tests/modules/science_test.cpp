@@ -1,10 +1,9 @@
-#include "faker-cxx/science.h"
-
 #include <algorithm>
 #include <vector>
 
 #include "gtest/gtest.h"
 
+#include "faker-cxx/science.h"
 #include "science_data.h"
 
 using namespace ::testing;

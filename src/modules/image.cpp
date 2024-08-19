@@ -28,9 +28,7 @@ std::unordered_map<ImageCategory, std::string> imageCategoryToLoremFlickrStringM
 std::string imageUrl(unsigned int width, unsigned int height, std::optional<ImageCategory> category)
 {
     const std::string image_category =
-        category.has_value() ?
-            common::format("/{}", imageCategoryToLoremFlickrStringMapping.at(category.value())) :
-            "";
+        category.has_value() ? common::format("/{}", imageCategoryToLoremFlickrStringMapping.at(category.value())) : "";
 
     return common::format("https://loremflickr.com/{}/{}{}", width, height, image_category);
 }

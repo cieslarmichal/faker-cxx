@@ -44,13 +44,10 @@ std::string replaceSymbolWithNumber(const std::string& str, const char& symbol)
 
 std::string replaceCreditCardSymbols(const std::string& inputString, char symbol)
 {
-    // Replace regex-like expressions in the given string with matching values.
     std::string modifiedString = regexpStyleStringParse(inputString);
 
-    // Replace ### with random numbers (where ### is the symbol)
     modifiedString = replaceSymbolWithNumber(modifiedString, symbol);
 
-    // Calculate the luhnCheckValue and replace 'L' with the checkNum
     int checkNum = common::luhnCheckValue(modifiedString);
 
     size_t pos = modifiedString.find('L');
@@ -70,6 +67,7 @@ std::string regexpStyleStringParse(const std::string& input)
     const std::regex RANGE_REP_REG(R"((.)\{(\d+),(\d+)\})");
     const std::regex REP_REG(R"((.)\{(\d+)\})");
     const std::regex RANGE_REG(R"(\[(\d+)-(\d+)\])");
+
     std::smatch token;
 
     while (std::regex_search(data, token, RANGE_REP_REG))
@@ -94,12 +92,12 @@ std::string regexpStyleStringParse(const std::string& input)
                data.substr(static_cast<unsigned long>(token.position() + token.length()));
     }
 
-    // Deal with range `[min-max]` (only works with numbers for now)
-    // TODO: implement for letters e.g. [0-9a-zA-Z] etc.
     while (std::regex_search(data, token, RANGE_REG))
     {
-        int min = std::stoi(token[1]); // This time we are not capturing the char before `[]`
+        int min = std::stoi(token[1]);
+
         int max = std::stoi(token[2]);
+
         if (min > max)
         {
             std::swap(min, max);
