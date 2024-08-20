@@ -11,7 +11,6 @@
 namespace faker::person
 {
 enum class Sex;
-enum class SsnCountry;
 enum class Language;
 
 /**
@@ -204,16 +203,16 @@ FAKER_CXX_EXPORT std::string_view nationality();
 /**
  * @brief Returns a random SSN.
  *
- * @param country The optional country to use.
+ * @param locale The optional locale to use. Defaults to `Locale::en_US`.
  *
  * @returns Social Security Number.
  *
  * @code
  * faker::person::ssn() // "437-12-6854"
- * faker::person::ssn(SsnCountry::Polish) // "95111901567"
+ * faker::person::ssn(Locale::pl_PL) // "95111901567"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string ssn(std::optional<SsnCountry> country = std::nullopt);
+FAKER_CXX_EXPORT std::string ssn(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random Western Zodiac
@@ -254,18 +253,6 @@ enum class Sex
 {
     Female,
     Male,
-};
-
-enum class SsnCountry
-{
-    England,
-    France,
-    Germany,
-    India,
-    Italy,
-    Poland,
-    Spain,
-    Usa,
 };
 
 enum class Language
