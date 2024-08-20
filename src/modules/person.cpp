@@ -12,6 +12,7 @@
 #include "faker-cxx/number.h"
 #include "faker-cxx/string.h"
 #include "faker-cxx/types/country.h"
+#include "faker-cxx/types/locale.h"
 #include "faker-cxx/word.h"
 #include "person_data.h"
 
@@ -19,13 +20,6 @@ namespace faker::person
 {
 namespace
 {
-const std::unordered_map<PassportCountry, std::string_view> passportFormats{
-    {PassportCountry::Usa, "AA0000000"},
-    {PassportCountry::Poland, "AA0000000"},
-    {PassportCountry::France, "00AA00000"},
-    {PassportCountry::Romania, "00000000"},
-};
-
 const struct PeopleNames& getPeopleNamesByCountry(const Country& country)
 {
     switch (country)
@@ -395,11 +389,10 @@ std::string_view nationality()
     return helper::randomElement(nationalities);
 }
 
-std::string ssn(std::optional<SsnCountry> country)
+std::string ssn(Locale locale)
 {
-    const auto ssnCountry = country ? *country : helper::randomElement(supportedSsnCountries);
-
-    const auto& ssnFormat = std::string{ssnFormats.at(ssnCountry)};
+    const auto& ssnFormat =
+        std::string{ssnFormats.contains(locale) ? ssnFormats.at(locale) : ssnFormats.at(Locale::en_US)};
 
     auto ssnWithoutRegexes = helper::regexpStyleStringParse(ssnFormat);
 
@@ -438,11 +431,10 @@ std::string_view chineseZodiac()
     return helper::randomElement(chineseZodiacs);
 }
 
-std::string passport(std::optional<PassportCountry> country)
+std::string passport(Locale locale)
 {
-    const auto countryStr = country ? *country : PassportCountry::Usa;
-
-    const auto& passportFormat = passportFormats.at(countryStr);
+    const auto& passportFormat =
+        passportFormats.contains(locale) ? passportFormats.at(locale) : passportFormats.at(Locale::en_US);
 
     std::string passportNumber;
 

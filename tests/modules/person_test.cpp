@@ -11,6 +11,7 @@
 #include "faker-cxx/internet.h"
 #include "faker-cxx/person.h"
 #include "faker-cxx/types/country.h"
+#include "faker-cxx/types/locale.h"
 #include "person_data.h"
 #include "string_helper.h"
 #include "word_data.h"
@@ -610,45 +611,34 @@ std::string toString(Language language)
 
 INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, testing::ValuesIn(languageSexPairs),
                          [](const testing::TestParamInfo<PersonSexSuite::ParamType>& paramInfo)
-                         {
-                             auto param = paramInfo.param;
-                             return toString(param.first) + "_" + toString(param.second);
-                         });
+                         { return toString(paramInfo.param.first) + "_" + toString(paramInfo.param.second); });
 
-const std::unordered_map<SsnCountry, unsigned> ssnLengths{
-    {SsnCountry::Poland, 11}, {SsnCountry::Usa, 11},   {SsnCountry::England, 13}, {SsnCountry::Germany, 12},
-    {SsnCountry::France, 19}, {SsnCountry::Italy, 19}, {SsnCountry::Spain, 10},   {SsnCountry::India, 10},
+const std::unordered_map<Locale, unsigned> ssnLengths{
+    {Locale::pl_PL, 11}, {Locale::es_US, 11}, {Locale::en_US, 11}, {Locale::en_GB, 13}, {Locale::de_DE, 12},
+    {Locale::fr_FR, 19}, {Locale::it_IT, 19}, {Locale::es_ES, 10}, {Locale::ca_ES, 10}, {Locale::as_IN, 10},
+    {Locale::bn_IN, 10}, {Locale::en_IN, 10}, {Locale::gu_IN, 10}, {Locale::hi_IN, 10}, {Locale::kn_IN, 10},
+    {Locale::ks_IN, 10}, {Locale::ml_IN, 10}, {Locale::mr_IN, 10}, {Locale::or_IN, 10}, {Locale::pa_IN, 10},
+    {Locale::sa_IN, 10}, {Locale::ta_IN, 10}, {Locale::te_IN, 10},
 };
 
-class PersonSsnSuite : public TestWithParam<SsnCountry>
+class PersonSsnSuite : public TestWithParam<Locale>
 {
 };
 
 TEST_P(PersonSsnSuite, shouldGenerateSsn)
 {
-    const auto country = GetParam();
+    const auto locale = GetParam();
 
-    const auto generatedSsn = ssn(country);
+    const auto generatedSsn = ssn(locale);
 
-    const auto expectedSsnLength = ssnLengths.at(country);
+    const auto expectedSsnLength = ssnLengths.contains(locale) ? ssnLengths.at(locale) : ssnLengths.at(Locale::en_US);
 
     ASSERT_EQ(generatedSsn.size(), expectedSsnLength);
 }
 
-std::string toString(SsnCountry country)
-{
-    std::unordered_map<SsnCountry, std::string> countryToStringMapping{
-        {SsnCountry::Usa, "Usa"},     {SsnCountry::England, "England"}, {SsnCountry::Poland, "Poland"},
-        {SsnCountry::Italy, "Italy"}, {SsnCountry::France, "France"},   {SsnCountry::Germany, "Germany"},
-        {SsnCountry::India, "India"}, {SsnCountry::Spain, "Spain"},
-    };
-
-    return countryToStringMapping.at(country);
-}
-
-INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite, testing::ValuesIn(supportedSsnCountries),
+INSTANTIATE_TEST_SUITE_P(TestPersonSsn, PersonSsnSuite, testing::ValuesIn(locales),
                          [](const testing::TestParamInfo<PersonSsnSuite::ParamType>& paramInfo)
-                         { return "shouldGenerate" + toString(paramInfo.param) + "Ssn"; });
+                         { return toString(paramInfo.param); });
 
 class PersonPassportTest : public Test
 {
@@ -657,7 +647,7 @@ public:
 
 TEST_F(PersonPassportTest, shouldGenerateUsaPassport)
 {
-    const auto passportNumber = passport(PassportCountry::Usa);
+    const auto passportNumber = passport(Locale::en_US);
 
     ASSERT_EQ(passportNumber.size(), 9);
     ASSERT_TRUE(std::isalpha(passportNumber[0]));
@@ -673,7 +663,7 @@ TEST_F(PersonPassportTest, shouldGenerateUsaPassport)
 
 TEST_F(PersonPassportTest, shouldGeneratePolandPassport)
 {
-    const auto passportNumber = passport(PassportCountry::Poland);
+    const auto passportNumber = passport(Locale::pl_PL);
 
     ASSERT_EQ(passportNumber.size(), 9);
     ASSERT_TRUE(std::isalpha(passportNumber[0]));
@@ -689,7 +679,7 @@ TEST_F(PersonPassportTest, shouldGeneratePolandPassport)
 
 TEST_F(PersonPassportTest, shouldGenerateFrenchPassport)
 {
-    const auto passportNumber = passport(PassportCountry::France);
+    const auto passportNumber = passport(Locale::fr_FR);
 
     ASSERT_EQ(passportNumber.size(), 9);
     ASSERT_TRUE(std::isdigit(passportNumber[0]));
@@ -705,7 +695,7 @@ TEST_F(PersonPassportTest, shouldGenerateFrenchPassport)
 
 TEST_F(PersonPassportTest, shouldGenerateRomanianPassport)
 {
-    const auto passportNumber = passport(PassportCountry::Romania);
+    const auto passportNumber = passport(Locale::ro_RO);
     ASSERT_EQ(passportNumber.size(), 8);
     ASSERT_TRUE(std::isdigit(passportNumber[0]));
     ASSERT_TRUE(std::isdigit(passportNumber[1]));
