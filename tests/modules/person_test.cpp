@@ -11,6 +11,7 @@
 #include "faker-cxx/internet.h"
 #include "faker-cxx/person.h"
 #include "faker-cxx/types/country.h"
+#include "faker-cxx/types/locale.h"
 #include "person_data.h"
 #include "string_helper.h"
 #include "word_data.h"
@@ -657,7 +658,7 @@ public:
 
 TEST_F(PersonPassportTest, shouldGenerateUsaPassport)
 {
-    const auto passportNumber = passport(PassportCountry::Usa);
+    const auto passportNumber = passport(Locale::en_US);
 
     ASSERT_EQ(passportNumber.size(), 9);
     ASSERT_TRUE(std::isalpha(passportNumber[0]));
@@ -673,7 +674,7 @@ TEST_F(PersonPassportTest, shouldGenerateUsaPassport)
 
 TEST_F(PersonPassportTest, shouldGeneratePolandPassport)
 {
-    const auto passportNumber = passport(PassportCountry::Poland);
+    const auto passportNumber = passport(Locale::pl_PL);
 
     ASSERT_EQ(passportNumber.size(), 9);
     ASSERT_TRUE(std::isalpha(passportNumber[0]));
@@ -689,7 +690,7 @@ TEST_F(PersonPassportTest, shouldGeneratePolandPassport)
 
 TEST_F(PersonPassportTest, shouldGenerateFrenchPassport)
 {
-    const auto passportNumber = passport(PassportCountry::France);
+    const auto passportNumber = passport(Locale::fr_FR);
 
     ASSERT_EQ(passportNumber.size(), 9);
     ASSERT_TRUE(std::isdigit(passportNumber[0]));
@@ -705,7 +706,7 @@ TEST_F(PersonPassportTest, shouldGenerateFrenchPassport)
 
 TEST_F(PersonPassportTest, shouldGenerateRomanianPassport)
 {
-    const auto passportNumber = passport(PassportCountry::Romania);
+    const auto passportNumber = passport(Locale::ro_RO);
     ASSERT_EQ(passportNumber.size(), 8);
     ASSERT_TRUE(std::isdigit(passportNumber[0]));
     ASSERT_TRUE(std::isdigit(passportNumber[1]));
