@@ -7,6 +7,7 @@
 #include <vector>
 
 #include "faker-cxx/person.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::person
 {
@@ -50,85 +51,10 @@ const auto bioFormats = std::to_array<std::string_view>(
      "{bio_part}, {bio_part}, {bio_part}, {emoji}", "{noun} {bio_supporter}", "{noun} {bio_supporter} {emoji}",
      "{noun} {bio_supporter}, {bio_part}", "{noun} {bio_supporter}, {bio_part} {emoji}"});
 
-// Source: https://en.wikipedia.org/wiki/List_of_gender_identities
 const auto genders = std::to_array<std::string_view>({
-    "Male", "Female", "Transexual",
-    // "Agender",
-    // "Androgyne",
-    // "Androgynous",
-    // "Bigender",
-    // "Cis female",
-    // "Cis male",
-    // "Cis man",
-    // "Cis woman",
-    // "Cis",
-    // "Cisgender female",
-    // "Cisgender male",
-    // "Cisgender man",
-    // "Cisgender woman",
-    // "Cisgender",
-    // "Demi-boy",
-    // "Demi-girl",
-    // "Demi-man",
-    // "Demi-woman",
-    // "Demiflux",
-    // "Demigender",
-    // "F2M",
-    // "FTM",
-    // "Female to male trans man",
-    // "Female to male transgender man",
-    // "Female to male transsexual man",
-    // "Female to male",
-    // "Gender fluid",
-    // "Gender neutral",
-    // "Gender nonconforming",
-    // "Gender questioning",
-    // "Gender variant",
-    // "Genderflux",
-    // "Genderqueer",
-    // "Hermaphrodite",
-    // "Intersex man",
-    // "Intersex person",
-    // "Intersex woman",
-    // "Intersex",
-    // "M2F",
-    // "MTF",
-    // "Male to female trans woman",
-    // "Male to female transgender woman",
-    // "Male to female transsexual woman",
-    // "Male to female",
-    // "Man",
-    // "Multigender",
-    // "Neither",
-    // "Neutrois",
-    // "Non-binary",
-    // "Omnigender",
-    // "Other",
-    // "Pangender",
-    // "Polygender",
-    // "T* man",
-    // "T* woman",
-    // "Trans female",
-    // "Trans male",
-    // "Trans man",
-    // "Trans person",
-    // "Trans woman",
-    // "Trans",
-    // "Transexual female",
-    // "Transexual male",
-    // "Transexual man",
-    // "Transexual person",
-    // "Transexual woman",
-    // "Transexual",
-    // "Transgender female",
-    // "Transgender person",
-    // "Transmasculine",
-    // "Trigender",
-    // "Two* person",
-    // "Two-spirit person",
-    // "Two-spirit",
-    // "Woman",
-    // "Xenogender",
+    "Male",
+    "Female",
+    "Transexual",
 });
 
 const auto hobbies = std::to_array<std::string_view>({
@@ -216,31 +142,66 @@ const auto nationalities = std::to_array<std::string_view>({
     "Ecuadorian",   "Bolivian",      "Costa Rican",   "Panamanian", "Honduran",    "Guatemalan",
 });
 
-const std::unordered_map<SsnCountry, std::string_view> ssnFormats{
-    {SsnCountry::Poland, "##[0-1][0-2][0-2]######"},
-    {SsnCountry::Usa, "###-##-####"},
-    // TODO: handle letters
-    {SsnCountry::England, "LL ## ## ## L"},
-    // TODO: handle conditional values like if year starts with 2 then second number must be 0-3
-    {SsnCountry::Germany, "####[0-2]#[0-1][0-2][1-2][5-9]##"},
-    {SsnCountry::France, "## [0-1][0-2] [0-2]# ### ### ##"},
-    // TODO: add alfa-numeric support
-    {SsnCountry::Italy, "FFFF FFFF FFFF FFFF"},
-    {SsnCountry::Spain, "X########L"},
-    {SsnCountry::India, "LLLLL####L"},
+const std::unordered_map<Locale, std::string_view> passportFormats{
+    {Locale::es_US, "AA0000000"}, {Locale::en_US, "AA0000000"}, {Locale::pl_PL, "AA0000000"},
+    {Locale::fr_FR, "00AA00000"}, {Locale::ro_RO, "00000000"},
 };
 
-const auto westernZodiacs =
-    std::to_array<std::string_view>({"Aries", "Taurus", "Gemini", "Cancer", "Leo", "Virgo", "Libra", "Scorpio",
-                                     "Sagittarius", "Capricorn", "Aquarius", "Pisces"});
+const std::unordered_map<Locale, std::string_view> ssnFormats{
+    {Locale::pl_PL, "##[0-1][0-2][0-2]######"},
+    {Locale::es_US, "###-##-####"},
+    {Locale::en_US, "###-##-####"},
+    {Locale::en_GB, "LL ## ## ## L"},
+    {Locale::de_DE, "####[0-2]#[0-1][0-2][1-2][5-9]##"},
+    {Locale::fr_FR, "## [0-1][0-2] [0-2]# ### ### ##"},
+    {Locale::it_IT, "FFFF FFFF FFFF FFFF"},
+    {Locale::es_ES, "X########L"},
+    {Locale::ca_ES, "X########L"},
+    {Locale::as_IN, "LLLLL####L"},
+    {Locale::bn_IN, "LLLLL####L"},
+    {Locale::en_IN, "LLLLL####L"},
+    {Locale::gu_IN, "LLLLL####L"},
+    {Locale::hi_IN, "LLLLL####L"},
+    {Locale::kn_IN, "LLLLL####L"},
+    {Locale::ks_IN, "LLLLL####L"},
+    {Locale::ml_IN, "LLLLL####L"},
+    {Locale::mr_IN, "LLLLL####L"},
+    {Locale::or_IN, "LLLLL####L"},
+    {Locale::pa_IN, "LLLLL####L"},
+    {Locale::sa_IN, "LLLLL####L"},
+    {Locale::ta_IN, "LLLLL####L"},
+    {Locale::te_IN, "LLLLL####L"},
+};
 
-const auto chineseZodiacs = std::to_array<std::string_view>({"Rat", "Ox", "Tiger", "Rabbit", "Dragon",
-                                                             "Snake"
-                                                             "Horse",
-                                                             "Sheep",
-                                                             "Monkey"
-                                                             "Rooster",
-                                                             "Dog", "Pig"});
+const auto westernZodiacs = std::to_array<std::string_view>({
+    "Aries",
+    "Taurus",
+    "Gemini",
+    "Cancer",
+    "Leo",
+    "Virgo",
+    "Libra",
+    "Scorpio",
+    "Sagittarius",
+    "Capricorn",
+    "Aquarius",
+    "Pisces",
+});
+
+const auto chineseZodiacs = std::to_array<std::string_view>({
+    "Rat",
+    "Ox",
+    "Tiger",
+    "Rabbit",
+    "Dragon",
+    "Snake"
+    "Horse",
+    "Sheep",
+    "Monkey"
+    "Rooster",
+    "Dog",
+    "Pig",
+});
 
 const std::unordered_map<Language, std::unordered_map<Sex, std::string_view>> sexTranslations = {
     {Language::English, {{Sex::Male, "Male"}, {Sex::Female, "Female"}}},
@@ -277,17 +238,6 @@ const std::unordered_map<Language, std::unordered_map<Sex, std::string_view>> se
     {Language::Belarusian, {{Sex::Male, "Мужчына"}, {Sex::Female, "Жанчына"}}},
     {Language::Estonian, {{Sex::Male, "Mees"}, {Sex::Female, "Naine"}}},
     {Language::Irish, {{Sex::Male, "fireannach"}, {Sex::Female, "baineann"}}}};
-
-const auto supportedSsnCountries = std::to_array<SsnCountry>({
-    SsnCountry::Poland,
-    SsnCountry::Usa,
-    SsnCountry::England,
-    SsnCountry::Germany,
-    SsnCountry::France,
-    SsnCountry::Italy,
-    SsnCountry::Spain,
-    SsnCountry::India,
-});
 
 // Albania
 
