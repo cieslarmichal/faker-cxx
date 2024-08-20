@@ -68,6 +68,20 @@ TEST_F(CryptoTest, ChecksSHA256HashWithLongData)
     ASSERT_TRUE(isSHA256Hash(generatedRandomHash));
 }
 
+TEST_F(CryptoTest, ShouldGenerateSHA256HashWithDataCodecov)
+{
+    const auto generatedRandomHash = sha256("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde");
+
+    ASSERT_EQ(generatedRandomHash.length(), 64);
+}
+
+TEST_F(CryptoTest, ChecksSHA256HashWithDataCodecov)
+{
+    const auto generatedRandomHash = sha256("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde");
+
+    ASSERT_TRUE(isSHA256Hash(generatedRandomHash));
+}
+
 TEST_F(CryptoTest, ShouldGenerateMD5Hash)
 {
     const auto generatedRandomHash = md5();
