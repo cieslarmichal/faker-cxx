@@ -1,15 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"science_8h.html#a757668dd0208c494fc9136bd46c6aa23":[3,0,0,0,29,2],
-"science_8h.html#acf42254f0508ee63f11ba5b35a32338b":[3,0,0,0,29,7],
-"science_8h.html#af4d5df3993f6749a148253bbc7e82d91":[3,0,0,0,29,3],
-"science_8h.html#af5ca292f992a9807b390a4a61c35eeeb":[3,0,0,0,29,8],
-"science_8h_source.html":[3,0,0,0,29],
-"sport_8h.html":[3,0,0,0,30],
-"sport_8h.html#aa90d1438ac4295f1625b351b0c93afe4":[3,0,0,0,30,2],
-"sport_8h.html#ab01ea8697643964befb319962765dfc2":[3,0,0,0,30,0],
-"sport_8h.html#ac83c75a907ea7c58bcec87698d259201":[3,0,0,0,30,4],
-"sport_8h.html#ae688d8f907acd3ad106667091a20ee01":[3,0,0,0,30,1],
 "sport_8h.html#ae9662b27668406faaf6aadbad0866384":[3,0,0,0,30,3],
 "sport_8h_source.html":[3,0,0,0,30],
 "string_8h.html":[3,0,0,0,31],

@@ -111,22 +111,25 @@ $(function(){initNavTree('person_8h.html',''); initResizable(true); });
 <code>#include &lt;string_view&gt;</code><br />
 <code>#include &quot;faker-cxx/export.h&quot;</code><br />
 <code>#include &quot;types/country.h&quot;</code><br />
+<code>#include &quot;types/locale.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for person.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="person_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2person_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2person_8h" id="ainclude_2faker-cxx_2person_8h">
-<area shape="rect" title=" " alt="" coords="132,5,303,31"/>
+<area shape="rect" title=" " alt="" coords="196,5,367,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,72,105"/>
-<area shape="poly" title=" " alt="" coords="188,34,84,75,82,70,186,29"/>
+<area shape="poly" title=" " alt="" coords="241,34,87,79,86,74,239,29"/>
 <area shape="rect" title=" " alt="" coords="96,79,149,105"/>
-<area shape="poly" title=" " alt="" coords="203,34,152,72,149,67,200,29"/>
+<area shape="poly" title=" " alt="" coords="255,34,164,75,162,70,253,29"/>
 <area shape="rect" title=" " alt="" coords="174,79,261,105"/>
-<area shape="poly" title=" " alt="" coords="220,31,220,63,214,63,214,31"/>
+<area shape="poly" title=" " alt="" coords="273,33,240,69,236,66,269,29"/>
 <area shape="rect" title=" " alt="" coords="285,79,408,105"/>
-<area shape="poly" title=" " alt="" coords="240,29,312,69,310,73,238,34"/>
+<area shape="poly" title=" " alt="" coords="294,29,327,66,323,69,290,33"/>
 <area shape="rect" title=" " alt="" coords="432,79,541,105"/>
-<area shape="poly" title=" " alt="" coords="264,29,427,72,425,77,262,34"/>
+<area shape="poly" title=" " alt="" coords="317,29,438,71,436,76,315,34"/>
+<area shape="rect" title=" " alt="" coords="564,79,665,105"/>
+<area shape="poly" title=" " alt="" coords="339,29,549,74,548,79,338,34"/>
 </map>
 </div>
 </div>
@@ -141,12 +144,6 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ac71835f2e95a797941cb01c13efff749" id="r_ac71835f2e95a797941cb01c13efff749"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#ac71835f2e95a797941cb01c13efff749">faker::person::PassportCountry</a> { <a class="el" href="namespacefaker_1_1person.html#ac71835f2e95a797941cb01c13efff749a0309a6c666a7a803fdb9db95de71cf01">faker::person::France</a>
-, <a class="el" href="namespacefaker_1_1person.html#ac71835f2e95a797941cb01c13efff749a94880bda83bda77c5692876700711f15">faker::person::Poland</a>
-, <a class="el" href="namespacefaker_1_1person.html#ac71835f2e95a797941cb01c13efff749a0c7d5ae44b2a0be9ebd7d6b9f7d60f20">faker::person::Romania</a>
-, <a class="el" href="namespacefaker_1_1person.html#ac71835f2e95a797941cb01c13efff749a867f8282a36dd6525c3d40744a92fcf8">faker::person::Usa</a>
- }</td></tr>
-<tr class="separator:ac71835f2e95a797941cb01c13efff749"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7290e4523427c5876299e459d3ed038" id="r_ab7290e4523427c5876299e459d3ed038"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#ab7290e4523427c5876299e459d3ed038">faker::person::Sex</a> { <a class="el" href="namespacefaker_1_1person.html#ab7290e4523427c5876299e459d3ed038ab719ce180ec7bd9641fece2f920f4817">faker::person::Female</a>
 , <a class="el" href="namespacefaker_1_1person.html#ab7290e4523427c5876299e459d3ed038a63889cfb9d3cbe05d1bd2be5cc9953fd">faker::person::Male</a>
  }</td></tr>
@@ -267,9 +264,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a4b696b7118429e5550b9664e6eb4c4a8" id="r_a4b696b7118429e5550b9664e6eb4c4a8"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#a4b696b7118429e5550b9664e6eb4c4a8">faker::person::chineseZodiac</a> ()</td></tr>
 <tr class="memdesc:a4b696b7118429e5550b9664e6eb4c4a8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random Chinese Zodiac.  <br /></td></tr>
 <tr class="separator:a4b696b7118429e5550b9664e6eb4c4a8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae53e51b39112140ebb7f0df60afacebb" id="r_ae53e51b39112140ebb7f0df60afacebb"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#ae53e51b39112140ebb7f0df60afacebb">faker::person::passport</a> (std::optional&lt; <a class="el" href="namespacefaker_1_1person.html#ac71835f2e95a797941cb01c13efff749">PassportCountry</a> &gt; country=std::nullopt)</td></tr>
-<tr class="memdesc:ae53e51b39112140ebb7f0df60afacebb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random passport number from a given country.  <br /></td></tr>
-<tr class="separator:ae53e51b39112140ebb7f0df60afacebb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6cb88e861df0288cb9552d7868ddddba" id="r_a6cb88e861df0288cb9552d7868ddddba"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#a6cb88e861df0288cb9552d7868ddddba">faker::person::passport</a> (Locale locale=Locale::en_US)</td></tr>
+<tr class="memdesc:a6cb88e861df0288cb9552d7868ddddba"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random passport number from a given country.  <br /></td></tr>
+<tr class="separator:a6cb88e861df0288cb9552d7868ddddba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->

@@ -13,7 +13,7 @@ var searchData=
   ['upperletters_10',['upperLetters',['../structfaker_1_1internet_1_1PasswordOptions.html#aa1e31f94a3e817ac955e34f38a4ae74d',1,'faker::internet::PasswordOptions']]],
   ['url_11',['url',['../namespacefaker_1_1internet.html#a005caa05149d90b3854aef6a4ccdf27e',1,'faker::internet']]],
   ['uruguay_12',['Uruguay',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa75497a22409db78dcc52c291e078bc10',1,'faker::phone']]],
-  ['usa_13',['Usa',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a867f8282a36dd6525c3d40744a92fcf8',1,'faker::location::Usa'],['../namespacefaker_1_1person.html#ac71835f2e95a797941cb01c13efff749a867f8282a36dd6525c3d40744a92fcf8',1,'faker::person::Usa'],['../namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a867f8282a36dd6525c3d40744a92fcf8',1,'faker::person::Usa'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa867f8282a36dd6525c3d40744a92fcf8',1,'faker::phone::Usa']]],
+  ['usa_13',['Usa',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a867f8282a36dd6525c3d40744a92fcf8',1,'faker::location::Usa'],['../namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a867f8282a36dd6525c3d40744a92fcf8',1,'faker::person::Usa'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa867f8282a36dd6525c3d40744a92fcf8',1,'faker::phone::Usa']]],
   ['usedtomeasure_14',['usedToMeasure',['../structfaker_1_1science_1_1Unit.html#afbafb00ae0b488072359290f455e6d6e',1,'faker::science::Unit']]],
   ['username_15',['username',['../namespacefaker_1_1internet.html#aae749a34446ecccdddcbba60868c4746',1,'faker::internet']]],
   ['uuid_16',['uuid',['../namespacefaker_1_1string.html#a335d7aad191429aa88bed20818881d95',1,'faker::string']]],
