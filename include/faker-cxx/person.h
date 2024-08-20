@@ -6,10 +6,10 @@
 
 #include "faker-cxx/export.h"
 #include "types/country.h"
+#include "types/locale.h"
 
 namespace faker::person
 {
-enum class PassportCountry;
 enum class Sex;
 enum class SsnCountry;
 enum class Language;
@@ -240,21 +240,15 @@ FAKER_CXX_EXPORT std::string_view chineseZodiac();
 /**
  * @brief Returns a random passport number from a given country
  *
+ * @param locale The optional locale to use. Defaults to `Locale::en_US`.
+ *
  * @returns Passport
  *
  * @code
- * faker::person::passport(PassportCountry::Romania) // "12345678"
+ * faker::person::passport(Locale::pl_PL) // "12345678"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string passport(std::optional<PassportCountry> country = std::nullopt);
-
-enum class PassportCountry
-{
-    France,
-    Poland,
-    Romania,
-    Usa,
-};
+FAKER_CXX_EXPORT std::string passport(Locale locale = Locale::en_US);
 
 enum class Sex
 {

@@ -12,6 +12,7 @@
 #include "faker-cxx/number.h"
 #include "faker-cxx/string.h"
 #include "faker-cxx/types/country.h"
+#include "faker-cxx/types/locale.h"
 #include "faker-cxx/word.h"
 #include "person_data.h"
 
@@ -19,11 +20,9 @@ namespace faker::person
 {
 namespace
 {
-const std::unordered_map<PassportCountry, std::string_view> passportFormats{
-    {PassportCountry::Usa, "AA0000000"},
-    {PassportCountry::Poland, "AA0000000"},
-    {PassportCountry::France, "00AA00000"},
-    {PassportCountry::Romania, "00000000"},
+const std::unordered_map<Locale, std::string_view> passportFormats{
+    {Locale::es_US, "AA0000000"}, {Locale::en_US, "AA0000000"}, {Locale::pl_PL, "AA0000000"},
+    {Locale::fr_FR, "00AA00000"}, {Locale::ro_RO, "00000000"},
 };
 
 const struct PeopleNames& getPeopleNamesByCountry(const Country& country)
@@ -438,11 +437,9 @@ std::string_view chineseZodiac()
     return helper::randomElement(chineseZodiacs);
 }
 
-std::string passport(std::optional<PassportCountry> country)
+std::string passport(Locale locale)
 {
-    const auto countryStr = country ? *country : PassportCountry::Usa;
-
-    const auto& passportFormat = passportFormats.at(countryStr);
+    const auto& passportFormat = passportFormats.at(locale);
 
     std::string passportNumber;
 
