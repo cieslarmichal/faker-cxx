@@ -24,7 +24,7 @@ var searchData=
   ['specialty_21',['specialty',['../namespacefaker_1_1medicine.html#ae3051b9186cd322160e6f6986c70d49d',1,'faker::medicine']]],
   ['sportevent_22',['sportEvent',['../namespacefaker_1_1sport.html#ae9662b27668406faaf6aadbad0866384',1,'faker::sport']]],
   ['sportname_23',['sportName',['../namespacefaker_1_1sport.html#ac83c75a907ea7c58bcec87698d259201',1,'faker::sport']]],
-  ['ssn_24',['ssn',['../namespacefaker_1_1person.html#a5f206e2cdd72189e665d0ab25c2da077',1,'faker::person']]],
+  ['ssn_24',['ssn',['../namespacefaker_1_1person.html#a8e6f181401f124afcead503aa08544da',1,'faker::person']]],
   ['state_25',['state',['../namespacefaker_1_1location.html#a4d00638b4a23f205beca9030a93aa1d6',1,'faker::location']]],
   ['street_26',['street',['../namespacefaker_1_1location.html#a310ef73ae962c41f0fb793e932683881',1,'faker::location']]],
   ['streetaddress_27',['streetAddress',['../namespacefaker_1_1location.html#ae61de04e37a0c3ef796c2e2606accfeb',1,'faker::location']]],

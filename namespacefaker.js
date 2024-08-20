@@ -255,16 +255,6 @@ var namespacefaker =
         [ "Female", "namespacefaker_1_1person.html#ab7290e4523427c5876299e459d3ed038ab719ce180ec7bd9641fece2f920f4817", null ],
         [ "Male", "namespacefaker_1_1person.html#ab7290e4523427c5876299e459d3ed038a63889cfb9d3cbe05d1bd2be5cc9953fd", null ]
       ] ],
-      [ "SsnCountry", "namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90", [
-        [ "England", "namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a64f607906be7598a02d75dbc1e979662", null ],
-        [ "France", "namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a0309a6c666a7a803fdb9db95de71cf01", null ],
-        [ "Germany", "namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90ad8b00929dec65d422303256336ada04f", null ],
-        [ "India", "namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a7d31e0da1ab99fe8b08a22118e2f402b", null ],
-        [ "Italy", "namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a1007e1b7f894dfbf72a0eaa80f3bc57e", null ],
-        [ "Poland", "namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a94880bda83bda77c5692876700711f15", null ],
-        [ "Spain", "namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a907eba32d950bfab68227fd7ea22999b", null ],
-        [ "Usa", "namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a867f8282a36dd6525c3d40744a92fcf8", null ]
-      ] ],
       [ "bio", "namespacefaker_1_1person.html#a41deabbecbf923fd045031c7456df21d", null ],
       [ "chineseZodiac", "namespacefaker_1_1person.html#a4b696b7118429e5550b9664e6eb4c4a8", null ],
       [ "firstName", "namespacefaker_1_1person.html#aa2d31df51f9e07afaba964b7864e729d", null ],
@@ -281,7 +271,7 @@ var namespacefaker =
       [ "passport", "namespacefaker_1_1person.html#a6cb88e861df0288cb9552d7868ddddba", null ],
       [ "prefix", "namespacefaker_1_1person.html#a58784be091182ce6e6e600b0b2e19a5f", null ],
       [ "sex", "namespacefaker_1_1person.html#a6f9626afb67c43e013958f64f5a58419", null ],
-      [ "ssn", "namespacefaker_1_1person.html#a5f206e2cdd72189e665d0ab25c2da077", null ],
+      [ "ssn", "namespacefaker_1_1person.html#a8e6f181401f124afcead503aa08544da", null ],
       [ "suffix", "namespacefaker_1_1person.html#a2d4df33151a522f5abeb90722b0fa3ca", null ],
       [ "westernZodiac", "namespacefaker_1_1person.html#a8a744df8b8f7dc01d21047350493be3c", null ]
     ] ],

@@ -148,19 +148,6 @@ Enumerations</h2></td></tr>
 , <a class="el" href="namespacefaker_1_1person.html#ab7290e4523427c5876299e459d3ed038a63889cfb9d3cbe05d1bd2be5cc9953fd">faker::person::Male</a>
  }</td></tr>
 <tr class="separator:ab7290e4523427c5876299e459d3ed038"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6599d35e7da66fbcb9b17af862bab90" id="r_ad6599d35e7da66fbcb9b17af862bab90"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90">faker::person::SsnCountry</a> { <br />
-&#160;&#160;<a class="el" href="namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a64f607906be7598a02d75dbc1e979662">faker::person::England</a>
-, <a class="el" href="namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a0309a6c666a7a803fdb9db95de71cf01">faker::person::France</a>
-, <a class="el" href="namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90ad8b00929dec65d422303256336ada04f">faker::person::Germany</a>
-, <a class="el" href="namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a7d31e0da1ab99fe8b08a22118e2f402b">faker::person::India</a>
-, <br />
-&#160;&#160;<a class="el" href="namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a1007e1b7f894dfbf72a0eaa80f3bc57e">faker::person::Italy</a>
-, <a class="el" href="namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a94880bda83bda77c5692876700711f15">faker::person::Poland</a>
-, <a class="el" href="namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a907eba32d950bfab68227fd7ea22999b">faker::person::Spain</a>
-, <a class="el" href="namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90a867f8282a36dd6525c3d40744a92fcf8">faker::person::Usa</a>
-<br />
- }</td></tr>
-<tr class="separator:ad6599d35e7da66fbcb9b17af862bab90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a659b715d67b28954aef92a078b55f8a8" id="r_a659b715d67b28954aef92a078b55f8a8"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8">faker::person::Language</a> { <br />
 &#160;&#160;<a class="el" href="namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8aa716b6a3e8cf5994165d64d712db61d8">faker::person::Albanian</a>
 , <a class="el" href="namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a0a6de4460095f398e8a45ed512a7538f">faker::person::Belarusian</a>
@@ -255,9 +242,9 @@ Functions</h2></td></tr>
 <tr class="memitem:adb390e221234be2ed111463db5eb681e" id="r_adb390e221234be2ed111463db5eb681e"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#adb390e221234be2ed111463db5eb681e">faker::person::nationality</a> ()</td></tr>
 <tr class="memdesc:adb390e221234be2ed111463db5eb681e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random nationality.  <br /></td></tr>
 <tr class="separator:adb390e221234be2ed111463db5eb681e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5f206e2cdd72189e665d0ab25c2da077" id="r_a5f206e2cdd72189e665d0ab25c2da077"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#a5f206e2cdd72189e665d0ab25c2da077">faker::person::ssn</a> (std::optional&lt; <a class="el" href="namespacefaker_1_1person.html#ad6599d35e7da66fbcb9b17af862bab90">SsnCountry</a> &gt; country=std::nullopt)</td></tr>
-<tr class="memdesc:a5f206e2cdd72189e665d0ab25c2da077"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random SSN.  <br /></td></tr>
-<tr class="separator:a5f206e2cdd72189e665d0ab25c2da077"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e6f181401f124afcead503aa08544da" id="r_a8e6f181401f124afcead503aa08544da"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#a8e6f181401f124afcead503aa08544da">faker::person::ssn</a> (Locale locale=Locale::en_US)</td></tr>
+<tr class="memdesc:a8e6f181401f124afcead503aa08544da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random SSN.  <br /></td></tr>
+<tr class="separator:a8e6f181401f124afcead503aa08544da"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8a744df8b8f7dc01d21047350493be3c" id="r_a8a744df8b8f7dc01d21047350493be3c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1person.html#a8a744df8b8f7dc01d21047350493be3c">faker::person::westernZodiac</a> ()</td></tr>
 <tr class="memdesc:a8a744df8b8f7dc01d21047350493be3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random Western Zodiac.  <br /></td></tr>
 <tr class="separator:a8a744df8b8f7dc01d21047350493be3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
