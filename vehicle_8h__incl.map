@@ -1,7 +1,9 @@
 <map id="include/faker&#45;cxx/vehicle.h" name="include/faker&#45;cxx/vehicle.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="26,5,200,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,93,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="104,33,72,69,68,66,100,29"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="117,79,240,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="126,29,159,66,155,69,122,33"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="40,5,213,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,59,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,34,62,72,58,67,109,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="83,79,170,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="129,31,129,63,124,63,124,31"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="195,79,317,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="150,29,222,69,219,73,147,34"/>
 </map>
