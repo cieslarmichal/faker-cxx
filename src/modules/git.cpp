@@ -9,19 +9,17 @@
 #include "faker-cxx/number.h"
 #include "faker-cxx/person.h"
 #include "faker-cxx/string.h"
-#include "faker-cxx/types/country.h"
 #include "faker-cxx/types/hex.h"
+#include "faker-cxx/types/locale.h"
 #include "faker-cxx/word.h"
 
 namespace faker::git
 {
-
 std::string branch(std::optional<BranchIssueNum> issueNum, unsigned maxIssueNum)
 {
-
     const auto issue = issueNum ? *issueNum : BranchIssueNum::WithIssueNumber;
 
-    std::string generatedBranch = "";
+    std::string generatedBranch;
 
     switch (issue)
     {
@@ -29,8 +27,6 @@ std::string branch(std::optional<BranchIssueNum> issueNum, unsigned maxIssueNum)
         generatedBranch = common::format("{}-{}", word::verb(), word::noun());
         break;
     case BranchIssueNum::WithIssueNumber:
-        //     return common::format("{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(), word::noun());
-        // default:
         generatedBranch = common::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(),
                                          word::adjective(), word::noun());
         break;
@@ -41,12 +37,10 @@ std::string branch(std::optional<BranchIssueNum> issueNum, unsigned maxIssueNum)
 
 std::string commitDate(unsigned years)
 {
-    const std::string pastDate = faker::date::pastDate(int(years));
-
-    return pastDate;
+    return faker::date::pastDate(int(years));
 }
 
-std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Country country)
+std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Locale locale)
 {
     std::string entry = "commit ";
 
@@ -59,8 +53,8 @@ std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigne
         entry += commitSha();
     }
 
-    const auto firstName = static_cast<std::string>(person::firstName(country));
-    const auto lastName = static_cast<std::string>(person::lastName(country));
+    const auto firstName = static_cast<std::string>(person::firstName(locale));
+    const auto lastName = static_cast<std::string>(person::lastName(locale));
 
     entry += "\nAuthor: " + firstName + " " + lastName + " " + internet::email(firstName, lastName) + "\nDate: ";
 

@@ -12,7 +12,6 @@
 #include "common/string_helper.h"
 #include "faker-cxx/internet.h"
 #include "faker-cxx/number.h"
-#include "faker-cxx/types/country.h"
 #include "internet_data.h"
 #include "person_data.h"
 #include "string_data.h"
@@ -158,7 +157,7 @@ TEST_F(InternetTest, shouldGenerateInternationalUsernames)
     std::vector<std::string_view> firstNames(person::polishMaleFirstNames.begin(), person::polishMaleFirstNames.end());
     firstNames.insert(firstNames.end(), person::polishFemaleFirstNames.begin(), person::polishFemaleFirstNames.end());
 
-    const auto generatedUsername = username(std::nullopt, std::nullopt, Country::Poland);
+    const auto generatedUsername = username(std::nullopt, std::nullopt, Locale::pl_PL);
 
     ASSERT_TRUE(
         std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)

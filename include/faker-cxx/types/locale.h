@@ -16,11 +16,14 @@ enum class Locale
     ar_IQ, // Arabic, Iraq
     ar_JO, // Arabic, Jordan
     ar_KW, // Arabic, Kuwait
+    ar_LB, // Arabic, Lebanon
     ar_LY, // Arabic, Libya
     ar_MA, // Arabic, Morocco
     ar_OM, // Arabic, Oman
+    ar_PS, // Arabic, Palestinian Territory
     ar_QA, // Arabic, Qatar
     ar_SA, // Arabic, Saudi Arabia
+    ar_SY, // Arabic, Syria
     ar_TN, // Arabic, Tunisia
     ar_YE, // Arabic, Yemen
     as_IN, // Assamese, India
@@ -38,12 +41,14 @@ enum class Locale
     de_DE, // German, Germany
     de_LI, // German, Liechtenstein
     de_LU, // German, Luxembourg
+    dv_MV, // Divehi, Maldives
     el_CY, // Greek, Cyprus
     el_GR, // Greek, Greece
     en_AU, // English, Australia
     en_BW, // English, Botswana
     en_CA, // English, Canada
     en_GB, // English, United Kingdom
+    en_GH, // English, Ghana
     en_HK, // English, Hong Kong SAR China
     en_IE, // English, Ireland
     en_IN, // English, India
@@ -80,6 +85,7 @@ enum class Locale
     fr_CH, // French, Switzerland
     fr_FR, // French, France
     fr_LU, // French, Luxembourg
+    fr_MC, // French, Monaco
     gu_IN, // Gujarati, India
     he_IL, // Hebrew, Israel
     hi_IN, // Hindi, India
@@ -115,6 +121,7 @@ enum class Locale
     pt_BR, // Portuguese, Brazil
     pt_PT, // Portuguese, Portugal
     ro_RO, // Romanian, Romania
+    ro_MD, // Romanian, Moldova
     ru_RU, // Russian, Russia
     ru_UA, // Russian, Ukraine
     sa_IN, // Sanskrit, India

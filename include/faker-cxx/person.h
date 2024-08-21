@@ -16,24 +16,23 @@ enum class Language;
 /**
  * @brief Returns a random first name.
  *
- * @param country The local country. Defaults to `Country::England`.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  * @param sex The optional sex to use.
  *
  * @returns First name starting with a capital letter.
  *
  * @code
  * faker::person::firstName() // "Michael"
- * faker::person::firstName(Country::England, Sex::Female) // "Emma"
- * faker::person::firstName(Country::England, Sex::Male) // "Arthur"
+ * faker::person::firstName(Locale::en_US, Sex::Female) // "Emma"
+ * faker::person::firstName(Locale::en_US, Sex::Male) // "Arthur"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view firstName(std::optional<Country> country = std::nullopt,
-                                            std::optional<Sex> sex = std::nullopt);
+FAKER_CXX_EXPORT std::string_view firstName(Locale locale = Locale::en_US, std::optional<Sex> sex = std::nullopt);
 
 /**
  * @brief Returns a random last name.
  *
- * @param country The local country. Defaults to `Country::England`.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  * @param sex The optional sex to use.
  *
  * @returns Last name starting with a capital letter.
@@ -42,29 +41,28 @@ FAKER_CXX_EXPORT std::string_view firstName(std::optional<Country> country = std
  * faker::person::lastName() // "Peterson"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view lastName(std::optional<Country> country = std::nullopt,
-                                           std::optional<Sex> sex = std::nullopt);
+FAKER_CXX_EXPORT std::string_view lastName(Locale locale = Locale::en_US, std::optional<Sex> sex = std::nullopt);
 
 /**
  * @brief Returns a random full name.
  *
- * @param country The local country. Defaults to `Country::England`.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  * @param sex The optional sex to use.
  *
  * @returns Full name starting with first name.
  *
  * @code
  * faker::person::fullName() // "Marcia Robinson"
- * faker::person::fullName(Country::England, Sex::Female) // "Jennifer Martin"
- * faker::person::fullName(Country::England, Sex::Male) // "Samuel Walker"
+ * faker::person::fullName(Locale::en_US, Sex::Female) // "Jennifer Martin"
+ * faker::person::fullName(Locale::en_US, Sex::Male) // "Samuel Walker"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string fullName(std::optional<Country> country = std::nullopt,
-                                      std::optional<Sex> sex = std::nullopt);
+FAKER_CXX_EXPORT std::string fullName(Locale locale = Locale::en_US, std::optional<Sex> sex = std::nullopt);
 
 /**
  * @brief Returns a random name prefix.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  * @param sex The optional sex to use.
  *
  * @returns Name prefix.
@@ -75,11 +73,13 @@ FAKER_CXX_EXPORT std::string fullName(std::optional<Country> country = std::null
  * faker::person::prefix(Sex::Male) // "Mr."
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view prefix(std::optional<Country> country = std::nullopt,
-                                         std::optional<Sex> sex = std::nullopt);
+FAKER_CXX_EXPORT std::string_view prefix(Locale locale = Locale::en_US, std::optional<Sex> sex = std::nullopt);
 
 /**
  * @brief Returns a random name suffix.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ * @param sex The optional sex to use.
  *
  * @returns Name suffix.
  *
@@ -87,8 +87,7 @@ FAKER_CXX_EXPORT std::string_view prefix(std::optional<Country> country = std::n
  * faker::person::suffix() // "Jr."
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view suffix(std::optional<Country> country = std::nullopt,
-                                         std::optional<Sex> sex = std::nullopt);
+FAKER_CXX_EXPORT std::string_view suffix(Locale locale = Locale::en_US, std::optional<Sex> sex = std::nullopt);
 
 /**
  * @brief Returns a random bio.

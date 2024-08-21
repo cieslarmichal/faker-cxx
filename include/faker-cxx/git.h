@@ -4,7 +4,7 @@
 #include <string>
 
 #include "faker-cxx/export.h"
-#include "faker-cxx/types/country.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::git
 {
@@ -45,8 +45,7 @@ FAKER_CXX_EXPORT std::string commitDate(unsigned years = 15);
  *
  * @param dateYears The range of years the date may be in the past. Defaults to `15`.
  * @param shaLength The length of output SHA hash. Defaults to `40`.
- * @param country The country set for name generating. Defaults to `England` (could be random, if there was a
- random language generator).
+ * @param locale The locale. Defaults to `Locale::en_US`.
  * @returns Commit entry.
  *
  * @code
@@ -59,7 +58,7 @@ FAKER_CXX_EXPORT std::string commitDate(unsigned years = 15);
  */
 FAKER_CXX_EXPORT std::string commitEntry(std::optional<unsigned> dateYears = std::nullopt,
                                          std::optional<unsigned> shaLength = std::nullopt,
-                                         Country country = Country::England);
+                                         Locale locale = Locale::en_US);
 
 /**
  * @brief Generates a random commit message.
