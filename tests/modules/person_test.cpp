@@ -10,7 +10,6 @@
 
 #include "faker-cxx/internet.h"
 #include "faker-cxx/person.h"
-#include "faker-cxx/types/country.h"
 #include "faker-cxx/types/locale.h"
 #include "person_data.h"
 #include "string_helper.h"
@@ -24,216 +23,153 @@ namespace
 {
 const std::vector<std::string> sexes{"Male", "Female"};
 
-const std::vector<Country> countries{
-    Country::Usa,       Country::England,     Country::Poland,      Country::Italy,     Country::France,
-    Country::Germany,   Country::Russia,      Country::Romania,     Country::India,     Country::Finland,
-    Country::Nepal,     Country::Spain,       Country::Turkey,      Country::Czech,     Country::Slovakia,
-    Country::Ukraine,   Country::Denmark,     Country::Sweden,      Country::Brazil,    Country::Norway,
-    Country::Japan,     Country::Portugal,    Country::Hungary,     Country::Croatia,   Country::Greece,
-    Country::Slovenia,  Country::Austria,     Country::Switzerland, Country::Belgium,   Country::Netherlands,
-    Country::China,     Country::Korea,       Country::Canada,      Country::Mexico,    Country::Argentina,
-    Country::Australia, Country::Serbia,      Country::Macedonia,   Country::Albania,   Country::Latvia,
-    Country::Ireland,   Country::Belarus,     Country::Estonia,     Country::Iran,      Country::Bulgaria,
-    Country::Moldova,   Country::Lithuania,   Country::Iceland,     Country::Palestine, Country::Israel,
-    Country::Vietnam,   Country::Monaco,      Country::Bosnia,      Country::Lebanon,   Country::Syria,
-    Country::Malta,     Country::SouthAfrica, Country::Azerbaijan,  Country::Ghana,     Country::Kazakhstan,
-    Country::Maldives,
-};
-
-const struct PeopleNames& getPeopleNamesByCountry(const Country& country)
+const struct PeopleNames& getPeopleNamesByLocale(Locale locale)
 {
-    switch (country)
+    switch (locale)
     {
-    case Country::England:
+    case Locale::en_GB:
         return englishPeopleNames;
-    case Country::France:
+    case Locale::fr_FR:
         return frenchPeopleNames;
-    case Country::Germany:
+    case Locale::de_DE:
         return germanPeopleNames;
-    case Country::Italy:
+    case Locale::it_IT:
         return italianPeopleNames;
-    case Country::Poland:
+    case Locale::pl_PL:
         return polishPeopleNames;
-    case Country::Russia:
+    case Locale::ru_RU:
         return russianPeopleNames;
-    case Country::Romania:
+    case Locale::ro_RO:
         return romanianPeopleNames;
-    case Country::India:
+    case Locale::as_IN:
+    case Locale::bn_IN:
+    case Locale::en_IN:
+    case Locale::gu_IN:
+    case Locale::hi_IN:
+    case Locale::kn_IN:
+    case Locale::ks_IN:
+    case Locale::ml_IN:
+    case Locale::mr_IN:
+    case Locale::or_IN:
+    case Locale::pa_IN:
+    case Locale::sa_IN:
+    case Locale::ta_IN:
+    case Locale::te_IN:
         return indianPeopleNames;
-    case Country::Finland:
+    case Locale::fi_FI:
         return finnishPeopleNames;
-    case Country::Nepal:
-        return nepalesePeopleNames;
-    case Country::Spain:
+    case Locale::es_ES:
         return spanishPeopleNames;
-    case Country::Turkey:
+    case Locale::tr_TR:
+    case Locale::ku_TR:
         return turkishPeopleNames;
-    case Country::Czech:
+    case Locale::cs_CZ:
         return czechPeopleNames;
-    case Country::Slovakia:
+    case Locale::sk_SK:
         return slovakPeopleNames;
-    case Country::Ukraine:
+    case Locale::uk_UA:
         return ukrainianPeopleNames;
-    case Country::Denmark:
+    case Locale::da_DK:
         return danishPeopleNames;
-    case Country::Sweden:
+    case Locale::sv_SE:
         return swedishPeopleNames;
-    case Country::Usa:
+    case Locale::en_US:
         return usaPeopleNames;
-    case Country::Brazil:
+    case Locale::pt_BR:
         return brazilianPeopleNames;
-    case Country::Norway:
+    case Locale::nb_NO:
+    case Locale::nn_NO:
         return norwegianPeopleNames;
-    case Country::Japan:
+    case Locale::ja_JP:
         return japanesePeopleNames;
-    case Country::Portugal:
+    case Locale::pt_PT:
         return portuguesePeopleNames;
-    case Country::Hungary:
+    case Locale::hu_HU:
         return hungarianPeopleNames;
-    case Country::Croatia:
+    case Locale::hr_HR:
         return croatianPeopleNames;
-    case Country::Greece:
+    case Locale::el_CY:
+    case Locale::el_GR:
         return greekPeopleNames;
-    case Country::Slovenia:
+    case Locale::sl_SI:
         return slovenianPeopleNames;
-    case Country::Austria:
+    case Locale::de_AT:
         return austrianPeopleNames;
-    case Country::Switzerland:
+    case Locale::de_CH:
         return swissPeopleNames;
-    case Country::Belgium:
+    case Locale::de_BE:
         return belgianPeopleNames;
-    case Country::Netherlands:
+    case Locale::nl_NL:
+    case Locale::nl_BE:
         return dutchPeopleNames;
-    case Country::China:
+    case Locale::zh_CN:
         return chinesePeopleNames;
-    case Country::Korea:
+    case Locale::ko_KR:
         return koreanPeopleNames;
-    case Country::Canada:
+    case Locale::en_CA:
+    case Locale::fr_CA:
         return canadianPeopleNames;
-    case Country::Mexico:
+    case Locale::es_MX:
         return mexicanPeopleNames;
-    case Country::Argentina:
+    case Locale::es_AR:
         return argentinianPeopleNames;
-    case Country::Australia:
+    case Locale::en_AU:
         return australianPeopleNames;
-    case Country::Serbia:
+    case Locale::sr_ME:
+    case Locale::sr_RS:
         return serbianPeopleNames;
-    case Country::Macedonia:
+    case Locale::mk_MK:
         return macedonianPeopleNames;
-    case Country::Latvia:
+    case Locale::lv_LV:
         return latvianPeopleNames;
-    case Country::Ireland:
+    case Locale::en_IE:
         return irishPeopleNames;
-    case Country::Belarus:
+    case Locale::be_BY:
         return belarusianPeopleNames;
-    case Country::Estonia:
+    case Locale::et_EE:
         return estonianPeopleNames;
-    case Country::Albania:
+    case Locale::sq_AL:
         return albanianPeopleNames;
-    case Country::Iran:
+    case Locale::ar_IQ:
         return persianPeopleNames;
-    case Country::Bulgaria:
+    case Locale::bg_BG:
         return bulgarianPeopleNames;
-    case Country::Moldova:
+    case Locale::ro_MD:
         return moldovanPeopleNames;
-    case Country::Bosnia:
+    case Locale::bs_BA:
         return bosnianPeopleNames;
-    case Country::Lithuania:
+    case Locale::lt_LT:
         return lithuanianPeopleNames;
-    case Country::Iceland:
+    case Locale::is_IS:
         return icelandicPeopleNames;
-    case Country::Palestine:
+    case Locale::ar_PS:
         return palestinianPeopleNames;
-    case Country::Israel:
+    case Locale::he_IL:
         return israeliPeopleNames;
-    case Country::Vietnam:
+    case Locale::vi_VN:
         return vietnamesePeopleNames;
-    case Country::Monaco:
+    case Locale::fr_MC:
         return monacanPeopleNames;
-    case Country::Lebanon:
+    case Locale::ar_LB:
         return lebanesePeopleNames;
-    case Country::Syria:
+    case Locale::ar_SY:
         return syrianPeopleNames;
-    case Country::Malta:
+    case Locale::en_MT:
         return maltesePeopleNames;
-    case Country::SouthAfrica:
+    case Locale::af_ZA:
         return southAfricanPeopleNames;
-    case Country::Azerbaijan:
+    case Locale::az_AZ:
         return azerbaijaniPeopleNames;
-    case Country::Ghana:
+    case Locale::en_GH:
         return ghanaianPeopleNames;
-    case Country::Kazakhstan:
+    case Locale::kk_KZ:
         return kazakhPeopleNames;
-    case Country::Maldives:
+    case Locale::dv_MV:
         return maldiviansPeopleNames;
     default:
-        throw std::runtime_error{"Country not found."};
+        return usaPeopleNames;
     }
 }
-
-const std::unordered_map<Country, std::string> generatedTestName{
-    {Country::England, "shouldGenerateEnglishName"},
-    {Country::France, "shouldGenerateFrenchName"},
-    {Country::Germany, "shouldGenerateGermanName"},
-    {Country::Italy, "shouldGenerateItalianName"},
-    {Country::Poland, "shouldGeneratePolishName"},
-    {Country::Russia, "shouldGenerateRussianName"},
-    {Country::Romania, "shouldGenerateRomanianName"},
-    {Country::India, "shouldGenerateIndianName"},
-    {Country::Finland, "shouldGenerateFinnishName"},
-    {Country::Nepal, "shouldGenerateNepaleseName"},
-    {Country::Spain, "shouldGenerateSpanishName"},
-    {Country::Turkey, "shouldGenerateTurkishName"},
-    {Country::Czech, "shouldGenerateCzechName"},
-    {Country::Slovakia, "shouldGenerateSlovakName"},
-    {Country::Ukraine, "shouldGenerateUkrainianName"},
-    {Country::Denmark, "shouldGenerateDanishName"},
-    {Country::Sweden, "shouldGenerateSwedishName"},
-    {Country::Usa, "shouldGenerateAmericanName"},
-    {Country::Brazil, "shouldGenerateBrazilianName"},
-    {Country::Norway, "shouldGenerateNorwegianName"},
-    {Country::Japan, "shouldGenerateJapaneseName"},
-    {Country::Portugal, "shouldGeneratePortugueseName"},
-    {Country::Hungary, "shouldGenerateHungarianName"},
-    {Country::Croatia, "shouldGenerateCroatianName"},
-    {Country::Greece, "shouldGenerateGreekName"},
-    {Country::Slovenia, "shouldGenerateSlovenianName"},
-    {Country::Austria, "shouldGenerateAustrianName"},
-    {Country::Switzerland, "shouldGenerateSwissName"},
-    {Country::Belgium, "shouldGenerateBelgianName"},
-    {Country::Netherlands, "shouldGenerateDutchName"},
-    {Country::China, "shouldGenerateChineseName"},
-    {Country::Korea, "shouldGenerateKoreanName"},
-    {Country::Canada, "shouldGenerateCanadianName"},
-    {Country::Mexico, "shouldGenerateMexicanName"},
-    {Country::Argentina, "shouldGenerateArgentinianName"},
-    {Country::Australia, "shouldGenerateAustralianName"},
-    {Country::Serbia, "shouldGenerateSerbianName"},
-    {Country::Macedonia, "shouldGenerateMacedonianName"},
-    {Country::Latvia, "shouldGenerateLatvianName"},
-    {Country::Ireland, "shouldGenerateIrishName"},
-    {Country::Belarus, "shouldGenerateBelarusianName"},
-    {Country::Estonia, "shouldGenerateEstonianName"},
-    {Country::Albania, "shouldGenerateAlbanianName"},
-    {Country::Iran, "shouldGeneratePersianName"},
-    {Country::Bulgaria, "shouldGenerateBulgarianName"},
-    {Country::Moldova, "shouldGenerateMoldovanName"},
-    {Country::Lithuania, "shouldGenerateLithuanianName"},
-    {Country::Iceland, "shouldGenerateIcelandicName"},
-    {Country::Palestine, "shouldGeneratePalestinianName"},
-    {Country::Israel, "shouldGenerateIsraeliName"},
-    {Country::Vietnam, "shouldGenerateVietnameseName"},
-    {Country::Monaco, "shouldGenerateMonacanName"},
-    {Country::Bosnia, "shouldGenerateBosnianNames"},
-    {Country::Lebanon, "shouldGenerateLebaneseName"},
-    {Country::Syria, "shouldGenerateSyrianName"},
-    {Country::Malta, "shouldGenerateMalteseName"},
-    {Country::SouthAfrica, "shouldGenerateSouthAfricanName"},
-    {Country::Azerbaijan, "shouldGenerateAzerbaijaniName"},
-    {Country::Ghana, "shouldGenerateGhanaianName"},
-    {Country::Kazakhstan, "shouldGenerateKazakhName"},
-    {Country::Maldives, "shouldGenerateMaldivianName"},
-};
 
 std::string_view translateSex(Sex sex, Language language = Language::English)
 {
@@ -251,16 +187,16 @@ std::string_view translateSex(Sex sex, Language language = Language::English)
 
 bool checkTokenFormat(const std::string& bio);
 
-class PersonTest : public TestWithParam<Country>
+class PersonTest : public TestWithParam<Locale>
 {
 public:
 };
 
 TEST_P(PersonTest, shouldGenerateFirstName)
 {
-    const auto country = GetParam();
+    const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
@@ -269,7 +205,7 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
 
-    const auto generatedFirstName = firstName(country);
+    const auto generatedFirstName = firstName(locale);
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFirstName](const std::string_view& firstName)
                                     { return firstName == generatedFirstName; }));
@@ -279,7 +215,7 @@ TEST_P(PersonTest, shouldGenerateMaleFirstName)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByLocale(country);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
@@ -293,7 +229,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByLocale(country);
 
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
@@ -307,7 +243,7 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByLocale(country);
 
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
@@ -321,7 +257,7 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByLocale(country);
 
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
@@ -333,9 +269,9 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
 
 TEST_P(PersonTest, shouldGenerateFullName)
 {
-    const auto country = GetParam();
+    const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
@@ -349,7 +285,7 @@ TEST_P(PersonTest, shouldGenerateFullName)
     firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
     lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
 
-    const auto generatedFullName = fullName(country);
+    const auto generatedFullName = fullName(locale);
 
     ASSERT_TRUE(std::ranges::any_of(firstNames, [generatedFullName](const std::string_view& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
@@ -359,15 +295,15 @@ TEST_P(PersonTest, shouldGenerateFullName)
 
 TEST_P(PersonTest, shouldGenerateMaleFullName)
 {
-    const auto country = GetParam();
+    const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
-    const auto generatedFullName = fullName(country, Sex::Male);
+    const auto generatedFullName = fullName(locale, Sex::Male);
 
     ASSERT_TRUE(std::ranges::any_of(malesFirstNames, [generatedFullName](const std::string_view& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
@@ -377,15 +313,15 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 
 TEST_P(PersonTest, shouldGenerateFemaleFullName)
 {
-    const auto country = GetParam();
+    const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByCountry(country);
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
 
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
-    const auto generatedFullName = fullName(country, Sex::Female);
+    const auto generatedFullName = fullName(locale, Sex::Female);
 
     ASSERT_TRUE(std::ranges::any_of(femalesFirstNames, [generatedFullName](const std::string_view& firstName)
                                     { return generatedFullName.find(firstName) != std::string::npos; }));
@@ -393,8 +329,8 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
                                     { return generatedFullName.find(lastName) != std::string::npos; }));
 }
 
-INSTANTIATE_TEST_SUITE_P(TestPersonNamesByCountries, PersonTest, ValuesIn(countries),
-                         [](const TestParamInfo<Country>& paramInfo) { return generatedTestName.at(paramInfo.param); });
+INSTANTIATE_TEST_SUITE_P(TestPersonNamesByLocale, PersonTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
 
 // TODO: move to parameterized tests
 TEST_F(PersonTest, shouldGeneratePrefix)
@@ -412,7 +348,7 @@ TEST_F(PersonTest, shouldGeneratePrefix)
 // TODO: move to parameterized tests
 TEST_F(PersonTest, shouldGenerateMalePrefix)
 {
-    const auto generatedPrefix = prefix(std::nullopt, Sex::Male);
+    const auto generatedPrefix = prefix(Locale::en_US, Sex::Male);
 
     ASSERT_TRUE(std::ranges::any_of(englishMalePrefixes, [generatedPrefix](const std::string_view& prefix)
                                     { return prefix == generatedPrefix; }));
@@ -420,7 +356,7 @@ TEST_F(PersonTest, shouldGenerateMalePrefix)
 
 TEST_F(PersonTest, shouldGenerateFemalePrefix)
 {
-    const auto generatedPrefix = prefix(std::nullopt, Sex::Female);
+    const auto generatedPrefix = prefix(Locale::en_US, Sex::Female);
 
     ASSERT_TRUE(std::ranges::any_of(englishFemalePrefixes, [generatedPrefix](const std::string_view& prefix)
                                     { return prefix == generatedPrefix; }));

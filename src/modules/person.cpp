@@ -11,7 +11,6 @@
 #include "faker-cxx/internet.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/string.h"
-#include "faker-cxx/types/country.h"
 #include "faker-cxx/types/locale.h"
 #include "faker-cxx/word.h"
 #include "person_data.h"
@@ -20,144 +19,159 @@ namespace faker::person
 {
 namespace
 {
-const struct PeopleNames& getPeopleNamesByCountry(const Country& country)
+const struct PeopleNames& getPeopleNamesByLocale(Locale locale)
 {
-    switch (country)
+    switch (locale)
     {
-    case Country::England:
+    case Locale::en_GB:
         return englishPeopleNames;
-    case Country::France:
+    case Locale::fr_FR:
         return frenchPeopleNames;
-    case Country::Germany:
+    case Locale::de_DE:
         return germanPeopleNames;
-    case Country::Italy:
+    case Locale::it_IT:
         return italianPeopleNames;
-    case Country::Poland:
+    case Locale::pl_PL:
         return polishPeopleNames;
-    case Country::Russia:
+    case Locale::ru_RU:
         return russianPeopleNames;
-    case Country::Romania:
+    case Locale::ro_RO:
         return romanianPeopleNames;
-    case Country::India:
+    case Locale::as_IN:
+    case Locale::bn_IN:
+    case Locale::en_IN:
+    case Locale::gu_IN:
+    case Locale::hi_IN:
+    case Locale::kn_IN:
+    case Locale::ks_IN:
+    case Locale::ml_IN:
+    case Locale::mr_IN:
+    case Locale::or_IN:
+    case Locale::pa_IN:
+    case Locale::sa_IN:
+    case Locale::ta_IN:
+    case Locale::te_IN:
         return indianPeopleNames;
-    case Country::Finland:
+    case Locale::fi_FI:
         return finnishPeopleNames;
-    case Country::Nepal:
-        return nepalesePeopleNames;
-    case Country::Spain:
+    case Locale::es_ES:
         return spanishPeopleNames;
-    case Country::Turkey:
+    case Locale::tr_TR:
+    case Locale::ku_TR:
         return turkishPeopleNames;
-    case Country::Czech:
+    case Locale::cs_CZ:
         return czechPeopleNames;
-    case Country::Slovakia:
+    case Locale::sk_SK:
         return slovakPeopleNames;
-    case Country::Ukraine:
+    case Locale::uk_UA:
         return ukrainianPeopleNames;
-    case Country::Denmark:
+    case Locale::da_DK:
         return danishPeopleNames;
-    case Country::Sweden:
+    case Locale::sv_SE:
         return swedishPeopleNames;
-    case Country::Usa:
+    case Locale::en_US:
         return usaPeopleNames;
-    case Country::Brazil:
+    case Locale::pt_BR:
         return brazilianPeopleNames;
-    case Country::Norway:
+    case Locale::nb_NO:
+    case Locale::nn_NO:
         return norwegianPeopleNames;
-    case Country::Japan:
+    case Locale::ja_JP:
         return japanesePeopleNames;
-    case Country::Portugal:
+    case Locale::pt_PT:
         return portuguesePeopleNames;
-    case Country::Hungary:
+    case Locale::hu_HU:
         return hungarianPeopleNames;
-    case Country::Croatia:
+    case Locale::hr_HR:
         return croatianPeopleNames;
-    case Country::Greece:
+    case Locale::el_CY:
+    case Locale::el_GR:
         return greekPeopleNames;
-    case Country::Slovenia:
+    case Locale::sl_SI:
         return slovenianPeopleNames;
-    case Country::Austria:
+    case Locale::de_AT:
         return austrianPeopleNames;
-    case Country::Switzerland:
+    case Locale::de_CH:
         return swissPeopleNames;
-    case Country::Belgium:
+    case Locale::de_BE:
         return belgianPeopleNames;
-    case Country::Netherlands:
+    case Locale::nl_NL:
+    case Locale::nl_BE:
         return dutchPeopleNames;
-    case Country::China:
+    case Locale::zh_CN:
         return chinesePeopleNames;
-    case Country::Korea:
+    case Locale::ko_KR:
         return koreanPeopleNames;
-    case Country::Canada:
+    case Locale::en_CA:
+    case Locale::fr_CA:
         return canadianPeopleNames;
-    case Country::Mexico:
+    case Locale::es_MX:
         return mexicanPeopleNames;
-    case Country::Argentina:
+    case Locale::es_AR:
         return argentinianPeopleNames;
-    case Country::Australia:
+    case Locale::en_AU:
         return australianPeopleNames;
-    case Country::Serbia:
+    case Locale::sr_ME:
+    case Locale::sr_RS:
         return serbianPeopleNames;
-    case Country::Macedonia:
+    case Locale::mk_MK:
         return macedonianPeopleNames;
-    case Country::Latvia:
+    case Locale::lv_LV:
         return latvianPeopleNames;
-    case Country::Ireland:
+    case Locale::en_IE:
         return irishPeopleNames;
-    case Country::Belarus:
+    case Locale::be_BY:
         return belarusianPeopleNames;
-    case Country::Estonia:
+    case Locale::et_EE:
         return estonianPeopleNames;
-    case Country::Albania:
+    case Locale::sq_AL:
         return albanianPeopleNames;
-    case Country::Iran:
+    case Locale::ar_IQ:
         return persianPeopleNames;
-    case Country::Bulgaria:
+    case Locale::bg_BG:
         return bulgarianPeopleNames;
-    case Country::Moldova:
+    case Locale::ro_MD:
         return moldovanPeopleNames;
-    case Country::Bosnia:
+    case Locale::bs_BA:
         return bosnianPeopleNames;
-    case Country::Lithuania:
+    case Locale::lt_LT:
         return lithuanianPeopleNames;
-    case Country::Iceland:
+    case Locale::is_IS:
         return icelandicPeopleNames;
-    case Country::Palestine:
+    case Locale::ar_PS:
         return palestinianPeopleNames;
-    case Country::Israel:
+    case Locale::he_IL:
         return israeliPeopleNames;
-    case Country::Vietnam:
+    case Locale::vi_VN:
         return vietnamesePeopleNames;
-    case Country::Monaco:
+    case Locale::fr_MC:
         return monacanPeopleNames;
-    case Country::Lebanon:
+    case Locale::ar_LB:
         return lebanesePeopleNames;
-    case Country::Syria:
+    case Locale::ar_SY:
         return syrianPeopleNames;
-    case Country::Malta:
+    case Locale::en_MT:
         return maltesePeopleNames;
-    case Country::SouthAfrica:
+    case Locale::af_ZA:
         return southAfricanPeopleNames;
-    case Country::Azerbaijan:
+    case Locale::az_AZ:
         return azerbaijaniPeopleNames;
-    case Country::Ghana:
+    case Locale::en_GH:
         return ghanaianPeopleNames;
-    case Country::Kazakhstan:
+    case Locale::kk_KZ:
         return kazakhPeopleNames;
-    case Country::Maldives:
+    case Locale::dv_MV:
         return maldiviansPeopleNames;
     default:
-        throw std::runtime_error{"Country not found."};
+        return usaPeopleNames;
     }
 }
 
 }
 
-std::string_view firstName(std::optional<Country> country, std::optional<Sex> sex)
+std::string_view firstName(Locale locale, std::optional<Sex> sex)
 {
-    const auto countryStr = country ? *country : Country::England;
-
-    const auto& peopleNames = getPeopleNamesByCountry(countryStr);
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
 
     std::vector<std::string_view> firstNames;
 
@@ -185,11 +199,9 @@ std::string_view firstName(std::optional<Country> country, std::optional<Sex> se
     return helper::randomElement(firstNames);
 }
 
-std::string_view lastName(std::optional<Country> country, std::optional<Sex> sex)
+std::string_view lastName(Locale locale, std::optional<Sex> sex)
 {
-    const auto countryStr = country ? *country : Country::England;
-
-    const auto& peopleNames = getPeopleNamesByCountry(countryStr);
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
 
     std::vector<std::string_view> lastNames;
 
@@ -217,13 +229,12 @@ std::string_view lastName(std::optional<Country> country, std::optional<Sex> sex
     return helper::randomElement(lastNames);
 }
 
-std::string fullName(std::optional<Country> country, std::optional<Sex> sex)
+std::string fullName(Locale locale, std::optional<Sex> sex)
 {
-    const auto countryStr = country ? *country : Country::England;
-
-    const auto& peopleNames = getPeopleNamesByCountry(countryStr);
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
 
     std::vector<helper::WeightedElement<std::string_view>> weightedElements;
+
     weightedElements.reserve(peopleNames.nameFormats.size());
 
     std::transform(peopleNames.nameFormats.begin(), peopleNames.nameFormats.end(), std::back_inserter(weightedElements),
@@ -234,19 +245,17 @@ std::string fullName(std::optional<Country> country, std::optional<Sex> sex)
     const auto nameFormat = static_cast<std::string>(helper::weightedRandomElement<std::string_view>(weightedElements));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"firstName", [&countryStr, &sex]() { return std::string{firstName(countryStr, sex)}; }},
-        {"lastName", [&countryStr, &sex]() { return std::string{lastName(countryStr, sex)}; }},
-        {"prefix", [&countryStr, &sex]() { return std::string{prefix(countryStr, sex)}; }},
-        {"suffix", [&countryStr, &sex]() { return std::string{suffix(countryStr, sex)}; }}};
+        {"firstName", [&locale, &sex]() { return std::string{firstName(locale, sex)}; }},
+        {"lastName", [&locale, &sex]() { return std::string{lastName(locale, sex)}; }},
+        {"prefix", [&locale, &sex]() { return std::string{prefix(locale, sex)}; }},
+        {"suffix", [&locale, &sex]() { return std::string{suffix(locale, sex)}; }}};
 
     return common::fillTokenValues(nameFormat, dataGeneratorsMapping);
 }
 
-std::string_view prefix(std::optional<Country> country, std::optional<Sex> sex)
+std::string_view prefix(Locale locale, std::optional<Sex> sex)
 {
-    const auto countryStr = country ? *country : Country::England;
-
-    const auto& peopleNames = getPeopleNamesByCountry(countryStr);
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
 
     std::vector<std::string_view> prefixes;
 
@@ -279,11 +288,9 @@ std::string_view prefix(std::optional<Country> country, std::optional<Sex> sex)
     return helper::randomElement(prefixes);
 }
 
-std::string_view suffix(std::optional<Country> country, std::optional<Sex> sex)
+std::string_view suffix(Locale locale, std::optional<Sex> sex)
 {
-    const auto countryStr = country ? *country : Country::England;
-
-    const auto& peopleNames = getPeopleNamesByCountry(countryStr);
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
 
     std::vector<std::string_view> suffixes;
 

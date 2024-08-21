@@ -6,7 +6,7 @@
 #include <string_view>
 
 #include "faker-cxx/export.h"
-#include "types/country.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::internet
 {
@@ -45,6 +45,7 @@ struct FAKER_CXX_EXPORT PasswordOptions
  *
  * @param firstName The optional first name to include in username.
  * @param lastName The optional last name to include in username.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Username including neither, one or both of the provided names.
  *
@@ -57,7 +58,7 @@ struct FAKER_CXX_EXPORT PasswordOptions
  */
 FAKER_CXX_EXPORT std::string username(std::optional<std::string> firstName = std::nullopt,
                                       std::optional<std::string> lastName = std::nullopt,
-                                      Country country = Country::Usa);
+                                      Locale locale = Locale::en_US);
 
 /**
  * @brief Generates an email address using the given person's name as base.

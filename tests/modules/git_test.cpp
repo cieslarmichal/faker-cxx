@@ -78,7 +78,7 @@ TEST_F(GitTest, branchWithIssueNumTest)
 
 TEST_F(GitTest, branchWithoutIssueNumTest)
 {
-    auto testValue = unsigned(number::integer(2, 100));
+    const std::integral auto testValue = number::integer(2u, 100u);
 
     std::vector<std::string> branchElements;
 
@@ -113,13 +113,14 @@ TEST_F(GitTest, shouldGenerateCommitEntry)
 TEST_F(GitTest, shouldGenerateCommitEntryWithGivenArguments)
 {
     const unsigned years = 20;
+
     const unsigned length = 50;
 
     const std::regex entryRegex("^commit " + GitTest::generateShaRegex(length) +
                                 "\nAuthor: [A-Z][a-zA-Z]+ [A-Z][a-zA-Z]+ .+@[0-9a-zA-Z]+\\.[0-9a-zA-Z]+\nDate: " +
                                 GitTest::DATE_REGEX + "\n\n\t" + GitTest::MESSAGE_REGEX + "$");
 
-    ASSERT_TRUE(std::regex_match(commitEntry(years, length, Country::India), entryRegex));
+    ASSERT_TRUE(std::regex_match(commitEntry(years, length), entryRegex));
 }
 
 TEST_F(GitTest, shouldGenerateCommitMessage)

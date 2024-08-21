@@ -17,8 +17,8 @@
 #include "faker-cxx/number.h"
 #include "faker-cxx/person.h"
 #include "faker-cxx/string.h"
-#include "faker-cxx/types/country.h"
 #include "faker-cxx/types/hex.h"
+#include "faker-cxx/types/locale.h"
 #include "faker-cxx/word.h"
 #include "internet_data.h"
 #include "modules/string_data.h"
@@ -82,10 +82,10 @@ std::vector<std::string_view> getAllEmojis()
     return emojis;
 }
 
-std::string username(std::optional<std::string> firstName, std::optional<std::string> lastName, Country country)
+std::string username(std::optional<std::string> firstName, std::optional<std::string> lastName, Locale locale)
 {
-    const auto firstNameLower = common::toLower(std::string{firstName ? *firstName : person::firstName(country)});
-    const auto lastNameLower = common::toLower(std::string{lastName ? *lastName : person::lastName(country)});
+    const auto firstNameLower = common::toLower(std::string{firstName ? *firstName : person::firstName(locale)});
+    const auto lastNameLower = common::toLower(std::string{lastName ? *lastName : person::lastName(locale)});
 
     std::string username;
 

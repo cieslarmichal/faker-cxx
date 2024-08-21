@@ -9,7 +9,7 @@
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/person.h"
-#include "faker-cxx/types/country.h"
+#include "faker-cxx/types/locale.h"
 #include "faker-cxx/types/precision.h"
 #include "location_data.h"
 
@@ -56,42 +56,42 @@ CountryAddressesInfo getAddresses(const AddressCountry& country)
     }
 }
 
-Country getCountry(const AddressCountry& addressCountry)
+Locale getLocale(const AddressCountry& addressCountry)
 {
     switch (addressCountry)
     {
     case AddressCountry::Usa:
-        return Country::Usa;
+        return Locale::en_US;
     case AddressCountry::Poland:
-        return Country::Poland;
+        return Locale::pl_PL;
     case AddressCountry::Russia:
-        return Country::Russia;
+        return Locale::ru_RU;
     case AddressCountry::France:
-        return Country::France;
+        return Locale::fr_FR;
     case AddressCountry::Ukraine:
-        return Country::Ukraine;
+        return Locale::uk_UA;
     case AddressCountry::Italy:
-        return Country::Italy;
+        return Locale::it_IT;
     case AddressCountry::Germany:
-        return Country::Germany;
+        return Locale::de_DE;
     case AddressCountry::Czech:
-        return Country::Czech;
+        return Locale::cs_CZ;
     case AddressCountry::Australia:
-        return Country::Australia;
+        return Locale::en_AU;
     case AddressCountry::India:
-        return Country::India;
+        return Locale::hi_IN;
     case AddressCountry::Denmark:
-        return Country::Denmark;
+        return Locale::da_DK;
     case AddressCountry::Spain:
-        return Country::Spain;
+        return Locale::es_ES;
     case AddressCountry::Brazil:
-        return Country::Brazil;
+        return Locale::pt_BR;
     case AddressCountry::Finland:
-        return Country::Finland;
+        return Locale::fi_FI;
     case AddressCountry::Estonia:
-        return Country::Estonia;
+        return Locale::et_EE;
     default:
-        return Country::Usa;
+        return Locale::en_US;
     }
 }
 }
@@ -120,8 +120,8 @@ std::string city(AddressCountry country)
     const auto cityFormat = static_cast<std::string>(helper::randomElement(countryAddresses.cityFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"firstName", [&country]() { return static_cast<std::string>(person::firstName(getCountry(country))); }},
-        {"lastName", [&country]() { return static_cast<std::string>(person::lastName(getCountry(country))); }},
+        {"firstName", [&country]() { return static_cast<std::string>(person::firstName(getLocale(country))); }},
+        {"lastName", [&country]() { return static_cast<std::string>(person::lastName(getLocale(country))); }},
         {"cityName",
          [&countryAddresses]() { return static_cast<std::string>(helper::randomElement(countryAddresses.cities)); }},
         {"cityPrefix", [&countryAddresses]()
@@ -160,8 +160,8 @@ std::string street(AddressCountry country)
     const auto streetFormat = static_cast<std::string>(helper::randomElement(countryAddresses.streetFormats));
 
     const auto dataGeneratorsMapping = std::unordered_map<std::string, std::function<std::string()>>{
-        {"firstName", [&country]() { return static_cast<std::string>(person::firstName(getCountry(country))); }},
-        {"lastName", [&country]() { return static_cast<std::string>(person::lastName(getCountry(country))); }},
+        {"firstName", [&country]() { return static_cast<std::string>(person::firstName(getLocale(country))); }},
+        {"lastName", [&country]() { return static_cast<std::string>(person::lastName(getLocale(country))); }},
         {"streetName", [&countryAddresses]()
          { return static_cast<std::string>(helper::randomElement(countryAddresses.streetNames)); }},
         {"streetPrefix", [&countryAddresses]()
