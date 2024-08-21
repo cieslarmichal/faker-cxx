@@ -50,5 +50,5 @@ var namespacefaker_1_1internet =
     [ "port", "namespacefaker_1_1internet.html#af7fe45110325fe2a80fe3cc776ac2ed2", null ],
     [ "protocol", "namespacefaker_1_1internet.html#acefc699b5b4a93a1f1538cbb49331114", null ],
     [ "url", "namespacefaker_1_1internet.html#a005caa05149d90b3854aef6a4ccdf27e", null ],
-    [ "username", "namespacefaker_1_1internet.html#aae749a34446ecccdddcbba60868c4746", null ]
+    [ "username", "namespacefaker_1_1internet.html#aaf73c938f7c6cf8f8ecbbeb0636b67c3", null ]
 ];

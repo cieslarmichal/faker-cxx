@@ -50,5 +50,5 @@ var internet_8h =
     [ "port", "internet_8h.html#af7fe45110325fe2a80fe3cc776ac2ed2", null ],
     [ "protocol", "internet_8h.html#acefc699b5b4a93a1f1538cbb49331114", null ],
     [ "url", "internet_8h.html#a005caa05149d90b3854aef6a4ccdf27e", null ],
-    [ "username", "internet_8h.html#aae749a34446ecccdddcbba60868c4746", null ]
+    [ "username", "internet_8h.html#aaf73c938f7c6cf8f8ecbbeb0636b67c3", null ]
 ];

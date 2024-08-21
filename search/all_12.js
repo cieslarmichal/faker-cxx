@@ -68,7 +68,7 @@ var searchData=
   ['success_65',['Success',['../namespacefaker_1_1internet.html#a25d31766e509fb398f5534224b171a8da505a83f220c02df2f85c3810cd9ceb38',1,'faker::internet']]],
   ['succulent_66',['succulent',['../namespacefaker_1_1plant.html#ab21548af4b288b15d53ca1bfd37749a9',1,'faker::plant']]],
   ['sudan_67',['Sudan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa74458a3d3e5f3074226b1f9fa23c9163',1,'faker::phone']]],
-  ['suffix_68',['suffix',['../namespacefaker_1_1person.html#a2d4df33151a522f5abeb90722b0fa3ca',1,'faker::person']]],
+  ['suffix_68',['suffix',['../namespacefaker_1_1person.html#a0e2a416b654fbed4272162da9148cf75',1,'faker::person']]],
   ['sugarproduct_69',['sugarProduct',['../namespacefaker_1_1food.html#a3b58938e421e79f85126d4ef3b6e4280',1,'faker::food']]],
   ['suriname_70',['Suriname',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa64446ac025106d201779cb4bf5ab6b2e',1,'faker::phone']]],
   ['svalbardandjanmayenislands_71',['SvalbardAndJanMayenIslands',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa8c6b526ee194715abc46fafd4420958e',1,'faker::phone']]],

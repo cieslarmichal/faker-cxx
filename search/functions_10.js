@@ -30,6 +30,6 @@ var searchData=
   ['streetaddress_27',['streetAddress',['../namespacefaker_1_1location.html#ae61de04e37a0c3ef796c2e2606accfeb',1,'faker::location']]],
   ['studioname_28',['studioName',['../namespacefaker_1_1videogame.html#a31ebb893e24ebecdc8392f9f36363005',1,'faker::videogame']]],
   ['succulent_29',['succulent',['../namespacefaker_1_1plant.html#ab21548af4b288b15d53ca1bfd37749a9',1,'faker::plant']]],
-  ['suffix_30',['suffix',['../namespacefaker_1_1person.html#a2d4df33151a522f5abeb90722b0fa3ca',1,'faker::person']]],
+  ['suffix_30',['suffix',['../namespacefaker_1_1person.html#a0e2a416b654fbed4272162da9148cf75',1,'faker::person']]],
   ['sugarproduct_31',['sugarProduct',['../namespacefaker_1_1food.html#a3b58938e421e79f85126d4ef3b6e4280',1,'faker::food']]]
 ];
