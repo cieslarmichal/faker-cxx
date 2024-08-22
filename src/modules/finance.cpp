@@ -1,6 +1,5 @@
 #include "faker-cxx/finance.h"
 
-#include <optional>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -12,6 +11,7 @@
 #include "faker-cxx/number.h"
 #include "faker-cxx/string.h"
 #include "faker-cxx/types/hex.h"
+#include "faker-cxx/types/locale.h"
 #include "faker-cxx/types/precision.h"
 #include "finance_data.h"
 
@@ -54,11 +54,9 @@ std::string amount(double min, double max, Precision precision, const std::strin
     return result;
 }
 
-std::string iban(std::optional<IbanCountry> country)
+std::string iban(Locale locale)
 {
-    const auto ibanCountry = country ? *country : helper::randomElement(ibanCountries);
-
-    const auto& ibanFormat = ibanFormats.at(ibanCountry);
+    const auto& ibanFormat = ibanFormats.contains(locale) ? ibanFormats.at(locale) : ibanFormats.at(Locale::de_DE);
 
     const auto& countryCode = ibanFormat[0];
 
@@ -89,11 +87,10 @@ std::string iban(std::optional<IbanCountry> country)
     return iban;
 }
 
-std::string_view bic(std::optional<BicCountry> country)
+std::string_view bic(Locale locale)
 {
-    const auto bicCountry = country ? *country : helper::randomElement(bicCountries);
-
-    return helper::randomElement(bicCountriesCodes.at(bicCountry));
+    return helper::randomElement(bicCountriesCodes.contains(locale) ? bicCountriesCodes.at(locale) :
+                                                                      bicCountriesCodes.at(Locale::en_US));
 }
 
 std::string accountNumber(unsigned int length)
@@ -111,11 +108,9 @@ std::string routingNumber()
     return string::numeric(9, true);
 }
 
-std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
+std::string creditCardNumber(CreditCardType creditCardType)
 {
-    const auto creditCardTargetType = creditCardType ? *creditCardType : helper::randomElement(creditCardTypes);
-
-    switch (creditCardTargetType)
+    switch (creditCardType)
     {
     case CreditCardType::AmericanExpress:
         return helper::replaceCreditCardSymbols(
@@ -126,12 +121,9 @@ std::string creditCardNumber(std::optional<CreditCardType> creditCardType)
     case CreditCardType::MasterCard:
         return helper::replaceCreditCardSymbols(
             static_cast<std::string>(helper::randomElement(masterCardCreditCardFormats)));
-    case CreditCardType::Visa:
+    default:
         return helper::replaceCreditCardSymbols(static_cast<std::string>(helper::randomElement(visaCreditCardFormats)));
-    default:;
     }
-
-    return "";
 }
 
 std::string creditCardCvv()
