@@ -19,6 +19,6 @@ var searchData=
   ['aruba_16',['Aruba',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4893b64051cf425047ddd8606dae25f4',1,'faker::phone']]],
   ['audio_17',['Audio',['../namespacefaker_1_1system.html#aeeae0c993bee26944d1d31ad6c339a08ab22f0418e8ac915eb66f829d262d14a2',1,'faker::system']]],
   ['australia_18',['Australia',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a4442e4af0916f53a07fb8ca9a49b98ed',1,'faker::location::Australia'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4442e4af0916f53a07fb8ca9a49b98ed',1,'faker::phone::Australia']]],
-  ['austria_19',['Austria',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a9891739094756d2605946c867b32ad28',1,'faker::finance::Austria'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9891739094756d2605946c867b32ad28',1,'faker::phone::Austria']]],
+  ['austria_19',['Austria',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9891739094756d2605946c867b32ad28',1,'faker::phone']]],
   ['azerbaijan_20',['Azerbaijan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa7176f8c3bccfdf02322c73f7a0bc9688',1,'faker::phone']]]
 ];

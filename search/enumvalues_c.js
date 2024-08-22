@@ -8,7 +8,7 @@ var searchData=
   ['maldives_5',['Maldives',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa62235142f3fca96e1f2cd0ed4a7de48d',1,'faker::phone']]],
   ['male_6',['Male',['../namespacefaker_1_1person.html#ab7290e4523427c5876299e459d3ed038a63889cfb9d3cbe05d1bd2be5cc9953fd',1,'faker::person']]],
   ['mali_7',['Mali',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aae90c93ceb8ccdcdf3b797f47edee866d',1,'faker::phone']]],
-  ['malta_8',['Malta',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a92468e8a62373add2b9caefddbcf1303',1,'faker::finance::Malta'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa92468e8a62373add2b9caefddbcf1303',1,'faker::phone::Malta']]],
+  ['malta_8',['Malta',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa92468e8a62373add2b9caefddbcf1303',1,'faker::phone']]],
   ['mandarin_9',['Mandarin',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a76c06512227f8cd467f0008c8ec68f39',1,'faker::person']]],
   ['marshallislands_10',['MarshallIslands',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaef668639b52d69ed3e02d710aa67bea0',1,'faker::phone']]],
   ['martinique_11',['Martinique',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa899c4b2a0d41d5b86e2dbc3b2f5380cf',1,'faker::phone']]],

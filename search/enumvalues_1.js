@@ -7,7 +7,7 @@ var searchData=
   ['barbados_4',['Barbados',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa3214c0f21d200a1dae4eb83a53ec2730',1,'faker::phone']]],
   ['belarus_5',['Belarus',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6542f875eaa09a5c550e5f3986400ad9',1,'faker::phone']]],
   ['belarusian_6',['Belarusian',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a0a6de4460095f398e8a45ed512a7538f',1,'faker::person']]],
-  ['belgium_7',['Belgium',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a6c1674d14bf5f95742f572cddb0641a7',1,'faker::finance::Belgium'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6c1674d14bf5f95742f572cddb0641a7',1,'faker::phone::Belgium']]],
+  ['belgium_7',['Belgium',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6c1674d14bf5f95742f572cddb0641a7',1,'faker::phone']]],
   ['belize_8',['Belize',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa20bca6785240fa722edb5c85d055a93d',1,'faker::phone']]],
   ['benin_9',['Benin',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9e7002d53d4db7bfad4f5cf419b0c126',1,'faker::phone']]],
   ['bermuda_10',['Bermuda',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6653bea16d7ac8a266d752e9a0176c4f',1,'faker::phone']]],
@@ -18,7 +18,7 @@ var searchData=
   ['botswana_15',['Botswana',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6cd50fb3091b0a9d3c1ac2cf52441390',1,'faker::phone']]],
   ['brazil_16',['Brazil',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a42537f0fb56e31e20ab9c2305752087d',1,'faker::location::Brazil'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa42537f0fb56e31e20ab9c2305752087d',1,'faker::phone::Brazil']]],
   ['bruneidarussalam_17',['BruneiDarussalam',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aacf69af09959b963cbe031e047f745066',1,'faker::phone']]],
-  ['bulgaria_18',['Bulgaria',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a01a151debf2bfee8906f43f4342eb10b',1,'faker::finance::Bulgaria'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa01a151debf2bfee8906f43f4342eb10b',1,'faker::phone::Bulgaria']]],
+  ['bulgaria_18',['Bulgaria',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa01a151debf2bfee8906f43f4342eb10b',1,'faker::phone']]],
   ['burkinafaso_19',['BurkinaFaso',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa77643fe9916efc367428fbc172637580',1,'faker::phone']]],
   ['burundi_20',['Burundi',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa28765464efe1b6583610335965b4d75a',1,'faker::phone']]]
 ];

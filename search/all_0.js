@@ -47,7 +47,7 @@ var searchData=
   ['atomicnumber_44',['atomicNumber',['../structfaker_1_1science_1_1ChemicalElement.html#aa51d52d76c547c3397a3cabbaff963e1',1,'faker::science::ChemicalElement']]],
   ['audio_45',['Audio',['../namespacefaker_1_1system.html#aeeae0c993bee26944d1d31ad6c339a08ab22f0418e8ac915eb66f829d262d14a2',1,'faker::system']]],
   ['australia_46',['Australia',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a4442e4af0916f53a07fb8ca9a49b98ed',1,'faker::location::Australia'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4442e4af0916f53a07fb8ca9a49b98ed',1,'faker::phone::Australia']]],
-  ['austria_47',['Austria',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a9891739094756d2605946c867b32ad28',1,'faker::finance::Austria'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9891739094756d2605946c867b32ad28',1,'faker::phone::Austria']]],
+  ['austria_47',['Austria',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9891739094756d2605946c867b32ad28',1,'faker::phone']]],
   ['author_48',['Author',['../structfaker_1_1git_1_1Author.html',1,'faker::git']]],
   ['author_49',['author',['../namespacefaker_1_1book.html#a79b26014c07fdacac3e0577c0c42deb4',1,'faker::book']]],
   ['azerbaijan_50',['Azerbaijan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa7176f8c3bccfdf02322c73f7a0bc9688',1,'faker::phone']]]

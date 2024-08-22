@@ -8,5 +8,5 @@ var searchData=
   ['http_5',['Http',['../namespacefaker_1_1internet.html#ac9fba82884b9a80bff2604b01135c7eca9d4d43de68f0b3555d5a5ef5dc05bb95',1,'faker::internet']]],
   ['https_6',['Https',['../namespacefaker_1_1internet.html#ac9fba82884b9a80bff2604b01135c7eca2badb7fa3e862298a650909d45c5066b',1,'faker::internet']]],
   ['hungarian_7',['Hungarian',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a7b86112ec6401fd8f06ab5251d1a68fe',1,'faker::person']]],
-  ['hungary_8',['Hungary',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918afa79c3005daec47ecff84a116a0927a1',1,'faker::finance::Hungary'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aafa79c3005daec47ecff84a116a0927a1',1,'faker::phone::Hungary']]]
+  ['hungary_8',['Hungary',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aafa79c3005daec47ecff84a116a0927a1',1,'faker::phone']]]
 ];

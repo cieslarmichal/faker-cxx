@@ -57,10 +57,10 @@ var searchData=
   ['createphonenumberformatmap_54',['createPhoneNumberFormatMap',['../namespacefaker_1_1phone.html#ad22489de493fbdfb3f849f35f6657c18',1,'faker::phone']]],
   ['creditcardcvv_55',['creditCardCvv',['../namespacefaker_1_1finance.html#a0ba2562d81c93595b2af0dcfc109fc84',1,'faker::finance']]],
   ['creditcardexpirationdate_56',['creditCardExpirationDate',['../namespacefaker_1_1finance.html#a692fb9b483d85c91d19ac2f7e79250a4',1,'faker::finance']]],
-  ['creditcardnumber_57',['creditCardNumber',['../namespacefaker_1_1finance.html#a036b1e9c9a590257c88f230ea7de602d',1,'faker::finance']]],
+  ['creditcardnumber_57',['creditCardNumber',['../namespacefaker_1_1finance.html#a40a056ed4d0e288c75a68bf54cd526e5',1,'faker::finance']]],
   ['creditcardtype_58',['CreditCardType',['../namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfa',1,'faker::finance']]],
   ['creditcardtype_59',['creditCardType',['../namespacefaker_1_1finance.html#a5d717f0d58c42cd4588b3d26f9bcdb38',1,'faker::finance']]],
-  ['croatia_60',['Croatia',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a560d4c6ff431c86546f3fcec72c748c7',1,'faker::finance::Croatia'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa560d4c6ff431c86546f3fcec72c748c7',1,'faker::phone::Croatia']]],
+  ['croatia_60',['Croatia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa560d4c6ff431c86546f3fcec72c748c7',1,'faker::phone']]],
   ['croatian_61',['Croatian',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a0c1be09bad2acaa2fa315b88abda8a32',1,'faker::person']]],
   ['crocodile_62',['crocodile',['../namespacefaker_1_1animal.html#afded126e2aec909fd65966de87a55b66',1,'faker::animal']]],
   ['cron_63',['cron',['../namespacefaker_1_1system.html#a9f8f6e022652e96f1bfa55dff4c8082a',1,'faker::system']]],
@@ -74,7 +74,7 @@ var searchData=
   ['currencyname_71',['currencyName',['../namespacefaker_1_1finance.html#a6daf7688d136068b71d34ccb792b00bf',1,'faker::finance']]],
   ['currencysymbol_72',['currencySymbol',['../namespacefaker_1_1finance.html#afa74fcebfd397842d3beb0b18620ec39',1,'faker::finance']]],
   ['currentunit_73',['currentUnit',['../namespacefaker_1_1science.html#af4d5df3993f6749a148253bbc7e82d91',1,'faker::science']]],
-  ['cyprus_74',['Cyprus',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918aea2ba3f8011e19e3101ce65fdcefbcc4',1,'faker::finance::Cyprus'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaea2ba3f8011e19e3101ce65fdcefbcc4',1,'faker::phone::Cyprus']]],
+  ['cyprus_74',['Cyprus',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaea2ba3f8011e19e3101ce65fdcefbcc4',1,'faker::phone']]],
   ['czech_75',['Czech',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a83ff4480cdf2900ae83bf30d95774d76',1,'faker::location::Czech'],['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a83ff4480cdf2900ae83bf30d95774d76',1,'faker::person::Czech']]],
-  ['czechia_76',['Czechia',['../namespacefaker_1_1finance.html#ac5b0ee06359a9a09f5c1fc09a6d7d918a31e7e8bf65a10ae8798adfbd8c0cd8c8',1,'faker::finance::Czechia'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa31e7e8bf65a10ae8798adfbd8c0cd8c8',1,'faker::phone::Czechia']]]
+  ['czechia_76',['Czechia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa31e7e8bf65a10ae8798adfbd8c0cd8c8',1,'faker::phone']]]
 ];

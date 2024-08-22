@@ -1,7 +1,7 @@
 var searchData=
 [
   ['bear_0',['bear',['../namespacefaker_1_1animal.html#a1ef73aba70cae19b9c641358f98aa95e',1,'faker::animal']]],
-  ['bic_1',['bic',['../namespacefaker_1_1finance.html#a25d2ce6cdf0a4c3182c74f25cd6389dc',1,'faker::finance']]],
+  ['bic_1',['bic',['../namespacefaker_1_1finance.html#a77c1b40489bdb3a8ef0280d7ca336370',1,'faker::finance']]],
   ['bicycle_2',['bicycle',['../namespacefaker_1_1vehicle.html#abcd2613f6e47ac7650924209851ff05e',1,'faker::vehicle']]],
   ['binary_3',['binary',['../namespacefaker_1_1string.html#a5c42bbf54d5c027e895f9acc8a46bc22',1,'faker::string::binary(unsigned length=1)'],['../namespacefaker_1_1string.html#a8d3259903d00cae5042e753dc2f6c487',1,'faker::string::binary(GuaranteeMap &amp;&amp;guarantee, unsigned length=1)']]],
   ['bio_4',['bio',['../namespacefaker_1_1person.html#a41deabbecbf923fd045031c7456df21d',1,'faker::person']]],
