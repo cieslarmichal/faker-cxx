@@ -13,6 +13,7 @@ All notable changes to this project will be documented in this file
 * changed function name from `name` to `companyName` in company module
 * changed function `companyName` to take optional enum parameter in company module
 * changed function `branch` to take optional enum parameter in git module
+* changed country, language, bic country, iban country params to locale
 
 ## v2.0.0 (27.06.2024)
 

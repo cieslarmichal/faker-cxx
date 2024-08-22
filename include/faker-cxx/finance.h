@@ -1,11 +1,10 @@
 #pragma once
 
-#include <optional>
 #include <string>
 #include <string_view>
 
 #include "faker-cxx/export.h"
-#include "types/country.h"
+#include "faker-cxx/types/locale.h"
 #include "types/precision.h"
 
 namespace faker::finance
@@ -92,78 +91,32 @@ FAKER_CXX_EXPORT std::string_view accountType();
 FAKER_CXX_EXPORT std::string amount(double min = 0, double max = 1000, Precision precision = Precision::TwoDp,
                                     const std::string& symbol = "");
 
-enum class IbanCountry
-{
-    Austria,
-    Belgium,
-    Bulgaria,
-    Croatia,
-    Cyprus,
-    Czechia,
-    Denmark,
-    Estonia,
-    Finland,
-    France,
-    Germany,
-    Greece,
-    Hungary,
-    Ireland,
-    Italy,
-    Latvia,
-    Lithuania,
-    Luxembourg,
-    Malta,
-    Netherlands,
-    Poland,
-    Portugal,
-    Romania,
-    Slovakia,
-    Slovenia,
-    Spain,
-    Sweden
-};
-
 /**
- * Generates a random iban.
+ * Generates a random IBAN.
  *
- * @param country The country from which you want to generate an IBAN, if none is provided a random country
- will be used.
+ * @param locale The locale. Defaults to `Locale::de_DE`.
+ *
  *
  * @returns IBAN.
  *
  * @code
- * faker::finance::iban(IbanCountry::Poland) // "PL61109010140000071219812874"
+ * faker::finance::iban(Locale::pl_PL) // "PL61109010140000071219812874"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string iban(std::optional<IbanCountry> country = std::nullopt);
-
-enum class BicCountry
-{
-    France,
-    Germany,
-    India,
-    Italy,
-    Netherlands,
-    Poland,
-    Romania,
-    Spain,
-    UnitedKingdom,
-    UnitedStates,
-};
+FAKER_CXX_EXPORT std::string iban(Locale locale = Locale::de_DE);
 
 /**
- * Generates a random bic.
+ * Generates a random BIC.
  *
- * @param country The country from which you want to generate a BIC, if none is provided a random country
- will be used.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns BIC.
  *
  * @code
- * faker::finance::bic(BicCountry::Poland) // "BREXPLPWMUL"
+ * faker::finance::bic(Locale::pl_PL) // "BREXPLPWMUL"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view bic(std::optional<BicCountry> country = std::nullopt);
+FAKER_CXX_EXPORT std::string_view bic(Locale locale = Locale::en_US);
 
 /**
  * Generates a random account number.
@@ -206,7 +159,6 @@ FAKER_CXX_EXPORT std::string routingNumber();
 
 enum class CreditCardType
 {
-    DefaultCard,
     AmericanExpress,
     Discover,
     MasterCard,
@@ -216,7 +168,7 @@ enum class CreditCardType
 /**
  * Generates a random credit card number.
  *
- * @param creditCardType The type of the credit card.
+ * @param creditCardType The type of the credit card. Defaults to `CreditCardType::Visa`.
  *
  * @returns Credit card number.
  *
@@ -224,7 +176,7 @@ enum class CreditCardType
  * faker::finance::creditCardNumber() // "4882664999007"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string creditCardNumber(std::optional<CreditCardType> creditCardType = std::nullopt);
+FAKER_CXX_EXPORT std::string creditCardNumber(CreditCardType creditCardType = CreditCardType::Visa);
 
 /**
  * Generates a random credit card CVV.
