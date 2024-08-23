@@ -69,8 +69,8 @@ FAKER_CXX_EXPORT std::string fullName(Locale locale = Locale::en_US, std::option
  *
  * @code
  * faker::person::prefix() // "Miss"
- * faker::person::prefix(Sex::Female) // "Ms."
- * faker::person::prefix(Sex::Male) // "Mr."
+ * faker::person::prefix(Locale::en_US, Sex::Female) // "Ms."
+ * faker::person::prefix(Locale::en_US, Sex::Male) // "Mr."
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view prefix(Locale locale = Locale::en_US, std::optional<Sex> sex = std::nullopt);
@@ -84,7 +84,7 @@ FAKER_CXX_EXPORT std::string_view prefix(Locale locale = Locale::en_US, std::opt
  * @returns Name suffix.
  *
  * @code
- * faker::person::suffix() // "Jr."
+ * faker::person::suffix(Locale::en_US, Sex::Male) // "Jr."
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view suffix(Locale locale = Locale::en_US, std::optional<Sex> sex = std::nullopt);
@@ -101,15 +101,18 @@ FAKER_CXX_EXPORT std::string_view suffix(Locale locale = Locale::en_US, std::opt
 FAKER_CXX_EXPORT std::string bio();
 
 /**
- * @brief Returns a sex.
+ * @brief Returns a random sex of the locale passed.
+ * 
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Sex.
  *
  * @code
  * faker::person::sex() // "Male"
+ * faker::person::sex(Locale::en_US) // "Male"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view sex(std::optional<Language> language = std::nullopt);
+FAKER_CXX_EXPORT std::string_view sex(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random gender.
