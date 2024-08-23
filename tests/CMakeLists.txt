@@ -37,6 +37,7 @@ set(FAKER_UT_SOURCES
     modules/plant_test.cpp
     modules/science_test.cpp
     modules/sport_test.cpp
+    modules/esport_test.cpp
     modules/string_test.cpp
     modules/system_test.cpp
     modules/vehicle_test.cpp
