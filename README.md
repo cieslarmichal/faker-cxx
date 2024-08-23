@@ -105,6 +105,7 @@ int main()
 - 📚 Lorem - lorem words, sentences, paragraphs
 - 🏥 Medicine - conditions, medical tests, specialties
 - 🎥 Movie - actors, actresses, genres, movie titles
+- 🎞️ Video - format name, file extension, video codec, audio codec, resolution, aspect ratio, video url
 - 🎶 Music - artists, song names, genres
 - 🔢 Number - random integers, floating point numbers
 - 🧑 Person - first, last names, job titles, hobby, genders, sex, nationality, language
@@ -115,6 +116,7 @@ int main()
 - 💻 System - file paths, file extensions, file names, directories, semantic version
 - 🚗 Vehicle - vehicle types, makes, models, fuel types, license plates
 - 🎮 Video game - title, genre, platform, studio
+- 🕹️ Esport - player, team, league, event, game
 - 🌤️ Weather - temperature, pressure, humidity, weather description
 - 💬 Word - sample words, nouns, verbs
 
