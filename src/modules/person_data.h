@@ -6294,8 +6294,6 @@ const auto irishMalePrefixes = std::to_array<std::string_view>({"Mr.", "Dr."});
 
 const auto irishFemalePrefixes = std::to_array<std::string_view>({"Mrs.", "Ms.", "Miss", "Dr."});
 
-// TODO: add handling lastName-lastName
-
 const NameFormats irishNameFormats{{{"{firstName} {lastName}", 49},
                                     {"{prefix} {firstName} {lastName}", 7},
                                     {"{firstName} {lastName} {suffix}", 7},

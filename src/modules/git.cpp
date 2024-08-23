@@ -74,13 +74,7 @@ std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigne
 
 std::string commitMessage()
 {
-    switch (number::integer(1, 2))
-    {
-    case 1:
-        return common::format("{} {}", word::verb(), word::noun());
-    default:
-        return common::format("{} {} {}", word::verb(), word::adjective(), word::noun());
-    }
+    return common::format("{} {}", word::verb(), word::noun());
 }
 
 std::string commitSha(unsigned length)

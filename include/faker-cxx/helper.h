@@ -21,7 +21,7 @@ decltype(auto) randomElement(Range&& range)
         throw std::invalid_argument{"Range [start, end) is empty."};
     }
 
-    auto size = std::ranges::distance(range);
+    const auto size = std::ranges::distance(range);
 
     const auto index = number::integer(size - 1);
 

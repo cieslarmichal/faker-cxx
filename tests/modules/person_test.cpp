@@ -329,46 +329,110 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
                                     { return generatedFullName.find(lastName) != std::string::npos; }));
 }
 
-INSTANTIATE_TEST_SUITE_P(TestPersonNamesByLocale, PersonTest, ValuesIn(locales),
-                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
-
-// TODO: move to parameterized tests
-TEST_F(PersonTest, shouldGeneratePrefix)
+TEST_P(PersonTest, shouldGeneratePrefix)
 {
-    const auto generatedPrefix = prefix();
+    const auto locale = GetParam();
 
-    std::vector<std::string_view> prefixes(englishMalePrefixes.begin(), englishMalePrefixes.end());
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
 
-    prefixes.insert(prefixes.end(), englishFemalePrefixes.begin(), englishFemalePrefixes.end());
+    const auto& femalesPrefixes = peopleNames.femalesNames.prefixes;
+
+    const auto& malesPrefixes = peopleNames.malesNames.prefixes;
+
+    std::vector<std::string_view> prefixes(femalesPrefixes.begin(), femalesPrefixes.end());
+
+    prefixes.insert(prefixes.end(), malesPrefixes.begin(), malesPrefixes.end());
+
+    const auto generatedPrefix = prefix(locale);
 
     ASSERT_TRUE(std::ranges::any_of(prefixes, [generatedPrefix](const std::string_view& prefix)
-                                    { return prefix == generatedPrefix; }));
+                                    { return generatedPrefix == prefix; }) ||
+                generatedPrefix.empty());
 }
 
-// TODO: move to parameterized tests
-TEST_F(PersonTest, shouldGenerateMalePrefix)
+TEST_P(PersonTest, shouldGenerateMalePrefix)
 {
-    const auto generatedPrefix = prefix(Locale::en_US, Sex::Male);
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(englishMalePrefixes, [generatedPrefix](const std::string_view& prefix)
-                                    { return prefix == generatedPrefix; }));
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
+
+    const auto& malesPrefixes = peopleNames.malesNames.prefixes;
+
+    const auto generatedPrefix = prefix(locale, Sex::Male);
+
+    ASSERT_TRUE(std::ranges::any_of(malesPrefixes, [generatedPrefix](const std::string_view& prefix)
+                                    { return generatedPrefix == prefix; }) ||
+                generatedPrefix.empty());
 }
 
-TEST_F(PersonTest, shouldGenerateFemalePrefix)
+TEST_P(PersonTest, shouldGenerateFemalePrefix)
 {
-    const auto generatedPrefix = prefix(Locale::en_US, Sex::Female);
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(englishFemalePrefixes, [generatedPrefix](const std::string_view& prefix)
-                                    { return prefix == generatedPrefix; }));
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
+
+    const auto& femalesPrefixes = peopleNames.femalesNames.prefixes;
+
+    const auto generatedPrefix = prefix(locale, Sex::Female);
+
+    ASSERT_TRUE(std::ranges::any_of(femalesPrefixes, [generatedPrefix](const std::string_view& prefix)
+                                    { return generatedPrefix == prefix; }) ||
+                generatedPrefix.empty());
 }
 
-TEST_F(PersonTest, shouldGenerateSuffix)
+TEST_P(PersonTest, shouldGenerateSuffix)
 {
-    const auto generatedSuffix = suffix();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(englishSuffixes, [generatedSuffix](const std::string_view& suffix)
-                                    { return suffix == generatedSuffix; }));
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
+
+    const auto& femalesSuffixes = peopleNames.femalesNames.suffixes;
+
+    const auto& malesSuffixes = peopleNames.malesNames.suffixes;
+
+    std::vector<std::string_view> suffixes(femalesSuffixes.begin(), femalesSuffixes.end());
+
+    suffixes.insert(suffixes.end(), malesSuffixes.begin(), malesSuffixes.end());
+
+    const auto generatedSuffix = suffix(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(suffixes, [generatedSuffix](const std::string_view& suffix)
+                                    { return generatedSuffix == suffix; }) ||
+                generatedSuffix.empty());
 }
+
+TEST_P(PersonTest, shouldGenerateMaleSuffix)
+{
+    const auto locale = GetParam();
+
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
+
+    const auto& malesSuffixes = peopleNames.malesNames.suffixes;
+
+    const auto generatedSuffix = suffix(locale, Sex::Male);
+
+    ASSERT_TRUE(std::ranges::any_of(malesSuffixes, [generatedSuffix](const std::string_view& suffix)
+                                    { return generatedSuffix == suffix; }) ||
+                generatedSuffix.empty());
+}
+
+TEST_P(PersonTest, shouldGenerateFemaleSuffix)
+{
+    const auto locale = GetParam();
+
+    const auto& peopleNames = getPeopleNamesByLocale(locale);
+
+    const auto& femalesSuffixes = peopleNames.femalesNames.suffixes;
+
+    const auto generatedSuffix = suffix(locale, Sex::Female);
+
+    ASSERT_TRUE(std::ranges::any_of(femalesSuffixes, [generatedSuffix](const std::string_view& suffix)
+                                    { return generatedSuffix == suffix; }) ||
+                generatedSuffix.empty());
+}
+
+INSTANTIATE_TEST_SUITE_P(TestPersonNamesByLocale, PersonTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
 
 TEST_F(PersonTest, shouldGenerateSex)
 {
