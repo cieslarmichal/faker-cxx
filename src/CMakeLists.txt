@@ -35,6 +35,7 @@ set(FAKER_SOURCES
     modules/system.cpp
     modules/vehicle.cpp
     modules/video_game.cpp
+    modules/video.cpp
     modules/weather.cpp
     modules/word.cpp
     common/format_helper.cpp
@@ -56,6 +57,7 @@ set(FAKER_HEADERS
     modules/book_data.h
     modules/string_data.h
     modules/video_game_data.h
+    modules/video_data.h
     modules/medicine_data.h
     modules/vehicle_data.h
     modules/hacker_data.h

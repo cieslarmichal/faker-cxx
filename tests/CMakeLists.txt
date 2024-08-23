@@ -42,6 +42,7 @@ set(FAKER_UT_SOURCES
     modules/vehicle_test.cpp
     modules/version_test.cpp
     modules/video_game_test.cpp
+    modules/video_test.cpp
     modules/weather_test.cpp
     modules/word_test.cpp
     modules/word_data_test.cpp
