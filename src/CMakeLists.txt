@@ -31,6 +31,7 @@ set(FAKER_SOURCES
     modules/plant.cpp
     modules/science.cpp
     modules/sport.cpp
+    modules/esport.cpp
     modules/string.cpp
     modules/system.cpp
     modules/vehicle.cpp
@@ -77,6 +78,7 @@ set(FAKER_HEADERS
     modules/phone_data.h
     modules/color_data.h
     modules/lorem_data.h
+    modules/esport_data.h
 )
 
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE ${FAKER_SOURCES} ${FAKER_HEADERS})
