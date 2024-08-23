@@ -555,6 +555,15 @@ var namespacefaker =
       [ "vin", "namespacefaker_1_1vehicle.html#a2dacf1f3d0037cf58abf6322eee29ba3", null ],
       [ "vrm", "namespacefaker_1_1vehicle.html#a3ab3c5b8357f4abe61a81c97e3df99b1", null ]
     ] ],
+    [ "video", "namespacefaker_1_1video.html", [
+      [ "aspectRatio", "namespacefaker_1_1video.html#a4bf29b3f9af696ffceb3871821bf01ba", null ],
+      [ "audioCodec", "namespacefaker_1_1video.html#a818f441a9d32093357fe95ef2ea526f4", null ],
+      [ "fileExtension", "namespacefaker_1_1video.html#a1416ec90271b7cab404c00d671242234", null ],
+      [ "formatName", "namespacefaker_1_1video.html#afbd6139c778ae8254e1c350e470301c3", null ],
+      [ "resolution", "namespacefaker_1_1video.html#a4104ff1ee323b795c4fab7b508ea8d9c", null ],
+      [ "videoCodec", "namespacefaker_1_1video.html#a57cf35b9566be367509ad3403dd8d841", null ],
+      [ "videoUrl", "namespacefaker_1_1video.html#a0f0a83472a18d225b8e49e6966497241", null ]
+    ] ],
     [ "videogame", "namespacefaker_1_1videogame.html", [
       [ "gameTitle", "namespacefaker_1_1videogame.html#ab36d80c15e07e2e266da6df41a40f222", null ],
       [ "genre", "namespacefaker_1_1videogame.html#ae5bdba1c888f8934eb817848a705983c", null ],

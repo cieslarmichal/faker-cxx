@@ -32,7 +32,8 @@ var searchData=
   ['faker_3a_3astring_29',['string',['../namespacefaker_1_1string.html',1,'faker']]],
   ['faker_3a_3asystem_30',['system',['../namespacefaker_1_1system.html',1,'faker']]],
   ['faker_3a_3avehicle_31',['vehicle',['../namespacefaker_1_1vehicle.html',1,'faker']]],
-  ['faker_3a_3avideogame_32',['videogame',['../namespacefaker_1_1videogame.html',1,'faker']]],
-  ['faker_3a_3aweather_33',['weather',['../namespacefaker_1_1weather.html',1,'faker']]],
-  ['faker_3a_3aword_34',['word',['../namespacefaker_1_1word.html',1,'faker']]]
+  ['faker_3a_3avideo_32',['video',['../namespacefaker_1_1video.html',1,'faker']]],
+  ['faker_3a_3avideogame_33',['videogame',['../namespacefaker_1_1videogame.html',1,'faker']]],
+  ['faker_3a_3aweather_34',['weather',['../namespacefaker_1_1weather.html',1,'faker']]],
+  ['faker_3a_3aword_35',['word',['../namespacefaker_1_1word.html',1,'faker']]]
 ];

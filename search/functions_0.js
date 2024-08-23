@@ -18,5 +18,7 @@ var searchData=
   ['anonymoususername_15',['anonymousUsername',['../namespacefaker_1_1internet.html#a0e22ade4bf001c126dd22e5c72506031',1,'faker::internet']]],
   ['areacode_16',['areaCode',['../namespacefaker_1_1phone.html#af0ac28a1180f714704a2098afe61cceb',1,'faker::phone']]],
   ['artist_17',['artist',['../namespacefaker_1_1music.html#a8f960c10557e8c9b8d98414ec99f46e1',1,'faker::music']]],
-  ['author_18',['author',['../namespacefaker_1_1book.html#a79b26014c07fdacac3e0577c0c42deb4',1,'faker::book']]]
+  ['aspectratio_18',['aspectRatio',['../namespacefaker_1_1video.html#a4bf29b3f9af696ffceb3871821bf01ba',1,'faker::video']]],
+  ['audiocodec_19',['audioCodec',['../namespacefaker_1_1video.html#a818f441a9d32093357fe95ef2ea526f4',1,'faker::video']]],
+  ['author_20',['author',['../namespacefaker_1_1book.html#a79b26014c07fdacac3e0577c0c42deb4',1,'faker::book']]]
 ];
