@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['image_2eh_0',['image.h',['../image_8h.html',1,'']]],
-  ['internet_2eh_1',['internet.h',['../internet_8h.html',1,'']]]
+  ['hacker_2eh_0',['hacker.h',['../hacker_8h.html',1,'']]],
+  ['helper_2eh_1',['helper.h',['../helper_8h.html',1,'']]]
 ];

@@ -127,6 +127,13 @@ var namespacefaker =
       [ "weekdayName", "namespacefaker_1_1date.html#aac708c24548f17807e72646e385f298c", null ],
       [ "year", "namespacefaker_1_1date.html#a768e70b0a52f6ccd31ba84b33167b975", null ]
     ] ],
+    [ "esport", "namespacefaker_1_1esport.html", [
+      [ "event", "namespacefaker_1_1esport.html#ab3a591effe062d25563018b79ce131ef", null ],
+      [ "game", "namespacefaker_1_1esport.html#a374455358048df05aca0dd2fba583484", null ],
+      [ "league", "namespacefaker_1_1esport.html#a8a81b7adad8fcfd6141b85de01f32fd1", null ],
+      [ "player", "namespacefaker_1_1esport.html#a07b32ae6a515b4e2092c5c9ba0ce35db", null ],
+      [ "team", "namespacefaker_1_1esport.html#a4dca21e7774514c10934c9632c17d8e2", null ]
+    ] ],
     [ "finance", "namespacefaker_1_1finance.html", "namespacefaker_1_1finance" ],
     [ "food", "namespacefaker_1_1food.html", [
       [ "alcoholicBeverage", "namespacefaker_1_1food.html#a242b623a082b6729ddc0ca5b06e08a37", null ],
