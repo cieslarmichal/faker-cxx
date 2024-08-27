@@ -4,29 +4,11 @@
 #include <string_view>
 
 #include "faker-cxx/export.h"
-#include "types/precision.h"
+#include "faker-cxx/types/locale.h"
+#include "faker-cxx/types/precision.h"
 
 namespace faker::location
 {
-enum class AddressCountry
-{
-    Australia,
-    Brazil,
-    Czech,
-    Denmark,
-    Estonia,
-    Finland,
-    France,
-    Germany,
-    India,
-    Italy,
-    Poland,
-    Russia,
-    Spain,
-    Ukraine,
-    Usa,
-};
-
 /**
  * @brief Returns a random country name.
  *
@@ -50,9 +32,9 @@ FAKER_CXX_EXPORT std::string_view country();
 FAKER_CXX_EXPORT std::string_view countryCode();
 
 /**
- * @brief Returns a random state for a given country.
+ * @brief Returns a random state for a given locale.
  *
- * @param country The country to generate state from. Defaults to `Country::Usa`.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns State.
  *
@@ -60,12 +42,12 @@ FAKER_CXX_EXPORT std::string_view countryCode();
  * faker::location::state() // "Arizona"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view state(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string_view state(Locale locale = Locale::en_US);
 
 /**
- * @brief Returns a random city for given country.
+ * @brief Returns a random city for given locale.
  *
- * @param country The country to generate city from. Defaults to `Country::Usa`.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns City.
  *
@@ -73,12 +55,12 @@ FAKER_CXX_EXPORT std::string_view state(AddressCountry country = AddressCountry:
  * faker::location::city() // "Boston"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string city(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string city(Locale locale = Locale::en_US);
 
 /**
- * @brief Returns a random zip code for given country.
+ * @brief Returns a random zip code for given locale.
  *
- * @param country The country to generate zip code from. Defaults to `Country::Usa`.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Zip code.
  *
@@ -87,12 +69,12 @@ FAKER_CXX_EXPORT std::string city(AddressCountry country = AddressCountry::Usa);
  * faker::location::zipCode(Country::Poland) // "31-881"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string zipCode(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string zipCode(Locale locale = Locale::en_US);
 
 /**
- * @brief Returns a random street address for given country.
+ * @brief Returns a random street address for given locale.
  *
- * @param country The country to generate street address from. Defaults to `Country::Usa`.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Street address including building number and street name.
  *
@@ -100,12 +82,12 @@ FAKER_CXX_EXPORT std::string zipCode(AddressCountry country = AddressCountry::Us
  * faker::location::streetAddress() // "34830 Erdman Hollow"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string streetAddress(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string streetAddress(Locale locale = Locale::en_US);
 
 /**
- * @brief Returns a random street for given country.
+ * @brief Returns a random street for given locale.
  *
- * @param country The country to generate street from. Defaults to `Country::Usa`.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Street name.
  *
@@ -113,12 +95,12 @@ FAKER_CXX_EXPORT std::string streetAddress(AddressCountry country = AddressCount
  * faker::location::street() // "Schroeder Isle"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string street(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string street(Locale locale = Locale::en_US);
 
 /**
- * @brief Returns a random building number for given country.
+ * @brief Returns a random building number for given locale.
  *
- * @param country The country to generate building number from. Defaults to `Country::Usa`.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Building number.
  *
@@ -126,13 +108,13 @@ FAKER_CXX_EXPORT std::string street(AddressCountry country = AddressCountry::Usa
  * faker::location::buildingNumber() // "505"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string buildingNumber(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string buildingNumber(Locale locale = Locale::en_US);
 
 /**
- * @brief Returns a random secondary address number for given country.
+ * @brief Returns a random secondary address number for given locale.
  * This refers to a specific location at a given address such as an apartment or room number
  *
- * @param country The country to generate building number from. Defaults to `Country::Usa`.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Secondary address.
  *
@@ -140,7 +122,7 @@ FAKER_CXX_EXPORT std::string buildingNumber(AddressCountry country = AddressCoun
  * faker::location::secondaryAddress() // "Apt. 861"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string secondaryAddress(AddressCountry country = AddressCountry::Usa);
+FAKER_CXX_EXPORT std::string secondaryAddress(Locale locale = Locale::en_US);
 
 /**
  * @brief Generates a random latitude.
