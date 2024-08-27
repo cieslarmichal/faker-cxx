@@ -1,7 +1,6 @@
 #include <algorithm>
 #include <string>
 #include <string_view>
-#include <unordered_map>
 #include <vector>
 
 #include "gtest/gtest.h"
@@ -19,72 +18,62 @@ using namespace faker::location;
 
 namespace
 {
-const std::vector<AddressCountry> addressCountries{
-    AddressCountry::Usa,     AddressCountry::Poland,  AddressCountry::France,    AddressCountry::Russia,
-    AddressCountry::Ukraine, AddressCountry::Italy,   AddressCountry::Germany,   AddressCountry::Czech,
-    AddressCountry::India,   AddressCountry::Denmark, AddressCountry::Australia, AddressCountry::Spain,
-    AddressCountry::Brazil,  AddressCountry::Finland, AddressCountry::Estonia,
-};
-
-CountryAddressesInfo getAddresses(const AddressCountry& country)
+CountryAddressesInfo getAddresses(const Locale& locale)
 {
-    switch (country)
+    switch (locale)
     {
-    case AddressCountry::Usa:
+    case Locale::en_US:
+    case Locale::es_US:
         return usaAddresses;
-    case AddressCountry::Poland:
+    case Locale::pl_PL:
         return polandAddresses;
-    case AddressCountry::Russia:
+    case Locale::ru_RU:
         return russiaAddresses;
-    case AddressCountry::France:
+    case Locale::fr_FR:
         return franceAddresses;
-    case AddressCountry::Ukraine:
+    case Locale::uk_UA:
         return ukraineAddresses;
-    case AddressCountry::Italy:
+    case Locale::it_IT:
         return italyAddresses;
-    case AddressCountry::Germany:
+    case Locale::de_DE:
         return germanyAddresses;
-    case AddressCountry::Czech:
+    case Locale::cs_CZ:
         return czechAddresses;
-    case AddressCountry::Australia:
+    case Locale::en_AU:
         return australiaAddresses;
-    case AddressCountry::India:
+    case Locale::as_IN:
+    case Locale::bn_IN:
+    case Locale::en_IN:
+    case Locale::gu_IN:
+    case Locale::hi_IN:
+    case Locale::kn_IN:
+    case Locale::ks_IN:
+    case Locale::ml_IN:
+    case Locale::mr_IN:
+    case Locale::or_IN:
+    case Locale::pa_IN:
+    case Locale::sa_IN:
+    case Locale::ta_IN:
+    case Locale::te_IN:
         return indiaAddresses;
-    case AddressCountry::Denmark:
+    case Locale::da_DK:
         return denmarkAddresses;
-    case AddressCountry::Spain:
+    case Locale::ca_ES:
+    case Locale::es_ES:
         return spainAddresses;
-    case AddressCountry::Brazil:
+    case Locale::pt_BR:
         return brazilAddresses;
-    case AddressCountry::Finland:
+    case Locale::fi_FI:
         return finlandAddresses;
-    case AddressCountry::Estonia:
+    case Locale::et_EE:
         return estoniaAddresses;
     default:
         return usaAddresses;
     }
 }
-
-const std::unordered_map<AddressCountry, std::string> generatedTestName{
-    {AddressCountry::Usa, "shouldGenerateAmericanAddress"},
-    {AddressCountry::France, "shouldGenerateFrenchAddress"},
-    {AddressCountry::Poland, "shouldGeneratePolishAddress"},
-    {AddressCountry::Russia, "shouldGenerateRussianAddress"},
-    {AddressCountry::Ukraine, "shouldGenerateUkrainianAddress"},
-    {AddressCountry::Italy, "shouldGenerateItalianAddress"},
-    {AddressCountry::Germany, "shouldGenerateGermanAddress"},
-    {AddressCountry::Czech, "shouldGenerateCzechAddress"},
-    {AddressCountry::Australia, "shouldGenerateAustraliaAddress"},
-    {AddressCountry::India, "shouldGenerateIndiaAddress"},
-    {AddressCountry::Denmark, "shouldGenerateDenmarkAddress"},
-    {AddressCountry::Spain, "shouldGenerateSpainAddress"},
-    {AddressCountry::Brazil, "shouldGenerateBrazilAddress"},
-    {AddressCountry::Finland, "shouldGenerateFinlandAddress"},
-    {AddressCountry::Estonia, "shouldGenerateEstoniaAddress"},
-};
 }
 
-class LocationTest : public TestWithParam<AddressCountry>
+class LocationTest : public TestWithParam<Locale>
 {
 public:
     static bool checkIfZipCode(const std::string& zipCode)
@@ -124,16 +113,11 @@ TEST_P(LocationTest, shouldGenerateState)
 
     const auto& countryAddresses = getAddresses(country);
 
-    // TODO: remove
-    if (country == AddressCountry::Estonia)
-    {
-        return;
-    }
-
     const auto generatedState = state(country);
 
     ASSERT_TRUE(std::ranges::any_of(countryAddresses.states, [&generatedState](const std::string_view& state)
-                                    { return state == generatedState; }));
+                                    { return state == generatedState; }) ||
+                generatedState.empty());
 }
 
 TEST_P(LocationTest, shouldGenerateCity)
@@ -144,7 +128,7 @@ TEST_P(LocationTest, shouldGenerateCity)
 
     const auto generatedCity = city(country);
 
-    if (country == location::AddressCountry::Brazil)
+    if (country == Locale::pt_BR)
     {
         const auto generatedCityElements = common::split(generatedCity, " ");
 
@@ -260,9 +244,8 @@ TEST_P(LocationTest, shouldGenerateSecondaryAddress)
                     }));
 }
 
-INSTANTIATE_TEST_SUITE_P(TestLocationByCountries, LocationTest, ValuesIn(addressCountries),
-                         [](const TestParamInfo<AddressCountry>& paramInfo)
-                         { return generatedTestName.at(paramInfo.param); });
+INSTANTIATE_TEST_SUITE_P(TestLocationByCountries, LocationTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
 
 TEST_F(LocationTest, shouldGenerateUsaStreet)
 {
@@ -315,7 +298,7 @@ TEST_F(LocationTest, shouldGenerateUsaStreetAddress)
 
 TEST_F(LocationTest, shouldGeneratePolandStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Poland);
+    const auto generatedStreet = street(Locale::pl_PL);
 
     const auto generatedStreetElements = common::split(generatedStreet, " ");
 
@@ -331,7 +314,7 @@ TEST_F(LocationTest, shouldGeneratePolandStreet)
 
 TEST_F(LocationTest, shouldGeneratePolandStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Poland);
+    const auto generatedStreetAddress = streetAddress(Locale::pl_PL);
 
     ASSERT_TRUE(std::ranges::any_of(polandStreetPrefixes, [&generatedStreetAddress](const std::string_view& prefix)
                                     { return generatedStreetAddress.find(prefix) != std::string::npos; }));
@@ -341,7 +324,7 @@ TEST_F(LocationTest, shouldGeneratePolandStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateRussiaStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Russia);
+    const auto generatedStreet = street(Locale::ru_RU);
 
     const auto generatedStreetElements = common::split(generatedStreet, " ");
 
@@ -368,7 +351,7 @@ TEST_F(LocationTest, shouldGenerateRussiaStreet)
 
 TEST_F(LocationTest, shouldGenerateRussiaStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Russia);
+    const auto generatedStreetAddress = streetAddress(Locale::ru_RU);
 
     std::vector<std::string_view> firstNames(person::russianMaleFirstNames.begin(),
                                              person::russianMaleFirstNames.end());
@@ -389,7 +372,7 @@ TEST_F(LocationTest, shouldGenerateRussiaStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateFranceStreet)
 {
-    const auto generatedStreet = street(AddressCountry::France);
+    const auto generatedStreet = street(Locale::fr_FR);
 
     const auto generatedStreetElements = common::split(generatedStreet, " ");
 
@@ -406,7 +389,7 @@ TEST_F(LocationTest, shouldGenerateFranceStreet)
 
 TEST_F(LocationTest, shouldGenerateFranceStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::France);
+    const auto generatedStreetAddress = streetAddress(Locale::fr_FR);
 
     const auto generatedStreetAddressElements = common::split(generatedStreetAddress, " ");
 
@@ -518,7 +501,7 @@ TEST_F(LocationTest, shouldGenerateTimeZone)
 
 TEST_F(LocationTest, shouldGenerateUkraineStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Ukraine);
+    const auto generatedStreet = street(Locale::uk_UA);
 
     const auto generatedStreetElements = common::split(generatedStreet, " ");
 
@@ -550,7 +533,7 @@ TEST_F(LocationTest, shouldGenerateUkraineStreet)
 
 TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Ukraine);
+    const auto generatedStreetAddress = streetAddress(Locale::uk_UA);
 
     ASSERT_TRUE(std::ranges::any_of(ukraineStreetPrefixes, [&generatedStreetAddress](const std::string_view& prefix)
                                     { return generatedStreetAddress.find(prefix) != std::string::npos; }));
@@ -575,7 +558,7 @@ TEST_F(LocationTest, shouldGenerateUkraineStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateItalyStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Italy);
+    const auto generatedStreet = street(Locale::it_IT);
 
     const auto generatedStreetElements = common::split(generatedStreet, " ");
 
@@ -598,7 +581,7 @@ TEST_F(LocationTest, shouldGenerateItalyStreet)
 
 TEST_F(LocationTest, shouldGenerateItalyStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Italy);
+    const auto generatedStreetAddress = streetAddress(Locale::it_IT);
 
     ASSERT_TRUE(std::ranges::any_of(italyStreetPrefixes, [&generatedStreetAddress](const std::string_view& prefix)
                                     { return generatedStreetAddress.find(prefix) != std::string::npos; }));
@@ -616,7 +599,7 @@ TEST_F(LocationTest, shouldGenerateItalyStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateGermanyStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Germany);
+    const auto generatedStreet = street(Locale::de_DE);
 
     ASSERT_TRUE(std::ranges::any_of(germanyStreetNames, [&generatedStreet](const std::string_view& streetName)
                                     { return streetName == generatedStreet; }));
@@ -624,7 +607,7 @@ TEST_F(LocationTest, shouldGenerateGermanyStreet)
 
 TEST_F(LocationTest, shouldGenerateGermanyStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Germany);
+    const auto generatedStreetAddress = streetAddress(Locale::de_DE);
 
     ASSERT_TRUE(std::ranges::any_of(germanyStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
@@ -632,7 +615,7 @@ TEST_F(LocationTest, shouldGenerateGermanyStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateCzechStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Czech);
+    const auto generatedStreet = street(Locale::cs_CZ);
 
     ASSERT_TRUE(std::ranges::any_of(czechStreetNames, [&generatedStreet](const std::string_view& streetName)
                                     { return streetName == generatedStreet; }));
@@ -640,7 +623,7 @@ TEST_F(LocationTest, shouldGenerateCzechStreet)
 
 TEST_F(LocationTest, shouldGenerateCzechStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Czech);
+    const auto generatedStreetAddress = streetAddress(Locale::cs_CZ);
 
     ASSERT_TRUE(std::ranges::any_of(czechStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
@@ -648,7 +631,7 @@ TEST_F(LocationTest, shouldGenerateCzechStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateAustraliaStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Australia);
+    const auto generatedStreet = street(Locale::en_AU);
 
     std::vector<std::string_view> firstNames(person::australianMaleFirstNames.begin(),
                                              person::australianMaleFirstNames.end());
@@ -665,7 +648,7 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreet)
 
 TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Australia);
+    const auto generatedStreetAddress = streetAddress(Locale::en_AU);
 
     const auto generatedStreetAddressElements = common::split(generatedStreetAddress, " ");
 
@@ -692,7 +675,7 @@ TEST_F(LocationTest, shouldGenerateAustraliaStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::India);
+    const auto generatedStreetAddress = streetAddress(Locale::hi_IN);
 
     const auto generatedStreetAddressElements = common::split(generatedStreetAddress, " ");
 
@@ -709,7 +692,7 @@ TEST_F(LocationTest, shouldGenerateIndiaStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateDenmarkStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Denmark);
+    const auto generatedStreet = street(Locale::da_DK);
 
     ASSERT_TRUE(std::ranges::any_of(denmarkStreetNames, [&generatedStreet](const std::string_view& streetName)
                                     { return streetName == generatedStreet; }));
@@ -717,7 +700,7 @@ TEST_F(LocationTest, shouldGenerateDenmarkStreet)
 
 TEST_F(LocationTest, shouldGenerateDenmarkStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Denmark);
+    const auto generatedStreetAddress = streetAddress(Locale::da_DK);
 
     ASSERT_TRUE(std::ranges::any_of(denmarkStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
@@ -725,7 +708,7 @@ TEST_F(LocationTest, shouldGenerateDenmarkStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateSpainStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Spain);
+    const auto generatedStreet = street(Locale::es_ES);
 
     std::vector<std::string_view> firstNames(person::spanishMaleFirstNames.begin(),
                                              person::spanishMaleFirstNames.end());
@@ -741,7 +724,7 @@ TEST_F(LocationTest, shouldGenerateSpainStreet)
 
 TEST_F(LocationTest, shouldGenerateSpainStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Spain);
+    const auto generatedStreetAddress = streetAddress(Locale::es_ES);
 
     ASSERT_TRUE(std::ranges::any_of(spainStreetSuffixes, [&generatedStreetAddress](const std::string_view& suffix)
                                     { return generatedStreetAddress.find(suffix) != std::string::npos; }));
@@ -759,7 +742,7 @@ TEST_F(LocationTest, shouldGenerateSpainStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateFinlandStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Finland);
+    const auto generatedStreet = street(Locale::fi_FI);
 
     const auto generatedStreetElements = common::split(generatedStreet, " ");
 
@@ -784,7 +767,7 @@ TEST_F(LocationTest, shouldGenerateFinlandStreet)
 
 TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Finland);
+    const auto generatedStreetAddress = streetAddress(Locale::fi_FI);
 
     ASSERT_TRUE(std::ranges::any_of(finlandStreetSuffixes, [&generatedStreetAddress](const std::string_view& suffix)
                                     { return generatedStreetAddress.find(suffix) != std::string::npos; }));
@@ -802,7 +785,7 @@ TEST_F(LocationTest, shouldGenerateFinlandStreetAddress)
 
 TEST_F(LocationTest, shouldGenerateEstoniaStreet)
 {
-    const auto generatedStreet = street(AddressCountry::Estonia);
+    const auto generatedStreet = street(Locale::et_EE);
 
     ASSERT_TRUE(std::ranges::any_of(estoniaStreetNames, [&generatedStreet](const std::string_view& streetName)
                                     { return generatedStreet.find(streetName) != std::string::npos; }));
@@ -810,7 +793,7 @@ TEST_F(LocationTest, shouldGenerateEstoniaStreet)
 
 TEST_F(LocationTest, shouldGenerateEstoniaStreetAddress)
 {
-    const auto generatedStreetAddress = streetAddress(AddressCountry::Estonia);
+    const auto generatedStreetAddress = streetAddress(Locale::et_EE);
 
     ASSERT_TRUE(std::ranges::any_of(estoniaStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));

@@ -5,7 +5,6 @@
 #include <string_view>
 
 #include "faker-cxx/export.h"
-#include "types/country.h"
 #include "types/locale.h"
 
 namespace faker::person
