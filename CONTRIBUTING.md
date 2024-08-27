@@ -58,6 +58,12 @@ Please avoid working directly on the ``main`` branch.
    Before making changes, make sure you have `clang-format` installed. If you're using Visual Studio Code, you can
    install the `clang-format` extension.
 
+   If you want to format all files in project manually, you can run the following script:
+
+    ```sh
+    ./scripts/format_code.sh
+    ```
+
 3. **Make commits of logical units:**
 
 This means that each commit should contain a complete and coherent piece of work that can be understood independently
@@ -78,7 +84,7 @@ inadvertently broken anything. Even if you think your changes are isolated, ther
 with other parts of the codebase.
 
 6. **If you've added a new file to your project with non-Latin characters, ensure that the file encoding is set to
-Unicode (UTF-8 without signature) - Codepage 65001 in Microsoft Visual Studio Code:**
+   Unicode (UTF-8 without signature) - Codepage 65001 in Microsoft Visual Studio Code:**
 
 If a file contains non-Latin characters (such as characters from Chinese, Arabic, or many other non-Latin alphabets),
 it's important to save the file with the correct encoding to ensure that the characters are displayed correctly. In
@@ -121,8 +127,10 @@ Follow the steps below to build the project:
     "windows-msvc-release-shared"   - Windows MSVC Release Shared library
     ```
 
-   For instance, if you are in Ubuntu and want to build using GCC in Debug mode and static library (faker-cxx.a), you should use the
-   preset `unixlike-gcc-debug=static`. The `unixlike-clang-` preset should work for both Linux and macOS when using the CLang
+   For instance, if you are in Ubuntu and want to build using GCC in Debug mode and static library (faker-cxx.a), you
+   should use the
+   preset `unixlike-gcc-debug=static`. The `unixlike-clang-` preset should work for both Linux and macOS when using the
+   CLang
    compiler.
 
    The `-S .` option in the following command specifies the source directory:
@@ -164,22 +172,26 @@ The faker-cxx project uses formated string feature, which can be solved by:
 - [fmt](https://github.com/fmtlib/fmt) library
 - [std::format](https://en.cppreference.com/w/cpp/utility/format/format)
 
-The `std::format` requires C++20 standard support from the compiler. The feature is checked via CMake when building the project.
+The `std::format` requires C++20 standard support from the compiler. The feature is checked via CMake when building the
+project.
 In case available, the option `USE_STD_FORMAT` will be available:
 
     ```sh
     cmake -S . --preset unixlike-gcc-debug-static -DUSE_STD_FORMAT=ON
     ```
 
-In case `std::format` is not available, faker-cxx will use `fmt` library instead. It can be used as external dependency via
-git submodules, or consumed from your system (installed by Conan or system package manager). In order to manage the way to
+In case `std::format` is not available, faker-cxx will use `fmt` library instead. It can be used as external dependency
+via
+git submodules, or consumed from your system (installed by Conan or system package manager). In order to manage the way
+to
 acquire `fmt`, the CMake option `USE_SYSTEM_DEPENDENCIES` manages if should be used from system, or from git submodule:
 
     ```sh
     cmake -S . --preset unixlike-gcc-debug-static -DUSE_SYSTEM_DEPENDENCIES=OFF // Install from submodule
     ```
 
-In case passing `USE_STD_FORMAT=ON` and `std::format` is not available, CMake will try to use `fmt` library automatically.
+In case passing `USE_STD_FORMAT=ON` and `std::format` is not available, CMake will try to use `fmt` library
+automatically.
 Then, in case not finding `fmt`, it will fail.
 
 ### Testing the Project with CMake/CTest
@@ -211,7 +223,8 @@ As alternative, tests and be built and validated using Bazel as well. Follow the
 
 ### Installing the Project
 
-When wanting to install those generated artifacts like headers files and library, you can use CMake to operate as installer as well:
+When wanting to install those generated artifacts like headers files and library, you can use CMake to operate as
+installer as well:
 
    ```sh
       cmake --build --preset unixlike-gcc-debug-static --target install
@@ -219,15 +232,17 @@ When wanting to install those generated artifacts like headers files and library
 
 By default, CMake will install in the subfolder `install` in the source folder.
 
-In order to change the installation folder, you can use [CMAKE_INSTALL_PREFIX](https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html) to configure the destination folder:
+In order to change the installation folder, you can
+use [CMAKE_INSTALL_PREFIX](https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html) to configure the
+destination folder:
 
    ```sh
       cmake -S . --preset unixlike-gcc-debug-static -DCMAKE_INSTALL_PREFIX=/opt/faker-cxx
       cmake --build --preset unixlike-gcc-debug-static --target install
    ```
 
-This configuration will install all artifacts in `/opt/faker-cxx`. The permission to write in the folder should be granted before executing the installation command.
-
+This configuration will install all artifacts in `/opt/faker-cxx`. The permission to write in the folder should be
+granted before executing the installation command.
 
 ## Submitting Changes
 
@@ -275,7 +290,7 @@ PR titles are written in following convention: `type: subject`
 Allowed types are:
 
 | type     | description                                                               |
-| -------- | ------------------------------------------------------------------------- |
+|----------|---------------------------------------------------------------------------|
 | feat     | A new feature is introduced                                               |
 | fix      | A bug was fixed                                                           |
 | chore    | No user affected code changes were made                                   |
