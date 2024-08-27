@@ -28,7 +28,7 @@ var searchData=
   ['somalia_25',['Somalia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa921855f753932de762b780405a50bdf7',1,'faker::phone']]],
   ['southafrica_26',['SouthAfrica',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa8290c1cb03630357c2c3b1fed5ae834a',1,'faker::phone']]],
   ['southsudan_27',['SouthSudan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa287f8a5f5666385f5740156556d8f77c',1,'faker::phone']]],
-  ['spain_28',['Spain',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a907eba32d950bfab68227fd7ea22999b',1,'faker::location::Spain'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa907eba32d950bfab68227fd7ea22999b',1,'faker::phone::Spain']]],
+  ['spain_28',['Spain',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa907eba32d950bfab68227fd7ea22999b',1,'faker::phone']]],
   ['spanish_29',['Spanish',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8acb5480c32e71778852b08ae1e8712775',1,'faker::person']]],
   ['srilanka_30',['SriLanka',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aab0595cb10912e30a71fec3d8c58d4011',1,'faker::phone']]],
   ['success_31',['Success',['../namespacefaker_1_1internet.html#a25d31766e509fb398f5534224b171a8da505a83f220c02df2f85c3810cd9ceb38',1,'faker::internet']]],

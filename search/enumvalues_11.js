@@ -6,8 +6,7 @@ var searchData=
   ['reunion_3',['Reunion',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa939c3c13a3d058c4c53109d7f804b631',1,'faker::phone']]],
   ['romania_4',['Romania',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa0c7d5ae44b2a0be9ebd7d6b9f7d60f20',1,'faker::phone']]],
   ['romanian_5',['Romanian',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8aefa7394ecaa7fc7076a9da13a77236b8',1,'faker::person']]],
-  ['russia_6',['Russia',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a5feb168ca8fb495dcc89b1208cdeb919',1,'faker::location']]],
-  ['russian_7',['Russian',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8adeba6920e70615401385fe1fb5a379ec',1,'faker::person']]],
-  ['russianfederation_8',['RussianFederation',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa68a743f6cb422fa341bdd7c7a0136ed6',1,'faker::phone']]],
-  ['rwanda_9',['Rwanda',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9d7ed5d77d647e89c3cc11757d651dc2',1,'faker::phone']]]
+  ['russian_6',['Russian',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8adeba6920e70615401385fe1fb5a379ec',1,'faker::person']]],
+  ['russianfederation_7',['RussianFederation',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa68a743f6cb422fa341bdd7c7a0136ed6',1,'faker::phone']]],
+  ['rwanda_8',['Rwanda',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9d7ed5d77d647e89c3cc11757d651dc2',1,'faker::phone']]]
 ];

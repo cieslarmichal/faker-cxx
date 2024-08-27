@@ -9,7 +9,7 @@ var searchData=
   ['dayofweek_6',['dayOfWeek',['../namespacefaker_1_1date.html#a845e23281b58f0068e14c225cb90afd9',1,'faker::date']]],
   ['default_7',['Default',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa7a1920d61156abc05a60135aefe8bc67',1,'faker::phone']]],
   ['democraticrepublicofthecongo_8',['DemocraticRepublicOfTheCongo',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa15fe5db51e42feea1c94210f94f52833',1,'faker::phone']]],
-  ['denmark_9',['Denmark',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a424214945ba5615eca039bfe5d731c09',1,'faker::location::Denmark'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa424214945ba5615eca039bfe5d731c09',1,'faker::phone::Denmark']]],
+  ['denmark_9',['Denmark',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa424214945ba5615eca039bfe5d731c09',1,'faker::phone']]],
   ['department_10',['department',['../namespacefaker_1_1commerce.html#aa827bdcf2a4e231ef3cbc4acf919f3d7',1,'faker::commerce']]],
   ['direction_11',['direction',['../namespacefaker_1_1location.html#ad7add8bde67bede1c36d3834cb7fc463',1,'faker::location']]],
   ['director_12',['director',['../namespacefaker_1_1movie.html#ade9b515fd1f418beaae0de18c6b5f5d0',1,'faker::movie']]],

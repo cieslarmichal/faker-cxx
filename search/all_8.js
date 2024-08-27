@@ -9,7 +9,7 @@ var searchData=
   ['imei_6',['imei',['../namespacefaker_1_1phone.html#a610e92717aef3b4c7ae68d3982248807',1,'faker::phone']]],
   ['includenonstandard_7',['includeNonStandard',['../structfaker_1_1system_1_1CronOptions.html#a514e32dcad2eb509387bc05493ec34b8',1,'faker::system::CronOptions']]],
   ['includeyear_8',['includeYear',['../structfaker_1_1system_1_1CronOptions.html#acd8a7339d985faa4187d339916e84d32',1,'faker::system::CronOptions']]],
-  ['india_9',['India',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a7d31e0da1ab99fe8b08a22118e2f402b',1,'faker::location::India'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa7d31e0da1ab99fe8b08a22118e2f402b',1,'faker::phone::India']]],
+  ['india_9',['India',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa7d31e0da1ab99fe8b08a22118e2f402b',1,'faker::phone']]],
   ['indonesia_10',['Indonesia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4647d00cf81f8fb0ab80f753320d0fc9',1,'faker::phone']]],
   ['industry_11',['industry',['../namespacefaker_1_1company.html#ae40143ae16868dff4073b9b1c8aff922',1,'faker::company']]],
   ['informational_12',['Informational',['../namespacefaker_1_1internet.html#a25d31766e509fb398f5534224b171a8da5391f9a882a54c787b206138ed6d28b0',1,'faker::internet']]],
@@ -33,5 +33,5 @@ var searchData=
   ['israel_30',['Israel',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa5a548c2f5875f10bf5614b7c258876cf',1,'faker::phone']]],
   ['isvalidguarantee_31',['isValidGuarantee',['../namespacefaker_1_1string.html#a2b72fcb64a3202113769a90cf922b140',1,'faker::string']]],
   ['italian_32',['Italian',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a4be8e06d27bca7e1828f2fa9a49ca985',1,'faker::person']]],
-  ['italy_33',['Italy',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a1007e1b7f894dfbf72a0eaa80f3bc57e',1,'faker::location::Italy'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa1007e1b7f894dfbf72a0eaa80f3bc57e',1,'faker::phone::Italy']]]
+  ['italy_33',['Italy',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa1007e1b7f894dfbf72a0eaa80f3bc57e',1,'faker::phone']]]
 ];

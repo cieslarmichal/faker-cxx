@@ -28,7 +28,7 @@ var searchData=
   ['planttype_25',['plantType',['../namespacefaker_1_1plant.html#a742bdeecafc315f57971e024cb9203a8',1,'faker::plant']]],
   ['platform_26',['platform',['../namespacefaker_1_1phone.html#a4428423b163c879f3b829e22dd9599e9',1,'faker::phone::platform()'],['../namespacefaker_1_1videogame.html#a4dd164bf14e461898d8a1408c6300127',1,'faker::videogame::platform()']]],
   ['player_27',['player',['../namespacefaker_1_1esport.html#a07b32ae6a515b4e2092c5c9ba0ce35db',1,'faker::esport']]],
-  ['poland_28',['Poland',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a94880bda83bda77c5692876700711f15',1,'faker::location::Poland'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa94880bda83bda77c5692876700711f15',1,'faker::phone::Poland']]],
+  ['poland_28',['Poland',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa94880bda83bda77c5692876700711f15',1,'faker::phone']]],
   ['polish_29',['Polish',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8ac730389bc8d99e59c867766babdd48b5',1,'faker::person']]],
   ['port_30',['port',['../namespacefaker_1_1internet.html#af7fe45110325fe2a80fe3cc776ac2ed2',1,'faker::internet']]],
   ['portugal_31',['Portugal',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaea71b362e3ea9969db085abfccdeb10d',1,'faker::phone']]],

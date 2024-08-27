@@ -9,7 +9,7 @@ var searchData=
   ['person_6',['Person',['../namespacefaker_1_1internet.html#ab1fd12c6089e1eb7e783223be1b73ac1a40bed7cf9b3d4bb3a3d7a7e3eb18c5eb',1,'faker::internet']]],
   ['peru_7',['Peru',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa84c8fa2341f7d052a1ee3a36ff043798',1,'faker::phone']]],
   ['philippines_8',['Philippines',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa77dab2f81a6c8c9136efba7ab2c4c0f2',1,'faker::phone']]],
-  ['poland_9',['Poland',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a94880bda83bda77c5692876700711f15',1,'faker::location::Poland'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa94880bda83bda77c5692876700711f15',1,'faker::phone::Poland']]],
+  ['poland_9',['Poland',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa94880bda83bda77c5692876700711f15',1,'faker::phone']]],
   ['polish_10',['Polish',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8ac730389bc8d99e59c867766babdd48b5',1,'faker::person']]],
   ['portugal_11',['Portugal',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaea71b362e3ea9969db085abfccdeb10d',1,'faker::phone']]],
   ['portuguese_12',['Portuguese',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a30e32c7c4cf434e9c75e60c14c442541',1,'faker::person']]],

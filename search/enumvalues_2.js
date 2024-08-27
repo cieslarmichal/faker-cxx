@@ -21,6 +21,6 @@ var searchData=
   ['cuba_18',['Cuba',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa33cac763789c407f405b2cf0dce7df89',1,'faker::phone']]],
   ['curacao_19',['Curacao',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa0d2268d462cd08b20b7508c3fc0fde5e',1,'faker::phone']]],
   ['cyprus_20',['Cyprus',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaea2ba3f8011e19e3101ce65fdcefbcc4',1,'faker::phone']]],
-  ['czech_21',['Czech',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a83ff4480cdf2900ae83bf30d95774d76',1,'faker::location::Czech'],['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a83ff4480cdf2900ae83bf30d95774d76',1,'faker::person::Czech']]],
+  ['czech_21',['Czech',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a83ff4480cdf2900ae83bf30d95774d76',1,'faker::person']]],
   ['czechia_22',['Czechia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa31e7e8bf65a10ae8798adfbd8c0cd8c8',1,'faker::phone']]]
 ];

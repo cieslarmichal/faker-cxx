@@ -13,7 +13,7 @@ var searchData=
   ['equatorialguinea_10',['EquatorialGuinea',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa36216977d6d58d490d4c7d3d1034b0df',1,'faker::phone']]],
   ['eritrea_11',['Eritrea',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aac9c9f116f74ac9d7e60dc415523dfeff',1,'faker::phone']]],
   ['esport_2eh_12',['esport.h',['../esport_8h.html',1,'']]],
-  ['estonia_13',['Estonia',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a7755415a9fe7022060b98a689236ccd2',1,'faker::location::Estonia'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa7755415a9fe7022060b98a689236ccd2',1,'faker::phone::Estonia']]],
+  ['estonia_13',['Estonia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa7755415a9fe7022060b98a689236ccd2',1,'faker::phone']]],
   ['estonian_14',['Estonian',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a28916fc3da67a5190b2b98a7f309857f',1,'faker::person']]],
   ['eswatini_15',['Eswatini',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa5b6c44e2e66685a59e42673eff6d5f17',1,'faker::phone']]],
   ['ethereumaddress_16',['ethereumAddress',['../namespacefaker_1_1finance.html#a30c18f090dc95e47a21846f694edc74d',1,'faker::finance']]],

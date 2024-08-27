@@ -10,7 +10,7 @@ var searchData=
   ['genre_7',['genre',['../namespacefaker_1_1book.html#a54abd69be2c8c7cc922be0e96ba3a4e4',1,'faker::book::genre()'],['../namespacefaker_1_1movie.html#a55bae5cf4dbcdd3b785b340f28226128',1,'faker::movie::genre()'],['../namespacefaker_1_1music.html#a420b05ddc4e92ab9f581d93907e23042',1,'faker::music::genre()'],['../namespacefaker_1_1videogame.html#ae5bdba1c888f8934eb817848a705983c',1,'faker::videogame::genre()']]],
   ['georgia_8',['Georgia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaeada819634d0164c6a7547bdcc405033',1,'faker::phone']]],
   ['german_9',['German',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a86bc3115eb4e9873ac96904a4a68e19e',1,'faker::person']]],
-  ['germany_10',['Germany',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030ad8b00929dec65d422303256336ada04f',1,'faker::location::Germany'],['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aad8b00929dec65d422303256336ada04f',1,'faker::phone::Germany']]],
+  ['germany_10',['Germany',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aad8b00929dec65d422303256336ada04f',1,'faker::phone']]],
   ['ghana_11',['Ghana',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aae7400496f1ce70cb62c2c44ca2ddc469',1,'faker::phone']]],
   ['gibraltar_12',['Gibraltar',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa672566a43483aa8212cb365658600b99',1,'faker::phone']]],
   ['git_2eh_13',['git.h',['../git_8h.html',1,'']]],

@@ -21,7 +21,7 @@ var searchData=
   ['chile_18',['Chile',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa2e6507f70a9cc26fb50f5fd82a83c7ef',1,'faker::phone']]],
   ['china_19',['China',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaae54a5c026f31ada088992587d92cb3a',1,'faker::phone']]],
   ['chinesezodiac_20',['chineseZodiac',['../namespacefaker_1_1person.html#a4b696b7118429e5550b9664e6eb4c4a8',1,'faker::person']]],
-  ['city_21',['city',['../namespacefaker_1_1location.html#a5e0b6b68297b82fe7cbabd6b2b644905',1,'faker::location']]],
+  ['city_21',['city',['../namespacefaker_1_1location.html#af8cdcef7f184ffa39612b92ff51cf5c1',1,'faker::location']]],
   ['clienterror_22',['ClientError',['../namespacefaker_1_1internet.html#a25d31766e509fb398f5534224b171a8daa4097a97f20ebb7212625084936abcee',1,'faker::internet']]],
   ['cmyk_23',['cmyk',['../namespacefaker_1_1color.html#a029e95b2d93b04c1b07ecf8e1942f690',1,'faker::color']]],
   ['code_24',['code',['../structfaker_1_1finance_1_1Currency.html#a5c6602aa5997f25c11761d793e01be40',1,'faker::finance::Currency']]],
@@ -75,6 +75,6 @@ var searchData=
   ['currencysymbol_72',['currencySymbol',['../namespacefaker_1_1finance.html#afa74fcebfd397842d3beb0b18620ec39',1,'faker::finance']]],
   ['currentunit_73',['currentUnit',['../namespacefaker_1_1science.html#af4d5df3993f6749a148253bbc7e82d91',1,'faker::science']]],
   ['cyprus_74',['Cyprus',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaea2ba3f8011e19e3101ce65fdcefbcc4',1,'faker::phone']]],
-  ['czech_75',['Czech',['../namespacefaker_1_1location.html#aff490c4284a54833b21a8d4de3d0b030a83ff4480cdf2900ae83bf30d95774d76',1,'faker::location::Czech'],['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a83ff4480cdf2900ae83bf30d95774d76',1,'faker::person::Czech']]],
+  ['czech_75',['Czech',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8a83ff4480cdf2900ae83bf30d95774d76',1,'faker::person']]],
   ['czechia_76',['Czechia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa31e7e8bf65a10ae8798adfbd8c0cd8c8',1,'faker::phone']]]
 ];

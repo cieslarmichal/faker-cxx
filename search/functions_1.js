@@ -11,7 +11,7 @@ var searchData=
   ['bitcoinaddress_8',['bitcoinAddress',['../namespacefaker_1_1finance.html#ab5e2e3ab4e301fed661d9f588600a717',1,'faker::finance']]],
   ['boolean_9',['boolean',['../namespacefaker_1_1datatype.html#a6e8fea28b1cf18124cb1c854496b35c2',1,'faker::datatype::boolean()'],['../namespacefaker_1_1datatype.html#a3f0613615165573f77dba5349bb00241',1,'faker::datatype::boolean(double probability)']]],
   ['branch_10',['branch',['../namespacefaker_1_1git.html#aa20a779d8d85590d75a8cdddf217535d',1,'faker::git']]],
-  ['buildingnumber_11',['buildingNumber',['../namespacefaker_1_1location.html#acfcae308deae2a89a99a9c2d7721d4d7',1,'faker::location']]],
+  ['buildingnumber_11',['buildingNumber',['../namespacefaker_1_1location.html#a467ede2220c5802732e424d921206223',1,'faker::location']]],
   ['buzzadjective_12',['buzzAdjective',['../namespacefaker_1_1company.html#a02b67ebf0ef4b30a7a48776b158e105a',1,'faker::company']]],
   ['buzznoun_13',['buzzNoun',['../namespacefaker_1_1company.html#a1099f8aca6deb4fc3c00c3df3e04bc80',1,'faker::company']]],
   ['buzzphrase_14',['buzzPhrase',['../namespacefaker_1_1company.html#a1e590c592a3cdbf5583383ee859f74d7',1,'faker::company']]],
