@@ -238,8 +238,9 @@ std::string fullName(Locale locale, std::optional<Sex> sex)
     weightedElements.reserve(peopleNames.nameFormats.size());
 
     std::transform(peopleNames.nameFormats.begin(), peopleNames.nameFormats.end(), std::back_inserter(weightedElements),
-                   [](const NameFormat& nameFormat)
-                   { return helper::WeightedElement<std::string_view>{nameFormat.weight, nameFormat.format}; });
+                   [](const NameFormat& nameFormat) {
+                       return helper::WeightedElement<std::string_view>{nameFormat.weight, nameFormat.format};
+                   });
 
     const auto nameFormat = static_cast<std::string>(helper::weightedRandomElement<std::string_view>(weightedElements));
 
@@ -337,11 +338,9 @@ std::string bio()
 
 std::string_view sex(Locale locale)
 {
-    const std::vector<std::string> sexes{"Male", "Female"};
+    const std::vector<Sex> sexes{Sex::Male, Sex::Female};
 
-    const auto chosenSex = helper::randomElement(sexes);
-
-    const auto sexEnum = chosenSex == "Male" ? Sex::Male : Sex::Female;
+    const auto sex = helper::randomElement(sexes);
 
     auto sexTranslation = sexTranslations.find(locale);
 
@@ -350,7 +349,7 @@ std::string_view sex(Locale locale)
         sexTranslation = sexTranslations.find(Locale::en_US);
     }
 
-    return sexTranslation->second.at(sexEnum);
+    return sexTranslation->second.at(sex);
 }
 
 std::string_view gender()

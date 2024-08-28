@@ -1,6 +1,7 @@
 #pragma once
 
 #include <string>
+#include <string_view>
 
 #include "faker-cxx/export.h"
 #include "types/hex.h"
