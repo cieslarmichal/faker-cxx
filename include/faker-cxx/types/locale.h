@@ -86,6 +86,7 @@ enum class Locale
     fr_FR, // French, France
     fr_LU, // French, Luxembourg
     fr_MC, // French, Monaco
+    ga_IE, // Irish, Ireland
     gu_IN, // Gujarati, India
     he_IL, // Hebrew, Israel
     hi_IN, // Hindi, India
@@ -112,6 +113,7 @@ enum class Locale
     ms_MY, // Malay, Malaysia
     mt_MT, // Maltese, Malta
     nb_NO, // Bokmal, Norway
+    ne_NP, // Nepali, Nepal
     nl_BE, // Dutch, Belgium
     nl_NL, // Dutch, Netherlands
     nn_NO, // Nynorsk, Norway

@@ -171,18 +171,6 @@ const struct PeopleNames& getPeopleNamesByLocale(Locale locale)
     }
 }
 
-std::string_view translateSex(Sex sex, Language language = Language::English)
-{
-    const auto sexTranslation = sexTranslations.find(language);
-
-    if (sexTranslation == sexTranslations.end())
-    {
-        throw std::runtime_error{"Sex not found."};
-    }
-
-    return sexTranslation->second.at(sex);
-}
-
 }
 
 bool checkTokenFormat(const std::string& bio);
@@ -438,7 +426,24 @@ TEST_F(PersonTest, shouldGenerateSex)
 {
     const auto generatedSex = sex();
 
-    ASSERT_TRUE(std::ranges::any_of(sexes, [generatedSex](const std::string& sex) { return sex == generatedSex; }));
+    const auto sexTranslation = sexTranslations.find(Locale::en_US);
+
+    ASSERT_TRUE(generatedSex == sexTranslation->second.at(Sex::Male) || 
+                generatedSex == sexTranslation->second.at(Sex::Female));
+}
+
+TEST_F(PersonTest, shouldGenerateLocaleSex)
+{
+    auto generatedSex = sex(Locale::fr_FR);
+    auto sexTranslation = sexTranslations.find(Locale::fr_FR);
+
+    if(sexTranslation == sexTranslations.end()){
+        generatedSex = sex(Locale::en_US);
+        sexTranslation = sexTranslations.find(Locale::en_US);
+    }
+
+    ASSERT_TRUE(generatedSex == sexTranslation->second.at(Sex::Male) || 
+                generatedSex == sexTranslation->second.at(Sex::Female));
 }
 
 TEST_F(PersonTest, shouldGenerateGender)
@@ -537,81 +542,6 @@ TEST_F(PersonTest, shouldGenerateChineseZodiacs)
     ASSERT_TRUE(std::ranges::any_of(chineseZodiacs, [generatedChineseZodiacs](const std::string_view& chineseZodiac)
                                     { return generatedChineseZodiacs == chineseZodiac; }));
 }
-
-class PersonSexSuite : public TestWithParam<std::pair<Language, Sex>>
-{
-};
-
-TEST_P(PersonSexSuite, shouldTranslateSexCorrectly)
-{
-    const auto language = GetParam().first;
-    const auto sex = GetParam().second;
-
-    const auto expectedTranslation = sexTranslations.at(language).at(sex);
-    const auto actualTranslation = translateSex(sex, language);
-
-    ASSERT_EQ(expectedTranslation, actualTranslation);
-}
-
-std::vector<std::pair<Language, Sex>> languageSexPairs = {
-    {Language::English, Sex::Male},      {Language::English, Sex::Female},   {Language::Polish, Sex::Male},
-    {Language::Polish, Sex::Female},     {Language::Italian, Sex::Male},     {Language::Italian, Sex::Female},
-    {Language::French, Sex::Male},       {Language::French, Sex::Female},    {Language::German, Sex::Male},
-    {Language::German, Sex::Female},     {Language::Russian, Sex::Male},     {Language::Russian, Sex::Female},
-    {Language::Romanian, Sex::Male},     {Language::Romanian, Sex::Female},  {Language::Hindi, Sex::Male},
-    {Language::Hindi, Sex::Female},      {Language::Finnish, Sex::Male},     {Language::Finnish, Sex::Female},
-    {Language::Nepali, Sex::Male},       {Language::Nepali, Sex::Female},    {Language::Spanish, Sex::Male},
-    {Language::Spanish, Sex::Female},    {Language::Turkish, Sex::Male},     {Language::Turkish, Sex::Female},
-    {Language::Czech, Sex::Male},        {Language::Czech, Sex::Female},     {Language::Slovak, Sex::Male},
-    {Language::Slovak, Sex::Female},     {Language::Ukrainian, Sex::Male},   {Language::Ukrainian, Sex::Female},
-    {Language::Danish, Sex::Male},       {Language::Danish, Sex::Female},    {Language::Swedish, Sex::Male},
-    {Language::Swedish, Sex::Female},    {Language::Portuguese, Sex::Male},  {Language::Portuguese, Sex::Female},
-    {Language::Norwegian, Sex::Male},    {Language::Norwegian, Sex::Female}, {Language::Japanese, Sex::Male},
-    {Language::Japanese, Sex::Female},   {Language::Hungarian, Sex::Male},   {Language::Hungarian, Sex::Female},
-    {Language::Croatian, Sex::Male},     {Language::Croatian, Sex::Female},  {Language::Greek, Sex::Male},
-    {Language::Greek, Sex::Female},      {Language::Slovene, Sex::Male},     {Language::Slovene, Sex::Female},
-    {Language::Dutch, Sex::Male},        {Language::Dutch, Sex::Female},     {Language::Mandarin, Sex::Male},
-    {Language::Mandarin, Sex::Female},   {Language::Korean, Sex::Male},      {Language::Korean, Sex::Female},
-    {Language::Serbian, Sex::Male},      {Language::Serbian, Sex::Female},   {Language::Macedonian, Sex::Male},
-    {Language::Macedonian, Sex::Female}, {Language::Albanian, Sex::Male},    {Language::Albanian, Sex::Female},
-    {Language::Latvian, Sex::Male},      {Language::Latvian, Sex::Female},   {Language::Irish, Sex::Male},
-    {Language::Irish, Sex::Female},      {Language::Belarusian, Sex::Male},  {Language::Belarusian, Sex::Female},
-    {Language::Estonian, Sex::Male},     {Language::Estonian, Sex::Female}};
-
-std::string toString(Sex sex, Language language = Language::English)
-{
-    const auto sexTranslation = sexTranslations.find(language);
-
-    if (sexTranslation == sexTranslations.end())
-    {
-        throw std::runtime_error{"Sex not found."};
-    }
-
-    return std::string{sexTranslation->second.at(sex)};
-}
-
-std::string toString(Language language)
-{
-    static const std::unordered_map<Language, std::string> languageToStringMapping{
-        {Language::English, "English"},     {Language::Polish, "Polish"},         {Language::Italian, "Italian"},
-        {Language::French, "French"},       {Language::German, "German"},         {Language::Russian, "Russian"},
-        {Language::Romanian, "Romanian"},   {Language::Hindi, "Hindi"},           {Language::Finnish, "Finnish"},
-        {Language::Nepali, "Nepali"},       {Language::Spanish, "Spanish"},       {Language::Turkish, "Turkish"},
-        {Language::Czech, "Czech"},         {Language::Slovak, "Slovak"},         {Language::Ukrainian, "Ukrainian"},
-        {Language::Danish, "Danish"},       {Language::Swedish, "Swedish"},       {Language::Portuguese, "Portuguese"},
-        {Language::Norwegian, "Norwegian"}, {Language::Japanese, "Japanese"},     {Language::Hungarian, "Hungarian"},
-        {Language::Croatian, "Croatian"},   {Language::Greek, "Greek"},           {Language::Slovene, "Slovene"},
-        {Language::Dutch, "Dutch"},         {Language::Mandarin, "Mandarin"},     {Language::Korean, "Korean"},
-        {Language::Serbian, "Serbian"},     {Language::Macedonian, "Macedonian"}, {Language::Albanian, "Albanian"},
-        {Language::Latvian, "Latvian"},     {Language::Irish, "Irish"},           {Language::Belarusian, "Belarusian"},
-        {Language::Estonian, "Estonian"}};
-
-    return languageToStringMapping.at(language);
-}
-
-INSTANTIATE_TEST_SUITE_P(TestPersonSexTranslation, PersonSexSuite, testing::ValuesIn(languageSexPairs),
-                         [](const testing::TestParamInfo<PersonSexSuite::ParamType>& paramInfo)
-                         { return toString(paramInfo.param.first) + "_" + toString(paramInfo.param.second); });
 
 const std::unordered_map<Locale, unsigned> ssnLengths{
     {Locale::pl_PL, 11}, {Locale::es_US, 11}, {Locale::en_US, 11}, {Locale::en_GB, 13}, {Locale::de_DE, 12},

@@ -335,7 +335,7 @@ std::string bio()
     return common::fillTokenValues(randomBioFormat, dataGeneratorsMapping);
 }
 
-std::string_view sex(std::optional<Language> language)
+std::string_view sex(Locale locale)
 {
     const std::vector<std::string> sexes{"Male", "Female"};
 
@@ -343,13 +343,11 @@ std::string_view sex(std::optional<Language> language)
 
     const auto sexEnum = chosenSex == "Male" ? Sex::Male : Sex::Female;
 
-    const auto languageStr = language ? *language : Language::English;
-
-    const auto sexTranslation = sexTranslations.find(languageStr);
+    auto sexTranslation = sexTranslations.find(locale);
 
     if (sexTranslation == sexTranslations.end())
     {
-        throw std::runtime_error{"Sex not found."};
+        sexTranslation = sexTranslations.find(Locale::en_US);
     }
 
     return sexTranslation->second.at(sexEnum);
