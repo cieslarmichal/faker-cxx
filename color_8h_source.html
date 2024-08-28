@@ -105,36 +105,37 @@ $(function(){initNavTree('color_8h_source.html',''); initResizable(true); });
 <a href="color_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;string&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span> </div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;faker-cxx/export.h&quot;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;types/hex.h&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="foldopen" id="foldopen00008" data-start="{" data-end="}">
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html">    8</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacefaker_1_1color.html">faker::color</a></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>{</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a293bb321a832653d0436df1fcdccacbf">   19</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1color.html#a293bb321a832653d0436df1fcdccacbf">name</a>();</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#af6a5bd8e9feb97f01ef3a41621cec14a">   33</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#af6a5bd8e9feb97f01ef3a41621cec14a">rgb</a>(<span class="keywordtype">bool</span> includeAlpha = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#ad77b26473e833e142dbcf4b7eb40151d">   49</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#ad77b26473e833e142dbcf4b7eb40151d">hex</a>(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash,</div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>                                 <span class="keywordtype">bool</span> includeAlpha = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span> </div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a036bd0fa934a250f82eeb08c6a74bfcd">   62</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a036bd0fa934a250f82eeb08c6a74bfcd">hsl</a>(<span class="keywordtype">bool</span> includeAlpha = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a7c586ab6590f34db1170dbd586bf18b1">   74</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a7c586ab6590f34db1170dbd586bf18b1">lch</a>(<span class="keywordtype">bool</span> includeAlpha = <span class="keyword">false</span>);</div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a029e95b2d93b04c1b07ecf8e1942f690">   84</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a029e95b2d93b04c1b07ecf8e1942f690">cmyk</a>();</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span> </div>
-<div class="line"><a id="l00094" name="l00094"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#afd8333f4cc9596e3819ad009f6080528">   94</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#afd8333f4cc9596e3819ad009f6080528">lab</a>();</div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a95505c20701451ee42aba82bc5209264">  104</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a95505c20701451ee42aba82bc5209264">hsb</a>();</div>
-<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a125a5d22271e5883e4b4c939324eabcf">  114</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a125a5d22271e5883e4b4c939324eabcf">hsv</a>();</div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a8e30cdd5e0f2d52ca7a21c37a5843d3f">  124</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a8e30cdd5e0f2d52ca7a21c37a5843d3f">yuv</a>();</div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>}</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string_view&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;faker-cxx/export.h&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;types/hex.h&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html">    9</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacefaker_1_1color.html">faker::color</a></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a293bb321a832653d0436df1fcdccacbf">   20</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1color.html#a293bb321a832653d0436df1fcdccacbf">name</a>();</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#af6a5bd8e9feb97f01ef3a41621cec14a">   34</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#af6a5bd8e9feb97f01ef3a41621cec14a">rgb</a>(<span class="keywordtype">bool</span> includeAlpha = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#ad77b26473e833e142dbcf4b7eb40151d">   50</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#ad77b26473e833e142dbcf4b7eb40151d">hex</a>(HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::Hash,</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>                                 <span class="keywordtype">bool</span> includeAlpha = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a036bd0fa934a250f82eeb08c6a74bfcd">   63</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a036bd0fa934a250f82eeb08c6a74bfcd">hsl</a>(<span class="keywordtype">bool</span> includeAlpha = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a7c586ab6590f34db1170dbd586bf18b1">   75</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a7c586ab6590f34db1170dbd586bf18b1">lch</a>(<span class="keywordtype">bool</span> includeAlpha = <span class="keyword">false</span>);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a029e95b2d93b04c1b07ecf8e1942f690">   85</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a029e95b2d93b04c1b07ecf8e1942f690">cmyk</a>();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#afd8333f4cc9596e3819ad009f6080528">   95</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#afd8333f4cc9596e3819ad009f6080528">lab</a>();</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a95505c20701451ee42aba82bc5209264">  105</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a95505c20701451ee42aba82bc5209264">hsb</a>();</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a125a5d22271e5883e4b4c939324eabcf">  115</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a125a5d22271e5883e4b4c939324eabcf">hsv</a>();</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="namespacefaker_1_1color.html#a8e30cdd5e0f2d52ca7a21c37a5843d3f">  125</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1color.html#a8e30cdd5e0f2d52ca7a21c37a5843d3f">yuv</a>();</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>}</div>
 </div>
-<div class="ttc" id="anamespacefaker_1_1color_html"><div class="ttname"><a href="namespacefaker_1_1color.html">faker::color</a></div><div class="ttdef"><b>Definition</b> color.h:9</div></div>
+<div class="ttc" id="anamespacefaker_1_1color_html"><div class="ttname"><a href="namespacefaker_1_1color.html">faker::color</a></div><div class="ttdef"><b>Definition</b> color.h:10</div></div>
 <div class="ttc" id="anamespacefaker_1_1color_html_a029e95b2d93b04c1b07ecf8e1942f690"><div class="ttname"><a href="namespacefaker_1_1color.html#a029e95b2d93b04c1b07ecf8e1942f690">faker::color::cmyk</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string cmyk()</div><div class="ttdoc">Return a CMYK color.</div></div>
 <div class="ttc" id="anamespacefaker_1_1color_html_a036bd0fa934a250f82eeb08c6a74bfcd"><div class="ttname"><a href="namespacefaker_1_1color.html#a036bd0fa934a250f82eeb08c6a74bfcd">faker::color::hsl</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string hsl(bool includeAlpha=false)</div><div class="ttdoc">Returns an HSL color.</div></div>
 <div class="ttc" id="anamespacefaker_1_1color_html_a125a5d22271e5883e4b4c939324eabcf"><div class="ttname"><a href="namespacefaker_1_1color.html#a125a5d22271e5883e4b4c939324eabcf">faker::color::hsv</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string hsv()</div><div class="ttdoc">Return a HSV color.</div></div>

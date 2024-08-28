@@ -21,10 +21,9 @@ var searchData=
   ['trinidadandtobago_18',['TrinidadAndTobago',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa1af9e32687b454480753a7bea2fbbef2',1,'faker::phone']]],
   ['tunisia_19',['Tunisia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aad6dacba23ab4a1d5b72f223bfb010a05',1,'faker::phone']]],
   ['turkey_20',['Turkey',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa221cdfb73049678e244380b45872cbb2',1,'faker::phone']]],
-  ['turkish_21',['Turkish',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8ac1612bbdebfa45467e8ab814e08daff1',1,'faker::person']]],
-  ['turkmenistan_22',['Turkmenistan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaf5d993d8e89c037d614ec8dc2559e4b7',1,'faker::phone']]],
-  ['turksandcaicosislands_23',['TurksAndCaicosIslands',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaba084f7103e7c36f540ae05265b3eb06',1,'faker::phone']]],
-  ['tuvalu_24',['Tuvalu',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4e18c1e699d8abc3422d67f2ff82c56b',1,'faker::phone']]],
-  ['tvshow_25',['tvShow',['../namespacefaker_1_1movie.html#a92eaad86bc0027001c6c909c21027e93',1,'faker::movie']]],
-  ['type_26',['type',['../namespacefaker_1_1animal.html#af243dbc79d1b5d6b5a0d4cd629e23800',1,'faker::animal::type()'],['../namespacefaker_1_1company.html#a4d010c731f63c97b86e98c5a885982bb',1,'faker::company::type()'],['../namespacefaker_1_1computer.html#a24a49de08b310a9df270659df74f0cc2',1,'faker::computer::type()'],['../namespacefaker_1_1vehicle.html#abf36408d14fc12c02a8f6a5ba2773241',1,'faker::vehicle::type()']]]
+  ['turkmenistan_21',['Turkmenistan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaf5d993d8e89c037d614ec8dc2559e4b7',1,'faker::phone']]],
+  ['turksandcaicosislands_22',['TurksAndCaicosIslands',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaba084f7103e7c36f540ae05265b3eb06',1,'faker::phone']]],
+  ['tuvalu_23',['Tuvalu',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4e18c1e699d8abc3422d67f2ff82c56b',1,'faker::phone']]],
+  ['tvshow_24',['tvShow',['../namespacefaker_1_1movie.html#a92eaad86bc0027001c6c909c21027e93',1,'faker::movie']]],
+  ['type_25',['type',['../namespacefaker_1_1animal.html#af243dbc79d1b5d6b5a0d4cd629e23800',1,'faker::animal::type()'],['../namespacefaker_1_1company.html#a4d010c731f63c97b86e98c5a885982bb',1,'faker::company::type()'],['../namespacefaker_1_1computer.html#a24a49de08b310a9df270659df74f0cc2',1,'faker::computer::type()'],['../namespacefaker_1_1vehicle.html#abf36408d14fc12c02a8f6a5ba2773241',1,'faker::vehicle::type()']]]
 ];

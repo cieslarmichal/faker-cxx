@@ -13,8 +13,7 @@ var searchData=
   ['trinidadandtobago_10',['TrinidadAndTobago',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa1af9e32687b454480753a7bea2fbbef2',1,'faker::phone']]],
   ['tunisia_11',['Tunisia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aad6dacba23ab4a1d5b72f223bfb010a05',1,'faker::phone']]],
   ['turkey_12',['Turkey',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa221cdfb73049678e244380b45872cbb2',1,'faker::phone']]],
-  ['turkish_13',['Turkish',['../namespacefaker_1_1person.html#a659b715d67b28954aef92a078b55f8a8ac1612bbdebfa45467e8ab814e08daff1',1,'faker::person']]],
-  ['turkmenistan_14',['Turkmenistan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaf5d993d8e89c037d614ec8dc2559e4b7',1,'faker::phone']]],
-  ['turksandcaicosislands_15',['TurksAndCaicosIslands',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaba084f7103e7c36f540ae05265b3eb06',1,'faker::phone']]],
-  ['tuvalu_16',['Tuvalu',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4e18c1e699d8abc3422d67f2ff82c56b',1,'faker::phone']]]
+  ['turkmenistan_13',['Turkmenistan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaf5d993d8e89c037d614ec8dc2559e4b7',1,'faker::phone']]],
+  ['turksandcaicosislands_14',['TurksAndCaicosIslands',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaba084f7103e7c36f540ae05265b3eb06',1,'faker::phone']]],
+  ['tuvalu_15',['Tuvalu',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4e18c1e699d8abc3422d67f2ff82c56b',1,'faker::phone']]]
 ];
