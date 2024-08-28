@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file
 
-## v3.0.0 (TBD)
+## v3.0.0 (28.08.2024)
 
 ### ⚠ BREAKING CHANGES
 
@@ -15,6 +15,11 @@ All notable changes to this project will be documented in this file
 * changed function `branch` to take optional enum parameter in git module
 * changed country, language, bic country, iban country params to locale
 
+### Features
+
+* added `Video` module
+* added `Esport` module
+  
 ## v2.0.0 (27.06.2024)
 
 ### ⚠ BREAKING CHANGES
