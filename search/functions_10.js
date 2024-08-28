@@ -10,7 +10,7 @@ var searchData=
   ['sentence_7',['sentence',['../namespacefaker_1_1lorem.html#a474701bf19dcc2b62a199d540deb96fc',1,'faker::lorem']]],
   ['sentences_8',['sentences',['../namespacefaker_1_1lorem.html#a375063dbea7caebda30aec4a3fd83775',1,'faker::lorem']]],
   ['series_9',['series',['../namespacefaker_1_1book.html#a3ed50eb1ee042cf87f5cddc940578e20',1,'faker::book']]],
-  ['sex_10',['sex',['../namespacefaker_1_1person.html#a6f9626afb67c43e013958f64f5a58419',1,'faker::person']]],
+  ['sex_10',['sex',['../namespacefaker_1_1person.html#a6963c48d94e75990dc07d6b3d01b5290',1,'faker::person']]],
   ['sha256_11',['sha256',['../namespacefaker_1_1crypto.html#a06acc630cf1abe98fd1066949da9d016',1,'faker::crypto']]],
   ['shippingcarrier_12',['shippingCarrier',['../namespacefaker_1_1commerce.html#a4cccf9c8c2dc76301d318ffd6a9f871f',1,'faker::commerce']]],
   ['shrub_13',['shrub',['../namespacefaker_1_1plant.html#a86bfd2dc95c27ba02e8aa5786d56f3ed',1,'faker::plant']]],

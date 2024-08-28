@@ -260,7 +260,7 @@ var namespacefaker =
       [ "nationality", "namespacefaker_1_1person.html#adb390e221234be2ed111463db5eb681e", null ],
       [ "passport", "namespacefaker_1_1person.html#a6cb88e861df0288cb9552d7868ddddba", null ],
       [ "prefix", "namespacefaker_1_1person.html#a752adfa23f102ad9d146b3b2d780497e", null ],
-      [ "sex", "namespacefaker_1_1person.html#a6f9626afb67c43e013958f64f5a58419", null ],
+      [ "sex", "namespacefaker_1_1person.html#a6963c48d94e75990dc07d6b3d01b5290", null ],
       [ "ssn", "namespacefaker_1_1person.html#a8e6f181401f124afcead503aa08544da", null ],
       [ "suffix", "namespacefaker_1_1person.html#a0e2a416b654fbed4272162da9148cf75", null ],
       [ "westernZodiac", "namespacefaker_1_1person.html#a8a744df8b8f7dc01d21047350493be3c", null ]

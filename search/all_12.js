@@ -27,7 +27,7 @@ var searchData=
   ['series_24',['series',['../namespacefaker_1_1book.html#a3ed50eb1ee042cf87f5cddc940578e20',1,'faker::book']]],
   ['servererror_25',['ServerError',['../namespacefaker_1_1internet.html#a25d31766e509fb398f5534224b171a8da7d65c64901711bc2cd2a33ff2641fbe9',1,'faker::internet']]],
   ['sex_26',['Sex',['../namespacefaker_1_1person.html#ab7290e4523427c5876299e459d3ed038',1,'faker::person']]],
-  ['sex_27',['sex',['../namespacefaker_1_1person.html#a6f9626afb67c43e013958f64f5a58419',1,'faker::person']]],
+  ['sex_27',['sex',['../namespacefaker_1_1person.html#a6963c48d94e75990dc07d6b3d01b5290',1,'faker::person']]],
   ['seychelles_28',['Seychelles',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aad2e4449b45608e33e472d939a73868f7',1,'faker::phone']]],
   ['sha256_29',['sha256',['../namespacefaker_1_1crypto.html#a06acc630cf1abe98fd1066949da9d016',1,'faker::crypto']]],
   ['shippingcarrier_30',['shippingCarrier',['../namespacefaker_1_1commerce.html#a4cccf9c8c2dc76301d318ffd6a9f871f',1,'faker::commerce']]],

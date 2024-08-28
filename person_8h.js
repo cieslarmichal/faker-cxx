@@ -55,7 +55,7 @@ var person_8h =
     [ "nationality", "person_8h.html#adb390e221234be2ed111463db5eb681e", null ],
     [ "passport", "person_8h.html#a6cb88e861df0288cb9552d7868ddddba", null ],
     [ "prefix", "person_8h.html#a752adfa23f102ad9d146b3b2d780497e", null ],
-    [ "sex", "person_8h.html#a6f9626afb67c43e013958f64f5a58419", null ],
+    [ "sex", "person_8h.html#a6963c48d94e75990dc07d6b3d01b5290", null ],
     [ "ssn", "person_8h.html#a8e6f181401f124afcead503aa08544da", null ],
     [ "suffix", "person_8h.html#a0e2a416b654fbed4272162da9148cf75", null ],
     [ "westernZodiac", "person_8h.html#a8a744df8b8f7dc01d21047350493be3c", null ]
