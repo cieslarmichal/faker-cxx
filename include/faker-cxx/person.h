@@ -9,8 +9,11 @@
 
 namespace faker::person
 {
-enum class Sex;
-enum class Language;
+enum class Sex
+{
+    Female,
+    Male,
+};
 
 /**
  * @brief Returns a random first name.
@@ -101,7 +104,7 @@ FAKER_CXX_EXPORT std::string bio();
 
 /**
  * @brief Returns a random sex of the locale passed.
- * 
+ *
  * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Sex.
@@ -249,48 +252,4 @@ FAKER_CXX_EXPORT std::string_view chineseZodiac();
  * @endcode
  */
 FAKER_CXX_EXPORT std::string passport(Locale locale = Locale::en_US);
-
-enum class Sex
-{
-    Female,
-    Male,
-};
-
-enum class Language
-{
-    Albanian,
-    Belarusian,
-    Croatian,
-    Czech,
-    Danish,
-    Dutch,
-    English,
-    Estonian,
-    Finnish,
-    French,
-    German,
-    Greek,
-    Hindi,
-    Hungarian,
-    Irish,
-    Italian,
-    Japanese,
-    Korean,
-    Latvian,
-    Macedonian,
-    Mandarin,
-    Nepali,
-    Norwegian,
-    Polish,
-    Portuguese,
-    Romanian,
-    Russian,
-    Serbian,
-    Slovak,
-    Slovene,
-    Spanish,
-    Swedish,
-    Turkish,
-    Ukrainian,
-};
 }

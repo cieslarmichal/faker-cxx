@@ -21,8 +21,6 @@ using namespace faker::person;
 
 namespace
 {
-const std::vector<std::string> sexes{"Male", "Female"};
-
 const struct PeopleNames& getPeopleNamesByLocale(Locale locale)
 {
     switch (locale)
@@ -419,32 +417,20 @@ TEST_P(PersonTest, shouldGenerateFemaleSuffix)
                 generatedSuffix.empty());
 }
 
+TEST_P(PersonTest, shouldGenerateSex)
+{
+    const auto locale = GetParam();
+
+    const auto generatedSex = sex(locale);
+
+    const auto sexTranslation =
+        sexTranslations.contains(locale) ? sexTranslations.at(locale) : sexTranslations.at(Locale::en_US);
+
+    ASSERT_TRUE(generatedSex == sexTranslation.at(Sex::Male) || generatedSex == sexTranslation.at(Sex::Female));
+}
+
 INSTANTIATE_TEST_SUITE_P(TestPersonNamesByLocale, PersonTest, ValuesIn(locales),
                          [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
-
-TEST_F(PersonTest, shouldGenerateSex)
-{
-    const auto generatedSex = sex();
-
-    const auto sexTranslation = sexTranslations.find(Locale::en_US);
-
-    ASSERT_TRUE(generatedSex == sexTranslation->second.at(Sex::Male) || 
-                generatedSex == sexTranslation->second.at(Sex::Female));
-}
-
-TEST_F(PersonTest, shouldGenerateLocaleSex)
-{
-    auto generatedSex = sex(Locale::fr_FR);
-    auto sexTranslation = sexTranslations.find(Locale::fr_FR);
-
-    if(sexTranslation == sexTranslations.end()){
-        generatedSex = sex(Locale::en_US);
-        sexTranslation = sexTranslations.find(Locale::en_US);
-    }
-
-    ASSERT_TRUE(generatedSex == sexTranslation->second.at(Sex::Male) || 
-                generatedSex == sexTranslation->second.at(Sex::Female));
-}
 
 TEST_F(PersonTest, shouldGenerateGender)
 {
