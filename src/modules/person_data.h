@@ -47,9 +47,14 @@ const auto bioSupporters =
     std::to_array<std::string_view>({"Advocate", "Devotee", "Enthusiast", "Fan", "Junkie", "Lover", "Supporter"});
 
 const auto bioFormats = std::to_array<std::string_view>(
-    {"{bio_part}", "{bio_part}, {bio_part}", "{bio_part}, {bio_part}, {bio_part}",
-     "{bio_part}, {bio_part}, {bio_part}, {emoji}", "{noun} {bio_supporter}", "{noun} {bio_supporter} {emoji}",
-     "{noun} {bio_supporter}, {bio_part}", "{noun} {bio_supporter}, {bio_part} {emoji}"});
+    {"{bio_part}", 
+    "{bio_part}, {bio_part}", 
+    "{bio_part}, {bio_part}, {bio_part}",
+    "{bio_part}, {bio_part}, {bio_part}, {emoji}", 
+    "{noun} {bio_supporter}", 
+    "{noun} {bio_supporter} {emoji}",
+    "{noun} {bio_supporter}, {bio_part}", 
+    "{noun} {bio_supporter}, {bio_part} {emoji}"});
 
 const auto genders = std::to_array<std::string_view>({
     "Male",
