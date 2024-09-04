@@ -31,7 +31,11 @@ cmake --build ./build
 ```bash
 ./build/tests/faker-cxx-UT
 ```
+Alternatively, the path may instead be:
 
+```bash
+./build/tests/Debug/faker-cxx-UT.exe
+```
 or using CTest:
 
 ```bash
