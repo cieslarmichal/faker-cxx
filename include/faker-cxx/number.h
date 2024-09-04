@@ -177,7 +177,7 @@ F NormalDistribution(F mean, F standardDeviation, F min, F max)
 		throw std::invalid_argument("min cannot be larger than max");
 	}
 
-	F sample = normalDistribution(mean, standardDeviation);
+	F sample = NormalDistribution(mean, standardDeviation);
 
 	if (sample > max)
     {
