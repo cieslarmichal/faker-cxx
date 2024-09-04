@@ -1198,6 +1198,56 @@ TEST_F(StringTest, shouldGenerateBinary)
                                     { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
 }
 
+TEST_F(StringTest, givenValidArguments_shouldGenerateBinaryNumberInRange)
+{
+    const std::string generatedBinary = binary(1234, 1236);
+    int n = 1;
+    int decimalEquivalent = 0;
+
+    //Convert generatedBinary to an int
+    for(int i = (int)generatedBinary.size() - 1; i >= 0; i--)
+    {
+        if(generatedBinary[i] == '1')
+        {
+            decimalEquivalent += n;
+        }
+
+        n *= 2;
+    }
+
+    //Check if the prefix is correct
+    ASSERT_EQ(generatedBinary[0], '0');
+    ASSERT_EQ(generatedBinary[1], 'b');
+
+    //Check if the genereatedBinary is in the correct range
+    ASSERT_TRUE(decimalEquivalent >= 1234);
+    ASSERT_TRUE(decimalEquivalent <= 1236);
+}
+
+TEST_F(StringTest, shouldGenerateBinaryFor0)
+{
+    const auto generatedBinary = binary(0, 0);
+
+    ASSERT_EQ(generatedBinary, "0b0");
+}
+
+TEST_F(StringTest, shouldGenerateBinaryFor7)
+{
+    const auto generatedBinary = binary(7, 7);
+
+    ASSERT_EQ(generatedBinary, "0b111");
+}
+
+TEST_F(StringTest, givenNegativeArguments_shouldThrowInvalidArgument)
+{
+    ASSERT_THROW(binary(INT_MIN, -1), std::invalid_argument);
+}
+
+TEST_F(StringTest, givenMinBiggerThanMax_shouldThrowInvalidArgument)
+{
+    ASSERT_THROW(binary(10, 1), std::invalid_argument);
+}
+
 TEST_F(StringTest, shouldGenerateBinaryWithGuarantee1)
 {
     const auto binaryLength = 9;
