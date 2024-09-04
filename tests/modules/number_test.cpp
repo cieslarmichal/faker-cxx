@@ -65,22 +65,22 @@ TEST_F(NumberTest, givenRangeWithSameNumberSection_shouldGenerateThisNumberForDe
 
 TEST_F(NumberTest, normalDistribution_givenInvalidStandardDeviation_shouldThrowInvalidArgument)
 {
-    ASSERT_THROW(NormalDistribution<float>(10.f, -0.01f), std::invalid_argument);
+    ASSERT_THROW(normalDistribution<float>(10.f, -0.01f), std::invalid_argument);
 }
 
 TEST_F(NumberTest, givenStandardDeviationOfINFINITY_shouldThrowInvalidArgument)
 {
-    ASSERT_THROW(NormalDistribution<float>(0.f, INFINITY), std::invalid_argument);
+    ASSERT_THROW(normalDistribution<float>(0.f, INFINITY), std::invalid_argument);
 }
 
 TEST_F(NumberTest, givenMeanOfINFINITY_shouldThrowInvalidArgument)
 {
-    ASSERT_THROW(NormalDistribution<float>(INFINITY, 3.f), std::invalid_argument);
+    ASSERT_THROW(normalDistribution<float>(INFINITY, 3.f), std::invalid_argument);
 }
 
 TEST_F(NumberTest, givenStandardDeviationOf0_shouldGenerateMean)
 {
-    const std::floating_point auto normalDistributionNumber = NormalDistribution<float>(0.f, 0.f);
+    const std::floating_point auto normalDistributionNumber = normalDistribution<float>(0.f, 0.f);
 
     ASSERT_EQ(normalDistributionNumber, 0.f);
 }
@@ -89,12 +89,12 @@ TEST_F(NumberTest, givenStandardDeviationOf0_shouldGenerateMean)
 
 TEST_F(NumberTest, givenInvalidRangeArguments_shouldThrowInvalidArgument)
 {
-    ASSERT_THROW(NormalDistribution<float>(10.f, 3.f, 11.f, 10.f), std::invalid_argument);
+    ASSERT_THROW(normalDistribution<float>(10.f, 3.f, 11.f, 10.f), std::invalid_argument);
 }
 
 TEST_F(NumberTest, givenValidRangeArguments_shouldGenerateDecimalInGivenRange)
 {
-    const std::floating_point auto normalDistributionNumber = NormalDistribution<float>(10.f, 1000.f, 9.9f, 11.1f);
+    const std::floating_point auto normalDistributionNumber = normalDistribution<float>(10.f, 1000.f, 9.9f, 11.1f);
 
     ASSERT_TRUE(normalDistributionNumber <= 11.1f);
     ASSERT_TRUE(normalDistributionNumber >= 9.9f);
@@ -102,7 +102,7 @@ TEST_F(NumberTest, givenValidRangeArguments_shouldGenerateDecimalInGivenRange)
 
 TEST_F(NumberTest, givenRangeWithSameNumberSection_shouldGenerateTheExactNumber)
 {
-    const std::floating_point auto normalDistributionNumber = NormalDistribution<float>(10.f, 1000.f, 12.f, 12.f);
+    const std::floating_point auto normalDistributionNumber = normalDistribution<float>(10.f, 1000.f, 12.f, 12.f);
 
     ASSERT_TRUE(normalDistributionNumber == 12.f);
 }

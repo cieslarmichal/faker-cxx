@@ -130,7 +130,7 @@ F decimal(F max)
  */
 
 template <std::floating_point F>
-F NormalDistribution(F mean, F standardDeviation)
+F normalDistribution(F mean, F standardDeviation)
 {
     if(standardDeviation < 0 || standardDeviation == INFINITY || mean == INFINITY)
     {
@@ -170,14 +170,14 @@ F NormalDistribution(F mean, F standardDeviation)
  */
 
 template <std::floating_point F>
-F NormalDistribution(F mean, F standardDeviation, F min, F max)
+F normalDistribution(F mean, F standardDeviation, F min, F max)
 {
 	if (min > max)
 	{
 		throw std::invalid_argument("min cannot be larger than max");
 	}
 
-	F sample = NormalDistribution(mean, standardDeviation);
+	F sample = normalDistribution(mean, standardDeviation);
 
 	if (sample > max)
     {
