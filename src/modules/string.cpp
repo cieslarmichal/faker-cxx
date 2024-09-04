@@ -7,7 +7,6 @@
 #include <set>
 #include <stdexcept>
 #include <string>
-#include <math.h>
 
 #include "common/algo_helper.h"
 #include "common/format_helper.h"
