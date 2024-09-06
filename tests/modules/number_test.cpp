@@ -116,7 +116,7 @@ TEST_F(NumberTest, givenHighRange_shouldGenerateMin)
 
 TEST_F(NumberTest, givenHighRange_shouldGenerateMax)
 {
-    const std::floating_point auto normalDistributionNumber = normalDistribution<float>(10000, .0001f, -10001.f, -10000.f);
+    const std::floating_point auto normalDistributionNum = normalDistribution<float>(10000, .0001f, -10001.f, -10000.f);
 
-    ASSERT_TRUE(normalDistributionNumber == -10000.f);
+    ASSERT_TRUE(normalDistributionNum == -10000.f);
 }
