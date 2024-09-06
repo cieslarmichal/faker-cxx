@@ -106,3 +106,17 @@ TEST_F(NumberTest, givenRangeWithSameNumberSection_shouldGenerateTheExactNumber)
 
     ASSERT_TRUE(normalDistributionNumber == 12.f);
 }
+
+TEST_F(NumberTest, givenHighRange_shouldGenerateMin)
+{
+    const std::floating_point auto normalDistributionNumber = normalDistribution<float>(-100, .0001f, 10000.f, 10001.f);
+
+    ASSERT_TRUE(normalDistributionNumber == 10000.f);
+}
+
+TEST_F(NumberTest, givenHighRange_shouldGenerateMax)
+{
+    const std::floating_point auto normalDistributionNumber = normalDistribution<float>(10000, .0001f, -10001.f, -10000.f);
+
+    ASSERT_TRUE(normalDistributionNumber == -10000.f);
+}
