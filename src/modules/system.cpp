@@ -6,10 +6,8 @@
 #include <unordered_map>
 #include <vector>
 
-#include "../src/common/string_helper.h"
 #include "common/algo_helper.h"
 #include "common/format_helper.h"
-#include "faker-cxx/datatype.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/internet.h"
 #include "faker-cxx/number.h"
@@ -44,40 +42,11 @@ std::string_view extension(std::string_view mimeType)
 }
 }
 
-std::string fileName(const FileOptions& options)
+std::string fileName()
 {
     const auto baseName = word::words();
 
-    std::string extensionsStr;
-
-    if (options.extensionCount > 0)
-    {
-        std::vector<std::string> randomExtensions;
-
-        if (options.extensionRange.min == options.extensionRange.max)
-        {
-            for (int i = 0; i < options.extensionCount; ++i)
-            {
-                randomExtensions.push_back(fileExtension());
-            }
-
-            extensionsStr = "." + common::joinString(randomExtensions, ".");
-        }
-        else
-        {
-            const std::integral auto numExtensions =
-                number::integer(options.extensionRange.min, options.extensionRange.max);
-
-            for (int i = 0; i < numExtensions; ++i)
-            {
-                randomExtensions.push_back(fileExtension());
-            }
-
-            extensionsStr = "." + common::joinString(randomExtensions, ".");
-        }
-    }
-
-    return baseName + extensionsStr;
+    return baseName + "." + fileExtension(std::nullopt);
 }
 
 std::string fileExtension(const std::optional<FileType>& mimeType)
@@ -117,22 +86,11 @@ std::string fileExtension(const std::optional<FileType>& mimeType)
     }
 }
 
-std::string commonFileName(const std::optional<std::string>& ext)
+std::string commonFileName()
 {
-    FileOptions options;
+    const auto baseName = word::words();
 
-    options.extensionCount = 0;
-
-    std::string str = fileName(options);
-
-    if (ext.has_value() && !ext.value().empty())
-    {
-        return str + "." + ext.value();
-    }
-    else
-    {
-        return str + "." + std::string{commonFileExtension()};
-    }
+    return baseName + "." + std::string{commonFileExtension()};
 }
 
 std::string_view commonFileExtension()
@@ -179,10 +137,10 @@ std::string semver()
 std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options)
 {
     const auto defaultInterfaceType = helper::randomElement(commonInterfaceTypes);
-    const std::string defaultInterfaceSchema = std::string(helper::objectKey(commonInterfaceSchemas));
+    const auto defaultInterfaceSchema = std::string(helper::objectKey(commonInterfaceSchemas));
 
-    std::string interfaceType = std::string(defaultInterfaceType);
-    std::string interfaceSchema = defaultInterfaceSchema;
+    auto interfaceType = std::string(defaultInterfaceType);
+    auto interfaceSchema = defaultInterfaceSchema;
 
     if (options.has_value())
     {
@@ -198,7 +156,9 @@ std::string networkInterface(const std::optional<NetworkInterfaceOptions>& optio
     }
 
     std::string suffix;
+
     std::string prefix;
+
     auto digit = []() { return string::numeric(); };
 
     if (interfaceSchema == "index")
@@ -227,28 +187,22 @@ std::string networkInterface(const std::optional<NetworkInterfaceOptions>& optio
 
 std::string cron(const CronOptions& options)
 {
-    bool includeYear = options.includeYear;
-    bool includeNonStandard = options.includeNonStandard;
     std::vector<std::string> minutes = {std::to_string(number::integer(59)), "*"};
+
     std::vector<std::string> hours = {std::to_string(number::integer(23)), "*"};
+
     std::vector<std::string> days = {std::to_string(number::integer(1, 31)), "*", "?"};
+
     std::vector<std::string> months = {std::to_string(number::integer(1, 12)), "*"};
+
     std::vector<std::string> daysOfWeek = {
         std::to_string(number::integer(6)),
         std::string(
             cronDayOfWeek[static_cast<unsigned long>(number::integer(0, static_cast<int>(cronDayOfWeek.size() - 1)))]),
         "*", "?"};
 
-    std::vector<std::string> years;
-    if (includeYear)
-    {
-        years.push_back(std::to_string(number::integer(1970, 2099)));
-    }
-    else
-    {
-        years = {std::to_string(number::integer(1970, 2099)), "*"};
-    }
-
+    const auto years = options.includeYear ? std::vector<std::string>{std::to_string(number::integer(1970, 2099))} :
+                                             std::vector<std::string>{std::to_string(number::integer(1970, 2099)), "*"};
     const auto minute = helper::randomElement(minutes);
     const auto hour = helper::randomElement(hours);
     const auto day = helper::randomElement(days);
@@ -258,15 +212,13 @@ std::string cron(const CronOptions& options)
 
     std::string standardExpression = minute + " " + hour + " " + day + " " + month + " " + dayOfWeek;
 
-    if (includeYear)
+    if (options.includeYear)
     {
         standardExpression += " " + year;
     }
 
-    std::vector<std::string> nonStandardExpressions = {"@annually", "@daily",  "@hourly", "@monthly",
-                                                       "@reboot",   "@weekly", "@yearly"};
+    const auto nonStandardExpressions = {"@annually", "@daily", "@hourly", "@monthly", "@reboot", "@weekly", "@yearly"};
 
-    return (!includeNonStandard || datatype::boolean(0)) ? standardExpression :
-                                                           helper::randomElement(nonStandardExpressions);
+    return options.includeNonStandard ? helper::randomElement(nonStandardExpressions) : standardExpression;
 }
 }
