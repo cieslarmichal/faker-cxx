@@ -17,7 +17,5 @@ var searchData=
   ['ethereumaddress_14',['ethereumAddress',['../namespacefaker_1_1finance.html#a30c18f090dc95e47a21846f694edc74d',1,'faker::finance']]],
   ['ethiopia_15',['Ethiopia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aae299d7cb0f7866cce7d90da2af14047c',1,'faker::phone']]],
   ['event_16',['event',['../namespacefaker_1_1esport.html#ab3a591effe062d25563018b79ce131ef',1,'faker::esport']]],
-  ['exampleemail_17',['exampleEmail',['../namespacefaker_1_1internet.html#a73507aa24e5f1d8b74e0db4cdee32ee9',1,'faker::internet']]],
-  ['extensioncount_18',['extensionCount',['../structfaker_1_1system_1_1FileOptions.html#aca1123f1b15c539f243f3912adb37574',1,'faker::system::FileOptions']]],
-  ['extensionrange_19',['extensionRange',['../structfaker_1_1system_1_1FileOptions.html#add0cc5ff7516d839bf1aa24ad0d547a5',1,'faker::system::FileOptions']]]
+  ['exampleemail_17',['exampleEmail',['../namespacefaker_1_1internet.html#a73507aa24e5f1d8b74e0db4cdee32ee9',1,'faker::internet']]]
 ];

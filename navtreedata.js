@@ -57,8 +57,7 @@ var NAVTREEINDEX =
 "namespacefaker_1_1food.html#ab60ef0fff7acc273fd2317c469f9bd2a",
 "namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6ddecd8ccd9f648d19dc02c7a566cb4f",
 "namespacemembers_func_p.html",
-"phone_8h.html#af67e35b39f2987b4ed513541c7425a0aacf4c7e1169281886577940e361854a84",
-"word_8h.html#a0d9897ef2f1a2c30d8c375db2a8da628"
+"phone_8h.html#af67e35b39f2987b4ed513541c7425a0aacf4c7e1169281886577940e361854a84"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

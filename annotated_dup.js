@@ -28,7 +28,6 @@ var annotated_dup =
       ] ],
       [ "system", "namespacefaker_1_1system.html", [
         [ "CronOptions", "structfaker_1_1system_1_1CronOptions.html", "structfaker_1_1system_1_1CronOptions" ],
-        [ "FileOptions", "structfaker_1_1system_1_1FileOptions.html", "structfaker_1_1system_1_1FileOptions" ],
         [ "NetworkInterfaceOptions", "structfaker_1_1system_1_1NetworkInterfaceOptions.html", "structfaker_1_1system_1_1NetworkInterfaceOptions" ]
       ] ],
       [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", "classfaker_1_1RandomGenerator" ]
