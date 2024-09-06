@@ -6,5 +6,6 @@ var lorem_8h =
     [ "sentences", "lorem_8h.html#a375063dbea7caebda30aec4a3fd83775", null ],
     [ "slug", "lorem_8h.html#a083881e3fc0adfc974bfdb6d09bf8970", null ],
     [ "word", "lorem_8h.html#acfe2ea3b024c37b6ab92571404cd6ce4", null ],
-    [ "words", "lorem_8h.html#ac8ac32eec75e6335ffdd9e7ba42c88e8", null ]
+    [ "words", "lorem_8h.html#ac8ac32eec75e6335ffdd9e7ba42c88e8", null ],
+    [ "wordVector", "lorem_8h.html#a951c300e30e128875a132a95ce1f0686", null ]
 ];

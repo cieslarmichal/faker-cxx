@@ -184,7 +184,8 @@ var namespacefaker =
       [ "sentences", "namespacefaker_1_1lorem.html#a375063dbea7caebda30aec4a3fd83775", null ],
       [ "slug", "namespacefaker_1_1lorem.html#a083881e3fc0adfc974bfdb6d09bf8970", null ],
       [ "word", "namespacefaker_1_1lorem.html#acfe2ea3b024c37b6ab92571404cd6ce4", null ],
-      [ "words", "namespacefaker_1_1lorem.html#ac8ac32eec75e6335ffdd9e7ba42c88e8", null ]
+      [ "words", "namespacefaker_1_1lorem.html#ac8ac32eec75e6335ffdd9e7ba42c88e8", null ],
+      [ "wordVector", "namespacefaker_1_1lorem.html#a951c300e30e128875a132a95ce1f0686", null ]
     ] ],
     [ "medicine", "namespacefaker_1_1medicine.html", [
       [ "condition", "namespacefaker_1_1medicine.html#add3e653f246cc4dc44639728f84260f4", null ],

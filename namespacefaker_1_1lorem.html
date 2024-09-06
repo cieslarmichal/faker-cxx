@@ -107,6 +107,9 @@ $(function(){initNavTree('namespacefaker_1_1lorem.html',''); initResizable(true)
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a951c300e30e128875a132a95ce1f0686" id="r_a951c300e30e128875a132a95ce1f0686"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::vector&lt; std::string_view &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a951c300e30e128875a132a95ce1f0686">wordVector</a> (int numberOfWords=3)</td></tr>
+<tr class="memdesc:a951c300e30e128875a132a95ce1f0686"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates and returns a dynamic array consisting of random lorem words.  <br /></td></tr>
+<tr class="separator:a951c300e30e128875a132a95ce1f0686"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acfe2ea3b024c37b6ab92571404cd6ce4" id="r_acfe2ea3b024c37b6ab92571404cd6ce4"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#acfe2ea3b024c37b6ab92571404cd6ce4">word</a> ()</td></tr>
 <tr class="memdesc:acfe2ea3b024c37b6ab92571404cd6ce4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random lorem word.  <br /></td></tr>
 <tr class="separator:acfe2ea3b024c37b6ab92571404cd6ce4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -341,6 +344,40 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Lorem words.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#ac8ac32eec75e6335ffdd9e7ba42c88e8">faker::lorem::words</a>() <span class="comment">// &quot;qui praesentium pariatur&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1lorem_html_ac8ac32eec75e6335ffdd9e7ba42c88e8"><div class="ttname"><a href="#ac8ac32eec75e6335ffdd9e7ba42c88e8">faker::lorem::words</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string words(unsigned numberOfWords=3)</div><div class="ttdoc">Returns a random lorem words.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a951c300e30e128875a132a95ce1f0686" name="a951c300e30e128875a132a95ce1f0686"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a951c300e30e128875a132a95ce1f0686">&#9670;&#160;</a></span>wordVector()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::vector&lt; std::string_view &gt; faker::lorem::wordVector </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>numberOfWords</em></span><span class="paramdefsep"> = </span><span class="paramdefval">3</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates and returns a dynamic array consisting of random lorem words. </p>
+<dl class="section return"><dt>Returns</dt><dd>A std::vector consisting of random lorem words</dd></dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">numberOfWords</td><td>The number of elements in the vector which is returned</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if the numberOfWords is less than 0</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a951c300e30e128875a132a95ce1f0686">faker::lorem::wordVector</a>(3) <span class="comment">// &quot;temporibus&quot;, &quot;ipsum&quot;, &quot;alias&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1lorem_html_a951c300e30e128875a132a95ce1f0686"><div class="ttname"><a href="#a951c300e30e128875a132a95ce1f0686">faker::lorem::wordVector</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::vector&lt; std::string_view &gt; wordVector(int numberOfWords=3)</div><div class="ttdoc">Generates and returns a dynamic array consisting of random lorem words.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
