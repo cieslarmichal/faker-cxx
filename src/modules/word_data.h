@@ -61,7 +61,7 @@ constexpr ForwardIt partition(ForwardIt first, ForwardIt last, UnaryPredicate p)
     }
     return first;
 }
-} // namespace cstd
+}
 
 template <class RAIt, class Compare = std::less<>>
 constexpr void quick_sort(RAIt first, RAIt last, Compare cmp = Compare{})

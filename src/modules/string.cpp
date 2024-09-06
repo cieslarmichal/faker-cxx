@@ -1,6 +1,5 @@
 #include "faker-cxx/string.h"
 
-#include <algorithm>
 #include <cassert>
 #include <map>
 #include <optional>
@@ -54,31 +53,24 @@ std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>&
 {
     std::string output{};
     output += generateAtLeastString(guarantee);
-    // string with least required chars cannot be greater than the total length
     assert(output.size() <= length);
-    // we will generate chars for remaining length only
     length -= static_cast<unsigned>(output.size());
     for (unsigned i = 0; i < length; ++i)
     {
         char generatedChar;
-        // generate chars till we find a usable char
         while (true)
         {
-            // pick random char from targetCharacters
             generatedChar = helper::setElement(targetCharacters);
 
             auto it = guarantee.find(generatedChar);
-            // if no constraint on generated char, break out of loop
             if (it == guarantee.end())
                 break;
             auto remainingUses = it->second.atMostCount - it->second.atLeastCount;
             if (remainingUses > 0)
             {
-                // decrement no of possible uses as we will use it right now
                 --it->second.atMostCount;
                 break;
             }
-            // remove this char from targetCharacters as it is no longer valid and regenerate char
             else
             {
                 targetCharacters.erase(it->first);
@@ -86,28 +78,31 @@ std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>&
         }
         output += generatedChar;
     }
-    // shuffle the generated string as the atleast string generated earlier was not generated randomly
+
     output = helper::shuffleString(output);
+
     return output;
 }
 }
 
 bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
 {
-    unsigned int atleastCountSum{};
-    unsigned int atmostCountSum{};
+    unsigned int atLeastCountSum{};
+    unsigned int atMostCountSum{};
 
     for (auto& it : guarantee)
     {
-        if (std::find(targetCharacters.begin(), targetCharacters.end(), it.first) == targetCharacters.end())
+        if (!targetCharacters.contains(it.first))
         {
             return false;
         }
-        atleastCountSum += it.second.atLeastCount;
-        atmostCountSum += it.second.atMostCount;
+
+        atLeastCountSum += it.second.atLeastCount;
+
+        atMostCountSum += it.second.atMostCount;
     }
 
-    if (atleastCountSum > length || (guarantee.size() == targetCharacters.size() && atmostCountSum < length))
+    if (atLeastCountSum > length || (guarantee.size() == targetCharacters.size() && atMostCountSum < length))
     {
         return false;
     }
@@ -118,10 +113,12 @@ bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters,
 std::string generateAtLeastString(const GuaranteeMap& guarantee)
 {
     std::string result;
+
     for (auto& it : guarantee)
     {
         result += std::string(it.second.atLeastCount, it.first);
     }
+
     return result;
 }
 
@@ -361,7 +358,7 @@ std::string hexadecimal(GuaranteeMap&& guarantee, unsigned int length, HexCasing
 
 std::string binary(int length)
 {
-    if(length < 0)
+    if (length < 0)
     {
         throw std::invalid_argument("The length of a binary number cannot be negative");
     }
@@ -378,26 +375,26 @@ std::string binary(int length)
 
 std::string binary(int min, int max)
 {
-    if(min > max)
+    if (min > max)
     {
         throw std::invalid_argument("min cannot be greater than max");
     }
 
-    if(min < 0 || max < 0)
+    if (min < 0 || max < 0)
     {
         throw std::invalid_argument("The output binary string cannot be negative");
     }
 
     int num = number::integer<int>(min, max);
 
-    if(num == 0)
+    if (num == 0)
     {
         return "0b0";
     }
 
-    std::string output = "";
+    std::string output;
 
-    while(num > 0)
+    while (num > 0)
     {
         int remainder = num % 2;
         output = std::to_string(remainder) + output;

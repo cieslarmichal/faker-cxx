@@ -34,22 +34,11 @@ bool isValidCronExpression(const std::string& cronExpr)
     return std::regex_match(cronExpr, validCronPattern);
 }
 
-TEST_F(SystemTest, FileNameTestWithExtensionCount)
+TEST_F(SystemTest, FileName)
 {
-    FileOptions options;
-    options.extensionCount = 3;
+    const auto result = fileName();
 
-    const auto expectedFileName = fileName(options);
-
-    EXPECT_FALSE(expectedFileName.empty());
-
-    FileOptions options2;
-    options2.extensionRange.min = 1;
-    options2.extensionRange.max = 3;
-
-    const auto expectedFileName2 = fileName(options2);
-
-    EXPECT_FALSE(expectedFileName2.empty());
+    EXPECT_FALSE(result.empty());
 }
 
 TEST_F(SystemTest, FileExtTestWithMimeType)
@@ -152,13 +141,8 @@ TEST_F(SystemTest, CommonFileNameWithEmptyExtensionTest)
     const auto actualFileName = commonFileName();
 
     const auto actualExtension = actualFileName.substr(actualFileName.find_last_of('.') + 1);
+    
     EXPECT_FALSE(actualExtension.empty());
-
-    const auto fileNameWithParam = commonFileName("txt");
-
-    const auto extensionWithParam = fileNameWithParam.substr(fileNameWithParam.find_last_of('.') + 1);
-
-    EXPECT_EQ(extensionWithParam, "txt");
 }
 
 TEST_F(SystemTest, MimeTypeTest)

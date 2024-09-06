@@ -8,17 +8,6 @@
 
 namespace faker::system
 {
-struct FAKER_CXX_EXPORT FileOptions
-{
-    int extensionCount = 1;
-
-    struct
-    {
-        int min = 1;
-        int max = 1;
-    } extensionRange;
-};
-
 enum class FileType
 {
     Application,
@@ -49,17 +38,9 @@ struct FAKER_CXX_EXPORT NetworkInterfaceOptions
  *
  * @code
  * faker::system::fileName() // "injustice.mpeg"
- *
- * FileOptions options
- * options.extensionCount = 3
- * faker::system::fileName(options) // "transformation.wav.mpeg.mp4"
- *
- * options.extensionRange.min = 1;
- * options.extensionRange.max = 3;
- * faker::system::fileName(options) // "sparkle.png.pdf"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string fileName(const FileOptions& options = {});
+FAKER_CXX_EXPORT std::string fileName();
 
 /**
  * @brief Returns a file extension.
@@ -77,16 +58,14 @@ FAKER_CXX_EXPORT std::string fileExtension(const std::optional<FileType>& mimeTy
 /**
  * Returns a random file name with a given extension or a commonly used extension.
  *
- * @param ext Optional extension parameter.
  *
  * @returns A random file name with a given extension or a commonly used extension.
  *
  * @code
  * faker::system::commonFileName() // "dollar.jpg"
- * faker::system::commonFileName("txt") // "global_borders_wyoming.txt"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string commonFileName(const std::optional<std::string>& ext = std::nullopt);
+FAKER_CXX_EXPORT std::string commonFileName();
 
 /**
  * Returns a commonly used file extension.
