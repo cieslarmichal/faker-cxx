@@ -17,6 +17,37 @@ class LoremTest : public Test
 public:
 };
 
+TEST_F(LoremTest, shouldGenerateWordVector)
+{
+    const int numberOfWords = 100;
+    const auto generatedWords = wordVector(numberOfWords);
+
+    ASSERT_EQ(generatedWords.size(), numberOfWords);
+
+    ASSERT_TRUE
+    (
+        std::ranges::all_of(generatedWords,
+        [](const std::string_view& generatedWord)
+        {
+            return std::ranges::any_of (
+            loremWords, [generatedWord](const std::string_view& loremWord)
+            {
+                return loremWord == generatedWord;
+            }); 
+        }));
+}
+
+TEST_F(LoremTest, givenInvalidArguments_shouldThrowInvalidArgument)
+{
+    ASSERT_THROW(wordVector(-1), std::invalid_argument);
+}
+
+TEST_F(LoremTest, givenLengthOf0_shouldReturnEmptyVector)
+{
+    const auto generatedWords = wordVector(0);
+    ASSERT_TRUE(generatedWords.empty());
+}
+
 TEST_F(LoremTest, shouldGenerateWord)
 {
     const auto generatedWord = word();

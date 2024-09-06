@@ -14,6 +14,22 @@
 
 namespace faker::lorem
 {
+std::vector<std::string_view> wordVector(int numberOfWords)
+{
+    if(numberOfWords < 0)
+    {
+        throw std::invalid_argument("The number of words cannot be negative");
+    }
+
+    std::vector<std::string_view> output;
+    for(int i = 0; i < numberOfWords; i++)
+    {
+        output.push_back(helper::randomElement(loremWords));
+    }
+
+    return output;
+}
+
 std::string_view word()
 {
     return helper::randomElement(loremWords);
