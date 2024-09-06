@@ -169,36 +169,25 @@ uint32_t Md5Hash::rotate_left(const uint32_t x, const int32_t n)
 
 std::array<uint8_t, 16> Md5Hash::compute(const std::string& message)
 {
-    // These vars will contain the hash
     uint32_t a0 = 0x67452301, b0 = 0xefcdab89, c0 = 0x98badcfe, d0 = 0x10325476;
     size_t new_len = message.size() + 1;
 
-    // Pre-processing:
-    // append "1" bit to message
-    // append "0" bits until message length in bits ≡ 448 (mod 512)
-    // append length mod (2^64) to message
     while (new_len % (512 / 8) != 448 / 8)
         new_len++;
 
     std::string msg_copy = message;
     msg_copy.resize(new_len + 8);
 
-    // msg_copy[message.size()] = 0x80; // append the "1" bit; most significant bit is "first"
     msg_copy[message.size()] = static_cast<char>(0x80);
 
-    // std::array<uint8_t, 4> bytes = md5_hash::uint32_to_4_bytes(message.size() * 8);
     std::array<uint8_t, 4> bytes = Md5Hash::uint32_to_4_bytes(static_cast<uint32_t>(message.size() * 8));
     for (size_t i = new_len; i < new_len + 4; i++)
-        // msg_copy[i] = bytes[i - new_len];
         msg_copy[i] = static_cast<char>(bytes[i - new_len]);
 
-    // bytes = md5_hash::uint32_to_4_bytes(message.size() >> 29);
     bytes = Md5Hash::uint32_to_4_bytes(static_cast<uint32_t>(message.size() >> 29));
     for (size_t i = new_len + 4; i < new_len + 8; i++)
         msg_copy[i] = static_cast<char>(bytes[i - new_len - 4]);
-    // msg_copy[i] = bytes[i - new_len - 4];
 
-    // process the message in successive 512-bit chunks
     for (size_t i = 0; i < new_len; i += (512 / 8))
     {
         uint32_t w[16];
@@ -221,10 +210,6 @@ std::array<uint8_t, 16> Md5Hash::compute(const std::string& message)
         {
             uint32_t f, g;
 
-            // F(B, C, D)= (B and C) or (not B and D)
-            // G(B, C, D)= (B and D) or (C and not D)
-            // H(B, C, D)= B xor C xor D
-            // I(B, C, D)= C xor (B or not D)
             if (j < 16)
             {
                 f = (b & c) | ((~b) & d);
@@ -249,12 +234,10 @@ std::array<uint8_t, 16> Md5Hash::compute(const std::string& message)
             const uint32_t temp = d;
             d = c;
             c = b;
-            // b = b + md5_hash::rotate_left((a + f + md5_hash::k[j] + w[g]), md5_hash::r[j]);
             b = b + Md5Hash::rotate_left((a + f + Md5Hash::k[j] + w[g]), static_cast<int32_t>(Md5Hash::r[j]));
             a = temp;
         }
 
-        // add this chunk's hash to result so far:
         a0 += a;
         b0 += b;
         c0 += c;
@@ -266,7 +249,6 @@ std::array<uint8_t, 16> Md5Hash::compute(const std::string& message)
     const std::array<uint8_t, 4> c0_arr = Md5Hash::uint32_to_4_bytes(c0);
     const std::array<uint8_t, 4> d0_arr = Md5Hash::uint32_to_4_bytes(d0);
 
-    // append results bytes
     const std::array<uint8_t, 16> result = {
         a0_arr[0], a0_arr[1], a0_arr[2], a0_arr[3],
 
@@ -353,14 +335,13 @@ void SHA256::transform()
     uint32_t state[8];
 
     for (uint8_t i = 0, j = 0; i < 16; i++, j += 4)
-    { // Split data in 32 bit blocks for the 16 first words
-        // m[i] = (m_data[j] << 24) | (m_data[j + 1] << 16) | (m_data[j + 2] << 8) | (m_data[j + 3]);
+    {
         m[i] = (static_cast<uint32_t>(m_data[j]) << 24) | (static_cast<uint32_t>(m_data[j + 1]) << 16) |
                (static_cast<uint32_t>(m_data[j + 2]) << 8) | static_cast<uint32_t>(m_data[j + 3]);
     }
 
     for (uint8_t k = 16; k < 64; k++)
-    { // Remaining 48 blocks
+    {
         m[k] = SHA256::sig1(m[k - 2]) + m[k - 7] + SHA256::sig0(m[k - 15]) + m[k - 16];
     }
 
@@ -404,10 +385,10 @@ void SHA256::pad()
     uint64_t i = m_blocklen;
     uint8_t end = m_blocklen < 56 ? 56 : 64;
 
-    m_data[i++] = 0x80; // Append a bit 1
+    m_data[i++] = 0x80;
     while (i < end)
     {
-        m_data[i++] = 0x00; // Pad with zeros
+        m_data[i++] = 0x00;
     }
 
     if (m_blocklen >= 56)
@@ -430,8 +411,6 @@ void SHA256::pad()
 
 void SHA256::revert(std::array<uint8_t, 32>& hash)
 {
-    // SHA uses big endian byte ordering
-    // Revert all bytes
     for (uint8_t i = 0; i < 4; i++)
     {
         for (uint8_t j = 0; j < 8; j++)
