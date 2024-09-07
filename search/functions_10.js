@@ -9,7 +9,7 @@ var searchData=
   ['semver_6',['semver',['../namespacefaker_1_1system.html#a0f4b656749ffa2840fbef78d38d4c254',1,'faker::system']]],
   ['sentence_7',['sentence',['../namespacefaker_1_1lorem.html#a474701bf19dcc2b62a199d540deb96fc',1,'faker::lorem']]],
   ['sentences_8',['sentences',['../namespacefaker_1_1lorem.html#a375063dbea7caebda30aec4a3fd83775',1,'faker::lorem']]],
-  ['series_9',['series',['../namespacefaker_1_1book.html#a3ed50eb1ee042cf87f5cddc940578e20',1,'faker::book']]],
+  ['series_9',['series',['../namespacefaker_1_1book.html#a90381d7c26afd7f4f2235b61e96ff608',1,'faker::book']]],
   ['sex_10',['sex',['../namespacefaker_1_1person.html#a6963c48d94e75990dc07d6b3d01b5290',1,'faker::person']]],
   ['sha256_11',['sha256',['../namespacefaker_1_1crypto.html#a06acc630cf1abe98fd1066949da9d016',1,'faker::crypto']]],
   ['shippingcarrier_12',['shippingCarrier',['../namespacefaker_1_1commerce.html#a4cccf9c8c2dc76301d318ffd6a9f871f',1,'faker::commerce']]],

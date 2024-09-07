@@ -19,12 +19,12 @@ var namespacefaker =
       [ "type", "namespacefaker_1_1animal.html#af243dbc79d1b5d6b5a0d4cd629e23800", null ]
     ] ],
     [ "book", "namespacefaker_1_1book.html", [
-      [ "author", "namespacefaker_1_1book.html#a79b26014c07fdacac3e0577c0c42deb4", null ],
-      [ "format", "namespacefaker_1_1book.html#a82befa5a03d3cbaf833aae155d6aa59d", null ],
-      [ "genre", "namespacefaker_1_1book.html#a54abd69be2c8c7cc922be0e96ba3a4e4", null ],
-      [ "publisher", "namespacefaker_1_1book.html#a1fa4a557140820ec75d9411d082950f6", null ],
-      [ "series", "namespacefaker_1_1book.html#a3ed50eb1ee042cf87f5cddc940578e20", null ],
-      [ "title", "namespacefaker_1_1book.html#af6280d543f49b04263f1efd7b3399bd5", null ]
+      [ "author", "namespacefaker_1_1book.html#aa639e739e411efdb9901c31b99c1c33b", null ],
+      [ "format", "namespacefaker_1_1book.html#a9af09df45061c45aa135b4fa3f75afdd", null ],
+      [ "genre", "namespacefaker_1_1book.html#af60031071b21b537ac2cbb5ea44ba759", null ],
+      [ "publisher", "namespacefaker_1_1book.html#ab60a84db3d9b1b902a17fce4255668f6", null ],
+      [ "series", "namespacefaker_1_1book.html#a90381d7c26afd7f4f2235b61e96ff608", null ],
+      [ "title", "namespacefaker_1_1book.html#a320ce519d09cfc32e92c7ed7b6e96978", null ]
     ] ],
     [ "color", "namespacefaker_1_1color.html", [
       [ "cmyk", "namespacefaker_1_1color.html#a029e95b2d93b04c1b07ecf8e1942f690", null ],

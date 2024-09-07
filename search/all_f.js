@@ -41,6 +41,6 @@ var searchData=
   ['productname_38',['productName',['../namespacefaker_1_1commerce.html#ad124314928b407f6d0a8ac49e73202e3',1,'faker::commerce']]],
   ['productreview_39',['productReview',['../namespacefaker_1_1commerce.html#a20b4871d2883313f9dbbf4705c27fba9',1,'faker::commerce']]],
   ['protocol_40',['protocol',['../namespacefaker_1_1internet.html#acefc699b5b4a93a1f1538cbb49331114',1,'faker::internet']]],
-  ['publisher_41',['publisher',['../namespacefaker_1_1book.html#a1fa4a557140820ec75d9411d082950f6',1,'faker::book']]],
+  ['publisher_41',['publisher',['../namespacefaker_1_1book.html#ab60a84db3d9b1b902a17fce4255668f6',1,'faker::book']]],
   ['puertorico_42',['PuertoRico',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaca1a61ea47898c8c05fa0b87a74e4d30',1,'faker::phone']]]
 ];

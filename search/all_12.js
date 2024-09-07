@@ -23,7 +23,7 @@ var searchData=
   ['sentence_20',['sentence',['../namespacefaker_1_1lorem.html#a474701bf19dcc2b62a199d540deb96fc',1,'faker::lorem']]],
   ['sentences_21',['sentences',['../namespacefaker_1_1lorem.html#a375063dbea7caebda30aec4a3fd83775',1,'faker::lorem']]],
   ['serbia_22',['Serbia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa2ff6e535bd2f100979a171ad430e642b',1,'faker::phone']]],
-  ['series_23',['series',['../namespacefaker_1_1book.html#a3ed50eb1ee042cf87f5cddc940578e20',1,'faker::book']]],
+  ['series_23',['series',['../namespacefaker_1_1book.html#a90381d7c26afd7f4f2235b61e96ff608',1,'faker::book']]],
   ['servererror_24',['ServerError',['../namespacefaker_1_1internet.html#a25d31766e509fb398f5534224b171a8da7d65c64901711bc2cd2a33ff2641fbe9',1,'faker::internet']]],
   ['sex_25',['Sex',['../namespacefaker_1_1person.html#ab7290e4523427c5876299e459d3ed038',1,'faker::person']]],
   ['sex_26',['sex',['../namespacefaker_1_1person.html#a6963c48d94e75990dc07d6b3d01b5290',1,'faker::person']]],

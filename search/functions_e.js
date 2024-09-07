@@ -25,5 +25,5 @@ var searchData=
   ['productname_22',['productName',['../namespacefaker_1_1commerce.html#ad124314928b407f6d0a8ac49e73202e3',1,'faker::commerce']]],
   ['productreview_23',['productReview',['../namespacefaker_1_1commerce.html#a20b4871d2883313f9dbbf4705c27fba9',1,'faker::commerce']]],
   ['protocol_24',['protocol',['../namespacefaker_1_1internet.html#acefc699b5b4a93a1f1538cbb49331114',1,'faker::internet']]],
-  ['publisher_25',['publisher',['../namespacefaker_1_1book.html#a1fa4a557140820ec75d9411d082950f6',1,'faker::book']]]
+  ['publisher_25',['publisher',['../namespacefaker_1_1book.html#ab60a84db3d9b1b902a17fce4255668f6',1,'faker::book']]]
 ];

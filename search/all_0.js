@@ -49,6 +49,6 @@ var searchData=
   ['australia_46',['Australia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4442e4af0916f53a07fb8ca9a49b98ed',1,'faker::phone']]],
   ['austria_47',['Austria',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9891739094756d2605946c867b32ad28',1,'faker::phone']]],
   ['author_48',['Author',['../structfaker_1_1git_1_1Author.html',1,'faker::git']]],
-  ['author_49',['author',['../namespacefaker_1_1book.html#a79b26014c07fdacac3e0577c0c42deb4',1,'faker::book']]],
+  ['author_49',['author',['../namespacefaker_1_1book.html#aa639e739e411efdb9901c31b99c1c33b',1,'faker::book']]],
   ['azerbaijan_50',['Azerbaijan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa7176f8c3bccfdf02322c73f7a0bc9688',1,'faker::phone']]]
 ];
