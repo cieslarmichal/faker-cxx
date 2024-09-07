@@ -7,56 +7,99 @@
 #include "faker-cxx/book.h"
 
 using namespace ::testing;
+using namespace faker;
 using namespace faker::book;
 
-class BookTest : public Test
+namespace
+{
+const struct BookDefinition& getBookDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    case Locale::pl_PL:
+        return plBookDefinition;
+    default:
+        return enUSBookDefinition;
+    }
+}
+}
+
+class BookTest : public TestWithParam<Locale>
 {
 public:
 };
 
-TEST_F(BookTest, shouldGenerateTitle)
+TEST_P(BookTest, shouldGenerateTitle)
 {
-    const auto bookTitle = title();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(titles, [bookTitle](const std::string_view& title) { return title == bookTitle; }));
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    const auto bookTitle = title(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(bookDefinition.titles,
+                                    [bookTitle](const std::string_view& title) { return title == bookTitle; }));
 }
 
-TEST_F(BookTest, shouldGenerateGenre)
+TEST_P(BookTest, shouldGenerateGenre)
 {
-    const auto bookGenre = genre();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(bookGenres, [bookGenre](const std::string_view& genre) { return genre == bookGenre; }));
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    const auto bookGenre = genre(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(bookDefinition.genres,
+                                    [bookGenre](const std::string_view& genre) { return genre == bookGenre; }));
 }
 
-TEST_F(BookTest, shouldGenerateAuthor)
+TEST_P(BookTest, shouldGenerateAuthor)
 {
-    const auto bookAuthor = author();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(
-        std::ranges::any_of(authors, [bookAuthor](const std::string_view& author) { return author == bookAuthor; }));
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    const auto bookAuthor = author(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(bookDefinition.authors,
+                                    [bookAuthor](const std::string_view& author) { return author == bookAuthor; }));
 }
 
-TEST_F(BookTest, shouldGeneratePublisher)
+TEST_P(BookTest, shouldGeneratePublisher)
 {
-    const auto bookPublisher = publisher();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(publishers, [bookPublisher](const std::string_view& publisher)
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    const auto bookPublisher = publisher(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(bookDefinition.publishers, [bookPublisher](const std::string_view& publisher)
                                     { return publisher == bookPublisher; }));
 }
 
-TEST_F(BookTest, shouldGenerateFormat)
+TEST_P(BookTest, shouldGenerateFormat)
 {
-    const auto bookFormat = format();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(bookFormats,
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    const auto bookFormat = format(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(bookDefinition.formats,
                                     [bookFormat](const std::string_view& format) { return format == bookFormat; }));
 }
 
-TEST_F(BookTest, shouldGenerateSeries)
+TEST_P(BookTest, shouldGenerateSeries)
 {
-    const auto randomSeries = series();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(bookSeries,
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    const auto randomSeries = series(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(bookDefinition.series,
                                     [randomSeries](const std::string_view& series) { return series == randomSeries; }));
 }
+
+INSTANTIATE_TEST_SUITE_P(TestBookByLocale, BookTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });

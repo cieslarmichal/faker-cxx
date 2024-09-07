@@ -279,9 +279,9 @@ them for review. Here's how:
 
 ## Committing
 
-Pull Request titles need to follow our semantic convention.
+Pull Request enUSTitles need to follow our semantic convention.
 
-PR titles are written in following convention: `type: subject`
+PR enUSTitles are written in following convention: `type: subject`
 
 **type** is required and indicates the intent of the PR
 
@@ -304,7 +304,7 @@ Allowed types are:
 
 **subject** is required and describes what the PR does
 
-Some examples of valid pull request titles:
+Some examples of valid pull request enUSTitles:
 
 ```shell
 feat: add book module

@@ -105,10 +105,10 @@ int main()
 - 🌍 Location - countries, cities, zip codes, street addresses
 - 📚 Lorem - lorem words, sentences, paragraphs
 - 🏥 Medicine - conditions, medical tests, specialties
-- 🎥 Movie - actors, actresses, genres, movie titles
+- 🎥 Movie - actors, actresses, genres, movie enUSTitles
 - 🎶 Music - artists, song names, genres
 - 🔢 Number - random integers, floating point numbers
-- 🧑 Person - first, last names, job titles, hobby, genders, sex, nationality, language
+- 🧑 Person - first, last names, job enUSTitles, hobby, genders, sex, nationality, language
 - 📞 Phone - phone number, IMEI
 - 🪴 Plant - plant type, trees, flowers
 - ⚽ Sport - sport names, athletes, events

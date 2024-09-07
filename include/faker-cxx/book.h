@@ -3,11 +3,14 @@
 #include <string_view>
 
 #include "faker-cxx/export.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::book
 {
 /**
  * @brief Returns a random book title.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Book title.
  *
@@ -15,7 +18,7 @@ namespace faker::book
  * faker::book::title() // "Romeo and Juliet"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view title();
+FAKER_CXX_EXPORT std::string_view title(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random book genre.
@@ -26,7 +29,7 @@ FAKER_CXX_EXPORT std::string_view title();
  * faker::book::genre() // "Fantasy"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view genre();
+FAKER_CXX_EXPORT std::string_view genre(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random book author.
@@ -37,7 +40,7 @@ FAKER_CXX_EXPORT std::string_view genre();
  * faker::book::author() // "William Shakespeare"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view author();
+FAKER_CXX_EXPORT std::string_view author(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random book publisher.
@@ -48,7 +51,7 @@ FAKER_CXX_EXPORT std::string_view author();
  * faker::book::publisher() // "Addison-Wesley"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view publisher();
+FAKER_CXX_EXPORT std::string_view publisher(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns format of book
@@ -59,7 +62,7 @@ FAKER_CXX_EXPORT std::string_view publisher();
  * faker::book::format() // "Paperback"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view format();
+FAKER_CXX_EXPORT std::string_view format(Locale locale = Locale::en_US);
 
 /**
  * @brief returns a random book series
@@ -70,5 +73,5 @@ FAKER_CXX_EXPORT std::string_view format();
  * faker::book::series() // "Harry Potter"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view series();
+FAKER_CXX_EXPORT std::string_view series(Locale locale = Locale::en_US);
 }

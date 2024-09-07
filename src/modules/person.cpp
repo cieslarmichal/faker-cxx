@@ -19,7 +19,7 @@ namespace faker::person
 {
 namespace
 {
-const struct PeopleNames& getPeopleNamesByLocale(Locale locale)
+const struct PersonDefinition& getPersonDefinition(Locale locale)
 {
     switch (locale)
     {
@@ -166,12 +166,11 @@ const struct PeopleNames& getPeopleNamesByLocale(Locale locale)
         return usaPeopleNames;
     }
 }
-
 }
 
 std::string_view firstName(Locale locale, std::optional<Sex> sex)
 {
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     std::vector<std::string_view> firstNames;
 
@@ -201,7 +200,7 @@ std::string_view firstName(Locale locale, std::optional<Sex> sex)
 
 std::string_view lastName(Locale locale, std::optional<Sex> sex)
 {
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     std::vector<std::string_view> lastNames;
 
@@ -231,7 +230,7 @@ std::string_view lastName(Locale locale, std::optional<Sex> sex)
 
 std::string fullName(Locale locale, std::optional<Sex> sex)
 {
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     std::vector<helper::WeightedElement<std::string_view>> weightedElements;
 
@@ -255,7 +254,7 @@ std::string fullName(Locale locale, std::optional<Sex> sex)
 
 std::string_view prefix(Locale locale, std::optional<Sex> sex)
 {
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     std::vector<std::string_view> prefixes;
 
@@ -290,7 +289,7 @@ std::string_view prefix(Locale locale, std::optional<Sex> sex)
 
 std::string_view suffix(Locale locale, std::optional<Sex> sex)
 {
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     std::vector<std::string_view> suffixes;
 
