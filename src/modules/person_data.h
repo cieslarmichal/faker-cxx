@@ -27,7 +27,7 @@ struct PersonNames
     std::span<const std::string_view> suffixes;
 };
 
-struct PeopleNames
+struct PersonDefinition
 {
     PersonNames malesNames;
     PersonNames femalesNames;
@@ -47,14 +47,9 @@ const auto bioSupporters =
     std::to_array<std::string_view>({"Advocate", "Devotee", "Enthusiast", "Fan", "Junkie", "Lover", "Supporter"});
 
 const auto bioFormats = std::to_array<std::string_view>(
-    {"{bio_part}", 
-    "{bio_part}, {bio_part}", 
-    "{bio_part}, {bio_part}, {bio_part}",
-    "{bio_part}, {bio_part}, {bio_part}, {emoji}", 
-    "{noun} {bio_supporter}", 
-    "{noun} {bio_supporter} {emoji}",
-    "{noun} {bio_supporter}, {bio_part}", 
-    "{noun} {bio_supporter}, {bio_part} {emoji}"});
+    {"{bio_part}", "{bio_part}, {bio_part}", "{bio_part}, {bio_part}, {bio_part}",
+     "{bio_part}, {bio_part}, {bio_part}, {emoji}", "{noun} {bio_supporter}", "{noun} {bio_supporter} {emoji}",
+     "{noun} {bio_supporter}, {bio_part}", "{noun} {bio_supporter}, {bio_part} {emoji}"});
 
 const auto genders = std::to_array<std::string_view>({
     "Male",
@@ -316,9 +311,9 @@ const auto albanianLastNames = std::to_array<std::string_view>(
 
 const NameFormats albanianPersonNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames albanianPeopleNames{{albanianMaleFirstNames, albanianLastNames, {}, {}},
-                                      {albanianFemaleFirstNames, albanianLastNames, {}, {}},
-                                      albanianPersonNameFormats};
+const PersonDefinition albanianPeopleNames{{albanianMaleFirstNames, albanianLastNames, {}, {}},
+                                           {albanianFemaleFirstNames, albanianLastNames, {}, {}},
+                                           albanianPersonNameFormats};
 
 // Argentina
 
@@ -465,9 +460,9 @@ const auto argentinianLastNames = std::to_array<std::string_view>({
 
 const NameFormats argentinianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames argentinianPeopleNames{{argentinianMaleFirstNames, argentinianLastNames, {}, {}},
-                                         {argentinianFemaleFirstNames, argentinianLastNames, {}, {}},
-                                         argentinianNameFormats};
+const PersonDefinition argentinianPeopleNames{{argentinianMaleFirstNames, argentinianLastNames, {}, {}},
+                                              {argentinianFemaleFirstNames, argentinianLastNames, {}, {}},
+                                              argentinianNameFormats};
 
 // Australia
 
@@ -542,9 +537,9 @@ const auto australianLastNames = std::to_array<std::string_view>({
 
 const NameFormats australianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames australianPeopleNames{{australianMaleFirstNames, australianLastNames, {}, {}},
-                                        {australianFemaleFirstNames, australianLastNames, {}, {}},
-                                        australianNameFormats};
+const PersonDefinition australianPeopleNames{{australianMaleFirstNames, australianLastNames, {}, {}},
+                                             {australianFemaleFirstNames, australianLastNames, {}, {}},
+                                             australianNameFormats};
 
 // Austria
 
@@ -2395,9 +2390,9 @@ const auto austrianFemalePrefixes = std::to_array<std::string_view>({"Frau", "Dr
 
 const NameFormats austrianNameFormats{{{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 5}}};
 
-const PeopleNames austrianPeopleNames{{austrianMaleFirstNames, austrianLastNames, austrianMalePrefixes, {}},
-                                      {austrianFemaleFirstNames, austrianLastNames, austrianFemalePrefixes, {}},
-                                      austrianNameFormats};
+const PersonDefinition austrianPeopleNames{{austrianMaleFirstNames, austrianLastNames, austrianMalePrefixes, {}},
+                                           {austrianFemaleFirstNames, austrianLastNames, austrianFemalePrefixes, {}},
+                                           austrianNameFormats};
 
 // Azerbaijan
 
@@ -2450,9 +2445,9 @@ const NameFormats azerbaijaniNameFormats{{
     {"{firstName} {lastName}", 1},
 }};
 
-const PeopleNames azerbaijaniPeopleNames{{azerbaijaniMaleFirstNames, azerbaijaniMaleLastNames, {}, {}},
-                                         {azerbaijaniFemaleFirstNames, azerbaijaniFemaleLastNames, {}, {}},
-                                         azerbaijaniNameFormats};
+const PersonDefinition azerbaijaniPeopleNames{{azerbaijaniMaleFirstNames, azerbaijaniMaleLastNames, {}, {}},
+                                              {azerbaijaniFemaleFirstNames, azerbaijaniFemaleLastNames, {}, {}},
+                                              azerbaijaniNameFormats};
 
 // Belarus
 
@@ -2609,9 +2604,9 @@ const auto belarusianFemaleLastNames = std::to_array<std::string_view>({
 
 const NameFormats belarusianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames belarusianPeopleNames{{belarusianMaleFirstNames, belarusianMaleLastNames, {}, {}},
-                                        {belarusianFemaleFirstNames, belarusianFemaleLastNames, {}, {}},
-                                        belarusianNameFormats};
+const PersonDefinition belarusianPeopleNames{{belarusianMaleFirstNames, belarusianMaleLastNames, {}, {}},
+                                             {belarusianFemaleFirstNames, belarusianFemaleLastNames, {}, {}},
+                                             belarusianNameFormats};
 
 // Belgium
 
@@ -2658,9 +2653,9 @@ const NameFormats belgianNameFormats{{
     {"{firstName} {lastName} {suffix}", 1},
 }};
 
-const PeopleNames belgianPeopleNames{{belgianMaleFirstNames, belgianLastNames, belgianPrefixes, belgianSuffixes},
-                                     {belgianFemaleFirstNames, belgianLastNames, belgianPrefixes, belgianSuffixes},
-                                     belgianNameFormats};
+const PersonDefinition belgianPeopleNames{{belgianMaleFirstNames, belgianLastNames, belgianPrefixes, belgianSuffixes},
+                                          {belgianFemaleFirstNames, belgianLastNames, belgianPrefixes, belgianSuffixes},
+                                          belgianNameFormats};
 
 // Bosnia
 
@@ -2711,9 +2706,9 @@ const auto bosnianLastNames = std::to_array<std::string_view>(
 
 const NameFormats bosnianNameFormats{{"{lastName} {firstName}", 1}};
 
-const PeopleNames bosnianPeopleNames{{bosnianMaleFirstNames, bosnianLastNames, {}, {}},
-                                     {bosnianFemaleFirstNames, bosnianLastNames, {}, {}},
-                                     bosnianNameFormats};
+const PersonDefinition bosnianPeopleNames{{bosnianMaleFirstNames, bosnianLastNames, {}, {}},
+                                          {bosnianFemaleFirstNames, bosnianLastNames, {}, {}},
+                                          bosnianNameFormats};
 
 // Brazil
 
@@ -2758,7 +2753,7 @@ const auto brazilianFemalePrefixes = std::to_array<std::string_view>({"Sra.", "S
 const NameFormats brazilianNameFormats{
     {{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 9}, {"{firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames brazilianPeopleNames{
+const PersonDefinition brazilianPeopleNames{
     {brazilianMaleFirstNames, brazilianLastNames, brazilianMalePrefixes, brazilianSuffixes},
     {brazilianFemaleFirstNames, brazilianLastNames, brazilianFemalePrefixes, brazilianSuffixes},
     brazilianNameFormats};
@@ -2796,7 +2791,7 @@ const NameFormats bulgarianNameFormats{{
     {"{firstName} {lastName} {suffix}", 1},
 }};
 
-const PeopleNames bulgarianPeopleNames{
+const PersonDefinition bulgarianPeopleNames{
     {bulgarianMaleFirstNames, bulgarianLastNames, bulgarianMalePrefixes, bulgarianSuffixes},
     {bulgarianFemaleFirstNames, bulgarianLastNames, bulgarianFemalePrefixes, bulgarianSuffixes},
     bulgarianNameFormats};
@@ -2941,9 +2936,9 @@ const auto canadianLastNames = std::to_array<std::string_view>({
 
 const NameFormats canadianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames canadianPeopleNames{{canadianMaleFirstNames, canadianLastNames, {}, {}},
-                                      {canadianFemaleFirstNames, canadianLastNames, {}, {}},
-                                      canadianNameFormats};
+const PersonDefinition canadianPeopleNames{{canadianMaleFirstNames, canadianLastNames, {}, {}},
+                                           {canadianFemaleFirstNames, canadianLastNames, {}, {}},
+                                           canadianNameFormats};
 
 // China
 
@@ -3043,9 +3038,9 @@ const auto chineseFemaleFirstNames = std::to_array<std::string_view>({
 
 const NameFormats chineseNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames chinesePeopleNames{{chineseMaleFirstNames, chineseLastNames, {}, {}},
-                                     {chineseFemaleFirstNames, chineseLastNames, {}, {}},
-                                     chineseNameFormats};
+const PersonDefinition chinesePeopleNames{{chineseMaleFirstNames, chineseLastNames, {}, {}},
+                                          {chineseFemaleFirstNames, chineseLastNames, {}, {}},
+                                          chineseNameFormats};
 
 // Croatia
 
@@ -3324,7 +3319,7 @@ const auto croatianFemalePrefixes = std::to_array<std::string_view>({"gđa.", "g
 const NameFormats croatianNameFormats{
     {{"{firstName} {lastName}", 8}, {"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames croatianPeopleNames{
+const PersonDefinition croatianPeopleNames{
     {croatianMaleFirstNames, croatianLastNames, croatianMalePrefixes, croatianSuffixes},
     {croatianFemaleFirstNames, croatianLastNames, croatianFemalePrefixes, croatianSuffixes},
     croatianNameFormats};
@@ -3812,9 +3807,9 @@ const auto czechSuffixes = std::to_array<std::string_view>({"Phd."});
 const NameFormats czechNameFormats{
     {{"{firstName} {lastName}", 8}, {"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames czechPeopleNames{{czechMaleFirstNames, czechMaleLastNames, czechPrefixes, czechSuffixes},
-                                   {czechFemaleFirstNames, czechFemaleLastNames, czechPrefixes, czechSuffixes},
-                                   czechNameFormats};
+const PersonDefinition czechPeopleNames{{czechMaleFirstNames, czechMaleLastNames, czechPrefixes, czechSuffixes},
+                                        {czechFemaleFirstNames, czechFemaleLastNames, czechPrefixes, czechSuffixes},
+                                        czechNameFormats};
 
 // Denmark
 
@@ -4071,9 +4066,9 @@ const auto danishFemalePrefixes = std::to_array<std::string_view>({"fr."});
 
 const NameFormats danishNameFormats{{{"{firstName} {lastName}", 1}, {"{firstName} {lastName}", 1}}};
 
-const PeopleNames danishPeopleNames{{danishMaleFirstNames, danishMalePrefixes, {}, {}},
-                                    {danishFemaleFirstNames, danishLastNames, danishFemalePrefixes, {}},
-                                    danishNameFormats};
+const PersonDefinition danishPeopleNames{{danishMaleFirstNames, danishMalePrefixes, {}, {}},
+                                         {danishFemaleFirstNames, danishLastNames, danishFemalePrefixes, {}},
+                                         danishNameFormats};
 
 // Dutch
 
@@ -4362,9 +4357,9 @@ const NameFormats dutchNameFormats{{
     {"{firstName} {lastName} {suffix}", 1},
 }};
 
-const PeopleNames dutchPeopleNames{{dutchMaleFirstNames, dutchLastNames, dutchMalePrefixes, dutchSuffixes},
-                                   {dutchFemaleFirstNames, dutchLastNames, dutchFemalePrefixes, dutchSuffixes},
-                                   dutchNameFormats};
+const PersonDefinition dutchPeopleNames{{dutchMaleFirstNames, dutchLastNames, dutchMalePrefixes, dutchSuffixes},
+                                        {dutchFemaleFirstNames, dutchLastNames, dutchFemalePrefixes, dutchSuffixes},
+                                        dutchNameFormats};
 
 // England
 
@@ -4582,7 +4577,7 @@ const NameFormats englishNameFormats{{{"{firstName} {lastName}", 49},
                                       {"{firstName} {lastName} {suffix}", 7},
                                       {"{prefix} {firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames englishPeopleNames{
+const PersonDefinition englishPeopleNames{
     {englishMaleFirstNames, englishLastNames, englishMalePrefixes, englishSuffixes},
     {englishFemaleFirstNames, englishLastNames, englishFemalePrefixes, englishSuffixes},
     englishNameFormats};
@@ -4732,9 +4727,9 @@ const auto estonianLastNames = std::to_array<std::string_view>({
 
 const NameFormats estonianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames estonianPeopleNames{{estonianMaleFirstNames, estonianLastNames, {}, {}},
-                                      {estonianFemaleFirstNames, estonianLastNames, {}, {}},
-                                      estonianNameFormats};
+const PersonDefinition estonianPeopleNames{{estonianMaleFirstNames, estonianLastNames, {}, {}},
+                                           {estonianFemaleFirstNames, estonianLastNames, {}, {}},
+                                           estonianNameFormats};
 
 // Finland
 
@@ -4765,9 +4760,9 @@ const auto finnishLastNames = std::to_array<std::string_view>({
 
 const NameFormats finnishNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames finnishPeopleNames{{finnishMaleFirstNames, finnishLastNames, {}, {}},
-                                     {finnishFemaleFirstNames, finnishLastNames, {}, {}},
-                                     finnishNameFormats};
+const PersonDefinition finnishPeopleNames{{finnishMaleFirstNames, finnishLastNames, {}, {}},
+                                          {finnishFemaleFirstNames, finnishLastNames, {}, {}},
+                                          finnishNameFormats};
 
 // France
 
@@ -4922,9 +4917,9 @@ const auto frenchFemalePrefixes = std::to_array<std::string_view>({"Mme", "Mlle"
 
 const NameFormats frenchNameFormats{{{"{prefix} {firstName} {lastName}", 2}, {"{firstName} {lastName}", 8}}};
 
-const PeopleNames frenchPeopleNames{{frenchMaleFirstNames, frenchLastNames, frenchMalePrefixes, {}},
-                                    {frenchFemaleFirstNames, frenchLastNames, frenchFemalePrefixes, {}},
-                                    frenchNameFormats};
+const PersonDefinition frenchPeopleNames{{frenchMaleFirstNames, frenchLastNames, frenchMalePrefixes, {}},
+                                         {frenchFemaleFirstNames, frenchLastNames, frenchFemalePrefixes, {}},
+                                         frenchNameFormats};
 
 // Germany
 
@@ -5388,9 +5383,9 @@ const auto germanFemalePrefixes = std::to_array<std::string_view>({"Frau", "Dr."
 
 const NameFormats germanNameFormats{{{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 8}}};
 
-const PeopleNames germanPeopleNames{{germanMaleFirstNames, germanLastNames, germanMalePrefixes, {}},
-                                    {germanFemaleFirstNames, germanLastNames, germanFemalePrefixes, {}},
-                                    germanNameFormats};
+const PersonDefinition germanPeopleNames{{germanMaleFirstNames, germanLastNames, germanMalePrefixes, {}},
+                                         {germanFemaleFirstNames, germanLastNames, germanFemalePrefixes, {}},
+                                         germanNameFormats};
 
 // Ghana
 
@@ -5453,9 +5448,9 @@ const auto ghanaianLastNames = std::to_array<std::string_view>({
 
 const NameFormats ghanaianNameFormats{{{"{firstName} {lastName}"}, 1}};
 
-const PeopleNames ghanaianPeopleNames{{ghanaianMaleFirstNames, ghanaianLastNames, {}, {}},
-                                      {ghanaianFemaleFirstNames, ghanaianLastNames, {}, {}},
-                                      ghanaianNameFormats};
+const PersonDefinition ghanaianPeopleNames{{ghanaianMaleFirstNames, ghanaianLastNames, {}, {}},
+                                           {ghanaianFemaleFirstNames, ghanaianLastNames, {}, {}},
+                                           ghanaianNameFormats};
 
 // Greece
 
@@ -5908,7 +5903,7 @@ const auto greekLastNames = std::to_array<std::string_view>({
 
 const NameFormats greekNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames greekPeopleNames{
+const PersonDefinition greekPeopleNames{
     {greekMaleFirstNames, greekLastNames, {}, {}}, {greekFemaleFirstNames, greekLastNames, {}, {}}, greekNameFormats};
 
 // Hungary
@@ -5958,9 +5953,9 @@ const std::array<std::string_view, 2> hungarianPrefixes{"Dr.", "Prof."};
 
 const NameFormats hungarianNameFormats{{{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 9}}};
 
-const PeopleNames hungarianPeopleNames{{hungarianMaleFirstNames, hungarianLastNames, hungarianPrefixes, {}},
-                                       {hungarianFemaleFirstNames, hungarianLastNames, hungarianPrefixes, {}},
-                                       hungarianNameFormats};
+const PersonDefinition hungarianPeopleNames{{hungarianMaleFirstNames, hungarianLastNames, hungarianPrefixes, {}},
+                                            {hungarianFemaleFirstNames, hungarianLastNames, hungarianPrefixes, {}},
+                                            hungarianNameFormats};
 
 // Iceland
 
@@ -6033,9 +6028,9 @@ const auto icelandicLastNames = std::to_array<std::string_view>({
 
 const NameFormats icelandic_personNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames icelandicPeopleNames{{icelandicMaleFirstNames, icelandicLastNames, {}, {}},
-                                       {icelandicFemaleFirstNames, icelandicLastNames, {}, {}},
-                                       icelandic_personNameFormats};
+const PersonDefinition icelandicPeopleNames{{icelandicMaleFirstNames, icelandicLastNames, {}, {}},
+                                            {icelandicFemaleFirstNames, icelandicLastNames, {}, {}},
+                                            icelandic_personNameFormats};
 
 // India
 
@@ -6147,9 +6142,9 @@ const auto indianLastNames = std::to_array<std::string_view>({
 
 const NameFormats indianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames indianPeopleNames{{indianMaleFirstNames, indianLastNames, {}, {}},
-                                    {indianFemaleFirstNames, indianLastNames, {}, {}},
-                                    indianNameFormats};
+const PersonDefinition indianPeopleNames{{indianMaleFirstNames, indianLastNames, {}, {}},
+                                         {indianFemaleFirstNames, indianLastNames, {}, {}},
+                                         indianNameFormats};
 
 // Ireland
 
@@ -6317,9 +6312,9 @@ const NameFormats irishNameFormats{{{"{firstName} {lastName}", 49},
                                     {"{firstName} {lastName} {suffix}", 7},
                                     {"{prefix} {firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames irishPeopleNames{{irishMaleFirstNames, irishLastNames, irishMalePrefixes, irishSuffixes},
-                                   {irishFemaleFirstNames, irishLastNames, irishFemalePrefixes, irishSuffixes},
-                                   irishNameFormats};
+const PersonDefinition irishPeopleNames{{irishMaleFirstNames, irishLastNames, irishMalePrefixes, irishSuffixes},
+                                        {irishFemaleFirstNames, irishLastNames, irishFemalePrefixes, irishSuffixes},
+                                        irishNameFormats};
 
 // Israel
 
@@ -6418,9 +6413,9 @@ const auto israelisLastNames = std::to_array<std::string_view>({
 
 const NameFormats israelisNameFormats{{"{lastName} {firstName}", 1}};
 
-const PeopleNames israeliPeopleNames{{israelisMaleFirstNames, israelisLastNames, {}, {}},
-                                     {israelisFemaleFirstNames, israelisLastNames, {}, {}},
-                                     israelisNameFormats};
+const PersonDefinition israeliPeopleNames{{israelisMaleFirstNames, israelisLastNames, {}, {}},
+                                          {israelisFemaleFirstNames, israelisLastNames, {}, {}},
+                                          israelisNameFormats};
 
 // Italy
 
@@ -6687,9 +6682,9 @@ const auto italianPrefixes = std::to_array<std::string_view>({"Sig.", "Dott.", "
 
 const NameFormats italianNameFormats{{{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 9}}};
 
-const PeopleNames italianPeopleNames{{italianMaleFirstNames, italianLastNames, italianPrefixes, {}},
-                                     {italianFemaleFirstNames, italianLastNames, italianPrefixes, {}},
-                                     italianNameFormats};
+const PersonDefinition italianPeopleNames{{italianMaleFirstNames, italianLastNames, italianPrefixes, {}},
+                                          {italianFemaleFirstNames, italianLastNames, italianPrefixes, {}},
+                                          italianNameFormats};
 
 // Japan
 
@@ -6728,9 +6723,9 @@ const auto japaneseLastNames = std::to_array<std::string_view>({
 });
 
 const NameFormats japaneseNameFormats{{"{lastName} {firstName}", 1}};
-const PeopleNames japanesePeopleNames{{japaneseMaleFirstNames, japaneseLastNames, {}, {}},
-                                      {japaneseFemaleFirstNames, japaneseLastNames, {}, {}},
-                                      japaneseNameFormats};
+const PersonDefinition japanesePeopleNames{{japaneseMaleFirstNames, japaneseLastNames, {}, {}},
+                                           {japaneseFemaleFirstNames, japaneseLastNames, {}, {}},
+                                           japaneseNameFormats};
 
 // Kazakhstan
 
@@ -6808,9 +6803,9 @@ const auto kazakhFemaleLastNames = std::to_array<std::string_view>({
 
 const NameFormats kazakh_personNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames kazakhPeopleNames{{kazakhMaleFirstNames, kazakhMaleLastNames, {}, {}},
-                                    {kazakhFemaleFirstNames, kazakhFemaleLastNames, {}, {}},
-                                    kazakh_personNameFormats};
+const PersonDefinition kazakhPeopleNames{{kazakhMaleFirstNames, kazakhMaleLastNames, {}, {}},
+                                         {kazakhFemaleFirstNames, kazakhFemaleLastNames, {}, {}},
+                                         kazakh_personNameFormats};
 
 // Korea
 
@@ -6836,9 +6831,9 @@ const auto koreanLastNames = std::to_array<std::string_view>({
 
 const NameFormats koreanNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames koreanPeopleNames{{koreanMaleFirstNames, koreanLastNames, {}, {}},
-                                    {koreanMaleFirstNames, koreanLastNames, {}, {}},
-                                    koreanNameFormats};
+const PersonDefinition koreanPeopleNames{{koreanMaleFirstNames, koreanLastNames, {}, {}},
+                                         {koreanMaleFirstNames, koreanLastNames, {}, {}},
+                                         koreanNameFormats};
 
 // Latvia
 
@@ -6936,7 +6931,7 @@ const auto latvianPrefixes = std::to_array<std::string_view>({"Prof.", "Dr.", "B
 const NameFormats latvianNameFormats{
     {{"{firstName} {lastName}", 8}, {"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames latvianPeopleNames{
+const PersonDefinition latvianPeopleNames{
     {latvianMaleFirstNames, latvianMaleLastNames, latvianPrefixes, latvianSuffixes},
     {latvianFemaleFirstNames, latvianFemaleLastNames, latvianPrefixes, latvianSuffixes},
     latvianNameFormats};
@@ -7120,9 +7115,9 @@ const auto lebaneseLastNames = std::to_array<std::string_view>({
 
 const NameFormats lebaneseNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames lebanesePeopleNames{{lebaneseMaleFirstNames, lebaneseLastNames, {}, {}},
-                                      {lebaneseFemaleFirstNames, lebaneseLastNames, {}, {}},
-                                      lebaneseNameFormats};
+const PersonDefinition lebanesePeopleNames{{lebaneseMaleFirstNames, lebaneseLastNames, {}, {}},
+                                           {lebaneseFemaleFirstNames, lebaneseLastNames, {}, {}},
+                                           lebaneseNameFormats};
 
 // Lithuania
 
@@ -7275,9 +7270,9 @@ const auto lithuanianLastNames = std::to_array<std::string_view>({
 
 const NameFormats lithuanianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames lithuanianPeopleNames{{lithuanianMaleFirstNames, lithuanianLastNames, {}, {}},
-                                        {lithuanianFemaleFirstNames, lithuanianLastNames, {}, {}},
-                                        lithuanianNameFormats};
+const PersonDefinition lithuanianPeopleNames{{lithuanianMaleFirstNames, lithuanianLastNames, {}, {}},
+                                             {lithuanianFemaleFirstNames, lithuanianLastNames, {}, {}},
+                                             lithuanianNameFormats};
 
 // Macedonia
 
@@ -7518,7 +7513,7 @@ const auto macedonianFemalePrefixes = std::to_array<std::string_view>({"г-ѓа"
 
 const NameFormats macedonianNameFormats{{{"{firstName} {lastName}", 10}, {"{prefix} {firstName} {lastName}", 1}}};
 
-const PeopleNames macedonianPeopleNames{
+const PersonDefinition macedonianPeopleNames{
     {macedonianMaleFirstNames, macedonianMaleLastNames, macedonianMalePrefixes, {}},
     {macedonianFemaleFirstNames, macedonianFemaleLastNames, macedonianFemalePrefixes, {}},
     macedonianNameFormats};
@@ -7590,7 +7585,7 @@ const auto maldiviansFemalePrefixes = std::to_array<std::string_view>({"އަމީ
 
 const NameFormats maldiviansNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames maldiviansPeopleNames{
+const PersonDefinition maldiviansPeopleNames{
     {maldiviansMaleFirstNames, maldiviansMaleLastNames, maldiviansMalePrefixes, {}},
     {maldiviansFemaleFirstNames, maldiviansFemaleLastNames, maldiviansFemalePrefixes, {}},
     maldiviansNameFormats};
@@ -7644,9 +7639,9 @@ const auto malteseLastNames = std::to_array<std::string_view>({
 
 const NameFormats malteseNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames maltesePeopleNames{{malteseMaleFirstNames, malteseLastNames, {}, {}},
-                                     {malteseFemaleFirstNames, malteseLastNames, {}, {}},
-                                     malteseNameFormats};
+const PersonDefinition maltesePeopleNames{{malteseMaleFirstNames, malteseLastNames, {}, {}},
+                                          {malteseFemaleFirstNames, malteseLastNames, {}, {}},
+                                          malteseNameFormats};
 
 // Mexico
 
@@ -8602,7 +8597,7 @@ const auto mexicanFemalePrefixes = std::to_array<std::string_view>({"Sra.", "Sta
 const NameFormats mexicanNameFormats{
     {{"{firstName} {lastName}", 8}, {"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames mexicanPeopleNames{
+const PersonDefinition mexicanPeopleNames{
     {mexicanMaleFirstNames, mexicanLastNames, mexicanMalePrefixes, mexicanSuffixes},
     {mexicanFemaleFirstNames, mexicanLastNames, mexicanFemalePrefixes, mexicanSuffixes},
     mexicanNameFormats};
@@ -8752,9 +8747,9 @@ const auto moldovanLastNames = std::to_array<std::string_view>({
 
 const NameFormats moldovanNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames moldovanPeopleNames{{moldovanMaleFirstNames, moldovanLastNames, {}, {}},
-                                      {moldovanFemaleFirstNames, moldovanLastNames, {}, {}},
-                                      moldovanNameFormats};
+const PersonDefinition moldovanPeopleNames{{moldovanMaleFirstNames, moldovanLastNames, {}, {}},
+                                           {moldovanFemaleFirstNames, moldovanLastNames, {}, {}},
+                                           moldovanNameFormats};
 
 // Monaco
 
@@ -9162,9 +9157,9 @@ const auto monacanLastNames = std::to_array<std::string_view>({
 
 const NameFormats monacanNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames monacanPeopleNames{{monacanMaleFirstNames, monacanLastNames, {}, {}},
-                                     {monacanFemaleFirstNames, monacanLastNames, {}, {}},
-                                     monacanNameFormats};
+const PersonDefinition monacanPeopleNames{{monacanMaleFirstNames, monacanLastNames, {}, {}},
+                                          {monacanFemaleFirstNames, monacanLastNames, {}, {}},
+                                          monacanNameFormats};
 
 // Norway
 
@@ -9209,7 +9204,7 @@ const auto norwegianPrefixes = std::to_array<std::string_view>({"Dr.", "Prof."})
 const NameFormats norwegianNameFormats{
     {{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 9}, {"{firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames norwegianPeopleNames{
+const PersonDefinition norwegianPeopleNames{
     {norwegianMaleFirstNames, norwegianLastNames, norwegianPrefixes, norwegianSuffixes},
     {norwegianFemaleFirstNames, norwegianLastNames, norwegianPrefixes, norwegianSuffixes},
     norwegianNameFormats};
@@ -9344,9 +9339,9 @@ const auto palestinianLastNames = std::to_array<std::string_view>({
 
 const NameFormats palestinianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames palestinianPeopleNames{{palestinianMaleFirstNames, palestinianLastNames, {}, {}},
-                                         {palestinianFemaleFirstNames, palestinianLastNames, {}, {}},
-                                         palestinianNameFormats};
+const PersonDefinition palestinianPeopleNames{{palestinianMaleFirstNames, palestinianLastNames, {}, {}},
+                                              {palestinianFemaleFirstNames, palestinianLastNames, {}, {}},
+                                              palestinianNameFormats};
 
 // Persian
 
@@ -9489,9 +9484,9 @@ const auto persianFemalePrefixes = std::to_array<std::string_view>({"خانم", 
 const NameFormats persianNameFormats{{{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 9}}};
 
 // Convert UTF16 to UTF8 for Persian characters then use the data.
-const PeopleNames persianPeopleNames{{persianMaleFirstNames, persianLastNames, persianMalePrefixes, {}},
-                                     {persianFemaleFirstNames, persianLastNames, persianFemalePrefixes, {}},
-                                     persianNameFormats};
+const PersonDefinition persianPeopleNames{{persianMaleFirstNames, persianLastNames, persianMalePrefixes, {}},
+                                          {persianFemaleFirstNames, persianLastNames, persianFemalePrefixes, {}},
+                                          persianNameFormats};
 
 // Poland
 
@@ -9798,9 +9793,9 @@ const auto polishFemalePrefixes = std::to_array<std::string_view>({"Pani"});
 
 const NameFormats polishNameFormats{{{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 9}}};
 
-const PeopleNames polishPeopleNames{{polishMaleFirstNames, polishLastNames, polishMalePrefixes, {}},
-                                    {polishFemaleFirstNames, polishLastNames, polishFemalePrefixes, {}},
-                                    polishNameFormats};
+const PersonDefinition polishPeopleNames{{polishMaleFirstNames, polishLastNames, polishMalePrefixes, {}},
+                                         {polishFemaleFirstNames, polishLastNames, polishFemalePrefixes, {}},
+                                         polishNameFormats};
 
 // Portugal
 
@@ -9853,9 +9848,10 @@ const auto portugueseFemalePrefixes = std::to_array<std::string_view>({"Sra.", "
 
 const NameFormats portugueseNameFormats{{{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 9}}};
 
-const PeopleNames portuguesePeopleNames{{portugueseMaleFirstNames, portugueseLastNames, portugueseMalePrefixes, {}},
-                                        {portugueseFemaleFirstNames, portugueseLastNames, portugueseFemalePrefixes, {}},
-                                        portugueseNameFormats};
+const PersonDefinition portuguesePeopleNames{
+    {portugueseMaleFirstNames, portugueseLastNames, portugueseMalePrefixes, {}},
+    {portugueseFemaleFirstNames, portugueseLastNames, portugueseFemalePrefixes, {}},
+    portugueseNameFormats};
 
 // Romania
 
@@ -9908,7 +9904,7 @@ const NameFormats romanianNameFormats{{{"{firstName} {lastName}", 49},
                                        {"{firstName} {lastName} {suffix}", 7},
                                        {"{prefix} {firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames romanianPeopleNames{
+const PersonDefinition romanianPeopleNames{
     {romanianMaleFirstNames, romanianLastNames, romanianMalePrefixes, romanianSuffixes},
     {romanianFemaleFirstNames, romanianLastNames, romanian_female_refixes, romanianSuffixes},
     romanianNameFormats};
@@ -10131,9 +10127,9 @@ const auto russianFemaleLastNames = std::to_array<std::string_view>({
 
 const NameFormats russianNameFormats{{{"{firstName} {lastName}", 1}, {"{lastName} {firstName}", 1}}};
 
-const PeopleNames russianPeopleNames{{russianMaleFirstNames, russianMaleLastNames, {}, {}},
-                                     {russianFemaleFirstNames, russianFemaleLastNames, {}, {}},
-                                     russianNameFormats};
+const PersonDefinition russianPeopleNames{{russianMaleFirstNames, russianMaleLastNames, {}, {}},
+                                          {russianFemaleFirstNames, russianFemaleLastNames, {}, {}},
+                                          russianNameFormats};
 
 // Serbia
 
@@ -10227,9 +10223,9 @@ const auto serbianLastNames = std::to_array<std::string_view>({
 
 const NameFormats serbianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames serbianPeopleNames{{serbianMaleFirstNames, serbianLastNames, {}, {}},
-                                     {serbianFemaleFirstNames, serbianLastNames, {}, {}},
-                                     serbianNameFormats};
+const PersonDefinition serbianPeopleNames{{serbianMaleFirstNames, serbianLastNames, {}, {}},
+                                          {serbianFemaleFirstNames, serbianLastNames, {}, {}},
+                                          serbianNameFormats};
 
 // Slovakia
 
@@ -10370,9 +10366,10 @@ const auto slovakPrefixes = std::to_array<std::string_view>({"Ing.", "Mgr.", "JU
 const NameFormats slovakNameFormats{
     {{"{firstName} {lastName}", 8}, {"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames slovakPeopleNames{{slovakMaleFirstNames, slovakMaleLastNames, slovakPrefixes, slovakSuffixes},
-                                    {slovakFemaleFirstNames, slovak_femalesLastNames, slovakPrefixes, slovakSuffixes},
-                                    slovakNameFormats};
+const PersonDefinition slovakPeopleNames{
+    {slovakMaleFirstNames, slovakMaleLastNames, slovakPrefixes, slovakSuffixes},
+    {slovakFemaleFirstNames, slovak_femalesLastNames, slovakPrefixes, slovakSuffixes},
+    slovakNameFormats};
 
 // Slovenia
 
@@ -10519,9 +10516,9 @@ const auto slovenianLastNames = std::to_array<std::string_view>({
 
 const NameFormats slovenianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames slovenianPeopleNames{{slovenianMaleFirstNames, slovenianLastNames, {}, {}},
-                                       {slovenianFemaleFirstNames, slovenianLastNames, {}, {}},
-                                       slovenianNameFormats};
+const PersonDefinition slovenianPeopleNames{{slovenianMaleFirstNames, slovenianLastNames, {}, {}},
+                                            {slovenianFemaleFirstNames, slovenianLastNames, {}, {}},
+                                            slovenianNameFormats};
 
 // South Africa
 
@@ -10641,9 +10638,9 @@ const auto southAfricanLastNames = std::to_array<std::string_view>({
 
 const NameFormats southAfricanNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames southAfricanPeopleNames{{southAfricanMaleFirstNames, southAfricanLastNames, {}, {}},
-                                          {southAfricanFemaleFirstNames, southAfricanLastNames, {}, {}},
-                                          southAfricanNameFormats};
+const PersonDefinition southAfricanPeopleNames{{southAfricanMaleFirstNames, southAfricanLastNames, {}, {}},
+                                               {southAfricanFemaleFirstNames, southAfricanLastNames, {}, {}},
+                                               southAfricanNameFormats};
 
 // Spain
 
@@ -11319,9 +11316,9 @@ const auto spanishFemalePrefixes = std::to_array<std::string_view>({"Sra.", "Sta
 
 const NameFormats spanishNameFormats{{{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 9}}};
 
-const PeopleNames spanishPeopleNames{{spanishMaleFirstNames, spanishLastNames, spanishMalePrefixes, {}},
-                                     {spanishFemaleFirstNames, spanishLastNames, spanishFemalePrefixes, {}},
-                                     spanishNameFormats};
+const PersonDefinition spanishPeopleNames{{spanishMaleFirstNames, spanishLastNames, spanishMalePrefixes, {}},
+                                          {spanishFemaleFirstNames, spanishLastNames, spanishFemalePrefixes, {}},
+                                          spanishNameFormats};
 
 // Sweden
 
@@ -11376,9 +11373,9 @@ const auto swedishPrefixes = std::to_array<std::string_view>({"Dr.", "Prof.", "P
 
 const NameFormats swedishNameFormats{{{"{firstName} {lastName}", 10}, {"{prefix} {firstName} {lastName}", 1}}};
 
-const PeopleNames swedishPeopleNames{{swedishMaleFirstNames, swedishLastNames, swedishPrefixes, {}},
-                                     {swedishFemaleFirstNames, swedishLastNames, swedishPrefixes, {}},
-                                     swedishNameFormats};
+const PersonDefinition swedishPeopleNames{{swedishMaleFirstNames, swedishLastNames, swedishPrefixes, {}},
+                                          {swedishFemaleFirstNames, swedishLastNames, swedishPrefixes, {}},
+                                          swedishNameFormats};
 
 // Switzerland
 
@@ -11471,9 +11468,9 @@ const auto swissFemalePrefixes = std::to_array<std::string_view>({"Frau", "Dr.",
 
 const NameFormats swissNameFormats{{{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 9}}};
 
-const PeopleNames swissPeopleNames{{swissMaleFirstNames, swissLastNames, swissMalePrefixes, {}},
-                                   {swissFemaleFirstNames, swissLastNames, swissFemalePrefixes, {}},
-                                   swissNameFormats};
+const PersonDefinition swissPeopleNames{{swissMaleFirstNames, swissLastNames, swissMalePrefixes, {}},
+                                        {swissFemaleFirstNames, swissLastNames, swissFemalePrefixes, {}},
+                                        swissNameFormats};
 
 // Syria
 
@@ -11610,9 +11607,9 @@ const auto syrianLastNames = std::to_array<std::string_view>({
 
 const NameFormats syrianNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames syrianPeopleNames{{syrianMaleFirstNames, syrianLastNames, {}, {}},
-                                    {syrianFemaleFirstNames, syrianLastNames, {}, {}},
-                                    syrianNameFormats};
+const PersonDefinition syrianPeopleNames{{syrianMaleFirstNames, syrianLastNames, {}, {}},
+                                         {syrianFemaleFirstNames, syrianLastNames, {}, {}},
+                                         syrianNameFormats};
 
 // Turkey
 
@@ -11645,9 +11642,9 @@ const auto turkishFemalePrefixes = std::to_array<std::string_view>({"Bayan", "Dr
 
 const NameFormats turkish_personNameFormats{{{"{prefix} {firstName} {lastName}", 1}, {"{firstName} {lastName}", 8}}};
 
-const PeopleNames turkishPeopleNames{{turkishMaleFirstNames, turkishLastNames, turkishMalePrefixes, {}},
-                                     {turkishFemaleFirstNames, turkishLastNames, turkishFemalePrefixes, {}},
-                                     turkish_personNameFormats};
+const PersonDefinition turkishPeopleNames{{turkishMaleFirstNames, turkishLastNames, turkishMalePrefixes, {}},
+                                          {turkishFemaleFirstNames, turkishLastNames, turkishFemalePrefixes, {}},
+                                          turkish_personNameFormats};
 
 // Ukraine
 
@@ -11789,7 +11786,7 @@ const NameFormats ukrainianNameFormats{{
     {"{lastName} {firstName}", 1},
 }};
 
-const PeopleNames ukrainianPeopleNames{
+const PersonDefinition ukrainianPeopleNames{
     {ukrainianMaleFirstNames, ukrainianMalesLastNames, ukrainianMalePrefixes, {}},
     {ukrainianFemaleFirstNames, ukrainianFemaleLastNames, ukrainianFemalePrefixes, {}},
     ukrainianNameFormats};
@@ -11802,9 +11799,10 @@ const NameFormats usaNameFormats{{{"{firstName} {lastName}", 49},
                                   {"{firstName} {lastName} {suffix}", 7},
                                   {"{prefix} {firstName} {lastName} {suffix}", 1}}};
 
-const PeopleNames usaPeopleNames{{englishMaleFirstNames, englishLastNames, englishMalePrefixes, englishSuffixes},
-                                 {englishFemaleFirstNames, englishLastNames, englishFemalePrefixes, englishSuffixes},
-                                 usaNameFormats};
+const PersonDefinition usaPeopleNames{
+    {englishMaleFirstNames, englishLastNames, englishMalePrefixes, englishSuffixes},
+    {englishFemaleFirstNames, englishLastNames, englishFemalePrefixes, englishSuffixes},
+    usaNameFormats};
 
 // Vietnam
 
@@ -11876,7 +11874,7 @@ const auto vietnameseLastNames = std::to_array<std::string_view>({
 
 const NameFormats vietnameseNameFormats{{"{firstName} {lastName}", 1}};
 
-const PeopleNames vietnamesePeopleNames{{vietnameseMaleFirstNames, vietnameseLastNames, {}, {}},
-                                        {vietnameseFemaleFirstNames, vietnameseLastNames, {}, {}},
-                                        vietnameseNameFormats};
+const PersonDefinition vietnamesePeopleNames{{vietnameseMaleFirstNames, vietnameseLastNames, {}, {}},
+                                             {vietnameseFemaleFirstNames, vietnameseLastNames, {}, {}},
+                                             vietnameseNameFormats};
 }

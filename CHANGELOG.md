@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file
 
+## v3.1.0 (TBD)
+
+### Features
+
+* added locale to `book` module
+
 ## v3.0.0 (28.08.2024)
 
 ### ⚠ BREAKING CHANGES
@@ -19,7 +25,7 @@ All notable changes to this project will be documented in this file
 
 * added `Video` module
 * added `Esport` module
-  
+
 ## v2.0.0 (27.06.2024)
 
 ### ⚠ BREAKING CHANGES

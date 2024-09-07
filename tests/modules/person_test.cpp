@@ -21,7 +21,7 @@ using namespace faker::person;
 
 namespace
 {
-const struct PeopleNames& getPeopleNamesByLocale(Locale locale)
+const struct PersonDefinition& getPersonDefinition(Locale locale)
 {
     switch (locale)
     {
@@ -182,7 +182,7 @@ TEST_P(PersonTest, shouldGenerateFirstName)
 {
     const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
@@ -201,7 +201,7 @@ TEST_P(PersonTest, shouldGenerateMaleFirstName)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(country);
+    const auto& peopleNames = getPersonDefinition(country);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
@@ -215,7 +215,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFirstName)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(country);
+    const auto& peopleNames = getPersonDefinition(country);
 
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
@@ -229,7 +229,7 @@ TEST_P(PersonTest, shouldGenerateLastNameMale)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(country);
+    const auto& peopleNames = getPersonDefinition(country);
 
     const auto& malesLastNames = peopleNames.malesNames.lastNames;
 
@@ -243,7 +243,7 @@ TEST_P(PersonTest, shouldGenerateLastNameFemale)
 {
     const auto country = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(country);
+    const auto& peopleNames = getPersonDefinition(country);
 
     const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
 
@@ -257,7 +257,7 @@ TEST_P(PersonTest, shouldGenerateFullName)
 {
     const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
@@ -283,7 +283,7 @@ TEST_P(PersonTest, shouldGenerateMaleFullName)
 {
     const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     const auto& malesFirstNames = peopleNames.malesNames.firstNames;
 
@@ -301,7 +301,7 @@ TEST_P(PersonTest, shouldGenerateFemaleFullName)
 {
     const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
 
@@ -319,7 +319,7 @@ TEST_P(PersonTest, shouldGeneratePrefix)
 {
     const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     const auto& femalesPrefixes = peopleNames.femalesNames.prefixes;
 
@@ -340,7 +340,7 @@ TEST_P(PersonTest, shouldGenerateMalePrefix)
 {
     const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     const auto& malesPrefixes = peopleNames.malesNames.prefixes;
 
@@ -355,7 +355,7 @@ TEST_P(PersonTest, shouldGenerateFemalePrefix)
 {
     const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     const auto& femalesPrefixes = peopleNames.femalesNames.prefixes;
 
@@ -370,7 +370,7 @@ TEST_P(PersonTest, shouldGenerateSuffix)
 {
     const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     const auto& femalesSuffixes = peopleNames.femalesNames.suffixes;
 
@@ -391,7 +391,7 @@ TEST_P(PersonTest, shouldGenerateMaleSuffix)
 {
     const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     const auto& malesSuffixes = peopleNames.malesNames.suffixes;
 
@@ -406,7 +406,7 @@ TEST_P(PersonTest, shouldGenerateFemaleSuffix)
 {
     const auto locale = GetParam();
 
-    const auto& peopleNames = getPeopleNamesByLocale(locale);
+    const auto& peopleNames = getPersonDefinition(locale);
 
     const auto& femalesSuffixes = peopleNames.femalesNames.suffixes;
 

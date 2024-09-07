@@ -1,11 +1,22 @@
 #pragma once
 
 #include <array>
+#include <span>
 #include <string_view>
 
 namespace faker::book
 {
-const auto authors = std::to_array<std::string_view>({
+struct BookDefinition
+{
+    std::span<const std::string_view> authors;
+    std::span<const std::string_view> formats;
+    std::span<const std::string_view> genres;
+    std::span<const std::string_view> publishers;
+    std::span<const std::string_view> series;
+    std::span<const std::string_view> titles;
+};
+
+const auto enUSAuthors = std::to_array<std::string_view>({
     "A. A. Milne",
     "Agatha Christie",
     "Alexander Pope",
@@ -133,14 +144,14 @@ const auto authors = std::to_array<std::string_view>({
     "Zadie Smith",
 });
 
-const auto bookFormats = std::to_array<std::string_view>({
+const auto enUSFormats = std::to_array<std::string_view>({
     "Audiobook",
     "Ebook",
     "Hardcover",
     "Paperback",
 });
 
-const auto bookGenres = std::to_array<std::string_view>({
+const auto enUSGenres = std::to_array<std::string_view>({
     "Adventure",   "Biography",       "Business",      "Children Literature",
     "Classic",     "Comedy",          "Comic",         "Detective",
     "Drama",       "Fantasy",         "Graphic Novel", "Historical Fiction",
@@ -150,7 +161,7 @@ const auto bookGenres = std::to_array<std::string_view>({
     "Young Adult",
 });
 
-const auto publishers = std::to_array<std::string_view>({
+const auto enUSPublishers = std::to_array<std::string_view>({
     "Academic Press",
     "Ace Books",
     "Addison-Wesley",
@@ -416,7 +427,7 @@ const auto publishers = std::to_array<std::string_view>({
     "Zondervan",
 });
 
-const auto bookSeries = std::to_array<std::string_view>({
+const auto enUSSeries = std::to_array<std::string_view>({
     "A Song of Ice and Fire",
     "Anna Karenina",
     "Colonel Race",
@@ -453,7 +464,7 @@ const auto bookSeries = std::to_array<std::string_view>({
     "War and Peace",
 });
 
-const auto titles = std::to_array<std::string_view>({
+const auto enUSTitles = std::to_array<std::string_view>({
     "A Brief History of Time",
     "A Clockwork Orange",
     "A Doll's House",
@@ -557,5 +568,220 @@ const auto titles = std::to_array<std::string_view>({
     "Winnie-the-Pooh",
     "Wuthering Heights",
 });
+
+const BookDefinition enUSBookDefinition = {
+    .authors = enUSAuthors,
+    .formats = enUSFormats,
+    .genres = enUSGenres,
+    .publishers = enUSPublishers,
+    .series = enUSSeries,
+    .titles = enUSTitles,
+};
+
+const auto plAuthors = std::to_array<std::string_view>({
+    "Andrzej Maleszka",
+    "Andrzej Pilipiuk",
+    "Andrzej Sapkowski",
+    "Anita Głowińska",
+    "Ałbena Grabowska",
+    "Czesław Miłosz",
+    "Grzegorz Kasdepke",
+    "Henryk Sienkiewicz",
+    "Jacek Dukaj",
+    "Jacek Piekara",
+    "Jakub Żulczyk",
+    "Jarosław Grzędowicz",
+    "Jerzy Pilch",
+    "Joanna Bator",
+    "Katarzyna Bonda",
+    "Katarzyna Michalak",
+    "Krzysztof Kamil Baczyński",
+    "Leopold Tyrmand",
+    "Mariusz Szczygieł",
+    "Marta Galewska-Kustra",
+    "Olga Tokarczuk",
+    "Paulina Świst",
+    "Remigiusz Mróz",
+    "Stanisław Lem",
+    "Sylwia Chutnik",
+    "Szczepan Twardoch",
+    "Tadeusz Konwicki",
+    "Wiesław Myśliwski",
+    "Wisława Szymborska",
+    "Wojciech Chmielarz",
+    "Zbigniew Herbert",
+    "Zygmunt Miłoszewski",
+});
+
+const auto plFormats = std::to_array<std::string_view>({"Audiobook", "Ebook", "Miękka okładka", "Twarda okładka"});
+
+const auto plGenres = std::to_array<std::string_view>({
+    "Beletrystyka",
+    "Biografia",
+    "Fantastyka",
+    "Fantastyka naukowa",
+    "Kryminał",
+    "Książka kucharska",
+    "Literatura dziecięca",
+    "Literatura faktu",
+    "Literatura młodzieżowa",
+    "Literatura naukowa",
+    "Literatura piękna",
+    "Literatura podróżnicza",
+    "Literatura popularnonaukowa",
+    "Poezja",
+    "Powieść historyczna",
+    "Powieść przygodowa",
+    "Reportaż",
+    "Rozwój osobisty",
+});
+
+const auto plPublishers = std::to_array<std::string_view>({
+    "Czarne",
+    "Dom Wydawniczy Rebis",
+    "Muza",
+    "PWN",
+    "W.A.B.",
+    "Wydawnictwo Agora",
+    "Wydawnictwo Literackie",
+    "Wydawnictwo Świat Książki",
+    "Znak",
+    "Zysk i S-ka Wydawnictwo",
+});
+
+const auto plSeries = std::to_array<std::string_view>({
+    "Archiwum Burzowego Światła",
+    "Cykl Inkwizytorski",
+    "Diuna",
+    "Dziedzictwo",
+    "Harry Potter",
+    "Igrzyska Śmierci",
+    "Jakub Wędrowycz",
+    "Koło Czasu",
+    "Malazańska Księga Poległych",
+    "Mroczna Wieża",
+    "Mroczne Materie",
+    "Opowieści z Narnii",
+    "Pan Lodowego Ogrodu",
+    "Percy Jackson",
+    "Pieśń lodu i ognia",
+    "Saga o Ludziach Lodu",
+    "Sherlock Holmes",
+    "Wiedźmin",
+    "Władca Pierścieni",
+    "Zwiadowcy",
+    "Świat Dysku",
+});
+
+const auto plTitles = std::to_array<std::string_view>({
+    "Aria z kurantem",
+    "Arytmia",
+    "Austeria",
+    "Bal w operze",
+    "Barbarzyńca w ogrodzie",
+    "Bitwa o Monte Cassino",
+    "Bramy raju",
+    "Cantus",
+    "Cesarz",
+    "Cudzoziemka",
+    "Czarny polonez",
+    "Czarny potok",
+    "Do piachu",
+    "Droga donikąd",
+    "Dziennik",
+    "Dziennik 1954",
+    "Dziennik bez samogłosek",
+    "Dziennik pisany nocą",
+    "Eseje dla Kasandry",
+    "Ferdydurke",
+    "Generał Barcz",
+    "Granica",
+    "Imperium",
+    "Inny świat",
+    "Jezioro Bodeńskie",
+    "Kamień na kamieniu",
+    "Kariera Nikodema Dyzmy",
+    "Karmazynowy poemat",
+    "Kartoteka",
+    "Konopielka",
+    "Lato 1932",
+    "Lekcja martwego języka",
+    "Ludzie na moście",
+    "Madame",
+    "Mała apokalipsa",
+    "Medaliony",
+    "Miazga",
+    "Myśli nieuczesane",
+    "Mój wiek. Pamiętnik mówiony",
+    "Na nieludzkiej ziemi",
+    "Na wysokiej połoninie",
+    "Nadberezyńcy",
+    "Napój cienisty",
+    "Nie trzeba głośno mówić",
+    "Nienasycenie",
+    "Niepokój",
+    "Noce i dnie",
+    "Nuta człowiecza",
+    "Obroty rzeczy",
+    "Ocalenie",
+    "Oktostychy",
+    "Pamiętnik z Powstania Warszawskiego",
+    "Pan Cogito",
+    "Panny z Wilka",
+    "Pierwszy krok w chmurach",
+    "Pierścień z papieru",
+    "Podróże do piekieł",
+    "Pożegnanie jesieni",
+    "Pożegnanie z Marią",
+    "Pożoga",
+    "Przed Nieznanym Trybunałem",
+    "Przedwiośnie",
+    "Przemija postać świata",
+    "Raport o stanie wojennym",
+    "Raport z oblężonego miasta",
+    "Rodzinna Europa",
+    "Rozmowy polskie latem roku 1983",
+    "Rzeczpospolita Obojga Narodów",
+    "Równanie serca",
+    "Sanatorium pod klepsydrą",
+    "Sennik współczesny",
+    "Sklepy cynamonowe",
+    "Sokrates tańczący",
+    "Solaris",
+    "Srebrne orły",
+    "Szewcy",
+    "Szkice piórkiem",
+    "Sól ziemi",
+    "Tango",
+    "Trans-Atlantyk",
+    "Trzy zimy",
+    "Utwory poetyckie",
+    "W polu",
+    "Wariacje pocztowe",
+    "Widnokrąg",
+    "Widokówka z tego świata",
+    "Wiersze",
+    "Wieszanie",
+    "Wiosna i wino",
+    "Wołanie do Yeti",
+    "Zachód słońca w Milanówku",
+    "Zasypie wszystko, zawieje…",
+    "Zdążyć przed Panem Bogiem",
+    "Ziemia Urlo",
+    "Zimne kraje",
+    "Zniewolony umysł",
+    "Zostało z uczty bogów",
+    "Łąka",
+    "Ślub",
+});
+
+const BookDefinition plBookDefinition = {
+    .authors = plAuthors,
+    .formats = plFormats,
+    .genres = plGenres,
+    .publishers = plPublishers,
+    .series = plSeries,
+    .titles = plTitles,
+};
 
 }

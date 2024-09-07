@@ -7,33 +7,59 @@
 
 namespace faker::book
 {
-std::string_view title()
+namespace
 {
-    return helper::randomElement(titles);
+const struct BookDefinition& getBookDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    case Locale::pl_PL:
+        return plBookDefinition;
+    default:
+        return enUSBookDefinition;
+    }
+}
 }
 
-std::string_view genre()
+std::string_view title(Locale locale)
 {
-    return helper::randomElement(bookGenres);
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    return helper::randomElement(bookDefinition.titles);
 }
 
-std::string_view author()
+std::string_view genre(Locale locale)
 {
-    return helper::randomElement(authors);
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    return helper::randomElement(bookDefinition.genres);
 }
 
-std::string_view publisher()
+std::string_view author(Locale locale)
 {
-    return helper::randomElement(publishers);
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    return helper::randomElement(bookDefinition.authors);
 }
 
-std::string_view format()
+std::string_view publisher(Locale locale)
 {
-    return helper::randomElement(bookFormats);
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    return helper::randomElement(bookDefinition.publishers);
 }
 
-std::string_view series()
+std::string_view format(Locale locale)
 {
-    return helper::randomElement(bookSeries);
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    return helper::randomElement(bookDefinition.formats);
+}
+
+std::string_view series(Locale locale)
+{
+    const auto& bookDefinition = getBookDefinition(locale);
+
+    return helper::randomElement(bookDefinition.series);
 }
 }
