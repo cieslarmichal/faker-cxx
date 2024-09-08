@@ -70,6 +70,15 @@ TEST_F(StringHelperTest, joinStringsWithoutString)
     ASSERT_EQ(result, "");
 }
 
+TEST_F(StringHelperTest, joinStringsWithSingleString)
+{
+    const std::vector<std::string> input{"JoinFakerDevelopment!"};
+
+    const auto result = common::joinString(input);
+
+    ASSERT_EQ(result, "JoinFakerDevelopment!");
+}
+
 TEST_F(StringHelperTest, joinStringsIntoVectorBySpace)
 {
     const std::vector<std::string> input{"Join", "faker", "development!"};
