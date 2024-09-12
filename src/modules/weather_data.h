@@ -5,7 +5,7 @@
 
 namespace faker::weather
 {
-const auto weatherDescriptions = std::to_array<std::string_view>({
+const auto enUSWeatherDescriptions = std::to_array<std::string_view>({
     "broken clouds",
     "clear sky",
     "cloudy",
