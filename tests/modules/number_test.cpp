@@ -1,8 +1,10 @@
+#include <algorithm>
 #include <stdexcept>
 
 #include "gtest/gtest.h"
 
 #include "faker-cxx/number.h"
+#include "number_data.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -61,8 +63,6 @@ TEST_F(NumberTest, givenRangeWithSameNumberSection_shouldGenerateThisNumberForDe
     ASSERT_EQ(actualRandomNumber, 2.f);
 }
 
-//NormalDistribution(F, F) function tests
-
 TEST_F(NumberTest, normalDistribution_givenInvalidStandardDeviation_shouldThrowInvalidArgument)
 {
     ASSERT_THROW(normalDistribution<float>(10.f, -0.01f), std::invalid_argument);
@@ -84,8 +84,6 @@ TEST_F(NumberTest, givenStandardDeviationOf0_shouldGenerateMean)
 
     ASSERT_EQ(normalDistributionNumber, 0.f);
 }
-
-//NormalDistribution(F, F, F, F) tests
 
 TEST_F(NumberTest, givenInvalidRangeArguments_shouldThrowInvalidArgument)
 {
@@ -119,4 +117,62 @@ TEST_F(NumberTest, givenHighRange_shouldGenerateMax)
     const std::floating_point auto normalDistributionNum = normalDistribution<float>(10000, .0001f, -10001.f, -10000.f);
 
     ASSERT_TRUE(normalDistributionNum == -10000.f);
+}
+
+TEST_F(NumberTest, shouldGenerateHexadecimal)
+{
+    const auto hexadecimalLength = 8;
+
+    const auto generatedHexadecimal = hexadecimal(hexadecimalLength);
+
+    const auto prefix = generatedHexadecimal.substr(0, 2);
+    const auto hexNumber = generatedHexadecimal.substr(2);
+
+    ASSERT_EQ(generatedHexadecimal.size(), hexadecimalLength + 2);
+    ASSERT_EQ(prefix, "0x");
+    ASSERT_TRUE(std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
+                                    { return hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+}
+
+TEST_F(NumberTest, shouldGenerateHexadecimalWithHashPrefix)
+{
+    const auto hexadecimalLength = 8;
+
+    const auto generatedHexadecimal = hexadecimal(hexadecimalLength, HexCasing::Upper, HexPrefix::Hash);
+
+    const auto prefix = generatedHexadecimal.substr(0, 1);
+    const auto hexNumber = generatedHexadecimal.substr(1);
+
+    ASSERT_EQ(generatedHexadecimal.size(), hexadecimalLength + 1);
+    ASSERT_EQ(prefix, "#");
+    ASSERT_TRUE(std::ranges::any_of(hexNumber, [](char hexNumberCharacter)
+                                    { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+}
+
+TEST_F(NumberTest, shouldGenerateHexadecimalWithoutPrefix)
+{
+    const auto hexadecimalLength = 8;
+
+    const auto generatedHexadecimal = hexadecimal(hexadecimalLength, HexCasing::Upper, HexPrefix::None);
+
+    ASSERT_EQ(generatedHexadecimal.size(), hexadecimalLength);
+    ASSERT_TRUE(std::ranges::any_of(generatedHexadecimal, [](char hexNumberCharacter)
+                                    { return hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+}
+
+TEST_F(NumberTest, shouldGenerateHexNumber)
+{
+    auto result = hexadecimal(100, 255);
+    ASSERT_EQ(result.size(), 2);
+    ASSERT_TRUE(std::isxdigit(result[0]));
+    ASSERT_TRUE(std::isxdigit(result[1]));
+
+    result = hexadecimal(10, 15);
+    ASSERT_EQ(result.size(), 1);
+    ASSERT_TRUE(std::isxdigit(result[0]));
+
+    result = hexadecimal(30, 40);
+    ASSERT_EQ(result.size(), 2);
+    ASSERT_TRUE(std::isxdigit(result[0]));
+    ASSERT_TRUE(std::isxdigit(result[1]));
 }

@@ -9,7 +9,6 @@
 
 #include "faker-cxx/export.h"
 #include "random_generator.h"
-#include "types/hex.h"
 
 namespace faker::string
 {
@@ -292,66 +291,12 @@ FAKER_CXX_EXPORT std::string numeric(unsigned length = 1, bool allowLeadingZeros
 FAKER_CXX_EXPORT std::string numeric(GuaranteeMap&& guarantee, unsigned length = 1, bool allowLeadingZeros = true);
 
 /**
- * @brief Generates a hexadecimal string.
- *
- * @param length The number of digits to generate. Defaults to `1`.
- * @param casing Casing of the generated string. Defaults to `HexCasing::Lower`.
- * @param prefix Prefix for the generated string. Defaults to `0x`.
- *
- * @returns Hexadecimal string.
- *
- * @code
- * faker::string::hexadecimal() // "0xb"
- * faker::string::hexadecimal(10) // "0xae13d044cb"
- * faker::string::hexadecimal(6, HexCasing::Upper, HexPrefix::Hash) // "#E3F380"
- * faker::string::hexadecimal(6, HexCasing::Lower, HexPrefix::None) // "e3f380"
- * @endcode
- */
-FAKER_CXX_EXPORT std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
-                                         HexPrefix prefix = HexPrefix::ZeroX);
-
-/**
- * @brief Returns a lowercase hexadecimal number.
- *
- * @param min Optional parameter for lower bound of generated number.
- * @param max Optional parameter for upper bound of generated number.
- *
- * @return A lowercase hexadecimal number.
- *
- * @code
- * faker::string::hexadecimal() // "b"
- * faker::string::hexadecimal(0, 255) // "9d"
- * @endcode
- */
-FAKER_CXX_EXPORT std::string hexadecimal(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
-
-/**
- * @brief Generates a hexadecimal string.
- *
- * @param guarantee A map specifying char count constraints if any
- * @param length The number of digits to generate. Defaults to `1`.
- * @param casing Casing of the generated string. Defaults to `HexCasing::Lower`.
- * @param prefix Prefix for the generated string. Defaults to `0x`.
- *
- * @returns Hexadecimal string.
- *
- * @code
- * faker::string::hexadecimal({}) // "0xb"
- * faker::string::hexadecimal({'a',{2,2}}, 10) // "0xae13d04acb"
- * faker::string::hexadecimal({'F', {2,4}}, 6, HexCasing::Upper, HexPrefix::Hash) // "#E3FFF0"
- * faker::string::hexadecimal({'1', {1,4}, {'2', {1, 4}, {'c', {1,1}}, 6, HexCasing::Lower, HexPrefix::None) // "121a1c"
- * @endcode
- */
-FAKER_CXX_EXPORT std::string hexadecimal(GuaranteeMap&& guarantee, unsigned length = 1,
-                                         HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::ZeroX);
-
-/**
  * @brief Generates a binary string of a specified length
  *
  * @param length The number of digits to generate. Defaults to `1`.
  *
  * @returns Binary string.
- * 
+ *
  * @throws std::invalid_argument, if length is negative
  *
  * @code
@@ -367,7 +312,7 @@ FAKER_CXX_EXPORT std::string binary(int length = 1);
  * @param max the maximum possible decimal equivalent of the output
  *
  * @returns Binary string.
- * 
+ *
  * @throws std::invalid_argument, if min > max, std::invalid_argument if min or max are negative
  *
  * @code
@@ -375,20 +320,6 @@ FAKER_CXX_EXPORT std::string binary(int length = 1);
  * @endcode
  */
 FAKER_CXX_EXPORT std::string binary(int min, int max);
-
-/**
- * @brief Generates a binary string.
- *
- * @param guarantee A map specifying char count constraints if any
- * @param length The number of digits to generate. Defaults to `1`.
- *
- * @returns Binary string.
- *
- * @code
- * faker::string::binary({'1',{7,8}}, 8) // "0b11110111"
- * @endcode
- */
-FAKER_CXX_EXPORT std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
 
 /**
  * @brief Generates an octal string.
@@ -402,18 +333,4 @@ FAKER_CXX_EXPORT std::string binary(GuaranteeMap&& guarantee, unsigned length = 
  * @endcode
  */
 FAKER_CXX_EXPORT std::string octal(unsigned length = 1);
-
-/**
- * @brief Generates an octal string.
- *
- * @param guarantee A map specifying char count constraints if any
- * @param length The number of digits to generate. Defaults to `1`.
- *
- * @returns Octal string.
- *
- * @code
- * faker::string::octal({'4',{4,5}}, 8) // "0o42444041"
- * @endcode
- */
-FAKER_CXX_EXPORT std::string octal(GuaranteeMap&& guarantee, unsigned length = 1);
 }

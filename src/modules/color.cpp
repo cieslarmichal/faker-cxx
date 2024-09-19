@@ -7,7 +7,6 @@
 #include "common/format_helper.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
-#include "faker-cxx/string.h"
 #include "faker-cxx/types/hex.h"
 
 namespace faker::color
@@ -35,7 +34,7 @@ std::string rgb(bool includeAlpha)
 
 std::string hex(HexCasing casing, HexPrefix prefix, bool includeAlpha)
 {
-    return string::hexadecimal(includeAlpha ? 8 : 6, casing, prefix);
+    return number::hexadecimal(includeAlpha ? 8 : 6, casing, prefix);
 }
 
 std::string hsl(bool includeAlpha)
