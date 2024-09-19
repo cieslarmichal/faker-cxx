@@ -99,24 +99,36 @@ $(function(){initNavTree('number_8h.html',''); initResizable(true); });
 </div>
 
 <div class="header">
+  <div class="summary">
+<a href="#namespaces">Namespaces</a> &#124;
+<a href="#func-members">Functions</a>  </div>
   <div class="headertitle"><div class="title">number.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;concepts&gt;</code><br />
+<code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;random&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &quot;faker-cxx/export.h&quot;</code><br />
+<code>#include &quot;faker-cxx/types/hex.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for number.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="number_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2number_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2number_8h" id="ainclude_2faker-cxx_2number_8h">
-<area shape="rect" title=" " alt="" coords="48,5,224,31"/>
+<area shape="rect" title=" " alt="" coords="186,5,361,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,80,105"/>
-<area shape="poly" title=" " alt="" coords="122,34,72,72,69,67,118,29"/>
-<area shape="rect" title=" " alt="" coords="104,79,168,105"/>
-<area shape="poly" title=" " alt="" coords="138,31,138,63,133,63,133,31"/>
-<area shape="rect" title=" " alt="" coords="192,79,269,105"/>
-<area shape="poly" title=" " alt="" coords="153,29,204,67,201,72,150,34"/>
+<area shape="poly" title=" " alt="" coords="235,34,95,77,94,72,233,29"/>
+<area shape="rect" title=" " alt="" coords="104,79,170,105"/>
+<area shape="poly" title=" " alt="" coords="251,34,175,74,172,69,249,29"/>
+<area shape="rect" title=" " alt="" coords="194,79,259,105"/>
+<area shape="poly" title=" " alt="" coords="268,33,245,67,240,64,263,30"/>
+<area shape="rect" title=" " alt="" coords="282,79,360,105"/>
+<area shape="poly" title=" " alt="" coords="283,30,307,64,302,67,279,33"/>
+<area shape="rect" title=" " alt="" coords="384,79,506,105"/>
+<area shape="poly" title=" " alt="" coords="303,29,403,70,401,75,301,34"/>
+<area shape="rect" title=" " alt="" coords="530,79,672,105"/>
+<area shape="poly" title=" " alt="" coords="330,29,531,73,530,78,329,34"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -135,6 +147,31 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 </div>
 <p><a href="number_8h_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
+Namespaces</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker.html">faker</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1number.html">faker::number</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a56e8f02c1fc4e0b18f9d55901a31d659" id="r_a56e8f02c1fc4e0b18f9d55901a31d659"><td class="memTemplParams" colspan="2">template&lt;std::integral I&gt; </td></tr>
+<tr class="memitem:a56e8f02c1fc4e0b18f9d55901a31d659"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">faker::number::integer</a> (I min, I max)</td></tr>
+<tr class="memdesc:a56e8f02c1fc4e0b18f9d55901a31d659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer number in the given range, bounds included.  <br /></td></tr>
+<tr class="separator:a56e8f02c1fc4e0b18f9d55901a31d659"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc3ffd60474194ebb9de6c1fadbd6a6e" id="r_afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="memTemplParams" colspan="2">template&lt;std::integral I&gt; </td></tr>
+<tr class="memitem:afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1number.html#afc3ffd60474194ebb9de6c1fadbd6a6e">faker::number::integer</a> (I max)</td></tr>
+<tr class="memdesc:afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer between 0 and the given maximum value, bounds included.  <br /></td></tr>
+<tr class="separator:afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f199def6ac23945c838141f17888192" id="r_a9f199def6ac23945c838141f17888192"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1number.html#a9f199def6ac23945c838141f17888192">faker::number::hexadecimal</a> (unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</td></tr>
+<tr class="memdesc:a9f199def6ac23945c838141f17888192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random decimal number in the given range, bounds included.  <br /></td></tr>
+<tr class="separator:a9f199def6ac23945c838141f17888192"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ef57e38b2dc94b0f6d7c87adb46eb2f" id="r_a2ef57e38b2dc94b0f6d7c87adb46eb2f"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1number.html#a2ef57e38b2dc94b0f6d7c87adb46eb2f">faker::number::hexadecimal</a> (std::optional&lt; int &gt; min=std::nullopt, std::optional&lt; int &gt; max=std::nullopt)</td></tr>
+<tr class="memdesc:a2ef57e38b2dc94b0f6d7c87adb46eb2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a lowercase hexadecimal number.  <br /></td></tr>
+<tr class="separator:a2ef57e38b2dc94b0f6d7c87adb46eb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

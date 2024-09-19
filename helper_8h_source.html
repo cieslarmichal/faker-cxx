@@ -129,7 +129,7 @@ $(function(){initNavTree('helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">const</span> <span class="keyword">auto</span> size = std::ranges::distance(range);</div>
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> <span class="keyword">auto</span> index = number::integer(size - 1);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> <span class="keyword">auto</span> index = <a class="code hl_function" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">number::integer</a>(size - 1);</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">return</span> (*std::ranges::next(range.begin(), index));</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
@@ -210,7 +210,7 @@ $(function(){initNavTree('helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        <span class="keywordflow">throw</span> std::invalid_argument{<span class="stringliteral">&quot;Sum of weights cannot be zero.&quot;</span>};</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keyword">const</span> <span class="keyword">auto</span> targetWeightValue = number::integer(1u, sumOfWeights);</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keyword">const</span> <span class="keyword">auto</span> targetWeightValue = <a class="code hl_function" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">number::integer</a>(1u, sumOfWeights);</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span>    <span class="keyword">auto</span> currentSum = 0u;</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span> </div>
@@ -234,6 +234,7 @@ $(function(){initNavTree('helper_8h_source.html',''); initResizable(true); });
 <div class="ttc" id="anamespacefaker_1_1helper_html"><div class="ttname"><a href="namespacefaker_1_1helper.html">faker::helper</a></div><div class="ttdef"><b>Definition</b> helper.h:10</div></div>
 <div class="ttc" id="anamespacefaker_1_1helper_html_a37877d125f71459dbed8bca6310274e1"><div class="ttname"><a href="namespacefaker_1_1helper.html#a37877d125f71459dbed8bca6310274e1">faker::helper::weightedRandomElement</a></div><div class="ttdeci">T weightedRandomElement(const std::vector&lt; WeightedElement&lt; T &gt; &gt; &amp;data)</div><div class="ttdef"><b>Definition</b> helper.h:100</div></div>
 <div class="ttc" id="anamespacefaker_1_1helper_html_afb65f951a3d8f1785dbe269b3639d165"><div class="ttname"><a href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">faker::helper::randomElement</a></div><div class="ttdeci">decltype(auto) randomElement(Range &amp;&amp;range)</div><div class="ttdef"><b>Definition</b> helper.h:17</div></div>
+<div class="ttc" id="anamespacefaker_1_1number_html_a56e8f02c1fc4e0b18f9d55901a31d659"><div class="ttname"><a href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">faker::number::integer</a></div><div class="ttdeci">I integer(I min, I max)</div><div class="ttdoc">Generates a random integer number in the given range, bounds included.</div><div class="ttdef"><b>Definition</b> number.h:31</div></div>
 <div class="ttc" id="anumber_8h_html"><div class="ttname"><a href="number_8h.html">number.h</a></div></div>
 <div class="ttc" id="astructfaker_1_1helper_1_1WeightedElement_html"><div class="ttname"><a href="structfaker_1_1helper_1_1WeightedElement.html">faker::helper::WeightedElement</a></div><div class="ttdoc">Get a random element by weight from a vector.</div><div class="ttdef"><b>Definition</b> helper.h:94</div></div>
 <div class="ttc" id="astructfaker_1_1helper_1_1WeightedElement_html_aacae7a1e66f84ce071a2a0c4a7c2f3f1"><div class="ttname"><a href="structfaker_1_1helper_1_1WeightedElement.html#aacae7a1e66f84ce071a2a0c4a7c2f3f1">faker::helper::WeightedElement::weight</a></div><div class="ttdeci">unsigned weight</div><div class="ttdef"><b>Definition</b> helper.h:95</div></div>

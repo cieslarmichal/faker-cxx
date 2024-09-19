@@ -1,7 +1,7 @@
 var searchData=
 [
   ['hex_0',['hex',['../namespacefaker_1_1color.html#ad77b26473e833e142dbcf4b7eb40151d',1,'faker::color']]],
-  ['hexadecimal_1',['hexadecimal',['../namespacefaker_1_1string.html#a53c522cba8f02956fb554ef73261424b',1,'faker::string::hexadecimal(unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)'],['../namespacefaker_1_1string.html#afdf0e7008f19716d3b6d82058cc07621',1,'faker::string::hexadecimal(std::optional&lt; int &gt; min=std::nullopt, std::optional&lt; int &gt; max=std::nullopt)'],['../namespacefaker_1_1string.html#a8e19bab9b27625c925d09c75b543fa72',1,'faker::string::hexadecimal(GuaranteeMap &amp;&amp;guarantee, unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)']]],
+  ['hexadecimal_1',['hexadecimal',['../namespacefaker_1_1number.html#a9f199def6ac23945c838141f17888192',1,'faker::number::hexadecimal(unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)'],['../namespacefaker_1_1number.html#a2ef57e38b2dc94b0f6d7c87adb46eb2f',1,'faker::number::hexadecimal(std::optional&lt; int &gt; min=std::nullopt, std::optional&lt; int &gt; max=std::nullopt)']]],
   ['hobby_2',['hobby',['../namespacefaker_1_1person.html#ab728ebbf9c6a7b830ff989943fc34330',1,'faker::person']]],
   ['horse_3',['horse',['../namespacefaker_1_1animal.html#a8afb736853a9d86a7bd677c7d3efcb6d',1,'faker::animal']]],
   ['hour_4',['hour',['../namespacefaker_1_1date.html#a0c4ce65b05670d9bca85c5ed06c2a80e',1,'faker::date']]],

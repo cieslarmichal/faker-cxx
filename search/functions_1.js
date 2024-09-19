@@ -3,7 +3,7 @@ var searchData=
   ['bear_0',['bear',['../namespacefaker_1_1animal.html#a1ef73aba70cae19b9c641358f98aa95e',1,'faker::animal']]],
   ['bic_1',['bic',['../namespacefaker_1_1finance.html#a77c1b40489bdb3a8ef0280d7ca336370',1,'faker::finance']]],
   ['bicycle_2',['bicycle',['../namespacefaker_1_1vehicle.html#abcd2613f6e47ac7650924209851ff05e',1,'faker::vehicle']]],
-  ['binary_3',['binary',['../namespacefaker_1_1string.html#a823f589d52619dec806f9eb1cda9c279',1,'faker::string::binary(int length=1)'],['../namespacefaker_1_1string.html#a491cc453618eade84ecfdb04b66e985e',1,'faker::string::binary(int min, int max)'],['../namespacefaker_1_1string.html#a8d3259903d00cae5042e753dc2f6c487',1,'faker::string::binary(GuaranteeMap &amp;&amp;guarantee, unsigned length=1)']]],
+  ['binary_3',['binary',['../namespacefaker_1_1string.html#a823f589d52619dec806f9eb1cda9c279',1,'faker::string::binary(int length=1)'],['../namespacefaker_1_1string.html#a491cc453618eade84ecfdb04b66e985e',1,'faker::string::binary(int min, int max)']]],
   ['bio_4',['bio',['../namespacefaker_1_1person.html#a41deabbecbf923fd045031c7456df21d',1,'faker::person']]],
   ['bird_5',['bird',['../namespacefaker_1_1animal.html#a08d156573d0833f51a1801eb304b17e7',1,'faker::animal']]],
   ['birthdatebyage_6',['birthdateByAge',['../namespacefaker_1_1date.html#a9de04d3e50ab9057ab7a92ed858a744a',1,'faker::date']]],

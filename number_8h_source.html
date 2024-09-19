@@ -105,94 +105,113 @@ $(function(){initNavTree('number_8h_source.html',''); initResizable(true); });
 <a href="number_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#pragma once</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;concepts&gt;</span></div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;random&gt;</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="keyword">namespace </span>faker::number</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral I&gt;</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>I integer(I min, I max)</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>{</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    <span class="keywordflow">if</span> (min &gt; max)</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    {</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Minimum value must be smaller than maximum value.&quot;</span>);</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    }</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator{std::random_device{}()};</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::uniform_int_distribution&lt;I&gt; distribution(min, max);</div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;optional&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;random&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &lt;stdexcept&gt;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;faker-cxx/export.h&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;faker-cxx/types/hex.h&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
+<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespacefaker_1_1number.html">   11</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacefaker_1_1number.html">faker::number</a></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral I&gt;</div>
+<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">   31</a></span>I <a class="code hl_function" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">integer</a>(I min, I max)</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keywordflow">if</span> (min &gt; max)</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    {</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Minimum value must be smaller than maximum value.&quot;</span>);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    }</div>
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">return</span> distribution(pseudoRandomGenerator);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>}</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral I&gt;</div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span>I integer(I max)</div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>{</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">return</span> integer&lt;I&gt;(<span class="keyword">static_cast&lt;</span>I<span class="keyword">&gt;</span>(0), max);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>}</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> F&gt;</div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>F decimal(F min, F max)</div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>{</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>    <span class="keywordflow">if</span> (min &gt; max)</div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    {</div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Minimum value must be smaller than maximum value.&quot;</span>);</div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator{std::random_device{}()};</div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    std::uniform_real_distribution&lt;F&gt; distribution(min, max);</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <span class="keywordflow">return</span> distribution(pseudoRandomGenerator);</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>}</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> F&gt;</div>
-<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>F decimal(F max)</div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>{</div>
-<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    <span class="keywordflow">return</span> decimal&lt;F&gt;(<span class="keyword">static_cast&lt;</span>F<span class="keyword">&gt;</span>(0.), max);</div>
-<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>}</div>
-<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
-<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> F&gt;</div>
-<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>F normalDistribution(F mean, F standardDeviation)</div>
-<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span>{</div>
-<div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>    <span class="keywordflow">if</span>(standardDeviation &lt; 0 || standardDeviation == INFINITY || mean == INFINITY)</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    {</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Standard Deviation cannot be negative&quot;</span>);</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    }</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(standardDeviation == 0)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator{std::random_device{}()};</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    std::uniform_int_distribution&lt;I&gt; distribution(min, max);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">return</span> distribution(pseudoRandomGenerator);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>}</div>
+</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span> </div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">int</span>egral I&gt;</div>
+<div class="foldopen" id="foldopen00062" data-start="{" data-end="}">
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="namespacefaker_1_1number.html#afc3ffd60474194ebb9de6c1fadbd6a6e">   62</a></span>I <a class="code hl_function" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">integer</a>(I max)</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>{</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">integer&lt;I&gt;</a>(<span class="keyword">static_cast&lt;</span>I<span class="keyword">&gt;</span>(0), max);</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>}</div>
+</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span> </div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> F&gt;</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>F decimal(F min, F max)</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>{</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    <span class="keywordflow">if</span> (min &gt; max)</div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span>    {</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Minimum value must be smaller than maximum value.&quot;</span>);</div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    }</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span> </div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator{std::random_device{}()};</div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    std::uniform_real_distribution&lt;F&gt; distribution(min, max);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">return</span> distribution(pseudoRandomGenerator);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>}</div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> F&gt;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>F decimal(F max)</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span>{</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="keywordflow">return</span> decimal&lt;F&gt;(<span class="keyword">static_cast&lt;</span>F<span class="keyword">&gt;</span>(0.), max);</div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>}</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> F&gt;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>F normalDistribution(F mean, F standardDeviation)</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>{</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <span class="keywordflow">if</span> (standardDeviation &lt; 0 || standardDeviation == INFINITY || mean == INFINITY)</div>
 <div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    {</div>
-<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">return</span> mean;</div>
+<div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Standard Deviation cannot be negative&quot;</span>);</div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    }</div>
-<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span> </div>
-<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    std::random_device randDev;</div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>    std::mt19937 PSRNG(randDev());</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span>    std::normal_distribution&lt;F&gt; dist(mean, standardDeviation);</div>
-<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    <span class="keywordflow">return</span> dist(PSRNG);</div>
-<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>}</div>
+<div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (standardDeviation == 0)</div>
+<div class="line"><a id="l00144" name="l00144"></a><span class="lineno">  144</span>    {</div>
+<div class="line"><a id="l00145" name="l00145"></a><span class="lineno">  145</span>        <span class="keywordflow">return</span> mean;</div>
+<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span>    }</div>
+<div class="line"><a id="l00147" name="l00147"></a><span class="lineno">  147</span> </div>
+<div class="line"><a id="l00148" name="l00148"></a><span class="lineno">  148</span>    std::random_device randDev;</div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno">  149</span>    std::mt19937 PSRNG(randDev());</div>
 <div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> F&gt;</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>F normalDistribution(F mean, F standardDeviation, F min, F max)</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>{</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">if</span> (min &gt; max)</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;min cannot be larger than max&quot;</span>);</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    F <a class="code hl_function" href="namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d">sample</a> = normalDistribution(mean, standardDeviation);</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span> </div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    <span class="keywordflow">if</span> (sample &gt; max)</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    {</div>
-<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>        <a class="code hl_function" href="namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d">sample</a> = max;</div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    }</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span>(sample &lt; min)</div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span>    std::normal_distribution&lt;F&gt; dist(mean, standardDeviation);</div>
+<div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>    <span class="keywordflow">return</span> dist(PSRNG);</div>
+<div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span>}</div>
+<div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span> </div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span><span class="keyword">template</span> &lt;std::<span class="keywordtype">float</span>ing_po<span class="keywordtype">int</span> F&gt;</div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>F normalDistribution(F mean, F standardDeviation, F min, F max)</div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>{</div>
+<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span>    <span class="keywordflow">if</span> (min &gt; max)</div>
+<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    {</div>
+<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;min cannot be larger than max&quot;</span>);</div>
+<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>    }</div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span> </div>
+<div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span>    F <a class="code hl_function" href="namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d">sample</a> = normalDistribution(mean, standardDeviation);</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span>    <span class="keywordflow">if</span> (sample &gt; max)</div>
 <div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    {</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <a class="code hl_function" href="namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d">sample</a> = min;</div>
+<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>        <a class="code hl_function" href="namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d">sample</a> = max;</div>
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    }</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d">sample</a>;</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>}</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span> </div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>}</div>
+<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordflow">else</span> <span class="keywordflow">if</span> (sample &lt; min)</div>
+<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>    {</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        <a class="code hl_function" href="namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d">sample</a> = min;</div>
+<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
+<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
+<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d">sample</a>;</div>
+<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
+<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span> </div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno"><a class="line" href="namespacefaker_1_1number.html#a9f199def6ac23945c838141f17888192">  214</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1number.html#a9f199def6ac23945c838141f17888192">hexadecimal</a>(<span class="keywordtype">unsigned</span> length = 1, HexCasing casing = HexCasing::Lower,</div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>                                         HexPrefix prefix = HexPrefix::ZeroX);</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span> </div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno"><a class="line" href="namespacefaker_1_1number.html#a2ef57e38b2dc94b0f6d7c87adb46eb2f">  230</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1number.html#a9f199def6ac23945c838141f17888192">hexadecimal</a>(std::optional&lt;int&gt; min = std::nullopt, std::optional&lt;int&gt; max = std::nullopt);</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span> </div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>}</div>
+</div>
+<div class="ttc" id="anamespacefaker_1_1number_html"><div class="ttname"><a href="namespacefaker_1_1number.html">faker::number</a></div><div class="ttdef"><b>Definition</b> number.h:12</div></div>
+<div class="ttc" id="anamespacefaker_1_1number_html_a56e8f02c1fc4e0b18f9d55901a31d659"><div class="ttname"><a href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">faker::number::integer</a></div><div class="ttdeci">I integer(I min, I max)</div><div class="ttdoc">Generates a random integer number in the given range, bounds included.</div><div class="ttdef"><b>Definition</b> number.h:31</div></div>
+<div class="ttc" id="anamespacefaker_1_1number_html_a9f199def6ac23945c838141f17888192"><div class="ttname"><a href="namespacefaker_1_1number.html#a9f199def6ac23945c838141f17888192">faker::number::hexadecimal</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string hexadecimal(unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</div><div class="ttdoc">Generates a random decimal number in the given range, bounds included.</div></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a34013d255a8eaf4c2afab2090c15cb8d"><div class="ttname"><a href="namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d">faker::string::sample</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string sample(unsigned length=10)</div><div class="ttdoc">Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->

@@ -116,31 +116,28 @@ $(function(){initNavTree('string_8h.html',''); initResizable(true); });
 <code>#include &lt;string&gt;</code><br />
 <code>#include &quot;faker-cxx/export.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="random__generator_8h_source.html">random_generator.h</a>&quot;</code><br />
-<code>#include &quot;types/hex.h&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for string.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="string_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2string_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2string_8h" id="ainclude_2faker-cxx_2string_8h">
-<area shape="rect" title=" " alt="" coords="231,5,395,31"/>
+<area shape="rect" title=" " alt="" coords="201,5,366,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,58,105"/>
-<area shape="poly" title=" " alt="" coords="261,34,73,81,72,76,259,29"/>
+<area shape="poly" title=" " alt="" coords="240,34,73,81,72,76,239,29"/>
 <area shape="rect" title=" " alt="" coords="82,79,128,105"/>
-<area shape="poly" title=" " alt="" coords="278,34,144,80,142,75,277,29"/>
+<area shape="poly" title=" " alt="" coords="254,34,143,78,141,73,252,29"/>
 <area shape="rect" title=" " alt="" coords="152,79,218,105"/>
-<area shape="poly" title=" " alt="" coords="292,34,221,73,219,69,290,29"/>
+<area shape="poly" title=" " alt="" coords="268,34,215,72,212,68,265,29"/>
 <area shape="rect" title=" " alt="" coords="371,153,436,178"/>
-<area shape="poly" title=" " alt="" coords="304,33,283,66,278,85,283,103,298,120,316,134,358,152,355,157,313,139,294,124,278,106,273,85,278,64,300,30"/>
+<area shape="poly" title=" " alt="" coords="282,32,275,66,276,86,283,103,298,120,316,134,358,152,355,157,313,139,294,124,279,106,271,87,270,66,277,31"/>
 <area shape="rect" title=" " alt="" coords="293,79,332,105"/>
-<area shape="poly" title=" " alt="" coords="316,31,316,63,310,63,310,31"/>
+<area shape="poly" title=" " alt="" coords="291,30,304,63,300,65,286,32"/>
 <area shape="rect" title=" " alt="" coords="357,79,410,105"/>
-<area shape="poly" title=" " alt="" coords="326,29,363,66,359,70,323,33"/>
+<area shape="poly" title=" " alt="" coords="302,29,356,67,353,72,299,34"/>
 <area shape="rect" title=" " alt="" coords="434,79,557,105"/>
-<area shape="poly" title=" " alt="" coords="345,29,451,71,449,75,343,34"/>
+<area shape="poly" title=" " alt="" coords="320,29,446,71,444,76,319,34"/>
 <area shape="rect" href="random__generator_8h.html" title=" " alt="" coords="581,79,716,105"/>
-<area shape="poly" title=" " alt="" coords="371,29,578,73,576,78,370,34"/>
-<area shape="rect" title=" " alt="" coords="740,79,827,105"/>
-<area shape="poly" title=" " alt="" coords="396,27,545,47,726,76,725,81,545,53,395,32"/>
+<area shape="poly" title=" " alt="" coords="346,29,572,73,571,78,345,34"/>
 <area shape="poly" title=" " alt="" coords="608,108,451,153,450,148,606,103"/>
 <area shape="rect" title=" " alt="" coords="608,153,690,178"/>
 <area shape="poly" title=" " alt="" coords="652,105,652,137,646,137,646,105"/>
@@ -216,30 +213,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a6b7e02197a0cec823f7b051c7234865b" id="r_a6b7e02197a0cec823f7b051c7234865b"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a6b7e02197a0cec823f7b051c7234865b">faker::string::numeric</a> (<a class="el" href="namespacefaker_1_1string.html#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> &amp;&amp;guarantee, unsigned length=1, bool allowLeadingZeros=true)</td></tr>
 <tr class="memdesc:a6b7e02197a0cec823f7b051c7234865b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a given length string of digits.  <br /></td></tr>
 <tr class="separator:a6b7e02197a0cec823f7b051c7234865b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a53c522cba8f02956fb554ef73261424b" id="r_a53c522cba8f02956fb554ef73261424b"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a53c522cba8f02956fb554ef73261424b">faker::string::hexadecimal</a> (unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</td></tr>
-<tr class="memdesc:a53c522cba8f02956fb554ef73261424b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a hexadecimal string.  <br /></td></tr>
-<tr class="separator:a53c522cba8f02956fb554ef73261424b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdf0e7008f19716d3b6d82058cc07621" id="r_afdf0e7008f19716d3b6d82058cc07621"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#afdf0e7008f19716d3b6d82058cc07621">faker::string::hexadecimal</a> (std::optional&lt; int &gt; min=std::nullopt, std::optional&lt; int &gt; max=std::nullopt)</td></tr>
-<tr class="memdesc:afdf0e7008f19716d3b6d82058cc07621"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a lowercase hexadecimal number.  <br /></td></tr>
-<tr class="separator:afdf0e7008f19716d3b6d82058cc07621"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8e19bab9b27625c925d09c75b543fa72" id="r_a8e19bab9b27625c925d09c75b543fa72"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a8e19bab9b27625c925d09c75b543fa72">faker::string::hexadecimal</a> (<a class="el" href="namespacefaker_1_1string.html#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> &amp;&amp;guarantee, unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</td></tr>
-<tr class="memdesc:a8e19bab9b27625c925d09c75b543fa72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a hexadecimal string.  <br /></td></tr>
-<tr class="separator:a8e19bab9b27625c925d09c75b543fa72"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a823f589d52619dec806f9eb1cda9c279" id="r_a823f589d52619dec806f9eb1cda9c279"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a823f589d52619dec806f9eb1cda9c279">faker::string::binary</a> (int length=1)</td></tr>
 <tr class="memdesc:a823f589d52619dec806f9eb1cda9c279"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a binary string of a specified length.  <br /></td></tr>
 <tr class="separator:a823f589d52619dec806f9eb1cda9c279"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a491cc453618eade84ecfdb04b66e985e" id="r_a491cc453618eade84ecfdb04b66e985e"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a491cc453618eade84ecfdb04b66e985e">faker::string::binary</a> (int min, int max)</td></tr>
 <tr class="memdesc:a491cc453618eade84ecfdb04b66e985e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random binary string which has its decimal equivalent between min and max inclusive.  <br /></td></tr>
 <tr class="separator:a491cc453618eade84ecfdb04b66e985e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d3259903d00cae5042e753dc2f6c487" id="r_a8d3259903d00cae5042e753dc2f6c487"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a8d3259903d00cae5042e753dc2f6c487">faker::string::binary</a> (<a class="el" href="namespacefaker_1_1string.html#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> &amp;&amp;guarantee, unsigned length=1)</td></tr>
-<tr class="memdesc:a8d3259903d00cae5042e753dc2f6c487"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a binary string.  <br /></td></tr>
-<tr class="separator:a8d3259903d00cae5042e753dc2f6c487"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1f0a16d0a30f3fe542042384f76ec2c" id="r_ae1f0a16d0a30f3fe542042384f76ec2c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#ae1f0a16d0a30f3fe542042384f76ec2c">faker::string::octal</a> (unsigned length=1)</td></tr>
 <tr class="memdesc:ae1f0a16d0a30f3fe542042384f76ec2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an octal string.  <br /></td></tr>
 <tr class="separator:ae1f0a16d0a30f3fe542042384f76ec2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1e3a8454501914f1d54f607336a8ab5c" id="r_a1e3a8454501914f1d54f607336a8ab5c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a1e3a8454501914f1d54f607336a8ab5c">faker::string::octal</a> (<a class="el" href="namespacefaker_1_1string.html#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> &amp;&amp;guarantee, unsigned length=1)</td></tr>
-<tr class="memdesc:a1e3a8454501914f1d54f607336a8ab5c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an octal string.  <br /></td></tr>
-<tr class="separator:a1e3a8454501914f1d54f607336a8ab5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
