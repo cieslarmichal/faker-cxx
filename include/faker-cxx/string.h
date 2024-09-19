@@ -345,62 +345,7 @@ FAKER_CXX_EXPORT std::string hexadecimal(std::optional<int> min = std::nullopt, 
 FAKER_CXX_EXPORT std::string hexadecimal(GuaranteeMap&& guarantee, unsigned length = 1,
                                          HexCasing casing = HexCasing::Lower, HexPrefix prefix = HexPrefix::ZeroX);
 
-/**
- * @brief Generates a binary string of a specified length
- *
- * @param length The number of digits to generate. Defaults to `1`.
- *
- * @returns Binary string.
- * 
- * @throws std::invalid_argument, if length is negative
- *
- * @code
- * faker::string::binary(8) // "0b01110101"
- * @endcode
- */
-FAKER_CXX_EXPORT std::string binary(int length = 1);
 
-/**
- * @brief Generates a random binary string which has its decimal equivalent between min and max inclusive
- *
- * @param min the minimum possible decimal equivalent of the output
- * @param max the maximum possible decimal equivalent of the output
- *
- * @returns Binary string.
- * 
- * @throws std::invalid_argument, if min > max, std::invalid_argument if min or max are negative
- *
- * @code
- * faker::string::binary(0, 1024) // "0b10110"
- * @endcode
- */
-FAKER_CXX_EXPORT std::string binary(int min, int max);
-
-/**
- * @brief Generates a binary string.
- *
- * @param guarantee A map specifying char count constraints if any
- * @param length The number of digits to generate. Defaults to `1`.
- *
- * @returns Binary string.
- *
- * @code
- * faker::string::binary({'1',{7,8}}, 8) // "0b11110111"
- * @endcode
- */
-FAKER_CXX_EXPORT std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
-
-/**
- * @brief Generates an octal string.
- *
- * @param length The number of digits to generate. Defaults to `1`.
- *
- * @returns Octal string.
- *
- * @code
- * faker::string::octal(8) // "0o52561721"
- * @endcode
- */
 FAKER_CXX_EXPORT std::string octal(unsigned length = 1);
 
 /**

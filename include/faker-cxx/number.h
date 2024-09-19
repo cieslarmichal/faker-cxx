@@ -3,6 +3,12 @@
 #include <concepts>
 #include <random>
 #include <stdexcept>
+#include <map>
+#include <limits>
+#include<set>
+
+#include "faker-cxx/export.h"
+
 
 namespace faker::number
 {
@@ -189,5 +195,94 @@ F normalDistribution(F mean, F standardDeviation, F min, F max)
     }
 	return sample;
 }
+
+
+struct FAKER_CXX_EXPORT CharCount
+{
+    unsigned int atLeastCount{(std::numeric_limits<unsigned int>::min)()};
+    unsigned int atMostCount{(std::numeric_limits<unsigned int>::max)()};
+};
+
+/**
+ * A std::map where user can specify the count required for specific chars
+ */
+using GuaranteeMap = std::map<char, CharCount>;
+
+/**
+ * @brief Generates a binary string of a specified length
+ *
+ * @param length The number of digits to generate. Defaults to `1`.
+ *
+ * @returns Binary string.
+ * 
+ * @throws std::invalid_argument, if length is negative
+ *
+ * @code
+ * faker::string::binary(8) // "0b01110101"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string binary(int length = 1);
+
+/**
+ * @brief Generates a random binary string which has its decimal equivalent between min and max inclusive
+ *
+ * @param min the minimum possible decimal equivalent of the output
+ * @param max the maximum possible decimal equivalent of the output
+ *
+ * @returns Binary string.
+ * 
+ * @throws std::invalid_argument, if min > max, std::invalid_argument if min or max are negative
+ *
+ * @code
+ * faker::string::binary(0, 1024) // "0b10110"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string binary(int min, int max);
+
+/**
+ * @brief Generates a binary string.
+ *
+ * @param guarantee A map specifying char count constraints if any
+ * @param length The number of digits to generate. Defaults to `1`.
+ *
+ * @returns Binary string.
+ *
+ * @code
+ * faker::string::binary({'1',{7,8}}, 8) // "0b11110111"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string binary(GuaranteeMap&& guarantee, unsigned length = 1);
+
+/**
+ * @brief Checks if the given guarantee map is valid for given targetCharacters and length.
+ *
+ * @returns a bool.
+ *
+ * @param guarantee A std::map that maps the count range of specific characters required
+ * @param targetCharacters A std::string consisting of all chars available for that string generating function
+ * @param length The number of characters to generate.
+ *
+ * @code
+ * GuaranteeMap guarantee = {{'0',{5,10}},{'1',{6,10}}};
+ * std::string targetCharacters = "01";
+ * unsigned int length = 10;
+ * faker::string::isValidGuarantee(guarantee,targetCharacters,length) // false
+ * @endcode
+ */
+FAKER_CXX_EXPORT bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length);
+
+/**
+ * @brief Generates the least required string for a given guarantee map
+ *
+ * @returns least required std::string
+ *
+ * @param guarantee A std::map<char,CharCount> which stores the guarantee specified by the user
+ *
+ * @code
+ * GuaranteeMap guarantee { {'0',{3,10}},{'a',{6,8}} }; // "000aaaaaa"
+ * faker::string::generateAtLeastString(guarantee);
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap& guarantee);
 
 }

@@ -26,6 +26,7 @@ set(FAKER_SOURCES
     modules/medicine.cpp
     modules/movie.cpp
     modules/music.cpp
+    modules/number.cpp
     modules/person.cpp
     modules/phone.cpp
     modules/plant.cpp
