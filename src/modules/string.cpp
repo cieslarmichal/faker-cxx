@@ -122,6 +122,18 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee)
     return result;
 }
 
+std::string binary(GuaranteeMap&& guarantee, unsigned int length)
+{
+    std::set<char> targetCharacters{'0', '1'};
+
+    if (!isValidGuarantee(guarantee, targetCharacters, length))
+    {
+        throw std::invalid_argument{"Invalid guarantee."};
+    }
+
+    return "0b" + generateStringWithGuarantee(guarantee, targetCharacters, length);
+}
+
 std::string sample(unsigned int length)
 {
     std::string sample;
@@ -379,4 +391,5 @@ std::string octal(GuaranteeMap&& guarantee, unsigned int length)
 
     return "0o" + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
+
 }

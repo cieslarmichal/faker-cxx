@@ -13,54 +13,6 @@ namespace faker::number
 namespace
 {
 
-std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
-{
-    std::string output{};
-    output += generateAtLeastString(guarantee);
-    assert(output.size() <= length);
-    length -= static_cast<unsigned>(output.size());
-    for (unsigned i = 0; i < length; ++i)
-    {
-        char generatedChar;
-        while (true)
-        {
-            generatedChar = helper::setElement(targetCharacters);
-
-            auto it = guarantee.find(generatedChar);
-            if (it == guarantee.end())
-                break;
-            auto remainingUses = it->second.atMostCount - it->second.atLeastCount;
-            if (remainingUses > 0)
-            {
-                --it->second.atMostCount;
-                break;
-            }
-            else
-            {
-                targetCharacters.erase(it->first);
-            }
-        }
-        output += generatedChar;
-    }
-
-    output = helper::shuffleString(output);
-
-    return output;
-}
-
-std::string generateAtLeastString(const GuaranteeMap& guarantee)
-{
-    std::string result;
-
-    for (auto& it : guarantee)
-    {
-        result += std::string(it.second.atLeastCount, it.first);
-    }
-
-    return result;
-}
-
-
 std::string binary(int length)
 {
     if (length < 0)
@@ -109,41 +61,6 @@ std::string binary(int min, int max)
     return "0b" + output;
 }
 
-std::string binary(GuaranteeMap&& guarantee, unsigned int length)
-{
-    std::set<char> targetCharacters{'0', '1'};
 
-    if (!isValidGuarantee(guarantee, targetCharacters, length))
-    {
-        throw std::invalid_argument{"Invalid guarantee."};
-    }
-
-    return "0b" + generateStringWithGuarantee(guarantee, targetCharacters, length);
-}
-
-bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
-{
-    unsigned int atLeastCountSum{};
-    unsigned int atMostCountSum{};
-
-    for (auto& it : guarantee)
-    {
-        if (!targetCharacters.contains(it.first))
-        {
-            return false;
-        }
-
-        atLeastCountSum += it.second.atLeastCount;
-
-        atMostCountSum += it.second.atMostCount;
-    }
-
-    if (atLeastCountSum > length || (guarantee.size() == targetCharacters.size() && atMostCountSum < length))
-    {
-        return false;
-    }
-
-    return true;
-}
 }
 }
