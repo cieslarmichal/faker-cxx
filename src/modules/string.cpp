@@ -2,16 +2,13 @@
 
 #include <cassert>
 #include <map>
-#include <optional>
 #include <set>
 #include <stdexcept>
 #include <string>
 
 #include "common/algo_helper.h"
-#include "common/format_helper.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
-#include "faker-cxx/types/hex.h"
 #include "string_data.h"
 
 namespace faker::string
@@ -28,25 +25,11 @@ const std::map<StringCasing, std::string> stringCasingToAlphanumericCharactersMa
     {StringCasing::Upper, upperAlphanumericCharacters},
     {StringCasing::Mixed, mixedAlphanumericCharacters},
 };
-const std::map<HexCasing, std::string> hexCasingToCharactersMapping{
-    {HexCasing::Lower, hexLowerCharacters},
-    {HexCasing::Upper, hexUpperCharacters},
-};
-const std::map<HexPrefix, std::string> hexPrefixToStringMapping{
-    {HexPrefix::ZeroX, "0x"},
-    {HexPrefix::Hash, "#"},
-    {HexPrefix::None, ""},
-};
 
 const std::map<StringCasing, std::set<char>> stringCasingToAlphaCharSetMapping{
     {StringCasing::Lower, lowerCharSet},
     {StringCasing::Upper, upperCharSet},
     {StringCasing::Mixed, mixedAlphaCharSet},
-};
-
-const std::map<HexCasing, std::set<char>> hexCasingToCharSetMapping{
-    {HexCasing::Lower, hexLowerCharSet},
-    {HexCasing::Upper, hexUpperCharSet},
 };
 
 std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
@@ -306,54 +289,6 @@ std::string numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowL
 
         return firstChar + generateStringWithGuarantee(guarantee, targetCharacters, length - 1);
     }
-}
-
-std::string hexadecimal(unsigned int length, HexCasing casing, HexPrefix prefix)
-{
-    const auto& hexadecimalCharacters = hexCasingToCharactersMapping.at(casing);
-
-    const auto& hexadecimalPrefix = hexPrefixToStringMapping.at(prefix);
-
-    std::string hexadecimal{hexadecimalPrefix};
-
-    for (unsigned i = 0; i < length; i++)
-    {
-        hexadecimal += helper::randomElement(hexadecimalCharacters);
-    }
-
-    return hexadecimal;
-}
-
-std::string hexadecimal(std::optional<int> min, std::optional<int> max)
-{
-    int defaultMin = 0;
-    int defaultMax = 15;
-
-    if (min.has_value())
-    {
-        defaultMin = min.value();
-    }
-
-    if (max.has_value())
-    {
-        defaultMax = max.value();
-    }
-
-    return common::format("{:x}", number::integer(defaultMin, defaultMax));
-}
-
-std::string hexadecimal(GuaranteeMap&& guarantee, unsigned int length, HexCasing casing, HexPrefix prefix)
-{
-    std::set<char> targetCharacters = hexCasingToCharSetMapping.at(casing);
-
-    if (!isValidGuarantee(guarantee, targetCharacters, length))
-    {
-        throw std::invalid_argument{"Invalid guarantee."};
-    }
-
-    const auto& hexadecimalPrefix = hexPrefixToStringMapping.at(prefix);
-
-    return hexadecimalPrefix + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
 std::string binary(int length)

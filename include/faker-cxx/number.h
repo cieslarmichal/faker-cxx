@@ -1,8 +1,12 @@
 #pragma once
 
 #include <concepts>
+#include <optional>
 #include <random>
 #include <stdexcept>
+
+#include "faker-cxx/export.h"
+#include "faker-cxx/types/hex.h"
 
 namespace faker::number
 {
@@ -121,7 +125,7 @@ F decimal(F max)
  * @param standard_deviation the standard deviation of the normal distribution
  *
  * @throws std::invalid_argument if standard deviation is negative or infinity, or if mean is infinity
- * 
+ *
  * @return F, a random floating point number following the specified normal distribution
  *
  * @code
@@ -132,20 +136,20 @@ F decimal(F max)
 template <std::floating_point F>
 F normalDistribution(F mean, F standardDeviation)
 {
-    if(standardDeviation < 0 || standardDeviation == INFINITY || mean == INFINITY)
+    if (standardDeviation < 0 || standardDeviation == INFINITY || mean == INFINITY)
     {
         throw std::invalid_argument("Standard Deviation cannot be negative");
     }
-    else if(standardDeviation == 0)
+    else if (standardDeviation == 0)
     {
         return mean;
     }
 
-	std::random_device randDev;
-	std::mt19937 PSRNG(randDev());
+    std::random_device randDev;
+    std::mt19937 PSRNG(randDev());
 
-	std::normal_distribution<F> dist(mean, standardDeviation);
-	return dist(PSRNG);
+    std::normal_distribution<F> dist(mean, standardDeviation);
+    return dist(PSRNG);
 }
 
 /**
@@ -161,9 +165,9 @@ F normalDistribution(F mean, F standardDeviation)
  * @return F, a random floating point number following the specified normal distribution within the specified range
  *
  * @throws std::invalid_argument if min is greater than max
- * 
+ *
  * @see normalDistribution<F>(F, F)
- * 
+ *
  * @code
  * faker::number::normalDistribution(10, 3, 9, 11) // 9
  * @encode
@@ -172,22 +176,57 @@ F normalDistribution(F mean, F standardDeviation)
 template <std::floating_point F>
 F normalDistribution(F mean, F standardDeviation, F min, F max)
 {
-	if (min > max)
-	{
-		throw std::invalid_argument("min cannot be larger than max");
-	}
+    if (min > max)
+    {
+        throw std::invalid_argument("min cannot be larger than max");
+    }
 
-	F sample = normalDistribution(mean, standardDeviation);
+    F sample = normalDistribution(mean, standardDeviation);
 
-	if (sample > max)
+    if (sample > max)
     {
         sample = max;
     }
-    else if(sample < min)
+    else if (sample < min)
     {
         sample = min;
     }
-	return sample;
+
+    return sample;
 }
+
+/**
+ * @brief Generates a hexadecimal string.
+ *
+ * @param length The number of digits to generate. Defaults to `1`.
+ * @param casing Casing of the generated string. Defaults to `HexCasing::Lower`.
+ * @param prefix Prefix for the generated string. Defaults to `0x`.
+ *
+ * @returns Hexadecimal string.
+ *
+ * @code
+ * faker::string::hexadecimal() // "0xb"
+ * faker::string::hexadecimal(10) // "0xae13d044cb"
+ * faker::string::hexadecimal(6, HexCasing::Upper, HexPrefix::Hash) // "#E3F380"
+ * faker::string::hexadecimal(6, HexCasing::Lower, HexPrefix::None) // "e3f380"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string hexadecimal(unsigned length = 1, HexCasing casing = HexCasing::Lower,
+                                         HexPrefix prefix = HexPrefix::ZeroX);
+
+/**
+ * @brief Returns a lowercase hexadecimal number.
+ *
+ * @param min Optional parameter for lower bound of generated number.
+ * @param max Optional parameter for upper bound of generated number.
+ *
+ * @return A lowercase hexadecimal number.
+ *
+ * @code
+ * faker::string::hexadecimal() // "b"
+ * faker::string::hexadecimal(0, 255) // "9d"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string hexadecimal(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
 
 }

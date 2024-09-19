@@ -14,6 +14,7 @@ set(FAKER_SOURCES
     modules/database.cpp
     modules/datatype.cpp
     modules/date.cpp
+    modules/esport.cpp
     modules/finance.cpp
     modules/food.cpp
     modules/git.cpp
@@ -26,12 +27,12 @@ set(FAKER_SOURCES
     modules/medicine.cpp
     modules/movie.cpp
     modules/music.cpp
+    modules/number.cpp
     modules/person.cpp
     modules/phone.cpp
     modules/plant.cpp
     modules/science.cpp
     modules/sport.cpp
-    modules/esport.cpp
     modules/string.cpp
     modules/system.cpp
     modules/vehicle.cpp

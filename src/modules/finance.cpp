@@ -155,7 +155,7 @@ std::string litecoinAddress()
 
 std::string ethereumAddress()
 {
-    return string::hexadecimal(40, HexCasing::Lower);
+    return number::hexadecimal(40, HexCasing::Lower);
 }
 
 std::string creditCardExpirationDate()

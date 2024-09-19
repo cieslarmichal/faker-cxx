@@ -2,7 +2,11 @@
 
 All notable changes to this project will be documented in this file
 
-## v3.1.0 (TBD)
+## v4.0.0 (TBD)
+
+### ⚠ BREAKING CHANGES
+
+* moved `hexadecimal` function from `string` to `number` module
 
 ### Features
 
