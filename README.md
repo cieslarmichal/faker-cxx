@@ -143,6 +143,7 @@ int main()
     target_link_libraries(main faker-cxx)
     ```
 ## With FetchContent
+
 ```cmake
 set(BUILD_TESTING OFF)
 
