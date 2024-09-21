@@ -122,7 +122,7 @@ int main()
 
 ## Consuming the library with CMake
 
-## With Git submodules and add_libarry
+## With Git submodules and add_library
 1. Add faker to git submodules (execute in project root):
 
     ```
@@ -143,18 +143,20 @@ int main()
     target_link_libraries(main faker-cxx)
     ```
 ## With FetchContent
+```cmake
+set(BUILD_TESTING OFF)
 
-    ```cmake
-    set(BUILD_TESTING OFF)
+FetchContent_Declare(faker
+GIT_REPOSITORY https://github.com/cieslarmichal/faker-cxx.git
+GIT_TAG main
+)
 
-    FetchContent_Declare(faker
-    GIT_REPOSITORY https://github.com/cieslarmichal/faker-cxx.git
-    GIT_TAG main
-    )
-    add_executable(main Main.cpp)
+FetchContent_MakeAvailable(faker)
 
-    target_link_libraries(main faker-cxx)
-    ```
+add_executable(main Main.cpp)
+
+target_link_libraries(main faker-cxx)
+```
 
 ## ⚒️ Compiler support
 
