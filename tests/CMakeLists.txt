@@ -2,7 +2,9 @@ cmake_minimum_required(VERSION 3.22)
 project(${CMAKE_PROJECT_NAME}-UT CXX)
 
 include(CTest)
-include("${CMAKE_SOURCE_DIR}/cmake/CompilerWarnings.cmake")
+
+get_filename_component(PARENT_DIR ../ ABSOLUTE)
+include("${PARENT_DIR}/cmake/CompilerWarnings.cmake")
 
 set(FAKER_UT_SOURCES
     common/format_helper_test.cpp
@@ -57,19 +59,19 @@ configure_compiler_warnings(${PROJECT_NAME}
     "${GCC_WARNINGS}")
 
 target_include_directories(${PROJECT_NAME} PRIVATE
-    ${CMAKE_SOURCE_DIR}/src
-    ${CMAKE_SOURCE_DIR}/src/common
-    ${CMAKE_SOURCE_DIR}/src/modules
+    ../src
+    ../src/common
+    ../src/modules
 )
 
 if (USE_SYSTEM_DEPENDENCIES)
     find_package(GTest REQUIRED)
     target_link_libraries(${PROJECT_NAME} PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
 else ()
-    add_subdirectory("${CMAKE_SOURCE_DIR}/externals/googletest" "${CMAKE_BINARY_DIR}/googletest")
+    add_subdirectory("${PARENT_DIR}/externals/googletest" "${CMAKE_BINARY_DIR}/googletest")
 
-    set(GTEST_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/googletest/googletest/include")
-    set(GMOCK_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/externals/googletest/googlemock/include")
+    set(GTEST_INCLUDE_DIR "${PARENT_DIR}/externals/googletest/googletest/include")
+    set(GMOCK_INCLUDE_DIR "${PARENT_DIR}/externals/googletest/googlemock/include")
 
     target_link_libraries(${PROJECT_NAME} PRIVATE gtest_main gmock_main faker-cxx)
 endif ()
