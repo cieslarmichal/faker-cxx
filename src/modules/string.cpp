@@ -351,15 +351,4 @@ std::string binary(GuaranteeMap&& guarantee, unsigned int length)
     return "0b" + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string octal(GuaranteeMap&& guarantee, unsigned int length)
-{
-    std::set<char> targetCharacters{'0', '1', '2', '3', '4', '5', '6', '7'};
-
-    if (!isValidGuarantee(guarantee, targetCharacters, length))
-    {
-        throw std::invalid_argument{"Invalid guarantee."};
-    }
-
-    return "0o" + generateStringWithGuarantee(guarantee, targetCharacters, length);
-}
 }
