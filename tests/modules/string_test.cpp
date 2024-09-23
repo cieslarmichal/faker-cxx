@@ -956,19 +956,3 @@ TEST_F(StringTest, givenMinBiggerThanMax_shouldThrowInvalidArgument)
 {
     ASSERT_THROW(binary(10, 1), std::invalid_argument);
 }
-
-TEST_F(StringTest, shouldGenerateOctalWithPrefix)
-{
-    const auto octalLength = 8;
-
-    const auto generatedOctal = octal(octalLength);
-
-    const auto prefix = generatedOctal.substr(0, 2);
-    const auto octalNumber = generatedOctal.substr(2);
-
-    ASSERT_EQ(generatedOctal.size(), octalLength + 2);
-    ASSERT_EQ(prefix, "0o");
-    ASSERT_TRUE(
-        std::ranges::any_of(generatedOctal, [](char octalNumberCharacter)
-                            { return std::string("01234567").find(octalNumberCharacter) != std::string::npos; }));
-}

@@ -229,4 +229,16 @@ FAKER_CXX_EXPORT std::string hexadecimal(unsigned length = 1, HexCasing casing =
  */
 FAKER_CXX_EXPORT std::string hexadecimal(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
 
+/**
+ * @brief Generates an octal string.
+ *
+ * @param length The number of digits to generate. Defaults to `1`.
+ *
+ * @returns Octal string.
+ *
+ * @code
+ * faker::string::octal(8) // "0o52561721"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string octal(unsigned length = 1);
 }
