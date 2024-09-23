@@ -55,4 +55,16 @@ std::string hexadecimal(std::optional<int> min, std::optional<int> max)
 
     return common::format("{:x}", number::integer(defaultMin, defaultMax));
 }
+
+std::string octal(unsigned int length)
+{
+    std::string octalNumber;
+
+    for (unsigned int i = 0; i < length; ++i)
+    {
+        octalNumber += static_cast<char>(number::integer(7));
+    }
+
+    return "0o" + octalNumber;
+}
 }

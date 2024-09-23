@@ -176,3 +176,19 @@ TEST_F(NumberTest, shouldGenerateHexNumber)
     ASSERT_TRUE(std::isxdigit(result[0]));
     ASSERT_TRUE(std::isxdigit(result[1]));
 }
+
+TEST_F(NumberTest, shouldGenerateOctalWithPrefix)
+{
+    const auto octalLength = 8;
+
+    const auto generatedOctal = octal(octalLength);
+
+    const auto prefix = generatedOctal.substr(0, 2);
+    const auto octalNumber = generatedOctal.substr(2);
+
+    ASSERT_EQ(generatedOctal.size(), octalLength + 2);
+    ASSERT_EQ(prefix, "0o");
+    ASSERT_TRUE(
+        std::ranges::any_of(generatedOctal, [](char octalNumberCharacter)
+                            { return std::string("01234567").find(octalNumberCharacter) != std::string::npos; }));
+}

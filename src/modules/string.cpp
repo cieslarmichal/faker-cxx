@@ -351,18 +351,6 @@ std::string binary(GuaranteeMap&& guarantee, unsigned int length)
     return "0b" + generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string octal(unsigned int length)
-{
-    std::string octalNumber;
-
-    for (unsigned int i = 0; i < length; ++i)
-    {
-        octalNumber += static_cast<char>(number::integer(7));
-    }
-
-    return "0o" + octalNumber;
-}
-
 std::string octal(GuaranteeMap&& guarantee, unsigned int length)
 {
     std::set<char> targetCharacters{'0', '1', '2', '3', '4', '5', '6', '7'};

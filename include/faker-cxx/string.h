@@ -320,17 +320,4 @@ FAKER_CXX_EXPORT std::string binary(int length = 1);
  * @endcode
  */
 FAKER_CXX_EXPORT std::string binary(int min, int max);
-
-/**
- * @brief Generates an octal string.
- *
- * @param length The number of digits to generate. Defaults to `1`.
- *
- * @returns Octal string.
- *
- * @code
- * faker::string::octal(8) // "0o52561721"
- * @endcode
- */
-FAKER_CXX_EXPORT std::string octal(unsigned length = 1);
 }
