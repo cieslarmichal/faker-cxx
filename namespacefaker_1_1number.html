@@ -121,6 +121,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a2ef57e38b2dc94b0f6d7c87adb46eb2f" id="r_a2ef57e38b2dc94b0f6d7c87adb46eb2f"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2ef57e38b2dc94b0f6d7c87adb46eb2f">hexadecimal</a> (std::optional&lt; int &gt; min=std::nullopt, std::optional&lt; int &gt; max=std::nullopt)</td></tr>
 <tr class="memdesc:a2ef57e38b2dc94b0f6d7c87adb46eb2f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a lowercase hexadecimal number.  <br /></td></tr>
 <tr class="separator:a2ef57e38b2dc94b0f6d7c87adb46eb2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43a34f62099d7c2015b5d6b3553a07f8" id="r_a43a34f62099d7c2015b5d6b3553a07f8"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43a34f62099d7c2015b5d6b3553a07f8">octal</a> (unsigned length=1)</td></tr>
+<tr class="memdesc:a43a34f62099d7c2015b5d6b3553a07f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an octal string.  <br /></td></tr>
+<tr class="separator:a43a34f62099d7c2015b5d6b3553a07f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a2ef57e38b2dc94b0f6d7c87adb46eb2f" name="a2ef57e38b2dc94b0f6d7c87adb46eb2f"></a>
@@ -357,6 +360,33 @@ template&lt;std::integral I&gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T a random integer number</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a56e8f02c1fc4e0b18f9d55901a31d659">faker::number::integer</a>(5, 10) <span class="comment">// 7</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a43a34f62099d7c2015b5d6b3553a07f8" name="a43a34f62099d7c2015b5d6b3553a07f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43a34f62099d7c2015b5d6b3553a07f8">&#9670;&#160;</a></span>octal()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::number::octal </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>length</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates an octal string. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>The number of digits to generate. Defaults to `1`.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Octal string.</dd></dl>
+<div class="fragment"><div class="line">faker::string::octal(8) <span class="comment">// &quot;0o52561721&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>

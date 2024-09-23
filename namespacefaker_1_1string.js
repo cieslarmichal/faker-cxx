@@ -19,7 +19,6 @@ var namespacefaker_1_1string =
     [ "isValidGuarantee", "namespacefaker_1_1string.html#a2b72fcb64a3202113769a90cf922b140", null ],
     [ "numeric", "namespacefaker_1_1string.html#a6b7e02197a0cec823f7b051c7234865b", null ],
     [ "numeric", "namespacefaker_1_1string.html#a646c3109166518bfa5bcf5c2f5de98ef", null ],
-    [ "octal", "namespacefaker_1_1string.html#ae1f0a16d0a30f3fe542042384f76ec2c", null ],
     [ "sample", "namespacefaker_1_1string.html#a6613ccca522a49631ed49c7d93c32e85", null ],
     [ "sample", "namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d", null ],
     [ "uuid", "namespacefaker_1_1string.html#a335d7aad191429aa88bed20818881d95", null ]
