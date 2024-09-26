@@ -7,6 +7,7 @@
 #include "common/string_helper.h"
 #include "faker-cxx/word.h"
 #include "word_data.h"
+#include "locale.h"
 
 using namespace faker::word;
 using namespace faker;
@@ -275,4 +276,26 @@ TEST_F(WordTest, returnsFirstElementWhenNoLengthMatch)
     auto result = sortedSizeRandomElement(length, words);
 
     ASSERT_TRUE(result == "three");
+}
+
+
+
+
+class WordTestLocale : public TestWithParam<Locale>
+{
+public:
+};
+TEST_F(WordTestLocale, shouldGenerateAdjectiveLocale)
+{
+    const faker::Locale locale = Locale::es_AR; 
+    const auto generatedAdjective = adjectiveL( 7,locale);
+    ASSERT_TRUE(std::ranges::any_of(_adjetives_sorted_map.at(locale), [generatedAdjective](const std::string_view& word)
+                                    { return word == generatedAdjective; }));
+}
+TEST_F(WordTestLocale, shouldGenerateAdjectiveLocale2)
+{
+    
+    const auto generatedAdjective = adjectiveL();
+    ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string_view& word)
+                                   { return word == generatedAdjective; }));
 }

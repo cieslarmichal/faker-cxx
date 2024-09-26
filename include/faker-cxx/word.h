@@ -8,8 +8,15 @@
 #include "faker-cxx/export.h"
 #include "faker-cxx/helper.h"
 
+#include "faker-cxx/types/locale.h"
+
 namespace faker::word
 {
+/**
+ * @brief fills the tables with differente languages words
+ * 
+ */
+FAKER_CXX_EXPORT   void init();
 /**
  * @brief Returns a random .
  *
@@ -53,6 +60,22 @@ FAKER_CXX_EXPORT std::string words(unsigned numberOfWords = 1);
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view adjective(std::optional<unsigned> length = std::nullopt);
+
+
+/**
+ * @brief Returns a random adjective, using locale.
+ *
+ * @param length The expected length of the word. 
+ * @param locale The locale. Defaults to `Locale::en_US`. 
+ *
+ * @returns Adjective.
+ *
+ * @code
+ * faker::word::adjective() // "complete"
+ * faker::word::adjective(3) // "bad"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view adjectiveL(unsigned length = 0,const faker::Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random adverb.

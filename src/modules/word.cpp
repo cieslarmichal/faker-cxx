@@ -1,6 +1,7 @@
 #include "faker-cxx/word.h"
 
 #include <array>
+#include <map>
 #include <optional>
 #include <string>
 #include <string_view>
@@ -64,8 +65,18 @@ std::string words(unsigned numberOfWords)
 }
 
 std::string_view adjective(std::optional<unsigned int> length)
+{    
+    if(length)
+        
+        return adjectiveL(length.value());
+    else
+        return adjectiveL();
+}
+
+std::string_view adjectiveL(unsigned int length, const faker::Locale locale)
 {
-    return sortedSizeRandomElement(length, _adjectives_sorted);
+    auto sorted= _adjetives_sorted_map.at(locale);
+    return sortedSizeRandomElement(length, sorted);
 }
 
 std::string_view adverb(std::optional<unsigned int> length)

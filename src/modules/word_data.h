@@ -1,6 +1,7 @@
 #pragma once
 
 #include <array>
+#include <map>
 #include <functional>
 #include <string_view>
 
@@ -136,6 +137,17 @@ const auto _adjectives_sorted = []()
     auto sorted = adjectives;
     quick_sort(sorted.begin(), sorted.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
     return sorted;
+}();
+
+const auto _adjetives_sorted_map = [](){
+    std::map<faker::Locale,std::array<std::string_view,1328UL>> adjetives_sorted;
+    auto sorted = enUSAdjectives;
+    quick_sort(sorted.begin(), sorted.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+    adjetives_sorted.insert(std::make_pair(faker::Locale::en_US,sorted));
+    auto sorted2=esARAdjectives;
+    quick_sort(sorted2.begin(), sorted2.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+    adjetives_sorted.insert(std::make_pair(faker::Locale::es_AR,sorted2));
+    return adjetives_sorted;
 }();
 
 const auto _adverbs_sorted = []()
