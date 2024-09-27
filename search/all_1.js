@@ -14,7 +14,7 @@ var searchData=
   ['bhutan_11',['Bhutan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aae65a0ed0e39dd14a9e5af441efb09b37',1,'faker::phone']]],
   ['bic_12',['bic',['../namespacefaker_1_1finance.html#a77c1b40489bdb3a8ef0280d7ca336370',1,'faker::finance']]],
   ['bicycle_13',['bicycle',['../namespacefaker_1_1vehicle.html#abcd2613f6e47ac7650924209851ff05e',1,'faker::vehicle']]],
-  ['binary_14',['binary',['../namespacefaker_1_1string.html#a823f589d52619dec806f9eb1cda9c279',1,'faker::string::binary(int length=1)'],['../namespacefaker_1_1string.html#a491cc453618eade84ecfdb04b66e985e',1,'faker::string::binary(int min, int max)']]],
+  ['binary_14',['binary',['../namespacefaker_1_1number.html#ac0e51691e8098437c3aeebf66d35c4d0',1,'faker::number::binary(int length=1)'],['../namespacefaker_1_1number.html#a46669288c05a8291ecc61c658cb39014',1,'faker::number::binary(int min, int max)']]],
   ['bio_15',['bio',['../namespacefaker_1_1person.html#a41deabbecbf923fd045031c7456df21d',1,'faker::person']]],
   ['bird_16',['bird',['../namespacefaker_1_1animal.html#a08d156573d0833f51a1801eb304b17e7',1,'faker::animal']]],
   ['birthdatebyage_17',['birthdateByAge',['../namespacefaker_1_1date.html#a9de04d3e50ab9057ab7a92ed858a744a',1,'faker::date']]],

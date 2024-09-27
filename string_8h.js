@@ -11,8 +11,6 @@ var string_8h =
     [ "alpha", "string_8h.html#abf5e1f4e277703148d5ab06e6a0bfeda", null ],
     [ "alphanumeric", "string_8h.html#a0f34587fb525159e53e01829edbe81cd", null ],
     [ "alphanumeric", "string_8h.html#a66f88f14a90528cdf5683a55a9d4a280", null ],
-    [ "binary", "string_8h.html#a823f589d52619dec806f9eb1cda9c279", null ],
-    [ "binary", "string_8h.html#a491cc453618eade84ecfdb04b66e985e", null ],
     [ "fromCharacters", "string_8h.html#ac54da67b0fb85a3dcd6b970e286bcd1c", null ],
     [ "fromCharacters", "string_8h.html#a609843a4fde8ddb1d6304b25916858e6", null ],
     [ "generateAtLeastString", "string_8h.html#a5f7f456ce960ac5d9407c805144b3943", null ],

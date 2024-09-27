@@ -206,6 +206,8 @@ var namespacefaker =
       [ "songName", "namespacefaker_1_1music.html#a74c35da84e2a60a833245fb8bffd6c48", null ]
     ] ],
     [ "number", "namespacefaker_1_1number.html", [
+      [ "binary", "namespacefaker_1_1number.html#ac0e51691e8098437c3aeebf66d35c4d0", null ],
+      [ "binary", "namespacefaker_1_1number.html#a46669288c05a8291ecc61c658cb39014", null ],
       [ "hexadecimal", "namespacefaker_1_1number.html#a2ef57e38b2dc94b0f6d7c87adb46eb2f", null ],
       [ "hexadecimal", "namespacefaker_1_1number.html#a9f199def6ac23945c838141f17888192", null ],
       [ "integer", "namespacefaker_1_1number.html#afc3ffd60474194ebb9de6c1fadbd6a6e", null ],

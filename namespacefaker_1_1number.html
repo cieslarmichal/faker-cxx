@@ -124,8 +124,85 @@ Functions</h2></td></tr>
 <tr class="memitem:a43a34f62099d7c2015b5d6b3553a07f8" id="r_a43a34f62099d7c2015b5d6b3553a07f8"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a43a34f62099d7c2015b5d6b3553a07f8">octal</a> (unsigned length=1)</td></tr>
 <tr class="memdesc:a43a34f62099d7c2015b5d6b3553a07f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an octal string.  <br /></td></tr>
 <tr class="separator:a43a34f62099d7c2015b5d6b3553a07f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0e51691e8098437c3aeebf66d35c4d0" id="r_ac0e51691e8098437c3aeebf66d35c4d0"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac0e51691e8098437c3aeebf66d35c4d0">binary</a> (int length=1)</td></tr>
+<tr class="memdesc:ac0e51691e8098437c3aeebf66d35c4d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a binary string of a specified length.  <br /></td></tr>
+<tr class="separator:ac0e51691e8098437c3aeebf66d35c4d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46669288c05a8291ecc61c658cb39014" id="r_a46669288c05a8291ecc61c658cb39014"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46669288c05a8291ecc61c658cb39014">binary</a> (int min, int max)</td></tr>
+<tr class="memdesc:a46669288c05a8291ecc61c658cb39014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random binary string which has its decimal equivalent between min and max inclusive.  <br /></td></tr>
+<tr class="separator:a46669288c05a8291ecc61c658cb39014"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ac0e51691e8098437c3aeebf66d35c4d0" name="ac0e51691e8098437c3aeebf66d35c4d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0e51691e8098437c3aeebf66d35c4d0">&#9670;&#160;</a></span>binary() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::number::binary </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>length</em></span><span class="paramdefsep"> = </span><span class="paramdefval">1</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a binary string of a specified length. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>The number of digits to generate. Defaults to `1`.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Binary string.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument,if</td><td>length is negative</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line">faker::string::binary(8) <span class="comment">// &quot;0b01110101&quot;</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a46669288c05a8291ecc61c658cb39014" name="a46669288c05a8291ecc61c658cb39014"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46669288c05a8291ecc61c658cb39014">&#9670;&#160;</a></span>binary() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::number::binary </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>min</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>max</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a random binary string which has its decimal equivalent between min and max inclusive. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>the minimum possible decimal equivalent of the output </td></tr>
+    <tr><td class="paramname">max</td><td>the maximum possible decimal equivalent of the output</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Binary string.</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument,if</td><td>min &gt; max, std::invalid_argument if min or max are negative</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line">faker::string::binary(0, 1024) <span class="comment">// &quot;0b10110&quot;</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="a2ef57e38b2dc94b0f6d7c87adb46eb2f" name="a2ef57e38b2dc94b0f6d7c87adb46eb2f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a2ef57e38b2dc94b0f6d7c87adb46eb2f">&#9670;&#160;</a></span>hexadecimal() <span class="overload">[1/2]</span></h2>
 
