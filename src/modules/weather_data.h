@@ -5,7 +5,7 @@
 
 namespace faker::weather
 {
-const auto weatherDescriptions = std::to_array<std::string_view>({
+const auto enUSWeatherDescriptions = std::to_array<std::string_view>({
     "broken clouds",
     "clear sky",
     "cloudy",
@@ -22,6 +22,24 @@ const auto weatherDescriptions = std::to_array<std::string_view>({
     "sunny",
     "thunderstorm",
     "windy",
+});
+
+const auto svSEWeatherDescriptions = std::to_array<std::string_view>({
+    "dimma",    // fog
+    "regn", // rain
+    "snö", // snow
+    "sol", // sun
+    "vind", // wind
+    "is", // ice
+    "storm", // storm
+    "vinter", // winter
+    "kallt", // cold
+    "snöflinga", // snow flake
+    "snöstorm", // blizzard
+    "sommar", // summer
+    "vår", // spring
+    "skurar", // showers
+    "höst", // fall/autumn
 });
 
 }
