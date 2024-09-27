@@ -192,3 +192,65 @@ TEST_F(NumberTest, shouldGenerateOctalWithPrefix)
         std::ranges::any_of(generatedOctal, [](char octalNumberCharacter)
                             { return std::string("01234567").find(octalNumberCharacter) != std::string::npos; }));
 }
+
+TEST_F(NumberTest, shouldGenerateBinary)
+{
+    const auto binaryLength = 8;
+
+    const auto generatedBinary = binary(binaryLength);
+
+    const auto prefix = generatedBinary.substr(0, 2);
+    const auto binaryNumber = generatedBinary.substr(2);
+
+    ASSERT_EQ(generatedBinary.size(), binaryLength + 2);
+    ASSERT_EQ(prefix, "0b");
+    ASSERT_TRUE(std::ranges::any_of(generatedBinary, [](char binaryNumberCharacter)
+                                    { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
+}
+
+TEST_F(NumberTest, givenValidArguments_shouldGenerateBinaryNumberInRange)
+{
+    const std::string generatedBinary = binary(1234, 1236);
+    int n = 1;
+    int decimalEquivalent = 0;
+
+    for (int i = static_cast<int>(generatedBinary.size() - 1); i >= 0; i--)
+    {
+        if (generatedBinary[static_cast<size_t>(i)] == '1')
+        {
+            decimalEquivalent += n;
+        }
+
+        n *= 2;
+    }
+
+    ASSERT_EQ(generatedBinary[0], '0');
+    ASSERT_EQ(generatedBinary[1], 'b');
+
+    ASSERT_TRUE(decimalEquivalent >= 1234);
+    ASSERT_TRUE(decimalEquivalent <= 1236);
+}
+
+TEST_F(NumberTest, shouldGenerateBinaryFor0)
+{
+    const auto generatedBinary = binary(0, 0);
+
+    ASSERT_EQ(generatedBinary, "0b0");
+}
+
+TEST_F(NumberTest, shouldGenerateBinaryFor7)
+{
+    const auto generatedBinary = binary(7, 7);
+
+    ASSERT_EQ(generatedBinary, "0b111");
+}
+
+TEST_F(NumberTest, givenNegativeArguments_shouldThrowInvalidArgument)
+{
+    ASSERT_THROW(binary(INT_MIN, -1), std::invalid_argument);
+}
+
+TEST_F(NumberTest, givenMinBiggerThanMax_shouldThrowInvalidArgument)
+{
+    ASSERT_THROW(binary(10, 1), std::invalid_argument);
+}

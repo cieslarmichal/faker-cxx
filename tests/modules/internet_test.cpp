@@ -13,6 +13,7 @@
 #include "faker-cxx/internet.h"
 #include "faker-cxx/number.h"
 #include "internet_data.h"
+#include "number_data.h"
 #include "person_data.h"
 #include "string_data.h"
 #include "word_data.h"
@@ -661,7 +662,7 @@ TEST_F(InternetTest, shouldGenerateIpv6)
         [](const std::string_view& generatedIpv6Part)
         {
             return std::ranges::all_of(generatedIpv6Part, [](char hexCharacter)
-                                       { return string::hexLowerCharacters.find(hexCharacter) != std::string::npos; });
+                                       { return number::hexLowerCharacters.find(hexCharacter) != std::string::npos; });
         }));
 }
 

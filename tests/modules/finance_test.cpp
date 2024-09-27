@@ -13,6 +13,7 @@
 #include "faker-cxx/types/precision.h"
 #include "finance_data.h"
 #include "gmock/gmock.h"
+#include "number_data.h"
 #include "string_data.h"
 
 using namespace ::testing;
@@ -353,7 +354,7 @@ TEST_F(FinanceTest, shouldGenerateEthereumAddress)
     ASSERT_EQ(prefix, "0x");
     ASSERT_TRUE(
         std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                            { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                            { return number::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(FinanceTest, shouldGenerateExpirationDate)
