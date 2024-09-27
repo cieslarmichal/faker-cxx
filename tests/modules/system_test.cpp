@@ -1,5 +1,5 @@
+#include <algorithm>
 #include <optional>
-#include <ranges>
 #include <regex>
 #include <set>
 #include <string>
