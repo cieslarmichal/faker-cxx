@@ -45,18 +45,24 @@ const auto& getWeatherDefinition(Locale locale)
 }
 }
 
-class WeatherTest : public Test
+class WeatherTest : public TestWithParam<Locale>
 {
 public:
 };
 
 TEST_F(WeatherTest, shouldGenerateWeatherDescription)
 {
-    const auto& weatherDefinition = getWeatherDefinition(Locale::en_US);
 
-    const std::string_view generatedWeatherDescription = weatherDescription(Locale::en_US);
+    const auto locale = GetParam();
+
+    const auto& weatherDefinition = getWeatherDefinition(locale);
+
+    const std::string_view generatedWeatherDescription = weatherDescription(locale);
 
     ASSERT_TRUE(std::ranges::any_of(weatherDefinition,
                                     [generatedWeatherDescription](const std::string_view& weatherDescription)
                                     { return weatherDescription == generatedWeatherDescription; }));
 }
+
+INSTANTIATE_TEST_SUITE_P(TestWeatherByLocale, WeatherTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
