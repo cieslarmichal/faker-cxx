@@ -7,10 +7,13 @@ All notable changes to this project will be documented in this file
 ### ⚠ BREAKING CHANGES
 
 * moved `hexadecimal` function from `string` to `number` module
+* moved `binary` function from `string` to `number` module
+* moved `octal` function from `string` to `number` module
 
 ### Features
 
 * added locale to `book` module
+* added locale to `weather` module
 
 ## v3.0.0 (28.08.2024)
 
