@@ -217,7 +217,7 @@ var NAVTREEINDEX3 =
 "namespacefaker_1_1videogame.html#ab36d80c15e07e2e266da6df41a40f222":[0,0,0,33,0],
 "namespacefaker_1_1videogame.html#ae5bdba1c888f8934eb817848a705983c":[0,0,0,33,1],
 "namespacefaker_1_1weather.html":[0,0,0,34],
-"namespacefaker_1_1weather.html#a029a4533396f1266c44ac7aaae7a681f":[0,0,0,34,0],
+"namespacefaker_1_1weather.html#ad5e26b9b6328feeb6e22d64381940199":[0,0,0,34,0],
 "namespacefaker_1_1word.html":[0,0,0,35],
 "namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8":[0,0,0,35,8],
 "namespacefaker_1_1word.html#a0d9897ef2f1a2c30d8c375db2a8da628":[0,0,0,35,1],
