@@ -5,7 +5,7 @@
 
 #include "database_data.h"
 #include "faker-cxx/helper.h"
-#include "faker-cxx/string.h"
+#include "faker-cxx/number.h"
 #include "faker-cxx/types/hex.h"
 
 namespace faker::database
@@ -32,6 +32,6 @@ std::string_view engine()
 
 std::string mongoDbObjectId()
 {
-    return string::hexadecimal(24, HexCasing::Lower, HexPrefix::None);
+    return number::hexadecimal(24, HexCasing::Lower, HexPrefix::None);
 }
 }

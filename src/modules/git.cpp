@@ -8,7 +8,6 @@
 #include "faker-cxx/internet.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/person.h"
-#include "faker-cxx/string.h"
 #include "faker-cxx/types/hex.h"
 #include "faker-cxx/types/locale.h"
 #include "faker-cxx/word.h"
@@ -79,7 +78,7 @@ std::string commitMessage()
 
 std::string commitSha(unsigned length)
 {
-    return faker::string::hexadecimal(length, HexCasing::Lower, HexPrefix::None);
+    return faker::number::hexadecimal(length, HexCasing::Lower, HexPrefix::None);
 }
 
 }

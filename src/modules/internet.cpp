@@ -16,7 +16,6 @@
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/person.h"
-#include "faker-cxx/string.h"
 #include "faker-cxx/types/hex.h"
 #include "faker-cxx/types/locale.h"
 #include "faker-cxx/word.h"
@@ -275,7 +274,7 @@ std::string ipv6()
 
     for (int i = 0; i < 8; i++)
     {
-        ipv6Parts.push_back(string::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
+        ipv6Parts.push_back(number::hexadecimal(4, HexCasing::Lower, HexPrefix::None));
     }
 
     return common::joinString(ipv6Parts, ":");
@@ -294,7 +293,7 @@ std::string mac(const std::string& sep)
 
     for (int i = 0; i < 12; i++)
     {
-        mac += string::hexadecimal(0, 15);
+        mac += number::hexadecimal(0, 15);
 
         if (i % 2 == 1 && i != 11)
         {
