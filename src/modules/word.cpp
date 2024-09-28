@@ -15,6 +15,15 @@ std::string_view sample(std::optional<unsigned int> length)
     return sortedSizeRandomElement(length, _allWords);
 }
 
+std::string_view sampleL(unsigned int length, const faker::Locale locale)
+{
+    if(length==0){
+        length=100;
+        }
+    auto sorted= _allWords_map.at(locale);
+    return sortedSizeRandomElement(length, sorted);
+}
+
 std::string words(unsigned numberOfWords)
 {
     if (numberOfWords == 0)
@@ -45,6 +54,55 @@ std::string words(unsigned numberOfWords)
             combined_words.push_back(' ');
         }
         auto vw = _allWords[tmp[numberOfWords - 1]];
+        combined_words.append(vw.begin(), vw.end());
+    }
+    else
+    {
+        unsigned space_words = (numberOfWords - 1);
+        for (unsigned i = 0; i < space_words; i++)
+        {
+            auto s = sample();
+            combined_words.append(s.begin(), s.end());
+            combined_words.push_back(' ');
+        }
+
+        auto s = sample();
+        combined_words.append(s.begin(), s.end());
+    }
+
+    return combined_words;
+}
+
+std::string wordsL(unsigned numberOfWords,faker::Locale locale)
+{
+    if (numberOfWords == 0)
+    {
+        return "";
+    }
+
+    std::string combined_words;
+    if (numberOfWords <= 256)
+    {
+        std::array<unsigned int, 256> tmp{}; // fitting 1024 bytes worth of integers*
+        const size_t last_index = (_allWords_map.at(locale)).size() - 1;
+        size_t reserve_size = 0;
+
+        for (unsigned i = 0; i < numberOfWords; i++)
+        {
+            tmp[i] = number::integer<unsigned int>(last_index);
+            auto vw = (_allWords_map.at(locale))[tmp[i]];
+            reserve_size += vw.size();
+        }
+
+        unsigned space_words = (numberOfWords - 1);
+        combined_words.reserve(reserve_size + (numberOfWords - 1));
+        for (unsigned i = 0; i < space_words; i++)
+        {
+            auto vw = (_allWords_map.at(locale))[tmp[i]];
+            combined_words.append(vw.begin(), vw.end());
+            combined_words.push_back(' ');
+        }
+        auto vw = (_allWords_map.at(locale))[tmp[numberOfWords - 1]];
         combined_words.append(vw.begin(), vw.end());
     }
     else

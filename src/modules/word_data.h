@@ -140,48 +140,51 @@ const std::map<faker::Locale, std::array<std::string_view, enUSAdjectives.size()
     std::map<faker::Locale, std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
                                        enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>> output;
 
-    std::array<std::string_view, adjectives.size() + adverbs.size() + conjunctions.size() + interjections.size() +
-                                     nouns.size() + prepositions.size() + verbs.size()>
+    for (auto mapItem: nounsMap)
+    {
+    std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
+                                       enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>
         table{};
 
     size_t idx = 0;
-    for (const auto& v : adjectives)
+    
+    for (const auto& v : adjetivesMap.at(mapItem.first))
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : adverbs)
+    for (const auto& v : adverbsMap.at(mapItem.first))
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : conjunctions)
+    for (const auto& v : conjunctionsMap.at(mapItem.first))
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : interjections)
+    for (const auto& v : interjectionsMap.at(mapItem.first))
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : nouns)
+    for (const auto& v : nounsMap.at(mapItem.first))
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : prepositions)
+    for (const auto& v : prepositionsMap.at(mapItem.first))
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : verbs)
+    for (const auto& v : verbsMap.at(mapItem.first))
     {
         table[idx] = v;
         idx++;
@@ -189,7 +192,9 @@ const std::map<faker::Locale, std::array<std::string_view, enUSAdjectives.size()
 
     quick_sort(table.begin(), table.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
     
-    output.insert(std::make_pair(faker::Locale::en_US,table));
+    output.insert(std::make_pair(mapItem.first,table));
+    }
+
     return output;
 }();
 

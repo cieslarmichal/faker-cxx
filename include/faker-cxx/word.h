@@ -28,6 +28,23 @@ namespace faker::word
  */
 FAKER_CXX_EXPORT std::string_view sample(std::optional<unsigned> length = std::nullopt);
 
+
+/**
+ * @brief Returns a random .
+ *
+ * @param length The expected length of the .
+ * If 0,it will return a random .
+ * @param locale The locale. Defaults to `Locale::en_US`. 
+ * @returns Random sample word.
+ *
+ * @code
+ * faker::word::sampleL(0) // "protection"
+ * faker::word::sampleL(5,Locale::es_AR) // "casas"
+ * @endcode
+ */
+
+FAKER_CXX_EXPORT std::string_view sampleL(unsigned length = 0,const faker::Locale locale = Locale::en_US);
+
 /**
  * @brief Returns a string containing a number of space separated random words.
  *
@@ -41,6 +58,22 @@ FAKER_CXX_EXPORT std::string_view sample(std::optional<unsigned> length = std::n
  * @endcode
  */
 FAKER_CXX_EXPORT std::string words(unsigned numberOfWords = 1);
+
+
+/**
+ * @brief Returns a string containing a number of space separated random words.
+ *
+ * @param numberOfWords The number of words to generate. 
+ * @param locale The locale. Defaults to `Locale::en_US`.  
+ *
+ * @returns Random words separated with spaces.
+ *
+ * @code
+ * faker::word::words(0) // "protection"
+ * faker::word::words(5,faker::locale::en_US) // "before hourly patiently dribble equal"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string wordsL(unsigned numberOfWords = 1,const faker::Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random adjective.

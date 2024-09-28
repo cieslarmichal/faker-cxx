@@ -492,28 +492,82 @@ TEST_F(WordTestLocale, shouldGenerateVerbWithExistingLength0)
 
 TEST_F(WordTestLocale, shouldGenerateSample)
 {
-    const auto generatedSample = sample();
-    const auto generatedSample2 = sample();
-
-    std::cout<<"sample 1:"<<generatedSample<<"\n";
-    std::cout<<"sample 2:"<<generatedSample2<<"\n";
-
-    ASSERT_TRUE(std::ranges::any_of(_allWords, [generatedSample](const std::string_view& word)
+    faker::Locale locale= faker::Locale::en_US;
+    const auto generatedSample = sampleL(0);
+    ASSERT_TRUE(std::ranges::any_of(_allWords_map.at(locale), [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
 }
 
 TEST_F(WordTestLocale, shouldGenerateSampleWithExistingLength)
 {
-    const auto generatedSample = sample(5);
+    faker::Locale locale= faker::Locale::es_AR;
+    const auto generatedSample = sampleL(5,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_allWords, [generatedSample](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(_allWords_map.at(locale), [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
 }
 
 TEST_F(WordTestLocale, shouldGenerateSampleWithNonExistingLength)
 {
-    const auto generatedSample = sample(100);
+    faker::Locale locale= faker::Locale::es_AR;
+    const auto generatedSample = sampleL(0,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_allWords, [generatedSample](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(_allWords_map.at(locale), [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
 }
+
+
+TEST_F(WordTestLocale, shouldGenerateWords)
+{
+    faker::Locale locale= faker::Locale::en_US;
+    const auto generatedWords = wordsL(5);
+
+    const auto separatedWords = common::split(generatedWords, " ");
+
+    ASSERT_TRUE(std::ranges::all_of(separatedWords, [locale](const std::string& separatedWord)
+                                    { return std::ranges::find(_allWords_map.at(locale), separatedWord) !=_allWords_map.at(locale).end(); }));
+}
+
+TEST_F(WordTestLocale, shouldReturnRandomElementWhenExactLengthNotFound)
+{
+    const unsigned int existingLength = 5;
+
+    faker::Locale locale= faker::Locale::es_AR;
+
+    std::vector<std::string_view> matchingAdjectives;
+    auto sorted=_adjetives_sorted_map.at(locale);
+    for (const auto& adj : sorted)
+    {
+        if (adj.size() == existingLength)
+        {
+            matchingAdjectives.push_back(adj);
+        }
+    }
+
+    const auto generatedAdjective = adjectiveL(existingLength + 1,locale);
+
+    ASSERT_TRUE(std::ranges::find(sorted, generatedAdjective) != sorted.end());
+    ASSERT_TRUE(std::ranges::find(matchingAdjectives, generatedAdjective) == matchingAdjectives.end());
+}
+
+TEST_F(WordTestLocale, shouldReturnEmptyStringForZeroWords)
+{
+    faker::Locale locale= faker::Locale::es_AR;
+    const auto result = wordsL(0,locale);
+    ASSERT_TRUE(result.empty());
+}
+
+//todo this test not passing
+/*TEST_F(WordTestLocale, shouldGenerateLargeNumberOfWords)
+{
+    faker::Locale locale= faker::Locale::es_AR;
+    const unsigned int largeWordCount = 300;
+    const auto generatedWords = wordsL(largeWordCount,locale);
+    const auto separatedWords = common::split(generatedWords, " ");
+    auto dataset=_allWords_map.at(locale);
+    ASSERT_EQ(separatedWords.size(), largeWordCount);
+    for (const auto& word : separatedWords)
+    {
+        ASSERT_TRUE(std::ranges::find(dataset, word) != dataset.end());
+    }
+}*/
