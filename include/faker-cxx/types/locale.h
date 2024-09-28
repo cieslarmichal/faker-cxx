@@ -3,6 +3,7 @@
 #include <string>
 #include <unordered_map>
 #include <vector>
+#include <set>
 
 namespace faker
 {
@@ -256,6 +257,15 @@ const std::vector<Locale> locales{
     Locale::tk_TM, Locale::tn_ZA, Locale::tr_TR, Locale::tt_RU, Locale::ug_CN, Locale::uk_UA, Locale::ur_PK,
     Locale::uz_uz, Locale::vi_VN, Locale::wo_SN, Locale::xh_ZA, Locale::yo_NG, Locale::zh_CN, Locale::zh_HK,
     Locale::zh_MO, Locale::zh_SG, Locale::zh_TW, Locale::zu_ZA
+};
+
+inline const std::set<Locale> postCodeSet{
+    Locale::cy_GB, Locale::gd_GB, Locale::en_GB, 
+    Locale::en_CA, Locale::fr_CA, Locale::moh_CA,
+    Locale::fy_NL, Locale::nl_NL,
+    Locale::es_AR,
+    Locale::ms_BN,
+    Locale::mt_MT, Locale::en_MT
 };
 
 inline std::string toString(Locale locale)

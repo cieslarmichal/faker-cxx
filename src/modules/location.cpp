@@ -66,6 +66,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return finlandAddresses;
     case Locale::et_EE:
         return estoniaAddresses;
+    case Locale::en_GB:
+        return unitedkingdomAddresses;
     default:
         return usaAddresses;
     }
@@ -117,7 +119,14 @@ std::string zipCode(Locale locale)
 {
     const auto& localeAddresses = getAddresses(locale);
 
-    return helper::replaceSymbolWithNumber(static_cast<std::string>(localeAddresses.zipCodeFormat));
+    std::string zip_with_symbols = static_cast<std::string>(localeAddresses.zipCodeFormat);
+
+    if (postCodeSet.count(locale) == 1)
+    {
+        return helper::replaceSymbolWithLetter(helper::replaceSymbolWithNumber(zip_with_symbols));
+    }
+
+    return helper::replaceSymbolWithNumber(zip_with_symbols);
 }
 
 std::string streetAddress(Locale locale)

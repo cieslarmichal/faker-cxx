@@ -71,6 +71,8 @@ static std::vector<T> toVector(const std::array<T, N>& arr)
 
 FAKER_CXX_EXPORT std::string replaceSymbolWithNumber(const std::string& str, const char& symbol = '#');
 
+FAKER_CXX_EXPORT std::string replaceSymbolWithLetter(const std::string& str, const char& symbol = '_');
+
 FAKER_CXX_EXPORT std::string replaceCreditCardSymbols(const std::string& inputString = "6453-####-####-####-###L",
                                                       char symbol = '#');
 
