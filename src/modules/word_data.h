@@ -1,11 +1,12 @@
 #pragma once
-
+#include <iostream>
 #include <array>
 #include <map>
 #include <functional>
 #include <string_view>
 
 #include "word_store.h"
+#include "locale.h"
 
 namespace faker::word
 {
@@ -132,6 +133,66 @@ const std::array<std::string_view, adjectives.size() + adverbs.size() + conjunct
     return table;
 }();
 
+const std::map<faker::Locale, std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
+                                       enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>>
+    _allWords_map = []()
+{
+    std::map<faker::Locale, std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
+                                       enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>> output;
+
+    std::array<std::string_view, adjectives.size() + adverbs.size() + conjunctions.size() + interjections.size() +
+                                     nouns.size() + prepositions.size() + verbs.size()>
+        table{};
+
+    size_t idx = 0;
+    for (const auto& v : adjectives)
+    {
+        table[idx] = v;
+        idx++;
+    }
+
+    for (const auto& v : adverbs)
+    {
+        table[idx] = v;
+        idx++;
+    }
+
+    for (const auto& v : conjunctions)
+    {
+        table[idx] = v;
+        idx++;
+    }
+
+    for (const auto& v : interjections)
+    {
+        table[idx] = v;
+        idx++;
+    }
+
+    for (const auto& v : nouns)
+    {
+        table[idx] = v;
+        idx++;
+    }
+
+    for (const auto& v : prepositions)
+    {
+        table[idx] = v;
+        idx++;
+    }
+
+    for (const auto& v : verbs)
+    {
+        table[idx] = v;
+        idx++;
+    }
+
+    quick_sort(table.begin(), table.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+    
+    output.insert(std::make_pair(faker::Locale::en_US,table));
+    return output;
+}();
+
 const auto _adjectives_sorted = []()
 {
     auto sorted = adjectives;
@@ -140,14 +201,13 @@ const auto _adjectives_sorted = []()
 }();
 
 const auto _adjetives_sorted_map = [](){
-    std::map<faker::Locale,std::array<std::string_view,1328UL>> adjetives_sorted;
-    auto sorted = enUSAdjectives;
-    quick_sort(sorted.begin(), sorted.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-    adjetives_sorted.insert(std::make_pair(faker::Locale::en_US,sorted));
-    auto sorted2=esARAdjectives;
-    quick_sort(sorted2.begin(), sorted2.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-    adjetives_sorted.insert(std::make_pair(faker::Locale::es_AR,sorted2));
-    return adjetives_sorted;
+   std::map<faker::Locale,std::array<std::string_view,1328UL>> adjetives_sorted;    
+   for (auto i : adjetivesMap){
+    auto list = i.second;
+    quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+    adjetives_sorted.insert(std::make_pair(i.first,list));
+   }
+   return adjetives_sorted;
 }();
 
 const auto _adverbs_sorted = []()
@@ -155,6 +215,15 @@ const auto _adverbs_sorted = []()
     auto sorted = adverbs;
     quick_sort(sorted.begin(), sorted.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
     return sorted;
+}();
+const auto _adverbs_sorted_map = [](){
+   std::map<faker::Locale,std::array<std::string_view,325UL>> adverbs_sorted;    
+   for (auto i : adverbsMap){
+    auto list = i.second;
+    quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+    adverbs_sorted.insert(std::make_pair(i.first,list));
+   }
+   return adverbs_sorted;
 }();
 
 const auto _conjunctions_sorted = []()
@@ -164,11 +233,31 @@ const auto _conjunctions_sorted = []()
     return sorted;
 }();
 
+const auto _conjunctions_sorted_map = [](){
+   std::map<faker::Locale,std::array<std::string_view,51UL>> conjuntions_sorted;    
+   for (auto i : conjunctionsMap){
+    auto list = i.second;
+    quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+    conjuntions_sorted.insert(std::make_pair(i.first,list));
+   }
+   return conjuntions_sorted;
+}();
+
 const auto _interjections_sorted = []()
 {
     auto sorted = interjections;
     quick_sort(sorted.begin(), sorted.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
     return sorted;
+}();
+
+const auto _interjections_sorted_map = [](){
+   std::map<faker::Locale,std::array<std::string_view,46UL>> interjection_sorted;    
+   for (auto i : interjectionsMap){
+    auto list = i.second;
+    quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+    interjection_sorted.insert(std::make_pair(i.first,list));
+   }
+   return interjection_sorted;
 }();
 
 const auto _nouns_sorted = []()
@@ -178,11 +267,34 @@ const auto _nouns_sorted = []()
     return sorted;
 }();
 
+
+const auto _nouns_sorted_map = [](){
+   std::map<faker::Locale,std::array<std::string_view,6659UL>>nouns_sorted;    
+   for (auto i : nounsMap){
+    auto list = i.second;
+    quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+    nouns_sorted.insert(std::make_pair(i.first,list));
+   }
+   return nouns_sorted;
+}();
+
 const auto _prepositions_sorted = []()
 {
     auto sorted = prepositions;
     quick_sort(sorted.begin(), sorted.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
     return sorted;
+}();
+
+
+const auto _prepositions_sorted_map = []( )
+{
+    std::map<faker::Locale,std::array<std::string_view,109UL>>prepositions_sorted;    
+    for (auto i : prepositionsMap){
+    auto list = i.second;
+    quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+    prepositions_sorted.insert(std::make_pair(i.first,list));
+   }
+    return prepositions_sorted;
 }();
 
 const auto _verbs_sorted = []()
@@ -191,4 +303,18 @@ const auto _verbs_sorted = []()
     quick_sort(sorted.begin(), sorted.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
     return sorted;
 }();
+
+
+ const auto _verbs_sorted_map = []()
+{
+    //std::cout<<"value P:"<<p<<"\n";
+    std::map<faker::Locale,std::array<std::string_view,5910UL>>verbs_sorted;    
+    for (auto i : verbsMap){
+    auto list = i.second;
+    quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+    verbs_sorted.insert(std::make_pair(i.first,list));
+   }
+    return verbs_sorted;
+}();
+
 }

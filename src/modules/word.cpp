@@ -75,37 +75,116 @@ std::string_view adjective(std::optional<unsigned int> length)
 
 std::string_view adjectiveL(unsigned int length, const faker::Locale locale)
 {
+    if(length==0){
+        length=100;
+        }
     auto sorted= _adjetives_sorted_map.at(locale);
     return sortedSizeRandomElement(length, sorted);
 }
 
 std::string_view adverb(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _adverbs_sorted);
+    //return sortedSizeRandomElement(length, _adverbs_sorted);
+    if(length)
+        
+        return adverbL(length.value());
+    else
+        return adverbL();
+}
+
+std::string_view adverbL(unsigned int length, const faker::Locale locale)
+{
+    if(length==0){
+        length=100;
+        }
+    auto sorted= _adverbs_sorted_map.at(locale);
+    return sortedSizeRandomElement(length, sorted);
 }
 
 std::string_view conjunction(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _conjunctions_sorted);
+    if(length)
+        
+        return conjunctionL(length.value());
+    else
+        return conjunctionL();
+    
+}
+
+std::string_view conjunctionL(unsigned int length, const faker::Locale locale)
+{
+    if(length==0){length=100;}    
+    auto sorted= _conjunctions_sorted_map.at(locale);
+    return sortedSizeRandomElement(length, sorted);
 }
 
 std::string_view interjection(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _interjections_sorted);
+    //return sortedSizeRandomElement(length, _interjections_sorted);
+
+    if(length)
+        
+        return interjectionL(length.value());
+    else
+        return interjectionL();
+    
+}
+
+std::string_view interjectionL(unsigned int length, const faker::Locale locale) 
+{
+    if(length==0){length=100;}
+    auto sorted= _interjections_sorted_map.at(locale);
+    return sortedSizeRandomElement(length, sorted);
 }
 
 std::string_view noun(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _nouns_sorted);
+    
+    if(length)
+        
+        return nounL(length.value());
+    else
+        return nounL();
+    
+}
+
+std::string_view nounL(unsigned int length, const faker::Locale locale)
+{
+    if(length==0){length=100;}
+    auto sorted= _nouns_sorted_map.at(locale);
+    return sortedSizeRandomElement(length, sorted);
 }
 
 std::string_view preposition(std::optional<unsigned int> length)
 {
-    return sortedSizeRandomElement(length, _prepositions_sorted);
+    
+    if(length)
+        
+        return prepositionL(length.value());
+    else
+        return prepositionL();
+}
+
+std::string_view prepositionL(unsigned int length, const faker::Locale locale)
+{
+    if(length==0){length=100;}
+    auto sorted=_prepositions_sorted_map.at(locale);
+    return sortedSizeRandomElement(length, sorted);
 }
 
 std::string_view verb(std::optional<unsigned int> length)
-{
-    return sortedSizeRandomElement(length, _verbs_sorted);
+{    
+    if(length)
+        
+        return verbL(length.value());
+    else
+        return verbL();
 }
+
+std::string_view verbL(unsigned int length, const faker::Locale locale)
+{
+    if(length==0){length=100;}
+
+    auto sorted=(_verbs_sorted_map).at(locale);
+    return sortedSizeRandomElement(length, sorted);}
 }
