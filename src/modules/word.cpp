@@ -84,7 +84,7 @@ std::string wordsL(unsigned numberOfWords,faker::Locale locale)
     if (numberOfWords <= 256)
     {
         std::array<unsigned int, 256> tmp{}; // fitting 1024 bytes worth of integers*
-        const size_t last_index = (_allWords_map.at(locale)).size() - 1;
+        const size_t last_index = ((_allWords_map.at(locale)).size()) - 1;
         size_t reserve_size = 0;
 
         for (unsigned i = 0; i < numberOfWords; i++)
