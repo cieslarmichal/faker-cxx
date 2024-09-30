@@ -15,7 +15,7 @@ std::string_view sample(std::optional<unsigned int> length)
     return sortedSizeRandomElement(length, _allWords);
 }
 
-std::string_view sampleL(unsigned int length, const faker::Locale locale)
+std::string_view sampleLocale(unsigned int length, const faker::Locale locale)
 {
     if(length==0){
         length=100;
@@ -73,7 +73,7 @@ std::string words(unsigned numberOfWords)
     return combined_words;
 }
 
-std::string wordsL(unsigned numberOfWords,faker::Locale locale)
+std::string wordsLocale(unsigned numberOfWords,faker::Locale locale)
 {
     if (numberOfWords == 0)
     {
@@ -110,12 +110,12 @@ std::string wordsL(unsigned numberOfWords,faker::Locale locale)
         unsigned space_words = (numberOfWords - 1);
         for (unsigned i = 0; i < space_words; i++)
         {
-            auto s = sample();
+            auto s = sampleLocale(1, locale);
             combined_words.append(s.begin(), s.end());
             combined_words.push_back(' ');
         }
 
-        auto s = sample();
+        auto s = sampleLocale(1, locale);
         combined_words.append(s.begin(), s.end());
     }
 
@@ -126,12 +126,12 @@ std::string_view adjective(std::optional<unsigned int> length)
 {    
     if(length)
         
-        return adjectiveL(length.value());
+        return adjectiveLocale(length.value());
     else
-        return adjectiveL();
+        return adjectiveLocale();
 }
 
-std::string_view adjectiveL(unsigned int length, const faker::Locale locale)
+std::string_view adjectiveLocale(unsigned int length, const faker::Locale locale)
 {
     if(length==0){
         length=100;
@@ -145,12 +145,12 @@ std::string_view adverb(std::optional<unsigned int> length)
     //return sortedSizeRandomElement(length, _adverbs_sorted);
     if(length)
         
-        return adverbL(length.value());
+        return adverbLocaleocale(length.value());
     else
-        return adverbL();
+        return adverbLocaleocale();
 }
 
-std::string_view adverbL(unsigned int length, const faker::Locale locale)
+std::string_view adverbLocaleocale(unsigned int length, const faker::Locale locale)
 {
     if(length==0){
         length=100;
@@ -163,13 +163,13 @@ std::string_view conjunction(std::optional<unsigned int> length)
 {
     if(length)
         
-        return conjunctionL(length.value());
+        return conjunctionLocale(length.value());
     else
-        return conjunctionL();
+        return conjunctionLocale();
     
 }
 
-std::string_view conjunctionL(unsigned int length, const faker::Locale locale)
+std::string_view conjunctionLocale(unsigned int length, const faker::Locale locale)
 {
     if(length==0){length=100;}    
     auto sorted= _conjunctions_sorted_map.at(locale);
@@ -182,13 +182,13 @@ std::string_view interjection(std::optional<unsigned int> length)
 
     if(length)
         
-        return interjectionL(length.value());
+        return interjectionLocale(length.value());
     else
-        return interjectionL();
+        return interjectionLocale();
     
 }
 
-std::string_view interjectionL(unsigned int length, const faker::Locale locale) 
+std::string_view interjectionLocale(unsigned int length, const faker::Locale locale) 
 {
     if(length==0){length=100;}
     auto sorted= _interjections_sorted_map.at(locale);
@@ -200,13 +200,13 @@ std::string_view noun(std::optional<unsigned int> length)
     
     if(length)
         
-        return nounL(length.value());
+        return nounLocale(length.value());
     else
-        return nounL();
+        return nounLocale();
     
 }
 
-std::string_view nounL(unsigned int length, const faker::Locale locale)
+std::string_view nounLocale(unsigned int length, const faker::Locale locale)
 {
     if(length==0){length=100;}
     auto sorted= _nouns_sorted_map.at(locale);
@@ -218,12 +218,12 @@ std::string_view preposition(std::optional<unsigned int> length)
     
     if(length)
         
-        return prepositionL(length.value());
+        return prepositionLocale(length.value());
     else
-        return prepositionL();
+        return prepositionLocale();
 }
 
-std::string_view prepositionL(unsigned int length, const faker::Locale locale)
+std::string_view prepositionLocale(unsigned int length, const faker::Locale locale)
 {
     if(length==0){length=100;}
     auto sorted=_prepositions_sorted_map.at(locale);
@@ -234,12 +234,12 @@ std::string_view verb(std::optional<unsigned int> length)
 {    
     if(length)
         
-        return verbL(length.value());
+        return verbLocale(length.value());
     else
-        return verbL();
+        return verbLocale();
 }
 
-std::string_view verbL(unsigned int length, const faker::Locale locale)
+std::string_view verbLocale(unsigned int length, const faker::Locale locale)
 {
     if(length==0){length=100;}
 
