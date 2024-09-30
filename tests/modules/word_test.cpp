@@ -70,7 +70,7 @@ TEST_F(WordTest, shouldGenerateConjunction)
 {
     const auto generatedConjunction = conjunction();
 
-    ASSERT_TRUE(std::ranges::any_of(conjunctions, [generatedConjunction](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(_conjunctions_sorted, [generatedConjunction](const std::string_view& word)
                                     { return word == generatedConjunction; }));
 }
 
@@ -78,7 +78,7 @@ TEST_F(WordTest, shouldGenerateConjunctionWithExistingLength)
 {
     const auto generatedConjunction = conjunction(5);
 
-    ASSERT_TRUE(std::ranges::any_of(conjunctions, [generatedConjunction](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(_conjunctions_sorted, [generatedConjunction](const std::string_view& word)
                                     { return word == generatedConjunction; }));
 }
 
@@ -86,7 +86,7 @@ TEST_F(WordTest, shouldGenerateConjunctionWithNonExistingLength)
 {
     const auto generatedConjunction = conjunction(100);
 
-    ASSERT_TRUE(std::ranges::any_of(conjunctions, [generatedConjunction](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(_conjunctions_sorted, [generatedConjunction](const std::string_view& word)
                                     { return word == generatedConjunction; }));
 }
 
@@ -354,7 +354,7 @@ TEST_F(WordTestLocale, shouldGenerateConjunction)
 {
     const auto generatedConjunction = conjunction();
 
-    ASSERT_TRUE(std::ranges::any_of(conjunctions, [generatedConjunction](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(_conjunctions_sorted_map.at(faker::Locale::en_US), [generatedConjunction](const std::string_view& word)
                                     { return word == generatedConjunction; }));
 }
 

@@ -1,5 +1,6 @@
 #include <array>
 #include <map>
+#include <span>
 #include <string_view>
 #include "faker-cxx/types/locale.h"
 //Argentine/spanish data obtained from Wiktionary, https://kaikki.org/dictionary/rawdata.html
@@ -8,7 +9,18 @@
 
 namespace faker::word
 {
-    
+
+struct Idioms_Map
+{
+    std::span<const std::string_view> adjetives;
+    std::span<const std::string_view> adverbs;
+    std::span<const std::string_view> conjunctions;
+    std::span<const std::string_view> interjections;
+    std::span<const std::string_view> nouns;
+    std::span<const std::string_view> prepositions;
+    std::span<const std::string_view> verbs;
+};
+   
 const auto adjectives = std::to_array<std::string_view>({
     "abandoned",
     "able",
@@ -43099,40 +43111,19 @@ const auto esARVerbs = std::to_array<std::string_view>({
     });
 
 
-// Maps storing multiples languages words
+const faker::word::Idioms_Map enUSIdioms{{enUSAdjectives}, {enUSAdverbs},
+                       {enUSConjunctions},{ enUSInterjections},
+                       {enUSNouns},{enUSPrepositions},
+                       {enUSVerbs}};
 
-const std::map<faker::Locale,std::array<std::string_view,1328UL>> adjetivesMap({
-    {faker::Locale::en_US,enUSAdjectives},
-    {faker::Locale::es_AR,esARAdjectives}
-});
+const faker::word::Idioms_Map esARIdioms{{esARAdjectives}, {esARAdverbs},
+                       {esARConjunctions},{ esARInterjections},
+                       {esARNouns},{esARPrepositions},
+                       {esARVerbs}};
 
-const std::map<faker::Locale,std::array<std::string_view,325UL>> adverbsMap({
-    {faker::Locale::en_US,enUSAdverbs},
-    {faker::Locale::es_AR,esARAdverbs}
-});
-
-const std::map<faker::Locale,std::array<std::string_view,51UL>> conjunctionsMap({
-    {faker::Locale::en_US,enUSConjunctions},
-    {faker::Locale::es_AR,esARConjunctions}
-});
-
-const std::map<faker::Locale,std::array<std::string_view,46UL>> interjectionsMap({
-    {faker::Locale::en_US,enUSInterjections},
-    {faker::Locale::es_AR,esARInterjections}
-});
-
-const std::map<faker::Locale,std::array<std::string_view,6659UL>> nounsMap({
-    {faker::Locale::en_US,enUSNouns},
-    {faker::Locale::es_AR,esARNouns}
-});
-const std::map<faker::Locale,std::array<std::string_view,109UL>> prepositionsMap({
-    {faker::Locale::en_US,enUSPrepositions},
-    {faker::Locale::es_AR,esARPrepositions}
-});
-
-const std::map<faker::Locale,std::array<std::string_view,5910UL>> verbsMap({
-    {faker::Locale::en_US,enUSVerbs},
-    {faker::Locale::es_AR,esARVerbs}
+const std::map<faker::Locale,const Idioms_Map> idiomsMapSpan({
+    {faker::Locale::en_US,{enUSIdioms}},
+    {faker::Locale::es_AR,{esARIdioms}}
 });
 
 }
