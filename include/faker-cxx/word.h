@@ -135,7 +135,7 @@ FAKER_CXX_EXPORT std::string_view adverb(std::optional<unsigned> length = std::n
  * faker::word::adverb(5) // "almost"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view adverbLocaleocale(unsigned length = 0,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view adverbLocale(unsigned length = 0,const faker::Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random conjunction.

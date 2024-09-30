@@ -311,8 +311,7 @@ const auto _verbs_sorted = []()
 
 
  const auto _verbs_sorted_map = []()
-{
-    //std::cout<<"value P:"<<p<<"\n";
+{    
     std::map<faker::Locale,std::array<std::string_view,5910UL>>verbs_sorted;    
     for (auto i : verbsMap){
     auto list = i.second;

@@ -321,13 +321,13 @@ TEST_F(WordTestLocale, shouldGenerateAdjectiveWithNonExistingLength)
 TEST_F(WordTestLocale, shouldGenerateAdvervsLocale)
 {
     const faker::Locale locale = Locale::es_AR; 
-    const auto generatedAdverb = adverbLocaleocale(7,locale);    
+    const auto generatedAdverb = adverbLocale(7,locale);    
     ASSERT_TRUE(std::ranges::any_of(_adverbs_sorted_map.at(locale), [generatedAdverb](const std::string_view& word)
                                    { return word == generatedAdverb; }));
                                    
 }
 
-TEST_F(WordTestLocale, shouldGenerateadverbLocaleocaleocale2)
+TEST_F(WordTestLocale, shouldGenerateadverbLocaleocale2)
 {
     const faker::Locale locale = Locale::en_US; 
     const auto generatedAdverb = adverb();
@@ -339,7 +339,7 @@ TEST_F(WordTestLocale, shouldGenerateadverbLocaleocaleocale2)
 TEST_F(WordTestLocale, shouldGenerateAdverbWithExistingLength)
 {
     const faker::Locale locale = Locale::es_AR; 
-    const auto generatedAdverb = adverbLocaleocale(5,locale);
+    const auto generatedAdverb = adverbLocale(5,locale);
 
     ASSERT_TRUE(std::ranges::any_of(_adverbs_sorted_map.at(locale), [generatedAdverb](const std::string_view& word)
                                     { return word == generatedAdverb; }));
@@ -348,7 +348,7 @@ TEST_F(WordTestLocale, shouldGenerateAdverbWithExistingLength)
 TEST_F(WordTestLocale, shouldGenerateAdverbWithNonExistingLength)
 {
     const faker::Locale locale = Locale::es_AR; 
-    const auto generatedAdverb = adverbLocaleocale(0,locale);
+    const auto generatedAdverb = adverbLocale(0,locale);
 
     ASSERT_TRUE(std::ranges::any_of(_adverbs_sorted_map.at(locale), [generatedAdverb](const std::string_view& word)
                                     { return word == generatedAdverb; }));
@@ -570,4 +570,18 @@ TEST_F(WordTestLocale, shouldGenerateLargeNumberOfWords)
     {
         ASSERT_TRUE(std::ranges::find(dataset, word) != dataset.end());
     }
+}
+
+
+
+TEST_F(WordTestLocale, shouldReturnEnglishSampleifLocaleNotFilled)
+{
+    faker::Locale locale= faker::Locale::es_BO;
+    faker::Locale locale2= faker::Locale::en_US;
+    
+    
+    const auto generatedSample = sampleLocale(1,locale);
+    auto dataset=_allWords_map.at(locale2);
+    ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
+                                    { return word == generatedSample; }));
 }
