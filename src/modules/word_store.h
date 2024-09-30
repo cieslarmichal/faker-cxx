@@ -1,7 +1,11 @@
 #include <array>
+#include <map>
 #include <string_view>
-
+#include "faker-cxx/types/locale.h"
 //Argentine/spanish data obtained from Wiktionary, https://kaikki.org/dictionary/rawdata.html
+#ifndef WORD_STORE_H
+#define WORD_STORE_H
+
 namespace faker::word
 {
 const auto adjectives = std::to_array<std::string_view>({
@@ -43131,3 +43135,9 @@ const std::map<faker::Locale,std::array<std::string_view,5910UL>> verbsMap({
 });
 
 }
+
+
+
+#endif //WORD_STORE_H
+
+

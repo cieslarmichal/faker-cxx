@@ -6,8 +6,7 @@
 #include <string_view>
 
 #include "word_store.h"
-#include "locale.h"
-
+#include "faker-cxx/types/locale.h"
 namespace faker::word
 {
 // https://tristanbrindle.com/posts/a-more-useful-compile-time-quicksort

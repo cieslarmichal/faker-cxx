@@ -5,6 +5,7 @@
 #include <optional>
 #include <string>
 #include <string_view>
+#include "faker-cxx/types/locale.h"
 
 #include "word_data.h"
 
