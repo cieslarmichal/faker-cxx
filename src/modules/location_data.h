@@ -6685,6 +6685,157 @@ const CountryAddressesInfo ukraineAddresses{
     (ukraineStates),
 };
 
+// United Kingdom
+
+const auto unitedkingdomCities = std::to_array<std::string_view>({
+    // clang-format off
+    "Aberdeen",
+    "Barnsley",
+    "Birmingham",
+    "Blackburn",
+    "Blackpool",
+    "Bournemouth",
+    "Bradford",
+    "Bristol",
+    "Brent",
+    "Bromley",
+    "Burnley",
+    "Cambridge",
+    "Chesterfield",
+    "Coventry",
+    "Crawley",
+    "Derby",
+    "Derry",
+    "Dudley",
+    "Dundee",
+    "Dover",
+    "Eastbourne",
+    "East Lindsey",
+    "Edinburgh",
+    "Erewash",
+    "Glasgow",
+    "Gateshead",
+    "Halton",
+    "Hastings",
+    "Harrow",
+    "Hull",
+    "Ipswich",
+    "Kingston upon Hull",
+    "Leeds",
+    "Leicester",
+    "Lisburn",
+    "Liverpool",
+    "Luton",
+    "Milton Keynes",
+    "Middlesbrough",
+    "Newcastle upon Tyne",
+    "Newport",
+    "Norwich",
+    "Nottingham",
+    "Oxford",
+    "Peterborough",
+    "Plymouth",
+    "Portsmouth",
+    "Reading",
+    "Redcar",
+    "Rotherham",
+    "Salford",
+    "Scunthorpe",
+    "Sheffield",
+    "Southampton",
+    "Southend-on-Sea",
+    "South Tyneside",
+    "Stafford",
+    "Sunderland",
+    "Swansea",
+    "Telford",
+    "Wakefield",
+    "Warrington",
+    "Wigan",
+    "Westminster",
+    "Wolverhampton",
+    "York"
+});
+
+const auto unitedkingdomStates = std::to_array<std::string_view>({
+    "England",
+    "Northern Ireland",
+    "Scotland",
+    "Wales"
+});
+
+const auto unitedkingdomStreetSuffixes = std::to_array<std::string_view>({
+    "Avenue",
+    "Bank",
+    "Brook",
+    "Circus",
+    "Close",
+    "Crescent",
+    "Drive",
+    "Field",
+    "Gardens",
+    "Grove",
+    "Hill",
+    "Lane",
+    "Mead"
+    "Mews",
+    "Place",
+    "Reach",
+    "Rise",
+    "Road",
+    "Row",
+    "Square",
+    "Square",
+    "Street",
+    "Way",
+    "Wharf",
+    "Yard",
+    });
+
+const std::string_view unitedkingdomPostCodeFormat{"__## #__"};
+
+const auto unitedkingdomAddressFormats = std::to_array<std::string_view>({
+    "{buildingNumber} {street}",
+});
+
+const auto unitedkingdomSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Apt. ###",
+    "Suite ###",
+    "Flat ##"
+});
+
+const auto unitedkingdomBuildingNumberFormats = std::to_array<std::string_view>({
+    "###",
+    "####",
+    "#####",
+});
+
+const auto unitedkingdomStreetFormats =
+    std::to_array<std::string_view>({
+    "{firstName} {streetSuffix}",
+    "{lastName} {streetSuffix}",
+});
+
+const auto unitedkingdomCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo unitedkingdomAddresses{
+    unitedkingdomPostCodeFormat,
+    (unitedkingdomAddressFormats),
+    (unitedkingdomSecondaryAddressFormats),
+    (unitedkingdomStreetFormats),
+    {},
+    {},
+    (unitedkingdomStreetSuffixes),
+    (unitedkingdomBuildingNumberFormats),
+    (unitedkingdomCityFormats),
+    {},
+    (unitedkingdomCities),
+    {},
+    {unitedkingdomStates},
+}; 
+
 // USA
 
 const auto usaCities = std::to_array<std::string_view>({

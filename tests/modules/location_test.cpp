@@ -67,6 +67,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return finlandAddresses;
     case Locale::et_EE:
         return estoniaAddresses;
+    case Locale::en_GB:
+        return unitedkingdomAddresses;
     default:
         return usaAddresses;
     }
@@ -86,6 +88,19 @@ public:
                                        return std::ranges::any_of(zipCodeCharacters,
                                                                   [dataCharacter](char numericCharacter)
                                                                   { return numericCharacter == dataCharacter; });
+                                   });
+    }
+
+    static bool checkIfPostCode(const std::string& postCode)
+    {
+        const std::string postCodeCharacters = "0123456789-ABCDEFGHIJKLMNOPQRSTUVWXYZ ";
+
+        return std::ranges::all_of(postCode,
+                                   [&postCodeCharacters](char dataCharacter)
+                                   {
+                                       return std::ranges::any_of(postCodeCharacters,
+                                                                  [dataCharacter](char alphaNumericCharacter)
+                                                                  { return alphaNumericCharacter == dataCharacter; });
                                    });
     }
 
@@ -165,7 +180,14 @@ TEST_P(LocationTest, shouldGenerateZipCode)
 
     ASSERT_EQ(generatedZipCode.size(), countryAddresses.zipCodeFormat.size());
 
-    ASSERT_TRUE(checkIfZipCode(generatedZipCode));
+    if(postCodeSet.count(country) == 1){
+
+        ASSERT_TRUE(checkIfPostCode(generatedZipCode));
+    }
+    else{
+
+        ASSERT_TRUE(checkIfZipCode(generatedZipCode));
+    }
 }
 
 TEST_P(LocationTest, shouldGenerateBuildingNumber)
@@ -797,4 +819,52 @@ TEST_F(LocationTest, shouldGenerateEstoniaStreetAddress)
 
     ASSERT_TRUE(std::ranges::any_of(estoniaStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+TEST_F(LocationTest, shouldGenerateUnitedKingdomStreet)
+{
+    const auto generatedStreet = street(Locale::en_GB);
+
+    const auto generatedStreetElements = common::split(generatedStreet, " ");
+
+    const auto& generatedFirstOrLastName = generatedStreetElements[0];
+    const auto& generatedStreetSuffix = generatedStreetElements[1];
+
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(),
+                                             person::englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
+
+    ASSERT_EQ(generatedStreetElements.size(), 2);
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedFirstOrLastName](const std::string_view& firstName)
+                                    { return firstName == generatedFirstOrLastName; }) ||
+                std::ranges::any_of(person::englishLastNames,
+                                    [&generatedFirstOrLastName](const std::string_view& lastName)
+                                    { return lastName == generatedFirstOrLastName; }));
+    ASSERT_TRUE(std::ranges::any_of(unitedkingdomStreetSuffixes, [&generatedStreetSuffix](const std::string_view& streetSuffix)
+                                    { return streetSuffix == generatedStreetSuffix; }));
+}
+
+TEST_F(LocationTest, shouldGenerateUnitedKingdomStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::en_GB);
+
+    const auto generatedStreetAddressElements = common::split(generatedStreetAddress, " ");
+
+    const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
+    const auto& generatedFirstOrLastName = generatedStreetAddressElements[1];
+    const auto& generatedStreetSuffix = generatedStreetAddressElements[2];
+
+    std::vector<std::string_view> firstNames(person::englishMaleFirstNames.begin(),
+                                             person::englishMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::englishFemaleFirstNames.begin(), person::englishFemaleFirstNames.end());
+
+    ASSERT_EQ(generatedStreetAddressElements.size(), 3);
+    ASSERT_TRUE(generatedBuildingNumber.size() >= 3 && generatedBuildingNumber.size() <= 5);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedFirstOrLastName](const std::string_view& firstName)
+                                    { return firstName == generatedFirstOrLastName; }) ||
+                std::ranges::any_of(person::englishLastNames,
+                                    [&generatedFirstOrLastName](const std::string_view& lastName)
+                                    { return lastName == generatedFirstOrLastName; }));
+    ASSERT_TRUE(std::ranges::any_of(unitedkingdomStreetSuffixes, [&generatedStreetSuffix](const std::string_view& streetSuffix)
+                                    { return streetSuffix == generatedStreetSuffix; }));
 }

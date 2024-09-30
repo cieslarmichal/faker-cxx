@@ -42,6 +42,25 @@ std::string replaceSymbolWithNumber(const std::string& str, const char& symbol)
     return result;
 }
 
+std::string replaceSymbolWithLetter(const std::string& str, const char& symbol)
+{
+    std::string result;
+
+    for (const auto& ch : str)
+    {
+        if (ch == symbol)
+        {
+            result += static_cast<char>(number::integer(65, 90));
+        }
+        else
+        {
+            result += ch;
+        }
+    }
+
+    return result;
+}
+
 std::string replaceCreditCardSymbols(const std::string& inputString, char symbol)
 {
     std::string modifiedString = regexpStyleStringParse(inputString);

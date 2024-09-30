@@ -132,6 +132,15 @@ TEST_F(HelperTest, ReplaceSymbolWithNumber)
     ASSERT_TRUE(std::ranges::all_of(result, ::isdigit));
 }
 
+TEST_F(HelperTest, ReplaceSymbolWithLetter)
+{
+    std::string input = "ABCD_FGH";
+
+    const auto result = replaceSymbolWithLetter(input);
+
+    ASSERT_TRUE(std::ranges::all_of(result, ::isalpha));
+}
+
 TEST_F(HelperTest, RegexpStyleStringParse)
 {
     std::string input = "#{5}[2-4]test[1-3]";

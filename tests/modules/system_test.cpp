@@ -141,7 +141,7 @@ TEST_F(SystemTest, CommonFileNameWithEmptyExtensionTest)
     const auto actualFileName = commonFileName();
 
     const auto actualExtension = actualFileName.substr(actualFileName.find_last_of('.') + 1);
-    
+
     EXPECT_FALSE(actualExtension.empty());
 }
 

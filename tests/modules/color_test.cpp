@@ -9,7 +9,7 @@
 #include "common/string_helper.h"
 #include "faker-cxx/color.h"
 #include "faker-cxx/types/hex.h"
-#include "string_data.h"
+#include "number_data.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -77,7 +77,7 @@ TEST_F(ColorTest, shouldGenerateHexColorWithoutAlpha)
     ASSERT_EQ(prefix, "#");
     ASSERT_TRUE(
         std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                            { return string::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                            { return number::hexLowerCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
@@ -91,7 +91,7 @@ TEST_F(ColorTest, shouldGenerateHexColorWithAlpha)
     ASSERT_EQ(prefix, "0x");
     ASSERT_TRUE(
         std::ranges::any_of(hexNumber, [hexNumber](char hexNumberCharacter)
-                            { return string::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
+                            { return number::hexUpperCharacters.find(hexNumberCharacter) != std::string::npos; }));
 }
 
 TEST_F(ColorTest, shouldGenerateHslWithoutAlpha)

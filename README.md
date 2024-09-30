@@ -105,7 +105,7 @@ int main()
 - 🌍 Location - countries, cities, zip codes, street addresses
 - 📚 Lorem - lorem words, sentences, paragraphs
 - 🏥 Medicine - conditions, medical tests, specialties
-- 🎥 Movie - actors, actresses, genres, movie enUSTitles
+- 🎥 Movie - actors, actresses, genres, movie titles
 - 🎶 Music - artists, song names, genres
 - 🔢 Number - random integers, floating point numbers
 - 🧑 Person - first, last names, job enUSTitles, hobby, genders, sex, nationality, language
@@ -123,6 +123,7 @@ int main()
 ## Consuming the library with CMake
 
 ## With Git submodules and add_library
+
 1. Add faker to git submodules (execute in project root):
 
     ```
@@ -142,14 +143,15 @@ int main()
 
     target_link_libraries(main faker-cxx)
     ```
+
 ## With FetchContent
 
 ```cmake
 set(BUILD_TESTING OFF)
 
 FetchContent_Declare(faker
-GIT_REPOSITORY https://github.com/cieslarmichal/faker-cxx.git
-GIT_TAG main
+    GIT_REPOSITORY https://github.com/cieslarmichal/faker-cxx.git
+    GIT_TAG main
 )
 
 FetchContent_MakeAvailable(faker)
