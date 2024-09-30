@@ -34,7 +34,7 @@ var namespacefaker =
       [ "hsv", "namespacefaker_1_1color.html#a125a5d22271e5883e4b4c939324eabcf", null ],
       [ "lab", "namespacefaker_1_1color.html#afd8333f4cc9596e3819ad009f6080528", null ],
       [ "lch", "namespacefaker_1_1color.html#a7c586ab6590f34db1170dbd586bf18b1", null ],
-      [ "name", "namespacefaker_1_1color.html#a293bb321a832653d0436df1fcdccacbf", null ],
+      [ "name", "namespacefaker_1_1color.html#a1706e300f9f40213dd60b92d25dcc1aa", null ],
       [ "rgb", "namespacefaker_1_1color.html#af6a5bd8e9feb97f01ef3a41621cec14a", null ],
       [ "yuv", "namespacefaker_1_1color.html#a8e30cdd5e0f2d52ca7a21c37a5843d3f", null ]
     ] ],

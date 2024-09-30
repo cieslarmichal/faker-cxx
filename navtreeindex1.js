@@ -125,7 +125,7 @@ var NAVTREEINDEX1 =
 "namespacefaker_1_1color.html#a029e95b2d93b04c1b07ecf8e1942f690":[0,0,0,3,0],
 "namespacefaker_1_1color.html#a036bd0fa934a250f82eeb08c6a74bfcd":[0,0,0,3,3],
 "namespacefaker_1_1color.html#a125a5d22271e5883e4b4c939324eabcf":[0,0,0,3,4],
-"namespacefaker_1_1color.html#a293bb321a832653d0436df1fcdccacbf":[0,0,0,3,7],
+"namespacefaker_1_1color.html#a1706e300f9f40213dd60b92d25dcc1aa":[0,0,0,3,7],
 "namespacefaker_1_1color.html#a7c586ab6590f34db1170dbd586bf18b1":[0,0,0,3,6],
 "namespacefaker_1_1color.html#a8e30cdd5e0f2d52ca7a21c37a5843d3f":[0,0,0,3,9],
 "namespacefaker_1_1color.html#a95505c20701451ee42aba82bc5209264":[0,0,0,3,2],
