@@ -4,6 +4,7 @@
 #include <string_view>
 
 #include "faker-cxx/export.h"
+#include "faker-cxx/types/locale.h"
 #include "types/hex.h"
 
 namespace faker::color
@@ -11,13 +12,15 @@ namespace faker::color
 /**
  * @brief Returns a random color.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Human readable color name.
  *
  * @code
  * faker::color::name() // "Blue"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view name();
+FAKER_CXX_EXPORT std::string_view name(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns an RGB color.
