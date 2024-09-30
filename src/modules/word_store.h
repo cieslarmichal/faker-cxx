@@ -8,6 +8,7 @@
 
 namespace faker::word
 {
+    
 const auto adjectives = std::to_array<std::string_view>({
     "abandoned",
     "able",

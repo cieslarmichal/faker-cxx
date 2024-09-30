@@ -77,52 +77,52 @@ constexpr void quick_sort(RAIt first, RAIt last, Compare cmp = Compare{})
     quick_sort(middle2, last, cmp);
 }
 
-const std::array<std::string_view, adjectives.size() + adverbs.size() + conjunctions.size() + interjections.size() +
-                                       nouns.size() + prepositions.size() + verbs.size()>
+const std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
+                                       enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>
     _allWords = []()
 {
-    std::array<std::string_view, adjectives.size() + adverbs.size() + conjunctions.size() + interjections.size() +
-                                     nouns.size() + prepositions.size() + verbs.size()>
+    std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
+                                     enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>
         table{};
 
     size_t idx = 0;
-    for (const auto& v : adjectives)
+    for (const auto& v : enUSAdjectives)
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : adverbs)
+    for (const auto& v : enUSAdverbs)
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : conjunctions)
+    for (const auto& v : enUSConjunctions)
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : interjections)
+    for (const auto& v : enUSInterjections)
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : nouns)
+    for (const auto& v : enUSNouns)
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : prepositions)
+    for (const auto& v : enUSPrepositions)
     {
         table[idx] = v;
         idx++;
     }
 
-    for (const auto& v : verbs)
+    for (const auto& v : enUSVerbs)
     {
         table[idx] = v;
         idx++;
@@ -199,7 +199,7 @@ const std::map<faker::Locale, std::array<std::string_view, enUSAdjectives.size()
 
 const auto _adjectives_sorted = []()
 {
-    auto sorted = adjectives;
+    auto sorted = enUSAdjectives;
     quick_sort(sorted.begin(), sorted.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
     return sorted;
 }();
