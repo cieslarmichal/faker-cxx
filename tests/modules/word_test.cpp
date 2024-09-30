@@ -277,10 +277,6 @@ TEST_F(WordTest, returnsFirstElementWhenNoLengthMatch)
 
     ASSERT_TRUE(result == "three");
 }
-
-
-
-
 class WordTestLocale : public TestWithParam<Locale>
 {
 public:
@@ -580,7 +576,7 @@ TEST_F(WordTestLocale, shouldReturnEnglishSampleifLocaleNotFilled)
     faker::Locale locale2= faker::Locale::en_US;
     
     
-    const auto generatedSample = sampleLocale(1,locale);
+    const auto generatedSample = sampleLocale(0,locale);
     auto dataset=_allWords_map.at(locale2);
     ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
