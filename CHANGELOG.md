@@ -14,6 +14,8 @@ All notable changes to this project will be documented in this file
 
 * added locale to `book` module
 * added locale to `weather` module
+* added locale to `color` module
+* added locale to `vehicle` module
 
 ## v3.0.0 (28.08.2024)
 

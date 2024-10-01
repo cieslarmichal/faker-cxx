@@ -12,71 +12,100 @@ using namespace ::testing;
 using namespace faker;
 using namespace faker::vehicle;
 
-class VehicleTest : public Test
+namespace
+{
+const struct VehicleDefinition& getVehicleDefinition(Locale locale)
+{
+    return enUSVehicleDefinition ;
+}
+}
+
+class VehicleTest : public TestWithParam<Locale>
 {
 public:
 };
 
-TEST_F(VehicleTest, shouldGenerateBicycle)
+TEST_P(VehicleTest, shouldGenerateBicycle)
 {
-    const auto generatedBicycle = bicycle();
+    const auto locale = GetParam();
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(bicycle_types, [generatedBicycle](const std::string_view& bicycle)
+    const auto generatedBicycle = bicycle(locale) ;
+
+    ASSERT_TRUE(std::ranges::any_of(vehicleDefinition.bicycles, [generatedBicycle](const std::string_view& bicycle)
                                     { return bicycle == generatedBicycle; }));
 }
 
-TEST_F(VehicleTest, shouldGenerateColor)
+TEST_P(VehicleTest, shouldGenerateColor)
 {
-    const auto generatedColor = color();
+    const auto locale = GetParam();
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(vehicle_colors, [generatedColor](const std::string_view& color)
+    const auto generatedColor = color(locale) ;
+
+    ASSERT_TRUE(std::ranges::any_of(vehicleDefinition.colors, [generatedColor](const std::string_view& color)
                                     { return color == generatedColor; }));
 }
 
-TEST_F(VehicleTest, shouldGenerateFuel)
+TEST_P(VehicleTest, shouldGenerateFuel)
 {
-    const auto generatedFuel = fuel();
+    const auto locale = GetParam();
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(fuel_types,
+    const auto generatedFuel = fuel(locale) ;
+
+    ASSERT_TRUE(std::ranges::any_of(vehicleDefinition.fuelTypes,
                                     [generatedFuel](const std::string_view& fuel) { return fuel == generatedFuel; }));
 }
 
-TEST_F(VehicleTest, shouldGenerateManufacturer)
+TEST_P(VehicleTest, shouldGenerateManufacturer)
 {
-    const auto generatedManufacturer = manufacturer();
+    const auto locale = GetParam();
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(manufacturers, [generatedManufacturer](const std::string_view& manufacturer)
+    const auto generatedManufacturer = manufacturer(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(vehicleDefinition.manufacturers, [generatedManufacturer](const std::string_view& manufacturer)
                                     { return manufacturer == generatedManufacturer; }));
 }
 
-TEST_F(VehicleTest, shouldGenerateModel)
+TEST_P(VehicleTest, shouldGenerateModel)
 {
-    const auto generatedModel = model();
+    const auto locale = GetParam();
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(models, [generatedModel](const std::string_view& model)
+    const auto generatedModel = model(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(vehicleDefinition.models, [generatedModel](const std::string_view& model)
                                     { return model == generatedModel; }));
 }
 
-TEST_F(VehicleTest, shouldGenerateType)
+TEST_P(VehicleTest, shouldGenerateType)
 {
+    const auto locale = GetParam();
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
+    
     const auto generatedType = type();
 
-    ASSERT_TRUE(std::ranges::any_of(vehicle_types,
+    ASSERT_TRUE(std::ranges::any_of(vehicleDefinition.vehicles,
                                     [generatedType](const std::string_view& type) { return type == generatedType; }));
 }
 
-TEST_F(VehicleTest, shouldGenerateVehicle)
+TEST_P(VehicleTest, shouldGenerateVehicle)
 {
-    const auto generatedVehicle = vehicleName();
+    const auto locale = GetParam();
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(manufacturers, [generatedVehicle](const std::string_view& manufacturer)
+    const auto generatedVehicle = vehicleName(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(vehicleDefinition.manufacturers, [generatedVehicle](const std::string_view& manufacturer)
                                     { return generatedVehicle.starts_with(manufacturer); }));
 
-    ASSERT_TRUE(std::ranges::any_of(models, [generatedVehicle](const std::string_view& model)
+    ASSERT_TRUE(std::ranges::any_of(vehicleDefinition.models, [generatedVehicle](const std::string_view& model)
                                     { return generatedVehicle.ends_with(model); }));
 }
 
-TEST_F(VehicleTest, shouldGenerateVin)
+TEST_P(VehicleTest, shouldGenerateVin)
 {
     const auto generatedVin = vin();
 
@@ -87,7 +116,7 @@ TEST_F(VehicleTest, shouldGenerateVin)
     ASSERT_TRUE(std::regex_match(generatedVin, match, vinRegex));
 }
 
-TEST_F(VehicleTest, shouldGenerateVrm)
+TEST_P(VehicleTest, shouldGenerateVrm)
 {
     const auto generatedVrm = vrm();
 
@@ -97,3 +126,6 @@ TEST_F(VehicleTest, shouldGenerateVrm)
 
     ASSERT_TRUE(std::regex_match(generatedVrm, match, vrmRegex));
 }
+
+INSTANTIATE_TEST_SUITE_P(TestBookByLocale, VehicleTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
