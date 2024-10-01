@@ -4,11 +4,13 @@
 #include <string_view>
 
 #include "faker-cxx/export.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::vehicle
 {
 /**
  * @brief Returns a random bicycle type.
+ *@param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns bicycle type.
  *
@@ -16,10 +18,12 @@ namespace faker::vehicle
  * faker::vehicle::bicycle() // "Electric bike"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view bicycle();
+FAKER_CXX_EXPORT std::string_view bicycle(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random vehicle color.
+ * 
+ *@param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns vehicle color.
  *
@@ -27,10 +31,12 @@ FAKER_CXX_EXPORT std::string_view bicycle();
  * faker::vehicle::color() // "Silver"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view color();
+FAKER_CXX_EXPORT std::string_view color(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random vehicle fuel.
+ * 
+ *@param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns vehicle fuel.
  *
@@ -38,10 +44,12 @@ FAKER_CXX_EXPORT std::string_view color();
  * faker::vehicle::fuel() // "Diesel"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view fuel();
+FAKER_CXX_EXPORT std::string_view fuel(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random vehicle(car) manufacturer.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns vehicle(car) manufacturer.
  *
@@ -49,10 +57,12 @@ FAKER_CXX_EXPORT std::string_view fuel();
  * faker::vehicle::manufacturer() // "Ferrari"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view manufacturer();
+FAKER_CXX_EXPORT std::string_view manufacturer(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random vehicle(car) model.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns vehicle(car) model.
  *
@@ -60,10 +70,12 @@ FAKER_CXX_EXPORT std::string_view manufacturer();
  * faker::vehicle::model() // "Fiesta"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view model();
+FAKER_CXX_EXPORT std::string_view model(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random vehicle type.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns vehicle type.
  *
@@ -71,10 +83,12 @@ FAKER_CXX_EXPORT std::string_view model();
  * faker::vehicle::type() // "Van"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view type();
+FAKER_CXX_EXPORT std::string_view type(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random vehicle(car).
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns vehicle composed by a manufacturer and model.
  *
@@ -82,7 +96,7 @@ FAKER_CXX_EXPORT std::string_view type();
  * faker::vehicle::vehicleName() // "BMW Explorer"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string vehicleName();
+FAKER_CXX_EXPORT std::string vehicleName(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a vehicle identification number (VIN).

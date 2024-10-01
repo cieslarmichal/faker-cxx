@@ -1,5 +1,6 @@
 #include "faker-cxx/color.h"
 
+#include <span>
 #include <string>
 #include <string_view>
 
@@ -8,11 +9,28 @@
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/types/hex.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::color
 {
-std::string_view name()
+namespace
 {
+std::span<const std::string_view> getColors(Locale locale)
+{
+    switch (locale)
+    {
+    case Locale::pl_PL:
+        return polishColors;
+    default:
+        return englishColors;
+    }
+}
+}
+
+std::string_view name(Locale locale)
+{
+    const auto& colors = getColors(locale);
+
     return helper::randomElement(colors);
 }
 

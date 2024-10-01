@@ -1,11 +1,22 @@
 #pragma once
 
 #include <array>
+#include <span>
 #include <string_view>
 
 namespace faker::vehicle
 {
-const auto bicycle_types = std::to_array<std::string_view>({
+struct VehicleDefinition
+{
+    std::span<const std::string_view> bicycles;
+    std::span<const std::string_view> colors;
+    std::span<const std::string_view> fuelTypes;
+    std::span<const std::string_view> manufacturers;
+    std::span<const std::string_view> models;
+    std::span<const std::string_view> vehicles;
+};
+
+const auto enUSBicycles = std::to_array<std::string_view>({
     "BMX bike",
     "Cargo bike",
     "City bike",
@@ -18,7 +29,7 @@ const auto bicycle_types = std::to_array<std::string_view>({
     "Tandem bike",
 });
 
-const auto vehicle_colors = std::to_array<std::string_view>({
+const auto enUSColors = std::to_array<std::string_view>({
     "Black",
     "Blue",
     "Gray",
@@ -28,7 +39,7 @@ const auto vehicle_colors = std::to_array<std::string_view>({
     "White",
 });
 
-const auto fuel_types = std::to_array<std::string_view>({
+const auto enUSFuelTypes = std::to_array<std::string_view>({
     "Biodiesel",
     "Diesel",
     "Electric",
@@ -41,7 +52,7 @@ const auto fuel_types = std::to_array<std::string_view>({
     "Propane",
 });
 
-const auto manufacturers = std::to_array<std::string_view>({
+const auto enUSManufacturers = std::to_array<std::string_view>({
     "Acura",    "Alfa Romeo",    "Aston Martin", "Audi",       "BMW",    "Bentley", "Cadillac",   "Chevrolet",
     "Chrysler", "Dodge",         "Ferrari",      "Fiat",       "Ford",   "GMC",     "Honda",      "Hyundai",
     "Infiniti", "Jaguar",        "Jeep",         "Kia",        "Lexus",  "Lincoln", "Lotus",      "Maserati",
@@ -49,7 +60,7 @@ const auto manufacturers = std::to_array<std::string_view>({
     "Renault",  "Rolls-Royce",   "Subaru",       "Suzuki",     "Tesla",  "Toyota",  "Volkswagen", "Volvo",
 });
 
-const auto models = std::to_array<std::string_view>({
+const auto enUSModels = std::to_array<std::string_view>({
     "Accord",
     "CR-V",
     "Camry",
@@ -66,7 +77,7 @@ const auto models = std::to_array<std::string_view>({
     "Silverado 1500",
 });
 
-const auto vehicle_types = std::to_array<std::string_view>({
+const auto enUSVehicles = std::to_array<std::string_view>({
     "Boat",
     "Bus",
     "Car",
@@ -78,5 +89,14 @@ const auto vehicle_types = std::to_array<std::string_view>({
     "Truck",
     "Van",
 });
+
+const VehicleDefinition enUSVehicleDefinition = {
+    .bicycles = enUSBicycles,
+    .colors = enUSColors,
+    .fuelTypes= enUSFuelTypes,
+    .manufacturers = enUSManufacturers,
+    .models = enUSModels,
+    .vehicles = enUSVehicles,
+};
 
 }

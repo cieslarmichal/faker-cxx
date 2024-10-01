@@ -1,7 +1,7 @@
 #include <algorithm>
 #include <charconv>
+#include <span>
 #include <string>
-#include <string_view>
 
 #include "gtest/gtest.h"
 
@@ -13,20 +13,43 @@
 
 using namespace ::testing;
 using namespace faker;
-using namespace color;
+using namespace faker::color;
+
+std::span<const std::string_view> getColors(Locale locale)
+{
+    switch (locale)
+    {
+    case Locale::pl_PL:
+        return polishColors;
+    default:
+        return englishColors;
+    }
+}
+
+class ColorNameTest : public TestWithParam<Locale>
+{
+public:
+};
+
+TEST_P(ColorNameTest, shouldGenerateColorName)
+{
+    const auto locale = GetParam();
+
+    const auto generatedColorName = name(locale);
+
+    const auto exceptedColors = getColors(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(exceptedColors, [generatedColorName](const std::string_view& colorName)
+                                    { return colorName == generatedColorName; }));
+}
+
+INSTANTIATE_TEST_SUITE_P(TestColorNameByLocale, ColorNameTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
 
 class ColorTest : public Test
 {
 public:
 };
-
-TEST_F(ColorTest, shouldGenerateColorName)
-{
-    const auto generatedColorName = name();
-
-    ASSERT_TRUE(std::ranges::any_of(colors, [generatedColorName](const std::string_view& colorName)
-                                    { return colorName == generatedColorName; }));
-}
 
 TEST_F(ColorTest, shouldGenerateRgbColorWithoutAlpha)
 {
