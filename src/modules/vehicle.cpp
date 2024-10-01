@@ -7,43 +7,58 @@
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/string.h"
+#include "faker-cxx/types/locale.h"
 #include "vehicle_data.h"
 
 namespace faker::vehicle
 {
-std::string_view bicycle()
+namespace
 {
-    return helper::randomElement(bicycle_types);
+const struct VehicleDefinition& getVehicleDefinition(Locale locale)
+{
+    return enUSVehicleDefinition ;
+}
 }
 
-std::string_view color()
+std::string_view bicycle(Locale locale)
 {
-    return helper::randomElement(vehicle_colors);
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
+    return helper::randomElement(vehicleDefinition.bicycles);
 }
 
-std::string_view fuel()
+std::string_view color(Locale locale)
 {
-    return helper::randomElement(fuel_types);
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
+    return helper::randomElement(vehicleDefinition.colors);
 }
 
-std::string_view manufacturer()
+std::string_view fuel(Locale locale)
 {
-    return helper::randomElement(manufacturers);
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
+    return helper::randomElement(vehicleDefinition.fuelTypes);
 }
 
-std::string_view model()
+std::string_view manufacturer(Locale locale)
 {
-    return helper::randomElement(models);
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
+    return helper::randomElement(vehicleDefinition.manufacturers);
 }
 
-std::string_view type()
+std::string_view model(Locale locale)
 {
-    return helper::randomElement(vehicle_types);
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
+    return helper::randomElement(vehicleDefinition.models);
 }
 
-std::string vehicleName()
+std::string_view type(Locale locale)
 {
-    return common::format("{} {}", manufacturer(), model());
+    const auto& vehicleDefinition = getVehicleDefinition(locale);
+    return helper::randomElement(vehicleDefinition.vehicles);
+}
+
+std::string vehicleName(Locale locale)
+{
+    return common::format("{} {}", manufacturer(locale), model(locale));
 }
 
 std::string vin()
