@@ -92,11 +92,11 @@ const auto enUSVehicles = std::to_array<std::string_view>({
 
 const VehicleDefinition enUSVehicleDefinition = {
     .bicycles = enUSBicycles,
-    .vehicles = enUSVehicles,
-    .models = enUSModels,
-    .fuelTypes= enUSFuelTypes,
     .colors = enUSColors,
+    .fuelTypes= enUSFuelTypes,
     .manufacturers = enUSManufacturers,
+    .models = enUSModels,
+    .vehicles = enUSVehicles,
 };
 
 }
