@@ -146,14 +146,14 @@ TEST_F(StringTest, shouldGenerateSampleString)
 
 TEST_F(StringTest, shouldGenerateSampleStringWithGuarantee1)
 {
-    const auto sampleLocaleength{20};
+    const auto sampleLocalength{20};
     const GuaranteeMap guarantee = {{';', {1, 3}}, {',', {3, 4}}, {'a', {2, 10}}};
     for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
-        const auto generatedSample = sample(std::move(copyGuarantee), sampleLocaleength);
+        const auto generatedSample = sample(std::move(copyGuarantee), sampleLocalength);
 
-        ASSERT_EQ(generatedSample.size(), sampleLocaleength);
+        ASSERT_EQ(generatedSample.size(), sampleLocalength);
         ASSERT_TRUE(std::ranges::all_of(
             generatedSample, [](char sampleCharacter)
             { return static_cast<int>(sampleCharacter) >= 33 && static_cast<int>(sampleCharacter) <= 125; }));
@@ -170,14 +170,14 @@ TEST_F(StringTest, shouldGenerateSampleStringWithGuarantee1)
 
 TEST_F(StringTest, shouldGenerateSampleStringWithGuarantee2)
 {
-    const auto sampleLocaleength{20};
+    const auto sampleLocalength{20};
     const GuaranteeMap guarantee = {{'4', {0, 1}}, {'5', {0, 2}}, {'a', {0, 3}}, {'@', {2, 2}}};
     for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
-        const auto generatedSample = sample(std::move(copyGuarantee), sampleLocaleength);
+        const auto generatedSample = sample(std::move(copyGuarantee), sampleLocalength);
 
-        ASSERT_EQ(generatedSample.size(), sampleLocaleength);
+        ASSERT_EQ(generatedSample.size(), sampleLocalength);
         ASSERT_TRUE(std::ranges::all_of(
             generatedSample, [](char sampleCharacter)
             { return static_cast<int>(sampleCharacter) >= 33 && static_cast<int>(sampleCharacter) <= 125; }));
@@ -196,14 +196,14 @@ TEST_F(StringTest, shouldGenerateSampleStringWithGuarantee2)
 
 TEST_F(StringTest, shouldGenerateSampleStringWithGuarantee3)
 {
-    const auto sampleLocaleength{20};
+    const auto sampleLocalength{20};
     const GuaranteeMap guarantee = {{'(', {0, 4}}, {'{', {0, 2}}, {'\\', {0, 1}}, {'/', {0, 5}}};
     for (int i = 0; i < runCount; ++i)
     {
         auto copyGuarantee = guarantee;
-        const auto generatedSample = sample(std::move(copyGuarantee), sampleLocaleength);
+        const auto generatedSample = sample(std::move(copyGuarantee), sampleLocalength);
 
-        ASSERT_EQ(generatedSample.size(), sampleLocaleength);
+        ASSERT_EQ(generatedSample.size(), sampleLocalength);
         ASSERT_TRUE(std::ranges::all_of(
             generatedSample, [](char sampleCharacter)
             { return static_cast<int>(sampleCharacter) >= 33 && static_cast<int>(sampleCharacter) <= 125; }));
@@ -222,16 +222,16 @@ TEST_F(StringTest, shouldGenerateSampleStringWithGuarantee3)
 
 TEST_F(StringTest, invalidGuaranteeForSample1)
 {
-    const auto sampleLocaleength{20};
+    const auto sampleLocalength{20};
     GuaranteeMap guarantee = {{'3', {5, 6}}, {':', {6}}, {'A', {10}}};
-    ASSERT_THROW(sample(std::move(guarantee), sampleLocaleength), std::invalid_argument);
+    ASSERT_THROW(sample(std::move(guarantee), sampleLocalength), std::invalid_argument);
 }
 
 TEST_F(StringTest, invalidGuaranteeForSample2)
 {
-    const auto sampleLocaleength{20};
+    const auto sampleLocalength{20};
     GuaranteeMap guarantee = {{'a', {3}}, {'A', {10}}, {'~', {2, 2}}};
-    ASSERT_THROW(sample(std::move(guarantee), sampleLocaleength), std::invalid_argument);
+    ASSERT_THROW(sample(std::move(guarantee), sampleLocalength), std::invalid_argument);
 }
 
 TEST_F(StringTest, shouldGenerateDefaultStringFromCharaters)

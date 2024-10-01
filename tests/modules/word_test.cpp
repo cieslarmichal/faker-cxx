@@ -13,6 +13,32 @@ using namespace faker::word;
 using namespace faker;
 using namespace ::testing;
 
+namespace{
+
+    const struct Idioms_Map& getIdiomsMap(Locale locale)
+    {
+        if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
+        {
+            return enUSIdioms;
+        }    
+        else
+        {
+            return idiomsMapSpan.at(locale);
+        }
+    }     
+    bool checkLocale(Locale locale) 
+    {
+        if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
+        {
+            return false;
+        }    
+        else
+        {
+            return true;
+        }
+    }
+
+}
 class WordTest : public Test
 {
 public:
@@ -277,251 +303,298 @@ TEST_F(WordTest, returnsFirstElementWhenNoLengthMatch)
 
     ASSERT_TRUE(result == "three");
 }
+
 class WordTestLocale : public TestWithParam<Locale>
 {
 public:
 };
-TEST_F(WordTestLocale, shouldGenerateadjectiveLocaleocale)
+TEST_P(WordTestLocale, shouldGenerateadjectiveLocaleocale)
 {
-    const faker::Locale locale = Locale::es_AR; 
+    Locale locale = GetParam();
+    auto idiomsMapLocal=getIdiomsMap(locale);
+    
     const auto generatedAdjective = adjectiveLocale( 7,locale);
-    ASSERT_TRUE(std::ranges::any_of(_adjetives_sorted_map.at(locale), [generatedAdjective](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.adjetives, [generatedAdjective](const std::string_view& word)
                                     { return word == generatedAdjective; }));
 }
-TEST_F(WordTestLocale, shouldGenerateadjectiveLocaleocaleWithNoLocale)
+TEST_P(WordTestLocale, shouldGenerateadjectiveLocaleocaleWithNoLocale)
 {
-    
+    Locale locale =  Locale::en_US;
+    auto idiomsMapLocal=getIdiomsMap(locale); 
     const auto generatedAdjective = adjectiveLocale();
-    ASSERT_TRUE(std::ranges::any_of(adjectives, [generatedAdjective](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.adjetives, [generatedAdjective](const std::string_view& word)
                                    { return word == generatedAdjective; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateAdjectiveWithExistingLength)
+TEST_P(WordTestLocale, shouldGenerateAdjectiveWithExistingLength)
 {
-    const faker::Locale locale = Locale::es_AR; 
+    Locale locale = GetParam();
+    auto idiomsMapLocal=getIdiomsMap(locale); 
     const auto generatedAdjective = adjectiveLocale(5,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_adjetives_sorted_map.at(locale), [generatedAdjective](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.adjetives, [generatedAdjective](const std::string_view& word)
                                     { return word == generatedAdjective; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateAdjectiveWithNonExistingLength)
+TEST_P(WordTestLocale, shouldGenerateAdjectiveWithNonExistingLength)
 {
-    const faker::Locale locale = Locale::es_AR; 
+    Locale locale = GetParam();
+    auto idiomsMapLocal=getIdiomsMap(locale); 
     const auto generatedAdjective = adjectiveLocale(0,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_adjetives_sorted_map.at(locale), [generatedAdjective](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.adjetives, [generatedAdjective](const std::string_view& word)
                                     { return word == generatedAdjective; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateAdvervsLocale)
+TEST_P(WordTestLocale, shouldGenerateAdvervsLocale)
 {
-    const faker::Locale locale = Locale::es_AR; 
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
     const auto generatedAdverb = adverbLocale(7,locale);    
-    ASSERT_TRUE(std::ranges::any_of(_adverbs_sorted_map.at(locale), [generatedAdverb](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.adverbs, [generatedAdverb](const std::string_view& word)
                                    { return word == generatedAdverb; }));
                                    
 }
 
-TEST_F(WordTestLocale, shouldGenerateadverbLocaleocale2)
+TEST_P(WordTestLocale, shouldGenerateadverbLocaleocale2)
 {
-    const faker::Locale locale = Locale::en_US; 
-    const auto generatedAdverb = adverb();
-
-    ASSERT_TRUE(std::ranges::any_of(_adverbs_sorted_map.at(locale), [generatedAdverb](const std::string_view& word)
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedAdverb = adverb(0,locale);
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.adverbs, [generatedAdverb](const std::string_view& word)
                                     { return word == generatedAdverb; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateAdverbWithExistingLength)
+TEST_P(WordTestLocale, shouldGenerateAdverbWithExistingLength)
 {
-    const faker::Locale locale = Locale::es_AR; 
-    const auto generatedAdverb = adverbLocale(5,locale);
+    
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedAdverb = adverb(5,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_adverbs_sorted_map.at(locale), [generatedAdverb](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.adverbs, [generatedAdverb](const std::string_view& word)
                                     { return word == generatedAdverb; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateAdverbWithNonExistingLength)
+TEST_P(WordTestLocale, shouldGenerateAdverbWithNonExistingLength)
 {
-    const faker::Locale locale = Locale::es_AR; 
-    const auto generatedAdverb = adverbLocale(0,locale);
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedAdverb = adverb(0,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_adverbs_sorted_map.at(locale), [generatedAdverb](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.adverbs, [generatedAdverb](const std::string_view& word)
                                     { return word == generatedAdverb; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateConjunction)
+TEST_P(WordTestLocale, shouldGenerateConjunction)
 {
-    const auto generatedConjunction = conjunction();
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedConjunction = conjunction(7,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_conjunctions_sorted_map.at(faker::Locale::en_US), [generatedConjunction](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.conjunctions, [generatedConjunction](const std::string_view& word)
                                     { return word == generatedConjunction; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateConjunctionWithExistingLength)
+TEST_P(WordTestLocale, shouldGenerateConjunctionWithExistingLength)
 {
-    const faker::Locale locale = Locale::es_AR; 
-    const auto generatedConjunction = conjunctionLocale(5,locale);
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedConjunction = conjunction(5,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_conjunctions_sorted_map.at(locale),[generatedConjunction](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.conjunctions,[generatedConjunction](const std::string_view& word)
                                     { return word == generatedConjunction; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateConjunctionWithLength0)
+TEST_P(WordTestLocale, shouldGenerateConjunctionWithLength0)
 {
-    const faker::Locale locale = Locale::es_AR; 
-    const auto generatedConjunction = conjunctionLocale(0,locale);    
-    ASSERT_TRUE(std::ranges::any_of(_conjunctions_sorted_map.at(locale), [generatedConjunction](const std::string_view& word)
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedConjunction = conjunction(0,locale);    
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.conjunctions, [generatedConjunction](const std::string_view& word)
                                     { return word == generatedConjunction; }));
 }
 
 
-TEST_F(WordTestLocale, shouldGenerateInterjection)
+TEST_P(WordTestLocale, shouldGenerateInterjection)
 {
-    const faker::Locale locale = Locale::es_AR; 
-    const auto generatedInterjection = interjectionLocale(0,locale);
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedInterjection = interjection(0,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_interjections_sorted_map.at(locale), [generatedInterjection](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.interjections, [generatedInterjection](const std::string_view& word)
                                     { return word == generatedInterjection; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateInterjectionWithExistingLength)
+TEST_P(WordTestLocale, shouldGenerateInterjectionWithExistingLength)
 {
-    const faker::Locale locale = Locale::es_AR; 
-    const auto generatedInterjection = interjectionLocale(5,locale);    
-    ASSERT_TRUE(std::ranges::any_of(_interjections_sorted_map.at(locale), [generatedInterjection](const std::string_view& word)
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedInterjection = interjection(5,locale);    
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.interjections, [generatedInterjection](const std::string_view& word)
                                     { return word == generatedInterjection; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateInterjectionWithLength0)
+TEST_P(WordTestLocale, shouldGenerateInterjectionWithLength0)
 {
-    const faker::Locale locale = Locale::es_AR; 
-    const auto generatedInterjection = interjectionLocale(0,locale);
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedInterjection = interjection(0,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_interjections_sorted_map.at(locale), [generatedInterjection](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.interjections, [generatedInterjection](const std::string_view& word)
                                     { return word == generatedInterjection; }));
 }
 
 
-TEST_F(WordTestLocale, shouldGenerateNoun)
+TEST_P(WordTestLocale, shouldGenerateNoun)
 {
-    const faker::Locale locale = Locale::en_US; 
-    const auto generatedNoun = nounLocale();
+    
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedNoun = noun(0,locale);
+    ASSERT_TRUE(
+        std::ranges::any_of(idiomsMapLocal.nouns, [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
+}
+
+TEST_P(WordTestLocale, shouldGenerateNounWithExistingLength)
+{
+    
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedNoun = noun(5,locale);
 
     ASSERT_TRUE(
-        std::ranges::any_of(_nouns_sorted_map.at(locale), [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
+        std::ranges::any_of(idiomsMapLocal.nouns, [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateNounWithExistingLength)
+TEST_P(WordTestLocale, shouldGenerateNOunWithLength0)
 {
-    const faker::Locale locale = Locale::en_US; 
-    const auto generatedNoun = nounLocale(5);
-
-    ASSERT_TRUE(
-        std::ranges::any_of(_nouns_sorted_map.at(locale), [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
-}
-
-TEST_F(WordTestLocale, shouldGenerateNOunWithLength0)
-{
-    const faker::Locale locale = Locale::es_AR; 
+    
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
     const auto generatedNoun = nounLocale(0,locale);
 
     ASSERT_TRUE(
-        std::ranges::any_of(_nouns_sorted_map.at(locale), [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
+        std::ranges::any_of(idiomsMapLocal.nouns, [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
 }
 
 
-TEST_F(WordTestLocale, shouldGeneratePreposition)
+TEST_P(WordTestLocale, shouldGeneratePreposition)
 {
-    const faker::Locale locale = Locale::en_US; 
-    const auto generatedPreposition = preposition();
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedPreposition = preposition(0,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_prepositions_sorted_map.at(locale), [generatedPreposition](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.prepositions, [generatedPreposition](const std::string_view& word)
                                     { return word == generatedPreposition; }));
 }
 
-TEST_F(WordTestLocale, shouldGeneratePrepositionWithExistingLength)
+TEST_P(WordTestLocale, shouldGeneratePrepositionWithExistingLength)
 {
-    const faker::Locale locale = Locale::es_AR; 
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
     const auto generatedPreposition = prepositionLocale(5,locale);
     
-    ASSERT_TRUE(std::ranges::any_of(_prepositions_sorted_map.at(locale), [generatedPreposition](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.prepositions, [generatedPreposition](const std::string_view& word)
                                     { return word == generatedPreposition; }));
 }
 
-TEST_F(WordTestLocale, shouldGeneratePrepositionWithLength0)
+TEST_P(WordTestLocale, shouldGeneratePrepositionWithLength0)
 {
-    const faker::Locale locale = Locale::es_AR; 
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
     const auto generatedPreposition = prepositionLocale(0,locale);
 
-    ASSERT_TRUE(std::ranges::any_of(_prepositions_sorted_map.at(locale), [generatedPreposition](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.prepositions, [generatedPreposition](const std::string_view& word)
                                     { return word == generatedPreposition; }));
 }
 
 
-TEST_F(WordTestLocale, shouldGenerateVerb)
+TEST_P(WordTestLocale, shouldGenerateVerb)
 {
-    const faker::Locale locale = Locale::en_US; 
-    const auto generatedVerb = verb();
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto generatedVerb = verb(0,locale);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(_verbs_sorted_map.at(locale), [generatedVerb](const std::string_view& word) { return word == generatedVerb; }));
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.verbs, [generatedVerb](const std::string_view& word)
+                                    { return word == generatedVerb; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateVerbWithExistingLength)
+TEST_P(WordTestLocale, shouldGenerateVerbWithExistingLength)
 {
-    const faker::Locale locale = Locale::es_AR; 
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale);     
     const auto generatedVerb = verbLocale(5,locale);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(_verbs_sorted_map.at(locale), [generatedVerb](const std::string_view& word) { return word == generatedVerb; }));
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.verbs, [generatedVerb](const std::string_view& word)
+                                    { return word == generatedVerb; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateVerbWithExistingLength0)
+TEST_P(WordTestLocale, shouldGenerateVerbWithExistingLength0)
 {
-    const faker::Locale locale = Locale::es_AR; 
+    Locale locale = GetParam();    
+    auto idiomsMapLocal=getIdiomsMap(locale);     
     const auto generatedVerb = verbLocale(0,locale);
-    ASSERT_TRUE(
-        std::ranges::any_of(_verbs_sorted_map.at(locale), [generatedVerb](const std::string_view& word) { return word == generatedVerb; }));
+    ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.verbs, [generatedVerb](const std::string_view& word)
+                                    { return word == generatedVerb; }));
 }
 
 
 TEST_F(WordTestLocale, shouldGenerateSample)
 {
+    //default sample should be from en_US
     faker::Locale locale= faker::Locale::en_US;
-    const auto generatedSample = sampleLocale(0);
+    
+    const auto generatedSample = sample();
     ASSERT_TRUE(std::ranges::any_of(_allWords_map.at(locale), [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateSampleWithExistingLength)
+TEST_P(WordTestLocale, shouldGenerateSampleWithExistingLength)
 {
-    faker::Locale locale= faker::Locale::es_AR;
+    Locale locale = GetParam();    
+    Locale extra=locale;
     const auto generatedSample = sampleLocale(5,locale);
+    if(!checkLocale(locale))
+    {
+        extra=Locale::en_US;
+    }
+       
 
-    ASSERT_TRUE(std::ranges::any_of(_allWords_map.at(locale), [generatedSample](const std::string_view& word)
+    ASSERT_TRUE(std::ranges::any_of(_allWords_map.at(extra), [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
 }
 
-TEST_F(WordTestLocale, shouldGenerateSampleWithNonExistingLength)
+TEST_P(WordTestLocale, shouldGenerateSampleWithNonExistingLength)
 {
-    faker::Locale locale= faker::Locale::es_AR;
+    Locale locale = GetParam();    
+    Locale extra=locale;
     const auto generatedSample = sampleLocale(0,locale);
-
-    ASSERT_TRUE(std::ranges::any_of(_allWords_map.at(locale), [generatedSample](const std::string_view& word)
+    if(!checkLocale(locale))
+    {
+        extra=Locale::en_US;
+    }
+       
+    ASSERT_TRUE(std::ranges::any_of(_allWords_map.at(extra), [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
 }
 
 
-TEST_F(WordTestLocale, shouldGenerateWords)
+TEST_P(WordTestLocale, shouldGenerateWords)
 {
-    faker::Locale locale= faker::Locale::en_US;
-    const auto generatedWords = wordsLocale(5);
+    Locale locale = GetParam();    
+    Locale extra=locale;
+
+    if(!checkLocale(locale))
+    {
+        extra=Locale::en_US;
+    }
+    const auto generatedWords = wordsLocale(5,locale);
 
     const auto separatedWords = common::split(generatedWords, " ");
 
-    ASSERT_TRUE(std::ranges::all_of(separatedWords, [locale](const std::string& separatedWord)
-                                    { return std::ranges::find(_allWords_map.at(locale), separatedWord) !=_allWords_map.at(locale).end(); }));
+    ASSERT_TRUE(std::ranges::all_of(separatedWords, [extra](const std::string& separatedWord)
+                                    { return std::ranges::find(_allWords_map.at(extra), separatedWord) !=_allWords_map.at(extra).end(); }));
 }
 
 TEST_F(WordTestLocale, shouldReturnRandomElementWhenExactLengthNotFound)
@@ -546,21 +619,34 @@ TEST_F(WordTestLocale, shouldReturnRandomElementWhenExactLengthNotFound)
     ASSERT_TRUE(std::ranges::find(matchingAdjectives, generatedAdjective) == matchingAdjectives.end());
 }
 
-TEST_F(WordTestLocale, shouldReturnEmptyStringForZeroWords)
+TEST_P(WordTestLocale, shouldReturnEmptyStringForZeroWords)
 {
-    faker::Locale locale= faker::Locale::es_AR;
-    const auto result = wordsLocale(0,locale);
+    Locale locale = GetParam();    
+    Locale extra=locale;
+
+    if(!checkLocale(locale))
+    {
+        extra=Locale::en_US;
+    }
+    const auto result = wordsLocale(0,extra);
     ASSERT_TRUE(result.empty());
 }
 
 
-TEST_F(WordTestLocale, shouldGenerateLargeNumberOfWords)
+TEST_P(WordTestLocale, shouldGenerateLargeNumberOfWords)
 {
-    faker::Locale locale= faker::Locale::es_AR;
+    
+    Locale locale = GetParam();    
+    Locale extra=locale;
+
+    if(!checkLocale(locale))
+    {
+        extra=Locale::en_US;
+    }
     const unsigned int largeWordCount = 300;
-    const auto generatedWords = wordsLocale(largeWordCount,locale);
+    const auto generatedWords = wordsLocale(largeWordCount,extra);
     const auto separatedWords = common::split(generatedWords, " ");
-    auto dataset=_allWords_map.at(locale);
+    auto dataset=_allWords_map.at(extra);
     ASSERT_EQ(separatedWords.size(), largeWordCount);
     for (const auto& word : separatedWords)
     {
@@ -607,3 +693,17 @@ TEST_F(WordTestLocale, shouldReturnFrenchSampleifAskedforFrenchWord)
     ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
 }
+
+
+TEST_F(WordTestLocale, shouldReturnFrenchSampleifAskedforFrenchWordUsingSample)
+{
+    faker::Locale locale= faker::Locale::fr_FR;
+    const auto generatedSample = sample(0,locale);
+    auto dataset=_allWords_map.at(locale);
+    ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
+                                    { return word == generatedSample; }));
+}
+
+
+INSTANTIATE_TEST_SUITE_P(testWordByLocale, WordTestLocale, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });

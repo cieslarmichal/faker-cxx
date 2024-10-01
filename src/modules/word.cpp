@@ -11,7 +11,7 @@
 
 namespace faker::word
 {
-std::string_view sample( std::optional<unsigned int> length,const faker::Locale locale)
+std::string_view sample( std::optional<unsigned int> length,const Locale locale)
 {
     if(length)    
         return sampleLocale(length.value(),locale);
@@ -20,7 +20,7 @@ std::string_view sample( std::optional<unsigned int> length,const faker::Locale 
 
 }
 
-std::string_view sampleLocale(unsigned int length, const faker::Locale locale)
+std::string_view sampleLocale(unsigned int length, const Locale locale)
 {
     if(length==0){
         length=100;
@@ -39,7 +39,7 @@ std::string_view sampleLocale(unsigned int length, const faker::Locale locale)
     }
 }
 
-std::string words(unsigned numberOfWords,const faker::Locale locale)
+std::string words(unsigned numberOfWords,const Locale locale)
 {
     if (numberOfWords == 0)
     {
@@ -48,16 +48,16 @@ std::string words(unsigned numberOfWords,const faker::Locale locale)
     return wordsLocale(numberOfWords,locale);
 }
 
-std::string wordsLocale(unsigned numberOfWords,faker::Locale locale)
+std::string wordsLocale(unsigned numberOfWords, const Locale locale)
 {
     auto localeExt = locale;
     if (numberOfWords == 0)
     {
         return "";
-    }
-    if(_allWords_map.find(locale)==_allWords_map.end())
+    }    
+    if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
-        localeExt = faker::Locale::en_US;
+        localeExt = Locale::en_US;
     }    
 
     std::string combined_words;
@@ -102,7 +102,7 @@ std::string wordsLocale(unsigned numberOfWords,faker::Locale locale)
     return combined_words;
 }
 
-std::string_view adjective(std::optional<unsigned int> length,const faker::Locale locale)
+std::string_view adjective(std::optional<unsigned int> length,const Locale locale)
 {    
     if(length)        
         return adjectiveLocale(length.value(),locale);
@@ -110,7 +110,7 @@ std::string_view adjective(std::optional<unsigned int> length,const faker::Local
         return adjectiveLocale(0,locale);
 }
 
-std::string_view adjectiveLocale(unsigned int length, const faker::Locale locale)
+std::string_view adjectiveLocale(unsigned int length, const Locale locale)
 {
     if(length==0)
     {
@@ -118,15 +118,21 @@ std::string_view adjectiveLocale(unsigned int length, const faker::Locale locale
     }
 
     auto localeLocal = locale;
-    if(_allWords_map.find(locale)==_allWords_map.end())
+    if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
-        localeLocal = faker::Locale::en_US;
+        localeLocal = Locale::en_US;
     }    
     auto sorted= _adjetives_sorted_map.at(localeLocal);
     return sortedSizeRandomElement(length, sorted);
 }
 
-std::string_view adverb(std::optional<unsigned int> length, const faker::Locale locale)
+
+std::string_view adverb(const Locale locale)
+{
+      return adverbLocale(0,locale);
+}
+
+std::string_view adverb(std::optional<unsigned int> length, const Locale locale)
 {
     //return sortedSizeRandomElement(length, _adverbs_sorted);
     if(length)        
@@ -135,17 +141,17 @@ std::string_view adverb(std::optional<unsigned int> length, const faker::Locale 
         return adverbLocale(0,locale);
 }
 
-std::string_view adverbLocale(unsigned int length, const faker::Locale locale)
+std::string_view adverbLocale(unsigned int length, const Locale locale)
 {
     if(length==0)
     {
         length=100;
-    }
-    auto localeLocal = locale;
-    if(_allWords_map.find(locale)==_allWords_map.end())
-    {
-        localeLocal = faker::Locale::en_US;
     }    
+    Locale localeLocal = locale;
+    if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
+    {
+        localeLocal = Locale::en_US;
+    }  
     auto sorted= _adverbs_sorted_map.at(localeLocal);
     return sortedSizeRandomElement(length, sorted);
 }
@@ -159,7 +165,7 @@ std::string_view conjunction(std::optional<unsigned int> length, const faker::Lo
     
 }
 
-std::string_view conjunctionLocale(unsigned int length, const faker::Locale locale)
+std::string_view conjunctionLocale(unsigned int length, const Locale locale)
 {
     if(length==0)
     {
@@ -168,7 +174,7 @@ std::string_view conjunctionLocale(unsigned int length, const faker::Locale loca
     auto localeLocal = locale;
     if(_allWords_map.find(locale)==_allWords_map.end())
     {
-        localeLocal = faker::Locale::en_US;
+        localeLocal = Locale::en_US;
     }    
     auto sorted= _conjunctions_sorted_map.at(localeLocal);
     return sortedSizeRandomElement(length, sorted);
@@ -183,7 +189,7 @@ std::string_view interjection(std::optional<unsigned int> length, const faker::L
     
 }
 
-std::string_view interjectionLocale(unsigned int length, const faker::Locale locale) 
+std::string_view interjectionLocale(unsigned int length, const Locale locale) 
 {
     if(length==0)
     {
@@ -192,13 +198,13 @@ std::string_view interjectionLocale(unsigned int length, const faker::Locale loc
     auto localeLocal = locale;
     if(_allWords_map.find(locale)==_allWords_map.end())
     {
-        localeLocal = faker::Locale::en_US;
+        localeLocal = Locale::en_US;
     }    
     auto sorted= _interjections_sorted_map.at(localeLocal);
     return sortedSizeRandomElement(length, sorted);
 }
 
-std::string_view noun(std::optional<unsigned int> length, const faker::Locale locale)
+std::string_view noun(std::optional<unsigned int> length, const Locale locale)
 {
     
     if(length)                
@@ -208,7 +214,7 @@ std::string_view noun(std::optional<unsigned int> length, const faker::Locale lo
     
 }
 
-std::string_view nounLocale(unsigned int length, const faker::Locale locale)
+std::string_view nounLocale(unsigned int length, const Locale locale)
 {
     if(length==0)
     {
@@ -217,13 +223,13 @@ std::string_view nounLocale(unsigned int length, const faker::Locale locale)
     auto localeLocal = locale;
     if(_allWords_map.find(locale)==_allWords_map.end())
     {
-        localeLocal = faker::Locale::en_US;
+        localeLocal = Locale::en_US;
     }    
     auto sorted= _nouns_sorted_map.at(localeLocal);
     return sortedSizeRandomElement(length, sorted);
 }
 
-std::string_view preposition(std::optional<unsigned int> length, const faker::Locale locale)
+std::string_view preposition(std::optional<unsigned int> length, const Locale locale)
 {
     
     if(length)
@@ -233,7 +239,7 @@ std::string_view preposition(std::optional<unsigned int> length, const faker::Lo
         return prepositionLocale(0,locale);
 }
 
-std::string_view prepositionLocale(unsigned int length, const faker::Locale locale)
+std::string_view prepositionLocale(unsigned int length, const Locale locale)
 {
     if(length==0)
     {
@@ -242,13 +248,13 @@ std::string_view prepositionLocale(unsigned int length, const faker::Locale loca
     auto localeLocal = locale;
     if(_allWords_map.find(locale)==_allWords_map.end())
     {
-        localeLocal = faker::Locale::en_US;
+        localeLocal = Locale::en_US;
     }    
     auto sorted=_prepositions_sorted_map.at(localeLocal);
     return sortedSizeRandomElement(length, sorted);
 }
 
-std::string_view verb(std::optional<unsigned int> length, const faker::Locale locale)
+std::string_view verb(std::optional<unsigned int> length, const Locale locale)
 {    
     if(length)
         
@@ -257,7 +263,7 @@ std::string_view verb(std::optional<unsigned int> length, const faker::Locale lo
         return verbLocale(0,locale);
 }
 
-std::string_view verbLocale(unsigned int length, const faker::Locale locale)
+std::string_view verbLocale(unsigned int length, const Locale locale)
 {
     if(length==0)
     {
@@ -266,7 +272,7 @@ std::string_view verbLocale(unsigned int length, const faker::Locale locale)
     auto localeLocal = locale;
     if(_allWords_map.find(locale)==_allWords_map.end())
     {
-        localeLocal = faker::Locale::en_US;
+        localeLocal = Locale::en_US;
     }    
 
     auto sorted=(_verbs_sorted_map).at(localeLocal);
