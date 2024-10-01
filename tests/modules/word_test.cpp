@@ -581,3 +581,29 @@ TEST_F(WordTestLocale, shouldReturnEnglishSampleifLocaleNotFilled)
     ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
 }
+
+
+TEST_F(WordTestLocale, shouldReturnPortugueseSampleifAskedforPortugueseWord)
+{
+    faker::Locale locale= faker::Locale::pt_BR;
+    
+    
+    
+    const auto generatedSample = sampleLocale(0,locale);
+    auto dataset=_allWords_map.at(locale);
+    ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
+                                    { return word == generatedSample; }));
+}
+
+
+TEST_F(WordTestLocale, shouldReturnFrenchSampleifAskedforFrenchWord)
+{
+    faker::Locale locale= faker::Locale::fr_FR;
+    
+    
+    
+    const auto generatedSample = sampleLocale(0,locale);
+    auto dataset=_allWords_map.at(locale);
+    ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
+                                    { return word == generatedSample; }));
+}

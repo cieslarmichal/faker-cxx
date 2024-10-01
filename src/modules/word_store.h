@@ -43336,11 +43336,187 @@ const auto ptBRPrepositions = std::to_array<std::string_view>({
     "de","sob","após","com","por","sem","até","para","des","em","apud",
     "afora","desde","atrás","ao","espós"
 });
+
+
+const auto frFRAdjectives = std::to_array<std::string_view>({
+    "particulier","fictif","patient","azotique","gras","joint","clairsemé","ænigmatique","fourchu","étrange","capable","orange","dæmoniaque",
+    "acineux","gastronomiques","lent","vocalique","coercitif","bonne","chrétien","méconnaissable","gentilissime","libertin","gastronomique","honnête",
+    "cylindrique","basal","traditionnel","gentil","délicatissime","épais","akinétique","malaise","hors d'âge","citron","irrepérable","française",
+    "mou","homéotherme","croyable","sur","national","inrepérable","mignonne","brut","laid","caisse","imprévu","pénal","rapide","amœbien","dingue",
+    "instant","racial","penseur","diabolique","hæretique","chassieux","étroitissime","équin","idiot","retraité","hexagonal","blond","con","émoussé",
+    "crétin","tentatif","désireuse","chômeur","fainéant","moral","vilain","tenant","abaisseur","vacante","intelligent","œstral","blanche","malade",
+    "cupide","dernière","relevé","phœnicien","satirique","sale","ma","bigarré","præcedent","ménager","électrique","sauf","gynécologique","veuf",
+    "faible","public","sauveur","impoli","clinique","ami","fada","authentique","bénévole","correct","inattendu","inachevé","heureux","isolé",
+    "quarante","homéopathique","grand","principal","para","imberbe","æquitable","plaisant","caustique","long","beau","cardinal","odieuses",
+    "acinétique","durissime","caduc","hors d'usage","hypèthre","didactique","cher","vieille","crasseux","victorieux","apologétique","impossible",
+    "carnivore","vertébral","inscrutables","issu","rose","palæographique","vert","éloignée","spumescent","courant","glacial","grammatical",
+    "cæcal","heureuse","sporadique","polaire","logiciel","phlegmatique","vain","odieuse","désastreux","angélique","atone","buté","sentimental",
+    "missionnaire","œcuménique","confiant","sud","cœlomique","apical","elegante","latin","orbital","déplacé","ætiologique","photochimique","suave",
+    "emprunté","nu","bizarre","clarissime","mur","coûteux","irréparable","politique","filial","vorace","communicatif","bellissime","tristes","abécédaire",
+    "inabrité","attentif","notable","bombastique","sceptique","tel","viril","combustible","froid","petit","décidé","octogonal","héroïque","important",
+    "court","tombant","servant","œstrogénique","léthargique","blanc","automatique","mental","exceptionnel","drôle","glorieux","œnologique","comparables",
+    "ostensibles","bref","réformistes","athéistique","phantasmatique","notre","anal","content","balourd","innocent","magique","fatal","mon",
+    "phantomatique","convalescent","hors service","amœboïde","pourri","différent","tranchant","née","parænetique","concave","dégoûtant","filiales","exalté",
+    "nombreux","genevois","sauvage","ce","sphærique","mauvais","venu","sæculier","magnifique","naïve","eclyptique","analytique","prétonique","pris","ergonomique",
+    "ostensible","mince","lombal","lisse","plan","drôlissime","creux","vraisemblable","pescheur","seize","implacable","japonais","anesthésique",
+    "charmant","cintré","hypothétique","oriental","français","insouciant","tentative","obligatoire","mignon","dogmatique","cul","aboutissant","amibien",
+    "pressurisé","ébréché","désireux","pointu","æquilateral","irascible","indiscutable","matriarcal","bleu","leurs","écologique","diagnostique","montagnard",
+    "secret","d'après","dialectique","proche","fourbe","unique","pliable","pleine","vrai","flagrant","aucun","aloétique","toxicologique","imprenable","more","défectueux",
+    "anarchiste","seul","déshabillé","alphabétique","chauve","fleuri","métallique","noble","gay","terrestre","indémontrable","tissu","aveugle",
+    "mesquin","mieux","sensoriaux","étroit","chimique","sage","nabot","dessiné","tchèque","æsthétique","dernier","ouvert","organique","mort",
+    "icelui","pœnal","deuxième","véritable","carissime","débraillé","stœchiométrique","métier","cinquante","petite","ses","disjoint","œcologique",
+    "cuspidé","inné","hypodermique","religieux","lævogyre","bas","éloigné","brillantissime","adducteur","azoteux","voisin","large","marchand",
+    "piquant","dorsal","neuf","anglois","classique","diplomatique","démographique","créateur","or","meurtrier","astrologique","superlatif","faisable","chéri","normal",
+    "bassissime","pronominal","pleurnichard","fier","masculin","méchant","apostolique","amœne","compétent","déshonnête","commun","amer","naïf","dialogale",
+    "respectable","incolore","hérétique","douteux","explosible","brave","abbatial","sa","potable","homœopathique","modeste","véhément","certain",
+    "brutal","aristocratique","déguenillé","balistique","cryptique","ton","total","asthmatique","dialogales","tristissime","balte","bibliographique","horrible",
+    "gratis","rouge","officiel","plausible","éminentissime","glorieuses","rural","privé","professionnel","obéissant","musical","triste","rafraîchissant","lombaire",
+    "terrible","impassible","courageuses","saint","orangé","longue","fuchsia","doux","étiologique","décroissant","symptomatique","imbuvable","homœotherme",
+    "heptagonal","remarquable","este","insecticide","extrême","rarissimes","vécu","parent","æquivalent","fatigué","beige","chronique","royal",
+    "royaliste","égoïste","énergétique","onze","émancipateur","arbitraire","chevaleresque","nitrique","étranger","abstrait","élégantissime","belliciste",
+    "ancien","palpable","rôdeur","entêté","estrogénique","œnanthique","socratique","excellent","acoustique","pragmatique","couteux","œdipien","défensif",
+    "commune","arsénique","gynæcologique","aigu","præsent","polonais","fabuleux","nord","obsédant","archæologique","mate","charmantissime",
+    "friable","pêcheuse","belle","æternel","adjectif","obscure","constructrice","plein","suivant","tout","ouvrier","égale","incroyable","profonde","abaissant",
+    "cœliaque","botanique","sensorial","tibétain","précieux","abject","fiscal","cæleste","externe","pure","scientifique","plasmatique","athlétique",
+    "doré","fautif","implacables","dû","distant","quelle","azyme","fermier","sales","ascétique","suivante","gazon","amœbiforme","enfermé","sec",
+    "paresseux","cé","œsophagique","exprès","imprononçable","syntaxiques","aquatique","américain","bien","horrifique","astronomique","chétif","lourd",
+    "deux","pædagogique","chocolat","synonyme","intergénérationnel","montagnol","vierge","inétendu","pêcheur","réformiste","jaune","abdominal","vivace",
+});
+
+const auto frFRAdverbs = std::to_array<std::string_view>({
+    "métamorphiquement","presque","physiologiquement","automatiquement","sceptiquement","politiquement","præsentement","réciproquement",
+    "plus","chronographiquement","horizontalement","temporairement","asexuellement","chronologiquement","artificiellement","encore",
+    "étymologiquement","à pieds joints","bibliographiquement","commodément","petit","passionnément","énigmatiquement","court","dogmatiquement",
+    "total","derrière","devant","arrière","heureusement","anthropomorphiquement","arbitrairement","voire","tant","gratis","avec","photographiquement",
+    "pleinement","souvent","énormément","brièvement","sempre","affreusement","cacophoniquement","polyphoniquement","combien","fantastiquement",
+    "dessus","angiographiquement","promptement","humblement","cosmographiquement","philologiquement","probablement","particulièrement","rarissimement",
+    "héliographiquement","à première vue","cinématographiquement","éparsement","chirurgicalement","ensuite","plutôt","pas","hypocritement","alors",
+    "éphémèrement","inintelligiblement","là","brut","à l'œil nu","rapidement","prudemment","d'abord","anaphylactiquement","phantasmatiquement","prophylactiquement",
+    "dûment","guère","donc","pourquoi","loin","quand même","épatamment","également","phantastiquement","fâcheusement","vaillamment","œnologiquement",
+    "assez","hydrographiquement","cartographiquement","depuis","très","euphoriquement","uniquement","au","phonographiquement","métaphysiquement","historiographiquement",
+    "philosophiquement","anticonstitutionnellement","surabondamment","flegmatiquement","aveuglément","inutilement","cependant","holographiquement",
+    "ibidem","dessous","nono","même","toutefois","fortement","autour","sévèrement","exactement","œconomiquement","vraiment","lexicographiquement",
+    "physiquement","avant-hier","æsthétiquement","métaphoriquement","parfois","jamais","ralenti","stœchiométriquement","fantasmatiquement","obscurément",
+    "téléphoniquement","périodiquement","en","ainsi","œcuméniquement","phlegmatiquement","brusquement","profondément","totalement","près","homéopathiquement",
+    "hypertrophiquement","esthétiquement","laidement","pis","hier","indubitablement","aujourd'hui","chorégraphiquement","euphoniquement","journellement","bimensuellement",
+    "grammatiquement","rien","immensément","tout","grandement","épouvantablement","philanthropiquement","joliment","éperdument","paresseusement","après",
+    "précisément","proche","autrefois","quelquefois","partout","urgentissimement","œcologiquement","exclamativement","écologiquement","homœopathiquement","essentiellement",
+    "catastrophiquement","beau","lithographiquement","trop","rhétoriquement","puis","ethnographiquement","cybernétiquement","contentement","irresponsablement","chirurgiquement",
+    "exprès","orthographiquement","amoroso","qué","bien","nasalement","extrêmement","autobiographiquement","néanmoins","expressément","autant",
+    "profondissimement","hautement","mieux","verticalement","moins","géographiquement","démographiquement","ænigmatiquement","alphabétiquement","demain",
+    "horriblement","affectueusement","chromatographiquement","pharmacologiquement","monographiquement","point","auprès","aussi","conditionnellement","communicativement",
+    "anaphoriquement","apparemment","biographiquement","éducativement","phonologiquement","morphologiquement","apophatiquement","beaucoup","œdipiennement","contrairement",
+    "à plat ventre","non","hui","évidemment","cryptographiquement","calligraphiquement","y","tête-bêche","précieusement","accidentellement","phonétiquement","opiniâtrément",
+    "sagement","ægalement","franchement","surtout","communément","or","toujours","durement","seulement","si","vulgo","prophétiquement","naïvement","comme",
+    "de plus en plus","peut-être","autrement","diversement"
+
+});
+const auto frFRConjunctions = std::to_array<std::string_view>({
+    "Ou","donc","si","pulisque","comme","et","ensuite","mais","ni","quoique","puisque","quand"
+});
+
+const auto frFRNouns = std::to_array<std::string_view>({
+    "caméléon","jalousie","flottille","stimulation","alphabet","ciboulette","bras","tunnel","trésor","juin","œconomiste","œsophagotomie","élève","chai",
+    "toile","particularité","præjudice","santé","corset","jardin potager","victoria","dix","pays","citron","lime","jour","præstige","ténacité","aigle",
+    "rate","renommée","céleri","dictateur","nécromancien","dépêche","bisou","mélange","diplodocus","amitié","abandon","végétal","naja","vent","approvisionnement",
+    "territoire","moai","trompe","burqa","basta","instant","décès","nem","queue","abandonnement","face","hæretique","chimiste","équin","manoeuvre","dialecte",
+    "septembre","hameau","sarbacane","con","linge","conflict","souvenir","attention","tabatière","article","moral","cécité","pidjin","sédévacantisme",
+    "avenir","négociation","œstrone","emploi","curage","sauvegarde","armée","entraineur","satirique","nova","præcedent","palais","mors","fumée","esclavage",
+    "minute","maximisation","chassie","assault","épice","ourson","mot","localité","chaux","rien","clinique","coexistence","ami","fada","expression",
+    "minéral","sein","prêtre","babeurre","fait","conception","eau","quarante","principal","incommodité","individualité","nombril","rumba","urine",
+    "alcaloïde","cendres","performance","amphibie","rage","arsenal","symboles","fontanelle","appui","mousquetaire","humiliation","igloo",
+    "démonstration","perinæe","cadeau","apologétique","armistice","graisse","recherche","nævus","friteuse","esclandre","arthrose","corpulence","libraire",
+    "délégation","hémoc","cœnurose","paléographe","agneau","concitoyen","chapeau","œcuménicité","œcoumène","voie","polaire","unité","logiciel","rivalité",
+    "azeraille","pommier","arc-boutant","vulgarité","liquidation","dictionnaire","meeting","doubte","litre","yole","syndicat","rayonnement","route",
+    "autrui","autobiographie","conséquence","cœnure","gesse des montagnes","æther","schistosomiase","hæmorrhagie","coërcibilité","alluvion","salacité",
+    "suie","synapomorphie","déficience","avocate","nope","politique","parité","coquelicot","livre","midi","addition","maternité","circonférence","prædecesseur",
+    "lot","boussole","acculturation","souris","leçon","rancune","présidente","identité","orthographiste","paquet","bagne","carte","crossectomie","réformistes",
+    "œnomancie","renseignement","guitariste","trésorière","æsthésiomètre","malédiction","passe-temps","fin","athenæe","balourd","seau","pilule","exportation",
+    "onguent","cytodiérèse","lote","ame","stabilité","introspection","toast","temple","réconciliation","commodité","décence","phantasme","presqu’ile","diffusion",
+    "affinité","thrône","groupement","mammifère","foie","vieillissement","patrouilleur","actrices","passeur","serpent","merisier","sauvage",
+    "gars","abduction","colonisation","poire","eclyptique","anæsthésie","charme","étui","amabilité","surplus","miel","liberté","camp","écrivain","buvette","médecin",
+    "établissement","mercantilisme","boulier","possibilité","vacuum","stœchiométrie","moustache","vélo","épicier","ectopie","écho","classes","pizza","récupération",
+    "sphæroïde","thomisme","machine","prise en main","esprit","luminosité","japonais","abaisse","confiance","coulisse","français","œsophage","stratégie","cul","phrase",
+    "aboutissant","sirop","pharmacophobie","lotion","tomber","œstradiol","bleu","rumeur","hachure","æsthésie","cheville","fatigue","amœnité","bout","chenille","azote",
+    "stimulus","poterie","anarchiste","tuyau","campagne","déshabillé","collectivité","bourg","roche","multitude","cousine","journalisme","rémige",
+    "préambule","végétations","festivité","ouvrière","abraxas","abatteur","rein","notion","ordinateur","transaction","nabot","importance","trône",
+    "excitation","messie","testa","belle-sœur","tigreau","silence","préposition","robe","mort","numération","sœurette","place","tulle","œil","personnalité",
+    "rationalité","arbuste","initiation","lame","résistance","dirlo","proximité","décade","gâteau sec","agora","myoclonie phrénoglottique","orthographie","religieux",
+    "décadence","neuf","élaboration","créateur","or","répit","sénilité","gestion","jargon","quorum","pédérastie","chevalerie","alinéa","urbanisation","distinction",
+    "recette","institut","hommage","table","catastrophe","yeuse","indifférence","sommelier","hérétique","attitude","intelligence","faucon","archevêché","record","divulgation","coërcition",
+    "prospérité","juridiction","baht","simplicité","chaussure","fer","balistique","architecture","asthmatique","locuste","entrepôt","honnêteté","durée","collègue","légitimité","organisation",
+    "université","procaryote","tænia","sabotage","cœliotomie","innovation","personne","requiabtar","biochimie","captivité","sonorité","ébauché","mendiant","coup",
+    "grotte","troupeau","mercure","réfectoire","lamé","âne","sacrement","acide aminé","habitante","conscience","province","sauce","actrice","politicien","désarroi","insecticide",
+    "extrême","géographie","désaccord","éon","exécution","fourmi","diærese","parent","novembre","abonnement","infante","aphorisme","novæ","chronique","énergétique",
+    "éraflure","onze","uvule","dérive","barbarisme","franchissement","pauvreté","vagin","astronomie","précaution","acoustique","fille","prélude","foi",
+    "tapis roulant","prélèvement","tsunami","commune","renouvellement","pourboire","bagarre","losange","dette","royaume","zloty","chevalier","notice","bois de poule","citation","sous",
+    "insolation","illusion","radiologie","lé","clocher","interface","ganga","kaza","abattoir","poudre","dent","Australien","sobriquet","insecte","huis","anaphase","érable",
+    "doré","demoiselle","fermier","azyme","compréhension","gynæcologie","fraise","ka","surdité","suivante","extractions","cé","ala","exprès","bien","innocence",
+    "æmulation","brûlure","truffe","falaise","subpœnæ","cari","stripping","cèleri","jupe","go","chou-fleur","chair","ris","religion","classification",
+    "prénom","esquisse","prudence","hyène","emo","femme","salve","aménité","élimination","sincérité","excellence","logique","pampa","ophtalmologie","vendredi","suspicion","débilité",
+    "sexualité","amigo","bêta","tribune","fardeau","trottoir","pædiatrie","præcepte","intestin","pacha","oiseau","sensibilité","lest","révérence","retranchement","sortilège","férocité",
+    "prison","catalan","chamæléon","paludisme","oscillation","entrailles","main","rosaire","ombre","tænicide","azédarac","essentialité","morsure","équation","hæresie","cytocinèse",
+    "nef","empressement","cercueil","messieurs","sin","million","sveltesse","reporter","aventure","témoignage","sucre","footing","cœlacanthe","gonorrhée",
+    "législations","thrombine","azotate","hutte","Alouette","forêt","vulgaire","perte","oxymore","ambassade","législation","rhythme","œstriol",
+    "soif","enfer","capitaine","fou","pipi","miaulement","germandrée scorodoine","étroitesse","chaussée","gant","irruption","hausse","faculté","épreuve",
+    "mécanique","prætexte","roman","mécanisme","gorille","bête","anxiété","débris","alacrité","semence","hæmaturie","voyageur","gayo","est","myxœdémateux",
+    "cénurose","position"
+});
+const auto frFRVerbs = std::to_array<std::string_view>({
+    "arracher","mobiliser","ouvrage","rire","se lever","se masturber","naitre","coudre","renier","rêver","étrange","refaire","été","soulever",
+    "nié","gérer","charmer","sacrer","dissiper","falaiser","commer","surpasses","gâte","fendre","charge","gagner","serrer","mortifier","possède",
+    "surmonter","décéder","avoir","naître","épurer","pouvoir","abattis","émerger","synthétiser","goutter","changer de crèmerie","prélasser","emmener",
+    "fragua","enduire","jeûne","tale","rate","pleurent","mine","rationaliser","fit","mordre","respirer","sont","vas","merda","sera","cela",
+    "savoir","exigent","quitter","peuvent","abrégé","dois","doit","assembler","roucouler","souhaiter","basta","dénié","su","prétendre","franchir","gonfler",
+    "visera","face","gorge","banque","démarrer","pousser","corde","perd","tendes","appris","baiser","mace","souvenir","convoiter","revenir",
+    "nier","chasser","tenant","laver","mépris","as","croitre","put","voler","router","brouillent","taire","armée","étreindre","præsenter","sale",
+    "bigarré","assassiner","se décoller","faisait","rechuter","adresse","ménager","esclavage","minute","retrancher","value","mange","mêler","racler",
+    "contrer","fada","attaquer","demeurer","refroidir","agacer","frotter","fait","appuyant","maltraiter","chevaucher","abréger","détrôner","adhærer",
+    "entrainer","para","lamenta","urine","boire","plaisant","contre","subir","tourmenter","barricader","représenter","puis","places","errer",
+    "sort","désirer","effraie","saigner","atterrer","masser","pote","mettre","marqua","sucer","dessiner","latter","apparu","lutte","recalculer","emmitoufler",
+    "pêcher","pourvoir","rejeter","salir","disais","rentrer","aimer","voie","noyer","discipline","abâtardir","éprouver","usine","couper","doubte","duper",
+    "gerber","essuyer","asseoir","ædifier","désavantage","buté","regarder","se battre","présenter","figure","avilir","autobiographie","hybrider","figura",
+    "témoigner","confiant","estimer","convaincre","sélectionner","mouche","dénier","téléphoner","munir","nope","gratter","assoiffer","courir","ay","ont",
+    "vorace","fantasmer","doute","reprocher","témoigne","afficher","féer","enfoncer","apaiser","fesser","livre","vue","ébat","restaurer","ai","fâcher",
+    "payer","a","devoir","sortir","jouer","décidé","banaliser","court","poignarder","tombant","brie","délasser","servant","aie","préoccuper","attendre",
+    "tremper","hachurer","fuir","créer","carte","coloniser","vivre","præparer","protester","se spasmer","décoller","colporter","verser","apparaître","autobiographies",
+    "peut","marcher","décréter","écouler","partager","renvoyer","prætendre","dégoûtant","prédire","trouver","exalté","uriner","facer","surmonte","chatouiller",
+    "venu","nicher","baisser","cascada","élaguer","éternuer","dormir","ranger","aboutir","déformer","stipula","pris","manquer","chanter","exagérer",
+    "pécher","frapper","apercevoir","viola","ôter","apprendre","vida","fonder","communiquer","divorce","demande","assumer",
+    "émailler","coercer","remuer","abaisse","note","charmant","industrialiser","accourt","dores","cintré","veux","darder","produit","rythme","ordonner",
+    "eu","écorcer","phrase","prouver","orage","piqué","supplier","sauver","tomber","minutes","geler","enlacer","grisonner","bêche","arrive","abêtir","chenille",
+    "broder","es","faire","reliant","discorde","entre","ébahir","bateler","garder","butter","déshabillé","balayèrent","fleuri","brouiller",
+    "hæsiter","sombrer","finir","hausser","aveugle","fournir","concernant","épargne","emmitoufle","fure","longer","manger","accorder","garnir",
+    "chouchouter","dessiné","trône","refermer","épargner","testa","fête","ouvert","danser","saler","être debout","mort","permet","repræsenter","place",
+    "esclavager","hurler","duit","devenir","cuisine","barricade","prædire","reléguer","souffler","s'étendre","tuer","œdipianiser","embaumer",
+    "orthographie","fâchés","manier","réalise","remettre","gêner","moquer","nourrir","voir","déconcerter","valoir","nager","flotter",
+    "annoncer","lier","dalla","accoutumer","embrasser","concerter","observer","tenter","délasse","esquisser","soutenir","renoncer","hésiter","table",
+    "pourchasser","tourner","bourdonner","conserver","manufacture","préfixer","abdiquer","nombre","brave","vais","encercler","rencontrant","mendier",
+    "envoyant","erré","réduire","exploiter","gaze","bramer","proposer","mortifie","durée","marcotte","envoyer","reviennent","écouter","abandonner","avait",
+    "pane","rendre","rafraîchissant","épingle","tromper","va","abat","espacer","mendiant","rougir","suivre","rejette","cracher","travailler","paresser",
+    "gâter","fourche","prend","assourdir","este","louange","aveugler","diverti","lui","parler","serait","vécu","devient","parent","approche","exposer","moyennant",
+    "programme","gaspiller","reprogrammer","cache","abattre","diplômer","labourer","outiller","remet","rôle","excaver","calculer","déconcertant","cintrer",
+    "cacher","s'ébrouer","émonder","moucher","mentira","sextupler","mente","tombe","manœuvrer","remplir","divertir","soit","exista","économiser",
+    "brûler","encaisser","enduit","appelée","mouillé","consulta","appuyer","jeter","appelle","rattacher","examiner","ramper","peuple","connaître",
+    "échapper","coëxister","songe","enfuir","être","médisant","abolir","croissant","étouffer","réparer","monophtongue","enfermer","proteger","envahi","couler",
+    "écarter","aura","assouvir","paras","améliorer","empêcher","lessiver"
+});
+const auto frFRInterjections = std::to_array<std::string_view>({
+    "taratata","même pas en rêve","voilà","goddam","adieu","tintin","basta","bonsoir","bou du","pardon","respect","bravo","ciao",
+    "con","zut","merci beaucoup","bonjour","merci pour ton aide","dame","hi","mince","attention","merde","hon","qué","fi","bien",
+    "tonnerre","nope","mercredi","quoi","si","ay","oui","voy","salut"
+});
+const auto frFRPrepositions = std::to_array<std::string_view>({
+    "dé","sous","par","selon","sauf","parmi","sans","de","depuis","pendant","moyennant","pour","après","d'après","avec","entre","à",
+    "dessous","contre","à grand renfort de","avant","concernant","en","sur","fors","dans","près","d'","chez",
+
+});
+
+
 const faker::word::Idioms_Map enUSIdioms{{enUSAdjectives}, {enUSAdverbs},
                        {enUSConjunctions},{ enUSInterjections},
                        {enUSNouns},{enUSPrepositions},
                        {enUSVerbs}};
-
 const faker::word::Idioms_Map esARIdioms{{esARAdjectives}, {esARAdverbs},
                        {esARConjunctions},{ esARInterjections},
                        {esARNouns},{esARPrepositions},
@@ -43350,10 +43526,16 @@ const faker::word::Idioms_Map ptBRIdioms{{ptBRAdjectives}, {ptBRAdverbs},
                        {ptBRNouns},{ptBRPrepositions},
                        {ptBRVerbs}};
 
+const faker::word::Idioms_Map frFRIdioms{{frFRAdjectives}, {frFRAdverbs},
+                       {frFRConjunctions},{ frFRInterjections},
+                       {frFRNouns},{frFRPrepositions},
+                       {frFRVerbs}};
+
 const std::map<faker::Locale,const Idioms_Map> idiomsMapSpan({
     {faker::Locale::en_US,{enUSIdioms}},
     {faker::Locale::es_AR,{esARIdioms}},
-    {faker::Locale::pt_BR,{ptBRIdioms}}
+    {faker::Locale::pt_BR,{ptBRIdioms}},
+    {faker::Locale::fr_FR,{frFRIdioms}}
 });
 
 }
