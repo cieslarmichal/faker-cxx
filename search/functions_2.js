@@ -12,7 +12,7 @@ var searchData=
   ['city_9',['city',['../namespacefaker_1_1location.html#af8cdcef7f184ffa39612b92ff51cf5c1',1,'faker::location']]],
   ['cmyk_10',['cmyk',['../namespacefaker_1_1color.html#a029e95b2d93b04c1b07ecf8e1942f690',1,'faker::color']]],
   ['collation_11',['collation',['../namespacefaker_1_1database.html#ae1ebadd76d9acf879550afa079a7d85e',1,'faker::database']]],
-  ['color_12',['color',['../namespacefaker_1_1vehicle.html#a78783093e7083fa2e897f7ca2226da68',1,'faker::vehicle']]],
+  ['color_12',['color',['../namespacefaker_1_1vehicle.html#a3383d3369779c2db531aa7d297a5f317',1,'faker::vehicle']]],
   ['columnname_13',['columnName',['../namespacefaker_1_1database.html#ac0c09a15dcf68e481cbeed982afec8e8',1,'faker::database']]],
   ['columntype_14',['columnType',['../namespacefaker_1_1database.html#a7f177a373a20b623abf49161985d4eb6',1,'faker::database']]],
   ['commitdate_15',['commitDate',['../namespacefaker_1_1git.html#aa2e2ae5d68f8df30fbc31156c54f9778',1,'faker::git']]],

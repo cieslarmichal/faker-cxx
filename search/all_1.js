@@ -13,7 +13,7 @@ var searchData=
   ['bermuda_10',['Bermuda',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6653bea16d7ac8a266d752e9a0176c4f',1,'faker::phone']]],
   ['bhutan_11',['Bhutan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aae65a0ed0e39dd14a9e5af441efb09b37',1,'faker::phone']]],
   ['bic_12',['bic',['../namespacefaker_1_1finance.html#a77c1b40489bdb3a8ef0280d7ca336370',1,'faker::finance']]],
-  ['bicycle_13',['bicycle',['../namespacefaker_1_1vehicle.html#abcd2613f6e47ac7650924209851ff05e',1,'faker::vehicle']]],
+  ['bicycle_13',['bicycle',['../namespacefaker_1_1vehicle.html#aa3b8bc66a3207bea4752ff66625b352f',1,'faker::vehicle']]],
   ['binary_14',['binary',['../namespacefaker_1_1number.html#ac0e51691e8098437c3aeebf66d35c4d0',1,'faker::number::binary(int length=1)'],['../namespacefaker_1_1number.html#a46669288c05a8291ecc61c658cb39014',1,'faker::number::binary(int min, int max)']]],
   ['bio_15',['bio',['../namespacefaker_1_1person.html#a41deabbecbf923fd045031c7456df21d',1,'faker::person']]],
   ['bird_16',['bird',['../namespacefaker_1_1animal.html#a08d156573d0833f51a1801eb304b17e7',1,'faker::animal']]],

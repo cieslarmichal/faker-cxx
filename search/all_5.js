@@ -69,7 +69,7 @@ var searchData=
   ['frenchpolynesia_66',['FrenchPolynesia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaed0cd9feeae6b82cc5cc90baf22032ba',1,'faker::phone']]],
   ['fromcharacters_67',['fromCharacters',['../namespacefaker_1_1string.html#ac54da67b0fb85a3dcd6b970e286bcd1c',1,'faker::string::fromCharacters(const std::string &amp;characters, unsigned length=1)'],['../namespacefaker_1_1string.html#a609843a4fde8ddb1d6304b25916858e6',1,'faker::string::fromCharacters(GuaranteeMap &amp;&amp;guarantee, const std::string &amp;characters, unsigned length=1)']]],
   ['fruit_68',['fruit',['../namespacefaker_1_1food.html#a6e3f30c718598e29f6c5db9b42374033',1,'faker::food']]],
-  ['fuel_69',['fuel',['../namespacefaker_1_1vehicle.html#a07ee147d6c81dfeb7bc70eb5378c0dbc',1,'faker::vehicle']]],
+  ['fuel_69',['fuel',['../namespacefaker_1_1vehicle.html#a1fe121998f4a151513f95207232d9c17',1,'faker::vehicle']]],
   ['fullname_70',['fullName',['../namespacefaker_1_1person.html#a5574316327e325d78376089f82f6ac15',1,'faker::person']]],
   ['futuredate_71',['futureDate',['../namespacefaker_1_1date.html#a3dba0cb591adb200b75a1db57785054d',1,'faker::date']]]
 ];

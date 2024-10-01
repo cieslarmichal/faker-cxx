@@ -27,7 +27,7 @@ var searchData=
   ['code_24',['code',['../structfaker_1_1finance_1_1Currency.html#a5c6602aa5997f25c11761d793e01be40',1,'faker::finance::Currency']]],
   ['collation_25',['collation',['../namespacefaker_1_1database.html#ae1ebadd76d9acf879550afa079a7d85e',1,'faker::database']]],
   ['colombia_26',['Colombia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaef3388cc5659bccb742fb8af762f1bfd',1,'faker::phone']]],
-  ['color_27',['color',['../namespacefaker_1_1vehicle.html#a78783093e7083fa2e897f7ca2226da68',1,'faker::vehicle']]],
+  ['color_27',['color',['../namespacefaker_1_1vehicle.html#a3383d3369779c2db531aa7d297a5f317',1,'faker::vehicle']]],
   ['color_2eh_28',['color.h',['../color_8h.html',1,'']]],
   ['columnname_29',['columnName',['../namespacefaker_1_1database.html#ac0c09a15dcf68e481cbeed982afec8e8',1,'faker::database']]],
   ['columntype_30',['columnType',['../namespacefaker_1_1database.html#a7f177a373a20b623abf49161985d4eb6',1,'faker::database']]],
