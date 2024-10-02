@@ -216,7 +216,8 @@ const auto _adjectives_sorted = []()
    return adjetives_sorted.at(faker::Locale::en_US);
 }();
 
-const auto _adjetives_sorted_map = [](){
+const auto _adjetives_sorted_map = []()
+{
    std::map<faker::Locale,std::vector<std::string_view>> adjetives_sorted;    
     for(auto i: idiomsMapSpan)
     {
@@ -249,7 +250,8 @@ const auto _adverbs_sorted = []()
     }   
    return adverbs_sorted.at(faker::Locale::en_US);
 }();
-const auto _adverbs_sorted_map = [](){
+const auto _adverbs_sorted_map = []()
+{
     std::map<faker::Locale,std::vector<std::string_view>> adverbs_sorted;    
     for(auto i: idiomsMapSpan)
     {
@@ -282,7 +284,8 @@ const auto _conjunctions_sorted = []()
     return conjunctions_sorted.at(faker::Locale::en_US);
 }();
 
-const auto _conjunctions_sorted_map = [](){ 
+const auto _conjunctions_sorted_map = []()
+{ 
     std::map<faker::Locale,std::vector<std::string_view>> conjunctions_sorted;    
     for(auto i: idiomsMapSpan)
     {
@@ -355,7 +358,8 @@ const auto _nouns_sorted = []()
 }();
 
 
-const auto _nouns_sorted_map = [](){
+const auto _nouns_sorted_map = []()
+{
    std::map<faker::Locale,std::vector<std::string_view>> nouns_sorted;    
     for(auto i: idiomsMapSpan)
     {

@@ -43531,6 +43531,7 @@ const faker::word::Idioms_Map frFRIdioms{{frFRAdjectives}, {frFRAdverbs},
                        {frFRNouns},{frFRPrepositions},
                        {frFRVerbs}};
 
+
 const std::map<faker::Locale,const Idioms_Map> idiomsMapSpan({
     {faker::Locale::en_US,{enUSIdioms}},
     {faker::Locale::es_AR,{esARIdioms}},
