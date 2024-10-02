@@ -7,23 +7,42 @@
 
 namespace faker::videogame
 {
-std::string_view gameTitle()
+namespace
 {
-    return helper::randomElement(videoGameNames);
+const struct VideoGames& getVideoGame(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSVideoGames;
+    }
+}
+}
+std::string_view gameTitle(Locale locale)
+{
+    const auto& videoGame = getVideoGame(locale);
+
+    return helper::randomElement(videoGame.videoGameNames);
 }
 
-std::string_view genre()
+std::string_view genre(Locale locale)
 {
-    return helper::randomElement(videoGameGenres);
+    const auto& videoGame = getVideoGame(locale);
+
+    return helper::randomElement(videoGame.videoGameGenres);
 }
 
-std::string_view platform()
+std::string_view platform(Locale locale)
 {
-    return helper::randomElement(platforms);
+    const auto& videoGame = getVideoGame(locale);
+
+    return helper::randomElement(videoGame.platforms);
 }
 
-std::string_view studioName()
+std::string_view studioName(Locale locale)
 {
-    return helper::randomElement(studioNames);
+    const auto& videoGame = getVideoGame(locale);
+
+    return helper::randomElement(videoGame.studioNames);
 }
 }

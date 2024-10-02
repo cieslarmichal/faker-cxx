@@ -1,11 +1,21 @@
 #pragma once
 
 #include <array>
+#include <span>
 #include <string_view>
 
 namespace faker::videogame
 {
-const auto videoGameNames = std::to_array<std::string_view>({
+
+struct VideoGames
+{
+    std::span<const std::string_view> videoGameNames;
+    std::span<const std::string_view> videoGameGenres;
+    std::span<const std::string_view> platforms;
+    std::span<const std::string_view> studioNames;
+};
+
+const auto enUSVideoGameNames = std::to_array<std::string_view>({
     "#killallzombies",
     ".hack//G.U. Last Recode",
     "007: Agent Under Fire",
@@ -3160,7 +3170,7 @@ const auto videoGameNames = std::to_array<std::string_view>({
     "Æon Flux",
 });
 
-const auto videoGameGenres = std::to_array<std::string_view>({
+const auto enUSVideoGameGenres = std::to_array<std::string_view>({
     "Action",
     "Adventure",
     "Battle royale",
@@ -3191,7 +3201,7 @@ const auto videoGameGenres = std::to_array<std::string_view>({
     "Tower defense",
 });
 
-const auto platforms = std::to_array<std::string_view>({
+const auto enUSPlatforms = std::to_array<std::string_view>({
     "Android",
     "Linux",
     "Nintendo Switch",
@@ -3203,7 +3213,7 @@ const auto platforms = std::to_array<std::string_view>({
     "iOS",
 });
 
-const auto studioNames = std::to_array<std::string_view>({
+const auto enUSStudioNames = std::to_array<std::string_view>({
     "0verflow",
     "1st Playable Productions",
     "2K Czech",
@@ -3597,5 +3607,12 @@ const auto studioNames = std::to_array<std::string_view>({
     "indieszero",
     "n-Space",
 });
+
+const VideoGames enUSVideoGames = {
+    .videoGameNames = enUSVideoGameNames,
+    .videoGameGenres = enUSVideoGameGenres,
+    .platforms = enUSPlatforms,
+    .studioNames = enUSStudioNames,
+};
 
 }
