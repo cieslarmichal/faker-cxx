@@ -333,8 +333,8 @@ TEST_P(WordTestLocale, shouldGenerateadjectiveLocaleWithNoLocale)
 
 TEST_P(WordTestLocale, shouldGenerateAdjectiveWithExistingLength)
 {
-    auto locale = GetParam();
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedAdjective = adjective(5,locale);
 
@@ -344,8 +344,8 @@ TEST_P(WordTestLocale, shouldGenerateAdjectiveWithExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateAdjectiveWithNonExistingLength)
 {
-    auto locale = GetParam();
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedAdjective = adjective(0,locale);
 
@@ -355,8 +355,8 @@ TEST_P(WordTestLocale, shouldGenerateAdjectiveWithNonExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateAdvervsLocale)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedAdverb = adverb(7,locale);    
 
@@ -366,8 +366,8 @@ TEST_P(WordTestLocale, shouldGenerateAdvervsLocale)
 
 TEST_P(WordTestLocale, shouldGenerateadverbLocale2)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedAdverb = adverb(0,locale);
 
@@ -378,8 +378,8 @@ TEST_P(WordTestLocale, shouldGenerateadverbLocale2)
 TEST_P(WordTestLocale, shouldGenerateAdverbWithExistingLength)
 {
     
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedAdverb = adverb(5,locale);
 
@@ -389,8 +389,8 @@ TEST_P(WordTestLocale, shouldGenerateAdverbWithExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateAdverbWithNonExistingLength)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedAdverb = adverb(0,locale);
 
@@ -400,8 +400,8 @@ TEST_P(WordTestLocale, shouldGenerateAdverbWithNonExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateConjunction)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedConjunction = conjunction(7,locale);
 
@@ -411,8 +411,8 @@ TEST_P(WordTestLocale, shouldGenerateConjunction)
 
 TEST_P(WordTestLocale, shouldGenerateConjunctionWithExistingLength)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedConjunction = conjunction(5,locale);
 
@@ -422,8 +422,8 @@ TEST_P(WordTestLocale, shouldGenerateConjunctionWithExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateConjunctionWithLength0)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedConjunction = conjunction(0,locale);   
 
@@ -433,8 +433,8 @@ TEST_P(WordTestLocale, shouldGenerateConjunctionWithLength0)
 
 TEST_P(WordTestLocale, shouldGenerateInterjection)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedInterjection = interjection(0,locale);
 
@@ -444,8 +444,8 @@ TEST_P(WordTestLocale, shouldGenerateInterjection)
 
 TEST_P(WordTestLocale, shouldGenerateInterjectionWithExistingLength)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedInterjection = interjection(5,locale);  
 
@@ -455,8 +455,8 @@ TEST_P(WordTestLocale, shouldGenerateInterjectionWithExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateInterjectionWithLength0)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedInterjection = interjection(0,locale);
 
@@ -466,8 +466,8 @@ TEST_P(WordTestLocale, shouldGenerateInterjectionWithLength0)
 
 TEST_P(WordTestLocale, shouldGenerateNoun)
 {    
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedNoun = noun(0,locale);
 
@@ -477,8 +477,8 @@ TEST_P(WordTestLocale, shouldGenerateNoun)
 
 TEST_P(WordTestLocale, shouldGenerateNounWithExistingLength)
 {    
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
     
     const auto generatedNoun = noun(5,locale);
 
@@ -489,8 +489,8 @@ TEST_P(WordTestLocale, shouldGenerateNounWithExistingLength)
 TEST_P(WordTestLocale, shouldGenerateNOunWithLength0)
 {
     
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
     
     const auto generatedNoun = noun(0,locale);
 
@@ -500,8 +500,8 @@ TEST_P(WordTestLocale, shouldGenerateNOunWithLength0)
 
 TEST_P(WordTestLocale, shouldGeneratePreposition)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedPreposition = preposition(0,locale);
 
@@ -511,8 +511,8 @@ TEST_P(WordTestLocale, shouldGeneratePreposition)
 
 TEST_P(WordTestLocale, shouldGeneratePrepositionWithExistingLength)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedPreposition = preposition(5,locale);
     
@@ -522,8 +522,8 @@ TEST_P(WordTestLocale, shouldGeneratePrepositionWithExistingLength)
 
 TEST_P(WordTestLocale, shouldGeneratePrepositionWithLength0)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
     const auto generatedPreposition = preposition(0,locale);
 
     ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.prepositions, [generatedPreposition](const std::string_view& word)
@@ -532,8 +532,8 @@ TEST_P(WordTestLocale, shouldGeneratePrepositionWithLength0)
 
 TEST_P(WordTestLocale, shouldGenerateVerb)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale); 
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale); 
 
     const auto generatedVerb = verb(0,locale);
 
@@ -543,8 +543,8 @@ TEST_P(WordTestLocale, shouldGenerateVerb)
 
 TEST_P(WordTestLocale, shouldGenerateVerbWithExistingLength)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale);     
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale);     
 
     const auto generatedVerb = verb(5,locale);
 
@@ -554,8 +554,8 @@ TEST_P(WordTestLocale, shouldGenerateVerbWithExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateVerbWithExistingLength0)
 {
-    auto locale = GetParam();    
-    auto idiomsMapLocal=getIdiomsMap(locale);     
+    const auto locale = GetParam();    
+    const auto idiomsMapLocal=getIdiomsMap(locale);     
 
     const auto generatedVerb = verb(0,locale);
 
@@ -565,8 +565,7 @@ TEST_P(WordTestLocale, shouldGenerateVerbWithExistingLength0)
 
 TEST_F(WordTestLocale, shouldGenerateSample)
 {
-    //default sample should be from en_US
-    auto locale= Locale::en_US;
+    const auto locale= Locale::en_US;
     
     const auto generatedSample = sample();
 
@@ -576,7 +575,7 @@ TEST_F(WordTestLocale, shouldGenerateSample)
 
 TEST_P(WordTestLocale, shouldGenerateSampleWithExistingLength)
 {
-    auto locale = GetParam();    
+    const auto locale = GetParam();    
     Locale extra=locale;
 
     const auto generatedSample = sample(5,locale);
@@ -591,7 +590,7 @@ TEST_P(WordTestLocale, shouldGenerateSampleWithExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateSampleWithNonExistingLength)
 {
-    auto locale = GetParam();    
+    const auto locale = GetParam();    
     Locale extra=locale;
 
     const auto generatedSample = sample(0,locale);
@@ -607,7 +606,7 @@ TEST_P(WordTestLocale, shouldGenerateSampleWithNonExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateWords)
 {
-    auto locale = GetParam();        
+    const auto locale = GetParam();        
     Locale extra=locale;
 
     if(!checkLocale(locale))
@@ -627,7 +626,7 @@ TEST_F(WordTestLocale, shouldReturnRandomElementWhenExactLengthNotFound)
 {
     const unsigned int existingLength = 5;
 
-    auto locale= faker::Locale::es_AR;
+    const auto locale= faker::Locale::es_AR;
 
     std::vector<std::string_view> matchingAdjectives;
 
@@ -649,7 +648,7 @@ TEST_F(WordTestLocale, shouldReturnRandomElementWhenExactLengthNotFound)
 
 TEST_P(WordTestLocale, shouldReturnEmptyStringForZeroWords)
 {
-    auto locale = GetParam();    
+    const auto locale = GetParam();    
     Locale extra=locale;
 
     if(!checkLocale(locale))
@@ -665,7 +664,7 @@ TEST_P(WordTestLocale, shouldReturnEmptyStringForZeroWords)
 TEST_P(WordTestLocale, shouldGenerateLargeNumberOfWords)
 {
     
-    auto locale = GetParam();    
+    const auto locale = GetParam();    
     Locale extra=locale;
 
     if(!checkLocale(locale))
@@ -691,12 +690,12 @@ TEST_P(WordTestLocale, shouldGenerateLargeNumberOfWords)
 
 TEST_F(WordTestLocale, shouldReturnEnglishSampleifLocaleNotFilled)
 {
-    Locale locale= Locale::es_BO;
-    Locale locale2= Locale::en_US;
+    const Locale locale= Locale::es_BO;
+    const Locale locale2= Locale::en_US;
 
     const auto generatedSample = sample(0,locale);
 
-    auto dataset=_allWords_map.at(locale2);
+    const auto dataset=_allWords_map.at(locale2);
 
     ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
@@ -704,7 +703,7 @@ TEST_F(WordTestLocale, shouldReturnEnglishSampleifLocaleNotFilled)
 
 TEST_F(WordTestLocale, shouldReturnPortugueseSampleifAskedforPortugueseWord)
 {
-    auto locale= Locale::pt_BR;
+    const auto locale= Locale::pt_BR;
 
     const auto generatedSample = sample(0,locale);
 
@@ -716,7 +715,7 @@ TEST_F(WordTestLocale, shouldReturnPortugueseSampleifAskedforPortugueseWord)
 
 TEST_F(WordTestLocale, shouldReturnFrenchSampleifAskedforFrenchWord)
 {
-    auto locale= Locale::fr_FR;    
+    const auto locale= Locale::fr_FR;    
 
     const auto generatedSample = sample(0,locale);
 
