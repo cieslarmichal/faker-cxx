@@ -8,7 +8,7 @@ project(faker-cxx
 include(cmake/CompilerWarnings.cmake)
 include(CMakeDependentOption)
 
-option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" ON)
+option(USE_SYSTEM_DEPENDENCIES "Use fmt and GTest from system" OFF)
 option(BUILD_EXAMPLES "Build examples" OFF)
 option(BUILD_TESTING "Build tests" ON)
 option(CODE_COVERAGE "Build faker-cxx with coverage support" OFF)

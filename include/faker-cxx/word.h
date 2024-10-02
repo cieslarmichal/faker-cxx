@@ -27,7 +27,7 @@ namespace faker::word
  * faker::word::sample(5) // "spell"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view sample(std::optional<unsigned> length = std::nullopt,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view sample(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
 
 
 /**
@@ -44,7 +44,7 @@ FAKER_CXX_EXPORT std::string_view sample(std::optional<unsigned> length = std::n
  * @endcode
  */
 
-FAKER_CXX_EXPORT std::string_view sampleLocale(unsigned length = 0,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view sampleLocale(unsigned length = 0,const Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a string containing a number of space separated random words.
@@ -59,7 +59,7 @@ FAKER_CXX_EXPORT std::string_view sampleLocale(unsigned length = 0,const faker::
  * faker::word::words(5) // "before hourly patiently dribble equal"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string words(unsigned numberOfWords = 1,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string words(unsigned numberOfWords = 1,const Locale locale = Locale::en_US);
 
 
 /**
@@ -75,7 +75,7 @@ FAKER_CXX_EXPORT std::string words(unsigned numberOfWords = 1,const faker::Local
  * faker::word::wordsLocale(5,faker::locale::en_US) // "before hourly patiently dribble equal"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string wordsLocale(unsigned numberOfWords = 1,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string wordsLocale(unsigned numberOfWords = 1,const Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random adjective.
@@ -91,7 +91,7 @@ FAKER_CXX_EXPORT std::string wordsLocale(unsigned numberOfWords = 1,const faker:
  * faker::word::adjective(3) // "bad"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view adjective(std::optional<unsigned> length = std::nullopt,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view adjective(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
 
 
 /**
@@ -107,7 +107,7 @@ FAKER_CXX_EXPORT std::string_view adjective(std::optional<unsigned> length = std
  * faker::word::adjective(3) // "bad"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view adjectiveLocale(unsigned length = 0,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view adjectiveLocale(unsigned length = 0,const Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random adverb.
@@ -123,7 +123,8 @@ FAKER_CXX_EXPORT std::string_view adjectiveLocale(unsigned length = 0,const fake
  * faker::word::adverb(5) // "almost"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view adverb(std::optional<unsigned> length = std::nullopt,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view adverb(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
+
 
 
 /**
@@ -140,7 +141,7 @@ FAKER_CXX_EXPORT std::string_view adverb(std::optional<unsigned> length = std::n
  * faker::word::adverbLocale(5) // "almost"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view adverbLocale(unsigned length = 0,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view adverbLocale(unsigned length = 0,const Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random conjunction.
@@ -156,7 +157,7 @@ FAKER_CXX_EXPORT std::string_view adverbLocale(unsigned length = 0,const faker::
  * faker::word::conjunction(6) // "indeed"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view conjunction(std::optional<unsigned> length = std::nullopt,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view conjunction(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
 
 
 
@@ -174,7 +175,7 @@ FAKER_CXX_EXPORT std::string_view conjunction(std::optional<unsigned> length = s
  * faker::word::conjunctionLocale(6) // "indeed"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view conjunctionLocale(unsigned int length=0, const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view conjunctionLocale(unsigned int length=0, const Locale locale = Locale::en_US);
 
 
 /**
@@ -191,7 +192,7 @@ FAKER_CXX_EXPORT std::string_view conjunctionLocale(unsigned int length=0, const
  * faker::word::interjection(4) // "yuck"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view interjection(std::optional<unsigned> length = std::nullopt,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view interjection(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random interjection.
@@ -207,7 +208,7 @@ FAKER_CXX_EXPORT std::string_view interjection(std::optional<unsigned> length = 
  * faker::word::interjectionLocale(4) // "yuck"
  * @endcode
  */
-FAKER_CXX_EXPORT  std::string_view interjectionLocale(unsigned int length=0, const faker::Locale locale = Locale::en_US) ;
+FAKER_CXX_EXPORT  std::string_view interjectionLocale(unsigned int length=0, const Locale locale = Locale::en_US) ;
 
 /**
  * @brief Returns a random noun.
@@ -223,7 +224,7 @@ FAKER_CXX_EXPORT  std::string_view interjectionLocale(unsigned int length=0, con
  * faker::word::noun(8) // "distance"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view noun(std::optional<unsigned> length = std::nullopt,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view noun(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
 
 
 /**
@@ -240,7 +241,7 @@ FAKER_CXX_EXPORT std::string_view noun(std::optional<unsigned> length = std::nul
  * faker::word::nounLocale(8) // "distance"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view nounLocale(unsigned int length=0, const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view nounLocale(unsigned int length=0, const Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random preposition.
@@ -256,7 +257,7 @@ FAKER_CXX_EXPORT std::string_view nounLocale(unsigned int length=0, const faker:
  * faker::word::preposition(4) // "from"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = std::nullopt,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random preposition.
@@ -272,7 +273,7 @@ FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = s
  * faker::word::prepositionLocale(4) // "from"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view prepositionLocale(unsigned int length=0, const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view prepositionLocale(unsigned int length=0, const Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random verb.
@@ -288,7 +289,7 @@ FAKER_CXX_EXPORT std::string_view prepositionLocale(unsigned int length=0, const
  * faker::word::verb(9) // "stabilise"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view verb(std::optional<unsigned> length = std::nullopt,const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view verb(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
 
 
 /**
@@ -305,7 +306,7 @@ FAKER_CXX_EXPORT std::string_view verb(std::optional<unsigned> length = std::nul
  * faker::word::verbLocale(9) // "stabilise"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view verbLocale(unsigned int length=0, const faker::Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view verbLocale(unsigned int length=0, const Locale locale = Locale::en_US);
 
 /**
  * @brief Returns random element of length
