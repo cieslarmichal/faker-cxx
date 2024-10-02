@@ -172,10 +172,11 @@ std::string_view conjunctionLocale(unsigned int length, const Locale locale)
         length=100;
     }
     auto localeLocal = locale;
-    if(_allWords_map.find(locale)==_allWords_map.end())
+    if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
     }    
+      
     auto sorted= _conjunctions_sorted_map.at(localeLocal);
     return sortedSizeRandomElement(length, sorted);
 }
@@ -195,11 +196,13 @@ std::string_view interjectionLocale(unsigned int length, const Locale locale)
     {
         length=100;
     }
-    auto localeLocal = locale;
-    if(_allWords_map.find(locale)==_allWords_map.end())
+    auto localeLocal = locale; 
+
+    if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
     }    
+    
     auto sorted= _interjections_sorted_map.at(localeLocal);
     return sortedSizeRandomElement(length, sorted);
 }
@@ -221,10 +224,10 @@ std::string_view nounLocale(unsigned int length, const Locale locale)
         length=100;
     }
     auto localeLocal = locale;
-    if(_allWords_map.find(locale)==_allWords_map.end())
+    if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
-    }    
+    }     
     auto sorted= _nouns_sorted_map.at(localeLocal);
     return sortedSizeRandomElement(length, sorted);
 }
@@ -246,10 +249,12 @@ std::string_view prepositionLocale(unsigned int length, const Locale locale)
         length=100;
     }
     auto localeLocal = locale;
-    if(_allWords_map.find(locale)==_allWords_map.end())
+
+    if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
     }    
+
     auto sorted=_prepositions_sorted_map.at(localeLocal);
     return sortedSizeRandomElement(length, sorted);
 }
@@ -270,7 +275,8 @@ std::string_view verbLocale(unsigned int length, const Locale locale)
         length=100;
     }
     auto localeLocal = locale;
-    if(_allWords_map.find(locale)==_allWords_map.end())
+    
+    if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
     }    
