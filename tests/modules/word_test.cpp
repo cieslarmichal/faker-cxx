@@ -308,6 +308,7 @@ class WordTestLocale : public TestWithParam<Locale>
 {
 public:
 };
+
 TEST_P(WordTestLocale, shouldGenerateadjectiveLocale)
 {
     auto locale = GetParam();
