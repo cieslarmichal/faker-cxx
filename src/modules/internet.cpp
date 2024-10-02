@@ -341,11 +341,11 @@ std::string anonymousUsername(unsigned maxLength)
     else if (maxLength > defaultMax)
         maxLength = defaultMax;
 
-    const std::integral auto adjectiveLocaleength = number::integer<unsigned>(3, 1 + maxLength / 2);
+    const std::integral auto adjectiveLocaleLength = number::integer<unsigned>(3, 1 + maxLength / 2);
 
-    const auto nounLocaleength = maxLength - adjectiveLocaleength;
+    const auto nounLocaleLength = maxLength - adjectiveLocaleLength;
 
-    return common::format("{}{}", word::adjective(adjectiveLocaleength), word::noun(nounLocaleength));
+    return common::format("{}{}", word::adjective(adjectiveLocaleLength), word::noun(nounLocaleLength));
 }
 
 }
