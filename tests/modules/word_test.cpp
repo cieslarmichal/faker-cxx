@@ -308,7 +308,7 @@ class WordTestLocale : public TestWithParam<Locale>
 {
 public:
 };
-TEST_P(WordTestLocale, shouldGenerateadjectiveLocaleocale)
+TEST_P(WordTestLocale, shouldGenerateadjectiveLocale)
 {
     Locale locale = GetParam();
     auto idiomsMapLocal=getIdiomsMap(locale);
@@ -317,7 +317,7 @@ TEST_P(WordTestLocale, shouldGenerateadjectiveLocaleocale)
     ASSERT_TRUE(std::ranges::any_of(idiomsMapLocal.adjetives, [generatedAdjective](const std::string_view& word)
                                     { return word == generatedAdjective; }));
 }
-TEST_P(WordTestLocale, shouldGenerateadjectiveLocaleocaleWithNoLocale)
+TEST_P(WordTestLocale, shouldGenerateadjectiveLocaleWithNoLocale)
 {
     Locale locale =  Locale::en_US;
     auto idiomsMapLocal=getIdiomsMap(locale); 
@@ -356,7 +356,7 @@ TEST_P(WordTestLocale, shouldGenerateAdvervsLocale)
                                    
 }
 
-TEST_P(WordTestLocale, shouldGenerateadverbLocaleocale2)
+TEST_P(WordTestLocale, shouldGenerateadverbLocale2)
 {
     Locale locale = GetParam();    
     auto idiomsMapLocal=getIdiomsMap(locale); 
