@@ -473,7 +473,7 @@ TEST_P(WordTestLocale, shouldGenerateNOunWithLength0)
     
     auto locale = GetParam();    
     auto idiomsMapLocal=getIdiomsMap(locale); 
-    const auto generatedNoun = nounLocale(0,locale);
+    const auto generatedNoun = noun(0,locale);
 
     ASSERT_TRUE(
         std::ranges::any_of(idiomsMapLocal.nouns, [generatedNoun](const std::string_view& word) { return word == generatedNoun; }));
@@ -583,12 +583,12 @@ TEST_P(WordTestLocale, shouldGenerateSampleWithNonExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateWords)
 {
-    auto locale = GetParam();    
+    auto locale = GetParam();        
     Locale extra=locale;
 
     if(!checkLocale(locale))
     {
-        extra=Locale::en_US;
+        extra=Locale::en_US;        
     }
     const auto generatedWords = words(5,locale);
 
@@ -663,7 +663,7 @@ TEST_F(WordTestLocale, shouldReturnEnglishSampleifLocaleNotFilled)
     Locale locale2= Locale::en_US;
     
     
-    const auto generatedSample = sampleLocale(0,locale);
+    const auto generatedSample = sample(0,locale);
     auto dataset=_allWords_map.at(locale2);
     ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
@@ -673,7 +673,7 @@ TEST_F(WordTestLocale, shouldReturnEnglishSampleifLocaleNotFilled)
 TEST_F(WordTestLocale, shouldReturnPortugueseSampleifAskedforPortugueseWord)
 {
     auto locale= Locale::pt_BR;
-    const auto generatedSample = sampleLocale(0,locale);
+    const auto generatedSample = sample(0,locale);
     auto dataset=_allWords_map.at(locale);
     ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
@@ -683,21 +683,12 @@ TEST_F(WordTestLocale, shouldReturnPortugueseSampleifAskedforPortugueseWord)
 TEST_F(WordTestLocale, shouldReturnFrenchSampleifAskedforFrenchWord)
 {
     auto locale= Locale::fr_FR;    
-    const auto generatedSample = sampleLocale(0,locale);
-    auto dataset=_allWords_map.at(locale);
-    ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
-                                    { return word == generatedSample; }));
-}
-
-
-TEST_F(WordTestLocale, shouldReturnFrenchSampleifAskedforFrenchWordUsingSample)
-{
-    auto locale= Locale::fr_FR;
     const auto generatedSample = sample(0,locale);
     auto dataset=_allWords_map.at(locale);
     ASSERT_TRUE(std::ranges::any_of(dataset, [generatedSample](const std::string_view& word)
                                     { return word == generatedSample; }));
 }
+
 
 
 INSTANTIATE_TEST_SUITE_P(testWordByLocale, WordTestLocale, ValuesIn(locales),

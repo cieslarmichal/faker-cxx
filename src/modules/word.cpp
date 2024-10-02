@@ -11,32 +11,30 @@
 
 namespace faker::word
 {
+
+
+
 std::string_view sample( std::optional<unsigned int> length,const Locale locale)
 {
-    if(length)    
-        return sampleLocale(length.value(),locale);
+    unsigned int aux_length{0};
+    if(length)   
+    {     
+        aux_length=length.value();
+    }
     else
-        return sampleLocale(0,locale);
-
-}
-
-std::string_view sampleLocale(unsigned int length, const Locale locale)
-{
-    if(length==0){
-        length=100;
-        }
+    {
+        aux_length=100;
+    }
+    auto localeLocal = locale;
     
-    if(_allWords_map.find(locale)==_allWords_map.end())
+    if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
-        auto localeLocal = faker::Locale::en_US;
-        auto sorted= _allWords_map.at(localeLocal);
-        return sortedSizeRandomElement(length, sorted);
+        localeLocal = Locale::en_US;
     }
-    else
-    {
-    auto sorted= _allWords_map.at(locale);
-    return sortedSizeRandomElement(length, sorted);
-    }
+
+    auto sorted= _allWords_map.at(localeLocal);
+    return sortedSizeRandomElement(aux_length, sorted);
+
 }
 
 std::string words(unsigned numberOfWords,const Locale locale)
@@ -45,21 +43,12 @@ std::string words(unsigned numberOfWords,const Locale locale)
     {
         return "";
     }
-    return wordsLocale(numberOfWords,locale);
-}
-
-std::string wordsLocale(unsigned numberOfWords, const Locale locale)
-{
     auto localeExt = locale;
-    if (numberOfWords == 0)
-    {
-        return "";
-    }    
+    
     if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeExt = Locale::en_US;
-    }    
-
+    }
     std::string combined_words;
     if (numberOfWords <= 256)
     {
@@ -90,12 +79,12 @@ std::string wordsLocale(unsigned numberOfWords, const Locale locale)
         unsigned space_words = (numberOfWords - 1);
         for (unsigned i = 0; i < space_words; i++)
         {
-            auto s = sampleLocale(1, localeExt);
+            auto s = sample(1, localeExt);
             combined_words.append(s.begin(), s.end());
             combined_words.push_back(' ');
         }
 
-        auto s = sampleLocale(1, localeExt);
+        auto s = sample(1, localeExt);
         combined_words.append(s.begin(), s.end());
     }
 
@@ -104,183 +93,151 @@ std::string wordsLocale(unsigned numberOfWords, const Locale locale)
 
 std::string_view adjective(std::optional<unsigned int> length,const Locale locale)
 {    
-    if(length)        
-        return adjectiveLocale(length.value(),locale);
-    else
-        return adjectiveLocale(0,locale);
-}
-
-std::string_view adjectiveLocale(unsigned int length, const Locale locale)
-{
-    if(length==0)
-    {
-        length=100;
+    unsigned int aux_length{0};
+    if(length)   
+    {     
+        aux_length=length.value();
     }
-
+    else
+    {
+        aux_length=0;
+    }
     auto localeLocal = locale;
+    
     if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
-    }    
+    }
     auto sorted= _adjetives_sorted_map.at(localeLocal);
-    return sortedSizeRandomElement(length, sorted);
-}
-
-
-std::string_view adverb(const Locale locale)
-{
-      return adverbLocale(0,locale);
+    return sortedSizeRandomElement(aux_length, sorted);
 }
 
 std::string_view adverb(std::optional<unsigned int> length, const Locale locale)
 {
-    //return sortedSizeRandomElement(length, _adverbs_sorted);
-    if(length)        
-        return adverbLocale(length.value(),locale);
+    unsigned int aux_length{0};
+    if(length)   
+    {     
+        aux_length=length.value();
+    }
     else
-        return adverbLocale(0,locale);
-}
-
-std::string_view adverbLocale(unsigned int length, const Locale locale)
-{
-    if(length==0)
     {
-        length=100;
-    }    
-    Locale localeLocal = locale;
+        aux_length=0;
+    }
+    auto localeLocal = locale;
+    
     if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
-    }  
+    }
     auto sorted= _adverbs_sorted_map.at(localeLocal);
-    return sortedSizeRandomElement(length, sorted);
+    return sortedSizeRandomElement(aux_length, sorted);
 }
 
 std::string_view conjunction(std::optional<unsigned int> length, const faker::Locale locale)
 {
-    if(length)        
-        return conjunctionLocale(length.value(),locale);
+    unsigned int aux_length{0};
+    if(length)   
+    {     
+        aux_length=length.value();
+    }
     else
-        return conjunctionLocale(0,locale);
-    
-}
-
-std::string_view conjunctionLocale(unsigned int length, const Locale locale)
-{
-    if(length==0)
     {
-        length=100;
+        aux_length=0;
     }
     auto localeLocal = locale;
+    
     if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
-    }    
-      
+    }
     auto sorted= _conjunctions_sorted_map.at(localeLocal);
-    return sortedSizeRandomElement(length, sorted);
+    return sortedSizeRandomElement(aux_length, sorted);
 }
 
 std::string_view interjection(std::optional<unsigned int> length, const faker::Locale locale)
 {
-    if(length)        
-        return interjectionLocale(length.value(),locale);
-    else
-        return interjectionLocale(0,locale);
-    
-}
-
-std::string_view interjectionLocale(unsigned int length, const Locale locale) 
-{
-    if(length==0)
-    {
-        length=100;
+    unsigned int aux_length{0};
+    if(length)   
+    {     
+        aux_length=length.value();
     }
-    auto localeLocal = locale; 
-
+    else
+    {
+        aux_length=0;
+    }
+    auto localeLocal = locale;
+    
     if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
-    }    
-    
+    }
     auto sorted= _interjections_sorted_map.at(localeLocal);
-    return sortedSizeRandomElement(length, sorted);
+    return sortedSizeRandomElement(aux_length, sorted);
 }
 
 std::string_view noun(std::optional<unsigned int> length, const Locale locale)
 {
-    
-    if(length)                
-        return nounLocale(length.value(),locale);
+    unsigned int aux_length{0};
+    if(length)   
+    {     
+        aux_length=length.value();
+    }
     else
-        return nounLocale(0,locale);
-    
-}
-
-std::string_view nounLocale(unsigned int length, const Locale locale)
-{
-    if(length==0)
     {
-        length=100;
+        aux_length=0;
     }
     auto localeLocal = locale;
+    
     if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
-    }     
+    }
+
     auto sorted= _nouns_sorted_map.at(localeLocal);
-    return sortedSizeRandomElement(length, sorted);
+    return sortedSizeRandomElement(aux_length, sorted);    
 }
 
 std::string_view preposition(std::optional<unsigned int> length, const Locale locale)
 {
-    
-    if(length)
-        
-        return prepositionLocale(length.value(),locale);
+    unsigned int aux_length{0};
+    if(length)   
+    {     
+        aux_length=length.value();
+    }
     else
-        return prepositionLocale(0,locale);
-}
-
-std::string_view prepositionLocale(unsigned int length, const Locale locale)
-{
-    if(length==0)
     {
-        length=100;
+        aux_length=0;
     }
     auto localeLocal = locale;
-
+    
     if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
-    }    
+    }
 
     auto sorted=_prepositions_sorted_map.at(localeLocal);
-    return sortedSizeRandomElement(length, sorted);
+    return sortedSizeRandomElement(aux_length, sorted);
 }
 
 std::string_view verb(std::optional<unsigned int> length, const Locale locale)
 {    
-    if(length)
-        
-        return verbLocale(length.value(),locale);
+    unsigned int aux_length{0};
+    if(length)   
+    {     
+        aux_length=length.value();
+    }
     else
-        return verbLocale(0,locale);
-}
-
-std::string_view verbLocale(unsigned int length, const Locale locale)
-{
-    if(length==0)
     {
-        length=100;
+        aux_length=0;
     }
     auto localeLocal = locale;
     
     if(idiomsMapSpan.find(locale)==idiomsMapSpan.end())
     {
         localeLocal = Locale::en_US;
-    }    
-
+    }
     auto sorted=(_verbs_sorted_map).at(localeLocal);
-    return sortedSizeRandomElement(length, sorted);}
+    return sortedSizeRandomElement(aux_length, sorted);
+}
+
 }
