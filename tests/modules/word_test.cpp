@@ -606,7 +606,7 @@ TEST_P(WordTestLocale, shouldGenerateSampleWithNonExistingLength)
 
 TEST_P(WordTestLocale, shouldGenerateWords)
 {
-    const auto locale = GetParam();        
+    const auto locale = GetParam();            
     Locale extra=locale;
 
     if(!checkLocale(locale))
@@ -614,12 +614,14 @@ TEST_P(WordTestLocale, shouldGenerateWords)
         extra=Locale::en_US;        
     }
 
-    const auto generatedWords = words(5,locale);
-
+    const auto generatedWords = words(5,locale);    
+    
     const auto separatedWords = common::split(generatedWords, " ");
 
-    ASSERT_TRUE(std::ranges::all_of(separatedWords, [extra](const std::string& separatedWord)
-                                    { return std::ranges::find(_allWords_map.at(extra), separatedWord) !=_allWords_map.at(extra).end(); }));
+    const auto &datamap=_allWords_map.at(extra);
+    
+    ASSERT_TRUE(std::ranges::all_of(separatedWords, [&datamap](const std::string& separatedWord)
+                                    { return std::ranges::find(datamap, separatedWord) !=datamap.end(); }));
 }
 
 TEST_F(WordTestLocale, shouldReturnRandomElementWhenExactLengthNotFound)
