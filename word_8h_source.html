@@ -112,81 +112,98 @@ $(function(){initNavTree('word_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;faker-cxx/export.h&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="helper_8h.html">faker-cxx/helper.h</a>&quot;</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="foldopen" id="foldopen00011" data-start="{" data-end="}">
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html">   11</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacefaker_1_1word.html">faker::word</a></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span>{</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a756eef88511091fc80942ab0a1502aaa">   26</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a756eef88511091fc80942ab0a1502aaa">sample</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a3300afd6043c0f11af23e3bd0b9f1782">   40</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1word.html#a3300afd6043c0f11af23e3bd0b9f1782">words</a>(<span class="keywordtype">unsigned</span> numberOfWords = 1);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#af0f10fe34e975d361fd1d286d5073cc2">   55</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#af0f10fe34e975d361fd1d286d5073cc2">adjective</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span> </div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a0d9897ef2f1a2c30d8c375db2a8da628">   70</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a0d9897ef2f1a2c30d8c375db2a8da628">adverb</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a6e7e5f4576246ac2b1f086a0ecc2c62f">   85</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a6e7e5f4576246ac2b1f086a0ecc2c62f">conjunction</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00100" name="l00100"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a82ec1a575f056e5c79d2e7bc4e89335d">  100</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a82ec1a575f056e5c79d2e7bc4e89335d">interjection</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00115" name="l00115"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#aa380bf2a6c8cd76db8fe13d20ff6ccf9">  115</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#aa380bf2a6c8cd76db8fe13d20ff6ccf9">noun</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;faker-cxx/types/locale.h&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
+<div class="foldopen" id="foldopen00013" data-start="{" data-end="}">
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html">   13</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacefaker_1_1word.html">faker::word</a></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a124c22322bad70b64f835dda74c444b3">   30</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a124c22322bad70b64f835dda74c444b3">sample</a>(std::optional&lt;unsigned&gt; length = std::nullopt,<span class="keyword">const</span> Locale locale = Locale::en_US);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#ad15f86b5c1323b1745ad775fb5a277a7">   45</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1word.html#ad15f86b5c1323b1745ad775fb5a277a7">words</a>(<span class="keywordtype">unsigned</span> numberOfWords = 1,<span class="keyword">const</span> Locale locale = Locale::en_US);</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a8534cf0d354894b99866cdd73cb5fff6">   63</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a8534cf0d354894b99866cdd73cb5fff6">adjective</a>(std::optional&lt;unsigned&gt; length = std::nullopt,<span class="keyword">const</span> Locale locale = Locale::en_US);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#ab8fcb727a148f230c9ace559c3c8d83c">   80</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#ab8fcb727a148f230c9ace559c3c8d83c">adjectiveLocale</a>(<span class="keywordtype">unsigned</span> length = 0,<span class="keyword">const</span> Locale locale = Locale::en_US);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a03d5c63afaba43328758f1e723fabcbb">   96</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a03d5c63afaba43328758f1e723fabcbb">adverb</a>(std::optional&lt;unsigned&gt; length = std::nullopt,<span class="keyword">const</span> Locale locale = Locale::en_US);</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#abacc9f947c4c22e9fd8d481e4c6a5a6d">  113</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#abacc9f947c4c22e9fd8d481e4c6a5a6d">conjunction</a>(std::optional&lt;unsigned&gt; length = std::nullopt,<span class="keyword">const</span> Locale locale = Locale::en_US);</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span> </div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
 <div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span> </div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#ad55c7c834bad43272cfcf0f6bce0aa7b">  130</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#ad55c7c834bad43272cfcf0f6bce0aa7b">preposition</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
-<div class="line"><a id="l00145" name="l00145"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8">  145</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8">verb</a>(std::optional&lt;unsigned&gt; length = std::nullopt);</div>
-<div class="line"><a id="l00146" name="l00146"></a><span class="lineno">  146</span> </div>
-<div class="foldopen" id="foldopen00160" data-start="{" data-end="}">
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60">  160</a></span><span class="keyword">template</span> &lt;std::ranges::range Range&gt;</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span><span class="keyword">auto</span> <a class="code hl_function" href="namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60">sortedSizeRandomElement</a>(std::optional&lt;unsigned int&gt; length, Range&amp;&amp; range) -&gt; <span class="keyword">decltype</span>(<span class="keyword">auto</span>)</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>{</div>
-<div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span>    <span class="keywordflow">if</span> (!length)</div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    {</div>
-<div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">helper::randomElement</a>(range);</div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    }</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#aca52b822f92f44e2c425f5a6b1193310">  131</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#aca52b822f92f44e2c425f5a6b1193310">interjection</a>(std::optional&lt;unsigned&gt; length = std::nullopt,<span class="keyword">const</span> Locale locale = Locale::en_US);</div>
+<div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span> </div>
+<div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
+<div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
+<div class="line"><a id="l00149" name="l00149"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#ad5a1531a00a8c0a0981624f03d553c79">  149</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#ad5a1531a00a8c0a0981624f03d553c79">noun</a>(std::optional&lt;unsigned&gt; length = std::nullopt,<span class="keyword">const</span> Locale locale = Locale::en_US);</div>
+<div class="line"><a id="l00150" name="l00150"></a><span class="lineno">  150</span> </div>
+<div class="line"><a id="l00151" name="l00151"></a><span class="lineno">  151</span> </div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a863fd2bad393785106aaeba75d691744">  166</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a863fd2bad393785106aaeba75d691744">preposition</a>(std::optional&lt;unsigned&gt; length = std::nullopt,<span class="keyword">const</span> Locale locale = Locale::en_US);</div>
 <div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span> </div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="keywordtype">size_t</span> length_64 = *length;</div>
-<div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span>    <span class="keyword">auto</span> start = range.begin();</div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span>    <span class="keyword">auto</span> end = range.end();</div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span> </div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="keyword">auto</span> lower_it = ::std::lower_bound(start, end, length_64,</div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>                                       [](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; lhs, <span class="keyword">const</span> <span class="keyword">auto</span>&amp; value) { <span class="keywordflow">return</span> lhs.size() &lt; value; });</div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span> </div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="keywordflow">if</span> (lower_it == end)</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    {</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">helper::randomElement</a>(range);</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
-<div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span> </div>
-<div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span>    <span class="keywordflow">if</span> (lower_it-&gt;size() != length)</div>
-<div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span>    {</div>
-<div class="line"><a id="l00182" name="l00182"></a><span class="lineno">  182</span>        <span class="keywordflow">return</span> *lower_it;</div>
-<div class="line"><a id="l00183" name="l00183"></a><span class="lineno">  183</span>    }</div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span> </div>
+<div class="line"><a id="l00183" name="l00183"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#a7f6c463be38c7d15e34a917607ae8f5a">  183</a></span>FAKER_CXX_EXPORT std::string_view <a class="code hl_function" href="namespacefaker_1_1word.html#a7f6c463be38c7d15e34a917607ae8f5a">verb</a>(std::optional&lt;unsigned&gt; length = std::nullopt,<span class="keyword">const</span> Locale locale = Locale::en_US);</div>
 <div class="line"><a id="l00184" name="l00184"></a><span class="lineno">  184</span> </div>
-<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span>    <span class="keyword">auto</span> upper_it = lower_it;</div>
-<div class="line"><a id="l00186" name="l00186"></a><span class="lineno">  186</span> </div>
-<div class="line"><a id="l00187" name="l00187"></a><span class="lineno">  187</span>    <span class="keywordflow">for</span> (; upper_it != end; upper_it++)</div>
-<div class="line"><a id="l00188" name="l00188"></a><span class="lineno">  188</span>    {</div>
-<div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>        <span class="keywordflow">if</span> (upper_it-&gt;size() != lower_it-&gt;size())</div>
-<div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>        {</div>
-<div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>        }</div>
-<div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span>    }</div>
-<div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span> </div>
-<div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">helper::randomElement</a>(std::ranges::subrange(lower_it, upper_it));</div>
+<div class="line"><a id="l00185" name="l00185"></a><span class="lineno">  185</span> </div>
+<div class="foldopen" id="foldopen00200" data-start="{" data-end="}">
+<div class="line"><a id="l00200" name="l00200"></a><span class="lineno"><a class="line" href="namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60">  200</a></span><span class="keyword">template</span> &lt;std::ranges::range Range&gt;</div>
+<div class="line"><a id="l00201" name="l00201"></a><span class="lineno">  201</span><span class="keyword">auto</span> <a class="code hl_function" href="namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60">sortedSizeRandomElement</a>(std::optional&lt;unsigned int&gt; length, Range&amp;&amp; range) -&gt; <span class="keyword">decltype</span>(<span class="keyword">auto</span>)</div>
+<div class="line"><a id="l00202" name="l00202"></a><span class="lineno">  202</span>{</div>
+<div class="line"><a id="l00203" name="l00203"></a><span class="lineno">  203</span>    <span class="keywordflow">if</span> (!length)</div>
+<div class="line"><a id="l00204" name="l00204"></a><span class="lineno">  204</span>    {</div>
+<div class="line"><a id="l00205" name="l00205"></a><span class="lineno">  205</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">helper::randomElement</a>(range);</div>
+<div class="line"><a id="l00206" name="l00206"></a><span class="lineno">  206</span>    }</div>
+<div class="line"><a id="l00207" name="l00207"></a><span class="lineno">  207</span> </div>
+<div class="line"><a id="l00208" name="l00208"></a><span class="lineno">  208</span>    <span class="keywordtype">size_t</span> length_64 = *length;</div>
+<div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="keyword">auto</span> start = range.begin();</div>
+<div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keyword">auto</span> end = range.end();</div>
+<div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <span class="keyword">auto</span> lower_it = ::std::lower_bound(start, end, length_64,</div>
+<div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span>                                       [](<span class="keyword">const</span> <span class="keyword">auto</span>&amp; lhs, <span class="keyword">const</span> <span class="keyword">auto</span>&amp; value) { <span class="keywordflow">return</span> lhs.size() &lt; value; });</div>
+<div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span> </div>
+<div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    <span class="keywordflow">if</span> (lower_it == end)</div>
+<div class="line"><a id="l00216" name="l00216"></a><span class="lineno">  216</span>    {</div>
+<div class="line"><a id="l00217" name="l00217"></a><span class="lineno">  217</span>        <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">helper::randomElement</a>(range);</div>
+<div class="line"><a id="l00218" name="l00218"></a><span class="lineno">  218</span>    }</div>
+<div class="line"><a id="l00219" name="l00219"></a><span class="lineno">  219</span> </div>
+<div class="line"><a id="l00220" name="l00220"></a><span class="lineno">  220</span>    <span class="keywordflow">if</span> (lower_it-&gt;size() != length)</div>
+<div class="line"><a id="l00221" name="l00221"></a><span class="lineno">  221</span>    {</div>
+<div class="line"><a id="l00222" name="l00222"></a><span class="lineno">  222</span>        <span class="keywordflow">return</span> *lower_it;</div>
+<div class="line"><a id="l00223" name="l00223"></a><span class="lineno">  223</span>    }</div>
+<div class="line"><a id="l00224" name="l00224"></a><span class="lineno">  224</span> </div>
+<div class="line"><a id="l00225" name="l00225"></a><span class="lineno">  225</span>    <span class="keyword">auto</span> upper_it = lower_it;</div>
+<div class="line"><a id="l00226" name="l00226"></a><span class="lineno">  226</span> </div>
+<div class="line"><a id="l00227" name="l00227"></a><span class="lineno">  227</span>    <span class="keywordflow">for</span> (; upper_it != end; upper_it++)</div>
+<div class="line"><a id="l00228" name="l00228"></a><span class="lineno">  228</span>    {</div>
+<div class="line"><a id="l00229" name="l00229"></a><span class="lineno">  229</span>        <span class="keywordflow">if</span> (upper_it-&gt;size() != lower_it-&gt;size())</div>
+<div class="line"><a id="l00230" name="l00230"></a><span class="lineno">  230</span>        {</div>
+<div class="line"><a id="l00231" name="l00231"></a><span class="lineno">  231</span>            <span class="keywordflow">break</span>;</div>
+<div class="line"><a id="l00232" name="l00232"></a><span class="lineno">  232</span>        }</div>
+<div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span>    }</div>
+<div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span> </div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">helper::randomElement</a>(std::ranges::subrange(lower_it, upper_it));</div>
 </div>
-<div class="line"><a id="l00196" name="l00196"></a><span class="lineno">  196</span>}</div>
-<div class="line"><a id="l00197" name="l00197"></a><span class="lineno">  197</span>}</div>
+<div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>}</div>
+<div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span>}</div>
 </div>
 <div class="ttc" id="ahelper_8h_html"><div class="ttname"><a href="helper_8h.html">helper.h</a></div></div>
 <div class="ttc" id="anamespacefaker_1_1helper_html_afb65f951a3d8f1785dbe269b3639d165"><div class="ttname"><a href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">faker::helper::randomElement</a></div><div class="ttdeci">decltype(auto) randomElement(Range &amp;&amp;range)</div><div class="ttdef"><b>Definition</b> helper.h:17</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html"><div class="ttname"><a href="namespacefaker_1_1word.html">faker::word</a></div><div class="ttdef"><b>Definition</b> word.h:12</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_a03ac408bfcf1e583e0e94830bd7e54e8"><div class="ttname"><a href="namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8">faker::word::verb</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view verb(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random verb.</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_a0d9897ef2f1a2c30d8c375db2a8da628"><div class="ttname"><a href="namespacefaker_1_1word.html#a0d9897ef2f1a2c30d8c375db2a8da628">faker::word::adverb</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view adverb(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random adverb.</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_a3300afd6043c0f11af23e3bd0b9f1782"><div class="ttname"><a href="namespacefaker_1_1word.html#a3300afd6043c0f11af23e3bd0b9f1782">faker::word::words</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string words(unsigned numberOfWords=1)</div><div class="ttdoc">Returns a string containing a number of space separated random words.</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_a6e7e5f4576246ac2b1f086a0ecc2c62f"><div class="ttname"><a href="namespacefaker_1_1word.html#a6e7e5f4576246ac2b1f086a0ecc2c62f">faker::word::conjunction</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view conjunction(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random conjunction.</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_a756eef88511091fc80942ab0a1502aaa"><div class="ttname"><a href="namespacefaker_1_1word.html#a756eef88511091fc80942ab0a1502aaa">faker::word::sample</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view sample(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random .</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_a82ec1a575f056e5c79d2e7bc4e89335d"><div class="ttname"><a href="namespacefaker_1_1word.html#a82ec1a575f056e5c79d2e7bc4e89335d">faker::word::interjection</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view interjection(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random interjection.</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_aa380bf2a6c8cd76db8fe13d20ff6ccf9"><div class="ttname"><a href="namespacefaker_1_1word.html#aa380bf2a6c8cd76db8fe13d20ff6ccf9">faker::word::noun</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view noun(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random noun.</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_ad55c7c834bad43272cfcf0f6bce0aa7b"><div class="ttname"><a href="namespacefaker_1_1word.html#ad55c7c834bad43272cfcf0f6bce0aa7b">faker::word::preposition</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view preposition(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random preposition.</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_ae164b6efba4db33641cfb8eef950dd60"><div class="ttname"><a href="namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60">faker::word::sortedSizeRandomElement</a></div><div class="ttdeci">auto sortedSizeRandomElement(std::optional&lt; unsigned int &gt; length, Range &amp;&amp;range) -&gt; decltype(auto)</div><div class="ttdoc">Returns random element of length.</div><div class="ttdef"><b>Definition</b> word.h:160</div></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_af0f10fe34e975d361fd1d286d5073cc2"><div class="ttname"><a href="namespacefaker_1_1word.html#af0f10fe34e975d361fd1d286d5073cc2">faker::word::adjective</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view adjective(std::optional&lt; unsigned &gt; length=std::nullopt)</div><div class="ttdoc">Returns a random adjective.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html"><div class="ttname"><a href="namespacefaker_1_1word.html">faker::word</a></div><div class="ttdef"><b>Definition</b> word.h:14</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_a03d5c63afaba43328758f1e723fabcbb"><div class="ttname"><a href="namespacefaker_1_1word.html#a03d5c63afaba43328758f1e723fabcbb">faker::word::adverb</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view adverb(std::optional&lt; unsigned &gt; length=std::nullopt, const Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random adverb.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_a124c22322bad70b64f835dda74c444b3"><div class="ttname"><a href="namespacefaker_1_1word.html#a124c22322bad70b64f835dda74c444b3">faker::word::sample</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view sample(std::optional&lt; unsigned &gt; length=std::nullopt, const Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random .</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_a7f6c463be38c7d15e34a917607ae8f5a"><div class="ttname"><a href="namespacefaker_1_1word.html#a7f6c463be38c7d15e34a917607ae8f5a">faker::word::verb</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view verb(std::optional&lt; unsigned &gt; length=std::nullopt, const Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random verb.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_a8534cf0d354894b99866cdd73cb5fff6"><div class="ttname"><a href="namespacefaker_1_1word.html#a8534cf0d354894b99866cdd73cb5fff6">faker::word::adjective</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view adjective(std::optional&lt; unsigned &gt; length=std::nullopt, const Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random adjective.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_a863fd2bad393785106aaeba75d691744"><div class="ttname"><a href="namespacefaker_1_1word.html#a863fd2bad393785106aaeba75d691744">faker::word::preposition</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view preposition(std::optional&lt; unsigned &gt; length=std::nullopt, const Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random preposition.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_ab8fcb727a148f230c9ace559c3c8d83c"><div class="ttname"><a href="namespacefaker_1_1word.html#ab8fcb727a148f230c9ace559c3c8d83c">faker::word::adjectiveLocale</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view adjectiveLocale(unsigned length=0, const Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random adjective, using locale.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_abacc9f947c4c22e9fd8d481e4c6a5a6d"><div class="ttname"><a href="namespacefaker_1_1word.html#abacc9f947c4c22e9fd8d481e4c6a5a6d">faker::word::conjunction</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view conjunction(std::optional&lt; unsigned &gt; length=std::nullopt, const Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random conjunction.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_aca52b822f92f44e2c425f5a6b1193310"><div class="ttname"><a href="namespacefaker_1_1word.html#aca52b822f92f44e2c425f5a6b1193310">faker::word::interjection</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view interjection(std::optional&lt; unsigned &gt; length=std::nullopt, const Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random interjection.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_ad15f86b5c1323b1745ad775fb5a277a7"><div class="ttname"><a href="namespacefaker_1_1word.html#ad15f86b5c1323b1745ad775fb5a277a7">faker::word::words</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string words(unsigned numberOfWords=1, const Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a string containing a number of space separated random words.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_ad5a1531a00a8c0a0981624f03d553c79"><div class="ttname"><a href="namespacefaker_1_1word.html#ad5a1531a00a8c0a0981624f03d553c79">faker::word::noun</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view noun(std::optional&lt; unsigned &gt; length=std::nullopt, const Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random noun.</div></div>
+<div class="ttc" id="anamespacefaker_1_1word_html_ae164b6efba4db33641cfb8eef950dd60"><div class="ttname"><a href="namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60">faker::word::sortedSizeRandomElement</a></div><div class="ttdeci">auto sortedSizeRandomElement(std::optional&lt; unsigned int &gt; length, Range &amp;&amp;range) -&gt; decltype(auto)</div><div class="ttdoc">Returns random element of length.</div><div class="ttdef"><b>Definition</b> word.h:200</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->

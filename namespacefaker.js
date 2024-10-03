@@ -531,16 +531,17 @@ var namespacefaker =
       [ "weatherDescription", "namespacefaker_1_1weather.html#ad5e26b9b6328feeb6e22d64381940199", null ]
     ] ],
     [ "word", "namespacefaker_1_1word.html", [
-      [ "adjective", "namespacefaker_1_1word.html#af0f10fe34e975d361fd1d286d5073cc2", null ],
-      [ "adverb", "namespacefaker_1_1word.html#a0d9897ef2f1a2c30d8c375db2a8da628", null ],
-      [ "conjunction", "namespacefaker_1_1word.html#a6e7e5f4576246ac2b1f086a0ecc2c62f", null ],
-      [ "interjection", "namespacefaker_1_1word.html#a82ec1a575f056e5c79d2e7bc4e89335d", null ],
-      [ "noun", "namespacefaker_1_1word.html#aa380bf2a6c8cd76db8fe13d20ff6ccf9", null ],
-      [ "preposition", "namespacefaker_1_1word.html#ad55c7c834bad43272cfcf0f6bce0aa7b", null ],
-      [ "sample", "namespacefaker_1_1word.html#a756eef88511091fc80942ab0a1502aaa", null ],
+      [ "adjective", "namespacefaker_1_1word.html#a8534cf0d354894b99866cdd73cb5fff6", null ],
+      [ "adjectiveLocale", "namespacefaker_1_1word.html#ab8fcb727a148f230c9ace559c3c8d83c", null ],
+      [ "adverb", "namespacefaker_1_1word.html#a03d5c63afaba43328758f1e723fabcbb", null ],
+      [ "conjunction", "namespacefaker_1_1word.html#abacc9f947c4c22e9fd8d481e4c6a5a6d", null ],
+      [ "interjection", "namespacefaker_1_1word.html#aca52b822f92f44e2c425f5a6b1193310", null ],
+      [ "noun", "namespacefaker_1_1word.html#ad5a1531a00a8c0a0981624f03d553c79", null ],
+      [ "preposition", "namespacefaker_1_1word.html#a863fd2bad393785106aaeba75d691744", null ],
+      [ "sample", "namespacefaker_1_1word.html#a124c22322bad70b64f835dda74c444b3", null ],
       [ "sortedSizeRandomElement", "namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60", null ],
-      [ "verb", "namespacefaker_1_1word.html#a03ac408bfcf1e583e0e94830bd7e54e8", null ],
-      [ "words", "namespacefaker_1_1word.html#a3300afd6043c0f11af23e3bd0b9f1782", null ]
+      [ "verb", "namespacefaker_1_1word.html#a7f6c463be38c7d15e34a917607ae8f5a", null ],
+      [ "words", "namespacefaker_1_1word.html#ad15f86b5c1323b1745ad775fb5a277a7", null ]
     ] ],
     [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", "classfaker_1_1RandomGenerator" ]
 ];

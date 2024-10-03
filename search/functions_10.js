@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['sample_0',['sample',['../namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d',1,'faker::string::sample(unsigned length=10)'],['../namespacefaker_1_1string.html#a6613ccca522a49631ed49c7d93c32e85',1,'faker::string::sample(GuaranteeMap &amp;&amp;guarantee, unsigned length=10)'],['../namespacefaker_1_1word.html#a756eef88511091fc80942ab0a1502aaa',1,'faker::word::sample()']]],
+  ['sample_0',['sample',['../namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d',1,'faker::string::sample(unsigned length=10)'],['../namespacefaker_1_1string.html#a6613ccca522a49631ed49c7d93c32e85',1,'faker::string::sample(GuaranteeMap &amp;&amp;guarantee, unsigned length=10)'],['../namespacefaker_1_1word.html#a124c22322bad70b64f835dda74c444b3',1,'faker::word::sample()']]],
   ['seafood_1',['seafood',['../namespacefaker_1_1food.html#a1afd0c7bce41f172f409956650b80401',1,'faker::food']]],
   ['seat_2',['seat',['../namespacefaker_1_1airline.html#abd4ed31284f90116d7d449776ad57055',1,'faker::airline']]],
   ['second_3',['second',['../namespacefaker_1_1date.html#aea16f01309c7b8134454035b8bf88617',1,'faker::date']]],
