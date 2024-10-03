@@ -10,39 +10,71 @@ using namespace ::testing;
 using namespace faker;
 using namespace faker::videogame;
 
-class VideoGameTest : public Test
+namespace
+{
+const struct VideoGames& getVideoGame(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSVideoGames;
+    }
+}
+}
+
+class VideoGameTest : public TestWithParam<Locale>
 {
 public:
 };
 
-TEST_F(VideoGameTest, shouldGenerateGameTitle)
+TEST_P(VideoGameTest, shouldGenerateGameTitle)
 {
-    const auto generatedGameTitle = gameTitle();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(videoGameNames, [generatedGameTitle](const std::string_view& gameTitle)
+    const auto& videoGame = getVideoGame(locale);
+
+    const auto generatedGameTitle = gameTitle(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(videoGame.videoGameNames, [generatedGameTitle](const std::string_view& gameTitle)
                                     { return generatedGameTitle == gameTitle; }));
 }
 
-TEST_F(VideoGameTest, shouldGenerateGenre)
+TEST_P(VideoGameTest, shouldGenerateGenre)
 {
-    const auto generatedGenre = genre();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(videoGameGenres, [generatedGenre](const std::string_view& genre)
+    const auto& videoGame = getVideoGame(locale);
+
+    const auto generatedGenre = genre(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(videoGame.videoGameGenres, [generatedGenre](const std::string_view& genre)
                                     { return generatedGenre == genre; }));
 }
 
-TEST_F(VideoGameTest, shouldGeneratePlatform)
+TEST_P(VideoGameTest, shouldGeneratePlatform)
 {
-    const auto generatedPlatform = platform();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(platforms, [generatedPlatform](const std::string_view& platform)
+    const auto& videoGame = getVideoGame(locale);
+
+    const auto generatedPlatform = platform(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(videoGame.platforms, [generatedPlatform](const std::string_view& platform)
                                     { return generatedPlatform == platform; }));
 }
 
-TEST_F(VideoGameTest, shouldGenerateStudioName)
+TEST_P(VideoGameTest, shouldGenerateStudioName)
 {
-    const auto generatedStudioName = studioName();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(studioNames, [generatedStudioName](const std::string_view& studioName)
+    const auto& videoGame = getVideoGame(locale);
+
+    const auto generatedStudioName = studioName(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(videoGame.studioNames, [generatedStudioName](const std::string_view& studioName)
                                     { return generatedStudioName == studioName; }));
 }
+
+
+INSTANTIATE_TEST_SUITE_P(TestVideoGameByLocale, VideoGameTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
