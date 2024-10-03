@@ -28,7 +28,7 @@ var searchData=
   ['state_25',['state',['../namespacefaker_1_1location.html#a3a5b7f7eefe439f9a755f29c10375dab',1,'faker::location']]],
   ['street_26',['street',['../namespacefaker_1_1location.html#a6aedc0defdd1f3f7325c38c79968a84f',1,'faker::location']]],
   ['streetaddress_27',['streetAddress',['../namespacefaker_1_1location.html#aa65d808951aca87cb6565877d1306112',1,'faker::location']]],
-  ['studioname_28',['studioName',['../namespacefaker_1_1videogame.html#a31ebb893e24ebecdc8392f9f36363005',1,'faker::videogame']]],
+  ['studioname_28',['studioName',['../namespacefaker_1_1videogame.html#a3c88f81c0dedea1654576cd375331f68',1,'faker::videogame']]],
   ['succulent_29',['succulent',['../namespacefaker_1_1plant.html#ab21548af4b288b15d53ca1bfd37749a9',1,'faker::plant']]],
   ['suffix_30',['suffix',['../namespacefaker_1_1person.html#a0e2a416b654fbed4272162da9148cf75',1,'faker::person']]],
   ['sugarproduct_31',['sugarProduct',['../namespacefaker_1_1food.html#a3b58938e421e79f85126d4ef3b6e4280',1,'faker::food']]]

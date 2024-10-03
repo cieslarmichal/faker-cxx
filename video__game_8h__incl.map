@@ -1,7 +1,9 @@
 <map id="include/faker&#45;cxx/video_game.h" name="include/faker&#45;cxx/video_game.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="36,5,190,46"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="102,5,255,46"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,94,93,120"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="99,48,70,83,66,80,95,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,49,83,88,80,83,145,44"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="117,94,240,120"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="131,45,161,80,157,83,127,48"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="181,46,181,78,176,78,176,46"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="264,94,420,120"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="220,44,305,85,302,89,218,49"/>
 </map>

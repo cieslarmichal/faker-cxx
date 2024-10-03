@@ -522,10 +522,10 @@ var namespacefaker =
       [ "videoUrl", "namespacefaker_1_1video.html#a0f0a83472a18d225b8e49e6966497241", null ]
     ] ],
     [ "videogame", "namespacefaker_1_1videogame.html", [
-      [ "gameTitle", "namespacefaker_1_1videogame.html#ab36d80c15e07e2e266da6df41a40f222", null ],
-      [ "genre", "namespacefaker_1_1videogame.html#ae5bdba1c888f8934eb817848a705983c", null ],
-      [ "platform", "namespacefaker_1_1videogame.html#a4dd164bf14e461898d8a1408c6300127", null ],
-      [ "studioName", "namespacefaker_1_1videogame.html#a31ebb893e24ebecdc8392f9f36363005", null ]
+      [ "gameTitle", "namespacefaker_1_1videogame.html#a428b23be974b23395428dd66dc0af21a", null ],
+      [ "genre", "namespacefaker_1_1videogame.html#a1768ee589e7e2ab3294f52691e34aab7", null ],
+      [ "platform", "namespacefaker_1_1videogame.html#a4b291179ffa053bb384f776b9a78fc38", null ],
+      [ "studioName", "namespacefaker_1_1videogame.html#a3c88f81c0dedea1654576cd375331f68", null ]
     ] ],
     [ "weather", "namespacefaker_1_1weather.html", [
       [ "weatherDescription", "namespacefaker_1_1weather.html#ad5e26b9b6328feeb6e22d64381940199", null ]

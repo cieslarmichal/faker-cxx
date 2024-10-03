@@ -60,7 +60,7 @@ var searchData=
   ['streetaddress_57',['streetAddress',['../namespacefaker_1_1location.html#aa65d808951aca87cb6565877d1306112',1,'faker::location']]],
   ['string_2eh_58',['string.h',['../string_8h.html',1,'']]],
   ['stringcasing_59',['StringCasing',['../namespacefaker_1_1string.html#a5b7a1d4a3ebb389e224c7bfc534d7cda',1,'faker::string']]],
-  ['studioname_60',['studioName',['../namespacefaker_1_1videogame.html#a31ebb893e24ebecdc8392f9f36363005',1,'faker::videogame']]],
+  ['studioname_60',['studioName',['../namespacefaker_1_1videogame.html#a3c88f81c0dedea1654576cd375331f68',1,'faker::videogame']]],
   ['success_61',['Success',['../namespacefaker_1_1internet.html#a25d31766e509fb398f5534224b171a8da505a83f220c02df2f85c3810cd9ceb38',1,'faker::internet']]],
   ['succulent_62',['succulent',['../namespacefaker_1_1plant.html#ab21548af4b288b15d53ca1bfd37749a9',1,'faker::plant']]],
   ['sudan_63',['Sudan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa74458a3d3e5f3074226b1f9fa23c9163',1,'faker::phone']]],
