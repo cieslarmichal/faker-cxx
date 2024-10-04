@@ -148,6 +148,35 @@ FAKER_CXX_EXPORT std::string sample(unsigned length = 10);
 FAKER_CXX_EXPORT std::string sample(GuaranteeMap&& guarantee, unsigned length = 10);
 
 /**
+ * @brief Returns a string containing "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/".
+ *
+ * @param length The number of characters to generate. Defaults to `10`.
+ *
+ * @returns Sample string.
+ *
+ * @code
+ * faker::string::sample() // "#$%^&#$%^&"
+ * faker::string::sample(5) // "#$%^&"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string symbol(unsigned length = 10);
+
+/**
+ * @brief Returns a string containing "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/".
+ *
+ * @param minlength The number of minimum characters to generate. Defaults to `1`.
+ * @param maxLength The number of maximum characters to generate. Defaults to `10`.
+ *
+ * @returns Sample string.
+ *
+ * @code
+ * faker::string::sample() // "#$%^&#$%^&"
+ * faker::string::sample(1,5) // "#$%^&"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string symbol(unsigned int minLength, unsigned int maxLength);
+
+/**
  * @brief Generates a string consisting of given characters.
  *
  * @param characters The characters to generate string with.

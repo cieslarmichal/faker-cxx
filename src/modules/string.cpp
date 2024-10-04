@@ -129,6 +129,25 @@ std::string sample(GuaranteeMap&& guarantee, unsigned int length)
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
+std::string symbol(unsigned int minLength, unsigned int maxLength)
+{
+    if (minLength > maxLength) {
+        std::swap(minLength, maxLength);
+    }
+    std::random_device rd;
+    std::mt19937 gen(rd());
+    std::uniform_int_distribution<unsigned int> dist(minLength, maxLength);
+
+    unsigned int length = dist(gen);
+
+    return fromCharacters(symbolCharacters, length);
+}
+
+std::string symbol(unsigned int length)
+{
+    return fromCharacters(symbolCharacters, length);
+}
+
 std::string fromCharacters(const std::string& characters, unsigned int length)
 {
     std::string result;

@@ -124,6 +124,51 @@ TEST_F(StringTest, shouldGenerateUuid4)
     ASSERT_EQ(generatedUuid[23], '-');
 }
 
+TEST_F(StringTest, ShouldGenerateSymbolStringDefault)
+{
+    for (int i = 0; i < runCount; ++i)
+    {
+        const auto generatedSymbol = symbol();
+
+        ASSERT_EQ(generatedSymbol.size(), 10);
+
+        ASSERT_TRUE(std::all_of(
+            generatedSymbol.begin(), generatedSymbol.end(), [](char c)
+            { return symbolCharacters.find(c) != std::string::npos; }));
+
+    }
+}
+
+TEST_F(StringTest, ShouldGenerateSymbolStringWithLen)
+{
+    for (int i = 0; i < runCount; ++i)
+    {
+        unsigned int length = 20;
+        const auto generatedSymbol = symbol(length);
+
+        ASSERT_EQ(generatedSymbol.size(), length);
+
+        ASSERT_TRUE(std::all_of(
+            generatedSymbol.begin(), generatedSymbol.end(), [](char c)
+            { return symbolCharacters.find(c) != std::string::npos; }));
+    }
+}
+
+TEST_F(StringTest, ShouldGenerateSymbolStringWithRange)
+{
+    for (int i = 0; i < runCount; ++i)
+    {
+        const auto generatedSymbol = symbol(10, 20);
+
+        ASSERT_GE(generatedSymbol.size(), 10);
+        ASSERT_LE(generatedSymbol.size(), 20);
+
+        ASSERT_TRUE(std::all_of(
+            generatedSymbol.begin(), generatedSymbol.end(), [](char c)
+            { return symbolCharacters.find(c) != std::string::npos; }));
+    }
+}
+
 TEST_F(StringTest, shouldGenerateDefaultSampleString)
 {
     const auto generatedSample = sample();
