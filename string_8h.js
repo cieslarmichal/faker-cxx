@@ -19,5 +19,7 @@ var string_8h =
     [ "numeric", "string_8h.html#a646c3109166518bfa5bcf5c2f5de98ef", null ],
     [ "sample", "string_8h.html#a6613ccca522a49631ed49c7d93c32e85", null ],
     [ "sample", "string_8h.html#a34013d255a8eaf4c2afab2090c15cb8d", null ],
+    [ "symbol", "string_8h.html#aa67e7ba8c9fc02e69036c87a73c31e7a", null ],
+    [ "symbol", "string_8h.html#aa99c783a57a5d818de12f13510fe9a72", null ],
     [ "uuid", "string_8h.html#a335d7aad191429aa88bed20818881d95", null ]
 ];

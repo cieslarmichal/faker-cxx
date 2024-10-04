@@ -144,6 +144,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a6613ccca522a49631ed49c7d93c32e85" id="r_a6613ccca522a49631ed49c7d93c32e85"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6613ccca522a49631ed49c7d93c32e85">sample</a> (<a class="el" href="#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> &amp;&amp;guarantee, unsigned length=10)</td></tr>
 <tr class="memdesc:a6613ccca522a49631ed49c7d93c32e85"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).  <br /></td></tr>
 <tr class="separator:a6613ccca522a49631ed49c7d93c32e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa99c783a57a5d818de12f13510fe9a72" id="r_aa99c783a57a5d818de12f13510fe9a72"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa99c783a57a5d818de12f13510fe9a72">symbol</a> (unsigned length=10)</td></tr>
+<tr class="memdesc:aa99c783a57a5d818de12f13510fe9a72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing "~`!@#$%^&amp;*()_-+={[}]|:;\"'&lt;,&gt;.?/".  <br /></td></tr>
+<tr class="separator:aa99c783a57a5d818de12f13510fe9a72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa67e7ba8c9fc02e69036c87a73c31e7a" id="r_aa67e7ba8c9fc02e69036c87a73c31e7a"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa67e7ba8c9fc02e69036c87a73c31e7a">symbol</a> (unsigned int minLength, unsigned int maxLength)</td></tr>
+<tr class="memdesc:aa67e7ba8c9fc02e69036c87a73c31e7a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing "~`!@#$%^&amp;*()_-+={[}]|:;\"'&lt;,&gt;.?/".  <br /></td></tr>
+<tr class="separator:aa67e7ba8c9fc02e69036c87a73c31e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac54da67b0fb85a3dcd6b970e286bcd1c" id="r_ac54da67b0fb85a3dcd6b970e286bcd1c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac54da67b0fb85a3dcd6b970e286bcd1c">fromCharacters</a> (const std::string &amp;characters, unsigned length=1)</td></tr>
 <tr class="memdesc:ac54da67b0fb85a3dcd6b970e286bcd1c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a string consisting of given characters.  <br /></td></tr>
 <tr class="separator:ac54da67b0fb85a3dcd6b970e286bcd1c"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -659,6 +665,67 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Sample string.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a34013d255a8eaf4c2afab2090c15cb8d">faker::string::sample</a>() <span class="comment">// &quot;Zo!.:*e&gt;wR&quot;</span></div>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a34013d255a8eaf4c2afab2090c15cb8d">sample</a>(5) <span class="comment">// &quot;6Bye8&quot;</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="aa67e7ba8c9fc02e69036c87a73c31e7a" name="aa67e7ba8c9fc02e69036c87a73c31e7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa67e7ba8c9fc02e69036c87a73c31e7a">&#9670;&#160;</a></span>symbol() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::symbol </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>minLength</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned int</td>          <td class="paramname"><span class="paramname"><em>maxLength</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a string containing "~`!@#$%^&amp;*()_-+={[}]|:;\"'&lt;,&gt;.?/". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minlength</td><td>The number of minimum characters to generate. Defaults to `1`. </td></tr>
+    <tr><td class="paramname">maxLength</td><td>The number of maximum characters to generate. Defaults to `10`.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Sample string.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a34013d255a8eaf4c2afab2090c15cb8d">faker::string::sample</a>() <span class="comment">// &quot;#$%^&amp;#$%^&amp;&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a34013d255a8eaf4c2afab2090c15cb8d">sample</a>(1,5) <span class="comment">// &quot;#$%^&amp;&quot;</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="aa99c783a57a5d818de12f13510fe9a72" name="aa99c783a57a5d818de12f13510fe9a72"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa99c783a57a5d818de12f13510fe9a72">&#9670;&#160;</a></span>symbol() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::symbol </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>length</em></span><span class="paramdefsep"> = </span><span class="paramdefval">10</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a string containing "~`!@#$%^&amp;*()_-+={[}]|:;\"'&lt;,&gt;.?/". </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>The number of characters to generate. Defaults to `10`.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Sample string.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a34013d255a8eaf4c2afab2090c15cb8d">faker::string::sample</a>() <span class="comment">// &quot;#$%^&amp;#$%^&amp;&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a34013d255a8eaf4c2afab2090c15cb8d">sample</a>(5) <span class="comment">// &quot;#$%^&amp;&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
