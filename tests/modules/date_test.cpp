@@ -127,6 +127,36 @@ TEST_F(DateTest, shouldGenerateFutureDateTimestamp)
     EXPECT_TRUE(futureDate > currentDate);
 }
 
+TEST_F(DateTest, shouldGenerateAnytimeISO)
+{
+    const auto currentDate = std::chrono::system_clock::now();
+
+    const auto anytimeISO = anytime();
+
+    const auto generatedDate = parseISOFormattedStringToTimePoint(anytimeISO);
+
+    const auto durationInYears = std::abs(
+        std::chrono::duration_cast<std::chrono::years>(currentDate - generatedDate).count()
+    );
+
+    EXPECT_TRUE(durationInYears < 101);
+}
+
+TEST_F(DateTest, shouldGenerateAnytimeTimestamp)
+{
+    const auto currentDate = std::chrono::system_clock::now();
+
+    const auto anytimeTimestamp = anytime(DateFormat::Timestamp);
+
+    const auto generatedDate = std::chrono::system_clock::from_time_t(std::stoi(anytimeTimestamp));
+
+    const auto durationInYears = std::abs(
+        std::chrono::duration_cast<std::chrono::years>(currentDate - generatedDate).count()
+    );
+
+    EXPECT_TRUE(durationInYears < 101);
+}
+
 TEST_F(DateTest, shouldGenerateSoonDateISO)
 {
     const auto currentDate = std::chrono::system_clock::now();

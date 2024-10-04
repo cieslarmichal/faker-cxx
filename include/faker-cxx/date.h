@@ -14,6 +14,19 @@ enum class DateFormat
 };
 
 /**
+ * @brief Generates a random date in +- 100 years from current date
+ *
+ * @returns ISO formatted string.
+ *
+ * @code
+ * faker::date::anytime() // "2023-12-08T19:31:32Z"
+ * faker::date::anytime(DateFormat::ISO) // "2020-06-16T15:24:09Z"
+ * faker::date::anytime(DateFormat::Timestamp) // "1592321049"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string anytime(DateFormat dateFormat = DateFormat::ISO);
+
+/**
  * @brief Generates a random date in the past.
  *
  * @param years The range of years the date may be in the past. Defaults to `1`.

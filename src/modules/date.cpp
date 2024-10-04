@@ -11,7 +11,7 @@
 #include "date_data.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
-
+#include <iostream>
 namespace faker::date
 {
 std::string serializeTimePoint(const auto& timePoint, DateFormat dateFormat)
@@ -45,6 +45,17 @@ std::string betweenDate(const auto& from, const auto& to, DateFormat dateFormat)
 
 const auto numberOfHoursInDay = 24;
 const auto numberOfDaysInYear = 365;
+
+std::string anytime(DateFormat dateFormat)
+{
+    const auto startDate =
+        std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * 100};
+
+    const auto endDate =
+        std::chrono::system_clock::now() + std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * 100};
+
+    return betweenDate(startDate, endDate, dateFormat);
+}
 
 std::string futureDate(int years, DateFormat dateFormat)
 {
