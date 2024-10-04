@@ -68,6 +68,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return estoniaAddresses;
     case Locale::en_GB:
         return unitedkingdomAddresses;
+    case Locale::sk_SK:
+        return slovakiaAddresses;
     default:
         return usaAddresses;
     }
