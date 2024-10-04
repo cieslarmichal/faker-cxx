@@ -4,6 +4,8 @@
 #include <optional>
 #include <random>
 #include <stdexcept>
+#include <optional>
+#include <stdexcept>
 
 #include "faker-cxx/export.h"
 #include "faker-cxx/types/hex.h"
@@ -272,4 +274,20 @@ FAKER_CXX_EXPORT std::string binary(int length = 1);
  * @endcode
  */
 FAKER_CXX_EXPORT std::string binary(int min, int max);
+
+
+/**
+ * @brief Generates a random big integer number in the given range, bounds included.
+ *
+ * @param min The minimum value of the range.
+ * @param max The maximum value of the range.
+ *
+ * @return A random big integer number.
+ *
+ * @code
+ * faker::number::bigInt(1000000000, 9999999999) // Example output: 4593830193
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::optional<long long> bigInt(std::optional<long long> min = std::nullopt, std::optional<long long> max = std::nullopt);
+
 }

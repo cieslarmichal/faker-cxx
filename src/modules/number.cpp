@@ -115,4 +115,27 @@ std::string binary(int min, int max)
 
     return "0b" + output;
 }
+
+std::optional<long long> bigInt(std::optional<long long> min, std::optional<long long> max)
+{
+    const long long DEFAULT_MAX = 9999999999999999LL;
+    const long long DEFAULT_MIN = 1LL;
+
+    long long actualMin = min.value_or(DEFAULT_MIN);
+    long long actualMax = max.value_or(DEFAULT_MAX);
+
+    if (actualMin > actualMax)
+    {
+        throw std::invalid_argument("min cannot be greater than max");
+    }
+
+    static std::mt19937_64 gen(std::random_device{}());
+    std::uniform_int_distribution<long long> dist(actualMin, actualMax);
+
+    return dist(gen);
 }
+
+
+
+} 
+
