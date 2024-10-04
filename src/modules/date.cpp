@@ -38,7 +38,7 @@ std::string betweenDate(const auto& from, const auto& to, DateFormat dateFormat)
 {
     const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();
 
-   const auto randomDateWithinRange = from + std::chrono::seconds{number::integer(size - 1)};
+    const auto randomDateWithinRange = from + std::chrono::seconds{number::integer(size - 1)};
 
     return serializeTimePoint(randomDateWithinRange, dateFormat);
 }
