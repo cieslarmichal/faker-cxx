@@ -140,6 +140,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a516e1c44a2c518d20eac0f95b664b04c" id="r_a516e1c44a2c518d20eac0f95b664b04c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a516e1c44a2c518d20eac0f95b664b04c">longitude</a> (Precision precision=Precision::FourDp)</td></tr>
 <tr class="memdesc:a516e1c44a2c518d20eac0f95b664b04c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random longitude.  <br /></td></tr>
 <tr class="separator:a516e1c44a2c518d20eac0f95b664b04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7de4c946bda82f1f69ea65eab63c7af6" id="r_a7de4c946bda82f1f69ea65eab63c7af6"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::tuple&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7de4c946bda82f1f69ea65eab63c7af6">nearbyGPSCoordinate</a> (Precision precision=Precision::FourDp, const std::tuple&lt; double, double &gt; &amp;origin={ std::numeric_limits&lt; double &gt;::max(), std::numeric_limits&lt; double &gt;::max() }, double radius=10, bool isMetric=false)</td></tr>
+<tr class="memdesc:a7de4c946bda82f1f69ea65eab63c7af6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random GPS coordinate within the specified radius from the given coordinate.  <br /></td></tr>
+<tr class="separator:a7de4c946bda82f1f69ea65eab63c7af6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7add8bde67bede1c36d3834cb7fc463" id="r_ad7add8bde67bede1c36d3834cb7fc463"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7add8bde67bede1c36d3834cb7fc463">direction</a> ()</td></tr>
 <tr class="memdesc:ad7add8bde67bede1c36d3834cb7fc463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random direction from cardinal and ordinal directions.  <br /></td></tr>
 <tr class="separator:ad7add8bde67bede1c36d3834cb7fc463"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -326,6 +329,54 @@ Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="a7de4c946bda82f1f69ea65eab63c7af6" name="a7de4c946bda82f1f69ea65eab63c7af6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7de4c946bda82f1f69ea65eab63c7af6">&#9670;&#160;</a></span>nearbyGPSCoordinate()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::tuple&lt; std::string, std::string &gt; faker::location::nearbyGPSCoordinate </td>
+          <td>(</td>
+          <td class="paramtype">Precision</td>          <td class="paramname"><span class="paramname"><em>precision</em></span><span class="paramdefsep"> = </span><span class="paramdefval">Precision::FourDp</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::tuple&lt; double, double &gt; &amp;</td>          <td class="paramname"><span class="paramname"><em>origin</em></span><span class="paramdefsep"> = </span><span class="paramdefval">{&#160;std::numeric_limits&lt;&#160;double&#160;&gt;::max(),&#160;std::numeric_limits&lt;&#160;double&#160;&gt;::max()&#160;}</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double</td>          <td class="paramname"><span class="paramname"><em>radius</em></span><span class="paramdefsep"> = </span><span class="paramdefval">10</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>isMetric</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a random GPS coordinate within the specified radius from the given coordinate. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">precision</td><td>The number of decimal points of precision for the latitude and longitude. Defaults to `Precision::FourDp`. </td></tr>
+    <tr><td class="paramname">origin</td><td>The origin GPS coordinate. Defaults to a random GPS coordinate. </td></tr>
+    <tr><td class="paramname">radius</td><td>The radius in kilometers or miles. Defaults to 10. </td></tr>
+    <tr><td class="paramname">isMetric</td><td>The unit of radius. Defaults to false which means miles.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>GPS coordinate within the specified radius from the given coordinate.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a7de4c946bda82f1f69ea65eab63c7af6">faker::location::nearbyGPSCoordinate</a>() <span class="comment">// &quot;48.8566&quot;, &quot;2.3522&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::location::<a class="code hl_function" href="#a7de4c946bda82f1f69ea65eab63c7af6">nearbyGPSCoordinate</a>(Precision::FourDp, {33, -170}) <span class="comment">// &quot;33.0165&quot;, &quot;-170.0636&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a7de4c946bda82f1f69ea65eab63c7af6">faker::location::nearbyGPSCoordinate</a>(Precision::FourDp, {33, -170}, 1000, <span class="keyword">true</span>) <span class="comment">// &quot;37.9163&quot;, &quot;-179.2408&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1location_html_a7de4c946bda82f1f69ea65eab63c7af6"><div class="ttname"><a href="#a7de4c946bda82f1f69ea65eab63c7af6">faker::location::nearbyGPSCoordinate</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::tuple&lt; std::string, std::string &gt; nearbyGPSCoordinate(Precision precision=Precision::FourDp, const std::tuple&lt; double, double &gt; &amp;origin={ std::numeric_limits&lt; double &gt;::max(), std::numeric_limits&lt; double &gt;::max() }, double radius=10, bool isMetric=false)</div><div class="ttdoc">Generates a random GPS coordinate within the specified radius from the given coordinate.</div></div>
+<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> airline.h:9</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="a3acf868202afaa718b765dd652cde1d7" name="a3acf868202afaa718b765dd652cde1d7"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a3acf868202afaa718b765dd652cde1d7">&#9670;&#160;</a></span>secondaryAddress()</h2>
 
@@ -486,7 +537,6 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#ab8887d38198b42f441a676b2a2c104cb">faker::location::zipCode</a>() <span class="comment">// &quot;47683-9880&quot;</span></div>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::location::<a class="code hl_function" href="#ab8887d38198b42f441a676b2a2c104cb">zipCode</a>(Country::Poland) <span class="comment">// &quot;31-881&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1location_html_ab8887d38198b42f441a676b2a2c104cb"><div class="ttname"><a href="#ab8887d38198b42f441a676b2a2c104cb">faker::location::zipCode</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string zipCode(Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random zip code for given locale.</div></div>
-<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> airline.h:9</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
