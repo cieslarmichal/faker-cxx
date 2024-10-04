@@ -126,35 +126,41 @@ TEST_F(DateTest, shouldGenerateFutureDateTimestamp)
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(futureDate - currentDate).count() < secondsInYear);
     EXPECT_TRUE(futureDate > currentDate);
 }
-
 TEST_F(DateTest, shouldGenerateAnytimeISO)
 {
     const auto currentDate = std::chrono::system_clock::now();
+    const auto unixEpoch = std::chrono::system_clock::time_point{};
 
-    const auto anytimeISO = anytime();
+    for (int i = 0; i < 100; ++i)
+    {
+        const auto anytimeISO = anytime(DateFormat::ISO);
+        const auto generatedDate = parseISOFormattedStringToTimePoint(anytimeISO);
+        EXPECT_GT(generatedDate, unixEpoch) << "Generated date is before Unix epoch: " << anytimeISO;
 
-    const auto generatedDate = parseISOFormattedStringToTimePoint(anytimeISO);
-
-    const auto durationInYears = std::abs(
-        std::chrono::duration_cast<std::chrono::years>(currentDate - generatedDate).count()
-    );
-
-    EXPECT_TRUE(durationInYears < 101);
+        auto duration = generatedDate - currentDate;
+        double durationInYears = std::chrono::duration_cast<std::chrono::seconds>(duration).count() / (365.25 * 24 * 3600);
+        durationInYears = std::abs(durationInYears);
+        EXPECT_LT(durationInYears, 201) << "Generated date is more than 201 years in the future: " << anytimeISO;
+    }
 }
 
 TEST_F(DateTest, shouldGenerateAnytimeTimestamp)
 {
     const auto currentDate = std::chrono::system_clock::now();
+    const auto unixEpoch = std::chrono::system_clock::time_point{};
 
-    const auto anytimeTimestamp = anytime(DateFormat::Timestamp);
+    for (int i = 0; i < 100; ++i)
+    {
+        const auto anytimeTimestamp = anytime(DateFormat::Timestamp);
+        int64_t timestampSeconds = std::stoll(anytimeTimestamp);
+        auto generatedDate = std::chrono::system_clock::time_point{std::chrono::seconds{timestampSeconds}};
+        EXPECT_GT(generatedDate, unixEpoch) << "Generated date is before Unix epoch: " << anytimeTimestamp;
 
-    const auto generatedDate = std::chrono::system_clock::from_time_t(std::stoi(anytimeTimestamp));
-
-    const auto durationInYears = std::abs(
-        std::chrono::duration_cast<std::chrono::years>(currentDate - generatedDate).count()
-    );
-
-    EXPECT_TRUE(durationInYears < 101);
+        auto duration = generatedDate - currentDate;
+        double durationInYears = std::chrono::duration_cast<std::chrono::seconds>(duration).count() / (365.25 * 24 * 3600);
+        durationInYears = std::abs(durationInYears);
+        EXPECT_LT(durationInYears, 201) << "Generated date is more than 201 years in the future: " << anytimeTimestamp;
+    }
 }
 
 TEST_F(DateTest, shouldGenerateSoonDateISO)

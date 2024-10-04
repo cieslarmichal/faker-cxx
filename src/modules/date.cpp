@@ -3,6 +3,7 @@
 #include <chrono>
 #include <ctime>
 #include <iomanip>
+#include <iostream>
 #include <sstream>
 #include <string>
 #include <string_view>
@@ -11,7 +12,7 @@
 #include "date_data.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
-#include <iostream>
+
 namespace faker::date
 {
 std::string serializeTimePoint(const auto& timePoint, DateFormat dateFormat)
@@ -38,7 +39,7 @@ std::string betweenDate(const auto& from, const auto& to, DateFormat dateFormat)
 {
     const auto size = std::chrono::duration_cast<std::chrono::seconds>(to - from).count();
 
-    const auto randomDateWithinRange = from + std::chrono::seconds{number::integer(size - 1)};
+    const auto randomDateWithinRange = from + std::chrono::seconds{number::integer<long long>(size - 1)};
 
     return serializeTimePoint(randomDateWithinRange, dateFormat);
 }
@@ -48,13 +49,36 @@ const auto numberOfDaysInYear = 365;
 
 std::string anytime(DateFormat dateFormat)
 {
-    const auto startDate =
-        std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * 100};
+    constexpr int64_t total_seconds = 3600LL * 24LL* 365LL * 200LL; // sec/hr * hr/d * d/yr * years
 
-    const auto endDate =
-        std::chrono::system_clock::now() + std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * 100};
+    int64_t now_seconds = std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
+    int64_t max_seconds = now_seconds + total_seconds;
 
-    return betweenDate(startDate, endDate, dateFormat);
+    std::random_device rd;
+    std::mt19937_64 gen(rd());
+    std::uniform_int_distribution<int64_t> dis(0, max_seconds);
+
+    int64_t random_seconds = dis(gen);
+
+    auto timePoint = std::chrono::system_clock::time_point{std::chrono::seconds{random_seconds}};
+    std::string result;
+
+    if (dateFormat == DateFormat::Timestamp)
+    {
+        result = std::to_string(random_seconds);
+    }
+    else
+    {
+        time_t timePointTimeT = std::chrono::system_clock::to_time_t(timePoint);
+
+        std::tm utcTime = *std::gmtime(&timePointTimeT);
+
+        std::stringstream ss;
+        ss << std::put_time(&utcTime, "%Y-%m-%dT%H:%M:%SZ");
+        result = ss.str();
+    }
+
+    return result;
 }
 
 std::string futureDate(int years, DateFormat dateFormat)

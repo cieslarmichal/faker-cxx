@@ -14,7 +14,7 @@ enum class DateFormat
 };
 
 /**
- * @brief Generates a random date in +- 100 years from current date
+ * @brief Generates a random date between UNIX epoch and 200 years from now
  *
  * @returns ISO formatted string.
  *
