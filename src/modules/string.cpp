@@ -290,4 +290,26 @@ std::string numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowL
         return firstChar + generateStringWithGuarantee(guarantee, targetCharacters, length - 1);
     }
 }
+
+std::string symbol(int length) {
+    const std::string specialChars = "!\"#$%&'()*+,-./:;<=>?@[\\]^_`{|}~";
+    std::string result;
+    std::mt19937 generator(static_cast<unsigned int>(std::time(nullptr)));  
+    std::uniform_int_distribution<> distribution(0, specialChars.size() - 1);
+    
+    for (int i = 0; i < length; ++i) {
+        result += specialChars[distribution(generator)];
+    }
+
+    return result;
 }
+
+std::string symbol(int minLength, int maxLength) {
+    std::mt19937 generator(static_cast<unsigned int>(std::time(nullptr))); 
+    std::uniform_int_distribution<> lengthDistribution(minLength, maxLength);
+    int length = lengthDistribution(generator);
+    return symbol(length);
+}
+
+}
+
