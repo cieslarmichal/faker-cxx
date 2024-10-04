@@ -13,6 +13,10 @@
 #include "person_data.h"
 #include "string_data.h"
 
+#ifndef M_PI
+    #define M_PI 3.14159265358979323846
+#endif
+
 using namespace ::testing;
 using namespace faker;
 using namespace faker::location;
