@@ -126,6 +126,42 @@ TEST_F(DateTest, shouldGenerateFutureDateTimestamp)
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(futureDate - currentDate).count() < secondsInYear);
     EXPECT_TRUE(futureDate > currentDate);
 }
+TEST_F(DateTest, shouldGenerateAnytimeISO)
+{
+    const auto currentDate = std::chrono::system_clock::now();
+    const auto unixEpoch = std::chrono::system_clock::time_point{};
+
+    for (int i = 0; i < 100; ++i)
+    {
+        const auto anytimeISO = anytime(DateFormat::ISO);
+        const auto generatedDate = parseISOFormattedStringToTimePoint(anytimeISO);
+        EXPECT_GT(generatedDate, unixEpoch);
+
+        auto duration = generatedDate - currentDate;
+        double durationInYears = static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(duration).count()) / (365.25 * 24 * 3600);
+        durationInYears = std::abs(durationInYears);
+        EXPECT_LT(durationInYears, 201);
+    }
+}
+
+TEST_F(DateTest, shouldGenerateAnytimeTimestamp)
+{
+    const auto currentDate = std::chrono::system_clock::now();
+    const auto unixEpoch = std::chrono::system_clock::time_point{};
+
+    for (int i = 0; i < 100; ++i)
+    {
+        const auto anytimeTimestamp = anytime(DateFormat::Timestamp);
+        int64_t timestampSeconds = std::stoll(anytimeTimestamp);
+        auto generatedDate = std::chrono::system_clock::time_point{std::chrono::seconds{timestampSeconds}};
+        EXPECT_GT(generatedDate, unixEpoch);
+
+        auto duration = generatedDate - currentDate;
+        double durationInYears = static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(duration).count()) / (365.25 * 24 * 3600);
+        durationInYears = std::abs(durationInYears);
+        EXPECT_LT(durationInYears, 201);
+    }
+}
 
 TEST_F(DateTest, shouldGenerateSoonDateISO)
 {
