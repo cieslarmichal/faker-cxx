@@ -4,6 +4,7 @@ var date_8h =
       [ "ISO", "date_8h.html#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1", null ],
       [ "Timestamp", "date_8h.html#a0a1ec9647c68eb08f4f47d162a424c5aaa3d5de3eac8bb00ae86fd1a1005f1500", null ]
     ] ],
+    [ "anytime", "date_8h.html#a5dc1f369f2d02cb7d9f1314f06bbd4d4", null ],
     [ "birthdateByAge", "date_8h.html#a9de04d3e50ab9057ab7a92ed858a744a", null ],
     [ "birthdateByYear", "date_8h.html#a46e98c27b1c6f313b918cb64d99a5d30", null ],
     [ "dayOfMonth", "date_8h.html#a2f69901ef0b2b4882da4b46a971218cc", null ],

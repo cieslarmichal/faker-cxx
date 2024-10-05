@@ -1,5 +1,7 @@
 var NAVTREEINDEX3 =
 {
+"namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa642cab67fc263bb61ae4ccbd577c8aa4":[0,0,0,25,0,112],
+"namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa64446ac025106d201779cb4bf5ab6b2e":[0,0,0,25,0,195],
 "namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6542f875eaa09a5c550e5f3986400ad9":[0,0,0,25,0,20],
 "namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6653bea16d7ac8a266d752e9a0176c4f":[0,0,0,25,0,24],
 "namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa672566a43483aa8212cb365658600b99":[0,0,0,25,0,77],
@@ -247,7 +249,5 @@ var NAVTREEINDEX3 =
 "namespacemembers_func_b.html":[0,1,1,1],
 "namespacemembers_func_c.html":[0,1,1,2],
 "namespacemembers_func_d.html":[0,1,1,3],
-"namespacemembers_func_e.html":[0,1,1,4],
-"namespacemembers_func_f.html":[0,1,1,5],
-"namespacemembers_func_g.html":[0,1,1,6]
+"namespacemembers_func_e.html":[0,1,1,4]
 };

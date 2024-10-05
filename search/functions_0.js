@@ -17,9 +17,10 @@ var searchData=
   ['alphanumeric_14',['alphanumeric',['../namespacefaker_1_1string.html#a66f88f14a90528cdf5683a55a9d4a280',1,'faker::string::alphanumeric(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)'],['../namespacefaker_1_1string.html#a0f34587fb525159e53e01829edbe81cd',1,'faker::string::alphanumeric(GuaranteeMap &amp;&amp;guarantee, unsigned length=1, StringCasing casing=StringCasing::Mixed)']]],
   ['amount_15',['amount',['../namespacefaker_1_1finance.html#a45a740f60cfb1788f79f08110dba3c3c',1,'faker::finance']]],
   ['anonymoususername_16',['anonymousUsername',['../namespacefaker_1_1internet.html#a0e22ade4bf001c126dd22e5c72506031',1,'faker::internet']]],
-  ['areacode_17',['areaCode',['../namespacefaker_1_1phone.html#af0ac28a1180f714704a2098afe61cceb',1,'faker::phone']]],
-  ['artist_18',['artist',['../namespacefaker_1_1music.html#a8f960c10557e8c9b8d98414ec99f46e1',1,'faker::music']]],
-  ['aspectratio_19',['aspectRatio',['../namespacefaker_1_1video.html#a4bf29b3f9af696ffceb3871821bf01ba',1,'faker::video']]],
-  ['audiocodec_20',['audioCodec',['../namespacefaker_1_1video.html#a818f441a9d32093357fe95ef2ea526f4',1,'faker::video']]],
-  ['author_21',['author',['../namespacefaker_1_1book.html#aa639e739e411efdb9901c31b99c1c33b',1,'faker::book']]]
+  ['anytime_17',['anytime',['../namespacefaker_1_1date.html#a5dc1f369f2d02cb7d9f1314f06bbd4d4',1,'faker::date']]],
+  ['areacode_18',['areaCode',['../namespacefaker_1_1phone.html#af0ac28a1180f714704a2098afe61cceb',1,'faker::phone']]],
+  ['artist_19',['artist',['../namespacefaker_1_1music.html#a8f960c10557e8c9b8d98414ec99f46e1',1,'faker::music']]],
+  ['aspectratio_20',['aspectRatio',['../namespacefaker_1_1video.html#a4bf29b3f9af696ffceb3871821bf01ba',1,'faker::video']]],
+  ['audiocodec_21',['audioCodec',['../namespacefaker_1_1video.html#a818f441a9d32093357fe95ef2ea526f4',1,'faker::video']]],
+  ['author_22',['author',['../namespacefaker_1_1book.html#aa639e739e411efdb9901c31b99c1c33b',1,'faker::book']]]
 ];
