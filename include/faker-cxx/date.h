@@ -267,4 +267,37 @@ FAKER_CXX_EXPORT unsigned dayOfWeek();
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view timezoneRandom();
+
+/**
+ * @brief Generates a random date between two given Unix timestamps.
+ *
+ * @param from The starting Unix timestamp (seconds since the Unix epoch).
+ * @param to The ending Unix timestamp (seconds since the Unix epoch).
+ * @param dateFormat Specifies the format of the output date, either as an ISO string or a Unix timestamp.
+ * @returns A string representing the random date in the specified format.
+ *
+ * @code
+ * faker::date::between(1609459200, 1640995200, DateFormat::ISO); // Returns a random date between Jan 1, 2021, and Jan
+ * 1, 2022, formatted as "2021-06-15T12:34:56Z" faker::date::between(1609459200, 1640995200, DateFormat::Timestamp); //
+ * Returns the Unix timestamp of a random date between Jan 1, 2021, and Jan 1, 2022
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string between(int64_t from, int64_t to, DateFormat dateFormat = DateFormat::ISO);
+
+/**
+ * @brief Generates a random date between two given ISO date strings.
+ *
+ * @param from The starting ISO date string in the format "YYYY-MM-DDTHH:MM:SSZ".
+ * @param to The ending ISO date string in the format "YYYY-MM-DDTHH:MM:SSZ".
+ * @param dateFormat Specifies the format of the output date, either as an ISO string or a Unix timestamp.
+ * @returns A string representing the random date in the specified format.
+ *
+ * @code
+ * faker::date::between("2021-01-01T00:00:00Z", "2022-01-01T00:00:00Z", DateFormat::ISO); // Returns a random date
+ * between Jan 1, 2021, and Jan 1, 2022, formatted as "2021-06-15T12:34:56Z"
+ * faker::date::between("2021-01-01T00:00:00Z", "2022-01-01T00:00:00Z", DateFormat::Timestamp); // Returns the Unix
+ * timestamp of a random date between Jan 1, 2021, and Jan 1, 2022
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string between(std::string from, std::string to, DateFormat dateFormat);
 }
