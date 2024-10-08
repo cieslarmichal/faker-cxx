@@ -124,6 +124,15 @@ std::string hsv()
     return common::format("hsv({}, {}, {})", hue, saturation, value);
 }
 
+std::string hwb()
+{
+    std::integral auto hue = number::integer(360);
+    std::integral auto whiteness = number::integer(100);
+    std::integral auto blackness = number::integer(100);
+
+    return common::format("hwb({}, {}, {})", hue, whiteness, blackness);
+}
+
 std::string yuv()
 {
     std::integral auto luminance = number::integer(255);
