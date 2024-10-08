@@ -12,5 +12,6 @@ var searchData=
   ['httpmethod_9',['httpMethod',['../namespacefaker_1_1internet.html#a351eb5eed7fd927d6a2869263b56e852',1,'faker::internet']]],
   ['httprequestheader_10',['httpRequestHeader',['../namespacefaker_1_1internet.html#a298bf281d43e08c58448962c094605ab',1,'faker::internet']]],
   ['httpresponseheader_11',['httpResponseHeader',['../namespacefaker_1_1internet.html#abac7e3c94d09f0f7a381f64a8032684e',1,'faker::internet']]],
-  ['httpstatuscode_12',['httpStatusCode',['../namespacefaker_1_1internet.html#a18bb9341e2a6b1745f93bb56acf973ea',1,'faker::internet']]]
+  ['httpstatuscode_12',['httpStatusCode',['../namespacefaker_1_1internet.html#a18bb9341e2a6b1745f93bb56acf973ea',1,'faker::internet']]],
+  ['hwb_13',['hwb',['../namespacefaker_1_1color.html#ae338a66c325fa6c8a1144202a3ee33a7',1,'faker::color']]]
 ];

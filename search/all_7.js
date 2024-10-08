@@ -22,5 +22,6 @@ var searchData=
   ['httpresponsetype_19',['HttpResponseType',['../namespacefaker_1_1internet.html#a25d31766e509fb398f5534224b171a8d',1,'faker::internet']]],
   ['https_20',['Https',['../namespacefaker_1_1internet.html#ac9fba82884b9a80bff2604b01135c7eca2badb7fa3e862298a650909d45c5066b',1,'faker::internet']]],
   ['httpstatuscode_21',['httpStatusCode',['../namespacefaker_1_1internet.html#a18bb9341e2a6b1745f93bb56acf973ea',1,'faker::internet']]],
-  ['hungary_22',['Hungary',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aafa79c3005daec47ecff84a116a0927a1',1,'faker::phone']]]
+  ['hungary_22',['Hungary',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aafa79c3005daec47ecff84a116a0927a1',1,'faker::phone']]],
+  ['hwb_23',['hwb',['../namespacefaker_1_1color.html#ae338a66c325fa6c8a1144202a3ee33a7',1,'faker::color']]]
 ];
