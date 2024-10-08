@@ -118,6 +118,16 @@ FAKER_CXX_EXPORT std::string hsb();
 FAKER_CXX_EXPORT std::string hsv();
 
 /**
+ * @brief Return a HWB color
+ *
+ * @returns HWB color formatted with hwb(X,X,X)
+ * @code
+ * faker::color::hwb() // "hwb(34, 67, 90)"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string hwb();
+
+/**
  * @brief Return a YUV color
  *
  * @returns YUV color formatted with yuv(X,X,X)

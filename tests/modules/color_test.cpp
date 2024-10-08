@@ -274,6 +274,24 @@ TEST_F(ColorTest, shouldGenerateHsv)
     ASSERT_TRUE(brightness >= 0 && brightness <= 100);
 }
 
+TEST_F(ColorTest, shouldGenerateHwb)
+{
+    const auto generatedHwbColor = hwb();
+    const auto hwbValues = common::split(generatedHwbColor.substr(4, generatedHwbColor.size() - 1), " ");
+
+    int hue, whiteness, blackness;
+
+    std::from_chars(hwbValues[0].data(), hwbValues[0].data() + hwbValues[0].size(), hue);
+    std::from_chars(hwbValues[1].data(), hwbValues[1].data() + hwbValues[1].size(), whiteness);
+    std::from_chars(hwbValues[2].data(), hwbValues[2].data() + hwbValues[2].size(), blackness);
+
+    ASSERT_TRUE(generatedHwbColor.starts_with("hwb("));
+    ASSERT_TRUE(generatedHwbColor.ends_with(")"));
+    ASSERT_TRUE(hue >= 0 && hue <= 360);
+    ASSERT_TRUE(whiteness >= 0 && whiteness <= 100);
+    ASSERT_TRUE(blackness >= 0 && blackness <= 100);
+}
+
 TEST_F(ColorTest, shouldGenerateYuv)
 {
     const auto generatedYuvColor = yuv();
