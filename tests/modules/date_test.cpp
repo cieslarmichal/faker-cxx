@@ -126,6 +126,7 @@ TEST_F(DateTest, shouldGenerateFutureDateTimestamp)
     EXPECT_TRUE(std::chrono::duration_cast<std::chrono::seconds>(futureDate - currentDate).count() < secondsInYear);
     EXPECT_TRUE(futureDate > currentDate);
 }
+
 TEST_F(DateTest, shouldGenerateAnytimeISO)
 {
     const auto currentDate = std::chrono::system_clock::now();
@@ -138,7 +139,9 @@ TEST_F(DateTest, shouldGenerateAnytimeISO)
         EXPECT_GT(generatedDate, unixEpoch);
 
         auto duration = generatedDate - currentDate;
-        double durationInYears = static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(duration).count()) / (365.25 * 24 * 3600);
+        double durationInYears =
+            static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(duration).count()) /
+            (365.25 * 24 * 3600);
         durationInYears = std::abs(durationInYears);
         EXPECT_LT(durationInYears, 201);
     }
@@ -157,7 +160,9 @@ TEST_F(DateTest, shouldGenerateAnytimeTimestamp)
         EXPECT_GT(generatedDate, unixEpoch);
 
         auto duration = generatedDate - currentDate;
-        double durationInYears = static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(duration).count()) / (365.25 * 24 * 3600);
+        double durationInYears =
+            static_cast<double>(std::chrono::duration_cast<std::chrono::seconds>(duration).count()) /
+            (365.25 * 24 * 3600);
         durationInYears = std::abs(durationInYears);
         EXPECT_LT(durationInYears, 201);
     }
@@ -385,4 +390,62 @@ TEST_F(DateTest, shouldGenerateRandomTime)
 
     ASSERT_LE(minute, 59);
     ASSERT_GE(minute, 0);
+}
+
+TEST_F(DateTest, shouldGenerateDateBetweenTimestampDates)
+{
+    int64_t fromTimestamp = 1609459200;
+    int64_t toTimestamp = 1640995200;
+
+    auto generatedTimestampStr = between(fromTimestamp, toTimestamp, DateFormat::Timestamp);
+    int64_t generatedTimestamp = std::stoll(generatedTimestampStr);
+
+    ASSERT_GE(generatedTimestamp, fromTimestamp);
+    ASSERT_LE(generatedTimestamp, toTimestamp);
+}
+
+TEST_F(DateTest, shouldGenerateDateBetweenTimestampDatesInISOFormat)
+{
+    int64_t fromTimestamp = 1609459200;
+    int64_t toTimestamp = 1640995200;
+
+    auto generatedDateISO = between(fromTimestamp, toTimestamp, DateFormat::ISO);
+    auto generatedDate = parseISOFormattedStringToTimePoint(generatedDateISO);
+
+    auto fromTime = std::chrono::system_clock::from_time_t(fromTimestamp);
+    auto toTime = std::chrono::system_clock::from_time_t(toTimestamp);
+
+    ASSERT_GE(generatedDate, fromTime);
+    ASSERT_LE(generatedDate, toTime);
+}
+
+TEST_F(DateTest, shouldGenerateDateBetweenISODates)
+{
+    std::string fromISO = "2021-01-01T00:00:00Z";
+    std::string toISO = "2022-01-01T00:00:00Z";
+
+    auto generatedDateISO = between(fromISO, toISO, DateFormat::ISO);
+    auto generatedDate = parseISOFormattedStringToTimePoint(generatedDateISO);
+
+    auto fromTime = parseISOFormattedStringToTimePoint(fromISO);
+    auto toTime = parseISOFormattedStringToTimePoint(toISO);
+
+    ASSERT_GE(generatedDate, fromTime);
+    ASSERT_LE(generatedDate, toTime);
+}
+
+TEST_F(DateTest, shouldGenerateDateBetweenISODatesInTimestampFormat)
+{
+    std::string fromISO = "2021-01-01T00:00:00Z";
+    std::string toISO = "2022-01-01T00:00:00Z";
+
+    auto generatedTimestampStr = between(fromISO, toISO, DateFormat::Timestamp);
+    int64_t generatedTimestamp = std::stoll(generatedTimestampStr);
+
+    auto fromTime = parseISOFormattedStringToTimePoint(fromISO);
+    auto toTime = parseISOFormattedStringToTimePoint(toISO);
+    auto generatedTime = std::chrono::system_clock::from_time_t(generatedTimestamp);
+
+    ASSERT_GE(generatedTime, fromTime);
+    ASSERT_LE(generatedTime, toTime);
 }
