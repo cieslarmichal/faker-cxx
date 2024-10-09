@@ -1,8 +1,8 @@
 #pragma once
 
+#include <limits>
 #include <string>
 #include <string_view>
-#include <limits>
 
 #include "faker-cxx/export.h"
 #include "faker-cxx/types/locale.h"
@@ -154,7 +154,8 @@ FAKER_CXX_EXPORT std::string longitude(Precision precision = Precision::FourDp);
 /**
  * @brief Generates a random GPS coordinate within the specified radius from the given coordinate.
  *
- * @param precision The number of decimal points of precision for the latitude and longitude. Defaults to `Precision::FourDp`.
+ * @param precision The number of decimal points of precision for the latitude and longitude. Defaults to
+ * `Precision::FourDp`.
  * @param origin The origin GPS coordinate. Defaults to a random GPS coordinate.
  * @param radius The radius in kilometers or miles. Defaults to 10.
  * @param isMetric The unit of radius. Defaults to false which means miles.
@@ -169,9 +170,8 @@ FAKER_CXX_EXPORT std::string longitude(Precision precision = Precision::FourDp);
  */
 FAKER_CXX_EXPORT std::tuple<std::string, std::string> nearbyGPSCoordinate(
     Precision precision = Precision::FourDp,
-    const std::tuple<double, double>& origin = { std::numeric_limits<double>::max(), std::numeric_limits<double>::max() },
-    double radius = 10,
-    bool isMetric = false);
+    const std::tuple<double, double>& origin = {std::numeric_limits<double>::max(), std::numeric_limits<double>::max()},
+    double radius = 10, bool isMetric = false);
 
 /**
  * @brief Generates a random direction from cardinal and ordinal directions.

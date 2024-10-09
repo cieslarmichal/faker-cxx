@@ -14,12 +14,18 @@ struct FAKER_CXX_EXPORT Author
     std::string email;
 };
 
-enum class BranchIssueNum;
+enum class BranchIssueNum
+{
+    WithoutIssueNumber,
+    WithIssueNumber,
+};
 
 /**
  * @brief Returns a random branch name.
  *
+ * @param issueNum The optional issue number in branch name.
  * @param maxIssueNum The maximum issue number in branch name. Defaults to `100`.
+ *
  * @returns Branch name.
  *
  * @code
@@ -32,6 +38,7 @@ FAKER_CXX_EXPORT std::string branch(std::optional<BranchIssueNum> issueNum = std
  * @brief Generates a random date in form of string.
  *
  * @param years The range of years the date may be in the past. Defaults to `15`.
+ *
  * @returns Commit date.
  *
  * @code
@@ -46,6 +53,7 @@ FAKER_CXX_EXPORT std::string commitDate(unsigned years = 15);
  * @param dateYears The range of years the date may be in the past. Defaults to `15`.
  * @param shaLength The length of output SHA hash. Defaults to `40`.
  * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Commit entry.
  *
  * @code
@@ -83,11 +91,4 @@ FAKER_CXX_EXPORT std::string commitMessage();
  * @endcode
  */
 FAKER_CXX_EXPORT std::string commitSha(unsigned length = 40);
-
-enum class BranchIssueNum
-{
-    WithoutIssueNumber,
-    WithIssueNumber,
-};
-
 }

@@ -1,16 +1,16 @@
 #include "faker-cxx/weather.h"
 
+#include <span>
 #include <string_view>
 
 #include "faker-cxx/helper.h"
 #include "weather_data.h"
-#include <span>
 
 namespace faker::weather
 {
 namespace
 {
-const std::span<const std::string_view> getWeatherDefinition(Locale locale)
+std::span<const std::string_view> getWeatherDefinition(Locale locale)
 {
     switch (locale)
     {
@@ -41,6 +41,7 @@ const std::span<const std::string_view> getWeatherDefinition(Locale locale)
     }
 }
 }
+
 std::string_view weatherDescription(Locale locale)
 {
     const auto& weatherDefinition = getWeatherDefinition(locale);

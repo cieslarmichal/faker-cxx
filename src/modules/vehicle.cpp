@@ -16,7 +16,11 @@ namespace
 {
 const struct VehicleDefinition& getVehicleDefinition(Locale locale)
 {
-    return enUSVehicleDefinition ;
+    switch (locale)
+    {
+    default:
+        return enUSVehicleDefinition;
+    }
 }
 }
 

@@ -101,6 +101,8 @@ FAKER_CXX_EXPORT std::string exampleEmail(std::optional<std::string> firstName =
  * Since the source of the randomness is not cryptographically secure, neither is this generator.
  *
  * @param length The length of the password to generate. Defaults to `16`.
+ * @param options The optional password options to use. Options include whether to include upperLetters, lowerLetters,
+ * numbers and symbols in password generation. Defaults to include all.
  *
  * @returns Random password-like string.
  *

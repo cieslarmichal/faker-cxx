@@ -1,13 +1,14 @@
 #pragma once
-#include <iostream>
 #include <array>
+#include <functional>
+#include <iostream>
 #include <map>
 #include <span>
-#include <functional>
 #include <string_view>
 
-#include "word_store.h"
 #include "faker-cxx/types/locale.h"
+#include "word_store.h"
+
 namespace faker::word
 {
 // https://tristanbrindle.com/posts/a-more-useful-compile-time-quicksort
@@ -78,12 +79,14 @@ constexpr void quick_sort(RAIt first, RAIt last, Compare cmp = Compare{})
     quick_sort(middle2, last, cmp);
 }
 
-const std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
-                                       enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>
+const std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() +
+                                       enUSInterjections.size() + enUSNouns.size() + enUSPrepositions.size() +
+                                       enUSVerbs.size()>
     _allWords = []()
 {
-    std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
-                                     enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>
+    std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() +
+                                     enUSInterjections.size() + enUSNouns.size() + enUSPrepositions.size() +
+                                     enUSVerbs.size()>
         table{};
 
     size_t idx = 0;
@@ -133,66 +136,73 @@ const std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + 
     return table;
 }();
 
-const std::map<faker::Locale, std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
-                                       enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>>
+const std::map<faker::Locale,
+               std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() +
+                                                enUSInterjections.size() + enUSNouns.size() + enUSPrepositions.size() +
+                                                enUSVerbs.size()>>
     _allWords_map = []()
 {
-    std::map<faker::Locale, std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
-                                       enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>> output;
+    std::map<faker::Locale,
+             std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() +
+                                              enUSInterjections.size() + enUSNouns.size() + enUSPrepositions.size() +
+                                              enUSVerbs.size()>>
+        output;
 
-    for (auto mapItem: idiomsMapSpan)
+    for (auto mapItem : idiomsMapSpan)
     {
-    std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() + enUSInterjections.size() +
-                                       enUSNouns.size() + enUSPrepositions.size() + enUSVerbs.size()>
-        table{};
+        std::array<std::string_view, enUSAdjectives.size() + enUSAdverbs.size() + enUSConjunctions.size() +
+                                         enUSInterjections.size() + enUSNouns.size() + enUSPrepositions.size() +
+                                         enUSVerbs.size()>
+            table{};
 
-    size_t idx = 0;
-    
-    for (const auto& v : idiomsMapSpan.at(mapItem.first).adjetives)
-    {
-        table[idx] = v;
-        idx++;
-    }
+        size_t idx = 0;
 
-    for (const auto& v : idiomsMapSpan.at(mapItem.first).adverbs)
-    {
-        table[idx] = v;
-        idx++;
-    }
+        for (const auto& v : idiomsMapSpan.at(mapItem.first).adjetives)
+        {
+            table[idx] = v;
+            idx++;
+        }
 
-    for (const auto& v : idiomsMapSpan.at(mapItem.first).conjunctions)
-    {
-        table[idx] = v;
-        idx++;
-    }
+        for (const auto& v : idiomsMapSpan.at(mapItem.first).adverbs)
+        {
+            table[idx] = v;
+            idx++;
+        }
 
-    for (const auto& v :  idiomsMapSpan.at(mapItem.first).interjections)
-    {
-        table[idx] = v;
-        idx++;
-    }
+        for (const auto& v : idiomsMapSpan.at(mapItem.first).conjunctions)
+        {
+            table[idx] = v;
+            idx++;
+        }
 
-    for (const auto& v : idiomsMapSpan.at(mapItem.first).nouns)
-    {
-        table[idx] = v;
-        idx++;
-    }
+        for (const auto& v : idiomsMapSpan.at(mapItem.first).interjections)
+        {
+            table[idx] = v;
+            idx++;
+        }
 
-    for (const auto& v : idiomsMapSpan.at(mapItem.first).prepositions)
-    {
-        table[idx] = v;
-        idx++;
-    }
+        for (const auto& v : idiomsMapSpan.at(mapItem.first).nouns)
+        {
+            table[idx] = v;
+            idx++;
+        }
 
-    for (const auto& v : idiomsMapSpan.at(mapItem.first).verbs)
-    {
-        table[idx] = v;
-        idx++;
-    }
+        for (const auto& v : idiomsMapSpan.at(mapItem.first).prepositions)
+        {
+            table[idx] = v;
+            idx++;
+        }
 
-    quick_sort(table.begin(), table.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-    
-    output.insert(std::make_pair(mapItem.first,table));
+        for (const auto& v : idiomsMapSpan.at(mapItem.first).verbs)
+        {
+            table[idx] = v;
+            idx++;
+        }
+
+        quick_sort(table.begin(), table.end(),
+                   [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+
+        output.insert(std::make_pair(mapItem.first, table));
     }
 
     return output;
@@ -200,251 +210,243 @@ const std::map<faker::Locale, std::array<std::string_view, enUSAdjectives.size()
 
 const auto _adjectives_sorted = []()
 {
-   std::map<faker::Locale,std::vector<std::string_view>> adjetives_sorted;    
-    for(auto i: idiomsMapSpan)
+    std::map<faker::Locale, std::vector<std::string_view>> adjetives_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.adjetives)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.adjetives)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        adjetives_sorted.insert(std::make_pair(i.first,list));
-    }   
-   
-   return adjetives_sorted.at(faker::Locale::en_US);
+        adjetives_sorted.insert(std::make_pair(i.first, list));
+    }
+
+    return adjetives_sorted.at(faker::Locale::en_US);
 }();
 
 const auto _adjetives_sorted_map = []()
 {
-   std::map<faker::Locale,std::vector<std::string_view>> adjetives_sorted;    
-    for(auto i: idiomsMapSpan)
+    std::map<faker::Locale, std::vector<std::string_view>> adjetives_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.adjetives)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.adjetives)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        adjetives_sorted.insert(std::make_pair(i.first,list));
-    }   
-   
-   return adjetives_sorted;
+        adjetives_sorted.insert(std::make_pair(i.first, list));
+    }
+
+    return adjetives_sorted;
 }();
 
 const auto _adverbs_sorted = []()
 {
-    std::map<faker::Locale,std::vector<std::string_view>> adverbs_sorted;    
-    for(auto i: idiomsMapSpan)
+    std::map<faker::Locale, std::vector<std::string_view>> adverbs_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.adverbs)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.adverbs)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        adverbs_sorted.insert(std::make_pair(i.first,list));
-    }   
-   return adverbs_sorted.at(faker::Locale::en_US);
+        adverbs_sorted.insert(std::make_pair(i.first, list));
+    }
+    return adverbs_sorted.at(faker::Locale::en_US);
 }();
 const auto _adverbs_sorted_map = []()
 {
-    std::map<faker::Locale,std::vector<std::string_view>> adverbs_sorted;    
-    for(auto i: idiomsMapSpan)
+    std::map<faker::Locale, std::vector<std::string_view>> adverbs_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.adverbs)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.adverbs)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        adverbs_sorted.insert(std::make_pair(i.first,list));
-    }   
-   return adverbs_sorted;
+        adverbs_sorted.insert(std::make_pair(i.first, list));
+    }
+    return adverbs_sorted;
 }();
 
 const auto _conjunctions_sorted = []()
-{    
-    std::map<faker::Locale,std::vector<std::string_view>> conjunctions_sorted;    
-    for(auto i: idiomsMapSpan)
+{
+    std::map<faker::Locale, std::vector<std::string_view>> conjunctions_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.conjunctions)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.conjunctions)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        conjunctions_sorted.insert(std::make_pair(i.first,list));
+        conjunctions_sorted.insert(std::make_pair(i.first, list));
     }
     return conjunctions_sorted.at(faker::Locale::en_US);
 }();
 
 const auto _conjunctions_sorted_map = []()
-{ 
-    std::map<faker::Locale,std::vector<std::string_view>> conjunctions_sorted;    
-    for(auto i: idiomsMapSpan)
+{
+    std::map<faker::Locale, std::vector<std::string_view>> conjunctions_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.conjunctions)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.conjunctions)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        conjunctions_sorted.insert(std::make_pair(i.first,list));
+        conjunctions_sorted.insert(std::make_pair(i.first, list));
     }
-   
-   
-   
-   return conjunctions_sorted;
+
+    return conjunctions_sorted;
 }();
 
 const auto _interjections_sorted = []()
 {
-    
-    std::map<faker::Locale,std::vector<std::string_view>> interjections_sorted;    
-    for(auto i: idiomsMapSpan)
+    std::map<faker::Locale, std::vector<std::string_view>> interjections_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.interjections)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.interjections)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        interjections_sorted.insert(std::make_pair(i.first,list));
-    }   
-   
-   return interjections_sorted.at(faker::Locale::en_US);
+        interjections_sorted.insert(std::make_pair(i.first, list));
+    }
+
+    return interjections_sorted.at(faker::Locale::en_US);
 }();
 
-const auto _interjections_sorted_map = [](){
-    std::map<faker::Locale,std::vector<std::string_view>> interjections_sorted;    
-    for(auto i: idiomsMapSpan)
+const auto _interjections_sorted_map = []()
+{
+    std::map<faker::Locale, std::vector<std::string_view>> interjections_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.interjections)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.interjections)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        interjections_sorted.insert(std::make_pair(i.first,list));
-    }      
-   return interjections_sorted;
+        interjections_sorted.insert(std::make_pair(i.first, list));
+    }
+    return interjections_sorted;
 }();
 
 const auto _nouns_sorted = []()
 {
-    std::map<faker::Locale,std::vector<std::string_view>> nouns_sorted;    
-    for(auto i: idiomsMapSpan)
+    std::map<faker::Locale, std::vector<std::string_view>> nouns_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.nouns)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.nouns)
+        {
+            list.push_back(j);
         }
-           
-        quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        nouns_sorted.insert(std::make_pair(i.first,list));
-    }      
-   return nouns_sorted.at(faker::Locale::en_US);
-    
-}();
 
+        quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+        nouns_sorted.insert(std::make_pair(i.first, list));
+    }
+    return nouns_sorted.at(faker::Locale::en_US);
+}();
 
 const auto _nouns_sorted_map = []()
 {
-   std::map<faker::Locale,std::vector<std::string_view>> nouns_sorted;    
-    for(auto i: idiomsMapSpan)
+    std::map<faker::Locale, std::vector<std::string_view>> nouns_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.nouns)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.nouns)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        nouns_sorted.insert(std::make_pair(i.first,list));
-    }      
-   return nouns_sorted;
+        nouns_sorted.insert(std::make_pair(i.first, list));
+    }
+    return nouns_sorted;
 }();
 
 const auto _prepositions_sorted = []()
 {
-    
-    std::map<faker::Locale,std::vector<std::string_view>> prepositions_sorted;    
-    for(auto i: idiomsMapSpan)
+    std::map<faker::Locale, std::vector<std::string_view>> prepositions_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.prepositions)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.prepositions)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        prepositions_sorted.insert(std::make_pair(i.first,list));
-    }      
-   return prepositions_sorted.at(faker::Locale::en_US);
+        prepositions_sorted.insert(std::make_pair(i.first, list));
+    }
+    return prepositions_sorted.at(faker::Locale::en_US);
 }();
 
-
-const auto _prepositions_sorted_map = []( )
+const auto _prepositions_sorted_map = []()
 {
-     std::map<faker::Locale,std::vector<std::string_view>> prepositions_sorted;    
-    for(auto i: idiomsMapSpan)
+    std::map<faker::Locale, std::vector<std::string_view>> prepositions_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.prepositions)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.prepositions)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        prepositions_sorted.insert(std::make_pair(i.first,list));
-    }      
-   return prepositions_sorted;
+        prepositions_sorted.insert(std::make_pair(i.first, list));
+    }
+    return prepositions_sorted;
 }();
 
 const auto _verbs_sorted = []()
 {
-    std::map<faker::Locale,std::vector<std::string_view>> verbs_sorted;    
-    for(auto i: idiomsMapSpan)
+    std::map<faker::Locale, std::vector<std::string_view>> verbs_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.verbs)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.verbs)
+        {
+            list.push_back(j);
         }
-           
-        quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        verbs_sorted.insert(std::make_pair(i.first,list));
-    }      
-   return verbs_sorted.at(faker::Locale::en_US);
 
+        quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
+        verbs_sorted.insert(std::make_pair(i.first, list));
+    }
+    return verbs_sorted.at(faker::Locale::en_US);
 }();
 
-
- const auto _verbs_sorted_map = []()
-{    
-    std::map<faker::Locale,std::vector<std::string_view>> verbs_sorted;    
-    for(auto i: idiomsMapSpan)
+const auto _verbs_sorted_map = []()
+{
+    std::map<faker::Locale, std::vector<std::string_view>> verbs_sorted;
+    for (auto i : idiomsMapSpan)
     {
         std::vector<std::string_view> list;
-        for(auto j: i.second.verbs)
-        {                
-             list.push_back(j);
+        for (auto j : i.second.verbs)
+        {
+            list.push_back(j);
         }
-           
+
         quick_sort(list.begin(), list.end(), [](const auto& lhs, const auto& rhs) { return lhs.size() < rhs.size(); });
-        verbs_sorted.insert(std::make_pair(i.first,list));
-    }      
-   return verbs_sorted;
+        verbs_sorted.insert(std::make_pair(i.first, list));
+    }
+    return verbs_sorted;
 }();
 
 }

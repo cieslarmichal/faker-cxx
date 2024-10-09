@@ -18,6 +18,7 @@ const struct VideoGames& getVideoGame(Locale locale)
     }
 }
 }
+
 std::string_view gameTitle(Locale locale)
 {
     const auto& videoGame = getVideoGame(locale);

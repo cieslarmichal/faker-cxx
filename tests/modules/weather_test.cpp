@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <span>
 #include <string_view>
 
 #include "gtest/gtest.h"
@@ -6,7 +7,6 @@
 #include "faker-cxx/types/locale.h"
 #include "faker-cxx/weather.h"
 #include "weather_data.h"
-#include <span>
 
 using namespace ::testing;
 using namespace faker;

@@ -7,18 +7,16 @@
 
 #include "faker-cxx/export.h"
 #include "faker-cxx/helper.h"
-
 #include "faker-cxx/types/locale.h"
 
 namespace faker::word
 {
-
 /**
  * @brief Returns a random .
  *
  * @param length The expected length of the .
- * If no word with given length will be found or length is 0, it will return a random size word. 
- * @param locale The locale. Defaults to `Locale::en_US`. 
+ * If no word with given length will be found or length is 0, it will return a random size word.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Random sample word.
  *
@@ -27,13 +25,13 @@ namespace faker::word
  * faker::word::sample(5) // "spell"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view sample(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view sample(std::optional<unsigned> length = std::nullopt, Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a string containing a number of space separated random words.
  *
  * @param numberOfWords The number of words to generate.
- * @param locale The locale. Defaults to `Locale::en_US`. 
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Random words separated with spaces.
  *
@@ -42,16 +40,14 @@ FAKER_CXX_EXPORT std::string_view sample(std::optional<unsigned> length = std::n
  * faker::word::words(5) // "before hourly patiently dribble equal"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string words(unsigned numberOfWords = 1,const Locale locale = Locale::en_US);
-
-
+FAKER_CXX_EXPORT std::string words(unsigned numberOfWords = 1, Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random adjective.
  *
  * @param length The expected length of the word.
- * If no adjective with given length will be found or length is 0, it will return a random size adjective. 
- * @param locale The locale. Defaults to `Locale::en_US`.  
+ * If no adjective with given length will be found or length is 0, it will return a random size adjective.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Adjective.
  *
@@ -60,15 +56,15 @@ FAKER_CXX_EXPORT std::string words(unsigned numberOfWords = 1,const Locale local
  * faker::word::adjective(3) // "bad"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view adjective(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
-
+FAKER_CXX_EXPORT std::string_view adjective(std::optional<unsigned> length = std::nullopt,
+                                            Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random adjective, using locale.
  *
- * @param length The expected length of the word. 
- * If no adjective with given length will be found or length is 0, it will return a random size adjective. 
- * @param locale The locale. Defaults to `Locale::en_US`. 
+ * @param length The expected length of the word.
+ * If no adjective with given length will be found or length is 0, it will return a random size adjective.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Adjective.
  *
@@ -77,14 +73,14 @@ FAKER_CXX_EXPORT std::string_view adjective(std::optional<unsigned> length = std
  * faker::word::adjective(3) // "bad"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view adjectiveLocale(unsigned length = 0,const Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view adjectiveLocale(unsigned length = 0, Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random adverb.
  *
  * @param length The expected length of the word.
- * If no adverb with given length will be found or length is 0, it will return a random size adverb. 
- * @param locale The locale. Defaults to `Locale::en_US`. 
+ * If no adverb with given length will be found or length is 0, it will return a random size adverb.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Adverb.
  *
@@ -93,15 +89,14 @@ FAKER_CXX_EXPORT std::string_view adjectiveLocale(unsigned length = 0,const Loca
  * faker::word::adverb(5) // "almost"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view adverb(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
-
+FAKER_CXX_EXPORT std::string_view adverb(std::optional<unsigned> length = std::nullopt, Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random conjunction.
  *
- * @param length The expected length of the word.  
- * If no conjunction with given length will be found or length is 0, it will return a random size conjunction. 
- * @param locale The locale. Defaults to `Locale::en_US`. 
+ * @param length The expected length of the word.
+ * If no conjunction with given length will be found or length is 0, it will return a random size conjunction.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Conjunction.
  *
@@ -110,16 +105,15 @@ FAKER_CXX_EXPORT std::string_view adverb(std::optional<unsigned> length = std::n
  * faker::word::conjunction(6) // "indeed"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view conjunction(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
-
-
+FAKER_CXX_EXPORT std::string_view conjunction(std::optional<unsigned> length = std::nullopt,
+                                              Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random interjection.
  *
  * @param length The expected length of the word.
- * If no interjection with given length is found or length is 0, it will return a random size interjection. 
- * @param locale The locale. Defaults to `Locale::en_US`. 
+ * If no interjection with given length is found or length is 0, it will return a random size interjection.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Interjection.
  *
@@ -128,16 +122,15 @@ FAKER_CXX_EXPORT std::string_view conjunction(std::optional<unsigned> length = s
  * faker::word::interjection(4) // "yuck"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view interjection(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
-
-
+FAKER_CXX_EXPORT std::string_view interjection(std::optional<unsigned> length = std::nullopt,
+                                               Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random noun.
  *
  * @param length The expected length of the word.
- * If no noun with given length is found or length is 0, it will return a random size noun. 
- * @param locale The locale. Defaults to `Locale::en_US`. 
+ * If no noun with given length is found or length is 0, it will return a random size noun.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Noun.
  *
@@ -146,15 +139,14 @@ FAKER_CXX_EXPORT std::string_view interjection(std::optional<unsigned> length = 
  * faker::word::noun(8) // "distance"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view noun(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
-
+FAKER_CXX_EXPORT std::string_view noun(std::optional<unsigned> length = std::nullopt, Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random preposition.
  *
  * @param length The expected length of the word.
- * If no preposition with given length is found or length is 0, it will return a random size preposition. 
- * @param locale The locale. Defaults to `Locale::en_US`. 
+ * If no preposition with given length is found or length is 0, it will return a random size preposition.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Preposition.
  *
@@ -163,15 +155,15 @@ FAKER_CXX_EXPORT std::string_view noun(std::optional<unsigned> length = std::nul
  * faker::word::preposition(4) // "from"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
-
+FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = std::nullopt,
+                                              Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random verb.
  *
  * @param length The expected length of the word.
- * If no verb with given length is found or length is 0, it will return a random size verb. 
- * @param locale The locale. Defaults to `Locale::en_US`. 
+ * If no verb with given length is found or length is 0, it will return a random size verb.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Verb.
  *
@@ -180,14 +172,13 @@ FAKER_CXX_EXPORT std::string_view preposition(std::optional<unsigned> length = s
  * faker::word::verb(9) // "stabilise"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view verb(std::optional<unsigned> length = std::nullopt,const Locale locale = Locale::en_US);
-
+FAKER_CXX_EXPORT std::string_view verb(std::optional<unsigned> length = std::nullopt, Locale locale = Locale::en_US);
 
 /**
  * @brief Returns random element of length
  *
  * @param length The length of the elements to be picked from
- * @param locale The locale. Defaults to `Locale::en_US`. 
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @ range The range of elements
  *

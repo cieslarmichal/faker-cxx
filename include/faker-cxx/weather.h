@@ -8,11 +8,11 @@
 namespace faker::weather
 {
 /**
- * @brief Generated a random weather description
- * 
- * * @param locale The locale. Defaults to `Locale::en_US`.
+ * @brief Generated a random weather description.
  *
- * @return A random weather description
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
+ * @return A random weather description.
  *
  * @code
  * faker::weather::weatherDescription(Locale::en_GB); // "Sunny"

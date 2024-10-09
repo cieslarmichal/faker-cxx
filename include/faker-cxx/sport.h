@@ -9,7 +9,7 @@ namespace faker::sport
 /**
  * @brief Returns a random sport.
  *
- * @returns sport.
+ * @returns Sport.
  *
  * @code
  * faker::sport::sport() // "football"
@@ -21,7 +21,7 @@ FAKER_CXX_EXPORT std::string_view sportName();
 /**
  * @brief Returns a random soccer team.
  *
- * @returns soccer team.
+ * @returns Coccer team.
  *
  * @code
  * faker::sport::soccerTeam() // "Manchester United"
@@ -32,7 +32,7 @@ FAKER_CXX_EXPORT std::string_view soccerTeam();
 /**
  * @brief Returns a random male athlete.
  *
- * @returns male athlete.
+ * @returns Male athlete.
  *
  * @code
  * faker::sport::maleAthlete() // "Cristiano Ronaldo"
@@ -43,7 +43,7 @@ FAKER_CXX_EXPORT std::string_view maleAthlete();
 /**
  * @brief Returns a random female athlete.
  *
- * @returns female athlete.
+ * @returns Female athlete.
  *
  * @code
  * faker::sport::femaleAthlete() // "Serena Williams"

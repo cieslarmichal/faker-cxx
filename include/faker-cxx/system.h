@@ -32,8 +32,6 @@ struct FAKER_CXX_EXPORT NetworkInterfaceOptions
 /**
  * @brief Returns a random file name with extension.
  *
- * @param options An option struct.
- *
  * @returns Random file name with extension.
  *
  * @code
@@ -56,8 +54,7 @@ FAKER_CXX_EXPORT std::string fileName();
 FAKER_CXX_EXPORT std::string fileExtension(const std::optional<FileType>& mimeType = std::nullopt);
 
 /**
- * Returns a random file name with a given extension or a commonly used extension.
- *
+ * @brief Returns a random file name with a given extension or a commonly used extension.
  *
  * @returns A random file name with a given extension or a commonly used extension.
  *
@@ -68,7 +65,7 @@ FAKER_CXX_EXPORT std::string fileExtension(const std::optional<FileType>& mimeTy
 FAKER_CXX_EXPORT std::string commonFileName();
 
 /**
- * Returns a commonly used file extension.
+ * @brief Returns a commonly used file extension.
  *
  * @returns A commonly used file extension.
  *
@@ -79,7 +76,7 @@ FAKER_CXX_EXPORT std::string commonFileName();
 FAKER_CXX_EXPORT std::string_view commonFileExtension();
 
 /**
- * Returns a mime-type.
+ * @brief Returns a mime-type.
  *
  * @returns A mime-type.
  *
@@ -90,7 +87,7 @@ FAKER_CXX_EXPORT std::string_view commonFileExtension();
 FAKER_CXX_EXPORT std::string_view mimeType();
 
 /**
- * Returns a commonly used file type.
+ * @brief Returns a commonly used file type.
  *
  * @returns A commonly used file type.
  *
@@ -101,7 +98,7 @@ FAKER_CXX_EXPORT std::string_view mimeType();
 FAKER_CXX_EXPORT std::string_view fileType();
 
 /**
- * Returns a directory path.
+ * @brief Returns a directory path.
  *
  * @returns A directory path.
  *
@@ -112,7 +109,7 @@ FAKER_CXX_EXPORT std::string_view fileType();
 FAKER_CXX_EXPORT std::string_view directoryPath();
 
 /**
- * Returns a file path.
+ * @brief Returns a file path.
  *
  * @returns A file path.
  *
@@ -123,7 +120,7 @@ FAKER_CXX_EXPORT std::string_view directoryPath();
 FAKER_CXX_EXPORT std::string filePath();
 
 /**
- * Returns a semantic version.
+ * @brief Returns a semantic version.
  *
  * @returns A semantic version.
  *
@@ -134,7 +131,7 @@ FAKER_CXX_EXPORT std::string filePath();
 FAKER_CXX_EXPORT std::string semver();
 
 /**
- * Returns a random network interface.
+ * @brief Returns a random network interface.
  *
  * @param options The options to use. Defaults to an empty options structure @see NetworkInterfaceOptions.h.
  * @param options.interfaceType The interface type. Can be one of `en`, `wl`, `ww`.
@@ -162,7 +159,7 @@ FAKER_CXX_EXPORT std::string semver();
 FAKER_CXX_EXPORT std::string networkInterface(const std::optional<NetworkInterfaceOptions>& options = {});
 
 /**
- * Returns a random cron expression.
+ * @brief Returns a random cron expression.
  *
  * @param options The options to use. Defaults to an empty options structure @see CronOptions.h.
  * @param options.includeYear Whether to include a year in the generated expression. Defaults to `false`.

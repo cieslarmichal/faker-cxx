@@ -131,7 +131,8 @@ std::string sample(GuaranteeMap&& guarantee, unsigned int length)
 
 std::string symbol(unsigned int minLength, unsigned int maxLength)
 {
-    if (minLength > maxLength) {
+    if (minLength > maxLength)
+    {
         std::swap(minLength, maxLength);
     }
     std::random_device rd;

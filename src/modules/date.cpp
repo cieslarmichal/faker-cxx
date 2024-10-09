@@ -43,7 +43,7 @@ std::string betweenDate(const auto& from, const auto& to, DateFormat dateFormat)
     return serializeTimePoint(randomDateWithinRange, dateFormat);
 }
 
-std::string between(std::string from, std::string to, DateFormat dateFormat)
+std::string between(const std::string& from, const std::string& to, DateFormat dateFormat)
 {
     std::istringstream fromStream(from);
     std::istringstream toStream(to);

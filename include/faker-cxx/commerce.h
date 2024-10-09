@@ -77,7 +77,7 @@ FAKER_CXX_EXPORT std::string productFullName();
 /**
  * @brief Returns a random valid ean13 code.
  *
- * @returns Ean13 code.
+ * @returns EAN13 code.
  *
  * @code
  * faker::commerce::EAN13() // "1234567890128"
@@ -88,7 +88,7 @@ FAKER_CXX_EXPORT std::string EAN13();
 /**
  * @brief Returns a random valid ean8 code.
  *
- * @returns Ean8 code.
+ * @returns EAN8 code.
  *
  * @code
  * faker::commerce::EAN8() // "90311017"
@@ -99,7 +99,7 @@ FAKER_CXX_EXPORT std::string EAN8();
 /**
  * @brief Returns a random valid isbn13 code.
  *
- * @returns Isbn13 code.
+ * @returns ISBN13 code.
  *
  * @code
  * faker::commerce::ISBN13() // "9781234567897"
@@ -110,7 +110,7 @@ FAKER_CXX_EXPORT std::string ISBN13();
 /**
  * @brief Returns a random valid ISBN10 code.
  *
- * @returns Isbn10 code.
+ * @returns ISBN10 code.
  *
  * @code
  * faker::commerce::ISBN10() // "0200716018"
@@ -121,7 +121,7 @@ FAKER_CXX_EXPORT std::string ISBN10();
 /**
  * @brief Returns a random payment type.
  *
- * @returns paymentType.
+ * @returns Payment type.
  *
  * @code
  * faker::commerce::paymentType() // "Credit Card"
@@ -132,7 +132,7 @@ FAKER_CXX_EXPORT std::string_view paymentType();
 /**
  * @brief Returns a random payment provider.
  *
- * @returns paymentProvider.
+ * @returns Payment provider.
  *
  * @code
  * faker::commerce::paymentProvider() // "Paypal"
@@ -143,7 +143,7 @@ FAKER_CXX_EXPORT std::string_view paymentProvider();
 /**
  * @brief Returns a random product description.
  *
- * @returns productDescription.
+ * @returns Product description.
  *
  * @code
  * faker::commerce::productDescription() // "Elevate your lifestyle with premium quality product."
@@ -154,7 +154,7 @@ FAKER_CXX_EXPORT std::string_view productDescription();
 /**
  * @brief Returns a random product category.
  *
- * @returns productCategory.
+ * @returns Product category.
  *
  * @code
  * faker::commerce::productCategory() // "Electronics"
@@ -165,7 +165,7 @@ FAKER_CXX_EXPORT std::string_view productCategory();
 /**
  * @brief Returns a random product review.
  *
- * @returns productReview.
+ * @returns Product review.
  *
  * @code
  * faker::commerce::productReview() //  "Unfortunately, it broke shortly after I started using it."
@@ -176,7 +176,7 @@ FAKER_CXX_EXPORT std::string_view productReview();
 /**
  * @brief Returns a random discount type.
  *
- * @returns discountType.
+ * @returns Discount type.
  *
  * @code
  * faker::commerce::discountType() // "percentage"
@@ -187,7 +187,7 @@ FAKER_CXX_EXPORT std::string_view discountType();
 /**
  * @brief Returns a random order status.
  *
- * @returns orderStatus.
+ * @returns Order status.
  *
  * @code
  * faker::commerce::orderStatus() // "shipped"
@@ -198,7 +198,7 @@ FAKER_CXX_EXPORT std::string_view orderStatus();
 /**
  * @brief Returns a random shipping carrier.
  *
- * @returns shipping carrier
+ * @returns Shipping carrier.
  *
  * @code
  * faker::commerce::shippingMethod() // "FedEx"

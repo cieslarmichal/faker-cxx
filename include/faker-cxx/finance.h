@@ -92,10 +92,9 @@ FAKER_CXX_EXPORT std::string amount(double min = 0, double max = 1000, Precision
                                     const std::string& symbol = "");
 
 /**
- * Generates a random IBAN.
+ * @brief Generates a random IBAN.
  *
  * @param locale The locale. Defaults to `Locale::de_DE`.
- *
  *
  * @returns IBAN.
  *
@@ -106,7 +105,7 @@ FAKER_CXX_EXPORT std::string amount(double min = 0, double max = 1000, Precision
 FAKER_CXX_EXPORT std::string iban(Locale locale = Locale::de_DE);
 
 /**
- * Generates a random BIC.
+ * @brief Generates a random BIC.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
  *
@@ -119,7 +118,7 @@ FAKER_CXX_EXPORT std::string iban(Locale locale = Locale::de_DE);
 FAKER_CXX_EXPORT std::string_view bic(Locale locale = Locale::en_US);
 
 /**
- * Generates a random account number.
+ * @brief Generates a random account number.
  *
  * @param length The length of the account number. Defaults to `8`.
  *
@@ -133,7 +132,7 @@ FAKER_CXX_EXPORT std::string_view bic(Locale locale = Locale::en_US);
 FAKER_CXX_EXPORT std::string accountNumber(unsigned length = 8);
 
 /**
- * Generates a random PIN number.
+ * @brief Generates a random PIN number.
  *
  * @param length The length of the PIN to generate. Defaults to `4`.
  *
@@ -147,7 +146,7 @@ FAKER_CXX_EXPORT std::string accountNumber(unsigned length = 8);
 FAKER_CXX_EXPORT std::string pin(unsigned length = 4);
 
 /**
- * Generates a random routing number.
+ * @brief Generates a random routing number.
  *
  * @returns Routing number.
  *
@@ -166,7 +165,7 @@ enum class CreditCardType
 };
 
 /**
- * Generates a random credit card number.
+ * @brief Generates a random credit card number.
  *
  * @param creditCardType The type of the credit card. Defaults to `CreditCardType::Visa`.
  *
@@ -179,7 +178,7 @@ enum class CreditCardType
 FAKER_CXX_EXPORT std::string creditCardNumber(CreditCardType creditCardType = CreditCardType::Visa);
 
 /**
- * Generates a random credit card CVV.
+ * @brief Generates a random credit card CVV.
  *
  * @returns Credit card CVV.
  *
@@ -190,7 +189,7 @@ FAKER_CXX_EXPORT std::string creditCardNumber(CreditCardType creditCardType = Cr
 FAKER_CXX_EXPORT std::string creditCardCvv();
 
 /**
- * Generates a random bitcoin address.
+ * @brief Generates a random bitcoin address.
  *
  * @returns Bitcoin address.
  *
@@ -201,7 +200,7 @@ FAKER_CXX_EXPORT std::string creditCardCvv();
 FAKER_CXX_EXPORT std::string bitcoinAddress();
 
 /**
- * Generates a random litecoin address.
+ * @brief Generates a random litecoin address.
  *
  * @returns Litecoin address.
  *
@@ -212,7 +211,7 @@ FAKER_CXX_EXPORT std::string bitcoinAddress();
 FAKER_CXX_EXPORT std::string litecoinAddress();
 
 /**
- * Generates a random ethereum address.
+ * @brief Generates a random ethereum address.
  *
  * @returns Ethereum address.
  *
@@ -223,7 +222,7 @@ FAKER_CXX_EXPORT std::string litecoinAddress();
 FAKER_CXX_EXPORT std::string ethereumAddress();
 
 /**
- * Generates a random expiration date.
+ * @brief Generates a random expiration date.
  *
  * @returns std::string date.
  *
@@ -234,7 +233,7 @@ FAKER_CXX_EXPORT std::string ethereumAddress();
 FAKER_CXX_EXPORT std::string creditCardExpirationDate();
 
 /**
- * Generates a random credit card type.
+ * @brief Generates a random credit card type.
  *
  * @returns std::string creditCardType.
  *

@@ -6,7 +6,6 @@
 
 namespace faker::esport
 {
-
 /**
  * @brief Returns a random player name.
  *

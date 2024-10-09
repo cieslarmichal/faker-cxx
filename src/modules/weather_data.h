@@ -25,21 +25,21 @@ const auto enUSWeatherDescriptions = std::to_array<std::string_view>({
 });
 
 const auto svSEWeatherDescriptions = std::to_array<std::string_view>({
-    "dimma",    // fog
-    "regn", // rain
-    "snö", // snow
-    "sol", // sun
-    "vind", // wind
-    "is", // ice
-    "storm", // storm
-    "vinter", // winter
-    "kallt", // cold
+    "dimma",     // fog
+    "regn",      // rain
+    "snö",       // snow
+    "sol",       // sun
+    "vind",      // wind
+    "is",        // ice
+    "storm",     // storm
+    "vinter",    // winter
+    "kallt",     // cold
     "snöflinga", // snow flake
-    "snöstorm", // blizzard
-    "sommar", // summer
-    "vår", // spring
-    "skurar", // showers
-    "höst", // fall/autumn
+    "snöstorm",  // blizzard
+    "sommar",    // summer
+    "vår",       // spring
+    "skurar",    // showers
+    "höst",      // fall/autumn
 });
 
 const auto csCZWeatherDescriptions = std::to_array<std::string_view>({
@@ -127,5 +127,3 @@ const auto fiFIWeatherDescriptions = std::to_array<std::string_view>({
 });
 
 }
-
-

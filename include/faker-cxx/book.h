@@ -23,6 +23,8 @@ FAKER_CXX_EXPORT std::string_view title(Locale locale = Locale::en_US);
 /**
  * @brief Returns a random book genre.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Book genre.
  *
  * @code
@@ -33,6 +35,8 @@ FAKER_CXX_EXPORT std::string_view genre(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random book author.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Book author.
  *
@@ -45,6 +49,8 @@ FAKER_CXX_EXPORT std::string_view author(Locale locale = Locale::en_US);
 /**
  * @brief Returns a random book publisher.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Book publisher.
  *
  * @code
@@ -56,6 +62,8 @@ FAKER_CXX_EXPORT std::string_view publisher(Locale locale = Locale::en_US);
 /**
  * @brief Returns format of book
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns BookFormat format of book
  *
  * @code
@@ -66,6 +74,8 @@ FAKER_CXX_EXPORT std::string_view format(Locale locale = Locale::en_US);
 
 /**
  * @brief returns a random book series
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns std::string_view book series
  *
