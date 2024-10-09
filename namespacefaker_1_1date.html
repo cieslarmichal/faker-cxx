@@ -178,9 +178,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a7e2cad9ad72aaa9dace5ba1c60f9133b" id="r_a7e2cad9ad72aaa9dace5ba1c60f9133b"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">between</a> (int64_t from, int64_t to, <a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5a">DateFormat</a> dateFormat=<a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">DateFormat::ISO</a>)</td></tr>
 <tr class="memdesc:a7e2cad9ad72aaa9dace5ba1c60f9133b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random date between two given Unix timestamps.  <br /></td></tr>
 <tr class="separator:a7e2cad9ad72aaa9dace5ba1c60f9133b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8272f4e246f85967ff4aa721d0e698c" id="r_ac8272f4e246f85967ff4aa721d0e698c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac8272f4e246f85967ff4aa721d0e698c">between</a> (std::string from, std::string to, <a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5a">DateFormat</a> dateFormat)</td></tr>
-<tr class="memdesc:ac8272f4e246f85967ff4aa721d0e698c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random date between two given ISO date strings.  <br /></td></tr>
-<tr class="separator:ac8272f4e246f85967ff4aa721d0e698c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa49db61a94abcad0690bcd364f1387ad" id="r_aa49db61a94abcad0690bcd364f1387ad"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa49db61a94abcad0690bcd364f1387ad">between</a> (const std::string &amp;from, const std::string &amp;to, <a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5a">DateFormat</a> dateFormat)</td></tr>
+<tr class="memdesc:aa49db61a94abcad0690bcd364f1387ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random date between two given ISO date strings.  <br /></td></tr>
+<tr class="separator:aa49db61a94abcad0690bcd364f1387ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="a0a1ec9647c68eb08f4f47d162a424c5a" name="a0a1ec9647c68eb08f4f47d162a424c5a"></a>
@@ -226,6 +226,12 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Generates a random date between UNIX epoch and 200 years from now. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date. Defaults to `DateFormat<a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">ISO</a>`.</td></tr>
+  </table>
+  </dd>
+</dl>
 <dl class="section return"><dt>Returns</dt><dd>ISO formatted string.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a5dc1f369f2d02cb7d9f1314f06bbd4d4">faker::date::anytime</a>() <span class="comment">// &quot;2023-12-08T19:31:32Z&quot;</span></div>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::date::<a class="code hl_function" href="#a5dc1f369f2d02cb7d9f1314f06bbd4d4">anytime</a>(<a class="code hl_enumeration" href="#a0a1ec9647c68eb08f4f47d162a424c5a">DateFormat</a>::<a class="code hl_enumvalue" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">ISO</a>) <span class="comment">// &quot;2020-06-16T15:24:09Z&quot;</span></div>
@@ -238,8 +244,50 @@ Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
+<a id="aa49db61a94abcad0690bcd364f1387ad" name="aa49db61a94abcad0690bcd364f1387ad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa49db61a94abcad0690bcd364f1387ad">&#9670;&#160;</a></span>between() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::date::between </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>from</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>to</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5a">DateFormat</a></td>          <td class="paramname"><span class="paramname"><em>dateFormat</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a random date between two given ISO date strings. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">from</td><td>The starting ISO date string in the format "YYYY-MM-DDTHH:MM:SSZ". </td></tr>
+    <tr><td class="paramname">to</td><td>The ending ISO date string in the format "YYYY-MM-DDTHH:MM:SSZ". </td></tr>
+    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date, either as an ISO string or a Unix timestamp.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A string representing the random date in the specified format.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">faker::date::between</a>(<span class="stringliteral">&quot;2021-01-01T00:00:00Z&quot;</span>, <span class="stringliteral">&quot;2022-01-01T00:00:00Z&quot;</span>, <a class="code hl_enumvalue" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">DateFormat::ISO</a>); <span class="comment">// Returns a random date</span></div>
+<div class="line"><a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">between</a> Jan 1, 2021, and Jan 1, 2022, formatted as <span class="stringliteral">&quot;2021-06-15T12:34:56Z&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">faker::date::between</a>(<span class="stringliteral">&quot;2021-01-01T00:00:00Z&quot;</span>, <span class="stringliteral">&quot;2022-01-01T00:00:00Z&quot;</span>, <a class="code hl_enumvalue" href="#a0a1ec9647c68eb08f4f47d162a424c5aaa3d5de3eac8bb00ae86fd1a1005f1500">DateFormat::Timestamp</a>); <span class="comment">// Returns the Unix</span></div>
+<div class="line">timestamp of a random date <a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">between</a> Jan 1, 2021, and Jan 1, 2022</div>
+<div class="ttc" id="anamespacefaker_1_1date_html_a7e2cad9ad72aaa9dace5ba1c60f9133b"><div class="ttname"><a href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">faker::date::between</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string between(int64_t from, int64_t to, DateFormat dateFormat=DateFormat::ISO)</div><div class="ttdoc">Generates a random date between two given Unix timestamps.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="a7e2cad9ad72aaa9dace5ba1c60f9133b" name="a7e2cad9ad72aaa9dace5ba1c60f9133b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">&#9670;&#160;</a></span>between() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">&#9670;&#160;</a></span>between() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,7 +315,7 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">from</td><td>The starting Unix timestamp (seconds since the Unix epoch). </td></tr>
     <tr><td class="paramname">to</td><td>The ending Unix timestamp (seconds since the Unix epoch). </td></tr>
-    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date, either as an ISO string or a Unix timestamp. </td></tr>
+    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date, either as an ISO string or a Unix timestamp.</td></tr>
   </table>
   </dd>
 </dl>
@@ -275,48 +323,6 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">faker::date::between</a>(1609459200, 1640995200, <a class="code hl_enumvalue" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">DateFormat::ISO</a>); <span class="comment">// Returns a random date between Jan 1, 2021, and Jan</span></div>
 <div class="line">1, 2022, formatted as <span class="stringliteral">&quot;2021-06-15T12:34:56Z&quot;</span> <a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">faker::date::between</a>(1609459200, 1640995200, <a class="code hl_enumvalue" href="#a0a1ec9647c68eb08f4f47d162a424c5aaa3d5de3eac8bb00ae86fd1a1005f1500">DateFormat::Timestamp</a>); <span class="comment">//</span></div>
 <div class="line">Returns the Unix timestamp of a random date <a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">between</a> Jan 1, 2021, and Jan 1, 2022</div>
-<div class="ttc" id="anamespacefaker_1_1date_html_a7e2cad9ad72aaa9dace5ba1c60f9133b"><div class="ttname"><a href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">faker::date::between</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string between(int64_t from, int64_t to, DateFormat dateFormat=DateFormat::ISO)</div><div class="ttdoc">Generates a random date between two given Unix timestamps.</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="ac8272f4e246f85967ff4aa721d0e698c" name="ac8272f4e246f85967ff4aa721d0e698c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8272f4e246f85967ff4aa721d0e698c">&#9670;&#160;</a></span>between() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">FAKER_CXX_EXPORT std::string faker::date::between </td>
-          <td>(</td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>from</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">std::string</td>          <td class="paramname"><span class="paramname"><em>to</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5a">DateFormat</a></td>          <td class="paramname"><span class="paramname"><em>dateFormat</em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Generates a random date between two given ISO date strings. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">from</td><td>The starting ISO date string in the format "YYYY-MM-DDTHH:MM:SSZ". </td></tr>
-    <tr><td class="paramname">to</td><td>The ending ISO date string in the format "YYYY-MM-DDTHH:MM:SSZ". </td></tr>
-    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date, either as an ISO string or a Unix timestamp. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>A string representing the random date in the specified format.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">faker::date::between</a>(<span class="stringliteral">&quot;2021-01-01T00:00:00Z&quot;</span>, <span class="stringliteral">&quot;2022-01-01T00:00:00Z&quot;</span>, <a class="code hl_enumvalue" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">DateFormat::ISO</a>); <span class="comment">// Returns a random date</span></div>
-<div class="line"><a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">between</a> Jan 1, 2021, and Jan 1, 2022, formatted as <span class="stringliteral">&quot;2021-06-15T12:34:56Z&quot;</span></div>
-<div class="line"><a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">faker::date::between</a>(<span class="stringliteral">&quot;2021-01-01T00:00:00Z&quot;</span>, <span class="stringliteral">&quot;2022-01-01T00:00:00Z&quot;</span>, <a class="code hl_enumvalue" href="#a0a1ec9647c68eb08f4f47d162a424c5aaa3d5de3eac8bb00ae86fd1a1005f1500">DateFormat::Timestamp</a>); <span class="comment">// Returns the Unix</span></div>
-<div class="line">timestamp of a random date <a class="code hl_function" href="#a7e2cad9ad72aaa9dace5ba1c60f9133b">between</a> Jan 1, 2021, and Jan 1, 2022</div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -348,7 +354,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">minAge</td><td>The minimum age to generate a birthdate. Defaults to `18`. </td></tr>
-    <tr><td class="paramname">maxAge</td><td>The maximum age to generate a birthdate. Defaults to `80`.</td></tr>
+    <tr><td class="paramname">maxAge</td><td>The maximum age to generate a birthdate. Defaults to `80`. </td></tr>
+    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date. Defaults to `DateFormat<a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">ISO</a>`.</td></tr>
   </table>
   </dd>
 </dl>
@@ -389,7 +396,8 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">minYear</td><td>The minimum year to generate a birthdate. Defaults to `1920`. </td></tr>
-    <tr><td class="paramname">maxYear</td><td>The maximum year to generate a birthdate. Defaults to `2000`.</td></tr>
+    <tr><td class="paramname">maxYear</td><td>The maximum year to generate a birthdate. Defaults to `2000`. </td></tr>
+    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date. Defaults to `DateFormat<a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">ISO</a>`.</td></tr>
   </table>
   </dd>
 </dl>
@@ -418,7 +426,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns random day of month. </p>
-<dl class="section return"><dt>Returns</dt><dd>A random day of month</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A random day of month.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a2f69901ef0b2b4882da4b46a971218cc">faker::date::dayOfMonth</a>() <span class="comment">// 15</span></div>
 <div class="ttc" id="anamespacefaker_1_1date_html_a2f69901ef0b2b4882da4b46a971218cc"><div class="ttname"><a href="#a2f69901ef0b2b4882da4b46a971218cc">faker::date::dayOfMonth</a></div><div class="ttdeci">FAKER_CXX_EXPORT unsigned dayOfMonth()</div><div class="ttdoc">Returns random day of month.</div></div>
 </div><!-- fragment --> 
@@ -440,7 +448,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns random day of week. </p>
-<dl class="section return"><dt>Returns</dt><dd>A random day of week</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A random day of week.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a845e23281b58f0068e14c225cb90afd9">faker::date::dayOfWeek</a>() <span class="comment">// 5</span></div>
 <div class="ttc" id="anamespacefaker_1_1date_html_a845e23281b58f0068e14c225cb90afd9"><div class="ttname"><a href="#a845e23281b58f0068e14c225cb90afd9">faker::date::dayOfWeek</a></div><div class="ttdeci">FAKER_CXX_EXPORT unsigned dayOfWeek()</div><div class="ttdoc">Returns random day of week.</div></div>
 </div><!-- fragment --> 
@@ -468,7 +476,8 @@ Functions</h2></td></tr>
 <p>Generates a random date in the future. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">years</td><td>The range of years the date may be in the future. Defaults to `1`.</td></tr>
+    <tr><td class="paramname">years</td><td>The range of years the date may be in the future. Defaults to `1`. </td></tr>
+    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date. Defaults to `DateFormat<a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">ISO</a>`.</td></tr>
   </table>
   </dd>
 </dl>
@@ -497,7 +506,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns random hour. </p>
-<dl class="section return"><dt>Returns</dt><dd>A random month</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A random month.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a0c4ce65b05670d9bca85c5ed06c2a80e">faker::date::hour</a>() <span class="comment">// 21</span></div>
 <div class="ttc" id="anamespacefaker_1_1date_html_a0c4ce65b05670d9bca85c5ed06c2a80e"><div class="ttname"><a href="#a0c4ce65b05670d9bca85c5ed06c2a80e">faker::date::hour</a></div><div class="ttdeci">FAKER_CXX_EXPORT unsigned hour()</div><div class="ttdoc">Returns random hour.</div></div>
 </div><!-- fragment --> 
@@ -519,7 +528,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns random minute. </p>
-<dl class="section return"><dt>Returns</dt><dd>A random minute</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A random minute.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a49644833493f4599027c7d332e04e26d">faker::date::minute</a>() <span class="comment">// 40</span></div>
 <div class="ttc" id="anamespacefaker_1_1date_html_a49644833493f4599027c7d332e04e26d"><div class="ttname"><a href="#a49644833493f4599027c7d332e04e26d">faker::date::minute</a></div><div class="ttdeci">FAKER_CXX_EXPORT unsigned minute()</div><div class="ttdoc">Returns random minute.</div></div>
 </div><!-- fragment --> 
@@ -541,7 +550,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns random month. </p>
-<dl class="section return"><dt>Returns</dt><dd>A random month</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A random month.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#aebfe1d2284e37ee6b434694b976bf120">faker::date::month</a>() <span class="comment">// 9</span></div>
 <div class="ttc" id="anamespacefaker_1_1date_html_aebfe1d2284e37ee6b434694b976bf120"><div class="ttname"><a href="#aebfe1d2284e37ee6b434694b976bf120">faker::date::month</a></div><div class="ttdeci">FAKER_CXX_EXPORT unsigned month()</div><div class="ttdoc">Returns random month.</div></div>
 </div><!-- fragment --> 
@@ -613,7 +622,8 @@ Functions</h2></td></tr>
 <p>Generates a random date in the past. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">years</td><td>The range of years the date may be in the past. Defaults to `1`.</td></tr>
+    <tr><td class="paramname">years</td><td>The range of years the date may be in the past. Defaults to `1`. </td></tr>
+    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date. Defaults to `DateFormat<a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">ISO</a>`.</td></tr>
   </table>
   </dd>
 </dl>
@@ -648,7 +658,8 @@ Functions</h2></td></tr>
 <p>Generates a random date in the recent past. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">days</td><td>The range of days the date may be in the past. Defaults to `3`.</td></tr>
+    <tr><td class="paramname">days</td><td>The range of days the date may be in the past. Defaults to `3`. </td></tr>
+    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date. Defaults to `DateFormat<a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">ISO</a>`.</td></tr>
   </table>
   </dd>
 </dl>
@@ -677,7 +688,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns random second. </p>
-<dl class="section return"><dt>Returns</dt><dd>A random second</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A random second.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#aea16f01309c7b8134454035b8bf88617">faker::date::second</a>() <span class="comment">// 40</span></div>
 <div class="ttc" id="anamespacefaker_1_1date_html_aea16f01309c7b8134454035b8bf88617"><div class="ttname"><a href="#aea16f01309c7b8134454035b8bf88617">faker::date::second</a></div><div class="ttdeci">FAKER_CXX_EXPORT unsigned second()</div><div class="ttdoc">Returns random second.</div></div>
 </div><!-- fragment --> 
@@ -705,7 +716,8 @@ Functions</h2></td></tr>
 <p>Generates a random date in the soon future. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">days</td><td>The range of days the date may be in the future. Defaults to `3`.</td></tr>
+    <tr><td class="paramname">days</td><td>The range of days the date may be in the future. Defaults to `3`. </td></tr>
+    <tr><td class="paramname">dateFormat</td><td>Specifies the format of the output date. Defaults to `DateFormat<a class="el" href="#a0a1ec9647c68eb08f4f47d162a424c5aa5b512ee8a59deb284ad0a6a035ba10b1">ISO</a>`.</td></tr>
   </table>
   </dd>
 </dl>
@@ -734,7 +746,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns random time string. </p>
-<dl class="section return"><dt>Returns</dt><dd>A random time string</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A random time string.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a10f6e0dcbe0cb97b26f1f0df9adf5a4c">faker::date::time</a>() <span class="comment">// 21:40</span></div>
 <div class="ttc" id="anamespacefaker_1_1date_html_a10f6e0dcbe0cb97b26f1f0df9adf5a4c"><div class="ttname"><a href="#a10f6e0dcbe0cb97b26f1f0df9adf5a4c">faker::date::time</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string time()</div><div class="ttdoc">Returns random time string.</div></div>
 </div><!-- fragment --> 
@@ -756,7 +768,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns random timezone. </p>
-<dl class="section return"><dt>Returns</dt><dd>A random timezone</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A random timezone.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a3b64cd681a80d13f373ae79958c72113">faker::date::timezoneRandom</a>() <span class="comment">// PT</span></div>
 <div class="ttc" id="anamespacefaker_1_1date_html_a3b64cd681a80d13f373ae79958c72113"><div class="ttname"><a href="#a3b64cd681a80d13f373ae79958c72113">faker::date::timezoneRandom</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view timezoneRandom()</div><div class="ttdoc">Returns random timezone.</div></div>
 </div><!-- fragment --> 
@@ -822,7 +834,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Returns random year. </p>
-<dl class="section return"><dt>Returns</dt><dd>A random year</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>A random year.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a768e70b0a52f6ccd31ba84b33167b975">faker::date::year</a>() <span class="comment">// 2000</span></div>
 <div class="ttc" id="anamespacefaker_1_1date_html_a768e70b0a52f6ccd31ba84b33167b975"><div class="ttname"><a href="#a768e70b0a52f6ccd31ba84b33167b975">faker::date::year</a></div><div class="ttdeci">FAKER_CXX_EXPORT unsigned year()</div><div class="ttdoc">Returns random year.</div></div>
 </div><!-- fragment --> 

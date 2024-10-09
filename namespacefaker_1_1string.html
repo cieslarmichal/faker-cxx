@@ -187,7 +187,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>A std::map where user can specify the count required for specific chars </p>
+<p>Specify the count required for specific chars </p>
 
 </div>
 </div>
@@ -475,13 +475,13 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Generates the least required string for a given guarantee map. </p>
-<dl class="section return"><dt>Returns</dt><dd>least required std::string</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">guarantee</td><td>A std::map&lt;char,CharCount&gt; which stores the guarantee specified by the user</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>Least required std::string.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> guarantee { {<span class="charliteral">&#39;0&#39;</span>,{3,10}},{<span class="charliteral">&#39;a&#39;</span>,{6,8}} }; <span class="comment">// &quot;000aaaaaa&quot;</span></div>
 <div class="line"><a class="code hl_function" href="#a5f7f456ce960ac5d9407c805144b3943">faker::string::generateAtLeastString</a>(guarantee);</div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a5f7f456ce960ac5d9407c805144b3943"><div class="ttname"><a href="#a5f7f456ce960ac5d9407c805144b3943">faker::string::generateAtLeastString</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap &amp;guarantee)</div><div class="ttdoc">Generates the least required string for a given guarantee map.</div></div>
@@ -514,7 +514,6 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Checks if the given guarantee map is valid for given targetCharacters and length. </p>
-<dl class="section return"><dt>Returns</dt><dd>a bool.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">guarantee</td><td>A std::map that maps the count range of specific characters required </td></tr>
@@ -523,6 +522,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>A bool.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> guarantee = {{<span class="charliteral">&#39;0&#39;</span>,{5,10}},{<span class="charliteral">&#39;1&#39;</span>,{6,10}}};</div>
 <div class="line">std::string targetCharacters = <span class="stringliteral">&quot;01&quot;</span>;</div>
 <div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length = 10;</div>
@@ -747,13 +747,13 @@ template&lt;typename T  = std::mt19937&gt; </div>
 </div><div class="memdoc">
 
 <p>Generates an Universally Unique Identifier with version 4. </p>
-<dl class="section return"><dt>Returns</dt><dd>UUIDv4.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">gen</td><td>A random number generator (type <a class="el" href="classfaker_1_1RandomGenerator.html">RandomGenerator</a>)</td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>UUID v4.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a335d7aad191429aa88bed20818881d95">faker::string::uuid</a>() <span class="comment">// &quot;27666229-cedb-4a45-8018-98b1e1d921e2&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a335d7aad191429aa88bed20818881d95"><div class="ttname"><a href="#a335d7aad191429aa88bed20818881d95">faker::string::uuid</a></div><div class="ttdeci">std::string uuid(RandomGenerator&lt; T &gt; gen=RandomGenerator&lt; std::mt19937 &gt;{})</div><div class="ttdoc">Generates an Universally Unique Identifier with version 4.</div><div class="ttdef"><b>Definition</b> string.h:77</div></div>
 </div><!-- fragment --> 

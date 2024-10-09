@@ -529,7 +529,7 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a40ee9376026f9017e3dcc90a8f53b7bc">faker::internet::emoji</a>() <span class="comment">// &quot;👑&quot;</span></div>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::internet::<a class="code hl_function" href="#a40ee9376026f9017e3dcc90a8f53b7bc">emoji</a>(<a class="code hl_enumeration" href="#ab1fd12c6089e1eb7e783223be1b73ac1">EmojiType</a>::<a class="code hl_enumvalue" href="#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">Food</a>) <span class="comment">// &quot;🍕&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_a40ee9376026f9017e3dcc90a8f53b7bc"><div class="ttname"><a href="#a40ee9376026f9017e3dcc90a8f53b7bc">faker::internet::emoji</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view emoji(std::optional&lt; EmojiType &gt; type=std::nullopt)</div><div class="ttdoc">Returns a random emoji.</div></div>
-<div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1">faker::internet::EmojiType</a></div><div class="ttdeci">EmojiType</div><div class="ttdef"><b>Definition</b> internet.h:115</div></div>
+<div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1">faker::internet::EmojiType</a></div><div class="ttdeci">EmojiType</div><div class="ttdef"><b>Definition</b> internet.h:117</div></div>
 <div class="ttc" id="anamespacefaker_1_1internet_html_ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67"><div class="ttname"><a href="#ab1fd12c6089e1eb7e783223be1b73ac1a0a38e7286ebbb560354992b3ce62be67">faker::internet::EmojiType::Food</a></div><div class="ttdeci">@ Food</div></div>
 </div><!-- fragment --> 
 </div>
@@ -820,7 +820,8 @@ Functions</h2></td></tr>
 <p>Generates a random password-like string. Do not use this method for generating actual passwords for users. Since the source of the randomness is not cryptographically secure, neither is this generator. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">length</td><td>The length of the password to generate. Defaults to `16`.</td></tr>
+    <tr><td class="paramname">length</td><td>The length of the password to generate. Defaults to `16`. </td></tr>
+    <tr><td class="paramname">options</td><td>The optional password options to use. Options include whether to include upperLetters, lowerLetters, numbers and symbols in password generation. Defaults to include all.</td></tr>
   </table>
   </dd>
 </dl>

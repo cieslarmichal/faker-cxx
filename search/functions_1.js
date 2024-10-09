@@ -1,7 +1,7 @@
 var searchData=
 [
   ['bear_0',['bear',['../namespacefaker_1_1animal.html#a1ef73aba70cae19b9c641358f98aa95e',1,'faker::animal']]],
-  ['between_1',['between',['../namespacefaker_1_1date.html#a7e2cad9ad72aaa9dace5ba1c60f9133b',1,'faker::date::between(int64_t from, int64_t to, DateFormat dateFormat=DateFormat::ISO)'],['../namespacefaker_1_1date.html#ac8272f4e246f85967ff4aa721d0e698c',1,'faker::date::between(std::string from, std::string to, DateFormat dateFormat)']]],
+  ['between_1',['between',['../namespacefaker_1_1date.html#a7e2cad9ad72aaa9dace5ba1c60f9133b',1,'faker::date::between(int64_t from, int64_t to, DateFormat dateFormat=DateFormat::ISO)'],['../namespacefaker_1_1date.html#aa49db61a94abcad0690bcd364f1387ad',1,'faker::date::between(const std::string &amp;from, const std::string &amp;to, DateFormat dateFormat)']]],
   ['bic_2',['bic',['../namespacefaker_1_1finance.html#a77c1b40489bdb3a8ef0280d7ca336370',1,'faker::finance']]],
   ['bicycle_3',['bicycle',['../namespacefaker_1_1vehicle.html#aa3b8bc66a3207bea4752ff66625b352f',1,'faker::vehicle']]],
   ['binary_4',['binary',['../namespacefaker_1_1number.html#ac0e51691e8098437c3aeebf66d35c4d0',1,'faker::number::binary(int length=1)'],['../namespacefaker_1_1number.html#a46669288c05a8291ecc61c658cb39014',1,'faker::number::binary(int min, int max)']]],

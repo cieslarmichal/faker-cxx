@@ -121,29 +121,26 @@ $(function(){initNavTree('git_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>};</div>
 </div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9a">BranchIssueNum</a>;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="namespacefaker_1_1git.html#aa20a779d8d85590d75a8cdddf217535d">   29</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1git.html#aa20a779d8d85590d75a8cdddf217535d">branch</a>(std::optional&lt;BranchIssueNum&gt; issueNum = std::nullopt, <span class="keywordtype">unsigned</span> maxIssueNum = 100);</div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="namespacefaker_1_1git.html#aa2e2ae5d68f8df30fbc31156c54f9778">   41</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1git.html#aa2e2ae5d68f8df30fbc31156c54f9778">commitDate</a>(<span class="keywordtype">unsigned</span> years = 15);</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1git.html#a9f76b8769b69206736029c44d92a5b4e">commitEntry</a>(std::optional&lt;unsigned&gt; dateYears = std::nullopt,</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>                                         std::optional&lt;unsigned&gt; shaLength = std::nullopt,</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>                                         Locale locale = Locale::en_US);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span> </div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1git.html#a309bf5a4ba8173045c751f3509494f94">commitMessage</a>();</div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="foldopen" id="foldopen00085" data-start="{" data-end="};">
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno"><a class="line" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9a">   85</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1git.html#a436a7fdcdcca81c208bbca7da97af168">commitSha</a>(<span class="keywordtype">unsigned</span> length = 40);</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span> </div>
-<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9a">BranchIssueNum</a></div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>{</div>
-<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_enumvalue" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9aab162deffe9bd54c097c31fa349290397">WithoutIssueNumber</a>,</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="};">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9a">   17</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9a">BranchIssueNum</a></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9aab162deffe9bd54c097c31fa349290397">WithoutIssueNumber</a>,</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <a class="code hl_enumvalue" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9aa69b2d00d9e6a206240d1e577693b3830">WithIssueNumber</a>,</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>};</div>
 </div>
-<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    <a class="code hl_enumvalue" href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9aa69b2d00d9e6a206240d1e577693b3830">WithIssueNumber</a>,</div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>};</div>
-<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span> </div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>}</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno"><a class="line" href="namespacefaker_1_1git.html#aa20a779d8d85590d75a8cdddf217535d">   35</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1git.html#aa20a779d8d85590d75a8cdddf217535d">branch</a>(std::optional&lt;BranchIssueNum&gt; issueNum = std::nullopt, <span class="keywordtype">unsigned</span> maxIssueNum = 100);</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno"><a class="line" href="namespacefaker_1_1git.html#aa2e2ae5d68f8df30fbc31156c54f9778">   48</a></span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1git.html#aa2e2ae5d68f8df30fbc31156c54f9778">commitDate</a>(<span class="keywordtype">unsigned</span> years = 15);</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1git.html#a9f76b8769b69206736029c44d92a5b4e">commitEntry</a>(std::optional&lt;unsigned&gt; dateYears = std::nullopt,</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>                                         std::optional&lt;unsigned&gt; shaLength = std::nullopt,</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>                                         Locale locale = Locale::en_US);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1git.html#a309bf5a4ba8173045c751f3509494f94">commitMessage</a>();</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span> </div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>FAKER_CXX_EXPORT std::string <a class="code hl_function" href="namespacefaker_1_1git.html#a436a7fdcdcca81c208bbca7da97af168">commitSha</a>(<span class="keywordtype">unsigned</span> length = 40);</div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>}</div>
 </div>
 <div class="ttc" id="anamespacefaker_1_1git_html"><div class="ttname"><a href="namespacefaker_1_1git.html">faker::git</a></div><div class="ttdef"><b>Definition</b> git.h:10</div></div>
 <div class="ttc" id="anamespacefaker_1_1git_html_a309bf5a4ba8173045c751f3509494f94"><div class="ttname"><a href="namespacefaker_1_1git.html#a309bf5a4ba8173045c751f3509494f94">faker::git::commitMessage</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string commitMessage()</div><div class="ttdoc">Generates a random commit message.</div></div>
@@ -151,7 +148,7 @@ $(function(){initNavTree('git_8h_source.html',''); initResizable(true); });
 <div class="ttc" id="anamespacefaker_1_1git_html_a9f76b8769b69206736029c44d92a5b4e"><div class="ttname"><a href="namespacefaker_1_1git.html#a9f76b8769b69206736029c44d92a5b4e">faker::git::commitEntry</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string commitEntry(std::optional&lt; unsigned &gt; dateYears=std::nullopt, std::optional&lt; unsigned &gt; shaLength=std::nullopt, Locale locale=Locale::en_US)</div><div class="ttdoc">Generates a random commit entry in form of string.</div></div>
 <div class="ttc" id="anamespacefaker_1_1git_html_aa20a779d8d85590d75a8cdddf217535d"><div class="ttname"><a href="namespacefaker_1_1git.html#aa20a779d8d85590d75a8cdddf217535d">faker::git::branch</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string branch(std::optional&lt; BranchIssueNum &gt; issueNum=std::nullopt, unsigned maxIssueNum=100)</div><div class="ttdoc">Returns a random branch name.</div></div>
 <div class="ttc" id="anamespacefaker_1_1git_html_aa2e2ae5d68f8df30fbc31156c54f9778"><div class="ttname"><a href="namespacefaker_1_1git.html#aa2e2ae5d68f8df30fbc31156c54f9778">faker::git::commitDate</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string commitDate(unsigned years=15)</div><div class="ttdoc">Generates a random date in form of string.</div></div>
-<div class="ttc" id="anamespacefaker_1_1git_html_af0da7c5c5fa0349172d07c1f103cbf9a"><div class="ttname"><a href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9a">faker::git::BranchIssueNum</a></div><div class="ttdeci">BranchIssueNum</div><div class="ttdef"><b>Definition</b> git.h:86</div></div>
+<div class="ttc" id="anamespacefaker_1_1git_html_af0da7c5c5fa0349172d07c1f103cbf9a"><div class="ttname"><a href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9a">faker::git::BranchIssueNum</a></div><div class="ttdeci">BranchIssueNum</div><div class="ttdef"><b>Definition</b> git.h:18</div></div>
 <div class="ttc" id="anamespacefaker_1_1git_html_af0da7c5c5fa0349172d07c1f103cbf9aa69b2d00d9e6a206240d1e577693b3830"><div class="ttname"><a href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9aa69b2d00d9e6a206240d1e577693b3830">faker::git::BranchIssueNum::WithIssueNumber</a></div><div class="ttdeci">@ WithIssueNumber</div></div>
 <div class="ttc" id="anamespacefaker_1_1git_html_af0da7c5c5fa0349172d07c1f103cbf9aab162deffe9bd54c097c31fa349290397"><div class="ttname"><a href="namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9aab162deffe9bd54c097c31fa349290397">faker::git::BranchIssueNum::WithoutIssueNumber</a></div><div class="ttdeci">@ WithoutIssueNumber</div></div>
 <div class="ttc" id="astructfaker_1_1git_1_1Author_html"><div class="ttname"><a href="structfaker_1_1git_1_1Author.html">faker::git::Author</a></div><div class="ttdef"><b>Definition</b> git.h:12</div></div>

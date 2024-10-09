@@ -7,7 +7,7 @@ var location_8h =
     [ "direction", "location_8h.html#ad7add8bde67bede1c36d3834cb7fc463", null ],
     [ "latitude", "location_8h.html#a6f11c5eeb8a4a61c0bb36cc98fe93e06", null ],
     [ "longitude", "location_8h.html#a516e1c44a2c518d20eac0f95b664b04c", null ],
-    [ "nearbyGPSCoordinate", "location_8h.html#a7de4c946bda82f1f69ea65eab63c7af6", null ],
+    [ "nearbyGPSCoordinate", "location_8h.html#aec3a748ec5f78c07a12ff697eaecf8c4", null ],
     [ "secondaryAddress", "location_8h.html#a3acf868202afaa718b765dd652cde1d7", null ],
     [ "state", "location_8h.html#a3a5b7f7eefe439f9a755f29c10375dab", null ],
     [ "street", "location_8h.html#a6aedc0defdd1f3f7325c38c79968a84f", null ],

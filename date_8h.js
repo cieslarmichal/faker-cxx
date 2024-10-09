@@ -5,8 +5,8 @@ var date_8h =
       [ "Timestamp", "date_8h.html#a0a1ec9647c68eb08f4f47d162a424c5aaa3d5de3eac8bb00ae86fd1a1005f1500", null ]
     ] ],
     [ "anytime", "date_8h.html#a5dc1f369f2d02cb7d9f1314f06bbd4d4", null ],
+    [ "between", "date_8h.html#aa49db61a94abcad0690bcd364f1387ad", null ],
     [ "between", "date_8h.html#a7e2cad9ad72aaa9dace5ba1c60f9133b", null ],
-    [ "between", "date_8h.html#ac8272f4e246f85967ff4aa721d0e698c", null ],
     [ "birthdateByAge", "date_8h.html#a9de04d3e50ab9057ab7a92ed858a744a", null ],
     [ "birthdateByYear", "date_8h.html#a46e98c27b1c6f313b918cb64d99a5d30", null ],
     [ "dayOfMonth", "date_8h.html#a2f69901ef0b2b4882da4b46a971218cc", null ],

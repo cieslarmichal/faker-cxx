@@ -11,7 +11,7 @@ var searchData=
   ['belize_8',['Belize',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa20bca6785240fa722edb5c85d055a93d',1,'faker::phone']]],
   ['benin_9',['Benin',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9e7002d53d4db7bfad4f5cf419b0c126',1,'faker::phone']]],
   ['bermuda_10',['Bermuda',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6653bea16d7ac8a266d752e9a0176c4f',1,'faker::phone']]],
-  ['between_11',['between',['../namespacefaker_1_1date.html#a7e2cad9ad72aaa9dace5ba1c60f9133b',1,'faker::date::between(int64_t from, int64_t to, DateFormat dateFormat=DateFormat::ISO)'],['../namespacefaker_1_1date.html#ac8272f4e246f85967ff4aa721d0e698c',1,'faker::date::between(std::string from, std::string to, DateFormat dateFormat)']]],
+  ['between_11',['between',['../namespacefaker_1_1date.html#a7e2cad9ad72aaa9dace5ba1c60f9133b',1,'faker::date::between(int64_t from, int64_t to, DateFormat dateFormat=DateFormat::ISO)'],['../namespacefaker_1_1date.html#aa49db61a94abcad0690bcd364f1387ad',1,'faker::date::between(const std::string &amp;from, const std::string &amp;to, DateFormat dateFormat)']]],
   ['bhutan_12',['Bhutan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aae65a0ed0e39dd14a9e5af441efb09b37',1,'faker::phone']]],
   ['bic_13',['bic',['../namespacefaker_1_1finance.html#a77c1b40489bdb3a8ef0280d7ca336370',1,'faker::finance']]],
   ['bicycle_14',['bicycle',['../namespacefaker_1_1vehicle.html#aa3b8bc66a3207bea4752ff66625b352f',1,'faker::vehicle']]],
