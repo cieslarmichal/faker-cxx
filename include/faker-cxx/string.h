@@ -26,18 +26,18 @@ struct FAKER_CXX_EXPORT CharCount
 };
 
 /**
- * A std::map where user can specify the count required for specific chars
+ * Specify the count required for specific chars
  */
 using GuaranteeMap = std::map<char, CharCount>;
 
 /**
  * @brief Checks if the given guarantee map is valid for given targetCharacters and length.
  *
- * @returns a bool.
- *
  * @param guarantee A std::map that maps the count range of specific characters required
  * @param targetCharacters A std::string consisting of all chars available for that string generating function
  * @param length The number of characters to generate.
+ *
+ * @returns A bool.
  *
  * @code
  * GuaranteeMap guarantee = {{'0',{5,10}},{'1',{6,10}}};
@@ -49,11 +49,11 @@ using GuaranteeMap = std::map<char, CharCount>;
 FAKER_CXX_EXPORT bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length);
 
 /**
- * @brief Generates the least required string for a given guarantee map
- *
- * @returns least required std::string
+ * @brief Generates the least required string for a given guarantee map.
  *
  * @param guarantee A std::map<char,CharCount> which stores the guarantee specified by the user
+ *
+ * @returns Least required std::string.
  *
  * @code
  * GuaranteeMap guarantee { {'0',{3,10}},{'a',{6,8}} }; // "000aaaaaa"
@@ -65,9 +65,9 @@ FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap& guarantee
 /**
  * @brief Generates an Universally Unique Identifier with version 4.
  *
- * @returns UUIDv4.
- *
  * @param gen A random number generator (type RandomGenerator)
+ *
+ * @returns UUID v4.
  *
  * @code
  * faker::string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
@@ -214,7 +214,6 @@ FAKER_CXX_EXPORT std::string fromCharacters(GuaranteeMap&& guarantee, const std:
  * @param length The number of characters to generate. Defaults to `1`.
  * @param casing The casing of the characters. Defaults to `StringCasing::Mixed`.
  * @param excludeCharacters The characters to be excluded from the string to generate. Defaults to ``.
- *
  *
  * @returns Alpha string.
  *

@@ -75,6 +75,5 @@ TEST_P(VideoGameTest, shouldGenerateStudioName)
                                     { return generatedStudioName == studioName; }));
 }
 
-
 INSTANTIATE_TEST_SUITE_P(TestVideoGameByLocale, VideoGameTest, ValuesIn(locales),
                          [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });

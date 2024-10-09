@@ -16,6 +16,8 @@ enum class DateFormat
 /**
  * @brief Generates a random date between UNIX epoch and 200 years from now
  *
+ * @param dateFormat Specifies the format of the output date. Defaults to `DateFormat::ISO`.
+ *
  * @returns ISO formatted string.
  *
  * @code
@@ -30,6 +32,7 @@ FAKER_CXX_EXPORT std::string anytime(DateFormat dateFormat = DateFormat::ISO);
  * @brief Generates a random date in the past.
  *
  * @param years The range of years the date may be in the past. Defaults to `1`.
+ * @param dateFormat Specifies the format of the output date. Defaults to `DateFormat::ISO`.
  *
  * @returns ISO formatted string.
  *
@@ -46,6 +49,7 @@ FAKER_CXX_EXPORT std::string pastDate(int years = 1, DateFormat dateFormat = Dat
  * @brief Generates a random date in the future.
  *
  * @param years The range of years the date may be in the future. Defaults to `1`.
+ * @param dateFormat Specifies the format of the output date. Defaults to `DateFormat::ISO`.
  *
  * @returns ISO formatted string.
  *
@@ -62,6 +66,7 @@ FAKER_CXX_EXPORT std::string futureDate(int years = 1, DateFormat dateFormat = D
  * @brief Generates a random date in the recent past.
  *
  * @param days The range of days the date may be in the past. Defaults to `3`.
+ * @param dateFormat Specifies the format of the output date. Defaults to `DateFormat::ISO`.
  *
  * @returns ISO formatted string.
  *
@@ -78,6 +83,7 @@ FAKER_CXX_EXPORT std::string recentDate(int days = 3, DateFormat dateFormat = Da
  * @brief Generates a random date in the soon future.
  *
  * @param days The range of days the date may be in the future. Defaults to `3`.
+ * @param dateFormat Specifies the format of the output date. Defaults to `DateFormat::ISO`.
  *
  * @returns ISO formatted string.
  *
@@ -95,6 +101,7 @@ FAKER_CXX_EXPORT std::string soonDate(int days = 3, DateFormat dateFormat = Date
  *
  * @param minAge The minimum age to generate a birthdate. Defaults to `18`.
  * @param maxAge The maximum age to generate a birthdate. Defaults to `80`.
+ * @param dateFormat Specifies the format of the output date. Defaults to `DateFormat::ISO`.
  *
  * @returns ISO formatted string.
  *
@@ -112,6 +119,7 @@ FAKER_CXX_EXPORT std::string birthdateByAge(int minAge = 18, int maxAge = 80, Da
  *
  * @param minYear The minimum year to generate a birthdate. Defaults to `1920`.
  * @param maxYear The maximum year to generate a birthdate. Defaults to `2000`.
+ * @param dateFormat Specifies the format of the output date. Defaults to `DateFormat::ISO`.
  *
  * @returns ISO formatted string.
  *
@@ -172,7 +180,7 @@ FAKER_CXX_EXPORT std::string_view monthAbbreviatedName();
 /**
  * @brief Returns random year.
  *
- * @returns A random year
+ * @returns A random year.
  *
  * @code
  * faker::date::year() // 2000
@@ -183,7 +191,7 @@ FAKER_CXX_EXPORT unsigned year();
 /**
  * @brief Returns random month.
  *
- * @returns A random month
+ * @returns A random month.
  *
  * @code
  * faker::date::month() // 9
@@ -194,7 +202,7 @@ FAKER_CXX_EXPORT unsigned month();
 /**
  * @brief Returns random hour.
  *
- * @returns A random month
+ * @returns A random month.
  *
  * @code
  * faker::date::hour() // 21
@@ -205,7 +213,7 @@ FAKER_CXX_EXPORT unsigned hour();
 /**
  * @brief Returns random minute.
  *
- * @returns A random minute
+ * @returns A random minute.
  *
  * @code
  * faker::date::minute() // 40
@@ -216,7 +224,7 @@ FAKER_CXX_EXPORT unsigned minute();
 /**
  * @brief Returns random second.
  *
- * @returns A random second
+ * @returns A random second.
  *
  * @code
  * faker::date::second() // 40
@@ -227,7 +235,7 @@ FAKER_CXX_EXPORT unsigned second();
 /**
  * @brief Returns random time string.
  *
- * @returns A random time string
+ * @returns A random time string.
  *
  * @code
  * faker::date::time() // 21:40
@@ -238,7 +246,7 @@ FAKER_CXX_EXPORT std::string time();
 /**
  * @brief Returns random day of month.
  *
- * @returns A random day of month
+ * @returns A random day of month.
  *
  * @code
  * faker::date::dayOfMonth() // 15
@@ -249,7 +257,7 @@ FAKER_CXX_EXPORT unsigned dayOfMonth();
 /**
  * @brief Returns random day of week.
  *
- * @returns A random day of week
+ * @returns A random day of week.
  *
  * @code
  * faker::date::dayOfWeek() // 5
@@ -260,7 +268,7 @@ FAKER_CXX_EXPORT unsigned dayOfWeek();
 /**
  * @brief Returns random timezone.
  *
- * @returns A random timezone
+ * @returns A random timezone.
  *
  * @code
  * faker::date::timezoneRandom() // PT
@@ -274,6 +282,7 @@ FAKER_CXX_EXPORT std::string_view timezoneRandom();
  * @param from The starting Unix timestamp (seconds since the Unix epoch).
  * @param to The ending Unix timestamp (seconds since the Unix epoch).
  * @param dateFormat Specifies the format of the output date, either as an ISO string or a Unix timestamp.
+ *
  * @returns A string representing the random date in the specified format.
  *
  * @code
@@ -290,6 +299,7 @@ FAKER_CXX_EXPORT std::string between(int64_t from, int64_t to, DateFormat dateFo
  * @param from The starting ISO date string in the format "YYYY-MM-DDTHH:MM:SSZ".
  * @param to The ending ISO date string in the format "YYYY-MM-DDTHH:MM:SSZ".
  * @param dateFormat Specifies the format of the output date, either as an ISO string or a Unix timestamp.
+ *
  * @returns A string representing the random date in the specified format.
  *
  * @code
@@ -299,5 +309,5 @@ FAKER_CXX_EXPORT std::string between(int64_t from, int64_t to, DateFormat dateFo
  * timestamp of a random date between Jan 1, 2021, and Jan 1, 2022
  * @endcode
  */
-FAKER_CXX_EXPORT std::string between(std::string from, std::string to, DateFormat dateFormat);
+FAKER_CXX_EXPORT std::string between(const std::string& from, const std::string& to, DateFormat dateFormat);
 }

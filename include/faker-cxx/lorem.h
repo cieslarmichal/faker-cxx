@@ -13,9 +13,9 @@ namespace faker::lorem
  * @returns A std::vector consisting of random lorem words
  *
  * @param numberOfWords The number of elements in the vector which is returned
- * 
+ *
  * @throws std::invalid_argument if the numberOfWords is less than 0
- * 
+ *
  * @code
  * faker::lorem::wordVector(3) // "temporibus", "ipsum", "alias"
  * @endcode

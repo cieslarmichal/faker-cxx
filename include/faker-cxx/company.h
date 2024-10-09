@@ -8,9 +8,17 @@
 
 namespace faker::company
 {
-enum class CompanyNameFormat;
+enum class CompanyNameFormat
+{
+    LastNameSuffix,
+    FirstNameLastNameSuffix,
+    FirstNameLastNameJobAreaSuffix,
+};
+
 /**
  * @brief Returns a random company name.
+ *
+ * @param format The optional format of the company name.
  *
  * @returns Company name.
  *
@@ -131,10 +139,4 @@ FAKER_CXX_EXPORT std::string_view catchPhraseDescriptor();
  */
 FAKER_CXX_EXPORT std::string_view catchPhraseNoun();
 
-enum class CompanyNameFormat
-{
-    LastNameSuffix,
-    FirstNameLastNameSuffix,
-    FirstNameLastNameJobAreaSuffix,
-};
 }

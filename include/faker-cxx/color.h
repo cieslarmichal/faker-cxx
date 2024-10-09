@@ -57,7 +57,9 @@ FAKER_CXX_EXPORT std::string hex(HexCasing casing = HexCasing::Lower, HexPrefix 
  * @brief Returns an HSL color.
  *
  * @param includeAlpha Adds an alpha value to the color (HSLA). Defaults to `false`.
+ *
  * @returns HSL color formatted with hsl(X,X,X) or hsla(X,X,X,X).
+ *
  * @code
  * faker::color::hsl() // "hsl(0, 20, 100)"
  * faker::color::hsl(true) // "hsla(0, 0, 100, 0.50)"
@@ -69,7 +71,9 @@ FAKER_CXX_EXPORT std::string hsl(bool includeAlpha = false);
  * @brief Returns an LCH color.
  *
  * @param includeAlpha Adds an alpha value to the color (LCHA). Defaults to `false`.
+ *
  * @returns LCH color formatted with lch(X,X,X) or lcha(X,X,X,X).
+ *
  * @code
  * faker::color::lch() // "lch(0, 20, 100)"
  * faker::color::lch(true) // "lcha(0, 0, 100, 0.50)"
@@ -81,6 +85,7 @@ FAKER_CXX_EXPORT std::string lch(bool includeAlpha = false);
  * @brief Return a CMYK color
  *
  * @returns CMYK color formatted with cmyk(X,X,X,X)
+ *
  * @code
  * faker::color::cmyk() // "cmyk(0.72, 0.88, 0.00, 0.06)"
  * @endcode
@@ -91,6 +96,7 @@ FAKER_CXX_EXPORT std::string cmyk();
  * @brief Return a LAB color
  *
  * @returns LAB color formatted with lab(X,X,X)
+ *
  * @code
  * faker::color::lab() // "lab(98.74, 2.18, -2.35)"
  * @endcode
@@ -101,6 +107,7 @@ FAKER_CXX_EXPORT std::string lab();
  * @brief Return a HSB color
  *
  * @returns HSB color formatted with hsb(X,X,X)
+ *
  * @code
  * faker::color::hsb() // "hsb(37, 82, 50)"
  * @endcode
@@ -111,6 +118,7 @@ FAKER_CXX_EXPORT std::string hsb();
  * @brief Return a HSV color
  *
  * @returns HSV color formatted with hsv(X,X,X)
+ *
  * @code
  * faker::color::hsv() // "hsv(21, 67, 39)"
  * @endcode
@@ -121,6 +129,7 @@ FAKER_CXX_EXPORT std::string hsv();
  * @brief Return a HWB color
  *
  * @returns HWB color formatted with hwb(X,X,X)
+ *
  * @code
  * faker::color::hwb() // "hwb(34, 67, 90)"
  * @endcode
@@ -131,6 +140,7 @@ FAKER_CXX_EXPORT std::string hwb();
  * @brief Return a YUV color
  *
  * @returns YUV color formatted with yuv(X,X,X)
+ *
  * @code
  * faker::color::yuv() // "yuv(42, 234, 109)"
  * @endcode

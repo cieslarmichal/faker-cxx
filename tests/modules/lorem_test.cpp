@@ -24,17 +24,13 @@ TEST_F(LoremTest, shouldGenerateWordVector)
 
     ASSERT_EQ(generatedWords.size(), numberOfWords);
 
-    ASSERT_TRUE
-    (
-        std::ranges::all_of(generatedWords,
-        [](const std::string_view& generatedWord)
-        {
-            return std::ranges::any_of (
-            loremWords, [generatedWord](const std::string_view& loremWord)
-            {
-                return loremWord == generatedWord;
-            }); 
-        }));
+    ASSERT_TRUE(std::ranges::all_of(generatedWords,
+                                    [](const std::string_view& generatedWord)
+                                    {
+                                        return std::ranges::any_of(loremWords,
+                                                                   [generatedWord](const std::string_view& loremWord)
+                                                                   { return loremWord == generatedWord; });
+                                    }));
 }
 
 TEST_F(LoremTest, givenInvalidArguments_shouldThrowInvalidArgument)

@@ -6,7 +6,6 @@
 #include "common/format_helper.h"
 #include "company_data.h"
 #include "faker-cxx/helper.h"
-#include "faker-cxx/number.h"
 #include "faker-cxx/person.h"
 
 namespace faker::company
@@ -15,7 +14,7 @@ std::string companyName(std::optional<CompanyNameFormat> format)
 {
     CompanyNameFormat nameFormat = format ? *format : CompanyNameFormat::LastNameSuffix;
 
-    std::string companyName = "";
+    std::string companyName;
 
     switch (nameFormat)
     {

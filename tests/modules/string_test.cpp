@@ -132,10 +132,8 @@ TEST_F(StringTest, ShouldGenerateSymbolStringDefault)
 
         ASSERT_EQ(generatedSymbol.size(), 10);
 
-        ASSERT_TRUE(std::all_of(
-            generatedSymbol.begin(), generatedSymbol.end(), [](char c)
-            { return symbolCharacters.find(c) != std::string::npos; }));
-
+        ASSERT_TRUE(std::all_of(generatedSymbol.begin(), generatedSymbol.end(),
+                                [](char c) { return symbolCharacters.find(c) != std::string::npos; }));
     }
 }
 
@@ -148,9 +146,8 @@ TEST_F(StringTest, ShouldGenerateSymbolStringWithLen)
 
         ASSERT_EQ(generatedSymbol.size(), length);
 
-        ASSERT_TRUE(std::all_of(
-            generatedSymbol.begin(), generatedSymbol.end(), [](char c)
-            { return symbolCharacters.find(c) != std::string::npos; }));
+        ASSERT_TRUE(std::all_of(generatedSymbol.begin(), generatedSymbol.end(),
+                                [](char c) { return symbolCharacters.find(c) != std::string::npos; }));
     }
 }
 
@@ -163,9 +160,8 @@ TEST_F(StringTest, ShouldGenerateSymbolStringWithRange)
         ASSERT_GE(generatedSymbol.size(), 10);
         ASSERT_LE(generatedSymbol.size(), 20);
 
-        ASSERT_TRUE(std::all_of(
-            generatedSymbol.begin(), generatedSymbol.end(), [](char c)
-            { return symbolCharacters.find(c) != std::string::npos; }));
+        ASSERT_TRUE(std::all_of(generatedSymbol.begin(), generatedSymbol.end(),
+                                [](char c) { return symbolCharacters.find(c) != std::string::npos; }));
     }
 }
 

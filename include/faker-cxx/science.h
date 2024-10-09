@@ -16,7 +16,7 @@ struct FAKER_CXX_EXPORT ChemicalElement
 /**
  * @brief Returns a random chemical element from the periodic table.
  *
- * @returns ChemicalElement
+ * @returns Chemical element.
  *
  * @code
  * faker::science::chemicalElement() // Object of ChemicalElement containing info about a random element in the periodic
@@ -35,7 +35,7 @@ struct FAKER_CXX_EXPORT Unit
 /**
  * @brief Returns a unit of measurement for either distance, mass, time, temp, current.
  *
- * @returns Unit
+ * @returns Unit.
  *
  * @code
  * faker::science::unit() // Object of Unit containing info about a random unit of measurement.
@@ -46,7 +46,7 @@ FAKER_CXX_EXPORT Unit unit();
 /**
  * @brief Returns a unit of measurement for either distance.
  *
- * @returns Unit
+ * @returns Distance unit.
  *
  * @code
  * faker::science::distanceUnit() // Object of Unit containing info about a random unit of measurement used to measure
@@ -58,7 +58,7 @@ FAKER_CXX_EXPORT Unit distanceUnit();
 /**
  * @brief Returns a unit of measurement for either time.
  *
- * @returns Unit
+ * @returns Time unit.
  *
  * @code
  * faker::science::timeUnit() // Object of Unit containing info about a random unit of measurement used to measure time.
@@ -69,7 +69,7 @@ FAKER_CXX_EXPORT Unit timeUnit();
 /**
  * @brief Returns a unit of measurement for either mass.
  *
- * @returns Unit
+ * @returns Mass unit.
  *
  * @code
  * faker::science::massUnit() // Object of Unit containing info about a random unit of measurement used to measure mass.
@@ -80,7 +80,7 @@ FAKER_CXX_EXPORT Unit massUnit();
 /**
  * @brief Returns a unit of measurement for either temp.
  *
- * @returns Unit
+ * @returns Temperture unit.
  *
  * @code
  * faker::science::tempUnit() // Object of Unit containing info about a random unit of measurement used to measure temp.
@@ -91,7 +91,7 @@ FAKER_CXX_EXPORT Unit tempUnit();
 /**
  * @brief Returns a unit of measurement for either current.
  *
- * @returns Unit
+ * @returns Current unit.
  *
  * @code
  * faker::science::currentUnit() // Object of Unit containing info about a random unit of measurement used to measure

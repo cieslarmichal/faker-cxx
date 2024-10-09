@@ -14,7 +14,7 @@
 #include "location_data.h"
 
 #ifndef M_PI
-    #define M_PI 3.14159265358979323846
+#define M_PI 3.14159265358979323846
 #endif
 
 namespace faker::location
@@ -217,25 +217,22 @@ std::string_view timeZone()
     return helper::randomElement(timeZones);
 }
 
-std::tuple<std::string, std::string> nearbyGPSCoordinate(
-    Precision precision,
-    const std::tuple<double, double>& origin,
-    const double radius,
-    const bool isMetric)
+std::tuple<std::string, std::string> nearbyGPSCoordinate(Precision precision, const std::tuple<double, double>& origin,
+                                                         const double radius, const bool isMetric)
 {
     // If origin is not provided, generate a random GPS coordinate.
     if (std::get<0>(origin) == std::numeric_limits<double>::max() &&
         std::get<1>(origin) == std::numeric_limits<double>::max())
     {
-        return { latitude(precision), longitude(precision) };
+        return {latitude(precision), longitude(precision)};
     }
-    
+
     const auto angleRadians = number::decimal<double>(2 * M_PI);
 
     const auto radiusMetric = isMetric ? radius : radius * 1.60934;
     const auto distanceInKm = number::decimal<double>(radiusMetric);
 
-    constexpr auto kmPerDegree = 40000 / 360; //The distance in km per degree for earth.
+    constexpr auto kmPerDegree = 40000 / 360; // The distance in km per degree for earth.
     const auto distanceInDegree = distanceInKm / kmPerDegree;
 
     auto coordinateLatitude = std::get<0>(origin) + distanceInDegree * std::sin(angleRadians);
@@ -252,11 +249,8 @@ std::tuple<std::string, std::string> nearbyGPSCoordinate(
     // Box the longitude [-180, 180]
     coordinateLongitude = std::fmod(std::fmod(coordinateLongitude, 360.0) + 540.0, 360.0) - 180.0;
 
-    return
-    {
-        common::precisionFormat(precision, coordinateLatitude),
-        common::precisionFormat(precision, coordinateLongitude)
-    };
+    return {common::precisionFormat(precision, coordinateLatitude),
+            common::precisionFormat(precision, coordinateLongitude)};
 }
 
 }
