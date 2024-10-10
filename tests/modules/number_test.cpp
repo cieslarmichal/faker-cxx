@@ -254,3 +254,34 @@ TEST_F(NumberTest, givenMinBiggerThanMax_shouldThrowInvalidArgument)
 {
     ASSERT_THROW(binary(10, 1), std::invalid_argument);
 }
+
+TEST_F(NumberTest, givenValidRange_shouldGenerateBigIntWithinRange)
+{
+    const long min = 1000000000000000L;
+    const long max = 9999999999999999L;
+
+    const long actualRandomBigInt = bigInt(min, max).value();
+
+    ASSERT_GE(actualRandomBigInt, min);  
+    ASSERT_LE(actualRandomBigInt, max);  
+}
+
+TEST_F(NumberTest, givenNegativeRange_shouldGenerateBigIntWithinRange)
+{
+    const long min = -1000000000000000L;
+    const long max = -1L;
+
+    const long actualRandomBigInt = bigInt(min, max).value();
+
+    ASSERT_GE(actualRandomBigInt, min); 
+    ASSERT_LE(actualRandomBigInt, max);  
+}
+
+TEST_F(NumberTest, givenSameRange_shouldGenerateExactBigInt)
+{
+    const long minMax = 5000000000000000L;
+
+    const long actualRandomBigInt = bigInt(minMax, minMax).value();
+
+    ASSERT_EQ(actualRandomBigInt, minMax);  
+}
