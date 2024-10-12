@@ -14,7 +14,7 @@ struct FAKER_CXX_EXPORT Author
     std::string email;
 };
 
-enum class BranchIssueNum
+enum class BranchIssueType
 {
     WithoutIssueNumber,
     WithIssueNumber,
@@ -23,7 +23,7 @@ enum class BranchIssueNum
 /**
  * @brief Returns a random branch name.
  *
- * @param issueNum The optional issue number in branch name.
+ * @param issueType The optional branch issue type.
  * @param maxIssueNum The maximum issue number in branch name. Defaults to `100`.
  *
  * @returns Branch name.
@@ -32,7 +32,8 @@ enum class BranchIssueNum
  * faker::git::branch() // "capitalize-bus"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string branch(std::optional<BranchIssueNum> issueNum = std::nullopt, unsigned maxIssueNum = 100);
+FAKER_CXX_EXPORT std::string branch(std::optional<BranchIssueType> issueType = std::nullopt,
+                                    unsigned maxIssueNum = 100);
 
 /**
  * @brief Generates a random date in form of string.

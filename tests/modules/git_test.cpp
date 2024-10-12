@@ -50,30 +50,15 @@ TEST_F(GitTest, shouldGenerateBranch)
 
 TEST_F(GitTest, branchWithIssueNumTest)
 {
-    auto testValue = unsigned(number::integer(2, 100));
+    const auto testValue = unsigned(number::integer(2, 100));
 
-    std::vector<std::string> branchElements;
+    const auto randomBranch = branch(BranchIssueType::WithIssueNumber, testValue);
 
-    bool numberAtFront = false;
+    const auto branchElements = common::split(randomBranch, "-");
 
-    int number;
+    const auto issueNumber = std::stoi(branchElements[0]);
 
-    while (!numberAtFront)
-    {
-        branchElements = common::split(branch(BranchIssueNum::WithIssueNumber, testValue), "-");
-
-        try
-        {
-            number = std::stoi(branchElements[0]);
-            numberAtFront = true;
-        }
-        catch (...)
-        {
-            continue;
-        }
-    }
-
-    ASSERT_TRUE(1 <= number && number <= int(testValue));
+    ASSERT_TRUE(1 <= issueNumber && issueNumber <= int(testValue));
 }
 
 TEST_F(GitTest, branchWithoutIssueNumTest)
@@ -82,7 +67,7 @@ TEST_F(GitTest, branchWithoutIssueNumTest)
 
     std::vector<std::string> branchElements;
 
-    branchElements = common::split(branch(BranchIssueNum::WithoutIssueNumber, testValue), "-");
+    branchElements = common::split(branch(BranchIssueType::WithoutIssueNumber, testValue), "-");
 
     const auto& generatedVerb = branchElements[0];
     const auto& generatedNoun = branchElements[1];

@@ -14,18 +14,18 @@
 
 namespace faker::git
 {
-std::string branch(std::optional<BranchIssueNum> issueNum, unsigned maxIssueNum)
+std::string branch(std::optional<BranchIssueType> issueType, unsigned maxIssueNum)
 {
-    const auto issue = issueNum ? *issueNum : BranchIssueNum::WithIssueNumber;
+    const auto targetIssueType = issueType ? *issueType : BranchIssueType::WithIssueNumber;
 
     std::string generatedBranch;
 
-    switch (issue)
+    switch (targetIssueType)
     {
-    case BranchIssueNum::WithoutIssueNumber:
+    case BranchIssueType::WithoutIssueNumber:
         generatedBranch = common::format("{}-{}", word::verb(), word::noun());
         break;
-    case BranchIssueNum::WithIssueNumber:
+    case BranchIssueType::WithIssueNumber:
         generatedBranch = common::format("{}-{}-{}-{}", number::integer(unsigned(1), maxIssueNum), word::verb(),
                                          word::adjective(), word::noun());
         break;
