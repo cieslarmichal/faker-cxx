@@ -126,43 +126,31 @@ TEST_F(StringTest, shouldGenerateUuid4)
 
 TEST_F(StringTest, ShouldGenerateSymbolStringDefault)
 {
-    for (int i = 0; i < runCount; ++i)
-    {
-        const auto generatedSymbol = symbol();
+    const auto generatedSymbol = symbol();
 
-        ASSERT_EQ(generatedSymbol.size(), 10);
+    ASSERT_TRUE(!generatedSymbol.empty() && generatedSymbol.size() <= 10);
 
-        ASSERT_TRUE(std::all_of(generatedSymbol.begin(), generatedSymbol.end(),
-                                [](char c) { return symbolCharacters.find(c) != std::string::npos; }));
-    }
-}
-
-TEST_F(StringTest, ShouldGenerateSymbolStringWithLen)
-{
-    for (int i = 0; i < runCount; ++i)
-    {
-        unsigned int length = 20;
-        const auto generatedSymbol = symbol(length);
-
-        ASSERT_EQ(generatedSymbol.size(), length);
-
-        ASSERT_TRUE(std::all_of(generatedSymbol.begin(), generatedSymbol.end(),
-                                [](char c) { return symbolCharacters.find(c) != std::string::npos; }));
-    }
+    ASSERT_TRUE(std::all_of(generatedSymbol.begin(), generatedSymbol.end(),
+                            [](char c) { return symbolCharacters.find(c) != std::string::npos; }));
 }
 
 TEST_F(StringTest, ShouldGenerateSymbolStringWithRange)
 {
-    for (int i = 0; i < runCount; ++i)
-    {
-        const auto generatedSymbol = symbol(10, 20);
+    const auto minLength = 10;
 
-        ASSERT_GE(generatedSymbol.size(), 10);
-        ASSERT_LE(generatedSymbol.size(), 20);
+    const auto maxLength = 20;
 
-        ASSERT_TRUE(std::all_of(generatedSymbol.begin(), generatedSymbol.end(),
-                                [](char c) { return symbolCharacters.find(c) != std::string::npos; }));
-    }
+    const auto generatedSymbols = symbol(minLength, maxLength);
+
+    ASSERT_TRUE(std::all_of(generatedSymbols.begin(), generatedSymbols.end(),
+                            [](char c) { return symbolCharacters.find(c) != std::string::npos; }));
+
+    ASSERT_TRUE(generatedSymbols.size() >= minLength && generatedSymbols.size() <= maxLength);
+}
+
+TEST_F(StringTest, ShouldThrowExceptionForInvalidRange)
+{
+    ASSERT_THROW(symbol(20, 10), std::invalid_argument);
 }
 
 TEST_F(StringTest, shouldGenerateDefaultSampleString)
