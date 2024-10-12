@@ -1,7 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"video__game_8h_source.html":[3,0,0,0,36],
-"weather_8h.html":[3,0,0,0,37],
 "weather_8h.html#ad5e26b9b6328feeb6e22d64381940199":[3,0,0,0,37,0],
 "weather_8h_source.html":[3,0,0,0,37],
 "word_8h.html":[3,0,0,0,38],

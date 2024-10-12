@@ -32,5 +32,5 @@ var searchData=
   ['succulent_29',['succulent',['../namespacefaker_1_1plant.html#ab21548af4b288b15d53ca1bfd37749a9',1,'faker::plant']]],
   ['suffix_30',['suffix',['../namespacefaker_1_1person.html#a0e2a416b654fbed4272162da9148cf75',1,'faker::person']]],
   ['sugarproduct_31',['sugarProduct',['../namespacefaker_1_1food.html#a3b58938e421e79f85126d4ef3b6e4280',1,'faker::food']]],
-  ['symbol_32',['symbol',['../namespacefaker_1_1string.html#aa99c783a57a5d818de12f13510fe9a72',1,'faker::string::symbol(unsigned length=10)'],['../namespacefaker_1_1string.html#aa67e7ba8c9fc02e69036c87a73c31e7a',1,'faker::string::symbol(unsigned int minLength, unsigned int maxLength)']]]
+  ['symbol_32',['symbol',['../namespacefaker_1_1string.html#a329b6a478487c87eadb19b1f78292264',1,'faker::string']]]
 ];
