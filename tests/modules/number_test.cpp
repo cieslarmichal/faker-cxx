@@ -208,6 +208,11 @@ TEST_F(NumberTest, shouldGenerateBinary)
                                     { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
 }
 
+TEST_F(NumberTest, shouldThrowInvalidArgumentForNegativeLength)
+{
+    ASSERT_THROW(binary(-1), std::invalid_argument);
+}
+
 TEST_F(NumberTest, givenValidArguments_shouldGenerateBinaryNumberInRange)
 {
     const std::string generatedBinary = binary(1234, 1236);
