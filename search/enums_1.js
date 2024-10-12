@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['branchissuenum_0',['BranchIssueNum',['../namespacefaker_1_1git.html#af0da7c5c5fa0349172d07c1f103cbf9a',1,'faker::git']]]
+  ['branchissuetype_0',['BranchIssueType',['../namespacefaker_1_1git.html#ac2ddb80416fc5a0b517fd9d2920ad600',1,'faker::git']]]
 ];
