@@ -15,12 +15,15 @@
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Key Features](#key-features)
 - [📖 Usage and Documentation](#-usage-and-documentation)
 - [💎 Modules](#-modules)
 - [Consuming the library with CMake](#consuming-the-library-with-cmake)
-- [⚒️ Compiler support](#-compiler-support)
+- [With Git submodules and add\_library](#with-git-submodules-and-add_library)
+- [With FetchContent](#with-fetchcontent)
+- [⚒️ Compiler support](#️-compiler-support)
 - [Dependencies](#dependencies)
 - [📦 Building the library with Conan](#-building-the-library-with-conan)
 - [Installing the library with Conan](#installing-the-library-with-conan)
