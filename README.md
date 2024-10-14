@@ -1,6 +1,31 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Table of Contents](#table-of-contents)
+- [Introduction](#introduction)
+- [Key Features](#key-features)
+- [📖 Usage and Documentation](#-usage-and-documentation)
+- [💎 Modules](#-modules)
+- [Consuming the library with CMake](#consuming-the-library-with-cmake)
+- [With Git submodules and add\_library](#with-git-submodules-and-add_library)
+- [With FetchContent](#with-fetchcontent)
+- [⚒️ Compiler support](#️-compiler-support)
+- [Dependencies](#dependencies)
+- [📦 Building the library with Conan](#-building-the-library-with-conan)
+- [Installing the library with Conan](#installing-the-library-with-conan)
+- [Building the library with Bazel](#building-the-library-with-bazel)
+- [✨ Contributing](#-contributing)
+- [📘 Credits](#-credits)
+- [Examples](#examples)
+- [📝 Changelog](#-changelog)
+- [🔑 License](#-license)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 <div align="center">
   <img src="https://raw.githubusercontent.com/cieslarmichal/faker-cxx/main/docs/public/logo.png" width="250" alt="C++ Faker, a powerful tool for generating realistic and randomized fake data in C++ programming, enhancing data testing and development workflows"/>
-  <h1>Faker C++</h1>
+  <h1>Faker CPP</h1>
 
 [![clang++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/linux-clang-build.yml?query=branch%3Amain)
 [![apple clang++](https://github.com/cieslarmichal/faker-cxx/actions/workflows/macos-clang-build.yml/badge.svg?branch=main)](https://github.com/cieslarmichal/faker-cxx/actions/workflows/macos-clang-build.yml?query=branch%3Amain)
@@ -15,12 +40,15 @@
 
 ## Table of Contents
 
+- [Table of Contents](#table-of-contents)
 - [Introduction](#introduction)
 - [Key Features](#key-features)
 - [📖 Usage and Documentation](#-usage-and-documentation)
 - [💎 Modules](#-modules)
 - [Consuming the library with CMake](#consuming-the-library-with-cmake)
-- [⚒️ Compiler support](#-compiler-support)
+- [With Git submodules and add\_library](#with-git-submodules-and-add_library)
+- [With FetchContent](#with-fetchcontent)
+- [⚒️ Compiler support](#️-compiler-support)
 - [Dependencies](#dependencies)
 - [📦 Building the library with Conan](#-building-the-library-with-conan)
 - [Installing the library with Conan](#installing-the-library-with-conan)
