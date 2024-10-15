@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <map>
+#include <random>
 #include <set>
 #include <stdexcept>
 #include <string>
@@ -310,4 +311,42 @@ std::string numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowL
         return firstChar + generateStringWithGuarantee(guarantee, targetCharacters, length - 1);
     }
 }
+
+std::string nanoid(int length)
+{
+
+    if (length < 1)
+        return "";
+
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::uniform_int_distribution<> distribution(0, faker::string::nanoIdAllowedCharacters.size() - 1);
+
+    std::string id;
+    for (size_t i = 0; i < length; ++i)
+    {
+        id += faker::string::nanoIdAllowedCharacters[distribution(generator)];
+    }
+
+    return id;
+}
+
+std::string nanoid()
+{
+    return nanoid(10);
+}
+
+std::string nanoid(int minLength, int maxLength)
+{
+    if (maxLength - minLength < 1)
+        return "";
+
+    std::random_device rd;
+    std::mt19937 generator(rd());
+
+    std::uniform_int_distribution<int> distribution(minLength, maxLength);
+
+    return nanoid(distribution(generator));
+}
+
 }
