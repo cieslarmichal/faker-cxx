@@ -39,7 +39,7 @@ var searchData=
   ['slovenia_36',['Slovenia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa00247297c394dd443dc97067830c35f4',1,'faker::phone']]],
   ['slug_37',['slug',['../namespacefaker_1_1lorem.html#a083881e3fc0adfc974bfdb6d09bf8970',1,'faker::lorem']]],
   ['smiley_38',['Smiley',['../namespacefaker_1_1internet.html#ab1fd12c6089e1eb7e783223be1b73ac1a2e4f0806632f060b2f1049bb5d3a9335',1,'faker::internet']]],
-  ['snake_39',['snake',['../namespacefaker_1_1animal.html#a2ccedc3f16ba5fb6c4f5eeb2c6c054db',1,'faker::animal']]],
+  ['snake_39',['snake',['../namespacefaker_1_1animal.html#a2a04f672b03cb3348215ae80a5893aae',1,'faker::animal']]],
   ['soccerteam_40',['soccerTeam',['../namespacefaker_1_1sport.html#aa90d1438ac4295f1625b351b0c93afe4',1,'faker::sport']]],
   ['solomonislands_41',['SolomonIslands',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa33ff2c251c5d52d362efe711f911e107',1,'faker::phone']]],
   ['somalia_42',['Somalia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa921855f753932de762b780405a50bdf7',1,'faker::phone']]],

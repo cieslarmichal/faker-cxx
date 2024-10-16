@@ -54,7 +54,7 @@ var searchData=
   ['firstname_51',['firstName',['../namespacefaker_1_1person.html#a5a14917dd8ac65288d2395d26f8f4cca',1,'faker::person']]],
   ['firstnamelastnamejobareasuffix_52',['FirstNameLastNameJobAreaSuffix',['../namespacefaker_1_1company.html#a40dd6d3303b9e3274368e88e18a0f93fa9437574530e004ce673c1162e96d0486',1,'faker::company']]],
   ['firstnamelastnamesuffix_53',['FirstNameLastNameSuffix',['../namespacefaker_1_1company.html#a40dd6d3303b9e3274368e88e18a0f93fa825c4bb4c6581d910f849a1e240a16be',1,'faker::company']]],
-  ['fish_54',['fish',['../namespacefaker_1_1animal.html#acb99c0a7f282644bcf634def0242d64d',1,'faker::animal']]],
+  ['fish_54',['fish',['../namespacefaker_1_1animal.html#a32b62bef2aa60b9b08a691b65c9609f2',1,'faker::animal']]],
   ['flag_55',['Flag',['../namespacefaker_1_1internet.html#ab1fd12c6089e1eb7e783223be1b73ac1ac5836008c1649301e29351a55db8f65c',1,'faker::internet']]],
   ['flightnumber_56',['flightNumber',['../namespacefaker_1_1airline.html#af528ab7cf1d1a4578ccf79f903337b08',1,'faker::airline']]],
   ['flightnumberbyrange_57',['flightNumberByRange',['../namespacefaker_1_1airline.html#aa8b0b5cbbe6eebbd8869fdac9fc5ddc1',1,'faker::airline']]],
