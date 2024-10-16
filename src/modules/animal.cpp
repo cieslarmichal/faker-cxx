@@ -7,78 +7,119 @@
 
 namespace faker::animal
 {
-std::string_view bear()
+namespace
 {
-    return helper::randomElement(bears);
+const struct AnimalDefinition& getAnimalDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSAnimalDefinition;
+    }
+}
+}
+std::string_view bear(Locale locale)
+{
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.bears);
 }
 
-std::string_view bird()
+std::string_view bird(Locale locale)
 {
-    return helper::randomElement(birds);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.birds);
 }
 
-std::string_view cat()
+std::string_view cat(Locale locale)
 {
-    return helper::randomElement(cats);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.cats);
 }
 
-std::string_view cetacean()
+std::string_view cetacean(Locale locale)
 {
-    return helper::randomElement(cetaceans);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.cetaceans);
 }
 
-std::string_view cow()
+std::string_view cow(Locale locale)
 {
-    return helper::randomElement(cows);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.cows);
 }
 
-std::string_view crocodile()
+std::string_view crocodile(Locale locale)
 {
-    return helper::randomElement(crocodiles);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.crocodiles);
 }
 
-std::string_view dog()
+std::string_view dog(Locale locale)
 {
-    return helper::randomElement(dogs);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.dogs);
 }
 
-std::string_view fish()
+std::string_view fish(Locale locale)
 {
-    return helper::randomElement(fishes);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.fishes);
 }
 
-std::string_view horse()
+std::string_view horse(Locale locale)
 {
-    return helper::randomElement(horses);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.horses);
 }
 
-std::string_view insect()
+std::string_view insect(Locale locale)
 {
-    return helper::randomElement(insects);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.insects);
 }
 
-std::string_view lion()
+std::string_view lion(Locale locale)
 {
-    return helper::randomElement(lions);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.lions);
 }
 
-std::string_view rabbit()
+std::string_view rabbit(Locale locale)
 {
-    return helper::randomElement(rabbits);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.rabbits);
 }
 
-std::string_view rodent()
+std::string_view rodent(Locale locale)
 {
-    return helper::randomElement(rodents);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.rodents);
 }
 
-std::string_view snake()
+std::string_view snake(Locale locale)
 {
-    return helper::randomElement(snakes);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.snakes);
 }
 
-std::string_view type()
+std::string_view type(Locale locale)
 {
-    return helper::randomElement(types);
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    return helper::randomElement(animalDefinition.types);
 }
 }

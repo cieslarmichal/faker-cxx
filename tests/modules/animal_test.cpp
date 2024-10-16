@@ -7,126 +7,202 @@
 #include "faker-cxx/animal.h"
 
 using namespace ::testing;
+using namespace faker;
 using namespace faker::animal;
 
-class AnimalTest : public Test
+namespace
+{
+const struct AnimalDefinition& getAnimalDefinition(Locale locale)
+{
+    switch(locale)
+    {
+    default:
+        return enUSAnimalDefinition;
+    }
+}
+}
+
+class AnimalTest : public TestWithParam<Locale>
 {
 public:
 };
 
-TEST_F(AnimalTest, shouldGenerateBear)
+TEST_P(AnimalTest, shouldGenerateBear)
 {
-    const auto generatedBear = bear();
+    const auto locale = GetParam();
+
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedBear = bear(locale);
 
     ASSERT_TRUE(
-        std::ranges::any_of(bears, [generatedBear](const std::string_view& bear) { return bear == generatedBear; }));
+        std::ranges::any_of(animalDefinition.bears, [generatedBear](const std::string_view& bear) { return bear == generatedBear; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateBird)
+TEST_P(AnimalTest, shouldGenerateBird)
 {
-    const auto generatedBird = bird();
+    const auto locale = GetParam();
+
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedBird = bird(locale);
 
     ASSERT_TRUE(
-        std::ranges::any_of(birds, [generatedBird](const std::string_view& bird) { return bird == generatedBird; }));
+        std::ranges::any_of(animalDefinition.birds, [generatedBird](const std::string_view& bird) { return bird == generatedBird; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateCat)
+TEST_P(AnimalTest, shouldGenerateCat)
 {
-    const auto generatedCat = cat();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(cats, [generatedCat](const std::string_view& cat) { return cat == generatedCat; }));
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedCat = cat(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.cats, [generatedCat](const std::string_view& cat) { return cat == generatedCat; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateCetacean)
+TEST_P(AnimalTest, shouldGenerateCetacean)
 {
-    const auto generatedCetacean = cetacean();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(cetaceans, [generatedCetacean](const std::string_view& cetacean)
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedCetacean = cetacean(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.cetaceans, [generatedCetacean](const std::string_view& cetacean)
                                     { return cetacean == generatedCetacean; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateCow)
+TEST_P(AnimalTest, shouldGenerateCow)
 {
-    const auto generatedCow = cow();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(cows, [generatedCow](const std::string_view& cow) { return cow == generatedCow; }));
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedCow = cow(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.cows, [generatedCow](const std::string_view& cow) { return cow == generatedCow; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateCrocodile)
+TEST_P(AnimalTest, shouldGenerateCrocodile)
 {
-    const auto generatedCrocodile = crocodile();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(crocodiles, [generatedCrocodile](const std::string_view& crocodile)
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedCrocodile = crocodile(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.crocodiles, [generatedCrocodile](const std::string_view& crocodile)
                                     { return crocodile == generatedCrocodile; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateDog)
+TEST_P(AnimalTest, shouldGenerateDog)
 {
-    const auto generatedDog = dog();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(dogs, [generatedDog](const std::string_view& dog) { return dog == generatedDog; }));
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedDog = dog(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.dogs, [generatedDog](const std::string_view& dog) { return dog == generatedDog; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateFish)
+TEST_P(AnimalTest, shouldGenerateFish)
 {
-    const auto generatedFish = fish();
+    const auto locale = GetParam();
+
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedFish = fish(locale);
 
     ASSERT_TRUE(
-        std::ranges::any_of(fishes, [generatedFish](const std::string_view& fish) { return fish == generatedFish; }));
+        std::ranges::any_of(animalDefinition.fishes, [generatedFish](const std::string_view& fish) { return fish == generatedFish; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateHorse)
+TEST_P(AnimalTest, shouldGenerateHorse)
 {
-    const auto generatedHorse = horse();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(horses, [generatedHorse](const std::string_view& horse)
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedHorse = horse(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.horses, [generatedHorse](const std::string_view& horse)
                                     { return horse == generatedHorse; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateInsect)
+TEST_P(AnimalTest, shouldGenerateInsect)
 {
-    const auto generatedInsect = insect();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(insects, [generatedInsect](const std::string_view& insect)
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedInsect = insect(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.insects, [generatedInsect](const std::string_view& insect)
                                     { return insect == generatedInsect; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateLion)
+TEST_P(AnimalTest, shouldGenerateLion)
 {
-    const auto generatedLion = lion();
+    const auto locale = GetParam();
+
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedLion = lion(locale);
 
     ASSERT_TRUE(
-        std::ranges::any_of(lions, [generatedLion](const std::string_view& lion) { return lion == generatedLion; }));
+        std::ranges::any_of(animalDefinition.lions, [generatedLion](const std::string_view& lion) { return lion == generatedLion; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateRabbit)
+TEST_P(AnimalTest, shouldGenerateRabbit)
 {
-    const auto generatedRabbit = rabbit();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(rabbits, [generatedRabbit](const std::string_view& rabbit)
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedRabbit = rabbit(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.rabbits, [generatedRabbit](const std::string_view& rabbit)
                                     { return rabbit == generatedRabbit; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateRodent)
+TEST_P(AnimalTest, shouldGenerateRodent)
 {
-    const auto generatedRodent = rodent();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(rodents, [generatedRodent](const std::string_view& rodent)
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedRodent = rodent(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.rodents, [generatedRodent](const std::string_view& rodent)
                                     { return rodent == generatedRodent; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateSnake)
+TEST_P(AnimalTest, shouldGenerateSnake)
 {
-    const auto generatedSnake = snake();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(snakes, [generatedSnake](const std::string_view& snake)
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedSnake = snake(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.snakes, [generatedSnake](const std::string_view& snake)
                                     { return snake == generatedSnake; }));
 }
 
-TEST_F(AnimalTest, shouldGenerateType)
+TEST_P(AnimalTest, shouldGenerateType)
 {
-    const auto generatedType = type();
+    const auto locale = GetParam();
+
+    const auto& animalDefinition = getAnimalDefinition(locale);
+
+    const auto generatedType = type(locale);
 
     ASSERT_TRUE(
-        std::ranges::any_of(types, [generatedType](const std::string_view& type) { return type == generatedType; }));
+        std::ranges::any_of(animalDefinition.types, [generatedType](const std::string_view& type) { return type == generatedType; }));
 }
+
+INSTANTIATE_TEST_SUITE_P(TestAnimalByLocale, AnimalTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
