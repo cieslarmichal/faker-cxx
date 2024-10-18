@@ -86,3 +86,6 @@ TEST_P(EsportTest, shouldGenerateGame)
     ASSERT_TRUE(
         std::ranges::any_of(esportDefinition.games, [generatedGame](const std::string_view& game) { return generatedGame == game; }));
 }
+
+INSTANTIATE_TEST_SUITE_P(TestEsportByLocale, EsportTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
