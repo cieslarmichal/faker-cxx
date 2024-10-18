@@ -7,29 +7,51 @@
 
 namespace faker::esport
 {
-std::string_view player()
+
+namespace
 {
-    return helper::randomElement(players);
+const struct EsportDefinition& getEsportDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSEsportDefinition;
+    }
+}
 }
 
-std::string_view team()
+std::string_view player(Locale locale)
 {
-    return helper::randomElement(teams);
+    const auto& esportDefinition = getEsportDefinition(locale);
+
+    return helper::randomElement(esportDefinition.players);
 }
 
-std::string_view league()
+std::string_view team(Locale locale)
 {
-    return helper::randomElement(leagues);
+    const auto& esportDefinition = getEsportDefinition(locale);
+
+    return helper::randomElement(esportDefinition.teams);
 }
 
-std::string_view event()
+std::string_view league(Locale locale)
 {
-    return helper::randomElement(events);
+    const auto& esportDefinition = getEsportDefinition(locale);
+
+    return helper::randomElement(esportDefinition.leagues);
 }
 
-std::string_view game()
+std::string_view event(Locale locale)
 {
-    return helper::randomElement(games);
+    const auto& esportDefinition = getEsportDefinition(locale);
+
+    return helper::randomElement(esportDefinition.events);
 }
 
+std::string_view game(Locale locale)
+{
+    const auto& esportDefinition = getEsportDefinition(locale);
+
+    return helper::randomElement(esportDefinition.games);
+}
 }
