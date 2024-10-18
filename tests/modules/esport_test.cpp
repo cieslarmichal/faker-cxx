@@ -27,7 +27,7 @@ class EsportTest : public TestWithParam<Locale>
 public:
 };
 
-TEST_F(EsportTest, shouldGeneratePlayer)
+TEST_P(EsportTest, shouldGeneratePlayer)
 {
     const auto locale = GetParam();
     
@@ -39,7 +39,7 @@ TEST_F(EsportTest, shouldGeneratePlayer)
                                     { return generatedPlayer == player; }));
 }
 
-TEST_F(EsportTest, shouldGenerateTeam)
+TEST_P(EsportTest, shouldGenerateTeam)
 {
     const auto locale = GetParam();
 
@@ -51,7 +51,7 @@ TEST_F(EsportTest, shouldGenerateTeam)
         std::ranges::any_of(esportDefinition.teams, [generatedTeam](const std::string_view& team) { return generatedTeam == team; }));
 }
 
-TEST_F(EsportTest, shouldGenerateLeague)
+TEST_P(EsportTest, shouldGenerateLeague)
 {
     const auto locale = GetParam();
 
@@ -63,7 +63,7 @@ TEST_F(EsportTest, shouldGenerateLeague)
                                     { return generatedLeague == league; }));
 }
 
-TEST_F(EsportTest, shouldGenerateEvent)
+TEST_P(EsportTest, shouldGenerateEvent)
 {
     const auto locale = GetParam();
 
@@ -75,7 +75,7 @@ TEST_F(EsportTest, shouldGenerateEvent)
                                     { return generatedEvent == event; }));
 }
 
-TEST_F(EsportTest, shouldGenerateGame)
+TEST_P(EsportTest, shouldGenerateGame)
 {
     const auto locale = GetParam();
 
