@@ -132,11 +132,11 @@ var namespacefaker =
       [ "year", "namespacefaker_1_1date.html#a768e70b0a52f6ccd31ba84b33167b975", null ]
     ] ],
     [ "esport", "namespacefaker_1_1esport.html", [
-      [ "event", "namespacefaker_1_1esport.html#ab3a591effe062d25563018b79ce131ef", null ],
-      [ "game", "namespacefaker_1_1esport.html#a374455358048df05aca0dd2fba583484", null ],
-      [ "league", "namespacefaker_1_1esport.html#a8a81b7adad8fcfd6141b85de01f32fd1", null ],
-      [ "player", "namespacefaker_1_1esport.html#a07b32ae6a515b4e2092c5c9ba0ce35db", null ],
-      [ "team", "namespacefaker_1_1esport.html#a4dca21e7774514c10934c9632c17d8e2", null ]
+      [ "event", "namespacefaker_1_1esport.html#a1e5b822d6ef54df0c4247412e3bcf43c", null ],
+      [ "game", "namespacefaker_1_1esport.html#a0b40f3d14442dca8196717ad0c4da892", null ],
+      [ "league", "namespacefaker_1_1esport.html#aa9f51c64b18df35ac4cac966f3a11220", null ],
+      [ "player", "namespacefaker_1_1esport.html#a2adceb90d4e67604f06c50e532c00c60", null ],
+      [ "team", "namespacefaker_1_1esport.html#a2597e2eb1a13a224736a7fabc42da29e", null ]
     ] ],
     [ "finance", "namespacefaker_1_1finance.html", "namespacefaker_1_1finance" ],
     [ "food", "namespacefaker_1_1food.html", [
