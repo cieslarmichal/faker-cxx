@@ -5828,7 +5828,7 @@ const auto portugalStreetNames = std::to_array<std::string_view>({
     "Avenida de Paris"
 });
 
-const auto portugalStreetSuffixes = std::to_array<std::string>({
+const auto portugalStreetSuffixes = std::to_array<std::string_view>({
     "Rua",
     "Avenida",
     "Travessa",
@@ -5836,7 +5836,7 @@ const auto portugalStreetSuffixes = std::to_array<std::string>({
     "Largo",
     "Estrada",
     "Calçada"
-})
+});
 
 const std::string_view portugalZipCodeFormat{"####-###"};
 
