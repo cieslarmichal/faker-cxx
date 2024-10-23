@@ -49,16 +49,11 @@ const auto enUSEvents =
                                      "IEM"});
 
 const auto enUSGames = std::to_array<std::string_view>({"Valorant", "League Of Legend", "Rocket League", "Fifa",
-                                                    "Overwatch", "CSGO", "Fortnite", "Dota 2",
-                                                    "Street Fighter,"
-                                                    "Apex Legends",
-                                                    "TFT", "PUBG", "Call of Duty"});
+                                                        "Overwatch", "CSGO", "Fortnite", "Dota 2",
+                                                        "Street Fighter,"
+                                                        "Apex Legends",
+                                                        "TFT", "PUBG", "Call of Duty"});
 
 const EsportDefinition enUSEsportDefinition = {
-    .players = enUSPlayers,
-    .teams = enUSTeams,
-    .leagues = enUSLeagues,
-    .events = enUSEvents,
-    .games = enUSGames
-};
+    .players = enUSPlayers, .teams = enUSTeams, .leagues = enUSLeagues, .events = enUSEvents, .games = enUSGames};
 }
