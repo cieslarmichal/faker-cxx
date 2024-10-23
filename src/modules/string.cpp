@@ -32,7 +32,7 @@ const std::map<StringCasing, std::set<char>> stringCasingToAlphaCharSetMapping{
     {StringCasing::Mixed, mixedAlphaCharSet},
 };
 
-std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
+std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned length)
 {
     std::string output{};
     output += generateAtLeastString(guarantee);
@@ -68,10 +68,10 @@ std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>&
 }
 }
 
-bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length)
+bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned length)
 {
-    unsigned int atLeastCountSum{};
-    unsigned int atMostCountSum{};
+    unsigned atLeastCountSum{};
+    unsigned atMostCountSum{};
 
     for (auto& it : guarantee)
     {
@@ -105,7 +105,7 @@ std::string generateAtLeastString(const GuaranteeMap& guarantee)
     return result;
 }
 
-std::string sample(unsigned int length)
+std::string sample(unsigned length)
 {
     std::string sample;
 
@@ -117,7 +117,7 @@ std::string sample(unsigned int length)
     return sample;
 }
 
-std::string sample(GuaranteeMap&& guarantee, unsigned int length)
+std::string sample(GuaranteeMap&& guarantee, unsigned length)
 {
     auto targetCharacters = utf16CharSet;
 
@@ -129,27 +129,17 @@ std::string sample(GuaranteeMap&& guarantee, unsigned int length)
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string symbol(unsigned int minLength, unsigned int maxLength)
+std::string symbol(unsigned minLength, unsigned maxLength)
 {
     if (minLength > maxLength)
     {
-        std::swap(minLength, maxLength);
+        throw std::invalid_argument("min length cannot be greater than max length");
     }
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<unsigned int> dist(minLength, maxLength);
 
-    unsigned int length = dist(gen);
-
-    return fromCharacters(symbolCharacters, length);
+    return fromCharacters(symbolCharacters, number::integer(minLength, maxLength));
 }
 
-std::string symbol(unsigned int length)
-{
-    return fromCharacters(symbolCharacters, length);
-}
-
-std::string fromCharacters(const std::string& characters, unsigned int length)
+std::string fromCharacters(const std::string& characters, unsigned length)
 {
     std::string result;
 
@@ -202,7 +192,7 @@ std::string alpha(unsigned length, StringCasing casing, const std::string& exclu
     return alpha;
 }
 
-std::string alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing casing)
+std::string alpha(GuaranteeMap&& guarantee, unsigned length, StringCasing casing)
 {
     auto targetCharacters = stringCasingToAlphaCharSetMapping.at(casing);
 
@@ -214,7 +204,7 @@ std::string alpha(GuaranteeMap&& guarantee, unsigned int length, StringCasing ca
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string alphanumeric(unsigned int length, StringCasing casing, const std::string& excludeCharacters)
+std::string alphanumeric(unsigned length, StringCasing casing, const std::string& excludeCharacters)
 {
     const auto& alphanumericCharacters = stringCasingToAlphanumericCharactersMapping.at(casing);
 
@@ -254,7 +244,7 @@ std::string alphanumeric(GuaranteeMap&& guarantee, unsigned length, StringCasing
     return generateStringWithGuarantee(guarantee, targetCharacters, length);
 }
 
-std::string numeric(unsigned int length, bool allowLeadingZeros)
+std::string numeric(unsigned length, bool allowLeadingZeros)
 {
     std::string alphanumericStr;
     alphanumericStr.reserve(length);
@@ -274,7 +264,7 @@ std::string numeric(unsigned int length, bool allowLeadingZeros)
     return alphanumericStr;
 }
 
-std::string numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowLeadingZeros)
+std::string numeric(GuaranteeMap&& guarantee, unsigned length, bool allowLeadingZeros)
 {
     if (!allowLeadingZeros)
     {

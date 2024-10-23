@@ -1,11 +1,31 @@
 #pragma once
 
 #include <array>
+#include <span>
 #include <string_view>
 
 namespace faker::animal
 {
-const auto bears = std::to_array<std::string_view>({
+struct AnimalDefinition
+{
+    std::span<const std::string_view> bears;
+    std::span<const std::string_view> birds;
+    std::span<const std::string_view> cats;
+    std::span<const std::string_view> cetaceans;
+    std::span<const std::string_view> cows;
+    std::span<const std::string_view> crocodiles;
+    std::span<const std::string_view> dogs;
+    std::span<const std::string_view> fishes;
+    std::span<const std::string_view> horses;
+    std::span<const std::string_view> insects;
+    std::span<const std::string_view> lions;
+    std::span<const std::string_view> rabbits;
+    std::span<const std::string_view> rodents;
+    std::span<const std::string_view> snakes;
+    std::span<const std::string_view> types;
+};
+
+const auto enUSBears = std::to_array<std::string_view>({
     "American black bear",
     "Asian black bear",
     "Brown bear",
@@ -16,7 +36,7 @@ const auto bears = std::to_array<std::string_view>({
     "Sun bear",
 });
 
-const auto birds = std::to_array<std::string_view>({
+const auto enUSBirds = std::to_array<std::string_view>({
     "Abert's Towhee",
     "Acadian Flycatcher",
     "Acorn Woodpecker",
@@ -933,7 +953,7 @@ const auto birds = std::to_array<std::string_view>({
     "Zone-tailed Hawk",
 });
 
-const auto cats = std::to_array<std::string_view>({
+const auto enUSCats = std::to_array<std::string_view>({
     "Abyssinian",
     "American Bobtail",
     "American Curl",
@@ -991,7 +1011,7 @@ const auto cats = std::to_array<std::string_view>({
     "Turkish Van",
 });
 
-const auto cetaceans = std::to_array<std::string_view>({
+const auto enUSCetaceans = std::to_array<std::string_view>({
     "Amazon River Dolphin",
     "Arnoux's Beaked Whale",
     "Atlantic Humpbacked Dolphin",
@@ -1048,7 +1068,7 @@ const auto cetaceans = std::to_array<std::string_view>({
     "White-Beaked Dolphin",
 });
 
-const auto cows = std::to_array<std::string_view>({
+const auto enUSCows = std::to_array<std::string_view>({
     "Aberdeen Angus",
     "Abergele",
     "Abigar",
@@ -1546,7 +1566,7 @@ const auto cows = std::to_array<std::string_view>({
     "Żubroń",
 });
 
-const auto crocodiles = std::to_array<std::string_view>({
+const auto enUSCrocodiles = std::to_array<std::string_view>({
     "African Slender-snouted Crocodile",
     "Alligator mississippiensis",
     "American Crocodile",
@@ -1573,7 +1593,7 @@ const auto crocodiles = std::to_array<std::string_view>({
     "Yacare Caiman",
 });
 
-const auto dogs = std::to_array<std::string_view>({
+const auto enUSDogs = std::to_array<std::string_view>({
     "Affenpinscher",
     "Afghan Hound",
     "Aidi",
@@ -2073,7 +2093,7 @@ const auto dogs = std::to_array<std::string_view>({
     "Šarplaninac",
 });
 
-const auto fishes = std::to_array<std::string_view>({
+const auto enUSFishes = std::to_array<std::string_view>({
     "Alaska pollock",
     "Albacore",
     "Amur catfish",
@@ -2171,7 +2191,7 @@ const auto fishes = std::to_array<std::string_view>({
     "Yellowstripe scad",
 });
 
-const auto horses = std::to_array<std::string_view>({
+const auto enUSHorses = std::to_array<std::string_view>({
     "Abaco Barb",
     "Abtenauer",
     "Abyssinian",
@@ -2519,7 +2539,7 @@ const auto horses = std::to_array<std::string_view>({
     "Žemaitukas",
 });
 
-const auto insects = std::to_array<std::string_view>({
+const auto enUSInsects = std::to_array<std::string_view>({
     "Acacia-ants",
     "Acorn-plum gall",
     "Aerial yellowjacket",
@@ -2651,7 +2671,7 @@ const auto insects = std::to_array<std::string_view>({
     "Yellow-horned horntail",
 });
 
-const auto lions = std::to_array<std::string_view>({
+const auto enUSLions = std::to_array<std::string_view>({
     "Asiatic Lion",
     "Barbary Lion",
     "Cape lion",
@@ -2661,7 +2681,7 @@ const auto lions = std::to_array<std::string_view>({
     "West African Lion",
 });
 
-const auto rabbits = std::to_array<std::string_view>({
+const auto enUSRabbits = std::to_array<std::string_view>({
     "American",
     "American Chinchilla",
     "American Fuzzy Lop",
@@ -2713,7 +2733,7 @@ const auto rabbits = std::to_array<std::string_view>({
     "Thrianta",
 });
 
-const auto rodents = std::to_array<std::string_view>({
+const auto enUSRodents = std::to_array<std::string_view>({
     "Abrocoma",
     "Abrocoma schistacea",
     "Aconaemys",
@@ -2901,7 +2921,7 @@ const auto rodents = std::to_array<std::string_view>({
     "Wolffsohn's viscacha",
 });
 
-const auto snakes = std::to_array<std::string_view>({
+const auto enUSSnakes = std::to_array<std::string_view>({
     "Abaco Island boa",
     "Aesculapian snake",
     "African beaked snake",
@@ -3480,7 +3500,7 @@ const auto snakes = std::to_array<std::string_view>({
     "Zebra spitting cobra",
 });
 
-const auto types = std::to_array<std::string_view>({
+const auto enUSTypes = std::to_array<std::string_view>({
     "bear",
     "bird",
     "cat",
@@ -3495,5 +3515,23 @@ const auto types = std::to_array<std::string_view>({
     "rabbit",
     "snake",
 });
+
+const AnimalDefinition enUSAnimalDefinition = {
+    .bears = enUSBears,
+    .birds = enUSBirds,
+    .cats = enUSCats,
+    .cetaceans = enUSCetaceans,
+    .cows = enUSCows,
+    .crocodiles = enUSCrocodiles,
+    .dogs = enUSDogs,
+    .fishes = enUSFishes,
+    .horses = enUSHorses,
+    .insects = enUSInsects,
+    .lions = enUSLions,
+    .rabbits = enUSRabbits,
+    .rodents = enUSRodents,
+    .snakes = enUSSnakes,
+    .types = enUSTypes,
+};
 
 }

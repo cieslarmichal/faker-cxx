@@ -232,11 +232,16 @@ std::tuple<std::string, std::string> nearbyGPSCoordinate(Precision precision, co
     const auto radiusMetric = isMetric ? radius : radius * 1.60934;
     const auto distanceInKm = number::decimal<double>(radiusMetric);
 
-    constexpr auto kmPerDegree = 40000 / 360; // The distance in km per degree for earth.
-    const auto distanceInDegree = distanceInKm / kmPerDegree;
+    constexpr auto kmPerDegreeLatitude = 110.574; // The distance in km per degree for earth's latitude.
+    const auto kmPerDegreeLongitude =
+        111.320 *
+        std::cos(std::get<0>(origin) / 180 * M_PI); // The distance in km per degree for a specific longitude in earth.
 
-    auto coordinateLatitude = std::get<0>(origin) + distanceInDegree * std::sin(angleRadians);
-    auto coordinateLongitude = std::get<1>(origin) + distanceInDegree * std::cos(angleRadians);
+    const auto distanceInDegreeLatitude = distanceInKm / kmPerDegreeLatitude;
+    const auto distanceInDegreeLongitude = distanceInKm / kmPerDegreeLongitude;
+
+    auto coordinateLatitude = std::get<0>(origin) + distanceInDegreeLatitude * std::sin(angleRadians);
+    auto coordinateLongitude = std::get<1>(origin) + distanceInDegreeLongitude * std::cos(angleRadians);
 
     // Box the latitude [-90, 90]
     coordinateLatitude = std::fmod(coordinateLatitude, 180.0);

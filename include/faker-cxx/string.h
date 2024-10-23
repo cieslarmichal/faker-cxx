@@ -21,8 +21,8 @@ enum class StringCasing
 
 struct FAKER_CXX_EXPORT CharCount
 {
-    unsigned int atLeastCount{(std::numeric_limits<unsigned int>::min)()};
-    unsigned int atMostCount{(std::numeric_limits<unsigned int>::max)()};
+    unsigned int atLeastCount{(std::numeric_limits<unsigned>::min)()};
+    unsigned int atMostCount{(std::numeric_limits<unsigned>::max)()};
 };
 
 /**
@@ -46,7 +46,7 @@ using GuaranteeMap = std::map<char, CharCount>;
  * faker::string::isValidGuarantee(guarantee,targetCharacters,length) // false
  * @endcode
  */
-FAKER_CXX_EXPORT bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned int length);
+FAKER_CXX_EXPORT bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& targetCharacters, unsigned length);
 
 /**
  * @brief Generates the least required string for a given guarantee map.
@@ -150,21 +150,7 @@ FAKER_CXX_EXPORT std::string sample(GuaranteeMap&& guarantee, unsigned length = 
 /**
  * @brief Returns a string containing "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/".
  *
- * @param length The number of characters to generate. Defaults to `10`.
- *
- * @returns Sample string.
- *
- * @code
- * faker::string::sample() // "#$%^&#$%^&"
- * faker::string::sample(5) // "#$%^&"
- * @endcode
- */
-FAKER_CXX_EXPORT std::string symbol(unsigned length = 10);
-
-/**
- * @brief Returns a string containing "~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/".
- *
- * @param minlength The number of minimum characters to generate. Defaults to `1`.
+ * @param minLength The number of minimum characters to generate. Defaults to `1`.
  * @param maxLength The number of maximum characters to generate. Defaults to `10`.
  *
  * @returns Sample string.
@@ -174,7 +160,7 @@ FAKER_CXX_EXPORT std::string symbol(unsigned length = 10);
  * faker::string::sample(1,5) // "#$%^&"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string symbol(unsigned int minLength, unsigned int maxLength);
+FAKER_CXX_EXPORT std::string symbol(unsigned minLength = 1, unsigned maxLength = 10);
 
 /**
  * @brief Generates a string consisting of given characters.
