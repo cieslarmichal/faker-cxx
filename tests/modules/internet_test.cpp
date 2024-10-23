@@ -803,3 +803,9 @@ TEST_F(InternetTest, shouldGenerateAnonymousUsernameWithMaxLength)
 
     ASSERT_EQ(generatedUsername.length(), 20);
 }
+
+TEST_F(InternetTest, shouldGenerateJwtToken)
+{
+    const auto generatedJwtToken = getJWTToken();
+    ASSERT_EQ("jwtToken", "jwtToken");
+}

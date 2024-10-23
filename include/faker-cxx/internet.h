@@ -4,6 +4,8 @@
 #include <optional>
 #include <string>
 #include <string_view>
+#include <map>
+#include <ctime>
 
 #include "faker-cxx/export.h"
 #include "faker-cxx/types/locale.h"
@@ -350,4 +352,81 @@ FAKER_CXX_EXPORT std::string_view domainSuffix();
  * @endcode
  */
 FAKER_CXX_EXPORT std::string anonymousUsername(unsigned maxLength);
+
+
+
+/**
+ * @brief Generates a JSON Web Token (JWT).
+ *
+ * This function generates a JWT using the provided header, payload, and reference date.
+ * If no header or payload is provided, default values will be used.
+ * The reference date is optional and can be used to set the "iat" (issued at) claim in the payload.
+ *
+ * @param header The optional header map to include in the JWT. Defaults to a standard header.
+ * @param payload The optional payload map to include in the JWT. Defaults to a standard payload.
+ * @param refDate The optional reference date to set the "iat" claim. Defaults to the current date and time.
+ *
+ * @returns A string representing the generated JWT.
+ *
+ * @code
+ * std::map<std::string, std::string> header = {{"alg", "HS256"}, {"typ", "JWT"}};
+ * std::map<std::string, std::string> payload = {{"sub", "1234567890"}, {"name", "John Doe"}, {"admin", "true"}};
+ * std::string token = faker::internet::getJWTToken(header, payload); // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string getJWTToken(std::optional<std::map<std::string, std::string>> header = std::nullopt,  
+                                        std::optional<std::map<std::string, std::string>> payload = std::nullopt,  
+                                        std::optional<std::string> refDate = std::nullopt);
+
+
+/**  
+* @brief Returns the algorithm used for signing the JWT.  
+*  
+* This function provides the algorithm that is used to sign the JSON Web Token (JWT).  
+*  
+* @returns A string view representing the JWT signing algorithm.  
+*  
+* @code  
+* std::string_view algorithm = faker::internet::getJWTAlgorithm(); // "HS256"  
+* @endcode  
+*/  
+FAKER_CXX_EXPORT std::string_view getJWTAlgorithm();
+
+
+/**
+ * @brief Encodes a given string to Base64 URL format.
+ *
+ * This function takes an input string and converts it into a Base64 URL encoded string.
+ * Base64 URL encoding is a variant of Base64 encoding that is URL-safe.
+ *
+ * @param input The string to be encoded.
+ *
+ * @returns A Base64 URL encoded string.
+ *
+ * @code
+ * std::string input = "Hello, World!";
+ * std::string encoded = faker::internet::toBase64UrlEncode(input); // "SGVsbG8sIFdvcmxkIQ"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string toBase64UrlEncode(std::string& input);
+
+
+/**  
+* @brief Converts a map of key-value pairs to a JSON string.  
+*  
+* This function takes a map where both keys and values are strings and converts it into a JSON formatted string.  
+*  
+* @param data The map containing key-value pairs to be converted to JSON.  
+*  
+* @returns A JSON formatted string representing the input map.  
+*  
+* @code  
+* std::map<std::string, std::string> data = {{"name", "John"}, {"age", "30"}};  
+* std::string json = faker::internet::toJSON(data);  // json is now "{\"name\":\"John\",\"age\":\"30\"}"  
+* @endcode  
+*/  
+FAKER_CXX_EXPORT std::string toJSON(std::map<std::string, std::string>& data);
+
 }
+
+
