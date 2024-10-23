@@ -1027,11 +1027,21 @@ TEST_F(LocationTest, shouldGeneratePortugalStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(Locale::pt_PT);
 
-    const auto generatedStreetAddressElements = common::split(generatedStreetAddress, " ");
+    const auto generatedStreetAddressElements = common::split(generatedStreetAddress[0], " ");
 
-    const auto& generatedStreet = generatedStreetAddressElements[0];
-    const auto& generatedStreetSuffix = generatedStreetAddressElements[1];
-    const auto& generatedBuildingNumber = generatedStreetAddressElements[2];
+    const auto& generatedBuildNumber = generatedStreetAddressElements[generatedStreetAddressElements.size()-1];
+    const auto& generatedStreetSuffix = generatedStreetAddressElements[generatedStreetAddressElements.size()-2];
+    const auto& generatedStreet = common::join({generatedStreetAddressElements.begin(), generatedStreetAddressElements.end() - 2});
+
+    if (generatedAddresses.size() > 1)
+    {
+        const auto& generatedSecondaryAddressParts = common::split(generatedAddresses[1], " ");
+
+        const auto& generatedUnitNumber = generatedSecondaryAddressParts[generatedSecondaryAddressParts.size()-1];
+
+        ASSERT_TRUE(generatedUnitNumber.size() == 1 || generatedUnitNumber.size() == 3);
+        ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedUnitNumber));
+    }
 
     ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
