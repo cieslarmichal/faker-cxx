@@ -76,6 +76,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return unitedkingdomAddresses;
     case Locale::sk_SK:
         return slovakiaAddresses;
+    case Locale::pt_PT:
+        return portugalAddresses;
     default:
         return usaAddresses;
     }
