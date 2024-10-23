@@ -1027,28 +1027,31 @@ TEST_F(LocationTest, shouldGeneratePortugalStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(Locale::pt_PT);
 
-    const auto generatedStreetAddressElements = common::split(generatedStreetAddress[0], " ");
+    const auto generatedAddresses = common::split(generatedStreetAddress, ", ");
+    const auto generatedStreetAddressElements = common::split(generatedAddresses[0], " ");
 
-    const auto& generatedBuildNumber = generatedStreetAddressElements[generatedStreetAddressElements.size()-1];
-    const auto& generatedStreetSuffix = generatedStreetAddressElements[generatedStreetAddressElements.size()-2];
-    const auto& generatedStreet = common::join({generatedStreetAddressElements.begin(), generatedStreetAddressElements.end() - 2});
+    const auto& generatedBuildingNumber = generatedStreetAddressElements[generatedStreetAddressElements.size() - 1];
+    const auto& generatedStreetSuffix = generatedStreetAddressElements[generatedStreetAddressElements.size() - 2];
+    const auto& generatedStreet =
+        common::join({generatedStreetAddressElements.begin(), generatedStreetAddressElements.end() - 2});
 
     if (generatedAddresses.size() > 1)
     {
         const auto& generatedSecondaryAddressParts = common::split(generatedAddresses[1], " ");
 
-        const auto& generatedUnitNumber = generatedSecondaryAddressParts[generatedSecondaryAddressParts.size()-1];
+        const auto& generatedUnitNumber = generatedSecondaryAddressParts[generatedSecondaryAddressParts.size() - 1];
 
         ASSERT_TRUE(generatedUnitNumber.size() == 1 || generatedUnitNumber.size() == 3);
         ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedUnitNumber));
     }
 
-    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
 
     ASSERT_TRUE(std::ranges::any_of(portugalStreetNames, [&generatedStreet](const std::string_view& streetName)
                                     { return generatedStreet.find(streetName) != std::string::npos; }));
 
-    ASSERT_TRUE(std::ranges::any_of(portugalStreetSuffixes, [&generatedStreetSuffix](const std::string_view& streetSuffix)
+    ASSERT_TRUE(std::ranges::any_of(portugalStreetSuffixes,
+                                    [&generatedStreetSuffix](const std::string_view& streetSuffix)
                                     { return generatedStreetSuffix.find(streetSuffix) != std::string::npos; }));
 }
