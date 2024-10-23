@@ -11,7 +11,6 @@
 #include <vector>
 #include <regex>
 #include <cmath>
-#include <iostream>
 
 
 #include "common/algo_helper.h"
@@ -435,10 +434,7 @@ std::string getJWTToken(std::optional<std::map<std::string, std::string>> header
 
     std::string signature = faker::string::alphanumeric(64);
 
-    std::string token = encodedHeader + "." + encodedPayload + "." + signature;
-
-    std::cout << "Token: " << token << std::endl;
-    return token;
+    return encodedHeader + "." + encodedPayload + "." + signature;
 }
 
 }
