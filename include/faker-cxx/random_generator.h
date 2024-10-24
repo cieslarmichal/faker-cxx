@@ -6,7 +6,8 @@
 namespace faker
 {
 template <typename T>
-    requires std::uniform_random_bit_generator<T>
+requires std::uniform_random_bit_generator<T>
+
 class RandomGenerator
 {
 public:
@@ -20,7 +21,8 @@ public:
     RandomGenerator& operator=(RandomGenerator&&) = default;
 
     template <typename Dist>
-        requires std::is_invocable_r_v<int, Dist&, T&>
+    requires std::is_invocable_r_v<int, Dist&, T&>
+
     int operator()(Dist&& dist)
     {
         return std::forward<Dist>(dist)(generator_);

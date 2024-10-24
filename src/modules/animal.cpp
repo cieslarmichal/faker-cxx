@@ -18,6 +18,7 @@ const struct AnimalDefinition& getAnimalDefinition(Locale locale)
     }
 }
 }
+
 std::string_view bear(Locale locale)
 {
     const auto& animalDefinition = getAnimalDefinition(locale);
