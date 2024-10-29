@@ -1,6 +1,8 @@
 #pragma once
 
 #include <array>
+#include <ctime>
+#include <map>
 #include <optional>
 #include <string>
 #include <string_view>
@@ -350,4 +352,41 @@ FAKER_CXX_EXPORT std::string_view domainSuffix();
  * @endcode
  */
 FAKER_CXX_EXPORT std::string anonymousUsername(unsigned maxLength);
+
+/**
+ * @brief Generates a JSON Web Token (JWT).
+ *
+ * This function generates a JWT using the provided header, payload, and reference date.
+ * If no header or payload is provided, default values will be used.
+ * The reference date is optional and can be used to set the "iat" (issued at) claim in the payload.
+ *
+ * @param header The optional header map to include in the JWT. Defaults to a standard header.
+ * @param payload The optional payload map to include in the JWT. Defaults to a standard payload.
+ * @param refDate The optional reference date to set the "iat" claim. Defaults to the current date and time.
+ *
+ * @returns A string representing the generated JWT.
+ *
+ * @code
+ * std::map<std::string, std::string> header = {{"alg", "HS256"}, {"typ", "JWT"}};
+ * std::map<std::string, std::string> payload = {{"sub", "1234567890"}, {"name", "John Doe"}, {"admin", "true"}};
+ * faker::internet::getJWTToken(header, payload); // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string
+getJWTToken(const std::optional<std::map<std::string, std::string>>& header = std::nullopt,
+            const std::optional<std::map<std::string, std::string>>& payload = std::nullopt,
+            const std::optional<std::string>& refDate = std::nullopt);
+
+/**
+ * @brief Returns the algorithm used for signing the JWT.
+ *
+ * This function provides the algorithm that is used to sign the JSON Web Token (JWT).
+ *
+ * @returns A string view representing the JWT signing algorithm.
+ *
+ * @code
+ * faker::internet::getJWTAlgorithm(); // "HS256"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view getJWTAlgorithm();
 }

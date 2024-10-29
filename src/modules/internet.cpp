@@ -2,9 +2,11 @@
 
 #include <algorithm>
 #include <array>
+#include <cmath>
 #include <initializer_list>
 #include <map>
 #include <optional>
+#include <regex>
 #include <string>
 #include <string_view>
 #include <utility>
@@ -13,6 +15,8 @@
 #include "common/algo_helper.h"
 #include "common/format_helper.h"
 #include "common/string_helper.h"
+#include "faker-cxx/company.h"
+#include "faker-cxx/faker.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/person.h"
@@ -21,6 +25,89 @@
 #include "faker-cxx/word.h"
 #include "internet_data.h"
 #include "modules/string_data.h"
+
+namespace
+{
+/**
+ * @brief Encodes a given string to Base64 URL format.
+ *
+ * This function takes an input string and converts it into a Base64 URL encoded string.
+ * Base64 URL encoding is a variant of Base64 encoding that is URL-safe.
+ *
+ * @param input The string to be encoded.
+ *
+ * @returns A Base64 URL encoded string.
+ *
+ * @code
+ * std::string input = "Hello, World!";
+ * faker::internet::toBase64UrlEncode(input); // "SGVsbG8sIFdvcmxkIQ"
+ * @endcode
+ */
+std::string toBase64UrlEncode(const std::string& input)
+{
+    const std::string base64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+    std::string encodedInput;
+
+    int value = 0;
+    int validBits = -6;
+
+    for (unsigned char character : input)
+    {
+        value = (value << 8) + character;
+        validBits += 8;
+        while (validBits >= 0)
+        {
+            encodedInput.push_back(base64Chars[(value >> validBits) & 0x3F]);
+            validBits -= 6;
+        }
+    }
+
+    if (validBits > -6)
+    {
+        encodedInput.push_back(base64Chars[((value << 8) >> validBits) & 0x3F]);
+    }
+
+    while (encodedInput.size() % 4)
+    {
+        encodedInput.push_back('=');
+    }
+
+    std::replace(encodedInput.begin(), encodedInput.end(), '+', '-');
+    std::replace(encodedInput.begin(), encodedInput.end(), '/', '_');
+    encodedInput = std::regex_replace(encodedInput, std::regex{"=+$"}, "");
+
+    return encodedInput;
+}
+
+/**
+ * @brief Converts a map of key-value pairs to a JSON string.
+ *
+ * This function takes a map where both keys and values are strings and converts it into a JSON formatted string.
+ *
+ * @param data The map containing key-value pairs to be converted to JSON.
+ *
+ * @returns A JSON formatted string representing the input map.
+ *
+ * @code
+ * std::map<std::string, std::string> data = {{"name", "John"}, {"age", "30"}};
+ * faker::internet::toJSON(data);  // json is now "{\"name\":\"John\",\"age\":\"30\"}"
+ * @endcode
+ */
+std::string toJSON(std::map<std::string, std::string>& data)
+{
+    std::string json = "{";
+    for (auto it = data.begin(); it != data.end(); ++it)
+    {
+        if (it != data.begin())
+        {
+            json += ",";
+        }
+        json += "\"" + it->first + "\":\"" + it->second + "\"";
+    }
+    json += "}";
+    return json;
+}
+}
 
 namespace faker::internet
 {
@@ -346,6 +433,54 @@ std::string anonymousUsername(unsigned maxLength)
     const auto nounLength = maxLength - adjectiveLength;
 
     return common::format("{}{}", word::adjective(adjectiveLength), word::noun(nounLength));
+}
+
+std::string_view getJWTAlgorithm()
+{
+    return helper::randomElement(jwtAlgorithms);
+}
+
+std::string getJWTToken(const std::optional<std::map<std::string, std::string>>& header,
+                        const std::optional<std::map<std::string, std::string>>& payload,
+                        const std::optional<std::string>& refDate)
+{
+    const auto refDateValue = refDate.value_or(faker::date::anytime());
+
+    // maybe add option to set ref date to date functions then refactor this
+    const auto iatDefault = faker::date::recentDate(faker::date::dayOfMonth(), faker::date::DateFormat::Timestamp);
+    const auto expDefault = faker::date::soonDate(faker::date::dayOfMonth(), faker::date::DateFormat::Timestamp);
+    const auto nbfDefault = faker::date::anytime(faker::date::DateFormat::Timestamp);
+
+    std::optional<std::map<std::string, std::string>> localHeader = header;
+    std::optional<std::map<std::string, std::string>> localPayload = payload;
+
+    std::string algorithm(getJWTAlgorithm());
+
+    if (!localHeader)
+    {
+        localHeader = {{"alg", algorithm}, {"typ", "JWT"}};
+    }
+
+    if (!localPayload)
+    {
+        localPayload = {{"iat", std::to_string(std::round(std::stoll(iatDefault)))},
+                        {"exp", std::to_string(std::round(std::stoll(expDefault)))},
+                        {"nbf", std::to_string(std::round(std::stoll(nbfDefault)))},
+                        {"iss", faker::company::companyName()},
+                        {"sub", faker::string::uuid()},
+                        {"aud", faker::string::uuid()},
+                        {"jti", faker::string::uuid()}};
+    }
+
+    const auto headerToJSON = toJSON(localHeader.value());
+    const auto encodedHeader = toBase64UrlEncode(headerToJSON);
+
+    const auto payloadToJSON = toJSON(localPayload.value());
+    const auto encodedPayload = toBase64UrlEncode(payloadToJSON);
+
+    const auto signature = faker::string::alphanumeric(64);
+
+    return encodedHeader + "." + encodedPayload + "." + signature;
 }
 
 }

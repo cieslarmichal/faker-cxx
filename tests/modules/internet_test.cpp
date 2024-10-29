@@ -3,6 +3,7 @@
 #include <cctype>
 #include <initializer_list>
 #include <optional>
+#include <regex>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -802,4 +803,25 @@ TEST_F(InternetTest, shouldGenerateAnonymousUsernameWithMaxLength)
     const auto generatedUsername = anonymousUsername(maxLength);
 
     ASSERT_EQ(generatedUsername.length(), 20);
+}
+
+TEST_F(InternetTest, shouldGenerateJwtToken)
+{
+    std::regex pattern(R"([A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+)");
+    const std::map<std::string, std::string> header = {{"alg", "HS256"}, {"typ", "JWT"}};
+    const std::map<std::string, std::string> payload = {{"sub", "1234567890"}, {"name", "John Doe"}, {"admin", "true"}};
+    const auto refDate = std::to_string(std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
+
+    ASSERT_TRUE(std::regex_match(getJWTToken(), pattern));
+    ASSERT_TRUE(std::regex_match(getJWTToken(header), pattern));
+    ASSERT_TRUE(std::regex_match(getJWTToken(header, payload), pattern));
+    ASSERT_TRUE(std::regex_match(getJWTToken(header, payload, refDate), pattern));
+}
+
+TEST_F(InternetTest, shouldGenerateJWTAlgorithm)
+{
+    const auto generatedJWTAlgorythm = getJWTAlgorithm();
+
+    ASSERT_TRUE(std::ranges::any_of(jwtAlgorithms, [generatedJWTAlgorythm](const std::string_view& JWTAlgorythm)
+                                    { return generatedJWTAlgorythm == JWTAlgorythm; }));
 }
