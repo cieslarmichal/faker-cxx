@@ -352,7 +352,7 @@ std::string anonymousUsername(unsigned maxLength)
     return common::format("{}{}", word::adjective(adjectiveLength), word::noun(nounLength));
 }
 
-std::string toBase64UrlEncode(std::string& input)
+std::string utility::toBase64UrlEncode(const std::string& input)
 {
     const std::string base64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     std::string encodedInput;
@@ -372,9 +372,14 @@ std::string toBase64UrlEncode(std::string& input)
     }
 
     if (validBits > -6)
+    {
         encodedInput.push_back(base64Chars[((value << 8) >> validBits) & 0x3F]);
+    }
+
     while (encodedInput.size() % 4)
+    {
         encodedInput.push_back('=');
+    }
 
     std::replace(encodedInput.begin(), encodedInput.end(), '+', '-');
     std::replace(encodedInput.begin(), encodedInput.end(), '/', '_');
@@ -383,13 +388,15 @@ std::string toBase64UrlEncode(std::string& input)
     return encodedInput;
 }
 
-std::string toJSON(std::map<std::string, std::string>& data)
+std::string utility::toJSON(std::map<std::string, std::string>& data)
 {
     std::string json = "{";
     for (auto it = data.begin(); it != data.end(); ++it)
     {
         if (it != data.begin())
+        {
             json += ",";
+        }
         json += "\"" + it->first + "\":\"" + it->second + "\"";
     }
     json += "}";
@@ -401,40 +408,47 @@ std::string_view getJWTAlgorithm()
     return helper::randomElement(jwtAlgorithms);
 }
 
-std::string getJWTToken(std::optional<std::map<std::string, std::string>> header,
-                        std::optional<std::map<std::string, std::string>> payload, std::optional<std::string> refDate)
+std::string getJWTToken(const std::optional<std::map<std::string, std::string>>& header,
+                        const std::optional<std::map<std::string, std::string>>& payload,
+                        const std::optional<std::string>& refDate)
 {
-    std::string refDateValue = refDate.value_or(faker::date::anytime());
+    const auto refDateValue = refDate.value_or(faker::date::anytime());
 
     // maybe add option to set ref date to date functions then refactor this
-    std::string iatDefault = faker::date::recentDate(faker::date::dayOfMonth(), faker::date::DateFormat::Timestamp);
-    std::string expDefault = faker::date::soonDate(faker::date::dayOfMonth(), faker::date::DateFormat::Timestamp);
-    std::string nbfDefault = faker::date::anytime(faker::date::DateFormat::Timestamp);
+    const auto iatDefault = faker::date::recentDate(faker::date::dayOfMonth(), faker::date::DateFormat::Timestamp);
+    const auto expDefault = faker::date::soonDate(faker::date::dayOfMonth(), faker::date::DateFormat::Timestamp);
+    const auto nbfDefault = faker::date::anytime(faker::date::DateFormat::Timestamp);
+
+    std::optional<std::map<std::string, std::string>> localHeader = header;
+    std::optional<std::map<std::string, std::string>> localPayload = payload;
 
     std::string algorithm(getJWTAlgorithm());
 
-    if (!header)
-        header = {{"alg", algorithm}, {"typ", "JWT"}};
-    if (!payload)
+    if (!localHeader)
     {
-        payload = {{"iat", std::to_string(std::round(std::stoll(iatDefault)))},
-                   {"exp", std::to_string(std::round(std::stoll(expDefault)))},
-                   {"nbf", std::to_string(std::round(std::stoll(nbfDefault)))},
-                   {"iss", faker::company::companyName()},
-                   {"sub", faker::string::uuid()},
-                   {"aud", faker::string::uuid()},
-                   {"jti", faker::string::uuid()}};
+        localHeader = {{"alg", algorithm}, {"typ", "JWT"}};
     }
 
-    std::string headerToJSON = toJSON(header.value());
-    std::string encodedHeader = toBase64UrlEncode(headerToJSON);
+    if (!localPayload)
+    {
+        localPayload = {{"iat", std::to_string(std::round(std::stoll(iatDefault)))},
+                        {"exp", std::to_string(std::round(std::stoll(expDefault)))},
+                        {"nbf", std::to_string(std::round(std::stoll(nbfDefault)))},
+                        {"iss", faker::company::companyName()},
+                        {"sub", faker::string::uuid()},
+                        {"aud", faker::string::uuid()},
+                        {"jti", faker::string::uuid()}};
+    }
 
-    std::string payloadToJSON = toJSON(payload.value());
-    std::string encodedPayload = toBase64UrlEncode(payloadToJSON);
+    const auto headerToJSON = utility::toJSON(localHeader.value());
+    const auto encodedHeader = utility::toBase64UrlEncode(headerToJSON);
 
-    std::string signature = faker::string::alphanumeric(64);
+    const auto payloadToJSON = utility::toJSON(localPayload.value());
+    const auto encodedPayload = utility::toBase64UrlEncode(payloadToJSON);
+
+    const auto signature = faker::string::alphanumeric(64);
 
     return encodedHeader + "." + encodedPayload + "." + signature;
 }
-
+    
 }

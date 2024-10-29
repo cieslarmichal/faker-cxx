@@ -22,6 +22,7 @@
 using namespace ::testing;
 using namespace faker;
 using namespace faker::internet;
+using namespace faker::internet::utility;
 
 namespace
 {
@@ -808,5 +809,38 @@ TEST_F(InternetTest, shouldGenerateAnonymousUsernameWithMaxLength)
 TEST_F(InternetTest, shouldGenerateJwtToken)
 {
     std::regex pattern(R"([A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+)");
+    const std::map<std::string, std::string> header = {{"alg", "HS256"}, {"typ", "JWT"}};
+    const std::map<std::string, std::string> payload = {{"sub", "1234567890"}, {"name", "John Doe"}, {"admin", "true"}};
+    const auto refDate = std::to_string(std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
+
     ASSERT_TRUE(std::regex_match(getJWTToken(), pattern));
+    ASSERT_TRUE(std::regex_match(getJWTToken(header), pattern));
+    ASSERT_TRUE(std::regex_match(getJWTToken(header, payload), pattern));
+    ASSERT_TRUE(std::regex_match(getJWTToken(header, payload, refDate), pattern));
+}
+
+TEST_F(InternetTest, shouldGenerateJWTAlgorithm)
+{
+    const auto generatedJWTAlgorythm = getJWTAlgorithm();
+
+    ASSERT_TRUE(std::ranges::any_of(jwtAlgorithms, [generatedJWTAlgorythm](const std::string_view& JWTAlgorythm)
+                                    { return generatedJWTAlgorythm == JWTAlgorythm; }));
+}
+
+TEST_F(InternetTest, shouldProduceJSONFromMap)
+{
+    std::map<std::string, std::string> map = {{"key1", "value1"}, {"key2", "value2"}};
+    const auto json = toJSON(map);
+
+    ASSERT_EQ(json, "{\"key1\":\"value1\",\"key2\":\"value2\"}");
+}
+
+TEST_F(InternetTest, shouldProduceBase64UrlEncoding)
+{
+    const std::string input = "Hello, World!";
+    const std::string expectedOutput = "SGVsbG8sIFdvcmxkIG";
+
+    const auto output = toBase64UrlEncode(input);
+
+    ASSERT_EQ(output, expectedOutput);
 }

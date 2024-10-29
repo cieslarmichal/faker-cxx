@@ -369,12 +369,13 @@ FAKER_CXX_EXPORT std::string anonymousUsername(unsigned maxLength);
  * @code
  * std::map<std::string, std::string> header = {{"alg", "HS256"}, {"typ", "JWT"}};
  * std::map<std::string, std::string> payload = {{"sub", "1234567890"}, {"name", "John Doe"}, {"admin", "true"}};
- * std::string token = faker::internet::getJWTToken(header, payload); // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+ * faker::internet::getJWTToken(header, payload); // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
  * @endcode
  */
-FAKER_CXX_EXPORT std::string getJWTToken(std::optional<std::map<std::string, std::string>> header = std::nullopt,
-                                         std::optional<std::map<std::string, std::string>> payload = std::nullopt,
-                                         std::optional<std::string> refDate = std::nullopt);
+FAKER_CXX_EXPORT std::string
+getJWTToken(const std::optional<std::map<std::string, std::string>>& header = std::nullopt,
+            const std::optional<std::map<std::string, std::string>>& payload = std::nullopt,
+            const std::optional<std::string>& refDate = std::nullopt);
 
 /**
  * @brief Returns the algorithm used for signing the JWT.
@@ -384,11 +385,14 @@ FAKER_CXX_EXPORT std::string getJWTToken(std::optional<std::map<std::string, std
  * @returns A string view representing the JWT signing algorithm.
  *
  * @code
- * std::string_view algorithm = faker::internet::getJWTAlgorithm(); // "HS256"
+ * faker::internet::getJWTAlgorithm(); // "HS256"
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view getJWTAlgorithm();
+}
 
+namespace faker::internet::utility
+{
 /**
  * @brief Encodes a given string to Base64 URL format.
  *
@@ -401,10 +405,10 @@ FAKER_CXX_EXPORT std::string_view getJWTAlgorithm();
  *
  * @code
  * std::string input = "Hello, World!";
- * std::string encoded = faker::internet::toBase64UrlEncode(input); // "SGVsbG8sIFdvcmxkIQ"
+ * faker::internet::toBase64UrlEncode(input); // "SGVsbG8sIFdvcmxkIQ"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string toBase64UrlEncode(std::string& input);
+std::string toBase64UrlEncode(const std::string& input);
 
 /**
  * @brief Converts a map of key-value pairs to a JSON string.
@@ -417,9 +421,8 @@ FAKER_CXX_EXPORT std::string toBase64UrlEncode(std::string& input);
  *
  * @code
  * std::map<std::string, std::string> data = {{"name", "John"}, {"age", "30"}};
- * std::string json = faker::internet::toJSON(data);  // json is now "{\"name\":\"John\",\"age\":\"30\"}"
+ * faker::internet::toJSON(data);  // json is now "{\"name\":\"John\",\"age\":\"30\"}"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string toJSON(std::map<std::string, std::string>& data);
-
+std::string toJSON(std::map<std::string, std::string>& data);
 }
