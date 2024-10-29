@@ -2,28 +2,27 @@
 
 #include <algorithm>
 #include <array>
+#include <cmath>
 #include <initializer_list>
 #include <map>
 #include <optional>
+#include <regex>
 #include <string>
 #include <string_view>
 #include <utility>
 #include <vector>
-#include <regex>
-#include <cmath>
-
 
 #include "common/algo_helper.h"
 #include "common/format_helper.h"
 #include "common/string_helper.h"
+#include "faker-cxx/company.h"
+#include "faker-cxx/faker.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/person.h"
 #include "faker-cxx/types/hex.h"
 #include "faker-cxx/types/locale.h"
 #include "faker-cxx/word.h"
-#include "faker-cxx/faker.h"
-#include "faker-cxx/company.h"
 #include "internet_data.h"
 #include "modules/string_data.h"
 
@@ -354,7 +353,7 @@ std::string anonymousUsername(unsigned maxLength)
 }
 
 std::string toBase64UrlEncode(std::string& input)
-{   
+{
     const std::string base64Chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
     std::string encodedInput;
 
@@ -372,8 +371,10 @@ std::string toBase64UrlEncode(std::string& input)
         }
     }
 
-    if (validBits > -6) encodedInput.push_back(base64Chars[((value << 8) >> validBits) & 0x3F]);
-    while (encodedInput.size() % 4) encodedInput.push_back('=');
+    if (validBits > -6)
+        encodedInput.push_back(base64Chars[((value << 8) >> validBits) & 0x3F]);
+    while (encodedInput.size() % 4)
+        encodedInput.push_back('=');
 
     std::replace(encodedInput.begin(), encodedInput.end(), '+', '-');
     std::replace(encodedInput.begin(), encodedInput.end(), '/', '_');
@@ -387,7 +388,8 @@ std::string toJSON(std::map<std::string, std::string>& data)
     std::string json = "{";
     for (auto it = data.begin(); it != data.end(); ++it)
     {
-        if (it != data.begin()) json += ",";
+        if (it != data.begin())
+            json += ",";
         json += "\"" + it->first + "\":\"" + it->second + "\"";
     }
     json += "}";
@@ -400,8 +402,7 @@ std::string_view getJWTAlgorithm()
 }
 
 std::string getJWTToken(std::optional<std::map<std::string, std::string>> header,
-                        std::optional<std::map<std::string, std::string>> payload,
-                        std::optional<std::string> refDate)
+                        std::optional<std::map<std::string, std::string>> payload, std::optional<std::string> refDate)
 {
     std::string refDateValue = refDate.value_or(faker::date::anytime());
 
@@ -412,18 +413,17 @@ std::string getJWTToken(std::optional<std::map<std::string, std::string>> header
 
     std::string algorithm(getJWTAlgorithm());
 
-    if (!header) header = {{"alg", algorithm}, {"typ", "JWT"}};
+    if (!header)
+        header = {{"alg", algorithm}, {"typ", "JWT"}};
     if (!payload)
     {
-        payload = {
-            {"iat", std::to_string(std::round(std::stoll(iatDefault)))}, 
-            {"exp", std::to_string(std::round(std::stoll(expDefault)))}, 
-            {"nbf", std::to_string(std::round(std::stoll(nbfDefault)))},   
-            {"iss", faker::company::companyName()},    
-            {"sub", faker::string::uuid()},      
-            {"aud", faker::string::uuid()},
-            {"jti", faker::string::uuid()}
-        };
+        payload = {{"iat", std::to_string(std::round(std::stoll(iatDefault)))},
+                   {"exp", std::to_string(std::round(std::stoll(expDefault)))},
+                   {"nbf", std::to_string(std::round(std::stoll(nbfDefault)))},
+                   {"iss", faker::company::companyName()},
+                   {"sub", faker::string::uuid()},
+                   {"aud", faker::string::uuid()},
+                   {"jti", faker::string::uuid()}};
     }
 
     std::string headerToJSON = toJSON(header.value());

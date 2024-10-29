@@ -3,6 +3,7 @@
 #include <cctype>
 #include <initializer_list>
 #include <optional>
+#include <regex>
 #include <string>
 #include <string_view>
 #include <vector>
@@ -806,6 +807,6 @@ TEST_F(InternetTest, shouldGenerateAnonymousUsernameWithMaxLength)
 
 TEST_F(InternetTest, shouldGenerateJwtToken)
 {
-    const auto generatedJwtToken = getJWTToken();
-    ASSERT_EQ("jwtToken", "jwtToken");
+    std::regex pattern(R"([A-Za-z0-9-_]+\.[A-Za-z0-9-_]+\.[A-Za-z0-9-_]+)");
+    ASSERT_TRUE(std::regex_match(getJWTToken(), pattern));
 }
