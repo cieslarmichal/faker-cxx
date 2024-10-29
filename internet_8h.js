@@ -37,6 +37,8 @@ var internet_8h =
     [ "email", "internet_8h.html#a640c9552088825e8f39eb42b61399c6e", null ],
     [ "emoji", "internet_8h.html#a40ee9376026f9017e3dcc90a8f53b7bc", null ],
     [ "exampleEmail", "internet_8h.html#a73507aa24e5f1d8b74e0db4cdee32ee9", null ],
+    [ "getJWTAlgorithm", "internet_8h.html#a327076e83a6c964ccea491a7bda7bae2", null ],
+    [ "getJWTToken", "internet_8h.html#a80d65803a85e6240335e4d2ec781deb7", null ],
     [ "httpMediaType", "internet_8h.html#aae3de074437688cc7aa5d4926a184182", null ],
     [ "httpMethod", "internet_8h.html#a351eb5eed7fd927d6a2869263b56e852", null ],
     [ "httpRequestHeader", "internet_8h.html#a298bf281d43e08c58448962c094605ab", null ],

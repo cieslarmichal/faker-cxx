@@ -248,6 +248,6 @@ var NAVTREEINDEX0 =
 "image_8h_source.html":[3,0,0,0,18],
 "index.html":[],
 "internet_8h.html":[3,0,0,0,19],
-"internet_8h.html#a005caa05149d90b3854aef6a4ccdf27e":[3,0,0,0,19,25],
+"internet_8h.html#a005caa05149d90b3854aef6a4ccdf27e":[3,0,0,0,19,27],
 "internet_8h.html#a02270adba2a94976603175f8904646cd":[3,0,0,0,19,3]
 };

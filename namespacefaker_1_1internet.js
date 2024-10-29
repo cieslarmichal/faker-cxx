@@ -37,6 +37,8 @@ var namespacefaker_1_1internet =
     [ "email", "namespacefaker_1_1internet.html#a640c9552088825e8f39eb42b61399c6e", null ],
     [ "emoji", "namespacefaker_1_1internet.html#a40ee9376026f9017e3dcc90a8f53b7bc", null ],
     [ "exampleEmail", "namespacefaker_1_1internet.html#a73507aa24e5f1d8b74e0db4cdee32ee9", null ],
+    [ "getJWTAlgorithm", "namespacefaker_1_1internet.html#a327076e83a6c964ccea491a7bda7bae2", null ],
+    [ "getJWTToken", "namespacefaker_1_1internet.html#a80d65803a85e6240335e4d2ec781deb7", null ],
     [ "httpMediaType", "namespacefaker_1_1internet.html#aae3de074437688cc7aa5d4926a184182", null ],
     [ "httpMethod", "namespacefaker_1_1internet.html#a351eb5eed7fd927d6a2869263b56e852", null ],
     [ "httpRequestHeader", "namespacefaker_1_1internet.html#a298bf281d43e08c58448962c094605ab", null ],

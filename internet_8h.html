@@ -108,6 +108,8 @@ $(function(){initNavTree('internet_8h.html',''); initResizable(true); });
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;array&gt;</code><br />
+<code>#include &lt;ctime&gt;</code><br />
+<code>#include &lt;map&gt;</code><br />
 <code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
 <code>#include &lt;string_view&gt;</code><br />
@@ -118,19 +120,23 @@ Include dependency graph for internet.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="internet_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2internet_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2internet_8h" id="ainclude_2faker-cxx_2internet_8h">
-<area shape="rect" title=" " alt="" coords="154,5,330,31"/>
+<area shape="rect" title=" " alt="" coords="213,5,388,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,55,105"/>
-<area shape="poly" title=" " alt="" coords="207,34,70,80,68,75,205,29"/>
-<area shape="rect" title=" " alt="" coords="78,79,144,105"/>
-<area shape="poly" title=" " alt="" coords="221,34,148,74,145,69,219,29"/>
-<area shape="rect" title=" " alt="" coords="169,79,222,105"/>
-<area shape="poly" title=" " alt="" coords="237,33,214,67,209,64,232,30"/>
-<area shape="rect" title=" " alt="" coords="246,79,334,105"/>
-<area shape="poly" title=" " alt="" coords="252,30,276,64,271,67,248,33"/>
-<area shape="rect" title=" " alt="" coords="358,79,480,105"/>
-<area shape="poly" title=" " alt="" coords="273,29,376,70,374,75,271,34"/>
-<area shape="rect" title=" " alt="" coords="505,79,662,105"/>
-<area shape="poly" title=" " alt="" coords="301,29,511,73,510,78,300,34"/>
+<area shape="poly" title=" " alt="" coords="251,34,70,81,69,76,250,29"/>
+<area shape="rect" title=" " alt="" coords="79,79,133,105"/>
+<area shape="poly" title=" " alt="" coords="269,34,148,78,146,73,267,29"/>
+<area shape="rect" title=" " alt="" coords="156,79,202,105"/>
+<area shape="poly" title=" " alt="" coords="281,34,215,73,212,68,279,29"/>
+<area shape="rect" title=" " alt="" coords="226,79,292,105"/>
+<area shape="poly" title=" " alt="" coords="296,33,276,67,272,64,292,30"/>
+<area shape="rect" title=" " alt="" coords="317,79,370,105"/>
+<area shape="poly" title=" " alt="" coords="310,30,331,64,326,67,305,33"/>
+<area shape="rect" title=" " alt="" coords="394,79,482,105"/>
+<area shape="poly" title=" " alt="" coords="325,29,402,69,400,74,323,34"/>
+<area shape="rect" title=" " alt="" coords="506,79,628,105"/>
+<area shape="poly" title=" " alt="" coords="347,29,508,72,507,77,345,34"/>
+<area shape="rect" title=" " alt="" coords="653,79,810,105"/>
+<area shape="poly" title=" " alt="" coords="375,29,643,73,642,79,374,34"/>
 </map>
 </div>
 </div>
@@ -254,6 +260,12 @@ Functions</h2></td></tr>
 <tr class="memitem:a0e22ade4bf001c126dd22e5c72506031" id="r_a0e22ade4bf001c126dd22e5c72506031"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1internet.html#a0e22ade4bf001c126dd22e5c72506031">faker::internet::anonymousUsername</a> (unsigned maxLength)</td></tr>
 <tr class="memdesc:a0e22ade4bf001c126dd22e5c72506031"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random username.  <br /></td></tr>
 <tr class="separator:a0e22ade4bf001c126dd22e5c72506031"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80d65803a85e6240335e4d2ec781deb7" id="r_a80d65803a85e6240335e4d2ec781deb7"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1internet.html#a80d65803a85e6240335e4d2ec781deb7">faker::internet::getJWTToken</a> (const std::optional&lt; std::map&lt; std::string, std::string &gt; &gt; &amp;header=std::nullopt, const std::optional&lt; std::map&lt; std::string, std::string &gt; &gt; &amp;payload=std::nullopt, const std::optional&lt; std::string &gt; &amp;refDate=std::nullopt)</td></tr>
+<tr class="memdesc:a80d65803a85e6240335e4d2ec781deb7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a JSON Web Token (JWT).  <br /></td></tr>
+<tr class="separator:a80d65803a85e6240335e4d2ec781deb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a327076e83a6c964ccea491a7bda7bae2" id="r_a327076e83a6c964ccea491a7bda7bae2"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1internet.html#a327076e83a6c964ccea491a7bda7bae2">faker::internet::getJWTAlgorithm</a> ()</td></tr>
+<tr class="memdesc:a327076e83a6c964ccea491a7bda7bae2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the algorithm used for signing the JWT.  <br /></td></tr>
+<tr class="separator:a327076e83a6c964ccea491a7bda7bae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 </div><!-- doc-content -->
