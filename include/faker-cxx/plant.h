@@ -23,6 +23,8 @@ FAKER_CXX_EXPORT std::string_view tree(Locale locale = Locale::en_US);
 /**
  * @brief Returns a random species of flower.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Species of flower.
  *
  * @code
@@ -33,6 +35,8 @@ FAKER_CXX_EXPORT std::string_view flower(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random species of shrub.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Species of shrub.
  *
@@ -45,6 +49,8 @@ FAKER_CXX_EXPORT std::string_view shrub(Locale locale = Locale::en_US);
 /**
  * @brief Returns a random species of grass.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Species of grass.
  *
  * @code
@@ -55,6 +61,8 @@ FAKER_CXX_EXPORT std::string_view grass(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random species of fern.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Species of fern.
  *
@@ -67,6 +75,8 @@ FAKER_CXX_EXPORT std::string_view fern(Locale locale = Locale::en_US);
 /**
  * @brief Returns a random species of succulent.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Species of succulent.
  *
  * @code
@@ -78,6 +88,8 @@ FAKER_CXX_EXPORT std::string_view succulent(Locale locale = Locale::en_US);
 /**
  * @brief Returns a random species of vine.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Species of vine.
  *
  * @code
@@ -88,6 +100,8 @@ FAKER_CXX_EXPORT std::string_view vine(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random type of plant.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Type of plant.
  *
