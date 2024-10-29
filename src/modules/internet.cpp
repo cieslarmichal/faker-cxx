@@ -26,7 +26,7 @@
 #include "internet_data.h"
 #include "modules/string_data.h"
 
-namespace faker::internet::utility
+namespace
 {
 /**
  * @brief Encodes a given string to Base64 URL format.
@@ -472,11 +472,11 @@ std::string getJWTToken(const std::optional<std::map<std::string, std::string>>&
                         {"jti", faker::string::uuid()}};
     }
 
-    const auto headerToJSON = utility::toJSON(localHeader.value());
-    const auto encodedHeader = utility::toBase64UrlEncode(headerToJSON);
+    const auto headerToJSON = toJSON(localHeader.value());
+    const auto encodedHeader = toBase64UrlEncode(headerToJSON);
 
-    const auto payloadToJSON = utility::toJSON(localPayload.value());
-    const auto encodedPayload = utility::toBase64UrlEncode(payloadToJSON);
+    const auto payloadToJSON = toJSON(localPayload.value());
+    const auto encodedPayload = toBase64UrlEncode(payloadToJSON);
 
     const auto signature = faker::string::alphanumeric(64);
 
