@@ -22,7 +22,6 @@
 using namespace ::testing;
 using namespace faker;
 using namespace faker::internet;
-using namespace faker::internet::utility;
 
 namespace
 {
@@ -825,22 +824,4 @@ TEST_F(InternetTest, shouldGenerateJWTAlgorithm)
 
     ASSERT_TRUE(std::ranges::any_of(jwtAlgorithms, [generatedJWTAlgorythm](const std::string_view& JWTAlgorythm)
                                     { return generatedJWTAlgorythm == JWTAlgorythm; }));
-}
-
-TEST_F(InternetTest, shouldProduceJSONFromMap)
-{
-    std::map<std::string, std::string> map = {{"key1", "value1"}, {"key2", "value2"}};
-    const auto json = toJSON(map);
-
-    ASSERT_EQ(json, "{\"key1\":\"value1\",\"key2\":\"value2\"}");
-}
-
-TEST_F(InternetTest, shouldProduceBase64UrlEncoding)
-{
-    const std::string input = "Hello, World!";
-    const std::string expectedOutput = "SGVsbG8sIFdvcmxkIG";
-
-    const auto output = toBase64UrlEncode(input);
-
-    ASSERT_EQ(output, expectedOutput);
 }

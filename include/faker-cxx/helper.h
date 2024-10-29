@@ -10,8 +10,8 @@ namespace faker::helper
 {
 
 template <typename T>
-concept input_range_with_faster_size_compute_than_linear_rng =
-    std::ranges::input_range<T> && (std::ranges::sized_range<T> || std::ranges::forward_range<T>);
+concept input_range_with_faster_size_compute_than_linear_rng = std::ranges::input_range<T> &&
+    (std::ranges::sized_range<T> || std::ranges::forward_range<T>);
 
 template <input_range_with_faster_size_compute_than_linear_rng Range>
 decltype(auto) randomElement(Range&& range)

@@ -390,39 +390,3 @@ getJWTToken(const std::optional<std::map<std::string, std::string>>& header = st
  */
 FAKER_CXX_EXPORT std::string_view getJWTAlgorithm();
 }
-
-namespace faker::internet::utility
-{
-/**
- * @brief Encodes a given string to Base64 URL format.
- *
- * This function takes an input string and converts it into a Base64 URL encoded string.
- * Base64 URL encoding is a variant of Base64 encoding that is URL-safe.
- *
- * @param input The string to be encoded.
- *
- * @returns A Base64 URL encoded string.
- *
- * @code
- * std::string input = "Hello, World!";
- * faker::internet::toBase64UrlEncode(input); // "SGVsbG8sIFdvcmxkIQ"
- * @endcode
- */
-std::string toBase64UrlEncode(const std::string& input);
-
-/**
- * @brief Converts a map of key-value pairs to a JSON string.
- *
- * This function takes a map where both keys and values are strings and converts it into a JSON formatted string.
- *
- * @param data The map containing key-value pairs to be converted to JSON.
- *
- * @returns A JSON formatted string representing the input map.
- *
- * @code
- * std::map<std::string, std::string> data = {{"name", "John"}, {"age", "30"}};
- * faker::internet::toJSON(data);  // json is now "{\"name\":\"John\",\"age\":\"30\"}"
- * @endcode
- */
-std::string toJSON(std::map<std::string, std::string>& data);
-}
