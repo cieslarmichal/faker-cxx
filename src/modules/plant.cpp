@@ -7,43 +7,71 @@
 
 namespace faker::plant
 {
-std::string_view tree()
+namespace
 {
-    return helper::randomElement(trees);
+const struct PlantDefinition& getPlantDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSPlantDefinition;
+    }
+}
 }
 
-std::string_view flower()
+std::string_view tree(Locale locale)
 {
-    return helper::randomElement(flowers);
+    const auto& plantDefinition = getPlantDefinition(locale);
+
+    return helper::randomElement(plantDefinition.trees);
 }
 
-std::string_view shrub()
+std::string_view flower(Locale locale)
 {
-    return helper::randomElement(shrubs);
+    const auto& plantDefinition = getPlantDefinition(locale);
+
+    return helper::randomElement(plantDefinition.flowers);
 }
 
-std::string_view grass()
+std::string_view shrub(Locale locale)
 {
-    return helper::randomElement(grasses);
+    const auto& plantDefinition = getPlantDefinition(locale);
+
+    return helper::randomElement(plantDefinition.shrubs);
 }
 
-std::string_view fern()
+std::string_view grass(Locale locale)
 {
-    return helper::randomElement(ferns);
+    const auto& plantDefinition = getPlantDefinition(locale);
+
+    return helper::randomElement(plantDefinition.grasses);
 }
 
-std::string_view succulent()
+std::string_view fern(Locale locale)
 {
-    return helper::randomElement(succulents);
+    const auto& plantDefinition = getPlantDefinition(locale);
+
+    return helper::randomElement(plantDefinition.ferns);
 }
 
-std::string_view vine()
+std::string_view succulent(Locale locale)
 {
-    return helper::randomElement(vines);
+    const auto& plantDefinition = getPlantDefinition(locale);
+
+    return helper::randomElement(plantDefinition.succulents);
 }
 
-std::string_view plantType()
+std::string_view vine(Locale locale)
 {
-    return helper::randomElement(plantTypes);
+    const auto& plantDefinition = getPlantDefinition(locale);
+
+    return helper::randomElement(plantDefinition.vines);
+}
+
+std::string_view plantType(Locale locale)
+{
+    const auto& plantDefinition = getPlantDefinition(locale);
+
+    return helper::randomElement(plantDefinition.plantTypes);
 }
 }

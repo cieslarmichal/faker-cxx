@@ -1,11 +1,24 @@
 #pragma once
 
 #include <array>
+#include <span>
 #include <string_view>
 
 namespace faker::plant
 {
-const auto trees = std::to_array<std::string_view>({
+struct PlantDefinition
+{
+    std::span<const std::string_view> trees;
+    std::span<const std::string_view> flowers;
+    std::span<const std::string_view> shrubs;
+    std::span<const std::string_view> grasses;
+    std::span<const std::string_view> ferns;
+    std::span<const std::string_view> succulents;
+    std::span<const std::string_view> vines;
+    std::span<const std::string_view> plantTypes;
+};
+
+const auto enUSTrees = std::to_array<std::string_view>({
     "Acacia",   "Almond",       "Apple",      "Ash",          "Avocado",        "Bamboo",  "Banana",
     "Baobab",   "Beech",        "Birch",      "Black Walnut", "Catalpa",        "Cedar",   "Cherry Blossom",
     "Chestnut", "Chestnut Oak", "Cottonwood", "Crape Myrtle", "Cypress",        "Dogwood", "Eucalyptus",
@@ -15,7 +28,7 @@ const auto trees = std::to_array<std::string_view>({
     "Spruce",   "Sycamore",     "Tamarind",   "Walnut",       "Willow",
 });
 
-const auto flowers = std::to_array<std::string_view>({
+const auto enUSFlowers = std::to_array<std::string_view>({
     "Adenium Obesum",
     "African Daisy",
     "Allamanda Cathartica",
@@ -110,7 +123,7 @@ const auto flowers = std::to_array<std::string_view>({
     "Zinnia",
 });
 
-const auto shrubs = std::to_array<std::string_view>({
+const auto enUSShrubs = std::to_array<std::string_view>({
     "Aralia",        "Arctostaphylos", "Aronia",         "Artemisia",     "Aucuba",       "Berberis",
     "Bougainvillea", "Brugmansia",     "Buddleja",       "Buxus",         "Calia",        "Callicarpa",
     "Callistemon",   "Calluna",        "Calycanthus",    "Camellia",      "Caragana",     "Carpenteria",
@@ -149,7 +162,7 @@ const auto shrubs = std::to_array<std::string_view>({
     "Zenobia",       "Ziziphus",
 });
 
-const auto grasses = std::to_array<std::string_view>({
+const auto enUSGrasses = std::to_array<std::string_view>({
     "Bahiagrass",
     "Bahiagrass",
     "Bamboo",
@@ -249,7 +262,7 @@ const auto grasses = std::to_array<std::string_view>({
     "Yellow Indiangrass",
 });
 
-const auto ferns = std::to_array<std::string_view>({
+const auto enUSFerns = std::to_array<std::string_view>({
     "Adder's-tongue Fern",
     "Angiopteris evecta",
     "Beech Fern",
@@ -336,7 +349,7 @@ const auto ferns = std::to_array<std::string_view>({
     "Zygopteridales",
 });
 
-const auto succulents = std::to_array<std::string_view>({
+const auto enUSSucculents = std::to_array<std::string_view>({
     "Aeonium",
     "Aloe vera",
     "Ammocharis",
@@ -470,7 +483,7 @@ const auto succulents = std::to_array<std::string_view>({
     "Zephyrlily",
 });
 
-const auto vines = std::to_array<std::string_view>({
+const auto enUSVines = std::to_array<std::string_view>({
     "Akebia (Five-leaf Akebia)",
     "Asparagus asparagoides (Sprenger's Asparagus)",
     "Black-eyed Susan Vine (Thunbergia alata)",
@@ -497,7 +510,7 @@ const auto vines = std::to_array<std::string_view>({
     "Wisteria",
 });
 
-const auto plantTypes = std::to_array<std::string_view>({
+const auto enUSPlantTypes = std::to_array<std::string_view>({
     "fern",
     "flower",
     "grass",
@@ -506,5 +519,16 @@ const auto plantTypes = std::to_array<std::string_view>({
     "tree",
     "vine",
 });
+
+const PlantDefinition enUSPlantDefinition = {
+    .trees = enUSTrees,
+    .flowers = enUSFlowers,
+    .shrubs = enUSShrubs,
+    .grasses = enUSGrasses,
+    .ferns = enUSFerns,
+    .succulents = enUSSucculents,
+    .vines = enUSVines,
+    .plantTypes = enUSPlantTypes,
+};
 
 }
