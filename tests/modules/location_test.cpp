@@ -78,6 +78,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return slovakiaAddresses;
     case Locale::pt_PT:
         return portugalAddresses;
+    case Locale::he_IL:
+        return israelAddresses;
     default:
         return usaAddresses;
     }
@@ -1054,4 +1056,50 @@ TEST_F(LocationTest, shouldGeneratePortugalStreetAddress)
     ASSERT_TRUE(std::ranges::any_of(portugalStreetSuffixes,
                                     [&generatedStreetSuffix](const std::string_view& streetSuffix)
                                     { return generatedStreetSuffix.find(streetSuffix) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateIsraelStreet)
+{
+    const auto generatedStreet = street(Locale::he_IL);
+    const auto generatedStreetElements = common::split(generatedStreet, " ");
+    const auto& generatedStreetPrefix = generatedStreetElements[0];
+    const auto& generatedStreetName =
+        common::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
+
+
+    ASSERT_TRUE(std::ranges::any_of(israelStreetPrefixes, [&generatedStreetPrefix](const std::string_view& streetPrefix)
+                                    { return streetPrefix == generatedStreetPrefix; }));
+    ASSERT_TRUE(std::ranges::any_of(israelStreetNames, [&generatedStreetName](const std::string_view& streetName)
+                                    { return streetName == generatedStreetName; }));
+}
+
+TEST_F(LocationTest, shouldGenerateIsraelStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::he_IL);
+    auto generatedAddresses = common::split(generatedStreetAddress, " ");
+    if (generatedAddresses[generatedAddresses.size() - 2] == "דירה" || generatedAddresses[generatedAddresses.size() - 2] == "חדר") 
+    {
+        const auto& secondaryAddressType = generatedAddresses[generatedAddresses.size() - 2];
+        const auto& secondaryAddressNumber = generatedAddresses.back();
+        ASSERT_TRUE(secondaryAddressNumber.size() == 1 || secondaryAddressNumber.size() == 2);
+        ASSERT_TRUE(checkIfAllCharactersAreNumeric(secondaryAddressNumber));
+        ASSERT_TRUE(secondaryAddressType == "דירה" || secondaryAddressType == "חדר");
+        generatedAddresses.pop_back();  // Remove unit number
+        generatedAddresses.pop_back();
+    }
+    const auto& generatedStreetPrefix = generatedAddresses[0];
+    auto generatedBuildingNumber = generatedAddresses.back();
+    generatedAddresses.pop_back();
+    while (!generatedBuildingNumber.empty() && !checkIfAllCharactersAreNumeric(generatedBuildingNumber)) {
+        generatedBuildingNumber.pop_back(); // Remove the last byte until it's numeric
+    }
+    const auto& generatedStreetName =
+        common::join({generatedAddresses.begin() + 1, generatedAddresses.end()});
+    
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);   
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber)); 
+    ASSERT_TRUE(std::ranges::any_of(israelStreetPrefixes, [&generatedStreetPrefix](const std::string_view& streetPrefix)
+                                { return streetPrefix == generatedStreetPrefix; }));
+    ASSERT_TRUE(std::ranges::any_of(israelStreetNames, [&generatedStreetName](const std::string_view& streetName)
+                                { return streetName == generatedStreetName; }));
 }
