@@ -312,7 +312,7 @@ std::string numeric(GuaranteeMap&& guarantee, const unsigned length, bool allowL
     }
 }
 
-std::string nanoid(int length)
+std::string nanoId(int length)
 {
 
     if (length < 1)
@@ -331,7 +331,7 @@ std::string nanoid(int length)
     return id;
 }
 
-std::string nanoid()
+std::string nanoId()
 {
     std::random_device rd;
     std::mt19937 generator(rd());
@@ -346,7 +346,7 @@ std::string nanoid()
     return id;
 }
 
-std::string nanoid(int minLength, int maxLength)
+std::string nanoId(int minLength, int maxLength)
 {
     if (maxLength - minLength < 1)
         return "";

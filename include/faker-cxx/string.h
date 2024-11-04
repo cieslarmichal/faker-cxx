@@ -325,11 +325,11 @@ FAKER_CXX_EXPORT std::string numeric(GuaranteeMap&& guarantee, unsigned length =
  * @returns A unique, URL-safe string identifier of the specified length.
  *
  * @code
- * nanoid(10); // Possible output: "F8aXz1Q4wB"
- * nanoid(21); // Possible output: "V2JlO7GZ1kPl9FxErRqzS"
+ * nanoId(10); // Possible output: "F8aXz1Q4wB"
+ * nanoId(21); // Possible output: "V2JlO7GZ1kPl9FxErRqzS"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string nanoid(int length);
+FAKER_CXX_EXPORT std::string nanoId(int length);
 
 /**
  * @brief Generates a unique, URL-safe string identifier of default length.
@@ -341,10 +341,10 @@ FAKER_CXX_EXPORT std::string nanoid(int length);
  * @returns A unique, URL-safe string identifier of default length (10 characters).
  *
  * @code
- * nanoid(); // Possible output: "Hf5lN8L2wQ"
+ * nanoId(); // Possible output: "Hf5lN8L2wQ"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string nanoid();
+FAKER_CXX_EXPORT std::string nanoId();
 
 /**
  * @brief Generates a unique, URL-safe string identifier of random length within a specified range.
@@ -359,9 +359,9 @@ FAKER_CXX_EXPORT std::string nanoid();
  * @returns A unique, URL-safe string identifier with a length between `minLength` and `maxLength`.
  *
  * @code
- * nanoid(10, 15); // Possible output: "Vb2Ej8G9wP"
- * nanoid(5, 8);   // Possible output: "P1Z3x"
+ * nanoId(10, 15); // Possible output: "Vb2Ej8G9wPcQ2"
+ * nanoId(5, 8);   // Possible output: "P1zZ3x"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string nanoid(int minLength, int maxLength);
+FAKER_CXX_EXPORT std::string nanoId(int minLength, int maxLength);
 }
