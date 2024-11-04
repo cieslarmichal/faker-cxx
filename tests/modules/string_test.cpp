@@ -936,14 +936,15 @@ TEST_F(StringTest, invalidGuaranteeForNumeric4)
     ASSERT_THROW(numeric(std::move(guarantee), numericLength, false), std::invalid_argument);
 }
 
-TEST_F(StringTest, shouldGenerateNanoIDWithSpecificLength) {
+TEST_F(StringTest, shouldGenerateNanoIdWithSpecificLength)
+{
     ASSERT_EQ(nanoid().size(), 10);
     ASSERT_EQ(nanoid(20).size(), 20);
     ASSERT_EQ(nanoid(0).size(), 0);
     ASSERT_EQ(nanoid(-1).size(), 0);
     ASSERT_EQ(nanoid(8, 2).size(), 0);
 
-    string rangeNanoid = nanoid(2, 8);
-    ASSERT_GE(id.size(), 2);
-    ASSERT_LE(id.size(), 8);
+    const auto rangeNanoid = nanoid(2, 8);
+    ASSERT_GE(rangeNanoid.size(), 2);
+    ASSERT_LE(rangeNanoid.size(), 8);
 }

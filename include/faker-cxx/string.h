@@ -313,4 +313,55 @@ FAKER_CXX_EXPORT std::string numeric(unsigned length = 1, bool allowLeadingZeros
  * @endcode
  */
 FAKER_CXX_EXPORT std::string numeric(GuaranteeMap&& guarantee, unsigned length = 1, bool allowLeadingZeros = true);
+
+/**
+ * @brief Generates a unique, URL-safe string identifier of the specified length.
+ *
+ * This function generates a unique identifier using a cryptographically secure
+ * random number generator, with the output length set by the `length` parameter.
+ *
+ * @param length The exact length of the identifier to generate.
+ *
+ * @returns A unique, URL-safe string identifier of the specified length.
+ *
+ * @code
+ * nanoid(10); // Possible output: "F8aXz1Q4wB"
+ * nanoid(21); // Possible output: "V2JlO7GZ1kPl9FxErRqzS"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string nanoid(int length);
+
+/**
+ * @brief Generates a unique, URL-safe string identifier of default length.
+ *
+ * This function generates a unique identifier with a default length of 10 characters.
+ * The identifier is URL-safe and created using a cryptographically secure
+ * random number generator.
+ *
+ * @returns A unique, URL-safe string identifier of default length (10 characters).
+ *
+ * @code
+ * nanoid(); // Possible output: "Hf5lN8L2wQ"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string nanoid();
+
+/**
+ * @brief Generates a unique, URL-safe string identifier of random length within a specified range.
+ *
+ * This function generates a unique identifier with a length that varies between
+ * `minLength` and `maxLength`, inclusive. The identifier is URL-safe and created
+ * using a cryptographically secure random number generator.
+ *
+ * @param minLength The minimum length of the identifier.
+ * @param maxLength The maximum length of the identifier.
+ *
+ * @returns A unique, URL-safe string identifier with a length between `minLength` and `maxLength`.
+ *
+ * @code
+ * nanoid(10, 15); // Possible output: "Vb2Ej8G9wP"
+ * nanoid(5, 8);   // Possible output: "P1Z3x"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string nanoid(int minLength, int maxLength);
 }

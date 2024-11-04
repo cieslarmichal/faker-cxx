@@ -320,12 +320,12 @@ std::string nanoid(int length)
 
     std::random_device rd;
     std::mt19937 generator(rd());
-    std::uniform_int_distribution<> distribution(0, faker::string::nanoIdAllowedCharacters.size() - 1);
+    std::uniform_int_distribution<int> distribution(0, nanoIdAllowedCharacters.size() - 1);
 
     std::string id;
     for (size_t i = 0; i < length; ++i)
     {
-        id += faker::string::nanoIdAllowedCharacters[distribution(generator)];
+        id += nanoIdAllowedCharacters[distribution(generator)];
     }
 
     return id;
@@ -333,7 +333,17 @@ std::string nanoid(int length)
 
 std::string nanoid()
 {
-    return nanoid(10);
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::uniform_int_distribution<int> distribution(0, nanoIdAllowedCharacters.size() - 1);
+
+    std::string id;
+    for (size_t i = 0; i < 10; ++i)
+    {
+        id += nanoIdAllowedCharacters[distribution(generator)];
+    }
+
+    return id;
 }
 
 std::string nanoid(int minLength, int maxLength)
@@ -344,9 +354,19 @@ std::string nanoid(int minLength, int maxLength)
     std::random_device rd;
     std::mt19937 generator(rd());
 
-    std::uniform_int_distribution<int> distribution(minLength, maxLength);
+    std::uniform_int_distribution<int> lengthDistribution(minLength, maxLength);
+    int length = lengthDistribution(generator);
 
-    return nanoid(distribution(generator));
+    std::uniform_int_distribution<int> charDistribution(0, nanoIdAllowedCharacters.size() - 1);
+
+    std::string id;
+    for (size_t i = 0; i < length; ++i)
+    {
+        id += nanoIdAllowedCharacters[charDistribution(generator)];
+    }
+
+    return id;
 }
+
 
 }
