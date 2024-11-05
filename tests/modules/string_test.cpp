@@ -938,10 +938,18 @@ TEST_F(StringTest, invalidGuaranteeForNumeric4)
 
 TEST_F(StringTest, shouldGenerateNanoIdWithSpecificLength)
 {
-    ASSERT_EQ(nanoId().size(), 10);
     ASSERT_EQ(nanoId(20).size(), 20);
     ASSERT_EQ(nanoId(0).size(), 0);
     ASSERT_EQ(nanoId(-1).size(), 0);
+}
+
+TEST_F(StringTest, shouldGenerateNanoIdWithDefaultLength)
+{
+    ASSERT_EQ(nanoId().size(), 10);
+}
+
+TEST_F(StringTest, shouldGenerateNanoIdWithLengthFromRange)
+{
     ASSERT_EQ(nanoId(8, 2).size(), 0);
 
     const auto rangeNanoid = nanoId(2, 8);
