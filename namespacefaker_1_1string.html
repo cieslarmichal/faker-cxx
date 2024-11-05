@@ -171,6 +171,15 @@ Functions</h2></td></tr>
 <tr class="memitem:a6b7e02197a0cec823f7b051c7234865b" id="r_a6b7e02197a0cec823f7b051c7234865b"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6b7e02197a0cec823f7b051c7234865b">numeric</a> (<a class="el" href="#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> &amp;&amp;guarantee, unsigned length=1, bool allowLeadingZeros=true)</td></tr>
 <tr class="memdesc:a6b7e02197a0cec823f7b051c7234865b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a given length string of digits.  <br /></td></tr>
 <tr class="separator:a6b7e02197a0cec823f7b051c7234865b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba589b5a467878c9d64354b41a56cf3c" id="r_aba589b5a467878c9d64354b41a56cf3c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aba589b5a467878c9d64354b41a56cf3c">nanoId</a> (int length)</td></tr>
+<tr class="memdesc:aba589b5a467878c9d64354b41a56cf3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a unique, URL-safe string identifier of the specified length.  <br /></td></tr>
+<tr class="separator:aba589b5a467878c9d64354b41a56cf3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05a0c493670c2860f8821ae42fd1a166" id="r_a05a0c493670c2860f8821ae42fd1a166"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05a0c493670c2860f8821ae42fd1a166">nanoId</a> ()</td></tr>
+<tr class="memdesc:a05a0c493670c2860f8821ae42fd1a166"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a unique, URL-safe string identifier of default length.  <br /></td></tr>
+<tr class="separator:a05a0c493670c2860f8821ae42fd1a166"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95379524d70ccfe12a405f8ff27427ab" id="r_a95379524d70ccfe12a405f8ff27427ab"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a95379524d70ccfe12a405f8ff27427ab">nanoId</a> (int minLength, int maxLength)</td></tr>
+<tr class="memdesc:a95379524d70ccfe12a405f8ff27427ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a unique, URL-safe string identifier of random length within a specified range.  <br /></td></tr>
+<tr class="separator:a95379524d70ccfe12a405f8ff27427ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Typedef Documentation</h2>
 <a id="ae0a533af930e38eee4c35054705ee180" name="ae0a533af930e38eee4c35054705ee180"></a>
@@ -525,6 +534,92 @@ Functions</h2></td></tr>
 <div class="line"><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> length = 10;</div>
 <div class="line"><a class="code hl_function" href="#ab4bf69cbc483ce603dfe6bd89da38887">faker::string::isValidGuarantee</a>(guarantee,targetCharacters,length) <span class="comment">// false</span></div>
 <div class="ttc" id="anamespacefaker_1_1string_html_ab4bf69cbc483ce603dfe6bd89da38887"><div class="ttname"><a href="#ab4bf69cbc483ce603dfe6bd89da38887">faker::string::isValidGuarantee</a></div><div class="ttdeci">FAKER_CXX_EXPORT bool isValidGuarantee(GuaranteeMap &amp;guarantee, std::set&lt; char &gt; &amp;targetCharacters, unsigned length)</div><div class="ttdoc">Checks if the given guarantee map is valid for given targetCharacters and length.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a05a0c493670c2860f8821ae42fd1a166" name="a05a0c493670c2860f8821ae42fd1a166"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05a0c493670c2860f8821ae42fd1a166">&#9670;&#160;</a></span>nanoId() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::nanoId </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a unique, URL-safe string identifier of default length. </p>
+<p>This function generates a unique identifier with a default length of 10 characters. The identifier is URL-safe and created using a cryptographically secure random number generator.</p>
+<dl class="section return"><dt>Returns</dt><dd>A unique, URL-safe string identifier of default length (10 characters).</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a05a0c493670c2860f8821ae42fd1a166">nanoId</a>(); <span class="comment">// Possible output: &quot;Hf5lN8L2wQ&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1string_html_a05a0c493670c2860f8821ae42fd1a166"><div class="ttname"><a href="#a05a0c493670c2860f8821ae42fd1a166">faker::string::nanoId</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string nanoId()</div><div class="ttdoc">Generates a unique, URL-safe string identifier of default length.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="aba589b5a467878c9d64354b41a56cf3c" name="aba589b5a467878c9d64354b41a56cf3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba589b5a467878c9d64354b41a56cf3c">&#9670;&#160;</a></span>nanoId() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::nanoId </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>length</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a unique, URL-safe string identifier of the specified length. </p>
+<p>This function generates a unique identifier using a cryptographically secure random number generator, with the output length set by the `length` parameter.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">length</td><td>The exact length of the identifier to generate.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A unique, URL-safe string identifier of the specified length.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a05a0c493670c2860f8821ae42fd1a166">nanoId</a>(10); <span class="comment">// Possible output: &quot;F8aXz1Q4wB&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a05a0c493670c2860f8821ae42fd1a166">nanoId</a>(21); <span class="comment">// Possible output: &quot;V2JlO7GZ1kPl9FxErRqzS&quot;</span></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a95379524d70ccfe12a405f8ff27427ab" name="a95379524d70ccfe12a405f8ff27427ab"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95379524d70ccfe12a405f8ff27427ab">&#9670;&#160;</a></span>nanoId() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::nanoId </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>minLength</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>maxLength</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a unique, URL-safe string identifier of random length within a specified range. </p>
+<p>This function generates a unique identifier with a length that varies between `minLength` and `maxLength`, inclusive. The identifier is URL-safe and created using a cryptographically secure random number generator.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">minLength</td><td>The minimum length of the identifier. </td></tr>
+    <tr><td class="paramname">maxLength</td><td>The maximum length of the identifier.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A unique, URL-safe string identifier with a length between `minLength` and `maxLength`.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a05a0c493670c2860f8821ae42fd1a166">nanoId</a>(10, 15); <span class="comment">// Possible output: &quot;Vb2Ej8G9wPcQ2&quot;</span></div>
+<div class="line"><a class="code hl_function" href="#a05a0c493670c2860f8821ae42fd1a166">nanoId</a>(5, 8);   <span class="comment">// Possible output: &quot;P1zZ3x&quot;</span></div>
 </div><!-- fragment --> 
 </div>
 </div>
