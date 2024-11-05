@@ -14,6 +14,7 @@ const std::string lowerAlphanumericCharacters{lowerCharacters + numericCharacter
 const std::string upperAlphanumericCharacters{upperCharacters + numericCharacters};
 const std::string mixedAlphanumericCharacters{upperCharacters + lowerCharacters + numericCharacters};
 const std::string symbolCharacters{"~`!@#$%^&*()_-+={[}]|:;\"'<,>.?/"};
+const std::string nanoIdAllowedCharacters{mixedAlphanumericCharacters + "_-"};
 
 const std::set<char> lowerCharSet{
     'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',

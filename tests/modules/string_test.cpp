@@ -923,3 +923,24 @@ TEST_F(StringTest, invalidGuaranteeForNumeric4)
     GuaranteeMap guarantee = {{'0', {5}}};
     ASSERT_THROW(numeric(std::move(guarantee), numericLength, false), std::invalid_argument);
 }
+
+TEST_F(StringTest, shouldGenerateNanoIdWithSpecificLength)
+{
+    ASSERT_EQ(nanoId(20).size(), 20);
+    ASSERT_EQ(nanoId(0).size(), 0);
+    ASSERT_EQ(nanoId(-1).size(), 0);
+}
+
+TEST_F(StringTest, shouldGenerateNanoIdWithDefaultLength)
+{
+    ASSERT_EQ(nanoId().size(), 10);
+}
+
+TEST_F(StringTest, shouldGenerateNanoIdWithLengthFromRange)
+{
+    ASSERT_EQ(nanoId(8, 2).size(), 0);
+
+    const auto rangeNanoid = nanoId(2, 8);
+    ASSERT_GE(rangeNanoid.size(), 2);
+    ASSERT_LE(rangeNanoid.size(), 8);
+}

@@ -2,6 +2,7 @@
 
 #include <cassert>
 #include <map>
+#include <random>
 #include <set>
 #include <stdexcept>
 #include <string>
@@ -300,4 +301,62 @@ std::string numeric(GuaranteeMap&& guarantee, unsigned length, bool allowLeading
         return firstChar + generateStringWithGuarantee(guarantee, targetCharacters, length - 1);
     }
 }
+
+std::string nanoId(int length)
+{
+
+    if (length < 1)
+        return "";
+
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::uniform_int_distribution<int> distribution(0, nanoIdAllowedCharacters.size() - 1);
+
+    std::string id;
+    for (size_t i = 0; i < length; ++i)
+    {
+        id += nanoIdAllowedCharacters[distribution(generator)];
+    }
+
+    return id;
+}
+
+std::string nanoId()
+{
+    std::random_device rd;
+    std::mt19937 generator(rd());
+    std::uniform_int_distribution<int> distribution(0, nanoIdAllowedCharacters.size() - 1);
+
+    std::string id;
+    for (size_t i = 0; i < 10; ++i)
+    {
+        id += nanoIdAllowedCharacters[distribution(generator)];
+    }
+
+    return id;
+}
+
+std::string nanoId(int minLength, int maxLength)
+{
+    if (maxLength - minLength < 1)
+        return "";
+
+    std::random_device rd;
+    std::mt19937 generator(rd());
+
+    std::uniform_int_distribution<int> lengthDistribution(minLength, maxLength);
+    int length = lengthDistribution(generator);
+
+    std::uniform_int_distribution<int> charDistribution(0, nanoIdAllowedCharacters.size() - 1);
+
+    std::string id;
+    for (size_t i = 0; i < length; ++i)
+    {
+        id += nanoIdAllowedCharacters[charDistribution(generator)];
+    }
+
+    return id;
+}
+
+
 }
