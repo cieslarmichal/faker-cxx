@@ -80,6 +80,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return portugalAddresses;
     case Locale::he_IL:
         return israelAddresses;
+    case Locale::mx_MX:
+        return mexicoAddresses;
     default:
         return usaAddresses;
     }
@@ -1102,4 +1104,45 @@ TEST_F(LocationTest, shouldGenerateIsraelStreetAddress)
                                 { return streetPrefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(israelStreetNames, [&generatedStreetName](const std::string_view& streetName)
                                 { return streetName == generatedStreetName; }));
+}
+
+TEST_F(LocationTest, shouldGenerateMexicoStreet)
+{
+    const auto generatedStreet = street(Locale::mx_MX);
+
+    ASSERT_TRUE(std::ranges::any_of(mexicoStreetNames, [&generatedStreet](const std::string_view& street)
+                                    { return generatedStreet.find(street) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateMexicoStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::mx_MX);
+
+    const auto generatedAddresses = common::split(generatedStreetAddress, ", ");
+    const auto generatedStreetAddressElements = common::split(generatedAddresses[0], " ");
+
+    const auto& generatedBuildingNumber = generatedStreetAddressElements[generatedStreetAddressElements.size() - 1];
+    const auto& generatedStreetSuffix = generatedStreetAddressElements[generatedStreetAddressElements.size() - 2];
+    const auto& generatedStreet =
+        common::join({generatedStreetAddressElements.begin(), generatedStreetAddressElements.end() - 2});
+
+    if (generatedAddresses.size() > 1)
+    {
+        const auto& generatedSecondaryAddressParts = common::split(generatedAddresses[1], " ");
+
+        const auto& generatedUnitNumber = generatedSecondaryAddressParts[generatedSecondaryAddressParts.size() - 1];
+
+        ASSERT_TRUE(generatedUnitNumber.size() == 1 || generatedUnitNumber.size() == 3);
+        ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedUnitNumber));
+    }
+
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+
+    ASSERT_TRUE(std::ranges::any_of(mexicoStreetNames, [&generatedStreet](const std::string_view& streetName)
+                                    { return generatedStreet.find(streetName) != std::string::npos; }));
+
+    ASSERT_TRUE(std::ranges::any_of(mexicoStreetSuffixes,
+                                    [&generatedStreetSuffix](const std::string_view& streetSuffix)
+                                    { return generatedStreetSuffix.find(streetSuffix) != std::string::npos; }));
 }

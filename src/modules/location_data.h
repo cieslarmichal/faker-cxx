@@ -8060,6 +8060,181 @@ const CountryAddressesInfo italyAddresses{
     (italyStates),
 };
 
+// Mexico
+
+const auto mexicoCities = std::to_array<std::string_view>({
+    "Acapulco",
+    "Aguascalientes",
+    "Apizaco",
+    "Celaya",
+    "Chihuahua",
+    "Chilpancingo",
+    "Ciudad Juarez",
+    "Ciudad de Mexico",
+    "Colima",
+    "Cuernavaca",
+    "Culiacán",
+    "Delicias",
+    "Durango",
+    "Guadalajara",
+    "Guadalupe",
+    "Gomez Palacio",
+    "Hermosillo",
+    "Iguala",
+    "Irapuato",
+    "La Paz",
+    "León ato",
+    "Los Mochis",
+    "Mazatlán",
+    "Mérida",
+    "Mexicali",
+    "Minatitlán",
+    "Monterrey",
+    "Morelia",
+    "Nogales",
+    "Pachuca",
+    "Puebla".
+    "Puerto Vallarta",
+    "Querétaro",
+    "Reynosa",
+    "Rosarito",
+    "Saltillo",
+    "San Luis Potosí",
+    "San Nicolás de los Garza",
+    "San Pedro Garza García",
+    "Tapachula",
+    "Tepic",
+    "Tijuana",
+    "Toluca",
+    "Torreón",
+    "Tuxla Gutiérrez",
+    "Veracruz",
+    "Xalapa",
+    "Zacatecas",
+    "Zihuatanejo",
+});
+
+const auto mexicoStates = std::to_array<std::string_view>({
+    "Aguascalientes",
+    "Baja California",
+    "Baja California Sur",
+    "Campeche",
+    "Chiapas",
+    "Chihuahua",
+    "Coahuila",
+    "Colima",
+    "Durango",
+    "Guanajuato",
+    "Guerrero",
+    "Hidalgo",
+    "Jalisco",
+    "Ciudad de México (CDMX)",
+    "Michoacán",
+    "Morelos",
+    "Nayarit",
+    "Nuevo León",
+    "Oaxaca",
+    "Puebla",
+    "Querétaro",
+    "Quintana Roo",
+    "San Luis Potosí",
+    "Sinaloa",
+    "Sonora",
+    "Tabasco",
+    "Tamaulipas",
+    "Tlaxcala",
+    "Veracruz",
+    "Yucatán",
+    "Zacatecas",
+});
+
+const auto mexicoStreetNames = std::to_array<std::string_view>({
+    "Avenida Reforma",
+    "Avenida Insurgentes",
+    "Calle 5 de Febrero",
+    "Avenida Juárez",
+    "Calle Morelos",
+    "Calle Madero",
+    "Avenida de los Insurgentes",
+    "Avenida Zaragoza",
+    "Calle Hidalgo",
+    "Calle Prolongación Madero",
+    "Avenida Lázaro Cárdenas",
+    "Calle Benito Juárez",
+    "Calle Francisco I. Madero",
+    "Calle Pino Suárez",
+    "Avenida Tulum",
+    "Avenida México",
+    "Calle 16 de Septiembre",
+    "Calle Juárez",
+    "Avenida 20 de Noviembre",
+    "Calle Reforma",
+    "Avenida Veracruz",
+    "Calle Guerrero",
+    "Calle Oaxaca",
+    "Avenida 5 de Febrero",
+    "Avenida Constitución",
+    "Calle Lázaro Cárdenas",
+    "Calle Libertad",
+    "Calle Emiliano Zapata",
+    "Avenida Pino Suárez",
+    "Calle Ramon Ramirez",
+    "Avenida Independencia",
+});
+
+const auto mexicoStreetPrefixes =
+    std::to_array<std::string_view>({
+    "Calle",
+    "Avenida",
+    "Colonia",
+    "Paseo",
+    "Plaza",
+});
+
+const std::string_view mexicoZipCodeFormat{"#####"};
+
+const auto mexicoAddressFormats =
+    std::to_array<std::string_view>({
+    "{street} {buildingNumber} {secondaryAddress}",
+    "{street} {buildingNumber})",
+});
+
+const auto mexicoSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Piso. #",
+    "Apto. #",
+});
+
+const auto mexicoBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+});
+
+const auto mexicoStreetFormats =
+    std::to_array<std::string_view>({
+    "{streetSuffix} {streetName}",
+});
+
+const auto mexicoCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo mexicoAddresses{
+    mexicoZipCodeFormat,
+    (mexicoAddressFormats),
+    (mexicoSecondaryAddressFormats),
+    (mexicoStreetFormats),
+    {},
+    {mexicoStreetNames},
+    (mexicoStreetSuffixes),
+    (mexicoBuildingNumberFormats),
+    (mexicoCityFormats),
+    {},
+    (mexicoCities),
+    {},
+    (mexicoStates),
+};
+
 // Poland
 
 const auto polandCities = std::to_array<std::string_view>({
