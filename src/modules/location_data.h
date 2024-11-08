@@ -8093,7 +8093,7 @@ const auto mexicoCities = std::to_array<std::string_view>({
     "Morelia",
     "Nogales",
     "Pachuca",
-    "Puebla".
+    "Puebla",
     "Puerto Vallarta",
     "Querétaro",
     "Reynosa",
@@ -8226,7 +8226,7 @@ const CountryAddressesInfo mexicoAddresses{
     (mexicoStreetFormats),
     {},
     {mexicoStreetNames},
-    (mexicoStreetSuffixes),
+    (mexicoStreetPrefixes),
     (mexicoBuildingNumberFormats),
     (mexicoCityFormats),
     {},
