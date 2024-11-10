@@ -309,3 +309,17 @@ TEST_F(ColorTest, shouldGenerateYuv)
     ASSERT_TRUE(chrominanceBlueColor >= 0 && chrominanceBlueColor <= 255);
     ASSERT_TRUE(chrominanceRedColor >= 0 && chrominanceRedColor <= 255);
 }
+
+TEST_F(ColorTest, shouldGenerateColorSpace)
+{
+    const auto generatedColorSpace = space();
+
+    const std::array<std::string_view, 20> expectedColorSpaces = {
+        "sRGB", "Adobe RGB", "ProPhoto RGB", "DCI-P3",       "Rec. 709",        "Rec. 2020",       "CMYK",
+        "XYZ",  "Lab",       "ACES",         "CIE 1931 XYZ", "CIE 1976 L*a*b*", "CIE 1976 L*u*v*", "CIEUVW",
+        "Y'UV", "Y'IQ",      "Y'DbDr",       "YCC",          "YPbPr",           "YPbPr601"};
+
+    ASSERT_TRUE(std::any_of(expectedColorSpaces.begin(), expectedColorSpaces.end(),
+                            [generatedColorSpace](const std::string_view& colorSpace)
+                            { return colorSpace == generatedColorSpace; }));
+}
