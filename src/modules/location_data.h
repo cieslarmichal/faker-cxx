@@ -8234,8 +8234,8 @@ const CountryAddressesInfo mexicoAddresses{
     {},
     (mexicoStates),
 };
-// Palestine
-const auto PalestineCities = std::to_array<std::string_view>(
+// palestine
+const auto palestineCities = std::to_array<std::string_view>(
 
 {
     "Gaza City",
@@ -8289,7 +8289,7 @@ const auto PalestineCities = std::to_array<std::string_view>(
     "Kharas",
     "Qatanna"
 });
-const auto PalestineStates = std::to_array<std::string_view>({
+const auto palestineStates = std::to_array<std::string_view>({
     "Hebron",
     "Bethlehem",
     "Jerusalem",
@@ -8308,7 +8308,7 @@ const auto PalestineStates = std::to_array<std::string_view>({
     "Rafah"
 }
 );
-const auto PalestineStreetNames = std::to_array<std::string_view>({
+const auto palestineStreetNames = std::to_array<std::string_view>({
     "Omar Mukhtar",
     "Al-Shuhada",
     "Star",
@@ -8362,7 +8362,7 @@ const auto PalestineStreetNames = std::to_array<std::string_view>({
 }
 );
 
-const auto PalestineStreetSuffix = std::to_array<std::string_view>({
+const auto palestineStreetSuffixes = std::to_array<std::string_view>({
     "Shari' or Shari'a",
     "Tariq",
     "Jada",
@@ -8375,43 +8375,43 @@ const auto PalestineStreetSuffix = std::to_array<std::string_view>({
 }
 );
 
-const std::string_view PalestineZipCodeFormat{"P######"};
-const auto PalestineAddressFormats =
+const std::string_view palestineZipCodeFormat{"P######"};
+const auto palestineAddressFormats =
     std::to_array<std::string_view>({
         "{street} {buildingNumber} {secondaryAddress}",
         "{street} {buildingNumber}",
     });
-const auto PalestineSecondaryAddressFormats = std::to_array<std::string_view>({
+const auto palestineSecondaryAddressFormats = std::to_array<std::string_view>({
     "Floor #",
     "Apt. #",
 });
-const auto PalestineBuildingNumberFormats = std::to_array<std::string_view>({
+const auto palestineBuildingNumberFormats = std::to_array<std::string_view>({
     "#",
     "##",
     "###",
 });
-const auto PalestineStreetFormats =
+const auto palestineStreetFormats =
     std::to_array<std::string_view>({
         "{streetSuffix} {streetName}",
     });
-const auto PalestineCityFormats = std::to_array<std::string_view>({
+const auto palestineCityFormats = std::to_array<std::string_view>({
     "{cityName}",
 });
 
-const CountryAddressesInfo PalestineAddresses{
-    PalestineZipCodeFormat,
-    PalestineAddressFormats,
-    PalestineSecondaryAddressFormats,
-    PalestineStreetFormats,
+const CountryAddressesInfo palestineAddresses{
+    palestineZipCodeFormat,
+    palestineAddressFormats,
+    palestineSecondaryAddressFormats,
+    palestineStreetFormats,
     {},
-    {PalestineStreetNames},
-    PalestineStreetSuffixes,
-    PalestineBuildingNumberFormats,
-    PalestineCityFormats,
+    {palestineStreetNames},
+    palestineStreetSuffixes,
+    palestineBuildingNumberFormats,
+    palestineCityFormats,
     {},
-    PalestineCities,
+    palestineCities,
     {},
-    PalestineStates,
+    palestineStates,
 };
 
 // Poland
