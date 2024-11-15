@@ -83,7 +83,7 @@ CountryAddressesInfo getAddresses(const Locale& locale)
     case Locale::es_MX:
         return mexicoAddresses;
     case Locale::ar_PS:
-        return PalestineAddresses;
+        return palestineAddresses;
     default:
         return usaAddresses;
     }
