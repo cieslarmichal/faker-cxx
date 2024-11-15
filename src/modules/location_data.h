@@ -8234,6 +8234,185 @@ const CountryAddressesInfo mexicoAddresses{
     {},
     (mexicoStates),
 };
+// palestine
+const auto palestineCities = std::to_array<std::string_view>(
+
+{
+    "Gaza City",
+    "Hebron",
+    "Nablus",
+    "Jenin",
+    "Ramallah",
+    "Bethlehem",
+    "Jericho",
+    "Tulkarm",
+    "Qalqilya",
+    "Rafah",
+    "Khan Yunis",
+    "Beit Jala",
+    "Beit Sahour",
+    "Al-Bireh",
+    "Salfit",
+    "Tubas",
+    "Dura",
+    "Yatta",
+    "Halhul",
+    "Beitunia",
+    "Qabatiya",
+    "Anabta",
+    "Bani Na'im",
+    "Bani Suheila",
+    "Beit Hanoun",
+    "Beit Lahia",
+    "Deir al-Balah",
+    "Abasan al-Kabira",
+    "Abu Dis",
+    "Ad-Dhahiriya",
+    "Arraba",
+    "As-Samu",
+    "Azzun",
+    "Bala",
+    "Bani Zeid",
+    "Bidya",
+    "Birzeit",
+    "Bruqin",
+    "Deir Istiya",
+    "Hajja",
+    "Hizma",
+    "Idhna",
+    "Jaba",
+    "Jifna",
+    "Kafr Aqab",
+    "Kafr ad-Dik",
+    "Kafr al-Labad",
+    "Kafr Qaddum",
+    "Kharas",
+    "Qatanna"
+});
+const auto palestineStates = std::to_array<std::string_view>({
+    "Hebron",
+    "Bethlehem",
+    "Jerusalem",
+    "Ramallah and Al-Bireh",
+    "Salfit",
+    "Nablus",
+    "Qalqilya",
+    "Tulkarm",
+    "Jenin",
+    "Tubas",
+    "Jericho and the Jordan Valley",
+    "North Gaza",
+    "Gaza",
+    "Deir al-Balah",
+    "Khan Yunis",
+    "Rafah"
+}
+);
+const auto palestineStreetNames = std::to_array<std::string_view>({
+    "Omar Mukhtar",
+    "Al-Shuhada",
+    "Star",
+    "Jamal Abdel Nasser",
+    "Al-Wehda",
+    "Al-Nuzha",
+    "Al-Irsal",
+    "Al-Manara",
+    "Al-Ma'arif",
+    "Al-Madares",
+    "Al-Quds",
+    "Al-Muntazah",
+    "Al-Ma'arad",
+    "Al-Baladiya",
+    "Al-Sa'a",
+    "Al-Masjid",
+    "Al-Mahkamah",
+    "Al-Maktaba",
+    "Al-Mahatta",
+    "Al-Masri",
+    "Al-Mujamma'",
+    "Al-Muhafaza",
+    "Al-Mu'assasa",
+    "Al-Mu'allimin",
+    "Al-Mu'askar",
+    "Al-Mu'awiya",
+    "Al-Mu'athafin",
+    "Al-Mu'askar Al-Jadid",
+    "Al-Mu'askar Al-Qadim",
+    "Al-Mu'askar Al-Shamali",
+    "Al-Mu'askar Al-Janubi",
+    "Al-Mu'askar Al-Gharbi",
+    "Al-Mu'askar Al-Sharqi",
+    "Al-Mu'askar Al-Awsat",
+    "Al-Mu'askar Al-Kabir",
+    "Al-Mu'askar Al-Saghir",
+    "Al-Mu'askar Al-Madina",
+    "Al-Mu'askar Al-Bahr",
+    "Al-Mu'askar Al-Jabal",
+    "Al-Mu'askar Al-Wadi",
+    "Al-Mu'askar Al-Sahil",
+    "Al-Mu'askar Al-Turab",
+    "Al-Mu'askar Al-Hajar",
+    "Al-Mu'askar Al-Nahr",
+    "Al-Mu'askar Al-Suq",
+    "Al-Mu'askar Al-Masna'",
+    "Al-Mu'askar Al-Madina Al-Qadima",
+    "Al-Mu'askar Al-Madina Al-Jadida",
+    "Al-Mu'askar Al-Madina Al-Munawara",
+    "Al-Mu'askar Al-Madina Al-Muqaddasa"
+}
+);
+
+const auto palestineStreetSuffixes = std::to_array<std::string_view>({
+    "Shari' or Shari'a",
+    "Tariq",
+    "Jada",
+    "Midan",
+    "Zuqaq",
+    "Hara",
+    "Darb",
+    "Saha",
+    "Jisr"
+}
+);
+
+const std::string_view palestineZipCodeFormat{"#######"};
+const auto palestineAddressFormats =
+    std::to_array<std::string_view>({
+        "{street} {buildingNumber} {secondaryAddress}",
+        "{street} {buildingNumber}",
+    });
+const auto palestineSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Floor #",
+    "Apt. #",
+});
+const auto palestineBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+});
+const auto palestineStreetFormats =
+    std::to_array<std::string_view>({
+        "{streetSuffix} {streetName}",
+    });
+const auto palestineCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo palestineAddresses{
+    palestineZipCodeFormat,
+    palestineAddressFormats,
+    palestineSecondaryAddressFormats,
+    palestineStreetFormats,
+    {},
+    {palestineStreetNames},
+    palestineStreetSuffixes,
+    palestineBuildingNumberFormats,
+    palestineCityFormats,
+    {},
+    palestineCities,
+    {},
+    palestineStates,
+};
 
 // Poland
 
