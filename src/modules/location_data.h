@@ -8375,7 +8375,7 @@ const auto palestineStreetSuffixes = std::to_array<std::string_view>({
 }
 );
 
-const std::string_view palestineZipCodeFormat{"P######"};
+const std::string_view palestineZipCodeFormat{"#######"};
 const auto palestineAddressFormats =
     std::to_array<std::string_view>({
         "{street} {buildingNumber} {secondaryAddress}",
