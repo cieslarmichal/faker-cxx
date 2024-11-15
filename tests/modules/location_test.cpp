@@ -1124,17 +1124,17 @@ TEST_F(LocationTest, shouldGenerateMexicoStreetAddress)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
 
-TEST_F(LocationTest, shouldGeneratePalestineStreet)
+TEST_F(LocationTest, shouldGeneratepalestineStreet)
 {
     const auto generatedStreet = street(Locale::ar_PS);
-    ASSERT_TRUE(std::ranges::any_of(PalestineStreetNames, [&generatedStreet](const std::string_view& street)
+    ASSERT_TRUE(std::ranges::any_of(palestineStreetNames, [&generatedStreet](const std::string_view& street)
                                     { return generatedStreet.find(street) != std::string::npos; }));
 }
 
-TEST_F(LocationTest, shouldGeneratePalestineStreetAddress)
+TEST_F(LocationTest, shouldGeneratepalestineStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(Locale::ar_PS);
-    ASSERT_TRUE(std::ranges::any_of(PalestineStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+    ASSERT_TRUE(std::ranges::any_of(palestineStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
 
