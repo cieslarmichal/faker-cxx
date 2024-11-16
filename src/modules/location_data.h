@@ -287,7 +287,7 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Zimbabwe", "Africa"}
 };
 
-const auto allCountries = std::to_array<std::string_view>({
+const std::vector<std::string_view> allCountries = {
     // clang-format off
     "Afghanistan",
     "Aland Islands",
