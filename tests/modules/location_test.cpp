@@ -3,6 +3,7 @@
 #include <string>
 #include <string_view>
 #include <vector>
+#include <unordered_set>
 
 #include "gtest/gtest.h"
 
@@ -1138,5 +1139,24 @@ TEST_F(LocationTest, shouldGeneratepalestineStreetAddress)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
 
+TEST(LocationTest, ContinentFunction)
+{
+    std::unordered_set<std::string_view> validContinents = {
+        "Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"};
 
+    for (int i = 0; i < 100; ++i)
+    {
+        std::string_view continent = faker::location::continent();
+        ASSERT_TRUE(validContinents.count(continent)) << "Invalid continent: " << continent;
+    }
+}
 
+TEST(LocationTest, SpecificCountryMappings)
+{
+    const auto& testCountryToContinent = faker::location::countryToContinent;
+
+    EXPECT_EQ(testCountryToContinent.at("Brazil"), "South America");
+    EXPECT_EQ(testCountryToContinent.at("India"), "Asia");
+    EXPECT_EQ(testCountryToContinent.at("United States"), "North America");
+    EXPECT_EQ(testCountryToContinent.at("France"), "Europe");
+}
