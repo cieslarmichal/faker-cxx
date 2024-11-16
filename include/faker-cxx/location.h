@@ -3,6 +3,8 @@
 #include <limits>
 #include <string>
 #include <string_view>
+#ifndef FAKER_LOCATION_H
+#define FAKER_LOCATION_H
 
 #include "faker-cxx/export.h"
 #include "faker-cxx/types/locale.h"
@@ -19,6 +21,8 @@ namespace faker::location
  * faker::location::country() // "Poland"
  * @endcode
  */
+std::string_view continent();
+#endif // FAKER_LOCATION_H
 FAKER_CXX_EXPORT std::string_view country();
 
 /**
