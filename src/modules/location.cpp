@@ -23,71 +23,71 @@ namespace faker::location
 {
 namespace
 {
-    CountryAddressesInfo getAddresses(const faker::Locale& locale)
+CountryAddressesInfo getAddresses(const Locale& locale)
+{
+    switch (locale)
     {
-        switch (locale)
-        {
-        case faker::Locale::en_US:
-        case faker::Locale::es_US:
-            return usaAddresses;
-        case faker::Locale::pl_PL:
-            return polandAddresses;
-        case faker::Locale::ru_RU:
-            return russiaAddresses;
-        case faker::Locale::fr_FR:
-            return franceAddresses;
-        case faker::Locale::uk_UA:
-            return ukraineAddresses;
-        case faker::Locale::it_IT:
-            return italyAddresses;
-        case faker::Locale::de_DE:
-            return germanyAddresses;
-        case faker::Locale::cs_CZ:
-            return czechAddresses;
-        case faker::Locale::en_AU:
-            return australiaAddresses;
-        case faker::Locale::as_IN:
-        case faker::Locale::bn_IN:
-        case faker::Locale::en_IN:
-        case faker::Locale::gu_IN:
-        case faker::Locale::hi_IN:
-        case faker::Locale::kn_IN:
-        case faker::Locale::ks_IN:
-        case faker::Locale::ml_IN:
-        case faker::Locale::mr_IN:
-        case faker::Locale::or_IN:
-        case faker::Locale::pa_IN:
-        case faker::Locale::sa_IN:
-        case faker::Locale::ta_IN:
-        case faker::Locale::te_IN:
-            return indiaAddresses;
-        case faker::Locale::da_DK:
-            return denmarkAddresses;
-        case faker::Locale::ca_ES:
-        case faker::Locale::es_ES:
-            return spainAddresses;
-        case faker::Locale::pt_BR:
-            return brazilAddresses;
-        case faker::Locale::fi_FI:
-            return finlandAddresses;
-        case faker::Locale::et_EE:
-            return estoniaAddresses;
-        case faker::Locale::en_GB:
-            return unitedkingdomAddresses;
-        case faker::Locale::sk_SK:
-            return slovakiaAddresses;
-        case faker::Locale::pt_PT:
-            return portugalAddresses;
-        case faker::Locale::he_IL:
-            return israelAddresses;
-        case faker::Locale::ar_PS:
-            return palestineAddresses;
-        case faker::Locale::es_MX:
-            return mexicoAddresses;
-        default:
-            return usaAddresses;
-        }
+    case Locale::en_US:
+    case Locale::es_US:
+        return usaAddresses;
+    case Locale::pl_PL:
+        return polandAddresses;
+    case Locale::ru_RU:
+        return russiaAddresses;
+    case Locale::fr_FR:
+        return franceAddresses;
+    case Locale::uk_UA:
+        return ukraineAddresses;
+    case Locale::it_IT:
+        return italyAddresses;
+    case Locale::de_DE:
+        return germanyAddresses;
+    case Locale::cs_CZ:
+        return czechAddresses;
+    case Locale::en_AU:
+        return australiaAddresses;
+    case Locale::as_IN:
+    case Locale::bn_IN:
+    case Locale::en_IN:
+    case Locale::gu_IN:
+    case Locale::hi_IN:
+    case Locale::kn_IN:
+    case Locale::ks_IN:
+    case Locale::ml_IN:
+    case Locale::mr_IN:
+    case Locale::or_IN:
+    case Locale::pa_IN:
+    case Locale::sa_IN:
+    case Locale::ta_IN:
+    case Locale::te_IN:
+        return indiaAddresses;
+    case Locale::da_DK:
+        return denmarkAddresses;
+    case Locale::ca_ES:
+    case Locale::es_ES:
+        return spainAddresses;
+    case Locale::pt_BR:
+        return brazilAddresses;
+    case Locale::fi_FI:
+        return finlandAddresses;
+    case Locale::et_EE:
+        return estoniaAddresses;
+    case Locale::en_GB:
+        return unitedkingdomAddresses;
+    case Locale::sk_SK:
+        return slovakiaAddresses;
+    case Locale::pt_PT:
+        return portugalAddresses;
+    case Locale::he_IL:
+        return israelAddresses;
+    case Locale::ar_PS:
+        return palestineAddresses;
+    case Locale::es_MX:
+        return mexicoAddresses;
+    default:
+        return usaAddresses;
     }
+}
 }
 
 std::string_view continent()
