@@ -7,6 +7,7 @@
 #include "faker-cxx/export.h"
 #include "faker-cxx/types/locale.h"
 #include "faker-cxx/types/precision.h"
+#include <unordered_map>
 
 namespace faker::location
 {
