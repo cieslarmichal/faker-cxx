@@ -536,7 +536,7 @@ const std::vector<std::string_view> allCountries = {
     "Yemen",
     "Zambia",
     "Zimbabwe",
-});
+};
 
 const auto countryCodes = std::to_array<std::string_view>({
     "AD",
