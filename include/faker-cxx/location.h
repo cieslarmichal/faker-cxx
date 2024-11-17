@@ -35,9 +35,6 @@ FAKER_CXX_EXPORT std::string_view country();
  */
 FAKER_CXX_EXPORT std::string_view continent(std::string_view country = "");
 
-
-
-
 /**
  * @brief Returns a random country code.
  *

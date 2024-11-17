@@ -3,7 +3,6 @@
 #include <string>
 #include <string_view>
 #include <vector>
-#include <iostream>
 
 #include "gtest/gtest.h"
 
@@ -1145,19 +1144,7 @@ TEST_F(LocationTest, shouldGeneratepalestineStreetAddress)
 }
 
 
-class LocationContinentTest : public ::testing::Test
-{
-protected:
-    void SetUp() override
-    {
-        // Setup code if required
-    }
-
-    void TearDown() override
-    {
-        // Cleanup code if required
-    }
-};
+class LocationContinentTest : public ::testing::Test {};
 
 TEST_F(LocationContinentTest, shouldGenerateCorrectContinentForKnownCountry)
 {
@@ -1175,7 +1162,6 @@ TEST_F(LocationContinentTest, shouldReturnUnknownForUnmappedCountry)
 TEST_F(LocationContinentTest, shouldGenerateRandomContinent)
 {
     const auto generatedContinent = continent(); // No country passed
-    std::cout << "Generated Continent: " << generatedContinent << std::endl; // Debug output
     ASSERT_TRUE(std::ranges::any_of(allContinents, [&generatedContinent](const std::string_view& c) {
         return c == generatedContinent;
     }) || generatedContinent == "Unknown");
