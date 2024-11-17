@@ -34,7 +34,7 @@ FAKER_CXX_EXPORT std::string_view country();
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view continent(std::string_view country = "");
-FAKER_CXX_EXPORT void validateCountryMapping();
+
 
 
 
