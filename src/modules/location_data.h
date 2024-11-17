@@ -4,12 +4,6 @@
 #include <span>
 #include <string_view>
 
-#include <unordered_map>
-namespace faker::location
-{
-    std::string_view continent();
-}
-
 namespace faker::location
 {
 struct CountryAddressesInfo
@@ -29,21 +23,25 @@ struct CountryAddressesInfo
     std::span<const std::string_view> states;
 };
 
+// adding continents data
+
+
 const auto allContinents = std::to_array<std::string_view>({
     "Africa",
     "Antarctica",
     "Asia",
     "Europe",
     "North America",
-    "Oceania",
+    "Australia",
     "South America"
 });
+
 const std::unordered_map<std::string_view, std::string_view> countryToContinent = {
-    {"Afghanistan", "Asia"},
+{"Afghanistan", "Asia"},
     {"Aland Islands", "Europe"},
     {"Albania", "Europe"},
     {"Algeria", "Africa"},
-    {"American Samoa", "Oceania"},
+    {"American Samoa", "Australia"},
     {"Andorra", "Europe"},
     {"Angola", "Africa"},
     {"Anguilla", "North America"},
@@ -52,7 +50,7 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Argentina", "South America"},
     {"Armenia", "Asia"},
     {"Aruba", "North America"},
-    {"Australia", "Oceania"},
+    {"Australia", "Australia"},
     {"Austria", "Europe"},
     {"Azerbaijan", "Asia"},
     {"Bahamas", "North America"},
@@ -90,7 +88,7 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Colombia", "South America"},
     {"Comoros", "Africa"},
     {"Congo", "Africa"},
-    {"Cook Islands", "Oceania"},
+    {"Cook Islands", "Australia"},
     {"Costa Rica", "North America"},
     {"Croatia", "Europe"},
     {"Cuba", "North America"},
@@ -112,11 +110,11 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Ethiopia", "Africa"},
     {"Falkland Islands (Malvinas)", "South America"},
     {"Faroe Islands", "Europe"},
-    {"Fiji", "Oceania"},
+    {"Fiji", "Australia"},
     {"Finland", "Europe"},
     {"France", "Europe"},
     {"French Guiana", "South America"},
-    {"French Polynesia", "Oceania"},
+    {"French Polynesia", "Australia"},
     {"French Southern Territories", "Antarctica"},
     {"Gabon", "Africa"},
     {"Gambia", "Africa"},
@@ -128,7 +126,7 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Greenland", "North America"},
     {"Grenada", "North America"},
     {"Guadeloupe", "North America"},
-    {"Guam", "Oceania"},
+    {"Guam", "Australia"},
     {"Guatemala", "North America"},
     {"Guernsey", "Europe"},
     {"Guinea", "Africa"},
@@ -155,7 +153,7 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Jordan", "Asia"},
     {"Kazakhstan", "Asia"},
     {"Kenya", "Africa"},
-    {"Kiribati", "Oceania"},
+    {"Kiribati", "Australia"},
     {"Kuwait", "Asia"},
     {"Kyrgyz Republic", "Asia"},
     {"Latvia", "Europe"},
@@ -173,13 +171,13 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Maldives", "Asia"},
     {"Mali", "Africa"},
     {"Malta", "Europe"},
-    {"Marshall Islands", "Oceania"},
+    {"Marshall Islands", "Australia"},
     {"Martinique", "North America"},
     {"Mauritania", "Africa"},
     {"Mauritius", "Africa"},
     {"Mayotte", "Africa"},
     {"Mexico", "North America"},
-    {"Micronesia", "Oceania"},
+    {"Micronesia", "Australia"},
     {"Moldova", "Europe"},
     {"Monaco", "Europe"},
     {"Mongolia", "Asia"},
@@ -189,29 +187,29 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Mozambique", "Africa"},
     {"Myanmar", "Asia"},
     {"Namibia", "Africa"},
-    {"Nauru", "Oceania"},
+    {"Nauru", "Australia"},
     {"Nepal", "Asia"},
     {"Netherlands", "Europe"},
-    {"New Caledonia", "Oceania"},
-    {"New Zealand", "Oceania"},
+    {"New Caledonia", "Australia"},
+    {"New Zealand", "Australia"},
     {"Nicaragua", "North America"},
     {"Niger", "Africa"},
     {"Nigeria", "Africa"},
-    {"Niue", "Oceania"},
-    {"Norfolk Island", "Oceania"},
+    {"Niue", "Australia"},
+    {"Norfolk Island", "Australia"},
     {"North Macedonia", "Europe"},
-    {"Northern Mariana Islands", "Oceania"},
+    {"Northern Mariana Islands", "Australia"},
     {"Norway", "Europe"},
     {"Oman", "Asia"},
     {"Pakistan", "Asia"},
-    {"Palau", "Oceania"},
+    {"Palau", "Australia"},
     {"Palestine", "Asia"},
     {"Panama", "North America"},
-    {"Papua New Guinea", "Oceania"},
+    {"Papua New Guinea", "Australia"},
     {"Paraguay", "South America"},
     {"Peru", "South America"},
     {"Philippines", "Asia"},
-    {"Pitcairn Islands", "Oceania"},
+    {"Pitcairn Islands", "Australia"},
     {"Poland", "Europe"},
     {"Portugal", "Europe"},
     {"Puerto Rico", "North America"},
@@ -228,7 +226,7 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Saint Martin", "North America"},
     {"Saint Pierre and Miquelon", "North America"},
     {"Saint Vincent and the Grenadines", "North America"},
-    {"Samoa", "Oceania"},
+    {"Samoa", "Australia"},
     {"San Marino", "Europe"},
     {"Sao Tome and Principe", "Africa"},
     {"Saudi Arabia", "Asia"},
@@ -240,7 +238,7 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Sint Maarten", "North America"},
     {"Slovakia", "Europe"},
     {"Slovenia", "Europe"},
-    {"Solomon Islands", "Oceania"},
+    {"Solomon Islands", "Australia"},
     {"Somalia", "Africa"},
     {"South Africa", "Africa"},
     {"South Georgia and the South Sandwich Islands", "Antarctica"},
@@ -259,35 +257,35 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Thailand", "Asia"},
     {"Timor-Leste", "Asia"},
     {"Togo", "Africa"},
-    {"Tokelau", "Oceania"},
-    {"Tonga", "Oceania"},
+    {"Tokelau", "Australia"},
+    {"Tonga", "Australia"},
     {"Trinidad and Tobago", "North America"},
     {"Tunisia", "Africa"},
     {"Turkey", "Asia/Europe"},
     {"Turkmenistan", "Asia"},
     {"Turks and Caicos Islands", "North America"},
-    {"Tuvalu", "Oceania"},
+    {"Tuvalu", "Australia"},
     {"Uganda", "Africa"},
     {"Ukraine", "Europe"},
     {"United Arab Emirates", "Asia"},
     {"United Kingdom", "Europe"},
-    {"United States Minor Outlying Islands", "Oceania"},
+    {"United States Minor Outlying Islands", "Australia"},
     {"United States of America", "North America"},
     {"Uruguay", "South America"},
     {"Uzbekistan", "Asia"},
-    {"Vanuatu", "Oceania"},
+    {"Vanuatu", "Australia"},
     {"Venezuela", "South America"},
     {"Vietnam", "Asia"},
     {"Virgin Islands British", "North America"},
     {"Virgin Islands U.S.", "North America"},
-    {"Wallis and Futuna", "Oceania"},
+    {"Wallis and Futuna", "Australia"},
     {"Western Sahara", "Africa"},
     {"Yemen", "Asia"},
     {"Zambia", "Africa"},
     {"Zimbabwe", "Africa"}
 };
 
-const std::vector<std::string_view> allCountries = {
+const auto allCountries = std::to_array<std::string_view>({
     // clang-format off
     "Afghanistan",
     "Aland Islands",
@@ -536,7 +534,7 @@ const std::vector<std::string_view> allCountries = {
     "Yemen",
     "Zambia",
     "Zimbabwe",
-};
+});
 
 const auto countryCodes = std::to_array<std::string_view>({
     "AD",

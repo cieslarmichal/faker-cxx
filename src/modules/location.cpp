@@ -1,4 +1,5 @@
 #include "faker-cxx/location.h"
+#include <iostream>
 
 #include <string>
 #include <string_view>
@@ -89,33 +90,30 @@ CountryAddressesInfo getAddresses(const Locale& locale)
 }
 }
 
-std::string_view continent()
+std::string_view continent(std::string_view country)
 {
-    // Select a random country
-    std::string_view randomCountry = helper::randomElement(allCountries);
+std::string_view selectedCountry;
+if (country.empty())
+{
+    selectedCountry = helper::randomElement(allCountries);
+}
+else
+{
+    selectedCountry = country;
+}
 
-    // Lookup the corresponding continent
-    const auto it = countryToContinent.find(randomCountry);
+    //std::cout << "Selected Country: " << selectedCountry << std::endl;
+
+    auto it = countryToContinent.find(selectedCountry);
     if (it != countryToContinent.end())
     {
-        return it->second; // Return the continent
+        //std::cout << "Found Continent: " << it->second << " for Country: " << selectedCountry << std::endl;
+        return it->second; // Return the corresponding continent
     }
-
-    // Return "Unknown" if no mapping is found
-    return "Unknown";
+    //std::cout << "Country Not Found: " << selectedCountry << ", Returning: Unknown" << std::endl;
+    return "Unknown"; // Fallback for unmapped countries
 }
 
-// Optional: Validation function
-void validateCountryMapping()
-{
-    for (const auto& country : allCountries)
-    {
-        if (countryToContinent.find(country) == countryToContinent.end())
-        {
-            throw std::runtime_error("Country not mapped: " + std::string(country));
-        }
-    }
-}
 
 
 

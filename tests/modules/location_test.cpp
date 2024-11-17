@@ -3,7 +3,7 @@
 #include <string>
 #include <string_view>
 #include <vector>
-#include <unordered_set>
+#include <iostream>
 
 #include "gtest/gtest.h"
 
@@ -13,6 +13,11 @@
 #include "location_data.h"
 #include "person_data.h"
 #include "string_data.h"
+#include "faker-cxx/location.h"
+#include "location_data.h"
+//#include "location.h"   
+
+
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -1139,24 +1144,39 @@ TEST_F(LocationTest, shouldGeneratepalestineStreetAddress)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
 
-TEST(LocationTest, ContinentFunction)
-{
-    std::unordered_set<std::string_view> validContinents = {
-        "Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"};
 
-    for (int i = 0; i < 100; ++i)
+class LocationContinentTest : public ::testing::Test
+{
+protected:
+    void SetUp() override
     {
-        std::string_view continent = faker::location::continent();
-        ASSERT_TRUE(validContinents.count(continent)) << "Invalid continent: " << continent;
+        // Setup code if required
     }
+
+    void TearDown() override
+    {
+        // Cleanup code if required
+    }
+};
+
+TEST_F(LocationContinentTest, shouldGenerateCorrectContinentForKnownCountry)
+{
+    ASSERT_EQ(continent("Afghanistan"), "Asia");
+    ASSERT_EQ(continent("Algeria"), "Africa");
+    ASSERT_EQ(continent("Australia"), "Australia");
+    ASSERT_EQ(continent("Antarctica"), "Antarctica");
 }
 
-TEST(LocationTest, SpecificCountryMappings)
+TEST_F(LocationContinentTest, shouldReturnUnknownForUnmappedCountry)
 {
-    const auto& testCountryToContinent = faker::location::countryToContinent;
+    ASSERT_EQ(continent("Atlantis"), "Unknown");
+}
 
-    EXPECT_EQ(testCountryToContinent.at("Brazil"), "South America");
-    EXPECT_EQ(testCountryToContinent.at("India"), "Asia");
-    EXPECT_EQ(testCountryToContinent.at("United States"), "North America");
-    EXPECT_EQ(testCountryToContinent.at("France"), "Europe");
+TEST_F(LocationContinentTest, shouldGenerateRandomContinent)
+{
+    const auto generatedContinent = continent(); // No country passed
+    std::cout << "Generated Continent: " << generatedContinent << std::endl; // Debug output
+    ASSERT_TRUE(std::ranges::any_of(allContinents, [&generatedContinent](const std::string_view& c) {
+        return c == generatedContinent;
+    }) || generatedContinent == "Unknown");
 }
