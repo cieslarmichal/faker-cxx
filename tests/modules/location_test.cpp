@@ -14,9 +14,6 @@
 #include "string_data.h"
 #include "faker-cxx/location.h"
 #include "location_data.h"
-//#include "location.h"   
-
-
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -1161,8 +1158,9 @@ TEST_F(LocationContinentTest, shouldReturnUnknownForUnmappedCountry)
 
 TEST_F(LocationContinentTest, shouldGenerateRandomContinent)
 {
-    const auto generatedContinent = continent(); // No country passed
+    const auto generatedContinent = continent(); 
     ASSERT_TRUE(std::ranges::any_of(allContinents, [&generatedContinent](const std::string_view& c) {
         return c == generatedContinent;
-    }) || generatedContinent == "Unknown");
+    }));
 }
+

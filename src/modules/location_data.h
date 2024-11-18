@@ -23,9 +23,6 @@ struct CountryAddressesInfo
     std::span<const std::string_view> states;
 };
 
-// adding continents data
-
-
 const auto allContinents = std::to_array<std::string_view>({
     "Africa",
     "Antarctica",

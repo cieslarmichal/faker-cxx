@@ -5,7 +5,7 @@
 #include <string_view>
 #include <unordered_map>
 #include <unordered_set>
-#include <stdexcept> // For std::runtime_error
+#include <stdexcept>
 #include "faker-cxx/types/locale.h"
 #include "common/algo_helper.h"
 #include "common/format_helper.h"
@@ -92,30 +92,23 @@ CountryAddressesInfo getAddresses(const Locale& locale)
 
 std::string_view continent(std::string_view country)
 {
-std::string_view selectedCountry;
-if (country.empty())
-{
-    selectedCountry = helper::randomElement(allCountries);
-}
-else
-{
-    selectedCountry = country;
-}
+    const std::vector<std::string_view> continents = {
+        "Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"};
 
-    //std::cout << "Selected Country: " << selectedCountry << std::endl;
+    if (country.empty())
+    {
+        // Directly return a random continent
+        return helper::randomElement(continents);
+    }
 
-    auto it = countryToContinent.find(selectedCountry);
+    auto it = countryToContinent.find(country);
     if (it != countryToContinent.end())
     {
-        //std::cout << "Found Continent: " << it->second << " for Country: " << selectedCountry << std::endl;
-        return it->second; // Return the corresponding continent
+        return it->second;
     }
-    //std::cout << "Country Not Found: " << selectedCountry << ", Returning: Unknown" << std::endl;
-    return "Unknown"; // Fallback for unmapped countries
+
+    return "Unknown";
 }
-
-
-
 
 
 std::string_view country()
