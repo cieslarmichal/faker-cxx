@@ -14,6 +14,8 @@
 #include "faker-cxx/person.h"
 #include "faker-cxx/types/precision.h"
 #include "location_data.h"
+#include <iostream>
+
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -92,12 +94,11 @@ CountryAddressesInfo getAddresses(const Locale& locale)
 
 std::string_view continent(std::string_view country)
 {
-    const std::vector<std::string_view> continents = {
-        "Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"};
+    static const std::vector<std::string_view> continents = {
+        "Africa", "Antarctica", "Asia", "Europe", "North America", "Australia", "South America"};
 
     if (country.empty())
     {
-        // Directly return a random continent
         return helper::randomElement(continents);
     }
 
@@ -109,6 +110,8 @@ std::string_view continent(std::string_view country)
 
     return "Unknown";
 }
+
+
 
 
 std::string_view country()
