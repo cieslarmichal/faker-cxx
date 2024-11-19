@@ -14,8 +14,6 @@
 #include "faker-cxx/person.h"
 #include "faker-cxx/types/precision.h"
 #include "location_data.h"
-#include <iostream>
-
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846

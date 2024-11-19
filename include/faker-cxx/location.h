@@ -31,10 +31,15 @@ FAKER_CXX_EXPORT std::string_view country();
  * @code
  * faker::location::continent("Poland") // Europe
  * faker::location::continent() 
+// Africa
+// Asia
+// Europe
+// North America
+// South America
+ * 
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view continent(std::string_view country = "");
-
 
 
 /**
