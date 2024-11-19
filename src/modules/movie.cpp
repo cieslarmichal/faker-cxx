@@ -7,17 +7,6 @@
 
 namespace faker::movie
 {
-    namespace
-    {
-        const struct MovieDefinition& getMovieDefinition(Locale locale)
-        {
-            switch(locale)
-            {
-                case Locale::en_US:
-                    return enMovieDefinition;
-            }
-        }
-    }
 std::string_view genre()
 {
     return helper::randomElement(movieGenres);
