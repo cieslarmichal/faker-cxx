@@ -170,6 +170,7 @@ var namespacefaker =
     [ "location", "namespacefaker_1_1location.html", [
       [ "buildingNumber", "namespacefaker_1_1location.html#a467ede2220c5802732e424d921206223", null ],
       [ "city", "namespacefaker_1_1location.html#af8cdcef7f184ffa39612b92ff51cf5c1", null ],
+      [ "continent", "namespacefaker_1_1location.html#ac785189329cae536c5f052606a5ae8d0", null ],
       [ "country", "namespacefaker_1_1location.html#abf141f8017e0b97eafedb1c0e2c1037a", null ],
       [ "countryCode", "namespacefaker_1_1location.html#a828be7aebeeed04b9afc5019c0b54344", null ],
       [ "direction", "namespacefaker_1_1location.html#ad7add8bde67bede1c36d3834cb7fc463", null ],

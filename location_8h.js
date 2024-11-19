@@ -2,6 +2,7 @@ var location_8h =
 [
     [ "buildingNumber", "location_8h.html#a467ede2220c5802732e424d921206223", null ],
     [ "city", "location_8h.html#af8cdcef7f184ffa39612b92ff51cf5c1", null ],
+    [ "continent", "location_8h.html#ac785189329cae536c5f052606a5ae8d0", null ],
     [ "country", "location_8h.html#abf141f8017e0b97eafedb1c0e2c1037a", null ],
     [ "countryCode", "location_8h.html#a828be7aebeeed04b9afc5019c0b54344", null ],
     [ "direction", "location_8h.html#ad7add8bde67bede1c36d3834cb7fc463", null ],

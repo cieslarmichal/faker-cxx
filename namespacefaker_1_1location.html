@@ -110,6 +110,9 @@ Functions</h2></td></tr>
 <tr class="memitem:abf141f8017e0b97eafedb1c0e2c1037a" id="r_abf141f8017e0b97eafedb1c0e2c1037a"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abf141f8017e0b97eafedb1c0e2c1037a">country</a> ()</td></tr>
 <tr class="memdesc:abf141f8017e0b97eafedb1c0e2c1037a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random country name.  <br /></td></tr>
 <tr class="separator:abf141f8017e0b97eafedb1c0e2c1037a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac785189329cae536c5f052606a5ae8d0" id="r_ac785189329cae536c5f052606a5ae8d0"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac785189329cae536c5f052606a5ae8d0">continent</a> (std::string_view <a class="el" href="#abf141f8017e0b97eafedb1c0e2c1037a">country</a>=&quot;&quot;)</td></tr>
+<tr class="memdesc:ac785189329cae536c5f052606a5ae8d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the continent for a given country or a random continent if no country is specified.  <br /></td></tr>
+<tr class="separator:ac785189329cae536c5f052606a5ae8d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a828be7aebeeed04b9afc5019c0b54344" id="r_a828be7aebeeed04b9afc5019c0b54344"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a828be7aebeeed04b9afc5019c0b54344">countryCode</a> ()</td></tr>
 <tr class="memdesc:a828be7aebeeed04b9afc5019c0b54344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random country code.  <br /></td></tr>
 <tr class="separator:a828be7aebeeed04b9afc5019c0b54344"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -204,6 +207,36 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>City.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#af8cdcef7f184ffa39612b92ff51cf5c1">faker::location::city</a>() <span class="comment">// &quot;Boston&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1location_html_af8cdcef7f184ffa39612b92ff51cf5c1"><div class="ttname"><a href="#af8cdcef7f184ffa39612b92ff51cf5c1">faker::location::city</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string city(Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random city for given locale.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="ac785189329cae536c5f052606a5ae8d0" name="ac785189329cae536c5f052606a5ae8d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac785189329cae536c5f052606a5ae8d0">&#9670;&#160;</a></span>continent()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string_view faker::location::continent </td>
+          <td>(</td>
+          <td class="paramtype">std::string_view</td>          <td class="paramname"><span class="paramname"><em>country</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the continent for a given country or a random continent if no country is specified. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">country</td><td>The country name. Defaults to an empty string, which means a random continent is selected.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Continent name or "Unknown" if the country is not mapped.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ac785189329cae536c5f052606a5ae8d0">faker::location::continent</a>(<span class="stringliteral">&quot;Poland&quot;</span>) <span class="comment">// Europe</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::location::<a class="code hl_function" href="#ac785189329cae536c5f052606a5ae8d0">continent</a>() <span class="comment">// Africa</span></div>
+<div class="ttc" id="anamespacefaker_1_1location_html_ac785189329cae536c5f052606a5ae8d0"><div class="ttname"><a href="#ac785189329cae536c5f052606a5ae8d0">faker::location::continent</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view continent(std::string_view country=&quot;&quot;)</div><div class="ttdoc">Returns the continent for a given country or a random continent if no country is specified.</div></div>
+<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> airline.h:9</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -373,7 +406,6 @@ Functions</h2></td></tr>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::location::<a class="code hl_function" href="#aec3a748ec5f78c07a12ff697eaecf8c4">nearbyGPSCoordinate</a>(Precision::FourDp, {33, -170}) <span class="comment">// &quot;33.0165&quot;, &quot;-170.0636&quot;</span></div>
 <div class="line"><a class="code hl_function" href="#aec3a748ec5f78c07a12ff697eaecf8c4">faker::location::nearbyGPSCoordinate</a>(Precision::FourDp, {33, -170}, 1000, <span class="keyword">true</span>) <span class="comment">// &quot;37.9163&quot;, &quot;-179.2408&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1location_html_aec3a748ec5f78c07a12ff697eaecf8c4"><div class="ttname"><a href="#aec3a748ec5f78c07a12ff697eaecf8c4">faker::location::nearbyGPSCoordinate</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::tuple&lt; std::string, std::string &gt; nearbyGPSCoordinate(Precision precision=Precision::FourDp, const std::tuple&lt; double, double &gt; &amp;origin={std::numeric_limits&lt; double &gt;::max(), std::numeric_limits&lt; double &gt;::max()}, double radius=10, bool isMetric=false)</div><div class="ttdoc">Generates a random GPS coordinate within the specified radius from the given coordinate.</div></div>
-<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> airline.h:9</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
