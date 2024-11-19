@@ -12,6 +12,8 @@
 #include "location_data.h"
 #include "person_data.h"
 #include "string_data.h"
+#include "faker-cxx/location.h"
+#include "location_data.h"
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846
@@ -1139,4 +1141,26 @@ TEST_F(LocationTest, shouldGeneratepalestineStreetAddress)
 }
 
 
+class LocationContinentTest : public ::testing::Test {};
+
+TEST_F(LocationContinentTest, shouldGenerateCorrectContinentForKnownCountry)
+{
+    ASSERT_EQ(continent("Afghanistan"), "Asia");
+    ASSERT_EQ(continent("Algeria"), "Africa");
+    ASSERT_EQ(continent("Australia"), "Australia");
+    ASSERT_EQ(continent("Antarctica"), "Antarctica");
+}
+
+TEST_F(LocationContinentTest, shouldReturnUnknownForUnmappedCountry)
+{
+    ASSERT_EQ(continent("Atlantis"), "Unknown");
+}
+
+TEST_F(LocationContinentTest, shouldGenerateRandomContinent)
+{
+    const auto generatedContinent = continent(); 
+    ASSERT_TRUE(std::ranges::any_of(allContinents, [&generatedContinent](const std::string_view& c) {
+        return c == generatedContinent;
+    }));
+}
 

@@ -22,6 +22,22 @@ namespace faker::location
 FAKER_CXX_EXPORT std::string_view country();
 
 /**
+ * @brief Returns the continent for a given country or a random continent if no country is specified.
+ *
+ * @param country The country name. Defaults to an empty string, which means a random continent is selected.
+ *
+ * @returns Continent name or "Unknown" if the country is not mapped.
+ *
+ * @code
+ * faker::location::continent("Poland") // Europe
+ * faker::location::continent() // Africa
+ * 
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view continent(std::string_view country = "");
+
+
+/**
  * @brief Returns a random country code.
  *
  * @returns Country code consisting two letters.
