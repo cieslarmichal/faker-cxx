@@ -1,0 +1,49 @@
+name: clang-format Check
+
+on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'src/**/*.cpp'
+      - 'src/**/*.h'
+      - 'include/**/*.h'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'src/**/*.cpp'
+      - 'src/**/*.h'
+      - 'include/**/*.h'
+
+jobs:
+  check_formatting:
+    name: Check Code Formatting
+    runs-on: ubuntu-24.04
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Cache clang-format dependencies
+        uses: actions/cache@v3
+        with:
+          path: /tmp/apt-cache
+          key: clang-format-${{ runner.os }}-${{ hashFiles('**/apt-packages.txt') }}
+          restore-keys: |
+            clang-format-${{ runner.os }}-
+
+      - name: Install clang-format
+        run: |
+          if [ ! -f /tmp/apt-cache/clang-format-18 ]; then
+            sudo apt-get update
+            sudo apt-get install -y clang-format-18
+            touch /tmp/apt-cache/clang-format-18
+          fi
+
+      - name: Run clang-format
+        run: |
+          clang-format src/**/*.cpp src/**/*.h include/**/*.h -i -style=file
+
+      - name: Check for unformatted files
+        run: |
+          git diff --exit-code || (echo "Code is not formatted correctly" && exit 1)
