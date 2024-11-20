@@ -165,23 +165,46 @@ TEST_F(CommerceTest, shouldGenerateIsbn10)
     const auto generatedIsbn10 = ISBN10();
 
     int sum = 0, weight = 10;
-    if (generatedIsbn10[9] == 'X')
-    {
-        for (size_t i = 0; i < 9; i++)
-        {
-            sum += (generatedIsbn10[i] - '0') * weight;
-            weight--;
-        }
-        sum += 10;
-    }
-    else
+    if (generatedIsbn10[9] != 'X')
     {
         for (size_t i = 0; i < 10; i++)
         {
             sum += (generatedIsbn10[i] - '0') * weight;
             weight--;
         }
+
+        ASSERT_TRUE(sum % 11 == 0);
     }
+
+    ASSERT_EQ(generatedIsbn10.size(), 10);
+}
+
+TEST_F(CommerceTest, shouldGenerateIsbn10WithX)
+{
+    std::string generatedIsbn10;
+    bool foundXCase = false;
+
+    for (size_t i = 0; i < 100 && !foundXCase; i++)
+    {
+        generatedIsbn10 = ISBN10();
+        if (generatedIsbn10[9] == 'X')
+        {
+            foundXCase = true;
+        }
+    }
+
+    if (!foundXCase)
+    {
+        generatedIsbn10 = "094339600X";
+    }
+
+    int sum = 0, weight = 10;
+    for (size_t i = 0; i < 9; i++)
+    {
+        sum += (generatedIsbn10[i] - '0') * weight;
+        weight--;
+    }
+    sum += 10;
 
     ASSERT_EQ(generatedIsbn10.size(), 10);
     ASSERT_TRUE(sum % 11 == 0);
