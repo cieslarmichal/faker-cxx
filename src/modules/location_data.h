@@ -23,18 +23,11 @@ struct CountryAddressesInfo
     std::span<const std::string_view> states;
 };
 
-const auto allContinents = std::to_array<std::string_view>({
-    "Africa",
-    "Antarctica",
-    "Asia",
-    "Europe",
-    "North America",
-    "Australia",
-    "South America"
-});
+const auto allContinents = std::to_array<std::string_view>(
+    {"Africa", "Antarctica", "Asia", "Europe", "North America", "Australia", "South America"});
 
 const std::unordered_map<std::string_view, std::string_view> countryToContinent = {
-{"Afghanistan", "Asia"},
+    {"Afghanistan", "Asia"},
     {"Aland Islands", "Europe"},
     {"Albania", "Europe"},
     {"Algeria", "Africa"},
@@ -211,7 +204,7 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Portugal", "Europe"},
     {"Puerto Rico", "North America"},
     {"Qatar", "Asia"},
-     {"Republic of Korea", "Asia"},
+    {"Republic of Korea", "Asia"},
     {"Reunion", "Africa"},
     {"Romania", "Europe"},
     {"Russian Federation", "Europe/Asia"},
@@ -279,8 +272,7 @@ const std::unordered_map<std::string_view, std::string_view> countryToContinent 
     {"Western Sahara", "Africa"},
     {"Yemen", "Asia"},
     {"Zambia", "Africa"},
-    {"Zimbabwe", "Africa"}
-};
+    {"Zimbabwe", "Africa"}};
 
 const auto allCountries = std::to_array<std::string_view>({
     // clang-format off
@@ -7659,41 +7651,20 @@ const auto israelStreetNames = std::to_array<std::string_view>({
     "תשבי",
 });
 
-const auto israelStreetPrefixes = std::to_array<std::string_view>({
-    "רחוב", 
-    "שדרות", 
-    "משעול", 
-    "דרך", 
-    "סמטת"
-});
+const auto israelStreetPrefixes = std::to_array<std::string_view>({"רחוב", "שדרות", "משעול", "דרך", "סמטת"});
 
 const std::string_view israelZipCodeFormat{"#######"};
 
-const auto israelAddressFormats =
-    std::to_array<std::string_view>({
+const auto israelAddressFormats = std::to_array<std::string_view>({
     "{street} {buildingNumber}",
     "{street} {buildingNumber} {secondaryAddress}",
 });
 
-const auto israelSecondaryAddressFormats = std::to_array<std::string_view>({
-    "דירה #", 
-    "דירה ##", 
-    "חדר ##", 
-    "חדר #"
-});
+const auto israelSecondaryAddressFormats = std::to_array<std::string_view>({"דירה #", "דירה ##", "חדר ##", "חדר #"});
 
-const auto israelBuildingNumberFormats = std::to_array<std::string_view>({
-    "###", 
-    "##", 
-    "#", 
-    "##ב", 
-    "##א", 
-    "#א", 
-    "#ב"
-});
+const auto israelBuildingNumberFormats = std::to_array<std::string_view>({"###", "##", "#", "##ב", "##א", "#א", "#ב"});
 
-const auto israelStreetFormats =
-    std::to_array<std::string_view>({
+const auto israelStreetFormats = std::to_array<std::string_view>({
     "{streetPrefix} {streetName}",
 });
 
