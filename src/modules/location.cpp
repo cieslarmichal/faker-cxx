@@ -1,17 +1,17 @@
 #include "faker-cxx/location.h"
 
-
+#include <stdexcept>
 #include <string>
 #include <string_view>
 #include <unordered_map>
 #include <unordered_set>
-#include <stdexcept>
-#include "faker-cxx/types/locale.h"
+
 #include "common/algo_helper.h"
 #include "common/format_helper.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
 #include "faker-cxx/person.h"
+#include "faker-cxx/types/locale.h"
 #include "faker-cxx/types/precision.h"
 #include "location_data.h"
 
@@ -92,8 +92,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
 
 std::string_view continent(std::string_view country)
 {
-    static const std::vector<std::string_view> continents = {
-        "Africa", "Antarctica", "Asia", "Europe", "North America", "Australia", "South America"};
+    static const std::vector<std::string_view> continents = {"Africa",        "Antarctica", "Asia",         "Europe",
+                                                             "North America", "Australia",  "South America"};
 
     if (country.empty())
     {
@@ -108,9 +108,6 @@ std::string_view continent(std::string_view country)
 
     return "Unknown";
 }
-
-
-
 
 std::string_view country()
 {

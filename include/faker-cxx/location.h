@@ -31,11 +31,10 @@ FAKER_CXX_EXPORT std::string_view country();
  * @code
  * faker::location::continent("Poland") // Europe
  * faker::location::continent() // Africa
- * 
+ *
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view continent(std::string_view country = "");
-
 
 /**
  * @brief Returns a random country code.
