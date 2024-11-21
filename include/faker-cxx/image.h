@@ -6,71 +6,62 @@
 
 #include "faker-cxx/export.h"
 
-namespace faker::image
-{
-enum class ImageCategory
-{
-    Animals,
-    Business,
-    Cats,
-    City,
-    Food,
-    Nightlife,
-    Fashion,
-    People,
-    Nature,
-    Sports,
-    Technics,
-    Transport
+/**
+ * @brief Namespace for image-related functionalities.
+ */
+namespace faker::image {
+
+/**
+ * @brief Categories for image generation.
+ */
+enum class ImageCategory {
+    Animals,    ///< Images related to animals.
+    Business,   ///< Images related to business.
+    Cats,       ///< Images of cats.
+    City,       ///< Images of cityscapes.
+    Food,       ///< Images of food items.
+    Nightlife,  ///< Images of nightlife scenes.
+    Fashion,    ///< Images related to fashion.
+    People,     ///< Images of people.
+    Nature,     ///< Images of nature.
+    Sports,     ///< Images related to sports.
+    Technics,   ///< Images of technical items.
+    Transport   ///< Images of transport and vehicles.
 };
 
 /**
- * @brief Generates a real image url with `https://loremflickr.com/`.
- *
- * @param width The width of the image. Defaults to `640`.
- * @param height The height of the image. Defaults to `480`.
- * @param category The optional category of generated real image.
- *
- * @returns Random real image url from external service.
- *
- * @code
- * faker::image::imageUrl() // "https://loremflickr.com/640/480"
- * faker::image::imageUrl(800, 600) // "https://loremflickr.com/800/600"
- * faker::image::imageUrl(800, 600, ImageCategory::Animals) // "https://loremflickr.com/800/600/animals"
- * @endcode
+ * @brief Generates a random image URL.
+ * 
+ * This function generates a random image URL using `loremflickr.com` with
+ * the given width, height, and optional category.
+ * 
+ * @param width The width of the image. Default is 640.
+ * @param height The height of the image. Default is 480.
+ * @param category The optional category of the image.
+ * @return std::string The generated image URL.
  */
 FAKER_CXX_EXPORT std::string imageUrl(unsigned width = 640, unsigned height = 480,
                                       std::optional<ImageCategory> category = std::nullopt);
 
 /**
- * @brief Generates a random avatar from GitHub.
- *
- * @returns Url to github avatar.
- *
- * @code
- * faker::image::githubAvatarUrl() // "https://avatars.githubusercontent.com/u/9716558"
- * @endcode
+ * @brief Generates a random GitHub avatar URL.
+ * 
+ * @return std::string A URL to a random GitHub avatar.
  */
 FAKER_CXX_EXPORT std::string githubAvatarUrl();
 
 /**
- * @brief Generates a random image dimensions.
- *
- * @returns Random image dimensions.
- *
- * @code
- * faker::image::dimensions() // "1920x1080"
- * @endcode
+ * @brief Generates random image dimensions.
+ * 
+ * @return std::string A string representing the dimensions (e.g., "1920x1080").
  */
 FAKER_CXX_EXPORT std::string dimensions();
 
 /**
- * @brief Generates a random type of image.
- *
- * @returns Type of image.
- *
- * @code
- * faker::image::type() // "png"
+ * @brief Generates a random image type.
+ * 
+ * @return std::string_view The type of the image (e.g., "png", "jpg").
  */
 FAKER_CXX_EXPORT std::string_view type();
-}
+
+} // namespace faker::image
