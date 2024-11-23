@@ -622,6 +622,22 @@ TEST_F(LocationTest, shouldGenerateDirection)
                                     { return direction == generatedDirection; }));
 }
 
+TEST_F(LocationTest, shouldGenerateOrdinalDirection)
+{
+    const auto generatedOrdinalDirection = ordinalDirection();
+    const auto generatedOrdinalDirectionAbbreviated = ordinalDirection(true);
+
+    ASSERT_TRUE(std::ranges::any_of(
+        ordinalDirections,
+        [generatedOrdinalDirection](const std::pair<std::string_view, std::string_view>& ordinalDirection)
+        { return ordinalDirection.first == generatedOrdinalDirection; }));
+
+    ASSERT_TRUE(std::ranges::any_of(
+        ordinalDirections,
+        [generatedOrdinalDirectionAbbreviated](const std::pair<std::string_view, std::string_view>& ordinalDirection)
+        { return ordinalDirection.second == generatedOrdinalDirectionAbbreviated; }));
+}
+
 TEST_F(LocationTest, shouldGenerateTimeZone)
 {
     const auto generatedTimeZone = timeZone();

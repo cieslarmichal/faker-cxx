@@ -200,6 +200,21 @@ FAKER_CXX_EXPORT std::tuple<std::string, std::string> nearbyGPSCoordinate(
 FAKER_CXX_EXPORT std::string_view direction();
 
 /**
+ * @brief Generates a random direction from ordinal directions.
+ * 
+ * @param abbreviated If `true` this will return abbreviated directions (NW, SE, etc). Otherwise this 
+ * will return the long name. By default, this is set to `false`.
+ * 
+ * @returns Ordinal direction.
+ * 
+ * @code
+ * faker::location::ordinalDirection() // "Southeast"
+ * faker::location::ordinalDirection(true) // "NW"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view ordinalDirection(bool abbreviated = false);
+
+/**
  * @brief Generates a random time zone.
  *
  * @returns Time zone.
