@@ -24,21 +24,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Cache clang-format dependencies
-        uses: actions/cache@v3
-        with:
-          path: /tmp/apt-cache
-          key: clang-format-${{ runner.os }}-${{ hashFiles('**/apt-packages.txt') }}
-          restore-keys: |
-            clang-format-${{ runner.os }}-
-
       - name: Install clang-format
         run: |
-          if [ ! -f /tmp/apt-cache/clang-format-18 ]; then
             sudo apt-get update
             sudo apt-get install -y clang-format-18
-            touch /tmp/apt-cache/clang-format-18
-          fi
 
       - name: Run clang-format
         run: |
