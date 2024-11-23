@@ -1110,14 +1110,11 @@ TEST_F(LocationTest, shouldGenerateKoreaStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(Locale::ko_KR);
 
-    // 주소가 빈 문자열이 아닌지 확인
     ASSERT_FALSE(generatedStreetAddress.empty());
 
-    // 주소에 도로명 접미사가 포함되어 있는지 확인
     ASSERT_TRUE(std::ranges::any_of(korStreetSuffixes, [&generatedStreetAddress](const std::string_view& suffix)
                                     { return generatedStreetAddress.find(suffix) != std::string::npos; }));
 
-    // 주소에 숫자(건물 번호)가 포함되어 있는지 확인
     ASSERT_TRUE(std::any_of(generatedStreetAddress.begin(), generatedStreetAddress.end(), ::isdigit));
 }
 
