@@ -78,6 +78,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return portugalAddresses;
     case Locale::he_IL:
         return israelAddresses;
+    case Locale::ko_KR:
+        return korAddresses;
     default:
         return usaAddresses;
     }

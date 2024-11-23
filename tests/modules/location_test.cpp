@@ -80,6 +80,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return portugalAddresses;
     case Locale::he_IL:
         return israelAddresses;
+    case Locale::ko_KR:
+        return korAddresses;
     default:
         return usaAddresses;
     }
@@ -1103,3 +1105,48 @@ TEST_F(LocationTest, shouldGenerateIsraelStreetAddress)
     ASSERT_TRUE(std::ranges::any_of(israelStreetNames, [&generatedStreetName](const std::string_view& streetName)
                                 { return streetName == generatedStreetName; }));
 }
+
+TEST_F(LocationTest, shouldGenerateKoreaStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::ko_KR);
+
+    // 주소가 빈 문자열이 아닌지 확인
+    ASSERT_FALSE(generatedStreetAddress.empty());
+
+    // 주소에 도로명 접미사가 포함되어 있는지 확인
+    ASSERT_TRUE(std::ranges::any_of(korStreetSuffixes, [&generatedStreetAddress](const std::string_view& suffix)
+                                    { return generatedStreetAddress.find(suffix) != std::string::npos; }));
+
+    // 주소에 숫자(건물 번호)가 포함되어 있는지 확인
+    ASSERT_TRUE(std::any_of(generatedStreetAddress.begin(), generatedStreetAddress.end(), ::isdigit));
+}
+
+
+TEST_F(LocationTest, shouldGenerateKoreaStreet)
+{
+    const auto generatedStreet = street(Locale::ko_KR);
+
+    ASSERT_FALSE(generatedStreet.empty());
+
+    ASSERT_TRUE(std::ranges::any_of(korStreetSuffixes, [&generatedStreet](const std::string_view& suffix)
+                                    { return generatedStreet.ends_with(suffix); }));
+
+    std::string_view generatedStreetName = generatedStreet;
+
+    bool suffixFound = false;
+    for (const auto& suffix : korStreetSuffixes)
+    {
+        if (generatedStreet.ends_with(suffix))
+        {
+            generatedStreetName.remove_suffix(suffix.size());
+            suffixFound = true;
+            break;
+        }
+    }
+
+    ASSERT_TRUE(suffixFound);
+
+    ASSERT_TRUE(std::ranges::any_of(korStreetNames, [&generatedStreetName](const std::string_view& streetName)
+                                    { return generatedStreetName == streetName; }));
+}
+

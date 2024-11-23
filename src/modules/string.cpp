@@ -358,5 +358,4 @@ std::string nanoId(int minLength, int maxLength)
     return id;
 }
 
-
 }
