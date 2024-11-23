@@ -149,6 +149,9 @@ Functions</h2></td></tr>
 <tr class="memitem:ad7add8bde67bede1c36d3834cb7fc463" id="r_ad7add8bde67bede1c36d3834cb7fc463"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad7add8bde67bede1c36d3834cb7fc463">direction</a> ()</td></tr>
 <tr class="memdesc:ad7add8bde67bede1c36d3834cb7fc463"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random direction from cardinal and ordinal directions.  <br /></td></tr>
 <tr class="separator:ad7add8bde67bede1c36d3834cb7fc463"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a6374d3d363f04b4fad4f12b5441344" id="r_a8a6374d3d363f04b4fad4f12b5441344"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8a6374d3d363f04b4fad4f12b5441344">ordinalDirection</a> (bool abbreviated=false)</td></tr>
+<tr class="memdesc:a8a6374d3d363f04b4fad4f12b5441344"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random direction from ordinal directions.  <br /></td></tr>
+<tr class="separator:a8a6374d3d363f04b4fad4f12b5441344"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ed54826ac93e3184024ab276321ca3b" id="r_a6ed54826ac93e3184024ab276321ca3b"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ed54826ac93e3184024ab276321ca3b">timeZone</a> ()</td></tr>
 <tr class="memdesc:a6ed54826ac93e3184024ab276321ca3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random time zone.  <br /></td></tr>
 <tr class="separator:a6ed54826ac93e3184024ab276321ca3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -406,6 +409,35 @@ Functions</h2></td></tr>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::location::<a class="code hl_function" href="#aec3a748ec5f78c07a12ff697eaecf8c4">nearbyGPSCoordinate</a>(Precision::FourDp, {33, -170}) <span class="comment">// &quot;33.0165&quot;, &quot;-170.0636&quot;</span></div>
 <div class="line"><a class="code hl_function" href="#aec3a748ec5f78c07a12ff697eaecf8c4">faker::location::nearbyGPSCoordinate</a>(Precision::FourDp, {33, -170}, 1000, <span class="keyword">true</span>) <span class="comment">// &quot;37.9163&quot;, &quot;-179.2408&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1location_html_aec3a748ec5f78c07a12ff697eaecf8c4"><div class="ttname"><a href="#aec3a748ec5f78c07a12ff697eaecf8c4">faker::location::nearbyGPSCoordinate</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::tuple&lt; std::string, std::string &gt; nearbyGPSCoordinate(Precision precision=Precision::FourDp, const std::tuple&lt; double, double &gt; &amp;origin={std::numeric_limits&lt; double &gt;::max(), std::numeric_limits&lt; double &gt;::max()}, double radius=10, bool isMetric=false)</div><div class="ttdoc">Generates a random GPS coordinate within the specified radius from the given coordinate.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a8a6374d3d363f04b4fad4f12b5441344" name="a8a6374d3d363f04b4fad4f12b5441344"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a6374d3d363f04b4fad4f12b5441344">&#9670;&#160;</a></span>ordinalDirection()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string_view faker::location::ordinalDirection </td>
+          <td>(</td>
+          <td class="paramtype">bool</td>          <td class="paramname"><span class="paramname"><em>abbreviated</em></span><span class="paramdefsep"> = </span><span class="paramdefval">false</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a random direction from ordinal directions. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">abbreviated</td><td>If `true` this will return abbreviated directions (NW, SE, etc). Otherwise this will return the long name. By default, this is set to `false`.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Ordinal direction.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a8a6374d3d363f04b4fad4f12b5441344">faker::location::ordinalDirection</a>() <span class="comment">// &quot;Southeast&quot;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::location::<a class="code hl_function" href="#a8a6374d3d363f04b4fad4f12b5441344">ordinalDirection</a>(true) <span class="comment">// &quot;NW&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1location_html_a8a6374d3d363f04b4fad4f12b5441344"><div class="ttname"><a href="#a8a6374d3d363f04b4fad4f12b5441344">faker::location::ordinalDirection</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view ordinalDirection(bool abbreviated=false)</div><div class="ttdoc">Generates a random direction from ordinal directions.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
