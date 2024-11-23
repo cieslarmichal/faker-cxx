@@ -788,6 +788,13 @@ const auto directions = std::to_array<std::string_view>({
     "West",
 });
 
+constexpr auto ordinalDirections = std::to_array<std::pair<std::string_view, std::string_view>>({
+    {"Northeast", "NE"},
+    {"Northwest", "NW"},
+    {"Southeast", "SE"},
+    {"Southwest", "SW"}
+});
+
 const auto timeZones = std::to_array<std::string_view>({
     // clang-format off
     "Africa/Abidjan",

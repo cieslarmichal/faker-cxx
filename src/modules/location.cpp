@@ -241,6 +241,12 @@ std::string_view direction()
     return helper::randomElement(directions);
 }
 
+std::string_view ordinalDirection(bool abbreviated)
+{
+    return abbreviated ? helper::randomElement(ordinalDirections).second :
+                         helper::randomElement(ordinalDirections).first;
+}
+
 std::string_view timeZone()
 {
     return helper::randomElement(timeZones);
