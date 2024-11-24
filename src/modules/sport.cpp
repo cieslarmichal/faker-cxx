@@ -9,8 +9,7 @@ namespace faker::sport
 {
 std::string_view sportName(Locale locale)
 {
-
-    auto localeLocal = locale;    
+    auto localeLocal = locale;
     if (sportMapSpan.find(locale) == sportMapSpan.end())
     {
         localeLocal = Locale::en_US;
@@ -20,8 +19,7 @@ std::string_view sportName(Locale locale)
 
 std::string_view soccerTeam(Locale locale)
 {
-
-    auto localeLocal = locale;    
+    auto localeLocal = locale;
     if (sportMapSpan.find(locale) == sportMapSpan.end())
     {
         localeLocal = Locale::en_US;
@@ -31,8 +29,7 @@ std::string_view soccerTeam(Locale locale)
 
 std::string_view maleAthlete(Locale locale)
 {
-
-    auto localeLocal = locale;    
+    auto localeLocal = locale;
     if (sportMapSpan.find(locale) == sportMapSpan.end())
     {
         localeLocal = Locale::en_US;
@@ -42,8 +39,7 @@ std::string_view maleAthlete(Locale locale)
 
 std::string_view femaleAthlete(Locale locale)
 {
-
-    auto localeLocal = locale;    
+    auto localeLocal = locale;
     if (sportMapSpan.find(locale) == sportMapSpan.end())
     {
         localeLocal = Locale::en_US;
@@ -53,8 +49,7 @@ std::string_view femaleAthlete(Locale locale)
 
 std::string_view sportEvent(Locale locale)
 {
-    
-    auto localeLocal = locale;    
+    auto localeLocal = locale;
     if (sportMapSpan.find(locale) == sportMapSpan.end())
     {
         localeLocal = Locale::en_US;
