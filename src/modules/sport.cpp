@@ -7,28 +7,59 @@
 
 namespace faker::sport
 {
-std::string_view sportName()
-{
-    return helper::randomElement(sportNames);
+std::string_view sportName(Locale locale)
+{    
+    auto localeLocal = locale;
+    
+    if (sportMapSpan.find(locale) == sportMapSpan.end())
+    {
+        localeLocal = Locale::en_US;
+    }
+    return helper::randomElement((sportMapSpan.at(localeLocal)).sportNames);
 }
 
-std::string_view soccerTeam()
+std::string_view soccerTeam(Locale locale)
 {
-    return helper::randomElement(soccerTeams);
+    auto localeLocal = locale;
+    
+    if (sportMapSpan.find(locale) == sportMapSpan.end())
+    {
+        localeLocal = Locale::en_US;
+    }
+    return helper::randomElement((sportMapSpan.at(localeLocal)).soccerTeams);
 }
 
-std::string_view maleAthlete()
+std::string_view maleAthlete(Locale locale)
 {
-    return helper::randomElement(maleAthletes);
+    auto localeLocal = locale;
+    
+    if (sportMapSpan.find(locale) == sportMapSpan.end())
+    {
+        localeLocal = Locale::en_US;
+    }
+    return helper::randomElement((sportMapSpan.at(localeLocal)).maleAthletes);
 }
 
-std::string_view femaleAthlete()
+std::string_view femaleAthlete(Locale locale)
 {
-    return helper::randomElement(femaleAthletes);
+    auto localeLocal = locale;
+    
+    if (sportMapSpan.find(locale) == sportMapSpan.end())
+    {
+        localeLocal = Locale::en_US;
+    }
+    return helper::randomElement((sportMapSpan.at(localeLocal)).femaleAthletes);
 }
 
-std::string_view sportEvent()
+std::string_view sportEvent(Locale locale)
 {
-    return helper::randomElement(sportEvents);
+    auto localeLocal = locale;
+    
+    if (sportMapSpan.find(locale) == sportMapSpan.end())
+    {
+        localeLocal = Locale::en_US;
+    }
+    return helper::randomElement((sportMapSpan.at(localeLocal)).sportEvents);
 }
+
 }
