@@ -102,7 +102,7 @@ const auto esARFemaleAthletes = std::to_array<std::string_view>({
     "Noemí Simonetto",
     "Micaela Retegui",
     "Cecilia Carranza Saroli",
-    "VAnina Onetto",
+    "Vanina Onetto",
 });
 
 const auto esARMaleAthletes = std::to_array<std::string_view>({
@@ -130,8 +130,7 @@ const auto esARSoccerTeams = std::to_array<std::string_view>({
     "Newels Old Boys",
     "Velez Sarfield",
     "Talleres",
-});
-
+    });
 
 const auto esARSportEvents = std::to_array<std::string_view>({
     "Superliga",
@@ -220,7 +219,7 @@ const auto ptBRSportNames = std::to_array<std::string_view>({
     "Futebol",
     "Handebol",
     "Tênis",
-    "boxe", 
+    "boxe",
     "Golf",
     "rúgbi",
     "Polo",
@@ -234,7 +233,6 @@ const SportDefinition ptBRSportDefinition = {.femaleAthletes = ptBRFemaleAthlete
                                              .soccerTeams = ptBRSoccerTeams,
                                              .sportEvents = ptBRSportEvents,
                                              .sportNames = ptBRSportNames};
-
 
 // General structure containing all the definitions   
 
