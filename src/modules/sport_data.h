@@ -129,7 +129,7 @@ const auto esARSoccerTeams = std::to_array<std::string_view>({
     "Newels Old Boys",
     "Velez Sarfield",
     "Talleres",
-    });
+});
 
 const auto esARSportEvents = std::to_array<std::string_view>({
     "Superliga",
@@ -232,8 +232,6 @@ const SportDefinition ptBRSportDefinition = {.femaleAthletes = ptBRFemaleAthlete
                                              .soccerTeams = ptBRSoccerTeams,
                                              .sportEvents = ptBRSportEvents,
                                              .sportNames = ptBRSportNames};
-
-// General structure containing all the definitions   
 
 const std::map<faker::Locale, const SportDefinition> sportMapSpan({
     {faker::Locale::en_US, {enUSSportDefinition}},
