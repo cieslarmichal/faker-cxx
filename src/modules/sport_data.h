@@ -118,7 +118,6 @@ const auto esARMaleAthletes = std::to_array<std::string_view>({
     "Sebastián Crismanich",
 });
 
-
 const auto esARSoccerTeams = std::to_array<std::string_view>({
     "Boca Juniors",
     "River Plate",
