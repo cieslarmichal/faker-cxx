@@ -1,9 +1,7 @@
 #pragma once
 
 #include <string_view>
-
 #include "faker-cxx/export.h"
-
 #include "faker-cxx/types/locale.h"
 
 namespace faker::sport
@@ -19,7 +17,6 @@ namespace faker::sport
  */
 
 FAKER_CXX_EXPORT std::string_view sportName(Locale locale = Locale::en_US);
-
 
 /**
  * @brief Returns a random soccer team.
