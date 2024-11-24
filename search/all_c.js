@@ -7,7 +7,7 @@ var searchData=
   ['malaysia_4',['Malaysia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa3f0e49c46cbde0c7adf5ea04a97ab261',1,'faker::phone']]],
   ['maldives_5',['Maldives',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa62235142f3fca96e1f2cd0ed4a7de48d',1,'faker::phone']]],
   ['male_6',['Male',['../namespacefaker_1_1person.html#ab7290e4523427c5876299e459d3ed038a63889cfb9d3cbe05d1bd2be5cc9953fd',1,'faker::person']]],
-  ['maleathlete_7',['maleAthlete',['../namespacefaker_1_1sport.html#ae688d8f907acd3ad106667091a20ee01',1,'faker::sport']]],
+  ['maleathlete_7',['maleAthlete',['../namespacefaker_1_1sport.html#af8ff528d550c1fa34462a7fdf3b69c95',1,'faker::sport']]],
   ['mali_8',['Mali',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aae90c93ceb8ccdcdf3b797f47edee866d',1,'faker::phone']]],
   ['malta_9',['Malta',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa92468e8a62373add2b9caefddbcf1303',1,'faker::phone']]],
   ['manufacture_10',['manufacture',['../namespacefaker_1_1computer.html#afa3d83aaa0399142a21970d2bc329edc',1,'faker::computer']]],
