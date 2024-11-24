@@ -87,16 +87,24 @@ const auto enUSSportNames = std::to_array<std::string_view>({
 });
 
 const SportDefinition enUSSportDefinition = {.femaleAthletes = enUsFemaleAthletes,
-                                                .maleAthletes = enUSMaleAthletes,
-                                                .soccerTeams = enUSSoccerTeams,
-                                                .sportEvents = enUSSportEvents,
-                                                .sportNames = enUSSportNames};
+                                            .maleAthletes = enUSMaleAthletes,
+                                            .soccerTeams = enUSSoccerTeams,
+                                            .sportEvents = enUSSportEvents,
+                                            .sportNames = enUSSportNames};
 
 
 //"es_AR"
 const auto esARSportNames = std::to_array<std::string_view>({
-    "Futbol","Baseball","Basquet","Cricket", "Golf","Rugby",
-    "Polo","Ping Pong","Tenis","Voley",
+    "Futbol",
+    "Baseball",
+    "Basquet",
+    "Cricket",
+    "Golf",
+    "Rugby",
+    "Polo",
+    "Ping Pong",
+    "Tenis",
+    "Voley",
 });
 
 const auto esARFemaleAthletes = std::to_array<std::string_view>({
@@ -154,10 +162,10 @@ const auto esARSportEvents = std::to_array<std::string_view>({
 });
 
 const SportDefinition esARSportDefinition = {.femaleAthletes = esARFemaleAthletes,
-                                                .maleAthletes = esARMaleAthletes,
-                                                .soccerTeams = esARSoccerTeams,
-                                                .sportEvents = esARSportEvents,
-                                                .sportNames = esARSportNames};
+                                            .maleAthletes = esARMaleAthletes,
+                                            .soccerTeams = esARSoccerTeams,
+                                            .sportEvents = esARSportEvents,
+                                            .sportNames = esARSportNames};
 
 //"pt-br"
 const auto ptBRSportNames = std::to_array<std::string_view>({
@@ -223,18 +231,18 @@ const auto ptBRSportEvents = std::to_array<std::string_view>({
 });
 
 const SportDefinition ptBRSportDefinition = {.femaleAthletes = ptBRFemaleAthletes,
-                                                .maleAthletes = ptBRMaleAthletes,
-                                                .soccerTeams = ptBRSoccerTeams,
-                                                .sportEvents = ptBRSportEvents,
-                                                .sportNames = ptBRSportNames};
+                                            .maleAthletes = ptBRMaleAthletes,
+                                            .soccerTeams = ptBRSoccerTeams,
+                                            .sportEvents = ptBRSportEvents,
+                                            .sportNames = ptBRSportNames};
 
 
-// general structure containing all the definitions   
+// General structure containing all the definitions   
 
 const std::map<faker::Locale, const SportDefinition> sportMapSpan({
     {faker::Locale::en_US, {enUSSportDefinition}},
     {faker::Locale::es_AR, {esARSportDefinition}},
     {faker::Locale::pt_BR, {ptBRSportDefinition}},
-    });
+});
 
 }
