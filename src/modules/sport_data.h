@@ -6,7 +6,6 @@
 #include <string>
 #include <string_view>
 
-
 namespace faker::sport
 {
 struct SportDefinition
@@ -19,7 +18,6 @@ struct SportDefinition
 };
 
 //"en_US"
-
 
 const auto enUsFemaleAthletes = std::to_array<std::string_view>({
     "Alex Morgan",
@@ -87,25 +85,12 @@ const auto enUSSportNames = std::to_array<std::string_view>({
 });
 
 const SportDefinition enUSSportDefinition = {.femaleAthletes = enUsFemaleAthletes,
-                                            .maleAthletes = enUSMaleAthletes,
-                                            .soccerTeams = enUSSoccerTeams,
-                                            .sportEvents = enUSSportEvents,
-                                            .sportNames = enUSSportNames};
-
+                                             .maleAthletes = enUSMaleAthletes,
+                                             .soccerTeams = enUSSoccerTeams,
+                                             .sportEvents = enUSSportEvents,
+                                             .sportNames = enUSSportNames};
 
 //"es_AR"
-const auto esARSportNames = std::to_array<std::string_view>({
-    "Futbol",
-    "Baseball",
-    "Basquet",
-    "Cricket",
-    "Golf",
-    "Rugby",
-    "Polo",
-    "Ping Pong",
-    "Tenis",
-    "Voley",
-});
 
 const auto esARFemaleAthletes = std::to_array<std::string_view>({
     "Gabriela Sabatini",
@@ -161,25 +146,26 @@ const auto esARSportEvents = std::to_array<std::string_view>({
     "MotoGP",
 });
 
+const auto esARSportNames = std::to_array<std::string_view>({
+    "Futbol",
+    "Baseball",
+    "Basquet",
+    "Cricket",
+    "Golf",
+    "Rugby",
+    "Polo",
+    "Ping Pong",
+    "Tenis",
+    "Voley",
+});
+
 const SportDefinition esARSportDefinition = {.femaleAthletes = esARFemaleAthletes,
-                                            .maleAthletes = esARMaleAthletes,
-                                            .soccerTeams = esARSoccerTeams,
-                                            .sportEvents = esARSportEvents,
-                                            .sportNames = esARSportNames};
+                                             .maleAthletes = esARMaleAthletes,
+                                             .soccerTeams = esARSoccerTeams,
+                                             .sportEvents = esARSportEvents,
+                                             .sportNames = esARSportNames};
 
 //"pt-br"
-const auto ptBRSportNames = std::to_array<std::string_view>({
-    "Futebol",
-    "Handebol",
-    "Tênis",
-    "boxe", 
-    "Golf",
-    "rúgbi",
-    "Polo",
-    "Natação",
-    "Artes marciais",
-    "Voleibol",
-});
 
 const auto ptBRFemaleAthletes = std::to_array<std::string_view>({
     "Amanda Nunes",
@@ -230,11 +216,24 @@ const auto ptBRSportEvents = std::to_array<std::string_view>({
     "MotoGP Rio do Janeiro",
 });
 
+const auto ptBRSportNames = std::to_array<std::string_view>({
+    "Futebol",
+    "Handebol",
+    "Tênis",
+    "boxe", 
+    "Golf",
+    "rúgbi",
+    "Polo",
+    "Natação",
+    "Artes marciais",
+    "Voleibol",
+});
+
 const SportDefinition ptBRSportDefinition = {.femaleAthletes = ptBRFemaleAthletes,
-                                            .maleAthletes = ptBRMaleAthletes,
-                                            .soccerTeams = ptBRSoccerTeams,
-                                            .sportEvents = ptBRSportEvents,
-                                            .sportNames = ptBRSportNames};
+                                             .maleAthletes = ptBRMaleAthletes,
+                                             .soccerTeams = ptBRSoccerTeams,
+                                             .sportEvents = ptBRSportEvents,
+                                             .sportNames = ptBRSportNames};
 
 
 // General structure containing all the definitions   

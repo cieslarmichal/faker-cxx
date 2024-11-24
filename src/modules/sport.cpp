@@ -8,7 +8,7 @@
 namespace faker::sport
 {
 std::string_view sportName(Locale locale)
-{    
+{
     auto localeLocal = locale;    
     if (sportMapSpan.find(locale) == sportMapSpan.end())
     {
