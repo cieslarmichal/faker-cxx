@@ -1,7 +1,5 @@
 #include "faker-cxx/movie.h"
-
 #include <string_view>
-
 #include "faker-cxx/helper.h"
 #include "movie_data.h"
 
@@ -9,43 +7,55 @@ namespace faker::movie
 {
     namespace
     {
-        const struct MovieDefinition& getMovieDefinition(Locale locale)
+        const struct MovieDefinition& getMovie(Locale locale)
         {
-            switch(locale)
+            switch (locale)
             {
-                case Locale::en_US:
-                    return enMovieDefinition;
+            default:
+                return enUSmoviesDefinitions;
             }
         }
     }
-std::string_view genre()
+std::string_view genre(Locale locale)
 {
-    return helper::randomElement(movieGenres);
+    const auto& movie = getMovie(locale);
+
+    return helper::randomElement(movie.genres);
 }
 
-std::string_view movieTitle()
+std::string_view movieTitle(Locale locale)
 {
-    return helper::randomElement(movies);
+    const auto& movie = getMovie(locale);
+
+    return helper::randomElement(movie.movies);
 }
 
-std::string_view tvShow()
+std::string_view tvShow(Locale locale)
 {
-    return helper::randomElement(tvShows);
+    const auto& movie = getMovie(locale);
+
+    return helper::randomElement(movie.tvShows);
 }
 
-std::string_view director()
+std::string_view director(Locale locale)
 {
-    return helper::randomElement(directors);
+    const auto& movie = getMovie(locale);
+
+    return helper::randomElement(movie.directors);
 }
 
-std::string_view actor()
+std::string_view actor(Locale locale)
 {
-    return helper::randomElement(actors);
+    const auto& movie = getMovie(locale);
+
+    return helper::randomElement(movie.actors);
 }
 
-std::string_view actress()
+std::string_view actress(Locale locale)
 {
-    return helper::randomElement(actresses);
+    const auto& movie = getMovie(locale);
+
+    return helper::randomElement(movie.actresses);
 }
 
 }

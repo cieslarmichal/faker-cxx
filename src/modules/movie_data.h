@@ -1,23 +1,25 @@
 #pragma once
 
 #include <array>
-#include <span>
 #include <string_view>
-
+#include <span>
 #include "faker-cxx/movie.h"
 
 namespace faker::movie
 {
+
     struct MovieDefinition
     {
-        std::span<const std::string_view> s_actors;
-        std::span<const std::string_view> s_actresses;
-        std::span<const std::string_view> s_directors;
-        std::span<const std::string_view> s_movieGenres;
-        std::span<const std::string_view> s_movies;
-        std::span<const std::string_view> s_tvShows;
+        std::span<const std::string_view> actors;
+        std::span<const std::string_view> actresses;
+        std::span<const std::string_view> directors;
+        std::span<const std::string_view> genres;
+        std::span<const std::string_view> movies;
+        std::span<const std::string_view> tvShows;
     };
-const auto actors = std::to_array<std::string_view>({
+
+    // "en-us"
+const auto enUSactors = std::to_array<std::string_view>({
     "Aamir Khan",
     "Abbott and Costello",
     "Adel Imam",
@@ -319,7 +321,7 @@ const auto actors = std::to_array<std::string_view>({
     "Yves Montand",
 });
 
-const auto actresses = std::to_array<std::string_view>({
+const auto enUSactresses = std::to_array<std::string_view>({
     "Agnes Moorehead",
     "Aishwarya Rai",
     "Alida Valli",
@@ -622,7 +624,7 @@ const auto actresses = std::to_array<std::string_view>({
     "Zhang Ziyi",
 });
 
-const auto directors = std::to_array<std::string_view>({
+const auto enUSdirectors = std::to_array<std::string_view>({
     "Abbas Kiarostami",
     "Abel Gance",
     "Agnès Varda",
@@ -925,10 +927,10 @@ const auto directors = std::to_array<std::string_view>({
     "Éric Rohmer",
 });
 
-const auto movieGenres = std::to_array<std::string_view>(
+const auto enUSmovieGenres = std::to_array<std::string_view>(
     {"Action", "Comedy", "Drama", "Fantasy", "Horror", "Mystery", "Romance", "Thriller", "Western"});
 
-const auto movies = std::to_array<std::string_view>({
+const auto enUSmovies = std::to_array<std::string_view>({
     "12 Angry Men",
     "2001: A Space Odyssey",
     "8½",
@@ -1181,7 +1183,7 @@ const auto movies = std::to_array<std::string_view>({
     "Yôjinbô",
 });
 
-const auto tvShows = std::to_array<std::string_view>({
+const auto enUStvShows = std::to_array<std::string_view>({
     "Africa",
     "Apocalypse: The Second World War",
     "Arcane",
@@ -1306,13 +1308,11 @@ const auto tvShows = std::to_array<std::string_view>({
     "When They See Us",
 });
 
-const MovieDefinition enMovieDefinition = {
-    .s_actors = actors,
-    .s_actresses = actresses,
-    .s_directors = directors,
-    .s_movieGenres = movieGenres,
-    .s_movies = s_movies,
-    .s_tvShows = s_tvShows,
+const MovieDefinition enUSmoviesDefinitions = {
+    .actors = enUSactors,
+    .actresses = enUSactresses,
+    .directors = enUSdirectors,
+    .genres = enUSmovieGenres,
+    .movies = enUSmovies,
 };
-
 }

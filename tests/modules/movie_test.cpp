@@ -7,57 +7,94 @@
 #include "movie_data.h"
 
 using namespace ::testing;
+using namespace faker;
 using namespace faker::movie;
 
-class MovieTest : public Test
+namespace
+{
+const struct MovieDefinition& getMovie(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSmoviesDefinitions;
+    }
+}
+}
+
+class MovieTest : public TestWithParam<Locale>
 {
 public:
 };
 
-TEST_F(MovieTest, shouldGenerateGenre)
+TEST_F(MovieTest, shouldGenerateGenreLocale)
 {
-    const auto generatedGenre = genre();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(movieGenres, [generatedGenre](const std::string_view& genre)
+    const auto& movie = getMovie(locale);
+
+    const auto& generatedGenre = genre(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(movie.genres, [generatedGenre](const std::string_view& genre)
                                     { return generatedGenre == genre; }));
 }
 
-TEST_F(MovieTest, shouldGenerateMovieTitle)
+TEST_F(MovieTest, shouldGenerateMovieTitleLocale)
 {
-    const auto generatedMovieTitle = movieTitle();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(movies, [generatedMovieTitle](const std::string_view& movieTitle)
+    const auto& movie = getMovie(locale);
+
+    const auto generatedMovieTitle = movieTitle(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(movie.movies, [generatedMovieTitle](const std::string_view& movieTitle)
                                     { return generatedMovieTitle == movieTitle; }));
 }
 
-TEST_F(MovieTest, shouldGenerateTvShow)
+TEST_F(MovieTest, shouldGenerateTvShowLocale)
 {
-    const auto generatedTvShow = tvShow();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(tvShows, [generatedTvShow](const std::string_view& tvShow)
+    const auto& movie = getMovie(locale);
+
+    const auto generatedTvShow = tvShow(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(movie.tvShows, [generatedTvShow](const std::string_view& tvShow)
                                     { return generatedTvShow == tvShow; }));
 }
 
-TEST_F(MovieTest, shouldGenerateDirector)
+TEST_F(MovieTest, shouldGenerateDirectorLocale)
 {
-    const auto generatedDirector = director();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(directors, [generatedDirector](const std::string_view& director)
+    const auto& movie = getMovie(locale);
+
+    const auto generatedDirector = director(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(movie.directors, [generatedDirector](const std::string_view& director)
                                     { return generatedDirector == director; }));
 }
 
-TEST_F(MovieTest, shouldGenerateActor)
+TEST_F(MovieTest, shouldGenerateActorLocale)
 {
-    const auto generatedActor = actor();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(actors, [generatedActor](const std::string_view& actor)
+    const auto& movie = getMovie(locale);
+
+    const auto generatedActor = actor(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(movie.actors, [generatedActor](const std::string_view& actor)
                                     { return generatedActor == actor; }));
 }
 
-TEST_F(MovieTest, shouldGenerateActress)
+TEST_F(MovieTest, shouldGenerateActressLocale)
 {
-    const auto generatedActress = actress();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(actresses, [generatedActress](const std::string_view& actress)
+    const auto& movie = getMovie(locale);
+
+    const auto generatedActress = actress(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(movie.actresses, [generatedActress](const std::string_view& actress)
                                     { return generatedActress == actress; }));
 }
