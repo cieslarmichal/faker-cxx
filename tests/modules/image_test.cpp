@@ -17,6 +17,13 @@ class ImageTest : public Test
 public:
 };
 
+TEST_F(ImageTest, shouldGenerateRandomImageUrl)
+{
+    const auto generatedImageUrl = imageUrl();
+
+    ASSERT_TRUE(generatedImageUrl == urlLoremFlickr() || generatedImageUrl == urlPicsumPhotos());
+}
+
 TEST_F(ImageTest, shouldGenerateurlLoremFlickrDefault)
 {
     const auto generatedImageUrl = urlLoremFlickr();

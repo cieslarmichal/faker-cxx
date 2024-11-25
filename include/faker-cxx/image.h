@@ -25,6 +25,20 @@ enum class ImageCategory
 };
 
 /**
+ * @brief Generates a random image url with `https://loremflickr.com/` or "https://picsum.photos".
+ *
+ * @param width The width of the image. Defaults to `640`.
+ * @param height The height of the image. Defaults to `480`.
+ *
+ * @returns Random real image url from external service.
+ *
+ * @code
+ * faker::image::imageUrl() // "https://loremflickr.com/640/480" or "https://picsum.photos/640/480"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string imageUrl(unsigned width = 640, unsigned height = 480);
+
+/**
  * @brief Generates a real image url with `https://loremflickr.com/`.
  *
  * @param width The width of the image. Defaults to `640`.
@@ -60,7 +74,8 @@ FAKER_CXX_EXPORT std::string urlLoremFlickr(unsigned width = 640, unsigned heigh
  *@endcode
  */
 FAKER_CXX_EXPORT std::string urlPicsumPhotos(unsigned width = 640, unsigned height = 480,
-                                           std::optional<bool> greyscale = std::nullopt, std::optional<int> blur = std::nullopt);
+                                             std::optional<bool> greyscale = std::nullopt,
+                                             std::optional<int> blur = std::nullopt);
 
 /**
  * @brief Generates a random avatar from GitHub.
