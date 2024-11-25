@@ -27,11 +27,21 @@ std::span<const std::string_view> getColors(Locale locale)
 }
 }
 
+const std::array<std::string_view, 20> colorSpaces = {
+    "sRGB", "Adobe RGB", "ProPhoto RGB", "DCI-P3",       "Rec. 709",        "Rec. 2020",       "CMYK",
+    "XYZ",  "Lab",       "ACES",         "CIE 1931 XYZ", "CIE 1976 L*a*b*", "CIE 1976 L*u*v*", "CIEUVW",
+    "Y'UV", "Y'IQ",      "Y'DbDr",       "YCC",          "YPbPr",           "YPbPr601"};
+
 std::string_view name(Locale locale)
 {
     const auto& colors = getColors(locale);
 
     return helper::randomElement(colors);
+}
+
+std::string space()
+{
+    return std::string(helper::randomElement(colorSpaces));
 }
 
 std::string rgb(bool includeAlpha)

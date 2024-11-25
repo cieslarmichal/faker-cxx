@@ -1,8 +1,10 @@
 #include "faker-cxx/location.h"
 
+#include <stdexcept>
 #include <string>
 #include <string_view>
 #include <unordered_map>
+#include <unordered_set>
 
 #include "common/algo_helper.h"
 #include "common/format_helper.h"
@@ -78,7 +80,7 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return portugalAddresses;
     case Locale::he_IL:
         return israelAddresses;
-     case Locale::ar_PS:
+    case Locale::ar_PS:
         return palestineAddresses;
     case Locale::es_MX:
         return mexicoAddresses;
@@ -88,6 +90,25 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return usaAddresses;
     }
 }
+}
+
+std::string_view continent(std::string_view country)
+{
+    static const std::vector<std::string_view> continents = {"Africa",        "Antarctica", "Asia",         "Europe",
+                                                             "North America", "Australia",  "South America"};
+
+    if (country.empty())
+    {
+        return helper::randomElement(continents);
+    }
+
+    auto it = countryToContinent.find(country);
+    if (it != countryToContinent.end())
+    {
+        return it->second;
+    }
+
+    return "Unknown";
 }
 
 std::string_view country()
@@ -220,6 +241,12 @@ std::string longitude(Precision precision)
 std::string_view direction()
 {
     return helper::randomElement(directions);
+}
+
+std::string_view ordinalDirection(bool abbreviated)
+{
+    return abbreviated ? helper::randomElement(ordinalDirections).second :
+                         helper::randomElement(ordinalDirections).first;
 }
 
 std::string_view timeZone()

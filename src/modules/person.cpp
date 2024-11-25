@@ -237,9 +237,8 @@ std::string fullName(Locale locale, std::optional<Sex> sex)
     weightedElements.reserve(peopleNames.nameFormats.size());
 
     std::transform(peopleNames.nameFormats.begin(), peopleNames.nameFormats.end(), std::back_inserter(weightedElements),
-                   [](const NameFormat& nameFormat) {
-                       return helper::WeightedElement<std::string_view>{nameFormat.weight, nameFormat.format};
-                   });
+                   [](const NameFormat& nameFormat)
+                   { return helper::WeightedElement<std::string_view>{nameFormat.weight, nameFormat.format}; });
 
     const auto nameFormat = static_cast<std::string>(helper::weightedRandomElement<std::string_view>(weightedElements));
 

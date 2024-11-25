@@ -146,4 +146,15 @@ FAKER_CXX_EXPORT std::string hwb();
  * @endcode
  */
 FAKER_CXX_EXPORT std::string yuv();
+
+/**
+ * @brief Returns a random color space.
+ *
+ * @returns A color space string (e.g., "sRGB", "CMYK").
+ *
+ * @code
+ * faker::color::space() // "sRGB"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string space();
 }

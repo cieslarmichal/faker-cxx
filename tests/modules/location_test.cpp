@@ -80,6 +80,10 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return portugalAddresses;
     case Locale::he_IL:
         return israelAddresses;
+    case Locale::es_MX:
+        return mexicoAddresses;
+    case Locale::ar_PS:
+        return palestineAddresses;
     case Locale::ko_KR:
         return korAddresses;
     default:
@@ -618,6 +622,22 @@ TEST_F(LocationTest, shouldGenerateDirection)
                                     { return direction == generatedDirection; }));
 }
 
+TEST_F(LocationTest, shouldGenerateOrdinalDirection)
+{
+    const auto generatedOrdinalDirection = ordinalDirection();
+    const auto generatedOrdinalDirectionAbbreviated = ordinalDirection(true);
+
+    ASSERT_TRUE(std::ranges::any_of(
+        ordinalDirections,
+        [generatedOrdinalDirection](const std::pair<std::string_view, std::string_view>& ordinalDirection)
+        { return ordinalDirection.first == generatedOrdinalDirection; }));
+
+    ASSERT_TRUE(std::ranges::any_of(
+        ordinalDirections,
+        [generatedOrdinalDirectionAbbreviated](const std::pair<std::string_view, std::string_view>& ordinalDirection)
+        { return ordinalDirection.second == generatedOrdinalDirectionAbbreviated; }));
+}
+
 TEST_F(LocationTest, shouldGenerateTimeZone)
 {
     const auto generatedTimeZone = timeZone();
@@ -1018,7 +1038,6 @@ TEST_F(LocationTest, shouldGenerateSlovakiaStreetAddress)
                                     { return generatedStreetSuffix.find(streetSuffix) != std::string::npos; }));
 }
 
-
 TEST_F(LocationTest, shouldGeneratePortugalStreet)
 {
     const auto generatedStreet = street(Locale::pt_PT);
@@ -1068,7 +1087,6 @@ TEST_F(LocationTest, shouldGenerateIsraelStreet)
     const auto& generatedStreetName =
         common::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
-
     ASSERT_TRUE(std::ranges::any_of(israelStreetPrefixes, [&generatedStreetPrefix](const std::string_view& streetPrefix)
                                     { return streetPrefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(israelStreetNames, [&generatedStreetName](const std::string_view& streetName)
@@ -1079,31 +1097,86 @@ TEST_F(LocationTest, shouldGenerateIsraelStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(Locale::he_IL);
     auto generatedAddresses = common::split(generatedStreetAddress, " ");
-    if (generatedAddresses[generatedAddresses.size() - 2] == "דירה" || generatedAddresses[generatedAddresses.size() - 2] == "חדר") 
+    if (generatedAddresses[generatedAddresses.size() - 2] == "דירה" ||
+        generatedAddresses[generatedAddresses.size() - 2] == "חדר")
     {
         const auto& secondaryAddressType = generatedAddresses[generatedAddresses.size() - 2];
         const auto& secondaryAddressNumber = generatedAddresses.back();
         ASSERT_TRUE(secondaryAddressNumber.size() == 1 || secondaryAddressNumber.size() == 2);
         ASSERT_TRUE(checkIfAllCharactersAreNumeric(secondaryAddressNumber));
         ASSERT_TRUE(secondaryAddressType == "דירה" || secondaryAddressType == "חדר");
-        generatedAddresses.pop_back();  // Remove unit number
+        generatedAddresses.pop_back(); // Remove unit number
         generatedAddresses.pop_back();
     }
     const auto& generatedStreetPrefix = generatedAddresses[0];
     auto generatedBuildingNumber = generatedAddresses.back();
     generatedAddresses.pop_back();
-    while (!generatedBuildingNumber.empty() && !checkIfAllCharactersAreNumeric(generatedBuildingNumber)) {
+    while (!generatedBuildingNumber.empty() && !checkIfAllCharactersAreNumeric(generatedBuildingNumber))
+    {
         generatedBuildingNumber.pop_back(); // Remove the last byte until it's numeric
     }
-    const auto& generatedStreetName =
-        common::join({generatedAddresses.begin() + 1, generatedAddresses.end()});
-    
-    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);   
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber)); 
+    const auto& generatedStreetName = common::join({generatedAddresses.begin() + 1, generatedAddresses.end()});
+
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
     ASSERT_TRUE(std::ranges::any_of(israelStreetPrefixes, [&generatedStreetPrefix](const std::string_view& streetPrefix)
-                                { return streetPrefix == generatedStreetPrefix; }));
+                                    { return streetPrefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(israelStreetNames, [&generatedStreetName](const std::string_view& streetName)
-                                { return streetName == generatedStreetName; }));
+                                    { return streetName == generatedStreetName; }));
+}
+
+TEST_F(LocationTest, shouldGenerateMexicoStreet)
+{
+    const auto generatedStreet = street(Locale::es_MX);
+
+    ASSERT_TRUE(std::ranges::any_of(mexicoStreetNames, [&generatedStreet](const std::string_view& street)
+                                    { return generatedStreet.find(street) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateMexicoStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::es_MX);
+
+    ASSERT_TRUE(std::ranges::any_of(mexicoStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGeneratepalestineStreet)
+{
+    const auto generatedStreet = street(Locale::ar_PS);
+    ASSERT_TRUE(std::ranges::any_of(palestineStreetNames, [&generatedStreet](const std::string_view& street)
+                                    { return generatedStreet.find(street) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGeneratepalestineStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::ar_PS);
+    ASSERT_TRUE(std::ranges::any_of(palestineStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+class LocationContinentTest : public ::testing::Test
+{
+};
+
+TEST_F(LocationContinentTest, shouldGenerateCorrectContinentForKnownCountry)
+{
+    ASSERT_EQ(continent("Afghanistan"), "Asia");
+    ASSERT_EQ(continent("Algeria"), "Africa");
+    ASSERT_EQ(continent("Australia"), "Australia");
+    ASSERT_EQ(continent("Antarctica"), "Antarctica");
+}
+
+TEST_F(LocationContinentTest, shouldReturnUnknownForUnmappedCountry)
+{
+    ASSERT_EQ(continent("Atlantis"), "Unknown");
+}
+
+TEST_F(LocationContinentTest, shouldGenerateRandomContinent)
+{
+    const auto generatedContinent = continent();
+    ASSERT_TRUE(std::ranges::any_of(allContinents, [&generatedContinent](const std::string_view& c)
+                                    { return c == generatedContinent; }));
 }
 
 TEST_F(LocationTest, shouldGenerateKoreaStreetAddress)
@@ -1145,4 +1218,3 @@ TEST_F(LocationTest, shouldGenerateKoreaStreet)
     ASSERT_TRUE(std::ranges::any_of(korStreetNames, [&generatedStreetName](const std::string_view& streetName)
                                     { return generatedStreetName == streetName; }));
 }
-
