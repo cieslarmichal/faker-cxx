@@ -1106,6 +1106,60 @@ TEST_F(LocationTest, shouldGenerateIsraelStreetAddress)
                                 { return streetName == generatedStreetName; }));
 }
 
+TEST_F(LocationTest, shouldGenerateMexicoStreet)
+{
+    const auto generatedStreet = street(Locale::es_MX);
+
+    ASSERT_TRUE(std::ranges::any_of(mexicoStreetNames, [&generatedStreet](const std::string_view& street)
+                                    { return generatedStreet.find(street) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateMexicoStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::es_MX);
+
+    ASSERT_TRUE(std::ranges::any_of(mexicoStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGeneratepalestineStreet)
+{
+    const auto generatedStreet = street(Locale::ar_PS);
+    ASSERT_TRUE(std::ranges::any_of(palestineStreetNames, [&generatedStreet](const std::string_view& street)
+                                    { return generatedStreet.find(street) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGeneratepalestineStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::ar_PS);
+    ASSERT_TRUE(std::ranges::any_of(palestineStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+class LocationContinentTest : public ::testing::Test
+{
+};
+
+TEST_F(LocationContinentTest, shouldGenerateCorrectContinentForKnownCountry)
+{
+    ASSERT_EQ(continent("Afghanistan"), "Asia");
+    ASSERT_EQ(continent("Algeria"), "Africa");
+    ASSERT_EQ(continent("Australia"), "Australia");
+    ASSERT_EQ(continent("Antarctica"), "Antarctica");
+}
+
+TEST_F(LocationContinentTest, shouldReturnUnknownForUnmappedCountry)
+{
+    ASSERT_EQ(continent("Atlantis"), "Unknown");
+}
+
+TEST_F(LocationContinentTest, shouldGenerateRandomContinent)
+{
+    const auto generatedContinent = continent();
+    ASSERT_TRUE(std::ranges::any_of(allContinents, [&generatedContinent](const std::string_view& c)
+                                    { return c == generatedContinent; }));
+}
+
 TEST_F(LocationTest, shouldGenerateKoreaStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(Locale::ko_KR);
@@ -1117,7 +1171,6 @@ TEST_F(LocationTest, shouldGenerateKoreaStreetAddress)
 
     ASSERT_TRUE(std::any_of(generatedStreetAddress.begin(), generatedStreetAddress.end(), ::isdigit));
 }
-
 
 TEST_F(LocationTest, shouldGenerateKoreaStreet)
 {
