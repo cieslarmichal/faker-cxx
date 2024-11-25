@@ -1,6 +1,7 @@
 #include "faker-cxx/image.h"
 
 #include <array>
+#include <faker-cxx/datatype.h>
 #include <optional>
 #include <string>
 #include <string_view>
@@ -25,12 +26,45 @@ std::unordered_map<ImageCategory, std::string> imageCategoryToLoremFlickrStringM
 };
 }
 
-std::string imageUrl(unsigned int width, unsigned int height, std::optional<ImageCategory> category)
+std::string imageUrl(unsigned width, unsigned height)
+{
+    if (faker::datatype::boolean(0.5))
+    {
+        return urlLoremFlickr();
+    }
+    else
+        return urlPicsumPhotos();
+}
+
+std::string urlLoremFlickr(unsigned int width, unsigned int height, std::optional<ImageCategory> category)
 {
     const std::string image_category =
         category.has_value() ? common::format("/{}", imageCategoryToLoremFlickrStringMapping.at(category.value())) : "";
 
     return common::format("https://loremflickr.com/{}/{}{}", width, height, image_category);
+}
+
+std::string urlPicsumPhotos(unsigned width, unsigned height, const std::optional<bool> greyscale,
+                            const std::optional<int> blur)
+{
+    std::string url = common::format("https://picsum.photos/{}/{}", width, height);
+    std::string params;
+
+    params += (greyscale.has_value() && greyscale.value()) ? "greyscale" : "";
+
+    if (blur.has_value())
+    {
+        if (blur.value() < 1 || blur.value() > 10)
+            return common::format("{}", "Error: blur must be between 1 and 10.");
+        if (!params.empty())
+            params += "&";
+        params += common::format("blur={}", blur.value());
+    }
+    if (!params.empty())
+    {
+        url = common::format("{}?{}", url, params);
+    }
+    return common::format("{}", url);
 }
 
 std::string githubAvatarUrl()
