@@ -1,7 +1,8 @@
 <map id="include/faker&#45;cxx/helper.h" name="include/faker&#45;cxx/helper.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="94,5,262,31"/>
-<area shape="rect" id="Node000002" href="$faker_8h.html" title=" " alt="" coords="5,79,167,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="152,43,103,81,100,77,149,39"/>
-<area shape="rect" id="Node000003" href="$word_8h.html" title=" " alt="" coords="191,79,352,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="208,39,257,77,254,81,204,43"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,173,31"/>
+<area shape="rect" id="Node000002" href="$faker_8h.html" title=" " alt="" coords="8,153,170,178"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="74,45,58,80,57,99,63,119,82,151,77,154,58,121,52,100,53,78,69,43"/>
+<area shape="rect" id="Node000003" href="$word_8h.html" title=" " alt="" coords="68,79,228,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="111,41,140,77,136,80,106,45"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="130,118,101,154,97,150,126,115"/>
 </map>

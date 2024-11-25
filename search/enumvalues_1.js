@@ -19,5 +19,6 @@ var searchData=
   ['bruneidarussalam_16',['BruneiDarussalam',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aacf69af09959b963cbe031e047f745066',1,'faker::phone']]],
   ['bulgaria_17',['Bulgaria',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa01a151debf2bfee8906f43f4342eb10b',1,'faker::phone']]],
   ['burkinafaso_18',['BurkinaFaso',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa77643fe9916efc367428fbc172637580',1,'faker::phone']]],
-  ['burundi_19',['Burundi',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa28765464efe1b6583610335965b4d75a',1,'faker::phone']]]
+  ['burundi_19',['Burundi',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa28765464efe1b6583610335965b4d75a',1,'faker::phone']]],
+  ['business_20',['Business',['../namespacefaker_1_1image.html#afcfbb3acc18ec0f5ec6b87124f7a3e5dad6e6cb19e3b9c02f89d6cd54cfa7c613',1,'faker::image']]]
 ];

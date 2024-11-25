@@ -35,8 +35,9 @@ var searchData=
   ['bulgaria_32',['Bulgaria',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa01a151debf2bfee8906f43f4342eb10b',1,'faker::phone']]],
   ['burkinafaso_33',['BurkinaFaso',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa77643fe9916efc367428fbc172637580',1,'faker::phone']]],
   ['burundi_34',['Burundi',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa28765464efe1b6583610335965b4d75a',1,'faker::phone']]],
-  ['buzzadjective_35',['buzzAdjective',['../namespacefaker_1_1company.html#a02b67ebf0ef4b30a7a48776b158e105a',1,'faker::company']]],
-  ['buzznoun_36',['buzzNoun',['../namespacefaker_1_1company.html#a1099f8aca6deb4fc3c00c3df3e04bc80',1,'faker::company']]],
-  ['buzzphrase_37',['buzzPhrase',['../namespacefaker_1_1company.html#a1e590c592a3cdbf5583383ee859f74d7',1,'faker::company']]],
-  ['buzzverb_38',['buzzVerb',['../namespacefaker_1_1company.html#a94c98fe534829a1d8a017ceea772d07a',1,'faker::company']]]
+  ['business_35',['Business',['../namespacefaker_1_1image.html#afcfbb3acc18ec0f5ec6b87124f7a3e5dad6e6cb19e3b9c02f89d6cd54cfa7c613',1,'faker::image']]],
+  ['buzzadjective_36',['buzzAdjective',['../namespacefaker_1_1company.html#a02b67ebf0ef4b30a7a48776b158e105a',1,'faker::company']]],
+  ['buzznoun_37',['buzzNoun',['../namespacefaker_1_1company.html#a1099f8aca6deb4fc3c00c3df3e04bc80',1,'faker::company']]],
+  ['buzzphrase_38',['buzzPhrase',['../namespacefaker_1_1company.html#a1e590c592a3cdbf5583383ee859f74d7',1,'faker::company']]],
+  ['buzzverb_39',['buzzVerb',['../namespacefaker_1_1company.html#a94c98fe534829a1d8a017ceea772d07a',1,'faker::company']]]
 ];

@@ -18,7 +18,7 @@ var dir_21275a4f97039163a157995766de70c2 =
     [ "git.h", "git_8h.html", "git_8h" ],
     [ "hacker.h", "hacker_8h.html", "hacker_8h" ],
     [ "helper.h", "helper_8h.html", "helper_8h" ],
-    [ "image.h", "image_8h.html", null ],
+    [ "image.h", "image_8h.html", "image_8h" ],
     [ "internet.h", "internet_8h.html", "internet_8h" ],
     [ "location.h", "location_8h.html", "location_8h" ],
     [ "lorem.h", "lorem_8h.html", "lorem_8h" ],

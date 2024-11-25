@@ -9,10 +9,12 @@ var searchData=
   ['upper_6',['Upper',['../namespacefaker_1_1string.html#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec',1,'faker::string']]],
   ['upperletters_7',['upperLetters',['../structfaker_1_1internet_1_1PasswordOptions.html#aa1e31f94a3e817ac955e34f38a4ae74d',1,'faker::internet::PasswordOptions']]],
   ['url_8',['url',['../namespacefaker_1_1internet.html#a005caa05149d90b3854aef6a4ccdf27e',1,'faker::internet']]],
-  ['uruguay_9',['Uruguay',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa75497a22409db78dcc52c291e078bc10',1,'faker::phone']]],
-  ['usa_10',['Usa',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa867f8282a36dd6525c3d40744a92fcf8',1,'faker::phone']]],
-  ['usedtomeasure_11',['usedToMeasure',['../structfaker_1_1science_1_1Unit.html#afbafb00ae0b488072359290f455e6d6e',1,'faker::science::Unit']]],
-  ['username_12',['username',['../namespacefaker_1_1internet.html#aaf73c938f7c6cf8f8ecbbeb0636b67c3',1,'faker::internet']]],
-  ['uuid_13',['uuid',['../namespacefaker_1_1string.html#a335d7aad191429aa88bed20818881d95',1,'faker::string']]],
-  ['uzbekistan_14',['Uzbekistan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaa0a3e881895e46eb96218f0988d405b9',1,'faker::phone']]]
+  ['urlloremflickr_9',['urlLoremFlickr',['../namespacefaker_1_1image.html#a083c329ebe18f42ae81a4bb0ac0732bb',1,'faker::image']]],
+  ['urlpicsumphotos_10',['urlPicsumPhotos',['../namespacefaker_1_1image.html#ab6bf3d60b988ed78eb6dd0419efe83bf',1,'faker::image']]],
+  ['uruguay_11',['Uruguay',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa75497a22409db78dcc52c291e078bc10',1,'faker::phone']]],
+  ['usa_12',['Usa',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa867f8282a36dd6525c3d40744a92fcf8',1,'faker::phone']]],
+  ['usedtomeasure_13',['usedToMeasure',['../structfaker_1_1science_1_1Unit.html#afbafb00ae0b488072359290f455e6d6e',1,'faker::science::Unit']]],
+  ['username_14',['username',['../namespacefaker_1_1internet.html#aaf73c938f7c6cf8f8ecbbeb0636b67c3',1,'faker::internet']]],
+  ['uuid_15',['uuid',['../namespacefaker_1_1string.html#a335d7aad191429aa88bed20818881d95',1,'faker::string']]],
+  ['uzbekistan_16',['Uzbekistan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaa0a3e881895e46eb96218f0988d405b9',1,'faker::phone']]]
 ];
