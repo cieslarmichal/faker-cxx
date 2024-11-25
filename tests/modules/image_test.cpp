@@ -17,9 +17,9 @@ class ImageTest : public Test
 public:
 };
 
-TEST_F(ImageTest, shouldGenerateImageUrlDefault)
+TEST_F(ImageTest, shouldGenerateurlLoremFlickrDefault)
 {
-    const auto generatedImageUrl = imageUrl();
+    const auto generatedImageUrl = urlLoremFlickr();
 
     ASSERT_EQ(generatedImageUrl, "https://loremflickr.com/640/480");
 }
@@ -29,20 +29,72 @@ TEST_F(ImageTest, shouldGenerateImageUrl)
     const auto width = 800;
     const auto height = 600;
 
-    const auto generatedImageUrl = imageUrl(width, height);
+    const auto generatedImageUrl = urlLoremFlickr(width, height);
 
     ASSERT_EQ(generatedImageUrl, "https://loremflickr.com/800/600");
 }
 
-TEST_F(ImageTest, shouldGenerateImageUrlCategory)
+TEST_F(ImageTest, shouldGenerateurlLoremFlickrCategory)
 {
     const auto width = 800;
     const auto height = 600;
     const auto category = ImageCategory::Fashion;
 
-    const auto generatedImageUrl = imageUrl(width, height, category);
+    const auto generatedImageUrl = urlLoremFlickr(width, height, category);
 
     ASSERT_EQ(generatedImageUrl, "https://loremflickr.com/800/600/fashion");
+}
+
+TEST_F(ImageTest, shouldGenerateImageUrlPicsumDefault)
+{
+    const auto generatedImageUrl = urlPicsumPhotos();
+
+    ASSERT_EQ(generatedImageUrl, "https://picsum.photos/640/480");
+}
+
+TEST_F(ImageTest, shouldGenerateImageUrlPicsumPhotos)
+{
+    const auto width = 800;
+    const auto height = 600;
+
+    const auto generatedImageUrl = urlPicsumPhotos(width, height);
+
+    ASSERT_EQ(generatedImageUrl, "https://picsum.photos/800/600");
+}
+
+TEST_F(ImageTest, shouldGenerateImageUrlPicsumPhotosGreyscale)
+{
+    const auto width = 800;
+    const auto height = 600;
+    const auto greyscale = true;
+
+    const auto generatedImageUrl = urlPicsumPhotos(width, height, greyscale);
+
+    ASSERT_EQ(generatedImageUrl, "https://picsum.photos/800/600?greyscale");
+}
+
+TEST_F(ImageTest, shouldGenerateImageUrlPicsumPhotosBlur)
+{
+    const auto width = 800;
+    const auto height = 600;
+    const auto greyscale = false;
+    const auto blur = 5;
+
+    const auto generatedImageUrl = urlPicsumPhotos(width, height, greyscale, blur);
+
+    ASSERT_EQ(generatedImageUrl, "https://picsum.photos/800/600?blur=5");
+}
+
+TEST_F(ImageTest, shouldGenerateImageUrlPicsumPhotosBlurandGreyscale)
+{
+    const auto width = 800;
+    const auto height = 600;
+    const auto greyscale = true;
+    const auto blur = 6;
+
+    const auto generatedImageUrl = urlPicsumPhotos(width, height, greyscale, blur);
+
+    ASSERT_EQ(generatedImageUrl, "https://picsum.photos/800/600?greyscale&blur=6");
 }
 
 TEST_F(ImageTest, shouldGenerateGithubAvatarUrl)

@@ -34,13 +34,33 @@ enum class ImageCategory
  * @returns Random real image url from external service.
  *
  * @code
- * faker::image::imageUrl() // "https://loremflickr.com/640/480"
- * faker::image::imageUrl(800, 600) // "https://loremflickr.com/800/600"
- * faker::image::imageUrl(800, 600, ImageCategory::Animals) // "https://loremflickr.com/800/600/animals"
+ * faker::image::urlLoremFlickr() // "https://loremflickr.com/640/480"
+ * faker::image::urlLoremFlickr(800, 600) // "https://loremflickr.com/800/600"
+ * faker::image::urlLoremFlickr(800, 600, ImageCategory::Animals) // "https://loremflickr.com/800/600/animals"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string imageUrl(unsigned width = 640, unsigned height = 480,
+FAKER_CXX_EXPORT std::string urlLoremFlickr(unsigned width = 640, unsigned height = 480,
                                       std::optional<ImageCategory> category = std::nullopt);
+
+/**
+ * @brief Generates a real image url with "https://picsum.photos" .
+ *
+ * @param width The width of the image. Defaults to `640`.
+ * @param height The height of the image. Defaults to `480`.
+ * @param greyscale The optional greyscale filter. True for apply or false for disabled
+ * @param blur The optional blur effect between 1 and 10
+ *
+ * @returns Random real image url from external service
+ *
+ * @code
+ * faker::image::urlPicsPhotos() // "https://picsum.photos/640/480"
+ * faker::image::urlPicsPhotos(800,600,true) // "https://picsum.photos/800/600?grayscale
+ * faker::image::urlPicsPhotos(800,600,false,5) // "https://picsum.photos/800/600?blur=5
+ * faker::image::urlPicsPhotos(800,600,true,1) // "https://picsum.photos/800/600?grayscale&blur=1
+ *@endcode
+ */
+FAKER_CXX_EXPORT std::string urlPicsumPhotos(unsigned width = 640, unsigned height = 480,
+                                           std::optional<bool> greyscale = std::nullopt, std::optional<int> blur = std::nullopt);
 
 /**
  * @brief Generates a random avatar from GitHub.
@@ -71,6 +91,7 @@ FAKER_CXX_EXPORT std::string dimensions();
  *
  * @code
  * faker::image::type() // "png"
+ * @endcode
  */
 FAKER_CXX_EXPORT std::string_view type();
 }
