@@ -54,7 +54,7 @@ FAKER_CXX_EXPORT std::string imageUrl(unsigned width = 640, unsigned height = 48
  * @endcode
  */
 FAKER_CXX_EXPORT std::string urlLoremFlickr(unsigned width = 640, unsigned height = 480,
-                                      std::optional<ImageCategory> category = std::nullopt);
+                                            std::optional<ImageCategory> category = std::nullopt);
 
 /**
  * @brief Generates a real image url with "https://picsum.photos" .
