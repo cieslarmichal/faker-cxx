@@ -4,7 +4,3 @@
 [submodule "externals/fmt"]
 	path = externals/fmt
 	url = https://github.com/fmtlib/fmt.git
-
-[submodule "externals/faker-cxx"]
-	path = externals/faker-cxx
-	url = https://github.com/cieslarmichal/faker-cxx.git

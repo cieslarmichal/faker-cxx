@@ -16,8 +16,8 @@ const struct MovieDefinition& getMovie(Locale locale)
 {
     switch (locale)
     {
-    default:
-        return enUSmoviesDefinitions;
+        default:
+            return enUSmoviesDefinitions;
     }
 }
 }
@@ -27,7 +27,7 @@ class MovieTest : public TestWithParam<Locale>
 public:
 };
 
-TEST_F(MovieTest, shouldGenerateGenreLocale)
+TEST_P(MovieTest, shouldGenerateGenreLocale)
 {
     const auto locale = GetParam();
 
@@ -39,7 +39,7 @@ TEST_F(MovieTest, shouldGenerateGenreLocale)
                                     { return generatedGenre == genre; }));
 }
 
-TEST_F(MovieTest, shouldGenerateMovieTitleLocale)
+TEST_P(MovieTest, shouldGenerateMovieTitleLocale)
 {
     const auto locale = GetParam();
 
@@ -51,7 +51,7 @@ TEST_F(MovieTest, shouldGenerateMovieTitleLocale)
                                     { return generatedMovieTitle == movieTitle; }));
 }
 
-TEST_F(MovieTest, shouldGenerateTvShowLocale)
+TEST_P(MovieTest, shouldGenerateTvShowLocale)
 {
     const auto locale = GetParam();
 
@@ -63,7 +63,7 @@ TEST_F(MovieTest, shouldGenerateTvShowLocale)
                                     { return generatedTvShow == tvShow; }));
 }
 
-TEST_F(MovieTest, shouldGenerateDirectorLocale)
+TEST_P(MovieTest, shouldGenerateDirectorLocale)
 {
     const auto locale = GetParam();
 
@@ -75,7 +75,7 @@ TEST_F(MovieTest, shouldGenerateDirectorLocale)
                                     { return generatedDirector == director; }));
 }
 
-TEST_F(MovieTest, shouldGenerateActorLocale)
+TEST_P(MovieTest, shouldGenerateActorLocale)
 {
     const auto locale = GetParam();
 
@@ -87,7 +87,7 @@ TEST_F(MovieTest, shouldGenerateActorLocale)
                                     { return generatedActor == actor; }));
 }
 
-TEST_F(MovieTest, shouldGenerateActressLocale)
+TEST_P(MovieTest, shouldGenerateActressLocale)
 {
     const auto locale = GetParam();
 
