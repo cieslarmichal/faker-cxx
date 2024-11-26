@@ -5,47 +5,71 @@
 
 namespace faker::science
 {
-ChemicalElement chemicalElement()
+    namespace
+    {
+        const struct ScienceDefinition& getScienceDefinition(Locale locale)
+        {
+            switch (locale)
+            {
+            default:
+                return enUSscienceDefinition;
+            }
+        }
+    }
+ChemicalElement chemicalElement(Locale locale)
 {
-    return helper::randomElement(chemicalElements);
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    return helper::randomElement(scienceDefinition.chemicalElements);
 }
 
-Unit unit()
+Unit unit(Locale locale)
 {
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
     std::vector<Unit> units;
 
-    units.insert(units.end(), distanceUnits.begin(), distanceUnits.end());
-    units.insert(units.end(), massUnits.begin(), massUnits.end());
-    units.insert(units.end(), timeUnits.begin(), timeUnits.end());
-    units.insert(units.end(), currentUnits.begin(), currentUnits.end());
-    units.insert(units.end(), temperatureUnits.begin(), temperatureUnits.end());
+    units.insert(units.end(), scienceDefinition.distanceUnits.begin(), scienceDefinition.distanceUnits.end());
+    units.insert(units.end(), scienceDefinition.massUnits.begin(), scienceDefinition.massUnits.end());
+    units.insert(units.end(), scienceDefinition.timeUnits.begin(), scienceDefinition.timeUnits.end());
+    units.insert(units.end(), scienceDefinition.currentUnits.begin(), scienceDefinition.currentUnits.end());
+    units.insert(units.end(), scienceDefinition.temperatureUnits.begin(), scienceDefinition.temperatureUnits.end());
 
     return helper::randomElement(units);
 }
 
-Unit distanceUnit()
+Unit distanceUnit(Locale locale)
 {
-    return helper::randomElement(distanceUnits);
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    return helper::randomElement(scienceDefinition.distanceUnits);
 }
 
-Unit timeUnit()
+Unit timeUnit(Locale locale)
 {
-    return helper::randomElement(timeUnits);
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    return helper::randomElement(scienceDefinition.timeUnits);
 }
 
-Unit massUnit()
+Unit massUnit(Locale locale)
 {
-    return helper::randomElement(massUnits);
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    return helper::randomElement(scienceDefinition.massUnits);
 }
 
-Unit tempUnit()
+Unit tempUnit(Locale locale)
 {
-    return helper::randomElement(temperatureUnits);
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    return helper::randomElement(scienceDefinition.temperatureUnits);
 }
 
-Unit currentUnit()
+Unit currentUnit(Locale locale)
 {
-    return helper::randomElement(currentUnits);
-}
+    const auto& scienceDefinition = getScienceDefinition(locale);
 
+    return helper::randomElement(scienceDefinition.currentUnits);
+}
 }
