@@ -5,52 +5,85 @@
 
 #include "faker-cxx/sport.h"
 #include "sport_data.h"
+#include "locale.h"
 
 using namespace ::testing;
 using namespace faker;
 using namespace faker::sport;
 
-class SportTest : public Test
+
+namespace
+{
+
+const struct SportDefinition& getSportMapDefinition(Locale locale)
+{
+    if (sportMapSpan.find(locale) == sportMapSpan.end())
+    {
+        return sportMapSpan.at(Locale::en_US);
+    }
+    else
+    {
+        return sportMapSpan.at(locale);
+    }
+}
+}
+
+class SportTestLocale : public TestWithParam<Locale>
 {
 public:
 };
 
-TEST_F(SportTest, shouldGenerateSport)
+TEST_P(SportTestLocale, shouldGenerateSportLocale)
 {
-    const auto generatedSport = sportName();
+    auto extra = GetParam();
+    auto sportDefinition = getSportMapDefinition(extra);
+    const auto generatedSport = faker::sport::sportName(extra);
+    
 
-    ASSERT_TRUE(std::ranges::any_of(sportNames, [generatedSport](const std::string_view& sport)
+    ASSERT_TRUE(std::ranges::any_of(sportDefinition.sportNames, [generatedSport](const std::string_view& sport)
                                     { return sport == generatedSport; }));
 }
-
-TEST_F(SportTest, shouldGenerateSoccerTeam)
+TEST_P(SportTestLocale, shouldGenerateFemaleAthleteLocale)
 {
-    const auto generatedSoccerTeam = soccerTeam();
+    auto extra = GetParam();
+    auto sportDefinition = getSportMapDefinition(extra);
 
-    ASSERT_TRUE(std::ranges::any_of(soccerTeams, [generatedSoccerTeam](const std::string_view& soccerTeam)
-                                    { return soccerTeam == generatedSoccerTeam; }));
+    const auto generatedFemaleAthlete = femaleAthlete(extra);
+
+    ASSERT_TRUE(std::ranges::any_of(sportDefinition.femaleAthletes, [generatedFemaleAthlete](const std::string_view& femaleAthlete)
+                                    { return femaleAthlete == generatedFemaleAthlete; }));
 }
+TEST_P(SportTestLocale, shouldGenerateMaleAthleteLocale)
+{    
+    auto extra = GetParam();
+    auto sportDefinition = getSportMapDefinition(extra);
+    const auto generatedMaleAthlete = maleAthlete(extra);
 
-TEST_F(SportTest, shouldGenerateSportEvent)
-{
-    const auto generatedSportEvent = sportEvent();
-
-    ASSERT_TRUE(std::ranges::any_of(sportEvents, [generatedSportEvent](const std::string_view& sportEvent)
-                                    { return sportEvent == generatedSportEvent; }));
-}
-
-TEST_F(SportTest, shouldGenerateMaleAthlete)
-{
-    const auto generatedMaleAthlete = maleAthlete();
-
-    ASSERT_TRUE(std::ranges::any_of(maleAthletes, [generatedMaleAthlete](const std::string_view& maleAthlete)
+    ASSERT_TRUE(std::ranges::any_of(sportDefinition.maleAthletes, [generatedMaleAthlete](const std::string_view& maleAthlete)
                                     { return maleAthlete == generatedMaleAthlete; }));
 }
 
-TEST_F(SportTest, shouldGenerateFemaleAthlete)
-{
-    const auto generatedFemaleAthlete = femaleAthlete();
 
-    ASSERT_TRUE(std::ranges::any_of(femaleAthletes, [generatedFemaleAthlete](const std::string_view& femaleAthlete)
-                                    { return femaleAthlete == generatedFemaleAthlete; }));
+TEST_P(SportTestLocale, shouldGenerateSoccerTeamLocale)
+{
+    auto extra = GetParam();
+    auto sportDefinition = getSportMapDefinition(extra);
+    const auto generatedSoccerTeam = soccerTeam(extra);
+
+    ASSERT_TRUE(std::ranges::any_of(sportDefinition.soccerTeams, [generatedSoccerTeam](const std::string_view& soccerTeam)
+                                    { return soccerTeam == generatedSoccerTeam; }));
 }
+
+TEST_P(SportTestLocale, shouldGenerateSportEventLocale)
+{
+    auto extra = GetParam();
+    auto sportDefinition = getSportMapDefinition(extra);
+    const auto generatedSportEvent = sportEvent(extra);
+
+    ASSERT_TRUE(std::ranges::any_of(sportDefinition.sportEvents, [generatedSportEvent](const std::string_view& sportEvent)
+                                    { return sportEvent == generatedSportEvent; }));
+}
+
+
+INSTANTIATE_TEST_SUITE_P(testSportByLocale, SportTestLocale, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
