@@ -98,3 +98,7 @@ TEST_P(MovieTest, shouldGenerateActressLocale)
     ASSERT_TRUE(std::ranges::any_of(movie.actresses, [generatedActress](const std::string_view& actress)
                                     { return generatedActress == actress; }));
 }
+
+INSTANTIATE_TEST_SUITE_P(TestMovieByLocale, MovieTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
+
