@@ -17,7 +17,7 @@ namespace faker::medicine
  * faker::medicine::condition() // "AIDS"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view condition(Locale locale=Locale::en_US);
+FAKER_CXX_EXPORT std::string_view condition(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random medical test
@@ -29,7 +29,7 @@ FAKER_CXX_EXPORT std::string_view condition(Locale locale=Locale::en_US);
  * faker::medicine::medicalTest() // "pulmonary auscultation"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view medicalTest(Locale locale=Locale::en_US);
+FAKER_CXX_EXPORT std::string_view medicalTest(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random Medical specialty
@@ -42,5 +42,5 @@ FAKER_CXX_EXPORT std::string_view medicalTest(Locale locale=Locale::en_US);
  * @endcode
  */
 
-FAKER_CXX_EXPORT std::string_view specialty(Locale locale=Locale::en_US);
+FAKER_CXX_EXPORT std::string_view specialty(Locale locale = Locale::en_US);
 }

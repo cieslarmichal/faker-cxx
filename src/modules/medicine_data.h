@@ -11,8 +11,7 @@ struct MedicineDefinition
 {
     std::span<const std::string_view> medicalConditions;
     std::span<const std::string_view> medicalTests;
-    std::span<const std::string_view> specialties;
-    
+    std::span<const std::string_view> specialties;    
 };
 
 //"en_US"
@@ -35,7 +34,7 @@ const auto enUSMedicalConditions = std::to_array<std::string_view>({
     "Diabetes Mellitus",
     "Down syndrome",
     "Elevated Blood Lead Level",
-    "Epilepsy",  
+    "Epilepsy",
     "Failure to Thrive",  
     "Fetal Alcohol Syndrome",
     "Gall Bladder Disease",
@@ -175,9 +174,8 @@ const auto enUSSpecialties = std::to_array<std::string_view>({
 });
 
 
-const MedicineDefinition enUSMedicineDefinition = {.medicalConditions = enUSMedicalConditions,
-                                                  .medicalTests = enUSMedicalTests,                                                  
-                                                  .specialties = enUSSpecialties};
+const MedicineDefinition enUSMedicineDefinition = {
+    .medicalConditions = enUSMedicalConditions,.medicalTests = enUSMedicalTests,.specialties = enUSSpecialties};
 
 //"es_AR"
 const auto esARMedicalConditions = std::to_array<std::string_view>({
@@ -238,8 +236,7 @@ const auto esARMedicalConditions = std::to_array<std::string_view>({
     "Talasemia mayor",
     "Tuberculosis",
     "Colitis ulcerosa",
-    "Úlceras Estómago o Intestinal"
-
+    "Úlceras Estómago o Intestinal",
 });
 
 const auto esARMedicalTests = std::to_array<std::string_view>({
@@ -338,9 +335,9 @@ const auto esARSpecialties = std::to_array<std::string_view>({
     "Venereología",
 });
 
-const MedicineDefinition esARMedicineDefinition = {.medicalConditions = esARMedicalConditions,
-                                                  .medicalTests = esARMedicalTests,                                                  
-                                                  .specialties = esARSpecialties};
+const MedicineDefinition esARMedicineDefinition = {
+    .medicalConditions = esARMedicalConditions,.medicalTests = esARMedicalTests,.specialties = esARSpecialties};
+
 //"pt_BR"
 const auto ptBRMedicalConditions = std::to_array<std::string_view>({
     "AIDS",
@@ -499,32 +496,17 @@ const auto ptBRSpecialties = std::to_array<std::string_view>({
     "Venereologia",
 });
 
-const MedicineDefinition ptBRMedicineDefinition = {.medicalConditions = ptBRMedicalConditions,
-                                                  .medicalTests = ptBRMedicalTests,                                                  
-                                                  .specialties = ptBRSpecialties};
+const MedicineDefinition ptBRMedicineDefinition = {
+    .medicalConditions = ptBRMedicalConditions,.medicalTests = ptBRMedicalTests,.specialties = ptBRSpecialties};
 
 const std::map<faker::Locale, const MedicineDefinition> medicineMapSpan({
-    {faker::Locale::en_US, {enUSMedicineDefinition}},    
-    {faker::Locale::pt_BR, {ptBRMedicineDefinition}},
-    {faker::Locale::es_AR, {esARMedicineDefinition}},
-    {faker::Locale::es_BO, {esARMedicineDefinition}},
-    {faker::Locale::es_CL, {esARMedicineDefinition}},
-    {faker::Locale::es_CO, {esARMedicineDefinition}},
-    {faker::Locale::es_CR, {esARMedicineDefinition}},
-    {faker::Locale::es_DO, {esARMedicineDefinition}},
-    {faker::Locale::es_EC, {esARMedicineDefinition}},
-    {faker::Locale::es_ES, {esARMedicineDefinition}},
-    {faker::Locale::es_GT, {esARMedicineDefinition}},
-    {faker::Locale::es_HN, {esARMedicineDefinition}},
-    {faker::Locale::es_MX, {esARMedicineDefinition}},
-    {faker::Locale::es_NI, {esARMedicineDefinition}},
-    {faker::Locale::es_PA, {esARMedicineDefinition}},
-    {faker::Locale::es_PE, {esARMedicineDefinition}},
-    {faker::Locale::es_PR, {esARMedicineDefinition}},
-    {faker::Locale::es_PY, {esARMedicineDefinition}},
-    {faker::Locale::es_US, {esARMedicineDefinition}},
-    {faker::Locale::es_SV, {esARMedicineDefinition}},
-    {faker::Locale::es_UY, {esARMedicineDefinition}},
+    {faker::Locale::en_US, {enUSMedicineDefinition}},{faker::Locale::pt_BR, {ptBRMedicineDefinition}},{faker::Locale::es_AR, {esARMedicineDefinition}},
+    {faker::Locale::es_BO, {esARMedicineDefinition}},{faker::Locale::es_CL, {esARMedicineDefinition}},{faker::Locale::es_CO, {esARMedicineDefinition}},
+    {faker::Locale::es_CR, {esARMedicineDefinition}},{faker::Locale::es_DO, {esARMedicineDefinition}},{faker::Locale::es_EC, {esARMedicineDefinition}},
+    {faker::Locale::es_ES, {esARMedicineDefinition}},{faker::Locale::es_GT, {esARMedicineDefinition}},{faker::Locale::es_HN, {esARMedicineDefinition}},
+    {faker::Locale::es_MX, {esARMedicineDefinition}},{faker::Locale::es_NI, {esARMedicineDefinition}},{faker::Locale::es_PA, {esARMedicineDefinition}},
+    {faker::Locale::es_PE, {esARMedicineDefinition}},{faker::Locale::es_PR, {esARMedicineDefinition}},{faker::Locale::es_PY, {esARMedicineDefinition}},
+    {faker::Locale::es_US, {esARMedicineDefinition}},{faker::Locale::es_SV, {esARMedicineDefinition}},{faker::Locale::es_UY, {esARMedicineDefinition}},
     {faker::Locale::es_VE, {esARMedicineDefinition}},
 });
 

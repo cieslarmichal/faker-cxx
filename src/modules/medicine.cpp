@@ -14,6 +14,7 @@ std::string_view condition(Locale locale)
     {
         localeLocal = Locale::en_US;
     }
+    
     return helper::randomElement((medicineMapSpan.at(localeLocal)).medicalConditions);
 }
 
@@ -24,6 +25,7 @@ std::string_view medicalTest(Locale locale)
     {
         localeLocal = Locale::en_US;
     }
+
     return helper::randomElement((medicineMapSpan.at(localeLocal)).medicalTests);
 }
 
@@ -34,6 +36,7 @@ std::string_view specialty(Locale locale)
     {
         localeLocal = Locale::en_US;
     }
+    
     return helper::randomElement((medicineMapSpan.at(localeLocal)).specialties);    
 }
 
