@@ -11,7 +11,7 @@ struct MedicineDefinition
 {
     std::span<const std::string_view> medicalConditions;
     std::span<const std::string_view> medicalTests;
-    std::span<const std::string_view> specialties;    
+    std::span<const std::string_view> specialties;
 };
 
 //"en_US"
@@ -35,7 +35,7 @@ const auto enUSMedicalConditions = std::to_array<std::string_view>({
     "Down syndrome",
     "Elevated Blood Lead Level",
     "Epilepsy",
-    "Failure to Thrive",  
+    "Failure to Thrive",
     "Fetal Alcohol Syndrome",
     "Gall Bladder Disease",
     "Gastro Esophageal Reflux Disease",
@@ -175,7 +175,7 @@ const auto enUSSpecialties = std::to_array<std::string_view>({
 
 
 const MedicineDefinition enUSMedicineDefinition = {
-    .medicalConditions = enUSMedicalConditions,.medicalTests = enUSMedicalTests,.specialties = enUSSpecialties};
+    .medicalConditions = enUSMedicalConditions, .medicalTests = enUSMedicalTests, .specialties = enUSSpecialties};
 
 //"es_AR"
 const auto esARMedicalConditions = std::to_array<std::string_view>({
@@ -336,11 +336,11 @@ const auto esARSpecialties = std::to_array<std::string_view>({
 });
 
 const MedicineDefinition esARMedicineDefinition = {
-    .medicalConditions = esARMedicalConditions,.medicalTests = esARMedicalTests,.specialties = esARSpecialties};
+    .medicalConditions = esARMedicalConditions, .medicalTests = esARMedicalTests, .specialties = esARSpecialties};
 
 //"pt_BR"
 const auto ptBRMedicalConditions = 
-   std::to_array<std::string_view>({"AIDS",
+    std::to_array<std::string_view>({"AIDS",
                                     "Anorexia nervosa",
                                     "Artrite Reumatóide Juvenil",
                                     "Asma Persistente Moderada ou Grave",
@@ -397,8 +397,7 @@ const auto ptBRMedicalConditions =
                                     "Talassemia maior",
                                     "Tuberculose",
                                     "Colite ulcerativa",
-                                    "Úlceras estomacais ou intestinais"
-});
+                                    "Úlceras estomacais ou intestinais"});
 
 const auto ptBRMedicalTests = std::to_array<std::string_view>({ "exame HEENT",
                                                                 "palpação abdominal",
@@ -434,8 +433,7 @@ const auto ptBRMedicalTests = std::to_array<std::string_view>({ "exame HEENT",
                                                                 "biópsia de pele",
                                                                 "toracocentese",
                                                                 "testes urodinâmicos",
-                                                                "exame vaginal"
-});
+                                                                "exame vaginal"});
 
 const auto ptBRSpecialties = std::to_array<std::string_view>({
     "Medicina de emergência e acidentes",
@@ -496,7 +494,7 @@ const auto ptBRSpecialties = std::to_array<std::string_view>({
 });
 
 const MedicineDefinition ptBRMedicineDefinition = {
-    .medicalConditions = ptBRMedicalConditions,.medicalTests = ptBRMedicalTests,.specialties = ptBRSpecialties};
+    .medicalConditions = ptBRMedicalConditions, .medicalTests = ptBRMedicalTests, .specialties = ptBRSpecialties};
 
 const std::map<faker::Locale, const MedicineDefinition> medicineMapSpan({
     {faker::Locale::en_US, {enUSMedicineDefinition}},{faker::Locale::pt_BR, {ptBRMedicineDefinition}},
