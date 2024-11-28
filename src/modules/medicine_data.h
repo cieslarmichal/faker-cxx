@@ -443,9 +443,17 @@ const MedicineDefinition ptBRMedicineDefinition = {
     .medicalConditions = ptBRMedicalConditions, .medicalTests = ptBRMedicalTests, .specialties = ptBRSpecialties};
 
 const std::map<faker::Locale, const MedicineDefinition> medicineMapSpan({
-    {faker::Locale::en_US, {enUSMedicineDefinition}},
-    {faker::Locale::pt_BR, {ptBRMedicineDefinition}},
-    {faker::Locale::es_AR, {esARMedicineDefinition}},
+    {faker::Locale::en_US, {enUSMedicineDefinition}},{faker::Locale::pt_BR, {ptBRMedicineDefinition}},
+    {faker::Locale::es_AR, {esARMedicineDefinition}},{faker::Locale::es_BO, {esARMedicineDefinition}},
+    {faker::Locale::es_CL, {esARMedicineDefinition}},{faker::Locale::es_CO, {esARMedicineDefinition}},
+    {faker::Locale::es_CR, {esARMedicineDefinition}},{faker::Locale::es_DO, {esARMedicineDefinition}},
+    {faker::Locale::es_EC, {esARMedicineDefinition}},{faker::Locale::es_ES, {esARMedicineDefinition}},
+    {faker::Locale::es_GT, {esARMedicineDefinition}},{faker::Locale::es_HN, {esARMedicineDefinition}},
+    {faker::Locale::es_MX, {esARMedicineDefinition}},{faker::Locale::es_NI, {esARMedicineDefinition}},
+    {faker::Locale::es_PA, {esARMedicineDefinition}},{faker::Locale::es_PE, {esARMedicineDefinition}},
+    {faker::Locale::es_PR, {esARMedicineDefinition}},{faker::Locale::es_PY, {esARMedicineDefinition}},
+    {faker::Locale::es_US, {esARMedicineDefinition}},{faker::Locale::es_SV, {esARMedicineDefinition}},
+    {faker::Locale::es_UY, {esARMedicineDefinition}},{faker::Locale::es_VE, {esARMedicineDefinition}},
 });
 
 }
