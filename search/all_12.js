@@ -50,7 +50,7 @@ var searchData=
   ['southsudan_47',['SouthSudan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa287f8a5f5666385f5740156556d8f77c',1,'faker::phone']]],
   ['space_48',['space',['../namespacefaker_1_1color.html#a9e6fcbbea7873289acd1f8fa87517d08',1,'faker::color']]],
   ['spain_49',['Spain',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa907eba32d950bfab68227fd7ea22999b',1,'faker::phone']]],
-  ['specialty_50',['specialty',['../namespacefaker_1_1medicine.html#ae3051b9186cd322160e6f6986c70d49d',1,'faker::medicine']]],
+  ['specialty_50',['specialty',['../namespacefaker_1_1medicine.html#ae219e5fc56696b6850a9d7572891c114',1,'faker::medicine']]],
   ['sport_2eh_51',['sport.h',['../sport_8h.html',1,'']]],
   ['sportevent_52',['sportEvent',['../namespacefaker_1_1sport.html#a2a10678e1b9b26b2f0d31663c6304dfa',1,'faker::sport']]],
   ['sportname_53',['sportName',['../namespacefaker_1_1sport.html#a864b5a6660c93ff2e8babe7de0397d6a',1,'faker::sport']]],

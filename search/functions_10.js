@@ -22,7 +22,7 @@ var searchData=
   ['soondate_19',['soonDate',['../namespacefaker_1_1date.html#a66bb0c111599b5ac0162cc36bffe9519',1,'faker::date']]],
   ['sortedsizerandomelement_20',['sortedSizeRandomElement',['../namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60',1,'faker::word']]],
   ['space_21',['space',['../namespacefaker_1_1color.html#a9e6fcbbea7873289acd1f8fa87517d08',1,'faker::color']]],
-  ['specialty_22',['specialty',['../namespacefaker_1_1medicine.html#ae3051b9186cd322160e6f6986c70d49d',1,'faker::medicine']]],
+  ['specialty_22',['specialty',['../namespacefaker_1_1medicine.html#ae219e5fc56696b6850a9d7572891c114',1,'faker::medicine']]],
   ['sportevent_23',['sportEvent',['../namespacefaker_1_1sport.html#a2a10678e1b9b26b2f0d31663c6304dfa',1,'faker::sport']]],
   ['sportname_24',['sportName',['../namespacefaker_1_1sport.html#a864b5a6660c93ff2e8babe7de0397d6a',1,'faker::sport']]],
   ['ssn_25',['ssn',['../namespacefaker_1_1person.html#a8e6f181401f124afcead503aa08544da',1,'faker::person']]],

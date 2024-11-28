@@ -22,7 +22,7 @@ var searchData=
   ['mayotte_19',['Mayotte',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9c05c40b81fd906b1585e231c0d896f1',1,'faker::phone']]],
   ['md5_20',['md5',['../namespacefaker_1_1crypto.html#a5e9c5db10e82dd4afad22511819ef820',1,'faker::crypto']]],
   ['meat_21',['meat',['../namespacefaker_1_1food.html#adfa2995adb916eff7d864e830bc05b92',1,'faker::food']]],
-  ['medicaltest_22',['medicalTest',['../namespacefaker_1_1medicine.html#a20de78bbbd9859d1be5a025d1aa67df0',1,'faker::medicine']]],
+  ['medicaltest_22',['medicalTest',['../namespacefaker_1_1medicine.html#a55ed1db340bb73684cacdd7a7ff8ca98',1,'faker::medicine']]],
   ['medicine_2eh_23',['medicine.h',['../medicine_8h.html',1,'']]],
   ['mexico_24',['Mexico',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa8dbb07a18d46f63d8b3c8994d5ccc351',1,'faker::phone']]],
   ['micronesia_25',['Micronesia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa19a5a05a4982fef88f96039a43dbcfd8',1,'faker::phone']]],
