@@ -7,6 +7,7 @@
 
 namespace faker::medicine
 {
+
 std::string_view condition(Locale locale)
 {
     auto localeLocal = locale;
