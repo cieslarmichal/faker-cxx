@@ -34,7 +34,7 @@ std::string_view specialty(Locale locale)
     {
         localeLocal = Locale::en_US;
     }
-    return helper::randomElement((medicineMapSpan.at(localeLocal)).specialties);    
+    return helper::randomElement((medicineMapSpan.at(localeLocal)).specialties);
 }
 
 }
