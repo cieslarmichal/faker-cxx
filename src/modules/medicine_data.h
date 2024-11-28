@@ -1,9 +1,9 @@
 #pragma once
 
 #include <array>
-#include <string_view>
-#include <span>
 #include <map>
+#include <span>
+#include <string_view>
 
 namespace faker::medicine
 {
@@ -338,25 +338,12 @@ const MedicineDefinition esARMedicineDefinition = {
     .medicalConditions = esARMedicalConditions, .medicalTests = esARMedicalTests, .specialties = esARSpecialties};
 
 //"pt_BR"
-const auto ptBRMedicalConditions =
-    std::to_array<std::string_view>({"AIDS",
-                                     "Anorexia nervosa",
-                                     "Artrite Reumatóide Juvenil",
-                                     "Asma Persistente Moderada ou Grave",
-                                     "bronquiolite",
-                                     "Bulimia",
-                                     "Câncer",
-                                     "Doenças cardiorrespiratórias",
-                                     "Doença celíaca",
-                                     "Paralisia cerebral",
-                                     "lábio leporino ou fenda palatina",
-                                     "Doença de Crohn",
-                                     "Fibrose cística",
-                                     "Depressão",
-                                     "Deficiências de desenvolvimento sensorial ou motor",
-                                     "Diabetes Mellitus",
-                                     "Síndrome de Down",
-                                     "Úlceras estomacais ou intestinais"});
+const auto ptBRMedicalConditions = std::to_array<std::string_view>(
+    {"AIDS","Anorexia nervosa","Artrite Reumatóide Juvenil","Asma Persistente Moderada ou Grave","bronquiolite",
+     "Bulimia","Câncer","Doenças cardiorrespiratórias","Doença celíaca","Paralisia cerebral",
+     "lábio leporino ou fenda palatina","Doença de Crohn","Fibrose cística","Depressão",
+     "Deficiências de desenvolvimento sensorial ou motor","Diabetes Mellitus","Síndrome de Down",
+     "Úlceras estomacais ou intestinais"});
 
 const auto ptBRMedicalTests = std::to_array<std::string_view>({"exame HEENT",
                                                                "palpação abdominal",
