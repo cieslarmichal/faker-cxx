@@ -137,7 +137,7 @@ std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
  * faker::string::ulid(1484581420) // "0001C7STHC0G2081040G208104"
  * @endcode
  */
-std::string ulid(time_t refDate = std::time(nullptr)); // Based on https://github.com/suyash/ulid
+FAKER_CXX_EXPORT std::string ulid(time_t refDate = std::time(nullptr)); // Based on https://github.com/suyash/ulid
 
 /**
  * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
