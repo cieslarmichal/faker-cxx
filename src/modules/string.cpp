@@ -10,6 +10,7 @@
 #include "common/algo_helper.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
+#include "helpers/ulid/ulid.h"
 #include "string_data.h"
 
 namespace faker::string
@@ -356,6 +357,13 @@ std::string nanoId(int minLength, int maxLength)
     }
 
     return id;
+}
+
+std::string ulid(time_t refDate)
+{
+    const auto uild = faker::helpers::ulid::Create(refDate, []() { return 4; });
+    std::string data = faker::helpers::ulid::Marshal(uild);
+    return std::string(data);
 }
 
 }

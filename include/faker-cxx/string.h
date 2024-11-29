@@ -6,8 +6,10 @@
 #include <random>
 #include <set>
 #include <string>
+#include <time.h>
 
 #include "faker-cxx/export.h"
+#include "helpers/ulid/ulid.h"
 #include "random_generator.h"
 
 namespace faker::string
@@ -117,6 +119,24 @@ std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
 
     return result;
 }
+
+#ifdef __SIZEOF_INT128__
+#define ULIDUINT128
+#endif
+
+/**
+ * @brief Generates an Universally Unique Lexicographically Sortable Identifier.
+ *
+ * @param refDate A reference date (type time_t)
+ *
+ * @returns ULID UINT128.
+ *
+ * @code
+ * faker::string::ulid() // "0001C7STHC0G2081040G208104"
+ * faker::string::ulid(1484581420) // "0001C7STHC0G2081040G208104"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string ulid(time_t refDate = std::time(nullptr)); // Based on https://github.com/suyash/ulid
 
 /**
  * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
