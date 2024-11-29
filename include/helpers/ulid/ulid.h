@@ -7,9 +7,9 @@
 #endif
 
 #ifdef ULIDUINT128
-#include "ulid_uint128.hh"
+#include "ulid_uint128.h"
 #else
-#include "ulid_struct.hh"
+#include "ulid_struct.h"
 #endif // ULIDUINT128
 
 #endif // ULID_HH

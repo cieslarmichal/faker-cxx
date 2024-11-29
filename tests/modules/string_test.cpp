@@ -124,10 +124,15 @@ TEST_F(StringTest, shouldGenerateUuid4)
     ASSERT_EQ(generatedUuid[23], '-');
 }
 
+TEST_F(StringTest, shouldGenerateUlidNoArguments)
+{
+    const auto generatedUlidNoArg = ulid();
+    ASSERT_EQ(generatedUlidNoArg.length(), 26);
+}
+
 TEST_F(StringTest, shouldGenerateUlid)
 {
     const auto generatedUlid = ulid(1484581420);
-
     ASSERT_EQ(generatedUlid, "0001C7STHC0G2081040G208104");
 }
 

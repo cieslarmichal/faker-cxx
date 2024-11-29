@@ -10,7 +10,7 @@
 
 #include "faker-cxx/export.h"
 #include "random_generator.h"
-#include "helpers/ulid/ulid.hpp"
+#include "helpers/ulid/ulid.h"
 
 namespace faker::string
 {
@@ -137,16 +137,7 @@ std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
  * faker::string::ulid(1484581420) // "0001C7STHC0G2081040G208104"
  * @endcode
  */
-
- // Based on https://github.com/suyash/ulid
-
-template <typename T = time_t>
-std::string ulid(time_t refDate = std::time(nullptr))
-{
-    const auto uild = ulid_ext::Create(refDate, []() { return 4; });
-    std::string data = ulid_ext::Marshal(uild);
-    return std::string(data);
-}
+std::string ulid(time_t refDate = std::time(nullptr)); // Based on https://github.com/suyash/ulid
 
 /**
  * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
