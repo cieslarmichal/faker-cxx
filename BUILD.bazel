@@ -26,7 +26,7 @@ genrule(
 cc_library(
     name = "faker-cxx",
     srcs = glob(["src/**/*.cpp"]),
-    hdrs = glob(["src/**/*.h", "include/**/*.h"]) + [":generate_export_header"] + [":generate_version_header"],
+    hdrs = glob(["src/**/*.h", "include/**/*.h", "include/**/*.hpp", "include/**/*.hh"]) + [":generate_export_header"] + [":generate_version_header"],
     includes = ["include", "src"],
     visibility = ["//visibility:public"],
     deps = ["@fmt//:fmt"],
