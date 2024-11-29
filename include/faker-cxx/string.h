@@ -9,8 +9,8 @@
 #include <time.h>
 
 #include "faker-cxx/export.h"
-#include "random_generator.h"
 #include "helpers/ulid/ulid.h"
+#include "random_generator.h"
 
 namespace faker::string
 {
@@ -119,7 +119,6 @@ std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
 
     return result;
 }
-
 
 #ifdef __SIZEOF_INT128__
 #define ULIDUINT128
