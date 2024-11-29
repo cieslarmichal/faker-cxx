@@ -80,7 +80,6 @@ std::string uuidV1(RandomGenerator<T> gen = RandomGenerator<T>{})
     auto now = std::chrono::system_clock::now();
     auto since_epoch = now.time_since_epoch();
 
-    // Adjusted to use microseconds
     uint64_t timestamp =
         UUID_EPOCH_OFFSET +
         static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::microseconds>(since_epoch).count() * 10);
@@ -93,17 +92,14 @@ std::string uuidV1(RandomGenerator<T> gen = RandomGenerator<T>{})
     std::uniform_int_distribution<uint64_t> node_dist(0, 0xFFFFFFFFFFFFULL);
     uint64_t node = gen(node_dist) & 0xFFFFFFFFFFFFULL;
 
-    // Extract time components
     uint32_t time_low = static_cast<uint32_t>(timestamp & 0xFFFFFFFFULL);
     uint16_t time_mid = static_cast<uint16_t>((timestamp >> 32) & 0xFFFFULL);
     uint16_t time_hi_and_version = static_cast<uint16_t>((timestamp >> 48) & 0x0FFFULL);
     time_hi_and_version |= (1 << 12); // Set the version number to 1
 
-    // Clock sequence fields
     uint8_t clock_seq_low = clock_seq & 0xFF;
     uint8_t clock_seq_hi_and_reserved = ((clock_seq >> 8) & 0x3F) | 0x80; // Set the variant to '10'
 
-    // Format UUID string
     std::ostringstream ss;
     ss << std::hex << std::setfill('0');
     ss << std::setw(8) << time_low << '-';
@@ -198,8 +194,6 @@ std::string uuid(Uuid uuid = Uuid::V4, RandomGenerator<T> gen = RandomGenerator<
     {
     case Uuid::V1:
         return uuidV1(gen);
-    case Uuid::V2:
-        return uuidV4(gen);
     case Uuid::V3:
         return uuidV4(gen);
     case Uuid::V4:
