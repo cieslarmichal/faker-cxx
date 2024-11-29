@@ -1,16 +1,21 @@
 #pragma once
 
+#include <chrono>
+#include <iomanip>
 #include <limits>
 #include <map>
 #include <optional>
 #include <random>
 #include <set>
 #include <string>
+#include <sstream>
+#include <string_view>
 #include <time.h>
 
 #include "faker-cxx/export.h"
 #include "helpers/ulid/ulid.h"
 #include "random_generator.h"
+#include "types/uuid.h"
 
 namespace faker::string
 {
@@ -64,19 +69,52 @@ FAKER_CXX_EXPORT bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& 
  */
 FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap& guarantee);
 
-/**
- * @brief Generates an Universally Unique Identifier with version 4.
- *
- * @param gen A random number generator (type RandomGenerator)
- *
- * @returns UUID v4.
- *
- * @code
- * faker::string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
- * @endcode
- */
+#pragma region UUID_IMPLEMENTATIONS
+
 template <typename T = std::mt19937>
-std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
+std::string uuidV1(RandomGenerator<T> gen = RandomGenerator<T>{})
+{
+    // Get current timestamp in 100-nanosecond intervals since UUID epoch (15 Oct 1582)
+    const uint64_t UUID_EPOCH_OFFSET = 0x01B21DD213814000ULL; // Number of 100-ns intervals between UUID epoch and Unix epoch
+    auto now = std::chrono::system_clock::now();
+    auto since_epoch = now.time_since_epoch();
+
+    // Adjusted to use microseconds
+    uint64_t timestamp = UUID_EPOCH_OFFSET + static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::microseconds>(since_epoch).count() * 10);
+
+    // Generate clock sequence (14 bits)
+    std::uniform_int_distribution<uint16_t> clock_seq_dist(0, 0x3FFF);
+    uint16_t clock_seq = gen(clock_seq_dist);
+
+    // Generate node identifier (48 bits)
+    std::uniform_int_distribution<uint64_t> node_dist(0, 0xFFFFFFFFFFFFULL);
+    uint64_t node = gen(node_dist) & 0xFFFFFFFFFFFFULL;
+
+    // Extract time components
+    uint32_t time_low = static_cast<uint32_t>(timestamp & 0xFFFFFFFFULL);
+    uint16_t time_mid = static_cast<uint16_t>((timestamp >> 32) & 0xFFFFULL);
+    uint16_t time_hi_and_version = static_cast<uint16_t>((timestamp >> 48) & 0x0FFFULL);
+    time_hi_and_version |= (1 << 12); // Set the version number to 1
+
+    // Clock sequence fields
+    uint8_t clock_seq_low = clock_seq & 0xFF;
+    uint8_t clock_seq_hi_and_reserved = ((clock_seq >> 8) & 0x3F) | 0x80; // Set the variant to '10'
+
+    // Format UUID string
+    std::ostringstream ss;
+    ss << std::hex << std::setfill('0');
+    ss << std::setw(8) << time_low << '-';
+    ss << std::setw(4) << time_mid << '-';
+    ss << std::setw(4) << time_hi_and_version << '-';
+    ss << std::setw(2) << static_cast<int>(clock_seq_hi_and_reserved);
+    ss << std::setw(2) << static_cast<int>(clock_seq_low) << '-';
+    ss << std::setw(12) << std::setw(12) << node;
+
+    return ss.str();
+}
+
+template <typename T = std::mt19937>
+std::string uuidV4(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
 {
     static std::uniform_int_distribution<> dist(0, 15);
     static std::uniform_int_distribution<> dist2(8, 11);
@@ -120,9 +158,63 @@ std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
     return result;
 }
 
-#ifdef __SIZEOF_INT128__
-#define ULIDUINT128
-#endif
+#pragma endregion
+
+/**
+ * @brief Generates an Universally Unique Identifier, defaults to V4.
+ *
+ * @param gen A random number generator (type RandomGenerator)
+ *
+ * @returns UUID.
+ *
+ * @code
+ * faker::string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * @endcode
+ */
+template <typename T = std::mt19937>
+std::string uuid(RandomGenerator<T> gen)
+{
+    return uuid(Uuid::V4, gen);
+}
+
+/**
+ * @brief Generates an Universally Unique Identifier, defaults to V4.
+ *
+ * @param gen A random number generator (type RandomGenerator)
+ *
+ * @returns UUID.
+ *
+ * @code
+ * faker::string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * @endcode
+ */
+template <typename T = std::mt19937>
+std::string uuid(Uuid uuid = Uuid::V4, RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
+{
+    switch (uuid)
+    {
+    case Uuid::V1:
+        return uuidV1(gen);
+    case Uuid::V2:
+        return uuidV4(gen);
+    case Uuid::V3:
+        return uuidV4(gen);
+    case Uuid::V4:
+        return uuidV4(gen);
+    case Uuid::V5:
+        return uuidV4(gen);
+    case Uuid::V6:
+        return uuidV4(gen);
+    case Uuid::V7:
+        return uuidV4(gen);
+    case Uuid::V8:
+        return uuidV4(gen);
+    default:
+        return uuidV4(gen);
+    }
+}
+
+
 
 /**
  * @brief Generates an Universally Unique Lexicographically Sortable Identifier.

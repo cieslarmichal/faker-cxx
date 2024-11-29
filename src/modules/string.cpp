@@ -10,6 +10,7 @@
 #include "common/algo_helper.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
+#include "faker-cxx/types/uuid.h"
 #include "helpers/ulid/ulid.h"
 #include "string_data.h"
 
