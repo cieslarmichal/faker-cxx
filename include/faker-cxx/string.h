@@ -7,8 +7,8 @@
 #include <optional>
 #include <random>
 #include <set>
-#include <string>
 #include <sstream>
+#include <string>
 #include <string_view>
 #include <time.h>
 
@@ -75,12 +75,15 @@ template <typename T = std::mt19937>
 std::string uuidV1(RandomGenerator<T> gen = RandomGenerator<T>{})
 {
     // Get current timestamp in 100-nanosecond intervals since UUID epoch (15 Oct 1582)
-    const uint64_t UUID_EPOCH_OFFSET = 0x01B21DD213814000ULL; // Number of 100-ns intervals between UUID epoch and Unix epoch
+    const uint64_t UUID_EPOCH_OFFSET =
+        0x01B21DD213814000ULL; // Number of 100-ns intervals between UUID epoch and Unix epoch
     auto now = std::chrono::system_clock::now();
     auto since_epoch = now.time_since_epoch();
 
     // Adjusted to use microseconds
-    uint64_t timestamp = UUID_EPOCH_OFFSET + static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::microseconds>(since_epoch).count() * 10);
+    uint64_t timestamp =
+        UUID_EPOCH_OFFSET +
+        static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::microseconds>(since_epoch).count() * 10);
 
     // Generate clock sequence (14 bits)
     std::uniform_int_distribution<uint16_t> clock_seq_dist(0, 0x3FFF);
@@ -213,8 +216,6 @@ std::string uuid(Uuid uuid = Uuid::V4, RandomGenerator<T> gen = RandomGenerator<
         return uuidV4(gen);
     }
 }
-
-
 
 /**
  * @brief Generates an Universally Unique Lexicographically Sortable Identifier.
