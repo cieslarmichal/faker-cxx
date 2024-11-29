@@ -114,33 +114,39 @@ $(function(){initNavTree('string_8h.html',''); initResizable(true); });
 <code>#include &lt;random&gt;</code><br />
 <code>#include &lt;set&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
 <code>#include &quot;faker-cxx/export.h&quot;</code><br />
+<code>#include &quot;helpers/ulid/ulid.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="random__generator_8h_source.html">random_generator.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for string.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="string_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2string_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2string_8h" id="ainclude_2faker-cxx_2string_8h">
-<area shape="rect" title=" " alt="" coords="201,5,366,31"/>
+<area shape="rect" title=" " alt="" coords="265,5,430,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,58,105"/>
-<area shape="poly" title=" " alt="" coords="240,34,73,81,72,76,239,29"/>
+<area shape="poly" title=" " alt="" coords="285,34,73,81,72,76,284,29"/>
 <area shape="rect" title=" " alt="" coords="82,79,128,105"/>
-<area shape="poly" title=" " alt="" coords="254,34,143,78,141,73,252,29"/>
+<area shape="poly" title=" " alt="" coords="304,34,144,81,142,75,302,29"/>
 <area shape="rect" title=" " alt="" coords="152,79,218,105"/>
-<area shape="poly" title=" " alt="" coords="268,34,215,72,212,68,265,29"/>
-<area shape="rect" title=" " alt="" coords="371,153,436,178"/>
-<area shape="poly" title=" " alt="" coords="282,32,275,66,276,86,283,103,298,120,316,134,358,152,355,157,313,139,294,124,279,106,271,87,270,66,277,31"/>
+<area shape="poly" title=" " alt="" coords="321,34,228,75,225,70,319,29"/>
+<area shape="rect" title=" " alt="" coords="483,153,548,178"/>
+<area shape="poly" title=" " alt="" coords="328,34,307,48,288,66,278,85,278,94,283,103,294,113,312,122,360,137,468,156,467,162,359,142,310,127,291,117,279,106,273,95,273,84,284,63,303,44,325,29"/>
 <area shape="rect" title=" " alt="" coords="293,79,332,105"/>
-<area shape="poly" title=" " alt="" coords="291,30,304,63,300,65,286,32"/>
+<area shape="poly" title=" " alt="" coords="344,32,328,66,323,64,339,30"/>
 <area shape="rect" title=" " alt="" coords="357,79,410,105"/>
-<area shape="poly" title=" " alt="" coords="302,29,356,67,353,72,299,34"/>
-<area shape="rect" title=" " alt="" coords="434,79,557,105"/>
-<area shape="poly" title=" " alt="" coords="320,29,446,71,444,76,319,34"/>
-<area shape="rect" href="random__generator_8h.html" title=" " alt="" coords="581,79,716,105"/>
-<area shape="poly" title=" " alt="" coords="346,29,572,73,571,78,345,34"/>
-<area shape="poly" title=" " alt="" coords="608,108,451,153,450,148,606,103"/>
-<area shape="rect" title=" " alt="" coords="608,153,690,178"/>
-<area shape="poly" title=" " alt="" coords="652,105,652,137,646,137,646,105"/>
+<area shape="poly" title=" " alt="" coords="356,30,373,64,368,66,351,32"/>
+<area shape="rect" title=" " alt="" coords="434,79,490,105"/>
+<area shape="poly" title=" " alt="" coords="368,29,431,68,428,73,366,34"/>
+<area shape="rect" title=" " alt="" coords="514,79,637,105"/>
+<area shape="poly" title=" " alt="" coords="387,29,523,71,521,76,385,34"/>
+<area shape="rect" title=" " alt="" coords="660,79,782,105"/>
+<area shape="poly" title=" " alt="" coords="412,29,645,73,644,79,411,34"/>
+<area shape="rect" href="random__generator_8h.html" title=" " alt="" coords="805,79,940,105"/>
+<area shape="poly" title=" " alt="" coords="431,28,790,76,789,81,430,33"/>
+<area shape="poly" title=" " alt="" coords="812,108,563,157,562,152,811,103"/>
+<area shape="rect" title=" " alt="" coords="832,153,914,178"/>
+<area shape="poly" title=" " alt="" coords="876,105,876,137,870,137,870,105"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -193,6 +199,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a335d7aad191429aa88bed20818881d95"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a335d7aad191429aa88bed20818881d95">faker::string::uuid</a> (<a class="el" href="classfaker_1_1RandomGenerator.html">RandomGenerator</a>&lt; T &gt; gen=<a class="el" href="classfaker_1_1RandomGenerator.html">RandomGenerator</a>&lt; std::mt19937 &gt;{})</td></tr>
 <tr class="memdesc:a335d7aad191429aa88bed20818881d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Identifier with version 4.  <br /></td></tr>
 <tr class="separator:a335d7aad191429aa88bed20818881d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a612819af12ce056ff6f32dda7a9a1865" id="r_a612819af12ce056ff6f32dda7a9a1865"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a612819af12ce056ff6f32dda7a9a1865">faker::string::ulid</a> (time_t refDate=std::time(nullptr))</td></tr>
+<tr class="memdesc:a612819af12ce056ff6f32dda7a9a1865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Lexicographically Sortable Identifier.  <br /></td></tr>
+<tr class="separator:a612819af12ce056ff6f32dda7a9a1865"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34013d255a8eaf4c2afab2090c15cb8d" id="r_a34013d255a8eaf4c2afab2090c15cb8d"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d">faker::string::sample</a> (unsigned length=10)</td></tr>
 <tr class="memdesc:a34013d255a8eaf4c2afab2090c15cb8d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).  <br /></td></tr>
 <tr class="separator:a34013d255a8eaf4c2afab2090c15cb8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
