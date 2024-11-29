@@ -133,8 +133,8 @@ std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
  * @returns ULID UINT128.
  *
  * @code
- * faker::string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
- * faker::string::uuid(12345) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::ulid() // "0001C7STHC0G2081040G208104"
+ * faker::string::ulid(1484581420) // "0001C7STHC0G2081040G208104"
  * @endcode
  */
 
