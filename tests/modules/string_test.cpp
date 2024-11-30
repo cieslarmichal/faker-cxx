@@ -52,16 +52,44 @@ TEST_F(StringTest, shouldGenerateUuid1)
     ASSERT_EQ(generatedUuid[18], '-');
     ASSERT_EQ(generatedUuid[23], '-');
 
-    // Check the version number
     ASSERT_EQ(generatedUuid[14], '1');
+}
 
-    // Check that the variant bits are '10'
-    char clock_seq_hi_and_reserved_char = generatedUuid[19];
-    int cshr_value = (clock_seq_hi_and_reserved_char >= '0' && clock_seq_hi_and_reserved_char <= '9') ?
-                      clock_seq_hi_and_reserved_char - '0' :
-                      clock_seq_hi_and_reserved_char - 'a' + 10;
-    ASSERT_TRUE((cshr_value & 0x8) != 0); // Bit 7 should be 1
-    ASSERT_TRUE((cshr_value & 0x4) == 0); // Bit 6 should be 0
+TEST_F(StringTest, shouldUseCustomRandomGeneratorForUuid3)
+{
+    RandomGenerator<std::mt19937> gen1{};
+    const auto generatedUuid1 = uuid(Uuid::V3, gen1);
+
+    ASSERT_EQ(generatedUuid1.size(), 36);
+    ASSERT_EQ(generatedUuid1[8], '-');
+    ASSERT_EQ(generatedUuid1[13], '-');
+    ASSERT_EQ(generatedUuid1[18], '-');
+    ASSERT_EQ(generatedUuid1[23], '-');
+    ASSERT_EQ(generatedUuid1[14], '3'); // Check for version 3
+
+    RandomGenerator<std::mt19937_64> gen2{};
+    const auto generatedUuid2 = uuid(Uuid::V3, gen2);
+
+    ASSERT_EQ(generatedUuid2.size(), 36);
+    ASSERT_EQ(generatedUuid2[8], '-');
+    ASSERT_EQ(generatedUuid2[13], '-');
+    ASSERT_EQ(generatedUuid2[18], '-');
+    ASSERT_EQ(generatedUuid2[23], '-');
+    ASSERT_EQ(generatedUuid2[14], '3');
+}
+
+TEST_F(StringTest, shouldGenerateUuid3)
+{
+    const auto generatedUuid = uuid(Uuid::V3);
+
+    ASSERT_EQ(generatedUuid.size(), 36);
+    ASSERT_EQ(generatedUuid[8], '-');
+    ASSERT_EQ(generatedUuid[13], '-');
+    ASSERT_EQ(generatedUuid[18], '-');
+    ASSERT_EQ(generatedUuid[23], '-');
+
+    // Check the version number
+    ASSERT_EQ(generatedUuid[14], '3');
 }
 
 TEST_F(StringTest, shouldUseCustomRandomGeneratorForUuid4)

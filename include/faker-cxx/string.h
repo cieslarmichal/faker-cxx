@@ -1,6 +1,10 @@
 #pragma once
 
+#include <algorithm>
+#include <array>
 #include <chrono>
+#include <cstdint>
+#include <cstring>
 #include <iomanip>
 #include <limits>
 #include <map>
@@ -113,6 +117,34 @@ std::string uuidV1(RandomGenerator<T> gen = RandomGenerator<T>{})
 }
 
 template <typename T = std::mt19937>
+std::string uuidV3(RandomGenerator<T> gen = RandomGenerator<T>{})
+{
+    // FAking MD5 hash with random data from the generator is enough for this purpose
+    std::array<uint8_t, 16> hash;
+    std::uniform_int_distribution<int> dist(0, 255);
+
+    for (auto& byte : hash)
+    {
+        byte = gen(dist);
+    }
+
+    hash[6] = (hash[6] & 0x0F) | 0x30; // Set the version to 3
+    hash[8] = (hash[8] & 0x3F) | 0x80; // Set the variant to '10'
+
+    std::ostringstream ss;
+    ss << std::hex << std::setfill('0');
+    for (size_t i = 0; i < hash.size(); ++i)
+    {
+        ss << std::setw(2) << static_cast<int>(hash[i]);
+        // Add hyphens at the appropriate positions
+        if (i == 3 || i == 5 || i == 7 || i == 9)
+            ss << '-';
+    }
+
+    return ss.str();
+}
+
+template <typename T = std::mt19937>
 std::string uuidV4(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
 {
     static std::uniform_int_distribution<> dist(0, 15);
@@ -167,7 +199,7 @@ std::string uuidV4(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
  * @returns UUID.
  *
  * @code
- * faker::string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid() // V4: "27666229-cedb-4a45-8018-98b1e1d921e2"
  * @endcode
  */
 template <typename T = std::mt19937>
@@ -184,7 +216,14 @@ std::string uuid(RandomGenerator<T> gen)
  * @returns UUID.
  *
  * @code
- * faker::string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid()         // "27666229-cedb-4a45-8018-98b1e1d921e2" // V4
+ * faker::string::uuid(Uuid::V1) // "04f916a0-af32-11ef-9cd2-0242ac120002"
+ * faker::string::uuid(Uuid::V3) // "a3bb189e-8bf9-3888-9912-ace4e6543002"
+ * faker::string::uuid(Uuid::V4) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid(Uuid::V5) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid(Uuid::V6) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid(Uuid::V7) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid(Uuid::V8) // "27666229-cedb-4a45-8018-98b1e1d921e2"
  * @endcode
  */
 template <typename T = std::mt19937>
@@ -195,7 +234,7 @@ std::string uuid(Uuid uuid = Uuid::V4, RandomGenerator<T> gen = RandomGenerator<
     case Uuid::V1:
         return uuidV1(gen);
     case Uuid::V3:
-        return uuidV4(gen);
+        return uuidV3(gen);
     case Uuid::V4:
         return uuidV4(gen);
     case Uuid::V5:
