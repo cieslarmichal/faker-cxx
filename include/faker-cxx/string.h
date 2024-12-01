@@ -19,10 +19,21 @@
 #include "faker-cxx/export.h"
 #include "helpers/ulid/ulid.h"
 #include "random_generator.h"
-#include "types/uuid.h"
 
 namespace faker::string
 {
+
+enum class Uuid
+{
+    V1, // Version 1: UUIDs using a timestamp and monotonic counter.
+    V3, // Version 3: UUIDs based on the MD5 hash of some data.
+    V4, // Version 4: UUIDs with random data.
+    V5, // Version 5: UUIDs based on the SHA1 hash of some data.
+    V6, // Version 6: UUIDs using a timestamp and monotonic counter (sortable).
+    V7, // Version 7: UUIDs using a Unix timestamp (sortable).
+    V8  // Version 8: UUIDs using user-defined data.
+};
+
 enum class StringCasing
 {
     Mixed,
@@ -73,141 +84,6 @@ FAKER_CXX_EXPORT bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& 
  */
 FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap& guarantee);
 
-#pragma region UUID_IMPLEMENTATIONS
-
-template <typename T = std::mt19937>
-std::string uuidV1(RandomGenerator<T> gen = RandomGenerator<T>{})
-{
-    // Get current timestamp in 100-nanosecond intervals since UUID epoch (15 Oct 1582)
-    const uint64_t UUID_EPOCH_OFFSET =
-        0x01B21DD213814000ULL; // Number of 100-ns intervals between UUID epoch and Unix epoch
-    auto now = std::chrono::system_clock::now();
-    auto since_epoch = now.time_since_epoch();
-
-    uint64_t timestamp =
-        UUID_EPOCH_OFFSET +
-        static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::microseconds>(since_epoch).count() * 10);
-
-    // Generate clock sequence (14 bits)
-    std::uniform_int_distribution<uint16_t> clock_seq_dist(0, 0x3FFF);
-    uint16_t clock_seq = gen(clock_seq_dist);
-
-    // Generate node identifier (48 bits)
-    std::uniform_int_distribution<uint64_t> node_dist(0, 0xFFFFFFFFFFFFULL);
-    uint64_t node = gen(node_dist) & 0xFFFFFFFFFFFFULL;
-
-    uint32_t time_low = static_cast<uint32_t>(timestamp & 0xFFFFFFFFULL);
-    uint16_t time_mid = static_cast<uint16_t>((timestamp >> 32) & 0xFFFFULL);
-    uint16_t time_hi_and_version = static_cast<uint16_t>((timestamp >> 48) & 0x0FFFULL);
-    time_hi_and_version |= (1 << 12); // Set the version number to 1
-
-    uint8_t clock_seq_low = clock_seq & 0xFF;
-    uint8_t clock_seq_hi_and_reserved = ((clock_seq >> 8) & 0x3F) | 0x80; // Set the variant to '10'
-
-    std::ostringstream ss;
-    ss << std::hex << std::setfill('0');
-    ss << std::setw(8) << time_low << '-';
-    ss << std::setw(4) << time_mid << '-';
-    ss << std::setw(4) << time_hi_and_version << '-';
-    ss << std::setw(2) << static_cast<int>(clock_seq_hi_and_reserved);
-    ss << std::setw(2) << static_cast<int>(clock_seq_low) << '-';
-    ss << std::setw(12) << std::setw(12) << node;
-
-    return ss.str();
-}
-
-template <typename T = std::mt19937>
-std::string uuidV3(RandomGenerator<T> gen = RandomGenerator<T>{})
-{
-    // FAking MD5 hash with random data from the generator is enough for this purpose
-    std::array<uint8_t, 16> hash;
-    std::uniform_int_distribution<int> dist(0, 255);
-
-    for (auto& byte : hash)
-    {
-        byte = gen(dist);
-    }
-
-    hash[6] = (hash[6] & 0x0F) | 0x30; // Set the version to 3
-    hash[8] = (hash[8] & 0x3F) | 0x80; // Set the variant to '10'
-
-    std::ostringstream ss;
-    ss << std::hex << std::setfill('0');
-    for (size_t i = 0; i < hash.size(); ++i)
-    {
-        ss << std::setw(2) << static_cast<int>(hash[i]);
-        // Add hyphens at the appropriate positions
-        if (i == 3 || i == 5 || i == 7 || i == 9)
-            ss << '-';
-    }
-
-    return ss.str();
-}
-
-template <typename T = std::mt19937>
-std::string uuidV4(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
-{
-    static std::uniform_int_distribution<> dist(0, 15);
-    static std::uniform_int_distribution<> dist2(8, 11);
-    static std::string_view hexCharacters{"0123456789abcdef"};
-
-    std::string result;
-    result.reserve(36);
-
-    for (int i = 0; i < 8; i++)
-    {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
-    }
-    result.append(1, '-');
-
-    for (int i = 0; i < 4; i++)
-    {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
-    }
-    result.append(1, '-');
-
-    result.append(1, '4');
-    for (int i = 0; i < 3; i++)
-    {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
-    }
-    result.append(1, '-');
-
-    result.append(1, hexCharacters[static_cast<size_t>(gen(dist2))]);
-
-    for (int i = 0; i < 3; i++)
-    {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
-    }
-    result.append(1, '-');
-
-    for (int i = 0; i < 12; i++)
-    {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
-    }
-
-    return result;
-}
-
-#pragma endregion
-
-/**
- * @brief Generates an Universally Unique Identifier, defaults to V4.
- *
- * @param gen A random number generator (type RandomGenerator)
- *
- * @returns UUID.
- *
- * @code
- * faker::string::uuid() // V4: "27666229-cedb-4a45-8018-98b1e1d921e2"
- * @endcode
- */
-template <typename T = std::mt19937>
-std::string uuid(RandomGenerator<T> gen)
-{
-    return uuid(Uuid::V4, gen);
-}
-
 /**
  * @brief Generates an Universally Unique Identifier, defaults to V4.
  *
@@ -226,29 +102,7 @@ std::string uuid(RandomGenerator<T> gen)
  * faker::string::uuid(Uuid::V8) // "27666229-cedb-4a45-8018-98b1e1d921e2"
  * @endcode
  */
-template <typename T = std::mt19937>
-std::string uuid(Uuid uuid = Uuid::V4, RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
-{
-    switch (uuid)
-    {
-    case Uuid::V1:
-        return uuidV1(gen);
-    case Uuid::V3:
-        return uuidV3(gen);
-    case Uuid::V4:
-        return uuidV4(gen);
-    case Uuid::V5:
-        return uuidV4(gen);
-    case Uuid::V6:
-        return uuidV4(gen);
-    case Uuid::V7:
-        return uuidV4(gen);
-    case Uuid::V8:
-        return uuidV4(gen);
-    default:
-        return uuidV4(gen);
-    }
-}
+FAKER_CXX_EXPORT std::string uuid(Uuid uuid = Uuid::V4);
 
 /**
  * @brief Generates an Universally Unique Lexicographically Sortable Identifier.
