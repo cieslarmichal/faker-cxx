@@ -108,12 +108,20 @@ $(function(){initNavTree('string_8h.html',''); initResizable(true); });
   <div class="headertitle"><div class="title">string.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;limits&gt;</code><br />
+<div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
+<code>#include &lt;array&gt;</code><br />
+<code>#include &lt;chrono&gt;</code><br />
+<code>#include &lt;cstdint&gt;</code><br />
+<code>#include &lt;cstring&gt;</code><br />
+<code>#include &lt;iomanip&gt;</code><br />
+<code>#include &lt;limits&gt;</code><br />
 <code>#include &lt;map&gt;</code><br />
 <code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;random&gt;</code><br />
 <code>#include &lt;set&gt;</code><br />
+<code>#include &lt;sstream&gt;</code><br />
 <code>#include &lt;string&gt;</code><br />
+<code>#include &lt;string_view&gt;</code><br />
 <code>#include &lt;time.h&gt;</code><br />
 <code>#include &quot;faker-cxx/export.h&quot;</code><br />
 <code>#include &quot;helpers/ulid/ulid.h&quot;</code><br />
@@ -123,30 +131,46 @@ Include dependency graph for string.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="string_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2string_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2string_8h" id="ainclude_2faker-cxx_2string_8h">
-<area shape="rect" title=" " alt="" coords="265,5,430,31"/>
-<area shape="rect" title=" " alt="" coords="5,79,58,105"/>
-<area shape="poly" title=" " alt="" coords="285,34,73,81,72,76,284,29"/>
-<area shape="rect" title=" " alt="" coords="82,79,128,105"/>
-<area shape="poly" title=" " alt="" coords="304,34,144,81,142,75,302,29"/>
-<area shape="rect" title=" " alt="" coords="152,79,218,105"/>
-<area shape="poly" title=" " alt="" coords="321,34,228,75,225,70,319,29"/>
-<area shape="rect" title=" " alt="" coords="483,153,548,178"/>
-<area shape="poly" title=" " alt="" coords="328,34,307,48,288,66,278,85,278,94,283,103,294,113,312,122,360,137,468,156,467,162,359,142,310,127,291,117,279,106,273,95,273,84,284,63,303,44,325,29"/>
-<area shape="rect" title=" " alt="" coords="293,79,332,105"/>
-<area shape="poly" title=" " alt="" coords="344,32,328,66,323,64,339,30"/>
-<area shape="rect" title=" " alt="" coords="357,79,410,105"/>
-<area shape="poly" title=" " alt="" coords="356,30,373,64,368,66,351,32"/>
-<area shape="rect" title=" " alt="" coords="434,79,490,105"/>
-<area shape="poly" title=" " alt="" coords="368,29,431,68,428,73,366,34"/>
-<area shape="rect" title=" " alt="" coords="514,79,637,105"/>
-<area shape="poly" title=" " alt="" coords="387,29,523,71,521,76,385,34"/>
-<area shape="rect" title=" " alt="" coords="660,79,782,105"/>
-<area shape="poly" title=" " alt="" coords="412,29,645,73,644,79,411,34"/>
-<area shape="rect" href="random__generator_8h.html" title=" " alt="" coords="805,79,940,105"/>
-<area shape="poly" title=" " alt="" coords="431,28,790,76,789,81,430,33"/>
-<area shape="poly" title=" " alt="" coords="812,108,563,157,562,152,811,103"/>
-<area shape="rect" title=" " alt="" coords="832,153,914,178"/>
-<area shape="poly" title=" " alt="" coords="876,105,876,137,870,137,870,105"/>
+<area shape="rect" title=" " alt="" coords="652,5,817,31"/>
+<area shape="rect" title=" " alt="" coords="5,79,80,105"/>
+<area shape="poly" title=" " alt="" coords="652,26,406,44,253,59,95,81,95,76,252,54,405,38,651,21"/>
+<area shape="rect" title=" " alt="" coords="103,79,152,105"/>
+<area shape="poly" title=" " alt="" coords="652,25,436,42,304,58,168,81,167,76,303,53,436,37,652,20"/>
+<area shape="rect" title=" " alt="" coords="176,79,237,105"/>
+<area shape="poly" title=" " alt="" coords="652,28,472,47,363,62,252,81,251,76,363,57,471,42,651,23"/>
+<area shape="rect" title=" " alt="" coords="260,79,321,105"/>
+<area shape="poly" title=" " alt="" coords="652,31,508,51,336,81,335,76,508,45,651,26"/>
+<area shape="rect" title=" " alt="" coords="344,79,405,105"/>
+<area shape="poly" title=" " alt="" coords="662,34,552,54,420,81,419,76,551,49,661,29"/>
+<area shape="rect" title=" " alt="" coords="429,79,496,105"/>
+<area shape="poly" title=" " alt="" coords="689,34,511,81,510,75,688,29"/>
+<area shape="rect" title=" " alt="" coords="520,79,573,105"/>
+<area shape="poly" title=" " alt="" coords="704,34,588,78,586,73,702,29"/>
+<area shape="rect" title=" " alt="" coords="597,79,643,105"/>
+<area shape="poly" title=" " alt="" coords="716,34,654,73,651,68,714,29"/>
+<area shape="rect" title=" " alt="" coords="667,79,733,105"/>
+<area shape="poly" title=" " alt="" coords="731,32,715,66,710,64,726,30"/>
+<area shape="rect" title=" " alt="" coords="1101,153,1165,178"/>
+<area shape="poly" title=" " alt="" coords="742,30,762,67,778,86,797,102,820,113,850,122,929,138,1086,158,1085,163,928,143,849,127,818,118,794,107,774,90,758,70,737,32"/>
+<area shape="rect" title=" " alt="" coords="808,79,848,105"/>
+<area shape="poly" title=" " alt="" coords="752,29,802,67,799,72,749,34"/>
+<area shape="rect" title=" " alt="" coords="871,79,939,105"/>
+<area shape="poly" title=" " alt="" coords="764,29,863,70,861,75,762,34"/>
+<area shape="rect" title=" " alt="" coords="964,79,1017,105"/>
+<area shape="poly" title=" " alt="" coords="781,29,950,76,948,81,779,34"/>
+<area shape="rect" title=" " alt="" coords="1042,79,1129,105"/>
+<area shape="poly" title=" " alt="" coords="795,29,1027,76,1026,81,794,34"/>
+<area shape="rect" title=" " alt="" coords="1153,79,1209,105"/>
+<area shape="poly" title=" " alt="" coords="818,26,963,45,1138,76,1137,81,963,50,817,31"/>
+<area shape="rect" title=" " alt="" coords="1233,79,1356,105"/>
+<area shape="poly" title=" " alt="" coords="818,26,1218,76,1218,81,817,31"/>
+<area shape="rect" title=" " alt="" coords="1379,79,1500,105"/>
+<area shape="poly" title=" " alt="" coords="817,23,1059,43,1364,76,1364,81,1058,49,817,28"/>
+<area shape="rect" href="random__generator_8h.html" title=" " alt="" coords="1524,79,1660,105"/>
+<area shape="poly" title=" " alt="" coords="817,21,1118,41,1509,76,1508,81,1118,46,817,27"/>
+<area shape="poly" title=" " alt="" coords="1524,106,1181,159,1180,154,1523,101"/>
+<area shape="rect" title=" " alt="" coords="1551,153,1632,178"/>
+<area shape="poly" title=" " alt="" coords="1594,105,1594,137,1589,137,1589,105"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -181,6 +205,18 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
+<tr class="memitem:a8c956d31f9b4a7cf7f36b75136de6199" id="r_a8c956d31f9b4a7cf7f36b75136de6199"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199">faker::string::Uuid</a> { <br />
+&#160;&#160;<a class="el" href="namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199ab4daca084ad9eabfc8de231929477ed6">faker::string::V1</a>
+, <a class="el" href="namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199ad5b50b8cf96bcc8aba90f306f5e6189c">faker::string::V3</a>
+, <a class="el" href="namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc">faker::string::V4</a>
+, <a class="el" href="namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199a8cff5423006469332e8ae5e3a8c8559c">faker::string::V5</a>
+, <br />
+&#160;&#160;<a class="el" href="namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199adb93f1c35b844334e2b266951618b4fe">faker::string::V6</a>
+, <a class="el" href="namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199a01d2f61fa66001f438aa2a65cb0aa9e5">faker::string::V7</a>
+, <a class="el" href="namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199aea7c1b92ccf2869f7f23c13385782d7c">faker::string::V8</a>
+<br />
+ }</td></tr>
+<tr class="separator:a8c956d31f9b4a7cf7f36b75136de6199"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b7a1d4a3ebb389e224c7bfc534d7cda" id="r_a5b7a1d4a3ebb389e224c7bfc534d7cda"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a5b7a1d4a3ebb389e224c7bfc534d7cda">faker::string::StringCasing</a> { <a class="el" href="namespacefaker_1_1string.html#a5b7a1d4a3ebb389e224c7bfc534d7cdaa699b4f79215d191584653efebf156e52">faker::string::Mixed</a>
 , <a class="el" href="namespacefaker_1_1string.html#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">faker::string::Lower</a>
 , <a class="el" href="namespacefaker_1_1string.html#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">faker::string::Upper</a>
@@ -195,10 +231,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a5f7f456ce960ac5d9407c805144b3943" id="r_a5f7f456ce960ac5d9407c805144b3943"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a5f7f456ce960ac5d9407c805144b3943">faker::string::generateAtLeastString</a> (const <a class="el" href="namespacefaker_1_1string.html#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> &amp;guarantee)</td></tr>
 <tr class="memdesc:a5f7f456ce960ac5d9407c805144b3943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the least required string for a given guarantee map.  <br /></td></tr>
 <tr class="separator:a5f7f456ce960ac5d9407c805144b3943"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a335d7aad191429aa88bed20818881d95" id="r_a335d7aad191429aa88bed20818881d95"><td class="memTemplParams" colspan="2">template&lt;typename T  = std::mt19937&gt; </td></tr>
-<tr class="memitem:a335d7aad191429aa88bed20818881d95"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a335d7aad191429aa88bed20818881d95">faker::string::uuid</a> (<a class="el" href="classfaker_1_1RandomGenerator.html">RandomGenerator</a>&lt; T &gt; gen=<a class="el" href="classfaker_1_1RandomGenerator.html">RandomGenerator</a>&lt; std::mt19937 &gt;{})</td></tr>
-<tr class="memdesc:a335d7aad191429aa88bed20818881d95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Identifier with version 4.  <br /></td></tr>
-<tr class="separator:a335d7aad191429aa88bed20818881d95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13dfd95759ca598d3137eab19566bac9" id="r_a13dfd95759ca598d3137eab19566bac9"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a13dfd95759ca598d3137eab19566bac9">faker::string::uuid</a> (<a class="el" href="namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a> uuid=<a class="el" href="namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc">Uuid::V4</a>)</td></tr>
+<tr class="memdesc:a13dfd95759ca598d3137eab19566bac9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Identifier, defaults to V4.  <br /></td></tr>
+<tr class="separator:a13dfd95759ca598d3137eab19566bac9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a612819af12ce056ff6f32dda7a9a1865" id="r_a612819af12ce056ff6f32dda7a9a1865"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1string.html#a612819af12ce056ff6f32dda7a9a1865">faker::string::ulid</a> (time_t refDate=std::time(nullptr))</td></tr>
 <tr class="memdesc:a612819af12ce056ff6f32dda7a9a1865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Lexicographically Sortable Identifier.  <br /></td></tr>
 <tr class="separator:a612819af12ce056ff6f32dda7a9a1865"><td class="memSeparator" colspan="2">&#160;</td></tr>

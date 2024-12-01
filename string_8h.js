@@ -7,6 +7,15 @@ var string_8h =
       [ "Lower", "string_8h.html#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93", null ],
       [ "Upper", "string_8h.html#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec", null ]
     ] ],
+    [ "Uuid", "string_8h.html#a8c956d31f9b4a7cf7f36b75136de6199", [
+      [ "V1", "string_8h.html#a8c956d31f9b4a7cf7f36b75136de6199ab4daca084ad9eabfc8de231929477ed6", null ],
+      [ "V3", "string_8h.html#a8c956d31f9b4a7cf7f36b75136de6199ad5b50b8cf96bcc8aba90f306f5e6189c", null ],
+      [ "V4", "string_8h.html#a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc", null ],
+      [ "V5", "string_8h.html#a8c956d31f9b4a7cf7f36b75136de6199a8cff5423006469332e8ae5e3a8c8559c", null ],
+      [ "V6", "string_8h.html#a8c956d31f9b4a7cf7f36b75136de6199adb93f1c35b844334e2b266951618b4fe", null ],
+      [ "V7", "string_8h.html#a8c956d31f9b4a7cf7f36b75136de6199a01d2f61fa66001f438aa2a65cb0aa9e5", null ],
+      [ "V8", "string_8h.html#a8c956d31f9b4a7cf7f36b75136de6199aea7c1b92ccf2869f7f23c13385782d7c", null ]
+    ] ],
     [ "alpha", "string_8h.html#a271ae1a89baf97693b8181f7e88975db", null ],
     [ "alpha", "string_8h.html#abf5e1f4e277703148d5ab06e6a0bfeda", null ],
     [ "alphanumeric", "string_8h.html#a0f34587fb525159e53e01829edbe81cd", null ],
@@ -24,5 +33,5 @@ var string_8h =
     [ "sample", "string_8h.html#a34013d255a8eaf4c2afab2090c15cb8d", null ],
     [ "symbol", "string_8h.html#a329b6a478487c87eadb19b1f78292264", null ],
     [ "ulid", "string_8h.html#a612819af12ce056ff6f32dda7a9a1865", null ],
-    [ "uuid", "string_8h.html#a335d7aad191429aa88bed20818881d95", null ]
+    [ "uuid", "string_8h.html#a13dfd95759ca598d3137eab19566bac9", null ]
 ];

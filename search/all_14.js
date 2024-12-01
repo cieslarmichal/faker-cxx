@@ -16,6 +16,7 @@ var searchData=
   ['usa_13',['Usa',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa867f8282a36dd6525c3d40744a92fcf8',1,'faker::phone']]],
   ['usedtomeasure_14',['usedToMeasure',['../structfaker_1_1science_1_1Unit.html#afbafb00ae0b488072359290f455e6d6e',1,'faker::science::Unit']]],
   ['username_15',['username',['../namespacefaker_1_1internet.html#aaf73c938f7c6cf8f8ecbbeb0636b67c3',1,'faker::internet']]],
-  ['uuid_16',['uuid',['../namespacefaker_1_1string.html#a335d7aad191429aa88bed20818881d95',1,'faker::string']]],
-  ['uzbekistan_17',['Uzbekistan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaa0a3e881895e46eb96218f0988d405b9',1,'faker::phone']]]
+  ['uuid_16',['Uuid',['../namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199',1,'faker::string']]],
+  ['uuid_17',['uuid',['../namespacefaker_1_1string.html#a13dfd95759ca598d3137eab19566bac9',1,'faker::string']]],
+  ['uzbekistan_18',['Uzbekistan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaa0a3e881895e46eb96218f0988d405b9',1,'faker::phone']]]
 ];
