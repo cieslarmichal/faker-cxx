@@ -632,11 +632,9 @@ TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithOriginInKilometers)
 
     auto offset = std::get<0>(generatedNearbyGPSCoordinate).size();
     const auto latitudeAsFloat = std::stod(std::get<0>(generatedNearbyGPSCoordinate), &offset);
-    std::cout << "latitudeAsFloat:" << latitudeAsFloat << std::endl;
 
     offset = std::get<1>(generatedNearbyGPSCoordinate).size();
     const auto longitudeAsFloat = std::stod(std::get<1>(generatedNearbyGPSCoordinate), &offset);
-    std::cout << "longitudeAsFloat:" << longitudeAsFloat << std::endl;
 
     const auto generatedLatitudeParts = common::split(std::get<0>(generatedNearbyGPSCoordinate), ".");
     const auto generatedLongitudeParts = common::split(std::get<1>(generatedNearbyGPSCoordinate), ".");
@@ -647,9 +645,7 @@ TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithOriginInKilometers)
     ASSERT_EQ(generatedLongitudeParts[1].size(), 3);
 
     const auto distance = vincentyDistance(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat);
-    std::cout << "haversine:" << haversine(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat)
-              << std::endl;
-    std::cout << "vincentyDistance:" << distance << std::endl;
+
     ASSERT_LE(distance, 10.0);
 }
 
@@ -660,11 +656,9 @@ TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithOriginInMiles)
 
     auto offset = std::get<0>(generatedNearbyGPSCoordinate).size();
     const auto latitudeAsFloat = std::stod(std::get<0>(generatedNearbyGPSCoordinate), &offset);
-    std::cout << "latitudeAsFloat:" << latitudeAsFloat << std::endl;
 
     offset = std::get<1>(generatedNearbyGPSCoordinate).size();
     const auto longitudeAsFloat = std::stod(std::get<1>(generatedNearbyGPSCoordinate), &offset);
-    std::cout << "longitudeAsFloat:" << longitudeAsFloat << std::endl;
 
     const auto generatedLatitudeParts = common::split(std::get<0>(generatedNearbyGPSCoordinate), ".");
     const auto generatedLongitudeParts = common::split(std::get<1>(generatedNearbyGPSCoordinate), ".");
@@ -677,10 +671,7 @@ TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithOriginInMiles)
     const auto distanceKm =
         vincentyDistance(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat);
     const auto distanceMiles = distanceKm * 0.621371;
-    std::cout << "haversine:"
-              << haversine(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat) * 0.621371
-              << std::endl;
-    std::cout << "vincentyDistance:" << distanceMiles << std::endl;
+
     ASSERT_LE(distanceMiles, 10.0);
 }
 
