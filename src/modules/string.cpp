@@ -366,4 +366,145 @@ std::string ulid(time_t refDate)
     return std::string(data);
 }
 
+#pragma region UUID_IMPLEMENTATIONS
+
+std::string uuidV1()
+{
+    RandomGenerator<std::mt19937> gen = RandomGenerator<std::mt19937>{};
+    // Get current timestamp in 100-nanosecond intervals since UUID epoch (15 Oct 1582)
+    const uint64_t UUID_EPOCH_OFFSET =
+        0x01B21DD213814000ULL; // Number of 100-ns intervals between UUID epoch and Unix epoch
+    auto now = std::chrono::system_clock::now();
+    auto since_epoch = now.time_since_epoch();
+
+    uint64_t timestamp =
+        UUID_EPOCH_OFFSET +
+        static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::microseconds>(since_epoch).count() * 10);
+
+    // Generate clock sequence (14 bits)
+    std::uniform_int_distribution<uint16_t> clock_seq_dist(0, 0x3FFF);
+    uint16_t clock_seq = gen(clock_seq_dist);
+
+    // Generate node identifier (48 bits)
+    std::uniform_int_distribution<uint64_t> node_dist(0, 0xFFFFFFFFFFFFULL);
+    uint64_t node = gen(node_dist) & 0xFFFFFFFFFFFFULL;
+
+    uint32_t time_low = static_cast<uint32_t>(timestamp & 0xFFFFFFFFULL);
+    uint16_t time_mid = static_cast<uint16_t>((timestamp >> 32) & 0xFFFFULL);
+    uint16_t time_hi_and_version = static_cast<uint16_t>((timestamp >> 48) & 0x0FFFULL);
+    time_hi_and_version |= (1 << 12); // Set the version number to 1
+
+    uint8_t clock_seq_low = clock_seq & 0xFF;
+    uint8_t clock_seq_hi_and_reserved = ((clock_seq >> 8) & 0x3F) | 0x80; // Set the variant to '10'
+
+    std::ostringstream ss;
+    ss << std::hex << std::setfill('0');
+    ss << std::setw(8) << time_low << '-';
+    ss << std::setw(4) << time_mid << '-';
+    ss << std::setw(4) << time_hi_and_version << '-';
+    ss << std::setw(2) << static_cast<int>(clock_seq_hi_and_reserved);
+    ss << std::setw(2) << static_cast<int>(clock_seq_low) << '-';
+    ss << std::setw(12) << std::setw(12) << node;
+
+    return ss.str();
+}
+
+std::string uuidV3()
+{
+    RandomGenerator<std::mt19937> gen = RandomGenerator<std::mt19937>{};
+    // FAking MD5 hash with random data from the generator is enough for this purpose
+    std::array<uint8_t, 16> hash;
+    std::uniform_int_distribution<int> dist(0, 255);
+
+    for (auto& byte : hash)
+    {
+        byte = gen(dist);
+    }
+
+    hash[6] = (hash[6] & 0x0F) | 0x30; // Set the version to 3
+    hash[8] = (hash[8] & 0x3F) | 0x80; // Set the variant to '10'
+
+    std::ostringstream ss;
+    ss << std::hex << std::setfill('0');
+    for (size_t i = 0; i < hash.size(); ++i)
+    {
+        ss << std::setw(2) << static_cast<int>(hash[i]);
+        // Add hyphens at the appropriate positions
+        if (i == 3 || i == 5 || i == 7 || i == 9)
+            ss << '-';
+    }
+
+    return ss.str();
+}
+
+std::string uuidV4()
+{
+    RandomGenerator<std::mt19937> gen = RandomGenerator<std::mt19937>{};
+    static std::uniform_int_distribution<> dist(0, 15);
+    static std::uniform_int_distribution<> dist2(8, 11);
+    static std::string_view hexCharacters{"0123456789abcdef"};
+
+    std::string result;
+    result.reserve(36);
+
+    for (int i = 0; i < 8; i++)
+    {
+        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
+    }
+    result.append(1, '-');
+
+    for (int i = 0; i < 4; i++)
+    {
+        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
+    }
+    result.append(1, '-');
+
+    result.append(1, '4');
+    for (int i = 0; i < 3; i++)
+    {
+        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
+    }
+    result.append(1, '-');
+
+    result.append(1, hexCharacters[static_cast<size_t>(gen(dist2))]);
+
+    for (int i = 0; i < 3; i++)
+    {
+        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
+    }
+    result.append(1, '-');
+
+    for (int i = 0; i < 12; i++)
+    {
+        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
+    }
+
+    return result;
+}
+
+std::string uuid(Uuid uuid)
+{
+    switch (uuid)
+    {
+    case Uuid::V1:
+        return uuidV1();
+    case Uuid::V3:
+        return uuidV3();
+    case Uuid::V4:
+        return uuidV4();
+    case Uuid::V5:
+        return uuidV4();
+    case Uuid::V6:
+        return uuidV4();
+    case Uuid::V7:
+        return uuidV4();
+    case Uuid::V8:
+        return uuidV4();
+    default:
+        return uuidV4();
+    }
+}
+
+#pragma endregion
+
 }
