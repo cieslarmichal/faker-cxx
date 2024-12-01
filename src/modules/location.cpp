@@ -255,6 +255,9 @@ std::string_view timeZone()
 std::tuple<std::string, std::string> nearbyGPSCoordinate(Precision precision, const std::tuple<double, double>& origin,
                                                          const double radius, const bool isMetric)
 {
+    auto toRadians = [](double degree) -> double { return degree * M_PI / 180.0; };
+    auto toDegrees = [](double radian) -> double { return radian * 180.0 / M_PI; };
+
     // If origin is not provided, generate a random GPS coordinate.
     if (std::get<0>(origin) == std::numeric_limits<double>::max() &&
         std::get<1>(origin) == std::numeric_limits<double>::max())
@@ -262,21 +265,58 @@ std::tuple<std::string, std::string> nearbyGPSCoordinate(Precision precision, co
         return {latitude(precision), longitude(precision)};
     }
 
+    double lat1 = toRadians(std::get<0>(origin));
+    double lon1 = toRadians(std::get<1>(origin));
+
     const auto angleRadians = number::decimal<double>(2 * M_PI);
+    double sinAlpha1 = sin(angleRadians);
+    double cosAlpha1 = cos(angleRadians);
 
     const auto radiusMetric = isMetric ? radius : radius * 1.60934;
     const auto distanceInKm = number::decimal<double>(radiusMetric);
 
-    constexpr auto kmPerDegreeLatitude = 110.574; // The distance in km per degree for earth's latitude.
-    const auto kmPerDegreeLongitude =
-        111.320 *
-        std::cos(std::get<0>(origin) / 180 * M_PI); // The distance in km per degree for a specific longitude in earth.
+    // Compute new lat,lon pair via Vincenty Direct Method
+    constexpr double WGS84_A = 6378137.0;               // Semi-major axis (meters)
+    constexpr double WGS84_F = 1 / 298.257223563;       // Flattening
+    constexpr double WGS84_B = WGS84_A * (1 - WGS84_F); // Semi-minor axis (meters)
 
-    const auto distanceInDegreeLatitude = distanceInKm / kmPerDegreeLatitude;
-    const auto distanceInDegreeLongitude = distanceInKm / kmPerDegreeLongitude;
+    double U1 = atan((1 - WGS84_F) * tan(lat1));
+    double sinU1 = sin(U1), cosU1 = cos(U1);
 
-    auto coordinateLatitude = std::get<0>(origin) + distanceInDegreeLatitude * std::sin(angleRadians);
-    auto coordinateLongitude = std::get<1>(origin) + distanceInDegreeLongitude * std::cos(angleRadians);
+    double sigma1 = atan2(tan(U1), cosAlpha1);
+    double sinAlpha = cosU1 * sinAlpha1;
+    double cos2Alpha = 1 - sinAlpha * sinAlpha;
+
+    double uSquared = cos2Alpha * (WGS84_A * WGS84_A - WGS84_B * WGS84_B) / (WGS84_B * WGS84_B);
+    double A = 1 + (uSquared / 16384.0) * (4096.0 + uSquared * (-768.0 + uSquared * (320.0 - 175.0 * uSquared)));
+    double B = (uSquared / 1024.0) * (256.0 + uSquared * (-128.0 + uSquared * (74.0 - 47.0 * uSquared)));
+
+    double sigma = distanceInKm * 1000.0 / (WGS84_B * A);
+    double sigmaP;
+    double cos2SigmaM, sinSigma, cosSigma, deltaSigma;
+    do
+    {
+        sigmaP = sigma;
+        cos2SigmaM = cos(2 * sigma1 + sigma);
+        sinSigma = sin(sigma);
+        cosSigma = cos(sigma);
+        deltaSigma = B * sinSigma *
+                     (cos2SigmaM + (B / 4.0) * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM) -
+                                                (B / 6.0) * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) *
+                                                    (-3 + 4 * cos2SigmaM * cos2SigmaM)));
+        sigma = distanceInKm * 1000.0 / (WGS84_B * A) + deltaSigma;
+    } while (fabs(sigma - sigmaP) > 1e-12);
+
+    double tmp = sinU1 * sinSigma - cosU1 * cosSigma * cosAlpha1;
+    double lat2 =
+        atan2(sinU1 * cosSigma + cosU1 * sinSigma * cosAlpha1, (1 - WGS84_F) * sqrt(sinAlpha * sinAlpha + tmp * tmp));
+    double lambda = atan2(sinSigma * sinAlpha1, cosU1 * cosSigma - sinU1 * sinSigma * cosAlpha1);
+    double C = (WGS84_F / 16.0) * cos2Alpha * (4.0 + WGS84_F * (4.0 - 3.0 * cos2Alpha));
+    double L = lambda - (1 - C) * WGS84_F * sinAlpha *
+                            (sigma + C * sinSigma * (cos2SigmaM + C * cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM)));
+
+    double coordinateLatitude = toDegrees(lat2);
+    double coordinateLongitude = toDegrees(lon1 + L);
 
     // Box the latitude [-90, 90]
     coordinateLatitude = std::fmod(coordinateLatitude, 180.0);
