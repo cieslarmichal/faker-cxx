@@ -199,6 +199,25 @@
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "ON",
                 "BUILD_SHARED_LIBS": "ON"
             }
+        },
+        {
+            "name": "Enter\\",
+            "description": "",
+            "displayName": "",
+            "inherits": [
+                "unixlike-gcc-debug-static"
+            ]
+        },
+        {
+            "name": "Enter",
+            "description": "",
+            "displayName": "",
+            "inherits": [
+                "unixlike-gcc-debug-static",
+                "unixlike-gcc-debug-shared",
+                "unixlike-gcc-release-static",
+                "unixlike-gcc-release-shared"
+            ]
         }
     ],
     "buildPresets": [
@@ -274,7 +293,7 @@
             "configurePreset": "windows-msvc-debug-shared",
             "configuration": "Debug"
         }
-      ],
+    ],
     "testPresets": [
         {
             "name": "test-common",
