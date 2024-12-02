@@ -10,7 +10,7 @@ namespace faker::movie
 /**
  * @brief Returns a random movie genre
  *
- * @brief Returns a random movie genre.
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Movie genre.
  *
