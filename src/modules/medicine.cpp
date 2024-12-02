@@ -7,19 +7,35 @@
 
 namespace faker::medicine
 {
-std::string_view condition()
+
+std::string_view condition(Locale locale)
 {
-    return helper::randomElement(medicalConditions);
+    auto localeLocal = locale;
+    if (medicineMapSpan.find(locale) == medicineMapSpan.end())
+    {
+        localeLocal = Locale::en_US;
+    }
+    return helper::randomElement((medicineMapSpan.at(localeLocal)).medicalConditions);
 }
 
-std::string_view medicalTest()
+std::string_view medicalTest(Locale locale)
 {
-    return helper::randomElement(medicalTests);
+    auto localeLocal = locale;
+    if (medicineMapSpan.find(locale) == medicineMapSpan.end())
+    {
+        localeLocal = Locale::en_US;
+    }
+    return helper::randomElement((medicineMapSpan.at(localeLocal)).medicalTests);
 }
 
-std::string_view specialty()
+std::string_view specialty(Locale locale)
 {
-    return helper::randomElement(specialties);
+    auto localeLocal = locale;
+    if (medicineMapSpan.find(locale) == medicineMapSpan.end())
+    {
+        localeLocal = Locale::en_US;
+    }
+    return helper::randomElement((medicineMapSpan.at(localeLocal)).specialties);
 }
 
 }
