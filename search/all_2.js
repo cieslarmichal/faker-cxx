@@ -18,7 +18,7 @@ var searchData=
   ['charcount_15',['CharCount',['../structfaker_1_1string_1_1CharCount.html',1,'faker::string']]],
   ['checkifemojiisvalid_16',['checkIfEmojiIsValid',['../namespacefaker_1_1internet.html#ae1a9eb9071b9843c891c065fd87345e7',1,'faker::internet']]],
   ['chemicalelement_17',['ChemicalElement',['../structfaker_1_1science_1_1ChemicalElement.html',1,'faker::science']]],
-  ['chemicalelement_18',['chemicalElement',['../namespacefaker_1_1science.html#a757668dd0208c494fc9136bd46c6aa23',1,'faker::science']]],
+  ['chemicalelement_18',['chemicalElement',['../namespacefaker_1_1science.html#aecb672b5154845ee493a7099e3388d71',1,'faker::science']]],
   ['chile_19',['Chile',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa2e6507f70a9cc26fb50f5fd82a83c7ef',1,'faker::phone']]],
   ['china_20',['China',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaae54a5c026f31ada088992587d92cb3a',1,'faker::phone']]],
   ['chinesezodiac_21',['chineseZodiac',['../namespacefaker_1_1person.html#a4b696b7118429e5550b9664e6eb4c4a8',1,'faker::person']]],
@@ -75,7 +75,7 @@ var searchData=
   ['currencycode_72',['currencyCode',['../namespacefaker_1_1finance.html#a8556f59f5be1b90fdcd8d08cb999f827',1,'faker::finance']]],
   ['currencyname_73',['currencyName',['../namespacefaker_1_1finance.html#a6daf7688d136068b71d34ccb792b00bf',1,'faker::finance']]],
   ['currencysymbol_74',['currencySymbol',['../namespacefaker_1_1finance.html#afa74fcebfd397842d3beb0b18620ec39',1,'faker::finance']]],
-  ['currentunit_75',['currentUnit',['../namespacefaker_1_1science.html#af4d5df3993f6749a148253bbc7e82d91',1,'faker::science']]],
+  ['currentunit_75',['currentUnit',['../namespacefaker_1_1science.html#a48964c38630eb4352d549a359b55600c',1,'faker::science']]],
   ['cyprus_76',['Cyprus',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaea2ba3f8011e19e3101ce65fdcefbcc4',1,'faker::phone']]],
   ['czechia_77',['Czechia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa31e7e8bf65a10ae8798adfbd8c0cd8c8',1,'faker::phone']]]
 ];
