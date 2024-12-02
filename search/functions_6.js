@@ -4,7 +4,7 @@ var searchData=
   ['gametitle_1',['gameTitle',['../namespacefaker_1_1videogame.html#a428b23be974b23395428dd66dc0af21a',1,'faker::videogame']]],
   ['gender_2',['gender',['../namespacefaker_1_1person.html#aa4f5882c87c74e0167bf51f297c69993',1,'faker::person']]],
   ['generateatleaststring_3',['generateAtLeastString',['../namespacefaker_1_1string.html#a5f7f456ce960ac5d9407c805144b3943',1,'faker::string']]],
-  ['genre_4',['genre',['../namespacefaker_1_1book.html#af60031071b21b537ac2cbb5ea44ba759',1,'faker::book::genre()'],['../namespacefaker_1_1movie.html#a55bae5cf4dbcdd3b785b340f28226128',1,'faker::movie::genre()'],['../namespacefaker_1_1music.html#a420b05ddc4e92ab9f581d93907e23042',1,'faker::music::genre()'],['../namespacefaker_1_1videogame.html#a1768ee589e7e2ab3294f52691e34aab7',1,'faker::videogame::genre()']]],
+  ['genre_4',['genre',['../namespacefaker_1_1book.html#af60031071b21b537ac2cbb5ea44ba759',1,'faker::book::genre()'],['../namespacefaker_1_1movie.html#a7137c87dc02f5f32a425e76c16950951',1,'faker::movie::genre()'],['../namespacefaker_1_1music.html#a420b05ddc4e92ab9f581d93907e23042',1,'faker::music::genre()'],['../namespacefaker_1_1videogame.html#a1768ee589e7e2ab3294f52691e34aab7',1,'faker::videogame::genre()']]],
   ['getjwtalgorithm_5',['getJWTAlgorithm',['../namespacefaker_1_1internet.html#a327076e83a6c964ccea491a7bda7bae2',1,'faker::internet']]],
   ['getjwttoken_6',['getJWTToken',['../namespacefaker_1_1internet.html#a80d65803a85e6240335e4d2ec781deb7',1,'faker::internet']]],
   ['githubavatarurl_7',['githubAvatarUrl',['../namespacefaker_1_1image.html#a3011ab4a53ccaf4b332012c43e832661',1,'faker::image']]],
