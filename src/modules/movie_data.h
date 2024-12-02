@@ -1,24 +1,25 @@
 #pragma once
 
 #include <array>
-#include <string_view>
 #include <span>
+#include <string_view>
+
 #include "faker-cxx/movie.h"
 
 namespace faker::movie
 {
 
-    struct MovieDefinition
-    {
-        std::span<const std::string_view> actors;
-        std::span<const std::string_view> actresses;
-        std::span<const std::string_view> directors;
-        std::span<const std::string_view> genres;
-        std::span<const std::string_view> movies;
-        std::span<const std::string_view> tvShows;
-    };
+struct MovieDefinition
+{
+    std::span<const std::string_view> actors;
+    std::span<const std::string_view> actresses;
+    std::span<const std::string_view> directors;
+    std::span<const std::string_view> genres;
+    std::span<const std::string_view> movies;
+    std::span<const std::string_view> tvShows;
+};
 
-    // "en-us"
+// "en-us"
 const auto enUSactors = std::to_array<std::string_view>({
     "Aamir Khan",
     "Abbott and Costello",
@@ -1314,5 +1315,6 @@ const MovieDefinition enUSmoviesDefinitions = {
     .directors = enUSdirectors,
     .genres = enUSmovieGenres,
     .movies = enUSmovies,
+    .tvShows = enUStvShows,
 };
 }

@@ -1,15 +1,15 @@
 #pragma once
 
 #include <string_view>
-#include "faker-cxx/types/locale.h"
 
 #include "faker-cxx/export.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::movie
 {
 /**
  * @brief Returns a random movie genre
- * 
+ *
  * @brief Returns a random movie genre.
  *
  * @returns Movie genre.
@@ -22,7 +22,7 @@ FAKER_CXX_EXPORT std::string_view genre(Locale locale = Locale::en_US);
 
 /**
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @brief Returns a random movie title.
  *
  * @returns Movie title.
@@ -47,7 +47,7 @@ FAKER_CXX_EXPORT std::string_view tvShow(Locale locale = Locale::en_US);
 
 /**
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @brief Returns a random movie director name.
  *
  * @returns Movie director name.
@@ -60,7 +60,7 @@ FAKER_CXX_EXPORT std::string_view director(Locale locale = Locale::en_US);
 
 /**
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @brief Returns a random actor name.
  *
  * @returns Actor name.
@@ -73,7 +73,7 @@ FAKER_CXX_EXPORT std::string_view actor(Locale locale = Locale::en_US);
 
 /**
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @brief Returns a random actress name.
  *
  * @returns Actress name.

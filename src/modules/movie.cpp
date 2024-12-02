@@ -1,21 +1,24 @@
 #include "faker-cxx/movie.h"
+
 #include <string_view>
+
 #include "faker-cxx/helper.h"
 #include "movie_data.h"
 
 namespace faker::movie
 {
-    namespace
+namespace
+{
+const struct MovieDefinition& getMovie(Locale locale)
+{
+    switch (locale)
     {
-        const struct MovieDefinition& getMovie(Locale locale)
-        {
-            switch (locale)
-            {
-            default:
-                return enUSmoviesDefinitions;
-            }
-        }
+    default:
+        return enUSmoviesDefinitions;
     }
+}
+}
+
 std::string_view genre(Locale locale)
 {
     const auto& movie = getMovie(locale);
