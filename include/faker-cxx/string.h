@@ -1,17 +1,39 @@
 #pragma once
 
+#include <algorithm>
+#include <array>
+#include <chrono>
+#include <cstdint>
+#include <cstring>
+#include <iomanip>
 #include <limits>
 #include <map>
 #include <optional>
 #include <random>
 #include <set>
+#include <sstream>
 #include <string>
+#include <string_view>
+#include <time.h>
 
 #include "faker-cxx/export.h"
+#include "helpers/ulid/ulid.h"
 #include "random_generator.h"
 
 namespace faker::string
 {
+
+enum class Uuid
+{
+    V1, // Version 1: UUIDs using a timestamp and monotonic counter.
+    V3, // Version 3: UUIDs based on the MD5 hash of some data.
+    V4, // Version 4: UUIDs with random data.
+    V5, // Version 5: UUIDs based on the SHA1 hash of some data.
+    V6, // Version 6: UUIDs using a timestamp and monotonic counter (sortable).
+    V7, // Version 7: UUIDs using a Unix timestamp (sortable).
+    V8  // Version 8: UUIDs using user-defined data.
+};
+
 enum class StringCasing
 {
     Mixed,
@@ -63,60 +85,38 @@ FAKER_CXX_EXPORT bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& 
 FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap& guarantee);
 
 /**
- * @brief Generates an Universally Unique Identifier with version 4.
+ * @brief Generates an Universally Unique Identifier, defaults to V4.
  *
  * @param gen A random number generator (type RandomGenerator)
  *
- * @returns UUID v4.
+ * @returns UUID.
  *
  * @code
- * faker::string::uuid() // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid()         // "27666229-cedb-4a45-8018-98b1e1d921e2" // V4
+ * faker::string::uuid(Uuid::V1) // "04f916a0-af32-11ef-9cd2-0242ac120002"
+ * faker::string::uuid(Uuid::V3) // "a3bb189e-8bf9-3888-9912-ace4e6543002"
+ * faker::string::uuid(Uuid::V4) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid(Uuid::V5) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid(Uuid::V6) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid(Uuid::V7) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid(Uuid::V8) // "27666229-cedb-4a45-8018-98b1e1d921e2"
  * @endcode
  */
-template <typename T = std::mt19937>
-std::string uuid(RandomGenerator<T> gen = RandomGenerator<std::mt19937>{})
-{
-    static std::uniform_int_distribution<> dist(0, 15);
-    static std::uniform_int_distribution<> dist2(8, 11);
-    static std::string_view hexCharacters{"0123456789abcdef"};
+FAKER_CXX_EXPORT std::string uuid(Uuid uuid = Uuid::V4);
 
-    std::string result;
-    result.reserve(36);
-
-    for (int i = 0; i < 8; i++)
-    {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
-    }
-    result.append(1, '-');
-
-    for (int i = 0; i < 4; i++)
-    {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
-    }
-    result.append(1, '-');
-
-    result.append(1, '4');
-    for (int i = 0; i < 3; i++)
-    {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
-    }
-    result.append(1, '-');
-
-    result.append(1, hexCharacters[static_cast<size_t>(gen(dist2))]);
-
-    for (int i = 0; i < 3; i++)
-    {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
-    }
-    result.append(1, '-');
-
-    for (int i = 0; i < 12; i++)
-    {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
-    }
-
-    return result;
-}
+/**
+ * @brief Generates an Universally Unique Lexicographically Sortable Identifier.
+ *
+ * @param refDate A reference date (type time_t)
+ *
+ * @returns ULID UINT128.
+ *
+ * @code
+ * faker::string::ulid() // "0001C7STHC0G2081040G208104"
+ * faker::string::ulid(1484581420) // "0001C7STHC0G2081040G208104"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string ulid(time_t refDate = std::time(nullptr)); // Based on https://github.com/suyash/ulid
 
 /**
  * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).
