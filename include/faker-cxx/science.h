@@ -17,6 +17,8 @@ struct FAKER_CXX_EXPORT ChemicalElement
 /**
  * @brief Returns a random chemical element from the periodic table.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ * 
  * @returns Chemical element.
  *
  * @code
@@ -36,6 +38,8 @@ struct FAKER_CXX_EXPORT Unit
 /**
  * @brief Returns a unit of measurement for either distance, mass, time, temp, current.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ * 
  * @returns Unit.
  *
  * @code
@@ -47,6 +51,8 @@ FAKER_CXX_EXPORT Unit unit(Locale locale = Locale::en_US);
 /**
  * @brief Returns a unit of measurement for either distance.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ * 
  * @returns Distance unit.
  *
  * @code
@@ -59,6 +65,8 @@ FAKER_CXX_EXPORT Unit distanceUnit(Locale locale = Locale::en_US);
 /**
  * @brief Returns a unit of measurement for either time.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ * 
  * @returns Time unit.
  *
  * @code
@@ -70,6 +78,8 @@ FAKER_CXX_EXPORT Unit timeUnit(Locale locale = Locale::en_US);
 /**
  * @brief Returns a unit of measurement for either mass.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ * 
  * @returns Mass unit.
  *
  * @code
@@ -81,6 +91,8 @@ FAKER_CXX_EXPORT Unit massUnit(Locale locale = Locale::en_US);
 /**
  * @brief Returns a unit of measurement for either temp.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ * 
  * @returns Temperture unit.
  *
  * @code
@@ -92,6 +104,8 @@ FAKER_CXX_EXPORT Unit tempUnit(Locale locale = Locale::en_US);
 /**
  * @brief Returns a unit of measurement for either current.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ * 
  * @returns Current unit.
  *
  * @code
