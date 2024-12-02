@@ -1,8 +1,9 @@
 #pragma once
 
 #include <string_view>
-#include "faker-cxx/types/locale.h"
+
 #include "faker-cxx/export.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::science
 {

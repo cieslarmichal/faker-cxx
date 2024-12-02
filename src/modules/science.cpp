@@ -5,17 +5,18 @@
 
 namespace faker::science
 {
-    namespace
+namespace
+{
+const struct ScienceDefinition& getScienceDefinition(Locale locale)
+{
+    switch (locale)
     {
-        const struct ScienceDefinition& getScienceDefinition(Locale locale)
-        {
-            switch (locale)
-            {
-            default:
-                return enUSscienceDefinition;
-            }
-        }
+    default:
+        return enUSscienceDefinition;
     }
+}
+}
+
 ChemicalElement chemicalElement(Locale locale)
 {
     const auto& scienceDefinition = getScienceDefinition(locale);

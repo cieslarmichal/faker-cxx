@@ -2,20 +2,21 @@
 
 #include <array>
 #include <span>
+
 #include "faker-cxx/science.h"
 
 namespace faker::science
 {
-    struct ScienceDefinition
-    {
-        std::span<const ChemicalElement> chemicalElements;
-        std::span<const Unit> distanceUnits;
-        std::span<const Unit> massUnits;
-        std::span<const Unit> timeUnits;
-        std::span<const Unit> currentUnits;
-        std::span<const Unit> temperatureUnits;
-    };
-    
+struct ScienceDefinition
+{
+    std::span<const ChemicalElement> chemicalElements;
+    std::span<const Unit> distanceUnits;
+    std::span<const Unit> massUnits;
+    std::span<const Unit> timeUnits;
+    std::span<const Unit> currentUnits;
+    std::span<const Unit> temperatureUnits;
+};
+
 const auto enUSchemicalElements = std::to_array<ChemicalElement>(
     {{"Hydrogen", "H", 1},       {"Helium", "He", 2},         {"Lithium", "Li", 3},       {"Beryllium", "Be", 4},
      {"Boron", "B", 5},          {"Carbon", "C", 6},          {"Nitrogen", "N", 7},       {"Oxygen", "O", 8},
