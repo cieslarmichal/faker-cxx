@@ -18,7 +18,7 @@ var searchData=
   ['slug_15',['slug',['../namespacefaker_1_1lorem.html#a083881e3fc0adfc974bfdb6d09bf8970',1,'faker::lorem']]],
   ['snake_16',['snake',['../namespacefaker_1_1animal.html#a2a04f672b03cb3348215ae80a5893aae',1,'faker::animal']]],
   ['soccerteam_17',['soccerTeam',['../namespacefaker_1_1sport.html#ab7fcd815682ecdab77be63ee8750384d',1,'faker::sport']]],
-  ['songname_18',['songName',['../namespacefaker_1_1music.html#a74c35da84e2a60a833245fb8bffd6c48',1,'faker::music']]],
+  ['songname_18',['songName',['../namespacefaker_1_1music.html#a4aab326e1500b74cf3e1564345c8a027',1,'faker::music']]],
   ['soondate_19',['soonDate',['../namespacefaker_1_1date.html#a66bb0c111599b5ac0162cc36bffe9519',1,'faker::date']]],
   ['sortedsizerandomelement_20',['sortedSizeRandomElement',['../namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60',1,'faker::word']]],
   ['space_21',['space',['../namespacefaker_1_1color.html#a9e6fcbbea7873289acd1f8fa87517d08',1,'faker::color']]],

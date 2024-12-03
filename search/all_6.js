@@ -7,7 +7,7 @@ var searchData=
   ['gender_4',['gender',['../namespacefaker_1_1person.html#aa4f5882c87c74e0167bf51f297c69993',1,'faker::person']]],
   ['generateatleaststring_5',['generateAtLeastString',['../namespacefaker_1_1string.html#a5f7f456ce960ac5d9407c805144b3943',1,'faker::string']]],
   ['generator_5f_6',['generator_',['../classfaker_1_1RandomGenerator.html#a9e0d9e4197260cb59bd17a28ea51b45b',1,'faker::RandomGenerator']]],
-  ['genre_7',['genre',['../namespacefaker_1_1book.html#af60031071b21b537ac2cbb5ea44ba759',1,'faker::book::genre()'],['../namespacefaker_1_1movie.html#a7137c87dc02f5f32a425e76c16950951',1,'faker::movie::genre()'],['../namespacefaker_1_1music.html#a420b05ddc4e92ab9f581d93907e23042',1,'faker::music::genre()'],['../namespacefaker_1_1videogame.html#a1768ee589e7e2ab3294f52691e34aab7',1,'faker::videogame::genre()']]],
+  ['genre_7',['genre',['../namespacefaker_1_1book.html#af60031071b21b537ac2cbb5ea44ba759',1,'faker::book::genre()'],['../namespacefaker_1_1movie.html#a7137c87dc02f5f32a425e76c16950951',1,'faker::movie::genre()'],['../namespacefaker_1_1music.html#a75a0b2bf3547ba8e1cae58f1584b4536',1,'faker::music::genre()'],['../namespacefaker_1_1videogame.html#a1768ee589e7e2ab3294f52691e34aab7',1,'faker::videogame::genre()']]],
   ['georgia_8',['Georgia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaeada819634d0164c6a7547bdcc405033',1,'faker::phone']]],
   ['germany_9',['Germany',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aad8b00929dec65d422303256336ada04f',1,'faker::phone']]],
   ['getjwtalgorithm_10',['getJWTAlgorithm',['../namespacefaker_1_1internet.html#a59a353f16674645c9f93cb840d24f92c',1,'faker::internet']]],

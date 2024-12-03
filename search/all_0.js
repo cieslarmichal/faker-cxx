@@ -41,7 +41,7 @@ var searchData=
   ['areacode_38',['areaCode',['../namespacefaker_1_1phone.html#af0ac28a1180f714704a2098afe61cceb',1,'faker::phone']]],
   ['argentina_39',['Argentina',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa3536be57ce0713954e454ae6c53ec023',1,'faker::phone']]],
   ['armenia_40',['Armenia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaa00c273f0f497484093fa94865cf5ca5',1,'faker::phone']]],
-  ['artist_41',['artist',['../namespacefaker_1_1music.html#a8f960c10557e8c9b8d98414ec99f46e1',1,'faker::music']]],
+  ['artist_41',['artist',['../namespacefaker_1_1music.html#a78e9eb50bbeae98d1596a03dacb1466d',1,'faker::music']]],
   ['aruba_42',['Aruba',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4893b64051cf425047ddd8606dae25f4',1,'faker::phone']]],
   ['aspectratio_43',['aspectRatio',['../namespacefaker_1_1video.html#a4bf29b3f9af696ffceb3871821bf01ba',1,'faker::video']]],
   ['atleastcount_44',['atLeastCount',['../structfaker_1_1string_1_1CharCount.html#a465bc786f3be8c39efdb7134468a5b21',1,'faker::string::CharCount']]],

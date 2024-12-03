@@ -231,9 +231,9 @@ var namespacefaker =
       [ "tvShow", "namespacefaker_1_1movie.html#a6bffb0f051656f20bf0df8ac36533d43", null ]
     ] ],
     [ "music", "namespacefaker_1_1music.html", [
-      [ "artist", "namespacefaker_1_1music.html#a8f960c10557e8c9b8d98414ec99f46e1", null ],
-      [ "genre", "namespacefaker_1_1music.html#a420b05ddc4e92ab9f581d93907e23042", null ],
-      [ "songName", "namespacefaker_1_1music.html#a74c35da84e2a60a833245fb8bffd6c48", null ]
+      [ "artist", "namespacefaker_1_1music.html#a78e9eb50bbeae98d1596a03dacb1466d", null ],
+      [ "genre", "namespacefaker_1_1music.html#a75a0b2bf3547ba8e1cae58f1584b4536", null ],
+      [ "songName", "namespacefaker_1_1music.html#a4aab326e1500b74cf3e1564345c8a027", null ]
     ] ],
     [ "number", "namespacefaker_1_1number.html", [
       [ "binary", "namespacefaker_1_1number.html#ac0e51691e8098437c3aeebf66d35c4d0", null ],
