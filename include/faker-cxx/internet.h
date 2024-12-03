@@ -81,7 +81,7 @@ FAKER_CXX_EXPORT std::string username(std::optional<std::string> firstName = std
  */
 FAKER_CXX_EXPORT std::string email(std::optional<std::string> firstName = std::nullopt,
                                    std::optional<std::string> lastName = std::nullopt,
-                                   std::optional<std::string> emailHost = std::nullopt);
+                                   std::optional<std::string> emailHost = std::nullopt, Locale locale = Locale::en_US);
 
 /**
  * @brief Generates an email address using the given person's name as base with example domain.
@@ -96,7 +96,8 @@ FAKER_CXX_EXPORT std::string email(std::optional<std::string> firstName = std::n
  * @endcode
  */
 FAKER_CXX_EXPORT std::string exampleEmail(std::optional<std::string> firstName = std::nullopt,
-                                          std::optional<std::string> lastName = std::nullopt);
+                                          std::optional<std::string> lastName = std::nullopt,
+                                          Locale locale = Locale::en_US);
 
 /**
  * @brief Generates a random password-like string. Do not use this method for generating actual passwords for users.
@@ -201,7 +202,7 @@ FAKER_CXX_EXPORT unsigned httpStatusCode(std::optional<HttpResponseType> respons
  * faker::internet::httpRequestHeader() // "Authorization"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view httpRequestHeader();
+FAKER_CXX_EXPORT std::string_view httpRequestHeader(Locale locale = Locale::en_US);
 
 /**
  * @brief Generates a random http response header.
@@ -212,7 +213,7 @@ FAKER_CXX_EXPORT std::string_view httpRequestHeader();
  * faker::internet::httpResponseHeader() // "Location"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view httpResponseHeader();
+FAKER_CXX_EXPORT std::string_view httpResponseHeader(Locale locale = Locale::en_US);
 
 /**
  * @brief Generates a random http media type.
@@ -223,7 +224,7 @@ FAKER_CXX_EXPORT std::string_view httpResponseHeader();
  * faker::internet::httpMediaType() // "application/json"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view httpMediaType();
+FAKER_CXX_EXPORT std::string_view httpMediaType(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a string containing randomized ipv4 address of the given class.
@@ -305,7 +306,7 @@ FAKER_CXX_EXPORT unsigned port();
  * faker::internet::url() // "https://slow-timer.info"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string url(const WebProtocol& webProtocol = WebProtocol::Https);
+FAKER_CXX_EXPORT std::string url(const WebProtocol& webProtocol = WebProtocol::Https, Locale locale = Locale::en_US);
 
 /**
  * @brief Generates a random domain name.
@@ -316,7 +317,7 @@ FAKER_CXX_EXPORT std::string url(const WebProtocol& webProtocol = WebProtocol::H
  * faker::internet::domainName() // "slow-timer.info"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string domainName();
+FAKER_CXX_EXPORT std::string domainName(Locale locale = Locale::en_US);
 
 /**
  * @brief Generates a random domain word.
@@ -338,7 +339,7 @@ FAKER_CXX_EXPORT std::string domainWord();
  * faker::internet::domainSuffix() // "com"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view domainSuffix();
+FAKER_CXX_EXPORT std::string_view domainSuffix(Locale locale = Locale::en_US);
 
 /**
  * @brief Generates a random username.
@@ -388,5 +389,5 @@ getJWTToken(const std::optional<std::map<std::string, std::string>>& header = st
  * faker::internet::getJWTAlgorithm(); // "HS256"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view getJWTAlgorithm();
+FAKER_CXX_EXPORT std::string_view getJWTAlgorithm(Locale locale = Locale::en_US);
 }

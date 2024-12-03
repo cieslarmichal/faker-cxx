@@ -1,11 +1,24 @@
 #pragma once
 
 #include <array>
+#include <span>
 #include <string_view>
 
 namespace faker::internet
 {
-const auto domainSuffixes = std::to_array<std::string_view>({
+
+struct InternetDefinition
+{
+    std::span<const std::string_view> domainSuffixes;
+    std::span<const std::string_view> emailHosts;
+    std::span<const std::string_view> emailExampleHosts;
+    std::span<const std::string_view> httpMediaTypes;
+    std::span<const std::string_view> httpRequestHeaders;
+    std::span<const std::string_view> httpResponseHeaders;
+    std::span<const std::string_view> jwtAlgorithms;
+};
+
+const auto enUSdomainSuffixes = std::to_array<std::string_view>({
     "biz",
     "com",
     "info",
@@ -14,14 +27,14 @@ const auto domainSuffixes = std::to_array<std::string_view>({
     "org",
 });
 
-const auto emailHosts = std::to_array<std::string_view>({
+const auto enUSemailHosts = std::to_array<std::string_view>({
     "gmail.com",
     "hotmail.com",
     "outlook.com",
     "yahoo.com",
 });
 
-const auto emailExampleHosts = std::to_array<std::string_view>({
+const auto enUSemailExampleHosts = std::to_array<std::string_view>({
     "example.com",
     "example.net",
     "example.org",
@@ -739,7 +752,7 @@ const auto flagEmojis = std::to_array<std::string_view>({
     "🚩",
 });
 
-const auto httpMediaTypes = std::to_array<std::string_view>({
+const auto enUShttpMediaTypes = std::to_array<std::string_view>({
     "application/gzip",
     "application/java-archive",
     "application/json",
@@ -787,7 +800,7 @@ const auto httpMediaTypes = std::to_array<std::string_view>({
     "video/x-msvideo",
 });
 
-const auto httpRequestHeaders = std::to_array<std::string_view>({
+const auto enUShttpRequestHeaders = std::to_array<std::string_view>({
     "A-IM",
     "Accept",
     "Accept-Charset",
@@ -831,7 +844,7 @@ const auto httpRequestHeaders = std::to_array<std::string_view>({
     "Warning",
 });
 
-const auto httpResponseHeaders = std::to_array<std::string_view>({
+const auto enUShttpResponseHeaders = std::to_array<std::string_view>({
     "Accept-CH",
     "Accept-Patch",
     "Accept-Ranges",
@@ -878,7 +891,7 @@ const auto httpResponseHeaders = std::to_array<std::string_view>({
     "Warning",
 });
 
-const auto jwtAlgorithms = std::to_array<std::string_view>({
+const auto enUSjwtAlgorithms = std::to_array<std::string_view>({
     "HS256",
     "HS384",
     "HS512",
@@ -893,5 +906,15 @@ const auto jwtAlgorithms = std::to_array<std::string_view>({
     "PS512",
     "none",
 });
+
+const InternetDefinition enUSInternetDefinition = {
+    .domainSuffixes = enUSdomainSuffixes,
+    .emailHosts = enUSemailHosts,
+    .emailExampleHosts = enUSemailExampleHosts,
+    .httpMediaTypes = enUShttpMediaTypes,
+    .httpRequestHeaders = enUShttpRequestHeaders,
+    .httpResponseHeaders = enUShttpResponseHeaders,
+    .jwtAlgorithms = enUSjwtAlgorithms,
+};
 
 }
