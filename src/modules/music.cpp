@@ -7,18 +7,33 @@
 
 namespace faker::music
 {
-std::string_view artist()
+namespace
 {
-    return helper::randomElement(artists);
+const struct MusicDefinition& getMusicDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSMusicDefinition;
+    }
+}
 }
 
-std::string_view genre()
+std::string_view artist(Locale locale)
 {
-    return helper::randomElement(musicGenres);
+    const auto& musicDefinition = getMusicDefinition(locale);
+    return helper::randomElement(musicDefinition.artists);
 }
 
-std::string_view songName()
+std::string_view genre(Locale locale)
 {
-    return helper::randomElement(songNames);
+    const auto& musicDefinition = getMusicDefinition(locale);
+    return helper::randomElement(musicDefinition.musicGenres);
+}
+
+std::string_view songName(Locale locale)
+{
+    const auto& musicDefinition = getMusicDefinition(locale);
+    return helper::randomElement(musicDefinition.songNames);
 }
 }

@@ -10,31 +10,53 @@ using namespace ::testing;
 using namespace faker;
 using namespace faker::music;
 
-class MusicTest : public Test
+namespace
+{
+    const struct MusicDefinition& getMusicDefinition(Locale locale)
+    {
+        switch(locale)
+        {
+            default:
+                return enUSMusicDefinition;
+        }
+    }
+}
+
+
+class MusicTest : public TestWithParam<Locale>
 {
 public:
 };
 
-TEST_F(MusicTest, shouldGenerateArtist)
+TEST_P(MusicTest, shouldGenerateArtist)
 {
+    const auto locale = GetParam();
+    const auto& musicDefinition = getMusicDefinition(locale);
     const auto generatedArtist = artist();
 
-    ASSERT_TRUE(std::ranges::any_of(artists, [generatedArtist](const std::string_view& artist)
+    ASSERT_TRUE(std::ranges::any_of(musicDefinition.artists, [generatedArtist](const std::string_view& artist)
                                     { return generatedArtist == artist; }));
 }
 
-TEST_F(MusicTest, shouldGenerateGenre)
+TEST_P(MusicTest, shouldGenerateGenre)
 {
+    const auto locale = GetParam();
+    const auto& musicDefinition = getMusicDefinition(locale);
     const auto generatedGenre = genre();
 
-    ASSERT_TRUE(std::ranges::any_of(musicGenres, [generatedGenre](const std::string_view& genre)
+    ASSERT_TRUE(std::ranges::any_of(musicDefinition.musicGenres, [generatedGenre](const std::string_view& genre)
                                     { return generatedGenre == genre; }));
 }
 
-TEST_F(MusicTest, shouldGenerateSongName)
+TEST_P(MusicTest, shouldGenerateSongName)
 {
+    const auto locale = GetParam();
+    const auto& musicDefinition = getMusicDefinition(locale);
     const auto generatedSongName = songName();
 
-    ASSERT_TRUE(std::ranges::any_of(songNames, [generatedSongName](const std::string_view& songName)
+    ASSERT_TRUE(std::ranges::any_of(musicDefinition.songNames, [generatedSongName](const std::string_view& songName)
                                     { return generatedSongName == songName; }));
 }
+
+INSTANTIATE_TEST_SUITE_P(TestMusicByLocale, MusicTest, ValuesIn(locales),
+                        [](const TestParamInfo<Locale>& paramInfo){return toString(paramInfo.param);});

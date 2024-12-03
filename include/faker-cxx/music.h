@@ -3,6 +3,7 @@
 #include <string_view>
 
 #include "faker-cxx/export.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::music
 {
@@ -15,7 +16,7 @@ namespace faker::music
  * faker::music::artist() // "Nirvana"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view artist();
+FAKER_CXX_EXPORT std::string_view artist(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random music genre.
@@ -26,7 +27,7 @@ FAKER_CXX_EXPORT std::string_view artist();
  * faker::music::genre() // "Rock"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view genre();
+FAKER_CXX_EXPORT std::string_view genre(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random song name.
@@ -37,5 +38,5 @@ FAKER_CXX_EXPORT std::string_view genre();
  * faker::music::songName() // "Light My Fire"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view songName();
+FAKER_CXX_EXPORT std::string_view songName(Locale locale = Locale::en_US);
 }
