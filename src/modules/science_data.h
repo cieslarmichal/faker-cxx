@@ -1,12 +1,23 @@
 #pragma once
 
 #include <array>
+#include <span>
 
 #include "faker-cxx/science.h"
 
 namespace faker::science
 {
-const auto chemicalElements = std::to_array<ChemicalElement>(
+struct ScienceDefinition
+{
+    std::span<const ChemicalElement> chemicalElements;
+    std::span<const Unit> distanceUnits;
+    std::span<const Unit> massUnits;
+    std::span<const Unit> timeUnits;
+    std::span<const Unit> currentUnits;
+    std::span<const Unit> temperatureUnits;
+};
+
+const auto enUSchemicalElements = std::to_array<ChemicalElement>(
     {{"Hydrogen", "H", 1},       {"Helium", "He", 2},         {"Lithium", "Li", 3},       {"Beryllium", "Be", 4},
      {"Boron", "B", 5},          {"Carbon", "C", 6},          {"Nitrogen", "N", 7},       {"Oxygen", "O", 8},
      {"Fluorine", "F", 9},       {"Neon", "Ne", 10},          {"Sodium", "Na", 11},       {"Magnesium", "Mg", 12},
@@ -38,7 +49,7 @@ const auto chemicalElements = std::to_array<ChemicalElement>(
      {"Nihonium", "Nh", 113},    {"Flerovium", "Fl", 114},    {"Moscovium", "Mc", 115},   {"Livermorium", "Lv", 116},
      {"Tennessine", "Ts", 117},  {"Oganesson", "Og", 118}});
 
-const auto distanceUnits = std::to_array<Unit>({
+const auto enUSdistanceUnits = std::to_array<Unit>({
     {"Millimeter", "mm", "Length"},
     {"Centimeter", "cm", "Length"},
     {"Meter", "m", "Length"},
@@ -49,7 +60,7 @@ const auto distanceUnits = std::to_array<Unit>({
     {"Mile", "mi", "Length"},
 });
 
-const auto massUnits = std::to_array<Unit>({
+const auto enUSmassUnits = std::to_array<Unit>({
     {"Gram", "g", "Mass"},
     {"Kilogram", "kg", "Mass"},
     {"Milligram", "mg", "Mass"},
@@ -60,7 +71,7 @@ const auto massUnits = std::to_array<Unit>({
     {"Slug", "sl", "Mass"},
 });
 
-const auto timeUnits = std::to_array<Unit>({
+const auto enUStimeUnits = std::to_array<Unit>({
     {"Second", "s", "Time"},
     {"Minute", "min", "Time"},
     {"Hour", "hr", "Time"},
@@ -70,16 +81,25 @@ const auto timeUnits = std::to_array<Unit>({
     {"Year", "yr", "Time"},
 });
 
-const auto currentUnits = std::to_array<Unit>({
+const auto enUScurrentUnits = std::to_array<Unit>({
     {"Ampere", "A", "Electric Current"},
     {"Milliampere", "mA", "Electric Current"},
     {"Microampere", "μA", "Electric Current"},
 });
 
-const auto temperatureUnits = std::to_array<Unit>({
+const auto enUStemperatureUnits = std::to_array<Unit>({
     {"Celcius", "°C", "Temperature"},
     {"Fahrenheit", "°F", "Temperature"},
     {"Kelvin", "K", "Temperature"},
 });
+
+const ScienceDefinition enUSscienceDefinition = {
+    .chemicalElements = enUSchemicalElements,
+    .distanceUnits = enUSdistanceUnits,
+    .massUnits = enUSmassUnits,
+    .timeUnits = enUStimeUnits,
+    .currentUnits = enUScurrentUnits,
+    .temperatureUnits = enUStemperatureUnits,
+};
 
 }
