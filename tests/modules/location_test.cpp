@@ -152,6 +152,68 @@ public:
             std::pow(std::sin(dLat / 2), 2) + std::pow(std::sin(dLon / 2), 2) * std::cos(lat1) * std::cos(lat2);
         return 2 * EARTH_RADIUS_KM * std::atan2(std::sqrt(a), std::sqrt(1 - a));
     }
+
+    static constexpr double WGS84_A = 6378137.0;
+    static constexpr double WGS84_F = 1 / 298.257223563;
+    static constexpr double WGS84_B = WGS84_A * (1 - WGS84_F);
+
+    static double vincentyDistance(double lat1, double lon1, double lat2, double lon2)
+    {
+        auto toRadians = [](double degree) -> double { return degree * M_PI / 180.0; };
+        constexpr double TOLERANCE = 1e-12;
+        constexpr int MAX_ITERATIONS = 1000;
+
+        double dLon = toRadians(lon2 - lon1);
+
+        double U1 = atan((1 - WGS84_F) * tan(toRadians(lat1)));
+        double U2 = atan((1 - WGS84_F) * tan(toRadians(lat2)));
+
+        double Lambda = dLon;
+        double LambdaPrev;
+        double sinSigma, cosSigma, sigma, sinAlpha, cos2Alpha, cos2SigmaM;
+        int iterations = 0;
+        do
+        {
+            LambdaPrev = Lambda;
+
+            double sinLambda = sin(Lambda);
+            double cosLambda = cos(Lambda);
+
+            double sinU1 = sin(U1), cosU1 = cos(U1);
+            double sinU2 = sin(U2), cosU2 = cos(U2);
+            sinSigma = sqrt(pow(cosU2 * sinLambda, 2) + pow(cosU1 * sinU2 - sinU1 * cosU2 * cosLambda, 2));
+            if (sinSigma == 0)
+            {
+                return 0.0; // Points are coincident
+            }
+
+            cosSigma = sinU1 * sinU2 + cosU1 * cosU2 * cosLambda;
+            sigma = atan2(sinSigma, cosSigma);
+            sinAlpha = cosU1 * cosU2 * sinLambda / sinSigma;
+            cos2Alpha = 1 - sinAlpha * sinAlpha;
+            cos2SigmaM = (cos2Alpha != 0) ? cosSigma - 2 * sinU1 * sinU2 / cos2Alpha : 0.0;
+            double C = (WGS84_F / 16) * cos2Alpha * (4 + WGS84_F * (4 - 3 * cos2Alpha));
+            Lambda =
+                dLon + (1 - C) * WGS84_F * sinAlpha *
+                           (sigma + C * sinSigma * (cos2SigmaM + C * cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM)));
+            iterations++;
+        } while (fabs(Lambda - LambdaPrev) > TOLERANCE && iterations < MAX_ITERATIONS);
+
+        if (iterations >= MAX_ITERATIONS)
+        {
+            // Vincenty algorithm failed to converge -- fail the test
+            return 1e9;
+        }
+
+        double uSquared = cos2Alpha * (WGS84_A * WGS84_A - WGS84_B * WGS84_B) / (WGS84_B * WGS84_B);
+        double A = 1 + (uSquared / 16384) * (4096 + uSquared * (-768 + uSquared * (320 - 175 * uSquared)));
+        double B = (uSquared / 1024) * (256 + uSquared * (-128 + uSquared * (74 - 47 * uSquared)));
+        double deltaSigma = B * sinSigma *
+                            (cos2SigmaM + (B / 4) * (cosSigma * (-1 + 2 * cos2SigmaM * cos2SigmaM) -
+                                                     (B / 6) * cos2SigmaM * (-3 + 4 * sinSigma * sinSigma) *
+                                                         (-3 + 4 * cos2SigmaM * cos2SigmaM)));
+        return WGS84_B * A * (sigma - deltaSigma) / 1000.0;
+    }
 };
 
 TEST_P(LocationTest, shouldGenerateState)
@@ -582,7 +644,7 @@ TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithOriginInKilometers)
     ASSERT_EQ(generatedLongitudeParts.size(), 2);
     ASSERT_EQ(generatedLongitudeParts[1].size(), 3);
 
-    const auto distance = haversine(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat);
+    const auto distance = vincentyDistance(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat);
 
     ASSERT_LE(distance, 10.0);
 }
@@ -606,7 +668,8 @@ TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithOriginInMiles)
     ASSERT_EQ(generatedLongitudeParts.size(), 2);
     ASSERT_EQ(generatedLongitudeParts[1].size(), 3);
 
-    const auto distanceKm = haversine(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat);
+    const auto distanceKm =
+        vincentyDistance(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat);
     const auto distanceMiles = distanceKm * 0.621371;
 
     ASSERT_LE(distanceMiles, 10.0);

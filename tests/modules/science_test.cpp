@@ -8,9 +8,21 @@
 
 using namespace ::testing;
 using namespace faker;
-using namespace science;
+using namespace faker::science;
 
-class ScienceTest : public Test
+namespace
+{
+const struct ScienceDefinition& getScienceDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSscienceDefinition;
+    }
+}
+}
+
+class ScienceTest : public TestWithParam<Locale>
 {
 public:
     static bool chemicalElementsAreEqual(const ChemicalElement& chemElement1, const ChemicalElement& chemElement2)
@@ -25,65 +37,96 @@ public:
     }
 };
 
-TEST_F(ScienceTest, shouldGenerateChemElement)
+TEST_P(ScienceTest, shouldGenerateChemElement)
 {
-    const auto generatedChemElement = chemicalElement();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(chemicalElements, [generatedChemElement](const ChemicalElement& chemElement)
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    const auto generatedChemElement = chemicalElement(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(scienceDefinition.chemicalElements, [generatedChemElement](const ChemicalElement& chemElement)
                                     { return chemicalElementsAreEqual(generatedChemElement, chemElement); }));
 }
 
-TEST_F(ScienceTest, shouldGenerateAnyUnit)
+TEST_P(ScienceTest, shouldGenerateAnyUnit)
 {
-    std::vector<Unit> units;
-    units.insert(units.end(), distanceUnits.begin(), distanceUnits.end());
-    units.insert(units.end(), massUnits.begin(), massUnits.end());
-    units.insert(units.end(), timeUnits.begin(), timeUnits.end());
-    units.insert(units.end(), currentUnits.begin(), currentUnits.end());
-    units.insert(units.end(), temperatureUnits.begin(), temperatureUnits.end());
+    const auto locale = GetParam();
 
-    const auto generatedAnyUnit = unit();
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    std::vector<Unit> units;
+    units.insert(units.end(), scienceDefinition.distanceUnits.begin(), scienceDefinition.distanceUnits.end());
+    units.insert(units.end(), scienceDefinition.massUnits.begin(), scienceDefinition.massUnits.end());
+    units.insert(units.end(), scienceDefinition.timeUnits.begin(), scienceDefinition.timeUnits.end());
+    units.insert(units.end(), scienceDefinition.currentUnits.begin(), scienceDefinition.currentUnits.end());
+    units.insert(units.end(), scienceDefinition.temperatureUnits.begin(), scienceDefinition.temperatureUnits.end());
+
+    const auto generatedAnyUnit = unit(locale);
 
     ASSERT_TRUE(std::ranges::any_of(units, [generatedAnyUnit](const Unit& unit)
                                     { return unitsAreEqual(generatedAnyUnit, unit); }));
 }
 
-TEST_F(ScienceTest, shouldGenerateDistanceUnit)
+TEST_P(ScienceTest, shouldGenerateDistanceUnit)
 {
-    const auto generatedDistanceUnit = distanceUnit();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(distanceUnits, [generatedDistanceUnit](const Unit& distanceUnit)
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    const auto generatedDistanceUnit = distanceUnit(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(scienceDefinition.distanceUnits, [generatedDistanceUnit](const Unit& distanceUnit)
                                     { return unitsAreEqual(generatedDistanceUnit, distanceUnit); }));
 }
 
-TEST_F(ScienceTest, shouldGenerateMassUnit)
+TEST_P(ScienceTest, shouldGenerateMassUnit)
 {
-    const auto generatedMassUnit = massUnit();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(massUnits, [generatedMassUnit](const Unit& massUnit)
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    const auto generatedMassUnit = massUnit(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(scienceDefinition.massUnits, [generatedMassUnit](const Unit& massUnit)
                                     { return unitsAreEqual(generatedMassUnit, massUnit); }));
 }
 
-TEST_F(ScienceTest, shouldGenerateTimeUnit)
+TEST_P(ScienceTest, shouldGenerateTimeUnit)
 {
-    const auto generatedTimeUnit = timeUnit();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(timeUnits, [generatedTimeUnit](const Unit& timeUnit)
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    const auto generatedTimeUnit = timeUnit(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(scienceDefinition.timeUnits, [generatedTimeUnit](const Unit& timeUnit)
                                     { return unitsAreEqual(generatedTimeUnit, timeUnit); }));
 }
 
-TEST_F(ScienceTest, shouldGenerateTempUnit)
+TEST_P(ScienceTest, shouldGenerateTempUnit)
 {
-    const auto generatedTempUnit = tempUnit();
+    const auto locale = GetParam();
 
-    ASSERT_TRUE(std::ranges::any_of(temperatureUnits, [generatedTempUnit](const Unit& tempUnit)
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
+    const auto generatedTempUnit = tempUnit(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(scienceDefinition.temperatureUnits, [generatedTempUnit](const Unit& tempUnit)
                                     { return unitsAreEqual(generatedTempUnit, tempUnit); }));
 }
 
-TEST_F(ScienceTest, shouldGenerateCurrentUnit)
+TEST_P(ScienceTest, shouldGenerateCurrentUnit)
 {
+    const auto locale = GetParam();
+
+    const auto& scienceDefinition = getScienceDefinition(locale);
+
     const auto generatedCurrentUnit = currentUnit();
 
-    ASSERT_TRUE(std::ranges::any_of(currentUnits, [generatedCurrentUnit](const Unit& currentUnit)
+    ASSERT_TRUE(std::ranges::any_of(scienceDefinition.currentUnits, [generatedCurrentUnit](const Unit& currentUnit)
                                     { return unitsAreEqual(generatedCurrentUnit, currentUnit); }));
 }
+
+INSTANTIATE_TEST_SUITE_P(TestScienceByLocale, ScienceTest, ValuesIn(locales),
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });

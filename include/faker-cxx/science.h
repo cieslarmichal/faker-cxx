@@ -3,6 +3,7 @@
 #include <string_view>
 
 #include "faker-cxx/export.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::science
 {
@@ -16,6 +17,8 @@ struct FAKER_CXX_EXPORT ChemicalElement
 /**
  * @brief Returns a random chemical element from the periodic table.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Chemical element.
  *
  * @code
@@ -23,7 +26,7 @@ struct FAKER_CXX_EXPORT ChemicalElement
  * table.
  * @endcode
  */
-FAKER_CXX_EXPORT ChemicalElement chemicalElement();
+FAKER_CXX_EXPORT ChemicalElement chemicalElement(Locale locale = Locale::en_US);
 
 struct FAKER_CXX_EXPORT Unit
 {
@@ -35,16 +38,20 @@ struct FAKER_CXX_EXPORT Unit
 /**
  * @brief Returns a unit of measurement for either distance, mass, time, temp, current.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Unit.
  *
  * @code
  * faker::science::unit() // Object of Unit containing info about a random unit of measurement.
  * @endcode
  */
-FAKER_CXX_EXPORT Unit unit();
+FAKER_CXX_EXPORT Unit unit(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a unit of measurement for either distance.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Distance unit.
  *
@@ -53,10 +60,12 @@ FAKER_CXX_EXPORT Unit unit();
  * distance.
  * @endcode
  */
-FAKER_CXX_EXPORT Unit distanceUnit();
+FAKER_CXX_EXPORT Unit distanceUnit(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a unit of measurement for either time.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Time unit.
  *
@@ -64,10 +73,12 @@ FAKER_CXX_EXPORT Unit distanceUnit();
  * faker::science::timeUnit() // Object of Unit containing info about a random unit of measurement used to measure time.
  * @endcode
  */
-FAKER_CXX_EXPORT Unit timeUnit();
+FAKER_CXX_EXPORT Unit timeUnit(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a unit of measurement for either mass.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Mass unit.
  *
@@ -75,10 +86,12 @@ FAKER_CXX_EXPORT Unit timeUnit();
  * faker::science::massUnit() // Object of Unit containing info about a random unit of measurement used to measure mass.
  * @endcode
  */
-FAKER_CXX_EXPORT Unit massUnit();
+FAKER_CXX_EXPORT Unit massUnit(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a unit of measurement for either temp.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Temperture unit.
  *
@@ -86,10 +99,12 @@ FAKER_CXX_EXPORT Unit massUnit();
  * faker::science::tempUnit() // Object of Unit containing info about a random unit of measurement used to measure temp.
  * @endcode
  */
-FAKER_CXX_EXPORT Unit tempUnit();
+FAKER_CXX_EXPORT Unit tempUnit(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a unit of measurement for either current.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Current unit.
  *
@@ -98,5 +113,5 @@ FAKER_CXX_EXPORT Unit tempUnit();
  * current.
  * @endcode
  */
-FAKER_CXX_EXPORT Unit currentUnit();
+FAKER_CXX_EXPORT Unit currentUnit(Locale locale = Locale::en_US);
 }
