@@ -11,7 +11,7 @@ var searchData=
   ['dishname_8',['dishName',['../namespacefaker_1_1food.html#a342e20d575c9e53b2fff85f9c9744e57',1,'faker::food']]],
   ['distanceunit_9',['distanceUnit',['../namespacefaker_1_1science.html#a1022269c88e50e60118b56c63eba669a',1,'faker::science']]],
   ['dog_10',['dog',['../namespacefaker_1_1animal.html#ab81f34f386dc7e28ffc58b358b091ad9',1,'faker::animal']]],
-  ['domainname_11',['domainName',['../namespacefaker_1_1internet.html#a7233a627869287ae8dc81a1dd8324fd2',1,'faker::internet']]],
-  ['domainsuffix_12',['domainSuffix',['../namespacefaker_1_1internet.html#a9332c1bd3d5fb1111e2fcc5fa04131a7',1,'faker::internet']]],
+  ['domainname_11',['domainName',['../namespacefaker_1_1internet.html#a221cca3655ac031bf6c6bfd59aad2e75',1,'faker::internet']]],
+  ['domainsuffix_12',['domainSuffix',['../namespacefaker_1_1internet.html#abcd5cdf7446a17b8edc9bb0df3481a63',1,'faker::internet']]],
   ['domainword_13',['domainWord',['../namespacefaker_1_1internet.html#a49fa76d8f033206ed91f965fd625b2cf',1,'faker::internet']]]
 ];

@@ -9,7 +9,7 @@ var searchData=
   ['unitedarabemirates_6',['UnitedArabEmirates',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa5d6d937400f06a3ce7dda81bcb3417c1',1,'faker::phone']]],
   ['upper_7',['Upper',['../namespacefaker_1_1string.html#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec',1,'faker::string']]],
   ['upperletters_8',['upperLetters',['../structfaker_1_1internet_1_1PasswordOptions.html#aa1e31f94a3e817ac955e34f38a4ae74d',1,'faker::internet::PasswordOptions']]],
-  ['url_9',['url',['../namespacefaker_1_1internet.html#a005caa05149d90b3854aef6a4ccdf27e',1,'faker::internet']]],
+  ['url_9',['url',['../namespacefaker_1_1internet.html#a32af2b23dbffd27f1088e69f1d74eb85',1,'faker::internet']]],
   ['urlloremflickr_10',['urlLoremFlickr',['../namespacefaker_1_1image.html#a083c329ebe18f42ae81a4bb0ac0732bb',1,'faker::image']]],
   ['urlpicsumphotos_11',['urlPicsumPhotos',['../namespacefaker_1_1image.html#ab6bf3d60b988ed78eb6dd0419efe83bf',1,'faker::image']]],
   ['uruguay_12',['Uruguay',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa75497a22409db78dcc52c291e078bc10',1,'faker::phone']]],

@@ -20,8 +20,8 @@ var searchData=
   ['distanceunit_17',['distanceUnit',['../namespacefaker_1_1science.html#a1022269c88e50e60118b56c63eba669a',1,'faker::science']]],
   ['djibouti_18',['Djibouti',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa902f92c09660b797958acb27421fd9ac',1,'faker::phone']]],
   ['dog_19',['dog',['../namespacefaker_1_1animal.html#ab81f34f386dc7e28ffc58b358b091ad9',1,'faker::animal']]],
-  ['domainname_20',['domainName',['../namespacefaker_1_1internet.html#a7233a627869287ae8dc81a1dd8324fd2',1,'faker::internet']]],
-  ['domainsuffix_21',['domainSuffix',['../namespacefaker_1_1internet.html#a9332c1bd3d5fb1111e2fcc5fa04131a7',1,'faker::internet']]],
+  ['domainname_20',['domainName',['../namespacefaker_1_1internet.html#a221cca3655ac031bf6c6bfd59aad2e75',1,'faker::internet']]],
+  ['domainsuffix_21',['domainSuffix',['../namespacefaker_1_1internet.html#abcd5cdf7446a17b8edc9bb0df3481a63',1,'faker::internet']]],
   ['domainword_22',['domainWord',['../namespacefaker_1_1internet.html#a49fa76d8f033206ed91f965fd625b2cf',1,'faker::internet']]],
   ['dominica_23',['Dominica',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa531c552093668f148d3c826fca6e3cc8',1,'faker::phone']]],
   ['dominicanrepublic_24',['DominicanRepublic',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaab2a384f6b7c12a5a4ae319d488c8b63',1,'faker::phone']]]
