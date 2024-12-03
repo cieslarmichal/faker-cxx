@@ -11,7 +11,7 @@
 namespace faker::company
 {
     namespace{
-        const struct CompanyDefintion& getCompanyDefinition(Locale locale)
+        const struct CompanyDefinition& getCompanyDefinition(Locale locale)
         {
             switch(locale)
             {
@@ -59,7 +59,6 @@ std::string_view industry(Locale locale)
 
 std::string buzzPhrase(Locale locale)
 {
-    const auto& companyDefintion = getCompanyDefinition(locale);
     return common::format("{} {} {}", buzzVerb(locale), buzzAdjective(locale), buzzNoun(locale));
 }
 
@@ -83,7 +82,6 @@ std::string_view buzzVerb(Locale locale)
 
 std::string catchPhrase(Locale locale)
 {
-    const auto& companyDefintion = getCompanyDefinition(locale);
     return common::format("{} {} {}", catchPhraseAdjective(locale), catchPhraseDescriptor(locale), catchPhraseNoun(locale));
 }
 
