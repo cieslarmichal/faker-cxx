@@ -60,5 +60,5 @@ std::string_view actress(Locale locale)
 
     return helper::randomElement(movie.actresses);
 }
-  
+
 }
