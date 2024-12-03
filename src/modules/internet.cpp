@@ -113,6 +113,18 @@ namespace faker::internet
 {
 namespace
 {
+const struct InternetDefinition& getInternetDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSInternetDefinition;
+    }
+}
+}
+
+namespace
+{
 const std::array<std::string_view, 2> webProtocols{"http", "https"};
 const std::array<std::string_view, 5> httpMethodNames{"GET", "POST", "DELETE", "PATCH", "PUT"};
 const std::initializer_list<unsigned> httpStatusInformationalCodes{100, 101, 102, 103};
@@ -194,16 +206,18 @@ std::string username(std::optional<std::string> firstName, std::optional<std::st
 }
 
 std::string email(std::optional<std::string> firstName, std::optional<std::string> lastName,
-                  std::optional<std::string> emailHost)
+                  std::optional<std::string> emailHost, Locale locale)
 {
+    const auto& internetDefinition = getInternetDefinition(locale);
     return common::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                          emailHost ? *emailHost : helper::randomElement(emailHosts));
+                          emailHost ? *emailHost : helper::randomElement(internetDefinition.emailHosts));
 }
 
-std::string exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName)
+std::string exampleEmail(std::optional<std::string> firstName, std::optional<std::string> lastName, Locale locale)
 {
+    const auto& internetDefinition = getInternetDefinition(locale);
     return common::format("{}@{}", username(std::move(firstName), std::move(lastName)),
-                          helper::randomElement(emailExampleHosts));
+                          helper::randomElement(internetDefinition.emailExampleHosts));
 }
 
 std::string password(int length, const PasswordOptions& options)
@@ -294,19 +308,25 @@ unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
     return helper::randomElement(statusCodes);
 }
 
-std::string_view httpRequestHeader()
+std::string_view httpRequestHeader(Locale locale)
 {
-    return helper::randomElement(httpRequestHeaders);
+    const auto& internetDefinition = getInternetDefinition(locale);
+
+    return helper::randomElement(internetDefinition.httpRequestHeaders);
 }
 
-std::string_view httpResponseHeader()
+std::string_view httpResponseHeader(Locale locale)
 {
-    return helper::randomElement(httpResponseHeaders);
+    const auto& internetDefinition = getInternetDefinition(locale);
+
+    return helper::randomElement(internetDefinition.httpResponseHeaders);
 }
 
-std::string_view httpMediaType()
+std::string_view httpMediaType(Locale locale)
 {
-    return helper::randomElement(httpMediaTypes);
+    const auto& internetDefinition = getInternetDefinition(locale);
+
+    return helper::randomElement(internetDefinition.httpMediaTypes);
 }
 
 std::string ipv4(const IPv4Class& ipv4class)
@@ -396,16 +416,18 @@ unsigned port()
     return number::integer(65535u);
 }
 
-std::string url(const WebProtocol& webProtocol)
+std::string url(const WebProtocol& webProtocol, Locale locale)
 {
+    const auto& internetDefinition = getInternetDefinition(locale);
+
     const auto protocolStr = webProtocol == WebProtocol::Https ? "https" : "http";
 
-    return common::format("{}://{}", protocolStr, domainName());
+    return common::format("{}://{}", protocolStr, domainName(locale));
 }
 
-std::string domainName()
+std::string domainName(Locale locale)
 {
-    return common::format("{}.{}", domainWord(), domainSuffix());
+    return common::format("{}.{}", domainWord(), domainSuffix(locale));
 }
 
 std::string domainWord()
@@ -413,9 +435,11 @@ std::string domainWord()
     return common::toLower(common::format("{}-{}", word::adjective(), word::noun()));
 }
 
-std::string_view domainSuffix()
+std::string_view domainSuffix(Locale locale)
 {
-    return helper::randomElement(domainSuffixes);
+    const auto& internetDefinition = getInternetDefinition(locale);
+
+    return helper::randomElement(internetDefinition.domainSuffixes);
 }
 
 std::string anonymousUsername(unsigned maxLength)
@@ -435,9 +459,11 @@ std::string anonymousUsername(unsigned maxLength)
     return common::format("{}{}", word::adjective(adjectiveLength), word::noun(nounLength));
 }
 
-std::string_view getJWTAlgorithm()
+std::string_view getJWTAlgorithm(Locale locale)
 {
-    return helper::randomElement(jwtAlgorithms);
+    const auto& internetDefinition = getInternetDefinition(locale);
+
+    return helper::randomElement(internetDefinition.jwtAlgorithms);
 }
 
 std::string getJWTToken(const std::optional<std::map<std::string, std::string>>& header,
