@@ -1,11 +1,19 @@
 #pragma once
 
 #include <array>
+#include <span>
 #include <string_view>
 
 namespace faker::music
 {
-const auto artists = std::to_array<std::string_view>({
+struct MusicDefinition
+{
+    std::span<const std::string_view> artists;
+    std::span<const std::string_view> musicGenres;
+    std::span<const std::string_view> songNames;
+};
+
+const auto enUSartists = std::to_array<std::string_view>({
     "2 Pac",
     "AC/DC",
     "Abba",
@@ -306,7 +314,7 @@ const auto artists = std::to_array<std::string_view>({
     "Yes",
 });
 
-const auto musicGenres = std::to_array<std::string_view>({
+const auto enUSmusicGenres = std::to_array<std::string_view>({
     "Blues",
     "Classical",
     "Country",
@@ -326,7 +334,7 @@ const auto musicGenres = std::to_array<std::string_view>({
     "World",
 });
 
-const auto songNames = std::to_array<std::string_view>({
+const auto enUSsongNames = std::to_array<std::string_view>({
     "(Everything I Do) I Do it For You",
     "(Ghost) Riders in the Sky",
     "(I've Got a Gal In) Kalamazoo",
@@ -1299,5 +1307,11 @@ const auto songNames = std::to_array<std::string_view>({
     "Your Cheatin' Heart",
     "Your Song",
 });
+
+const MusicDefinition enUSMusicDefinition = {
+    .artists = enUSartists,
+    .musicGenres = enUSmusicGenres,
+    .songNames = enUSsongNames,
+};
 
 }
