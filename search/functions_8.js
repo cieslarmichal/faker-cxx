@@ -3,7 +3,7 @@ var searchData=
   ['iban_0',['iban',['../namespacefaker_1_1finance.html#ae3351de3f04f65860e64d2defe3c4ed3',1,'faker::finance']]],
   ['imageurl_1',['imageUrl',['../namespacefaker_1_1image.html#a45edcdedc077357ed8994b7df28108c0',1,'faker::image']]],
   ['imei_2',['imei',['../namespacefaker_1_1phone.html#a610e92717aef3b4c7ae68d3982248807',1,'faker::phone']]],
-  ['industry_3',['industry',['../namespacefaker_1_1company.html#ae40143ae16868dff4073b9b1c8aff922',1,'faker::company']]],
+  ['industry_3',['industry',['../namespacefaker_1_1company.html#a389f8908c394410fea643ed4ecbbf302',1,'faker::company']]],
   ['ingverb_4',['ingverb',['../namespacefaker_1_1hacker.html#a88bf4b9f6a06f804c206f51d36e3831d',1,'faker::hacker']]],
   ['insect_5',['insect',['../namespacefaker_1_1animal.html#aa2041ae713760f9c9acd4d2f6273d192',1,'faker::animal']]],
   ['integer_6',['integer',['../namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659',1,'faker::number::integer(I min, I max)'],['../namespacefaker_1_1number.html#afc3ffd60474194ebb9de6c1fadbd6a6e',1,'faker::number::integer(I max)']]],

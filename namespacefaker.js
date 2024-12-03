@@ -66,17 +66,17 @@ var namespacefaker =
         [ "FirstNameLastNameSuffix", "namespacefaker_1_1company.html#a40dd6d3303b9e3274368e88e18a0f93fa825c4bb4c6581d910f849a1e240a16be", null ],
         [ "FirstNameLastNameJobAreaSuffix", "namespacefaker_1_1company.html#a40dd6d3303b9e3274368e88e18a0f93fa9437574530e004ce673c1162e96d0486", null ]
       ] ],
-      [ "buzzAdjective", "namespacefaker_1_1company.html#a02b67ebf0ef4b30a7a48776b158e105a", null ],
-      [ "buzzNoun", "namespacefaker_1_1company.html#a1099f8aca6deb4fc3c00c3df3e04bc80", null ],
-      [ "buzzPhrase", "namespacefaker_1_1company.html#a1e590c592a3cdbf5583383ee859f74d7", null ],
-      [ "buzzVerb", "namespacefaker_1_1company.html#a94c98fe534829a1d8a017ceea772d07a", null ],
-      [ "catchPhrase", "namespacefaker_1_1company.html#a04a7737b2377799810caba6a6b0311ee", null ],
-      [ "catchPhraseAdjective", "namespacefaker_1_1company.html#a8a13dd8359d3aa09f1e2d191b2e22b67", null ],
-      [ "catchPhraseDescriptor", "namespacefaker_1_1company.html#a2d7397f6a1cbbae0bc3b3337094ac407", null ],
-      [ "catchPhraseNoun", "namespacefaker_1_1company.html#a0136b25088ae46b23aefdd19eaebcc64", null ],
-      [ "companyName", "namespacefaker_1_1company.html#a7748ea0d17db38963f0e9e807e2bc556", null ],
-      [ "industry", "namespacefaker_1_1company.html#ae40143ae16868dff4073b9b1c8aff922", null ],
-      [ "type", "namespacefaker_1_1company.html#a4d010c731f63c97b86e98c5a885982bb", null ]
+      [ "buzzAdjective", "namespacefaker_1_1company.html#a16154b42d4dff0f25eaa7607fcae5f30", null ],
+      [ "buzzNoun", "namespacefaker_1_1company.html#a0d9fa533f30265fc5ddda52ff1fdc058", null ],
+      [ "buzzPhrase", "namespacefaker_1_1company.html#a71aa7a649abd683d4a49cba9108f93d5", null ],
+      [ "buzzVerb", "namespacefaker_1_1company.html#a6c18392b0de8f37918c9b1c3e7ea0806", null ],
+      [ "catchPhrase", "namespacefaker_1_1company.html#a712c745d2fa7e37396d8fac5dd27ebdd", null ],
+      [ "catchPhraseAdjective", "namespacefaker_1_1company.html#ad7bd6df98b77206f0bd7019c46034f8b", null ],
+      [ "catchPhraseDescriptor", "namespacefaker_1_1company.html#a7a538b1ccf11d8bacc08d8998a940936", null ],
+      [ "catchPhraseNoun", "namespacefaker_1_1company.html#a3607193ecdaf059be8a43c56e1445eb6", null ],
+      [ "companyName", "namespacefaker_1_1company.html#ab366e1ca4cb6156a379e5b3917f48a4f", null ],
+      [ "industry", "namespacefaker_1_1company.html#a389f8908c394410fea643ed4ecbbf302", null ],
+      [ "type", "namespacefaker_1_1company.html#a745d6abfc5bc1efb620b7332fe8d3ff3", null ]
     ] ],
     [ "computer", "namespacefaker_1_1computer.html", [
       [ "cpuManufacture", "namespacefaker_1_1computer.html#a26788ac0f00d882230486c044744ac7f", null ],

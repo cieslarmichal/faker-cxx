@@ -13,8 +13,8 @@ var searchData=
   ['boolean_10',['boolean',['../namespacefaker_1_1datatype.html#a6e8fea28b1cf18124cb1c854496b35c2',1,'faker::datatype::boolean()'],['../namespacefaker_1_1datatype.html#a3f0613615165573f77dba5349bb00241',1,'faker::datatype::boolean(double probability)']]],
   ['branch_11',['branch',['../namespacefaker_1_1git.html#a53ab2cb20db6f702dc7ce79c2191fdb6',1,'faker::git']]],
   ['buildingnumber_12',['buildingNumber',['../namespacefaker_1_1location.html#a467ede2220c5802732e424d921206223',1,'faker::location']]],
-  ['buzzadjective_13',['buzzAdjective',['../namespacefaker_1_1company.html#a02b67ebf0ef4b30a7a48776b158e105a',1,'faker::company']]],
-  ['buzznoun_14',['buzzNoun',['../namespacefaker_1_1company.html#a1099f8aca6deb4fc3c00c3df3e04bc80',1,'faker::company']]],
-  ['buzzphrase_15',['buzzPhrase',['../namespacefaker_1_1company.html#a1e590c592a3cdbf5583383ee859f74d7',1,'faker::company']]],
-  ['buzzverb_16',['buzzVerb',['../namespacefaker_1_1company.html#a94c98fe534829a1d8a017ceea772d07a',1,'faker::company']]]
+  ['buzzadjective_13',['buzzAdjective',['../namespacefaker_1_1company.html#a16154b42d4dff0f25eaa7607fcae5f30',1,'faker::company']]],
+  ['buzznoun_14',['buzzNoun',['../namespacefaker_1_1company.html#a0d9fa533f30265fc5ddda52ff1fdc058',1,'faker::company']]],
+  ['buzzphrase_15',['buzzPhrase',['../namespacefaker_1_1company.html#a71aa7a649abd683d4a49cba9108f93d5',1,'faker::company']]],
+  ['buzzverb_16',['buzzVerb',['../namespacefaker_1_1company.html#a6c18392b0de8f37918c9b1c3e7ea0806',1,'faker::company']]]
 ];

@@ -1,10 +1,10 @@
 var searchData=
 [
   ['cat_0',['cat',['../namespacefaker_1_1animal.html#aeb226598d0bb2f1608e6ec3517b91de2',1,'faker::animal']]],
-  ['catchphrase_1',['catchPhrase',['../namespacefaker_1_1company.html#a04a7737b2377799810caba6a6b0311ee',1,'faker::company']]],
-  ['catchphraseadjective_2',['catchPhraseAdjective',['../namespacefaker_1_1company.html#a8a13dd8359d3aa09f1e2d191b2e22b67',1,'faker::company']]],
-  ['catchphrasedescriptor_3',['catchPhraseDescriptor',['../namespacefaker_1_1company.html#a2d7397f6a1cbbae0bc3b3337094ac407',1,'faker::company']]],
-  ['catchphrasenoun_4',['catchPhraseNoun',['../namespacefaker_1_1company.html#a0136b25088ae46b23aefdd19eaebcc64',1,'faker::company']]],
+  ['catchphrase_1',['catchPhrase',['../namespacefaker_1_1company.html#a712c745d2fa7e37396d8fac5dd27ebdd',1,'faker::company']]],
+  ['catchphraseadjective_2',['catchPhraseAdjective',['../namespacefaker_1_1company.html#ad7bd6df98b77206f0bd7019c46034f8b',1,'faker::company']]],
+  ['catchphrasedescriptor_3',['catchPhraseDescriptor',['../namespacefaker_1_1company.html#a7a538b1ccf11d8bacc08d8998a940936',1,'faker::company']]],
+  ['catchphrasenoun_4',['catchPhraseNoun',['../namespacefaker_1_1company.html#a3607193ecdaf059be8a43c56e1445eb6',1,'faker::company']]],
   ['cetacean_5',['cetacean',['../namespacefaker_1_1animal.html#aab334127ba8b60ddce62171e677ad9dd',1,'faker::animal']]],
   ['checkifemojiisvalid_6',['checkIfEmojiIsValid',['../namespacefaker_1_1internet.html#ae1a9eb9071b9843c891c065fd87345e7',1,'faker::internet']]],
   ['chemicalelement_7',['chemicalElement',['../namespacefaker_1_1science.html#aecb672b5154845ee493a7099e3388d71',1,'faker::science']]],
@@ -21,7 +21,7 @@ var searchData=
   ['commitsha_18',['commitSha',['../namespacefaker_1_1git.html#a436a7fdcdcca81c208bbca7da97af168',1,'faker::git']]],
   ['commonfileextension_19',['commonFileExtension',['../namespacefaker_1_1system.html#a74d7b69a1a18ae8958c29271e1f230a2',1,'faker::system']]],
   ['commonfilename_20',['commonFileName',['../namespacefaker_1_1system.html#a8d4f85025e597462298395ce1423a24f',1,'faker::system']]],
-  ['companyname_21',['companyName',['../namespacefaker_1_1company.html#a7748ea0d17db38963f0e9e807e2bc556',1,'faker::company']]],
+  ['companyname_21',['companyName',['../namespacefaker_1_1company.html#ab366e1ca4cb6156a379e5b3917f48a4f',1,'faker::company']]],
   ['condition_22',['condition',['../namespacefaker_1_1medicine.html#a7287f988588f2006d0bfe8b2079ebba3',1,'faker::medicine']]],
   ['conjunction_23',['conjunction',['../namespacefaker_1_1word.html#a2f0d90f4d3308ed0f034e67c9668ba82',1,'faker::word']]],
   ['continent_24',['continent',['../namespacefaker_1_1location.html#ac785189329cae536c5f052606a5ae8d0',1,'faker::location']]],
