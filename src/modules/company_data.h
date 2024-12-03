@@ -1,11 +1,25 @@
 #pragma once
 
+#include <span>
 #include <array>
 #include <string_view>
 
 namespace faker::company
 {
-const auto buzzAdjectives = std::to_array<std::string_view>({
+
+    struct CompanyDefinition
+    {
+        std::span<const std::string_view> buzzAdjectives;
+        std::span<const std::string_view> buzzNouns;
+        std::span<const std::string_view> buzzVerbs;
+        std::span<const std::string_view> catchPhraseAdjectives;
+        std::span<const std::string_view> catchPhraseDescriptors;
+        std::span<const std::string_view> catchPhraseNouns;
+        std::span<const std::string_view> companyTypes;
+        std::span<const std::string_view> companyIndustries;
+        std::span<const std::string_view> companySuffixes;
+    };
+const auto enUSbuzzAdjectives = std::to_array<std::string_view>({
     "24/365",
     "24/7",
     "B2B",
@@ -73,7 +87,7 @@ const auto buzzAdjectives = std::to_array<std::string_view>({
     "world-class",
 });
 
-const auto buzzNouns = std::to_array<std::string_view>({
+const auto enUSbuzzNouns = std::to_array<std::string_view>({
     "ROI",
     "action-items",
     "applications",
@@ -117,7 +131,7 @@ const auto buzzNouns = std::to_array<std::string_view>({
     "web services",
 });
 
-const auto buzzVerbs = std::to_array<std::string_view>({
+const auto enUSbuzzVerbs = std::to_array<std::string_view>({
     "aggregate",       "architect", "benchmark",     "brand",       "cultivate",  "deliver",     "deploy",
     "disintermediate", "drive",     "e-enable",      "embrace",     "empower",    "enable",      "engage",
     "engineer",        "enhance",   "envisioneer",   "evolve",      "expedite",   "exploit",     "extend",
@@ -129,7 +143,7 @@ const auto buzzVerbs = std::to_array<std::string_view>({
     "utilize",         "visualize", "whiteboard",
 });
 
-const auto catchPhraseAdjectives = std::to_array<std::string_view>({
+const auto enUScatchPhraseAdjectives = std::to_array<std::string_view>({
     "Adaptive",
     "Advanced",
     "Ameliorated",
@@ -232,7 +246,7 @@ const auto catchPhraseAdjectives = std::to_array<std::string_view>({
     "Visionary",
 });
 
-const auto catchPhraseDescriptors = std::to_array<std::string_view>({
+const auto enUScatchPhraseDescriptors = std::to_array<std::string_view>({
     "24 hour",
     "24/7",
     "3rd generation",
@@ -336,7 +350,7 @@ const auto catchPhraseDescriptors = std::to_array<std::string_view>({
     "zero tolerance",
 });
 
-const auto catchPhraseNouns = std::to_array<std::string_view>({
+const auto enUScatchPhraseNouns = std::to_array<std::string_view>({
     "Graphic Interface",
     "Graphical User Interface",
     "ability",
@@ -443,7 +457,7 @@ const auto catchPhraseNouns = std::to_array<std::string_view>({
     "workforce",
 });
 
-const auto companyTypes = std::to_array<std::string_view>({
+const auto enUScompanyTypes = std::to_array<std::string_view>({
     "Educational Institution",
     "Government Agency",
     "Nonprofit",
@@ -454,7 +468,7 @@ const auto companyTypes = std::to_array<std::string_view>({
     "Sole Proprietorship",
 });
 
-const auto companyIndustries = std::to_array<std::string_view>({
+const auto enUScompanyIndustries = std::to_array<std::string_view>({
     "Accounting",
     "Airlines / Aviation",
     "Alternative Dispute Resolution",
@@ -604,10 +618,22 @@ const auto companyIndustries = std::to_array<std::string_view>({
     "Writing and Editing",
 });
 
-const auto companySuffixes = std::to_array<std::string_view>({
+const auto enUScompanySuffixes = std::to_array<std::string_view>({
     "Group",
     "Inc",
     "LLC",
 });
+
+const CompanyDefinition enUSCompanyDefinition = {
+    .buzzAdjectives = enUSbuzzAdjectives,
+    .buzzNouns = enUSbuzzNouns,
+    .buzzVerbs = enUSbuzzVerbs,
+    .catchPhraseAdjectives = enUScatchPhraseAdjectives,
+    .catchPhraseDescriptors = enUScatchPhraseDescriptors,
+    .catchPhraseNouns = enUScatchPhraseNouns,
+    .companyTypes = enUScompanyTypes,
+    .companyIndustries = enUScompanyIndustries,
+    .companySuffixes = enUScompanySuffixes,
+};
 
 }
