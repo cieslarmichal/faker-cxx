@@ -10,6 +10,8 @@ namespace faker::music
 /**
  * @brief Returns a random artist.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Artist.
  *
  * @code
@@ -21,6 +23,8 @@ FAKER_CXX_EXPORT std::string_view artist(Locale locale = Locale::en_US);
 /**
  * @brief Returns a random music genre.
  *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
  * @returns Music genre.
  *
  * @code
@@ -31,6 +35,8 @@ FAKER_CXX_EXPORT std::string_view genre(Locale locale = Locale::en_US);
 
 /**
  * @brief Returns a random song name.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
  *
  * @returns Song name.
  *
