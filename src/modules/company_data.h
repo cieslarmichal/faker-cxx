@@ -1,24 +1,25 @@
 #pragma once
 
-#include <span>
 #include <array>
+#include <span>
 #include <string_view>
 
 namespace faker::company
 {
 
-    struct CompanyDefinition
-    {
-        std::span<const std::string_view> buzzAdjectives;
-        std::span<const std::string_view> buzzNouns;
-        std::span<const std::string_view> buzzVerbs;
-        std::span<const std::string_view> catchPhraseAdjectives;
-        std::span<const std::string_view> catchPhraseDescriptors;
-        std::span<const std::string_view> catchPhraseNouns;
-        std::span<const std::string_view> companyTypes;
-        std::span<const std::string_view> companyIndustries;
-        std::span<const std::string_view> companySuffixes;
-    };
+struct CompanyDefinition
+{
+    std::span<const std::string_view> buzzAdjectives;
+    std::span<const std::string_view> buzzNouns;
+    std::span<const std::string_view> buzzVerbs;
+    std::span<const std::string_view> catchPhraseAdjectives;
+    std::span<const std::string_view> catchPhraseDescriptors;
+    std::span<const std::string_view> catchPhraseNouns;
+    std::span<const std::string_view> companyTypes;
+    std::span<const std::string_view> companyIndustries;
+    std::span<const std::string_view> companySuffixes;
+};
+
 const auto enUSbuzzAdjectives = std::to_array<std::string_view>({
     "24/365",
     "24/7",

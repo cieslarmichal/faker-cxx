@@ -22,7 +22,7 @@ enum class CompanyNameFormat
  * @param format The optional format of the company name.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Company name.
  *
  * @code
@@ -37,7 +37,7 @@ FAKER_CXX_EXPORT std::string companyName(std::optional<CompanyNameFormat> format
  * @brief Returns a random company type.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Company type.
  *
  * @code
@@ -50,7 +50,7 @@ FAKER_CXX_EXPORT std::string_view type(Locale locale = Locale::en_US);
  * @brief Returns a random company industry.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Company industry.
  *
  * @code
@@ -63,7 +63,7 @@ FAKER_CXX_EXPORT std::string_view industry(Locale locale = Locale::en_US);
  * @brief Returns a random buzz phrase.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Buzz phrase.
  *
  * @code
@@ -76,7 +76,7 @@ FAKER_CXX_EXPORT std::string buzzPhrase(Locale locale = Locale::en_US);
  * @brief Returns a random buzz adjective.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Buzz adjective.
  *
  * @code
@@ -89,7 +89,7 @@ FAKER_CXX_EXPORT std::string_view buzzAdjective(Locale locale = Locale::en_US);
  * @brief Returns a random buzz noun.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Buzz noun.
  *
  * @code
@@ -102,7 +102,7 @@ FAKER_CXX_EXPORT std::string_view buzzNoun(Locale locale = Locale::en_US);
  * @brief Returns a random buzz verb.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Buzz verb.
  *
  * @code
@@ -115,7 +115,7 @@ FAKER_CXX_EXPORT std::string_view buzzVerb(Locale locale = Locale::en_US);
  * @brief Returns a random catch phrase.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Catch phrase.
  *
  * @code
@@ -128,7 +128,7 @@ FAKER_CXX_EXPORT std::string catchPhrase(Locale locale = Locale::en_US);
  * @brief Returns a random catch phrase adjective.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Catch phrase adjective.
  *
  * @code
@@ -141,7 +141,7 @@ FAKER_CXX_EXPORT std::string_view catchPhraseAdjective(Locale locale = Locale::e
  * @brief Returns a random catch phrase descriptor.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Catch phrase descriptor.
  *
  * @code
@@ -154,7 +154,7 @@ FAKER_CXX_EXPORT std::string_view catchPhraseDescriptor(Locale locale = Locale::
  * @brief Returns a random catch phrase noun.
  *
  * @param locale The locale. Defaults to `Locale::en_US`.
- * 
+ *
  * @returns Catch phrase noun.
  *
  * @code

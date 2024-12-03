@@ -10,16 +10,18 @@
 
 namespace faker::company
 {
-    namespace{
-        const struct CompanyDefinition& getCompanyDefinition(Locale locale)
-        {
-            switch(locale)
-            {
-                default:
-                    return enUSCompanyDefinition;
-            }
-        }
+namespace
+{
+const struct CompanyDefinition& getCompanyDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSCompanyDefinition;
     }
+}
+}
+
 std::string companyName(std::optional<CompanyNameFormat> format, Locale locale)
 {
     const auto& companyDefintion = getCompanyDefinition(locale);
@@ -30,11 +32,12 @@ std::string companyName(std::optional<CompanyNameFormat> format, Locale locale)
     switch (nameFormat)
     {
     case CompanyNameFormat::LastNameSuffix:
-        companyName = common::format("{} {}", person::lastName(), helper::randomElement(companyDefintion.companySuffixes));
+        companyName =
+            common::format("{} {}", person::lastName(), helper::randomElement(companyDefintion.companySuffixes));
         break;
     case CompanyNameFormat::FirstNameLastNameSuffix:
-        companyName =
-            common::format("{} {} {}", person::firstName(), person::lastName(), helper::randomElement(companyDefintion.companySuffixes));
+        companyName = common::format("{} {} {}", person::firstName(), person::lastName(),
+                                     helper::randomElement(companyDefintion.companySuffixes));
         break;
     case CompanyNameFormat::FirstNameLastNameJobAreaSuffix:
         companyName = common::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(),
@@ -82,7 +85,8 @@ std::string_view buzzVerb(Locale locale)
 
 std::string catchPhrase(Locale locale)
 {
-    return common::format("{} {} {}", catchPhraseAdjective(locale), catchPhraseDescriptor(locale), catchPhraseNoun(locale));
+    return common::format("{} {} {}", catchPhraseAdjective(locale), catchPhraseDescriptor(locale),
+                          catchPhraseNoun(locale));
 }
 
 std::string_view catchPhraseAdjective(Locale locale)
