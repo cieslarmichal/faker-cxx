@@ -19,7 +19,7 @@ var searchData=
   ['nigeria_16',['Nigeria',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa5d839147c83e283c1d1bb705dc50586f',1,'faker::phone']]],
   ['nightlife_17',['Nightlife',['../namespacefaker_1_1image.html#afcfbb3acc18ec0f5ec6b87124f7a3e5daeaa9e1b1fd91180ef8a5f6aeca392e93',1,'faker::image']]],
   ['niue_18',['Niue',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aade48fee9c7511bf7158b1e28b3d0baec',1,'faker::phone']]],
-  ['nonalcoholicbeverage_19',['nonalcoholicBeverage',['../namespacefaker_1_1food.html#ab60ef0fff7acc273fd2317c469f9bd2a',1,'faker::food']]],
+  ['nonalcoholicbeverage_19',['nonalcoholicBeverage',['../namespacefaker_1_1food.html#a2b28c82763d4c556c6c5c68dd29732e8',1,'faker::food']]],
   ['northernmarianaislands_20',['NorthernMarianaIslands',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa54f13645ac814cc7b2df89b452b5baea',1,'faker::phone']]],
   ['northmacedonia_21',['NorthMacedonia',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aad39705081a5432f90725b879bc39ef65',1,'faker::phone']]],
   ['norway_22',['Norway',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aad5b9290a0b67727d4ba1ca6059dc31a6',1,'faker::phone']]],
@@ -27,5 +27,5 @@ var searchData=
   ['number_2eh_24',['number.h',['../number_8h.html',1,'']]],
   ['numbers_25',['numbers',['../structfaker_1_1internet_1_1PasswordOptions.html#a947479a481d3c3735a9c83d887c63f20',1,'faker::internet::PasswordOptions']]],
   ['numeric_26',['numeric',['../namespacefaker_1_1string.html#a646c3109166518bfa5bcf5c2f5de98ef',1,'faker::string::numeric(unsigned length=1, bool allowLeadingZeros=true)'],['../namespacefaker_1_1string.html#a6b7e02197a0cec823f7b051c7234865b',1,'faker::string::numeric(GuaranteeMap &amp;&amp;guarantee, unsigned length=1, bool allowLeadingZeros=true)']]],
-  ['nut_27',['nut',['../namespacefaker_1_1food.html#abac00f1ce6f9b49dff1548efa5a2d017',1,'faker::food']]]
+  ['nut_27',['nut',['../namespacefaker_1_1food.html#ae0197bb098c123256d7f2a40de63ab3a',1,'faker::food']]]
 ];

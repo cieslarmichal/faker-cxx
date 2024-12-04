@@ -22,7 +22,7 @@ var searchData=
   ['airport_19',['airport',['../namespacefaker_1_1airline.html#a92371b24b6158571a8a57abb904ab4e2',1,'faker::airline']]],
   ['alandislands_20',['AlandIslands',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aac6cf4058465588ddb03a5177004e5994',1,'faker::phone']]],
   ['albania_21',['Albania',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aac420ddff824a5c0eec70dd23d62496bc',1,'faker::phone']]],
-  ['alcoholicbeverage_22',['alcoholicBeverage',['../namespacefaker_1_1food.html#a242b623a082b6729ddc0ca5b06e08a37',1,'faker::food']]],
+  ['alcoholicbeverage_22',['alcoholicBeverage',['../namespacefaker_1_1food.html#a7a0dca67be53b108d4477a91161161eb',1,'faker::food']]],
   ['algeria_23',['Algeria',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa575b9408b6daa2ddcefbcf6d81c9b4c9',1,'faker::phone']]],
   ['alpha_24',['alpha',['../namespacefaker_1_1string.html#abf5e1f4e277703148d5ab06e6a0bfeda',1,'faker::string::alpha(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)'],['../namespacefaker_1_1string.html#a271ae1a89baf97693b8181f7e88975db',1,'faker::string::alpha(GuaranteeMap &amp;&amp;guarantee, unsigned length=1, StringCasing casing=StringCasing::Mixed)']]],
   ['alphanumeric_25',['alphanumeric',['../namespacefaker_1_1string.html#a66f88f14a90528cdf5683a55a9d4a280',1,'faker::string::alphanumeric(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)'],['../namespacefaker_1_1string.html#a0f34587fb525159e53e01829edbe81cd',1,'faker::string::alphanumeric(GuaranteeMap &amp;&amp;guarantee, unsigned length=1, StringCasing casing=StringCasing::Mixed)']]],

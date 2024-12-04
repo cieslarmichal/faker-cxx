@@ -12,7 +12,7 @@ var searchData=
   ['airline_9',['airline',['../namespacefaker_1_1airline.html#ae206a7cb56b3047e258315df5f7161a9',1,'faker::airline']]],
   ['airplane_10',['airplane',['../namespacefaker_1_1airline.html#a088e61d005ef3d6b2e5f31a1b1a879af',1,'faker::airline']]],
   ['airport_11',['airport',['../namespacefaker_1_1airline.html#a92371b24b6158571a8a57abb904ab4e2',1,'faker::airline']]],
-  ['alcoholicbeverage_12',['alcoholicBeverage',['../namespacefaker_1_1food.html#a242b623a082b6729ddc0ca5b06e08a37',1,'faker::food']]],
+  ['alcoholicbeverage_12',['alcoholicBeverage',['../namespacefaker_1_1food.html#a7a0dca67be53b108d4477a91161161eb',1,'faker::food']]],
   ['alpha_13',['alpha',['../namespacefaker_1_1string.html#abf5e1f4e277703148d5ab06e6a0bfeda',1,'faker::string::alpha(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)'],['../namespacefaker_1_1string.html#a271ae1a89baf97693b8181f7e88975db',1,'faker::string::alpha(GuaranteeMap &amp;&amp;guarantee, unsigned length=1, StringCasing casing=StringCasing::Mixed)']]],
   ['alphanumeric_14',['alphanumeric',['../namespacefaker_1_1string.html#a66f88f14a90528cdf5683a55a9d4a280',1,'faker::string::alphanumeric(unsigned length=1, StringCasing casing=StringCasing::Mixed, const std::string &amp;excludeCharacters=&quot;&quot;)'],['../namespacefaker_1_1string.html#a0f34587fb525159e53e01829edbe81cd',1,'faker::string::alphanumeric(GuaranteeMap &amp;&amp;guarantee, unsigned length=1, StringCasing casing=StringCasing::Mixed)']]],
   ['amount_15',['amount',['../namespacefaker_1_1finance.html#a45a740f60cfb1788f79f08110dba3c3c',1,'faker::finance']]],
