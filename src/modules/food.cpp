@@ -7,73 +7,99 @@
 
 namespace faker::food
 {
-std::string_view alcoholicBeverage()
+namespace
 {
-    return helper::randomElement(alcoholicBeverages);
+const struct FoodDefinition& getFoodDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSFoodDefinition;
+    }
+}
 }
 
-std::string_view dishName()
+std::string_view alcoholicBeverage(Locale locale)
 {
-    return helper::randomElement(dishNames);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.alcoholicBeverages);
 }
 
-std::string_view foodCategory()
+std::string_view dishName(Locale locale)
 {
-    return helper::randomElement(foodCategories);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.dishNames);
 }
 
-std::string_view fruit()
+std::string_view foodCategory(Locale locale)
 {
-    return helper::randomElement(fruits);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.foodCategories);
 }
 
-std::string_view grain()
+std::string_view fruit(Locale locale)
 {
-    return helper::randomElement(grains);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.fruits);
 }
 
-std::string_view meat()
+std::string_view grain(Locale locale)
 {
-    return helper::randomElement(meats);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.grains);
 }
 
-std::string_view milkProduct()
+std::string_view meat(Locale locale)
 {
-    return helper::randomElement(milkProducts);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.meats);
 }
 
-std::string_view nonalcoholicBeverage()
+std::string_view milkProduct(Locale locale)
 {
-    return helper::randomElement(nonalcoholicBeverages);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.milkProducts);
 }
 
-std::string_view nut()
+std::string_view nonalcoholicBeverage(Locale locale)
 {
-    return helper::randomElement(nuts);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.nonalcoholicBeverages);
 }
 
-std::string_view oil()
+std::string_view nut(Locale locale)
 {
-    return helper::randomElement(oils);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.nuts);
 }
 
-std::string_view seafood()
+std::string_view oil(Locale locale)
 {
-    return helper::randomElement(seafoods);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.oils);
 }
 
-std::string_view seed()
+std::string_view seafood(Locale locale)
 {
-    return helper::randomElement(seeds);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.seafoods);
 }
 
-std::string_view sugarProduct()
+std::string_view seed(Locale locale)
 {
-    return helper::randomElement(sugarProducts);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.seeds);
 }
 
-std::string_view vegetable()
+std::string_view sugarProduct(Locale locale)
 {
-    return helper::randomElement(vegetables);
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.sugarProducts);
+}
+
+std::string_view vegetable(Locale locale)
+{
+    const auto& foodDefinition = getFoodDefinition(locale);
+    return helper::randomElement(foodDefinition.vegetables);
 }
 }
