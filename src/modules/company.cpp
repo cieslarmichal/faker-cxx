@@ -10,8 +10,21 @@
 
 namespace faker::company
 {
-std::string companyName(std::optional<CompanyNameFormat> format)
+namespace
 {
+const struct CompanyDefinition& getCompanyDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSCompanyDefinition;
+    }
+}
+}
+
+std::string companyName(std::optional<CompanyNameFormat> format, Locale locale)
+{
+    const auto& companyDefintion = getCompanyDefinition(locale);
     CompanyNameFormat nameFormat = format ? *format : CompanyNameFormat::LastNameSuffix;
 
     std::string companyName;
@@ -19,68 +32,78 @@ std::string companyName(std::optional<CompanyNameFormat> format)
     switch (nameFormat)
     {
     case CompanyNameFormat::LastNameSuffix:
-        companyName = common::format("{} {}", person::lastName(), helper::randomElement(companySuffixes));
+        companyName =
+            common::format("{} {}", person::lastName(), helper::randomElement(companyDefintion.companySuffixes));
         break;
     case CompanyNameFormat::FirstNameLastNameSuffix:
-        companyName =
-            common::format("{} {} {}", person::firstName(), person::lastName(), helper::randomElement(companySuffixes));
+        companyName = common::format("{} {} {}", person::firstName(), person::lastName(),
+                                     helper::randomElement(companyDefintion.companySuffixes));
         break;
     case CompanyNameFormat::FirstNameLastNameJobAreaSuffix:
         companyName = common::format("{} {} {} {}", person::firstName(), person::lastName(), person::jobArea(),
-                                     helper::randomElement(companySuffixes));
+                                     helper::randomElement(companyDefintion.companySuffixes));
         break;
     }
 
     return companyName;
 }
 
-std::string_view type()
+std::string_view type(Locale locale)
 {
-    return helper::randomElement(companyTypes);
+    const auto& companyDefintion = getCompanyDefinition(locale);
+    return helper::randomElement(companyDefintion.companyTypes);
 }
 
-std::string_view industry()
+std::string_view industry(Locale locale)
 {
-    return helper::randomElement(companyIndustries);
+    const auto& companyDefintion = getCompanyDefinition(locale);
+    return helper::randomElement(companyDefintion.companyIndustries);
 }
 
-std::string buzzPhrase()
+std::string buzzPhrase(Locale locale)
 {
-    return common::format("{} {} {}", buzzVerb(), buzzAdjective(), buzzNoun());
+    return common::format("{} {} {}", buzzVerb(locale), buzzAdjective(locale), buzzNoun(locale));
 }
 
-std::string_view buzzAdjective()
+std::string_view buzzAdjective(Locale locale)
 {
-    return helper::randomElement(buzzAdjectives);
+    const auto& companyDefintion = getCompanyDefinition(locale);
+    return helper::randomElement(companyDefintion.buzzAdjectives);
 }
 
-std::string_view buzzNoun()
+std::string_view buzzNoun(Locale locale)
 {
-    return helper::randomElement(buzzNouns);
+    const auto& companyDefintion = getCompanyDefinition(locale);
+    return helper::randomElement(companyDefintion.buzzNouns);
 }
 
-std::string_view buzzVerb()
+std::string_view buzzVerb(Locale locale)
 {
-    return helper::randomElement(buzzVerbs);
+    const auto& companyDefintion = getCompanyDefinition(locale);
+    return helper::randomElement(companyDefintion.buzzVerbs);
 }
 
-std::string catchPhrase()
+std::string catchPhrase(Locale locale)
 {
-    return common::format("{} {} {}", catchPhraseAdjective(), catchPhraseDescriptor(), catchPhraseNoun());
+    return common::format("{} {} {}", catchPhraseAdjective(locale), catchPhraseDescriptor(locale),
+                          catchPhraseNoun(locale));
 }
 
-std::string_view catchPhraseAdjective()
+std::string_view catchPhraseAdjective(Locale locale)
 {
-    return helper::randomElement(catchPhraseAdjectives);
+    const auto& companyDefintion = getCompanyDefinition(locale);
+    return helper::randomElement(companyDefintion.catchPhraseAdjectives);
 }
 
-std::string_view catchPhraseDescriptor()
+std::string_view catchPhraseDescriptor(Locale locale)
 {
-    return helper::randomElement(catchPhraseDescriptors);
+    const auto& companyDefintion = getCompanyDefinition(locale);
+    return helper::randomElement(companyDefintion.catchPhraseDescriptors);
 }
 
-std::string_view catchPhraseNoun()
+std::string_view catchPhraseNoun(Locale locale)
 {
-    return helper::randomElement(catchPhraseNouns);
+    const auto& companyDefintion = getCompanyDefinition(locale);
+    return helper::randomElement(companyDefintion.catchPhraseNouns);
 }
 }
