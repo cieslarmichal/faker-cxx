@@ -1,11 +1,30 @@
 #pragma once
 
 #include <array>
+#include <span>
 #include <string_view>
 
 namespace faker::food
 {
-const auto alcoholicBeverages = std::to_array<std::string_view>({
+struct FoodDefinition
+{
+    std::span<const std::string_view> alcoholicBeverages;
+    std::span<const std::string_view> dishNames;
+    std::span<const std::string_view> foodCategories;
+    std::span<const std::string_view> fruits;
+    std::span<const std::string_view> grains;
+    std::span<const std::string_view> meats;
+    std::span<const std::string_view> milkProducts;
+    std::span<const std::string_view> nonalcoholicBeverages;
+    std::span<const std::string_view> nuts;
+    std::span<const std::string_view> oils;
+    std::span<const std::string_view> seafoods;
+    std::span<const std::string_view> seeds;
+    std::span<const std::string_view> sugarProducts;
+    std::span<const std::string_view> vegetables;
+};
+
+const auto enUSalcoholicBeverages = std::to_array<std::string_view>({
     "Absinthe",
     "Baileys Irish Cream",
     "Beer",
@@ -55,7 +74,7 @@ const auto alcoholicBeverages = std::to_array<std::string_view>({
     "Wine",
 });
 
-const auto dishNames = std::to_array<std::string_view>({
+const auto enUSdishNames = std::to_array<std::string_view>({
     "Arepas",
     "Arroz con Pollo",
     "Baba Ganoush",
@@ -143,7 +162,7 @@ const auto dishNames = std::to_array<std::string_view>({
     "Vegetarian Paella",
 });
 
-const auto foodCategories = std::to_array<std::string_view>({
+const auto enUSfoodCategories = std::to_array<std::string_view>({
     "Beverages",
     "Condiments",
     "Dairy",
@@ -157,7 +176,7 @@ const auto foodCategories = std::to_array<std::string_view>({
     "Vegetables",
 });
 
-const auto fruits = std::to_array<std::string_view>({
+const auto enUSfruits = std::to_array<std::string_view>({
     "Apple",      "Apricot",     "Avocado",       "Banana",    "Blackberry",   "Blueberry",  "Cantaloupe",
     "Cherry",     "Coconut",     "Cranberry",     "Date",      "Dragon Fruit", "Elderberry", "Fig",
     "Gooseberry", "Grapefruit",  "Grapes",        "Guava",     "Honeydew",     "Jackfruit",  "Kiwi",
@@ -166,19 +185,19 @@ const auto fruits = std::to_array<std::string_view>({
     "Plum",       "Pomegranate", "Rambutan",      "Raspberry", "Starfruit",    "Strawberry",
 });
 
-const auto grains = std::to_array<std::string_view>({
+const auto enUSgrains = std::to_array<std::string_view>({
     "Amaranth", "Barley", "Buckwheat", "Bulgur",          "Chia Seeds",  "Corn",      "Einkorn",
     "Emmer",    "Farro",  "Flaxseeds", "Freekeh",         "Job's Tears", "Kamut",     "Lentils",
     "Maize",    "Millet", "Oats",      "Quinoa",          "Rice",        "Rye",       "Semolina",
     "Sorghum",  "Soy",    "Spelt",     "Sunflower Seeds", "Teff",        "Triticale", "Wheat",
 });
 
-const auto meats = std::to_array<std::string_view>({
+const auto enUSmeats = std::to_array<std::string_view>({
     "Beef", "Bison", "Chicken", "Crab",    "Duck",   "Fish",  "Goose", "Haddock", "Ham",  "Lamb",    "Lobster",
     "Pork", "Quail", "Salmon",  "Sausage", "Shrimp", "Trout", "Tuna",  "Turkey",  "Veal", "Venison",
 });
 
-const auto milkProducts = std::to_array<std::string_view>({
+const auto enUSmilkProducts = std::to_array<std::string_view>({
     "Blue Cheese",    "Brie",           "Butter",        "Camembert",    "Cheddar",         "Cheese",     "Colby",
     "Condensed Milk", "Cottage Cheese", "Cream",         "Cream Cheese", "Evaporated Milk", "Feta",       "Goat Cheese",
     "Gouda",          "Gruyère",        "Havarti",       "Havarti",      "Ice Cream",       "Mascarpone", "Milk",
@@ -186,7 +205,7 @@ const auto milkProducts = std::to_array<std::string_view>({
     "Sour Cream",     "Swiss Cheese",   "Whipped Cream", "Yogurt",
 });
 
-const auto nonalcoholicBeverages = std::to_array<std::string_view>({
+const auto enUSnonalcoholicBeverages = std::to_array<std::string_view>({
     "Almond Milk",
     "Apple Juice",
     "Chai Tea",
@@ -220,7 +239,7 @@ const auto nonalcoholicBeverages = std::to_array<std::string_view>({
     "Water",
 });
 
-const auto nuts = std::to_array<std::string_view>({
+const auto enUSnuts = std::to_array<std::string_view>({
     "Almond",
     "Brazil Nut",
     "Cashew",
@@ -234,19 +253,19 @@ const auto nuts = std::to_array<std::string_view>({
     "Walnut",
 });
 
-const auto oils = std::to_array<std::string_view>({
+const auto enUSoils = std::to_array<std::string_view>({
     "Almond Oil",       "Avocado Oil",   "Canola Oil", "Chia Seed Oil", "Coconut Oil",   "Corn Oil",   "Flaxseed Oil",
     "Grapeseed Oil",    "Hazelnut Oil",  "Hemp Oil",   "Mustard Oil",   "Olive Oil",     "Palm Oil",   "Peanut Oil",
     "Pumpkin Seed Oil", "Safflower Oil", "Sesame Oil", "Sunflower Oil", "Vegetable Oil", "Walnut Oil",
 });
 
-const auto seafoods = std::to_array<std::string_view>({
+const auto enUSseafoods = std::to_array<std::string_view>({
     "Anchovies", "Catfish", "Caviar",  "Clams",   "Cod",       "Crab",   "Haddock",  "Halibut",   "Herring",  "Lobster",
     "Mahi-Mahi", "Mussels", "Octopus", "Oysters", "Pollock",   "Salmon", "Sardines", "Scallops",  "Sea Bass", "Shrimp",
     "Snapper",   "Sole",    "Squid",   "Surimi",  "Swordfish", "Trout",  "Tuna",     "Whitefish",
 });
 
-const auto seeds = std::to_array<std::string_view>({
+const auto enUSseeds = std::to_array<std::string_view>({
     "Ajwain Seeds", "Alfalfa Seeds",     "Anise Seeds",     "Caraway Seeds",     "Cardamom Seeds",
     "Celery Seeds", "Chia Seeds",        "Coriander Seeds", "Cotton Seeds",      "Cumin Seeds",
     "Dill Seeds",   "Fennel Seeds",      "Fenugreek Seeds", "Flaxseeds",         "Hemp Hearts",
@@ -255,7 +274,7 @@ const auto seeds = std::to_array<std::string_view>({
     "Sesame Seeds", "Sunflower Kernels", "Sunflower Seeds", "Watermelon Seeds",
 });
 
-const auto sugarProducts = std::to_array<std::string_view>({
+const auto enUSsugarProducts = std::to_array<std::string_view>({
     "Agave Nectar",
     "Barley Malt Syrup",
     "Blackstrap Molasses",
@@ -282,12 +301,29 @@ const auto sugarProducts = std::to_array<std::string_view>({
     "Turbinado Sugar",
 });
 
-const auto vegetables = std::to_array<std::string_view>({
+const auto enUSvegetables = std::to_array<std::string_view>({
     "Artichoke", "Asparagus", "Beets",        "Bell Pepper", "Broccoli", "Brussels Sprouts",
     "Cabbage",   "Carrot",    "Cauliflower",  "Celery",      "Cucumber", "Eggplant",
     "Garlic",    "Ginger",    "Green Beans",  "Kale",        "Leek",     "Lettuce",
     "Mushroom",  "Onion",     "Peas",         "Potato",      "Radish",   "Rutabaga",
     "Scallion",  "Spinach",   "Sweet Potato", "Tomato",      "Turnip",   "Zucchini",
 });
+
+const FoodDefinition enUSFoodDefinition = {
+    .alcoholicBeverages = enUSalcoholicBeverages,
+    .dishNames = enUSdishNames,
+    .foodCategories = enUSfoodCategories,
+    .fruits = enUSfruits,
+    .grains = enUSgrains,
+    .meats = enUSmeats,
+    .milkProducts = enUSmilkProducts,
+    .nonalcoholicBeverages = enUSnonalcoholicBeverages,
+    .nuts = enUSnuts,
+    .oils = enUSoils,
+    .seafoods = enUSseafoods,
+    .seeds = enUSseeds,
+    .sugarProducts = enUSsugarProducts,
+    .vegetables = enUSvegetables,
+};
 
 }
