@@ -14,7 +14,7 @@ namespace
 {
 const struct AnimalDefinition& getAnimalDefinition(Locale locale)
 {
-    switch(locale)
+    switch (locale)
     {
     default:
         return enUSAnimalDefinition;
@@ -35,8 +35,8 @@ TEST_P(AnimalTest, shouldGenerateBear)
 
     const auto generatedBear = bear(locale);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(animalDefinition.bears, [generatedBear](const std::string_view& bear) { return bear == generatedBear; }));
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.bears,
+                                    [generatedBear](const std::string_view& bear) { return bear == generatedBear; }));
 }
 
 TEST_P(AnimalTest, shouldGenerateBird)
@@ -47,8 +47,8 @@ TEST_P(AnimalTest, shouldGenerateBird)
 
     const auto generatedBird = bird(locale);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(animalDefinition.birds, [generatedBird](const std::string_view& bird) { return bird == generatedBird; }));
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.birds,
+                                    [generatedBird](const std::string_view& bird) { return bird == generatedBird; }));
 }
 
 TEST_P(AnimalTest, shouldGenerateCat)
@@ -59,7 +59,8 @@ TEST_P(AnimalTest, shouldGenerateCat)
 
     const auto generatedCat = cat(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(animalDefinition.cats, [generatedCat](const std::string_view& cat) { return cat == generatedCat; }));
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.cats,
+                                    [generatedCat](const std::string_view& cat) { return cat == generatedCat; }));
 }
 
 TEST_P(AnimalTest, shouldGenerateCetacean)
@@ -82,7 +83,8 @@ TEST_P(AnimalTest, shouldGenerateCow)
 
     const auto generatedCow = cow(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(animalDefinition.cows, [generatedCow](const std::string_view& cow) { return cow == generatedCow; }));
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.cows,
+                                    [generatedCow](const std::string_view& cow) { return cow == generatedCow; }));
 }
 
 TEST_P(AnimalTest, shouldGenerateCrocodile)
@@ -105,7 +107,8 @@ TEST_P(AnimalTest, shouldGenerateDog)
 
     const auto generatedDog = dog(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(animalDefinition.dogs, [generatedDog](const std::string_view& dog) { return dog == generatedDog; }));
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.dogs,
+                                    [generatedDog](const std::string_view& dog) { return dog == generatedDog; }));
 }
 
 TEST_P(AnimalTest, shouldGenerateFish)
@@ -116,8 +119,8 @@ TEST_P(AnimalTest, shouldGenerateFish)
 
     const auto generatedFish = fish(locale);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(animalDefinition.fishes, [generatedFish](const std::string_view& fish) { return fish == generatedFish; }));
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.fishes,
+                                    [generatedFish](const std::string_view& fish) { return fish == generatedFish; }));
 }
 
 TEST_P(AnimalTest, shouldGenerateHorse)
@@ -152,8 +155,8 @@ TEST_P(AnimalTest, shouldGenerateLion)
 
     const auto generatedLion = lion(locale);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(animalDefinition.lions, [generatedLion](const std::string_view& lion) { return lion == generatedLion; }));
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.lions,
+                                    [generatedLion](const std::string_view& lion) { return lion == generatedLion; }));
 }
 
 TEST_P(AnimalTest, shouldGenerateRabbit)
@@ -200,8 +203,8 @@ TEST_P(AnimalTest, shouldGenerateType)
 
     const auto generatedType = type(locale);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(animalDefinition.types, [generatedType](const std::string_view& type) { return type == generatedType; }));
+    ASSERT_TRUE(std::ranges::any_of(animalDefinition.types,
+                                    [generatedType](const std::string_view& type) { return type == generatedType; }));
 }
 
 INSTANTIATE_TEST_SUITE_P(TestAnimalByLocale, AnimalTest, ValuesIn(locales),

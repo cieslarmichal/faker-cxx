@@ -30,7 +30,7 @@ public:
 TEST_P(EsportTest, shouldGeneratePlayer)
 {
     const auto locale = GetParam();
-    
+
     const auto& esportDefinition = getEsportDefinition(locale);
 
     const auto generatedPlayer = player(locale);
@@ -47,8 +47,8 @@ TEST_P(EsportTest, shouldGenerateTeam)
 
     const auto generatedTeam = team(locale);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(esportDefinition.teams, [generatedTeam](const std::string_view& team) { return generatedTeam == team; }));
+    ASSERT_TRUE(std::ranges::any_of(esportDefinition.teams,
+                                    [generatedTeam](const std::string_view& team) { return generatedTeam == team; }));
 }
 
 TEST_P(EsportTest, shouldGenerateLeague)
@@ -83,8 +83,8 @@ TEST_P(EsportTest, shouldGenerateGame)
 
     const auto generatedGame = game(locale);
 
-    ASSERT_TRUE(
-        std::ranges::any_of(esportDefinition.games, [generatedGame](const std::string_view& game) { return generatedGame == game; }));
+    ASSERT_TRUE(std::ranges::any_of(esportDefinition.games,
+                                    [generatedGame](const std::string_view& game) { return generatedGame == game; }));
 }
 
 INSTANTIATE_TEST_SUITE_P(TestEsportByLocale, EsportTest, ValuesIn(locales),

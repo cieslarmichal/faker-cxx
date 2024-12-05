@@ -6,7 +6,6 @@
 
 #include "common/string_helper.h"
 #include "faker-cxx/word.h"
-#include "locale.h"
 #include "word_data.h"
 
 using namespace faker::word;
@@ -285,26 +284,6 @@ TEST_F(WordTest, shouldGenerateLargeNumberOfWords)
     {
         ASSERT_TRUE(std::ranges::find(_allWords, word) != _allWords.end());
     }
-}
-
-TEST_F(WordTest, returnsRandomElementWhenAllElementsLessthanGivenLength)
-{
-    std::vector<std::string> words = {"one", "three", "five"};
-    std::optional<unsigned int> length = 6;
-
-    auto result = sortedSizeRandomElement(length, words);
-
-    ASSERT_TRUE(result == "one" || result == "three" || result == "five");
-}
-
-TEST_F(WordTest, returnsFirstElementWhenNoLengthMatch)
-{
-    std::vector<std::string> words = {"one", "three", "five"};
-    std::optional<unsigned int> length = 4;
-
-    auto result = sortedSizeRandomElement(length, words);
-
-    ASSERT_TRUE(result == "three");
 }
 
 class WordTestLocale : public TestWithParam<Locale>

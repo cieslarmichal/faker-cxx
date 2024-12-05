@@ -10,10 +10,46 @@
 
 namespace faker::word
 {
+namespace
+{
+template <std::ranges::range Range>
+auto sortedSizeRandomElement(std::optional<unsigned int> length, Range&& range) -> decltype(auto)
+{
+    size_t length_64 = *length;
+    auto start = range.begin();
+    auto end = range.end();
+
+    auto lower_it = ::std::lower_bound(start, end, length_64,
+                                       [](const auto& lhs, const auto& value) { return lhs.size() < value; });
+
+    if (lower_it == end)
+    {
+        return helper::randomElement(range);
+    }
+
+    if (lower_it->size() != length)
+    {
+        return *lower_it;
+    }
+
+    auto upper_it = lower_it;
+
+    for (; upper_it != end; upper_it++)
+    {
+        if (upper_it->size() != lower_it->size())
+        {
+            break;
+        }
+    }
+
+    return helper::randomElement(std::ranges::subrange(lower_it, upper_it));
+}
+}
 
 std::string_view sample(std::optional<unsigned int> length, Locale locale)
 {
     unsigned int aux_length{0};
+
     if (length)
     {
         aux_length = length.value();
@@ -22,6 +58,7 @@ std::string_view sample(std::optional<unsigned int> length, Locale locale)
     {
         aux_length = 100;
     }
+
     auto localeLocal = locale;
 
     if (idiomsMapSpan.find(locale) == idiomsMapSpan.end())
@@ -30,6 +67,7 @@ std::string_view sample(std::optional<unsigned int> length, Locale locale)
     }
 
     auto sorted = _allWords_map.at(localeLocal);
+
     return sortedSizeRandomElement(aux_length, sorted);
 }
 

@@ -30,10 +30,10 @@ std::string imageUrl(unsigned width, unsigned height)
 {
     if (faker::datatype::boolean(0.5))
     {
-        return urlLoremFlickr();
+        return urlLoremFlickr(width, height);
     }
-    else
-        return urlPicsumPhotos();
+
+    return urlPicsumPhotos(width, height);
 }
 
 std::string urlLoremFlickr(unsigned int width, unsigned int height, std::optional<ImageCategory> category)
@@ -55,15 +55,23 @@ std::string urlPicsumPhotos(unsigned width, unsigned height, const std::optional
     if (blur.has_value())
     {
         if (blur.value() < 1 || blur.value() > 10)
-            return common::format("{}", "Error: blur must be between 1 and 10.");
+        {
+            throw std::invalid_argument("Blur must be between 1 and 10");
+        }
+
         if (!params.empty())
+        {
             params += "&";
+        }
+
         params += common::format("blur={}", blur.value());
     }
+
     if (!params.empty())
     {
         url = common::format("{}?{}", url, params);
     }
+
     return common::format("{}", url);
 }
 

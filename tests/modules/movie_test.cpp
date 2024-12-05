@@ -16,8 +16,8 @@ const struct MovieDefinition& getMovie(Locale locale)
 {
     switch (locale)
     {
-        default:
-            return enUSmoviesDefinitions;
+    default:
+        return enUSmoviesDefinitions;
     }
 }
 }
@@ -101,4 +101,3 @@ TEST_P(MovieTest, shouldGenerateActressLocale)
 
 INSTANTIATE_TEST_SUITE_P(TestMovieByLocale, MovieTest, ValuesIn(locales),
                          [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
-

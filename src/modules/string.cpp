@@ -10,8 +10,8 @@
 #include "common/algo_helper.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
-#include "helpers/ulid/ulid.h"
 #include "string_data.h"
+#include "ulid.h"
 
 namespace faker::string
 {
@@ -48,8 +48,12 @@ std::string generateStringWithGuarantee(GuaranteeMap& guarantee, std::set<char>&
             generatedChar = helper::setElement(targetCharacters);
 
             auto it = guarantee.find(generatedChar);
+
             if (it == guarantee.end())
+            {
                 break;
+            }
+
             auto remainingUses = it->second.atMostCount - it->second.atLeastCount;
             if (remainingUses > 0)
             {
@@ -305,18 +309,20 @@ std::string numeric(GuaranteeMap&& guarantee, unsigned length, bool allowLeading
 
 std::string nanoId(int length)
 {
-
     if (length < 1)
+    {
         return "";
+    }
 
     std::random_device rd;
     std::mt19937 generator(rd());
-    std::uniform_int_distribution<int> distribution(0, nanoIdAllowedCharacters.size() - 1);
+    std::uniform_int_distribution<int> distribution(0, static_cast<int>(nanoIdAllowedCharacters.size() - 1));
 
     std::string id;
-    for (size_t i = 0; i < length; ++i)
+
+    for (auto i = 0; i < length; ++i)
     {
-        id += nanoIdAllowedCharacters[distribution(generator)];
+        id += nanoIdAllowedCharacters[static_cast<unsigned long>(distribution(generator))];
     }
 
     return id;
@@ -326,12 +332,13 @@ std::string nanoId()
 {
     std::random_device rd;
     std::mt19937 generator(rd());
-    std::uniform_int_distribution<int> distribution(0, nanoIdAllowedCharacters.size() - 1);
+    std::uniform_int_distribution<int> distribution(0, static_cast<int>(nanoIdAllowedCharacters.size() - 1));
 
     std::string id;
+
     for (size_t i = 0; i < 10; ++i)
     {
-        id += nanoIdAllowedCharacters[distribution(generator)];
+        id += nanoIdAllowedCharacters[static_cast<unsigned long>(distribution(generator))];
     }
 
     return id;
@@ -340,20 +347,24 @@ std::string nanoId()
 std::string nanoId(int minLength, int maxLength)
 {
     if (maxLength - minLength < 1)
+    {
         return "";
+    }
 
     std::random_device rd;
     std::mt19937 generator(rd());
 
     std::uniform_int_distribution<int> lengthDistribution(minLength, maxLength);
-    int length = lengthDistribution(generator);
 
-    std::uniform_int_distribution<int> charDistribution(0, nanoIdAllowedCharacters.size() - 1);
+    const auto length = lengthDistribution(generator);
+
+    std::uniform_int_distribution<int> charDistribution(0, static_cast<int>(nanoIdAllowedCharacters.size() - 1));
 
     std::string id;
-    for (size_t i = 0; i < length; ++i)
+
+    for (auto i = 0; i < length; ++i)
     {
-        id += nanoIdAllowedCharacters[charDistribution(generator)];
+        id += nanoIdAllowedCharacters[static_cast<unsigned long>(charDistribution(generator))];
     }
 
     return id;
@@ -361,41 +372,34 @@ std::string nanoId(int minLength, int maxLength)
 
 std::string ulid(time_t refDate)
 {
-    const auto uild = faker::helpers::ulid::Create(refDate, []() { return 4; });
-    std::string data = faker::helpers::ulid::Marshal(uild);
-    return std::string(data);
+    return Marshal(Create(refDate, []() { return 4; }));
 }
-
-#pragma region UUID_IMPLEMENTATIONS
 
 std::string uuidV1()
 {
     RandomGenerator<std::mt19937> gen = RandomGenerator<std::mt19937>{};
-    // Get current timestamp in 100-nanosecond intervals since UUID epoch (15 Oct 1582)
-    const uint64_t UUID_EPOCH_OFFSET =
-        0x01B21DD213814000ULL; // Number of 100-ns intervals between UUID epoch and Unix epoch
+
+    const uint64_t UUID_EPOCH_OFFSET = 0x01B21DD213814000ULL;
     auto now = std::chrono::system_clock::now();
     auto since_epoch = now.time_since_epoch();
 
-    uint64_t timestamp =
+    const auto timestamp =
         UUID_EPOCH_OFFSET +
         static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::microseconds>(since_epoch).count() * 10);
 
-    // Generate clock sequence (14 bits)
     std::uniform_int_distribution<uint16_t> clock_seq_dist(0, 0x3FFF);
-    uint16_t clock_seq = gen(clock_seq_dist);
+    const auto clock_seq = static_cast<uint16_t>(gen(clock_seq_dist));
 
-    // Generate node identifier (48 bits)
     std::uniform_int_distribution<uint64_t> node_dist(0, 0xFFFFFFFFFFFFULL);
-    uint64_t node = gen(node_dist) & 0xFFFFFFFFFFFFULL;
+    uint64_t node = static_cast<unsigned long long int>(gen(node_dist)) & 0xFFFFFFFFFFFFULL;
 
-    uint32_t time_low = static_cast<uint32_t>(timestamp & 0xFFFFFFFFULL);
-    uint16_t time_mid = static_cast<uint16_t>((timestamp >> 32) & 0xFFFFULL);
-    uint16_t time_hi_and_version = static_cast<uint16_t>((timestamp >> 48) & 0x0FFFULL);
-    time_hi_and_version |= (1 << 12); // Set the version number to 1
+    const auto time_low = static_cast<uint32_t>(timestamp & 0xFFFFFFFFULL);
+    const auto time_mid = static_cast<uint16_t>((timestamp >> 32) & 0xFFFFULL);
+    auto time_hi_and_version = static_cast<uint16_t>((timestamp >> 48) & 0x0FFFULL);
+    time_hi_and_version |= (1 << 12);
 
     uint8_t clock_seq_low = clock_seq & 0xFF;
-    uint8_t clock_seq_hi_and_reserved = ((clock_seq >> 8) & 0x3F) | 0x80; // Set the variant to '10'
+    uint8_t clock_seq_hi_and_reserved = ((clock_seq >> 8) & 0x3F) | 0x80;
 
     std::ostringstream ss;
     ss << std::hex << std::setfill('0');
@@ -412,26 +416,30 @@ std::string uuidV1()
 std::string uuidV3()
 {
     RandomGenerator<std::mt19937> gen = RandomGenerator<std::mt19937>{};
-    // FAking MD5 hash with random data from the generator is enough for this purpose
-    std::array<uint8_t, 16> hash;
+
+    std::array<uint8_t, 16> hash{};
     std::uniform_int_distribution<int> dist(0, 255);
 
     for (auto& byte : hash)
     {
-        byte = gen(dist);
+        byte = static_cast<unsigned char>(gen(dist));
     }
 
-    hash[6] = (hash[6] & 0x0F) | 0x30; // Set the version to 3
-    hash[8] = (hash[8] & 0x3F) | 0x80; // Set the variant to '10'
+    hash[6] = (hash[6] & 0x0F) | 0x30;
+    hash[8] = (hash[8] & 0x3F) | 0x80;
 
     std::ostringstream ss;
+
     ss << std::hex << std::setfill('0');
+
     for (size_t i = 0; i < hash.size(); ++i)
     {
         ss << std::setw(2) << static_cast<int>(hash[i]);
-        // Add hyphens at the appropriate positions
+
         if (i == 3 || i == 5 || i == 7 || i == 9)
+        {
             ss << '-';
+        }
     }
 
     return ss.str();
@@ -440,6 +448,7 @@ std::string uuidV3()
 std::string uuidV4()
 {
     RandomGenerator<std::mt19937> gen = RandomGenerator<std::mt19937>{};
+
     static std::uniform_int_distribution<> dist(0, 15);
     static std::uniform_int_distribution<> dist2(8, 11);
     static std::string_view hexCharacters{"0123456789abcdef"};
@@ -493,18 +502,19 @@ std::string uuid(Uuid uuid)
     case Uuid::V4:
         return uuidV4();
     case Uuid::V5:
+        // TODO: implement uuidV5
         return uuidV4();
     case Uuid::V6:
+        // TODO: implement uuidV6
         return uuidV4();
     case Uuid::V7:
+        // TODO: implement uuidV7
         return uuidV4();
     case Uuid::V8:
+        // TODO: implement uuidV8
         return uuidV4();
     default:
         return uuidV4();
     }
 }
-
-#pragma endregion
-
 }
