@@ -137,10 +137,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a58d7708484c4835c26787568751c4348" id="r_a58d7708484c4835c26787568751c4348"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a58d7708484c4835c26787568751c4348">verb</a> (std::optional&lt; unsigned &gt; length=std::nullopt, Locale locale=Locale::en_US)</td></tr>
 <tr class="memdesc:a58d7708484c4835c26787568751c4348"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a random verb.  <br /></td></tr>
 <tr class="separator:a58d7708484c4835c26787568751c4348"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae164b6efba4db33641cfb8eef950dd60" id="r_ae164b6efba4db33641cfb8eef950dd60"><td class="memTemplParams" colspan="2">template&lt;std::ranges::range Range&gt; </td></tr>
-<tr class="memitem:ae164b6efba4db33641cfb8eef950dd60"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#ae164b6efba4db33641cfb8eef950dd60">sortedSizeRandomElement</a> (std::optional&lt; unsigned int &gt; length, Range &amp;&amp;range) -&gt; decltype(auto)</td></tr>
-<tr class="memdesc:ae164b6efba4db33641cfb8eef950dd60"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns random element of length.  <br /></td></tr>
-<tr class="separator:ae164b6efba4db33641cfb8eef950dd60"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a78d620adef465ceac4342a89e8ebb2c9" name="a78d620adef465ceac4342a89e8ebb2c9"></a>
@@ -412,43 +408,6 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a51c7334e1136358467f793304ee60bc1">faker::word::sample</a>() <span class="comment">// &quot;protection&quot;</span></div>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::word::<a class="code hl_function" href="#a51c7334e1136358467f793304ee60bc1">sample</a>(5) <span class="comment">// &quot;spell&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1word_html_a51c7334e1136358467f793304ee60bc1"><div class="ttname"><a href="#a51c7334e1136358467f793304ee60bc1">faker::word::sample</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string_view sample(std::optional&lt; unsigned &gt; length=std::nullopt, Locale locale=Locale::en_US)</div><div class="ttdoc">Returns a random .</div></div>
-</div><!-- fragment --> 
-</div>
-</div>
-<a id="ae164b6efba4db33641cfb8eef950dd60" name="ae164b6efba4db33641cfb8eef950dd60"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae164b6efba4db33641cfb8eef950dd60">&#9670;&#160;</a></span>sortedSizeRandomElement()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;std::ranges::range Range&gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">auto faker::word::sortedSizeRandomElement </td>
-          <td>(</td>
-          <td class="paramtype">std::optional&lt; unsigned int &gt;</td>          <td class="paramname"><span class="paramname"><em>length</em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">Range &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range</em></span>&#160;) -&gt; decltype(auto)
-</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Returns random element of length. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">length</td><td>The length of the elements to be picked from </td></tr>
-    <tr><td class="paramname">locale</td><td>The locale. Defaults to `Locale::en_US`.</td></tr>
-  </table>
-  </dd>
-</dl>
-<p>@ range The range of elements</p>
-<dl class="section return"><dt>Returns</dt><dd>An element of the range value type</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#ae164b6efba4db33641cfb8eef950dd60">faker::word::sortedSizeRandomElement</a>(3, {<span class="stringliteral">&quot;hi, &quot;</span>hello<span class="stringliteral">&quot;, &quot;</span>hey<span class="stringliteral">&quot;}) // &quot;</span>hey<span class="stringliteral">&quot; - Since &quot;</span>hey<span class="stringliteral">&quot; is the only element of length 3</span></div>
-<div class="ttc" id="anamespacefaker_1_1word_html_ae164b6efba4db33641cfb8eef950dd60"><div class="ttname"><a href="#ae164b6efba4db33641cfb8eef950dd60">faker::word::sortedSizeRandomElement</a></div><div class="ttdeci">auto sortedSizeRandomElement(std::optional&lt; unsigned int &gt; length, Range &amp;&amp;range) -&gt; decltype(auto)</div><div class="ttdoc">Returns random element of length.</div><div class="ttdef"><b>Definition</b> word.h:191</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

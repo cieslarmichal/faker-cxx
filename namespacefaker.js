@@ -569,7 +569,6 @@ var namespacefaker =
       [ "noun", "namespacefaker_1_1word.html#ad1f00620ee37d41ff86a08b69abd67e0", null ],
       [ "preposition", "namespacefaker_1_1word.html#ab23ad101746469e418c6e8bc9160e905", null ],
       [ "sample", "namespacefaker_1_1word.html#a51c7334e1136358467f793304ee60bc1", null ],
-      [ "sortedSizeRandomElement", "namespacefaker_1_1word.html#ae164b6efba4db33641cfb8eef950dd60", null ],
       [ "verb", "namespacefaker_1_1word.html#a58d7708484c4835c26787568751c4348", null ],
       [ "words", "namespacefaker_1_1word.html#a1067a300a72dce4146f3c36fe7f78743", null ]
     ] ],
