@@ -5,6 +5,7 @@
 #include <chrono>
 #include <cstdint>
 #include <cstring>
+#include <ctime>
 #include <iomanip>
 #include <limits>
 #include <map>
@@ -14,15 +15,12 @@
 #include <sstream>
 #include <string>
 #include <string_view>
-#include <time.h>
 
 #include "faker-cxx/export.h"
-#include "helpers/ulid/ulid.h"
 #include "random_generator.h"
 
 namespace faker::string
 {
-
 enum class Uuid
 {
     V1, // Version 1: UUIDs using a timestamp and monotonic counter.
@@ -47,9 +45,6 @@ struct FAKER_CXX_EXPORT CharCount
     unsigned int atMostCount{(std::numeric_limits<unsigned>::max)()};
 };
 
-/**
- * Specify the count required for specific chars
- */
 using GuaranteeMap = std::map<char, CharCount>;
 
 /**
@@ -116,7 +111,7 @@ FAKER_CXX_EXPORT std::string uuid(Uuid uuid = Uuid::V4);
  * faker::string::ulid(1484581420) // "0001C7STHC0G2081040G208104"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string ulid(time_t refDate = std::time(nullptr)); // Based on https://github.com/suyash/ulid
+FAKER_CXX_EXPORT std::string ulid(time_t refDate = std::time(nullptr));
 
 /**
  * @brief Returns a string containing UTF-16 chars between 33 and 125 (`!` to `}`).

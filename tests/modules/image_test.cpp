@@ -19,9 +19,13 @@ public:
 
 TEST_F(ImageTest, shouldGenerateRandomImageUrl)
 {
-    const auto generatedImageUrl = imageUrl();
-
-    ASSERT_TRUE(generatedImageUrl == urlLoremFlickr() || generatedImageUrl == urlPicsumPhotos());
+    for (int i = 0; i < 10; ++i)
+    {
+        const auto generatedImageUrl = imageUrl();
+        
+        ASSERT_TRUE(generatedImageUrl.find("loremflickr") != std::string::npos ||
+                    generatedImageUrl.find("picsum") != std::string::npos);
+    }
 }
 
 TEST_F(ImageTest, shouldGenerateurlLoremFlickrDefault)
@@ -90,6 +94,26 @@ TEST_F(ImageTest, shouldGenerateImageUrlPicsumPhotosBlur)
     const auto generatedImageUrl = urlPicsumPhotos(width, height, greyscale, blur);
 
     ASSERT_EQ(generatedImageUrl, "https://picsum.photos/800/600?blur=5");
+}
+
+TEST_F(ImageTest, shouldThrowErrorWhenBlurIsLessThan1)
+{
+    const auto width = 800;
+    const auto height = 600;
+    const auto greyscale = false;
+    const auto blur = 0;
+
+    ASSERT_THROW(urlPicsumPhotos(width, height, greyscale, blur), std::invalid_argument);
+}
+
+TEST_F(ImageTest, shouldThrowErrorWhenBlurIsGreaterThan10)
+{
+    const auto width = 800;
+    const auto height = 600;
+    const auto greyscale = false;
+    const auto blur = 11;
+
+    ASSERT_THROW(urlPicsumPhotos(width, height, greyscale, blur), std::invalid_argument);
 }
 
 TEST_F(ImageTest, shouldGenerateImageUrlPicsumPhotosBlurandGreyscale)
