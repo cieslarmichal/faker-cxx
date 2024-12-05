@@ -66,7 +66,7 @@ std::string urlPicsumPhotos(unsigned width, unsigned height, const std::optional
 
         params += common::format("blur={}", blur.value());
     }
-    
+
     if (!params.empty())
     {
         url = common::format("{}?{}", url, params);

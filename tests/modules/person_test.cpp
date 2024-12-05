@@ -697,7 +697,6 @@ bool checkTokenFormat(const std::string& bio)
             return true;
     }
 
-
     if (std::regex_match(bio, matches, seventhRegex))
     {
         // In this case the bio is in the format {noun} {bio_supporter}, {bio_part} so check that the value is

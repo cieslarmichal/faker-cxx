@@ -22,7 +22,7 @@ TEST_F(ImageTest, shouldGenerateRandomImageUrl)
     for (int i = 0; i < 10; ++i)
     {
         const auto generatedImageUrl = imageUrl();
-        
+
         ASSERT_TRUE(generatedImageUrl.find("loremflickr") != std::string::npos ||
                     generatedImageUrl.find("picsum") != std::string::npos);
     }

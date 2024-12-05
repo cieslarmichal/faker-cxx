@@ -45,7 +45,8 @@ TEST_P(ScienceTest, shouldGenerateChemElement)
 
     const auto generatedChemElement = chemicalElement(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(scienceDefinition.chemicalElements, [generatedChemElement](const ChemicalElement& chemElement)
+    ASSERT_TRUE(std::ranges::any_of(scienceDefinition.chemicalElements,
+                                    [generatedChemElement](const ChemicalElement& chemElement)
                                     { return chemicalElementsAreEqual(generatedChemElement, chemElement); }));
 }
 

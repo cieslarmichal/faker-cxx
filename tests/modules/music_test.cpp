@@ -12,16 +12,15 @@ using namespace faker::music;
 
 namespace
 {
-    const struct MusicDefinition& getMusicDefinition(Locale locale)
+const struct MusicDefinition& getMusicDefinition(Locale locale)
+{
+    switch (locale)
     {
-        switch(locale)
-        {
-            default:
-                return enUSMusicDefinition;
-        }
+    default:
+        return enUSMusicDefinition;
     }
 }
-
+}
 
 class MusicTest : public TestWithParam<Locale>
 {
@@ -59,4 +58,4 @@ TEST_P(MusicTest, shouldGenerateSongName)
 }
 
 INSTANTIATE_TEST_SUITE_P(TestMusicByLocale, MusicTest, ValuesIn(locales),
-                        [](const TestParamInfo<Locale>& paramInfo){return toString(paramInfo.param);});
+                         [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });

@@ -1,13 +1,13 @@
 #include <algorithm>
 #include <array>
 #include <cctype>
+#include <chrono>
 #include <initializer_list>
 #include <optional>
 #include <regex>
 #include <string>
 #include <string_view>
 #include <vector>
-#include <chrono>
 
 #include "gtest/gtest.h"
 
@@ -61,8 +61,8 @@ const struct InternetDefinition& getInternetDefinition(Locale locale)
 {
     switch (locale)
     {
-        default:
-            return enUSInternetDefinition;
+    default:
+        return enUSInternetDefinition;
     }
 }
 }
@@ -202,7 +202,8 @@ TEST_P(InternetTest, shouldGenerateEmail)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailHosts,
+                                    [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(
         std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
@@ -229,7 +230,8 @@ TEST_P(InternetTest, shouldGenerateEmailWithFirstName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailHosts,
+                                    [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(common::toLower(firstName)) != std::string::npos);
     ASSERT_TRUE(
@@ -258,7 +260,8 @@ TEST_P(InternetTest, shouldGenerateEmailWithLastName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailHosts,
+                                    [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(
         std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
@@ -285,7 +288,8 @@ TEST_P(InternetTest, shouldGenerateEmailWithFullName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailHosts,
+                                    [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(common::toLower(firstName)) != std::string::npos);
     ASSERT_TRUE(generatedUsername.find(common::toLower(lastName)) != std::string::npos);
@@ -336,7 +340,8 @@ TEST_P(InternetTest, shouldGenerateExampleEmail)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailExampleHosts,
+                                    [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(
         std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
@@ -364,7 +369,8 @@ TEST_P(InternetTest, shouldGenerateExampleEmailWithFirstName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailExampleHosts,
+                                    [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(common::toLower(firstName)) != std::string::npos);
     ASSERT_TRUE(
@@ -393,7 +399,8 @@ TEST_P(InternetTest, shouldGenerateExampleEmailWithLastName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailExampleHosts,
+                                    [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(
         std::ranges::any_of(firstNames, [generatedUsername](const std::string_view& firstName)
@@ -420,7 +427,8 @@ TEST_P(InternetTest, shouldGenerateExampleEmailWithFullName)
     const auto& generatedUsername = emailParts[0];
     const auto& generatedEmailHost = emailParts[1];
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailExampleHosts, [generatedEmailHost](const std::string_view& emailHost)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.emailExampleHosts,
+                                    [generatedEmailHost](const std::string_view& emailHost)
                                     { return generatedEmailHost == emailHost; }));
     ASSERT_TRUE(generatedUsername.find(common::toLower(firstName)) != std::string::npos);
     ASSERT_TRUE(generatedUsername.find(common::toLower(lastName)) != std::string::npos);
@@ -596,7 +604,8 @@ TEST_P(InternetTest, shouldGenerateHttpRequestHeader)
 
     const auto generatedHttpRequestHeader = httpRequestHeader(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.httpRequestHeaders, [generatedHttpRequestHeader](const std::string_view& httpHeader)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.httpRequestHeaders,
+                                    [generatedHttpRequestHeader](const std::string_view& httpHeader)
                                     { return generatedHttpRequestHeader == httpHeader; }));
 }
 
@@ -618,7 +627,8 @@ TEST_P(InternetTest, shouldGenerateHttpMediaType)
 
     const auto generatedHttpMediaType = httpMediaType(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.httpMediaTypes, [generatedHttpMediaType](const std::string_view& httpMediaType)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.httpMediaTypes,
+                                    [generatedHttpMediaType](const std::string_view& httpMediaType)
                                     { return generatedHttpMediaType == httpMediaType; }));
 }
 
@@ -759,12 +769,13 @@ TEST_F(InternetTest, MacDefaultSeparatorOverwrite)
 TEST_P(InternetTest, shouldGenerateDomainSuffix)
 {
     const auto locale = GetParam();
-    
+
     const auto& internetDefinition = getInternetDefinition(locale);
 
     const auto generatedDomainSuffix = domainSuffix(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.domainSuffixes,
+                                    [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
 }
 
@@ -788,7 +799,8 @@ TEST_P(InternetTest, shouldGenerateDomainName)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.domainSuffixes,
+                                    [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
 }
 
@@ -812,7 +824,8 @@ TEST_P(InternetTest, shouldGenerateHttpsUrl)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.domainSuffixes,
+                                    [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
     ASSERT_EQ(generatedProtocol, "https");
 }
@@ -836,7 +849,8 @@ TEST_P(InternetTest, shouldGenerateHttpUrl)
     const auto& generatedDomainSuffix = generatedDomainNameParts[1];
 
     assertDomainWord(generatedDomainWord);
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.domainSuffixes, [generatedDomainSuffix](const std::string_view& domainSuffix)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.domainSuffixes,
+                                    [generatedDomainSuffix](const std::string_view& domainSuffix)
                                     { return generatedDomainSuffix == domainSuffix; }));
     ASSERT_EQ(generatedProtocol, "http");
 }
@@ -896,7 +910,8 @@ TEST_P(InternetTest, shouldGenerateJWTAlgorithm)
 
     const auto generatedJWTAlgorythm = getJWTAlgorithm(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(internetDefinition.jwtAlgorithms, [generatedJWTAlgorythm](const std::string_view& JWTAlgorythm)
+    ASSERT_TRUE(std::ranges::any_of(internetDefinition.jwtAlgorithms,
+                                    [generatedJWTAlgorythm](const std::string_view& JWTAlgorythm)
                                     { return generatedJWTAlgorythm == JWTAlgorythm; }));
 }
 

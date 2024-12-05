@@ -59,7 +59,6 @@ TEST_F(StringTest, shouldGenerateUuid4)
     ASSERT_EQ(generatedUuid[23], '-');
 }
 
-
 TEST_F(StringTest, shouldGenerateUuid4Default)
 {
     const auto generatedUuid = uuid();
