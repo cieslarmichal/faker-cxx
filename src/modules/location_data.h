@@ -8471,6 +8471,137 @@ const CountryAddressesInfo mexicoAddresses{
     {},
     (mexicoStates),
 };
+
+// North Macedonia
+const auto macedoniaCities = std::to_array<std::string_view>({
+   "Berovo",
+   "Delčevo",
+   "Kočani",
+   "Makedonska Kamenica",
+   "Pehčevo",
+   "Probištip",
+   "Štip",
+   "Vinica",
+   "Kratovo",
+   "Kriva Palanka",
+   "Kumanovo",
+   "Bitola",
+   "Demir Hisar",
+   "Kruševo",
+   "Prilep",
+   "Resen",
+   "Gotovo",
+   "Tetovo",
+   "Skopje",
+   "Bogdanci",
+   "Gevgelija",
+   "Radoviš",
+   "Strumica",
+   "Valandovo",
+   "Debar",
+   "Kičevo",
+   "Makedonski Brod",
+   "Ohrid",
+   "Struga",
+   "Demir Kapija",
+   "Kavadarci",
+   "Negotino",
+   "Sveti Nikole",
+   "Veles",
+   "Dobrošte",
+   "Belojšte",
+   "Miletino",
+   "Raotince",
+   "Dračevo",
+   "Gostivar",
+   "Časka",
+   "Gazi Baba"
+});
+
+
+const auto macedoniaStates = std::to_array<std::string_view>({
+   "Skopje",
+   "Pelagonia",
+   "Polog",
+   "Vardar",
+   "Eastern",
+   "Southeastern",
+   "Northeastern",
+   "Southwestern"
+});
+
+
+const auto macedoniaStreetNames = std::to_array<std::string_view>({
+   "Kozle",
+   "Partizanski Odredi",
+   "Ilindenska",
+   "Makedonija",
+   "Goce Delčev",
+   "Marshal Tito",
+   "Sv. Kiril i Metodij",
+   "Boris Trajkovski",
+   "Koco Racin",
+   "Vladimir Komarov",
+   "Nikola Karev",
+   "Kliment Ohridski",
+   "Skupi",
+   "Mokra"
+});
+
+
+const auto macedoniaStreetPrefixes = std::to_array<std::string_view>({
+   "ulica",
+   "bulevar"
+});
+
+
+const std::string_view macedoniaZipCodeFormat{"#####"};
+
+
+const auto macedoniaAddressFormats = std::to_array<std::string_view>({
+   "{streetPrefix} {street} {buildingNumber} {secondaryAddress}",
+   "{street} {buildingNumber})"
+});
+
+
+const auto macedoniaSecondaryAddressFormats = std::to_array<std::string_view>({
+   "Stan. #"
+});
+
+
+const auto macedoniaBuildingNumberFormats = std::to_array<std::string_view>({
+   "#",
+   "##",
+   "###"
+});
+
+
+const auto macedoniaStreetFormats = std::to_array<std::string_view>({
+   "{streetPrefix} {streetName}"
+});
+
+
+const auto macedoniaCityFormats = std::to_array<std::string_view>({
+  "{cityName}"
+});
+
+
+const CountryAddressesInfo macedoniaAddresses{
+   {macedoniaZipCodeFormat},
+   (macedoniaAddressFormats),
+   (macedoniaSecondaryAddressFormats),
+   (macedoniaStreetFormats),
+   {},
+   {macedoniaStreetNames},
+   (macedoniaStreetPrefixes),
+   (macedoniaBuildingNumberFormats),
+   (macedoniaCityFormats),
+   {},
+   (macedoniaCities),
+   {},
+   (macedoniaStates)
+};
+
 // palestine
 const auto palestineCities = std::to_array<std::string_view>(
 
