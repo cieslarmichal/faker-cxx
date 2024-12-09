@@ -82,6 +82,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return israelAddresses;
     case Locale::es_MX:
         return mexicoAddresses;
+    case Locale::mk_MK:
+        return macedoniaAddresses;
     case Locale::ar_PS:
         return palestineAddresses;
     default:
@@ -1201,6 +1203,24 @@ TEST_F(LocationTest, shouldGenerateMexicoStreetAddress)
     ASSERT_TRUE(std::ranges::any_of(mexicoStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
+
+TEST_F(LocationTest, shouldGenerateMacedoniaStreet)
+{
+    const auto generatedStreet = street(Locale::mk_MK);
+
+    ASSERT_TRUE(std::ranges::any_of(macedoniaStreetNames, [&generatedStreet](const std::string_view& street)
+                                    { return generatedStreet.find(street) != std::string::npos; }));
+}
+
+
+TEST_F(LocationTest, shouldGenerateMacedoniaStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::mk_MK);
+
+    ASSERT_TRUE(std::ranges::any_of(macedoniaStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
 
 TEST_F(LocationTest, shouldGeneratepalestineStreet)
 {
