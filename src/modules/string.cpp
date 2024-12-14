@@ -1,6 +1,7 @@
 #include "faker-cxx/string.h"
 
 #include <cassert>
+#include <iostream>
 #include <map>
 #include <random>
 #include <set>
@@ -8,6 +9,7 @@
 #include <string>
 
 #include "common/algo_helper.h"
+#include "faker-cxx/crypto.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
 #include "string_data.h"
@@ -431,7 +433,6 @@ std::string uuidV3()
     std::ostringstream ss;
 
     ss << std::hex << std::setfill('0');
-
     for (size_t i = 0; i < hash.size(); ++i)
     {
         ss << std::setw(2) << static_cast<int>(hash[i]);
@@ -441,7 +442,6 @@ std::string uuidV3()
             ss << '-';
         }
     }
-
     return ss.str();
 }
 
@@ -487,11 +487,70 @@ std::string uuidV4()
     {
         result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
     }
-
     return result;
 }
 
-std::string uuid(Uuid uuid)
+std::string uuidV5(std::string name, std::string namespaceUuid)
+{
+    std::vector<uint8_t> namespaceBytes;
+    for (size_t i = 0; i < namespaceUuid.size(); i += 2)
+    {
+        if (namespaceUuid[i] == '-')
+        { // Skip dashes
+            i--;
+            continue;
+        }
+        namespaceBytes.push_back(static_cast<uint8_t>(std::stoul(namespaceUuid.substr(i, 2), nullptr, 16)));
+    }
+    std::string combined(reinterpret_cast<const char*>(namespaceBytes.data()), namespaceBytes.size());
+    combined += name;
+
+    std::string sha1Hex = faker::crypto::sha1(combined);
+    std::array<uint8_t, 20> sha1_bytes;
+
+    for (int i = 0; i < 20; ++i)
+    {
+        std::string byte_str = sha1Hex.substr(i * 2, 2);
+
+        try
+        {
+            sha1_bytes[i] = std::stoi(byte_str, nullptr, 16);
+        }
+        catch (const std::out_of_range& e)
+        {
+            throw std::invalid_argument("Error converting hex string to byte: " + byte_str);
+        }
+    }
+
+    std::array<uint8_t, 16> uuid;
+
+    std::copy(sha1_bytes.begin(), sha1_bytes.begin() + 10, uuid.begin());
+
+    uuid[6] &= 0x0F;
+    uuid[6] |= 0x50;
+
+    uuid[8] &= 0x3F;
+    uuid[8] |= 0x80;
+
+    std::copy(sha1_bytes.begin() + 10, sha1_bytes.end(), uuid.begin() + 10);
+
+    std::ostringstream uuidV5;
+    uuidV5 << std::hex << std::setfill('0');
+
+    for (size_t i = 0; i < uuid.size(); ++i)
+    {
+        uuidV5 << std::setw(2) << static_cast<int>(uuid[i]);
+
+        if (i == 3 || i == 5 || i == 7 || i == 9)
+        {
+            uuidV5 << '-';
+        }
+    }
+
+    return uuidV5.str();
+}
+
+std::string uuid(Uuid uuid, std::string name, std::string namespaceUuid)
 {
     switch (uuid)
     {
@@ -502,8 +561,12 @@ std::string uuid(Uuid uuid)
     case Uuid::V4:
         return uuidV4();
     case Uuid::V5:
-        // TODO: implement uuidV5
-        return uuidV4();
+        if (name.empty())
+        {
+            throw std::invalid_argument("Name is required for UUIDv5.");
+        }
+
+        return uuidV5(name, namespaceUuid);
     case Uuid::V6:
         // TODO: implement uuidV6
         return uuidV4();

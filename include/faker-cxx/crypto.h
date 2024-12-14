@@ -30,4 +30,16 @@ FAKER_CXX_EXPORT std::string sha256(std::optional<std::string> = std::nullopt);
  * @endcode
  */
 FAKER_CXX_EXPORT std::string md5(std::optional<std::string> = std::nullopt);
+
+/**
+ * @brief Returns a SHA1 hash of provided data.
+ *
+ * @returns SHA1 hash string.
+ *
+ * @code
+ * faker::crypto::sha1("hello world") // "2aae6c35c94fcfb415dbe95f408b9ce91ee846ed"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string sha1(std::optional<std::string> = std::nullopt);
+
 }

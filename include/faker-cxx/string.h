@@ -92,12 +92,15 @@ FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap& guarantee
  * faker::string::uuid(Uuid::V3) // "a3bb189e-8bf9-3888-9912-ace4e6543002"
  * faker::string::uuid(Uuid::V4) // "27666229-cedb-4a45-8018-98b1e1d921e2"
  * faker::string::uuid(Uuid::V5) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuid(Uuid::V5,"Spiderman","522b1d28-0d88-44ed-9a93-56540d57950c") // "a03b6916-3844-543d-85ad-f5a7c467e54b"
+ * faker::string::uuid(Uuid::V5,"Spiderman") // "4a4e00d6-f666-55fc-8d19-476f872a77b4"
  * faker::string::uuid(Uuid::V6) // "27666229-cedb-4a45-8018-98b1e1d921e2"
  * faker::string::uuid(Uuid::V7) // "27666229-cedb-4a45-8018-98b1e1d921e2"
  * faker::string::uuid(Uuid::V8) // "27666229-cedb-4a45-8018-98b1e1d921e2"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string uuid(Uuid uuid = Uuid::V4);
+FAKER_CXX_EXPORT std::string uuid(Uuid uuid = Uuid::V4, std::string name = "",
+                                  std::string namespaceUuid = "bfd98c8e-48c0-46af-bf44-255d24883f8f");
 
 /**
  * @brief Generates an Universally Unique Lexicographically Sortable Identifier.

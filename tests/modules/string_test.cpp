@@ -70,6 +70,27 @@ TEST_F(StringTest, shouldGenerateUuid4Default)
     ASSERT_EQ(generatedUuid[23], '-');
 }
 
+TEST_F(StringTest, shouldGenerateUuid5DefaultNamespace)
+{
+    const auto generatedUuid = uuid(Uuid::V5,"Spiderman");
+    ASSERT_EQ(generatedUuid[8], '-');
+    ASSERT_EQ(generatedUuid[13], '-');
+    ASSERT_EQ(generatedUuid[14], '5');
+    ASSERT_EQ(generatedUuid[18], '-');
+    ASSERT_EQ(generatedUuid[23], '-');
+}
+
+TEST_F(StringTest, shouldGenerateUuid5)
+{
+    const auto generatedUuid = uuid(Uuid::V5,"Spiderman","0564457c-8745-40b0-b446-a3afe98f6582");
+    ASSERT_EQ(generatedUuid[8], '-');
+    ASSERT_EQ(generatedUuid[13], '-');
+    ASSERT_EQ(generatedUuid[14], '5');
+    ASSERT_EQ(generatedUuid[18], '-');
+    ASSERT_EQ(generatedUuid[23], '-');
+}
+
+
 TEST_F(StringTest, shouldGenerateUlidNoArguments)
 {
     const auto generatedUlidNoArg = ulid();

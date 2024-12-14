@@ -24,6 +24,13 @@ public:
 
         return std::regex_match(input, regexExp);
     }
+    
+    static bool isSHA1Hash(const std::string& input)
+    {
+        const std::regex regexExp("^[0-9a-f]{40}$");
+
+        return std::regex_match(input, regexExp);
+    }
 };
 
 TEST_F(CryptoTest, ShouldGenerateSHA256Hash)
@@ -38,6 +45,13 @@ TEST_F(CryptoTest, ChecksSHA256Hash)
     const auto generatedRandomHash = sha256();
 
     ASSERT_TRUE(isSHA256Hash(generatedRandomHash));
+}
+
+TEST_F(CryptoTest, ChecksSHA1Hash)
+{
+    const auto generatedRandomHash = sha1("sample");
+    std::cout<<generatedRandomHash<<"\n";
+    ASSERT_TRUE(isSHA1Hash(generatedRandomHash));
 }
 
 TEST_F(CryptoTest, ShouldGenerateSHA256HashWithData)
