@@ -6,6 +6,7 @@
 #include <set>
 #include <stdexcept>
 #include <string>
+
 #include "common/algo_helper.h"
 #include "faker-cxx/crypto.h"
 #include "faker-cxx/helper.h"
