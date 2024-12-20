@@ -22,7 +22,7 @@ public:
 
 TEST_F(StringTest, shouldGenerateUuid1)
 {
-    const auto generatedUuid = uuid(Uuid::V1);
+    const auto generatedUuid = uuidV1();
 
     // Ensure the UUID has the correct format
     ASSERT_EQ(generatedUuid.size(), 36);
@@ -36,7 +36,7 @@ TEST_F(StringTest, shouldGenerateUuid1)
 
 TEST_F(StringTest, shouldGenerateUuid3)
 {
-    const auto generatedUuid = uuid(Uuid::V3);
+    const auto generatedUuid = uuidV3();
 
     ASSERT_EQ(generatedUuid.size(), 36);
     ASSERT_EQ(generatedUuid[8], '-');
@@ -50,18 +50,7 @@ TEST_F(StringTest, shouldGenerateUuid3)
 
 TEST_F(StringTest, shouldGenerateUuid4)
 {
-    const auto generatedUuid = uuid(Uuid::V4);
-
-    ASSERT_EQ(generatedUuid[8], '-');
-    ASSERT_EQ(generatedUuid[13], '-');
-    ASSERT_EQ(generatedUuid[14], '4');
-    ASSERT_EQ(generatedUuid[18], '-');
-    ASSERT_EQ(generatedUuid[23], '-');
-}
-
-TEST_F(StringTest, shouldGenerateUuid4Default)
-{
-    const auto generatedUuid = uuid();
+    const auto generatedUuid = uuidV4();
 
     ASSERT_EQ(generatedUuid[8], '-');
     ASSERT_EQ(generatedUuid[13], '-');
@@ -72,7 +61,7 @@ TEST_F(StringTest, shouldGenerateUuid4Default)
 
 TEST_F(StringTest, shouldGenerateUuid5DefaultNamespace)
 {
-    const auto generatedUuid = uuid(Uuid::V5,"Spiderman");
+    const auto generatedUuid = uuidV5("Spiderman");
     ASSERT_EQ(generatedUuid[8], '-');
     ASSERT_EQ(generatedUuid[13], '-');
     ASSERT_EQ(generatedUuid[14], '5');
@@ -82,14 +71,13 @@ TEST_F(StringTest, shouldGenerateUuid5DefaultNamespace)
 
 TEST_F(StringTest, shouldGenerateUuid5)
 {
-    const auto generatedUuid = uuid(Uuid::V5,"Spiderman","0564457c-8745-40b0-b446-a3afe98f6582");
+    const auto generatedUuid = uuidV5("Spiderman", "0564457c-8745-40b0-b446-a3afe98f6582");
     ASSERT_EQ(generatedUuid[8], '-');
     ASSERT_EQ(generatedUuid[13], '-');
     ASSERT_EQ(generatedUuid[14], '5');
     ASSERT_EQ(generatedUuid[18], '-');
     ASSERT_EQ(generatedUuid[23], '-');
 }
-
 
 TEST_F(StringTest, shouldGenerateUlidNoArguments)
 {

@@ -1,13 +1,11 @@
 #include "faker-cxx/string.h"
 
 #include <cassert>
-#include <iostream>
 #include <map>
 #include <random>
 #include <set>
 #include <stdexcept>
 #include <string>
-
 #include "common/algo_helper.h"
 #include "faker-cxx/crypto.h"
 #include "faker-cxx/helper.h"
@@ -550,34 +548,4 @@ std::string uuidV5(std::string name, std::string namespaceUuid)
     return uuidV5.str();
 }
 
-std::string uuid(Uuid uuid, std::string name, std::string namespaceUuid)
-{
-    switch (uuid)
-    {
-    case Uuid::V1:
-        return uuidV1();
-    case Uuid::V3:
-        return uuidV3();
-    case Uuid::V4:
-        return uuidV4();
-    case Uuid::V5:
-        if (name.empty())
-        {
-            throw std::invalid_argument("Name is required for UUIDv5.");
-        }
-
-        return uuidV5(name, namespaceUuid);
-    case Uuid::V6:
-        // TODO: implement uuidV6
-        return uuidV4();
-    case Uuid::V7:
-        // TODO: implement uuidV7
-        return uuidV4();
-    case Uuid::V8:
-        // TODO: implement uuidV8
-        return uuidV4();
-    default:
-        return uuidV4();
-    }
-}
 }
