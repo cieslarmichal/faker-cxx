@@ -3,7 +3,9 @@
 #include <array>
 #include <cstdint>
 #include <cstring>
+#include <iomanip>
 #include <optional>
+#include <sstream>
 #include <string>
 
 #include "faker-cxx/word.h"
@@ -99,6 +101,139 @@ private:
                                        4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23, 4, 11, 16, 23,
                                        6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21, 6, 10, 15, 21};
 };
+
+class SHA1
+{
+public:
+    SHA1()
+    {
+        reset();
+    }
+
+    // Process input string in chunks
+    void update(const std::string& data)
+    {
+        for (size_t i = 0; i < data.size(); ++i)
+        {
+            processByte(static_cast<unsigned char>(data[i]));
+        }
+    }
+
+    // Finalize and retrieve the resulting hash
+    std::array<unsigned char, 20> digest()
+    {
+        pad();
+        std::array<unsigned char, 20> result;
+        for (size_t i = 0; i < 5; ++i)
+        {
+            result[i * 4] = static_cast<unsigned char>((state[i] >> 24) & 0xFF);
+            result[i * 4 + 1] = static_cast<unsigned char>((state[i] >> 16) & 0xFF);
+            result[i * 4 + 2] = static_cast<unsigned char>((state[i] >> 8) & 0xFF);
+            result[i * 4 + 3] = static_cast<unsigned char>(state[i] & 0xFF);
+        }
+        return result;
+    }
+
+    // Convert the digest into a hexadecimal string representation
+    static std::string toString(const std::array<unsigned char, 20>& hash)
+    {
+        std::ostringstream ss;
+        ss << std::hex << std::setfill('0');
+        for (auto byte : hash)
+        {
+            ss << std::setw(2) << static_cast<int>(byte);
+        }
+        return ss.str();
+    }
+
+private:
+    void reset()
+    {
+        state = {0x67452301, 0xEFCDAB89, 0x98BADCFE, 0x10325476, 0xC3D2E1F0};
+        length = 0;
+        buffer.clear();
+    }
+
+    void processByte(unsigned char byte)
+    {
+        buffer.push_back(byte);
+        if (buffer.size() == 64)
+        {
+            processBlock();
+            buffer.clear();
+        }
+        length += 8;
+    }
+
+    void processBlock()
+    {
+        std::array<uint32_t, 80> w = {0};
+        for (size_t i = 0; i < 16; ++i)
+        {
+            w[i] = (static_cast<uint32_t>(buffer[i * 4]) << 24) | (static_cast<uint32_t>(buffer[i * 4 + 1]) << 16) |
+                   (static_cast<uint32_t>(buffer[i * 4 + 2]) << 8) | (static_cast<uint32_t>(buffer[i * 4 + 3]));
+        }
+
+        for (size_t i = 16; i < 80; ++i)
+        {
+            w[i] = rotateLeft(w[i - 3] ^ w[i - 8] ^ w[i - 14] ^ w[i - 16], 1);
+        }
+
+        uint32_t a = state[0];
+        uint32_t b = state[1];
+        uint32_t c = state[2];
+        uint32_t d = state[3];
+        uint32_t e = state[4];
+
+        for (size_t i = 0; i < 80; ++i)
+        {
+            uint32_t temp = rotateLeft(a, 5) + e + w[i] +
+                            (i < 20 ? ((b & c) | (~b & d)) + 0x5A827999 :
+                             i < 40 ? (b ^ c ^ d) + 0x6ED9EBA1 :
+                             i < 60 ? ((b & c) | (b & d) | (c & d)) + 0x8F1BBCDC :
+                                      (b ^ c ^ d) + 0xCA62C1D6);
+
+            e = d;
+            d = c;
+            c = rotateLeft(b, 30);
+            b = a;
+            a = temp;
+        }
+
+        state[0] += a;
+        state[1] += b;
+        state[2] += c;
+        state[3] += d;
+        state[4] += e;
+    }
+
+    void pad()
+    {
+        buffer.push_back(0x80);
+        while (buffer.size() < 56)
+        {
+            buffer.push_back(0);
+        }
+
+        uint64_t len = length;
+        for (int i = 0; i < 8; ++i)
+        {
+            buffer.push_back(static_cast<unsigned char>((len >> (56 - i * 8)) & 0xFF));
+        }
+
+        processBlock();
+    }
+
+    uint32_t rotateLeft(uint32_t value, size_t bits)
+    {
+        return (value << bits) | (value >> (32 - bits));
+    }
+
+private:
+    std::array<uint32_t, 5> state;
+    uint64_t length;
+    std::vector<unsigned char> buffer;
+};
 }
 
 std::string sha256(std::optional<std::string> data)
@@ -119,6 +254,26 @@ std::string sha256(std::optional<std::string> data)
     result = SHA256::toString(digest);
 
     return result;
+}
+
+// SHA-1 hashing function wrapper
+std::string sha1(std::optional<std::string> data)
+{
+    std::string orgData;
+    if (!data.has_value() || data->empty())
+    {
+        orgData = word::sample(); // Fallback to default sample data
+    }
+    else
+    {
+        orgData = data.value(); // Use provided data
+    }
+
+    SHA1 sha;
+    sha.update(orgData);                                 // Update the SHA-1 instance with the data
+    std::array<unsigned char, 20> result = sha.digest(); // Get the final SHA-1 hash
+
+    return SHA1::toString(result); // Convert the hash to a hex string
 }
 
 std::string md5(std::optional<std::string> data)

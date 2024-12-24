@@ -24,6 +24,15 @@ public:
 
         return std::regex_match(input, regexExp);
     }
+    static bool isSHA1Hash(const std::string& input)
+    {
+    if (input.length() != 40) {
+        return false;
+    }
+    return std::all_of(input.begin(), input.end(), [](char c) {
+        return (c >= '0' && c <= '9') || (c >= 'a' && c <= 'f');
+    });
+    }
 };
 
 TEST_F(CryptoTest, ShouldGenerateSHA256Hash)
@@ -81,6 +90,31 @@ TEST_F(CryptoTest, ChecksSHA256HashWithDataCodecov)
 
     ASSERT_TRUE(isSHA256Hash(generatedRandomHash));
 }
+
+TEST_F(CryptoTest, ChecksSHA1Hash)
+{
+    const auto generatedRandomHash = sha1();
+    ASSERT_TRUE(isSHA1Hash(generatedRandomHash));
+}
+
+TEST_F(CryptoTest, ChecksSHA1HashWithData)
+{
+    const auto generatedRandomHash = sha1("SHA1 TEST");
+    ASSERT_TRUE(isSHA1Hash(generatedRandomHash));
+}
+
+TEST_F(CryptoTest, ChecksSHA1HashWithLongData)
+{
+    const auto generatedRandomHash = sha1("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde978");
+    ASSERT_TRUE(isSHA1Hash(generatedRandomHash));
+}
+
+TEST_F(CryptoTest, ChecksSHA1HashWithDataCodecov)
+{
+    const auto generatedRandomHash = sha1("b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde");
+    ASSERT_TRUE(isSHA1Hash(generatedRandomHash));
+}
+
 
 TEST_F(CryptoTest, ShouldGenerateMD5Hash)
 {

@@ -97,7 +97,8 @@ FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap& guarantee
  * faker::string::uuid(Uuid::V8) // "27666229-cedb-4a45-8018-98b1e1d921e2"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string uuid(Uuid uuid = Uuid::V4);
+FAKER_CXX_EXPORT std::string uuid(Uuid uuid = Uuid::V4, const std::string& namespace_uuid = "",
+                                  const std::string& name = "");
 
 /**
  * @brief Generates an Universally Unique Lexicographically Sortable Identifier.
