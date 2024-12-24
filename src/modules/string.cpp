@@ -1,6 +1,8 @@
 #include "faker-cxx/string.h"
 
 #include <cassert>
+#include <chrono>
+#include <iomanip>
 #include <map>
 #include <random>
 #include <set>
@@ -8,6 +10,7 @@
 #include <string>
 
 #include "common/algo_helper.h"
+#include "faker-cxx/crypto.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
 #include "string_data.h"
@@ -491,7 +494,97 @@ std::string uuidV4()
     return result;
 }
 
-std::string uuid(Uuid uuid)
+std::string uuidV5(const std::string& namespace_uuid, const std::string& name)
+{
+    if (namespace_uuid.length() != 36)
+    {
+        throw std::invalid_argument("Invalid namespace UUID");
+    }
+
+    // Decode the namespace UUID into binary form
+    std::array<unsigned char, 16> namespace_bytes;
+    int idx = 0;
+    for (size_t i = 0; i < namespace_uuid.length(); i += 2)
+    {
+        if (namespace_uuid[i] == '-')
+        {
+            i--;
+            continue;
+        }
+        std::string byte_string = namespace_uuid.substr(i, 2);
+        namespace_bytes[idx++] = static_cast<unsigned char>(std::stoi(byte_string, nullptr, 16));
+    }
+
+    // Append the name to the namespace
+    std::string data(reinterpret_cast<const char*>(namespace_bytes.data()), namespace_bytes.size());
+    data.append(name);
+
+    // Compute SHA-1 hash of the data
+    std::string hash_str = crypto::sha1(data);
+
+    // Convert hash string to bytes
+    std::array<unsigned char, 20> hash;
+    for (size_t i = 0; i < 20; ++i)
+    {
+        hash[i] = static_cast<unsigned char>(std::stoi(hash_str.substr(i * 2, 2), nullptr, 16));
+    }
+
+    // Use the first 16 bytes of the hash for the UUID
+    hash[6] = (hash[6] & 0x0F) | 0x50; // Set version to 5
+    hash[8] = (hash[8] & 0x3F) | 0x80; // Set variant to RFC 4122
+
+    // Format the UUID as a string
+    std::ostringstream ss;
+    ss << std::hex << std::setfill('0');
+    for (int i = 0; i < 16; ++i)
+    {
+        if (i == 4 || i == 6 || i == 8 || i == 10)
+            ss << '-';
+        ss << std::setw(2) << static_cast<int>(hash[i]);
+    }
+
+    return ss.str();
+}
+
+std::string uuidV6()
+{
+    RandomGenerator<std::mt19937> gen = RandomGenerator<std::mt19937>{};
+
+    const uint64_t UUID_EPOCH_OFFSET = 0x01B21DD213814000ULL;
+    auto now = std::chrono::system_clock::now();
+    auto since_epoch = now.time_since_epoch();
+
+    const auto timestamp =
+        UUID_EPOCH_OFFSET +
+        static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::microseconds>(since_epoch).count() * 10);
+
+    std::uniform_int_distribution<uint16_t> clock_seq_dist(0, 0x3FFF);
+    const auto clock_seq = static_cast<uint16_t>(gen(clock_seq_dist));
+
+    std::uniform_int_distribution<uint64_t> node_dist(0, 0xFFFFFFFFFFFFULL);
+    uint64_t node = gen(node_dist) & 0xFFFFFFFFFFFFULL;
+
+    const auto time_high = static_cast<uint32_t>((timestamp >> 28) & 0xFFFFFFFFULL);
+    const auto time_mid = static_cast<uint16_t>((timestamp >> 12) & 0xFFFFULL);
+    auto time_low_and_version = static_cast<uint16_t>(timestamp & 0x0FFFULL);
+    time_low_and_version |= (6 << 12); // Set version to 6
+
+    uint8_t clock_seq_low = clock_seq & 0xFF;
+    uint8_t clock_seq_hi_and_reserved = ((clock_seq >> 8) & 0x3F) | 0x80;
+
+    std::ostringstream ss;
+    ss << std::hex << std::setfill('0');
+    ss << std::setw(8) << time_high << '-';
+    ss << std::setw(4) << time_mid << '-';
+    ss << std::setw(4) << time_low_and_version << '-';
+    ss << std::setw(2) << static_cast<int>(clock_seq_hi_and_reserved);
+    ss << std::setw(2) << static_cast<int>(clock_seq_low) << '-';
+    ss << std::setw(12) << node;
+
+    return ss.str();
+}
+
+std::string uuid(Uuid uuid, const std::string& namespace_uuid, const std::string& name)
 {
     switch (uuid)
     {
@@ -503,10 +596,10 @@ std::string uuid(Uuid uuid)
         return uuidV4();
     case Uuid::V5:
         // TODO: implement uuidV5
-        return uuidV4();
+        return uuidV5(namespace_uuid, name);
     case Uuid::V6:
         // TODO: implement uuidV6
-        return uuidV4();
+        return uuidV6();
     case Uuid::V7:
         // TODO: implement uuidV7
         return uuidV4();

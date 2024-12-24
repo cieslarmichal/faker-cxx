@@ -20,6 +20,18 @@ namespace faker::crypto
 FAKER_CXX_EXPORT std::string sha256(std::optional<std::string> = std::nullopt);
 
 /**
+ * @brief Returns a random SHA1 hash or hash of provided data.
+ *
+ * @returns SHA1 hash string.
+ *
+ * @code
+ * faker::crypto::sha1("hello world") // "2ef7bde608ce5404e97d5f042f95f89f1c232871"
+ * faker::crypto::sha1()    // Random hash of random
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string sha1(std::optional<std::string> = std::nullopt);
+
+/**
  * @brief Returns a random MD5 hash or hash of provided data.
  *
  * @returns MD5 hash string.
