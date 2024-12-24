@@ -33,5 +33,5 @@ var namespacefaker_1_1string =
     [ "sample", "namespacefaker_1_1string.html#a34013d255a8eaf4c2afab2090c15cb8d", null ],
     [ "symbol", "namespacefaker_1_1string.html#a329b6a478487c87eadb19b1f78292264", null ],
     [ "ulid", "namespacefaker_1_1string.html#a612819af12ce056ff6f32dda7a9a1865", null ],
-    [ "uuid", "namespacefaker_1_1string.html#a13dfd95759ca598d3137eab19566bac9", null ]
+    [ "uuid", "namespacefaker_1_1string.html#a09928ddbf7d5019bf97eb6d1c06f791c", null ]
 ];

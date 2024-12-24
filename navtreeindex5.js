@@ -1,5 +1,7 @@
 var NAVTREEINDEX5 =
 {
+"phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa6b718641741f992e68ec3712718561b8":[3,0,0,0,27,0,78],
+"phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa6bec347f256837d3539ad619bd489de7":[3,0,0,0,27,0,156],
 "phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa6c1674d14bf5f95742f572cddb0641a7":[3,0,0,0,27,0,21],
 "phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa6cd50fb3091b0a9d3c1ac2cf52441390":[3,0,0,0,27,0,28],
 "phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa6dbefdc38954fc54ea0c697d0c6ec0a7":[3,0,0,0,27,0,16],
@@ -157,8 +159,8 @@ var NAVTREEINDEX5 =
 "sport_8h_source.html":[3,0,0,0,31],
 "string_8h.html":[3,0,0,0,32],
 "string_8h.html#a05a0c493670c2860f8821ae42fd1a166":[3,0,0,0,32,12],
+"string_8h.html#a09928ddbf7d5019bf97eb6d1c06f791c":[3,0,0,0,32,21],
 "string_8h.html#a0f34587fb525159e53e01829edbe81cd":[3,0,0,0,32,6],
-"string_8h.html#a13dfd95759ca598d3137eab19566bac9":[3,0,0,0,32,21],
 "string_8h.html#a271ae1a89baf97693b8181f7e88975db":[3,0,0,0,32,4],
 "string_8h.html#a329b6a478487c87eadb19b1f78292264":[3,0,0,0,32,19],
 "string_8h.html#a34013d255a8eaf4c2afab2090c15cb8d":[3,0,0,0,32,18],
@@ -247,7 +249,5 @@ var NAVTREEINDEX5 =
 "structfaker_1_1science_1_1ChemicalElement.html#a26754c80ff21552d3cf0b2f2e78e1364":[0,0,0,28,0,1],
 "structfaker_1_1science_1_1ChemicalElement.html#a26754c80ff21552d3cf0b2f2e78e1364":[2,0,0,5,0,1],
 "structfaker_1_1science_1_1ChemicalElement.html#a28671ec7602c301da0b71c273a44db92":[0,0,0,28,0,2],
-"structfaker_1_1science_1_1ChemicalElement.html#a28671ec7602c301da0b71c273a44db92":[2,0,0,5,0,2],
-"structfaker_1_1science_1_1ChemicalElement.html#aa51d52d76c547c3397a3cabbaff963e1":[0,0,0,28,0,0],
-"structfaker_1_1science_1_1ChemicalElement.html#aa51d52d76c547c3397a3cabbaff963e1":[2,0,0,5,0,0]
+"structfaker_1_1science_1_1ChemicalElement.html#a28671ec7602c301da0b71c273a44db92":[2,0,0,5,0,2]
 };
