@@ -102,6 +102,20 @@ TEST_F(StringTest, shouldGenerateUuid6) {
 
 }
 
+TEST_F(StringTest, shouldGenerateUuid7)
+{
+    const auto generatedUuid = uuid(Uuid::V7);
+
+    // Ensure the UUID has the correct format
+    ASSERT_EQ(generatedUuid.size(), 36);
+    ASSERT_EQ(generatedUuid[8], '-');
+    ASSERT_EQ(generatedUuid[13], '-');
+    ASSERT_EQ(generatedUuid[18], '-');
+    ASSERT_EQ(generatedUuid[23], '-');
+    ASSERT_EQ(generatedUuid[14], '7');
+}
+
+
 
 TEST_F(StringTest, shouldGenerateUlidNoArguments)
 {
