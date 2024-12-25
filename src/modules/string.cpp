@@ -635,9 +635,9 @@ std::string uuid(Uuid uuid, const std::string& namespace_uuid, const std::string
     case Uuid::V6:
         return uuidV6();
     case Uuid::V7:
-        // TODO: implement uuidV7
         return uuidV7();
     case Uuid::V8:
+        // TODO: implement uuidV8
         return uuidV4();
     default:
         return uuidV4();
