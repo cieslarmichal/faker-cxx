@@ -69,28 +69,27 @@ TEST_F(StringTest, shouldGenerateUuid4Default)
     ASSERT_EQ(generatedUuid[18], '-');
     ASSERT_EQ(generatedUuid[23], '-');
 }
-TEST_F(StringTest, shouldGenerateUuid5) {
+
+TEST_F(StringTest, shouldGenerateUuid5)
+{
     const std::string namespaceUuid = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
     const std::string name = "example_name";
-    const auto generatedUuid = uuid(Uuid::V5,namespaceUuid, name);
+    const auto generatedUuid = uuid(Uuid::V5, namespaceUuid, name);
 
     std::cerr << "Generated UUID: " << generatedUuid << std::endl;
 
     // Ensure the UUID has the correct format
-    ASSERT_EQ(generatedUuid.size(), 36);           // UUIDs must be 36 characters including hyphens
-    ASSERT_EQ(generatedUuid[8], '-');             // Hyphen at position 8
-    ASSERT_EQ(generatedUuid[13], '-');            // Hyphen at position 13
-    ASSERT_EQ(generatedUuid[18], '-');            // Hyphen at position 18
-    ASSERT_EQ(generatedUuid[23], '-');            // Hyphen at position 23
-
-
+    ASSERT_EQ(generatedUuid.size(), 36); // UUIDs must be 36 characters including hyphens
+    ASSERT_EQ(generatedUuid[8], '-');    // Hyphen at position 8
+    ASSERT_EQ(generatedUuid[13], '-');   // Hyphen at position 13
+    ASSERT_EQ(generatedUuid[18], '-');   // Hyphen at position 18
+    ASSERT_EQ(generatedUuid[23], '-');   // Hyphen at position 23
 }
 
-TEST_F(StringTest, shouldGenerateUuid6) {
+TEST_F(StringTest, shouldGenerateUuid6)
+{
     const auto generatedUuid = uuid(Uuid::V6);
     std::cerr << "Generated UUID: " << generatedUuid << std::endl;
-
-
 
     // Ensure the UUID has the correct format
     ASSERT_EQ(generatedUuid.size(), 36);
@@ -98,8 +97,6 @@ TEST_F(StringTest, shouldGenerateUuid6) {
     ASSERT_EQ(generatedUuid[13], '-');
     ASSERT_EQ(generatedUuid[18], '-');
     ASSERT_EQ(generatedUuid[23], '-');
-
-
 }
 
 TEST_F(StringTest, shouldGenerateUuid7)
@@ -114,8 +111,6 @@ TEST_F(StringTest, shouldGenerateUuid7)
     ASSERT_EQ(generatedUuid[23], '-');
     ASSERT_EQ(generatedUuid[14], '7');
 }
-
-
 
 TEST_F(StringTest, shouldGenerateUlidNoArguments)
 {

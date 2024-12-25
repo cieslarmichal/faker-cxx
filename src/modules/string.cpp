@@ -8,6 +8,7 @@
 #include <set>
 #include <stdexcept>
 #include <string>
+
 #include "common/algo_helper.h"
 #include "faker-cxx/crypto.h"
 #include "faker-cxx/helper.h"
@@ -589,16 +590,16 @@ std::string uuidV7()
     auto now = std::chrono::system_clock::now();
     auto since_epoch = now.time_since_epoch();
 
-    const auto timestamp = 
+    const auto timestamp =
         static_cast<uint64_t>(std::chrono::duration_cast<std::chrono::milliseconds>(since_epoch).count());
-    
+
     const auto time_high = static_cast<uint32_t>((timestamp >> 16) & 0xFFFFFFFFULL);
     const auto time_low = static_cast<uint32_t>(timestamp & 0xFFFFULL);
 
     std::uniform_int_distribution<uint16_t> rand_a_seq_dis(0, 0xFFF);
     uint16_t rand_a_seq = (gen(rand_a_seq_dis) & 0xFFF);
     rand_a_seq |= 0x7000;
-   
+
     std::uniform_int_distribution<uint32_t> rand_b_seq_dis(0, 0xFFFFFFFFULL);
     uint64_t rand_b_seq = static_cast<uint32_t>(gen(rand_b_seq_dis));
     rand_b_seq = rand_b_seq << 32;
@@ -617,7 +618,6 @@ std::string uuidV7()
 
     return ss.str();
 }
-
 
 std::string uuid(Uuid uuid, const std::string& namespace_uuid, const std::string& name)
 {
