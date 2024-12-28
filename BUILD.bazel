@@ -16,10 +16,10 @@ genrule(
     outs = ["include/faker-cxx/version.h"],
     cmd = """
         echo "#pragma once" > $@
-        echo '#define FAKER_CXX_VERSION_MAJOR 2' >> $@
+        echo '#define FAKER_CXX_VERSION_MAJOR 3' >> $@
         echo '#define FAKER_CXX_VERSION_MINOR 0' >> $@
         echo '#define FAKER_CXX_VERSION_PATCH 0' >> $@
-        echo '#define FAKER_CXX_VERSION "2.0.0"' >> $@
+        echo '#define FAKER_CXX_VERSION "3.0.0"' >> $@
     """,
 )
 

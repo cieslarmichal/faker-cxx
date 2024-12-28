@@ -418,8 +418,6 @@ unsigned port()
 
 std::string url(const WebProtocol& webProtocol, Locale locale)
 {
-    const auto& internetDefinition = getInternetDefinition(locale);
-
     const auto protocolStr = webProtocol == WebProtocol::Https ? "https" : "http";
 
     return common::format("{}://{}", protocolStr, domainName(locale));
