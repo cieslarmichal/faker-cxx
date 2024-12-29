@@ -10,10 +10,19 @@ All notable changes to this project will be documented in this file
 * moved `binary` function from `string` to `number` module
 * moved `octal` function from `string` to `number` module
 * dropped fmt library from dependencies, need to compile with compiler with std::format support
+* renamed `string::uuid` to `string::uuidV4`
 
 ### Features
 
 * added locale support for all modules that use locale
+* added `uuidV1`, `uuidV3`, `uuidV5`, `uuidV6` and `uuidV7` functions to `string` module
+* added `nanoId` function to `string` module
+* added `space` function to `color` module
+* added `jwt` function to `internet` module
+* added `hwb` function to `color` module
+* added `between` and `anytime` function to `date` module
+* added `nearbyGPSCoordinate` to `location` module
+* added `symbol` function to `string` module
 
 ## v3.0.0 (28.08.2024)
 

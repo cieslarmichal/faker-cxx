@@ -490,9 +490,9 @@ std::string getJWTToken(const std::optional<std::map<std::string, std::string>>&
                         {"exp", std::to_string(std::round(std::stoll(expDefault)))},
                         {"nbf", std::to_string(std::round(std::stoll(nbfDefault)))},
                         {"iss", faker::company::companyName()},
-                        {"sub", faker::string::uuid()},
-                        {"aud", faker::string::uuid()},
-                        {"jti", faker::string::uuid()}};
+                        {"sub", faker::string::uuidV4()},
+                        {"aud", faker::string::uuidV4()},
+                        {"jti", faker::string::uuidV4()}};
     }
 
     const auto headerToJSON = toJSON(localHeader.value());

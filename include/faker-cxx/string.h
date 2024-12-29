@@ -21,17 +21,6 @@
 
 namespace faker::string
 {
-enum class Uuid
-{
-    V1, // Version 1: UUIDs using a timestamp and monotonic counter.
-    V3, // Version 3: UUIDs based on the MD5 hash of some data.
-    V4, // Version 4: UUIDs with random data.
-    V5, // Version 5: UUIDs based on the SHA1 hash of some data.
-    V6, // Version 6: UUIDs using a timestamp and monotonic counter (sortable).
-    V7, // Version 7: UUIDs using a Unix timestamp (sortable).
-    V8  // Version 8: UUIDs using user-defined data.
-};
-
 enum class StringCasing
 {
     Mixed,
@@ -80,25 +69,71 @@ FAKER_CXX_EXPORT bool isValidGuarantee(GuaranteeMap& guarantee, std::set<char>& 
 FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap& guarantee);
 
 /**
- * @brief Generates an Universally Unique Identifier, defaults to V4.
+ * @brief Generates an Universally Unique Identifier version 1.
  *
- * @param gen A random number generator (type RandomGenerator)
- *
- * @returns UUID.
+ * @returns UUID v1.
  *
  * @code
- * faker::string::uuid()         // "27666229-cedb-4a45-8018-98b1e1d921e2" // V4
- * faker::string::uuid(Uuid::V1) // "04f916a0-af32-11ef-9cd2-0242ac120002"
- * faker::string::uuid(Uuid::V3) // "a3bb189e-8bf9-3888-9912-ace4e6543002"
- * faker::string::uuid(Uuid::V4) // "27666229-cedb-4a45-8018-98b1e1d921e2"
- * faker::string::uuid(Uuid::V5) // "27666229-cedb-4a45-8018-98b1e1d921e2"
- * faker::string::uuid(Uuid::V6) // "27666229-cedb-4a45-8018-98b1e1d921e2"
- * faker::string::uuid(Uuid::V7) // "27666229-cedb-4a45-8018-98b1e1d921e2"
- * faker::string::uuid(Uuid::V8) // "27666229-cedb-4a45-8018-98b1e1d921e2"
+ * faker::string::uuidV1() // "29915d84-c5e8-11ef-9cd2-0242ac120002"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string uuid(Uuid uuid = Uuid::V4, const std::string& namespace_uuid = "",
-                                  const std::string& name = "");
+FAKER_CXX_EXPORT std::string uuidV1();
+
+/**
+ * @brief Generates an Universally Unique Identifier version 3.
+ *
+ * @returns UUID V3.
+ *
+ * @code
+ * faker::string::uuidV3() // "c6437ef1-5b86-3a4e-a071-c2d4ad414e65"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string uuidV3();
+
+/**
+ * @brief Generates an Universally Unique Identifier version 4.
+ *
+ * @returns UUID V4.
+ *
+ * @code
+ * faker::string::uuidV4() // "78754621-9544-4c79-9c1d-76d3ba881f53"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string uuidV4();
+
+/**
+ * @brief Generates an Universally Unique Identifier version 5.
+ *
+ * @returns UUID V5.
+ *
+ * @code
+ * faker::string::uuidV5("hello") // "6c7f25c1-1f94-53df-aab6-627ed664b1a7"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string uuidV5(const std::string& input,
+                                    const std::string& namespaceUuid = "dbedb1fb-a628-49f3-9e4d-58166108df5f");
+
+/**
+ * @brief Generates an Universally Unique Identifier version 6.
+ *
+ * @returns UUID V6.
+ *
+ * @code
+ * faker::string::uuidV6() // "1efc5e90-f32e-6420-bab1-7bdb35fa2abb"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string uuidV6();
+
+/**
+ * @brief Generates an Universally Unique Identifier version 7.
+ *
+ * @returns UUID V7.
+ *
+ * @code
+ * faker::string::uuidV7() // "0194129b-f344-783c-ab87-d1a79bcf9a4e"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string uuidV7();
 
 /**
  * @brief Generates an Universally Unique Lexicographically Sortable Identifier.

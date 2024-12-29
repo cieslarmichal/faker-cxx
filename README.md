@@ -65,7 +65,7 @@ Below is an example of how to use Faker C++ in your code.
 
 int main()
 {
-    const auto id = faker::string::uuid();
+    const auto id = faker::string::uuidV4();
     const auto email = faker::internet::email();
     const auto password = faker::internet::password();
     const auto city = faker::location::city();
