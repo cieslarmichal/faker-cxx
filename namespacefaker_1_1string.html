@@ -120,18 +120,6 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="enum-members" name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a8c956d31f9b4a7cf7f36b75136de6199" id="r_a8c956d31f9b4a7cf7f36b75136de6199"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a> { <br />
-&#160;&#160;<a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199ab4daca084ad9eabfc8de231929477ed6">V1</a>
-, <a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199ad5b50b8cf96bcc8aba90f306f5e6189c">V3</a>
-, <a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc">V4</a>
-, <a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199a8cff5423006469332e8ae5e3a8c8559c">V5</a>
-, <br />
-&#160;&#160;<a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199adb93f1c35b844334e2b266951618b4fe">V6</a>
-, <a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199a01d2f61fa66001f438aa2a65cb0aa9e5">V7</a>
-, <a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199aea7c1b92ccf2869f7f23c13385782d7c">V8</a>
-<br />
- }</td></tr>
-<tr class="separator:a8c956d31f9b4a7cf7f36b75136de6199"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5b7a1d4a3ebb389e224c7bfc534d7cda" id="r_a5b7a1d4a3ebb389e224c7bfc534d7cda"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a> { <a class="el" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa699b4f79215d191584653efebf156e52">Mixed</a>
 , <a class="el" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">Lower</a>
 , <a class="el" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">Upper</a>
@@ -146,9 +134,24 @@ Functions</h2></td></tr>
 <tr class="memitem:a5f7f456ce960ac5d9407c805144b3943" id="r_a5f7f456ce960ac5d9407c805144b3943"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5f7f456ce960ac5d9407c805144b3943">generateAtLeastString</a> (const <a class="el" href="#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> &amp;guarantee)</td></tr>
 <tr class="memdesc:a5f7f456ce960ac5d9407c805144b3943"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates the least required string for a given guarantee map.  <br /></td></tr>
 <tr class="separator:a5f7f456ce960ac5d9407c805144b3943"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09928ddbf7d5019bf97eb6d1c06f791c" id="r_a09928ddbf7d5019bf97eb6d1c06f791c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a09928ddbf7d5019bf97eb6d1c06f791c">uuid</a> (<a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a> uuid=<a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc">Uuid::V4</a>, const std::string &amp;namespace_uuid=&quot;&quot;, const std::string &amp;name=&quot;&quot;)</td></tr>
-<tr class="memdesc:a09928ddbf7d5019bf97eb6d1c06f791c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Identifier, defaults to V4.  <br /></td></tr>
-<tr class="separator:a09928ddbf7d5019bf97eb6d1c06f791c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad18e92991118db71021b058a3f93b97c" id="r_ad18e92991118db71021b058a3f93b97c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad18e92991118db71021b058a3f93b97c">uuidV1</a> ()</td></tr>
+<tr class="memdesc:ad18e92991118db71021b058a3f93b97c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Identifier version 1.  <br /></td></tr>
+<tr class="separator:ad18e92991118db71021b058a3f93b97c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d842d5df31eaf6742f5c86f201fb15e" id="r_a1d842d5df31eaf6742f5c86f201fb15e"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a1d842d5df31eaf6742f5c86f201fb15e">uuidV3</a> ()</td></tr>
+<tr class="memdesc:a1d842d5df31eaf6742f5c86f201fb15e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Identifier version 3.  <br /></td></tr>
+<tr class="separator:a1d842d5df31eaf6742f5c86f201fb15e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a596d76b3d9b5d0b5ea176db7cfc55cd0" id="r_a596d76b3d9b5d0b5ea176db7cfc55cd0"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a596d76b3d9b5d0b5ea176db7cfc55cd0">uuidV4</a> ()</td></tr>
+<tr class="memdesc:a596d76b3d9b5d0b5ea176db7cfc55cd0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Identifier version 4.  <br /></td></tr>
+<tr class="separator:a596d76b3d9b5d0b5ea176db7cfc55cd0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a455b7195cdf5a112e5e11203d07c160d" id="r_a455b7195cdf5a112e5e11203d07c160d"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a455b7195cdf5a112e5e11203d07c160d">uuidV5</a> (const std::string &amp;input, const std::string &amp;namespaceUuid=&quot;dbedb1fb-a628-49f3-9e4d-58166108df5f&quot;)</td></tr>
+<tr class="memdesc:a455b7195cdf5a112e5e11203d07c160d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Identifier version 5.  <br /></td></tr>
+<tr class="separator:a455b7195cdf5a112e5e11203d07c160d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6ef0dbe9fea94544322b54f80c5e5695" id="r_a6ef0dbe9fea94544322b54f80c5e5695"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6ef0dbe9fea94544322b54f80c5e5695">uuidV6</a> ()</td></tr>
+<tr class="memdesc:a6ef0dbe9fea94544322b54f80c5e5695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Identifier version 6.  <br /></td></tr>
+<tr class="separator:a6ef0dbe9fea94544322b54f80c5e5695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2889b10ed8ca56497dba83378988dea7" id="r_a2889b10ed8ca56497dba83378988dea7"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2889b10ed8ca56497dba83378988dea7">uuidV7</a> ()</td></tr>
+<tr class="memdesc:a2889b10ed8ca56497dba83378988dea7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Identifier version 7.  <br /></td></tr>
+<tr class="separator:a2889b10ed8ca56497dba83378988dea7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a612819af12ce056ff6f32dda7a9a1865" id="r_a612819af12ce056ff6f32dda7a9a1865"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a612819af12ce056ff6f32dda7a9a1865">ulid</a> (time_t refDate=std::time(nullptr))</td></tr>
 <tr class="memdesc:a612819af12ce056ff6f32dda7a9a1865"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates an Universally Unique Lexicographically Sortable Identifier.  <br /></td></tr>
 <tr class="separator:a612819af12ce056ff6f32dda7a9a1865"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -238,37 +241,6 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8c956d31f9b4a7cf7f36b75136de6199" name="a8c956d31f9b4a7cf7f36b75136de6199"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8c956d31f9b4a7cf7f36b75136de6199">&#9670;&#160;</a></span>Uuid</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum class <a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199">faker::string::Uuid</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">strong</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8c956d31f9b4a7cf7f36b75136de6199ab4daca084ad9eabfc8de231929477ed6" name="a8c956d31f9b4a7cf7f36b75136de6199ab4daca084ad9eabfc8de231929477ed6"></a>V1&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c956d31f9b4a7cf7f36b75136de6199ad5b50b8cf96bcc8aba90f306f5e6189c" name="a8c956d31f9b4a7cf7f36b75136de6199ad5b50b8cf96bcc8aba90f306f5e6189c"></a>V3&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc" name="a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc"></a>V4&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c956d31f9b4a7cf7f36b75136de6199a8cff5423006469332e8ae5e3a8c8559c" name="a8c956d31f9b4a7cf7f36b75136de6199a8cff5423006469332e8ae5e3a8c8559c"></a>V5&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c956d31f9b4a7cf7f36b75136de6199adb93f1c35b844334e2b266951618b4fe" name="a8c956d31f9b4a7cf7f36b75136de6199adb93f1c35b844334e2b266951618b4fe"></a>V6&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c956d31f9b4a7cf7f36b75136de6199a01d2f61fa66001f438aa2a65cb0aa9e5" name="a8c956d31f9b4a7cf7f36b75136de6199a01d2f61fa66001f438aa2a65cb0aa9e5"></a>V7&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a8c956d31f9b4a7cf7f36b75136de6199aea7c1b92ccf2869f7f23c13385782d7c" name="a8c956d31f9b4a7cf7f36b75136de6199aea7c1b92ccf2869f7f23c13385782d7c"></a>V8&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-</div>
-</div>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="a271ae1a89baf97693b8181f7e88975db" name="a271ae1a89baf97693b8181f7e88975db"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a271ae1a89baf97693b8181f7e88975db">&#9670;&#160;</a></span>alpha() <span class="overload">[1/2]</span></h2>
@@ -350,7 +322,7 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#abf5e1f4e277703148d5ab06e6a0bfeda">faker::string::alpha</a>() <span class="comment">// &quot;b&quot;</span></div>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#abf5e1f4e277703148d5ab06e6a0bfeda">alpha</a>(5, <a class="code hl_enumeration" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a>::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaa19de5b94f7b83900d4b296d9fa491aec">Upper</a>) <span class="comment">// &quot;DTCIC&quot;</span></div>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#abf5e1f4e277703148d5ab06e6a0bfeda">alpha</a>(4, <a class="code hl_enumeration" href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">StringCasing</a>::<a class="code hl_enumvalue" href="#a5b7a1d4a3ebb389e224c7bfc534d7cdaab75fcdd2d72d9e000beab48622402d93">Lower</a>) <span class="comment">// &quot;brpt&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_a5b7a1d4a3ebb389e224c7bfc534d7cda"><div class="ttname"><a href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">faker::string::StringCasing</a></div><div class="ttdeci">StringCasing</div><div class="ttdef"><b>Definition</b> string.h:36</div></div>
+<div class="ttc" id="anamespacefaker_1_1string_html_a5b7a1d4a3ebb389e224c7bfc534d7cda"><div class="ttname"><a href="#a5b7a1d4a3ebb389e224c7bfc534d7cda">faker::string::StringCasing</a></div><div class="ttdeci">StringCasing</div><div class="ttdef"><b>Definition</b> string.h:25</div></div>
 <div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> airline.h:9</div></div>
 </div><!-- fragment --> 
 </div>
@@ -535,7 +507,7 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_typedef" href="#ae0a533af930e38eee4c35054705ee180">GuaranteeMap</a> guarantee { {<span class="charliteral">&#39;0&#39;</span>,{3,10}},{<span class="charliteral">&#39;a&#39;</span>,{6,8}} }; <span class="comment">// &quot;000aaaaaa&quot;</span></div>
 <div class="line"><a class="code hl_function" href="#a5f7f456ce960ac5d9407c805144b3943">faker::string::generateAtLeastString</a>(guarantee);</div>
 <div class="ttc" id="anamespacefaker_1_1string_html_a5f7f456ce960ac5d9407c805144b3943"><div class="ttname"><a href="#a5f7f456ce960ac5d9407c805144b3943">faker::string::generateAtLeastString</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string generateAtLeastString(const GuaranteeMap &amp;guarantee)</div><div class="ttdoc">Generates the least required string for a given guarantee map.</div></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_ae0a533af930e38eee4c35054705ee180"><div class="ttname"><a href="#ae0a533af930e38eee4c35054705ee180">faker::string::GuaranteeMap</a></div><div class="ttdeci">std::map&lt; char, CharCount &gt; GuaranteeMap</div><div class="ttdef"><b>Definition</b> string.h:48</div></div>
+<div class="ttc" id="anamespacefaker_1_1string_html_ae0a533af930e38eee4c35054705ee180"><div class="ttname"><a href="#ae0a533af930e38eee4c35054705ee180">faker::string::GuaranteeMap</a></div><div class="ttdeci">std::map&lt; char, CharCount &gt; GuaranteeMap</div><div class="ttdef"><b>Definition</b> string.h:37</div></div>
 </div><!-- fragment --> 
 </div>
 </div>
@@ -866,55 +838,139 @@ Functions</h2></td></tr>
 </div><!-- fragment --> 
 </div>
 </div>
-<a id="a09928ddbf7d5019bf97eb6d1c06f791c" name="a09928ddbf7d5019bf97eb6d1c06f791c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09928ddbf7d5019bf97eb6d1c06f791c">&#9670;&#160;</a></span>uuid()</h2>
+<a id="ad18e92991118db71021b058a3f93b97c" name="ad18e92991118db71021b058a3f93b97c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad18e92991118db71021b058a3f93b97c">&#9670;&#160;</a></span>uuidV1()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::uuid </td>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::uuidV1 </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a></td>          <td class="paramname"><span class="paramname"><em>uuid</em></span><span class="paramdefsep"> = </span><span class="paramdefval"><a class="el" href="#a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc">Uuid::V4</a></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>namespace_uuid</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>name</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;&quot;</span>&#160;)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Generates an Universally Unique Identifier, defaults to V4. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">gen</td><td>A random number generator (type <a class="el" href="classfaker_1_1RandomGenerator.html">RandomGenerator</a>)</td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>UUID.</dd></dl>
-<div class="fragment"><div class="line"><a class="code hl_function" href="#a09928ddbf7d5019bf97eb6d1c06f791c">faker::string::uuid</a>()         <span class="comment">// &quot;27666229-cedb-4a45-8018-98b1e1d921e2&quot; // V4</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a09928ddbf7d5019bf97eb6d1c06f791c">uuid</a>(<a class="code hl_enumeration" href="#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a>::<a class="code hl_enumvalue" href="#a8c956d31f9b4a7cf7f36b75136de6199ab4daca084ad9eabfc8de231929477ed6">V1</a>) <span class="comment">// &quot;04f916a0-af32-11ef-9cd2-0242ac120002&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a09928ddbf7d5019bf97eb6d1c06f791c">uuid</a>(<a class="code hl_enumeration" href="#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a>::<a class="code hl_enumvalue" href="#a8c956d31f9b4a7cf7f36b75136de6199ad5b50b8cf96bcc8aba90f306f5e6189c">V3</a>) <span class="comment">// &quot;a3bb189e-8bf9-3888-9912-ace4e6543002&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a09928ddbf7d5019bf97eb6d1c06f791c">uuid</a>(<a class="code hl_enumeration" href="#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a>::<a class="code hl_enumvalue" href="#a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc">V4</a>) <span class="comment">// &quot;27666229-cedb-4a45-8018-98b1e1d921e2&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a09928ddbf7d5019bf97eb6d1c06f791c">uuid</a>(<a class="code hl_enumeration" href="#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a>::<a class="code hl_enumvalue" href="#a8c956d31f9b4a7cf7f36b75136de6199a8cff5423006469332e8ae5e3a8c8559c">V5</a>) <span class="comment">// &quot;27666229-cedb-4a45-8018-98b1e1d921e2&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a09928ddbf7d5019bf97eb6d1c06f791c">uuid</a>(<a class="code hl_enumeration" href="#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a>::<a class="code hl_enumvalue" href="#a8c956d31f9b4a7cf7f36b75136de6199adb93f1c35b844334e2b266951618b4fe">V6</a>) <span class="comment">// &quot;27666229-cedb-4a45-8018-98b1e1d921e2&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a09928ddbf7d5019bf97eb6d1c06f791c">uuid</a>(<a class="code hl_enumeration" href="#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a>::<a class="code hl_enumvalue" href="#a8c956d31f9b4a7cf7f36b75136de6199a01d2f61fa66001f438aa2a65cb0aa9e5">V7</a>) <span class="comment">// &quot;27666229-cedb-4a45-8018-98b1e1d921e2&quot;</span></div>
-<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<span class="keywordtype">string</span>::<a class="code hl_function" href="#a09928ddbf7d5019bf97eb6d1c06f791c">uuid</a>(<a class="code hl_enumeration" href="#a8c956d31f9b4a7cf7f36b75136de6199">Uuid</a>::<a class="code hl_enumvalue" href="#a8c956d31f9b4a7cf7f36b75136de6199aea7c1b92ccf2869f7f23c13385782d7c">V8</a>) <span class="comment">// &quot;27666229-cedb-4a45-8018-98b1e1d921e2&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_a09928ddbf7d5019bf97eb6d1c06f791c"><div class="ttname"><a href="#a09928ddbf7d5019bf97eb6d1c06f791c">faker::string::uuid</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string uuid(Uuid uuid=Uuid::V4, const std::string &amp;namespace_uuid=&quot;&quot;, const std::string &amp;name=&quot;&quot;)</div><div class="ttdoc">Generates an Universally Unique Identifier, defaults to V4.</div></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_a8c956d31f9b4a7cf7f36b75136de6199"><div class="ttname"><a href="#a8c956d31f9b4a7cf7f36b75136de6199">faker::string::Uuid</a></div><div class="ttdeci">Uuid</div><div class="ttdef"><b>Definition</b> string.h:25</div></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_a8c956d31f9b4a7cf7f36b75136de6199a01d2f61fa66001f438aa2a65cb0aa9e5"><div class="ttname"><a href="#a8c956d31f9b4a7cf7f36b75136de6199a01d2f61fa66001f438aa2a65cb0aa9e5">faker::string::Uuid::V7</a></div><div class="ttdeci">@ V7</div></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_a8c956d31f9b4a7cf7f36b75136de6199a8cff5423006469332e8ae5e3a8c8559c"><div class="ttname"><a href="#a8c956d31f9b4a7cf7f36b75136de6199a8cff5423006469332e8ae5e3a8c8559c">faker::string::Uuid::V5</a></div><div class="ttdeci">@ V5</div></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc"><div class="ttname"><a href="#a8c956d31f9b4a7cf7f36b75136de6199ab354cab57768c7d4c1106eb4e82c75dc">faker::string::Uuid::V4</a></div><div class="ttdeci">@ V4</div></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_a8c956d31f9b4a7cf7f36b75136de6199ab4daca084ad9eabfc8de231929477ed6"><div class="ttname"><a href="#a8c956d31f9b4a7cf7f36b75136de6199ab4daca084ad9eabfc8de231929477ed6">faker::string::Uuid::V1</a></div><div class="ttdeci">@ V1</div></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_a8c956d31f9b4a7cf7f36b75136de6199ad5b50b8cf96bcc8aba90f306f5e6189c"><div class="ttname"><a href="#a8c956d31f9b4a7cf7f36b75136de6199ad5b50b8cf96bcc8aba90f306f5e6189c">faker::string::Uuid::V3</a></div><div class="ttdeci">@ V3</div></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_a8c956d31f9b4a7cf7f36b75136de6199adb93f1c35b844334e2b266951618b4fe"><div class="ttname"><a href="#a8c956d31f9b4a7cf7f36b75136de6199adb93f1c35b844334e2b266951618b4fe">faker::string::Uuid::V6</a></div><div class="ttdeci">@ V6</div></div>
-<div class="ttc" id="anamespacefaker_1_1string_html_a8c956d31f9b4a7cf7f36b75136de6199aea7c1b92ccf2869f7f23c13385782d7c"><div class="ttname"><a href="#a8c956d31f9b4a7cf7f36b75136de6199aea7c1b92ccf2869f7f23c13385782d7c">faker::string::Uuid::V8</a></div><div class="ttdeci">@ V8</div></div>
+<p>Generates an Universally Unique Identifier version 1. </p>
+<dl class="section return"><dt>Returns</dt><dd>UUID v1.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ad18e92991118db71021b058a3f93b97c">faker::string::uuidV1</a>() <span class="comment">// &quot;29915d84-c5e8-11ef-9cd2-0242ac120002&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1string_html_ad18e92991118db71021b058a3f93b97c"><div class="ttname"><a href="#ad18e92991118db71021b058a3f93b97c">faker::string::uuidV1</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string uuidV1()</div><div class="ttdoc">Generates an Universally Unique Identifier version 1.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a1d842d5df31eaf6742f5c86f201fb15e" name="a1d842d5df31eaf6742f5c86f201fb15e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d842d5df31eaf6742f5c86f201fb15e">&#9670;&#160;</a></span>uuidV3()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::uuidV3 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates an Universally Unique Identifier version 3. </p>
+<dl class="section return"><dt>Returns</dt><dd>UUID V3.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a1d842d5df31eaf6742f5c86f201fb15e">faker::string::uuidV3</a>() <span class="comment">// &quot;c6437ef1-5b86-3a4e-a071-c2d4ad414e65&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1string_html_a1d842d5df31eaf6742f5c86f201fb15e"><div class="ttname"><a href="#a1d842d5df31eaf6742f5c86f201fb15e">faker::string::uuidV3</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string uuidV3()</div><div class="ttdoc">Generates an Universally Unique Identifier version 3.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a596d76b3d9b5d0b5ea176db7cfc55cd0" name="a596d76b3d9b5d0b5ea176db7cfc55cd0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a596d76b3d9b5d0b5ea176db7cfc55cd0">&#9670;&#160;</a></span>uuidV4()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::uuidV4 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates an Universally Unique Identifier version 4. </p>
+<dl class="section return"><dt>Returns</dt><dd>UUID V4.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a596d76b3d9b5d0b5ea176db7cfc55cd0">faker::string::uuidV4</a>() <span class="comment">// &quot;78754621-9544-4c79-9c1d-76d3ba881f53&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1string_html_a596d76b3d9b5d0b5ea176db7cfc55cd0"><div class="ttname"><a href="#a596d76b3d9b5d0b5ea176db7cfc55cd0">faker::string::uuidV4</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string uuidV4()</div><div class="ttdoc">Generates an Universally Unique Identifier version 4.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a455b7195cdf5a112e5e11203d07c160d" name="a455b7195cdf5a112e5e11203d07c160d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a455b7195cdf5a112e5e11203d07c160d">&#9670;&#160;</a></span>uuidV5()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::uuidV5 </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>input</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>namespaceUuid</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;dbedb1fb-a628-49f3-9e4d-58166108df5f&quot;</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates an Universally Unique Identifier version 5. </p>
+<dl class="section return"><dt>Returns</dt><dd>UUID V5.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a455b7195cdf5a112e5e11203d07c160d">faker::string::uuidV5</a>(<span class="stringliteral">&quot;hello&quot;</span>) <span class="comment">// &quot;6c7f25c1-1f94-53df-aab6-627ed664b1a7&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1string_html_a455b7195cdf5a112e5e11203d07c160d"><div class="ttname"><a href="#a455b7195cdf5a112e5e11203d07c160d">faker::string::uuidV5</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string uuidV5(const std::string &amp;input, const std::string &amp;namespaceUuid=&quot;dbedb1fb-a628-49f3-9e4d-58166108df5f&quot;)</div><div class="ttdoc">Generates an Universally Unique Identifier version 5.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a6ef0dbe9fea94544322b54f80c5e5695" name="a6ef0dbe9fea94544322b54f80c5e5695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6ef0dbe9fea94544322b54f80c5e5695">&#9670;&#160;</a></span>uuidV6()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::uuidV6 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates an Universally Unique Identifier version 6. </p>
+<dl class="section return"><dt>Returns</dt><dd>UUID V6.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a6ef0dbe9fea94544322b54f80c5e5695">faker::string::uuidV6</a>() <span class="comment">// &quot;1efc5e90-f32e-6420-bab1-7bdb35fa2abb&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1string_html_a6ef0dbe9fea94544322b54f80c5e5695"><div class="ttname"><a href="#a6ef0dbe9fea94544322b54f80c5e5695">faker::string::uuidV6</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string uuidV6()</div><div class="ttdoc">Generates an Universally Unique Identifier version 6.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="a2889b10ed8ca56497dba83378988dea7" name="a2889b10ed8ca56497dba83378988dea7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2889b10ed8ca56497dba83378988dea7">&#9670;&#160;</a></span>uuidV7()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::string::uuidV7 </td>
+          <td>(</td>
+          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates an Universally Unique Identifier version 7. </p>
+<dl class="section return"><dt>Returns</dt><dd>UUID V7.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#a2889b10ed8ca56497dba83378988dea7">faker::string::uuidV7</a>() <span class="comment">// &quot;0194129b-f344-783c-ab87-d1a79bcf9a4e&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1string_html_a2889b10ed8ca56497dba83378988dea7"><div class="ttname"><a href="#a2889b10ed8ca56497dba83378988dea7">faker::string::uuidV7</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string uuidV7()</div><div class="ttdoc">Generates an Universally Unique Identifier version 7.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

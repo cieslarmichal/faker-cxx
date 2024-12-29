@@ -1,11 +1,5 @@
 var NAVTREEINDEX6 =
 {
-"structfaker_1_1science_1_1ChemicalElement.html#aa51d52d76c547c3397a3cabbaff963e1":[0,0,0,28,0,0],
-"structfaker_1_1science_1_1ChemicalElement.html#aa51d52d76c547c3397a3cabbaff963e1":[2,0,0,5,0,0],
-"structfaker_1_1science_1_1Unit.html":[0,0,0,28,1],
-"structfaker_1_1science_1_1Unit.html":[2,0,0,5,1],
-"structfaker_1_1science_1_1Unit.html#a4a6362cc36e3a09d126ab39f1b0b24a1":[0,0,0,28,1,1],
-"structfaker_1_1science_1_1Unit.html#a4a6362cc36e3a09d126ab39f1b0b24a1":[2,0,0,5,1,1],
 "structfaker_1_1science_1_1Unit.html#af9eb50b0bc2047fb7ea7b2f064f55eda":[0,0,0,28,1,0],
 "structfaker_1_1science_1_1Unit.html#af9eb50b0bc2047fb7ea7b2f064f55eda":[2,0,0,5,1,0],
 "structfaker_1_1science_1_1Unit.html#afbafb00ae0b488072359290f455e6d6e":[0,0,0,28,1,2],

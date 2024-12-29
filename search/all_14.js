@@ -16,7 +16,11 @@ var searchData=
   ['usa_13',['Usa',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa867f8282a36dd6525c3d40744a92fcf8',1,'faker::phone']]],
   ['usedtomeasure_14',['usedToMeasure',['../structfaker_1_1science_1_1Unit.html#afbafb00ae0b488072359290f455e6d6e',1,'faker::science::Unit']]],
   ['username_15',['username',['../namespacefaker_1_1internet.html#aaf73c938f7c6cf8f8ecbbeb0636b67c3',1,'faker::internet']]],
-  ['uuid_16',['Uuid',['../namespacefaker_1_1string.html#a8c956d31f9b4a7cf7f36b75136de6199',1,'faker::string']]],
-  ['uuid_17',['uuid',['../namespacefaker_1_1string.html#a09928ddbf7d5019bf97eb6d1c06f791c',1,'faker::string']]],
-  ['uzbekistan_18',['Uzbekistan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaa0a3e881895e46eb96218f0988d405b9',1,'faker::phone']]]
+  ['uuidv1_16',['uuidV1',['../namespacefaker_1_1string.html#ad18e92991118db71021b058a3f93b97c',1,'faker::string']]],
+  ['uuidv3_17',['uuidV3',['../namespacefaker_1_1string.html#a1d842d5df31eaf6742f5c86f201fb15e',1,'faker::string']]],
+  ['uuidv4_18',['uuidV4',['../namespacefaker_1_1string.html#a596d76b3d9b5d0b5ea176db7cfc55cd0',1,'faker::string']]],
+  ['uuidv5_19',['uuidV5',['../namespacefaker_1_1string.html#a455b7195cdf5a112e5e11203d07c160d',1,'faker::string']]],
+  ['uuidv6_20',['uuidV6',['../namespacefaker_1_1string.html#a6ef0dbe9fea94544322b54f80c5e5695',1,'faker::string']]],
+  ['uuidv7_21',['uuidV7',['../namespacefaker_1_1string.html#a2889b10ed8ca56497dba83378988dea7',1,'faker::string']]],
+  ['uzbekistan_22',['Uzbekistan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aaa0a3e881895e46eb96218f0988d405b9',1,'faker::phone']]]
 ];

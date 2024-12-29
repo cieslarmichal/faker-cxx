@@ -6,5 +6,10 @@ var searchData=
   ['urlloremflickr_3',['urlLoremFlickr',['../namespacefaker_1_1image.html#a083c329ebe18f42ae81a4bb0ac0732bb',1,'faker::image']]],
   ['urlpicsumphotos_4',['urlPicsumPhotos',['../namespacefaker_1_1image.html#ab6bf3d60b988ed78eb6dd0419efe83bf',1,'faker::image']]],
   ['username_5',['username',['../namespacefaker_1_1internet.html#aaf73c938f7c6cf8f8ecbbeb0636b67c3',1,'faker::internet']]],
-  ['uuid_6',['uuid',['../namespacefaker_1_1string.html#a09928ddbf7d5019bf97eb6d1c06f791c',1,'faker::string']]]
+  ['uuidv1_6',['uuidV1',['../namespacefaker_1_1string.html#ad18e92991118db71021b058a3f93b97c',1,'faker::string']]],
+  ['uuidv3_7',['uuidV3',['../namespacefaker_1_1string.html#a1d842d5df31eaf6742f5c86f201fb15e',1,'faker::string']]],
+  ['uuidv4_8',['uuidV4',['../namespacefaker_1_1string.html#a596d76b3d9b5d0b5ea176db7cfc55cd0',1,'faker::string']]],
+  ['uuidv5_9',['uuidV5',['../namespacefaker_1_1string.html#a455b7195cdf5a112e5e11203d07c160d',1,'faker::string']]],
+  ['uuidv6_10',['uuidV6',['../namespacefaker_1_1string.html#a6ef0dbe9fea94544322b54f80c5e5695',1,'faker::string']]],
+  ['uuidv7_11',['uuidV7',['../namespacefaker_1_1string.html#a2889b10ed8ca56497dba83378988dea7',1,'faker::string']]]
 ];
