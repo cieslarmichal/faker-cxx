@@ -42,14 +42,7 @@ jobs:
       - name: Build faker-cxx library
         run: bazel build //:faker-cxx --enable_workspace
 
-      - name: Build faker-cxx examples and run
-        run: |
-          bazel build //examples:faker-cxx-basic-example --enable_workspace
-          bazel build //examples:faker-cxx-person-example --enable_workspace
-          bazel-bin/examples/faker-cxx-person-example
-          bazel-bin/examples/faker-cxx-basic-example
-
-      - name: Build faker-cxx tests and validate
+      - name: Build and run faker-cxx tests
         run: |
           bazel build //tests:faker-cxx-ut --enable_workspace
           bazel-bin/tests/faker-cxx-ut

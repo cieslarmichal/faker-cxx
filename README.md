@@ -30,7 +30,6 @@
 - [Building the library with Bazel](#building-the-library-with-bazel)
 - [✨ Contributing](#-contributing)
 - [📘 Credits](#-credits)
-- [Examples](#examples)
 - [📝 Changelog](#-changelog)
 - [🔑 License](#-license)
 
@@ -246,13 +245,6 @@ Additionally, we encourage you to join our [Discord Channel](https://discord.gg/
 Thanks to all the people who already contributed to Faker!
 
 <a href="https://github.com/cieslarmichal/faker-cxx/graphs/contributors"><img src="https://opencollective.com/faker-cxx/contributors.svg?width=800" /></a>
-
-## Examples
-
-This project offers examples to demonstrate how to use the Faker C++ library.
-These examples can be found in the [examples](examples/README.md) folder of the project repository.
-The examples showcase various modules of the library and provide code snippets that illustrate how to generate fake data
-using Faker C++.
 
 ## 📝 Changelog
 
