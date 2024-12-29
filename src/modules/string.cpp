@@ -494,9 +494,9 @@ std::string uuidV4()
     return result;
 }
 
-std::string uuidV5(const std::string& namespace_uuid, const std::string& name)
+std::string uuidV5(const std::string& name, const std::string& namespaceUuid)
 {
-    if (namespace_uuid.length() != 36)
+    if (namespaceUuid.length() != 36)
     {
         throw std::invalid_argument("Invalid namespace UUID");
     }
@@ -505,15 +505,15 @@ std::string uuidV5(const std::string& namespace_uuid, const std::string& name)
 
     int idx = 0;
 
-    for (size_t i = 0; i < namespace_uuid.length(); i += 2)
+    for (size_t i = 0; i < namespaceUuid.length(); i += 2)
     {
-        if (namespace_uuid[i] == '-')
+        if (namespaceUuid[i] == '-')
         {
             i--;
             continue;
         }
 
-        std::string byte_string = namespace_uuid.substr(i, 2);
+        std::string byte_string = namespaceUuid.substr(i, 2);
 
         namespace_bytes[static_cast<size_t>(idx++)] = static_cast<unsigned char>(std::stoi(byte_string, nullptr, 16));
     }
@@ -619,27 +619,4 @@ std::string uuidV7()
     return ss.str();
 }
 
-std::string uuid(Uuid uuid, const std::string& namespace_uuid, const std::string& name)
-{
-    switch (uuid)
-    {
-    case Uuid::V1:
-        return uuidV1();
-    case Uuid::V3:
-        return uuidV3();
-    case Uuid::V4:
-        return uuidV4();
-    case Uuid::V5:
-        return uuidV5(namespace_uuid, name);
-    case Uuid::V6:
-        return uuidV6();
-    case Uuid::V7:
-        return uuidV7();
-    case Uuid::V8:
-        // TODO: implement uuidV8
-        return uuidV4();
-    default:
-        return uuidV4();
-    }
-}
 }

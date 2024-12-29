@@ -1,12 +1,10 @@
 #include <algorithm>
-#include <random>
 #include <stdexcept>
 #include <string>
 #include <utility>
 
 #include "gtest/gtest.h"
 
-#include "faker-cxx/random_generator.h"
 #include "faker-cxx/string.h"
 #include "string_data.h"
 
@@ -22,9 +20,8 @@ public:
 
 TEST_F(StringTest, shouldGenerateUuid1)
 {
-    const auto generatedUuid = uuid(Uuid::V1);
+    const auto generatedUuid = uuidV1();
 
-    // Ensure the UUID has the correct format
     ASSERT_EQ(generatedUuid.size(), 36);
     ASSERT_EQ(generatedUuid[8], '-');
     ASSERT_EQ(generatedUuid[13], '-');
@@ -36,7 +33,7 @@ TEST_F(StringTest, shouldGenerateUuid1)
 
 TEST_F(StringTest, shouldGenerateUuid3)
 {
-    const auto generatedUuid = uuid(Uuid::V3);
+    const auto generatedUuid = uuidV3();
 
     ASSERT_EQ(generatedUuid.size(), 36);
     ASSERT_EQ(generatedUuid[8], '-');
@@ -44,24 +41,12 @@ TEST_F(StringTest, shouldGenerateUuid3)
     ASSERT_EQ(generatedUuid[18], '-');
     ASSERT_EQ(generatedUuid[23], '-');
 
-    // Check the version number
     ASSERT_EQ(generatedUuid[14], '3');
 }
 
 TEST_F(StringTest, shouldGenerateUuid4)
 {
-    const auto generatedUuid = uuid(Uuid::V4);
-
-    ASSERT_EQ(generatedUuid[8], '-');
-    ASSERT_EQ(generatedUuid[13], '-');
-    ASSERT_EQ(generatedUuid[14], '4');
-    ASSERT_EQ(generatedUuid[18], '-');
-    ASSERT_EQ(generatedUuid[23], '-');
-}
-
-TEST_F(StringTest, shouldGenerateUuid4Default)
-{
-    const auto generatedUuid = uuid();
+    const auto generatedUuid = uuidV4();
 
     ASSERT_EQ(generatedUuid[8], '-');
     ASSERT_EQ(generatedUuid[13], '-');
@@ -73,25 +58,22 @@ TEST_F(StringTest, shouldGenerateUuid4Default)
 TEST_F(StringTest, shouldGenerateUuid5)
 {
     const std::string namespaceUuid = "6ba7b810-9dad-11d1-80b4-00c04fd430c8";
-    const std::string name = "example_name";
-    const auto generatedUuid = uuid(Uuid::V5, namespaceUuid, name);
 
-    std::cerr << "Generated UUID: " << generatedUuid << std::endl;
+    const std::string input = "example_name";
 
-    // Ensure the UUID has the correct format
-    ASSERT_EQ(generatedUuid.size(), 36); // UUIDs must be 36 characters including hyphens
-    ASSERT_EQ(generatedUuid[8], '-');    // Hyphen at position 8
-    ASSERT_EQ(generatedUuid[13], '-');   // Hyphen at position 13
-    ASSERT_EQ(generatedUuid[18], '-');   // Hyphen at position 18
-    ASSERT_EQ(generatedUuid[23], '-');   // Hyphen at position 23
+    const auto generatedUuid = uuidV5(input, namespaceUuid);
+
+    ASSERT_EQ(generatedUuid.size(), 36);
+    ASSERT_EQ(generatedUuid[8], '-');
+    ASSERT_EQ(generatedUuid[13], '-');
+    ASSERT_EQ(generatedUuid[18], '-');
+    ASSERT_EQ(generatedUuid[23], '-');
 }
 
 TEST_F(StringTest, shouldGenerateUuid6)
 {
-    const auto generatedUuid = uuid(Uuid::V6);
-    std::cerr << "Generated UUID: " << generatedUuid << std::endl;
+    const auto generatedUuid = uuidV6();
 
-    // Ensure the UUID has the correct format
     ASSERT_EQ(generatedUuid.size(), 36);
     ASSERT_EQ(generatedUuid[8], '-');
     ASSERT_EQ(generatedUuid[13], '-');
@@ -101,9 +83,8 @@ TEST_F(StringTest, shouldGenerateUuid6)
 
 TEST_F(StringTest, shouldGenerateUuid7)
 {
-    const auto generatedUuid = uuid(Uuid::V7);
+    const auto generatedUuid = uuidV7();
 
-    // Ensure the UUID has the correct format
     ASSERT_EQ(generatedUuid.size(), 36);
     ASSERT_EQ(generatedUuid[8], '-');
     ASSERT_EQ(generatedUuid[13], '-');
@@ -115,12 +96,14 @@ TEST_F(StringTest, shouldGenerateUuid7)
 TEST_F(StringTest, shouldGenerateUlidNoArguments)
 {
     const auto generatedUlidNoArg = ulid();
+
     ASSERT_EQ(generatedUlidNoArg.length(), 26);
 }
 
 TEST_F(StringTest, shouldGenerateUlid)
 {
     const auto generatedUlid = ulid(1484581420);
+
     ASSERT_EQ(generatedUlid, "0001C7STHC0G2081040G208104");
 }
 
