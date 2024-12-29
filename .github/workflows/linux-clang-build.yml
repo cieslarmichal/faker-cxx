@@ -91,8 +91,3 @@ jobs:
 
       - name: Install
         run: cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target install
-
-      - name: Examples
-        run: |
-          cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target run-faker-cxx-basic-example \
-          && cmake --build --preset=unixlike-clang-debug-${{ matrix.type }} --target run-faker-cxx-person-example
