@@ -21,8 +21,8 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        gcc_version: [12, 13]
-        type: [static, shared]
+        gcc_version: [ 13 ]
+        type: [ static, shared ]
     steps:
       - name: Checkout
         uses: actions/checkout@v4

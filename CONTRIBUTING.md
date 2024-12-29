@@ -165,35 +165,6 @@ Bazel modules, downloading and building all external dependencies. Follow the st
     bazel build //:faker-cxx
     ```
 
-#### Choosing between STL std::format and fmt library
-
-The faker-cxx project uses formated string feature, which can be solved by:
-
-- [fmt](https://github.com/fmtlib/fmt) library
-- [std::format](https://en.cppreference.com/w/cpp/utility/format/format)
-
-The `std::format` requires C++20 standard support from the compiler. The feature is checked via CMake when building the
-project.
-In case available, the option `USE_STD_FORMAT` will be available:
-
-    ```sh
-    cmake -S . --preset unixlike-gcc-debug-static -DUSE_STD_FORMAT=ON
-    ```
-
-In case `std::format` is not available, faker-cxx will use `fmt` library instead. It can be used as external dependency
-via
-git submodules, or consumed from your system (installed by Conan or system package manager). In order to manage the way
-to
-acquire `fmt`, the CMake option `USE_SYSTEM_DEPENDENCIES` manages if should be used from system, or from git submodule:
-
-    ```sh
-    cmake -S . --preset unixlike-gcc-debug-static -DUSE_SYSTEM_DEPENDENCIES=OFF // Install from submodule
-    ```
-
-In case passing `USE_STD_FORMAT=ON` and `std::format` is not available, CMake will try to use `fmt` library
-automatically.
-Then, in case not finding `fmt`, it will fail.
-
 ### Testing the Project with CMake/CTest
 
 After building the project, you can run the tests to ensure everything is working correctly. We use CTest for running

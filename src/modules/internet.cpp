@@ -51,7 +51,7 @@ std::string toBase64UrlEncode(const std::string& input)
     int value = 0;
     int validBits = -6;
 
-    for (unsigned char character : input)
+    for (const auto& character : input)
     {
         value = (value << 8) + character;
         validBits += 8;
@@ -468,12 +468,11 @@ std::string getJWTToken(const std::optional<std::map<std::string, std::string>>&
                         const std::optional<std::map<std::string, std::string>>& payload,
                         const std::optional<std::string>& refDate)
 {
-    const auto refDateValue = refDate.value_or(faker::date::anytime());
+    const auto refDateValue = refDate.value_or(date::anytime());
 
-    // maybe add option to set ref date to date functions then refactor this
-    const auto iatDefault = faker::date::recentDate(faker::date::dayOfMonth(), faker::date::DateFormat::Timestamp);
-    const auto expDefault = faker::date::soonDate(faker::date::dayOfMonth(), faker::date::DateFormat::Timestamp);
-    const auto nbfDefault = faker::date::anytime(faker::date::DateFormat::Timestamp);
+    const auto iatDefault = date::recentDate(date::dayOfMonth(), date::DateFormat::Timestamp);
+    const auto expDefault = date::soonDate(date::dayOfMonth(), date::DateFormat::Timestamp);
+    const auto nbfDefault = date::anytime(date::DateFormat::Timestamp);
 
     std::optional<std::map<std::string, std::string>> localHeader = header;
     std::optional<std::map<std::string, std::string>> localPayload = payload;

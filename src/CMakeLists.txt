@@ -85,10 +85,6 @@ set(FAKER_HEADERS
 )
 
 target_sources(${PROJECT_NAME} PRIVATE ${FAKER_SOURCES} ${FAKER_HEADERS})
-target_link_libraries(${PROJECT_NAME} PRIVATE $<IF:$<TARGET_EXISTS:fmt::fmt>,fmt::fmt,${FMT_LIBRARY}>)
-if (USE_STD_FORMAT)
-    target_compile_definitions(${PROJECT_NAME} PRIVATE USE_STD_FORMAT)
-endif ()
 
 target_include_directories(
     ${PROJECT_NAME} PUBLIC
