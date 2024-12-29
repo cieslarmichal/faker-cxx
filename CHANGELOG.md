@@ -9,14 +9,11 @@ All notable changes to this project will be documented in this file
 * moved `hexadecimal` function from `string` to `number` module
 * moved `binary` function from `string` to `number` module
 * moved `octal` function from `string` to `number` module
+* dropped fmt library from dependencies, need to compile with compiler with std::format support
 
 ### Features
 
-* added locale to `book` module
-* added locale to `weather` module
-* added locale to `color` module
-* added locale to `vehicle` module
-* added locale to `word` module
+* added locale support for all modules that use locale
 
 ## v3.0.0 (28.08.2024)
 

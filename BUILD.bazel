@@ -29,7 +29,6 @@ cc_library(
     hdrs = glob(["src/**/*.h", "include/**/*.h"]) + [":generate_export_header"] + [":generate_version_header"],
     includes = ["include", "src"],
     visibility = ["//visibility:public"],
-    deps = ["@fmt//:fmt"],
     copts = select({
         "//conditions:default": [
             "-std=c++20"

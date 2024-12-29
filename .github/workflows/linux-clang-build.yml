@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-24.04
     strategy:
       matrix:
-        type: [static, shared]
+        type: [ static, shared ]
 
     steps:
       - name: Checkout
@@ -78,7 +78,6 @@ jobs:
             -DCMAKE_CXX_COMPILER=/usr/bin/clang++-18 \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
             -DBUILD_TESTING:BOOL=ON \
-            -DBUILD_EXAMPLES:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
             -DUSE_STD_FORMAT:BOOL=ON \
             -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \

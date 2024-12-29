@@ -105,7 +105,7 @@ std::string anytime(DateFormat dateFormat)
     return result;
 }
 
-std::string futureDate(int years, DateFormat dateFormat)
+std::string futureDate(unsigned int years, DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() + std::chrono::hours{1};
 
@@ -114,7 +114,7 @@ std::string futureDate(int years, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string pastDate(int years, DateFormat dateFormat)
+std::string pastDate(unsigned int years, DateFormat dateFormat)
 {
     const auto startDate =
         std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * years};
@@ -124,7 +124,7 @@ std::string pastDate(int years, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string soonDate(int days, DateFormat dateFormat)
+std::string soonDate(unsigned int days, DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() + std::chrono::hours{1};
 
@@ -133,7 +133,7 @@ std::string soonDate(int days, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string recentDate(int days, DateFormat dateFormat)
+std::string recentDate(unsigned int days, DateFormat dateFormat)
 {
     const auto startDate = std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * days};
 
@@ -142,7 +142,7 @@ std::string recentDate(int days, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string birthdateByAge(int minAge, int maxAge, DateFormat dateFormat)
+std::string birthdateByAge(unsigned int minAge, unsigned int maxAge, DateFormat dateFormat)
 {
     const auto startDate =
         std::chrono::system_clock::now() - std::chrono::hours{numberOfHoursInDay * numberOfDaysInYear * maxAge};
@@ -153,10 +153,10 @@ std::string birthdateByAge(int minAge, int maxAge, DateFormat dateFormat)
     return betweenDate(startDate, endDate, dateFormat);
 }
 
-std::string birthdateByYear(int minYear, int maxYear, DateFormat dateFormat)
+std::string birthdateByYear(unsigned int minYear, unsigned int maxYear, DateFormat dateFormat)
 {
     tm startDateTime{};
-    startDateTime.tm_year = minYear - 1900;
+    startDateTime.tm_year = static_cast<int>(minYear - 1900);
     startDateTime.tm_mon = 0;
     startDateTime.tm_mday = 1;
     startDateTime.tm_hour = 0;
@@ -167,7 +167,7 @@ std::string birthdateByYear(int minYear, int maxYear, DateFormat dateFormat)
     const auto startDate = std::chrono::system_clock::from_time_t(mktime(&startDateTime));
 
     tm endDateTime{};
-    endDateTime.tm_year = maxYear - 1900;
+    endDateTime.tm_year = static_cast<int>(maxYear - 1900);
     endDateTime.tm_mon = 11;
     endDateTime.tm_mday = 31;
     endDateTime.tm_hour = 23;

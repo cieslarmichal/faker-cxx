@@ -174,7 +174,6 @@ target_link_libraries(main faker-cxx)
 ## Dependencies
 
 - GTest (set `BUILD_TESTING=OFF` CMake flag to disable this dependency)
-- fmt (only for compilers that don't support std::format)
 
 In order to use external dependencies installed in your system, you can set the `USE_SYSTEM_DEPENDENCIES` CMake flag
 to `ON`.

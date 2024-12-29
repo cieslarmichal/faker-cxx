@@ -43,7 +43,7 @@ FAKER_CXX_EXPORT std::string anytime(DateFormat dateFormat = DateFormat::ISO);
  * faker::date::pastDate(5, DateFormat::Timestamp) // "1592321049"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string pastDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
+FAKER_CXX_EXPORT std::string pastDate(unsigned int years = 1, DateFormat dateFormat = DateFormat::ISO);
 
 /**
  * @brief Generates a random date in the future.
@@ -60,7 +60,7 @@ FAKER_CXX_EXPORT std::string pastDate(int years = 1, DateFormat dateFormat = Dat
  * faker::date::futureDate(5, DateFormat::Timestamp) // "1718229989"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string futureDate(int years = 1, DateFormat dateFormat = DateFormat::ISO);
+FAKER_CXX_EXPORT std::string futureDate(unsigned int years = 1, DateFormat dateFormat = DateFormat::ISO);
 
 /**
  * @brief Generates a random date in the recent past.
@@ -77,7 +77,7 @@ FAKER_CXX_EXPORT std::string futureDate(int years = 1, DateFormat dateFormat = D
  * faker::date::recentDate(10, DateFormat::Timestamp) // "1718229989"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string recentDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
+FAKER_CXX_EXPORT std::string recentDate(unsigned int days = 3, DateFormat dateFormat = DateFormat::ISO);
 
 /**
  * @brief Generates a random date in the soon future.
@@ -94,7 +94,7 @@ FAKER_CXX_EXPORT std::string recentDate(int days = 3, DateFormat dateFormat = Da
  * faker::date::soonDate(10, DateFormat::Timestamp) // "1718229989"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string soonDate(int days = 3, DateFormat dateFormat = DateFormat::ISO);
+FAKER_CXX_EXPORT std::string soonDate(unsigned int days = 3, DateFormat dateFormat = DateFormat::ISO);
 
 /**
  * @brief Generates a random birthdate by age.
@@ -112,7 +112,8 @@ FAKER_CXX_EXPORT std::string soonDate(int days = 3, DateFormat dateFormat = Date
  * faker::date::birthdateByAge(20, 30, DateFormat::Timestamp) // "1718229989"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string birthdateByAge(int minAge = 18, int maxAge = 80, DateFormat dateFormat = DateFormat::ISO);
+FAKER_CXX_EXPORT std::string birthdateByAge(unsigned int minAge = 18, unsigned int maxAge = 80,
+                                            DateFormat dateFormat = DateFormat::ISO);
 
 /**
  * @brief Generates a random birthdate by year.
@@ -130,7 +131,7 @@ FAKER_CXX_EXPORT std::string birthdateByAge(int minAge = 18, int maxAge = 80, Da
  * faker::date::birthdateByYear(1996, 1996, DateFormat::Timestamp) // "1718229989"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string birthdateByYear(int minYear = 1920, int maxYear = 2000,
+FAKER_CXX_EXPORT std::string birthdateByYear(unsigned int minYear = 1920, unsigned int maxYear = 2000,
                                              DateFormat dateFormat = DateFormat::ISO);
 
 /**

@@ -501,9 +501,10 @@ std::string uuidV5(const std::string& namespace_uuid, const std::string& name)
         throw std::invalid_argument("Invalid namespace UUID");
     }
 
-    // Decode the namespace UUID into binary form
-    std::array<unsigned char, 16> namespace_bytes;
+    std::array<unsigned char, 16> namespace_bytes{};
+
     int idx = 0;
+
     for (size_t i = 0; i < namespace_uuid.length(); i += 2)
     {
         if (namespace_uuid[i] == '-')
@@ -511,25 +512,24 @@ std::string uuidV5(const std::string& namespace_uuid, const std::string& name)
             i--;
             continue;
         }
+
         std::string byte_string = namespace_uuid.substr(i, 2);
-        namespace_bytes[idx++] = static_cast<unsigned char>(std::stoi(byte_string, nullptr, 16));
+
+        namespace_bytes[static_cast<size_t>(idx++)] = static_cast<unsigned char>(std::stoi(byte_string, nullptr, 16));
     }
 
-    // Append the name to the namespace
     std::string data(reinterpret_cast<const char*>(namespace_bytes.data()), namespace_bytes.size());
     data.append(name);
 
-    // Compute SHA-1 hash of the data
     std::string hash_str = crypto::sha1(data);
 
-    // Convert hash string to bytes
-    std::array<unsigned char, 20> hash;
+    std::array<unsigned char, 20> hash{};
+
     for (size_t i = 0; i < 20; ++i)
     {
         hash[i] = static_cast<unsigned char>(std::stoi(hash_str.substr(i * 2, 2), nullptr, 16));
     }
 
-    // Use the first 16 bytes of the hash for the UUID
     hash[6] = (hash[6] & 0x0F) | 0x50; // Set version to 5
     hash[8] = (hash[8] & 0x3F) | 0x80; // Set variant to RFC 4122
 
@@ -540,7 +540,7 @@ std::string uuidV5(const std::string& namespace_uuid, const std::string& name)
     {
         if (i == 4 || i == 6 || i == 8 || i == 10)
             ss << '-';
-        ss << std::setw(2) << static_cast<int>(hash[i]);
+        ss << std::setw(2) << static_cast<int>(hash[static_cast<unsigned long>(i)]);
     }
 
     return ss.str();
@@ -562,7 +562,7 @@ std::string uuidV6()
     const auto clock_seq = static_cast<uint16_t>(gen(clock_seq_dist));
 
     std::uniform_int_distribution<uint64_t> node_dist(0, 0xFFFFFFFFFFFFULL);
-    uint64_t node = gen(node_dist) & 0xFFFFFFFFFFFFULL;
+    uint64_t node = static_cast<unsigned long long int>(gen(node_dist)) & 0xFFFFFFFFFFFFULL;
 
     const auto time_high = static_cast<uint32_t>((timestamp >> 28) & 0xFFFFFFFFULL);
     const auto time_mid = static_cast<uint16_t>((timestamp >> 12) & 0xFFFFULL);
@@ -630,7 +630,6 @@ std::string uuid(Uuid uuid, const std::string& namespace_uuid, const std::string
     case Uuid::V4:
         return uuidV4();
     case Uuid::V5:
-        // TODO: implement uuidV5
         return uuidV5(namespace_uuid, name);
     case Uuid::V6:
         return uuidV6();

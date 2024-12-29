@@ -76,13 +76,7 @@ else ()
     target_link_libraries(${PROJECT_NAME} PRIVATE gtest_main gmock_main faker-cxx)
 endif ()
 
-if (USE_STD_FORMAT)
-    target_include_directories(${PROJECT_NAME} PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
-    target_compile_definitions(${PROJECT_NAME} PRIVATE USE_STD_FORMAT)
-else ()
-    target_link_libraries(${PROJECT_NAME} PRIVATE $<IF:$<TARGET_EXISTS:fmt::fmt>,fmt::fmt,${FMT_LIBRARY}>)
-    target_include_directories(${PROJECT_NAME} PRIVATE ${FMT_INCLUDE_DIR} ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
-endif ()
+target_include_directories(${PROJECT_NAME} PRIVATE ${GTEST_INCLUDE_DIR} ${GMOCK_INCLUDE_DIR} ${CMAKE_CURRENT_LIST_DIR})
 
 add_test(NAME ${PROJECT_NAME} COMMAND ${PROJECT_NAME} WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR})
 set_tests_properties(${PROJECT_NAME} PROPERTIES ENVIRONMENT_MODIFICATION
