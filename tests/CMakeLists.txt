@@ -8,6 +8,7 @@ include("${PARENT_DIR}/cmake/CompilerWarnings.cmake")
 
 set(FAKER_UT_SOURCES
     common/format_helper_test.cpp
+    common/generator.cpp
     common/luhn_check_test.cpp
     common/string_helper_test.cpp
     modules/airline_test.cpp
@@ -70,6 +71,8 @@ if (USE_SYSTEM_DEPENDENCIES)
     target_link_libraries(${PROJECT_NAME} PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
 else ()
     add_subdirectory("${PARENT_DIR}/externals/googletest" "${CMAKE_BINARY_DIR}/googletest")
+    include(GoogleTest)
+    gtest_discover_tests(${PROJECT_NAME})
 
     set(GTEST_INCLUDE_DIR "${PARENT_DIR}/externals/googletest/googletest/include")
     set(GMOCK_INCLUDE_DIR "${PARENT_DIR}/externals/googletest/googlemock/include")

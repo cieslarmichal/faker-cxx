@@ -8,6 +8,7 @@
 #include <string_view>
 
 #include "common/format_helper.h"
+#include "common/generator.h"
 #include "date_data.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
@@ -78,8 +79,7 @@ std::string anytime(DateFormat dateFormat)
         std::chrono::duration_cast<std::chrono::seconds>(std::chrono::system_clock::now().time_since_epoch()).count();
     int64_t max_seconds = now_seconds + total_seconds;
 
-    std::random_device rd;
-    std::mt19937_64 gen(rd());
+    std::mt19937_64& gen = common::GetGenerator();
     std::uniform_int_distribution<int64_t> dis(0, max_seconds);
 
     int64_t random_seconds = dis(gen);

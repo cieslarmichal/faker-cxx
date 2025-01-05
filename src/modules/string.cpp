@@ -317,8 +317,7 @@ std::string nanoId(int length)
         return "";
     }
 
-    std::random_device rd;
-    std::mt19937 generator(rd());
+    std::mt19937_64& generator = common::GetGenerator();
     std::uniform_int_distribution<int> distribution(0, static_cast<int>(nanoIdAllowedCharacters.size() - 1));
 
     std::string id;
@@ -333,8 +332,7 @@ std::string nanoId(int length)
 
 std::string nanoId()
 {
-    std::random_device rd;
-    std::mt19937 generator(rd());
+    std::mt19937_64& generator = common::GetGenerator();
     std::uniform_int_distribution<int> distribution(0, static_cast<int>(nanoIdAllowedCharacters.size() - 1));
 
     std::string id;
@@ -354,9 +352,7 @@ std::string nanoId(int minLength, int maxLength)
         return "";
     }
 
-    std::random_device rd;
-    std::mt19937 generator(rd());
-
+    std::mt19937_64& generator = common::GetGenerator();
     std::uniform_int_distribution<int> lengthDistribution(minLength, maxLength);
 
     const auto length = lengthDistribution(generator);

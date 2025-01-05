@@ -8,6 +8,7 @@
 #include <stdexcept>
 #include <string>
 
+#include "common/generator.h"
 #include "faker-cxx/datatype.h"
 #include "faker-cxx/export.h"
 #include "faker-cxx/helper.h"
@@ -24,7 +25,7 @@ static T setElement(const std::set<T>& data)
 
     T item;
 
-    static std::mt19937 pseudoRandomGenerator(static_cast<unsigned long>(std::random_device{}()));
+    std::mt19937_64& pseudoRandomGenerator = common::GetGenerator();
 
     std::sample(data.begin(), data.end(), &item, 1, pseudoRandomGenerator);
 

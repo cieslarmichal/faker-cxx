@@ -42,6 +42,7 @@ set(FAKER_SOURCES
     modules/weather.cpp
     modules/word.cpp
     common/format_helper.cpp
+    common/generator.cpp
     common/luhn_check.cpp
     common/string_helper.cpp
 )
@@ -51,6 +52,7 @@ set(FAKER_HEADERS
     common/format_helper.h
     common/algo_helper.h
     common/string_helper.h
+    common/generator.h
     modules/plant_data.h
     modules/person_data.h
     modules/internet_data.h
