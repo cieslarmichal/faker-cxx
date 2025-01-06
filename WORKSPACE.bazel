@@ -1,1 +1,8 @@
 workspace(name = "faker-cxx")
+load("@bazel_tools//tools/build_defs/repo:git.bzl", "git_repository")
+
+git_repository(
+    name = "rules_cc",
+    remote = "https://github.com/bazelbuild/rules_cc.git",
+    commit = "c0fdd34b789ed4531f79a916053fb6f8f2a6b226",  # Adjust to latest commit
+)

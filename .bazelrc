@@ -1,0 +1,3 @@
+# Enable Bzlmod for every Bazel command
+build --enable_workspace
+common --enable_workspace
