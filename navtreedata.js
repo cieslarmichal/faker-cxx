@@ -53,13 +53,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "airline_8h.html",
-"image_8h.html#a45edcdedc077357ed8994b7df28108c0",
-"namespacefaker_1_1esport.html#a1e5b822d6ef54df0c4247412e3bcf43c",
-"namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa287f8a5f5666385f5740156556d8f77c",
-"namespacefaker_1_1system.html#a74d7b69a1a18ae8958c29271e1f230a2",
-"phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa6cd50fb3091b0a9d3c1ac2cf52441390",
-"structfaker_1_1science_1_1Unit.html#af9eb50b0bc2047fb7ea7b2f064f55eda"
+"namespacefaker_1_1food.html#a2b28c82763d4c556c6c5c68dd29732e8",
+"namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa4d4a1722d8e85909a576da2c42878ff0",
+"namespacefaker_1_1videogame.html#a3c88f81c0dedea1654576cd375331f68"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';
