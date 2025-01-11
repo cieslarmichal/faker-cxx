@@ -85,42 +85,43 @@ int main()
 
 ## 💎 Modules
 
-- 🛩 Airline - aircraft types, airlines, airports, flight numbers
-- 🐼 Animal - animal types and species
-- 📖 Book - book title, genre, author, publisher, ISBN
-- 🎨 Color - color names, rgb, hex, hcl
-- 🛒 Commerce - commerce department, product name, sku, price
-- 🏢 Company - company name, type, industry, catchphrase, buzz phrase
+- 🛩 Airline - aircraft type, airline, airport, flight number
+- 🐼 Animal - animal type and species
+- 📖 Book - title, genre, author, publisher, format, series
+- 🎨 Color - name, rgb, hex, hcl, lch, cmyk, lab, hsb, hsv, hwb, yuw
+- 🛒 Commerce - department, product name, SKU, EAN, ISBN, price, product description, categories
+- 🏢 Company - name, type, industry, catchphrase, buzz phrase
 - 🖥️ Computer - type, manufacturer, model, CPU info, GPU info
-- 🔐 Crypto - sha256, md5
+- 🔐 Crypto - SHA1, SHA256, MD5
 - 💾 Database - column names, column types, database engines
 - ℹ️ Datatype - booleans
-- 📅 Date - past, future dates
-- 🕹️ Esport - player, team, league, event, game
+- 📅 Date - past, future, recent, soon date, birthdate, time, month, day of week
+- 🕹️ E-sport - player, team, league, event, game
 - 🏦 Finance - currency, IBAN, BIC, account name, account number, pin, credit card numbers
 - 🍝 Food - food category, vegetables, fruits, meats, dishes
-- 📁 Git - branch names, commit messages, commit hash
+- 📁 Git - branch name, commit messages, commit hash
 - 👨‍💻 Hacker - hacker words
-- ✋ Helper - random element from container
-- 🌐 Internet - emails, usernames, passwords, IP, HTTP
-- 🖼️ Image - images urls, github avatar urls, image dimensions
-- 🌍 Location - countries, cities, zip codes, street addresses
-- 📚 Lorem - lorem words, sentences, paragraphs
-- 🏥 Medicine - conditions, medical tests, specialties
-- 🎥 Movie - actors, actresses, genres, movie titles
-- 🎶 Music - artists, song names, genres
-- 🔢 Number - random integers, floating point numbers
-- 🧑 Person - first, last names, job enUSTitles, hobby, genders, sex, nationality, language
-- 📞 Phone - phone number, IMEI
-- 🪴 Plant - plant type, trees, flowers
-- ⚽ Sport - sport names, athletes, events
-- 🔢 String - uuids, alphanumeric, numeric, hexadecimal
-- 💻 System - file paths, file extensions, file names, directories, semantic version
-- 🚗 Vehicle - vehicle types, makes, models, fuel types, license plates
-- 🎮 Video game - title, genre, platform, studio
+- ✋ Helper - random element, weighted random element
+- 🖼️ Image - images url, avatar url, image dimensions, type, lorem image, flickr image
+- 🌐 Internet - email, username, password, emoji, protocol, IP, HTTP, url, domain, mac address, jwt
+- 🌍 Location - country, continent, city, zip code, state, street address, latitude, longitude, timezone
+- 📚 Lorem - words, sentences, paragraphs
+- 🏥 Medicine - condition, medical test, specialty
+- 🎥 Movie - title, genre, actor, actress, director, tv show
+- 🎶 Music - artist, song names, genre
+- 🔢 Number - integer, decimal, hex, octal, binary
+- 🧑 Person - first, last name, job title, nationality, language, passport, ssn, hobby, gender, sex, bio
+- 📞 Phone - phone number, area code, IMEI, model, manufacturer
+- 🪴 Plant - plant type, tree, flower
+- 🧑‍🔬 Science - chemical element, units
+- ⚽ Sport - sport name, soccer team, athletes, event
+- 🔢 String - UUID (V1, V3, V4, V5, V6, V7, V8), ULID, nanoid, alpha, alphanumeric, numeric, sample
+- 💻 System - file name, file type, file path, file extension, directory, semantic version, mime type
+- 🚗 Vehicle - type, model, fuel type, VIN, VRN, manufacturer, color
 - 🎞️ Video - format name, file extension, video codec, audio codec, resolution, aspect ratio, video url
-- 🌤️ Weather - temperature, pressure, humidity, weather description
-- 💬 Word - sample words, nouns, verbs
+- 🎮 Video game - title, genre, platform, studio
+- 🌤️ Weather - weather description
+- 💬 Word - sample, adjective, adverb, conjunction, interjection, noun, preposition, verb
 
 ## Consuming the library with CMake
 
