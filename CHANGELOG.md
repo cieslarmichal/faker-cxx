@@ -2,14 +2,14 @@
 
 All notable changes to this project will be documented in this file
 
-## v4.0.0 (TBD)
+## v4.0.0 (11.01.2025)
 
 ### ⚠ BREAKING CHANGES
 
 * moved `hexadecimal` function from `string` to `number` module
 * moved `binary` function from `string` to `number` module
 * moved `octal` function from `string` to `number` module
-* dropped fmt library from dependencies, need to compile with compiler with std::format support
+* dropped fmt library from dependencies, require compiler with std::format support
 * renamed `string::uuid` to `string::uuidV4`
 
 ### Features

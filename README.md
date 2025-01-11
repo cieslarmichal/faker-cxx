@@ -115,7 +115,7 @@ int main()
 - 🪴 Plant - plant type, tree, flower
 - 🧑‍🔬 Science - chemical element, units
 - ⚽ Sport - sport name, soccer team, athletes, event
-- 🔢 String - UUID (V1, V3, V4, V5, V6, V7, V8), ULID, nanoid, alpha, alphanumeric, numeric, sample
+- 🔢 String - UUID (V1, V3, V4, V5, V6, V7), ULID, nanoid, alpha, alphanumeric, numeric, sample
 - 💻 System - file name, file type, file path, file extension, directory, semantic version, mime type
 - 🚗 Vehicle - type, model, fuel type, VIN, VRN, manufacturer, color
 - 🎞️ Video - format name, file extension, video codec, audio codec, resolution, aspect ratio, video url
@@ -167,7 +167,7 @@ target_link_libraries(main faker-cxx)
 ## ⚒️ Compiler support
 
 - [MSVC➚](https://en.wikipedia.org/wiki/Microsoft_Visual_Studio) version 143 or newer.
-- [GCC➚](https://gcc.gnu.org/) version 12 or newer.
+- [GCC➚](https://gcc.gnu.org/) version 13 or newer.
 - [Clang➚](https://clang.llvm.org/) version 16 or newer.
 - [Apple Clang➚](https://clang.llvm.org/) version 16 or newer.
 
