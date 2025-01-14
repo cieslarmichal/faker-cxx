@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 project(faker-cxx
     LANGUAGES CXX
-    VERSION 3.0.0
+    VERSION 4.0.1
     DESCRIPTION "C++ Faker library for generating fake (but realistic) data."
     HOMEPAGE_URL "https://github.com/cieslarmichal/faker-cxx")
 
