@@ -6,10 +6,11 @@
 #include <string>
 #include <string_view>
 #include <unordered_map>
-
+#include <sstream>
 #include "common/format_helper.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
+#include "faker-cxx/base64.h"
 
 namespace faker::image
 {
@@ -24,6 +25,20 @@ std::unordered_map<ImageCategory, std::string> imageCategoryToLoremFlickrStringM
     {ImageCategory::Fashion, "fashion"}, {ImageCategory::People, "people"},     {ImageCategory::Nature, "nature"},
     {ImageCategory::Sports, "sports"},   {ImageCategory::Technics, "technics"}, {ImageCategory::Transport, "transport"},
 };
+
+int randomInt(int min, int max) {
+    static std::mt19937 rng(std::time(nullptr));
+    std::uniform_int_distribution<int> dist(min, max);
+    return dist(rng);
+}
+
+
+std::string randomColor() {
+    return "rgb(" + std::to_string(randomInt(0, 255)) + "," +
+           std::to_string(randomInt(0, 255)) + "," +
+           std::to_string(randomInt(0, 255)) + ")";
+}
+
 }
 
 std::string imageUrl(unsigned width, unsigned height)
@@ -88,5 +103,25 @@ std::string dimensions()
 std::string_view type()
 {
     return helper::randomElement(imageTypes);
+}
+
+std::string dataUri(unsigned width, unsigned height, const std::string &color, const std::string &type) {
+    std::ostringstream svgStream;
+    svgStream << "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" baseProfile=\"full\" "
+              << "width=\"" << width << "\" height=\"" << height << "\">"
+              << "<rect width=\"100%\" height=\"100%\" fill=\"" << color << "\"/>"
+              << "<text x=\"" << width / 2 << "\" y=\"" << height / 2 
+              << "\" font-size=\"20\" alignment-baseline=\"middle\" text-anchor=\"middle\" fill=\"white\">"
+              << width << "x" << height << "</text></svg>";
+
+    std::string svgString = svgStream.str();
+
+    if (type == "svg-uri") {
+        return common::format("data:image/svg+xml;charset=UTF-8,{}", svgString);
+    } else if (type == "svg-base64") {
+        return "data:image/svg+xml;base64," + base64::encode(svgString); 
+    } else {
+        throw std::invalid_argument("Invalid type specified. Use 'svg-uri' or 'svg-base64'.");
+    }
 }
 }

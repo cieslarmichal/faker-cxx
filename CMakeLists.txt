@@ -22,7 +22,10 @@ endif ()
 
 cmake_dependent_option(USE_STD_FORMAT "Use std::format when available" ON "HAS_STD_FORMAT" OFF)
 
-add_library(${PROJECT_NAME})
+add_library(${PROJECT_NAME}
+    src/modules/image.cpp
+    src/modules/base64.cpp
+)
 
 add_subdirectory(src)
 
