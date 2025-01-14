@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file
 
+## v4.0.1 (14.01.2025)
+
+* fix dropping fmt dependency
+
 ## v4.0.0 (11.01.2025)
 
 ### ⚠ BREAKING CHANGES
