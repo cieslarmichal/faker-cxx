@@ -106,8 +106,8 @@ std::string dataUri(unsigned width, unsigned height, const std::string& color, c
               << "width=\"" << width << "\" height=\"" << height << "\">"
               << "<rect width=\"100%\" height=\"100%\" fill=\"" << color << "\"/>"
               << "<text x=\"" << width / 2 << "\" y=\"" << height / 2
-              << "\" font-size=\"20\" alignment-baseline=\"middle\" text-anchor=\"middle\" fill=\"white\">" << width
-              << "x" << height << "</text></svg>";
+              << "\" font-size=\"20\" alignment-baseline=\"middle\" text-anchor=\"middle\" fill=\"white\">" 
+              << width << "x" << height << "</text></svg>";
 
     const auto svgString = svgStream.str();
 
