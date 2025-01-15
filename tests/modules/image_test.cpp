@@ -6,6 +6,7 @@
 #include "gtest/gtest.h"
 
 #include "common/string_helper.h"
+#include "faker-cxx/base64.h"
 #include "faker-cxx/image.h"
 
 using namespace ::testing;
@@ -164,4 +165,50 @@ TEST_F(ImageTest, shouldGenerateType)
 
     ASSERT_TRUE(std::ranges::any_of(imageTypes,
                                     [generatedType](const std::string_view& type) { return type == generatedType; }));
+}
+
+TEST_F(ImageTest, shouldGenerateDataUriSvgUri)
+{
+    const auto width = 100;
+    const auto height = 100;
+    const auto color = "red";
+    const auto type = "svg-uri";
+
+    const auto generatedDataUri = dataUri(width, height, color, type);
+
+    ASSERT_TRUE(generatedDataUri.find("data:image/svg+xml;charset=UTF-8,") == 0);
+    ASSERT_TRUE(generatedDataUri.find("<svg") != std::string::npos);
+    ASSERT_TRUE(generatedDataUri.find("width=\"100\"") != std::string::npos);
+    ASSERT_TRUE(generatedDataUri.find("height=\"100\"") != std::string::npos);
+    ASSERT_TRUE(generatedDataUri.find("fill=\"red\"") != std::string::npos);
+}
+
+TEST_F(ImageTest, shouldGenerateDataUriSvgBase64)
+{
+    const auto width = 100;
+    const auto height = 100;
+    const auto color = "red";
+    const auto type = "svg-base64";
+
+    const auto generatedDataUri = dataUri(width, height, color, type);
+
+    ASSERT_TRUE(generatedDataUri.find("data:image/svg+xml;base64,") == 0);
+
+    const auto base64Data = generatedDataUri.substr(std::string("data:image/svg+xml;base64,").length());
+    const auto decodedData = base64::decode(base64Data.data(), base64Data.size());
+
+    ASSERT_TRUE(decodedData.find("<svg") != std::string::npos);
+    ASSERT_TRUE(decodedData.find("width=\"100\"") != std::string::npos);
+    ASSERT_TRUE(decodedData.find("height=\"100\"") != std::string::npos);
+    ASSERT_TRUE(decodedData.find("fill=\"red\"") != std::string::npos);
+}
+
+TEST_F(ImageTest, shouldThrowErrorForInvalidDataUriType)
+{
+    const auto width = 100;
+    const auto height = 100;
+    const auto color = "red";
+    const auto type = "invalid-type";
+
+    ASSERT_THROW(dataUri(width, height, color, type), std::invalid_argument);
 }

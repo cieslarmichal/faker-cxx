@@ -109,4 +109,22 @@ FAKER_CXX_EXPORT std::string dimensions();
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view type();
+
+/**
+ * @brief Generates a random data uri containing an URL-encoded SVG image or a Base64-encoded SVG image.
+ *
+ * @param width The width of the image. Defaults to a random number between 1 and 3999.
+ * @param height The height of the image. Defaults to a random number between 1 and 3999.
+ * @param color The color of the image. Must be a color supported by svg.
+ * @param type The type of the image to return. Consisting of the file extension and the used encoding.
+ * @return A string containing the data uri.
+ *
+ * @code
+ * faker::image::dataUri() // 'data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http...'
+ * faker::image::dataUri(200, 200, "000000", "svg-base64") // 'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3...'
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string dataUri(unsigned width = 200, unsigned height = 200, const std::string& color = "000000",
+                                     const std::string& type = "svg-uri");
+
 }

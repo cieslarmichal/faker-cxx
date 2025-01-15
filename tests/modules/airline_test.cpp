@@ -38,7 +38,8 @@ TEST_F(AirlineTest, shouldGenerateAirplane)
     const auto generatedAirplane = airplane();
 
     ASSERT_TRUE(std::ranges::any_of(airplanes,
-                                    [generatedAirplane](const Airplane& airplane) {
+                                    [generatedAirplane](const Airplane& airplane)
+                                    {
                                         return airplane.name == generatedAirplane.name &&
                                                airplane.iataTypeCode == generatedAirplane.iataTypeCode;
                                     }));

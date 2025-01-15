@@ -20,6 +20,7 @@ set(FAKER_SOURCES
     modules/git.cpp
     modules/hacker.cpp
     modules/helper.cpp
+    modules/base64.cpp
     modules/image.cpp
     modules/internet.cpp
     modules/location.cpp
