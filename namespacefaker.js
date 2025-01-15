@@ -18,6 +18,10 @@ var namespacefaker =
       [ "snake", "namespacefaker_1_1animal.html#a2a04f672b03cb3348215ae80a5893aae", null ],
       [ "type", "namespacefaker_1_1animal.html#a21cf03049b83e4e02906ce96a044f29a", null ]
     ] ],
+    [ "base64", "namespacefaker_1_1base64.html", [
+      [ "decode", "namespacefaker_1_1base64.html#a71d9c0124e202ffeda095377138f472b", null ],
+      [ "encode", "namespacefaker_1_1base64.html#a49f55bfb08d25d0a8a8f132aa61cf268", null ]
+    ] ],
     [ "book", "namespacefaker_1_1book.html", [
       [ "author", "namespacefaker_1_1book.html#aa639e739e411efdb9901c31b99c1c33b", null ],
       [ "format", "namespacefaker_1_1book.html#a9af09df45061c45aa135b4fa3f75afdd", null ],
@@ -182,6 +186,7 @@ var namespacefaker =
         [ "Technics", "namespacefaker_1_1image.html#afcfbb3acc18ec0f5ec6b87124f7a3e5da29bc5d196d0cc55fc2c25c3968122bd8", null ],
         [ "Transport", "namespacefaker_1_1image.html#afcfbb3acc18ec0f5ec6b87124f7a3e5daf5f0c488ed56cf789d19a13ffba8abe3", null ]
       ] ],
+      [ "dataUri", "namespacefaker_1_1image.html#ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0", null ],
       [ "dimensions", "namespacefaker_1_1image.html#a00a9e53fbdb4ce788cf23d7c817a8ce1", null ],
       [ "githubAvatarUrl", "namespacefaker_1_1image.html#a3011ab4a53ccaf4b332012c43e832661", null ],
       [ "imageUrl", "namespacefaker_1_1image.html#a45edcdedc077357ed8994b7df28108c0", null ],

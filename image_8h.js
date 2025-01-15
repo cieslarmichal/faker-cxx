@@ -14,6 +14,7 @@ var image_8h =
       [ "faker::image::ImageCategory::Technics", "namespacefaker_1_1image.html#afcfbb3acc18ec0f5ec6b87124f7a3e5da29bc5d196d0cc55fc2c25c3968122bd8", null ],
       [ "faker::image::ImageCategory::Transport", "namespacefaker_1_1image.html#afcfbb3acc18ec0f5ec6b87124f7a3e5daf5f0c488ed56cf789d19a13ffba8abe3", null ]
     ] ],
+    [ "faker::image::dataUri", "namespacefaker_1_1image.html#ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0", null ],
     [ "faker::image::dimensions", "namespacefaker_1_1image.html#a00a9e53fbdb4ce788cf23d7c817a8ce1", null ],
     [ "faker::image::githubAvatarUrl", "namespacefaker_1_1image.html#a3011ab4a53ccaf4b332012c43e832661", null ],
     [ "faker::image::imageUrl", "namespacefaker_1_1image.html#a45edcdedc077357ed8994b7df28108c0", null ],

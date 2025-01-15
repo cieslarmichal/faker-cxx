@@ -147,6 +147,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a708ded43a228db789612399cbd2efcae" id="r_a708ded43a228db789612399cbd2efcae"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string_view&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a708ded43a228db789612399cbd2efcae">type</a> ()</td></tr>
 <tr class="memdesc:a708ded43a228db789612399cbd2efcae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random type of image.  <br /></td></tr>
 <tr class="separator:a708ded43a228db789612399cbd2efcae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0" id="r_ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0">dataUri</a> (unsigned width=200, unsigned height=200, const std::string &amp;color=&quot;000000&quot;, const std::string &amp;<a class="el" href="#a708ded43a228db789612399cbd2efcae">type</a>=&quot;svg-uri&quot;)</td></tr>
+<tr class="memdesc:ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random data uri containing an URL-encoded SVG image or a Base64-encoded SVG image.  <br /></td></tr>
+<tr class="separator:ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a id="afcfbb3acc18ec0f5ec6b87124f7a3e5d" name="afcfbb3acc18ec0f5ec6b87124f7a3e5d"></a>
@@ -186,6 +189,54 @@ Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
+<a id="ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0" name="ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0">&#9670;&#160;</a></span>dataUri()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::image::dataUri </td>
+          <td>(</td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>width</em></span><span class="paramdefsep"> = </span><span class="paramdefval">200</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">unsigned</td>          <td class="paramname"><span class="paramname"><em>height</em></span><span class="paramdefsep"> = </span><span class="paramdefval">200</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>color</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;000000&quot;</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;</td>          <td class="paramname"><span class="paramname"><em>type</em></span><span class="paramdefsep"> = </span><span class="paramdefval">&quot;svg-uri&quot;</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a random data uri containing an URL-encoded SVG image or a Base64-encoded SVG image. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">width</td><td>The width of the image. Defaults to a random number between 1 and 3999. </td></tr>
+    <tr><td class="paramname">height</td><td>The height of the image. Defaults to a random number between 1 and 3999. </td></tr>
+    <tr><td class="paramname">color</td><td>The color of the image. Must be a color supported by svg. </td></tr>
+    <tr><td class="paramname">type</td><td>The type of the image to return. Consisting of the file extension and the used encoding. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>A string containing the data uri.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0">faker::image::dataUri</a>() <span class="comment">// &#39;data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http...&#39;</span></div>
+<div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<a class="code hl_namespace" href="namespacefaker_1_1image.html">image</a>::<a class="code hl_function" href="#ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0">dataUri</a>(200, 200, <span class="stringliteral">&quot;000000&quot;</span>, <span class="stringliteral">&quot;svg-base64&quot;</span>) <span class="comment">// &#39;data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3...&#39;</span></div>
+<div class="ttc" id="anamespacefaker_1_1image_html"><div class="ttname"><a href="namespacefaker_1_1image.html">faker::image</a></div><div class="ttdef"><b>Definition</b> image.h:10</div></div>
+<div class="ttc" id="anamespacefaker_1_1image_html_ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0"><div class="ttname"><a href="#ab6d3a6f8cd5a0f8d8882f8f8edb5ebf0">faker::image::dataUri</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string dataUri(unsigned width=200, unsigned height=200, const std::string &amp;color=&quot;000000&quot;, const std::string &amp;type=&quot;svg-uri&quot;)</div><div class="ttdoc">Generates a random data uri containing an URL-encoded SVG image or a Base64-encoded SVG image.</div></div>
+<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> airline.h:9</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
 <a id="a00a9e53fbdb4ce788cf23d7c817a8ce1" name="a00a9e53fbdb4ce788cf23d7c817a8ce1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a00a9e53fbdb4ce788cf23d7c817a8ce1">&#9670;&#160;</a></span>dimensions()</h2>
 
@@ -322,11 +373,9 @@ Functions</h2></td></tr>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a083c329ebe18f42ae81a4bb0ac0732bb">faker::image::urlLoremFlickr</a>() <span class="comment">// &quot;https://loremflickr.com/640/480&quot;</span></div>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<a class="code hl_namespace" href="namespacefaker_1_1image.html">image</a>::<a class="code hl_function" href="#a083c329ebe18f42ae81a4bb0ac0732bb">urlLoremFlickr</a>(800, 600) <span class="comment">// &quot;https://loremflickr.com/800/600&quot;</span></div>
 <div class="line"><a class="code hl_namespace" href="namespacefaker.html">faker</a>::<a class="code hl_namespace" href="namespacefaker_1_1image.html">image</a>::<a class="code hl_function" href="#a083c329ebe18f42ae81a4bb0ac0732bb">urlLoremFlickr</a>(800, 600, <a class="code hl_enumeration" href="#afcfbb3acc18ec0f5ec6b87124f7a3e5d">ImageCategory</a>::<a class="code hl_enumvalue" href="#afcfbb3acc18ec0f5ec6b87124f7a3e5da338b6e271aed5a56a48fa1fe89dbaaf6">Animals</a>) <span class="comment">// &quot;https://loremflickr.com/800/600/animals&quot;</span></div>
-<div class="ttc" id="anamespacefaker_1_1image_html"><div class="ttname"><a href="namespacefaker_1_1image.html">faker::image</a></div><div class="ttdef"><b>Definition</b> image.h:10</div></div>
 <div class="ttc" id="anamespacefaker_1_1image_html_a083c329ebe18f42ae81a4bb0ac0732bb"><div class="ttname"><a href="#a083c329ebe18f42ae81a4bb0ac0732bb">faker::image::urlLoremFlickr</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string urlLoremFlickr(unsigned width=640, unsigned height=480, std::optional&lt; ImageCategory &gt; category=std::nullopt)</div><div class="ttdoc">Generates a real image url with `https://loremflickr.com/`.</div></div>
 <div class="ttc" id="anamespacefaker_1_1image_html_afcfbb3acc18ec0f5ec6b87124f7a3e5d"><div class="ttname"><a href="#afcfbb3acc18ec0f5ec6b87124f7a3e5d">faker::image::ImageCategory</a></div><div class="ttdeci">ImageCategory</div><div class="ttdef"><b>Definition</b> image.h:12</div></div>
 <div class="ttc" id="anamespacefaker_1_1image_html_afcfbb3acc18ec0f5ec6b87124f7a3e5da338b6e271aed5a56a48fa1fe89dbaaf6"><div class="ttname"><a href="#afcfbb3acc18ec0f5ec6b87124f7a3e5da338b6e271aed5a56a48fa1fe89dbaaf6">faker::image::ImageCategory::Animals</a></div><div class="ttdeci">@ Animals</div><div class="ttdef"><b>Definition</b> image.h:13</div></div>
-<div class="ttc" id="anamespacefaker_html"><div class="ttname"><a href="namespacefaker.html">faker</a></div><div class="ttdef"><b>Definition</b> airline.h:9</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

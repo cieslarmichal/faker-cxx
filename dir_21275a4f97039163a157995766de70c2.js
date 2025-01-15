@@ -2,6 +2,7 @@ var dir_21275a4f97039163a157995766de70c2 =
 [
     [ "airline.h", "airline_8h.html", "airline_8h" ],
     [ "animal.h", "animal_8h.html", "animal_8h" ],
+    [ "base64.h", "base64_8h.html", "base64_8h" ],
     [ "book.h", "book_8h.html", "book_8h" ],
     [ "color.h", "color_8h.html", "color_8h" ],
     [ "commerce.h", "commerce_8h.html", "commerce_8h" ],
