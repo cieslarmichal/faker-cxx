@@ -10,7 +10,8 @@ static const int B64index[256] = { 0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0,  0
 0,  0,  0, 63,  0, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40,
 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51 };
 
-std::string base64::encode(const std::string &input) {
+namespace faker::base64 {
+std::string encode(const std::string &input) {
     std::string encodedString;
     encodedString.reserve(((input.size() / 3) + (input.size() % 3 > 0)) * 4);
     uint32_t temp;
@@ -43,7 +44,7 @@ std::string base64::encode(const std::string &input) {
     return encodedString;
 }
 
-std::string base64::decode(const void* data, const size_t len)
+std::string decode(const void* data, const size_t len)
 {
     unsigned char* p = (unsigned char*)data;
     int pad = len > 0 && (len % 4 || p[len - 1] == '=');
@@ -69,4 +70,5 @@ std::string base64::decode(const void* data, const size_t len)
         }
     }
     return str;
+}
 }

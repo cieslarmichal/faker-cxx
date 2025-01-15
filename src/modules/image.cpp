@@ -27,9 +27,7 @@ std::unordered_map<ImageCategory, std::string> imageCategoryToLoremFlickrStringM
 };
 
 int randomInt(int min, int max) {
-    static std::mt19937 rng(std::time(nullptr));
-    std::uniform_int_distribution<int> dist(min, max);
-    return dist(rng);
+    return number::integer(min, max);
 }
 
 
