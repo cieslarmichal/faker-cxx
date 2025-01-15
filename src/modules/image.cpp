@@ -26,15 +26,10 @@ std::unordered_map<ImageCategory, std::string> imageCategoryToLoremFlickrStringM
     {ImageCategory::Sports, "sports"},   {ImageCategory::Technics, "technics"}, {ImageCategory::Transport, "transport"},
 };
 
-int randomInt(int min, int max) {
-    return number::integer(min, max);
-}
-
-
 std::string randomColor() {
-    return "rgb(" + std::to_string(randomInt(0, 255)) + "," +
-           std::to_string(randomInt(0, 255)) + "," +
-           std::to_string(randomInt(0, 255)) + ")";
+    return "rgb(" + std::to_string(number::integer(0, 255)) + "," +
+           std::to_string(number::integer(0, 255)) + "," +
+           std::to_string(number::integer(0, 255)) + ")";
 }
 
 }
