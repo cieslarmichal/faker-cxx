@@ -49,7 +49,7 @@ set(FAKER_UT_SOURCES
     modules/weather_test.cpp
     modules/word_test.cpp
     modules/word_data_test.cpp
-    modules/base64.cpp
+    modules/base64_test.cpp
 )
 
 add_executable(${PROJECT_NAME} ${FAKER_UT_SOURCES})
