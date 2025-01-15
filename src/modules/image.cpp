@@ -112,7 +112,7 @@ std::string dataUri(unsigned width, unsigned height, const std::string &color, c
               << "\" font-size=\"20\" alignment-baseline=\"middle\" text-anchor=\"middle\" fill=\"white\">"
               << width << "x" << height << "</text></svg>";
 
-    std::string svgString = svgStream.str();
+    const auto svgString = svgStream.str();
 
     if (type == "svg-uri") {
         return common::format("data:image/svg+xml;charset=UTF-8,{}", svgString);
