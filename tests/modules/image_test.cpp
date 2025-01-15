@@ -6,8 +6,8 @@
 #include "gtest/gtest.h"
 
 #include "common/string_helper.h"
-#include "faker-cxx/image.h"
 #include "faker-cxx/base64.h"
+#include "faker-cxx/image.h"
 
 using namespace ::testing;
 using namespace faker;

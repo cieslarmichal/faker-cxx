@@ -3,14 +3,15 @@
 #include <array>
 #include <faker-cxx/datatype.h>
 #include <optional>
+#include <sstream>
 #include <string>
 #include <string_view>
 #include <unordered_map>
-#include <sstream>
+
 #include "common/format_helper.h"
+#include "faker-cxx/base64.h"
 #include "faker-cxx/helper.h"
 #include "faker-cxx/number.h"
-#include "faker-cxx/base64.h"
 
 namespace faker::image
 {
@@ -26,9 +27,9 @@ std::unordered_map<ImageCategory, std::string> imageCategoryToLoremFlickrStringM
     {ImageCategory::Sports, "sports"},   {ImageCategory::Technics, "technics"}, {ImageCategory::Transport, "transport"},
 };
 
-std::string randomColor() {
-    return "rgb(" + std::to_string(number::integer(0, 255)) + "," +
-           std::to_string(number::integer(0, 255)) + "," +
+std::string randomColor()
+{
+    return "rgb(" + std::to_string(number::integer(0, 255)) + "," + std::to_string(number::integer(0, 255)) + "," +
            std::to_string(number::integer(0, 255)) + ")";
 }
 
@@ -98,22 +99,28 @@ std::string_view type()
     return helper::randomElement(imageTypes);
 }
 
-std::string dataUri(unsigned width, unsigned height, const std::string &color, const std::string &type) {
+std::string dataUri(unsigned width, unsigned height, const std::string& color, const std::string& type)
+{
     std::ostringstream svgStream;
     svgStream << "<svg xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\" baseProfile=\"full\" "
               << "width=\"" << width << "\" height=\"" << height << "\">"
               << "<rect width=\"100%\" height=\"100%\" fill=\"" << color << "\"/>"
-              << "<text x=\"" << width / 2 << "\" y=\"" << height / 2 
-              << "\" font-size=\"20\" alignment-baseline=\"middle\" text-anchor=\"middle\" fill=\"white\">"
-              << width << "x" << height << "</text></svg>";
+              << "<text x=\"" << width / 2 << "\" y=\"" << height / 2
+              << "\" font-size=\"20\" alignment-baseline=\"middle\" text-anchor=\"middle\" fill=\"white\">" << width
+              << "x" << height << "</text></svg>";
 
     const auto svgString = svgStream.str();
 
-    if (type == "svg-uri") {
+    if (type == "svg-uri")
+    {
         return common::format("data:image/svg+xml;charset=UTF-8,{}", svgString);
-    } else if (type == "svg-base64") {
-        return "data:image/svg+xml;base64," + base64::encode(svgString); 
-    } else {
+    }
+    else if (type == "svg-base64")
+    {
+        return "data:image/svg+xml;base64," + base64::encode(svgString);
+    }
+    else
+    {
         throw std::invalid_argument("Invalid type specified. Use 'svg-uri' or 'svg-base64'.");
     }
 }
