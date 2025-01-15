@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 project(faker-cxx
     LANGUAGES CXX
-    VERSION 4.0.1
+    VERSION 3.0.0
     DESCRIPTION "C++ Faker library for generating fake (but realistic) data."
     HOMEPAGE_URL "https://github.com/cieslarmichal/faker-cxx")
 
@@ -22,10 +22,7 @@ endif ()
 
 cmake_dependent_option(USE_STD_FORMAT "Use std::format when available" ON "HAS_STD_FORMAT" OFF)
 
-add_library(${PROJECT_NAME}
-    src/modules/image.cpp
-    src/modules/base64.cpp
-)
+add_library(${PROJECT_NAME})
 
 add_subdirectory(src)
 
