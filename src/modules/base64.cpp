@@ -1,4 +1,5 @@
 #include "faker-cxx/base64.h"
+#include <cstdint>
 
 static const char encodeLookup[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 static const char padCharacter = '=';
