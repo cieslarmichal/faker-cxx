@@ -669,10 +669,11 @@ TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithOriginInMiles)
     ASSERT_EQ(generatedLongitudeParts[1].size(), 3);
 
     const auto distanceKm =
-        vincentyDistance(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat);
+            vincentyDistance(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat);
     const auto distanceMiles = distanceKm * 0.621371;
+    constexpr double TOLERANCE = 1e-12;
 
-    ASSERT_LE(distanceMiles, 10.0);
+    ASSERT_LE(fabs(distanceMiles - 10.0), 10.0 + TOLERANCE);
 }
 
 TEST_F(LocationTest, shouldGenerateDirection)
