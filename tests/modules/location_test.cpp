@@ -3,6 +3,7 @@
 #include <string>
 #include <string_view>
 #include <vector>
+#include <numbers>
 
 #include "gtest/gtest.h"
 
@@ -648,6 +649,9 @@ TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithOriginInKilometers)
 
     ASSERT_LE(distance, 10.0);
 }
+
+
+#include <format>
 
 TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithOriginInMiles)
 {
