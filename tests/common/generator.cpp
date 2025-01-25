@@ -19,8 +19,8 @@ TEST(GeneratorTest, shouldReturnDeterministicValueWhenSeeded)
 
     // These are the numbers generated on the first test run
     // and should not change since the seed is fixed
-    EXPECT_EQ(first, 86);
-    EXPECT_EQ(second, 40);
+    ASSERT_EQ(first, 86);
+    ASSERT_EQ(second, 40);
 }
 
 TEST(GeneratorTest, sameSeedShouldResetGenerator)
@@ -39,7 +39,7 @@ TEST(GeneratorTest, sameSeedShouldResetGenerator)
 
     // The generator should generate the same number
     // since it uses the same seed
-    EXPECT_EQ(first, second);
+    ASSERT_EQ(first, second);
 }
 
 TEST(GeneratorTest, seedOnOneThreadShouldNotAffectOtherThreads)
@@ -57,7 +57,7 @@ TEST(GeneratorTest, seedOnOneThreadShouldNotAffectOtherThreads)
         // Default seed of mt19937 is expected to be different from "42"
         std::mt19937_64& generator_t2 = common::GetGenerator();
         const auto value_t2 = distribution(generator_t2);
-        EXPECT_NE(value_t1, value_t2);
+        ASSERT_NE(value_t1, value_t2);
     });
 
     t2.join();
@@ -84,7 +84,7 @@ TEST(GeneratorTest, randomSeedIsUsedWhenNoneProvided)
 
     // The second generator has a seed other than the default value because
     // different values have been generated
-    EXPECT_TRUE(is_different);
+    ASSERT_TRUE(is_different);
 }
 
 TEST(GeneratorTest, seededStateIsCopiedToRandomGenerator)
@@ -103,5 +103,5 @@ TEST(GeneratorTest, seededStateIsCopiedToRandomGenerator)
 
     const auto first = distribution(generator1);
     const auto second = generator2(distribution);
-    EXPECT_EQ(first, second);
+    ASSERT_EQ(first, second);
 }
