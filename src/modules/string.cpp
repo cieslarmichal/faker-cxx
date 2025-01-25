@@ -377,7 +377,7 @@ std::string ulid(time_t refDate)
 
 std::string uuidV1()
 {
-    RandomGenerator<std::mt19937_64> gen {common::GetGenerator()};
+    RandomGenerator<std::mt19937_64> gen{common::GetGenerator()};
 
     const uint64_t UUID_EPOCH_OFFSET = 0x01B21DD213814000ULL;
     auto now = std::chrono::system_clock::now();
@@ -415,7 +415,7 @@ std::string uuidV1()
 
 std::string uuidV3()
 {
-    RandomGenerator<std::mt19937_64> gen {common::GetGenerator()};
+    RandomGenerator<std::mt19937_64> gen{common::GetGenerator()};
 
     std::array<uint8_t, 16> hash{};
     std::uniform_int_distribution<int> dist(0, 255);
@@ -447,7 +447,7 @@ std::string uuidV3()
 
 std::string uuidV4()
 {
-    RandomGenerator<std::mt19937_64> gen {common::GetGenerator()};
+    RandomGenerator<std::mt19937_64> gen{common::GetGenerator()};
 
     static std::uniform_int_distribution<> dist(0, 15);
     static std::uniform_int_distribution<> dist2(8, 11);
@@ -545,7 +545,7 @@ std::string uuidV5(const std::string& name, const std::string& namespaceUuid)
 
 std::string uuidV6()
 {
-    RandomGenerator<std::mt19937_64> gen {common::GetGenerator()};
+    RandomGenerator<std::mt19937_64> gen{common::GetGenerator()};
 
     const uint64_t UUID_EPOCH_OFFSET = 0x01B21DD213814000ULL;
     auto now = std::chrono::system_clock::now();
@@ -583,7 +583,7 @@ std::string uuidV6()
 
 std::string uuidV7()
 {
-    RandomGenerator<std::mt19937_64> gen {common::GetGenerator()};
+    RandomGenerator<std::mt19937_64> gen{common::GetGenerator()};
     auto now = std::chrono::system_clock::now();
     auto since_epoch = now.time_since_epoch();
 
