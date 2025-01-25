@@ -1,9 +1,9 @@
 #include "common/generator.h"
+#include "faker-cxx/random_generator.h"
+#include "gtest/gtest.h"
 
 #include <cstdint>
 #include <thread>
-
-#include "gtest/gtest.h"
 
 using namespace ::testing;
 using namespace faker;
@@ -85,4 +85,23 @@ TEST(GeneratorTest, randomSeedIsUsedWhenNoneProvided)
     // The second generator has a seed other than the default value because
     // different values have been generated
     EXPECT_TRUE(is_different);
+}
+
+TEST(GeneratorTest, seededStateIsCopiedToRandomGenerator)
+{
+    std::uniform_int_distribution<uint32_t> distribution(0, 1000);
+
+    constexpr unsigned int arbitrary_seed = 42;
+    common::SetSeed(arbitrary_seed);
+    std::mt19937_64& generator1 = common::GetGenerator();
+
+    // Move internal state
+    std::ignore = distribution(generator1);
+
+    // Calls the copy constructor of std::mt19937_64
+    RandomGenerator<std::mt19937_64> generator2 {generator1};
+
+    const auto first = distribution(generator1);
+    const auto second = generator2(distribution);
+    EXPECT_EQ(first, second);
 }

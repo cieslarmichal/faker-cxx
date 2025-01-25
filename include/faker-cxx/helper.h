@@ -4,6 +4,7 @@
 #include <random>
 #include <vector>
 
+#include "common/generator.h"
 #include "number.h"
 
 namespace faker::helper
@@ -38,8 +39,7 @@ auto randomElement(Range&& range)
         throw std::invalid_argument{"Range [start, end) is empty."};
     }
 
-    std::random_device rd;
-    std::mt19937 gen(rd());
+    std::mt19937_64& gen = common::GetGenerator();
 
     using RangeValue = std::ranges::range_value_t<decltype(range)>;
     auto consume_itr = [&itr]() -> decltype(auto)

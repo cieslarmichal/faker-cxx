@@ -5,6 +5,7 @@
 #include <random>
 #include <stdexcept>
 
+#include "common/generator.h"
 #include "faker-cxx/export.h"
 #include "faker-cxx/types/hex.h"
 
@@ -34,7 +35,7 @@ I integer(I min, I max)
         throw std::invalid_argument("Minimum value must be smaller than maximum value.");
     }
 
-    static std::mt19937 pseudoRandomGenerator{std::random_device{}()};
+    std::mt19937_64& pseudoRandomGenerator = common::GetGenerator();
 
     std::uniform_int_distribution<I> distribution(min, max);
 
@@ -87,7 +88,7 @@ F decimal(F min, F max)
         throw std::invalid_argument("Minimum value must be smaller than maximum value.");
     }
 
-    static std::mt19937 pseudoRandomGenerator{std::random_device{}()};
+    std::mt19937_64& pseudoRandomGenerator = common::GetGenerator();
     std::uniform_real_distribution<F> distribution(min, max);
 
     return distribution(pseudoRandomGenerator);
@@ -144,11 +145,10 @@ F normalDistribution(F mean, F standardDeviation)
         return mean;
     }
 
-    std::random_device randDev;
-    std::mt19937 PSRNG(randDev());
+    std::mt19937_64& pseudoRandomGenerator = common::GetGenerator();
 
-    std::normal_distribution<F> dist(mean, standardDeviation);
-    return dist(PSRNG);
+    std::normal_distribution<F> distribution(mean, standardDeviation);
+    return distribution(pseudoRandomGenerator);
 }
 
 /**

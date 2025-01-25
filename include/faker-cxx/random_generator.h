@@ -13,6 +13,8 @@ class RandomGenerator
 public:
     RandomGenerator() : generator_{T(std::random_device{}())} {}
 
+    explicit RandomGenerator(const T& other) : generator_{other} {}
+
     ~RandomGenerator() = default;
 
     RandomGenerator(const RandomGenerator&) = default;
@@ -23,7 +25,7 @@ public:
     template <typename Dist>
         requires std::is_invocable_r_v<int, Dist&, T&>
 
-    int operator()(Dist&& dist)
+    typename T::result_type operator()(Dist&& dist)
     {
         return std::forward<Dist>(dist)(generator_);
     }
