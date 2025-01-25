@@ -71,8 +71,6 @@ if (USE_SYSTEM_DEPENDENCIES)
     target_link_libraries(${PROJECT_NAME} PRIVATE GTest::gtest GTest::gtest_main GTest::gmock GTest::gmock_main faker-cxx)
 else ()
     add_subdirectory("${PARENT_DIR}/externals/googletest" "${CMAKE_BINARY_DIR}/googletest")
-    include(GoogleTest)
-    gtest_discover_tests(${PROJECT_NAME})
 
     set(GTEST_INCLUDE_DIR "${PARENT_DIR}/externals/googletest/googletest/include")
     set(GMOCK_INCLUDE_DIR "${PARENT_DIR}/externals/googletest/googlemock/include")
