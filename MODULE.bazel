@@ -1,15 +1,16 @@
 # Define dependencies using Bzlmod.
+
 bazel_dep(
-    name = "rules_foreign_cc",
-    version = "0.10.1"
+    name = "rules_foreign_cc", 
+    version = "0.13.0"
 )
 
 bazel_dep(
     name = "googletest",
-    version = "1.14.0.bcr.1"
+    version = "1.15.0"
 )
 
 bazel_dep(
     name = "rules_cc",
-    version = "0.0.16"
+    version = "0.1.0"
 )

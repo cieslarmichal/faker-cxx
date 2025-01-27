@@ -40,9 +40,9 @@ jobs:
             ${{ runner.os }}-
 
       - name: Build faker-cxx library
-        run: bazel build //:faker-cxx --enable_workspace
+        run: bazel build //:faker-cxx
 
       - name: Build and run faker-cxx tests
         run: |
-          bazel build //tests:faker-cxx-ut --enable_workspace
+          bazel build //tests:faker-cxx-ut 
           bazel-bin/tests/faker-cxx-ut
