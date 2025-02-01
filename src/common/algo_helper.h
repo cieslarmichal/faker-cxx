@@ -25,7 +25,7 @@ static T setElement(const std::set<T>& data)
 
     T item;
 
-    std::mt19937_64& pseudoRandomGenerator = common::GetGenerator();
+    std::mt19937_64& pseudoRandomGenerator = common::getGenerator();
 
     std::sample(data.begin(), data.end(), &item, 1, pseudoRandomGenerator);
 

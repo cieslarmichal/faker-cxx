@@ -12,8 +12,8 @@ TEST(GeneratorTest, shouldReturnDeterministicValueWhenSeeded)
 {
     std::uniform_int_distribution<uint32_t> distribution(0, 100);
     constexpr unsigned int arbitrary_seed = 42;
-    common::SetSeed(arbitrary_seed);
-    std::mt19937_64& generator = common::GetGenerator();
+    common::setSeed(arbitrary_seed);
+    std::mt19937_64& generator = common::getGenerator();
     const auto first = distribution(generator);
     const auto second = distribution(generator);
 
@@ -30,11 +30,11 @@ TEST(GeneratorTest, sameSeedShouldResetGenerator)
     std::vector<uint32_t> seed_data = {12345, 67890, 54321};
     std::seed_seq arbitrary_seed(seed_data.begin(), seed_data.end());
 
-    common::SetSeed(arbitrary_seed);
-    std::mt19937_64& generator = common::GetGenerator();
+    common::setSeed(arbitrary_seed);
+    std::mt19937_64& generator = common::getGenerator();
     const auto first = distribution(generator);
 
-    common::SetSeed(arbitrary_seed);
+    common::setSeed(arbitrary_seed);
     const auto second = distribution(generator);
 
     // The generator should generate the same number
@@ -49,13 +49,13 @@ TEST(GeneratorTest, seedOnOneThreadShouldNotAffectOtherThreads)
     std::uniform_int_distribution<uint64_t> distribution(0, UINT64_MAX);
 
     constexpr unsigned int seed_t1 = 42;
-    common::SetSeed(seed_t1);
-    std::mt19937_64& generator_t1 = common::GetGenerator();
+    common::setSeed(seed_t1);
+    std::mt19937_64& generator_t1 = common::getGenerator();
     const auto value_t1 = distribution(generator_t1);
 
     std::thread t2([&distribution, value_t1]() {
         // Default seed of mt19937 is expected to be different from "42"
-        std::mt19937_64& generator_t2 = common::GetGenerator();
+        std::mt19937_64& generator_t2 = common::getGenerator();
         const auto value_t2 = distribution(generator_t2);
         ASSERT_NE(value_t1, value_t2);
     });
@@ -70,7 +70,7 @@ TEST(GeneratorTest, randomSeedIsUsedWhenNoneProvided)
     std::uniform_int_distribution<uint64_t> distribution(0, UINT64_MAX);
 
     std::mt19937_64 generator_with_default_seed;
-    std::mt19937_64& generator_with_random_seed = common::GetGenerator();
+    std::mt19937_64& generator_with_random_seed = common::getGenerator();
 
     bool is_different = false;
     for (int i = 0; i < 10; i++) {
@@ -92,8 +92,8 @@ TEST(GeneratorTest, seededStateIsCopiedToRandomGenerator)
     std::uniform_int_distribution<uint32_t> distribution(0, 1000);
 
     constexpr unsigned int arbitrary_seed = 42;
-    common::SetSeed(arbitrary_seed);
-    std::mt19937_64& generator1 = common::GetGenerator();
+    common::setSeed(arbitrary_seed);
+    std::mt19937_64& generator1 = common::getGenerator();
 
     // Move internal state
     std::ignore = distribution(generator1);

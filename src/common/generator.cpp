@@ -6,7 +6,7 @@ namespace faker::common
 thread_local bool is_seeded = false;
 thread_local std::mt19937_64 generator;
 
-std::mt19937_64& GetGenerator()
+std::mt19937_64& getGenerator()
 {
     if (!is_seeded)
     {
@@ -17,13 +17,13 @@ std::mt19937_64& GetGenerator()
     return generator;
 }
 
-void SetSeed(std::mt19937_64::result_type seed)
+void setSeed(std::mt19937_64::result_type seed)
 {
     generator.seed(seed);
     is_seeded = true;
 }
 
-void SetSeed(std::seed_seq& seq)
+void setSeed(std::seed_seq& seq)
 {
     generator.seed(seq);
     is_seeded = true;

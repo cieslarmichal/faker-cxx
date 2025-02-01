@@ -5,10 +5,10 @@
 namespace faker::common
 {
 
-std::mt19937_64& GetGenerator();
+std::mt19937_64& getGenerator();
 
-void SetSeed(std::mt19937_64::result_type seed);
+void setSeed(std::mt19937_64::result_type seed);
 
-void SetSeed(std::seed_seq& seq);
+void setSeed(std::seed_seq& seq);
 
 }
