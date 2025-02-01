@@ -1,6 +1,6 @@
-#include "generator.h"
+#include "faker-cxx/generator.h"
 
-namespace faker::common
+namespace faker
 {
 
 thread_local bool is_seeded = false;

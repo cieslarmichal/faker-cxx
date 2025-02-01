@@ -8,9 +8,9 @@
 #include <stdexcept>
 #include <string>
 
-#include "common/generator.h"
 #include "faker-cxx/datatype.h"
 #include "faker-cxx/export.h"
+#include "faker-cxx/generator.h"
 #include "faker-cxx/helper.h"
 
 namespace faker::helper
@@ -25,7 +25,7 @@ static T setElement(const std::set<T>& data)
 
     T item;
 
-    std::mt19937_64& pseudoRandomGenerator = common::getGenerator();
+    std::mt19937_64& pseudoRandomGenerator = faker::getGenerator();
 
     std::sample(data.begin(), data.end(), &item, 1, pseudoRandomGenerator);
 

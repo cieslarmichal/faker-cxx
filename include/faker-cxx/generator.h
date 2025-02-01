@@ -2,7 +2,7 @@
 
 #include <random>
 
-namespace faker::common
+namespace faker
 {
 
 std::mt19937_64& getGenerator();
