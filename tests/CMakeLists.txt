@@ -23,6 +23,7 @@ set(FAKER_UT_SOURCES
     modules/date_test.cpp
     modules/finance_test.cpp
     modules/food_test.cpp
+    modules/generator_test.cpp
     modules/git_test.cpp
     modules/hacker_test.cpp
     modules/helper_test.cpp

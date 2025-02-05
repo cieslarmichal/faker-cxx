@@ -6,13 +6,14 @@
 #include "common/algo_helper.h"
 #include "common/luhn_check.h"
 #include "common/string_helper.h"
+#include "faker-cxx/generator.h"
 #include "faker-cxx/number.h"
 
 namespace faker::helper
 {
 std::string shuffleString(std::string data)
 {
-    static std::mt19937 pseudoRandomGenerator(std::random_device{}());
+    std::mt19937_64& pseudoRandomGenerator = getGenerator();
 
     std::shuffle(data.begin(), data.end(), pseudoRandomGenerator);
 

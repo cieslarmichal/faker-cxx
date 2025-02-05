@@ -17,6 +17,7 @@ set(FAKER_SOURCES
     modules/esport.cpp
     modules/finance.cpp
     modules/food.cpp
+    modules/generator.cpp
     modules/git.cpp
     modules/hacker.cpp
     modules/helper.cpp
