@@ -35,7 +35,7 @@ I integer(I min, I max)
         throw std::invalid_argument("Minimum value must be smaller than maximum value.");
     }
 
-    std::mt19937_64& pseudoRandomGenerator = faker::getGenerator();
+    std::mt19937_64& pseudoRandomGenerator = getGenerator();
 
     std::uniform_int_distribution<I> distribution(min, max);
 
@@ -88,7 +88,7 @@ F decimal(F min, F max)
         throw std::invalid_argument("Minimum value must be smaller than maximum value.");
     }
 
-    std::mt19937_64& pseudoRandomGenerator = faker::getGenerator();
+    std::mt19937_64& pseudoRandomGenerator = getGenerator();
     std::uniform_real_distribution<F> distribution(min, max);
 
     return distribution(pseudoRandomGenerator);
@@ -145,7 +145,7 @@ F normalDistribution(F mean, F standardDeviation)
         return mean;
     }
 
-    std::mt19937_64& pseudoRandomGenerator = faker::getGenerator();
+    std::mt19937_64& pseudoRandomGenerator = getGenerator();
 
     std::normal_distribution<F> distribution(mean, standardDeviation);
     return distribution(pseudoRandomGenerator);

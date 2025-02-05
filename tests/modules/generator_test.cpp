@@ -12,13 +12,13 @@ TEST(GeneratorTest, shouldReturnDeterministicValueWhenSeeded)
 {
     std::uniform_int_distribution<uint32_t> distribution(0, 100);
     constexpr unsigned int arbitrary_seed = 42;
-    std::mt19937_64& generator = faker::getGenerator();
+    std::mt19937_64& generator = getGenerator();
 
-    faker::setSeed(arbitrary_seed);
+    setSeed(arbitrary_seed);
     const auto x0 = distribution(generator);
     const auto y0 = distribution(generator);
 
-    faker::setSeed(arbitrary_seed);
+    setSeed(arbitrary_seed);
     const auto x1 = distribution(generator);
     const auto y1 = distribution(generator);
 
@@ -33,11 +33,11 @@ TEST(GeneratorTest, sameSeedShouldResetGenerator)
     std::vector<uint32_t> seed_data = {12345, 67890, 54321};
     std::seed_seq arbitrary_seed(seed_data.begin(), seed_data.end());
 
-    faker::setSeed(arbitrary_seed);
-    std::mt19937_64& generator = faker::getGenerator();
+    setSeed(arbitrary_seed);
+    std::mt19937_64& generator = getGenerator();
     const auto first = distribution(generator);
 
-    faker::setSeed(arbitrary_seed);
+    setSeed(arbitrary_seed);
     const auto second = distribution(generator);
 
     // The generator should generate the same number
@@ -52,13 +52,13 @@ TEST(GeneratorTest, seedOnOneThreadShouldNotAffectOtherThreads)
     std::uniform_int_distribution<uint64_t> distribution(0, UINT64_MAX);
 
     constexpr unsigned int seed_t1 = 42;
-    faker::setSeed(seed_t1);
-    std::mt19937_64& generator_t1 = faker::getGenerator();
+    setSeed(seed_t1);
+    std::mt19937_64& generator_t1 = getGenerator();
     const auto value_t1 = distribution(generator_t1);
 
     std::thread t2([&distribution, value_t1]() {
         // Default seed of mt19937 is expected to be different from "42"
-        std::mt19937_64& generator_t2 = faker::getGenerator();
+        std::mt19937_64& generator_t2 = getGenerator();
         const auto value_t2 = distribution(generator_t2);
         ASSERT_NE(value_t1, value_t2);
     });
@@ -73,7 +73,7 @@ TEST(GeneratorTest, randomSeedIsUsedWhenNoneProvided)
     std::uniform_int_distribution<uint64_t> distribution(0, UINT64_MAX);
 
     std::mt19937_64 generator_with_default_seed;
-    std::mt19937_64& generator_with_random_seed = faker::getGenerator();
+    std::mt19937_64& generator_with_random_seed = getGenerator();
 
     bool is_different = false;
     for (int i = 0; i < 10; i++) {
@@ -95,8 +95,8 @@ TEST(GeneratorTest, seededStateIsCopiedToRandomGenerator)
     std::uniform_int_distribution<uint32_t> distribution(0, 1000);
 
     constexpr unsigned int arbitrary_seed = 42;
-    faker::setSeed(arbitrary_seed);
-    std::mt19937_64& generator1 = faker::getGenerator();
+    setSeed(arbitrary_seed);
+    std::mt19937_64& generator1 = getGenerator();
 
     // Move internal state
     std::ignore = distribution(generator1);

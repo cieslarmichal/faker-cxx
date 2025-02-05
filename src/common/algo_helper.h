@@ -25,7 +25,7 @@ static T setElement(const std::set<T>& data)
 
     T item;
 
-    std::mt19937_64& pseudoRandomGenerator = faker::getGenerator();
+    std::mt19937_64& pseudoRandomGenerator = getGenerator();
 
     std::sample(data.begin(), data.end(), &item, 1, pseudoRandomGenerator);
 

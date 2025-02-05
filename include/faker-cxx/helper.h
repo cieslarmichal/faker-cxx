@@ -39,7 +39,7 @@ auto randomElement(Range&& range)
         throw std::invalid_argument{"Range [start, end) is empty."};
     }
 
-    std::mt19937_64& gen = faker::getGenerator();
+    std::mt19937_64& gen = getGenerator();
 
     using RangeValue = std::ranges::range_value_t<decltype(range)>;
     auto consume_itr = [&itr]() -> decltype(auto)

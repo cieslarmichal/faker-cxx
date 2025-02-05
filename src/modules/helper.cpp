@@ -13,7 +13,7 @@ namespace faker::helper
 {
 std::string shuffleString(std::string data)
 {
-    std::mt19937_64& pseudoRandomGenerator = faker::getGenerator();
+    std::mt19937_64& pseudoRandomGenerator = getGenerator();
 
     std::shuffle(data.begin(), data.end(), pseudoRandomGenerator);
 
