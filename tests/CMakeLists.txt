@@ -8,7 +8,6 @@ include("${PARENT_DIR}/cmake/CompilerWarnings.cmake")
 
 set(FAKER_UT_SOURCES
     common/format_helper_test.cpp
-    common/generator.cpp
     common/luhn_check_test.cpp
     common/string_helper_test.cpp
     modules/airline_test.cpp
@@ -24,6 +23,7 @@ set(FAKER_UT_SOURCES
     modules/date_test.cpp
     modules/finance_test.cpp
     modules/food_test.cpp
+    modules/generator_test.cpp
     modules/git_test.cpp
     modules/hacker_test.cpp
     modules/helper_test.cpp

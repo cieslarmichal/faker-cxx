@@ -1,9 +1,9 @@
+#include <cstdint>
+#include <thread>
+
 #include "faker-cxx/generator.h"
 #include "faker-cxx/random_generator.h"
 #include "gtest/gtest.h"
-
-#include <cstdint>
-#include <thread>
 
 using namespace ::testing;
 using namespace faker;
