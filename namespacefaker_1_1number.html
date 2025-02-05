@@ -294,7 +294,7 @@ Functions</h2></td></tr>
 <div class="line">        <span class="keywordflow">throw</span> std::invalid_argument(<span class="stringliteral">&quot;Minimum value must be smaller than maximum value.&quot;</span>);</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    <span class="keyword">static</span> std::mt19937 pseudoRandomGenerator{std::random_device{}()};</div>
+<div class="line">    std::mt19937_64&amp; pseudoRandomGenerator = <a class="code hl_function" href="namespacefaker.html#a0a85e419f14197422d14c1bdbb404e3b">getGenerator</a>();</div>
 <div class="line">    std::uniform_real_distribution&lt;F&gt; distribution(min, max);</div>
 <div class="line"> </div>
 <div class="line">    <span class="keywordflow">return</span> distribution(pseudoRandomGenerator);</div>
@@ -319,11 +319,10 @@ Functions</h2></td></tr>
 <div class="line">        <span class="keywordflow">return</span> mean;</div>
 <div class="line">    }</div>
 <div class="line"> </div>
-<div class="line">    std::random_device randDev;</div>
-<div class="line">    std::mt19937 PSRNG(randDev());</div>
+<div class="line">    std::mt19937_64&amp; pseudoRandomGenerator = <a class="code hl_function" href="namespacefaker.html#a0a85e419f14197422d14c1bdbb404e3b">getGenerator</a>();</div>
 <div class="line"> </div>
-<div class="line">    std::normal_distribution&lt;F&gt; dist(mean, standardDeviation);</div>
-<div class="line">    <span class="keywordflow">return</span> dist(PSRNG);</div>
+<div class="line">    std::normal_distribution&lt;F&gt; distribution(mean, standardDeviation);</div>
+<div class="line">    <span class="keywordflow">return</span> distribution(pseudoRandomGenerator);</div>
 <div class="line">}</div>
 <div class="line"></div>
 <div class="line"> </div>

@@ -108,46 +108,46 @@ $(function(){initNavTree('helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;random&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;vector&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="number_8h.html">number.h</a>&quot;</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="foldopen" id="foldopen00009" data-start="{" data-end="}">
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="namespacefaker_1_1helper.html">    9</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacefaker_1_1helper.html">faker::helper</a></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>{</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="conceptfaker_1_1helper_1_1input__range__with__faster__size__compute__than__linear__rng.html">   12</a></span><span class="keyword">concept </span><a class="code hl_concept" href="conceptfaker_1_1helper_1_1input__range__with__faster__size__compute__than__linear__rng.html">input_range_with_faster_size_compute_than_linear_rng</a> =</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    std::ranges::input_range&lt;T&gt; &amp;&amp; (std::ranges::sized_range&lt;T&gt; || std::ranges::forward_range&lt;T&gt;);</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span> </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">template</span> &lt;input_range_with_faster_size_compute_than_linear_rng Range&gt;</div>
-<div class="foldopen" id="foldopen00016" data-start="{" data-end="}">
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">   16</a></span><span class="keyword">decltype</span>(<span class="keyword">auto</span>) <a class="code hl_function" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">randomElement</a>(Range&amp;&amp; range)</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>{</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    <span class="keywordflow">if</span> (std::ranges::empty(range))</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    {</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>        <span class="keywordflow">throw</span> std::invalid_argument{<span class="stringliteral">&quot;Range [start, end) is empty.&quot;</span>};</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    }</div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keyword">const</span> <span class="keyword">auto</span> size = std::ranges::distance(range);</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keyword">const</span> <span class="keyword">auto</span> index = <a class="code hl_function" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">number::integer</a>(size - 1);</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordflow">return</span> (*std::ranges::next(range.begin(), index));</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>}</div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="generator_8h.html">generator.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="number_8h.html">number.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="foldopen" id="foldopen00010" data-start="{" data-end="}">
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="namespacefaker_1_1helper.html">   10</a></span><span class="keyword">namespace </span><a class="code hl_namespace" href="namespacefaker_1_1helper.html">faker::helper</a></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>{</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">template</span> &lt;<span class="keyword">typename</span> T&gt;</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="conceptfaker_1_1helper_1_1input__range__with__faster__size__compute__than__linear__rng.html">   13</a></span><span class="keyword">concept </span><a class="code hl_concept" href="conceptfaker_1_1helper_1_1input__range__with__faster__size__compute__than__linear__rng.html">input_range_with_faster_size_compute_than_linear_rng</a> =</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    std::ranges::input_range&lt;T&gt; &amp;&amp; (std::ranges::sized_range&lt;T&gt; || std::ranges::forward_range&lt;T&gt;);</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span> </div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">template</span> &lt;input_range_with_faster_size_compute_than_linear_rng Range&gt;</div>
+<div class="foldopen" id="foldopen00017" data-start="{" data-end="}">
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">   17</a></span><span class="keyword">decltype</span>(<span class="keyword">auto</span>) <a class="code hl_function" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">randomElement</a>(Range&amp;&amp; range)</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keywordflow">if</span> (std::ranges::empty(range))</div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        <span class="keywordflow">throw</span> std::invalid_argument{<span class="stringliteral">&quot;Range [start, end) is empty.&quot;</span>};</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    }</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keyword">const</span> <span class="keyword">auto</span> size = std::ranges::distance(range);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keyword">const</span> <span class="keyword">auto</span> index = <a class="code hl_function" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">number::integer</a>(size - 1);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordflow">return</span> (*std::ranges::next(range.begin(), index));</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>}</div>
 </div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="keyword">template</span> &lt;std::ranges::input_range Range&gt;</div>
-<div class="foldopen" id="foldopen00031" data-start="{" data-end="}">
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="namespacefaker_1_1helper.html#a2d203118db33fb4ce236964cd01b59ce">   31</a></span><span class="keyword">auto</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">randomElement</a>(Range&amp;&amp; range)</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>{</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <span class="keyword">auto</span> <span class="keyword">const</span> end = range.end();</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">auto</span> itr = range.begin();</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    <span class="keywordflow">if</span> (itr == end)</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    {</div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>        <span class="keywordflow">throw</span> std::invalid_argument{<span class="stringliteral">&quot;Range [start, end) is empty.&quot;</span>};</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    }</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    std::random_device rd;</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::mt19937 gen(rd());</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">template</span> &lt;std::ranges::input_range Range&gt;</div>
+<div class="foldopen" id="foldopen00032" data-start="{" data-end="}">
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno"><a class="line" href="namespacefaker_1_1helper.html#a2d203118db33fb4ce236964cd01b59ce">   32</a></span><span class="keyword">auto</span> <a class="code hl_function" href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">randomElement</a>(Range&amp;&amp; range)</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>{</div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keyword">auto</span> <span class="keyword">const</span> end = range.end();</div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    <span class="keyword">auto</span> itr = range.begin();</div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span> </div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span>    <span class="keywordflow">if</span> (itr == end)</div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    {</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>        <span class="keywordflow">throw</span> std::invalid_argument{<span class="stringliteral">&quot;Range [start, end) is empty.&quot;</span>};</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    }</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    std::mt19937_64&amp; gen = <a class="code hl_function" href="namespacefaker.html#a0a85e419f14197422d14c1bdbb404e3b">getGenerator</a>();</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keyword">using </span>RangeValue = std::ranges::range_value_t&lt;<span class="keyword">decltype</span>(range)&gt;;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    <span class="keyword">auto</span> consume_itr = [&amp;itr]() -&gt; <span class="keyword">decltype</span>(<span class="keyword">auto</span>)</div>
@@ -230,11 +230,13 @@ $(function(){initNavTree('helper_8h_source.html',''); initResizable(true); });
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>}</div>
 </div>
-<div class="ttc" id="aconceptfaker_1_1helper_1_1input__range__with__faster__size__compute__than__linear__rng_html"><div class="ttname"><a href="conceptfaker_1_1helper_1_1input__range__with__faster__size__compute__than__linear__rng.html">faker::helper::input_range_with_faster_size_compute_than_linear_rng</a></div><div class="ttdef"><b>Definition</b> helper.h:12</div></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html"><div class="ttname"><a href="namespacefaker_1_1helper.html">faker::helper</a></div><div class="ttdef"><b>Definition</b> helper.h:10</div></div>
+<div class="ttc" id="aconceptfaker_1_1helper_1_1input__range__with__faster__size__compute__than__linear__rng_html"><div class="ttname"><a href="conceptfaker_1_1helper_1_1input__range__with__faster__size__compute__than__linear__rng.html">faker::helper::input_range_with_faster_size_compute_than_linear_rng</a></div><div class="ttdef"><b>Definition</b> helper.h:13</div></div>
+<div class="ttc" id="agenerator_8h_html"><div class="ttname"><a href="generator_8h.html">generator.h</a></div></div>
+<div class="ttc" id="anamespacefaker_1_1helper_html"><div class="ttname"><a href="namespacefaker_1_1helper.html">faker::helper</a></div><div class="ttdef"><b>Definition</b> helper.h:11</div></div>
 <div class="ttc" id="anamespacefaker_1_1helper_html_a37877d125f71459dbed8bca6310274e1"><div class="ttname"><a href="namespacefaker_1_1helper.html#a37877d125f71459dbed8bca6310274e1">faker::helper::weightedRandomElement</a></div><div class="ttdeci">T weightedRandomElement(const std::vector&lt; WeightedElement&lt; T &gt; &gt; &amp;data)</div><div class="ttdef"><b>Definition</b> helper.h:99</div></div>
-<div class="ttc" id="anamespacefaker_1_1helper_html_afb65f951a3d8f1785dbe269b3639d165"><div class="ttname"><a href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">faker::helper::randomElement</a></div><div class="ttdeci">decltype(auto) randomElement(Range &amp;&amp;range)</div><div class="ttdef"><b>Definition</b> helper.h:16</div></div>
-<div class="ttc" id="anamespacefaker_1_1number_html_a56e8f02c1fc4e0b18f9d55901a31d659"><div class="ttname"><a href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">faker::number::integer</a></div><div class="ttdeci">I integer(I min, I max)</div><div class="ttdoc">Generates a random integer number in the given range, bounds included.</div><div class="ttdef"><b>Definition</b> number.h:30</div></div>
+<div class="ttc" id="anamespacefaker_1_1helper_html_afb65f951a3d8f1785dbe269b3639d165"><div class="ttname"><a href="namespacefaker_1_1helper.html#afb65f951a3d8f1785dbe269b3639d165">faker::helper::randomElement</a></div><div class="ttdeci">decltype(auto) randomElement(Range &amp;&amp;range)</div><div class="ttdef"><b>Definition</b> helper.h:17</div></div>
+<div class="ttc" id="anamespacefaker_1_1number_html_a56e8f02c1fc4e0b18f9d55901a31d659"><div class="ttname"><a href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">faker::number::integer</a></div><div class="ttdeci">I integer(I min, I max)</div><div class="ttdoc">Generates a random integer number in the given range, bounds included.</div><div class="ttdef"><b>Definition</b> number.h:31</div></div>
+<div class="ttc" id="anamespacefaker_html_a0a85e419f14197422d14c1bdbb404e3b"><div class="ttname"><a href="namespacefaker.html#a0a85e419f14197422d14c1bdbb404e3b">faker::getGenerator</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::mt19937_64 &amp; getGenerator()</div></div>
 <div class="ttc" id="anumber_8h_html"><div class="ttname"><a href="number_8h.html">number.h</a></div></div>
 <div class="ttc" id="astructfaker_1_1helper_1_1WeightedElement_html"><div class="ttname"><a href="structfaker_1_1helper_1_1WeightedElement.html">faker::helper::WeightedElement</a></div><div class="ttdoc">Get a random element by weight from a vector.</div><div class="ttdef"><b>Definition</b> helper.h:93</div></div>
 <div class="ttc" id="astructfaker_1_1helper_1_1WeightedElement_html_aacae7a1e66f84ce071a2a0c4a7c2f3f1"><div class="ttname"><a href="structfaker_1_1helper_1_1WeightedElement.html#aacae7a1e66f84ce071a2a0c4a7c2f3f1">faker::helper::WeightedElement::weight</a></div><div class="ttdeci">unsigned weight</div><div class="ttdef"><b>Definition</b> helper.h:94</div></div>

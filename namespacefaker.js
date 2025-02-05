@@ -578,5 +578,8 @@ var namespacefaker =
       [ "verb", "namespacefaker_1_1word.html#a58d7708484c4835c26787568751c4348", null ],
       [ "words", "namespacefaker_1_1word.html#a1067a300a72dce4146f3c36fe7f78743", null ]
     ] ],
-    [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", "classfaker_1_1RandomGenerator" ]
+    [ "RandomGenerator", "classfaker_1_1RandomGenerator.html", "classfaker_1_1RandomGenerator" ],
+    [ "getGenerator", "namespacefaker.html#a0a85e419f14197422d14c1bdbb404e3b", null ],
+    [ "setSeed", "namespacefaker.html#a7a8c3ab03cf4c3cc0a5145e8210ed228", null ],
+    [ "setSeed", "namespacefaker.html#a1203f3f9172c5de2480cf9ace4b65376", null ]
 ];
