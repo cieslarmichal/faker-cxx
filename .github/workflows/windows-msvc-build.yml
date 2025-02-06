@@ -22,7 +22,7 @@ jobs:
     runs-on: windows-latest
     strategy:
       matrix:
-        type: [static, shared]
+        type: [ static, shared ]
 
     steps:
       - name: Checkout
@@ -30,9 +30,6 @@ jobs:
 
       - name: Configure Visual Studio Environment
         uses: ilammy/msvc-dev-cmd@v1.13.0
-
-      - name: Install ccache
-        uses: hendrikmuhs/ccache-action@v1.2
 
       - name: Install Ninja
         uses: seanmiddleditch/gha-setup-ninja@v4
@@ -68,7 +65,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=windows-msvc-debug-${{ matrix.type }} -G Ninja -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}\build\Debug\generators\conan_toolchain.cmake -DCMAKE_CXX_COMPILER_LAUNCHER=ccache -DCMAKE_CXX_COMPILER=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON
+          cmake -S . --preset=windows-msvc-debug-${{ matrix.type }} -G Ninja -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}\build\Debug\generators\conan_toolchain.cmake -DCMAKE_CXX_COMPILER=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON
 
       - name: Build
         run: cmake --build --preset=windows-msvc-debug-${{ matrix.type }}
