@@ -1,5 +1,6 @@
 #include "faker-cxx/location.h"
 
+#include <cstdint>
 #include <stdexcept>
 #include <string>
 #include <string_view>
