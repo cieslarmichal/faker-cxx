@@ -274,8 +274,8 @@ std::string mgrs(int precision)
 
     while (precision-- > 0)
     {
-        easting_block.push_back(number::integer<int8_t>('0', '9'));
-        northing_block.push_back(number::integer<int8_t>('0', '9'));
+        easting_block.push_back(static_cast<char>(number::integer<uint8_t>('0', '9')));
+        northing_block.push_back(static_cast<char>(number::integer<uint8_t>('0', '9')));
     }
     mgrs_str += easting_block;
     mgrs_str += northing_block;
