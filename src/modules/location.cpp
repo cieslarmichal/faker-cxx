@@ -253,8 +253,8 @@ std::string mgrs(int precision)
     static const std::string_view northings = "CDEFGHJKLMNPQRST";
 
     std::string mgrs_str;
-    mgrs_str.reserve(static_cast<size_t>(precision * 2 + 4));
-    int zone = number::integer<uint8_t>(1, 60);
+    mgrs_str.reserve(static_cast<size_t>(precision * 2 + 5));
+    int zone = number::integer(1, 60);
 
     mgrs_str += std::to_string(zone);
 
@@ -274,8 +274,8 @@ std::string mgrs(int precision)
 
     while (precision-- > 0)
     {
-        easting_block.push_back(static_cast<char>(number::integer<uint8_t>('0', '9')));
-        northing_block.push_back(static_cast<char>(number::integer<uint8_t>('0', '9')));
+        easting_block.push_back(static_cast<char>(number::integer(int('0'), int('9'))));
+        northing_block.push_back(static_cast<char>(number::integer(int('0'), int('9'))));
     }
     mgrs_str += easting_block;
     mgrs_str += northing_block;
