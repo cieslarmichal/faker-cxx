@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"namespacefaker_1_1vehicle.html#a55f962bc26023b95f84aa28b25fbdea0":[0,0,0,33,3],
 "namespacefaker_1_1vehicle.html#a8c33a4df68608abbe2c0deb959be5258":[0,0,0,33,5],
 "namespacefaker_1_1vehicle.html#aa3b8bc66a3207bea4752ff66625b352f":[0,0,0,33,0],
 "namespacefaker_1_1vehicle.html#afb82c3f8268a818c2c574d5bea589e1c":[0,0,0,33,6],

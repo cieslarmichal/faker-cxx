@@ -143,6 +143,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a516e1c44a2c518d20eac0f95b664b04c" id="r_a516e1c44a2c518d20eac0f95b664b04c"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a516e1c44a2c518d20eac0f95b664b04c">longitude</a> (Precision precision=Precision::FourDp)</td></tr>
 <tr class="memdesc:a516e1c44a2c518d20eac0f95b664b04c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random longitude.  <br /></td></tr>
 <tr class="separator:a516e1c44a2c518d20eac0f95b664b04c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa3ad6b83d26cb95ded4aeb06c57dd2a" id="r_afa3ad6b83d26cb95ded4aeb06c57dd2a"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa3ad6b83d26cb95ded4aeb06c57dd2a">mgrs</a> (int precision=4)</td></tr>
+<tr class="memdesc:afa3ad6b83d26cb95ded4aeb06c57dd2a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random Military Grid Reference System (MGRS) coordinate.  <br /></td></tr>
+<tr class="separator:afa3ad6b83d26cb95ded4aeb06c57dd2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aec3a748ec5f78c07a12ff697eaecf8c4" id="r_aec3a748ec5f78c07a12ff697eaecf8c4"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::tuple&lt; std::string, std::string &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec3a748ec5f78c07a12ff697eaecf8c4">nearbyGPSCoordinate</a> (Precision precision=Precision::FourDp, const std::tuple&lt; double, double &gt; &amp;origin={std::numeric_limits&lt; double &gt;::max(), std::numeric_limits&lt; double &gt;::max()}, double radius=10, bool isMetric=false)</td></tr>
 <tr class="memdesc:aec3a748ec5f78c07a12ff697eaecf8c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random GPS coordinate within the specified radius from the given coordinate.  <br /></td></tr>
 <tr class="separator:aec3a748ec5f78c07a12ff697eaecf8c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -363,6 +366,40 @@ Functions</h2></td></tr>
 <dl class="section return"><dt>Returns</dt><dd>Longitude within -180 to 180 range.</dd></dl>
 <div class="fragment"><div class="line"><a class="code hl_function" href="#a516e1c44a2c518d20eac0f95b664b04c">faker::location::longitude</a>() <span class="comment">// &quot;-30.9501&quot;</span></div>
 <div class="ttc" id="anamespacefaker_1_1location_html_a516e1c44a2c518d20eac0f95b664b04c"><div class="ttname"><a href="#a516e1c44a2c518d20eac0f95b664b04c">faker::location::longitude</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string longitude(Precision precision=Precision::FourDp)</div><div class="ttdoc">Generates a random longitude.</div></div>
+</div><!-- fragment --> 
+</div>
+</div>
+<a id="afa3ad6b83d26cb95ded4aeb06c57dd2a" name="afa3ad6b83d26cb95ded4aeb06c57dd2a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3ad6b83d26cb95ded4aeb06c57dd2a">&#9670;&#160;</a></span>mgrs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::location::mgrs </td>
+          <td>(</td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>precision</em></span><span class="paramdefsep"> = </span><span class="paramdefval">4</span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Generates a random Military Grid Reference System (MGRS) coordinate. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">precision</td><td>An integer between 0 and 5, corresponding to the number of easting/northing digits. Defaults to 4.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string containing an MGRS coordinate with a valid format. (Note that the coordinate itself may not be a valid geospatial area, particularly in cases of higher precision and distance from equator. Also note that not all geospatial areas are covered by this function.)</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if precision is not between 0 and 5.</td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#afa3ad6b83d26cb95ded4aeb06c57dd2a">faker::location::mgrs</a>() <span class="comment">// &quot;17SMD92712525&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1location_html_afa3ad6b83d26cb95ded4aeb06c57dd2a"><div class="ttname"><a href="#afa3ad6b83d26cb95ded4aeb06c57dd2a">faker::location::mgrs</a></div><div class="ttdeci">FAKER_CXX_EXPORT std::string mgrs(int precision=4)</div><div class="ttdoc">Generates a random Military Grid Reference System (MGRS) coordinate.</div></div>
 </div><!-- fragment --> 
 </div>
 </div>

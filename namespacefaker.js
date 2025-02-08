@@ -204,6 +204,7 @@ var namespacefaker =
       [ "direction", "namespacefaker_1_1location.html#ad7add8bde67bede1c36d3834cb7fc463", null ],
       [ "latitude", "namespacefaker_1_1location.html#a6f11c5eeb8a4a61c0bb36cc98fe93e06", null ],
       [ "longitude", "namespacefaker_1_1location.html#a516e1c44a2c518d20eac0f95b664b04c", null ],
+      [ "mgrs", "namespacefaker_1_1location.html#afa3ad6b83d26cb95ded4aeb06c57dd2a", null ],
       [ "nearbyGPSCoordinate", "namespacefaker_1_1location.html#aec3a748ec5f78c07a12ff697eaecf8c4", null ],
       [ "ordinalDirection", "namespacefaker_1_1location.html#a8a6374d3d363f04b4fad4f12b5441344", null ],
       [ "secondaryAddress", "namespacefaker_1_1location.html#a3acf868202afaa718b765dd652cde1d7", null ],

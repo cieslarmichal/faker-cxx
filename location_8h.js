@@ -8,6 +8,7 @@ var location_8h =
     [ "faker::location::direction", "namespacefaker_1_1location.html#ad7add8bde67bede1c36d3834cb7fc463", null ],
     [ "faker::location::latitude", "namespacefaker_1_1location.html#a6f11c5eeb8a4a61c0bb36cc98fe93e06", null ],
     [ "faker::location::longitude", "namespacefaker_1_1location.html#a516e1c44a2c518d20eac0f95b664b04c", null ],
+    [ "faker::location::mgrs", "namespacefaker_1_1location.html#afa3ad6b83d26cb95ded4aeb06c57dd2a", null ],
     [ "faker::location::nearbyGPSCoordinate", "namespacefaker_1_1location.html#aec3a748ec5f78c07a12ff697eaecf8c4", null ],
     [ "faker::location::ordinalDirection", "namespacefaker_1_1location.html#a8a6374d3d363f04b4fad4f12b5441344", null ],
     [ "faker::location::secondaryAddress", "namespacefaker_1_1location.html#a3acf868202afaa718b765dd652cde1d7", null ],
