@@ -1,5 +1,6 @@
 #include "faker-cxx/location.h"
 
+#include <cstdint>
 #include <stdexcept>
 #include <string>
 #include <string_view>
@@ -236,6 +237,51 @@ std::string longitude(Precision precision)
     return common::precisionFormat(precision, longitude);
 }
 
+std::string mgrs(int precision)
+{
+    if (precision < 0 || precision > 5)
+    {
+        throw std::invalid_argument("Precision must be between 0 and 5");
+    }
+    static const std::string_view eastings[] = {
+        "ABCDEFGH", // UTM zones 1-3
+        "JKLMNPQR", // UTM zones 4-6
+        "STUVWXYZ"  // UTM zones 7-9
+    };
+
+    // we avoid areas near the poles because the MGRS grid is not well defined there
+    static const std::string_view northings = "CDEFGHJKLMNPQRST";
+
+    std::string mgrs_str;
+    mgrs_str.reserve(static_cast<size_t>(precision * 2 + 5));
+    int zone = number::integer(1, 60);
+
+    mgrs_str += std::to_string(zone);
+
+    char band = helper::randomElement(northings);
+    mgrs_str.push_back(band);
+
+    std::string_view easting_group = eastings[(zone - 1) % 3];
+
+    char grid1_idx = helper::randomElement(easting_group);
+    char grid2_idx = helper::randomElement(northings);
+
+    mgrs_str.push_back(grid1_idx);
+    mgrs_str.push_back(grid2_idx);
+
+    std::string easting_block = "";
+    std::string northing_block = "";
+
+    while (precision-- > 0)
+    {
+        easting_block.push_back(static_cast<char>(number::integer(int('0'), int('9'))));
+        northing_block.push_back(static_cast<char>(number::integer(int('0'), int('9'))));
+    }
+    mgrs_str += easting_block;
+    mgrs_str += northing_block;
+    return mgrs_str;
+}
+
 std::string_view direction()
 {
     return helper::randomElement(directions);
@@ -332,5 +378,4 @@ std::tuple<std::string, std::string> nearbyGPSCoordinate(Precision precision, co
     return {common::precisionFormat(precision, coordinateLatitude),
             common::precisionFormat(precision, coordinateLongitude)};
 }
-
 }

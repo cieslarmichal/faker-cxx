@@ -167,6 +167,23 @@ FAKER_CXX_EXPORT std::string latitude(Precision precision = Precision::FourDp);
 FAKER_CXX_EXPORT std::string longitude(Precision precision = Precision::FourDp);
 
 /**
+ * @brief Generates a random Military Grid Reference System (MGRS) coordinate.
+ *
+ * @param precision An integer between 0 and 5, corresponding to the number of easting/northing digits. Defaults to 4.
+ *
+ * @returns std::string containing an MGRS coordinate with a valid format. (Note that the coordinate itself may not be a
+ * valid geospatial area, particularly in cases of higher precision and distance from equator. Also note that not all
+ * geospatial areas are covered by this function.)
+ *
+ * @throws std::invalid_argument if precision is not between 0 and 5.
+ *
+ * @code
+ * faker::location::mgrs() // "17SMD92712525"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string mgrs(int precision = 4);
+
+/**
  * @brief Generates a random GPS coordinate within the specified radius from the given coordinate.
  *
  * @param precision The number of decimal points of precision for the latitude and longitude. Defaults to

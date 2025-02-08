@@ -601,6 +601,55 @@ TEST_F(LocationTest, shouldGenerateLongitudeWithSpecifiedPrecision)
     ASSERT_LE(longitudeAsFloat, 180);
 }
 
+TEST_F(LocationTest, shouldGenerateMGRS)
+{
+    const auto generatedMGRS = mgrs();
+
+    bool zone_gt_10 = std::isdigit(generatedMGRS[1]);
+    size_t offset = 1;
+    int zone = generatedMGRS[0] - '0';
+    if (zone_gt_10)
+    {
+        zone = (zone * 10) + generatedMGRS[1] - '0';
+        offset++;
+    }
+    ASSERT_TRUE(zone >= 1 && zone <= 60);
+    char band = generatedMGRS[offset++]; // C-X (no I or O)
+    ASSERT_TRUE(band >= 'C' && band <= 'X');
+    std::string big_grid = generatedMGRS.substr(offset, 2);
+    ASSERT_TRUE(std::all_of(big_grid.begin(), big_grid.end(), ::isalpha));
+    offset += 2;
+    std::string eastnorth = generatedMGRS.substr(offset);
+    ASSERT_EQ(eastnorth.size(), 8);
+    ASSERT_TRUE(std::all_of(eastnorth.begin(), eastnorth.end(), ::isdigit));
+}
+
+TEST_F(LocationTest, shouldGenerateMGRSWithPrecision)
+{
+    for (int i = 0; i < 5; ++i)
+    {
+        const auto generatedMGRS = mgrs(i);
+
+        bool zone_gt_10 = std::isdigit(generatedMGRS[1]);
+        size_t offset = 1;
+        int zone = generatedMGRS[0] - '0';
+        if (zone_gt_10)
+        {
+            zone = (zone * 10) + generatedMGRS[1] - '0';
+            offset++;
+        }
+        ASSERT_TRUE(zone >= 1 && zone <= 60);
+        char band = generatedMGRS[offset++]; // C-X (no I or O)
+        ASSERT_TRUE(band >= 'C' && band <= 'X');
+        std::string big_grid = generatedMGRS.substr(offset, 2);
+        ASSERT_TRUE(std::all_of(big_grid.begin(), big_grid.end(), ::isalpha));
+        offset += 2;
+        std::string eastnorth = generatedMGRS.substr(offset);
+        ASSERT_EQ(eastnorth.size(), i * 2);
+        ASSERT_TRUE(std::all_of(eastnorth.begin(), eastnorth.end(), ::isdigit));
+    }
+}
+
 TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithoutOrigin)
 {
     const auto generatedNearbyGPSCoordinate = nearbyGPSCoordinate();
@@ -669,7 +718,7 @@ TEST_F(LocationTest, shouldGenerateNearbyGPSCoordinateWithOriginInMiles)
     ASSERT_EQ(generatedLongitudeParts[1].size(), 3);
 
     const auto distanceKm =
-            vincentyDistance(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat);
+        vincentyDistance(std::get<0>(origin), std::get<1>(origin), latitudeAsFloat, longitudeAsFloat);
     const auto distanceMiles = distanceKm * 0.621371;
     constexpr double TOLERANCE = 1e-12;
 
