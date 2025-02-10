@@ -104,7 +104,7 @@ int main()
 - ✋ Helper - random element, weighted random element
 - 🖼️ Image - images url, avatar url, image dimensions, type, lorem image, flickr image
 - 🌐 Internet - email, username, password, emoji, protocol, IP, HTTP, url, domain, mac address, jwt
-- 🌍 Location - country, continent, city, zip code, state, street address, latitude, longitude, timezone
+- 🌍 Location - country, continent, city, zip code, state, street address, latitude, longitude, timezone, MGRS grid
 - 📚 Lorem - words, sentences, paragraphs
 - 🏥 Medicine - condition, medical test, specialty
 - 🎥 Movie - title, genre, actor, actress, director, tv show
