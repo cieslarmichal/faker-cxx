@@ -272,3 +272,21 @@ FAKER_CXX_EXPORT std::string binary(int length = 1);
  */
 FAKER_CXX_EXPORT std::string binary(int min, int max);
 }
+
+/**
+ * @brief Generates a random 64-bit integer number in the given range, bounds included.
+ *
+ * The lower bound defaults to 0 and the upper bound defaults to (0 + 999999999999999).
+ *
+ * @throws std::invalid_argument if min is greater than max.
+ *
+ * @return A random int64_t number.
+ *
+ * @example
+ * faker::number::bigInt();        // e.g. 55422
+ * faker::number::bigInt(100);      // random number between 0 and 100
+ * faker::number::bigInt(10, 100);  // random number between 10 and 100
+ */
+int64_t bigInt();
+int64_t bigInt(int64_t max);
+int64_t bigInt(int64_t min, int64_t max);
