@@ -115,4 +115,35 @@ std::string binary(int min, int max)
 
     return "0b" + output;
 }
+
+int64_t bigInt(int64_t min, int64_t max)
+{
+    if (max < min) {
+        throw std::invalid_argument("Max " + std::to_string(max) +
+                                    " should be larger than min " + std::to_string(min) + ".");
+    }
+
+    if (max == min) {
+        return min;
+    }
+
+    int64_t delta = max - min;
+    std::mt19937_64& rng = getGenerator();
+    std::uniform_int_distribution<int64_t> distribution(0, delta);
+    int64_t offset = distribution(rng);
+    return min + offset;
+}
+
+int64_t bigInt(int64_t max)
+{
+    return bigInt(0, max);
+}
+
+int64_t bigInt()
+{
+    const int64_t default_min = 0;
+    const int64_t default_range = 999999999999999LL;
+    return bigInt(default_min, default_min + default_range);
+}
+
 }
