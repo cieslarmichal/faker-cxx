@@ -189,7 +189,7 @@ TEST_F(NumberTest, shouldGenerateOctalWithPrefix)
     ASSERT_EQ(generatedOctal.size(), octalLength + 2);
     ASSERT_EQ(prefix, "0o");
     ASSERT_TRUE(
-        std::ranges::any_of(generatedOctal, [](char octalNumberCharacter)
+        std::ranges::all_of(octalNumber, [](char octalNumberCharacter)
                             { return std::string("01234567").find(octalNumberCharacter) != std::string::npos; }));
 }
 
@@ -204,7 +204,7 @@ TEST_F(NumberTest, shouldGenerateBinary)
 
     ASSERT_EQ(generatedBinary.size(), binaryLength + 2);
     ASSERT_EQ(prefix, "0b");
-    ASSERT_TRUE(std::ranges::any_of(generatedBinary, [](char binaryNumberCharacter)
+    ASSERT_TRUE(std::ranges::all_of(binaryNumber, [](char binaryNumberCharacter)
                                     { return std::string("01").find(binaryNumberCharacter) != std::string::npos; }));
 }
 
