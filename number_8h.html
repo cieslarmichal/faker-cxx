@@ -109,6 +109,7 @@ $(function(){initNavTree('number_8h.html',''); initResizable(true); });
 <code>#include &lt;optional&gt;</code><br />
 <code>#include &lt;random&gt;</code><br />
 <code>#include &lt;stdexcept&gt;</code><br />
+<code>#include &lt;type_traits&gt;</code><br />
 <code>#include &quot;faker-cxx/export.h&quot;</code><br />
 <code>#include &quot;<a class="el" href="generator_8h_source.html">faker-cxx/generator.h</a>&quot;</code><br />
 <code>#include &quot;faker-cxx/types/hex.h&quot;</code><br />
@@ -117,23 +118,25 @@ Include dependency graph for number.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="number_8h__incl.png" border="0" usemap="#ainclude_2faker-cxx_2number_8h" alt=""/></div>
 <map name="ainclude_2faker-cxx_2number_8h" id="ainclude_2faker-cxx_2number_8h">
-<area shape="rect" title=" " alt="" coords="196,5,372,31"/>
+<area shape="rect" title=" " alt="" coords="248,5,424,31"/>
 <area shape="rect" title=" " alt="" coords="5,79,80,105"/>
-<area shape="poly" title=" " alt="" coords="244,34,95,78,94,73,242,29"/>
+<area shape="poly" title=" " alt="" coords="287,34,95,80,94,75,285,29"/>
 <area shape="rect" title=" " alt="" coords="104,79,170,105"/>
-<area shape="poly" title=" " alt="" coords="260,34,177,74,175,69,258,29"/>
-<area shape="rect" title=" " alt="" coords="276,153,340,178"/>
-<area shape="poly" title=" " alt="" coords="270,33,254,48,241,65,233,84,236,104,251,125,272,142,269,146,247,129,231,106,228,84,236,63,251,44,266,30"/>
+<area shape="poly" title=" " alt="" coords="303,34,185,76,184,71,301,29"/>
+<area shape="rect" title=" " alt="" coords="329,153,393,178"/>
+<area shape="poly" title=" " alt="" coords="300,34,271,47,246,63,232,83,231,92,235,103,251,121,271,135,315,153,313,158,268,140,247,125,231,106,226,93,227,81,243,59,269,42,298,29"/>
 <area shape="rect" title=" " alt="" coords="245,79,322,105"/>
-<area shape="poly" title=" " alt="" coords="286,31,286,63,281,63,281,31"/>
-<area shape="rect" title=" " alt="" coords="409,153,532,178"/>
-<area shape="poly" title=" " alt="" coords="367,29,448,48,481,61,502,77,508,93,507,110,492,141,488,139,502,109,503,94,498,81,478,66,446,53,365,34"/>
-<area shape="rect" href="generator_8h.html" title=" " alt="" coords="346,79,488,105"/>
-<area shape="poly" title=" " alt="" coords="308,29,382,69,380,74,305,34"/>
-<area shape="rect" title=" " alt="" coords="562,79,704,105"/>
-<area shape="poly" title=" " alt="" coords="344,29,559,73,558,78,343,34"/>
-<area shape="poly" title=" " alt="" coords="400,107,340,146,337,142,397,103"/>
-<area shape="poly" title=" " alt="" coords="428,103,454,138,450,142,424,106"/>
+<area shape="poly" title=" " alt="" coords="329,33,304,68,299,65,325,30"/>
+<area shape="rect" title=" " alt="" coords="347,79,428,105"/>
+<area shape="poly" title=" " alt="" coords="347,30,372,65,368,68,342,33"/>
+<area shape="rect" title=" " alt="" coords="516,153,638,178"/>
+<area shape="poly" title=" " alt="" coords="424,24,534,43,579,58,597,67,609,77,615,93,614,110,599,142,594,139,609,109,610,94,604,81,593,71,577,63,532,48,423,30"/>
+<area shape="rect" href="generator_8h.html" title=" " alt="" coords="453,79,594,105"/>
+<area shape="poly" title=" " alt="" coords="369,29,478,70,477,75,367,34"/>
+<area shape="rect" title=" " alt="" coords="669,79,811,105"/>
+<area shape="poly" title=" " alt="" coords="405,29,656,73,655,78,404,34"/>
+<area shape="poly" title=" " alt="" coords="497,108,404,148,402,144,495,103"/>
+<area shape="poly" title=" " alt="" coords="535,103,561,138,557,142,531,106"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -164,14 +167,16 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a56e8f02c1fc4e0b18f9d55901a31d659" id="r_a56e8f02c1fc4e0b18f9d55901a31d659"><td class="memTemplParams" colspan="2">template&lt;std::integral I&gt; </td></tr>
-<tr class="memitem:a56e8f02c1fc4e0b18f9d55901a31d659"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659">faker::number::integer</a> (I min, I max)</td></tr>
-<tr class="memdesc:a56e8f02c1fc4e0b18f9d55901a31d659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer number in the given range, bounds included.  <br /></td></tr>
-<tr class="separator:a56e8f02c1fc4e0b18f9d55901a31d659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc3ffd60474194ebb9de6c1fadbd6a6e" id="r_afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="memTemplParams" colspan="2">template&lt;std::integral I&gt; </td></tr>
-<tr class="memitem:afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1number.html#afc3ffd60474194ebb9de6c1fadbd6a6e">faker::number::integer</a> (I max)</td></tr>
-<tr class="memdesc:afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer between 0 and the given maximum value, bounds included.  <br /></td></tr>
-<tr class="separator:afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e680dc564d30755ca22fa708f5277a0" id="r_a8e680dc564d30755ca22fa708f5277a0"><td class="memTemplParams" colspan="2">template&lt;std::integral I&gt; <br />
+requires (sizeof(I) &lt;= sizeof(long long))</td></tr>
+<tr class="memitem:a8e680dc564d30755ca22fa708f5277a0"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1number.html#a8e680dc564d30755ca22fa708f5277a0">faker::number::integer</a> (I min, I max)</td></tr>
+<tr class="memdesc:a8e680dc564d30755ca22fa708f5277a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer number in the given range, bounds included.  <br /></td></tr>
+<tr class="separator:a8e680dc564d30755ca22fa708f5277a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af07bf933e9e291a8aec4fcd56db06dad" id="r_af07bf933e9e291a8aec4fcd56db06dad"><td class="memTemplParams" colspan="2">template&lt;std::integral I&gt; <br />
+requires (sizeof(I) &lt;= sizeof(long long))</td></tr>
+<tr class="memitem:af07bf933e9e291a8aec4fcd56db06dad"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1number.html#af07bf933e9e291a8aec4fcd56db06dad">faker::number::integer</a> (I max)</td></tr>
+<tr class="memdesc:af07bf933e9e291a8aec4fcd56db06dad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer between 0 and the given maximum value, bounds included.  <br /></td></tr>
+<tr class="separator:af07bf933e9e291a8aec4fcd56db06dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f199def6ac23945c838141f17888192" id="r_a9f199def6ac23945c838141f17888192"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacefaker_1_1number.html#a9f199def6ac23945c838141f17888192">faker::number::hexadecimal</a> (unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</td></tr>
 <tr class="memdesc:a9f199def6ac23945c838141f17888192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random decimal number in the given range, bounds included.  <br /></td></tr>
 <tr class="separator:a9f199def6ac23945c838141f17888192"><td class="memSeparator" colspan="2">&#160;</td></tr>

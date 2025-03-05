@@ -6,7 +6,7 @@ var searchData=
   ['industry_3',['industry',['../namespacefaker_1_1company.html#a389f8908c394410fea643ed4ecbbf302',1,'faker::company']]],
   ['ingverb_4',['ingverb',['../namespacefaker_1_1hacker.html#a88bf4b9f6a06f804c206f51d36e3831d',1,'faker::hacker']]],
   ['insect_5',['insect',['../namespacefaker_1_1animal.html#aa2041ae713760f9c9acd4d2f6273d192',1,'faker::animal']]],
-  ['integer_6',['integer',['../namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659',1,'faker::number::integer(I min, I max)'],['../namespacefaker_1_1number.html#afc3ffd60474194ebb9de6c1fadbd6a6e',1,'faker::number::integer(I max)']]],
+  ['integer_6',['integer',['../namespacefaker_1_1number.html#a8e680dc564d30755ca22fa708f5277a0',1,'faker::number::integer(I min, I max)'],['../namespacefaker_1_1number.html#af07bf933e9e291a8aec4fcd56db06dad',1,'faker::number::integer(I max)']]],
   ['interjection_7',['interjection',['../namespacefaker_1_1word.html#a912a43edf1195824eda316b3e5f2633a',1,'faker::word']]],
   ['ipv4_8',['ipv4',['../namespacefaker_1_1internet.html#a9ec5e80a347ec1ad2a53f85588b510dc',1,'faker::internet::ipv4(const IPv4Class &amp;ipv4class=IPv4Class::C)'],['../namespacefaker_1_1internet.html#af6b363e2801aca6b2a686e80ee24c7c3',1,'faker::internet::ipv4(const std::array&lt; unsigned int, 4 &gt; &amp;baseIpv4Address, const std::array&lt; unsigned int, 4 &gt; &amp;generationMask)']]],
   ['ipv6_9',['ipv6',['../namespacefaker_1_1internet.html#aa1ebac0fa8bab72b27017f6736b7c51f',1,'faker::internet']]],

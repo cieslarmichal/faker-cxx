@@ -18,7 +18,7 @@ var searchData=
   ['ingverb_15',['ingverb',['../namespacefaker_1_1hacker.html#a88bf4b9f6a06f804c206f51d36e3831d',1,'faker::hacker']]],
   ['input_5frange_5fwith_5ffaster_5fsize_5fcompute_5fthan_5flinear_5frng_16',['input_range_with_faster_size_compute_than_linear_rng',['../conceptfaker_1_1helper_1_1input__range__with__faster__size__compute__than__linear__rng.html',1,'faker::helper']]],
   ['insect_17',['insect',['../namespacefaker_1_1animal.html#aa2041ae713760f9c9acd4d2f6273d192',1,'faker::animal']]],
-  ['integer_18',['integer',['../namespacefaker_1_1number.html#a56e8f02c1fc4e0b18f9d55901a31d659',1,'faker::number::integer(I min, I max)'],['../namespacefaker_1_1number.html#afc3ffd60474194ebb9de6c1fadbd6a6e',1,'faker::number::integer(I max)']]],
+  ['integer_18',['integer',['../namespacefaker_1_1number.html#a8e680dc564d30755ca22fa708f5277a0',1,'faker::number::integer(I min, I max)'],['../namespacefaker_1_1number.html#af07bf933e9e291a8aec4fcd56db06dad',1,'faker::number::integer(I max)']]],
   ['interfaceschema_19',['interfaceSchema',['../structfaker_1_1system_1_1NetworkInterfaceOptions.html#acae29ab1f28e5270f97821d810a990b3',1,'faker::system::NetworkInterfaceOptions']]],
   ['interfacetype_20',['interfaceType',['../structfaker_1_1system_1_1NetworkInterfaceOptions.html#a09a70aa1b771698b1404134107771b25',1,'faker::system::NetworkInterfaceOptions']]],
   ['interjection_21',['interjection',['../namespacefaker_1_1word.html#a912a43edf1195824eda316b3e5f2633a',1,'faker::word']]],

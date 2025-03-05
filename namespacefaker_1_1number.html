@@ -107,14 +107,16 @@ $(function(){initNavTree('namespacefaker_1_1number.html',''); initResizable(true
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a56e8f02c1fc4e0b18f9d55901a31d659" id="r_a56e8f02c1fc4e0b18f9d55901a31d659"><td class="memTemplParams" colspan="2">template&lt;std::integral I&gt; </td></tr>
-<tr class="memitem:a56e8f02c1fc4e0b18f9d55901a31d659"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a56e8f02c1fc4e0b18f9d55901a31d659">integer</a> (I min, I max)</td></tr>
-<tr class="memdesc:a56e8f02c1fc4e0b18f9d55901a31d659"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer number in the given range, bounds included.  <br /></td></tr>
-<tr class="separator:a56e8f02c1fc4e0b18f9d55901a31d659"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afc3ffd60474194ebb9de6c1fadbd6a6e" id="r_afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="memTemplParams" colspan="2">template&lt;std::integral I&gt; </td></tr>
-<tr class="memitem:afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#afc3ffd60474194ebb9de6c1fadbd6a6e">integer</a> (I max)</td></tr>
-<tr class="memdesc:afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer between 0 and the given maximum value, bounds included.  <br /></td></tr>
-<tr class="separator:afc3ffd60474194ebb9de6c1fadbd6a6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e680dc564d30755ca22fa708f5277a0" id="r_a8e680dc564d30755ca22fa708f5277a0"><td class="memTemplParams" colspan="2">template&lt;std::integral I&gt; <br />
+requires (sizeof(I) &lt;= sizeof(long long))</td></tr>
+<tr class="memitem:a8e680dc564d30755ca22fa708f5277a0"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a8e680dc564d30755ca22fa708f5277a0">integer</a> (I min, I max)</td></tr>
+<tr class="memdesc:a8e680dc564d30755ca22fa708f5277a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer number in the given range, bounds included.  <br /></td></tr>
+<tr class="separator:a8e680dc564d30755ca22fa708f5277a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af07bf933e9e291a8aec4fcd56db06dad" id="r_af07bf933e9e291a8aec4fcd56db06dad"><td class="memTemplParams" colspan="2">template&lt;std::integral I&gt; <br />
+requires (sizeof(I) &lt;= sizeof(long long))</td></tr>
+<tr class="memitem:af07bf933e9e291a8aec4fcd56db06dad"><td class="memTemplItemLeft" align="right" valign="top">I&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#af07bf933e9e291a8aec4fcd56db06dad">integer</a> (I max)</td></tr>
+<tr class="memdesc:af07bf933e9e291a8aec4fcd56db06dad"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random integer between 0 and the given maximum value, bounds included.  <br /></td></tr>
+<tr class="separator:af07bf933e9e291a8aec4fcd56db06dad"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9f199def6ac23945c838141f17888192" id="r_a9f199def6ac23945c838141f17888192"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f199def6ac23945c838141f17888192">hexadecimal</a> (unsigned length=1, HexCasing casing=HexCasing::Lower, HexPrefix prefix=HexPrefix::ZeroX)</td></tr>
 <tr class="memdesc:a9f199def6ac23945c838141f17888192"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random decimal number in the given range, bounds included.  <br /></td></tr>
 <tr class="separator:a9f199def6ac23945c838141f17888192"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -350,13 +352,14 @@ Functions</h2></td></tr>
 <div class="line"></div><!-- fragment --> 
 </div>
 </div>
-<a id="afc3ffd60474194ebb9de6c1fadbd6a6e" name="afc3ffd60474194ebb9de6c1fadbd6a6e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afc3ffd60474194ebb9de6c1fadbd6a6e">&#9670;&#160;</a></span>integer() <span class="overload">[1/2]</span></h2>
+<a id="af07bf933e9e291a8aec4fcd56db06dad" name="af07bf933e9e291a8aec4fcd56db06dad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af07bf933e9e291a8aec4fcd56db06dad">&#9670;&#160;</a></span>integer() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::integral I&gt; </div>
+template&lt;std::integral I&gt; <br />
+requires (sizeof(I) &lt;= sizeof(long long))</div>
       <table class="memname">
         <tr>
           <td class="memname">I faker::number::integer </td>
@@ -370,7 +373,7 @@ template&lt;std::integral I&gt; </div>
 <p>Generates a random integer between 0 and the given maximum value, bounds included. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">I</td><td>the type of the generated number, must be an integral type (int, long, long long, etc.). </td></tr>
+    <tr><td class="paramname">I</td><td>the type of the generated number, must be an integral type whose size is not larger than sizeof(long long). </td></tr>
   </table>
   </dd>
 </dl>
@@ -386,18 +389,19 @@ template&lt;std::integral I&gt; </div>
   </table>
   </dd>
 </dl>
-<dl class="section see"><dt>See also</dt><dd><a class="el" href="#afc3ffd60474194ebb9de6c1fadbd6a6e" title="Generates a random integer between 0 and the given maximum value, bounds included.">integer&lt;I&gt;(I)</a></dd></dl>
+<dl class="section see"><dt>See also</dt><dd><a class="el" href="#af07bf933e9e291a8aec4fcd56db06dad" title="Generates a random integer between 0 and the given maximum value, bounds included.">integer&lt;I&gt;(I)</a></dd></dl>
 <dl class="section return"><dt>Returns</dt><dd>T a random integer number</dd></dl>
 <div class="fragment"></div><!-- fragment --> 
 </div>
 </div>
-<a id="a56e8f02c1fc4e0b18f9d55901a31d659" name="a56e8f02c1fc4e0b18f9d55901a31d659"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56e8f02c1fc4e0b18f9d55901a31d659">&#9670;&#160;</a></span>integer() <span class="overload">[2/2]</span></h2>
+<a id="a8e680dc564d30755ca22fa708f5277a0" name="a8e680dc564d30755ca22fa708f5277a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e680dc564d30755ca22fa708f5277a0">&#9670;&#160;</a></span>integer() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;std::integral I&gt; </div>
+template&lt;std::integral I&gt; <br />
+requires (sizeof(I) &lt;= sizeof(long long))</div>
       <table class="memname">
         <tr>
           <td class="memname">I faker::number::integer </td>
@@ -422,7 +426,7 @@ template&lt;std::integral I&gt; </div>
 </dl>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">I</td><td>the type of the generated number, must be an integral type (int, long, long long, etc.).</td></tr>
+    <tr><td class="paramname">I</td><td>the type of the generated number, must be an integral type whose size is not larger than sizeof(long long).</td></tr>
   </table>
   </dd>
 </dl>
