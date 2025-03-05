@@ -4,6 +4,7 @@
 #include <optional>
 #include <random>
 #include <stdexcept>
+#include <type_traits>
 
 #include "faker-cxx/export.h"
 #include "faker-cxx/generator.h"
@@ -17,7 +18,7 @@ namespace faker::number
  * @param min The minimum value of the range.
  * @param max The maximum value of the range.
  *
- * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.).
+ * @tparam I the type of the generated number, must be an integral type whose size is not larger than sizeof(long long).
  *
  * @throws std::invalid_argument if min is greater than max.
  *
@@ -28,8 +29,13 @@ namespace faker::number
  * @endcode
  */
 template <std::integral I>
+    requires(sizeof(I) <= sizeof(long long))
 I integer(I min, I max)
 {
+    // std::uniform_int_distribution only accepts certain types, so we use signed or unsigned long long and don't allow
+    // larger types
+    using LongLongType = std::conditional_t<std::is_unsigned_v<I>, unsigned long long, long long>;
+
     if (min > max)
     {
         throw std::invalid_argument("Minimum value must be smaller than maximum value.");
@@ -37,15 +43,15 @@ I integer(I min, I max)
 
     std::mt19937_64& pseudoRandomGenerator = getGenerator();
 
-    std::uniform_int_distribution<I> distribution(min, max);
+    std::uniform_int_distribution<LongLongType> distribution(min, max);
 
-    return distribution(pseudoRandomGenerator);
+    return static_cast<I>(distribution(pseudoRandomGenerator));
 }
 
 /**
  * @brief Generates a random integer between 0 and the given maximum value, bounds included.
  *
- * @tparam I the type of the generated number, must be an integral type (int, long, long long, etc.).
+ * @tparam I the type of the generated number, must be an integral type whose size is not larger than sizeof(long long).
  * @param max the maximum value of the range.
  *
  * @throws std::invalid_argument if min is greater than max.
@@ -59,6 +65,7 @@ I integer(I min, I max)
  * @endcode
  */
 template <std::integral I>
+    requires(sizeof(I) <= sizeof(long long))
 I integer(I max)
 {
     return integer<I>(static_cast<I>(0), max);
