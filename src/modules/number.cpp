@@ -62,7 +62,7 @@ std::string octal(unsigned int length)
 
     for (unsigned int i = 0; i < length; ++i)
     {
-        octalNumber += number::integer('0', '7');
+        octalNumber += static_cast<char>(number::integer(static_cast<int>('0'), static_cast<int>('7')));
     }
 
     return "0o" + octalNumber;
@@ -79,7 +79,7 @@ std::string binary(int length)
 
     for (int i = 0; i < length; ++i)
     {
-        binaryNumber += number::integer('0', '1');
+        binaryNumber += static_cast<char>(number::integer(static_cast<int>('0'), static_cast<int>('1')));
     }
 
     return "0b" + binaryNumber;
