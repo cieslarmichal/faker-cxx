@@ -28,7 +28,8 @@ namespace faker::number
  * faker::number::integer(5, 10) // 7
  * @endcode
  */
-template <std::integral I> requires (sizeof(I) <= sizeof(long long))
+template <std::integral I>
+    requires(sizeof(I) <= sizeof(long long))
 I integer(I min, I max)
 {
     // std::uniform_int_distribution only accepts certain types, so we use signed or unsigned long long and don't allow
@@ -63,7 +64,8 @@ I integer(I min, I max)
  * faker::number::integer(10) // 5
  * @endcode
  */
-template <std::integral I> requires (sizeof(I) <= sizeof(long long))
+template <std::integral I>
+    requires(sizeof(I) <= sizeof(long long))
 I integer(I max)
 {
     return integer<I>(static_cast<I>(0), max);
