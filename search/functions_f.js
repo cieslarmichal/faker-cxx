@@ -8,5 +8,6 @@ var searchData=
   ['resolution_5',['resolution',['../namespacefaker_1_1video.html#a4104ff1ee323b795c4fab7b508ea8d9c',1,'faker::video']]],
   ['rgb_6',['rgb',['../namespacefaker_1_1color.html#af6a5bd8e9feb97f01ef3a41621cec14a',1,'faker::color']]],
   ['rodent_7',['rodent',['../namespacefaker_1_1animal.html#a157c2cd8f592fb2918d253645ebe1322',1,'faker::animal']]],
-  ['routingnumber_8',['routingNumber',['../namespacefaker_1_1finance.html#acdba5149d4f18e5b05c3ea88de3f5c09',1,'faker::finance']]]
+  ['roman_8',['roman',['../namespacefaker_1_1number.html#af59343cb947e88e33abe25c02acb93d3',1,'faker::number']]],
+  ['routingnumber_9',['routingNumber',['../namespacefaker_1_1finance.html#acdba5149d4f18e5b05c3ea88de3f5c09',1,'faker::finance']]]
 ];

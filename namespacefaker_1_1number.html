@@ -132,6 +132,9 @@ requires (sizeof(I) &lt;= sizeof(long long))</td></tr>
 <tr class="memitem:a46669288c05a8291ecc61c658cb39014" id="r_a46669288c05a8291ecc61c658cb39014"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a46669288c05a8291ecc61c658cb39014">binary</a> (int min, int max)</td></tr>
 <tr class="memdesc:a46669288c05a8291ecc61c658cb39014"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a random binary string which has its decimal equivalent between min and max inclusive.  <br /></td></tr>
 <tr class="separator:a46669288c05a8291ecc61c658cb39014"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af59343cb947e88e33abe25c02acb93d3" id="r_af59343cb947e88e33abe25c02acb93d3"><td class="memItemLeft" align="right" valign="top">FAKER_CXX_EXPORT std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af59343cb947e88e33abe25c02acb93d3">roman</a> (std::optional&lt; int &gt; min=std::nullopt, std::optional&lt; int &gt; max=std::nullopt)</td></tr>
+<tr class="memdesc:af59343cb947e88e33abe25c02acb93d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a roman numeral in String format.  <br /></td></tr>
+<tr class="separator:af59343cb947e88e33abe25c02acb93d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ac0e51691e8098437c3aeebf66d35c4d0" name="ac0e51691e8098437c3aeebf66d35c4d0"></a>
@@ -463,6 +466,45 @@ requires (sizeof(I) &lt;= sizeof(long long))</div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Octal string.</dd></dl>
+<div class="fragment"></div><!-- fragment --> 
+</div>
+</div>
+<a id="af59343cb947e88e33abe25c02acb93d3" name="af59343cb947e88e33abe25c02acb93d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af59343cb947e88e33abe25c02acb93d3">&#9670;&#160;</a></span>roman()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">FAKER_CXX_EXPORT std::string faker::number::roman </td>
+          <td>(</td>
+          <td class="paramtype">std::optional&lt; int &gt;</td>          <td class="paramname"><span class="paramname"><em>min</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::optional&lt; int &gt;</td>          <td class="paramname"><span class="paramname"><em>max</em></span><span class="paramdefsep"> = </span><span class="paramdefval">std::nullopt</span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns a roman numeral in String format. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">min</td><td>Optional parameter for lower bound of generated number. </td></tr>
+    <tr><td class="paramname">max</td><td>Optional parameter for upper bound of generated number.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>roman number</dd></dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument,if</td><td>min &gt; max, std::invalid_argument if min or max are negative </td></tr>
+    <tr><td class="paramname">std::invalid_argument,if</td><td>min&lt;1, value less than 1 cannot be represented </td></tr>
+    <tr><td class="paramname">std::invalid_argument,if</td><td>max&gt;3999, value greater than 3999 cannot be represented</td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="fragment"></div><!-- fragment --> 
 </div>
 </div>

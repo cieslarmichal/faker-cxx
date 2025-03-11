@@ -14,8 +14,9 @@ var searchData=
   ['reunion_11',['Reunion',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa939c3c13a3d058c4c53109d7f804b631',1,'faker::phone']]],
   ['rgb_12',['rgb',['../namespacefaker_1_1color.html#af6a5bd8e9feb97f01ef3a41621cec14a',1,'faker::color']]],
   ['rodent_13',['rodent',['../namespacefaker_1_1animal.html#a157c2cd8f592fb2918d253645ebe1322',1,'faker::animal']]],
-  ['romania_14',['Romania',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa0c7d5ae44b2a0be9ebd7d6b9f7d60f20',1,'faker::phone']]],
-  ['routingnumber_15',['routingNumber',['../namespacefaker_1_1finance.html#acdba5149d4f18e5b05c3ea88de3f5c09',1,'faker::finance']]],
-  ['russianfederation_16',['RussianFederation',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa68a743f6cb422fa341bdd7c7a0136ed6',1,'faker::phone']]],
-  ['rwanda_17',['Rwanda',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9d7ed5d77d647e89c3cc11757d651dc2',1,'faker::phone']]]
+  ['roman_14',['roman',['../namespacefaker_1_1number.html#af59343cb947e88e33abe25c02acb93d3',1,'faker::number']]],
+  ['romania_15',['Romania',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa0c7d5ae44b2a0be9ebd7d6b9f7d60f20',1,'faker::phone']]],
+  ['routingnumber_16',['routingNumber',['../namespacefaker_1_1finance.html#acdba5149d4f18e5b05c3ea88de3f5c09',1,'faker::finance']]],
+  ['russianfederation_17',['RussianFederation',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa68a743f6cb422fa341bdd7c7a0136ed6',1,'faker::phone']]],
+  ['rwanda_18',['Rwanda',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa9d7ed5d77d647e89c3cc11757d651dc2',1,'faker::phone']]]
 ];
