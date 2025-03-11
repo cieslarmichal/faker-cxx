@@ -278,4 +278,29 @@ FAKER_CXX_EXPORT std::string binary(int length = 1);
  * @endcode
  */
 FAKER_CXX_EXPORT std::string binary(int min, int max);
+
+/**
+ * @brief Returns a roman numeral in String format.
+ *
+ * @param min Optional parameter for lower bound of generated number.
+ * @param max Optional parameter for upper bound of generated number.
+ *
+ * @return roman number
+ *
+ *
+ * @throws std::invalid_argument, if min > max, std::invalid_argument if min or max are negative
+ * @throws std::invalid_argument, if min<1, value less than 1 cannot be represented
+ * @throws std::invalid_argument, if max>3999, value greater than 3999 cannot be represented
+ * 
+ * @code
+ * faker.number.romanNumeral() // 'MDCCCXIX'
+ * faker.number.romanNumeral(5) // 'II'
+ * faker.number.romanNumeral({ min: 10 }) // 'CCCXXXIX'
+ * faker.number.romanNumeral({ max: 20 }) // 'III'
+ * faker.number.romanNumeral({ min: 5, max: 10 }) // 'V'
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string roman(std::optional<int> min = std::nullopt, std::optional<int> max = std::nullopt);
+
+
 }
