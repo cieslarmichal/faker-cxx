@@ -259,3 +259,31 @@ TEST_F(NumberTest, givenMinBiggerThanMax_shouldThrowInvalidArgument)
 {
     ASSERT_THROW(binary(10, 1), std::invalid_argument);
 }
+
+
+TEST_F(NumberTest, roman_GivenValidRange_ShouldReturnRomanNumeral)
+{
+    std::string result = roman(10, 100);
+    ASSERT_FALSE(result.empty());  // Ensure a result is returned
+}
+
+TEST_F(NumberTest, roman_GivenMinGreaterThanMax_ShouldThrowException)
+{
+    ASSERT_THROW(roman(100, 10), std::invalid_argument);
+}
+
+TEST_F(NumberTest, roman_GivenMinLessThanOne_ShouldThrowException)
+{
+    ASSERT_THROW(roman(0, 10), std::invalid_argument);
+}
+
+TEST_F(NumberTest, roman_GivenMaxGreaterThan3999_ShouldThrowException)
+{
+    ASSERT_THROW(roman(10, 4000), std::invalid_argument);
+}
+
+TEST_F(NumberTest, roman_GivenSameMinAndMax_ShouldReturnSameRomanNumeral)
+{
+    std::string result = roman(100, 100);
+    ASSERT_EQ(result, "C");  // 100 should always map to "C"
+}

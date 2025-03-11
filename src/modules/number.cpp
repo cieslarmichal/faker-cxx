@@ -115,4 +115,51 @@ std::string binary(int min, int max)
 
     return "0b" + output;
 }
+
+std::string roman(std::optional<int> min, std::optional<int> max)
+{
+    int defaultMin = 1;
+    int defaultMax = 3999;
+
+    if (min.has_value())
+    {
+        defaultMin = min.value();
+    }
+
+    if (max.has_value())
+    {
+        defaultMax = max.value();
+    }
+
+    // Corrected condition checks
+    if (defaultMin > defaultMax)
+    {
+        throw std::invalid_argument("min cannot be greater than max");
+    }
+    if (defaultMin < 1)
+    {
+        throw std::invalid_argument("Roman numbers cannot be represented for values strictly less than 1");
+    }
+    if (defaultMax > 3999)
+    {
+        throw std::invalid_argument("Standard Roman numbers cannot represent values greater than 3999");
+    }
+
+    int randomNumber = number::integer(defaultMin, defaultMax);
+
+    std::vector<std::pair<int, std::string>> roman = {{1000, "M"}, {900, "CM"}, {500, "D"}, {400, "CD"}, {100, "C"},
+                                                      {90, "XC"},  {50, "L"},   {40, "XL"}, {10, "X"},   {9, "IX"},
+                                                      {5, "V"},    {4, "IV"},   {1, "I"}};
+
+    std::string result;
+    for (const auto& [value, symbol] : roman)
+    {
+        while (randomNumber >= value)
+        {
+            result += symbol;
+            randomNumber -= value;
+        }
+    }
+    return result;
+}
 }
