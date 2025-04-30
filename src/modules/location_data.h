@@ -8651,6 +8651,119 @@ const CountryAddressesInfo palestineAddresses{
     palestineStates,
 };
 
+// Norway
+
+const auto norwayCities = std::to_array<std::string_view>({
+    "Oslo",
+    "Bergen",
+    "Stavanger",
+    "Trondheim",
+    "Drammen",
+    "Fredrikstad",
+    "Kristiansand",
+    "Tromsø",
+    "Sandnes",
+    "Skien",
+    "Ålesund",
+    "Haugesund",
+    "Tønsberg",
+    "Moss",
+    "Bodø",
+    "Arendal",
+    "Hamar",
+    "Larvik",
+    "Halden",
+    "Gjøvik",
+});
+
+const auto norwayCounties = std::to_array<std::string_view>({
+    "Oslo",
+    "Viken",
+    "Innlandet",
+    "Vestfold og Telemark",
+    "Agder",
+    "Rogaland",
+    "Vestland",
+    "Møre og Romsdal",
+    "Trøndelag",
+    "Nordland",
+    "Troms og Finnmark",
+});
+
+const auto norwayStreetNames = std::to_array<std::string_view>({
+    "Karl Johans gate",
+    "Dronningens gate",
+    "Storgata",
+    "Nedre Slottsgate",
+    "Bogstadveien",
+    "Grensen",
+    "Universitetsgata",
+    "Torggata",
+    "Kirkegata",
+    "Thorvald Meyers gate",
+    "Munkedamsveien",
+    "Pilestredet",
+    "Maridalsveien",
+    "Industrigata",
+    "Trondheimsveien",
+    "Skippergata",
+    "Søndre gate",
+    "Vestre Strandgate",
+    "Kongens gate",
+    "Sandakerveien",
+});
+
+const auto norwayStreetPrefixes = std::to_array<std::string_view>({
+    "Gate",
+    "Vei",
+    "Allé",
+    "Plass",
+    "Stien",
+});
+
+const std::string_view norwayZipCodeFormat{"####"};
+
+const auto norwayAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber} {secondaryAddress}",
+    "{street} {buildingNumber}",
+});
+
+const auto norwaySecondaryAddressFormats = std::to_array<std::string_view>({
+    "Leil. #",
+    "Etg. #",
+});
+
+const auto norwayBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "##B",
+});
+
+const auto norwayStreetFormats = std::to_array<std::string_view>({
+    "{streetPrefix} {streetName}",
+});
+
+const auto norwayCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo norwayAddresses{
+    norwayZipCodeFormat,
+    norwayAddressFormats,
+    norwaySecondaryAddressFormats,
+    norwayStreetFormats,
+    {}, 
+    norwayStreetNames,
+    norwayStreetPrefixes,
+    norwayBuildingNumberFormats,
+    norwayCityFormats,
+    {}, 
+    norwayCities,
+    {}, 
+    norwayCounties,
+};
+
+
 // Poland
 
 const auto polandCities = std::to_array<std::string_view>({
