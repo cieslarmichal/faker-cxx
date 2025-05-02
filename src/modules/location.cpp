@@ -85,6 +85,10 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return palestineAddresses;
     case Locale::es_MX:
         return mexicoAddresses;
+    case Locale::ro_RO:
+        return romaniaAddresses;
+    case Locale::nb_NO:
+        return norwayAddresses;
     default:
         return usaAddresses;
     }
