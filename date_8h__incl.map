@@ -1,9 +1,11 @@
 <map id="include/faker&#45;cxx/date.h" name="include/faker&#45;cxx/date.h">
-<area shape="rect" id="Node000001" title=" " alt="" coords="48,5,205,31"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,59,105"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,34,62,72,58,67,109,29"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="83,79,170,105"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="129,31,129,63,124,63,124,31"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="195,79,317,105"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="150,29,222,69,219,73,147,34"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="85,5,242,31"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,79,66,105"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="143,34,72,73,69,69,140,29"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="90,79,144,105"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="158,33,135,67,131,64,154,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="168,79,255,105"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="174,30,197,64,193,67,169,33"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="280,79,402,105"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="195,29,298,70,296,75,193,34"/>
 </map>
