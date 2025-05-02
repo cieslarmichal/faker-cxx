@@ -13346,4 +13346,127 @@ const CountryAddressesInfo usaAddresses{
     usaStates,
 };
 
+// Norway
+
+const auto norwayCities = std::to_array<std::string_view>({
+    "Oslo",
+    "Bergen",
+    "Stavanger",
+    "Drammen",
+    "Kristiansand",
+    "Dundee",
+    "Trondheim",
+    "Tromsø",
+    "Sandnes",
+    "Bodø",
+    "Fredrikstad",
+    "Porsgrunn",
+    "Skien",
+    "Larvik",
+    "Haugesund",
+    "Molde",
+    "Gjøvik",
+    "Arendal",
+    "Kongsberg",
+    "Lillestrøm",
+    "Hamar",
+    "Ålesund",
+    "Halden",
+    "Lillehammer",
+    "Ski",
+    "Vennesla",
+    "Alta",
+    "Sandefjord",
+});
+
+const auto norwayStates = std::to_array<std::string_view>({
+    "Oslo",
+    "Viken",
+    "Innlandet",
+    "Vestfold og Telemark",
+    "Agder",
+    "Rogaland",
+    "Vestland",
+    "Trøndelag",
+    "Nordland",
+    "Troms og Finnmark",
+});
+
+const auto norwayStreetNames = std::to_array<std::string_view>({
+    "Karl Johans gate",
+    "Dronningens gate",
+    "Storgata",
+    "Kirkegata",
+    "Torggata",
+    "Havneveien",
+    "Strandgata",
+    "Peder Ankers gate",
+    "Løkka",
+    "Møllergata",
+    "Nygata",
+    "Frognerseteren",
+    "Grensen",
+    "Pilestredet",
+    "Ekebergveien",
+    "Sørkedalsveien",
+    "St. Olavs plass",
+    "Rådhusgata",
+    "Bergensgata",
+    "Nordre gate",
+});
+
+const auto norwayStreetPrefixes =
+    std::to_array<std::string_view>({
+    "Gate",
+    "Vei",
+    "Plass",
+    "Bro",
+    "Strand",
+    "Løkke",
+});
+
+const std::string_view norwayZipCodeFormat{"#####"};
+
+const auto norwayAddressFormats =
+    std::to_array<std::string_view>({
+    "{street} {buildingNumber} {secondaryAddress}",
+    "{street} {buildingNumber}",
+});
+
+const auto norwaySecondaryAddressFormats = std::to_array<std::string_view>({
+    "Leilighet #",
+    "Etasje #",
+});
+
+const auto norwayBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+});
+
+const auto norwayStreetFormats =
+    std::to_array<std::string_view>({
+    "{streetSuffix} {streetName}",
+});
+
+const auto norwayCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo norwayAddresses{
+    norwayZipCodeFormat,
+    (norwayAddressFormats),
+    (norwaySecondaryAddressFormats),
+    (norwayStreetFormats),
+    {},
+    {norwayStreetNames},
+    (norwayStreetPrefixes),
+    (norwayBuildingNumberFormats),
+    (norwayCityFormats),
+    {},
+    (norwayCities),
+    {},
+    (norwayStates),
+};
+
 }
