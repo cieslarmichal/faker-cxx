@@ -885,22 +885,6 @@ TEST_F(LocationTest, shouldGenerateItalyStreetAddress)
                                     { return generatedStreetAddress.find(lastName) != std::string::npos; }));
 }
 
-TEST_F(LocationTest, shouldGenerateNorwayStreet)
-{
-    const auto generatedStreet = street(Locale::nb_NO);
-
-    ASSERT_TRUE(std::ranges::any_of(norwayStreetNames, [&generatedStreet](const std::string_view& street)
-                                    { return generatedStreet.find(street) != std::string::npos; }));
-}
-
-TEST_F(LocationTest, shouldGenerateNorwayStreetAddress)
-{
-    const auto generatedStreetAddress = streetAddress(Locale::nb_NO);
-
-    ASSERT_TRUE(std::ranges::any_of(norwayStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
-                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
-}
-
 TEST_F(LocationTest, shouldGenerateGermanyStreet)
 {
     const auto generatedStreet = street(Locale::de_DE);
@@ -1334,4 +1318,20 @@ TEST_F(LocationContinentTest, shouldGenerateRandomContinent)
     const auto generatedContinent = continent();
     ASSERT_TRUE(std::ranges::any_of(allContinents, [&generatedContinent](const std::string_view& c)
                                     { return c == generatedContinent; }));
+}
+
+TEST_F(LocationTest, shouldGenerateNorwayStreet)
+{
+    const auto generatedStreet = street(Locale::nb_NO);
+
+    ASSERT_TRUE(std::ranges::any_of(norwayStreetNames, [&generatedStreet](const std::string_view& street)
+                                    { return generatedStreet.find(street) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateNorwayStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::nb_NO);
+
+    ASSERT_TRUE(std::ranges::any_of(norwayStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
