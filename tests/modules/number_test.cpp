@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <climits>
 #include <stdexcept>
 
 #include "gtest/gtest.h"
