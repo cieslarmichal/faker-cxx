@@ -13469,4 +13469,189 @@ const CountryAddressesInfo norwayAddresses{
     (norwayStates),
 };
 
+// Turkey
+
+const auto turkeyCities = std::to_array<std::string_view>({
+    "Istanbul",
+    "Ankara",
+    "Izmir",
+    "Bursa",
+    "Adana",
+    "Gaziantep",
+    "Konya",
+    "Antalya",
+    "Mersin",
+    "Kayseri",
+    "Eskisehir",
+    "Diyarbakir",
+    "Samsun",
+    "Sivas",
+    "Trabzon",
+    "Kocaeli",
+    "Denizli",
+    "Malatya",
+    "Balikesir",
+    "Manisa",
+    "Van",
+    "Bolu",
+    "Aydin",
+    "Kütahya",
+    "Tekirdağ",
+    "Ordu",
+    "Hatay",
+    "Çorum",
+    "Kastamonu",
+    "Çanakkale",
+    "Giresun",
+});
+
+const auto turkeyStates = std::to_array<std::string_view>({
+    "Adana",
+    "Adiyaman",
+    "Afyonkarahisar",
+    "Ağri",
+    "Amasya",
+    "Ankara",
+    "Antalya",
+    "Artvin",
+    "Aydin",
+    "Balikesir",
+    "Bilecik",
+    "Bingöl",
+    "Bitlis",
+    "Bolu",
+    "Burdur",
+    "Bursa",
+    "Çanakkale",
+    "Çankiri",
+    "Çorum",
+    "Denizli",
+    "Diyarbakir",
+    "Edirne",
+    "Elaziğ",
+    "Erzincan",
+    "Erzurum",
+    "Eskişehir",
+    "Gaziantep",
+    "Giresun",
+    "Gümüşhane",
+    "Hakkari",
+    "Hatay",
+    "Iğdir",
+    "Isparta",
+    "İstanbul",
+    "İzmir",
+    "Kahramanmaraş",
+    "Karabük",
+    "Karaman",
+    "Kastamonu",
+    "Kayseri",
+    "Kirikkale",
+    "Kirklareli",
+    "Kocaeli",
+    "Konya",
+    "Kütahya",
+    "Malatya",
+    "Manisa",
+    "Mardin",
+    "Mersin",
+    "Muğla",
+    "Muş",
+    "Nevşehir",
+    "Niğde",
+    "Ordu",
+    "Osmaniye",
+    "Rize",
+    "Sakarya",
+    "Samsun",
+    "Siirt",
+    "Sinop",
+    "Sivas",
+    "Şanliurfa",
+    "Şirnak",
+    "Tekirdağ",
+    "Tokat",
+    "Trabzon",
+    "Tunceli",
+    "Uşak",
+    "Van",
+    "Yalova",
+    "Zonguldak",
+});
+
+const auto turkeyStreetNames = std::to_array<std::string_view>({
+    "Atatürk Caddesi",
+    "Cumhuriyet Caddesi",
+    "İstiklal Caddesi",
+    "Gazi Caddesi",
+    "Mithatpaşa Caddesi",
+    "Zafer Caddesi",
+    "Kocatepe Caddesi",
+    "İstanbul Caddesi",
+    "Ankara Caddesi",
+    "Konak Caddesi",
+    "Mevlana Caddesi",
+    "Süleymanpaşa Caddesi",
+    "Vatan Caddesi",
+    "Fevzipaşa Caddesi",
+    "Hürriyet Caddesi",
+    "Barbaros Caddesi",
+    "Yusufpaşa Caddesi",
+    "Sümer Caddesi",
+});
+
+const auto turkeyStreetPrefixes =
+    std::to_array<std::string_view>({
+    "Cadde",
+    "Sokak",
+    "Bulvar",
+    "Caddesi",
+    "Mahallesi",
+    "Yokuş",
+});
+
+const std::string_view turkeyZipCodeFormat{"#####"};
+
+const auto turkeyAddressFormats =
+    std::to_array<std::string_view>({
+    "{street} {buildingNumber} {secondaryAddress}",
+    "{street} {buildingNumber}",
+});
+
+const auto turkeySecondaryAddressFormats = std::to_array<std::string_view>({
+    "Kat. #",
+    "Daire #",
+});
+
+const auto turkeyBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+});
+
+const auto turkeyStreetFormats =
+    std::to_array<std::string_view>({
+    "{streetSuffix} {streetName}",
+});
+
+const auto turkeyCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo turkeyAddresses{
+    turkeyZipCodeFormat,
+    (turkeyAddressFormats),
+    (turkeySecondaryAddressFormats),
+    (turkeyStreetFormats),
+    {},
+    {turkeyStreetNames},
+    (turkeyStreetPrefixes),
+    (turkeyBuildingNumberFormats),
+    (turkeyCityFormats),
+    {},
+    (turkeyCities),
+    {},
+    (turkeyStates),
+};
+
 }
