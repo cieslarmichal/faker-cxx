@@ -88,6 +88,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return romaniaAddresses;
     case Locale::nb_NO:
         return norwayAddresses;
+    case Locale::tr_TR:
+        return turkeyAddresses;
     default:
         return usaAddresses;
     }
@@ -1335,3 +1337,20 @@ TEST_F(LocationTest, shouldGenerateNorwayStreetAddress)
     ASSERT_TRUE(std::ranges::any_of(norwayStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
+
+TEST_F(LocationTest, shouldGenerateTurkeyStreet)
+{
+    const auto generatedStreet = street(Locale::tr_TR);
+
+    ASSERT_TRUE(std::ranges::any_of(turkeyStreetNames, [&generatedStreet](const std::string_view& street)
+                                    { return generatedStreet.find(street) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateTurkeyStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::tr_TR);
+
+    ASSERT_TRUE(std::ranges::any_of(turkeyStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
