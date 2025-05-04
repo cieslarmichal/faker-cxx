@@ -13654,4 +13654,155 @@ const CountryAddressesInfo turkeyAddresses{
     (turkeyStates),
 };
 
+// Japan
+
+const auto japanCities = std::to_array<std::string_view>({
+    "Tokyo",
+    "Osaka",
+    "Yokohama",
+    "Nagoya",
+    "Sapporo",
+    "Fukuoka",
+    "Kobe",
+    "Kawasaki",
+    "Saitama",
+    "Hiroshima",
+    "Sendai",
+    "Chiba",
+    "Shizuoka",
+    "Saitama",
+    "Sapporo",
+    "Kobe",
+    "Niigata",
+    "Kochi",
+    "Okinawa",
+    "Shiga",
+    "Ibaraki",
+    "Tochigi",
+    "Chiba",
+});
+
+const auto japanStates = std::to_array<std::string_view>({
+    "Hokkaido",
+    "Aomori",
+    "Iwate",
+    "Miyagi",
+    "Akita",
+    "Yamagata",
+    "Fukushima",
+    "Ibaraki",
+    "Tochigi",
+    "Gunma",
+    "Saitama",
+    "Chiba",
+    "Tokyo",
+    "Kanagawa",
+    "Niigata",
+    "Toyama",
+    "Ishikawa",
+    "Fukui",
+    "Yamanashi",
+    "Nagano",
+    "Gifu",
+    "Shizuoka",
+    "Aichi",
+    "Mie",
+    "Shiga",
+    "Kyoto",
+    "Osaka",
+    "Hyogo",
+    "Nara",
+    "Wakayama",
+    "Tottori",
+    "Shimane",
+    "Okayama",
+    "Hiroshima",
+    "Yamaguchi",
+    "Tokushima",
+    "Kagawa",
+    "Ehime",
+    "Kochi",
+    "Fukuoka",
+    "Saga",
+    "Nagasaki",
+    "Kumamoto",
+    "Oita",
+    "Miyazaki",
+    "Kagoshima",
+    "Okinawa",
+});
+
+const auto japanStreetNames = std::to_array<std::string_view>({
+    "Shibuya",
+    "Akihabara",
+    "Ginza",
+    "Roppongi",
+    "Omotesando",
+    "Shinjuku",
+    "Harajuku",
+    "Sapporo Street",
+    "Namba Street",
+    "Kawasaki Street",
+    "Ueno",
+    "Shinagawa",
+    "Asakusa",
+    "Akasaka",
+    "Nihonbashi",
+    "Tamagawa",
+    "Ochanomizu",
+    "Kichijoji",
+    "Meiji Jingu",
+});
+
+const auto japanStreetPrefixes = std::to_array<std::string_view>({
+    "Dori",
+    "Machi",
+    "Avenue",
+    "Street",
+    "Cho",
+    "Kōji",
+});
+
+const std::string_view japanZipCodeFormat{"###-####"};
+
+const auto japanAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber} {secondaryAddress}",
+    "{street} {buildingNumber}",
+});
+
+const auto japanSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Room #",
+    "Floor #",
+});
+
+const auto japanBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+});
+
+const auto japanStreetFormats = std::to_array<std::string_view>({
+    "{streetSuffix} {streetName}",
+});
+
+const auto japanCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo japanAddresses{
+    japanZipCodeFormat,
+    (japanAddressFormats),
+    (japanSecondaryAddressFormats),
+    (japanStreetFormats),
+    {},
+    {japanStreetNames},
+    (japanStreetPrefixes),
+    (japanBuildingNumberFormats),
+    (japanCityFormats),
+    {},
+    (japanCities),
+    {},
+    (japanStates),
+};
+
 }

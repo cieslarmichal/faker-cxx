@@ -90,6 +90,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return norwayAddresses;
     case Locale::tr_TR:
         return turkeyAddresses;
+    case Locale::ja_JP:
+        return japanAddresses;
     default:
         return usaAddresses;
     }
@@ -1354,3 +1356,18 @@ TEST_F(LocationTest, shouldGenerateTurkeyStreetAddress)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }
 
+TEST_F(LocationTest, shouldGenerateJapanStreet)
+{
+    const auto generatedStreet = street(Locale::ja_JP);
+
+    ASSERT_TRUE(std::ranges::any_of(japanStreetNames, [&generatedStreet](const std::string_view& street)
+                                    { return generatedStreet.find(street) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateJapanStreetAddres)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::ja_JP);
+
+    ASSERT_TRUE(std::ranges::any_of(japanStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
