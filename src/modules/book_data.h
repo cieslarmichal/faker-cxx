@@ -152,13 +152,16 @@ const auto enUSFormats = std::to_array<std::string_view>({
 });
 
 const auto enUSGenres = std::to_array<std::string_view>({
-    "Adventure",   "Biography",       "Business",      "Children Literature",
-    "Classic",     "Comedy",          "Comic",         "Detective",
-    "Drama",       "Fantasy",         "Graphic Novel", "Historical Fiction",
-    "Horror",      "Memoir",          "Mystery",       "Mythology",
-    "Philosophy",  "Poetry",          "Psychology",    "Religion",
-    "Romance",     "Science Fiction", "Thriller",      "Western",
-    "Young Adult",
+    "Adventure",        "Art",               "Autobiography",   "Biography",
+    "Business",         "Children's Literature", "Classic",     "Comedy",
+    "Comics",           "Cookbook",          "Detective",       "Drama",
+    "Education",        "Fantasy",           "Graphic Novel",   "Health",
+    "Historical Fiction","History",          "Horror",          "Memoir",
+    "Mystery",          "Mythology",         "Non-Fiction",     "Philosophy",
+    "Poetry",           "Popular Science",   "Psychology",      "Religion",
+    "Romance",          "Science",           "Science Fiction", "Self-Help",
+    "Technology",       "Thriller",          "Travel",          "True Crime",
+    "Western",          "Young Adult",
 });
 
 const auto enUSPublishers = std::to_array<std::string_view>({

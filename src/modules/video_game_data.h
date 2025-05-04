@@ -3207,8 +3207,10 @@ const auto enUSPlatforms = std::to_array<std::string_view>({
     "Nintendo Switch",
     "Oculus Quest",
     "PC",
+    "Playstation 4",
     "Playstation 5",
     "Stadia",
+    "Xbox One",
     "Xbox Series X",
     "iOS",
 });
