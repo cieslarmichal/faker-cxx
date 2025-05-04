@@ -78,29 +78,9 @@ const auto PhoneModelNames = std::to_array<std::string_view>({
 });
 
 const auto PhoneManufacturers = std::to_array<std::string_view>({
-    "Apple",
-    "Google",
-    "Huawei",
-    "Motorola",
-    "OnePlus",
-    "Oppo",
-    "Samsung",
-    "Sony",
-    "Xiaomi",
-    "Asus",
-    "Honor",
-    "Realme",
-    "Nokia",
-    "ZTE",
-    "Lenovo",
-    "Vivo",
-    "Meizu",
-    "Alcatel",
-    "TCL",
-    "Fairphone",
-    "BLU",
-    "Infinix",
-    "Tecno",
+    "Apple",  "Google",  "Huawei", "Motorola",  "OnePlus", "Oppo",    "Samsung", "Sony",
+    "Xiaomi", "Asus",    "Honor",  "Realme",    "Nokia",   "ZTE",     "Lenovo",  "Vivo",
+    "Meizu",  "Alcatel", "TCL",    "Fairphone", "BLU",     "Infinix", "Tecno",
 });
 
 const auto phoneNumbers = std::to_array<std::string_view>({

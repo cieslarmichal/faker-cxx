@@ -40,7 +40,7 @@ const auto bioParts = std::to_array<std::string_view>({
     "Film lover", "Filmmaker", "Foodie",      "Founder",      "Friend",         "Gamer",        "Geek",
     "Grad",       "Inventor",  "Leader",      "Model",        "Musician",       "Nerd",         "Parent",
     "Patriot",    "Person",    "Philosopher", "Photographer", "Public speaker", "Scientist",    "Singer",
-    "Streamer",   "Student",   "Teacher",     "Traveler",     "Veteran",        "Writer", "Programmer",
+    "Streamer",   "Student",   "Teacher",     "Traveler",     "Veteran",        "Writer",       "Programmer",
 });
 
 const auto bioSupporters =
@@ -105,19 +105,20 @@ const auto hobbies = std::to_array<std::string_view>({
 });
 
 const auto jobDescriptors = std::to_array<std::string_view>({
-    "Lead",          "Senior",   "Direct",   "Corporate", "Dynamic", "Future",   "Product",
-    "National",      "Regional", "District", "Central",   "Global",  "Customer", "Investor",
-    "International", "Legacy",   "Forward",  "Internal",  "Human",   "Chief",    "Principal", "Junior",
+    "Lead",     "Senior",   "Direct",  "Corporate", "Dynamic",   "Future",   "Product",       "National",
+    "Regional", "District", "Central", "Global",    "Customer",  "Investor", "International", "Legacy",
+    "Forward",  "Internal", "Human",   "Chief",     "Principal", "Junior",
 });
 
-const auto jobAreas = std::to_array<std::string_view>(
-    {"Solutions",    "Program",        "Brand",          "Security",      "Research",       "Marketing",
-     "Directives",   "Implementation", "Integration",    "Functionality", "Response",       "Paradigm",
-     "Tactics",      "Identity",       "Markets",        "Group",         "Division",       "Applications",
-     "Optimization", "Operations",     "Infrastructure", "Intranet",      "Communications", "Web",
-     "Branding",     "Quality",        "Assurance",      "Mobility",      "Accounts",       "Data",
-     "Creative",     "Configuration",  "Accountability", "Interactions",  "Factors",        "Usability",
-     "Metrics",      "Software", "Hardware", });
+const auto jobAreas = std::to_array<std::string_view>({
+    "Solutions",    "Program",        "Brand",          "Security",      "Research",       "Marketing",
+    "Directives",   "Implementation", "Integration",    "Functionality", "Response",       "Paradigm",
+    "Tactics",      "Identity",       "Markets",        "Group",         "Division",       "Applications",
+    "Optimization", "Operations",     "Infrastructure", "Intranet",      "Communications", "Web",
+    "Branding",     "Quality",        "Assurance",      "Mobility",      "Accounts",       "Data",
+    "Creative",     "Configuration",  "Accountability", "Interactions",  "Factors",        "Usability",
+    "Metrics",      "Software",       "Hardware",
+});
 
 const auto jobTypes = std::to_array<std::string_view>({
     "Supervisor",  "Associate",    "Executive",      "Liaison",       "Officer",   "Manager",    "Engineer",
@@ -9245,7 +9246,7 @@ const auto palestinianMaleFirstNames = std::to_array<std::string_view>({
     "Marcel",    "Hossein",    "John",     "Fadel",    "Majid",   "Zahir",      "Siraj",   "Madi",    "Mokhtar",
     "Ghali",     "Sheikh",     "Karmel",   "Robert",   "Angel",   "Seddik",     "Hama",    "Scott",   "Raman",
     "Soso",      "Aram",       "Jamie",    "Kamil",    "Mike",    "Daniel",     "Yousif",  "Alam",    "Mohammed",
-    "Mazhar",    "Talha", "Mohammad", "Farah",
+    "Mazhar",    "Talha",      "Mohammad", "Farah",
 });
 
 const auto palestinianFemaleFirstNames = std::to_array<std::string_view>({
