@@ -33,16 +33,31 @@ const auto enUsFemaleAthletes = std::to_array<std::string_view>({
 });
 
 const auto enUSMaleAthletes = std::to_array<std::string_view>({
-    "Cristiano Ronaldo",
-    "Kobe Bryant",
-    "LeBron James",
-    "Lionel Messi",
-    "Michael Jordan",
-    "Michael Phelps",
-    "Muhammad Ali",
-    "Roger Federer",
-    "Tom Brady",
-    "Usain Bolt",
+    "Cristiano Ronaldo",  "Kobe Bryant",
+    "LeBron James",       "Lionel Messi",
+    "Michael Jordan",     "Michael Phelps",
+    "Muhammad Ali",       "Roger Federer",
+    "Tom Brady",          "Usain Bolt",
+    "Stephen Curry",      "Novak Djokovic",
+    "Tiger Woods",        "Rafael Nadal",
+    "Kevin Durant",       "Shaquille O'Neal",
+    "Neymar Jr.",         "Kylian Mbappé",
+    "Aaron Rodgers",      "Lewis Hamilton",
+    "Conor McGregor",     "Giannis Antetokounmpo",
+    "Joe Montana",        "Peyton Manning",
+    "Diego Maradona",     "Wayne Gretzky",
+    "Derrick Henry",      "Damian Lillard",
+    "Kawhi Leonard",      "Tim Duncan",
+    "Zlatan Ibrahimović", "Russell Wilson",
+    "Jayson Tatum",       "Patrick Mahomes",
+    "Drew Brees",         "Dirk Nowitzki",
+    "Luka Dončić",        "Anthony Davis",
+    "James Harden",       "Lamar Jackson",
+    "Jimmy Butler",       "Karl-Anthony Towns",
+    "Julius Erving",      "Bo Jackson",
+    "Barry Sanders",      "Fernando Alonso",
+    "Max Verstappen",     "Dwayne Wade",
+    "Andy Murray",        "Vince Carter",
 });
 
 const auto enUSSoccerTeams = std::to_array<std::string_view>({
@@ -56,6 +71,21 @@ const auto enUSSoccerTeams = std::to_array<std::string_view>({
     "Manchester United FC",
     "Paris Saint-Germain FC",
     "Real Madrid CF",
+    "Manchester City FC",
+    "Arsenal FC",
+    "Tottenham Hotspur FC",
+    "AS Roma",
+    "SSC Napoli",
+    "Ajax Amsterdam",
+    "Borussia Dortmund",
+    "RB Leipzig",
+    "Atletico Madrid",
+    "Olympique de Marseille",
+    "Sporting CP",
+    "SL Benfica",
+    "Galatasaray SK",
+    "Fenerbahçe SK",
+    "Sevilla FC",
 });
 
 const auto enUSSportEvents = std::to_array<std::string_view>({
@@ -82,6 +112,7 @@ const auto enUSSportNames = std::to_array<std::string_view>({
     "Table Tennis",
     "Tennis",
     "Volleyball",
+    "Football",
 });
 
 const SportDefinition enUSSportDefinition = {.femaleAthletes = enUsFemaleAthletes,
