@@ -82,6 +82,7 @@ const auto enUSMaleAthletes = std::to_array<std::string_view>({
     "Max Verstappen",
     "Dwayne Wade",
     "Andy Murray",
+    "Vince Carter",
 });
 
 const auto enUSSoccerTeams = std::to_array<std::string_view>({
