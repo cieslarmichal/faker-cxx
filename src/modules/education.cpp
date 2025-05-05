@@ -1,5 +1,6 @@
-#include "faker-education.h"
-#include "faker/helper.h"
+#include "faker-cxx/education.h"
+
+#include "faker-cxx/helper.h"
 
 namespace faker::education
 {
