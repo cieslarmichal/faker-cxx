@@ -1,31 +1,44 @@
-#include "faker/education.h"
-#include "faker/helper.h"
-#include "modules/education_data.h"
+#pragma once
+
+#include <array>
+#include <span>
+#include <string_view>
 
 namespace faker::education
 {
-std::string_view schoolName(Locale)
-{
-    return helper::pickRandomElement(schoolNames);
-}
 
-std::string_view degreeType(Locale)
+struct EducationDefinition
 {
-    return helper::pickRandomElement(degreeTypes);
-}
+    std::span<const std::string_view> schoolNames;
+    std::span<const std::string_view> degreeTypes;
+    std::span<const std::string_view> fieldsOfStudy;
+    std::span<const std::string_view> academicTerms;
+    std::span<const std::string_view> courseNames;
+};
 
-std::string_view fieldOfStudy(Locale)
-{
-    return helper::pickRandomElement(fieldsOfStudy);
-}
+const auto enUSSchoolNames = std::to_array<std::string_view>(
+    {"Harvard University", "Stanford University", "MIT", "University of Oxford", "University of Tokyo",
+     "Technical University of Munich", "University of Cape Town", "University of São Paulo"});
 
-std::string_view academicTerm(Locale)
-{
-    return helper::pickRandomElement(academicTerms);
-}
+const auto enUSDegreeTypes =
+    std::to_array<std::string_view>({"Bachelor of Science (BSc)", "Bachelor of Arts (BA)", "Master of Science (MSc)",
+                                     "Master of Business Administration (MBA)", "Doctor of Philosophy (PhD)"});
 
-std::string_view courseName(Locale)
-{
-    return helper::pickRandomElement(courseNames);
-}
+const auto enUSFieldsOfStudy =
+    std::to_array<std::string_view>({"Computer Science", "Mechanical Engineering", "Psychology", "Economics", "Biology",
+                                     "Philosophy", "Business Administration", "Political Science"});
+
+const auto enUSAcademicTerms = std::to_array<std::string_view>(
+    {"Fall Semester", "Spring Semester", "Winter Quarter", "GPA Scale (4.0)", "Trimester", "Academic Year"});
+
+const auto enUSCourseNames = std::to_array<std::string_view>(
+    {"Introduction to Programming", "Advanced Calculus", "World History", "Organic Chemistry", "Digital Marketing",
+     "Thermodynamics", "Cognitive Psychology", "Entrepreneurship 101"});
+
+const EducationDefinition enUSEducationDefinition = {.schoolNames = enUSSchoolNames,
+                                                     .degreeTypes = enUSDegreeTypes,
+                                                     .fieldsOfStudy = enUSFieldsOfStudy,
+                                                     .academicTerms = enUSAcademicTerms,
+                                                     .courseNames = enUSCourseNames};
+
 }

@@ -1,44 +1,75 @@
 #pragma once
 
-#include <array>
-#include <span>
 #include <string_view>
+
+#include "faker-cxx/export.h"
+#include "faker-cxx/types/locale.h"
 
 namespace faker::education
 {
+/**
+ * @brief Returns a random school name.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
+ * @return School name.
+ *
+ * @code
+ * faker::education::school() // "Harvard University"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view school(Locale locale = Locale::en_US);
 
-struct EducationDefinition
-{
-    std::span<const std::string_view> schoolNames;
-    std::span<const std::string_view> degreeTypes;
-    std::span<const std::string_view> fieldsOfStudy;
-    std::span<const std::string_view> academicTerms;
-    std::span<const std::string_view> courseNames;
-};
+/**
+ * @brief Returns a random degree type (e.g., BSc, MBA).
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
+ * @return Degree type.
+ *
+ * @code
+ * faker::education::degree() // "BSc"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view degree(Locale locale = Locale::en_US);
 
-const auto enUSSchoolNames = std::to_array<std::string_view>(
-    {"Harvard University", "Stanford University", "MIT", "University of Oxford", "University of Tokyo",
-     "Technical University of Munich", "University of Cape Town", "University of São Paulo"});
+/**
+ * @brief Returns a random field of study (e.g., Computer Science, Business).
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
+ * @return Field of study.
+ *
+ * @code
+ * faker::education::field() // "Computer Science"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view field(Locale locale = Locale::en_US);
 
-const auto enUSDegreeTypes =
-    std::to_array<std::string_view>({"Bachelor of Science (BSc)", "Bachelor of Arts (BA)", "Master of Science (MSc)",
-                                     "Master of Business Administration (MBA)", "Doctor of Philosophy (PhD)"});
+/**
+ * @brief Returns a random academic term (e.g., Semester, GPA).
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
+ * @return Academic term.
+ *
+ * @code
+ * faker::education::term() // "Semester"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view term(Locale locale = Locale::en_US);
 
-const auto enUSFieldsOfStudy =
-    std::to_array<std::string_view>({"Computer Science", "Mechanical Engineering", "Psychology", "Economics", "Biology",
-                                     "Philosophy", "Business Administration", "Political Science"});
+/**
+ * @brief Returns a random list of courses.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
+ * @return List of courses.
+ *
+ * @code
+ * faker::education::courses() // "Math 101, Computer Science 201"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view courses(Locale locale = Locale::en_US);
 
-const auto enUSAcademicTerms = std::to_array<std::string_view>(
-    {"Fall Semester", "Spring Semester", "Winter Quarter", "GPA Scale (4.0)", "Trimester", "Academic Year"});
-
-const auto enUSCourseNames = std::to_array<std::string_view>(
-    {"Introduction to Programming", "Advanced Calculus", "World History", "Organic Chemistry", "Digital Marketing",
-     "Thermodynamics", "Cognitive Psychology", "Entrepreneurship 101"});
-
-const EducationDefinition enUSEducationDefinition = {.schoolNames = enUSSchoolNames,
-                                                     .degreeTypes = enUSDegreeTypes,
-                                                     .fieldsOfStudy = enUSFieldsOfStudy,
-                                                     .academicTerms = enUSAcademicTerms,
-                                                     .courseNames = enUSCourseNames};
-
-}
+}  // namespace faker::education

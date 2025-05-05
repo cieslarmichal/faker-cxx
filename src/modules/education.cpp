@@ -1,51 +1,58 @@
 #include "faker-cxx/education.h"
 
+#include <string_view>
+
+#include "education_data.h"
 #include "faker-cxx/helper.h"
 
 namespace faker::education
 {
-const std::vector<std::string> schoolNames = {
-    "Harvard University",      "Stanford University",    "MIT",
-    "University of Oxford",    "University of Tokyo",    "Technical University of Munich",
-    "University of Cape Town", "University of São Paulo"};
 
-const std::vector<std::string> degreeTypes = {"Bachelor of Science (BSc)", "Bachelor of Arts (BA)",
-                                              "Master of Science (MSc)", "Master of Business Administration (MBA)",
-                                              "Doctor of Philosophy (PhD)"};
-
-const std::vector<std::string> fieldsOfStudy = {
-    "Computer Science", "Mechanical Engineering",  "Psychology",       "Economics", "Biology",
-    "Philosophy",       "Business Administration", "Political Science"};
-
-const std::vector<std::string> academicTerms = {"Fall Semester",   "Spring Semester", "Winter Quarter",
-                                                "GPA Scale (4.0)", "Trimester",       "Academic Year"};
-
-const std::vector<std::string> courseNames = {"Introduction to Programming", "Advanced Calculus",   "World History",
-                                              "Organic Chemistry",           "Digital Marketing",   "Thermodynamics",
-                                              "Cognitive Psychology",        "Entrepreneurship 101"};
-
-std::string schoolName()
+namespace
 {
-    return helper::pickRandomElement(schoolNames);
+const struct EducationDefinition& getEducationDefinition(Locale locale)
+{
+    switch (locale)
+    {
+    default:
+        return enUSEducationDefinition;
+    }
+}
 }
 
-std::string degreeType()
+std::string_view school(Locale locale)
 {
-    return helper::pickRandomElement(degreeTypes);
+    const auto& educationDefinition = getEducationDefinition(locale);
+
+    return helper::randomElement(educationDefinition.schools);
 }
 
-std::string fieldOfStudy()
+std::string_view degree(Locale locale)
 {
-    return helper::pickRandomElement(fieldsOfStudy);
+    const auto& educationDefinition = getEducationDefinition(locale);
+
+    return helper::randomElement(educationDefinition.degrees);
 }
 
-std::string academicTerm()
+std::string_view field(Locale locale)
 {
-    return helper::pickRandomElement(academicTerms);
+    const auto& educationDefinition = getEducationDefinition(locale);
+
+    return helper::randomElement(educationDefinition.fields);
 }
 
-std::string courseName()
+std::string_view term(Locale locale)
 {
-    return helper::pickRandomElement(courseNames);
+    const auto& educationDefinition = getEducationDefinition(locale);
+
+    return helper::randomElement(educationDefinition.terms);
 }
+
+std::string_view courses(Locale locale)
+{
+    const auto& educationDefinition = getEducationDefinition(locale);
+
+    return helper::randomElement(educationDefinition.courses);
 }
+
+}  
