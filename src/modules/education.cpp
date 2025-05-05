@@ -55,4 +55,4 @@ std::string_view courses(Locale locale)
     return helper::randomElement(educationDefinition.courses);
 }
 
-}  
+}

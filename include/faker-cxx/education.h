@@ -72,4 +72,4 @@ FAKER_CXX_EXPORT std::string_view term(Locale locale = Locale::en_US);
  */
 FAKER_CXX_EXPORT std::string_view courses(Locale locale = Locale::en_US);
 
-}  // namespace faker::education
+} // namespace faker::education
