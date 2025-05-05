@@ -229,8 +229,9 @@ var NAVTREEINDEX0 =
 "namespacefaker_1_1esport.html":[0,0,0,12],
 "namespacefaker_1_1esport.html#a0b40f3d14442dca8196717ad0c4da892":[0,0,0,12,1],
 "namespacefaker_1_1esport.html#a1e5b822d6ef54df0c4247412e3bcf43c":[0,0,0,12,0],
-"namespacefaker_1_1esport.html#a2597e2eb1a13a224736a7fabc42da29e":[0,0,0,12,4],
-"namespacefaker_1_1esport.html#a2adceb90d4e67604f06c50e532c00c60":[0,0,0,12,3],
+"namespacefaker_1_1esport.html#a2597e2eb1a13a224736a7fabc42da29e":[0,0,0,12,5],
+"namespacefaker_1_1esport.html#a2974a77a3c1955caba674bdf1f9ff531":[0,0,0,12,3],
+"namespacefaker_1_1esport.html#a2adceb90d4e67604f06c50e532c00c60":[0,0,0,12,4],
 "namespacefaker_1_1esport.html#aa9f51c64b18df35ac4cac966f3a11220":[0,0,0,12,2],
 "namespacefaker_1_1finance.html":[0,0,0,13],
 "namespacefaker_1_1finance.html#a05481e72083261ce62113644ddb6038f":[0,0,0,13,11],
@@ -248,6 +249,5 @@ var NAVTREEINDEX0 =
 "namespacefaker_1_1finance.html#a89147ba29c55835df80b6bfbb31057b0":[0,0,0,13,17],
 "namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfa":[0,0,0,13,1],
 "namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfaa2fe3351421d198ea6d3c4a4a0358d08f":[0,0,0,13,1,2],
-"namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfaa89fc0d6fe12b0e0c1af5c7a0373435a6":[0,0,0,13,1,3],
-"namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfaaabfc3a65538a6ec86502b2b498b6b4a6":[0,0,0,13,1,1]
+"namespacefaker_1_1finance.html#aa583be46abeaac908c81656813251bfaa89fc0d6fe12b0e0c1af5c7a0373435a6":[0,0,0,13,1,3]
 };
