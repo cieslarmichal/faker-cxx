@@ -23,36 +23,31 @@ const struct EducationDefinition& getEducationDefinition(Locale locale)
 std::string_view school(Locale locale)
 {
     const auto& educationDefinition = getEducationDefinition(locale);
-
-    return helper::randomElement(educationDefinition.schools);
+    return helper::randomElement(educationDefinition.schoolNames); // FIXED
 }
 
 std::string_view degree(Locale locale)
 {
     const auto& educationDefinition = getEducationDefinition(locale);
-
-    return helper::randomElement(educationDefinition.degrees);
+    return helper::randomElement(educationDefinition.degreeTypes); // FIXED
 }
 
 std::string_view field(Locale locale)
 {
     const auto& educationDefinition = getEducationDefinition(locale);
-
-    return helper::randomElement(educationDefinition.fields);
+    return helper::randomElement(educationDefinition.fields); // ✅ Only if `fields` is defined
 }
 
 std::string_view term(Locale locale)
 {
     const auto& educationDefinition = getEducationDefinition(locale);
-
-    return helper::randomElement(educationDefinition.terms);
+    return helper::randomElement(educationDefinition.terms); // ✅ Only if `terms` is defined
 }
 
 std::string_view courses(Locale locale)
 {
     const auto& educationDefinition = getEducationDefinition(locale);
-
-    return helper::randomElement(educationDefinition.courses);
+    return helper::randomElement(educationDefinition.courseNames); // FIXED
 }
 
 }
