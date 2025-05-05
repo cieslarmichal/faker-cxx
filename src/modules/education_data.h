@@ -9,11 +9,11 @@ namespace faker::education
 
 struct EducationDefinition
 {
-    std::vector<std::string_view> schoolNames;
-    std::vector<std::string_view> degreeTypes;
-    std::vector<std::string_view> courseNames;
-    std::vector<std::string_view> fields;
-    std::vector<std::string_view> terms;
+    std::span<const std::string_view> schoolNames;
+    std::span<const std::string_view> degreeTypes;
+    std::span<const std::string_view> courseNames;
+    std::span<const std::string_view> fields;
+    std::span<const std::string_view> terms;
 };
 
 const auto enUSSchoolNames = std::to_array<std::string_view>(
@@ -40,3 +40,5 @@ const EducationDefinition enUSEducationDefinition = {.schoolNames = enUSSchoolNa
                                                      .courseNames = enUSCourseNames,
                                                      .fields = enUSFieldsOfStudy,
                                                      .terms = enUSAcademicTerms};
+
+}

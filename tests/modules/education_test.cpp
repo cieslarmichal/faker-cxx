@@ -33,7 +33,7 @@ TEST_P(EducationTest, shouldGenerateSchoolName)
 
     const auto& educationDefinition = getEducationDefinition(locale);
 
-    const auto generatedSchoolName = schoolName(locale);
+    const auto generatedSchoolName = school(locale);
 
     ASSERT_TRUE(std::ranges::any_of(educationDefinition.schoolNames, 
                                     [generatedSchoolName](const std::string_view& school)
@@ -46,7 +46,7 @@ TEST_P(EducationTest, shouldGenerateDegreeType)
 
     const auto& educationDefinition = getEducationDefinition(locale);
 
-    const auto generatedDegreeType = degreeType(locale);
+    const auto generatedDegreeType = degree(locale);
 
     ASSERT_TRUE(std::ranges::any_of(educationDefinition.degreeTypes,
                                     [generatedDegreeType](const std::string_view& degree)
@@ -59,9 +59,9 @@ TEST_P(EducationTest, shouldGenerateFieldOfStudy)
 
     const auto& educationDefinition = getEducationDefinition(locale);
 
-    const auto generatedFieldOfStudy = fieldOfStudy(locale);
+    const auto generatedFieldOfStudy = field(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(educationDefinition.fieldsOfStudy,
+    ASSERT_TRUE(std::ranges::any_of(educationDefinition.fields,
                                     [generatedFieldOfStudy](const std::string_view& field)
                                     { return generatedFieldOfStudy == field; }));
 }
@@ -72,9 +72,9 @@ TEST_P(EducationTest, shouldGenerateAcademicTerm)
 
     const auto& educationDefinition = getEducationDefinition(locale);
 
-    const auto generatedAcademicTerm = academicTerm(locale);
+    const auto generatedAcademicTerm = term(locale);
 
-    ASSERT_TRUE(std::ranges::any_of(educationDefinition.academicTerms,
+    ASSERT_TRUE(std::ranges::any_of(educationDefinition.terms,
                                     [generatedAcademicTerm](const std::string_view& term)
                                     { return generatedAcademicTerm == term; }));
 }
@@ -85,7 +85,7 @@ TEST_P(EducationTest, shouldGenerateCourseName)
 
     const auto& educationDefinition = getEducationDefinition(locale);
 
-    const auto generatedCourseName = courseName(locale);
+    const auto generatedCourseName = courses(locale);
 
     ASSERT_TRUE(std::ranges::any_of(educationDefinition.courseNames,
                                     [generatedCourseName](const std::string_view& course)
