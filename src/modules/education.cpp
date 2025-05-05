@@ -1,5 +1,4 @@
-#include "faker/education.h"
-
+#include "faker-education.h"
 #include "faker/helper.h"
 
 namespace faker::education
