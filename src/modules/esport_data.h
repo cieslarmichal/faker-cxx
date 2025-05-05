@@ -13,6 +13,7 @@ struct EsportDefinition
     std::span<const std::string_view> leagues;
     std::span<const std::string_view> events;
     std::span<const std::string_view> games;
+    std::span<const std::string_view> organizers;
 };
 
 const auto enUSPlayers = std::to_array<std::string_view>({
@@ -312,6 +313,14 @@ const auto enUSGames = std::to_array<std::string_view>({"Valorant", "League Of L
                                                         "Apex Legends",
                                                         "TFT", "PUBG", "Call of Duty"});
 
-const EsportDefinition enUSEsportDefinition = {
-    .players = enUSPlayers, .teams = enUSTeams, .leagues = enUSLeagues, .events = enUSEvents, .games = enUSGames};
+const auto enUSOrganizers =
+    std::to_array<std::string_view>({"Valve", "Riot Games", "BLAST", "ESL", "DreamHack", "PGL", "FACEIT", "Capcom",
+                                     "Tencent", "Epic Games", "Ubisoft", "Activision Blizzard"});
+
+const EsportDefinition enUSEsportDefinition = {.players = enUSPlayers,
+                                               .teams = enUSTeams,
+                                               .leagues = enUSLeagues,
+                                               .events = enUSEvents,
+                                               .games = enUSGames,
+                                               .organizers = enUSOrganizers};
 }
