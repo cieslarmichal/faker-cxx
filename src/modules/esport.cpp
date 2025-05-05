@@ -54,4 +54,11 @@ std::string_view game(Locale locale)
 
     return helper::randomElement(esportDefinition.games);
 }
+
+std::string_view organizer(Locale locale)
+{
+    const auto& esportDefinition = getEsportDefinition(locale);
+    return helper::randomElement(esportDefinition.organizers);
+}
+
 }

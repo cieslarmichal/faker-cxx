@@ -71,4 +71,18 @@ FAKER_CXX_EXPORT std::string_view event(Locale locale = Locale::en_US);
  * @endcode
  */
 FAKER_CXX_EXPORT std::string_view game(Locale locale = Locale::en_US);
+
+/**
+ * @brief Returns a random esport organizer.
+ *
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
+ * @return Esport organizer.
+ *
+ * @code
+ * faker::esport::organizer() // "Valve"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view organizer(Locale locale = Locale::en_US);
+
 }

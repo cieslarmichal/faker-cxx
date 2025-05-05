@@ -87,5 +87,19 @@ TEST_P(EsportTest, shouldGenerateGame)
                                     [generatedGame](const std::string_view& game) { return generatedGame == game; }));
 }
 
+TEST_P(EsportTest, shouldGenerateOrganizer)
+{
+    const auto locale = GetParam();
+
+    const auto& esportDefinition = getEsportDefinition(locale);
+
+    const auto generatedOrganizer = organizer(locale);
+
+    ASSERT_TRUE(std::ranges::any_of(esportDefinition.organizers,
+                                    [generatedOrganizer](const std::string_view& organizer)
+                                    { return generatedOrganizer == organizer; }));
+
+}
+
 INSTANTIATE_TEST_SUITE_P(TestEsportByLocale, EsportTest, ValuesIn(locales),
                          [](const TestParamInfo<Locale>& paramInfo) { return toString(paramInfo.param); });
