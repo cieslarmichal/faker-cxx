@@ -137,6 +137,13 @@ var namespacefaker =
       [ "weekdayName", "namespacefaker_1_1date.html#aac708c24548f17807e72646e385f298c", null ],
       [ "year", "namespacefaker_1_1date.html#a768e70b0a52f6ccd31ba84b33167b975", null ]
     ] ],
+    [ "education", "namespacefaker_1_1education.html", [
+      [ "courses", "namespacefaker_1_1education.html#a2a41116f26937a7247e2877d4f2b368a", null ],
+      [ "degree", "namespacefaker_1_1education.html#a295e371ed4f256cff62aed7544dc776b", null ],
+      [ "field", "namespacefaker_1_1education.html#ab6c1377783f3efceae657e776ff79dfc", null ],
+      [ "school", "namespacefaker_1_1education.html#a3ce9ed11f84d24931eae75b576a787c2", null ],
+      [ "term", "namespacefaker_1_1education.html#ad07b11f99bf6ce882b145b9b8895c863", null ]
+    ] ],
     [ "esport", "namespacefaker_1_1esport.html", [
       [ "event", "namespacefaker_1_1esport.html#a1e5b822d6ef54df0c4247412e3bcf43c", null ],
       [ "game", "namespacefaker_1_1esport.html#a0b40f3d14442dca8196717ad0c4da892", null ],

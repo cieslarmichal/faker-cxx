@@ -12,6 +12,7 @@ var dir_21275a4f97039163a157995766de70c2 =
     [ "database.h", "database_8h.html", "database_8h" ],
     [ "datatype.h", "datatype_8h.html", "datatype_8h" ],
     [ "date.h", "date_8h.html", "date_8h" ],
+    [ "education.h", "education_8h.html", "education_8h" ],
     [ "esport.h", "esport_8h.html", "esport_8h" ],
     [ "faker.h", "faker_8h.html", null ],
     [ "finance.h", "finance_8h.html", "finance_8h" ],
