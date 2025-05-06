@@ -96,7 +96,7 @@ int main()
 - 💾 Database - column names, column types, database engines
 - ℹ️ Datatype - booleans
 - 📅 Date - past, future, recent, soon date, birthdate, time, month, day of week
-- 🕹️ E-sport - player, team, league, event, game
+- 🕹️ E-sport - player, team, league, event, game, Organizer
 - 🏦 Finance - currency, IBAN, BIC, account name, account number, pin, credit card numbers
 - 🍝 Food - food category, vegetables, fruits, meats, dishes
 - 📁 Git - branch name, commit messages, commit hash
@@ -122,6 +122,7 @@ int main()
 - 🎮 Video game - title, genre, platform, studio
 - 🌤️ Weather - weather description
 - 💬 Word - sample, adjective, adverb, conjunction, interjection, noun, preposition, verb
+- 🎓Education - ShoolNames, Degree Types, Fields Of Study, Courses Names
 
 ## Consuming the library with CMake
 
