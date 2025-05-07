@@ -54,24 +54,43 @@ TEST_F(CommerceTest, shouldGenerateSkuWithSpecifiedLength)
                                                                    { return skuCharacter == numericCharacter; });
                                     }));
 }
-
 TEST_F(CommerceTest, shouldGenerateProductFullName)
 {
     const auto generatedProductFullName = productFullName();
+    const auto words = common::split(generatedProductFullName, " ");
 
-    const auto productFullNameElements = common::split(generatedProductFullName, " ");
+    bool isValid = false;
 
-    const auto& generatedProductAdjective = productFullNameElements[0];
-    const auto& generatedProductMaterial = productFullNameElements[1];
-    const auto& generatedProductName = productFullNameElements[2];
+    for (size_t i = 1; i < words.size(); ++i)
+    {
+        for (size_t j = i + 1; j < words.size(); ++j)
+        {
+            const std::string adjective = common::join(std::vector<std::string_view>(words.begin(), words.begin() + i), " ");
+            const std::string material = common::join(std::vector<std::string_view>(words.begin() + i, words.begin() + j), " ");
+            const std::string name     = common::join(std::vector<std::string_view>(words.begin() + j, words.end()), " ");
 
-    ASSERT_TRUE(std::ranges::any_of(productAdjectives, [generatedProductAdjective](const std::string_view& adjective)
-                                    { return adjective == generatedProductAdjective; }));
-    ASSERT_TRUE(std::ranges::any_of(productMaterials, [generatedProductMaterial](const std::string_view& material)
-                                    { return material == generatedProductMaterial; }));
-    ASSERT_TRUE(std::ranges::any_of(productNames, [generatedProductName](const std::string_view& productName)
-                                    { return productName == generatedProductName; }));
+            const bool adjectiveMatch = std::ranges::any_of(productAdjectives, [&adjective](const std::string_view& a)
+                                                            { return a == adjective; });
+
+            const bool materialMatch = std::ranges::any_of(productMaterials, [&material](const std::string_view& m)
+                                                           { return m == material; });
+
+            const bool nameMatch = std::ranges::any_of(productNames, [&name](const std::string_view& n)
+                                                       { return n == name; });
+
+            if (adjectiveMatch && materialMatch && nameMatch)
+            {
+                isValid = true;
+                break;
+            }
+        }
+        if (isValid)
+            break;
+    }
+
+    ASSERT_TRUE(isValid) << "Generated product full name \"" << generatedProductFullName << "\" is not a valid combination.";
 }
+
 
 TEST_F(CommerceTest, shouldGenerateProductAdjective)
 {
