@@ -86,6 +86,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return palestineAddresses;
     case Locale::ro_RO:
         return romaniaAddresses;
+    case Locale::is_IS:
+        return icelandAddresses;
     case Locale::nb_NO:
         return norwayAddresses;
     case Locale::tr_TR:
@@ -458,7 +460,8 @@ TEST_F(LocationTest, shouldGenerateRomaniaStreet)
     const auto& generatedStreetName =
         common::join({generatedStreetElements.begin() + 1, generatedStreetElements.end()});
 
-    ASSERT_TRUE(std::ranges::any_of(romaniaStreetPrefixes, [&generatedStreetPrefix](const std::string_view& streetPrefix)
+    ASSERT_TRUE(std::ranges::any_of(romaniaStreetPrefixes,
+                                    [&generatedStreetPrefix](const std::string_view& streetPrefix)
                                     { return streetPrefix == generatedStreetPrefix; }));
     ASSERT_TRUE(std::ranges::any_of(romaniaStreetNames, [&generatedStreetName](const std::string_view& streetName)
                                     { return streetName == generatedStreetName; }));
@@ -1369,5 +1372,21 @@ TEST_F(LocationTest, shouldGenerateJapanStreetAddres)
     const auto generatedStreetAddress = streetAddress(Locale::ja_JP);
 
     ASSERT_TRUE(std::ranges::any_of(japanStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateIcelandStreet)
+{
+    const auto generatedStreet = street(Locale::is_IS);
+
+    ASSERT_TRUE(std::ranges::any_of(icelandStreetNames, [&generatedStreet](const std::string_view& street)
+                                    { return generatedStreet.find(street) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateIcelandStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::is_IS);
+
+    ASSERT_TRUE(std::ranges::any_of(icelandStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
 }

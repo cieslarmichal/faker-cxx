@@ -13805,4 +13805,92 @@ const CountryAddressesInfo japanAddresses{
     (japanStates),
 };
 
+// Iceland
+
+const auto icelandCities = std::to_array<std::string_view>({
+    "Reykjavík",
+    "Kópavogur",
+    "Hafnarfjörður",
+    "Akureyri",
+    "Reykjanesbær",
+    "Garðabær",
+    "Mosfellsbær",
+    "Árborg",
+    "Akranes",
+    "Selfoss",
+});
+
+const auto icelandStates = std::to_array<std::string_view>({
+    "Austurland",
+    "Höfuðborgarsvæðið",
+    "Norðurland eystra",
+    "Norðurland vestra",
+    "Suðurland",
+    "Suðurnes",
+    "Vestfirðir",
+    "Vesturland",
+});
+
+const auto icelandStreetNames = std::to_array<std::string_view>({
+    "Laugavegur",
+    "Skólavörðustígur",
+    "Hverfisgata",
+    "Bankastræti",
+    "Kringlan",
+    "Sæbraut",
+    "Hagamelur",
+    "Suðurlandsbraut",
+    "Háaleitisbraut",
+    "Borgartún",
+});
+
+const auto icelandStreetSuffixes = std::to_array<std::string_view>({
+    "gata",
+    "vegur",
+    "stígur",
+    "braut",
+});
+
+const std::string_view icelandZipCodeFormat{"###"};
+
+const auto icelandAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}",
+    "{street} {buildingNumber} {secondaryAddress}",
+});
+
+const auto icelandSecondaryAddressFormats = std::to_array<std::string_view>({
+    "íbúð #",
+    "hæð #",
+});
+
+const auto icelandBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+});
+
+const auto icelandStreetFormats = std::to_array<std::string_view>({
+    "{streetName} {streetSuffix}",
+});
+
+const auto icelandCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo icelandAddresses{
+    icelandZipCodeFormat,
+    (icelandAddressFormats),
+    (icelandSecondaryAddressFormats),
+    (icelandStreetFormats),
+    {},
+    (icelandStreetNames),
+    (icelandStreetSuffixes),
+    (icelandBuildingNumberFormats),
+    (icelandCityFormats),
+    {},
+    (icelandCities),
+    {},
+    (icelandStates),
+};
+
 }
