@@ -52,6 +52,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
     case Locale::en_IN:
     case Locale::gu_IN:
     case Locale::hi_IN:
+    case Locale::hu_HU:
+        return hungaryAddresses;
     case Locale::kn_IN:
     case Locale::ks_IN:
     case Locale::ml_IN:
