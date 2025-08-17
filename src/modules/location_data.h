@@ -4070,6 +4070,125 @@ const CountryAddressesInfo germanyAddresses{
     (germanyStates),
 };
 
+// Hungary
+
+const auto hungaryCities = std::to_array<std::string_view>({
+    "Budapest",
+    "Debrecen",
+    "Szeged",
+    "Miskolc",
+    "Pécs",
+    "Győr",
+    "Nyíregyháza",
+    "Kecskemét",
+    "Székesfehérvár",
+    "Szombathely",
+    "Szolnok",
+    "Tatabánya",
+    "Érd",
+    "Veszprém",
+    "Zalaegerszeg",
+});
+
+const auto hungaryStates = std::to_array<std::string_view>({
+    "Bács-Kiskun",
+    "Baranya",
+    "Békés",
+    "Borsod-Abaúj-Zemplén",
+    "Csongrád-Csanád",
+    "Fejér",
+    "Győr-Moson-Sopron",
+    "Hajdú-Bihar",
+    "Heves",
+    "Jász-Nagykun-Szolnok",
+    "Komárom-Esztergom",
+    "Nógrád",
+    "Pest",
+    "Somogy",
+    "Szabolcs-Szatmár-Bereg",
+    "Tolna",
+    "Vas",
+    "Veszprém",
+    "Zala",
+});
+
+const auto hungaryStreetNames = std::to_array<std::string_view>({
+    "Ady Endre",
+    "Andrássy",
+    "Arany János",
+    "Bartók Béla",
+    "Báthory",
+    "Béke",
+    "Bercsényi Miklós",
+    "Bocskai István",
+    "Csokonai Vitéz Mihály",
+    "Dózsa György",
+    "Erzsébet királyné",
+    "Fő",
+    "Hunyadi János",
+    "Kossuth Lajos",
+    "Kölcsey Ferenc",
+    "Lajos Kossuth",
+    "Március 15.",
+    "Petőfi Sándor",
+    "Rákóczi Ferenc",
+    "Szabadság",
+    "Széchenyi István",
+    "Váci",
+});
+
+const auto hungaryStreetSuffixes = std::to_array<std::string_view>({
+    "utca",
+    "tér",
+    "sétány",
+    "körút",
+    "út",
+    "sugárút",
+});
+
+const auto hungaryZipCodeFormat{"####"};
+
+const auto hungaryAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}",
+    "{street} {buildingNumber}, {secondaryAddress}",
+});
+
+const auto hungarySecondaryAddressFormats = std::to_array<std::string_view>({
+    "#. emelet",
+    "#. ajtó",
+});
+
+const auto hungaryBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "##/A",
+    "##/B",
+});
+
+const auto hungaryStreetFormats = std::to_array<std::string_view>({
+    "{streetName} {streetSuffix}",
+});
+
+const auto hungaryCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo hungaryAddresses{
+    hungaryZipCodeFormat,
+    (hungaryAddressFormats),
+    (hungarySecondaryAddressFormats),
+    (hungaryStreetFormats),
+    {},
+    (hungaryStreetNames),
+    (hungaryStreetSuffixes),
+    (hungaryBuildingNumberFormats),
+    (hungaryCityFormats),
+    {},
+    (hungaryCities),
+    {},
+    (hungaryStates),
+};
+
 // India
 
 const auto indiaCities = std::to_array<std::string_view>({

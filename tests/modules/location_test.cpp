@@ -61,6 +61,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
     case Locale::ta_IN:
     case Locale::te_IN:
         return indiaAddresses;
+    case Locale::hu_HU:
+        return hungaryAddresses;
     case Locale::da_DK:
         return denmarkAddresses;
     case Locale::ca_ES:
@@ -1389,4 +1391,20 @@ TEST_F(LocationTest, shouldGenerateIcelandStreetAddress)
 
     ASSERT_TRUE(std::ranges::any_of(icelandStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
                                     { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateHungaryAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::hu_HU);
+
+    ASSERT_TRUE(std::ranges::any_of(hungaryStreetNames, [&generatedStreetAddress](const std::string_view& streetName)
+                                    { return generatedStreetAddress.find(streetName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateHungaryStreet)
+{
+    const auto generatedStreet = street(Locale::hu_HU);
+
+    ASSERT_TRUE(std::ranges::any_of(hungaryStreetNames, [&generatedStreet](const std::string_view& streetName)
+                                    { return generatedStreet.find(streetName) != std::string::npos; }));
 }
