@@ -585,5 +585,6 @@ const std::unordered_map<AircraftType, std::string_view> aircraftTypeSeatLetters
     {AircraftType::Widebody, "ABCDEFGHJK"},
 };
 
-}/ /   C o m p r e h e n s i v e   a i r l i n e   d a t a   a d d e d  
+}
+ 
  
