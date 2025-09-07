@@ -14012,4 +14012,218 @@ const CountryAddressesInfo icelandAddresses{
     (icelandStates),
 };
 
+// Lithuania
+
+const auto lithuanianCities = std::to_array<std::string_view>({
+    "Vilnius",
+    "Kaunas",
+    "Klaipėda",
+    "Šiauliai",
+    "Panevėžys",
+    "Alytus",
+    "Marijampolė",
+    "Mažeikiai",
+    "Utena",
+    "Jonava",
+    "Kėdainiai",
+    "Telšiai",
+    "Tauragė",
+    "Ukmergė",
+    "Visaginas",
+    "Palanga",
+    "Plungė",
+    "Kretinga",
+    "Šilutė",
+    "Radviliškis",
+    "Gargždai",
+    "Druskininkai",
+    "Elektrėnai",
+    "Jurbarkas",
+    "Rokiškis",
+    "Kuršėnai",
+    "Biržai",
+    "Vilkaviškis",
+    "Garliava",
+    "Grigiškės",
+    "Lentvaris",
+    "Raseiniai",
+    "Prienai",
+    "Anykščiai",
+    "Kaišiadorys",
+    "Joniškis",
+    "Naujoji Akmenė",
+    "Varėna",
+    "Kelmė",
+    "Šalčininkai",
+    "Pasvalys",
+    "Kupiškis",
+    "Zarasai",
+    "Trakai",
+    "Širvintos",
+    "Molėtai",
+    "Kazlų Rūda",
+    "Šakiai",
+    "Skuodas",
+    "Ignalina",
+    "Pabradė",
+    "Šilalė",
+    "Švenčionėliai",
+    "Nemenčinė",
+    "Pakruojis",
+    "Švenčionys",
+    "Neringa",
+    "Vievis",
+    "Kalvarija",
+    "Kybartai",
+    "Lazdijai",
+    "Rietavas",
+    "Birštonas",
+    "Žiežmariai",
+    "Eišiškės",
+    "Ariogala",
+    "Šeduva",
+    "Akmenė",
+    "Venta",
+    "Viekšniai",
+    "Rūdiškės",
+    "Tytuvėnai",
+    "Vilkija",
+    "Ežerėlis",
+    "Pagėgiai",
+    "Gelgaudiškis",
+    "Skaudvilė",
+    "Kudirkos Naumiestis",
+    "Žagarė",
+    "Priekulė",
+    "Linkuva",
+    "Salantai",
+    "Ramygala",
+    "Simnas",
+    "Veisiejai",
+    "Jieznas",
+    "Subačius",
+    "Obeliai",
+    "Vabalninkas",
+    "Pandėlys",
+    "Joniškėlis",
+    "Dūkštas",
+    "Kavarskas",
+    "Dusetos",
+    "Troškūnai",
+    "Varniai",
+    "Seda",
+    "Smalininkai",
+    "Panemunė",
+    "Virbalis",
+    "Užventis",
+    "Baltoji Vokė",
+    "Daugai"
+});
+
+const auto lithuanianStates = std::to_array<std::string_view>({
+    "Vilnius County",
+    "Kaunas County",
+    "Klaipėda County",
+    "Šiauliai County",
+    "Panevėžys County",
+    "Alytus County",
+    "Marijampolė County",
+    "Mažeikiai County",
+    "Utena County",
+    "Tauragė County",
+});
+
+const auto lithuanianStreetNames = std::to_array<std::string_view>({
+  "Gedimino Avenue",
+  "Pilies",
+  "Vilniaus",
+  "Didžioji",
+  "Aušros Vartų",
+  "Trakų",
+  "Vokiečių",
+  "Literatų",
+  "Konstitucijos Avenue",
+  "Laisvės Avenue",
+  "Pylimo",
+  "Užupio",
+  "J. Basanavičiaus",
+  "Mindaugo",
+  "Jogailos",
+  "Žygimantų",
+  "Subačiaus",
+  "Kalvarijų",
+  "Antakalnio",
+  "Žirmūnų",
+  "Liepų",
+  "Vytauto Avenue",
+  "Savanorių Avenue",
+  "Maironio",
+  "Klaipėdos",
+  "Kauno",
+  "Šv. Jono",
+  "K. Donelaičio",
+  "Jonavos",
+  "Tilto"
+});
+
+const std::string_view lithuanianPostCodeFormat{"LT-#####"};
+
+const auto lithuanianAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}",
+    "{street} {buildingNumber}-{secondaryAddress}",
+});
+
+const auto lithuanianSecondaryAddressFormats = std::to_array<std::string_view>({
+    "butas #",
+    "korpusas #",
+});
+
+const auto lithuanianBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+    "#A",
+    "##A",
+});
+
+const auto lithuanianStreetFormats = std::to_array<std::string_view>({
+    "{streetName} {streetSuffix}",
+});
+
+const auto lithuanianStreetSuffixes = std::to_array<std::string_view>({
+    "g.",    
+    "pr.",   
+    "al.",   
+    "pl.",   
+    "skg.",  
+    "tak."   
+});
+
+const auto lithuanianCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const auto lithuanianStreetPrefixes = std::array<std::string_view, 0>{};
+
+const auto lithuanianCitySuffixes = std::array<std::string_view, 0>{};
+
+const auto lithuanianCityPrefixes = std::array<std::string_view, 0>{};
+
+
+const CountryAddressesInfo lithuaniaAddresses{
+    .zipCodeFormat = lithuanianPostCodeFormat,
+    .addressFormats = (lithuanianAddressFormats),
+    .secondaryAddressFormats = (lithuanianSecondaryAddressFormats),
+    .streetFormats = (lithuanianStreetFormats),
+    .streetPrefixes = (lithuanianStreetPrefixes),
+    .streetNames = (lithuanianStreetNames),
+    .streetSuffixes = (lithuanianStreetSuffixes),
+    .buildingNumberFormats = (lithuanianBuildingNumberFormats),
+    .cityFormats = (lithuanianCityFormats),
+    .cityPrefixes = (lithuanianCityPrefixes),
+    .cities = (lithuanianCities),
+    .citySuffixes = (lithuanianCitySuffixes),
+    .states = (lithuanianStates),
+};
+
 }

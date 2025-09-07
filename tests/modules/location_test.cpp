@@ -96,6 +96,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return turkeyAddresses;
     case Locale::ja_JP:
         return japanAddresses;
+    case Locale::lt_LT:
+        return lithuaniaAddresses;
     default:
         return usaAddresses;
     }
@@ -1408,3 +1410,51 @@ TEST_F(LocationTest, shouldGenerateHungaryStreet)
     ASSERT_TRUE(std::ranges::any_of(hungaryStreetNames, [&generatedStreet](const std::string_view& streetName)
                                     { return generatedStreet.find(streetName) != std::string::npos; }));
 }
+
+TEST_F(LocationTest, shouldGenerateLithuaniaStreet)
+{
+    const auto generatedStreet = street(Locale::lt_LT);
+
+    // Validate that the generated street contains a known street name
+    ASSERT_TRUE(std::ranges::any_of(lithuanianStreetNames, [&generatedStreet](const std::string_view& streetName)
+                                    { return generatedStreet.find(streetName) != std::string::npos; }));
+
+    // Validate that the generated street contains a known suffix
+    ASSERT_TRUE(std::ranges::any_of(lithuanianStreetSuffixes, [&generatedStreet](const std::string_view& streetSuffix)
+                                    { return generatedStreet.find(streetSuffix) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateLithuaniaStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::lt_LT);
+
+    // Split the address into main parts (street + building, secondary address)
+    const auto generatedAddresses = common::split(generatedStreetAddress, ", ");
+    const auto generatedStreetAddressElements = common::split(generatedAddresses[0], " ");
+
+    // Extract building number
+    const auto& generatedBuildingNumber = generatedStreetAddressElements[generatedStreetAddressElements.size() - 1];
+
+    // Extract street name by joining the rest (excluding building number)
+    const auto& generatedStreet = common::join({generatedStreetAddressElements.begin(), generatedStreetAddressElements.end() - 1});
+
+    // Validate building number is numeric and reasonably sized
+    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+
+    // Validate that the street name is from the dataset
+    ASSERT_TRUE(std::ranges::any_of(lithuanianStreetNames, [&generatedStreet](const std::string_view& streetName)
+                                    { return generatedStreet.find(streetName) != std::string::npos; }));
+
+    // If there is a secondary address (like apartment or unit), validate it
+    if (generatedAddresses.size() > 1)
+    {
+        const auto& generatedSecondaryAddressParts = common::split(generatedAddresses[1], " ");
+        const auto& generatedUnitNumber = generatedSecondaryAddressParts[generatedSecondaryAddressParts.size() - 1];
+
+        ASSERT_TRUE(generatedUnitNumber.size() >= 1 && generatedUnitNumber.size() <= 3);
+        ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedUnitNumber));
+    }
+}
+
+

@@ -97,6 +97,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return turkeyAddresses;
     case Locale::ja_JP:
         return japanAddresses;
+    case Locale::lt_LT:
+        return lithuaniaAddresses;
     default:
         return usaAddresses;
     }
