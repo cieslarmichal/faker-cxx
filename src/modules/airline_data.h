@@ -584,4 +584,5 @@ const std::unordered_map<AircraftType, std::string_view> aircraftTypeSeatLetters
     {AircraftType::Narrowbody, "ABCDEF"},
     {AircraftType::Widebody, "ABCDEFGHJK"},
 };
+
 }
