@@ -394,7 +394,7 @@ const auto airports = std::to_array<Airport>({
     {"Brisbane International Airport", "BNE"},
     {"Bole International Airport", "ADD"},
     {"Bucharest Henri Coanda International Airport", "OTP"},
-    {"Budapest Ferenc Liszt International Airport", "BUD"}, 
+    {"Budapest Ferenc Liszt International Airport", "BUD"},
     {
         "Brasilia-Presidente Juscelino Kubitschek International Airport",
         "BSB",
@@ -584,6 +584,4 @@ const std::unordered_map<AircraftType, std::string_view> aircraftTypeSeatLetters
     {AircraftType::Narrowbody, "ABCDEF"},
     {AircraftType::Widebody, "ABCDEFGHJK"},
 };
-
-}/ /   C o m p r e h e n s i v e   a i r l i n e   d a t a   a d d e d  
- 
+}
