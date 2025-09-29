@@ -70,6 +70,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return spainAddresses;
     case Locale::pt_BR:
         return brazilAddresses;
+    case Locale::fa_IR:
+        return iranAddresses;
     case Locale::fi_FI:
         return finlandAddresses;
     case Locale::et_EE:
@@ -1454,6 +1456,54 @@ TEST_F(LocationTest, shouldGenerateLithuaniaStreetAddress)
 
         ASSERT_TRUE(generatedUnitNumber.size() >= 1 && generatedUnitNumber.size() <= 3);
         ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedUnitNumber));
+    }
+}
+
+TEST_F(LocationTest, shouldGenerateIranStreet)
+{
+    const auto generatedStreet = street(Locale::fa_IR);
+
+    // Validate that the generated street contains a known street name
+    ASSERT_TRUE(std::ranges::any_of(iranStreetNames, [&generatedStreet](const std::string_view& streetName)
+                                    { return generatedStreet.find(streetName) != std::string::npos; }));
+
+    // Validate that the generated street contains a known prefix
+    ASSERT_TRUE(std::ranges::any_of(iranStreetPrefixes, [&generatedStreet](const std::string_view& streetPrefix)
+                                    { return generatedStreet.find(streetPrefix) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldRespectIranAddressComposition)
+{
+    auto appearsAfter = [](const std::string& s, const char* a, const char* b) {
+        auto pa = s.find(a), pb = s.find(b);
+        return pa != std::string::npos && pb != std::string::npos && pa < pb;
+    };
+
+    const auto s = street(Locale::fa_IR);
+
+    // کوچه only if خیابان is present and before them
+    if (s.find("کوچه") != std::string::npos) {
+        ASSERT_NE(s.find("خیابان"), std::string::npos);
+        ASSERT_TRUE(appearsAfter(s, "خیابان", "کوچه"));
+    }
+
+    // خیابان or بلوار should be after میدان
+    if (s.find("میدان") != std::string::npos) {
+        const bool hasStreet = s.find("خیابان") != std::string::npos;
+        const bool hasBlvd   = s.find("بلوار")  != std::string::npos;
+        ASSERT_TRUE(hasStreet || hasBlvd);
+        if (hasStreet) { ASSERT_TRUE(appearsAfter(s, "خیابان", "میدان")); }
+        if (hasBlvd) { ASSERT_TRUE(appearsAfter(s, "بلوار", "میدان")); }
+    }
+
+    // اتوبان / بزرگراه must be followed by خیابان
+    if (s.find("اتوبان") != std::string::npos) {
+        ASSERT_NE(s.find("خیابان"), std::string::npos);
+        ASSERT_TRUE(appearsAfter(s, "اتوبان", "خیابان"));
+    }
+    if (s.find("بزرگراه") != std::string::npos) {
+        ASSERT_NE(s.find("خیابان"), std::string::npos);
+        ASSERT_TRUE(appearsAfter(s, "بزرگراه", "خیابان"));
     }
 }
 
