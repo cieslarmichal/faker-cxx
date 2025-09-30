@@ -1737,6 +1737,147 @@ const CountryAddressesInfo brazilAddresses{
     (brazilStates),
 };
 
+// Canada (en_CA)
+
+const auto canadaEnCities = std::to_array<std::string_view>({
+    // clang-format off
+    "Toronto",
+    "Ottawa",
+    "Mississauga",
+    "Hamilton",
+    "London",
+    "Windsor",
+    "Vancouver",
+    "Surrey",
+    "Burnaby",
+    "Victoria",
+    "Kelowna",
+    "Calgary",
+    "Edmonton",
+    "Red Deer",
+    "Lethbridge",
+    "Winnipeg",
+    "Brandon",
+    "Saskatoon",
+    "Regina",
+    "Moose Jaw",
+    "Halifax",
+    "Saint John",
+    "Moncton",
+    "Fredericton",
+    "St. John's",
+    "Mount Pearl",
+    "Charlottetown",
+    "Summerside",
+    "Whitehorse",
+    "Yellowknife",
+    "Iqaluit",
+    // clang-format on
+});
+
+const auto canadaEnStates = std::to_array<std::string_view>({
+    "Alberta",
+    "British Columbia",
+    "Manitoba",
+    "New Brunswick",
+    "Newfoundland and Labrador",
+    "Northwest Territories",
+    "Nova Scotia",
+    "Nunavut",
+    "Ontario",
+    "Prince Edward Island",
+    "Quebec",
+    "Saskatchewan",
+    "Yukon",
+});
+
+const auto canadaEnStreetNames = std::to_array<std::string_view>({
+    "Main",
+    "King",
+    "Queen",
+    "Wellington",
+    "Bay",
+    "Yonge",
+    "Front",
+    "College",
+    "Jarvis",
+    "Granville",
+    "Robson",
+    "Henderson",
+    "Jasper",
+    "Whyte",
+    "MacLeod",
+    "Rideau",
+    "Elgin",
+    "Bank",
+    "Sussex",
+    "Sherbrooke",
+});
+
+const auto canadaEnStreetSuffixes = std::to_array<std::string_view>({
+    "Street",
+    "St.",
+    "Avenue",
+    "Ave.",
+    "Road",
+    "Rd.",
+    "Boulevard",
+    "Blvd.",
+    "Drive",
+    "Dr.",
+    "Court",
+    "Ct.",
+    "Lane",
+    "Ln.",
+    "Place",
+    "Trail",
+    "Trl.",
+});
+
+const std::string_view canadaEnZipCodeFormat{"_#_ #_#"};
+
+const auto canadaEnAddressFormats = std::to_array<std::string_view>({
+    "{buildingNumber} {street}",
+});
+
+const auto canadaEnSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Apt. ###",
+    "Suite ###",
+    "Unit ###",
+});
+
+const auto canadaEnBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+    "####",
+});
+
+const auto canadaEnStreetFormats = std::to_array<std::string_view>({
+    "{lastName} {streetSuffix}",
+    "{streetName} {streetSuffix}",
+});
+
+const auto canadaEnCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo canadaEnAddresses{
+    canadaEnZipCodeFormat,
+    (canadaEnAddressFormats),
+    (canadaEnSecondaryAddressFormats),
+    (canadaEnStreetFormats),
+    {},
+    (canadaEnStreetNames),
+    (canadaEnStreetSuffixes),
+    (canadaEnBuildingNumberFormats),
+    (canadaEnCityFormats),
+    {},
+    (canadaEnCities),
+    {},
+    (canadaEnStates),
+};
+
 // Czech Republic
 
 const auto czechCities = std::to_array<std::string_view>({
@@ -5447,7 +5588,7 @@ const auto israelCities = std::to_array<std::string_view>({
     "סואעד (חמרייה)",
     "סואעד (כמאנה) (שבט)",
     "סולם",
-    "סוסיה", 
+    "סוסיה",
     "סופה",
     "סח'נין",
     "סייד (שבט)",
@@ -5771,7 +5912,7 @@ const auto israelCities = std::to_array<std::string_view>({
     "שפר",
     "שפרעם",
     "שקד",
-    "שקף", 
+    "שקף",
     "שרונה",
     "שריגים (לי-און)",
     "שריד",
@@ -12887,7 +13028,7 @@ const CountryAddressesInfo unitedkingdomAddresses{
     (unitedkingdomCities),
     {},
     {unitedkingdomStates},
-}; 
+};
 
 // USA
 
@@ -14191,12 +14332,12 @@ const auto lithuanianStreetFormats = std::to_array<std::string_view>({
 });
 
 const auto lithuanianStreetSuffixes = std::to_array<std::string_view>({
-    "g.",    
-    "pr.",   
-    "al.",   
-    "pl.",   
-    "skg.",  
-    "tak."   
+    "g.",
+    "pr.",
+    "al.",
+    "pl.",
+    "skg.",
+    "tak."
 });
 
 const auto lithuanianCityFormats = std::to_array<std::string_view>({
