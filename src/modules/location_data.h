@@ -14226,4 +14226,175 @@ const CountryAddressesInfo lithuaniaAddresses{
     .states = (lithuanianStates),
 };
 
+// Albania
+
+const auto albaniaCities = std::to_array<std::string_view>({
+    "Tirana",
+    "Durrës",
+    "Vlorë",
+    "Kamëz",
+    "Fier",
+    "Shkodër",
+    "Elbasan",
+    "Korçë",
+    "Sarandë",
+    "Berat",
+    "Lushnjë",
+    "Kavajë",
+    "Gjirokastër",
+    "Pogradec",
+    "Fushë-Krujë",
+    "Laç",
+    "Kukës",
+    "Sukth",
+    "Buçimas",
+    "Lezhë",
+    "Patos",
+    "Peshkopi",
+    "Librazhd-Qendër",
+    "Kuçovë",
+    "Krujë",
+    "Burrel",
+    "Perondi",
+    "Libonik",
+    "Rrëshen",
+    "Belsh",
+    "Divjakë",
+    "Gramsh",
+    "Mamurras",
+    "Bulqizë",
+    "Vau i Dejës",
+    "Shëngjin",
+    "Ballsh",
+    "Shijak",
+    "Bilisht",
+    "Rrogozhinë",
+    "Librazhd",
+    "Cërrik",
+    "Roskovec",
+    "Manzë",
+    "Peqin",
+    "Krumë",
+    "Përmet",
+    "Përrenjas-Fshat",
+    "Prrenjas",
+    "Delvinë",
+    "Orikum",
+    "Bajram Curri",
+    "Vorë",
+    "Këlcyrë",
+    "Ura Vajgurore",
+    "Himarë",
+    "Rubik",
+    "Tepelenë",
+    "Poliçan",
+    "Çorovodë",
+    "Ersekë",
+    "Maliq",
+    "Koplik",
+    "Pukë",
+    "Lazarat",
+    "Memaliaj",
+    "Velçan",
+    "Banaj",
+    "Fushë-Arrëz",
+    "Krrabë",
+    "Selenicë",
+    "Voskopojë",
+    "Bitinckë",
+    "Drenovë",
+    "Libohovë",
+    "Reps",
+    "Gjinkar",
+    "Krastë",
+    "Leskovik",
+    "Kurbnesh",
+    "Konispol",
+    "Finiq",
+    "Ulëz",
+    "Boboshticë",
+    "Sinaballaj",
+    "Liqenas",
+    "Aliaj",
+    "Burgajet",
+    "Plasë",
+    "Rapshë",
+    "Vukpalaj-Bajzë",
+    "Guri i Bardhë",
+    "Dobër",
+    "Kastrat",
+    "Bogiç-Palvar",
+    "Stërbeq",
+    "Shtanë",
+    "Vernicë",
+    "Goricë e Madhe",
+    "Dardhë",
+    "Vuno",
+    "Lajthizë",
+    "Gjinovec",
+    "Vërnik",
+    "Klenjë",
+    "Rripë"
+});
+
+const auto albaniaStates = std::to_array<std::string_view>({
+    "Berat County",
+    "Dibër County",
+    "Durrës County",
+    "Elbasan County",
+    "Fier County",
+    "Gjirokastër County",
+    "Korçë County",
+    "Kukës County",
+    "Lezhë County",
+    "Shkodër County",
+    "Tirana County"
+});
+
+const auto albaniaStreetSuffixes = std::to_array<std::string_view>({
+    "Rruga",
+    "Bulevardi",
+    "Sheshi",
+    "Rrugica",
+    "Autostrada",
+});
+
+const std::string_view albaniaZipCodeFormat{"####"};
+
+const auto albaniaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}",
+    "{buildingNumber} {street}"
+});
+
+const auto albaniaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###"
+});
+
+const auto albaniaStreetFormats = std::to_array<std::string_view>({
+    "{streetSuffix} {firstName}",
+    "{streetSuffix} {lastName}"
+});
+
+const auto albaniaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo albaniaAddresses{
+    albaniaZipCodeFormat,
+    (albaniaAddressFormats),
+    {},                             // no secondary address formats
+    (albaniaStreetFormats),
+    {},                             // no street prefixes
+    {},                             // no street names list (we use suffixes)
+    (albaniaStreetSuffixes),
+    (albaniaBuildingNumberFormats),
+    (albaniaCityFormats),
+    {},                             // no city prefixes
+    (albaniaCities),
+    {},                             // no city suffixes
+    (albaniaStates),
+};
+
 }
