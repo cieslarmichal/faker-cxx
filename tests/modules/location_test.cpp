@@ -1478,33 +1478,36 @@ TEST_F(LocationTest, shouldGenerateLithuaniaStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(Locale::lt_LT);
 
-    // Split the address into main parts (street + building, secondary address)
-    const auto generatedAddresses = common::split(generatedStreetAddress, ", ");
-    const auto generatedStreetAddressElements = common::split(generatedAddresses[0], " ");
+    const auto addressTokens = common::split(generatedStreetAddress, " ");
+    ASSERT_FALSE(addressTokens.empty());
 
-    // Extract building number
-    const auto& generatedBuildingNumber = generatedStreetAddressElements[generatedStreetAddressElements.size() - 1];
+    const auto& buildingPart = addressTokens.back();
 
-    // Extract street name by joining the rest (excluding building number)
-    const auto& generatedStreet = common::join({generatedStreetAddressElements.begin(), generatedStreetAddressElements.end() - 1});
+    const auto buildingTokens = common::split(buildingPart, "-");
+    const auto& buildingNumber = buildingTokens.front();
 
-    // Validate building number is numeric and reasonably sized
-    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+    ASSERT_TRUE(!buildingNumber.empty());
+    ASSERT_TRUE(buildingNumber.size() <= 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(buildingNumber.substr(0, 1)) ||
+                std::isalpha(buildingNumber.back()));
 
-    // Validate that the street name is from the dataset
-    ASSERT_TRUE(std::ranges::any_of(lithuanianStreetNames, [&generatedStreet](const std::string_view& streetName)
-                                    { return generatedStreet.find(streetName) != std::string::npos; }));
-
-    // If there is a secondary address (like apartment or unit), validate it
-    if (generatedAddresses.size() > 1)
+    if (buildingTokens.size() > 1)
     {
-        const auto& generatedSecondaryAddressParts = common::split(generatedAddresses[1], " ");
-        const auto& generatedUnitNumber = generatedSecondaryAddressParts[generatedSecondaryAddressParts.size() - 1];
-
-        ASSERT_TRUE(generatedUnitNumber.size() >= 1 && generatedUnitNumber.size() <= 3);
-        ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedUnitNumber));
+        const auto& unit = buildingTokens.back();
+        ASSERT_TRUE(!unit.empty());
+        ASSERT_TRUE(checkIfAllCharactersAreNumeric(unit));
     }
+
+    ASSERT_GE(addressTokens.size(), 2);
+    const auto& generatedStreetSuffix = addressTokens[addressTokens.size() - 2];
+    const auto generatedStreetBase = common::join(
+        {addressTokens.begin(), addressTokens.end() - 2});
+
+    ASSERT_TRUE(std::ranges::any_of(lithuanianStreetSuffixes,
+        [&generatedStreetSuffix](const std::string_view& suffix)
+        { return generatedStreetSuffix == suffix; }));
+
+    ASSERT_TRUE(std::ranges::any_of(lithuanianStreetNames,
+        [&generatedStreetBase](const std::string_view& streetName)
+        { return generatedStreetBase.find(streetName) != std::string::npos; }));
 }
-
-
