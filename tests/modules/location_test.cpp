@@ -70,6 +70,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return spainAddresses;
     case Locale::pt_BR:
         return brazilAddresses;
+    case Locale::fr_MC:
+        return monacoAddresses;
     case Locale::fi_FI:
         return finlandAddresses;
     case Locale::et_EE:
@@ -1035,6 +1037,54 @@ TEST_F(LocationTest, shouldGenerateSpainStreetAddress)
     ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string_view& firstName)
                                     { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
                 std::ranges::any_of(person::spanishLastNames,
+                                    [&generatedStreetAddress](const std::string_view& lastName)
+                                    { return generatedStreetAddress.find(lastName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateMonacoStreet)
+{
+    const auto generatedStreet = street(Locale::fr_MC);
+
+    const auto generatedStreetElements = common::split(generatedStreet, " ");
+
+    const auto& generatedStreetPrefix = generatedStreetElements[0];
+    const auto& generatedStreetSuffix = generatedStreetElements[1];
+
+    std::vector<std::string_view> firstNames(person::monacanMaleFirstNames.begin(),
+                                         person::monacanMaleFirstNames.end());
+firstNames.insert(firstNames.end(),
+                  person::monacanFemaleFirstNames.begin(),
+                  person::monacanFemaleFirstNames.end());
+
+ASSERT_GE(generatedStreetElements.size(), 2);
+
+ASSERT_TRUE(std::ranges::any_of(monacoStreetSuffixes,
+                                [&generatedStreetSuffix](const std::string_view& streetSuffix)
+                                { return streetSuffix == generatedStreetSuffix; }));
+
+ASSERT_TRUE(
+    std::ranges::any_of(firstNames, [&generatedStreetPrefix](const std::string_view& firstName)
+                        { return generatedStreetPrefix.find(firstName) != std::string::npos; }) ||
+    std::ranges::any_of(person::monacanLastNames, [&generatedStreetPrefix](const std::string_view& lastName)
+                        { return generatedStreetPrefix.find(lastName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateMonacoStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::fr_MC);
+
+    ASSERT_TRUE(std::ranges::any_of(monacoStreetSuffixes,
+                                    [&generatedStreetAddress](const std::string_view& suffix)
+                                    { return generatedStreetAddress.find(suffix) != std::string::npos; }));
+
+    std::vector<std::string_view> firstNames(person::monacanMaleFirstNames.begin(),
+                                             person::monacanMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::monacanFemaleFirstNames.begin(),
+                      person::monacanFemaleFirstNames.end());
+
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string_view& firstName)
+                                    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
+                std::ranges::any_of(person::monacanLastNames,
                                     [&generatedStreetAddress](const std::string_view& lastName)
                                     { return generatedStreetAddress.find(lastName) != std::string::npos; }));
 }

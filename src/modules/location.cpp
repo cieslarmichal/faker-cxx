@@ -71,6 +71,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return spainAddresses;
     case Locale::pt_BR:
         return brazilAddresses;
+    case Locale::fr_MC:
+        return monacoAddresses;
     case Locale::fi_FI:
         return finlandAddresses;
     case Locale::et_EE:

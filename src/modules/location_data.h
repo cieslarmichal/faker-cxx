@@ -3002,6 +3002,104 @@ const CountryAddressesInfo estoniaAddresses{
     {},
 };
 
+// Monaco
+
+const auto monacoCities = std::to_array<std::string_view>({
+    "Monte Carlo",
+    "La Condamine",
+    "Monaco-Ville",
+    "Fontvieille",
+    "Moneghetti",
+    "Larvotto",
+    "La Colle",
+    "Les Révoires",
+    "Saint-Roman",
+    "Ravin Sainte-Dévote",
+});
+
+const auto monacoStates = std::to_array<std::string_view>({
+    "Monte Carlo",
+    "La Condamine",
+    "Monaco-Ville",
+    "Fontvieille",
+    "Moneghetti",
+    "Larvotto",
+    "La Colle",
+    "Les Révoires",
+    "Saint-Roman",
+    "Ravin Sainte-Dévote",
+});
+
+const auto monacoStreetSuffixes = std::to_array<std::string_view>({
+    "Avenue",
+    "Boulevard",
+    "Rue",
+    "Place",
+    "Allée",
+    "Impasse",
+    "Chemin",
+    "Quai",
+    "Promenade",
+    "Esplanade",
+    "Voie",
+    "Passage",
+    "Terrasse",
+    "Square",
+});
+
+const std::string_view monacoZipCodeFormat{"#####"};
+
+const auto monacoAddressFormats =
+    std::to_array<std::string_view>({
+    "{street} {buildingNumber}",
+    "{street} {buildingNumber} {secondaryAddress}",
+});
+
+const auto monacoSecondaryAddressFormats =
+    std::to_array<std::string_view>({
+    "A",
+    "A #",
+    "A ##",
+    "B",
+    "B #",
+    "B ##",
+    "C",
+    "C #",
+    "C ##",
+});
+
+const auto monacoBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+});
+
+const auto monacoStreetFormats =
+    std::to_array<std::string_view>({
+    "{firstName} {streetSuffix}",
+    "{lastName} {streetSuffix}",
+});
+
+const auto monacoCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo monacoAddresses{
+    monacoZipCodeFormat,
+    (monacoAddressFormats),
+    (monacoSecondaryAddressFormats),
+    (monacoStreetFormats),
+    {},
+    {},
+    (monacoStreetSuffixes),
+    (monacoBuildingNumberFormats),
+    (monacoCityFormats),
+    {},
+    (monacoCities),
+    {},
+    (monacoStates),
+};
+
 // Finland
 
 const auto finlandCities = std::to_array<std::string_view>({
