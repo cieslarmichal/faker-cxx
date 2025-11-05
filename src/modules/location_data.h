@@ -1792,26 +1792,8 @@ const auto canadaEnStates = std::to_array<std::string_view>({
 });
 
 const auto canadaEnStreetNames = std::to_array<std::string_view>({
-    "Main",
-    "King",
-    "Queen",
-    "Wellington",
-    "Bay",
-    "Yonge",
-    "Front",
-    "College",
-    "Jarvis",
-    "Granville",
-    "Robson",
-    "Henderson",
-    "Jasper",
-    "Whyte",
-    "MacLeod",
-    "Rideau",
-    "Elgin",
-    "Bank",
-    "Sussex",
-    "Sherbrooke",
+    "Main",   "King",      "Queen",  "Wellington", "Bay",     "Yonge",  "Front", "College", "Jarvis", "Granville",
+    "Robson", "Henderson", "Jasper", "Whyte",      "MacLeod", "Rideau", "Elgin", "Bank",    "Sussex", "Sherbrooke",
 });
 
 const auto canadaEnStreetSuffixes = std::to_array<std::string_view>({
