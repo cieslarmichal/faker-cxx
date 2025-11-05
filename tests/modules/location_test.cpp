@@ -1496,6 +1496,8 @@ TEST_F(LocationTest, shouldGenerateCanadaEnStreetAddress)
                                     { return generatedLastOrStreetName == streetName; }));
     ASSERT_TRUE(std::ranges::any_of(canadaEnStreetSuffixes, [&generatedStreetSuffix](const std::string_view& streetSuffix)
                                     { return generatedStreetSuffix == streetSuffix; }));
+}
+
 TEST_F(LocationTest, shouldGenerateIranStreet)
 {
     const auto generatedStreet = street(Locale::fa_IR);
