@@ -47,6 +47,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return czechAddresses;
     case Locale::en_AU:
         return australiaAddresses;
+    case Locale::en_CA:
+        return canadaEnAddresses;
     case Locale::as_IN:
     case Locale::bn_IN:
     case Locale::en_IN:
