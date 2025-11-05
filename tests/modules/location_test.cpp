@@ -46,6 +46,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return czechAddresses;
     case Locale::en_AU:
         return australiaAddresses;
+    case Locale::en_CA:
+        return canadaEnAddresses;
     case Locale::as_IN:
     case Locale::bn_IN:
     case Locale::en_IN:
@@ -1481,6 +1483,43 @@ TEST_F(LocationTest, shouldGenerateAlbaniaStreet)
         {
             return generatedStreet.find(streetName) != std::string::npos;
         }));
+}
+
+TEST_F(LocationTest, shouldGenerateCanadaEnStreet)
+{
+    const auto generatedStreet = street(Locale::en_CA);
+    const auto generatedStreetElements = common::split(generatedStreet, " ");
+
+    const auto& generatedLastOrStreetName = generatedStreetElements[0];
+    const auto& generatedStreetSuffix = generatedStreetElements[1];
+
+    ASSERT_EQ(generatedStreetElements.size(), 2);
+    ASSERT_TRUE(std::ranges::any_of(person::canadianLastNames, [&generatedLastOrStreetName](const std::string_view& lastName)
+                                    { return generatedLastOrStreetName == lastName; }) ||
+                std::ranges::any_of(canadaEnStreetNames, [&generatedLastOrStreetName](const std::string_view& streetName)
+                                    { return generatedLastOrStreetName == streetName; }));
+    ASSERT_TRUE(std::ranges::any_of(canadaEnStreetSuffixes, [&generatedStreetSuffix](const std::string_view& streetSuffix)
+                                    { return generatedStreetSuffix == streetSuffix; }));
+}
+
+TEST_F(LocationTest, shouldGenerateCanadaEnStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::en_CA);
+    const auto generatedStreetAddressElements = common::split(generatedStreetAddress, " ");
+
+    const auto& generatedBuildingNumber = generatedStreetAddressElements[0];
+    const auto& generatedLastOrStreetName = generatedStreetAddressElements[1];
+    const auto& generatedStreetSuffix = generatedStreetAddressElements[2];
+
+    ASSERT_EQ(generatedStreetAddressElements.size(), 3);
+    ASSERT_TRUE(generatedBuildingNumber.size() >= 1 && generatedBuildingNumber.size() <= 4);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+    ASSERT_TRUE(std::ranges::any_of(person::canadianLastNames, [&generatedLastOrStreetName](const std::string_view& lastName)
+                                    { return generatedLastOrStreetName == lastName; }) ||
+                std::ranges::any_of(canadaEnStreetNames, [&generatedLastOrStreetName](const std::string_view& streetName)
+                                    { return generatedLastOrStreetName == streetName; }));
+    ASSERT_TRUE(std::ranges::any_of(canadaEnStreetSuffixes, [&generatedStreetSuffix](const std::string_view& streetSuffix)
+                                    { return generatedStreetSuffix == streetSuffix; }));
 }
 
 TEST_F(LocationTest, shouldGenerateIranStreet)
