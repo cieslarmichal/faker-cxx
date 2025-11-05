@@ -102,6 +102,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return japanAddresses;
     case Locale::lt_LT:
         return lithuaniaAddresses;
+    case Locale::sq_AL:
+        return albaniaAddresses;
     default:
         return usaAddresses;
     }
@@ -1461,6 +1463,28 @@ TEST_F(LocationTest, shouldGenerateLithuaniaStreetAddress)
     }
 }
 
+TEST_F(LocationTest, shouldGenerateAlbaniaStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::sq_AL);
+
+    ASSERT_TRUE(std::ranges::any_of(albaniaStreetSuffixes,
+        [&generatedStreetAddress](const std::string_view& streetName)
+        {
+            return generatedStreetAddress.find(streetName) != std::string::npos;
+        }));
+}
+
+TEST_F(LocationTest, shouldGenerateAlbaniaStreet)
+{
+    const auto generatedStreet = street(Locale::sq_AL);
+
+    ASSERT_TRUE(std::ranges::any_of(albaniaStreetSuffixes,
+        [&generatedStreet](const std::string_view& streetName)
+        {
+            return generatedStreet.find(streetName) != std::string::npos;
+        }));
+}
+
 TEST_F(LocationTest, shouldGenerateCanadaEnStreet)
 {
     const auto generatedStreet = street(Locale::en_CA);
@@ -1496,6 +1520,8 @@ TEST_F(LocationTest, shouldGenerateCanadaEnStreetAddress)
                                     { return generatedLastOrStreetName == streetName; }));
     ASSERT_TRUE(std::ranges::any_of(canadaEnStreetSuffixes, [&generatedStreetSuffix](const std::string_view& streetSuffix)
                                     { return generatedStreetSuffix == streetSuffix; }));
+}
+
 TEST_F(LocationTest, shouldGenerateIranStreet)
 {
     const auto generatedStreet = street(Locale::fa_IR);
@@ -1543,5 +1569,3 @@ TEST_F(LocationTest, shouldRespectIranAddressComposition)
         ASSERT_TRUE(appearsAfter(s, "بزرگراه", "خیابان"));
     }
 }
-
-
