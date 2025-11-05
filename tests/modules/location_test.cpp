@@ -72,6 +72,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return spainAddresses;
     case Locale::pt_BR:
         return brazilAddresses;
+    case Locale::fr_MC:
+        return monacoAddresses;
     case Locale::fa_IR:
         return iranAddresses;
     case Locale::fi_FI:
@@ -1045,6 +1047,54 @@ TEST_F(LocationTest, shouldGenerateSpainStreetAddress)
                                     { return generatedStreetAddress.find(lastName) != std::string::npos; }));
 }
 
+TEST_F(LocationTest, shouldGenerateMonacoStreet)
+{
+    const auto generatedStreet = street(Locale::fr_MC);
+
+    const auto generatedStreetElements = common::split(generatedStreet, " ");
+
+    const auto& generatedStreetPrefix = generatedStreetElements[0];
+    const auto& generatedStreetSuffix = generatedStreetElements[1];
+
+    std::vector<std::string_view> firstNames(person::monacanMaleFirstNames.begin(),
+                                         person::monacanMaleFirstNames.end());
+firstNames.insert(firstNames.end(),
+                  person::monacanFemaleFirstNames.begin(),
+                  person::monacanFemaleFirstNames.end());
+
+ASSERT_GE(generatedStreetElements.size(), 2);
+
+ASSERT_TRUE(std::ranges::any_of(monacoStreetSuffixes,
+                                [&generatedStreetSuffix](const std::string_view& streetSuffix)
+                                { return streetSuffix == generatedStreetSuffix; }));
+
+ASSERT_TRUE(
+    std::ranges::any_of(firstNames, [&generatedStreetPrefix](const std::string_view& firstName)
+                        { return generatedStreetPrefix.find(firstName) != std::string::npos; }) ||
+    std::ranges::any_of(person::monacanLastNames, [&generatedStreetPrefix](const std::string_view& lastName)
+                        { return generatedStreetPrefix.find(lastName) != std::string::npos; }));
+}
+
+TEST_F(LocationTest, shouldGenerateMonacoStreetAddress)
+{
+    const auto generatedStreetAddress = streetAddress(Locale::fr_MC);
+
+    ASSERT_TRUE(std::ranges::any_of(monacoStreetSuffixes,
+                                    [&generatedStreetAddress](const std::string_view& suffix)
+                                    { return generatedStreetAddress.find(suffix) != std::string::npos; }));
+
+    std::vector<std::string_view> firstNames(person::monacanMaleFirstNames.begin(),
+                                             person::monacanMaleFirstNames.end());
+    firstNames.insert(firstNames.end(), person::monacanFemaleFirstNames.begin(),
+                      person::monacanFemaleFirstNames.end());
+
+    ASSERT_TRUE(std::ranges::any_of(firstNames, [&generatedStreetAddress](const std::string_view& firstName)
+                                    { return generatedStreetAddress.find(firstName) != std::string::npos; }) ||
+                std::ranges::any_of(person::monacanLastNames,
+                                    [&generatedStreetAddress](const std::string_view& lastName)
+                                    { return generatedStreetAddress.find(lastName) != std::string::npos; }));
+}
+
 TEST_F(LocationTest, shouldGenerateFinlandStreet)
 {
     const auto generatedStreet = street(Locale::fi_FI);
@@ -1434,33 +1484,38 @@ TEST_F(LocationTest, shouldGenerateLithuaniaStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(Locale::lt_LT);
 
-    // Split the address into main parts (street + building, secondary address)
-    const auto generatedAddresses = common::split(generatedStreetAddress, ", ");
-    const auto generatedStreetAddressElements = common::split(generatedAddresses[0], " ");
+    const auto addressTokens = common::split(generatedStreetAddress, " ");
+    ASSERT_FALSE(addressTokens.empty());
 
-    // Extract building number
-    const auto& generatedBuildingNumber = generatedStreetAddressElements[generatedStreetAddressElements.size() - 1];
+    const auto& buildingPart = addressTokens.back();
 
-    // Extract street name by joining the rest (excluding building number)
-    const auto& generatedStreet = common::join({generatedStreetAddressElements.begin(), generatedStreetAddressElements.end() - 1});
+    const auto buildingTokens = common::split(buildingPart, "-");
+    const auto& buildingNumber = buildingTokens.front();
 
-    // Validate building number is numeric and reasonably sized
-    ASSERT_TRUE(!generatedBuildingNumber.empty() && generatedBuildingNumber.size() <= 3);
-    ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedBuildingNumber));
+    ASSERT_TRUE(!buildingNumber.empty());
+    ASSERT_TRUE(buildingNumber.size() <= 3);
+    ASSERT_TRUE(checkIfAllCharactersAreNumeric(buildingNumber.substr(0, 1)) ||
+                std::isalpha(buildingNumber.back()));
 
-    // Validate that the street name is from the dataset
-    ASSERT_TRUE(std::ranges::any_of(lithuanianStreetNames, [&generatedStreet](const std::string_view& streetName)
-                                    { return generatedStreet.find(streetName) != std::string::npos; }));
-
-    // If there is a secondary address (like apartment or unit), validate it
-    if (generatedAddresses.size() > 1)
+    if (buildingTokens.size() > 1)
     {
-        const auto& generatedSecondaryAddressParts = common::split(generatedAddresses[1], " ");
-        const auto& generatedUnitNumber = generatedSecondaryAddressParts[generatedSecondaryAddressParts.size() - 1];
-
-        ASSERT_TRUE(generatedUnitNumber.size() >= 1 && generatedUnitNumber.size() <= 3);
-        ASSERT_TRUE(checkIfAllCharactersAreNumeric(generatedUnitNumber));
+        const auto& unit = buildingTokens.back();
+        ASSERT_TRUE(!unit.empty());
+        ASSERT_TRUE(checkIfAllCharactersAreNumeric(unit));
     }
+
+    ASSERT_GE(addressTokens.size(), 2);
+    const auto& generatedStreetSuffix = addressTokens[addressTokens.size() - 2];
+    const auto generatedStreetBase = common::join(
+        {addressTokens.begin(), addressTokens.end() - 2});
+
+    ASSERT_TRUE(std::ranges::any_of(lithuanianStreetSuffixes,
+        [&generatedStreetSuffix](const std::string_view& suffix)
+        { return generatedStreetSuffix == suffix; }));
+
+    ASSERT_TRUE(std::ranges::any_of(lithuanianStreetNames,
+        [&generatedStreetBase](const std::string_view& streetName)
+        { return generatedStreetBase.find(streetName) != std::string::npos; }));
 }
 
 TEST_F(LocationTest, shouldGenerateAlbaniaStreetAddress)
