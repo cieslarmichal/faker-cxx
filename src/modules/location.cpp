@@ -73,6 +73,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return brazilAddresses;
     case Locale::fr_MC:
         return monacoAddresses;
+    case Locale::fa_IR:
+        return iranAddresses;
     case Locale::fi_FI:
         return finlandAddresses;
     case Locale::et_EE:
