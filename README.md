@@ -75,7 +75,7 @@ Clang.
 To properly use Faker C++ you must first consume the Faker library (see Consuming Library with CMake).
 Once that is done, you need to include the proper [header](https://cieslarmichal.github.io/faker-cxx/files.html) file
 depending on the module you wish to generate data from or use general include file `faker-cxx/faker.h`.
-All the docs can be found [here](https://cieslarmichal.github.io/faker-cxx/).
+All the documentation can be found at [cieslarmichal.github.io/faker-cxx](https://cieslarmichal.github.io/faker-cxx/).
 
 Below is an example of how to use Faker C++ in your code.
 
@@ -713,6 +713,7 @@ faker::word::verb()                      // "run"
 `en_US` (default), `en_GB`, `pl_PL`, `de_DE`, `de_AT`, `de_CH`, `fr_FR`, `fr_BE`, `fr_CH`, `it_IT`, `es_ES`, `es_MX`, `pt_PT`, `pt_BR`, `ru_RU`, `uk_UA`, `cs_CZ`, `sk_SK`, `sv_SE`, `nb_NO`, `da_DK`, `fi_FI`, `nl_NL`, `nl_BE`, `tr_TR`, `ro_RO`, `hu_HU`, `hr_HR`, `sl_SI`, `sr_RS`, `bg_BG`, `el_GR`, `hi_IN`, `en_IN`, `zh_CN`, `zh_TW`, `ja_JP`, `ko_KR`
 
 **Usage:**
+
 ```cpp
 faker::person::firstName(faker::Locale::pl_PL);  // "Krystyna"
 faker::location::city(faker::Locale::fr_FR);     // "Lyon"
@@ -720,11 +721,11 @@ faker::location::city(faker::Locale::fr_FR);     // "Lyon"
 
 ## Consuming the library with CMake
 
-## With Git submodules and add_library
+### With Git submodules and add_library
 
 1. Add faker to git submodules (execute in project root):
 
-    ```
+    ```bash
     mkdir externals && cd externals
     git submodule add https://github.com/cieslarmichal/faker-cxx.git
     git submodule update --init --recursive
@@ -742,7 +743,7 @@ faker::location::city(faker::Locale::fr_FR);     // "Lyon"
     target_link_libraries(main faker-cxx)
     ```
 
-## With FetchContent
+### With FetchContent
 
 ```cmake
 set(BUILD_TESTING OFF)
@@ -841,7 +842,7 @@ Additionally, we encourage you to join our [Discord Channel](https://discord.gg/
 
 Thanks to all the people who already contributed to Faker!
 
-<a href="https://github.com/cieslarmichal/faker-cxx/graphs/contributors"><img src="https://opencollective.com/faker-cxx/contributors.svg?width=800" /></a>
+<a href="https://github.com/cieslarmichal/faker-cxx/graphs/contributors"><img src="https://opencollective.com/faker-cxx/contributors.svg?width=800" alt="Contributors" /></a>
 
 ## 📝 Changelog
 

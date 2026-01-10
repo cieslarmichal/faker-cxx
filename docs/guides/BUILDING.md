@@ -11,10 +11,10 @@ This guide provides comprehensive instructions for building the Faker C++ librar
   - [Clang (Linux)](#clang-linux)
   - [Apple Clang (macOS)](#apple-clang-macos)
   - [MSVC (Windows)](#msvc-windows)
-- [Building with CMake Presets](#building-with-cmake-presets)
-- [Building with Conan](#building-with-conan)
-- [Building with Bazel](#building-with-bazel)
+- [Alternative Build Systems](#alternative-build-systems)
 - [Running Tests](#running-tests)
+- [Troubleshooting](#troubleshooting)
+- [Advanced Options](#advanced-options)
 
 ## Prerequisites
 
@@ -44,6 +44,7 @@ ctest --test-dir ./build
 ## Building with Different Compilers
 
 > **Note:** All compilers require cloning first. Do this once:
+>
 > ```bash
 > git clone https://github.com/cieslarmichal/faker-cxx.git
 > cd faker-cxx
@@ -158,17 +159,20 @@ ctest --test-dir ./build -R "PersonTest"  # Run specific tests
 ## Troubleshooting
 
 **CMake can't find the compiler:**
+
 ```bash
 export CXX=/usr/bin/g++-13
 cmake -B ./build -DCMAKE_CXX_COMPILER=$CXX
 ```
 
 **Submodule not initialized:**
+
 ```bash
 git submodule update --init --recursive
 ```
 
 **Tests not found:**
+
 ```bash
 cmake -B ./build -DBUILD_TESTING=ON
 ```

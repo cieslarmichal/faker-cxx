@@ -95,7 +95,8 @@ cmake --build build
 ```
 
 Output:
-```
+
+```text
 Name: Jennifer Martin
 Email: martin.jennifer@gmail.com
 Phone: +1-555-123-4567
@@ -320,6 +321,7 @@ See the [full API documentation](https://cieslarmichal.github.io/faker-cxx/) or 
 ## 🤝 Contributing
 
 Want to contribute? Check out:
+
 - [CONTRIBUTING.md](../CONTRIBUTING.md) - Contribution guidelines
 - [docs/guides/BUILDING.md](docs/guides/BUILDING.md) - How to build locally
 

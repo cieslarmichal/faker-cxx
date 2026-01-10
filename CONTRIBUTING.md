@@ -4,16 +4,16 @@ Thank you for your interest in contributing to Faker C++! This guide will help y
 
 ## 📋 Table of Contents
 
-- [Quick Links](#quick-links)
-- [Ways to Contribute](#ways-to-contribute)
-- [Getting Started](#getting-started)
-- [Development Workflow](#development-workflow)
-- [Code Style](#code-style)
-- [Testing](#testing)
-- [Pull Request Process](#pull-request-process)
-- [Adding New Modules](#adding-new-modules)
-- [Documentation](#documentation)
-- [Community](#community)
+- [Quick Links](#-quick-links)
+- [Ways to Contribute](#-ways-to-contribute)
+- [Getting Started](#-getting-started)
+- [Development Workflow](#-development-workflow)
+- [Code Style](#-code-style)
+- [Testing](#-testing)
+- [Pull Request Process](#-pull-request-process)
+- [Adding New Modules](#-adding-new-modules)
+- [Documentation](#-documentation)
+- [Community](#-community)
 
 ## 🔗 Quick Links
 
@@ -130,7 +130,7 @@ Browse [open issues](https://github.com/cieslarmichal/faker-cxx/issues) or creat
 
 ### 2. Write Code
 
-- Follow the [code style](#code-style) guidelines
+- Follow the [code style](#-code-style) guidelines
 - Write clean, readable, and maintainable code
 - Add comments for complex logic
 - Keep functions focused and small
@@ -281,7 +281,7 @@ TEST(InternetTest, ShouldGenerateValidEmail)
 
 Write clear, descriptive commit messages:
 
-```
+```text
 ✅ Good commit messages:
 - "Add French locale support for person module"
 - "Fix memory leak in string generator"
@@ -295,7 +295,7 @@ Write clear, descriptive commit messages:
 
 **Format:**
 
-```
+```text
 <type>: <subject>
 
 <optional body>
@@ -315,7 +315,7 @@ Write clear, descriptive commit messages:
 
 **Example:**
 
-```
+```text
 feat: add Japanese locale support for person names
 
 - Added Japanese first names and last names
@@ -475,6 +475,6 @@ If you have questions that aren't covered in this guide:
 
 ---
 
-**Thank you for contributing to Faker C++! 🎉**
+## Thank You
 
 We appreciate your time and effort in making this library better for everyone.
