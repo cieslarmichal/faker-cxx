@@ -27,12 +27,6 @@ std::unordered_map<ImageCategory, std::string> imageCategoryToLoremFlickrStringM
     {ImageCategory::Sports, "sports"},   {ImageCategory::Technics, "technics"}, {ImageCategory::Transport, "transport"},
 };
 
-std::string randomColor()
-{
-    return "rgb(" + std::to_string(number::integer(0, 255)) + "," + std::to_string(number::integer(0, 255)) + "," +
-           std::to_string(number::integer(0, 255)) + ")";
-}
-
 } // namespace
 
 std::string imageUrl(unsigned width, unsigned height)
