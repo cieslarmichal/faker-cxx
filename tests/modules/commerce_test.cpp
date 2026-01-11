@@ -65,9 +65,9 @@ TEST_F(CommerceTest, shouldGenerateProductFullName)
     {
         for (size_t j = i + 1; j < words.size(); ++j)
         {
-            const std::string adjective = common::join(std::vector<std::string_view>(words.begin(), words.begin() + i), " ");
-            const std::string material = common::join(std::vector<std::string_view>(words.begin() + i, words.begin() + j), " ");
-            const std::string name     = common::join(std::vector<std::string_view>(words.begin() + j, words.end()), " ");
+            const std::string adjective = common::join(std::vector<std::string_view>(words.begin(), words.begin() + static_cast<std::ptrdiff_t>(i)), " ");
+            const std::string material = common::join(std::vector<std::string_view>(words.begin() + static_cast<std::ptrdiff_t>(i), words.begin() + static_cast<std::ptrdiff_t>(j)), " ");
+            const std::string name     = common::join(std::vector<std::string_view>(words.begin() + static_cast<std::ptrdiff_t>(j), words.end()), " ");
 
             const bool adjectiveMatch = std::ranges::any_of(productAdjectives, [&adjective](const std::string_view& a)
                                                             { return a == adjective; });

@@ -25,6 +25,7 @@
 - [📚 API Reference](#-api-reference)
 - [🌍 Supported Locales](#-supported-locales)
 - [Consuming the library with CMake](#consuming-the-library-with-cmake)
+- [Installing the library with vcpkg](#installing-the-library-with-vcpkg)
 - [⚒️ Compiler support](#️-compiler-support)
 - [Dependencies](#dependencies)
 - [📦 Building the library with Conan](#-building-the-library-with-conan)
@@ -758,6 +759,27 @@ FetchContent_MakeAvailable(faker)
 add_executable(main Main.cpp)
 
 target_link_libraries(main faker-cxx)
+```
+
+## Installing the library with [vcpkg](https://vcpkg.io/)
+
+You can install faker-cxx using the [vcpkg](https://vcpkg.io/) dependency manager:
+
+```bash
+vcpkg install faker-cxx
+```
+
+The faker-cxx port in vcpkg is kept up to date by Microsoft team members and community contributors.
+If the version is out of date, please [create an issue or pull request](https://github.com/microsoft/vcpkg) on the vcpkg repository.
+
+Then in your CMakeLists.txt:
+
+```cmake
+find_package(faker-cxx CONFIG REQUIRED)
+
+add_executable(main Main.cpp)
+
+target_link_libraries(main PRIVATE faker-cxx::faker-cxx)
 ```
 
 ## ⚒️ Compiler support

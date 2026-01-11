@@ -1,6 +1,6 @@
 # Third Party Licenses
 
-## suyash/ulid:
+## suyash/ulid
 
 MIT License
 
@@ -24,7 +24,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## flexxxxer/Md5Hash:
+## flexxxxer/Md5Hash
 
 MIT License
 
@@ -48,7 +48,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## System-Glitch/SHA256:
+## System-Glitch/SHA256
 
 MIT License
 
@@ -72,13 +72,13 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-## faker-js/faker:
+## faker-js/faker
 
 Faker - Copyright (c) 2022-2023
 
 This software consists of voluntary contributions made by many individuals.
 For exact contribution history, see the revision history
-available at https://github.com/faker-js/faker
+available at <https://github.com/faker-js/faker>
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
@@ -101,8 +101,8 @@ WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ===
 
-From: https://github.com/faker-js/faker/commit/a9f98046c7d5eeaabe12fc587024c06d683800b8
-To: https://github.com/faker-js/faker/commit/29234378807c4141588861f69421bf20b5ac635e
+From: <https://github.com/faker-js/faker/commit/a9f98046c7d5eeaabe12fc587024c06d683800b8>
+To: <https://github.com/faker-js/faker/commit/29234378807c4141588861f69421bf20b5ac635e>
 
 Based on faker.js, copyright Marak Squires and contributor, what follows below is the original license.
 
@@ -110,12 +110,12 @@ Based on faker.js, copyright Marak Squires and contributor, what follows below i
 
 faker.js - Copyright (c) 2020
 Marak Squires
-http://github.com/marak/faker.js/
+<http://github.com/marak/faker.js/>
 
 faker.js was inspired by and has used data definitions from:
 
-* https://github.com/stympy/faker/ - Copyright (c) 2007-2010 Benjamin Curtis
-* http://search.cpan.org/~jasonk/Data-Faker-0.07/ - Copyright 2004-2005 by Jason Kohles
+* <https://github.com/stympy/faker/> - Copyright (c) 2007-2010 Benjamin Curtis
+* <http://search.cpan.org/~jasonk/Data-Faker-0.07/> - Copyright 2004-2005 by Jason Kohles
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
