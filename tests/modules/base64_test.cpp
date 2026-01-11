@@ -1,6 +1,6 @@
-#include "faker-cxx/base64.h"
-
 #include <cstdint>
+
+#include "faker-cxx/base64.h"
 
 static const char encodeLookup[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 static const char padCharacter = '=';
@@ -21,9 +21,9 @@ std::string encode(const std::string& input)
     auto cursor = input.begin();
     for (size_t idx = 0; idx < input.size() / 3; ++idx)
     {
-        temp = (*cursor++) << 16;
-        temp += (*cursor++) << 8;
-        temp += (*cursor++);
+        temp = static_cast<uint32_t>(static_cast<unsigned char>(*cursor++)) << 16;
+        temp += static_cast<uint32_t>(static_cast<unsigned char>(*cursor++)) << 8;
+        temp += static_cast<uint32_t>(static_cast<unsigned char>(*cursor++));
         encodedString.append(1, encodeLookup[(temp & 0x00FC0000) >> 18]);
         encodedString.append(1, encodeLookup[(temp & 0x0003F000) >> 12]);
         encodedString.append(1, encodeLookup[(temp & 0x00000FC0) >> 6]);
@@ -32,14 +32,14 @@ std::string encode(const std::string& input)
     switch (input.size() % 3)
     {
     case 1:
-        temp = (*cursor++) << 16;
+        temp = static_cast<uint32_t>(static_cast<unsigned char>(*cursor++)) << 16;
         encodedString.append(1, encodeLookup[(temp & 0x00FC0000) >> 18]);
         encodedString.append(1, encodeLookup[(temp & 0x0003F000) >> 12]);
         encodedString.append(2, padCharacter);
         break;
     case 2:
-        temp = (*cursor++) << 16;
-        temp += (*cursor++) << 8;
+        temp = static_cast<uint32_t>(static_cast<unsigned char>(*cursor++)) << 16;
+        temp += static_cast<uint32_t>(static_cast<unsigned char>(*cursor++)) << 8;
         encodedString.append(1, encodeLookup[(temp & 0x00FC0000) >> 18]);
         encodedString.append(1, encodeLookup[(temp & 0x0003F000) >> 12]);
         encodedString.append(1, encodeLookup[(temp & 0x00000FC0) >> 6]);
@@ -51,22 +51,22 @@ std::string encode(const std::string& input)
 
 std::string decode(const void* data, const size_t len)
 {
-    unsigned char* p = (unsigned char*)data;
+    unsigned char* p = static_cast<unsigned char*>(const_cast<void*>(data));
     int pad = len > 0 && (len % 4 || p[len - 1] == '=');
-    const size_t L = ((len + 3) / 4 - pad) * 4;
-    std::string str(L / 4 * 3 + pad, '\0');
+    const size_t L = ((len + 3) / 4 - static_cast<size_t>(pad)) * 4;
+    std::string str(L / 4 * 3 + static_cast<size_t>(pad), '\0');
 
     for (size_t i = 0, j = 0; i < L; i += 4)
     {
         int n = B64index[p[i]] << 18 | B64index[p[i + 1]] << 12 | B64index[p[i + 2]] << 6 | B64index[p[i + 3]];
-        str[j++] = n >> 16;
+        str[j++] = static_cast<char>(n >> 16);
         str[j++] = n >> 8 & 0xFF;
         str[j++] = n & 0xFF;
     }
     if (pad)
     {
         int n = B64index[p[L]] << 18 | B64index[p[L + 1]] << 12;
-        str[str.size() - 1] = n >> 16;
+        str[str.size() - 1] = static_cast<char>(n >> 16);
 
         if (len > L + 2 && p[L + 2] != '=')
         {

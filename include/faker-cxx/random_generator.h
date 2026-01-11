@@ -27,7 +27,7 @@ public:
 
     typename T::result_type operator()(Dist&& dist)
     {
-        return std::forward<Dist>(dist)(generator_);
+        return static_cast<typename T::result_type>(std::forward<Dist>(dist)(generator_));
     }
 
 private:

@@ -1,311 +1,480 @@
-# How to contribute
+# 🤝 How to Contribute
 
-## Getting Started
+Thank you for your interest in contributing to Faker C++! This guide will help you get started with contributing to the project.
 
-Before you can build the project, you'll need to set up your development environment. Here are the steps to get started:
+## 📋 Table of Contents
 
-1. **Install the required software:**
+- [Quick Links](#-quick-links)
+- [Ways to Contribute](#-ways-to-contribute)
+- [Getting Started](#-getting-started)
+- [Development Workflow](#-development-workflow)
+- [Code Style](#-code-style)
+- [Testing](#-testing)
+- [Pull Request Process](#-pull-request-process)
+- [Adding New Modules](#-adding-new-modules)
+- [Documentation](#-documentation)
+- [Community](#-community)
 
-   This project requires CMake and a C++ compiler with C++20 standard supported. You can check what
-   compiler has C++20 at [cppreference](https://en.cppreference.com/w/cpp/compiler_support/20).
+## 🔗 Quick Links
 
-   You can install these required tools on Ubuntu with the following command:
+- **[Building Guide](./docs/guides/BUILDING.md)** - How to build the project
+- **[Quick Start](./QUICK_START.md)** - Get started with using the library
+- **[Issues](https://github.com/cieslarmichal/faker-cxx/issues)** - Find something to work on
+- **[Discussions](https://github.com/cieslarmichal/faker-cxx/discussions)** - Ask questions
+- **[Discord](https://discord.gg/h2ur8H6mK6)** - Chat with the community
 
-    ```sh
-    sudo apt-get install cmake g++
-    ```
+## 🎯 Ways to Contribute
 
-   If you're using a different operating system, you'll need to install these tools in a way that's appropriate for your
-   system.
+There are many ways you can contribute to Faker C++:
 
-2. **Clone the forked repository:**
+### 🐛 Report Bugs
 
-   In order to send contributions, first you need
-   to [Fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo)
-   the repository on GitHub
+Found a bug? [Create an issue](https://github.com/cieslarmichal/faker-cxx/issues/new) with:
 
-   So, you can clone the repository with the following command:
+- A clear description of the problem
+- Steps to reproduce
+- Expected vs actual behavior
+- Your environment (OS, compiler, version)
 
-    ```sh
-    git clone https://github.com/<yourusername>/faker-cxx.git
-    ```
+### 💡 Suggest Features
 
-   Replace `yourusername` with the correct values for this project.
+Have an idea? [Start a discussion](https://github.com/cieslarmichal/faker-cxx/discussions) or create a feature request issue.
 
-3. **Get into a discussion:**
+### 📝 Improve Documentation
 
-   Pick an issue from [issues](https://github.com/cieslarmichal/faker-cxx/issues) or you can refactor the code or
-   implement features that you find useful.
+- Fix typos or clarify existing docs
+- Add examples
+- Write tutorials or blog posts
+- Translate documentation
 
-## Making Changes
+### 🔧 Write Code
 
-1. **Create a feature/bug branch from main branch:**
+- Fix bugs
+- Implement new features
+- Add new data generators
+- Improve performance
+- Add support for new locales
 
-  ```sh
-  git checkout -b feature/feature-name
-  ```
+### ✅ Review Pull Requests
 
-Please avoid working directly on the ``main`` branch.
+Help review open pull requests and provide constructive feedback.
 
-2. **Follow the code style guide:**
+## 🚀 Getting Started
 
-   This project uses a `.clang-format` file to define its coding style. This file is automatically used by
-   the `clang-format` tool to format code.
+### Prerequisites
 
-   The `.clang-format` file ensures that all code adheres to the project's coding style, providing consistency across
-   the codebase. It includes settings for various formatting rules, such as indentation, spacing, and alignment.
+Before you begin, ensure you have:
 
-   Before making changes, make sure you have `clang-format` installed. If you're using Visual Studio Code, you can
-   install the `clang-format` extension.
+- **CMake** 3.22 or higher
+- **C++ Compiler** with C++20 support:
+  - GCC 13+
+  - Clang 16+
+  - Apple Clang 16+
+  - MSVC 143 (Visual Studio 2022)+
 
-   If you want to format all files in project manually, you can run the following script:
+You can check compiler support at [cppreference](https://en.cppreference.com/w/cpp/compiler_support/20).
 
-    ```sh
-    ./scripts/format_code.sh
-    ```
+### 1️⃣ Fork and Clone
 
-3. **Make commits of logical units:**
+First, [fork the repository](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo) on GitHub, then clone your fork:
 
-This means that each commit should contain a complete and coherent piece of work that can be understood independently
-of other changes. For example, if you're fixing two different bugs, it's better to make two separate commits (one for
-each bug) rather than one commit that contains fixes for both bugs. This makes it easier to understand the purpose of
-each commit, and allows each change to be reviewed and applied separately.
-
-4. **Make sure you have added the necessary tests for your changes:**
-
-If you're adding a new feature or changing existing functionality, it's important to update or add tests that verify
-your changes. This helps to ensure that your changes work as expected and don't introduce new bugs. It also helps
-other developers understand what your code is supposed to do.
-
-5. **Run all the tests to assure nothing else was accidentally broken:**
-
-Before you submit your changes, you should run all the project's tests to make sure your changes haven't
-inadvertently broken anything. Even if you think your changes are isolated, there could be unexpected interactions
-with other parts of the codebase.
-
-6. **If you've added a new file to your project with non-Latin characters, ensure that the file encoding is set to
-   Unicode (UTF-8 without signature) - Codepage 65001 in Microsoft Visual Studio Code:**
-
-If a file contains non-Latin characters (such as characters from Chinese, Arabic, or many other non-Latin alphabets),
-it's important to save the file with the correct encoding to ensure that the characters are displayed correctly. In
-Visual Studio Code, you can set the encoding for a file by clicking on the "UTF-8" button in the status bar at the
-bottom of the window, and then selecting "Save with Encoding" and choosing "UTF-8 without BOM".
-
-## Building and Testing the Project
-
-### Building the Project with CMake
-
-To build the project, we use [CMake](https://cmake.org/getting-started/) with
-[presets](https://cmake.org/cmake/help/latest/manual/cmake-presets.7.html).
-This allows for a standardized and simplified build process across different environments.
-Follow the steps below to build the project:
-
-1. **Navigate to the project directory:**
-
-    ```sh
-    cd /path/to/faker-cxx
-    ```
-
-2. **Configure the build using the desired preset:**
-
-   Presets are predefined sets of configuration options. This project has a preset for each compiler. To list the
-   available presets, use the following command:
-
-    ```sh
-    cmake --list-presets
-    "unixlike-gcc-debug-static"     - Unixlike GCC Debug Static library
-    "unixlike-gcc-debug-shared"     - Unixlike GCC Debug Shared library
-    "unixlike-gcc-release-static"   - Unixlike GCC Release Static library
-    "unixlike-gcc-release-shared"   - Unixlike GCC Release Shared library
-    "unixlike-clang-debug-static"   - Unixlike Clang Debug Static library
-    "unixlike-clang-debug-shared"   - Unixlike Clang Debug Shared library
-    "unixlike-clang-release-static" - Unixlike Clang Release Static library
-    "unixlike-clang-release-shared" - Unixlike Clang Release Shared library
-    "windows-msvc-debug-static"     - Windows MSVC Debug Static library
-    "windows-msvc-debug-shared"     - Windows MSVC Debug Shared library
-    "windows-msvc-release-static"   - Windows MSVC Release Static library
-    "windows-msvc-release-shared"   - Windows MSVC Release Shared library
-    ```
-
-   For instance, if you are in Ubuntu and want to build using GCC in Debug mode and static library (faker-cxx.a), you
-   should use the
-   preset `unixlike-gcc-debug=static`. The `unixlike-clang-` preset should work for both Linux and macOS when using the
-   CLang
-   compiler.
-
-   The `-S .` option in the following command specifies the source directory:
-
-    ```sh
-    cmake -S . --preset unixlike-gcc-debug-static
-    ```
-
-3. **Build the project:**
-
-   The following command generates the build files and compiles the project using the settings specified in
-   the `unixlike-gcc-debug-static` preset:
-
-    ```sh
-    cmake --build --preset unixlike-gcc-debug-static
-    ```
-
-### Building the Project with Bazel
-
-As alternative, this project can be built using [Bazel](https://bazel.build/). The dependencies are managed directly by
-Bazel modules, downloading and building all external dependencies. Follow the steps below to build the project:
-
-1. **Navigate to the project directory:**
-
-    ```sh
-    cd /path/to/faker-cxx
-    ```
-
-2. **Build the project:**
-
-    ```sh
-    bazel build //:faker-cxx
-    ```
-
-### Testing the Project with CMake/CTest
-
-After building the project, you can run the tests to ensure everything is working correctly. We use CTest for running
-tests. Follow the steps below to test the project:
-
-**1. Run the tests using the same preset:**
-
-    ```sh
-    ctest --preset unixlike-gcc-debug-static
-    ```
-
-### Testing the Project with Bazel
-
-As alternative, tests and be built and validated using Bazel as well. Follow the steps below to test the project:
-
-**1. Build the tests using Bazel**
-
-    ```sh
-    bazel build //tests:faker-cxx-ut
-    ```
-
-**2. Run the tests generated by Bazel:**
-
-    ```sh
-    bazel-bin/tests/faker-cxx-ut
-    ```
-
-### Installing the Project
-
-When wanting to install those generated artifacts like headers files and library, you can use CMake to operate as
-installer as well:
-
-   ```sh
-      cmake --build --preset unixlike-gcc-debug-static --target install
-   ```
-
-By default, CMake will install in the subfolder `install` in the source folder.
-
-In order to change the installation folder, you can
-use [CMAKE_INSTALL_PREFIX](https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html) to configure the
-destination folder:
-
-   ```sh
-      cmake -S . --preset unixlike-gcc-debug-static -DCMAKE_INSTALL_PREFIX=/opt/faker-cxx
-      cmake --build --preset unixlike-gcc-debug-static --target install
-   ```
-
-This configuration will install all artifacts in `/opt/faker-cxx`. The permission to write in the folder should be
-granted before executing the installation command.
-
-## Submitting Changes
-
-Once you've made your changes and ensured they adhere to the project's coding style and pass all tests, you can submit
-them for review. Here's how:
-
-1. **Push your changes:**
-
-   First, you'll need to push your changes to the branch in your fork of the repository. You can do this with the
-   following command:
-
-    ```sh
-    git push origin your-branch-name
-    ```
-
-   Replace `your-branch-name` with the name of the branch you created for your changes.
-
-2. **Create a pull request:**
-
-   After pushing your changes, you'll need to create a pull request. This is a way of proposing your changes to the
-   project maintainers and allowing them to review your code.
-
-   To create a pull request, go to the main page of the repository on GitHub, and click on the "Pull requests" tab. Then
-   click on the "New pull request" button.
-
-   In the "base" dropdown, select the main branch of the original repository, and in the "compare" dropdown, select the
-   branch in your fork with your changes.
-
-   Fill out the pull request form with a title and description that explain your changes, and then click "Create pull
-   request".
-
-   For more detailed instructions, see GitHub's guide
-   on [creating a pull request from a fork](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request-from-a-fork).
-
-## Committing
-
-Pull Request Titles need to follow our semantic convention.
-
-PR Titles are written in following convention: `type: subject`
-
-**type** is required and indicates the intent of the PR
-
-> The types `feat` and `fix` will be shown in the changelog as `### Features` or `### Bug Fixes`
-
-Allowed types are:
-
-| type     | description                                                               |
-|----------|---------------------------------------------------------------------------|
-| feat     | A new feature is introduced                                               |
-| fix      | A bug was fixed                                                           |
-| chore    | No user affected code changes were made                                   |
-| refactor | A refactoring that affected also user (e.g. log a deprecation warning)    |
-| docs     | Docs were changed                                                         |
-| test     | Test were changed                                                         |
-| ci       | CI were changed                                                           |
-| build    | Build scripts were changed                                                |
-| infra    | Infrastructure related things were made (e.g. issue-template was updated) |
-| revert   | A revert was triggered via git                                            |
-
-**subject** is required and describes what the PR does
-
-Some examples of valid pull request Titles:
-
-```shell
-feat: add book module
-fix: fix randomizer function
-chore: add naming convention rule
-refactor: migrate from std::string to std::string_view
-docs: remove unused docs
-ci: add clang16 support
+```bash
+git clone https://github.com/<your-username>/faker-cxx.git
+cd faker-cxx
+git submodule update --init --recursive
 ```
 
-# Additional Resources
+Replace `<your-username>` with your GitHub username.
 
-To assist you in contributing to the project, we've compiled a list of useful resources:
+### 2️⃣ Build the Project
 
-1. **Community Support:**
+See our comprehensive [Building Guide](./docs/guides/BUILDING.md) for detailed instructions for your compiler.
 
-   If you have any questions or need help understanding a feature, feel free to join
-   our [Discord Channel](https://discord.com/invite/h2ur8H6mK6). It's a great place to connect with other contributors
-   and get answers to your questions.
+**Quick build:**
 
-2. **Reference Implementations:**
+```bash
+# Configure
+cmake -B build -DBUILD_TESTING=ON
 
-   If you're implementing a feature, you might find it helpful to look at [Faker.js](https://github.com/faker-js/faker).
-   It's a similar project in JavaScript, and its implementations could serve as a useful reference.
+# Build
+cmake --build build
 
-3. **CMake and CTest Documentation:**
+# Run tests
+ctest --test-dir build
+```
 
-   If you're new to CMake and CTest, or if you need a refresher, check out their official documentation:
+### 3️⃣ Create a Branch
 
-    - [CMake Documentation](https://cmake.org/cmake/help/latest/index.html)
-    - [CTest Documentation](https://cmake.org/cmake/help/latest/manual/ctest.1.html)
+Create a feature or bug fix branch from `main`:
 
-Remember, the best way to learn is by doing. Don't be afraid to make mistakes and ask questions. We're here to help!
+```bash
+git checkout -b feature/your-feature-name
+# or
+git checkout -b fix/bug-description
+```
+
+**Branch naming conventions:**
+
+- `feature/feature-name` - For new features
+- `fix/bug-description` - For bug fixes
+- `docs/description` - For documentation changes
+- `refactor/description` - For code refactoring
+
+## 💻 Development Workflow
+
+### 1. Pick an Issue
+
+Browse [open issues](https://github.com/cieslarmichal/faker-cxx/issues) or create a new one to discuss your proposed changes.
+
+**Good first issues:** Look for issues labeled `good first issue` if you're new to the project.
+
+### 2. Write Code
+
+- Follow the [code style](#-code-style) guidelines
+- Write clean, readable, and maintainable code
+- Add comments for complex logic
+- Keep functions focused and small
+
+### 3. Add Tests
+
+**All new features and bug fixes must include tests!**
+
+Tests are located in the `tests/` directory. Add your tests in the appropriate module test file.
+
+Example test structure:
+
+```cpp
+#include <gtest/gtest.h>
+#include "faker-cxx/your_module.h"
+
+TEST(YourModuleTest, ShouldGenerateExpectedValue)
+{
+    const auto result = faker::yourModule::yourFunction();
+    
+    ASSERT_FALSE(result.empty());
+    // Add more assertions
+}
+```
+
+### 4. Run Tests
+
+```bash
+# Run all tests
+ctest --test-dir build
+
+# Run tests with verbose output
+ctest --test-dir build --verbose
+
+# Run specific test
+ctest --test-dir build -R YourModuleTest
+```
+
+### 5. Format Your Code
+
+This project uses `.clang-format` for consistent code formatting.
+
+**Format all code:**
+
+```bash
+./scripts/format_code.sh
+```
+
+**Or configure your IDE:**
+
+- **VS Code**: Install the `clang-format` extension
+- **CLion**: Enable ClangFormat in Settings → Editor → Code Style
+- **Visual Studio**: Use Format Document (Ctrl+K, Ctrl+D)
+
+## 📐 Code Style
+
+### General Guidelines
+
+- **Indentation**: 4 spaces (no tabs)
+- **Line length**: Max 120 characters
+- **Naming conventions**:
+  - Functions: `camelCase()`
+  - Variables: `camelCase`
+  - Classes: `PascalCase`
+  - Constants: `UPPER_SNAKE_CASE`
+  - Namespaces: `lowercase`
+
+### Best Practices
+
+```cpp
+// ✅ Good
+std::string firstName(Locale locale = Locale::en_US);
+
+// ❌ Bad
+std::string first_name(Locale locale = Locale::en_US);
+```
+
+```cpp
+// ✅ Good - Clear function name and documentation
+/**
+ * @brief Generates a random email address.
+ * @param locale The locale to use.
+ * @returns Random email address.
+ */
+std::string email(Locale locale = Locale::en_US);
+
+// ❌ Bad - No documentation
+std::string e(Locale l = Locale::en_US);
+```
+
+### File Encoding
+
+If your file contains non-Latin characters, ensure it's saved with **UTF-8 encoding without BOM**.
+
+**In VS Code:**
+
+1. Click the encoding in the status bar
+2. Select "Save with Encoding"
+3. Choose "UTF-8"
+
+## 🧪 Testing
+
+### Test Structure
+
+- Tests use [Google Test (GTest)](https://github.com/google/googletest)
+- Each module has its own test file in `tests/modules/`
+- Test names should be descriptive: `TEST(ModuleName, ShouldDoSomethingWhenCondition)`
+
+### Writing Good Tests
+
+```cpp
+TEST(InternetTest, ShouldGenerateValidEmail)
+{
+    const auto email = faker::internet::email();
+    
+    // Check email is not empty
+    ASSERT_FALSE(email.empty());
+    
+    // Check email contains @ symbol
+    ASSERT_TRUE(email.find('@') != std::string::npos);
+    
+    // Check email contains domain
+    ASSERT_TRUE(email.find('.') != std::string::npos);
+}
+```
+
+### Test Coverage
+
+- Aim for high test coverage
+- Test edge cases and error conditions
+- Test with different locales when applicable
+
+## 📤 Pull Request Process
+
+### Before Submitting
+
+✅ **Checklist:**
+
+- [ ] Code follows the project's style guidelines
+- [ ] All tests pass locally
+- [ ] New tests added for new features/fixes
+- [ ] Code is formatted with `clang-format`
+- [ ] Documentation updated (if needed)
+- [ ] Commit messages are clear and descriptive
+- [ ] No merge conflicts with `main`
+
+### Commit Messages
+
+Write clear, descriptive commit messages:
+
+```text
+✅ Good commit messages:
+- "Add French locale support for person module"
+- "Fix memory leak in string generator"
+- "Update README with API reference section"
+
+❌ Bad commit messages:
+- "fix stuff"
+- "update"
+- "wip"
+```
+
+**Format:**
+
+```text
+<type>: <subject>
+
+<optional body>
+
+<optional footer>
+```
+
+**Types:**
+
+- `feat`: New feature
+- `fix`: Bug fix
+- `docs`: Documentation changes
+- `style`: Code style changes (formatting, etc.)
+- `refactor`: Code refactoring
+- `test`: Adding or updating tests
+- `chore`: Maintenance tasks
+
+**Example:**
+
+```text
+feat: add Japanese locale support for person names
+
+- Added Japanese first names and last names
+- Updated person module to support ja_JP locale
+- Added tests for Japanese name generation
+
+Closes #123
+```
+
+### Creating a Pull Request
+
+1. **Push your branch:**
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+2. **Open a PR on GitHub:**
+   - Go to the [repository](https://github.com/cieslarmichal/faker-cxx)
+   - Click "Pull requests" → "New pull request"
+   - Select your branch
+   - Fill in the PR template
+
+3. **PR Description should include:**
+   - What changes were made
+   - Why these changes are needed
+   - How to test the changes
+   - Screenshots (if applicable)
+   - Related issues (use "Closes #123")
+
+### Review Process
+
+- Maintainers will review your PR
+- Address feedback and requested changes
+- Once approved, your PR will be merged!
+
+**Be patient and responsive:**
+
+- Reviews may take a few days
+- Be open to feedback
+- Respond to comments
+- Make requested changes promptly
+
+## 🆕 Adding New Modules
+
+Want to add a new data generator module? Follow these steps:
+
+### 1. Create Header File
+
+Create `include/faker-cxx/your_module.h`:
+
+```cpp
+#pragma once
+
+#include <string>
+#include <string_view>
+#include "faker-cxx/export.h"
+#include "faker-cxx/types/locale.h"
+
+namespace faker::yourModule
+{
+/**
+ * @brief Your function description.
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ * @returns Description of return value.
+ * @code
+ * faker::yourModule::yourFunction() // "example output"
+ * @endcode
+ */
+FAKER_CXX_EXPORT std::string_view yourFunction(Locale locale = Locale::en_US);
+}
+```
+
+### 2. Create Data File
+
+Create `src/modules/your_module_data.h` with your data arrays.
+
+### 3. Create Implementation
+
+Create `src/modules/your_module.cpp` with implementations.
+
+### 4. Create Tests
+
+Create `tests/modules/your_module_test.cpp` with comprehensive tests.
+
+### 5. Update CMakeLists.txt
+
+Add your module to `src/CMakeLists.txt` and `tests/CMakeLists.txt`.
+
+### 6. Update Documentation
+
+- Add your module to README.md
+- Add examples
+- Update API reference
+
+## 📖 Documentation
+
+### Code Documentation
+
+Use Doxygen-style comments:
+
+```cpp
+/**
+ * @brief Brief description of function.
+ *
+ * Detailed description if needed.
+ *
+ * @param paramName Description of parameter.
+ * @param locale The locale. Defaults to `Locale::en_US`.
+ *
+ * @returns Description of return value.
+ *
+ * @code
+ * faker::module::function() // "example output"
+ * faker::module::function(Locale::pl_PL) // "przykładowy wynik"
+ * @endcode
+ */
+```
+
+### README Updates
+
+When adding features:
+
+- Update the module list
+- Add to API Reference section
+- Include code examples
+- Update table of contents if needed
+
+## 👥 Community
+
+### Get Help
+
+- **Discord**: Join our [Discord server](https://discord.gg/h2ur8H6mK6)
+- **Discussions**: Use [GitHub Discussions](https://github.com/cieslarmichal/faker-cxx/discussions)
+- **Issues**: Check [existing issues](https://github.com/cieslarmichal/faker-cxx/issues)
+
+### Code of Conduct
+
+Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md). We're committed to providing a welcoming and inclusive environment.
+
+### Recognition
+
+Contributors are recognized in:
+
+- The [README](README.md) contributors section
+- Release notes for significant contributions
+- Our community channels
+
+## ❓ Questions?
+
+If you have questions that aren't covered in this guide:
+
+1. Check the [documentation](https://cieslarmichal.github.io/faker-cxx/)
+2. Search [existing issues](https://github.com/cieslarmichal/faker-cxx/issues)
+3. Ask on [Discord](https://discord.gg/h2ur8H6mK6)
+4. Start a [discussion](https://github.com/cieslarmichal/faker-cxx/discussions)
+
+---
+
+## Thank You
+
+We appreciate your time and effort in making this library better for everyone.

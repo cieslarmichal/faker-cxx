@@ -36,7 +36,7 @@ std::string branch(std::optional<BranchIssueType> issueType, unsigned maxIssueNu
 
 std::string commitDate(unsigned years)
 {
-    return faker::date::pastDate(int(years));
+    return faker::date::pastDate(static_cast<unsigned int>(years));
 }
 
 std::string commitEntry(std::optional<unsigned> dateYears, std::optional<unsigned> shaLength, Locale locale)
