@@ -9,7 +9,7 @@ include(cmake/CompilerWarnings.cmake)
 include(CMakeDependentOption)
 
 option(USE_SYSTEM_DEPENDENCIES "Use GTest from system" OFF)
-option(BUILD_TESTING "Build tests" ON)
+option(FAKER_BUILD_TESTING "Build tests" ON)
 option(CODE_COVERAGE "Build faker-cxx with coverage support" OFF)
 
 SET(CMAKE_EXPORT_COMPILE_COMMANDS ON)
