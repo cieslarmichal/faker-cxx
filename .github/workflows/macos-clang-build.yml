@@ -81,7 +81,7 @@ jobs:
       - name: Configure CMake
         run: |
           cmake -S . --preset=unixlike-clang-debug-static \
-            -DBUILD_TESTING:BOOL=ON \
+            -DFAKER_BUILD_TESTING:BOOL=ON \
             -DCMAKE_CXX_COMPILER=${{ env.CLANG18_PATH }}++ \
             -DCMAKE_C_COMPILER=${{ env.CLANG18_PATH }} \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \

@@ -94,7 +94,7 @@ See our comprehensive [Building Guide](./docs/guides/BUILDING.md) for detailed i
 
 ```bash
 # Configure
-cmake -B build -DBUILD_TESTING=ON
+cmake -B build -DFAKER_BUILD_TESTING=ON
 
 # Build
 cmake --build build

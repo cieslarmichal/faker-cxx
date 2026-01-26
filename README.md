@@ -735,7 +735,7 @@ faker::location::city(faker::Locale::fr_FR);     // "Lyon"
 2. Link with library:
 
     ```cmake
-    set(BUILD_TESTING OFF)
+    set(FAKER_BUILD_TESTING OFF)
 
     add_subdirectory(externals/faker-cxx)
 
@@ -747,7 +747,7 @@ faker::location::city(faker::Locale::fr_FR);     // "Lyon"
 ### With FetchContent
 
 ```cmake
-set(BUILD_TESTING OFF)
+set(FAKER_BUILD_TESTING OFF)
 
 FetchContent_Declare(faker
     GIT_REPOSITORY https://github.com/cieslarmichal/faker-cxx.git
@@ -791,7 +791,7 @@ target_link_libraries(main PRIVATE faker-cxx::faker-cxx)
 
 ## Dependencies
 
-- GTest (set `BUILD_TESTING=OFF` CMake flag to disable this dependency)
+- GTest (set `FAKER_BUILD_TESTING=OFF` CMake flag to disable this dependency)
 
 In order to use external dependencies installed in your system, you can set the `USE_SYSTEM_DEPENDENCIES` CMake flag
 to `ON`.

@@ -65,7 +65,7 @@ jobs:
 
       - name: Configure CMake
         run: |
-          cmake -S . --preset=windows-msvc-debug-${{ matrix.type }} -G Ninja -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}\build\Debug\generators\conan_toolchain.cmake -DCMAKE_CXX_COMPILER=cl.exe -DBUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON
+          cmake -S . --preset=windows-msvc-debug-${{ matrix.type }} -G Ninja -DCMAKE_TOOLCHAIN_FILE=${{ github.workspace }}\build\Debug\generators\conan_toolchain.cmake -DCMAKE_CXX_COMPILER=cl.exe -DFAKER_BUILD_TESTING:BOOL=ON -DUSE_STD_FORMAT:BOOL=ON -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON
 
       - name: Build
         run: cmake --build --preset=windows-msvc-debug-${{ matrix.type }}
