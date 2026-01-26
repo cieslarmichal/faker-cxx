@@ -14,7 +14,7 @@
 # the License.
 
 # USAGE: To enable any code coverage instrumentation/targets, the single CMake
-# option of `CODE_COVERAGE` needs to be set to 'ON', either by GUI, ccmake, or
+# option of `FAKER_CODE_COVERAGE` needs to be set to 'ON', either by GUI, ccmake, or
 # on the command line.
 #
 # From this point, there are two primary methods for adding instrumentation to
@@ -75,7 +75,7 @@
 
 # Options
 option(
-    CODE_COVERAGE
+    FAKER_CODE_COVERAGE
     "Builds targets with code coverage instrumentation. (Requires GCC or Clang)"
     OFF)
 
@@ -92,8 +92,8 @@ set(CMAKE_COVERAGE_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/ccov)
 set_property(GLOBAL PROPERTY JOB_POOLS ccov_serial_pool=1)
 
 # Common initialization/checks
-if(CODE_COVERAGE AND NOT CODE_COVERAGE_ADDED)
-    set(CODE_COVERAGE_ADDED ON)
+if(FAKER_CODE_COVERAGE AND NOT FAKER_CODE_COVERAGE_ADDED)
+    set(FAKER_CODE_COVERAGE_ADDED ON)
 
     # Common Targets
     file(MAKE_DIRECTORY ${CMAKE_COVERAGE_OUTPUT_DIRECTORY})
@@ -258,7 +258,7 @@ function(target_code_coverage TARGET_NAME)
         set(target_code_coverage_COVERAGE_TARGET_NAME ${TARGET_NAME})
     endif()
 
-    if(CODE_COVERAGE)
+    if(FAKER_CODE_COVERAGE)
 
         # Add code coverage instrumentation to the target's linker command
         if(CMAKE_C_COMPILER_ID MATCHES "(Apple)?[Cc]lang"
@@ -551,7 +551,7 @@ endfunction()
 # any subdirectories. To add coverage instrumentation to only specific targets,
 # use `target_code_coverage`.
 function(add_code_coverage)
-    if(CODE_COVERAGE)
+    if(FAKER_CODE_COVERAGE)
         if(CMAKE_C_COMPILER_ID MATCHES "(Apple)?[Cc]lang"
            OR CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?[Cc]lang")
             add_compile_options(-fprofile-instr-generate -fcoverage-mapping)
@@ -582,7 +582,7 @@ function(add_code_coverage_all_targets)
     cmake_parse_arguments(add_code_coverage_all_targets "" ""
                           "${multi_value_keywords}" ${ARGN})
 
-    if(CODE_COVERAGE)
+    if(FAKER_CODE_COVERAGE)
         if(CMAKE_C_COMPILER_ID MATCHES "(Apple)?[Cc]lang"
            OR CMAKE_CXX_COMPILER_ID MATCHES "(Apple)?[Cc]lang")
 

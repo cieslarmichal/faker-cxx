@@ -16,7 +16,7 @@
             "cacheVariables": {
                 "USE_SYSTEM_DEPENDENCIES": "FALSE",
                 "USE_STD_FORMAT": "TRUE",
-                "BUILD_TESTING": "TRUE"
+                "FAKER_BUILD_TESTING": "TRUE"
             }
         },
         {

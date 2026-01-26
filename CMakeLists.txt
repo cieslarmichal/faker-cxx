@@ -9,8 +9,8 @@ include(cmake/CompilerWarnings.cmake)
 include(CMakeDependentOption)
 
 option(USE_SYSTEM_DEPENDENCIES "Use GTest from system" OFF)
-option(BUILD_TESTING "Build tests" ON)
-option(CODE_COVERAGE "Build faker-cxx with coverage support" OFF)
+option(FAKER_BUILD_TESTING "Build tests" ON)
+option(FAKER_CODE_COVERAGE "Build faker-cxx with coverage support" OFF)
 
 SET(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
@@ -26,14 +26,14 @@ add_library(${PROJECT_NAME})
 
 add_subdirectory(src)
 
-if (CODE_COVERAGE)
+if (FAKER_CODE_COVERAGE)
     set(target_code_coverage_ALL 1)
     include("cmake/cmake-coverage.cmake")
     add_code_coverage_all_targets(EXCLUDE tests/*)
     target_code_coverage(${PROJECT_NAME} ALL)
 endif ()
 
-if (BUILD_TESTING)
+if (FAKER_BUILD_TESTING)
     enable_testing()
     add_subdirectory(tests)
 endif ()

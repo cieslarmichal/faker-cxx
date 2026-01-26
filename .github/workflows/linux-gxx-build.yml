@@ -77,7 +77,7 @@ jobs:
             -DCMAKE_C_COMPILER=gcc-${{ matrix.gcc_version }} \
             -DCMAKE_CXX_COMPILER=g++-${{ matrix.gcc_version }} \
             -DCMAKE_CXX_COMPILER_LAUNCHER=ccache \
-            -DBUILD_TESTING:BOOL=ON \
+            -DFAKER_BUILD_TESTING:BOOL=ON \
             -DUSE_STD_FORMAT:BOOL=ON \
             -DUSE_SYSTEM_DEPENDENCIES:BOOL=ON \
             -DCMAKE_TOOLCHAIN_FILE=build/Debug/generators/conan_toolchain.cmake \

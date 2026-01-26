@@ -34,7 +34,7 @@ cd faker-cxx
 git submodule update --init --recursive
 
 # Configure and build (Linux/macOS with default compiler)
-cmake -B ./build -DBUILD_TESTING=ON
+cmake -B ./build -DFAKER_BUILD_TESTING=ON
 cmake --build ./build
 
 # Run tests
@@ -62,7 +62,7 @@ sudo apt install cmake ninja-build g++-13
 **2. Configure and build:**
 
 ```bash
-cmake -B ./build -DCMAKE_CXX_COMPILER=g++-13 -DBUILD_TESTING=ON
+cmake -B ./build -DCMAKE_CXX_COMPILER=g++-13 -DFAKER_BUILD_TESTING=ON
 cmake --build ./build
 ctest --test-dir ./build
 ```
@@ -78,7 +78,7 @@ sudo apt install clang-18
 **2. Configure and build:**
 
 ```bash
-cmake -B ./build -DCMAKE_CXX_COMPILER=clang++ -DBUILD_TESTING=ON
+cmake -B ./build -DCMAKE_CXX_COMPILER=clang++ -DFAKER_BUILD_TESTING=ON
 cmake --build ./build
 ctest --test-dir ./build
 ```
@@ -95,7 +95,7 @@ export PATH="/opt/homebrew/opt/llvm@18/bin:$PATH"
 **2. Configure and build:**
 
 ```bash
-cmake -B ./build -DCMAKE_CXX_COMPILER=clang++ -DBUILD_TESTING=ON
+cmake -B ./build -DCMAKE_CXX_COMPILER=clang++ -DFAKER_BUILD_TESTING=ON
 cmake --build ./build
 ctest --test-dir ./build
 ```
@@ -174,7 +174,7 @@ git submodule update --init --recursive
 **Tests not found:**
 
 ```bash
-cmake -B ./build -DBUILD_TESTING=ON
+cmake -B ./build -DFAKER_BUILD_TESTING=ON
 ```
 
 ## Advanced Options
@@ -182,7 +182,7 @@ cmake -B ./build -DBUILD_TESTING=ON
 ```bash
 cmake -B ./build \
   -DUSE_SYSTEM_DEPENDENCIES=ON \
-  -DBUILD_TESTING=OFF \
+  -DFAKER_BUILD_TESTING=OFF \
   -DCMAKE_INSTALL_PREFIX=/custom/path \
   -G Ninja
 ```

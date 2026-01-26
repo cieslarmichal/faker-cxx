@@ -19,7 +19,7 @@ Add this to your `CMakeLists.txt`:
 ```cmake
 include(FetchContent)
 
-set(BUILD_TESTING OFF)
+set(FAKER_BUILD_TESTING OFF)
 
 FetchContent_Declare(
     faker-cxx
@@ -44,7 +44,7 @@ git submodule update --init --recursive
 Then in your `CMakeLists.txt`:
 
 ```cmake
-set(BUILD_TESTING OFF)
+set(FAKER_BUILD_TESTING OFF)
 add_subdirectory(externals/faker-cxx)
 
 add_executable(myapp main.cpp)
