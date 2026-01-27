@@ -195,7 +195,7 @@ auto deIban = faker::finance::iban(faker::Locale::de_DE);      // "DE89370400440
 - 👨‍💻 Hacker - abbreviations, phrases
 - 🖼️ Image - URLs, dimensions, types
 - 🌐 Internet - email, username, password, IP, URL
-- 🌍 Location - country, city, address, coordinates
+- 🌍 Location - country, city, address, coordinates, MGRS grid
 - 📚 Lorem - words, sentences, paragraphs
 - 🏥 Medicine - conditions, tests, specialties
 - 🎥 Movie - titles, genres, actors, directors
@@ -510,6 +510,7 @@ faker::location::latitude()              // "34.052235"
 faker::location::longitude()             // "-118.243683"
 faker::location::direction()             // "North"
 faker::location::timeZone()              // "America/Los_Angeles"
+faker::location::mgrs()                  // "17SMD92712525"
 ```
 
 ### 📚 Lorem Module
