@@ -373,10 +373,9 @@ FAKER_CXX_EXPORT std::string anonymousUsername(unsigned maxLength);
  * faker::internet::jwtToken(header, payload); // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
  * @endcode
  */
-FAKER_CXX_EXPORT std::string
-jwtToken(const std::optional<std::map<std::string, std::string>>& header = std::nullopt,
-            const std::optional<std::map<std::string, std::string>>& payload = std::nullopt,
-            const std::optional<std::string>& refDate = std::nullopt);
+FAKER_CXX_EXPORT std::string jwtToken(const std::optional<std::map<std::string, std::string>>& header = std::nullopt,
+                                      const std::optional<std::map<std::string, std::string>>& payload = std::nullopt,
+                                      const std::optional<std::string>& refDate = std::nullopt);
 
 /**
  * @brief Returns the algorithm used for signing the JWT.

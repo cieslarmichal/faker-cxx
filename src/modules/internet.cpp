@@ -465,8 +465,8 @@ std::string_view jwtAlgorithm(Locale locale)
 }
 
 std::string jwtToken(const std::optional<std::map<std::string, std::string>>& header,
-                        const std::optional<std::map<std::string, std::string>>& payload,
-                        const std::optional<std::string>& refDate)
+                     const std::optional<std::map<std::string, std::string>>& payload,
+                     const std::optional<std::string>& refDate)
 {
     const auto refDateValue = refDate.value_or(date::anytime());
 
