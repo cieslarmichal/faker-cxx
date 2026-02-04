@@ -457,14 +457,14 @@ std::string anonymousUsername(unsigned maxLength)
     return common::format("{}{}", word::adjective(adjectiveLength), word::noun(nounLength));
 }
 
-std::string_view getJWTAlgorithm(Locale locale)
+std::string_view jwtAlgorithm(Locale locale)
 {
     const auto& internetDefinition = getInternetDefinition(locale);
 
     return helper::randomElement(internetDefinition.jwtAlgorithms);
 }
 
-std::string getJWTToken(const std::optional<std::map<std::string, std::string>>& header,
+std::string jwtToken(const std::optional<std::map<std::string, std::string>>& header,
                         const std::optional<std::map<std::string, std::string>>& payload,
                         const std::optional<std::string>& refDate)
 {
@@ -477,7 +477,7 @@ std::string getJWTToken(const std::optional<std::map<std::string, std::string>>&
     std::optional<std::map<std::string, std::string>> localHeader = header;
     std::optional<std::map<std::string, std::string>> localPayload = payload;
 
-    std::string algorithm(getJWTAlgorithm());
+    std::string algorithm(jwtAlgorithm());
 
     if (!localHeader)
     {

@@ -229,7 +229,10 @@ faker::airline::airline()                // {name: "American Airlines", iataCode
 faker::airline::airport()                // {name: "Los Angeles International Airport", iataCode: "LAX"}
 faker::airline::seat(aircraftType)       // "1A"
 faker::airline::recordLocator()          // "ABCDEF"
+faker::airline::recordLocator(true)      // "ABC123"
 faker::airline::flightNumber()           // "1234"
+faker::airline::flightNumber(true)       // "0123"
+faker::airline::flightNumberByRange()    // "234"
 ```
 
 ### 🐼 Animal Module
@@ -372,7 +375,16 @@ faker::date::weekdayName()               // "Monday"
 faker::date::weekdayAbbreviatedName()    // "Mon"
 faker::date::monthName()                 // "January"
 faker::date::monthAbbreviatedName()      // "Jan"
+faker::date::year()                      // 2000
+faker::date::month()                     // 9
+faker::date::hour()                      // 21
+faker::date::minute()                    // 40
+faker::date::second()                    // 40
+faker::date::time()                      // "21:40"
+faker::date::dayOfMonth()                // 15
+faker::date::dayOfWeek()                 // 5
 faker::date::timezoneRandom()            // "America/New_York"
+faker::date::between(from, to)           // Random date between two timestamps
 ```
 
 ### 🎓 Education Module
@@ -463,9 +475,12 @@ faker::hacker::phrase()                  // "Try to parse the HTTP protocol!"
 
 ```cpp
 faker::image::imageUrl()                 // "https://loremflickr.com/640/480"
-faker::image::avatarUrl()                // "https://cloudflare-ipfs.com/ipfs/Qmd3W5..."
+faker::image::urlLoremFlickr()           // "https://loremflickr.com/640/480"
+faker::image::urlPicsumPhotos()          // "https://picsum.photos/640/480"
+faker::image::githubAvatarUrl()          // "https://avatars.githubusercontent.com/u/9716558"
 faker::image::dimensions()               // "1920x1080"
 faker::image::type()                     // "png"
+faker::image::dataUri()                  // "data:image/svg+xml;charset=UTF-8,..."
 ```
 
 ### 🌐 Internet Module
@@ -476,6 +491,7 @@ faker::internet::email()                 // "Jimenez.Clyde@gmail.com"
 faker::internet::exampleEmail()          // "Jimenez.Clyde@example.com"
 faker::internet::password()              // "gXGpe9pKfFcKy9R"
 faker::internet::emoji()                 // "👑"
+faker::internet::checkIfEmojiIsValid("👑") // true
 faker::internet::protocol()              // "https"
 faker::internet::httpMethod()            // "POST"
 faker::internet::httpStatusCode()        // 200
@@ -490,7 +506,9 @@ faker::internet::url()                   // "https://example.com"
 faker::internet::domainName()            // "example.com"
 faker::internet::domainSuffix()          // "com"
 faker::internet::domainWord()            // "example"
-faker::internet::jwt()                   // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+faker::internet::anonymousUsername(15)   // "profusebrother"
+faker::internet::jwtToken()           // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+faker::internet::jwtAlgorithm()       // "HS256"
 ```
 
 ### 🌍 Location Module
@@ -508,7 +526,9 @@ faker::location::buildingNumber()        // "123"
 faker::location::secondaryAddress()      // "Apt. 4"
 faker::location::latitude()              // "34.052235"
 faker::location::longitude()             // "-118.243683"
+faker::location::nearbyGPSCoordinate()   // {"48.8566", "2.3522"}
 faker::location::direction()             // "North"
+faker::location::ordinalDirection()      // "Southeast"
 faker::location::timeZone()              // "America/Los_Angeles"
 faker::location::mgrs()                  // "17SMD92712525"
 ```
@@ -518,6 +538,7 @@ faker::location::mgrs()                  // "17SMD92712525"
 ```cpp
 faker::lorem::word()                     // "temporibus"
 faker::lorem::words()                    // "qui praesentium pariatur"
+faker::lorem::wordVector(3)              // {"temporibus", "ipsum", "alias"}
 faker::lorem::sentence()                 // "Laborum voluptatem officiis est et."
 faker::lorem::sentences()                // "Two sentences here. And another one."
 faker::lorem::slug()                     // "hello-world-test"
@@ -556,10 +577,14 @@ faker::music::genre()                    // "Rock"
 
 ```cpp
 faker::number::integer(1, 100)           // 42
+faker::number::integer(100)              // 57 (0 to max)
 faker::number::decimal(0.0, 1.0)         // 0.573
-faker::number::hexadecimal(8)            // "a3f5d2b1"
-faker::number::octal(8)                  // "12345670"
-faker::number::binary(8)                 // "10110101"
+faker::number::decimal(10.0)             // 5.7 (0 to max)
+faker::number::normalDistribution(10, 3) // 12.374
+faker::number::hexadecimal(8)            // "0xae13d044cb"
+faker::number::octal(8)                  // "0o52561721"
+faker::number::binary(8)                 // "0b01110101"
+faker::number::binary(0, 1024)           // "0b10110" (range)
 faker::number::roman(1, 100)             // "XLII"
 ```
 
@@ -590,32 +615,45 @@ faker::person::passport()                // "A12345678"
 ### 📞 Phone Module
 
 ```cpp
-faker::phone::number()                   // "+1-555-123-4567"
+faker::phone::phoneNumberByFormat()      // "961-770-7727"
+faker::phone::phoneNumberByFormat("501-###-###") // "501-039-841"
+faker::phone::phoneNumberByCountry()     // "234-532-654"
 faker::phone::platform()                 // "iOS"
-faker::phone::modelName()                // "iPhone 13"
+faker::phone::modelName()                // "Samsung Galaxy S22"
 faker::phone::manufacturer()             // "Apple"
-faker::phone::imei()                     // "123456789012345"
+faker::phone::imei()                     // "13-850175-913761-7"
+faker::phone::areaCode()                 // "+1"
 ```
 
 ### 🪴 Plant Module
 
 ```cpp
-faker::plant::type()                     // "Tree"
 faker::plant::tree()                     // "Oak"
 faker::plant::flower()                   // "Rose"
+faker::plant::shrub()                    // "Azalea"
+faker::plant::grass()                    // "Kentucky Bluegrass"
+faker::plant::fern()                     // "Maidenhair"
+faker::plant::succulent()                // "Aloe Vera"
+faker::plant::vine()                     // "Ivy"
+faker::plant::plantType()                // "tree"
 ```
 
 ### 🧑‍🔬 Science Module
 
 ```cpp
 faker::science::chemicalElement()        // {name: "Hydrogen", symbol: "H", atomicNumber: 1}
-faker::science::unit()                   // {name: "meter", symbol: "m", type: "length"}
+faker::science::unit()                   // {name: "meter", symbol: "m", usedToMeasure: "length"}
+faker::science::distanceUnit()           // {name: "meter", symbol: "m", usedToMeasure: "length"}
+faker::science::timeUnit()               // {name: "second", symbol: "s", usedToMeasure: "time"}
+faker::science::massUnit()               // {name: "gram", symbol: "g", usedToMeasure: "mass"}
+faker::science::tempUnit()               // {name: "celsius", symbol: "°C", usedToMeasure: "temperature"}
+faker::science::currentUnit()            // {name: "ampere", symbol: "A", usedToMeasure: "current"}
 ```
 
 ### ⚽ Sport Module
 
 ```cpp
-faker::sport::sport()                    // "Football"
+faker::sport::sportName()                // "Football"
 faker::sport::soccerTeam()               // "Manchester United"
 faker::sport::maleAthlete()              // "Cristiano Ronaldo"
 faker::sport::femaleAthlete()            // "Serena Williams"
@@ -625,32 +663,39 @@ faker::sport::sportEvent()               // "Super Bowl"
 ### 🔢 String Module
 
 ```cpp
-faker::string::uuidV1()                  // "b4f5d6f0-5d6e-11ec-bf63-0242ac130002"
-faker::string::uuidV3()                  // "a3bb189e-8bf9-3888-9912-ace4e6543002"
-faker::string::uuidV4()                  // "8e3a4f21-5c7b-4d9a-8f2e-1b9c7d6a5e3f"
-faker::string::uuidV5()                  // "c6437ef1-5b86-5a4e-a071-c2d4ad414e65"
-faker::string::uuidV6()                  // "1ec5d6f0-5d6e-6b40-8000-0242ac130002"
-faker::string::uuidV7()                  // "017f22e2-79b0-7cc3-98c4-dc0c0c07398f"
-faker::string::ulid()                    // "01ARZ3NDEKTSV4RRFFQ69G5FAV"
-faker::string::sample(10)                // "aB3$fG7@kL"
+faker::string::uuidV1()                  // "29915d84-c5e8-11ef-9cd2-0242ac120002"
+faker::string::uuidV3()                  // "c6437ef1-5b86-3a4e-a071-c2d4ad414e65"
+faker::string::uuidV4()                  // "78754621-9544-4c79-9c1d-76d3ba881f53"
+faker::string::uuidV5("hello")           // "6c7f25c1-1f94-53df-aab6-627ed664b1a7"
+faker::string::uuidV6()                  // "1efc5e90-f32e-6420-bab1-7bdb35fa2abb"
+faker::string::uuidV7()                  // "0194129b-f344-783c-ab87-d1a79bcf9a4e"
+faker::string::ulid()                    // "0001C7STHC0G2081040G208104"
+faker::string::sample(10)                // "Zo!.:*e>wR"
+faker::string::symbol(5)                 // "#$%^&"
 faker::string::fromCharacters("abc", 5)  // "abcab"
 faker::string::alpha(10)                 // "aBcDeFgHiJ"
 faker::string::alphanumeric(10)          // "aB3cD5eF7g"
 faker::string::numeric(10)               // "1234567890"
-faker::string::nanoId()                  // "V1StGXR8_Z5jdHi6B-myT"
+faker::string::nanoId()                  // "Hf5lN8L2wQ"
+faker::string::nanoId(21)                // "V2JlO7GZ1kPl9FxErRqzS"
+faker::string::isValidGuarantee(...)     // true/false
+faker::string::generateAtLeastString(...)// "000aaaaaa"
 ```
 
 ### 💻 System Module
 
 ```cpp
-faker::system::fileName()                // "document.pdf"
+faker::system::fileName()                // "injustice.mpeg"
 faker::system::fileExtension()           // "pdf"
-faker::system::filePath()                // "/usr/local/bin/app"
-faker::system::directoryPath()           // "/usr/local"
-faker::system::mimeType()                // "application/pdf"
-faker::system::semver()                  // "1.0.0"
-faker::system::networkInterface()        // "eth0"
-faker::system::cron()                    // "0 0 * * *"
+faker::system::commonFileName()          // "dollar.jpg"
+faker::system::commonFileExtension()     // "gif"
+faker::system::mimeType()                // "video/vnd.vivo"
+faker::system::fileType()                // "audio"
+faker::system::directoryPath()           // "/etc/mail"
+faker::system::filePath()                // "/usr/local/src/money.dotx"
+faker::system::semver()                  // "1.1.2"
+faker::system::networkInterface()        // "enp2s7f8"
+faker::system::cron()                    // "22 * ? * ?"
 ```
 
 ### 🚗 Vehicle Module
@@ -682,10 +727,10 @@ faker::video::videoUrl()                 // "https://youtube.com/watch?v=..."
 ### 🎮 Video Game Module
 
 ```cpp
-faker::videoGame::gameTitle()            // "Minecraft"
-faker::videoGame::genre()                // "Action"
-faker::videoGame::platform()             // "PlayStation 5"
-faker::videoGame::studioName()           // "Mojang Studios"
+faker::videogame::gameTitle()            // "Minecraft"
+faker::videogame::genre()                // "Action"
+faker::videogame::platform()             // "PlayStation 5"
+faker::videogame::studioName()           // "Mojang Studios"
 ```
 
 ### 🌤️ Weather Module
@@ -697,15 +742,17 @@ faker::weather::weatherDescription()     // "Partly cloudy"
 ### 💬 Word Module
 
 ```cpp
-faker::word::sample()                    // "apple"
-faker::word::words(3)                    // "apple banana cherry"
-faker::word::adjective()                 // "beautiful"
-faker::word::adverb()                    // "quickly"
-faker::word::conjunction()               // "and"
-faker::word::interjection()              // "wow"
-faker::word::noun()                      // "house"
-faker::word::preposition()               // "above"
-faker::word::verb()                      // "run"
+faker::word::sample()                    // "protection"
+faker::word::sample(5)                   // "spell"
+faker::word::words(3)                    // "before hourly patiently"
+faker::word::adjective()                 // "complete"
+faker::word::adjectiveLocale(5, locale)  // "brave" (with locale)
+faker::word::adverb()                    // "deliberately"
+faker::word::conjunction()               // "because"
+faker::word::interjection()              // "psst"
+faker::word::noun()                      // "pudding"
+faker::word::preposition()               // "besides"
+faker::word::verb()                      // "override"
 ```
 
 ## 🌍 Supported Locales

@@ -370,11 +370,11 @@ FAKER_CXX_EXPORT std::string anonymousUsername(unsigned maxLength);
  * @code
  * std::map<std::string, std::string> header = {{"alg", "HS256"}, {"typ", "JWT"}};
  * std::map<std::string, std::string> payload = {{"sub", "1234567890"}, {"name", "John Doe"}, {"admin", "true"}};
- * faker::internet::getJWTToken(header, payload); // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
+ * faker::internet::jwtToken(header, payload); // "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
  * @endcode
  */
 FAKER_CXX_EXPORT std::string
-getJWTToken(const std::optional<std::map<std::string, std::string>>& header = std::nullopt,
+jwtToken(const std::optional<std::map<std::string, std::string>>& header = std::nullopt,
             const std::optional<std::map<std::string, std::string>>& payload = std::nullopt,
             const std::optional<std::string>& refDate = std::nullopt);
 
@@ -386,8 +386,8 @@ getJWTToken(const std::optional<std::map<std::string, std::string>>& header = st
  * @returns A string view representing the JWT signing algorithm.
  *
  * @code
- * faker::internet::getJWTAlgorithm(); // "HS256"
+ * faker::internet::jwtAlgorithm(); // "HS256"
  * @endcode
  */
-FAKER_CXX_EXPORT std::string_view getJWTAlgorithm(Locale locale = Locale::en_US);
+FAKER_CXX_EXPORT std::string_view jwtAlgorithm(Locale locale = Locale::en_US);
 }

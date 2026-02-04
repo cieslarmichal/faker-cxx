@@ -897,10 +897,10 @@ TEST_F(InternetTest, shouldGenerateJwtToken)
     const std::map<std::string, std::string> payload = {{"sub", "1234567890"}, {"name", "John Doe"}, {"admin", "true"}};
     const auto refDate = std::to_string(std::chrono::system_clock::to_time_t(std::chrono::system_clock::now()));
 
-    ASSERT_TRUE(std::regex_match(getJWTToken(), pattern));
-    ASSERT_TRUE(std::regex_match(getJWTToken(header), pattern));
-    ASSERT_TRUE(std::regex_match(getJWTToken(header, payload), pattern));
-    ASSERT_TRUE(std::regex_match(getJWTToken(header, payload, refDate), pattern));
+    ASSERT_TRUE(std::regex_match(jwtToken(), pattern));
+    ASSERT_TRUE(std::regex_match(jwtToken(header), pattern));
+    ASSERT_TRUE(std::regex_match(jwtToken(header, payload), pattern));
+    ASSERT_TRUE(std::regex_match(jwtToken(header, payload, refDate), pattern));
 }
 
 TEST_P(InternetTest, shouldGenerateJWTAlgorithm)
@@ -908,7 +908,7 @@ TEST_P(InternetTest, shouldGenerateJWTAlgorithm)
     const auto locale = GetParam();
     const auto& internetDefinition = getInternetDefinition(locale);
 
-    const auto generatedJWTAlgorythm = getJWTAlgorithm(locale);
+    const auto generatedJWTAlgorythm = jwtAlgorithm(locale);
 
     ASSERT_TRUE(std::ranges::any_of(internetDefinition.jwtAlgorithms,
                                     [generatedJWTAlgorythm](const std::string_view& JWTAlgorythm)
