@@ -7,5 +7,7 @@ var searchData=
   ['jobdescriptor_4',['jobDescriptor',['../namespacefaker_1_1person.html#a4076a7788b7715cdd889f1fe23b66c17',1,'faker::person']]],
   ['jobtitle_5',['jobTitle',['../namespacefaker_1_1person.html#aed588e01226bc0ba073dbf0e1e6cf96f',1,'faker::person']]],
   ['jobtype_6',['jobType',['../namespacefaker_1_1person.html#a12dbe0569b391994f9f3fd1207f688fc',1,'faker::person']]],
-  ['jordan_7',['Jordan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6ea1e24d60afddf388b06f8243c45b70',1,'faker::phone']]]
+  ['jordan_7',['Jordan',['../namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa6ea1e24d60afddf388b06f8243c45b70',1,'faker::phone']]],
+  ['jwtalgorithm_8',['jwtAlgorithm',['../namespacefaker_1_1internet.html#ae2e27fe1dcb2218e3a47a81f274f9072',1,'faker::internet']]],
+  ['jwttoken_9',['jwtToken',['../namespacefaker_1_1internet.html#a4252cc14bb18511e0f36b190c7e983c9',1,'faker::internet']]]
 ];
