@@ -258,10 +258,9 @@ const std::vector<Locale> locales{
     Locale::uz_uz,  Locale::vi_VN,  Locale::wo_SN,  Locale::xh_ZA,  Locale::yo_NG,  Locale::zh_CN,  Locale::zh_HK,
     Locale::zh_MO,  Locale::zh_SG,  Locale::zh_TW,  Locale::zu_ZA};
 
-inline const std::set<Locale> postCodeSet{Locale::cy_GB, Locale::gd_GB,  Locale::en_GB, Locale::en_CA,
-                                          Locale::fr_CA, Locale::moh_CA, Locale::fy_NL, Locale::nl_NL,
-                                          Locale::es_AR, Locale::ms_BN,  Locale::mt_MT, Locale::en_MT,
-                                        Locale::lt_LT};
+inline const std::set<Locale> postCodeSet{Locale::cy_GB,  Locale::gd_GB, Locale::en_GB, Locale::en_CA, Locale::fr_CA,
+                                          Locale::moh_CA, Locale::fy_NL, Locale::nl_NL, Locale::es_AR, Locale::ms_BN,
+                                          Locale::mt_MT,  Locale::en_MT, Locale::lt_LT};
 
 inline std::string toString(Locale locale)
 {
