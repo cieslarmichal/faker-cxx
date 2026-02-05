@@ -7,10 +7,15 @@ bazel_dep(
 
 bazel_dep(
     name = "googletest",
-    version = "1.15.0"
+    version = "1.17.0"
 )
 
 bazel_dep(
     name = "rules_cc",
-    version = "0.1.1"
+    version = "0.2.14"
+)
+
+bazel_dep(
+    name = "platforms",
+    version = "1.0.0"
 )
