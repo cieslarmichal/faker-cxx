@@ -60,8 +60,8 @@ std::string decode(const void* data, const size_t len)
     {
         int n = B64index[p[i]] << 18 | B64index[p[i + 1]] << 12 | B64index[p[i + 2]] << 6 | B64index[p[i + 3]];
         str[j++] = static_cast<char>(n >> 16);
-        str[j++] = n >> 8 & 0xFF;
-        str[j++] = n & 0xFF;
+        str[j++] = static_cast<char>(n >> 8 & 0xFF);
+        str[j++] = static_cast<char>(n & 0xFF);
     }
     if (pad)
     {
@@ -71,7 +71,7 @@ std::string decode(const void* data, const size_t len)
         if (len > L + 2 && p[L + 2] != '=')
         {
             n |= B64index[p[L + 2]] << 6;
-            str.push_back(n >> 8 & 0xFF);
+            str.push_back(static_cast<char>(n >> 8 & 0xFF));
         }
     }
     return str;

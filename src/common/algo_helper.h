@@ -23,7 +23,7 @@ static T setElement(const std::set<T>& data)
         throw std::invalid_argument{"Data is empty."};
     }
 
-    T item;
+    T item{};
 
     std::mt19937_64& pseudoRandomGenerator = getGenerator();
 

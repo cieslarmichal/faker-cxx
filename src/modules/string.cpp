@@ -398,8 +398,8 @@ std::string uuidV1()
     auto time_hi_and_version = static_cast<uint16_t>((timestamp >> 48) & 0x0FFFULL);
     time_hi_and_version |= (1 << 12);
 
-    uint8_t clock_seq_low = clock_seq & 0xFF;
-    uint8_t clock_seq_hi_and_reserved = ((clock_seq >> 8) & 0x3F) | 0x80;
+    uint8_t clock_seq_low = static_cast<uint8_t>(clock_seq & 0xFF);
+    uint8_t clock_seq_hi_and_reserved = static_cast<uint8_t>(((clock_seq >> 8) & 0x3F) | 0x80);
 
     std::ostringstream ss;
     ss << std::hex << std::setfill('0');
@@ -449,8 +449,8 @@ std::string uuidV4()
 {
     RandomGenerator<std::mt19937_64> gen{getGenerator()};
 
-    static std::uniform_int_distribution<> dist(0, 15);
-    static std::uniform_int_distribution<> dist2(8, 11);
+    static std::uniform_int_distribution<size_t> dist(0, 15);
+    static std::uniform_int_distribution<size_t> dist2(8, 11);
     static std::string_view hexCharacters{"0123456789abcdef"};
 
     std::string result;
@@ -458,34 +458,34 @@ std::string uuidV4()
 
     for (int i = 0; i < 8; i++)
     {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
+        result.append(1, hexCharacters[gen(dist)]);
     }
     result.append(1, '-');
 
     for (int i = 0; i < 4; i++)
     {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
+        result.append(1, hexCharacters[gen(dist)]);
     }
     result.append(1, '-');
 
     result.append(1, '4');
     for (int i = 0; i < 3; i++)
     {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
+        result.append(1, hexCharacters[gen(dist)]);
     }
     result.append(1, '-');
 
-    result.append(1, hexCharacters[static_cast<size_t>(gen(dist2))]);
+    result.append(1, hexCharacters[gen(dist2)]);
 
     for (int i = 0; i < 3; i++)
     {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
+        result.append(1, hexCharacters[gen(dist)]);
     }
     result.append(1, '-');
 
     for (int i = 0; i < 12; i++)
     {
-        result.append(1, hexCharacters[static_cast<size_t>(gen(dist))]);
+        result.append(1, hexCharacters[gen(dist)]);
     }
 
     return result;
@@ -566,8 +566,8 @@ std::string uuidV6()
     auto time_low_and_version = static_cast<uint16_t>(timestamp & 0x0FFFULL);
     time_low_and_version |= (6 << 12); // Set version to 6
 
-    uint8_t clock_seq_low = clock_seq & 0xFF;
-    uint8_t clock_seq_hi_and_reserved = ((clock_seq >> 8) & 0x3F) | 0x80;
+    uint8_t clock_seq_low = static_cast<uint8_t>(clock_seq & 0xFF);
+    uint8_t clock_seq_hi_and_reserved = static_cast<uint8_t>(((clock_seq >> 8) & 0x3F) | 0x80);
 
     std::ostringstream ss;
     ss << std::hex << std::setfill('0');
