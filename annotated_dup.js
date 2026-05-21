@@ -2,8 +2,8 @@ var annotated_dup =
 [
     [ "faker", "namespacefaker.html", [
       [ "airline", "namespacefaker_1_1airline.html", [
-        [ "AirlineInfo", "structfaker_1_1airline_1_1AirlineInfo.html", "structfaker_1_1airline_1_1AirlineInfo" ],
         [ "Airplane", "structfaker_1_1airline_1_1Airplane.html", "structfaker_1_1airline_1_1Airplane" ],
+        [ "AirlineInfo", "structfaker_1_1airline_1_1AirlineInfo.html", "structfaker_1_1airline_1_1AirlineInfo" ],
         [ "Airport", "structfaker_1_1airline_1_1Airport.html", "structfaker_1_1airline_1_1Airport" ],
         [ "Range", "structfaker_1_1airline_1_1Range.html", "structfaker_1_1airline_1_1Range" ]
       ] ],

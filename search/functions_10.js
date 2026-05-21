@@ -34,6 +34,5 @@ var searchData=
   ['studioname_31',['studioName',['../namespacefaker_1_1videogame.html#a3c88f81c0dedea1654576cd375331f68',1,'faker::videogame']]],
   ['succulent_32',['succulent',['../namespacefaker_1_1plant.html#a7c68e45162c519ef4eaf951154bbef05',1,'faker::plant']]],
   ['suffix_33',['suffix',['../namespacefaker_1_1person.html#a0e2a416b654fbed4272162da9148cf75',1,'faker::person']]],
-  ['sugarproduct_34',['sugarProduct',['../namespacefaker_1_1food.html#aa1884db355e40e79e568f6ec96810ba9',1,'faker::food']]],
-  ['symbol_35',['symbol',['../namespacefaker_1_1string.html#a329b6a478487c87eadb19b1f78292264',1,'faker::string']]]
+  ['sugarproduct_34',['sugarProduct',['../namespacefaker_1_1food.html#aa1884db355e40e79e568f6ec96810ba9',1,'faker::food']]]
 ];

@@ -1,7 +1,7 @@
 var namespacefaker_1_1airline =
 [
-    [ "AirlineInfo", "structfaker_1_1airline_1_1AirlineInfo.html", "structfaker_1_1airline_1_1AirlineInfo" ],
     [ "Airplane", "structfaker_1_1airline_1_1Airplane.html", "structfaker_1_1airline_1_1Airplane" ],
+    [ "AirlineInfo", "structfaker_1_1airline_1_1AirlineInfo.html", "structfaker_1_1airline_1_1AirlineInfo" ],
     [ "Airport", "structfaker_1_1airline_1_1Airport.html", "structfaker_1_1airline_1_1Airport" ],
     [ "Range", "structfaker_1_1airline_1_1Range.html", "structfaker_1_1airline_1_1Range" ],
     [ "AircraftType", "namespacefaker_1_1airline.html#aa0f30eb26e69720c80bc6ec9184247b7", [
