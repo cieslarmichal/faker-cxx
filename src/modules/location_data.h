@@ -15932,6 +15932,150 @@ const auto albaniaCityFormats = std::to_array<std::string_view>({
     "{cityName}"
 });
 
+// Austria
+
+const auto austriaCities = std::to_array<std::string_view>({
+    "Vienna",
+    "Graz",
+    "Linz",
+    "Salzburg",
+    "Innsbruck",
+    "Klagenfurt",
+    "Villach",
+    "Wels",
+    "Sankt Pölten",
+    "Dornbirn",
+    "Wiener Neustadt",
+    "Steyr",
+    "Feldkirch",
+    "Bregenz",
+    "Leoben",
+    "Leonding",
+    "Traun",
+    "Lustenau",
+    "Hohenems",
+    "Kapfenberg",
+    "Lienz",
+    "Hallein",
+    "Bad Hofgastein",
+    "Telfs",
+    "Enns",
+    "Kufstein",
+    "Gmunden",
+    "Eferding",
+});
+
+const auto austriaStates = std::to_array<std::string_view>({
+    "Vienna",
+    "Lower Austria",
+    "Upper Austria",
+    "Salzburg",
+    "Tyrol",
+    "Vorarlberg",
+    "Carinthia",
+    "Styria",
+    "Burgenland",
+});
+
+const auto austriaStreetNames = std::to_array<std::string_view>({
+    "Hauptstraße",
+    "Bahnhofstraße",
+    "Marktstraße",
+    "Schulstraße",
+    "Dorfstraße",
+    "Bergstraße",
+    "Kaiserstraße",
+    "Ringstraße",
+    "Karlstraße",
+    "Beethovenstraße",
+    "Mozartstraße",
+    "Straußstraße",
+    "Brahmsstraße",
+    "Sebastianplatz",
+    "Stephansplatz",
+    "Heldenplatz",
+    "Burgring",
+    "Schönbrunner Straße",
+    "Mariahilfer Straße",
+    "Kärntner Straße",
+    "Graben",
+    "Kohlmarkt",
+    "Tuchlauben",
+    "Florianigasse",
+    "Grosse Pfarrgasse",
+    "Rotenturmstraße",
+    "Wollzeile",
+    "Landskrongasse",
+    "Renngasse",
+    "Walfischgasse",
+    "Biberstraße",
+    "Singerstraße",
+    "Domgasse",
+    "Blutgasse",
+    "Jasomirgottstraße",
+    "Bankgasse",
+    "Stallburggasse",
+    "Minoritenplatz",
+    "Minoritenstraße",
+    "Neutorgasse",
+    "Ballgasse",
+    "Schreyvogelgasse",
+    "Judenplatz",
+    "Hallauerstraße",
+    "Universitätsstraße",
+    "Salzgries",
+    "Fleischmarkt",
+    "Börsegasse",
+    "Kurrentgasse",
+    "Stubenring",
+    "Beatrixgasse",
+});
+
+const std::string_view austriaZipCodeFormat{"####"};
+
+const auto austriaAddressFormats = std::to_array<std::string_view>({
+    "{buildingNumber} {street}",
+    "{street} {buildingNumber}",
+});
+
+const auto austriaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+});
+
+const auto austriaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Apt. #",
+    "Apt. ##",
+    "Wohnung #",
+    "Wohnung ##",
+    "Stock #",
+});
+
+const auto austriaStreetFormats = std::to_array<std::string_view>({
+    "{streetName} {buildingNumber}",
+});
+
+const auto austriaCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo austriaAddresses{
+    austriaZipCodeFormat,
+    (austriaAddressFormats),
+    (austriaSecondaryAddressFormats),
+    (austriaStreetFormats),
+    {},                             // no street prefixes
+    (austriaStreetNames),
+    {},                             // no street suffixes
+    (austriaBuildingNumberFormats),
+    (austriaCityFormats),
+    {},                             // no city prefixes
+    (austriaCities),
+    {},                             // no city suffixes
+    (austriaStates),
+};
+
 const CountryAddressesInfo albaniaAddresses{
     albaniaZipCodeFormat,
     (albaniaAddressFormats),
