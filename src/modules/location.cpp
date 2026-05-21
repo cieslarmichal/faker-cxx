@@ -43,6 +43,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return italyAddresses;
     case Locale::de_DE:
         return germanyAddresses;
+    case Locale::de_AT:
+        return austriaAddresses;
     case Locale::cs_CZ:
         return czechAddresses;
     case Locale::en_AU:
