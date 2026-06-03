@@ -9,6 +9,11 @@ namespace faker::common
 {
 std::vector<std::string> split(const std::string& data, const std::string& separator)
 {
+    if (separator.empty())
+    {
+        return {data};
+    }
+
     size_t positionStart = 0;
     size_t positionEnd;
     size_t separatorLength = separator.length();
