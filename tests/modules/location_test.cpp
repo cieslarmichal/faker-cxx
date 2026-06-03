@@ -100,6 +100,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return icelandAddresses;
     case Locale::nb_NO:
         return norwayAddresses;
+    case Locale::sv_SE:
+        return swedenAddresses;
     case Locale::tr_TR:
         return turkeyAddresses;
     case Locale::ja_JP:
