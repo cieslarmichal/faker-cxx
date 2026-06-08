@@ -1,5 +1,6 @@
 #include "format_helper.h"
 
+#include <optional>
 #include <stdexcept>
 #include <string>
 #include <unordered_map>
@@ -12,17 +13,17 @@ std::string common::fillTokenValues(const std::string& format,
 {
     std::string filledFormat;
 
-    int tokenStart = -1;
+    std::optional<std::string::size_type> tokenStart{};
 
-    for (auto i = 0u; i < format.size(); i++)
+    for (std::string::size_type i = 0; i < format.size(); i++)
     {
         if (format[i] == '{')
         {
-            tokenStart = static_cast<int>(i) + 1;
+            tokenStart = i + 1;
         }
-        else if (format[i] == '}' && tokenStart != -1 && static_cast<unsigned>(tokenStart) < i)
+        else if (format[i] == '}' && tokenStart.has_value() && *tokenStart < i)
         {
-            const auto token = format.substr(static_cast<unsigned>(tokenStart), i - static_cast<unsigned>(tokenStart));
+            const auto token = format.substr(*tokenStart, i - *tokenStart);
 
             const auto foundTokenGenerator = tokenValueGenerators.find(token);
 
@@ -33,9 +34,9 @@ std::string common::fillTokenValues(const std::string& format,
 
             filledFormat += foundTokenGenerator->second();
 
-            tokenStart = -1;
+            tokenStart.reset();
         }
-        else if (tokenStart == -1)
+        else if (!tokenStart.has_value())
         {
             filledFormat += format[i];
         }
@@ -50,17 +51,17 @@ common::fillTokenValues(const std::string& format,
 {
     std::string filledFormat;
 
-    int tokenStart = -1;
+    std::optional<std::string::size_type> tokenStart{};
 
-    for (auto i = 0u; i < format.size(); i++)
+    for (std::string::size_type i = 0; i < format.size(); i++)
     {
         if (format[i] == '{')
         {
-            tokenStart = static_cast<int>(i) + 1;
+            tokenStart = i + 1;
         }
-        else if (format[i] == '}' && tokenStart != -1 && static_cast<unsigned>(tokenStart) < i)
+        else if (format[i] == '}' && tokenStart.has_value() && *tokenStart < i)
         {
-            const auto token = format.substr(static_cast<unsigned>(tokenStart), i - static_cast<unsigned>(tokenStart));
+            const auto token = format.substr(*tokenStart, i - *tokenStart);
 
             const auto foundTokenGenerator = tokenValueGenerators.find(token);
 
@@ -71,9 +72,9 @@ common::fillTokenValues(const std::string& format,
 
             filledFormat += foundTokenGenerator->second();
 
-            tokenStart = -1;
+            tokenStart.reset();
         }
-        else if (tokenStart == -1)
+        else if (!tokenStart.has_value())
         {
             filledFormat += format[i];
         }
