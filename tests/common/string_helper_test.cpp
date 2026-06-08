@@ -34,6 +34,14 @@ TEST_F(StringHelperTest, splitStringByNewLine)
     ASSERT_EQ(result[3], "source");
 }
 
+TEST_F(StringHelperTest, splitStringByNothing)
+{
+    const auto result = common::split("fakercxxopensource", "");
+
+    ASSERT_EQ(result.size(), 1);
+    ASSERT_EQ(result[0], "fakercxxopensource");
+}
+
 TEST_F(StringHelperTest, joinStringViewsWithoutString)
 {
     const std::vector<std::string_view> input{};
