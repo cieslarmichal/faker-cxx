@@ -58,6 +58,6 @@ var NAVTREEINDEX =
 "namespacefaker_1_1system.html#aeeae0c993bee26944d1d31ad6c339a08ae498749f3c42246d50b15c81c101d988"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronization';
-var SYNCOFFMSG = 'click to enable panel synchronization';
-var LISTOFALLMEMBERS = 'List of all members';
+const SYNCONMSG = 'click to disable panel synchronization';
+const SYNCOFFMSG = 'click to enable panel synchronization';
+const LISTOFALLMEMBERS = 'List of all members';
