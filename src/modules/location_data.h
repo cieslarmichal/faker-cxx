@@ -15139,6 +15139,169 @@ const CountryAddressesInfo norwayAddresses{
     (norwayStates),
 };
 
+// Sweden
+
+const auto swedenCities = std::to_array<std::string_view>({
+    "Stockholm",
+    "Göteborg",
+    "Malmö",
+    "Uppsala",
+    "Västerås",
+    "Örebro",
+    "Linköping",
+    "Helsingborg",
+    "Jönköping",
+    "Norrköping",
+    "Lund",
+    "Umeå",
+    "Gävle",
+    "Södertälje",
+    "Borås",
+    "Växjö",
+    "Halmstad",
+    "Sundsvall",
+    "Eskilstuna",
+    "Karlstad",
+    "Östersund",
+    "Trollhättan",
+    "Luleå",
+    "Kalmar",
+    "Nyköping",
+    "Karlskrona",
+    "Trelleborg",
+    "Strängnäs",
+    "Kiruna",
+    "Boden",
+    "Visby",
+    "Värnamo",
+    "Åre",
+});
+
+const auto swedenStates = std::to_array<std::string_view>({
+    "Blekinge län",
+    "Dalarnas län",
+    "Gävleborgs län",
+    "Gotlands län",
+    "Hallands län",
+    "Jämtlands län",
+    "Jönköpings län",
+    "Kalmar län",
+    "Kronobergs län",
+    "Norrbottens län",
+    "Örebro län",
+    "Östergötlands län",
+    "Skåne län",
+    "Södermanlands län",
+    "Stockholms län",
+    "Uppsala län",
+    "Värmlands län",
+    "Västerbottens län",
+    "Västernorrlands län",
+    "Västmanlands län",
+    "Västra Götalands län",
+});
+
+const auto swedenStreetNames = std::to_array<std::string_view>({
+    "Odengatan",
+    "Sveavägen",
+    "Ringögatan",
+    "Storhöjdsgatan",
+    "Delsjövägen",
+    "Drottninggatan",
+    "Järnvägsgatan",
+    "Källgatan",
+    "Lilla Varvsgatan",
+    "Kvalitetsvägen",
+    "Amiralsgatan",
+    "Lännaplan",
+    "Gullmarsplan",
+    "Kungsträgårdsgatan",
+    "Strandvägen",
+    "Olaf Palmes gata",
+    "Fleminggatan",
+    "Hamngatan",
+    "Regeringsgatan",
+    "Karlavägen",
+    "Atterbomsgatan",
+    "Odins väg",
+    "Barlows väg",
+    "Skärgårdsvägen",
+    "Värdshusvägen",
+    "Österleden",
+    "Platågatan",
+    "Nygatan",
+    "Storgatan",
+    "Brogatan",
+    "Skråmträskvägen",
+    "Stationsgatan",
+    "Ekvägen",
+    "Kungsgatan",
+    "Norra Industrigatan",
+    "Älgvägen",
+    "Byggmästaregatan",
+    "Kämpevägen",
+    "Sjukhusgatan",
+    "Vildvinsbacken",
+    "Blomgatan",
+    "Konstdammsvägen",
+    "Turistvägen",
+    "Köpmangatan",
+    "Ringvägen",
+    "Hotellgatan",
+    "Björnstigen",
+    "Husingeplan",
+    "Biskop Henriks väg",
+    "Fabriksgatan",
+});
+
+const std::string_view swedenPostCodeFormat{"### ##"};
+
+const auto swedenAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}",
+    "{street} {buildingNumber} {secondaryAddress}",
+});
+
+const auto swedenBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+    "#A",
+    "#B",
+    "##A",
+    "##B",
+});
+
+const auto swedenSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Lägenhet #",
+    "Lägenhet #A",
+    "Lgh #",
+    "Lgh #A",
+});
+
+const auto swedenStreetFormats = std::to_array<std::string_view>({
+    "{streetName} {buildingNumber}",
+});
+
+const auto swedenCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo swedenAddresses{
+    swedenPostCodeFormat,
+    (swedenAddressFormats),
+    (swedenSecondaryAddressFormats),
+    (swedenStreetFormats),
+    {},                             // no street prefixes
+    (swedenStreetNames),
+    {},                             // no street suffixes
+    (swedenBuildingNumberFormats),
+    (swedenCityFormats),
+    {},                             // no city prefixes
+    (swedenCities),
+    {},                             // no city suffixes
+    (swedenStates),
+};
+
 // Turkey
 
 const auto turkeyCities = std::to_array<std::string_view>({
