@@ -16255,4 +16255,20 @@ const CountryAddressesInfo albaniaAddresses{
     (albaniaStates),
 };
 
+	const CountryAddressesInfo belarusAddresses{
+    "######",
+    {"{street} {buildingNumber}"},
+    {"kv. #", "kv. ##"},
+    {"{buildingNumber}"},
+    {},
+    {"vulica Niamiha", "vulica Savieckaja", "praspiekt Niezaliežnasci", "vulica Lienina", "vulica Kirova"},
+    {},
+    {"#", "##", "###"},
+    {"{cityName}"},
+    {},
+    {"Minsk", "Brest", "Vitebsk", "Gomel", "Grodno", "Mogilev", "Bobruisk", "Baranovichi", "Borisov", "Pinsk"},
+    {},
+    {"Minsk Region", "Brest Region", "Vitebsk Region", "Gomel Region", "Grodno Region", "Mogilev Region"}
+};
+
 }
