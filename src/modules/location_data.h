@@ -16255,20 +16255,55 @@ const CountryAddressesInfo albaniaAddresses{
     (albaniaStates),
 };
 
-	const CountryAddressesInfo belarusAddresses{
-    "######",
-    {"{street} {buildingNumber}"},
-    {"kv. #", "kv. ##"},
-    {"{buildingNumber}"},
-    {},
-    {"vulica Niamiha", "vulica Savieckaja", "praspiekt Niezaliežnasci", "vulica Lienina", "vulica Kirova"},
-    {},
-    {"#", "##", "###"},
-    {"{cityName}"},
-    {},
-    {"Minsk", "Brest", "Vitebsk", "Gomel", "Grodno", "Mogilev", "Bobruisk", "Baranovichi", "Borisov", "Pinsk"},
-    {},
-    {"Minsk Region", "Brest Region", "Vitebsk Region", "Gomel Region", "Grodno Region", "Mogilev Region"}
+const auto belarusCities = std::to_array<std::string_view>({
+    "Minsk", "Brest", "Vitebsk", "Gomel", "Grodno", "Mogilev", "Bobruisk", "Baranovichi", "Borisov", "Pinsk"
+});
+
+const auto belarusStates = std::to_array<std::string_view>({
+    "Minsk Region", "Brest Region", "Vitebsk Region", "Gomel Region", "Grodno Region", "Mogilev Region"
+});
+
+const auto belarusStreetNames = std::to_array<std::string_view>({
+    "vulica Niamiha", "vulica Savieckaja", "praspiekt Niezaliežnasci", "vulica Lienina", "vulica Kirova"
+});
+
+const std::string_view belarusZipCodeFormat{"######"};
+
+const auto belarusAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto belarusBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto belarusSecondaryAddressFormats = std::to_array<std::string_view>({
+    "kv. #", "kv. ##"
+});
+
+const auto belarusStreetFormats = std::to_array<std::string_view>({
+    "{buildingNumber}"
+});
+
+const auto belarusCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo belarusAddresses{
+    belarusZipCodeFormat,
+    (belarusAddressFormats),
+    (belarusSecondaryAddressFormats),
+    (belarusStreetFormats),
+    {},                             // no street prefixes
+    (belarusStreetNames),
+    {},                             // no street suffixes
+    (belarusBuildingNumberFormats),
+    (belarusCityFormats),
+    {},                             // no city prefixes
+    (belarusCities),
+    {},                             // no city suffixes
+    (belarusStates)
 };
+
 
 }
