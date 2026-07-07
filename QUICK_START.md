@@ -80,7 +80,7 @@ int main()
     std::cout << "Email: " << faker::internet::email() << std::endl;
     
     // Generate a random phone number
-    std::cout << "Phone: " << faker::phone::number() << std::endl;
+    std::cout << "Phone: " << faker::phone::phoneNumberByFormat() << std::endl;
     
     return 0;
 }
@@ -125,7 +125,7 @@ User generateUser() {
         faker::person::fullName(),
         faker::internet::email(),
         faker::location::streetAddress(),
-        faker::phone::number(),
+        faker::phone::phoneNumberByFormat()(),
         faker::date::birthdateByYear(1970, 2005)
     };
 }
