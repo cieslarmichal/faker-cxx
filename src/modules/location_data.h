@@ -16840,6 +16840,57 @@ const CountryAddressesInfo koreaAddresses{
     (koreaStates)
 };
 
+const auto croatiaCities = std::to_array<std::string_view>({
+    "Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Slavonski Brod", "Pula", "Karlovac", "Sisak", "Varazdin"
+});
+
+const auto croatiaStates = std::to_array<std::string_view>({
+    "Zagreb County", "Split-Dalmatia County", "Primorje-Gorski Kotar County", "Osijek-Baranja County",
+    "Zadar County", "Istria County", "Karlovac County", "Sisak-Moslavina County", "Varazdin County",
+    "Medimurje County"
+});
+
+const auto croatiaStreetNames = std::to_array<std::string_view>({
+    "Ilica", "Vlaska ulica", "Zrinjevac", "Ban Josip Jelacic Square", "Radiceva ulica", "Tkalciceva ulica",
+    "Petrinjska ulica", "Maksimirska cesta", "Savska cesta", "Draskoviceva ulica"
+});
+
+const std::string_view croatiaZipCodeFormat{"#####"};
+
+const auto croatiaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto croatiaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto croatiaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Stan #", "Stan ##"
+});
+
+const auto croatiaStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto croatiaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo croatiaAddresses{
+    croatiaZipCodeFormat,
+    (croatiaAddressFormats),
+    (croatiaSecondaryAddressFormats),
+    (croatiaStreetFormats),
+    {},                             // no street prefixes
+    (croatiaStreetNames),
+    {},                             // no street suffixes
+    (croatiaBuildingNumberFormats),
+    (croatiaCityFormats),
+    {},                             // no city prefixes
+    (croatiaCities),
+    {},                             // no city suffixes
+    (croatiaStates)
 const auto vietnamCities = std::to_array<std::string_view>({
     "Hanoi", "Ho Chi Minh City", "Da Nang", "Hai Phong", "Can Tho", "Nha Trang", "Hue", "Vung Tau", "Bien Hoa", "Da Lat"
 });
