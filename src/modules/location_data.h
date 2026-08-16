@@ -16305,6 +16305,58 @@ const CountryAddressesInfo belarusAddresses{
     (belarusStates)
 };
 
+const auto argentinaCities = std::to_array<std::string_view>({
+    "Buenos Aires", "Cordoba", "Rosario", "Mendoza", "La Plata", "San Miguel de Tucuman", "Mar del Plata", "Salta",
+    "Santa Fe", "San Juan"
+});
+
+const auto argentinaStates = std::to_array<std::string_view>({
+    "Buenos Aires", "Cordoba", "Santa Fe", "Mendoza", "Tucuman", "Entre Rios", "Salta", "Misiones", "Chaco",
+    "Corrientes"
+});
+
+const auto argentinaStreetNames = std::to_array<std::string_view>({
+    "Avenida 9 de Julio", "Avenida Corrientes", "Calle Florida", "Avenida de Mayo", "Avenida Santa Fe",
+    "Avenida Rivadavia", "Avenida Callao", "Avenida Cabildo", "Calle Defensa", "Avenida Belgrano"
+});
+
+const std::string_view argentinaZipCodeFormat{"_####___"};
+
+const auto argentinaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto argentinaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###", "####"
+});
+
+const auto argentinaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Piso #", "Depto #", "Piso ## Depto #"
+});
+
+const auto argentinaStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto argentinaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo argentinaAddresses{
+    argentinaZipCodeFormat,
+    (argentinaAddressFormats),
+    (argentinaSecondaryAddressFormats),
+    (argentinaStreetFormats),
+    {},                             // no street prefixes
+    (argentinaStreetNames),
+    {},                             // no street suffixes
+    (argentinaBuildingNumberFormats),
+    (argentinaCityFormats),
+    {},                             // no city prefixes
+    (argentinaCities),
+    {},                             // no city suffixes
+    (argentinaStates)
+};
 const auto macedoniaCities = std::to_array<std::string_view>({
     "Skopje", "Bitola", "Kumanovo", "Prilep", "Tetovo", "Veles", "Shtip", "Ohrid", "Gostivar", "Strumica"
 });
