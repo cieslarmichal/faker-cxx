@@ -16355,6 +16355,8 @@ const CountryAddressesInfo sloveniaAddresses{
     (sloveniaCities),
     {},                             // no city suffixes
     (sloveniaStates)
+};
+
 const auto greeceCities = std::to_array<std::string_view>({
     "Athens", "Thessaloniki", "Patras", "Heraklion", "Larissa", "Volos", "Ioannina", "Kavala", "Rhodes", "Chania"
 });
@@ -16405,6 +16407,8 @@ const CountryAddressesInfo greeceAddresses{
     (greeceCities),
     {},                             // no city suffixes
     (greeceStates)
+};
+
 const auto lebanonCities = std::to_array<std::string_view>({
     "Beirut", "Tripoli", "Sidon", "Tyre", "Byblos", "Zahle", "Baalbek", "Jounieh", "Nabatieh", "Batroun"
 });
@@ -16455,6 +16459,8 @@ const CountryAddressesInfo lebanonAddresses{
     (lebanonCities),
     {},                             // no city suffixes
     (lebanonStates)
+};
+
 const auto koreaCities = std::to_array<std::string_view>({
     "Seoul", "Busan", "Incheon", "Daegu", "Daejeon", "Gwangju", "Suwon", "Ulsan", "Changwon", "Goyang"
 });
@@ -16505,6 +16511,58 @@ const CountryAddressesInfo koreaAddresses{
     (koreaCities),
     {},                             // no city suffixes
     (koreaStates)
+};
+
+const auto vietnamCities = std::to_array<std::string_view>({
+    "Hanoi", "Ho Chi Minh City", "Da Nang", "Hai Phong", "Can Tho", "Nha Trang", "Hue", "Vung Tau", "Bien Hoa", "Da Lat"
+});
+
+const auto vietnamStates = std::to_array<std::string_view>({
+    "Hanoi", "Ho Chi Minh City", "Da Nang", "Hai Phong", "Can Tho", "Khanh Hoa", "Thua Thien Hue",
+    "Ba Ria-Vung Tau", "Dong Nai", "Lam Dong"
+});
+
+const auto vietnamStreetNames = std::to_array<std::string_view>({
+    "Le Loi", "Nguyen Hue", "Tran Hung Dao", "Hai Ba Trung", "Dien Bien Phu", "Vo Van Tan",
+    "Pham Ngu Lao", "Ly Thuong Kiet", "Nguyen Trai", "Bach Dang"
+});
+
+const std::string_view vietnamZipCodeFormat{"######"};
+
+const auto vietnamAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto vietnamBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto vietnamSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Tang #", "Phong ##"
+});
+
+const auto vietnamStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto vietnamCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo vietnamAddresses{
+    vietnamZipCodeFormat,
+    (vietnamAddressFormats),
+    (vietnamSecondaryAddressFormats),
+    (vietnamStreetFormats),
+    {},                             // no street prefixes
+    (vietnamStreetNames),
+    {},                             // no street suffixes
+    (vietnamBuildingNumberFormats),
+    (vietnamCityFormats),
+    {},                             // no city prefixes
+    (vietnamCities),
+    {},                             // no city suffixes
+    (vietnamStates)
 };
 
 
