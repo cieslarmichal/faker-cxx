@@ -1538,30 +1538,33 @@ TEST_F(LocationTest, shouldGenerateLithuaniaStreetAddress)
 {
     const auto generatedStreetAddress = streetAddress(Locale::lt_LT);
 
-    const auto addressTokens = common::split(generatedStreetAddress, " ");
-    ASSERT_FALSE(addressTokens.empty());
+    // The secondary address (e.g. "butas 5") can itself contain a space, so the
+    // building number and the optional secondary address must be separated on
+    // "-" first, before the remaining "{street} {buildingNumber}" part is split
+    // on whitespace.
+    const auto hyphenParts = common::split(generatedStreetAddress, "-");
+    ASSERT_FALSE(hyphenParts.empty());
 
-    const auto& buildingPart = addressTokens.back();
+    const auto& streetAndBuildingPart = hyphenParts.front();
 
-    const auto buildingTokens = common::split(buildingPart, "-");
-    const auto& buildingNumber = buildingTokens.front();
+    const auto addressTokens = common::split(streetAndBuildingPart, " ");
+    ASSERT_GE(addressTokens.size(), 3);
+
+    const auto& buildingNumber = addressTokens.back();
 
     ASSERT_TRUE(!buildingNumber.empty());
     ASSERT_TRUE(buildingNumber.size() <= 3);
     ASSERT_TRUE(checkIfAllCharactersAreNumeric(buildingNumber.substr(0, 1)) ||
                 std::isalpha(buildingNumber.back()));
 
-    if (buildingTokens.size() > 1)
+    if (hyphenParts.size() > 1)
     {
-        const auto& unit = buildingTokens.back();
-        ASSERT_TRUE(!unit.empty());
-        ASSERT_TRUE(checkIfAllCharactersAreNumeric(unit));
+        const auto& secondaryAddress = hyphenParts.back();
+        ASSERT_FALSE(secondaryAddress.empty());
     }
 
-    ASSERT_GE(addressTokens.size(), 2);
     const auto& generatedStreetSuffix = addressTokens[addressTokens.size() - 2];
-    const auto generatedStreetBase = common::join(
-        {addressTokens.begin(), addressTokens.end() - 2});
+    const auto generatedStreetBase = common::join({addressTokens.begin(), addressTokens.end() - 2});
 
     ASSERT_TRUE(std::ranges::any_of(lithuanianStreetSuffixes,
         [&generatedStreetSuffix](const std::string_view& suffix)
