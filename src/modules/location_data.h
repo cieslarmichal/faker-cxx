@@ -16305,5 +16305,57 @@ const CountryAddressesInfo belarusAddresses{
     (belarusStates)
 };
 
+const auto bulgariaCities = std::to_array<std::string_view>({
+    "Sofia", "Plovdiv", "Varna", "Burgas", "Ruse", "Stara Zagora", "Pleven", "Sliven", "Dobrich", "Shumen"
+});
+
+const auto bulgariaStates = std::to_array<std::string_view>({
+    "Sofia Province", "Plovdiv Province", "Varna Province", "Burgas Province", "Ruse Province",
+    "Stara Zagora Province", "Pleven Province", "Sliven Province", "Dobrich Province", "Shumen Province"
+});
+
+const auto bulgariaStreetNames = std::to_array<std::string_view>({
+    "Vitosha Boulevard", "Graf Ignatiev Street", "Rakovski Street", "Tsar Osvoboditel Boulevard",
+    "Slivnitsa Boulevard", "Maria Luiza Boulevard", "Alexander Stamboliyski Boulevard", "Dondukov Boulevard"
+});
+
+const std::string_view bulgariaZipCodeFormat{"####"};
+
+const auto bulgariaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto bulgariaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto bulgariaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "ap. #", "ap. ##"
+});
+
+const auto bulgariaStreetFormats = std::to_array<std::string_view>({
+    "{buildingNumber}"
+});
+
+const auto bulgariaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo bulgariaAddresses{
+    bulgariaZipCodeFormat,
+    (bulgariaAddressFormats),
+    (bulgariaSecondaryAddressFormats),
+    (bulgariaStreetFormats),
+    {},                             // no street prefixes
+    (bulgariaStreetNames),
+    {},                             // no street suffixes
+    (bulgariaBuildingNumberFormats),
+    (bulgariaCityFormats),
+    {},                             // no city prefixes
+    (bulgariaCities),
+    {},                             // no city suffixes
+    (bulgariaStates)
+};
+
 
 }
