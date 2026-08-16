@@ -58,6 +58,13 @@ jobs:
 
       - name: Configure Conan profile
         run: conan profile detect --force --name msvc-19
+        env:
+          # windows-latest runners have a MinGW gcc on PATH alongside MSVC; without pinning
+          # CC/CXX to cl.exe, conan's autodetection can pick up that gcc instead of MSVC and
+          # mis-parse its version, producing "ERROR: Invalid setting 'XX' is not a valid
+          # 'settings.compiler.version' value" during `conan install`.
+          CC: cl
+          CXX: cl
 
       - name: Install Conan dependencies
         run: |
