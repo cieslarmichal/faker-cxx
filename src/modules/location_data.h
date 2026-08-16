@@ -16305,5 +16305,82 @@ const CountryAddressesInfo belarusAddresses{
     (belarusStates)
 };
 
+const auto belgiumCities = std::to_array<std::string_view>({
+    "Brussels", "Antwerp", "Ghent", "Liege", "Charleroi", "Bruges", "Namur", "Leuven", "Mons", "Mechelen"
+});
+
+const auto belgiumStates = std::to_array<std::string_view>({
+    "Flanders", "Wallonia", "Brussels-Capital Region", "Antwerp Province", "West Flanders", "East Flanders",
+    "Hainaut", "Liege Province", "Limburg", "Namur Province"
+});
+
+const auto belgiumDutchStreetNames = std::to_array<std::string_view>({
+    "Meirstraat", "Grote Markt", "Kerkstraat", "Nieuwstraat", "Stationsstraat", "Lange Steenstraat", "Vlaamsekaai",
+    "Diamantstraat", "Steenweg", "Molenstraat"
+});
+
+const auto belgiumFrenchStreetNames = std::to_array<std::string_view>({
+    "Rue Neuve", "Rue de Namur", "Avenue Louise", "Rue de la Loi", "Boulevard Anspach", "Rue du Midi",
+    "Chaussee de Charleroi", "Rue Haute", "Avenue de Tervueren", "Rue de la Station"
+});
+
+const std::string_view belgiumZipCodeFormat{"####"};
+
+const auto belgiumAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto belgiumBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto belgiumDutchSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Bus #", "Bus ##"
+});
+
+const auto belgiumFrenchSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Boite #", "Boite ##"
+});
+
+const auto belgiumStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto belgiumCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo belgiumDutchAddresses{
+    belgiumZipCodeFormat,
+    (belgiumAddressFormats),
+    (belgiumDutchSecondaryAddressFormats),
+    (belgiumStreetFormats),
+    {},                             // no street prefixes
+    (belgiumDutchStreetNames),
+    {},                             // no street suffixes
+    (belgiumBuildingNumberFormats),
+    (belgiumCityFormats),
+    {},                             // no city prefixes
+    (belgiumCities),
+    {},                             // no city suffixes
+    (belgiumStates)
+};
+
+const CountryAddressesInfo belgiumFrenchAddresses{
+    belgiumZipCodeFormat,
+    (belgiumAddressFormats),
+    (belgiumFrenchSecondaryAddressFormats),
+    (belgiumStreetFormats),
+    {},                             // no street prefixes
+    (belgiumFrenchStreetNames),
+    {},                             // no street suffixes
+    (belgiumBuildingNumberFormats),
+    (belgiumCityFormats),
+    {},                             // no city prefixes
+    (belgiumCities),
+    {},                             // no city suffixes
+    (belgiumStates)
+};
+
 
 }
