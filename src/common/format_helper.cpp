@@ -1,6 +1,8 @@
 #include "format_helper.h"
 
+#include <iomanip>
 #include <optional>
+#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <unordered_map>
@@ -85,27 +87,44 @@ common::fillTokenValues(const std::string& format,
 
 std::string common::precisionFormat(Precision precision, double value)
 {
+    int decimalPlaces;
+
     switch (precision)
     {
     case Precision::ZeroDp:
-        return common::format("{:.0f}", value);
+        decimalPlaces = 0;
+        break;
     case Precision::OneDp:
-        return common::format("{:.1f}", value);
+        decimalPlaces = 1;
+        break;
     case Precision::TwoDp:
-        return common::format("{:.2f}", value);
+        decimalPlaces = 2;
+        break;
     case Precision::ThreeDp:
-        return common::format("{:.3f}", value);
+        decimalPlaces = 3;
+        break;
     case Precision::FourDp:
-        return common::format("{:.4f}", value);
+        decimalPlaces = 4;
+        break;
     case Precision::FiveDp:
-        return common::format("{:.5f}", value);
+        decimalPlaces = 5;
+        break;
     case Precision::SixDp:
-        return common::format("{:.6f}", value);
+        decimalPlaces = 6;
+        break;
     case Precision::SevenDp:
-        return common::format("{:.7f}", value);
+        decimalPlaces = 7;
+        break;
     default:
         throw std::invalid_argument("Invalid precision");
     }
+
+    // std::format's floating-point overloads pull in libc++'s std::to_chars, which Apple
+    // marks unavailable before macOS 13.3, breaking builds targeting older deployment
+    // targets. std::ostringstream avoids to_chars entirely and works everywhere.
+    std::ostringstream stream;
+    stream << std::fixed << std::setprecision(decimalPlaces) << value;
+    return stream.str();
 }
 
 }
