@@ -16355,6 +16355,8 @@ const CountryAddressesInfo sloveniaAddresses{
     (sloveniaCities),
     {},                             // no city suffixes
     (sloveniaStates)
+};
+
 const auto greeceCities = std::to_array<std::string_view>({
     "Athens", "Thessaloniki", "Patras", "Heraklion", "Larissa", "Volos", "Ioannina", "Kavala", "Rhodes", "Chania"
 });
@@ -16405,6 +16407,8 @@ const CountryAddressesInfo greeceAddresses{
     (greeceCities),
     {},                             // no city suffixes
     (greeceStates)
+};
+
 const auto lebanonCities = std::to_array<std::string_view>({
     "Beirut", "Tripoli", "Sidon", "Tyre", "Byblos", "Zahle", "Baalbek", "Jounieh", "Nabatieh", "Batroun"
 });
@@ -16455,6 +16459,8 @@ const CountryAddressesInfo lebanonAddresses{
     (lebanonCities),
     {},                             // no city suffixes
     (lebanonStates)
+};
+
 const auto koreaCities = std::to_array<std::string_view>({
     "Seoul", "Busan", "Incheon", "Daegu", "Daejeon", "Gwangju", "Suwon", "Ulsan", "Changwon", "Goyang"
 });
@@ -16505,6 +16511,59 @@ const CountryAddressesInfo koreaAddresses{
     (koreaCities),
     {},                             // no city suffixes
     (koreaStates)
+};
+
+const auto croatiaCities = std::to_array<std::string_view>({
+    "Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Slavonski Brod", "Pula", "Karlovac", "Sisak", "Varazdin"
+});
+
+const auto croatiaStates = std::to_array<std::string_view>({
+    "Zagreb County", "Split-Dalmatia County", "Primorje-Gorski Kotar County", "Osijek-Baranja County",
+    "Zadar County", "Istria County", "Karlovac County", "Sisak-Moslavina County", "Varazdin County",
+    "Medimurje County"
+});
+
+const auto croatiaStreetNames = std::to_array<std::string_view>({
+    "Ilica", "Vlaska ulica", "Zrinjevac", "Ban Josip Jelacic Square", "Radiceva ulica", "Tkalciceva ulica",
+    "Petrinjska ulica", "Maksimirska cesta", "Savska cesta", "Draskoviceva ulica"
+});
+
+const std::string_view croatiaZipCodeFormat{"#####"};
+
+const auto croatiaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto croatiaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto croatiaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Stan #", "Stan ##"
+});
+
+const auto croatiaStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto croatiaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo croatiaAddresses{
+    croatiaZipCodeFormat,
+    (croatiaAddressFormats),
+    (croatiaSecondaryAddressFormats),
+    (croatiaStreetFormats),
+    {},                             // no street prefixes
+    (croatiaStreetNames),
+    {},                             // no street suffixes
+    (croatiaBuildingNumberFormats),
+    (croatiaCityFormats),
+    {},                             // no city prefixes
+    (croatiaCities),
+    {},                             // no city suffixes
+    (croatiaStates)
 };
 
 
