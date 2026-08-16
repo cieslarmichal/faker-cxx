@@ -16840,6 +16840,56 @@ const CountryAddressesInfo koreaAddresses{
     (koreaStates)
 };
 
+const auto maltaCities = std::to_array<std::string_view>({
+    "Valletta", "Birkirkara", "Mosta", "Qormi", "Sliema", "Zabbar", "San Gwann", "Fgura", "Zejtun", "Rabat"
+});
+
+const auto maltaStates = std::to_array<std::string_view>({
+    "Southern Region", "Northern Region", "South Eastern Region", "Western Region", "Gozo Region",
+    "Harbour Region"
+});
+
+const auto maltaStreetNames = std::to_array<std::string_view>({
+    "Republic Street", "Merchants Street", "Old Bakery Street", "Triq il-Kbira", "St. Paul's Street",
+    "Tower Road", "Rue D'Argens", "Triq Santa Lucija", "Constitution Street", "Triq San Pawl"
+});
+
+const std::string_view maltaZipCodeFormat{"___ ####"};
+
+const auto maltaAddressFormats = std::to_array<std::string_view>({
+    "{buildingNumber} {street}"
+});
+
+const auto maltaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto maltaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Flat #", "Apt. #"
+});
+
+const auto maltaStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto maltaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo maltaAddresses{
+    maltaZipCodeFormat,
+    (maltaAddressFormats),
+    (maltaSecondaryAddressFormats),
+    (maltaStreetFormats),
+    {},                             // no street prefixes
+    (maltaStreetNames),
+    {},                             // no street suffixes
+    (maltaBuildingNumberFormats),
+    (maltaCityFormats),
+    {},                             // no city prefixes
+    (maltaCities),
+    {},                             // no city suffixes
+    (maltaStates)
 const auto irelandCities = std::to_array<std::string_view>({
     "Dublin", "Cork", "Limerick", "Galway", "Waterford", "Drogheda", "Kilkenny", "Sligo", "Wexford", "Athlone"
 });
