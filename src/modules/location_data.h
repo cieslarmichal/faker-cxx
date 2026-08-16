@@ -16355,6 +16355,8 @@ const CountryAddressesInfo moldovaAddresses{
     (moldovaCities),
     {},                             // no city suffixes
     (moldovaStates)
+};
+
 const auto latviaCities = std::to_array<std::string_view>({
     "Riga", "Daugavpils", "Liepaja", "Jelgava", "Jurmala", "Ventspils", "Rezekne", "Valmiera", "Ogre", "Jekabpils"
 });
@@ -16404,6 +16406,8 @@ const CountryAddressesInfo latviaAddresses{
     (latviaCities),
     {},                             // no city suffixes
     (latviaStates)
+};
+
 const auto argentinaCities = std::to_array<std::string_view>({
     "Buenos Aires", "Cordoba", "Rosario", "Mendoza", "La Plata", "San Miguel de Tucuman", "Mar del Plata", "Salta",
     "Santa Fe", "San Juan"
@@ -16948,6 +16952,8 @@ const CountryAddressesInfo maltaAddresses{
     (maltaCities),
     {},                             // no city suffixes
     (maltaStates)
+};
+
 const auto irelandCities = std::to_array<std::string_view>({
     "Dublin", "Cork", "Limerick", "Galway", "Waterford", "Drogheda", "Kilkenny", "Sligo", "Wexford", "Athlone"
 });
@@ -16998,6 +17004,8 @@ const CountryAddressesInfo irelandAddresses{
     (irelandCities),
     {},                             // no city suffixes
     (irelandStates)
+};
+
 const auto croatiaCities = std::to_array<std::string_view>({
     "Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Slavonski Brod", "Pula", "Karlovac", "Sisak", "Varazdin"
 });
@@ -17049,6 +17057,8 @@ const CountryAddressesInfo croatiaAddresses{
     (croatiaCities),
     {},                             // no city suffixes
     (croatiaStates)
+};
+
 const auto vietnamCities = std::to_array<std::string_view>({
     "Hanoi", "Ho Chi Minh City", "Da Nang", "Hai Phong", "Can Tho", "Nha Trang", "Hue", "Vung Tau", "Bien Hoa", "Da Lat"
 });
@@ -17099,6 +17109,8 @@ const CountryAddressesInfo vietnamAddresses{
     (vietnamCities),
     {},                             // no city suffixes
     (vietnamStates)
+};
+
 const auto chinaCities = std::to_array<std::string_view>({
     "Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Chengdu", "Chongqing", "Wuhan", "Xian", "Hangzhou", "Nanjing"
 });
