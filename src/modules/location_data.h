@@ -17267,4 +17267,57 @@ const CountryAddressesInfo switzerlandAddresses{
     (switzerlandStates)
 };
 
+const auto bosniaCities = std::to_array<std::string_view>({
+    "Sarajevo", "Banja Luka", "Tuzla", "Zenica", "Mostar", "Bijeljina", "Brcko", "Prijedor", "Trebinje", "Doboj"
+});
+
+const auto bosniaStates = std::to_array<std::string_view>({
+    "Federation of Bosnia and Herzegovina", "Republika Srpska", "Brcko District", "Sarajevo Canton",
+    "Tuzla Canton", "Zenica-Doboj Canton", "Una-Sana Canton", "Herzegovina-Neretva Canton",
+    "West Herzegovina Canton", "Posavina Canton"
+});
+
+const auto bosniaStreetNames = std::to_array<std::string_view>({
+    "Ferhadija", "Marsala Tita", "Zmaja od Bosne", "Alipasina", "Kralja Tvrtka", "Bulevar Mira",
+    "Njegoseva", "Kulina Bana", "Musale", "Brace Fejic"
+});
+
+const std::string_view bosniaZipCodeFormat{"#####"};
+
+const auto bosniaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto bosniaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto bosniaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Stan #", "Sprat #"
+});
+
+const auto bosniaStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto bosniaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo bosniaAddresses{
+    bosniaZipCodeFormat,
+    (bosniaAddressFormats),
+    (bosniaSecondaryAddressFormats),
+    (bosniaStreetFormats),
+    {},                             // no street prefixes
+    (bosniaStreetNames),
+    {},                             // no street suffixes
+    (bosniaBuildingNumberFormats),
+    (bosniaCityFormats),
+    {},                             // no city prefixes
+    (bosniaCities),
+    {},                             // no city suffixes
+    (bosniaStates)
+};
+
 }
