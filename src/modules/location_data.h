@@ -16305,5 +16305,56 @@ const CountryAddressesInfo belarusAddresses{
     (belarusStates)
 };
 
+const auto latviaCities = std::to_array<std::string_view>({
+    "Riga", "Daugavpils", "Liepaja", "Jelgava", "Jurmala", "Ventspils", "Rezekne", "Valmiera", "Ogre", "Jekabpils"
+});
+
+const auto latviaStates = std::to_array<std::string_view>({
+    "Riga Region", "Vidzeme Region", "Kurzeme Region", "Zemgale Region", "Latgale Region"
+});
+
+const auto latviaStreetNames = std::to_array<std::string_view>({
+    "Brivibas iela", "Krisjana Barona iela", "Elizabetes iela", "Dzirnavu iela", "Terbatas iela",
+    "Marijas iela", "Lacplesa iela"
+});
+
+const std::string_view latviaZipCodeFormat{"__-####"};
+
+const auto latviaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto latviaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto latviaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "dz. #", "dz. ##"
+});
+
+const auto latviaStreetFormats = std::to_array<std::string_view>({
+    "{buildingNumber}"
+});
+
+const auto latviaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo latviaAddresses{
+    latviaZipCodeFormat,
+    (latviaAddressFormats),
+    (latviaSecondaryAddressFormats),
+    (latviaStreetFormats),
+    {},                             // no street prefixes
+    (latviaStreetNames),
+    {},                             // no street suffixes
+    (latviaBuildingNumberFormats),
+    (latviaCityFormats),
+    {},                             // no city prefixes
+    (latviaCities),
+    {},                             // no city suffixes
+    (latviaStates)
+};
+
 
 }
