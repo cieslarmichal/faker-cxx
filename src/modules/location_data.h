@@ -16305,5 +16305,58 @@ const CountryAddressesInfo belarusAddresses{
     (belarusStates)
 };
 
+const auto macedoniaCities = std::to_array<std::string_view>({
+    "Skopje", "Bitola", "Kumanovo", "Prilep", "Tetovo", "Veles", "Shtip", "Ohrid", "Gostivar", "Strumica"
+});
+
+const auto macedoniaStates = std::to_array<std::string_view>({
+    "Skopje Statistical Region", "Pelagonia Statistical Region", "Polog Statistical Region",
+    "Vardar Statistical Region", "Southeast Statistical Region", "Northeast Statistical Region",
+    "Southwest Statistical Region", "East Statistical Region"
+});
+
+const auto macedoniaStreetNames = std::to_array<std::string_view>({
+    "Makedonija", "Partizanska", "Ilindenska", "Vasil Glavinov", "Krste Misirkov", "Maksim Gorki",
+    "Slavej Planina"
+});
+
+const std::string_view macedoniaZipCodeFormat{"####"};
+
+const auto macedoniaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto macedoniaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto macedoniaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "stan #", "stan ##"
+});
+
+const auto macedoniaStreetFormats = std::to_array<std::string_view>({
+    "{buildingNumber}"
+});
+
+const auto macedoniaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo macedoniaAddresses{
+    macedoniaZipCodeFormat,
+    (macedoniaAddressFormats),
+    (macedoniaSecondaryAddressFormats),
+    (macedoniaStreetFormats),
+    {},                             // no street prefixes
+    (macedoniaStreetNames),
+    {},                             // no street suffixes
+    (macedoniaBuildingNumberFormats),
+    (macedoniaCityFormats),
+    {},                             // no city prefixes
+    (macedoniaCities),
+    {},                             // no city suffixes
+    (macedoniaStates)
+};
+
 
 }
