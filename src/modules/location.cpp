@@ -115,6 +115,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return albaniaAddresses;
     case Locale::ko_KR:
         return koreaAddresses;
+    case Locale::ar_SY:
+        return syriaAddresses;
     default:
         return usaAddresses;
     }
