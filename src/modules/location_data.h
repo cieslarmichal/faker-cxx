@@ -16840,6 +16840,56 @@ const CountryAddressesInfo koreaAddresses{
     (koreaStates)
 };
 
+const auto irelandCities = std::to_array<std::string_view>({
+    "Dublin", "Cork", "Limerick", "Galway", "Waterford", "Drogheda", "Kilkenny", "Sligo", "Wexford", "Athlone"
+});
+
+const auto irelandStates = std::to_array<std::string_view>({
+    "County Dublin", "County Cork", "County Limerick", "County Galway", "County Waterford", "County Kilkenny",
+    "County Sligo", "County Wexford", "County Donegal", "County Kerry"
+});
+
+const auto irelandStreetNames = std::to_array<std::string_view>({
+    "Grafton Street", "O'Connell Street", "Patrick Street", "Shop Street", "Main Street", "High Street",
+    "Church Street", "Mary Street"
+});
+
+const std::string_view irelandZipCodeFormat{"__## ____"};
+
+const auto irelandAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto irelandBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto irelandSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Apt #", "Apt ##"
+});
+
+const auto irelandStreetFormats = std::to_array<std::string_view>({
+    "{buildingNumber}"
+});
+
+const auto irelandCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo irelandAddresses{
+    irelandZipCodeFormat,
+    (irelandAddressFormats),
+    (irelandSecondaryAddressFormats),
+    (irelandStreetFormats),
+    {},                             // no street prefixes
+    (irelandStreetNames),
+    {},                             // no street suffixes
+    (irelandBuildingNumberFormats),
+    (irelandCityFormats),
+    {},                             // no city prefixes
+    (irelandCities),
+    {},                             // no city suffixes
+    (irelandStates)
 const auto croatiaCities = std::to_array<std::string_view>({
     "Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Slavonski Brod", "Pula", "Karlovac", "Sisak", "Varazdin"
 });
