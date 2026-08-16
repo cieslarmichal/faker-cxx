@@ -154,6 +154,10 @@ CountryAddressesInfo getAddresses(const Locale& locale)
     case Locale::it_CH:
     case Locale::rm_CH:
         return switzerlandAddresses;
+    case Locale::bs_BA:
+    case Locale::hr_BA:
+    case Locale::sr_BA:
+        return bosniaAddresses;
     default:
         return usaAddresses;
     }
