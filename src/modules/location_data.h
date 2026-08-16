@@ -16305,5 +16305,57 @@ const CountryAddressesInfo belarusAddresses{
     (belarusStates)
 };
 
+const auto lebanonCities = std::to_array<std::string_view>({
+    "Beirut", "Tripoli", "Sidon", "Tyre", "Byblos", "Zahle", "Baalbek", "Jounieh", "Nabatieh", "Batroun"
+});
+
+const auto lebanonStates = std::to_array<std::string_view>({
+    "Beirut Governorate", "Mount Lebanon Governorate", "North Governorate", "South Governorate",
+    "Bekaa Governorate", "Nabatieh Governorate", "Akkar Governorate", "Baalbek-Hermel Governorate"
+});
+
+const auto lebanonStreetNames = std::to_array<std::string_view>({
+    "Hamra Street", "Rue Verdun", "Corniche Beirut", "Rue Monot", "Rue Gouraud", "Bliss Street",
+    "Rue Weygand", "Rue Damas", "Foch Street", "Rue Clemenceau"
+});
+
+const std::string_view lebanonZipCodeFormat{"####-####"};
+
+const auto lebanonAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto lebanonBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto lebanonSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Bldg. #", "Floor #"
+});
+
+const auto lebanonStreetFormats = std::to_array<std::string_view>({
+    "{buildingNumber}"
+});
+
+const auto lebanonCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo lebanonAddresses{
+    lebanonZipCodeFormat,
+    (lebanonAddressFormats),
+    (lebanonSecondaryAddressFormats),
+    (lebanonStreetFormats),
+    {},                             // no street prefixes
+    (lebanonStreetNames),
+    {},                             // no street suffixes
+    (lebanonBuildingNumberFormats),
+    (lebanonCityFormats),
+    {},                             // no city prefixes
+    (lebanonCities),
+    {},                             // no city suffixes
+    (lebanonStates)
+};
+
 
 }
