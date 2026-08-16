@@ -16305,6 +16305,56 @@ const CountryAddressesInfo belarusAddresses{
     (belarusStates)
 };
 
+const auto greeceCities = std::to_array<std::string_view>({
+    "Athens", "Thessaloniki", "Patras", "Heraklion", "Larissa", "Volos", "Ioannina", "Kavala", "Rhodes", "Chania"
+});
+
+const auto greeceStates = std::to_array<std::string_view>({
+    "Attica", "Central Macedonia", "Western Greece", "Crete", "Thessaly", "Epirus", "Eastern Macedonia and Thrace",
+    "Peloponnese", "South Aegean", "Ionian Islands"
+});
+
+const auto greeceStreetNames = std::to_array<std::string_view>({
+    "Ermou", "Panepistimiou", "Akadimias", "Stadiou", "Egnatia", "Tsimiski", "Mitropoleos", "Kolokotroni",
+    "Vasilissis Sofias", "Patission"
+});
+
+const std::string_view greeceZipCodeFormat{"#####"};
+
+const auto greeceAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto greeceBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto greeceSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Diamerisma #", "Orofos #"
+});
+
+const auto greeceStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto greeceCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo greeceAddresses{
+    greeceZipCodeFormat,
+    (greeceAddressFormats),
+    (greeceSecondaryAddressFormats),
+    (greeceStreetFormats),
+    {},                             // no street prefixes
+    (greeceStreetNames),
+    {},                             // no street suffixes
+    (greeceBuildingNumberFormats),
+    (greeceCityFormats),
+    {},                             // no city prefixes
+    (greeceCities),
+    {},                             // no city suffixes
+    (greeceStates)
 const auto lebanonCities = std::to_array<std::string_view>({
     "Beirut", "Tripoli", "Sidon", "Tyre", "Byblos", "Zahle", "Baalbek", "Jounieh", "Nabatieh", "Batroun"
 });

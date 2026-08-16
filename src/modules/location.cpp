@@ -113,6 +113,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return lithuaniaAddresses;
     case Locale::sq_AL:
         return albaniaAddresses;
+    case Locale::el_GR:
+        return greeceAddresses;
     case Locale::ar_LB:
         return lebanonAddresses;
     case Locale::ko_KR:
