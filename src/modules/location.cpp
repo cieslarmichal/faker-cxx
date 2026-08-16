@@ -113,6 +113,20 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return lithuaniaAddresses;
     case Locale::sq_AL:
         return albaniaAddresses;
+    case Locale::ro_MD:
+        return moldovaAddresses;
+    case Locale::lv_LV:
+        return latviaAddresses;
+    case Locale::es_AR:
+        return argentinaAddresses;
+    case Locale::mk_MK:
+        return macedoniaAddresses;
+    case Locale::bg_BG:
+        return bulgariaAddresses;
+    case Locale::nl_BE:
+        return belgiumDutchAddresses;
+    case Locale::fr_BE:
+        return belgiumFrenchAddresses;
     case Locale::sl_SI:
         return sloveniaAddresses;
     case Locale::el_GR:
@@ -123,6 +137,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return koreaAddresses;
     case Locale::zh_CN:
         return chinaAddresses;
+    case Locale::ar_SY:
+        return syriaAddresses;
     default:
         return usaAddresses;
     }
