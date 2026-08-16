@@ -17357,8 +17357,16 @@ const auto canadaFrStates = std::to_array<std::string_view>({
 });
 
 const auto canadaFrStreetNames = std::to_array<std::string_view>({
-    "Saint-Laurent", "Sainte-Catherine", "Notre-Dame", "Rene-Levesque", "Papineau", "Sherbrooke",
-    "Saint-Denis", "De Maisonneuve", "Van Horne", "Saint-Joseph",
+    "Saint-Laurent",
+    "Sainte-Catherine",
+    "Notre-Dame",
+    "Rene-Levesque",
+    "Papineau",
+    "Sherbrooke",
+    "Saint-Denis",
+    "De Maisonneuve",
+    "Van Horne",
+    "Saint-Joseph",
 });
 
 const auto canadaFrStreetSuffixes = std::to_array<std::string_view>({
