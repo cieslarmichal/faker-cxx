@@ -16305,6 +16305,56 @@ const CountryAddressesInfo belarusAddresses{
     (belarusStates)
 };
 
+const auto moldovaCities = std::to_array<std::string_view>({
+    "Chisinau", "Tiraspol", "Balti", "Bender", "Ungheni", "Cahul", "Soroca", "Orhei", "Comrat", "Causeni"
+});
+
+const auto moldovaStates = std::to_array<std::string_view>({
+    "Chisinau Municipality", "Balti Municipality", "Cahul District", "Orhei District", "Soroca District",
+    "Ungheni District", "Gagauzia", "Transnistria"
+});
+
+const auto moldovaStreetNames = std::to_array<std::string_view>({
+    "Strada Stefan cel Mare", "Bulevardul Dacia", "Strada Ismail", "Strada Bucuresti",
+    "Strada Alba Iulia", "Bulevardul Renasterii", "Strada Mitropolit Varlaam"
+});
+
+const std::string_view moldovaZipCodeFormat{"__-####"};
+
+const auto moldovaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto moldovaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto moldovaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "ap. #", "ap. ##"
+});
+
+const auto moldovaStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto moldovaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo moldovaAddresses{
+    moldovaZipCodeFormat,
+    (moldovaAddressFormats),
+    (moldovaSecondaryAddressFormats),
+    (moldovaStreetFormats),
+    {},                             // no street prefixes
+    (moldovaStreetNames),
+    {},                             // no street suffixes
+    (moldovaBuildingNumberFormats),
+    (moldovaCityFormats),
+    {},                             // no city prefixes
+    (moldovaCities),
+    {},                             // no city suffixes
+    (moldovaStates)
 const auto latviaCities = std::to_array<std::string_view>({
     "Riga", "Daugavpils", "Liepaja", "Jelgava", "Jurmala", "Ventspils", "Rezekne", "Valmiera", "Ogre", "Jekabpils"
 });
