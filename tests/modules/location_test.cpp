@@ -134,6 +134,15 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return lebanonAddresses;
     case Locale::ko_KR:
         return koreaAddresses;
+    case Locale::nl_NL:
+        return netherlandsAddresses;
+    case Locale::mt_MT:
+    case Locale::en_MT:
+        return maltaAddresses;
+    case Locale::en_IE:
+        return irelandAddresses;
+    case Locale::hr_HR:
+        return croatiaAddresses;
     case Locale::vi_VN:
         return vietnamAddresses;
     case Locale::zh_CN:

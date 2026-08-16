@@ -16507,6 +16507,8 @@ const CountryAddressesInfo macedoniaAddresses{
     (macedoniaCities),
     {},                             // no city suffixes
     (macedoniaStates)
+};
+
 const auto bulgariaCities = std::to_array<std::string_view>({
     "Sofia", "Plovdiv", "Varna", "Burgas", "Ruse", "Stara Zagora", "Pleven", "Sliven", "Dobrich", "Shumen"
 });
@@ -16557,6 +16559,8 @@ const CountryAddressesInfo bulgariaAddresses{
     (bulgariaCities),
     {},                             // no city suffixes
     (bulgariaStates)
+};
+
 const auto belgiumCities = std::to_array<std::string_view>({
     "Brussels", "Antwerp", "Ghent", "Liege", "Charleroi", "Bruges", "Namur", "Leuven", "Mons", "Mechelen"
 });
@@ -16632,6 +16636,8 @@ const CountryAddressesInfo belgiumFrenchAddresses{
     (belgiumCities),
     {},                             // no city suffixes
     (belgiumStates)
+};
+
 const auto sloveniaCities = std::to_array<std::string_view>({
     "Ljubljana", "Maribor", "Celje", "Kranj", "Koper", "Novo Mesto", "Velenje", "Ptuj", "Trbovlje", "Nova Gorica"
 });
@@ -16840,6 +16846,209 @@ const CountryAddressesInfo koreaAddresses{
     (koreaStates)
 };
 
+const auto netherlandsCities = std::to_array<std::string_view>({
+    "Amsterdam", "Rotterdam", "The Hague", "Utrecht", "Eindhoven", "Groningen", "Tilburg", "Almere", "Breda",
+    "Nijmegen"
+});
+
+const auto netherlandsStates = std::to_array<std::string_view>({
+    "North Holland", "South Holland", "Utrecht", "North Brabant", "Gelderland", "Groningen", "Overijssel",
+    "Limburg", "Friesland", "Zeeland"
+});
+
+const auto netherlandsStreetNames = std::to_array<std::string_view>({
+    "Damrak", "Kalverstraat", "Prinsengracht", "Herengracht", "Nieuwendijk", "Wilhelminaplein", "Vondelstraat",
+    "Coolsingel", "Lange Voorhout", "Oudegracht"
+});
+
+const std::string_view netherlandsZipCodeFormat{"#### __"};
+
+const auto netherlandsAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto netherlandsBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto netherlandsSecondaryAddressFormats = std::to_array<std::string_view>({
+    "unit #", "unit ##"
+});
+
+const auto netherlandsStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto netherlandsCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo netherlandsAddresses{
+    netherlandsZipCodeFormat,
+    (netherlandsAddressFormats),
+    (netherlandsSecondaryAddressFormats),
+    (netherlandsStreetFormats),
+    {},                             // no street prefixes
+    (netherlandsStreetNames),
+    {},                             // no street suffixes
+    (netherlandsBuildingNumberFormats),
+    (netherlandsCityFormats),
+    {},                             // no city prefixes
+    (netherlandsCities),
+    {},                             // no city suffixes
+    (netherlandsStates)
+};
+const auto maltaCities = std::to_array<std::string_view>({
+    "Valletta", "Birkirkara", "Mosta", "Qormi", "Sliema", "Zabbar", "San Gwann", "Fgura", "Zejtun", "Rabat"
+});
+
+const auto maltaStates = std::to_array<std::string_view>({
+    "Southern Region", "Northern Region", "South Eastern Region", "Western Region", "Gozo Region",
+    "Harbour Region"
+});
+
+const auto maltaStreetNames = std::to_array<std::string_view>({
+    "Republic Street", "Merchants Street", "Old Bakery Street", "Triq il-Kbira", "St. Paul's Street",
+    "Tower Road", "Rue D'Argens", "Triq Santa Lucija", "Constitution Street", "Triq San Pawl"
+});
+
+const std::string_view maltaZipCodeFormat{"___ ####"};
+
+const auto maltaAddressFormats = std::to_array<std::string_view>({
+    "{buildingNumber} {street}"
+});
+
+const auto maltaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto maltaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Flat #", "Apt. #"
+});
+
+const auto maltaStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto maltaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo maltaAddresses{
+    maltaZipCodeFormat,
+    (maltaAddressFormats),
+    (maltaSecondaryAddressFormats),
+    (maltaStreetFormats),
+    {},                             // no street prefixes
+    (maltaStreetNames),
+    {},                             // no street suffixes
+    (maltaBuildingNumberFormats),
+    (maltaCityFormats),
+    {},                             // no city prefixes
+    (maltaCities),
+    {},                             // no city suffixes
+    (maltaStates)
+const auto irelandCities = std::to_array<std::string_view>({
+    "Dublin", "Cork", "Limerick", "Galway", "Waterford", "Drogheda", "Kilkenny", "Sligo", "Wexford", "Athlone"
+});
+
+const auto irelandStates = std::to_array<std::string_view>({
+    "County Dublin", "County Cork", "County Limerick", "County Galway", "County Waterford", "County Kilkenny",
+    "County Sligo", "County Wexford", "County Donegal", "County Kerry"
+});
+
+const auto irelandStreetNames = std::to_array<std::string_view>({
+    "Grafton Street", "O'Connell Street", "Patrick Street", "Shop Street", "Main Street", "High Street",
+    "Church Street", "Mary Street"
+});
+
+const std::string_view irelandZipCodeFormat{"__## ____"};
+
+const auto irelandAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto irelandBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto irelandSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Apt #", "Apt ##"
+});
+
+const auto irelandStreetFormats = std::to_array<std::string_view>({
+    "{buildingNumber}"
+});
+
+const auto irelandCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo irelandAddresses{
+    irelandZipCodeFormat,
+    (irelandAddressFormats),
+    (irelandSecondaryAddressFormats),
+    (irelandStreetFormats),
+    {},                             // no street prefixes
+    (irelandStreetNames),
+    {},                             // no street suffixes
+    (irelandBuildingNumberFormats),
+    (irelandCityFormats),
+    {},                             // no city prefixes
+    (irelandCities),
+    {},                             // no city suffixes
+    (irelandStates)
+const auto croatiaCities = std::to_array<std::string_view>({
+    "Zagreb", "Split", "Rijeka", "Osijek", "Zadar", "Slavonski Brod", "Pula", "Karlovac", "Sisak", "Varazdin"
+});
+
+const auto croatiaStates = std::to_array<std::string_view>({
+    "Zagreb County", "Split-Dalmatia County", "Primorje-Gorski Kotar County", "Osijek-Baranja County",
+    "Zadar County", "Istria County", "Karlovac County", "Sisak-Moslavina County", "Varazdin County",
+    "Medimurje County"
+});
+
+const auto croatiaStreetNames = std::to_array<std::string_view>({
+    "Ilica", "Vlaska ulica", "Zrinjevac", "Ban Josip Jelacic Square", "Radiceva ulica", "Tkalciceva ulica",
+    "Petrinjska ulica", "Maksimirska cesta", "Savska cesta", "Draskoviceva ulica"
+});
+
+const std::string_view croatiaZipCodeFormat{"#####"};
+
+const auto croatiaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto croatiaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto croatiaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Stan #", "Stan ##"
+});
+
+const auto croatiaStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto croatiaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo croatiaAddresses{
+    croatiaZipCodeFormat,
+    (croatiaAddressFormats),
+    (croatiaSecondaryAddressFormats),
+    (croatiaStreetFormats),
+    {},                             // no street prefixes
+    (croatiaStreetNames),
+    {},                             // no street suffixes
+    (croatiaBuildingNumberFormats),
+    (croatiaCityFormats),
+    {},                             // no city prefixes
+    (croatiaCities),
+    {},                             // no city suffixes
+    (croatiaStates)
 const auto vietnamCities = std::to_array<std::string_view>({
     "Hanoi", "Ho Chi Minh City", "Da Nang", "Hai Phong", "Can Tho", "Nha Trang", "Hue", "Vung Tau", "Bien Hoa", "Da Lat"
 });
