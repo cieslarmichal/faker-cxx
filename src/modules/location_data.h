@@ -16355,6 +16355,56 @@ const CountryAddressesInfo lebanonAddresses{
     (lebanonCities),
     {},                             // no city suffixes
     (lebanonStates)
+const auto koreaCities = std::to_array<std::string_view>({
+    "Seoul", "Busan", "Incheon", "Daegu", "Daejeon", "Gwangju", "Suwon", "Ulsan", "Changwon", "Goyang"
+});
+
+const auto koreaStates = std::to_array<std::string_view>({
+    "Gyeonggi-do", "Gangwon-do", "Chungcheongbuk-do", "Chungcheongnam-do", "Jeollabuk-do", "Jeollanam-do",
+    "Gyeongsangbuk-do", "Gyeongsangnam-do", "Jeju-do"
+});
+
+const auto koreaStreetNames = std::to_array<std::string_view>({
+    "Teheran-ro", "Gangnam-daero", "Sejong-daero", "Jongno", "Yeouidaero", "Haeundae-ro", "Dongseong-ro",
+    "Sangam-ro"
+});
+
+const std::string_view koreaZipCodeFormat{"#####"};
+
+const auto koreaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto koreaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto koreaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "#-#", "##-#"
+});
+
+const auto koreaStreetFormats = std::to_array<std::string_view>({
+    "{buildingNumber}"
+});
+
+const auto koreaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo koreaAddresses{
+    koreaZipCodeFormat,
+    (koreaAddressFormats),
+    (koreaSecondaryAddressFormats),
+    (koreaStreetFormats),
+    {},                             // no street prefixes
+    (koreaStreetNames),
+    {},                             // no street suffixes
+    (koreaBuildingNumberFormats),
+    (koreaCityFormats),
+    {},                             // no city prefixes
+    (koreaCities),
+    {},                             // no city suffixes
+    (koreaStates)
 };
 
 
