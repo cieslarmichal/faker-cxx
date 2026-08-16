@@ -16355,6 +16355,8 @@ const CountryAddressesInfo sloveniaAddresses{
     (sloveniaCities),
     {},                             // no city suffixes
     (sloveniaStates)
+};
+
 const auto greeceCities = std::to_array<std::string_view>({
     "Athens", "Thessaloniki", "Patras", "Heraklion", "Larissa", "Volos", "Ioannina", "Kavala", "Rhodes", "Chania"
 });
@@ -16405,6 +16407,8 @@ const CountryAddressesInfo greeceAddresses{
     (greeceCities),
     {},                             // no city suffixes
     (greeceStates)
+};
+
 const auto lebanonCities = std::to_array<std::string_view>({
     "Beirut", "Tripoli", "Sidon", "Tyre", "Byblos", "Zahle", "Baalbek", "Jounieh", "Nabatieh", "Batroun"
 });
@@ -16455,6 +16459,8 @@ const CountryAddressesInfo lebanonAddresses{
     (lebanonCities),
     {},                             // no city suffixes
     (lebanonStates)
+};
+
 const auto koreaCities = std::to_array<std::string_view>({
     "Seoul", "Busan", "Incheon", "Daegu", "Daejeon", "Gwangju", "Suwon", "Ulsan", "Changwon", "Goyang"
 });
@@ -16507,5 +16513,55 @@ const CountryAddressesInfo koreaAddresses{
     (koreaStates)
 };
 
+const auto chinaCities = std::to_array<std::string_view>({
+    "Beijing", "Shanghai", "Guangzhou", "Shenzhen", "Chengdu", "Chongqing", "Wuhan", "Xian", "Hangzhou", "Nanjing"
+});
+
+const auto chinaStates = std::to_array<std::string_view>({
+    "Guangdong", "Jiangsu", "Shandong", "Zhejiang", "Henan", "Sichuan", "Hubei", "Hunan", "Fujian", "Anhui"
+});
+
+const auto chinaStreetNames = std::to_array<std::string_view>({
+    "Nanjing Road", "Zhongshan Road", "Renmin Road", "Jianguo Road", "Changan Avenue", "Huaihai Road",
+    "Xinhua Road", "Jiefang Road", "Beijing Road", "Zhongshan Avenue"
+});
+
+const std::string_view chinaZipCodeFormat{"######"};
+
+const auto chinaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto chinaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto chinaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Room #", "Room ##", "Unit #"
+});
+
+const auto chinaStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto chinaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo chinaAddresses{
+    chinaZipCodeFormat,
+    (chinaAddressFormats),
+    (chinaSecondaryAddressFormats),
+    (chinaStreetFormats),
+    {},                             // no street prefixes
+    (chinaStreetNames),
+    {},                             // no street suffixes
+    (chinaBuildingNumberFormats),
+    (chinaCityFormats),
+    {},                             // no city prefixes
+    (chinaCities),
+    {},                             // no city suffixes
+    (chinaStates)
+};
 
 }
