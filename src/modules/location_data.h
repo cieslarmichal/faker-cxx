@@ -17320,4 +17320,97 @@ const CountryAddressesInfo bosniaAddresses{
     (bosniaStates)
 };
 
+const auto canadaFrCities = std::to_array<std::string_view>({
+    // clang-format off
+    "Montreal",
+    "Quebec",
+    "Laval",
+    "Gatineau",
+    "Longueuil",
+    "Sherbrooke",
+    "Saguenay",
+    "Levis",
+    "Trois-Rivieres",
+    "Terrebonne",
+    "Saint-Jean-sur-Richelieu",
+    "Drummondville",
+    "Granby",
+    "Saint-Jerome",
+    "Rimouski",
+    // clang-format on
+});
+
+const auto canadaFrStates = std::to_array<std::string_view>({
+    "Alberta",
+    "Colombie-Britannique",
+    "Manitoba",
+    "Nouveau-Brunswick",
+    "Terre-Neuve-et-Labrador",
+    "Territoires du Nord-Ouest",
+    "Nouvelle-Ecosse",
+    "Nunavut",
+    "Ontario",
+    "Ile-du-Prince-Edouard",
+    "Quebec",
+    "Saskatchewan",
+    "Yukon",
+});
+
+const auto canadaFrStreetNames = std::to_array<std::string_view>({
+    "Saint-Laurent", "Sainte-Catherine", "Notre-Dame", "Rene-Levesque", "Papineau", "Sherbrooke",
+    "Saint-Denis", "De Maisonneuve", "Van Horne", "Saint-Joseph",
+});
+
+const auto canadaFrStreetSuffixes = std::to_array<std::string_view>({
+    "rue",
+    "boulevard",
+    "avenue",
+    "chemin",
+    "place",
+    "allee",
+});
+
+const std::string_view canadaFrZipCodeFormat{"_#_ #_#"};
+
+const auto canadaFrAddressFormats = std::to_array<std::string_view>({
+    "{buildingNumber} {street}",
+});
+
+const auto canadaFrSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Appartement ###",
+    "Suite ###",
+    "Unite ###",
+});
+
+const auto canadaFrBuildingNumberFormats = std::to_array<std::string_view>({
+    "#",
+    "##",
+    "###",
+    "####",
+});
+
+const auto canadaFrStreetFormats = std::to_array<std::string_view>({
+    "{streetSuffix} {streetName}",
+});
+
+const auto canadaFrCityFormats = std::to_array<std::string_view>({
+    "{cityName}",
+});
+
+const CountryAddressesInfo canadaFrAddresses{
+    canadaFrZipCodeFormat,
+    (canadaFrAddressFormats),
+    (canadaFrSecondaryAddressFormats),
+    (canadaFrStreetFormats),
+    {},
+    (canadaFrStreetNames),
+    (canadaFrStreetSuffixes),
+    (canadaFrBuildingNumberFormats),
+    (canadaFrCityFormats),
+    {},
+    (canadaFrCities),
+    {},
+    (canadaFrStates),
+};
+
 }
