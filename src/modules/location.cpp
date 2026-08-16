@@ -129,6 +129,8 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return lebanonAddresses;
     case Locale::ko_KR:
         return koreaAddresses;
+    case Locale::nl_NL:
+        return netherlandsAddresses;
     default:
         return usaAddresses;
     }
