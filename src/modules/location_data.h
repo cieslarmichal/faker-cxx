@@ -16834,5 +16834,58 @@ const CountryAddressesInfo koreaAddresses{
     (koreaStates)
 };
 
+const auto syriaCities = std::to_array<std::string_view>({
+    "Damascus", "Aleppo", "Homs", "Latakia", "Hama", "Deir ez-Zor", "Raqqa", "Tartus", "Daraa", "Idlib"
+});
+
+const auto syriaStates = std::to_array<std::string_view>({
+    "Damascus Governorate", "Aleppo Governorate", "Homs Governorate", "Latakia Governorate",
+    "Hama Governorate", "Deir ez-Zor Governorate", "Raqqa Governorate", "Tartus Governorate",
+    "Daraa Governorate", "Idlib Governorate"
+});
+
+const auto syriaStreetNames = std::to_array<std::string_view>({
+    "Straight Street", "Al-Jalaa Street", "Baghdad Street", "Al-Thawra Street", "Al-Malki Street",
+    "Al-Mezzeh Street", "Al-Furat Street", "Al-Quwatli Street", "Bab Touma Street", "Al-Salihiya Street"
+});
+
+const std::string_view syriaZipCodeFormat{"#####"};
+
+const auto syriaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto syriaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto syriaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Bldg. #", "Floor #"
+});
+
+const auto syriaStreetFormats = std::to_array<std::string_view>({
+    "{buildingNumber}"
+});
+
+const auto syriaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo syriaAddresses{
+    syriaZipCodeFormat,
+    (syriaAddressFormats),
+    (syriaSecondaryAddressFormats),
+    (syriaStreetFormats),
+    {},                             // no street prefixes
+    (syriaStreetNames),
+    {},                             // no street suffixes
+    (syriaBuildingNumberFormats),
+    (syriaCityFormats),
+    {},                             // no city prefixes
+    (syriaCities),
+    {},                             // no city suffixes
+    (syriaStates)
+};
+
 
 }
