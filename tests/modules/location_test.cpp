@@ -149,6 +149,11 @@ CountryAddressesInfo getAddresses(const Locale& locale)
         return chinaAddresses;
     case Locale::ar_SY:
         return syriaAddresses;
+    case Locale::de_CH:
+    case Locale::fr_CH:
+    case Locale::it_CH:
+    case Locale::rm_CH:
+        return switzerlandAddresses;
     default:
         return usaAddresses;
     }

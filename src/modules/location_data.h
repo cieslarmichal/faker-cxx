@@ -17214,5 +17214,57 @@ const CountryAddressesInfo syriaAddresses{
     (syriaStates)
 };
 
+const auto switzerlandCities = std::to_array<std::string_view>({
+    "Zurich", "Geneva", "Basel", "Lausanne", "Bern", "Winterthur", "Lucerne", "St. Gallen", "Lugano",
+    "Biel/Bienne"
+});
+
+const auto switzerlandStates = std::to_array<std::string_view>({
+    "Zurich", "Bern", "Lucerne", "Fribourg", "Basel-Stadt", "Schaffhausen", "St. Gallen", "Graubunden",
+    "Vaud", "Geneva"
+});
+
+const auto switzerlandStreetNames = std::to_array<std::string_view>({
+    "Bahnhofstrasse", "Rue du Rhone", "Marktgasse", "Freie Strasse", "Kramgasse", "Lowenstrasse",
+    "Niederdorfstrasse", "Rue de la Confederation", "Spitalgasse", "Limmatquai"
+});
+
+const std::string_view switzerlandZipCodeFormat{"####"};
+
+const auto switzerlandAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto switzerlandBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto switzerlandSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Apt. #", "Floor #"
+});
+
+const auto switzerlandStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto switzerlandCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo switzerlandAddresses{
+    switzerlandZipCodeFormat,
+    (switzerlandAddressFormats),
+    (switzerlandSecondaryAddressFormats),
+    (switzerlandStreetFormats),
+    {},                             // no street prefixes
+    (switzerlandStreetNames),
+    {},                             // no street suffixes
+    (switzerlandBuildingNumberFormats),
+    (switzerlandCityFormats),
+    {},                             // no city prefixes
+    (switzerlandCities),
+    {},                             // no city suffixes
+    (switzerlandStates)
+};
 
 }
