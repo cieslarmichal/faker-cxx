@@ -862,6 +862,32 @@ To build the library with Conan, follow the steps below:
     cmake --build --preset=conan-release
     ```
 
+### Troubleshooting: `ERROR: Invalid setting 'XX' is not a valid 'settings.compiler.version' value`
+
+On macOS, `conan install` relies on `conan profile detect` to auto-detect your compiler by
+parsing the output of `clang --version`. Conan's bundled `settings.yml` only enumerates a
+fixed list of known `apple-clang` versions, so when Xcode ships a newer Apple Clang release
+that Conan doesn't know about yet, detection can pick up a version number that isn't in that
+list and `conan install` fails with an error like this. This is a limitation of Conan's
+compiler-version database, not a problem with faker-cxx's code. Workarounds, in order of
+preference:
+
+- **Skip Conan entirely for local development.** faker-cxx has no required external
+  dependencies for building and testing (GoogleTest is vendored as a git submodule), so you
+  can build directly with CMake — see [CLAUDE.md](CLAUDE.md) for the exact commands.
+- **Point Conan at a pinned compiler** instead of the system Apple Clang, the same way this
+  project's macOS CI does it (`.github/workflows/macos-clang-build.yml`):
+
+    ```bash
+    brew install llvm@18
+    CC=/opt/homebrew/opt/llvm@18/bin/clang \
+    CXX=/opt/homebrew/opt/llvm@18/bin/clang++ \
+    conan profile detect --force
+    ```
+
+- **Upgrade Conan** (`pip install --upgrade conan`) — newer releases regularly add support
+  for newly released Apple Clang versions.
+
 ## Installing the library with [Conan](https://conan.io/)
 
 You can install pre-built binaries for faker-cxx or build it from source using Conan. Use the following command:
