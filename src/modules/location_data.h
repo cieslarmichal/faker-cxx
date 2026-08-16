@@ -16305,5 +16305,57 @@ const CountryAddressesInfo belarusAddresses{
     (belarusStates)
 };
 
+const auto sloveniaCities = std::to_array<std::string_view>({
+    "Ljubljana", "Maribor", "Celje", "Kranj", "Koper", "Novo Mesto", "Velenje", "Ptuj", "Trbovlje", "Nova Gorica"
+});
+
+const auto sloveniaStates = std::to_array<std::string_view>({
+    "Osrednjeslovenska", "Podravska", "Savinjska", "Gorenjska", "Obalno-kraska", "Dolenjska", "Goriska",
+    "Pomurska", "Koroska", "Zasavska"
+});
+
+const auto sloveniaStreetNames = std::to_array<std::string_view>({
+    "Slovenska cesta", "Celovska cesta", "Dunajska cesta", "Trzaska cesta", "Dolenjska cesta", "Gosposka ulica",
+    "Presernova ulica", "Titova cesta", "Mestni trg", "Cankarjeva cesta"
+});
+
+const std::string_view sloveniaZipCodeFormat{"####"};
+
+const auto sloveniaAddressFormats = std::to_array<std::string_view>({
+    "{street} {buildingNumber}"
+});
+
+const auto sloveniaBuildingNumberFormats = std::to_array<std::string_view>({
+    "#", "##", "###"
+});
+
+const auto sloveniaSecondaryAddressFormats = std::to_array<std::string_view>({
+    "Stanovanje #", "Stanovanje ##"
+});
+
+const auto sloveniaStreetFormats = std::to_array<std::string_view>({
+    "{streetName}"
+});
+
+const auto sloveniaCityFormats = std::to_array<std::string_view>({
+    "{cityName}"
+});
+
+const CountryAddressesInfo sloveniaAddresses{
+    sloveniaZipCodeFormat,
+    (sloveniaAddressFormats),
+    (sloveniaSecondaryAddressFormats),
+    (sloveniaStreetFormats),
+    {},                             // no street prefixes
+    (sloveniaStreetNames),
+    {},                             // no street suffixes
+    (sloveniaBuildingNumberFormats),
+    (sloveniaCityFormats),
+    {},                             // no city prefixes
+    (sloveniaCities),
+    {},                             // no city suffixes
+    (sloveniaStates)
+};
+
 
 }
