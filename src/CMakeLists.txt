@@ -139,7 +139,7 @@ configure_file(
     @ONLY
 )
 
-write_basic_package_version_file(${PROJECT_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake
+write_basic_package_version_file("${PROJECT_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake"
     VERSION ${CMAKE_PROJECT_VERSION}
     COMPATIBILITY SameMajorVersion)
 
@@ -166,12 +166,12 @@ install(FILES "${CMAKE_BINARY_DIR}/${PROJECT_NAME}.pc"
 )
 
 install(FILES
-    "${CMAKE_BINARY_DIR}/${PROJECT_NAME}ConfigVersion.cmake"
+    "${CMAKE_BINARY_DIR}/${PROJECT_NAME}-config-version.cmake"
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
 )
 
 install(EXPORT ${PROJECT_NAME}-targets
     NAMESPACE ${PROJECT_NAME}::
-    FILE ${PROJECT_NAME}-config.cmake
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake
+    FILE "${PROJECT_NAME}-config.cmake"
+    DESTINATION "${CMAKE_INSTALL_LIBDIR}/cmake"
 )
