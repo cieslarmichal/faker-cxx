@@ -136,7 +136,7 @@ F decimal(F max)
  * @return F, a random floating point number following the specified normal distribution
  *
  * @code
- * faker::number::normalDistribution(10, 3) // 12.374
+ * faker::number::normalDistribution(10.0, 3.0) // 12.374
  * @encode
  */
 
@@ -175,7 +175,7 @@ F normalDistribution(F mean, F standardDeviation)
  * @see normalDistribution<F>(F, F)
  *
  * @code
- * faker::number::normalDistribution(10, 3, 9, 11) // 9
+ * faker::number::normalDistribution(10.0, 3.0, 9.0, 11.0) // 9
  * @encode
  */
 

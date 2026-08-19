@@ -125,7 +125,7 @@ User generateUser() {
         faker::person::fullName(),
         faker::internet::email(),
         faker::location::streetAddress(),
-        faker::phone::phoneNumberByFormat()(),
+        faker::phone::phoneNumberByFormat(),
         faker::date::birthdateByYear(1970, 2005)
     };
 }
@@ -164,9 +164,9 @@ Product generateProduct() {
     return Product{
         faker::string::uuidV4(),
         faker::commerce::productFullName(),
-        faker::commerce::productDescription(),
+        std::string{faker::commerce::productDescription()}, // returns string_view
         faker::finance::amount(10, 1000, faker::Precision::TwoDp, "$"),
-        faker::commerce::productCategory()
+        std::string{faker::commerce::productCategory()}      // returns string_view
     };
 }
 
@@ -310,7 +310,7 @@ Now that you have the basics, explore more modules:
 - **Date**: Past/future dates, birthdays
 - **String**: UUIDs, ULIDs, Nano IDs
 
-See the [full API documentation](https://cieslarmichal.github.io/faker-cxx/) or [README](../README.md) for all modules.
+See the [full API documentation](https://cieslarmichal.github.io/faker-cxx/) or [README](README.md) for all modules.
 
 ## 💡 Tips
 
@@ -322,7 +322,7 @@ See the [full API documentation](https://cieslarmichal.github.io/faker-cxx/) or 
 
 Want to contribute? Check out:
 
-- [CONTRIBUTING.md](../CONTRIBUTING.md) - Contribution guidelines
+- [CONTRIBUTING.md](CONTRIBUTING.md) - Contribution guidelines
 - [docs/guides/BUILDING.md](docs/guides/BUILDING.md) - How to build locally
 
 ## ❓ Need Help?

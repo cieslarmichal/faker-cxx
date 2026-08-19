@@ -119,7 +119,7 @@ struct User {
     std::string address = faker::location::streetAddress();
     std::string city = faker::location::city();
     std::string zipCode = faker::location::zipCode();
-    std::string phone = faker::phone::number();
+    std::string phone = faker::phone::phoneNumberByFormat();
     std::string birthdate = faker::date::birthdateByYear(1970, 2005);
 };
 ```
@@ -132,7 +132,7 @@ struct Product {
     std::string name = faker::commerce::productFullName();
     std::string price = faker::finance::amount(10, 1000, faker::Precision::TwoDp, "$");
     std::string sku = faker::commerce::sku();
-    std::string category = faker::commerce::productCategory();
+    std::string category{faker::commerce::productCategory()}; // returns string_view
 };
 ```
 
@@ -580,7 +580,7 @@ faker::number::integer(1, 100)           // 42
 faker::number::integer(100)              // 57 (0 to max)
 faker::number::decimal(0.0, 1.0)         // 0.573
 faker::number::decimal(10.0)             // 5.7 (0 to max)
-faker::number::normalDistribution(10, 3) // 12.374
+faker::number::normalDistribution(10.0, 3.0) // 12.374
 faker::number::hexadecimal(8)            // "0xae13d044cb"
 faker::number::octal(8)                  // "0o52561721"
 faker::number::binary(8)                 // "0b01110101"
@@ -757,7 +757,7 @@ faker::word::verb()                      // "override"
 
 ## 🌍 Supported Locales
 
-**40+ locales supported** including:
+**200+ locales defined** in `faker::Locale` (data coverage varies by module). Commonly used:
 
 `en_US` (default), `en_GB`, `pl_PL`, `de_DE`, `de_AT`, `de_CH`, `fr_FR`, `fr_BE`, `fr_CH`, `it_IT`, `es_ES`, `es_MX`, `pt_PT`, `pt_BR`, `ru_RU`, `uk_UA`, `cs_CZ`, `sk_SK`, `sv_SE`, `nb_NO`, `da_DK`, `fi_FI`, `nl_NL`, `nl_BE`, `tr_TR`, `ro_RO`, `hu_HU`, `hr_HR`, `sl_SI`, `sr_RS`, `bg_BG`, `el_GR`, `hi_IN`, `en_IN`, `zh_CN`, `zh_TW`, `ja_JP`, `ko_KR`
 
