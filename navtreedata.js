@@ -53,11 +53,13 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "airline_8h.html",
-"namespacefaker_1_1finance.html#a6daf7688d136068b71d34ccb792b00bf",
-"namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0aa35212eb709fd6c632df016cecbc6fe9b",
-"namespacefaker_1_1system.html#aeeae0c993bee26944d1d31ad6c339a08ae498749f3c42246d50b15c81c101d988"
+"git_8h.html#ac2ddb80416fc5a0b517fd9d2920ad600ab162deffe9bd54c097c31fa349290397",
+"namespacefaker_1_1date.html#a0a1ec9647c68eb08f4f47d162a424c5a",
+"namespacefaker_1_1phone.html#af67e35b39f2987b4ed513541c7425a0a",
+"namespacefaker_1_1sport.html#a58bc1501a871d2d442964322f76ed139",
+"phone_8h.html#af67e35b39f2987b4ed513541c7425a0aa4893b64051cf425047ddd8606dae25f4",
+"structfaker_1_1finance_1_1Currency.html#a5c6602aa5997f25c11761d793e01be40"
 ];
 
-const SYNCONMSG = 'click to disable panel synchronization';
-const SYNCOFFMSG = 'click to enable panel synchronization';
-const LISTOFALLMEMBERS = 'List of all members';
+var SYNCONMSG = 'click to disable panel synchronisation';
+var SYNCOFFMSG = 'click to enable panel synchronisation';
