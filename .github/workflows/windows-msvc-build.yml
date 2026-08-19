@@ -26,21 +26,21 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Configure Visual Studio Environment
         uses: ilammy/msvc-dev-cmd@v1.13.0
 
       - name: Install Ninja
-        uses: seanmiddleditch/gha-setup-ninja@v4
+        uses: seanmiddleditch/gha-setup-ninja@v6
 
       - name: Cache Conan packages
         id: cache-conan
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         env:
           cache-name: cache-conan-packages
         with:
-          path: ~/.conan2
+          path: ~/.conan2/p
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('conanfile.txt') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
@@ -48,9 +48,9 @@ jobs:
             ${{ runner.os }}-
 
       - name: Configure python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.10'
+          python-version: '3.13'
           cache: 'pip'
 
       - name: Install Python dependencies
@@ -65,6 +65,9 @@ jobs:
           # 'settings.compiler.version' value" during `conan install`.
           CC: cl
           CXX: cl
+
+      - name: Configure Conan remote
+        run: conan remote update conancenter --url https://center2.conan.io
 
       - name: Install Conan dependencies
         run: |

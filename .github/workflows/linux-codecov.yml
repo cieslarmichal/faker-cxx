@@ -22,27 +22,27 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Configure python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.10'
+          python-version: '3.13'
           cache: 'pip'
 
       - name: Install Python dependencies
         run: pip install -r .github/requirements.txt
 
       - name: Install ccache
-        uses: hendrikmuhs/ccache-action@v1.2
+        uses: hendrikmuhs/ccache-action@v1.2.23
 
       - name: Cache Conan packages
         id: cache-conan
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         env:
           cache-name: cache-conan-packages
         with:
-          path: ~/.conan2
+          path: ~/.conan2/p
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('conanfile.txt') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
@@ -54,6 +54,9 @@ jobs:
           CC=clang-18 \
           CXX=clang++-18 \
           conan profile detect --force --name clang-18
+
+      - name: Configure Conan remote
+        run: conan remote update conancenter --url https://center2.conan.io
 
       - name: Install Conan dependencies
         run: |
@@ -95,13 +98,13 @@ jobs:
           && llvm-cov-18 report `cat ccov/binaries.list` -instr-profile=ccov/all-merged.profdata
 
       - name: Upload code coverage report to Codecov
-        uses: codecov/codecov-action@v4.0.1
+        uses: codecov/codecov-action@v7
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           directory: ${{github.workspace}}/build/unixlike-clang-debug-static
 
       - name: Store build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: build-directory
           path: ${{github.workspace}}/build

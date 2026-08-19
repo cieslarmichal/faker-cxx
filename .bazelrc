@@ -1,3 +1,1 @@
-# Enable Bzlmod for every Bazel command
-build --enable_workspace
-common --enable_workspace
+# Bzlmod is the default dependency system; this repo has no WORKSPACE file.
