@@ -1,5 +1,5 @@
 [test_requires]
-gtest/1.14.0
+gtest/1.18.0
 
 [generators]
 CMakeDeps
