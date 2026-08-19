@@ -9,7 +9,7 @@
 
 namespace faker::finance
 {
-struct FAKER_CXX_EXPORT Currency
+struct Currency
 {
     std::string_view name;
     std::string_view code;

@@ -16,6 +16,7 @@ const struct VideoGames& getVideoGame(Locale locale)
 {
     switch (locale)
     {
+    case Locale::en_US:
     default:
         return enUSVideoGames;
     }

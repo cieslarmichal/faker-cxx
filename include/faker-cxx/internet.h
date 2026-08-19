@@ -34,7 +34,7 @@ enum class IPv4Class
     C
 };
 
-struct FAKER_CXX_EXPORT PasswordOptions
+struct PasswordOptions
 {
     bool upperLetters = true;
     bool lowerLetters = true;

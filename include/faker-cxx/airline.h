@@ -18,7 +18,7 @@ namespace faker::airline
  */
 FAKER_CXX_EXPORT std::string_view aircraftType();
 
-struct FAKER_CXX_EXPORT Airplane
+struct Airplane
 {
     std::string_view name;
     std::string_view iataTypeCode;
@@ -35,7 +35,7 @@ struct FAKER_CXX_EXPORT Airplane
  */
 FAKER_CXX_EXPORT Airplane airplane();
 
-struct FAKER_CXX_EXPORT AirlineInfo
+struct AirlineInfo
 {
     std::string_view name;
     std::string_view iataCode;
@@ -52,7 +52,7 @@ struct FAKER_CXX_EXPORT AirlineInfo
  */
 FAKER_CXX_EXPORT AirlineInfo airline();
 
-struct FAKER_CXX_EXPORT Airport
+struct Airport
 {
     std::string_view name;
     std::string_view iataCode;
@@ -118,7 +118,7 @@ FAKER_CXX_EXPORT std::string recordLocator(bool allowNumerics = false);
  */
 FAKER_CXX_EXPORT std::string flightNumber(bool addLeadingZeros = false, unsigned int length = 4);
 
-struct FAKER_CXX_EXPORT Range
+struct Range
 {
     unsigned int min;
     unsigned int max;

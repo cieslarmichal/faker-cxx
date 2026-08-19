@@ -97,7 +97,8 @@ std::string toLower(const std::string& data)
 {
     std::string lowerData{data};
 
-    std::ranges::transform(lowerData, lowerData.begin(), [](unsigned char c) { return std::tolower(c); });
+    std::ranges::transform(lowerData, lowerData.begin(),
+                           [](unsigned char c) -> char { return static_cast<char>(std::tolower(c)); });
 
     return lowerData;
 }

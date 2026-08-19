@@ -18,6 +18,22 @@
 #define timegm _mkgmtime
 #endif
 
+namespace
+{
+std::tm toLocalTm(std::time_t time)
+{
+    std::tm localTime{};
+
+#ifdef _WIN32
+    localtime_s(&localTime, &time);
+#else
+    localtime_r(&time, &localTime);
+#endif
+
+    return localTime;
+}
+}
+
 using namespace ::testing;
 using namespace faker;
 using namespace faker::date;
@@ -245,7 +261,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByExactYearTimestamp)
 
     std::time_t birthdateTimeT = std::chrono::system_clock::to_time_t(birthdate);
 
-    std::tm birthdateStruct = *std::localtime(&birthdateTimeT);
+    const std::tm birthdateStruct = toLocalTm(birthdateTimeT);
 
     EXPECT_EQ(birthdateStruct.tm_year + 1900, 1996);
 }
@@ -268,7 +284,7 @@ TEST_F(DateTest, shouldGenerateBirthDateByRangeYearTimestamp)
 
     std::time_t birthdateTimeT = std::chrono::system_clock::to_time_t(birthdate);
 
-    std::tm birthdateStruct = *std::localtime(&birthdateTimeT);
+    const std::tm birthdateStruct = toLocalTm(birthdateTimeT);
 
     EXPECT_GE(birthdateStruct.tm_year + 1900, 1990);
     EXPECT_LE(birthdateStruct.tm_year + 1900, 2000);
