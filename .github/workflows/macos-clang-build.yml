@@ -17,17 +17,17 @@ on:
 
 jobs:
   build:
-    runs-on: macos-14
-    name: ci-macos-14-apple-clang-18-static
+    runs-on: macos-15
+    name: ci-macos-15-apple-clang-18-static
     env:
       CLANG18_PATH: /opt/homebrew/opt/llvm@18/bin/clang
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install ccache
-        uses: hendrikmuhs/ccache-action@v1.2
+        uses: hendrikmuhs/ccache-action@v1.2.23
 
       - name: Install clang
         run: |
@@ -38,11 +38,11 @@ jobs:
 
       - name: Cache Conan packages
         id: cache-conan
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         env:
           cache-name: cache-conan-packages
         with:
-          path: ~/.conan2
+          path: ~/.conan2/p
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('conanfile.txt') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
@@ -50,9 +50,9 @@ jobs:
             ${{ runner.os }}-
 
       - name: Configure python
-        uses: actions/setup-python@v5
+        uses: actions/setup-python@v7
         with:
-          python-version: '3.10'
+          python-version: '3.13'
           cache: 'pip'
 
       - name: Install Python dependencies
@@ -63,6 +63,9 @@ jobs:
           CC=${{ env.CLANG18_PATH }} \
           CXX=${{ env.CLANG18_PATH }}++ \
           conan profile detect --force --name apple-clang-18
+
+      - name: Configure Conan remote
+        run: conan remote update conancenter --url https://center2.conan.io
 
       - name: Install Conan dependencies
         run: |

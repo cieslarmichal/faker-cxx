@@ -2,6 +2,72 @@
 
 All notable changes to this project will be documented in this file
 
+## v4.4.1 (19.08.2026)
+
+### Fixes
+
+* declared CMake config version bindings consistently, so `find_package(faker-cxx CONFIG)` picks up the version file
+* bumped hardcoded project version in `CMakeLists.txt` and `BUILD.bazel` (stuck at 4.0.1 since v4.0.1)
+* added missing `base64`, `education`, `esport`, `generator` and `video` includes to the umbrella `faker-cxx/faker.h` header
+* fixed broken code examples in README and QUICK_START (`phone::number`, `productCategory` conversion, `normalDistribution` argument types)
+
+## v4.4.0 (16.08.2026)
+
+### Features
+
+* added location address data for Korea (ko_KR), Lebanon (ar_LB), Greece (el_GR), Slovenia (sl_SI), Belgium (nl_BE, fr_BE), Bulgaria (bg_BG), North Macedonia (mk_MK), Argentina (es_AR), Latvia (lv_LV), Moldova (ro_MD), Syria (ar_SY), China (zh_CN), Vietnam (vi_VN), Croatia (hr_HR), Ireland (en_IE), Malta (mt_MT, en_MT), Netherlands (nl_NL), Switzerland (de_CH, fr_CH, it_CH, rm_CH), Bosnia and Herzegovina (bs_BA, hr_BA, sr_BA), Canada (fr_CA), Sweden (sv_SE) and Belarus
+
+### Fixes
+
+* handled empty separator in `split` function
+* avoided `std::format` for floating-point precision to fix macOS < 13.3 builds
+* pinned CC/CXX to cl.exe for Windows Conan profile detection
+* de-flaked Lithuania street address test
+
+## v4.3.2 (20.02.2026)
+
+### Fixes
+
+* fixed build warnings by adding/removing static casts
+
+## v4.3.1 (06.02.2026)
+
+### Fixes
+
+* resolved Bazel build failure by updating platforms dependency
+
+## v4.3.0 (04.02.2026)
+
+### Features
+
+* added missing API docs in README
+
+### Changes
+
+* replaced `BUILD_TESTING` option with `FAKER_BUILD_TESTING`
+
+## v4.2.0 (11.01.2026)
+
+* improved public documentation (README, QUICK_START, CONTRIBUTING, building guides)
+
+## v4.1.0 (05.11.2025)
+
+### Features
+
+* added location address data for Monaco, Albania (sq_AL), Canada (en_CA), Iran, Lithuania, Hungary, Iceland, Japan, Turkey, Norway and Romania
+* added `education` module data and enhanced airline dataset
+* added `dataUri` function for SVG generation
+* added `romanNumber` function to `number` module
+* added MGRS coordinate generation with specified precision to `location` module
+* made `number::integer` support more integral types
+* used a single random engine per thread and provided ability to set seed
+
+### Fixes
+
+* fixed `number::octal` and `number::binary(int)` returning non-printable characters
+* added missing `<cstdint>` and `<climits>` includes
+* fixed Bazel build
+
 ## v4.0.1 (14.01.2025)
 
 * fix dropping fmt dependency

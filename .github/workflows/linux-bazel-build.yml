@@ -21,14 +21,14 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Install ccache
-        uses: hendrikmuhs/ccache-action@v1.2
+        uses: hendrikmuhs/ccache-action@v1.2.23
 
       - name: Cache Bazel
         id: cache-bazel
-        uses: actions/cache@v4
+        uses: actions/cache@v6
         env:
           cache-name: cache-bazel-data
         with:
