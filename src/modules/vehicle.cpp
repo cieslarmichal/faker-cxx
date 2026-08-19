@@ -18,6 +18,7 @@ const struct VehicleDefinition& getVehicleDefinition(Locale locale)
 {
     switch (locale)
     {
+    case Locale::en_US:
     default:
         return enUSVehicleDefinition;
     }

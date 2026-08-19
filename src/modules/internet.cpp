@@ -117,6 +117,7 @@ const struct InternetDefinition& getInternetDefinition(Locale locale)
 {
     switch (locale)
     {
+    case Locale::en_US:
     default:
         return enUSInternetDefinition;
     }

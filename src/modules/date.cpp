@@ -15,11 +15,27 @@
 
 namespace faker::date
 {
+namespace
+{
+std::tm toUtcTm(std::time_t time)
+{
+    std::tm utcTime{};
+
+#ifdef _WIN32
+    gmtime_s(&utcTime, &time);
+#else
+    gmtime_r(&time, &utcTime);
+#endif
+
+    return utcTime;
+}
+}
+
 std::string serializeTimePoint(const auto& timePoint, DateFormat dateFormat)
 {
     time_t timePointTimeT = std::chrono::system_clock::to_time_t(timePoint);
 
-    std::tm utcTime = *std::gmtime(&timePointTimeT);
+    const std::tm utcTime = toUtcTm(timePointTimeT);
 
     std::stringstream ss;
 
@@ -95,7 +111,7 @@ std::string anytime(DateFormat dateFormat)
     {
         time_t timePointTimeT = std::chrono::system_clock::to_time_t(timePoint);
 
-        std::tm utcTime = *std::gmtime(&timePointTimeT);
+        const std::tm utcTime = toUtcTm(timePointTimeT);
 
         std::stringstream ss;
         ss << std::put_time(&utcTime, "%Y-%m-%dT%H:%M:%SZ");

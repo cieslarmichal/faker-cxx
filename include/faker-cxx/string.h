@@ -28,7 +28,7 @@ enum class StringCasing
     Upper
 };
 
-struct FAKER_CXX_EXPORT CharCount
+struct CharCount
 {
     unsigned int atLeastCount{(std::numeric_limits<unsigned>::min)()};
     unsigned int atMostCount{(std::numeric_limits<unsigned>::max)()};

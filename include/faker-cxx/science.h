@@ -7,7 +7,7 @@
 
 namespace faker::science
 {
-struct FAKER_CXX_EXPORT ChemicalElement
+struct ChemicalElement
 {
     std::string_view name;
     std::string_view symbol;
@@ -28,7 +28,7 @@ struct FAKER_CXX_EXPORT ChemicalElement
  */
 FAKER_CXX_EXPORT ChemicalElement chemicalElement(Locale locale = Locale::en_US);
 
-struct FAKER_CXX_EXPORT Unit
+struct Unit
 {
     std::string_view name;
     std::string_view symbol;

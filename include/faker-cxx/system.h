@@ -17,13 +17,13 @@ enum class FileType
     Video,
 };
 
-struct FAKER_CXX_EXPORT CronOptions
+struct CronOptions
 {
     bool includeYear = false;
     bool includeNonStandard = false;
 };
 
-struct FAKER_CXX_EXPORT NetworkInterfaceOptions
+struct NetworkInterfaceOptions
 {
     std::optional<std::string> interfaceType;
     std::optional<std::string> interfaceSchema;

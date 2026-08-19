@@ -8,7 +8,7 @@
 
 namespace faker::git
 {
-struct FAKER_CXX_EXPORT Author
+struct Author
 {
     std::string name;
     std::string email;

@@ -372,7 +372,7 @@ std::string nanoId(int minLength, int maxLength)
 
 std::string ulid(time_t refDate)
 {
-    return Marshal(Create(refDate, []() { return 4; }));
+    return Marshal(Create(refDate, []() -> uint8_t { return 4; }));
 }
 
 std::string uuidV1()

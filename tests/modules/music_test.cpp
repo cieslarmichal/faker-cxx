@@ -16,6 +16,7 @@ const struct MusicDefinition& getMusicDefinition(Locale locale)
 {
     switch (locale)
     {
+    case Locale::en_US:
     default:
         return enUSMusicDefinition;
     }

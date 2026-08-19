@@ -19,6 +19,7 @@ const struct CompanyDefinition& getCompanyDefinition(Locale locale)
 {
     switch (locale)
     {
+    case Locale::en_US:
     default:
         return enUSCompanyDefinition;
     }
