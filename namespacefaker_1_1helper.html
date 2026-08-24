@@ -126,13 +126,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a2d203118db33fb4ce236964cd01b59ce" id="r_a2d203118db33fb4ce236964cd01b59ce"><td class="memTemplParams" colspan="2">template&lt;std::ranges::input_range Range&gt; </td></tr>
 <tr class="memitem:a2d203118db33fb4ce236964cd01b59ce"><td class="memTemplItemLeft" align="right" valign="top">auto&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a2d203118db33fb4ce236964cd01b59ce">randomElement</a> (Range &amp;&amp;range)</td></tr>
 <tr class="separator:a2d203118db33fb4ce236964cd01b59ce"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26701be1b28c8b21a057d83c708b44d3" id="r_a26701be1b28c8b21a057d83c708b44d3"><td class="memTemplParams" colspan="2">template&lt;input_range_with_faster_size_compute_than_linear_rng Range1, input_range_with_faster_size_compute_than_linear_rng Range2&gt; </td></tr>
+<tr class="memitem:a26701be1b28c8b21a057d83c708b44d3"><td class="memTemplItemLeft" align="right" valign="top">decltype(auto)&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a26701be1b28c8b21a057d83c708b44d3">randomElement</a> (Range1 &amp;&amp;range1, Range2 &amp;&amp;range2)</td></tr>
+<tr class="memdesc:a26701be1b28c8b21a057d83c708b44d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get a random element from one of two ranges, without concatenating them.  <br /></td></tr>
+<tr class="separator:a26701be1b28c8b21a057d83c708b44d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37877d125f71459dbed8bca6310274e1" id="r_a37877d125f71459dbed8bca6310274e1"><td class="memTemplParams" colspan="2">template&lt;class T &gt; </td></tr>
 <tr class="memitem:a37877d125f71459dbed8bca6310274e1"><td class="memTemplItemLeft" align="right" valign="top">T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="#a37877d125f71459dbed8bca6310274e1">weightedRandomElement</a> (const std::vector&lt; <a class="el" href="structfaker_1_1helper_1_1WeightedElement.html">WeightedElement</a>&lt; T &gt; &gt; &amp;data)</td></tr>
 <tr class="separator:a37877d125f71459dbed8bca6310274e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="afb65f951a3d8f1785dbe269b3639d165" name="afb65f951a3d8f1785dbe269b3639d165"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb65f951a3d8f1785dbe269b3639d165">&#9670;&#160;</a></span>randomElement() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#afb65f951a3d8f1785dbe269b3639d165">&#9670;&#160;</a></span>randomElement() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,7 +155,7 @@ template&lt;input_range_with_faster_size_compute_than_linear_rng Range&gt; </div
 </div>
 </div>
 <a id="a2d203118db33fb4ce236964cd01b59ce" name="a2d203118db33fb4ce236964cd01b59ce"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d203118db33fb4ce236964cd01b59ce">&#9670;&#160;</a></span>randomElement() <span class="overload">[2/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d203118db33fb4ce236964cd01b59ce">&#9670;&#160;</a></span>randomElement() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -167,6 +171,54 @@ template&lt;std::ranges::input_range Range&gt; </div>
       </table>
 </div><div class="memdoc">
 
+</div>
+</div>
+<a id="a26701be1b28c8b21a057d83c708b44d3" name="a26701be1b28c8b21a057d83c708b44d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26701be1b28c8b21a057d83c708b44d3">&#9670;&#160;</a></span>randomElement() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;input_range_with_faster_size_compute_than_linear_rng Range1, input_range_with_faster_size_compute_than_linear_rng Range2&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">decltype(auto) faker::helper::randomElement </td>
+          <td>(</td>
+          <td class="paramtype">Range1 &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range1</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Range2 &amp;&amp;</td>          <td class="paramname"><span class="paramname"><em>range2</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get a random element from one of two ranges, without concatenating them. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Range1</td><td>the type of the first range. </td></tr>
+    <tr><td class="paramname">Range2</td><td>the type of the second range.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">range1</td><td>the first range. </td></tr>
+    <tr><td class="paramname">range2</td><td>the second range.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">std::invalid_argument</td><td>if both ranges are empty.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a random element from range1 or range2.</dd></dl>
+<div class="fragment"><div class="line"><a class="code hl_function" href="#afb65f951a3d8f1785dbe269b3639d165">faker::helper::randomElement</a>(malesLastNames, femalesLastNames) <span class="comment">// &quot;Smith&quot;</span></div>
+<div class="ttc" id="anamespacefaker_1_1helper_html_afb65f951a3d8f1785dbe269b3639d165"><div class="ttname"><a href="#afb65f951a3d8f1785dbe269b3639d165">faker::helper::randomElement</a></div><div class="ttdeci">decltype(auto) randomElement(Range &amp;&amp;range)</div><div class="ttdef"><b>Definition</b> helper.h:17</div></div>
+</div><!-- fragment --> 
 </div>
 </div>
 <a id="a37877d125f71459dbed8bca6310274e1" name="a37877d125f71459dbed8bca6310274e1"></a>

@@ -11,8 +11,9 @@ var NAVTREEINDEX1 =
 "hacker_8h.html#af4138bc944b402d9563120e50750aa26":[3,0,0,0,19,3],
 "hacker_8h_source.html":[3,0,0,0,19],
 "helper_8h.html":[3,0,0,0,20],
+"helper_8h.html#a26701be1b28c8b21a057d83c708b44d3":[3,0,0,0,20,4],
 "helper_8h.html#a2d203118db33fb4ce236964cd01b59ce":[3,0,0,0,20,3],
-"helper_8h.html#a37877d125f71459dbed8bca6310274e1":[3,0,0,0,20,4],
+"helper_8h.html#a37877d125f71459dbed8bca6310274e1":[3,0,0,0,20,5],
 "helper_8h.html#afb65f951a3d8f1785dbe269b3639d165":[3,0,0,0,20,2],
 "helper_8h_source.html":[3,0,0,0,20],
 "image_8h.html":[3,0,0,0,21],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "namespacefaker_1_1database.html#ae1ebadd76d9acf879550afa079a7d85e":[0,0,0,9,0],
 "namespacefaker_1_1datatype.html":[0,0,0,10],
 "namespacefaker_1_1datatype.html#a3f0613615165573f77dba5349bb00241":[0,0,0,10,1],
-"namespacefaker_1_1datatype.html#a6e8fea28b1cf18124cb1c854496b35c2":[0,0,0,10,0],
-"namespacefaker_1_1date.html":[0,0,0,11]
+"namespacefaker_1_1datatype.html#a6e8fea28b1cf18124cb1c854496b35c2":[0,0,0,10,0]
 };
