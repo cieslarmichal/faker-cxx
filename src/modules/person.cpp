@@ -172,60 +172,34 @@ std::string_view firstName(Locale locale, std::optional<Sex> sex)
 {
     const auto& peopleNames = getPersonDefinition(locale);
 
-    std::vector<std::string_view> firstNames;
-
     if (sex == Sex::Male)
     {
-        const auto& malesFirstNames = peopleNames.malesNames.firstNames;
-
-        firstNames.insert(firstNames.end(), malesFirstNames.begin(), malesFirstNames.end());
+        return helper::randomElement(peopleNames.malesNames.firstNames);
     }
-    else if (sex == Sex::Female)
+
+    if (sex == Sex::Female)
     {
-        const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
-
-        firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
-    }
-    else
-    {
-        const auto& malesFirstNames = peopleNames.malesNames.firstNames;
-        const auto& femalesFirstNames = peopleNames.femalesNames.firstNames;
-
-        firstNames.insert(firstNames.end(), malesFirstNames.begin(), malesFirstNames.end());
-        firstNames.insert(firstNames.end(), femalesFirstNames.begin(), femalesFirstNames.end());
+        return helper::randomElement(peopleNames.femalesNames.firstNames);
     }
 
-    return helper::randomElement(firstNames);
+    return helper::randomElement(peopleNames.malesNames.firstNames, peopleNames.femalesNames.firstNames);
 }
 
 std::string_view lastName(Locale locale, std::optional<Sex> sex)
 {
     const auto& peopleNames = getPersonDefinition(locale);
 
-    std::vector<std::string_view> lastNames;
-
     if (sex == Sex::Male)
     {
-        const auto& malesLastNames = peopleNames.malesNames.lastNames;
-
-        lastNames.insert(lastNames.end(), malesLastNames.begin(), malesLastNames.end());
+        return helper::randomElement(peopleNames.malesNames.lastNames);
     }
-    else if (sex == Sex::Female)
+
+    if (sex == Sex::Female)
     {
-        const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
-
-        lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
-    }
-    else
-    {
-        const auto& malesLastNames = peopleNames.malesNames.lastNames;
-        const auto& femalesLastNames = peopleNames.femalesNames.lastNames;
-
-        lastNames.insert(lastNames.end(), malesLastNames.begin(), malesLastNames.end());
-        lastNames.insert(lastNames.end(), femalesLastNames.begin(), femalesLastNames.end());
+        return helper::randomElement(peopleNames.femalesNames.lastNames);
     }
 
-    return helper::randomElement(lastNames);
+    return helper::randomElement(peopleNames.malesNames.lastNames, peopleNames.femalesNames.lastNames);
 }
 
 std::string fullName(Locale locale, std::optional<Sex> sex)
@@ -255,70 +229,50 @@ std::string_view prefix(Locale locale, std::optional<Sex> sex)
 {
     const auto& peopleNames = getPersonDefinition(locale);
 
-    std::vector<std::string_view> prefixes;
+    const auto& malesPrefixes = peopleNames.malesNames.prefixes;
+    const auto& femalesPrefixes = peopleNames.femalesNames.prefixes;
 
     if (sex == Sex::Male)
     {
-        const auto& malesPrefixes = peopleNames.malesNames.prefixes;
-
-        prefixes.insert(prefixes.end(), malesPrefixes.begin(), malesPrefixes.end());
+        return malesPrefixes.empty() ? std::string_view{} : helper::randomElement(malesPrefixes);
     }
-    else if (sex == Sex::Female)
+
+    if (sex == Sex::Female)
     {
-        const auto& femalesPrefixes = peopleNames.femalesNames.prefixes;
-
-        prefixes.insert(prefixes.end(), femalesPrefixes.begin(), femalesPrefixes.end());
-    }
-    else
-    {
-        const auto& malesPrefixes = peopleNames.malesNames.prefixes;
-        const auto& femalesPrefixes = peopleNames.femalesNames.prefixes;
-
-        prefixes.insert(prefixes.end(), malesPrefixes.begin(), malesPrefixes.end());
-        prefixes.insert(prefixes.end(), femalesPrefixes.begin(), femalesPrefixes.end());
+        return femalesPrefixes.empty() ? std::string_view{} : helper::randomElement(femalesPrefixes);
     }
 
-    if (prefixes.empty())
+    if (malesPrefixes.empty() && femalesPrefixes.empty())
     {
         return {};
     }
 
-    return helper::randomElement(prefixes);
+    return helper::randomElement(malesPrefixes, femalesPrefixes);
 }
 
 std::string_view suffix(Locale locale, std::optional<Sex> sex)
 {
     const auto& peopleNames = getPersonDefinition(locale);
 
-    std::vector<std::string_view> suffixes;
+    const auto& malesSuffixes = peopleNames.malesNames.suffixes;
+    const auto& femalesSuffixes = peopleNames.femalesNames.suffixes;
 
     if (sex == Sex::Male)
     {
-        const auto& malesSuffixes = peopleNames.malesNames.suffixes;
-
-        suffixes.insert(suffixes.end(), malesSuffixes.begin(), malesSuffixes.end());
+        return malesSuffixes.empty() ? std::string_view{} : helper::randomElement(malesSuffixes);
     }
-    else if (sex == Sex::Female)
+
+    if (sex == Sex::Female)
     {
-        const auto& femalesSuffixes = peopleNames.femalesNames.suffixes;
-
-        suffixes.insert(suffixes.end(), femalesSuffixes.begin(), femalesSuffixes.end());
-    }
-    else
-    {
-        const auto& malesSuffixes = peopleNames.malesNames.suffixes;
-        const auto& femalesSuffixes = peopleNames.femalesNames.suffixes;
-
-        suffixes.insert(suffixes.end(), malesSuffixes.begin(), malesSuffixes.end());
-        suffixes.insert(suffixes.end(), femalesSuffixes.begin(), femalesSuffixes.end());
+        return femalesSuffixes.empty() ? std::string_view{} : helper::randomElement(femalesSuffixes);
     }
 
-    if (suffixes.empty())
+    if (malesSuffixes.empty() && femalesSuffixes.empty())
     {
         return {};
     }
 
-    return helper::randomElement(suffixes);
+    return helper::randomElement(malesSuffixes, femalesSuffixes);
 }
 
 std::string bio()

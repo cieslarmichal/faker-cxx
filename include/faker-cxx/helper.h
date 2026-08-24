@@ -74,6 +74,45 @@ auto randomElement(Range&& range)
 }
 
 /**
+ * @brief Get a random element from one of two ranges, without concatenating them.
+ *
+ * @tparam Range1 the type of the first range.
+ * @tparam Range2 the type of the second range.
+ *
+ * @param range1 the first range.
+ * @param range2 the second range.
+ *
+ * @throws std::invalid_argument if both ranges are empty.
+ *
+ * @return a random element from range1 or range2.
+ *
+ * @code
+ * faker::helper::randomElement(malesLastNames, femalesLastNames) // "Smith"
+ * @endcode
+ */
+template <input_range_with_faster_size_compute_than_linear_rng Range1,
+          input_range_with_faster_size_compute_than_linear_rng Range2>
+decltype(auto) randomElement(Range1&& range1, Range2&& range2)
+{
+    const auto size1 = std::ranges::distance(range1);
+    const auto size2 = std::ranges::distance(range2);
+
+    if (size1 + size2 == 0)
+    {
+        throw std::invalid_argument{"Ranges are empty."};
+    }
+
+    const auto index = number::integer(size1 + size2 - 1);
+
+    if (index < size1)
+    {
+        return (*std::ranges::next(range1.begin(), index));
+    }
+
+    return (*std::ranges::next(range2.begin(), index - size1));
+}
+
+/**
  * @brief Get a random element by weight from a vector.
  *
  * @tparam T an element type of the weighted element.

@@ -1,6 +1,9 @@
 #include "faker-cxx/science.h"
 
+#include <array>
+
 #include "faker-cxx/helper.h"
+#include "faker-cxx/number.h"
 #include "science_data.h"
 
 namespace faker::science
@@ -29,15 +32,28 @@ Unit unit(Locale locale)
 {
     const auto& scienceDefinition = getScienceDefinition(locale);
 
-    std::vector<Unit> units;
+    const std::array<std::span<const Unit>, 5> unitRanges{
+        scienceDefinition.distanceUnits, scienceDefinition.massUnits, scienceDefinition.timeUnits,
+        scienceDefinition.currentUnits, scienceDefinition.temperatureUnits};
 
-    units.insert(units.end(), scienceDefinition.distanceUnits.begin(), scienceDefinition.distanceUnits.end());
-    units.insert(units.end(), scienceDefinition.massUnits.begin(), scienceDefinition.massUnits.end());
-    units.insert(units.end(), scienceDefinition.timeUnits.begin(), scienceDefinition.timeUnits.end());
-    units.insert(units.end(), scienceDefinition.currentUnits.begin(), scienceDefinition.currentUnits.end());
-    units.insert(units.end(), scienceDefinition.temperatureUnits.begin(), scienceDefinition.temperatureUnits.end());
+    std::size_t totalSize = 0;
 
-    return helper::randomElement(units);
+    for (const auto& range : unitRanges)
+    {
+        totalSize += range.size();
+    }
+
+    auto index = number::integer(totalSize - 1);
+
+    std::size_t rangeIndex = 0;
+
+    while (index >= unitRanges[rangeIndex].size())
+    {
+        index -= unitRanges[rangeIndex].size();
+        ++rangeIndex;
+    }
+
+    return unitRanges[rangeIndex][index];
 }
 
 Unit distanceUnit(Locale locale)

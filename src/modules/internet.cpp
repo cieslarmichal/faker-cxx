@@ -7,6 +7,7 @@
 #include <map>
 #include <optional>
 #include <regex>
+#include <span>
 #include <string>
 #include <string_view>
 #include <utility>
@@ -264,9 +265,28 @@ std::string_view emoji(std::optional<EmojiType> type)
         return helper::randomElement(emojisMapped);
     }
 
-    const auto emojis = getAllEmojis();
+    const std::array<std::span<const std::string_view>, 10> emojiRanges{
+        smileyEmojis,  bodyEmojis,     personEmojis, natureEmojis, foodEmojis,
+        travelEmojis,  activityEmojis, objectEmojis, symbolEmojis, flagEmojis};
 
-    return helper::randomElement(emojis);
+    std::size_t totalSize = 0;
+
+    for (const auto& range : emojiRanges)
+    {
+        totalSize += range.size();
+    }
+
+    auto index = number::integer(totalSize - 1);
+
+    std::size_t rangeIndex = 0;
+
+    while (index >= emojiRanges[rangeIndex].size())
+    {
+        index -= emojiRanges[rangeIndex].size();
+        ++rangeIndex;
+    }
+
+    return emojiRanges[rangeIndex][index];
 }
 
 bool checkIfEmojiIsValid(const std::string& emojiToCheck)
@@ -295,18 +315,28 @@ unsigned httpStatusCode(std::optional<HttpResponseType> responseType)
         return helper::randomElement(statusCodes);
     }
 
-    std::vector<unsigned> statusCodes;
-    statusCodes.reserve(httpStatusInformationalCodes.size() + httpStatusSuccessCodes.size() +
-                        httpStatusRedirectionCodes.size() + httpStatusClientErrorCodes.size() +
-                        httpStatusServerErrorCodes.size());
+    const std::array<std::span<const unsigned>, 5> statusCodeRanges{
+        httpStatusInformationalCodes, httpStatusSuccessCodes, httpStatusRedirectionCodes, httpStatusClientErrorCodes,
+        httpStatusServerErrorCodes};
 
-    statusCodes.insert(statusCodes.end(), httpStatusInformationalCodes.begin(), httpStatusInformationalCodes.end());
-    statusCodes.insert(statusCodes.end(), httpStatusSuccessCodes.begin(), httpStatusSuccessCodes.end());
-    statusCodes.insert(statusCodes.end(), httpStatusRedirectionCodes.begin(), httpStatusRedirectionCodes.end());
-    statusCodes.insert(statusCodes.end(), httpStatusClientErrorCodes.begin(), httpStatusClientErrorCodes.end());
-    statusCodes.insert(statusCodes.end(), httpStatusServerErrorCodes.begin(), httpStatusServerErrorCodes.end());
+    std::size_t totalSize = 0;
 
-    return helper::randomElement(statusCodes);
+    for (const auto& range : statusCodeRanges)
+    {
+        totalSize += range.size();
+    }
+
+    auto index = number::integer(totalSize - 1);
+
+    std::size_t rangeIndex = 0;
+
+    while (index >= statusCodeRanges[rangeIndex].size())
+    {
+        index -= statusCodeRanges[rangeIndex].size();
+        ++rangeIndex;
+    }
+
+    return statusCodeRanges[rangeIndex][index];
 }
 
 std::string_view httpRequestHeader(Locale locale)
