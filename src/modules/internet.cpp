@@ -266,8 +266,8 @@ std::string_view emoji(std::optional<EmojiType> type)
     }
 
     const std::array<std::span<const std::string_view>, 10> emojiRanges{
-        smileyEmojis,  bodyEmojis,     personEmojis, natureEmojis, foodEmojis,
-        travelEmojis,  activityEmojis, objectEmojis, symbolEmojis, flagEmojis};
+        smileyEmojis, bodyEmojis,     personEmojis, natureEmojis, foodEmojis,
+        travelEmojis, activityEmojis, objectEmojis, symbolEmojis, flagEmojis};
 
     std::size_t totalSize = 0;
 

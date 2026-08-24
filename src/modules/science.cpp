@@ -32,9 +32,9 @@ Unit unit(Locale locale)
 {
     const auto& scienceDefinition = getScienceDefinition(locale);
 
-    const std::array<std::span<const Unit>, 5> unitRanges{
-        scienceDefinition.distanceUnits, scienceDefinition.massUnits, scienceDefinition.timeUnits,
-        scienceDefinition.currentUnits, scienceDefinition.temperatureUnits};
+    const std::array<std::span<const Unit>, 5> unitRanges{scienceDefinition.distanceUnits, scienceDefinition.massUnits,
+                                                          scienceDefinition.timeUnits, scienceDefinition.currentUnits,
+                                                          scienceDefinition.temperatureUnits};
 
     std::size_t totalSize = 0;
 
